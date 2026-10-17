@@ -1,6 +1,6 @@
-// Offline map viewer. No network needed once games/<id>/ is filled in.
-// Data per game: data.json (window.mapData saved from the site), markers.json + markers.png,
-// tiles/{z}/{y}/{x}.jpg and media/<file>.jpg.
+// Offline map viewer. No network needed once maps/<slug>/ is filled in.
+// Data per game (next to its index.html): data.json (window.mapData saved from the site),
+// markers.json + markers.png, tiles/{z}/{y}/{x}.jpg and media/<file>.jpg.
 
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -175,28 +175,20 @@ async function boot() {
     toast('Storage is unavailable here, so progress will not be kept after this tab closes.', 6000);
   }
 
+  // Each map page lives in maps/<slug>/ next to its data and says which game it is via <body data-game>.
   let index;
-  try { index = await fetchJSON('games/index.json'); }
-  catch (e) { return fatal('Could not load games/index.json. Serve this folder over HTTP (for example with "npx serve").'); }
+  try { index = await fetchJSON('../index.json'); }
+  catch (e) { return fatal('Could not load maps/index.json. Serve this folder over HTTP (for example with "npx serve").'); }
 
-  const wanted = new URLSearchParams(location.search).get('game') || await getMeta('last-game');
-  const entry = index.games.find(g => g.id === wanted) || index.games[0];
-  if (!entry) return fatal('games/index.json has no games.');
-  await setMeta('last-game', entry.id).catch(() => {});
-
-  const sel = $('#game-select');
-  if (index.games.length > 1) {
-    sel.hidden = false;
-    sel.innerHTML = index.games.map(g => `<option value="${esc(g.id)}">${esc(g.title)}</option>`).join('');
-    sel.value = entry.id;
-    sel.onchange = () => { location.search = '?game=' + encodeURIComponent(sel.value); };
-  }
+  const slug = document.body.dataset.game;
+  const entry = index.games.find(g => g.slug === slug);
+  if (!entry) return fatal(`maps/index.json has no game with slug "${slug}".`);
   await loadGame(entry);
 }
 
 async function loadGame(entry) {
   state.entry = entry;
-  state.folder = entry.folder.replace(/\/$/, '');
+  state.folder = '.'; // data files sit next to the page
   $('#game-title').textContent = entry.title;
   document.title = entry.title + ' map';
   $('#tag-label').textContent = entry.tagLabel || 'Filter';
@@ -208,7 +200,7 @@ async function loadGame(entry) {
       fetchJSON(`${state.folder}/markers.json`),
     ]);
     spriteImg = await loadImage(`${state.folder}/markers.png`);
-  } catch (e) { return fatal(e.message + ' (check the files in ' + state.folder + '/)'); }
+  } catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
 
   state.data = data;
   state.sprite = { defs: spriteDefs, img: spriteImg };

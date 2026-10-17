@@ -1,9 +1,9 @@
 import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import path from 'node:path';
 
-const data = JSON.parse(await readFile('./games/re9/data.json', 'utf8'));
+const data = JSON.parse(await readFile('./maps/requiem/data.json', 'utf8'));
 const urls = [...new Set(data.locations.flatMap(l => (l.media ?? []).map(m => m.url)))];
-const OUT = './re9/media';
+const OUT = './maps/requiem/media';
 await mkdir(OUT, { recursive: true });
 
 let i = 0, saved = 0, skipped = 0, failed = 0, bytes = 0;

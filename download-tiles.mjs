@@ -2,7 +2,7 @@ import { mkdir, writeFile, access } from 'node:fs/promises';
 import path from 'node:path';
 
 const BASE = 'https://tiles.mapgenie.io/games/resident-evil-requiem/world/default-v2';
-const OUT = './re9/tiles';
+const OUT = './maps/requiem/tiles';
 const MIN_Z = 8, MAX_Z = Number(process.argv[2] ?? 14);
 const CONCURRENCY = 4, DELAY_MS = 100;
 

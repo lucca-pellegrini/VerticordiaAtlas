@@ -1,0 +1,19 @@
+{
+  "games": [
+    {
+      "id": "re9",
+      "slug": "requiem",
+      "title": "Resident Evil Requiem",
+      "description": "Every boss, lock, collectible and transition on the world map.",
+      "poster": "requiem/poster",
+      "posterAlt": "Resident Evil Requiem key art: a white-haired woman in a dark hood and red jacket, looking to the right.",
+      "accent": "#c8352c",
+      "stats": [
+        { "value": 1145, "label": "markers" },
+        { "value": 52, "label": "categories" }
+      ],
+      "tagLabel": "Difficulty",
+      "defaultTag": "Standard"
+    }
+  ]
+}
