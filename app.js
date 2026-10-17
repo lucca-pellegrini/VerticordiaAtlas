@@ -460,6 +460,7 @@ function buildSidebar() {
       for (const c of g.cats) gToggle.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id);
       onViewChanged();
     };
+    el.querySelector('.group-head').oncontextmenu = e => { e.preventDefault(); showOnly(g.cats.map(c => c.id)); };
 
     const rows = [];
     for (const c of g.cats) {
@@ -469,6 +470,7 @@ function buildSidebar() {
       row.innerHTML = `<span class="ico-wrap">${iconHtml(c.icon)}</span><span class="label">${esc(c.title)}</span><span class="tally"></span><input type="checkbox">`;
       const cb = row.querySelector('input');
       cb.onchange = () => { cb.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id); onViewChanged(); };
+      row.oncontextmenu = e => { e.preventDefault(); showOnly([c.id]); };
       catsEl.appendChild(row);
       rows.push({ c, row, cb, tally: row.querySelector('.tally') });
       state.ui.cats.set(c.id, rows[rows.length - 1]);
@@ -476,6 +478,13 @@ function buildSidebar() {
     state.ui.groups.set(g.id, { g, el, gToggle, tally: el.querySelector('.group-head .tally'), rows });
     root.appendChild(el);
   }
+}
+
+// Right-click on a category or group: show only those categories, hide everything else.
+function showOnly(ids) {
+  const keep = new Set(ids);
+  for (const id of state.cats.keys()) keep.has(id) ? state.view.hidden.delete(id) : state.view.hidden.add(id);
+  onViewChanged();
 }
 
 function updateSidebar() {
