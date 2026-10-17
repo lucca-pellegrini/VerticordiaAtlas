@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Offline map</title>
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <aside id="side" aria-label="Filters and progress">
+    <header class="side-head">
+      <div class="title-row">
+        <h1 id="game-title">Map</h1>
+        <select id="game-select" aria-label="Game" hidden></select>
+      </div>
+      <div class="progress">
+        <div class="progress-num"><span id="found-count">0</span><span class="of"> of </span><span id="total-count">0</span></div>
+        <div id="progress-bar" class="bar" role="img" aria-label="Progress by group"></div>
+      </div>
+      <div class="profile-row">
+        <label class="field">
+          <span>Profile</span>
+          <select id="profile-select"></select>
+        </label>
+        <button id="profile-menu-btn" class="icon-btn" aria-haspopup="true" aria-expanded="false" title="Profile actions">&#8943;</button>
+        <div id="profile-menu" class="menu" hidden>
+          <button data-act="new">New profile</button>
+          <button data-act="rename">Rename</button>
+          <button data-act="reset">Clear found markers</button>
+          <button data-act="delete" class="danger">Delete profile</button>
+          <hr>
+          <button data-act="export">Export progress</button>
+          <button data-act="import">Import progress</button>
+        </div>
+      </div>
+      <label class="field" id="tag-field">
+        <span id="tag-label">Difficulty</span>
+        <select id="tag-select"></select>
+      </label>
+      <div class="search">
+        <input id="search" type="search" placeholder="Search locations" autocomplete="off" aria-label="Search locations">
+        <ul id="results" hidden></ul>
+      </div>
+    </header>
+    <div class="list-tools">
+      <button id="show-all" class="link-btn">Show all</button>
+      <button id="hide-all" class="link-btn">Hide all</button>
+      <label class="check"><input type="checkbox" id="hide-found"><span>Hide found</span></label>
+      <button id="side-close" class="link-btn mobile-only">Close</button>
+    </div>
+    <div id="groups" class="groups"></div>
+  </aside>
+
+  <main id="stage">
+    <div id="map" aria-label="Map"></div>
+    <button id="side-toggle" class="fab" aria-controls="side">Filters</button>
+    <section id="detail" aria-live="polite" hidden>
+      <button id="detail-close" class="icon-btn close" aria-label="Close">&times;</button>
+      <div id="detail-body"></div>
+    </section>
+  </main>
+</div>
+
+<div id="lightbox" hidden><img alt=""></div>
+<dialog id="dlg"><form method="dialog" id="dlg-form"></form></dialog>
+<div id="toast" role="status" hidden></div>
+<input type="file" id="import-file" accept="application/json" hidden>
+
+<script src="vendor/maplibre-gl.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
