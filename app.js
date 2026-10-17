@@ -186,11 +186,28 @@ async function boot() {
   await loadGame(entry);
 }
 
+// Each game's colours come from "theme" in maps/index.json and become CSS variables (see style.css :root).
+function applyTheme(theme = {}) {
+  const root = document.documentElement.style;
+  for (const [name, value] of Object.entries(theme)) {
+    if (CSS.supports(`--${name}`, value)) root.setProperty(`--${name}`, value);
+  }
+  // browser chrome follows the theme too: tab colour on mobile and the favicon pin
+  document.querySelector('meta[name=theme-color]')?.setAttribute('content', themeVar('night'));
+  const icon = document.querySelector('link[rel=icon]');
+  if (icon) {
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='${themeVar('accent-soft')}' d='M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z'/><circle cx='12' cy='10' r='2.8' fill='${themeVar('night')}'/></svg>`;
+    icon.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
+  }
+}
+const themeVar = name => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+
 async function loadGame(entry) {
   state.entry = entry;
   state.folder = '.'; // data files sit next to the page
+  applyTheme(entry.theme);
   $('#game-title').textContent = entry.title;
-  document.title = entry.title + ' map';
+  document.title = `${entry.title} · Verticordia Atlas`;
   $('#tag-label').textContent = entry.tagLabel || 'Filter';
 
   let data, spriteDefs, spriteImg;
@@ -604,7 +621,7 @@ function createMap() {
 
   const map = new maplibregl.Map({
     container: 'map',
-    style: { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#0b0e10' } }] },
+    style: { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': themeVar('night') } }] },
     center: [cfg.start_lng, cfg.start_lat],
     zoom: cfg.initial_zoom ?? 11,
     minZoom: ts.min_zoom ?? 0,
@@ -643,7 +660,7 @@ function createMap() {
     map.addSource('sel', { type: 'geojson', data: emptyFC });
     map.addLayer({
       id: 'sel', type: 'circle', source: 'sel',
-      paint: { 'circle-radius': 21, 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 2, 'circle-translate': [0, -17] },
+      paint: { 'circle-radius': 21, 'circle-color': themeVar('accent'), 'circle-opacity': 0.22, 'circle-stroke-color': themeVar('accent-soft'), 'circle-stroke-width': 2.5, 'circle-translate': [0, -17] },
     });
 
     // arrows from the selected location to the locations its description links to
@@ -651,7 +668,7 @@ function createMap() {
     ac.width = ac.height = 24;
     const actx = ac.getContext('2d');
     actx.beginPath(); actx.moveTo(12, 2); actx.lineTo(21, 21); actx.lineTo(3, 21); actx.closePath();
-    actx.fillStyle = '#86c98f'; actx.strokeStyle = '#0b0e10'; actx.lineWidth = 2.5; actx.lineJoin = 'round';
+    actx.fillStyle = themeVar('accent-soft'); actx.strokeStyle = themeVar('night'); actx.lineWidth = 2.5; actx.lineJoin = 'round';
     actx.fill(); actx.stroke();
     map.addImage('link-arrow', actx.getImageData(0, 0, 24, 24), { pixelRatio: 2 });
 
@@ -659,7 +676,7 @@ function createMap() {
     map.addLayer({
       id: 'links', type: 'line', source: 'links',
       layout: { 'line-cap': 'round' },
-      paint: { 'line-color': '#86c98f', 'line-width': 2, 'line-opacity': 0.8, 'line-dasharray': [2, 1.5] },
+      paint: { 'line-color': themeVar('accent-soft'), 'line-width': 2, 'line-opacity': 0.8, 'line-dasharray': [2, 1.5] },
     });
 
     map.addSource('locs', { type: 'geojson', data: emptyFC });
@@ -735,7 +752,7 @@ function select(id, { fly = true } = {}) {
   if (state.mapReady) {
     state.map.getSource('sel').setData({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: {} }] });
     if (fly) {
-      const padding = isMobile() ? { bottom: Math.round(innerHeight * 0.4) } : { right: 372 };
+      const padding = isMobile() ? { bottom: Math.round(innerHeight * 0.4) } : { right: 384 };
       state.map.flyTo({ center: [l.lng, l.lat], zoom: Math.max(state.map.getZoom(), 13.5), padding, speed: 1.5, essential: true });
     }
   }

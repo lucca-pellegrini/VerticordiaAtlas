@@ -1,0 +1,44 @@
+/* Shared design tokens and resets for every page (homepage and maps).
+   Colours are defaults: a game overrides them from "theme" in maps/index.json (see app.js applyTheme).
+   Everything else (glows, hover tints, secondary borders) is derived from them, so a theme only needs
+   accent, accent-soft, night, panel, panel-2 and line. */
+
+:root {
+  --night: #0b0e10;
+  --panel: #12161a;
+  --panel-2: #181e22;
+  --line: #252d33;
+  --accent: #d6453b;
+  --accent-soft: #f0877d;
+
+  --ink: #eef1f3;
+  --ink-dim: #9aa6ad;
+  --danger: #ea7468;
+
+  --line-2: color-mix(in srgb, var(--line), #fff 13%);
+  --glow: color-mix(in srgb, var(--accent) 22%, transparent);
+  --tint: color-mix(in srgb, var(--accent) 20%, transparent);
+  --hover: color-mix(in srgb, #fff 6%, transparent);
+
+  --serif: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --fast: .14s;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
+
+::selection { background: var(--accent); color: #fff; }
+
+/* thin themed scrollbars everywhere */
+* { scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

@@ -7,7 +7,14 @@
       "description": "Every boss, lock, collectible and transition on the world map.",
       "poster": "requiem/poster",
       "posterAlt": "Resident Evil Requiem key art: a white-haired woman in a dark hood and red jacket, looking to the right.",
-      "accent": "#c8352c",
+      "theme": {
+        "accent": "#a8332b",
+        "accent-soft": "#e0837a",
+        "night": "#0b0708",
+        "panel": "#150e10",
+        "panel-2": "#1e1517",
+        "line": "#34222a"
+      },
       "stats": [
         { "value": 1145, "label": "markers" },
         { "value": 52, "label": "categories" }
