@@ -417,6 +417,17 @@ function iconHtml(name) {
     `background-position:-${d.x}px -${d.y}px;transform:scale(${s})"></span>`;
 }
 
+// Desktop only: hides the left panel so the map takes the full width.
+function setSideCollapsed(collapsed) {
+  document.body.classList.toggle('side-collapsed', collapsed);
+  const b = $('#side-collapse');
+  b.textContent = collapsed ? '\u00bb' : '\u00ab';
+  const label = collapsed ? 'Show panel' : 'Hide panel';
+  b.title = label;
+  b.setAttribute('aria-label', label);
+  b.setAttribute('aria-expanded', String(!collapsed));
+}
+
 function buildSidebar() {
   const root = $('#groups');
   root.textContent = '';
@@ -571,6 +582,22 @@ function createMap() {
       paint: { 'circle-radius': 21, 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 2, 'circle-translate': [0, -17] },
     });
 
+    // arrows from the selected location to the locations its description links to
+    const ac = document.createElement('canvas');
+    ac.width = ac.height = 24;
+    const actx = ac.getContext('2d');
+    actx.beginPath(); actx.moveTo(12, 2); actx.lineTo(21, 21); actx.lineTo(3, 21); actx.closePath();
+    actx.fillStyle = '#86c98f'; actx.strokeStyle = '#0b0e10'; actx.lineWidth = 2.5; actx.lineJoin = 'round';
+    actx.fill(); actx.stroke();
+    map.addImage('link-arrow', actx.getImageData(0, 0, 24, 24), { pixelRatio: 2 });
+
+    map.addSource('links', { type: 'geojson', data: emptyFC });
+    map.addLayer({
+      id: 'links', type: 'line', source: 'links',
+      layout: { 'line-cap': 'round' },
+      paint: { 'line-color': '#86c98f', 'line-width': 2, 'line-opacity': 0.8, 'line-dasharray': [2, 1.5] },
+    });
+
     map.addSource('locs', { type: 'geojson', data: emptyFC });
     map.addLayer({
       id: 'locs', type: 'symbol', source: 'locs',
@@ -581,6 +608,15 @@ function createMap() {
         'symbol-sort-key': ['get', 'z'],
       },
       paint: { 'icon-opacity': ['case', ['==', ['get', 'f'], 1], 0.4, 1] },
+    });
+
+    map.addSource('link-heads', { type: 'geojson', data: emptyFC });
+    map.addLayer({
+      id: 'link-heads', type: 'symbol', source: 'link-heads',
+      layout: {
+        'icon-image': 'link-arrow', 'icon-size': 0.6, 'icon-rotate': ['get', 'rot'], 'icon-rotation-alignment': 'map',
+        'icon-allow-overlap': true, 'icon-ignore-placement': true,
+      },
     });
 
     state.mapReady = true;
@@ -601,6 +637,7 @@ function createMap() {
       .setText(l.title + (state.found.has(l.id) ? ' (found)' : '')).addTo(map);
   });
   map.on('mouseleave', 'locs', () => { map.getCanvas().style.cursor = ''; tip.remove(); });
+  map.on('move', updateLinkHeads);
 
   map.on('click', ev => {
     document.body.classList.remove('side-open');
@@ -643,11 +680,51 @@ function select(id, { fly = true } = {}) {
   renderDetail();
 }
 
+// Locations referenced by a description via ...?locationIds=N links (self and unknown IDs skipped).
+function linkedLocations(l) {
+  const ids = new Set();
+  for (const m of l.desc.matchAll(/locationIds=([\d,]+)/g))
+    for (const x of m[1].split(',')) { const id = Number(x); if (id !== l.id && state.byId.has(id)) ids.add(id); }
+  return [...ids].map(id => state.byId.get(id));
+}
+
+function updateLinks() {
+  if (!state.mapReady) return;
+  const from = state.selected != null ? state.byId.get(state.selected) : null;
+  const targets = from ? linkedLocations(from) : [];
+  state.links = { from, targets };
+  state.map.getSource('links').setData({
+    type: 'FeatureCollection',
+    features: targets.map(t => ({ type: 'Feature', geometry: { type: 'LineString', coordinates: [[from.lng, from.lat], [t.lng, t.lat]] }, properties: {} })),
+  });
+  updateLinkHeads();
+}
+
+// Arrowheads are placed in screen space so they stay right after panning and zooming.
+function updateLinkHeads() {
+  if (!state.mapReady || !state.links) return;
+  const { from, targets } = state.links;
+  const feats = [];
+  if (from) {
+    const a = state.map.project([from.lng, from.lat]);
+    for (const t of targets) {
+      const b = state.map.project([t.lng, t.lat]);
+      const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy);
+      if (len < 1) continue;
+      const back = Math.min(28, len * 0.5);
+      const p = state.map.unproject([b.x - dx / len * back, b.y - dy / len * back]);
+      feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [p.lng, p.lat] }, properties: { rot: Math.atan2(dx, -dy) * 180 / Math.PI } });
+    }
+  }
+  state.map.getSource('link-heads').setData({ type: 'FeatureCollection', features: feats });
+}
+
 function closeDetail() {
   state.selected = null;
   $('#detail').hidden = true;
   document.body.classList.remove('detail-open');
   if (state.mapReady) state.map.getSource('sel').setData(emptyFC);
+  updateLinks();
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
 }
 
@@ -680,6 +757,7 @@ function renderDetail() {
   $('#detail-body').querySelectorAll('.shots img').forEach(img => img.addEventListener('error', () => {
     img.replaceWith(Object.assign(document.createElement('p'), { className: 'd-note', textContent: 'Screenshot not downloaded.' }));
   }));
+  updateLinks();
 }
 
 function toggleFound(id) {
@@ -766,6 +844,7 @@ function wire() {
 
   $('#side-toggle').onclick = () => document.body.classList.add('side-open');
   $('#side-close').onclick = () => document.body.classList.remove('side-open');
+  $('#side-collapse').onclick = () => setSideCollapsed(!document.body.classList.contains('side-collapsed'));
 
   addEventListener('pagehide', saveProfileNow);
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveProfileNow(); });
