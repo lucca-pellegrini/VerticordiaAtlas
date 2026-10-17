@@ -39,7 +39,7 @@ h1 { font: 600 22px/1.15 var(--serif); letter-spacing: .01em; margin: 0; }
 .field { display: grid; gap: 4px; }
 .field > span { color: var(--ink-dim); font-size: 12px; }
 select { width: 100%; background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; padding: 7px 8px; }
-.profile-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; position: relative; }
+.profile-row, .preset-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; position: relative; }
 .icon-btn { background: var(--panel-2); border: 1px solid var(--line); border-radius: 6px; width: 36px; height: 36px; line-height: 1; font-size: 18px; }
 .icon-btn:hover { border-color: var(--ink-dim); }
 .menu { position: absolute; right: 0; top: 100%; margin-top: 4px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; padding: 4px; z-index: 20; min-width: 190px; box-shadow: 0 8px 24px #0009; }
@@ -47,6 +47,7 @@ select { width: 100%; background: var(--panel-2); border: 1px solid var(--line);
 .menu button { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 8px 10px; border-radius: 5px; }
 .menu button:hover { background: #ffffff10; }
 .menu .danger { color: var(--blood); }
+.menu button:disabled { opacity: .4; cursor: default; background: none; }
 .menu hr { border: 0; border-top: 1px solid var(--line); margin: 4px 0; }
 
 .search { position: relative; }

@@ -39,6 +39,19 @@
         <span id="tag-label">Difficulty</span>
         <select id="tag-select"></select>
       </label>
+      <div class="profile-row preset-row">
+        <label class="field">
+          <span>Selection preset</span>
+          <select id="preset-select"></select>
+        </label>
+        <button id="preset-menu-btn" class="icon-btn" aria-haspopup="true" aria-expanded="false" title="Preset actions">&#8943;</button>
+        <div id="preset-menu" class="menu" hidden>
+          <button data-act="save">Save current selection</button>
+          <button data-act="update" data-needs-preset>Overwrite with current selection</button>
+          <button data-act="rename" data-needs-preset>Rename</button>
+          <button data-act="delete" data-needs-preset class="danger">Delete preset</button>
+        </div>
+      </div>
       <div class="search">
         <input id="search" type="search" placeholder="Search locations" autocomplete="off" aria-label="Search locations">
         <ul id="results" hidden></ul>

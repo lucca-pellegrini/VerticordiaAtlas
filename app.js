@@ -14,6 +14,7 @@ const state = {
   view: { hidden: new Set(), hideFound: false, collapsed: new Set() },
   selected: null, map: null, mapReady: false, memoryOnly: false,
   stats: new Map(), searchHits: [], searchIdx: -1,
+  presets: [],
 };
 
 /* ---------- storage: IndexedDB with an in-memory fallback ---------- */
@@ -241,6 +242,8 @@ async function loadGame(entry) {
   state.view.hideFound = !!v.hideFound;
   state.view.collapsed = new Set(v.collapsed || []);
   $('#hide-found').checked = state.view.hideFound;
+  state.presets = (await getMeta('presets:' + entry.id)) || [];
+  renderPresets();
 
   // difficulty / tag selector
   const tagField = $('#tag-field');
@@ -356,6 +359,7 @@ async function profileAction(act) {
     const payload = {
       app: 'offline-map-viewer', version: 1, game: state.entry.id, exported: new Date().toISOString(),
       profiles: state.profiles.map(({ id, name, tag, found, created, updated }) => ({ id, name, tag, found, created, updated })),
+      presets: state.presets.map(({ id, name, hidden }) => ({ id, name, hidden })),
     };
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([JSON.stringify(payload)], { type: 'application/json' }));
@@ -372,7 +376,8 @@ async function importFile(file) {
     const payload = JSON.parse(await file.text());
     if (payload.app !== 'offline-map-viewer' || !Array.isArray(payload.profiles)) throw new Error('not a progress file');
     if (payload.game !== state.entry.id) throw new Error(`this file is for "${payload.game}", not "${state.entry.id}"`);
-    const ok = await askDialog({ title: 'Import progress?', message: `${payload.profiles.length} profile(s) will be added. Profiles with the same id are replaced.`, okLabel: 'Import' });
+    const presets = Array.isArray(payload.presets) ? payload.presets.filter(p => p && p.id && Array.isArray(p.hidden)) : [];
+    const ok = await askDialog({ title: 'Import progress?', message: `${payload.profiles.length} profile(s) and ${presets.length} preset(s) will be added. Items with the same id are replaced.`, okLabel: 'Import' });
     if (!ok) return;
     await saveProfileNow();
     for (const q of payload.profiles) {
@@ -383,9 +388,16 @@ async function importFile(file) {
       const at = state.profiles.findIndex(x => x.id === rec.id);
       if (at >= 0) state.profiles[at] = rec; else state.profiles.push(rec);
     }
+    for (const q of presets) {
+      const rec = { id: String(q.id), name: String(q.name || 'Imported'), hidden: q.hidden.filter(Number.isFinite) };
+      const at = state.presets.findIndex(x => x.id === rec.id);
+      if (at >= 0) state.presets[at] = rec; else state.presets.push(rec);
+    }
+    if (presets.length) await savePresets();
     const cur = state.profiles.find(x => x.id === state.profile.id) || state.profiles[0];
     applyProfile(cur);
     refreshAll();
+    renderPresets();
     toast('Progress imported.');
   } catch (e) { toast('Import failed: ' + e.message, 5000); }
 }
@@ -519,6 +531,57 @@ function onViewChanged() {
   scheduleViewSave();
   updateSidebar();
   refreshMap();
+  renderPresets();
+}
+
+/* ---------- selection presets (which categories are on/off) ---------- */
+
+const presetsKey = () => 'presets:' + state.entry.id;
+const savePresets = () => setMeta(presetsKey(), state.presets).catch(() => toast('Could not save presets in this browser.'));
+const selectedPreset = () => state.presets.find(p => p.id === $('#preset-select').value) || null;
+
+function matchesView(p) {
+  const h = new Set(p.hidden);
+  for (const id of state.cats.keys()) if (h.has(id) !== state.view.hidden.has(id)) return false;
+  return true;
+}
+
+function renderPresets() {
+  if (!state.entry) return;
+  const sel = $('#preset-select');
+  sel.innerHTML = '<option value="">Choose a preset…</option>' +
+    state.presets.map(p => `<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('');
+  sel.value = state.presets.find(matchesView)?.id ?? '';
+  const has = !!sel.value;
+  document.querySelectorAll('#preset-menu [data-needs-preset]').forEach(b => { b.disabled = !has; });
+}
+
+async function presetAction(act) {
+  if (act === 'save') {
+    const name = await askDialog({ title: 'Save selection', message: 'Stores which categories are on and off.', value: `Selection ${state.presets.length + 1}`, okLabel: 'Save' });
+    if (!name) return;
+    state.presets.push({ id: uid(), name, hidden: [...state.view.hidden] });
+    await savePresets(); renderPresets();
+    toast('Preset saved.');
+    return;
+  }
+  const p = selectedPreset();
+  if (!p) return;
+  if (act === 'update') {
+    p.hidden = [...state.view.hidden];
+    await savePresets(); renderPresets();
+    toast('Preset updated.');
+  } else if (act === 'rename') {
+    const name = await askDialog({ title: 'Rename preset', value: p.name, okLabel: 'Rename' });
+    if (!name) return;
+    p.name = name;
+    await savePresets(); renderPresets();
+  } else if (act === 'delete') {
+    const ok = await askDialog({ title: 'Delete preset?', message: `"${p.name}" will be removed from this browser.`, okLabel: 'Delete', danger: true });
+    if (!ok) return;
+    state.presets = state.presets.filter(x => x.id !== p.id);
+    await savePresets(); renderPresets();
+  }
 }
 
 function refreshAll() {
@@ -816,6 +879,16 @@ function wire() {
   menu.onclick = e => { const b = e.target.closest('button[data-act]'); if (b) { menu.hidden = true; profileAction(b.dataset.act); } };
   $('#import-file').onchange = e => { const f = e.target.files[0]; e.target.value = ''; if (f) importFile(f); };
 
+  const presetMenu = $('#preset-menu'), presetMenuBtn = $('#preset-menu-btn');
+  $('#preset-select').onchange = e => {
+    const p = state.presets.find(x => x.id === e.target.value);
+    if (!p) return;
+    state.view.hidden = new Set(p.hidden);
+    onViewChanged();
+  };
+  presetMenuBtn.onclick = e => { e.stopPropagation(); presetMenu.hidden = !presetMenu.hidden; presetMenuBtn.setAttribute('aria-expanded', String(!presetMenu.hidden)); };
+  presetMenu.onclick = e => { const b = e.target.closest('button[data-act]'); if (b && !b.disabled) { presetMenu.hidden = true; presetAction(b.dataset.act); } };
+
   $('#tag-select').onchange = e => { state.tag = Number(e.target.value); saveProfileNow(); refreshAll(); };
   $('#hide-found').onchange = e => { state.view.hideFound = e.target.checked; onViewChanged(); };
   $('#show-all').onclick = () => { state.view.hidden.clear(); onViewChanged(); };
@@ -834,6 +907,7 @@ function wire() {
   document.addEventListener('click', e => {
     if (!e.target.closest('.search')) results.hidden = true;
     if (!e.target.closest('.profile-row')) menu.hidden = true;
+    if (!e.target.closest('.preset-row')) presetMenu.hidden = true;
   });
 
   $('#detail-close').onclick = closeDetail;
