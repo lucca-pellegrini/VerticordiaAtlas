@@ -869,7 +869,11 @@ function buildSidebar() {
       row.className = 'cat-row';
       if (c.info) row.title = c.info;
       row.innerHTML = `${menuBtnHtml(c.title)}<span class="ico-wrap">${iconHtml(c.icon)}</span><span class="label">${esc(c.title)}</span><span class="tally"></span><input type="checkbox">`;
+      // the row is a label: it must activate the checkbox. Without this it would activate the first button inside it
+      // (the three-dot menu), so a click on the name would open that menu instead of toggling the category
       const cb = row.querySelector('input');
+      cb.id = `cat-${c.id}`;
+      row.htmlFor = cb.id;
       cb.onchange = () => { cb.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id); onViewChanged(); };
       row.oncontextmenu = e => { e.preventDefault(); showOnly([c.id]); };
       row.querySelector('.row-menu-btn').onclick = e => openRowMenu(e, { title: c.title, icon: c.icon, cats: [c], user: c.user ? { kind: 'cat', id: c.id } : null });
@@ -2125,7 +2129,23 @@ function moveSearch(d) {
 
 /* ---------- events ---------- */
 
+// The side panel: the title, the counter and the map selector stay put at the top; everything under them (profile,
+// difficulty, preset, search, the list) scrolls as one, so a small screen still has room for the list.
+function arrangeSidebar() {
+  const head = document.querySelector('#side .side-head');
+  if (!head || head.nextElementSibling?.classList.contains('side-scroll')) return;
+  const scroll = document.createElement('div');
+  scroll.className = 'side-scroll';
+  for (const el of [...head.children]) if (!el.matches('.title-row, .progress')) scroll.appendChild(el);
+  for (const sel of ['.list-tools', '#groups']) {
+    const el = document.querySelector('#side ' + sel);
+    if (el) scroll.appendChild(el);
+  }
+  head.after(scroll);
+}
+
 function wire() {
+  arrangeSidebar();
   $('#profile-select').onchange = e => switchProfile(e.target.value);
   const menu = $('#profile-menu'), menuBtn = $('#profile-menu-btn');
   menuBtn.onclick = e => { e.stopPropagation(); menu.hidden = !menu.hidden; menuBtn.setAttribute('aria-expanded', String(!menu.hidden)); };

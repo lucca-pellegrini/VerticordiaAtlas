@@ -111,7 +111,7 @@ input[type=checkbox]:active { transform: scale(.88); }
 
 /* ---------- sidebar ---------- */
 
-#side { position: relative; background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; z-index: 5; }
+#side { position: relative; background: color-mix(in srgb, var(--panel) 88%, transparent); backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1); border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; z-index: 5; }
 #side::before { content: ""; position: absolute; inset: 0 0 auto; height: 240px; pointer-events: none; background: radial-gradient(120% 100% at 50% -25%, var(--glow), transparent 70%); }
 .side-head, .list-tools, .groups { position: relative; }
 .side-head { padding: 18px 16px 14px; display: grid; gap: 14px; border-bottom: 1px solid var(--line); }
@@ -176,7 +176,9 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 .tag-strict:focus-visible::after, .tag-strict.tip::after { opacity: 1; transform: none; }
 @media (hover: hover) { .tag-strict:hover::after { opacity: 1; transform: none; } }
 
-.groups { overflow: auto; flex: 1; padding-bottom: 28px; }
+.groups { flex: none; padding-bottom: 28px; }
+/* the scrolling part of the side panel: everything under the title, counter and map selector */
+.side-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; }
 .group { border-bottom: 1px solid var(--line); }
 /* group header: a faint frosted bar that stays on top while its categories scroll under it */
 .group-head {
@@ -263,7 +265,7 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 
 #detail {
   position: absolute; z-index: 6; top: 12px; right: 12px; width: min(372px, calc(100% - 24px)); max-height: calc(100% - 24px); overflow: auto;
-  background: color-mix(in srgb, var(--panel) 94%, transparent); backdrop-filter: blur(16px) saturate(1.2);
+  background: color-mix(in srgb, var(--panel) 88%, transparent); backdrop-filter: blur(16px) saturate(1.2);
   border: 1px solid var(--line-2); border-radius: 18px; box-shadow: 0 28px 64px -20px #000e, inset 0 1px 0 #ffffff0d;
   animation: panel-in .24s var(--ease);
 }
@@ -739,3 +741,20 @@ body.loading-map #map .draw-layer, body.loading-map #map .text-layer { opacity: 
   background: var(--c); box-shadow: 0 0 0 1.5px #fff, 0 0 0 4px color-mix(in srgb, var(--c) 28%, transparent); color: var(--g, #fff);
 }
 .ico-glyph svg.i { width: 12px; height: 12px; stroke-width: 2.4; }
+.side-head { flex: none; }
+
+/* the scrolling side panel keeps the header's gutters and rhythm (its rows were moved into it) */
+.side-scroll { padding: 14px 16px 0; gap: 14px; }
+.side-scroll > .list-tools { margin: 0 -16px; }
+.side-scroll > #groups { margin: 0 -16px; }
+.list-tools .link-btn, .list-tools .check span { white-space: nowrap; }
+.list-tools .link-btn { padding-inline: 6px; }
+
+/* the side panel: see-through enough to show the map, with the blur keeping the list readable */
+#side { background: color-mix(in srgb, var(--panel) 72%, transparent); }
+.side-scroll { gap: 0; }
+.side-scroll > :is(.profile-row, .tag-row, .preset-row, #preset-bar, .search) { margin-bottom: 14px; }
+
+/* no padding at the top of the scrolling part: scrolled content would show through it. The first row keeps the spacing as a margin. */
+.side-scroll { padding: 0 16px; }
+.side-scroll > :first-child { margin-top: 14px; }
