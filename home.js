@@ -47,3 +47,14 @@ async function main() {
 }
 
 main();
+
+// Logo tap: the logo links to this same page, so tapping it shows the heart instead of reloading,
+// then it switches back to the pin after a few seconds.
+const brand = document.querySelector('.brand');
+let beatTimer;
+brand?.addEventListener('click', e => {
+  e.preventDefault();
+  brand.classList.add('beat');
+  clearTimeout(beatTimer);
+  beatTimer = setTimeout(() => brand.classList.remove('beat'), 6000);
+});

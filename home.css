@@ -50,6 +50,27 @@ main { flex: 1; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); }
 .brand span { color: var(--ink); font: 400 1.55rem/1 var(--serif); letter-spacing: .01em; }
 
+/* logo: map pin cross-fades into a slow beating heart on hover (mouse) or tap (.beat, set in home.js) */
+.brand .mark { position: relative; display: block; width: 26px; height: 26px; }
+.brand .mark svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); }
+.brand .mark .heart { opacity: 0; transform: scale(.6); }
+.brand.beat .mark .pin { opacity: 0; transform: scale(.6); }
+.brand.beat .mark .heart { opacity: 1; transform: scale(1); animation: heartbeat 1.8s ease-in-out .6s infinite; }
+@media (hover: hover) {
+  .brand:hover .mark .pin { opacity: 0; transform: scale(.6); }
+  .brand:hover .mark .heart { opacity: 1; transform: scale(1); animation: heartbeat 1.8s ease-in-out .6s infinite; }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.12); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+  60% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand .mark svg, .brand.beat .mark .heart, .brand:hover .mark .heart { animation: none !important; }
+}
+
 /* hero */
 .hero { text-align: center; padding-block: clamp(44px, 9vw, 104px) clamp(36px, 6vw, 64px); }
 .eyebrow {
