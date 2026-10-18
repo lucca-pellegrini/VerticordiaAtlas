@@ -69,9 +69,10 @@ code, pre, kbd, samp { font-family: var(--sans); }
 .acct-btn svg.i { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 .acct-menu {
   position: absolute; right: 0; top: calc(100% + 8px); z-index: 40; min-width: 240px; padding: 6px; border-radius: 14px;
-  background: var(--panel-2); border: 1px solid var(--line-2); box-shadow: 0 22px 44px -12px #000d; animation: toast-in .16s var(--ease);
+  background: var(--panel-2); border: 1px solid var(--line-2); box-shadow: 0 22px 44px -12px #000d; animation: menu-in .16s var(--ease);
 }
 .acct-menu[hidden] { display: none; }
+@keyframes menu-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } } /* no sideways shift: the menu is anchored to its button */
 .acct-who { margin: 6px 10px 8px; color: var(--ink-dim); font-size: 12px; display: grid; gap: 2px; }
 .acct-who strong { color: var(--ink); font-weight: 600; font-size: 13.5px; word-break: break-all; }
 .acct-menu button {
@@ -84,7 +85,32 @@ code, pre, kbd, samp { font-family: var(--sans); }
 .acct-slot { margin: 0 -16px; padding: 14px 16px 18px; border-top: 1px solid var(--line); display: flex; justify-content: flex-start; }
 .acct-slot .acct { width: 100%; }
 .acct-slot .acct-btn { width: 100%; justify-content: center; }
-.acct-slot .acct-menu { left: 0; right: 0; }
+.acct-slot .acct-menu { left: 0; right: 0; top: auto; bottom: calc(100% + 8px); } /* the sidebar sits at the bottom of the screen: the menu opens up */
+/* in the header: just the pill, no panel border or padding; it slides away while searching (home.css) */
+.acct-slot.top { display: flex; flex: none; margin: 0; padding: 0; border: 0; max-width: 180px; overflow: hidden;
+  transition: max-width .45s cubic-bezier(.2, .7, .2, 1), margin .45s cubic-bezier(.2, .7, .2, 1), opacity .3s ease, transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s; }
+.acct-slot.top .acct, .acct-slot.top .acct-btn { white-space: nowrap; }
+.acct-slot.top .acct-btn { height: 40px; }
+.acct-slot.top .acct-menu { left: auto; right: 0; top: calc(100% + 8px); bottom: auto; }
+.acct-slot.top:has(.acct-menu:not([hidden])) { overflow: visible; } /* the open menu must not be clipped by the collapse */
+
+/* the shared backdrop: a soft red glow over a faint map grid that fades out (home and sign-in) */
+.bg {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(58rem 34rem at 50% -10%, var(--glow), transparent 70%),
+    radial-gradient(40rem 28rem at 100% 35%, rgb(60 90 110 / .12), transparent 70%),
+    var(--night);
+}
+.bg::after {
+  content: ""; position: absolute; inset: 0; opacity: .5;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000, transparent 72%);
+          mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000, transparent 72%);
+}
 
 .net-status {
   position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 70; display: inline-flex; align-items: center; gap: 7px;

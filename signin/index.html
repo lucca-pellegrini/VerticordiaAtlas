@@ -14,25 +14,17 @@
 <link rel="stylesheet" href="signin.css">
 </head>
 <body>
+<div class="bg" aria-hidden="true"></div>
 <main class="signin">
   <a class="back" href="../">Back to the maps</a>
 
   <h1>Sign in to sync</h1>
-  <p class="lede">Signing in is <strong>entirely optional</strong>. Verticordia Atlas works offline without an account, and your progress lives on this device.</p>
+  <p class="lede">Signing in is <strong>entirely optional</strong>: it adds no features, it only lets the same progress follow you to another device. Everything works offline, and your progress stays on this device either way.</p>
 
-  <ul class="promise">
-    <li><span class="tick"></span>Signing in adds <strong>no new features</strong>. It only lets the same progress follow you to another device.</li>
-    <li><span class="tick"></span>Everything still works offline. Progress is saved on the device first, and syncs when a connection is there.</li>
-    <li><span class="tick"></span>You can log out at any time. Your progress stays on the device.</li>
-  </ul>
+  <div id="google-btn" class="google-btn"></div>
+  <p class="notice" id="google-off" hidden>Google sign-in is not set up on this server yet.</p>
 
-  <section class="primary" aria-labelledby="google-title">
-    <h2 id="google-title">With Google</h2>
-    <div id="google-btn" class="google-btn"></div>
-    <p class="notice" id="google-off" hidden>Google sign-in is not set up on this server yet.</p>
-  </section>
-
-  <section class="other">
+  <div class="other">
     <button type="button" class="quiet" id="toggle-secret" aria-expanded="false" aria-controls="secret-panel">Or use a secret key instead</button>
     <div id="secret-panel" hidden>
       <p class="small">A secret key is a long random code. It replaces Google: keep it somewhere safe, because it is the only way back into this account. It is shown once.</p>
@@ -55,7 +47,7 @@
       </form>
       <p class="error" id="secret-error" role="alert" hidden></p>
     </div>
-  </section>
+  </div>
 
   <p class="skip"><a href="../">Not now. Keep using the app.</a></p>
 </main>

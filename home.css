@@ -27,23 +27,6 @@ main { flex: 1; }
 }
 .skip:focus { top: 12px; }
 
-/* backdrop: a soft red glow over a faint map grid that fades out */
-.bg {
-  position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(58rem 34rem at 50% -10%, var(--glow), transparent 70%),
-    radial-gradient(40rem 28rem at 100% 35%, rgb(60 90 110 / .12), transparent 70%),
-    var(--night);
-}
-.bg::after {
-  content: ""; position: absolute; inset: 0; opacity: .5;
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000, transparent 72%);
-          mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000, transparent 72%);
-}
 
 /* header */
 .top { padding-block: calc(18px + env(safe-area-inset-top, 0px)) 0; }
@@ -52,7 +35,8 @@ main { flex: 1; }
 .brand span { color: var(--ink); font: 400 1.55rem/1 var(--serif); letter-spacing: .01em; }
 
 /* search: a bar that slides open to the left of the magnifier toggle */
-.top-tools { display: flex; align-items: center; gap: 10px; min-width: 0; margin-left: auto; }
+.top-tools { display: flex; flex: none; align-items: center; gap: 10px; margin-left: auto; }
+/* closed, the search bar takes no room (its gap and padding would otherwise push the buttons off the right edge) */
 .search-toggle {
   display: grid; place-items: center; width: 40px; height: 40px; flex: none; padding: 0; cursor: pointer;
   border: 1px solid var(--line-2); border-radius: 50%; background: rgb(255 255 255 / .03); color: var(--ink-dim);
@@ -64,11 +48,12 @@ main { flex: 1; }
 .search-toggle:active { transform: scale(.94); }
 .search-toggle:focus-visible, .search input:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
 
+/* closed: an explicit zero width (no intrinsic input width), and no gap either */
 .search {
-  flex: 0 1 0; min-width: 0; padding: 3px; visibility: hidden; opacity: 0; overflow: hidden;
-  transition: flex-basis .45s cubic-bezier(.2, .7, .2, 1), opacity .3s ease, visibility 0s linear .45s;
+  flex: 0 1 auto; box-sizing: border-box; width: 0; min-width: 0; margin-right: -10px; padding: 3px 0; visibility: hidden; opacity: 0; overflow: hidden;
+  transition: width .45s cubic-bezier(.2, .7, .2, 1), margin-right .45s cubic-bezier(.2, .7, .2, 1), opacity .3s ease, visibility 0s linear .45s;
 }
-.search.open { flex-basis: 280px; visibility: visible; opacity: 1; transition-delay: 0s; }
+.search.open { width: 280px; margin-right: 0; padding: 3px; visibility: visible; opacity: 1; transition-delay: 0s; }
 .search input {
   display: block; box-sizing: border-box; width: 100%; height: 40px; padding: 0 18px;
   border: 1px solid var(--line-2); border-radius: 999px;
@@ -212,5 +197,8 @@ h1 em { font-style: italic; color: var(--accent-soft); }
 
 
 /* the account button steps aside while the search is open or focused */
-.top-tools:has(.search.open) .acct, .top-tools:has(.search:focus-within) .acct { display: none; }
-.top-tools .acct { display: inline-block; }
+/* the account button steps aside while the search is open or focused: it fades, slides and folds away with the search bar */
+.top-tools:has(.search.open) .acct-slot.top, .top-tools:has(.search:focus-within) .acct-slot.top {
+  max-width: 0; margin-left: -10px; opacity: 0; transform: translateX(14px); visibility: hidden; pointer-events: none;
+  transition: max-width .45s cubic-bezier(.2, .7, .2, 1), margin .45s cubic-bezier(.2, .7, .2, 1), opacity .3s ease, transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .45s;
+}

@@ -31,7 +31,7 @@ async function setupGoogle() {
         catch (e) { showError(e.message); }
       },
     });
-    google.accounts.id.renderButton($('google-btn'), { type: 'standard', theme: 'filled_black', size: 'large', shape: 'pill', text: 'signin_with', width: 320 });
+    google.accounts.id.renderButton($('google-btn'), { type: 'standard', theme: 'filled_black', size: 'large', shape: 'pill', text: 'signin_with', width: 240 });
   };
   if (window.google?.accounts) start();
   else addEventListener('load', start, { once: true });

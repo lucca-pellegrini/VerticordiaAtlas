@@ -66,9 +66,9 @@ function renderAccount() {
 }
 
 // a new slot, for the side panel (the caller places it)
-export function accountSlot() {
+export function accountSlot(variant = 'side') {
   const el = document.createElement('div');
-  el.className = 'acct-slot';
+  el.className = variant === 'top' ? 'acct-slot top' : 'acct-slot';
   el.dataset.account = '';
   return el;
 }

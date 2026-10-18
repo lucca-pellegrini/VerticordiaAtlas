@@ -150,7 +150,7 @@ main();
 
 // the account button, to the right of the search (it steps aside while the search is open)
 const topTools = document.querySelector('.top-tools');
-if (topTools) topTools.appendChild(accountSlot());
+if (topTools) topTools.appendChild(accountSlot('top'));
 initAccount({ toast: notify });
 
 // Logo tap: the logo links to this same page, so tapping it shows the heart instead of reloading,

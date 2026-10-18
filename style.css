@@ -180,10 +180,9 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 .tag-strict:focus-visible::after, .tag-strict.tip::after { opacity: 1; transform: none; }
 @media (hover: hover) { .tag-strict:hover::after { opacity: 1; transform: none; } }
 
-.groups { flex: none; padding-bottom: 28px; }
+.groups { flex: none; }
 /* the scrolling part of the side panel: everything under the title, counter and map selector */
 .side-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; }
-.group { border-bottom: 1px solid var(--line); }
 /* group header: a faint frosted bar that stays on top while its categories scroll under it */
 .group-head {
   position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 11px 16px 9px;
@@ -772,13 +771,12 @@ body.loading-map #map .draw-layer, body.loading-map #map .text-layer { opacity: 
 
 /* the Show all / Hide all / Hide found row stays at the top of the scrolling list, and the group headings stick just below it */
 .side-scroll > .list-tools {
-  position: sticky; top: 0; z-index: 4; height: 44px; box-sizing: border-box; align-items: center;
+  position: sticky; top: 0; z-index: 4; height: 42px; box-sizing: border-box; align-items: center;
   background: color-mix(in srgb, var(--panel) 90%, transparent); backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1);
 }
-.side-scroll .group-head { top: 44px; }
 .side-scroll > .list-tools { background: color-mix(in srgb, var(--panel) 97%, transparent); }
-/* the group headings overlap the toolbar's bottom pixel row (their backgrounds are opaque), so no sub-pixel seam shows */
-.side-scroll .group-head { top: 43px; }
+/* the group headings stick 1px under the toolbar's top edge: the toolbar (42px, above them) hides that pixel, so no seam shows */
+.side-scroll .group-head { top: 41px; }
 .side-scroll > .list-tools { z-index: 1; }
 /* no light edge where the heading meets the toolbar, and no ghost of the list behind the toolbar */
 .side-scroll .group-head { box-shadow: 0 1px 0 #00000066; }
