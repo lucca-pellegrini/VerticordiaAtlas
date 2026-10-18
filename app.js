@@ -119,34 +119,58 @@ function askDialog({ title, message = '', value = null, okLabel = 'OK', danger =
   });
 }
 
-/* ---------- description renderer (links, bold, lists, line breaks) ---------- */
+/* ---------- descriptions: markdown (vendor/marked.umd.js). MapGenie location links become local #loc links ---------- */
 
-function inlineMd(s) {
-  let h = esc(s);
-  h = h.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, text, url) => {
-    const loc = /[?&]locationIds=(\d+)/.exec(url);
-    if (loc) return state.byId.has(+loc[1]) ? `<a href="#loc=${loc[1]}" data-loc="${loc[1]}">${text}</a>` : text;
-    if (/^https?:/.test(url)) return `<a href="${url}" target="_blank" rel="noopener noreferrer">${text}</a>`;
-    return text;
-  });
-  h = h.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  h = h.replace(/(^|[^*\w])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
-  return h;
+// "https://mapgenie.io/<game>/maps/<map>?locationIds=N" (also relative, or a #L suffix) -> N; anything else -> null
+function mapgenieLocId(href) {
+  let u;
+  try { u = new URL(href, "https://mapgenie.io/"); } catch { return null; }
+  if (!/^https?:$/.test(u.protocol) || !/(^|\.)mapgenie\.io$/i.test(u.hostname)) return null;
+  const m = /^(\d+)/.exec(u.searchParams.get("locationIds") || "");
+  return m ? Number(m[1]) : null;
 }
 
-function renderMd(src) {
-  const out = [];
-  let para = [], list = null;
-  const flushP = () => { if (para.length) { out.push('<p>' + para.map(inlineMd).join('<br>') + '</p>'); para = []; } };
-  const flushL = () => { if (list) { out.push('<ul>' + list.map(i => '<li>' + inlineMd(i) + '</li>').join('') + '</ul>'); list = null; } };
-  for (const line of String(src || '').replace(/\r\n?/g, '\n').split('\n')) {
-    const m = /^\s*[-*]\s+(.*)$/.exec(line);
-    if (m) { flushP(); (list ||= []).push(m[1]); }
-    else if (!line.trim()) { flushP(); flushL(); }
-    else { flushL(); para.push(line); }
+// every link token in a parsed markdown token tree
+function forEachLink(tokens, fn) {
+  for (const t of tokens || []) {
+    if (t.type === "link") fn(t);
+    forEachLink(t.tokens, fn);
+    if (t.items) forEachLink(t.items, fn);
   }
-  flushP(); flushL();
-  return out.join('');
+}
+
+// location ids of this map that a description links to, in order of appearance (self and unknown ids skipped)
+function internalRefs(src, selfId) {
+  const out = [];
+  forEachLink(marked.lexer(String(src || "")), t => {
+    const id = mapgenieLocId(t.href);
+    if (id != null && id !== selfId && state.byId.has(id) && !out.includes(id)) out.push(id);
+  });
+  return out;
+}
+
+marked.use({
+  gfm: true,
+  breaks: true, // single line breaks stay line breaks, as the descriptions were written
+  renderer: {
+    // raw HTML in a description is shown as text, never as markup
+    html(t) { return esc(t.text); },
+    link(t) {
+      const text = this.parser.parseInline(t.tokens);
+      const id = mapgenieLocId(t.href);
+      if (id != null) return state.byId.has(id) ? `<a href="#loc=${id}" data-loc="${id}">${text}</a>` : text;
+      if (/^https?:/i.test(t.href)) return `<a href="${esc(t.href)}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+      return text; // mailto:, javascript: and other schemes are not made into links
+    },
+    image(t) { // embedded pictures are not shown inline yet: keep the alt text, linked when it is a web address
+      const text = esc(t.text || t.href);
+      return /^https?:/i.test(t.href) ? `<a href="${esc(t.href)}" target="_blank" rel="noopener noreferrer">${text}</a>` : text;
+    },
+  },
+});
+
+function renderMd(src) {
+  return marked.parse(String(src || ""));
 }
 
 /* ---------- game loading ---------- */
@@ -1007,15 +1031,10 @@ function onPopState(ev) {
   select(s.loc, { fly: true, push: false });
 }
 
-// Markers that the description links to (self and unknown IDs skipped), and the markers that link to this one.
+// Markers that the description links to, and the markers that link to this one.
 function buildLinkIndex() {
   for (const l of state.locs) {
-    const out = [];
-    for (const m of l.desc.matchAll(/locationIds=([\d,]+)/g))
-      for (const x of m[1].split(',')) {
-        const id = Number(x);
-        if (id !== l.id && state.byId.has(id) && !out.includes(id)) out.push(id);
-      }
+    const out = internalRefs(l.desc, l.id);
     state.outLinks.set(l.id, out);
     for (const t of out) {
       if (!state.inLinks.has(t)) state.inLinks.set(t, []);
