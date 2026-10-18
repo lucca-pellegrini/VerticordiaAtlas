@@ -1030,7 +1030,9 @@ function createMap() {
     state.mapReady = true;
     updateSidebar();
     refreshMap();
-    const m = /^#loc=(\d+)/.exec(location.hash);
+    // a shared link carries ?loc=<id>; the hash (#loc=<id>) is what the app writes while browsing
+    const q = new URLSearchParams(location.search).get('loc');
+    const m = /^#loc=(\d+)/.exec(location.hash) || (/^\d+$/.test(q || '') ? [null, q] : null);
     if (m && state.byId.has(+m[1])) {
       // a shared link starts a stack of its own: the page entry underneath is the bottom of it
       history.replaceState(null, '', location.pathname + location.search);
@@ -1553,7 +1555,8 @@ function renderDetail() {
   $('#detail-body').innerHTML =
     `<div class="d-cat" style="--c:${l.user && cat?.icon ? '#' + cat.icon.slice(3).replace('-t', '') : (g ? g.col : '#888')}"><i></i>${esc(cat?.title || '')}</div>` +
     `<h2 class="d-title">${esc(l.title)}</h2>` + (l.user ? state.um.detailHtml(l) : '') +
-    (ok ? `<button class="found-btn${isFound ? ' on' : ''}" type="button" aria-pressed="${isFound}">${isFound ? 'Found. Tap to undo' : 'Mark as found'}</button>` : '') +
+    `<div class="d-actions">${ok ? `<button class="found-btn${isFound ? ' on' : ''}" type="button" aria-pressed="${isFound}">${isFound ? 'Found. Tap to undo' : 'Mark as found'}</button>` : ''}` +
+    (l.user ? '' : '<button class="share-btn" type="button" aria-label="Share this marker" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.4 10.8l7.2-4.4M8.4 13.2l7.2 4.4"/></svg></button>') + '</div>' +
     `<div class="d-desc">${renderMd(l.desc)}</div>` + only + notHere +
     (shots ? `<div class="shots">${shots}</div>` : '') + backrefs;
 
@@ -1568,6 +1571,21 @@ function renderDetail() {
     img.replaceWith(Object.assign(document.createElement('p'), { className: 'd-note', textContent: 'Screenshot not downloaded.' }));
   }));
   updateLinks();
+}
+
+// a link that opens this marker on this game page; the system share sheet when there is one, else the clipboard
+async function shareMarker(id) {
+  const l = state.byId.get(id);
+  if (!l) return;
+  const url = new URL(location.href);
+  url.hash = '';
+  url.search = new URLSearchParams({ loc: String(id), map: state.mapInfo.slug }).toString();
+  if (navigator.share) {
+    try { return await navigator.share({ title: `${l.title} · ${state.entry.title}`, url: url.href }); }
+    catch (e) { if (e.name === 'AbortError') return; }
+  }
+  try { await navigator.clipboard.writeText(url.href); toast('Link copied'); }
+  catch { toast(url.href, 6000); }
 }
 
 function toggleFound(id) {
@@ -1657,6 +1675,7 @@ function wire() {
   addEventListener('popstate', onPopState);
   $('#detail-body').addEventListener('click', e => {
     if (e.target.closest('.found-btn')) return toggleFound(state.selected);
+    if (e.target.closest('.share-btn')) return shareMarker(state.selected);
     const um = e.target.closest('[data-um]');
     if (um) return state.um.detailAction(um.dataset.um, state.selected);
     const a = e.target.closest('a[data-loc]');

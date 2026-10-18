@@ -270,6 +270,60 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "oblivion",
+      "slug": "oblivion",
+      "title": "The Elder Scrolls IV: Oblivion",
+      "description": "Every marker on the The Elder Scrolls IV: Oblivion map.",
+      "poster": "oblivion/poster",
+      "theme": {
+        "accent": "#aa3118",
+        "accent-soft": "#e06a52",
+        "night": "#0c0706",
+        "panel": "#160d0c",
+        "panel-2": "#1f1411",
+        "line": "#362421"
+      },
+      "stats": [
+        {
+          "value": 1703,
+          "label": "markers"
+        },
+        {
+          "value": 57,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "skyrim",
+      "slug": "skyrim",
+      "title": "Skyrim",
+      "description": "Every marker on the Skyrim map.",
+      "poster": "skyrim/poster",
+      "theme": {
+        "accent": "#3d708e",
+        "accent-soft": "#77a8c4",
+        "night": "#060a0c",
+        "panel": "#0c1216",
+        "panel-2": "#111a1f",
+        "line": "#212e36"
+      },
+      "stats": [
+        {
+          "value": 2802,
+          "label": "markers"
+        },
+        {
+          "value": 125,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }

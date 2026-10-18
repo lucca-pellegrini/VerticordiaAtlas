@@ -546,3 +546,15 @@ dialog.um textarea:focus, dialog.um select:focus, dialog.um input:focus { border
 #tools-open:hover { color: var(--ink); background: var(--panel-2); }
 #tools-open:active { transform: scale(.94); }
 #map.tools-collapsed #tools-open { opacity: 1; visibility: visible; }
+
+/* the marker card's actions: "Mark as found" and "Share" side by side */
+.d-actions { display: flex; gap: 8px; align-items: stretch; }
+.d-actions .found-btn { flex: 1; }
+.share-btn {
+  flex: none; display: grid; place-items: center; width: 46px; height: 46px; margin: 0 0 18px; padding: 0; border-radius: 999px;
+  background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink-dim);
+  transition: background-color var(--fast), color var(--fast), transform var(--fast);
+}
+.share-btn svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.share-btn:hover { color: var(--ink); background: color-mix(in srgb, var(--panel-2), #fff 8%); }
+.share-btn:active { transform: scale(.94); }

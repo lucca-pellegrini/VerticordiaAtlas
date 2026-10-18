@@ -21,6 +21,7 @@
 //   --all-tilesets       download every tile set of a map (default: only the first)
 //   --videos             also download video media (default: images only)
 //   --no-tiles --no-media --no-markers
+//   --no-cards           don't rebuild the social preview cards (make-cards.mjs) at the end
 //   --html <file>        read the map page from a saved file instead of fetching it
 //   --mapdata <file>     use a saved window.mapData JSON (the old console snippet) for this one map
 //   --tiles-base <url>   tile CDN base (default https://tiles.mapgenie.io/games)
@@ -31,7 +32,7 @@ import { mkdir, writeFile, readFile, readdir, access, copyFile } from 'node:fs/p
 import path from 'node:path';
 import vm from 'node:vm';
 import { parseArgs } from 'node:util';
-import { pathToFileURL } from 'node:url';
+import { pathToFileURL, fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 const execFileP = promisify(execFile);
@@ -383,7 +384,7 @@ async function main() {
       out: { type: 'string', default: './maps' }, id: { type: 'string' }, slug: { type: 'string' }, accent: { type: 'string' }, title: { type: 'string' }, poster: { type: 'string' },
       'tag-label': { type: 'string' }, 'default-tag': { type: 'string' }, index: { type: 'string', default: './maps/index.json' },
       'max-zoom': { type: 'string' }, 'all-tilesets': { type: 'boolean', default: false }, videos: { type: 'boolean', default: false },
-      'no-tiles': { type: 'boolean', default: false }, 'no-media': { type: 'boolean', default: false }, 'no-markers': { type: 'boolean', default: false },
+      'no-tiles': { type: 'boolean', default: false }, 'no-media': { type: 'boolean', default: false }, 'no-markers': { type: 'boolean', default: false }, 'no-cards': { type: 'boolean', default: false },
       html: { type: 'string' }, mapdata: { type: 'string' },
       'tiles-base': { type: 'string' }, 'media-base': { type: 'string', default: 'https://media.mapgenie.io/v2/assets/prod/games' },
       concurrency: { type: 'string', default: '4' }, delay: { type: 'string', default: '100' }, 'max-tiles': { type: 'string', default: '400000' },
@@ -550,6 +551,17 @@ async function main() {
   console.log(`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ''}; ${urls.size} file(s) to fetch${v.videos ? '' : ' (images only; use --videos for the rest)'}`);
   if (!v['no-media'] && urls.size) await downloadMedia(urls, path.join(outDir, 'media'), opts);
   console.log(`\nDone: ${outDir}`);
+
+  // 11. social preview cards for the homepage and every game, and their tags (make-cards.mjs)
+  if (!v['no-cards']) {
+    const here = path.dirname(fileURLToPath(import.meta.url));
+    try {
+      await execFileP(process.execPath, [path.join(here, 'make-cards.mjs')], { cwd: here, maxBuffer: 16 << 20 });
+      console.log('Cards rebuilt (make-cards.mjs).');
+    } catch (e) {
+      console.log('! Cards not rebuilt, run "node make-cards.mjs" by hand:', String(e.stderr || e.message).trim().split('\n').slice(-1)[0]);
+    }
+  }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
