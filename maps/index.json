@@ -486,6 +486,60 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "re2",
+      "slug": "re2",
+      "title": "Resident Evil 2",
+      "description": "Every marker on the Resident Evil 2 (Remake) map.",
+      "poster": "re2/poster",
+      "theme": {
+        "accent": "#2c5a96",
+        "accent-soft": "#6192d1",
+        "night": "#06090c",
+        "panel": "#0c1016",
+        "panel-2": "#11171f",
+        "line": "#212a36"
+      },
+      "stats": [
+        {
+          "value": 2366,
+          "label": "markers"
+        },
+        {
+          "value": 143,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Difficulty",
+      "defaultTag": null
+    },
+    {
+      "id": "re5",
+      "slug": "re5",
+      "title": "Resident Evil 5",
+      "description": "Every marker on the Resident Evil 5 map.",
+      "poster": "re5/poster",
+      "theme": {
+        "accent": "#aa2f18",
+        "accent-soft": "#e06852",
+        "night": "#0c0706",
+        "panel": "#160d0c",
+        "panel-2": "#1f1411",
+        "line": "#362421"
+      },
+      "stats": [
+        {
+          "value": 1514,
+          "label": "markers"
+        },
+        {
+          "value": 53,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }

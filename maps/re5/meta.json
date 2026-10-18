@@ -1,0 +1,80 @@
+{
+  "id": "re5",
+  "title": "Resident Evil 5",
+  "slug": "resident-evil-5",
+  "source": "https://mapgenie.io/resident-evil-5/maps/africa",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "africa",
+      "title": "Africa",
+      "data": "africa/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "africa/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 14,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "lost-in-nightmares",
+      "title": "Lost in Nightmares",
+      "data": "lost-in-nightmares/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "lost-in-nightmares/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 11,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "desperate-escape",
+      "title": "Desperate Escape",
+      "data": "desperate-escape/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "desperate-escape/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 9,
+          "maxzoom": 11,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

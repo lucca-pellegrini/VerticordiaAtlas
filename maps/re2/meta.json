@@ -1,0 +1,101 @@
+{
+  "id": "re2",
+  "title": "Resident Evil 2",
+  "slug": "resident-evil-2-remake",
+  "source": "https://mapgenie.io/resident-evil-2-remake/maps/claire-a",
+  "poster": "poster.jpg",
+  "tagLabel": "Difficulty",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "claire-a",
+      "title": "Claire [A]",
+      "data": "claire-a/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "claire-a/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 11,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "leon-a",
+      "title": "Leon [A]",
+      "data": "leon-a/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "leon-a/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 10,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "claire-b",
+      "title": "Claire [B]",
+      "data": "claire-b/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "claire-b/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 10,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "leon-b",
+      "title": "Leon [B]",
+      "data": "leon-b/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "leon-b/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 10,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}
