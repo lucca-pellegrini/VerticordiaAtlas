@@ -6,7 +6,12 @@
   "poster": "poster.jpg",
   "tagLabel": "Filter",
   "defaultTag": null,
-  "markers": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
   "maps": [
     {
       "slug": "skyrim",
