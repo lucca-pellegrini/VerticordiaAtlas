@@ -324,6 +324,60 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "re7",
+      "slug": "re7",
+      "title": "Resident Evil 7: Biohazard",
+      "description": "Every marker on the Resident Evil 7: Biohazard map.",
+      "poster": "re7/poster",
+      "theme": {
+        "accent": "#91723e",
+        "accent-soft": "#c6a979",
+        "night": "#0c0a06",
+        "panel": "#16120c",
+        "panel-2": "#1f1a11",
+        "line": "#362e21"
+      },
+      "stats": [
+        {
+          "value": 1420,
+          "label": "markers"
+        },
+        {
+          "value": 77,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Difficulty",
+      "defaultTag": null
+    },
+    {
+      "id": "village",
+      "slug": "village",
+      "title": "Resident Evil Village",
+      "description": "Every marker on the Resident Evil Village map.",
+      "poster": "village/poster",
+      "theme": {
+        "accent": "#3a6f88",
+        "accent-soft": "#70a8c2",
+        "night": "#060a0c",
+        "panel": "#0c1216",
+        "panel-2": "#111b1f",
+        "line": "#212f36"
+      },
+      "stats": [
+        {
+          "value": 964,
+          "label": "markers"
+        },
+        {
+          "value": 33,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }

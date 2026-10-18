@@ -1,0 +1,59 @@
+{
+  "id": "oblivion",
+  "title": "The Elder Scrolls IV: Oblivion",
+  "slug": "oblivion",
+  "source": "https://mapgenie.io/oblivion/maps/cyrodiil",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "cyrodiil",
+      "title": "Cyrodiil",
+      "data": "cyrodiil/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "cyrodiil/tiles/default-v2/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "shivering-isles",
+      "title": "Shivering Isles",
+      "data": "shivering-isles/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "shivering-isles/tiles/default-v2/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 14,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "id": "re7",
+  "title": "Resident Evil 7: Biohazard",
+  "slug": "resident-evil-7-biohazard",
+  "source": "https://mapgenie.io/resident-evil-7-biohazard/maps/baker-ranch",
+  "poster": "poster.jpg",
+  "tagLabel": "Difficulty",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "baker-ranch",
+      "title": "Baker Ranch",
+      "data": "baker-ranch/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "baker-ranch/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 9,
+          "maxzoom": 14,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "end-of-zoe",
+      "title": "End of Zoe",
+      "data": "end-of-zoe/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "end-of-zoe/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 14,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "not-a-hero",
+      "title": "Not a Hero",
+      "data": "not-a-hero/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "not-a-hero/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 9,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "village",
+  "title": "Resident Evil Village",
+  "slug": "resident-evil-village",
+  "source": "https://mapgenie.io/resident-evil-village/maps/the-village",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "the-village",
+      "title": "The Village",
+      "data": "the-village/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "the-village/tiles/default-v5/{z}/{x}/{y}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -2.00353402474594,
+            -0.09108986682517989,
+            0.5698767702615801,
+            1.6051129144135898
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}
