@@ -7,6 +7,7 @@ const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').re
 const fmt = n => Number(n).toLocaleString();
 import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML, setupDrawing } from './drawing.js';
 import { MARKER_CONTROL_HTML, TEMP_CAT, pingImage, setupUserMarkers } from './usermarkers.js';
+import { packMarker } from './share-link.mjs';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
 
@@ -224,10 +225,12 @@ async function boot() {
 function applyTheme(theme = {}) {
   const root = document.documentElement.style;
   for (const [name, value] of Object.entries(theme)) {
-    if (CSS.supports(`--${name}`, value)) root.setProperty(`--${name}`, value);
+    if (CSS.supports(`--${name}`, value)) { root.setProperty(`--${name}`, value); themeState.set(name, value); }
   }
   // backreferences: accent-soft pulled towards the night colour, so they read as the same family but dimmer
-  root.setProperty('--backlink', mixColor(themeVar('accent-soft'), themeVar('night'), 0.7));
+  const backlink = mixColor(themeVar('accent-soft'), themeVar('night'), 0.7);
+  root.setProperty('--backlink', backlink);
+  themeState.set('backlink', backlink);
   // browser chrome follows the theme too: tab colour on mobile and the favicon pin
   document.querySelector('meta[name=theme-color]')?.setAttribute('content', themeVar('night'));
   const icon = document.querySelector('link[rel=icon]');
@@ -236,7 +239,15 @@ function applyTheme(theme = {}) {
     icon.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
   }
 }
-const themeVar = name => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+// the colours applyTheme set, as written (hex or rgb). Read from here rather than from the page: the registered theme
+// colours read back as oklab(), which MapLibre cannot parse.
+const themeState = new Map();
+const themeVar = name => {
+  if (themeState.has(name)) return themeState.get(name);
+  const raw = getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+  colorProbe.fillStyle = raw;
+  return colorProbe.fillStyle;
+};
 
 // Blend two CSS colours: t of a, the rest of b. Parsed through a canvas, so any CSS colour format works.
 const colorProbe = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
@@ -612,10 +623,17 @@ async function profileAction(act) {
     refreshAll();
   } else if (act === 'export') {
     await saveProfileNow();
+    // every profile with what is in it: found markers, drawings, the user's own categories and markers, and the
+    // map and camera it was on; plus the presets of every map (each one says which map it belongs to)
+    const presets = [];
+    for (const m of state.meta.maps) for (const q of await presetsOf(m.slug)) presets.push({ map: m.slug, id: q.id, name: q.name, hidden: q.hidden });
     const payload = {
       app: 'offline-map-viewer', version: 1, game: state.entry.id, exported: new Date().toISOString(),
-      profiles: state.profiles.map(({ id, name, tag, found, created, updated, drawings, userCats, userMarkers }) => ({ id, name, tag, found, created, updated, drawings: drawings || [], userCats: userCats || [], userMarkers: userMarkers || [] })),
-      presets: state.presets.map(({ id, name, hidden }) => ({ id, name, hidden })),
+      profiles: state.profiles.map(({ id, name, tag, found, created, updated, map, cameras, drawings, userCats, userMarkers }) => ({
+        id, name, tag, found, created, updated, map: map ?? null, cameras: cameras || {},
+        drawings: drawings || [], userCats: userCats || [], userMarkers: userMarkers || [],
+      })),
+      presets,
     };
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([JSON.stringify(payload)], { type: 'application/json' }));
@@ -632,31 +650,128 @@ async function importFile(file) {
     const payload = JSON.parse(await file.text());
     if (payload.app !== 'offline-map-viewer' || !Array.isArray(payload.profiles)) throw new Error('not a progress file');
     if (payload.game !== state.entry.id) throw new Error(`this file is for "${payload.game}", not "${state.entry.id}"`);
-    const presets = Array.isArray(payload.presets) ? payload.presets.filter(p => p && p.id && Array.isArray(p.hidden)) : [];
-    const ok = await askDialog({ title: 'Import progress?', message: `${payload.profiles.length} profile(s) and ${presets.length} preset(s) will be added. Items with the same id are replaced.`, okLabel: 'Import' });
-    if (!ok) return;
+    const profs = payload.profiles.filter(q => q && q.id && Array.isArray(q.found));
+    const pres = (Array.isArray(payload.presets) ? payload.presets : []).filter(p => p && p.id && Array.isArray(p.hidden));
+
+    // what would collide: a profile with the same id or name; a preset with the same id or name on its map
+    const conflicts = [];
+    for (const q of profs) {
+      if (state.profiles.some(p => p.id === q.id || p.name === String(q.name || ''))) {
+        conflicts.push({ key: 'p:' + q.id, label: `Profile "${q.name || 'Imported'}"` });
+      }
+    }
+    for (const p of pres) {
+      const map = p.map || state.mapInfo.slug;
+      const list = await presetsOf(map);
+      if (list.some(x => x.id === String(p.id) || x.name === String(p.name || ''))) {
+        conflicts.push({ key: `s:${map}:${p.id}`, label: `Preset "${p.name || 'Imported'}" on ${mapTitle(map)}` });
+      }
+    }
+    let decisions = new Map();
+    if (conflicts.length) {
+      decisions = await chooseConflicts(conflicts);
+      if (!decisions) return;
+    } else {
+      const ok = await askDialog({ title: 'Import progress?', message: `${profs.length} profile(s) and ${pres.length} preset(s) will be added.`, okLabel: 'Import' });
+      if (!ok) return;
+    }
+
     await saveProfileNow();
-    for (const q of payload.profiles) {
-      if (!q.id || !Array.isArray(q.found)) continue;
-      const rec = { key: `${state.entry.id}:${q.id}`, id: q.id, game: state.entry.id, name: String(q.name || 'Imported'), tag: q.tag ?? null,
+    const takenNames = new Set(state.profiles.map(p => p.name));
+    for (const q of profs) {
+      let id = q.id, name = String(q.name || 'Imported');
+      const d = decisions.get('p:' + q.id);
+      if (d === 'rename') { id = uid(); name = uniqueName(name, takenNames); }
+      if (d === 'overwrite') {
+        const gone = state.profiles.filter(p => p.id === q.id || p.name === name);
+        for (const old of gone) await dbDelete('profiles', old.key);
+        state.profiles = state.profiles.filter(p => !gone.includes(p));
+      }
+      takenNames.add(name);
+      const rec = { key: `${state.entry.id}:${id}`, id, game: state.entry.id, name, tag: q.tag ?? null,
         found: q.found.filter(Number.isFinite), drawings: Array.isArray(q.drawings) ? q.drawings : [],
-        userCats: Array.isArray(q.userCats) ? q.userCats : [], userMarkers: Array.isArray(q.userMarkers) ? q.userMarkers : [], created: q.created || Date.now(), updated: Date.now() };
+        userCats: Array.isArray(q.userCats) ? q.userCats : [], userMarkers: Array.isArray(q.userMarkers) ? q.userMarkers : [],
+        map: q.map || undefined, cameras: q.cameras && typeof q.cameras === 'object' ? q.cameras : undefined,
+        created: q.created || Date.now(), updated: Date.now() };
       await dbPut('profiles', rec);
       const at = state.profiles.findIndex(x => x.id === rec.id);
       if (at >= 0) state.profiles[at] = rec; else state.profiles.push(rec);
     }
-    for (const q of presets) {
-      const rec = { id: String(q.id), name: String(q.name || 'Imported'), hidden: q.hidden.filter(Number.isFinite) };
-      const at = state.presets.findIndex(x => x.id === rec.id);
-      if (at >= 0) state.presets[at] = rec; else state.presets.push(rec);
+
+    // presets go to the map they were made on; each map keeps its own list
+    const lists = new Map();
+    for (const p of pres) {
+      const map = p.map || state.mapInfo.slug;
+      if (!lists.has(map)) lists.set(map, [...await presetsOf(map)]);
+      const list = lists.get(map);
+      let id = String(p.id), name = String(p.name || 'Imported');
+      const d = decisions.get(`s:${map}:${p.id}`);
+      if (d === 'overwrite') {
+        const at = list.findIndex(x => x.id === id || x.name === name);
+        if (at >= 0) list.splice(at, 1);
+      } else if (d === 'rename') {
+        id = uid();
+        name = uniqueName(name, new Set(list.map(x => x.name)));
+      }
+      list.push({ id, name, hidden: p.hidden.filter(Number.isFinite) });
     }
-    if (presets.length) await savePresets();
+    for (const [map, list] of lists) {
+      if (map === state.mapInfo.slug) { state.presets = list; await savePresets(); }
+      else await setMeta(presetsKey(map), list);
+    }
+
     const cur = state.profiles.find(x => x.id === state.profile.id) || state.profiles[0];
     applyProfile(cur);
+    await syncMapToProfile();
     refreshAll();
     renderPresets();
     toast('Progress imported.');
   } catch (e) { toast('Import failed: ' + e.message, 5000); }
+}
+
+// presets of a map: the open map's list, or the stored one for another map
+async function presetsOf(map) {
+  if (state.mapInfo && map === state.mapInfo.slug) return state.presets;
+  return (await getMeta(presetsKey(map))) || [];
+}
+const mapTitle = map => state.meta?.maps?.find(m => m.slug === map)?.title || map;
+
+// "Name - copy" (then "- copy 2"...), not already in the set; the name is added to it
+function uniqueName(base, taken) {
+  let name = `${base} - copy`, n = 2;
+  while (taken.has(name)) name = `${base} - copy ${n++}`;
+  taken.add(name);
+  return name;
+}
+
+// one row per collision: keep both (the copy gets a new name) or overwrite the existing one. Resolves to a Map of
+// key -> 'rename' | 'overwrite', or null when cancelled.
+function chooseConflicts(items) {
+  return new Promise(resolve => {
+    const d = $('#dlg'), form = $('#dlg-form');
+    const rows = items.map((it, i) => `<fieldset class="conflict"><legend>${esc(it.label)}</legend>` +
+      `<label><input type="radio" name="c${i}" value="rename" checked> Keep both</label>` +
+      `<label><input type="radio" name="c${i}" value="overwrite"> Overwrite the existing one</label></fieldset>`).join('');
+    form.innerHTML = `<h2>Some items already exist</h2>` +
+      `<p>Keeping both imports a copy under a new name ("- copy" is added).</p>` +
+      `<div class="bulk"><button type="button" data-all="rename">Keep all</button><button type="button" data-all="overwrite">Overwrite all</button></div>` +
+      `<div class="conflicts um">${rows}</div>` +
+      `<div class="dlg-actions"><button type="button" data-cancel>Cancel</button><button class="primary">Import</button></div>`;
+    d.classList.add('um');
+    const finish = r => { d.classList.remove('um'); if (d.open) d.close(); resolve(r); };
+    form.onsubmit = e => {
+      e.preventDefault();
+      const out = new Map();
+      items.forEach((it, i) => out.set(it.key, form.elements[`c${i}`].value));
+      finish(out);
+    };
+    form.querySelectorAll('[data-all]').forEach(b => b.onclick = () => {
+      items.forEach((_, i) => { form.querySelector(`input[name="c${i}"][value="${b.dataset.all}"]`).checked = true; });
+    });
+    form.querySelector('[data-cancel]').onclick = () => finish(null);
+    d.oncancel = () => finish(null);
+    d.showModal();
+  });
 }
 
 /* ---------- filtering and stats ---------- */
@@ -1172,6 +1287,8 @@ function createMap() {
     // a shared link carries ?loc=<id>; the hash (#loc=<id>) is what the app writes while browsing
     const q = new URLSearchParams(location.search).get('loc');
     const m = /^#loc=(\d+)/.exec(location.hash) || (/^\d+$/.test(q || '') ? [null, q] : null);
+    const packed = new URLSearchParams(location.search).get('tm');
+    if (packed) { history.replaceState(null, '', location.pathname); state.um.addSharedTemp(packed); }
     if (m && state.byId.has(+m[1])) {
       // a shared link starts a stack of its own: the page entry underneath is the bottom of it
       history.replaceState(null, '', location.pathname + location.search);
@@ -1695,7 +1812,7 @@ function renderDetail() {
     `<div class="d-cat" style="--c:${l.user && cat?.icon ? '#' + cat.icon.slice(3).replace('-t', '') : (g ? g.col : '#888')}"><i></i>${esc(cat?.title || '')}</div>` +
     `<h2 class="d-title">${esc(l.title)}</h2>` + (l.user ? state.um.detailHtml(l) : '') +
     `<div class="d-actions">${ok ? `<button class="found-btn${isFound ? ' on' : ''}" type="button" aria-pressed="${isFound}">${isFound ? 'Found. Tap to undo' : 'Mark as found'}</button>` : ''}` +
-    (l.user ? '' : '<button class="share-btn" type="button" aria-label="Share this marker" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.4 10.8l7.2-4.4M8.4 13.2l7.2 4.4"/></svg></button>') + '</div>' +
+    '<button class="share-btn" type="button" aria-label="Share this marker" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="glyph"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.4 10.8l7.2-4.4M8.4 13.2l7.2 4.4"/></g><path class="tick" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>' +
     `<div class="d-desc">${renderMd(l.desc)}</div>` + only + notHere +
     (shots ? `<div class="shots">${shots}</div>` : '') + backrefs;
 
@@ -1713,18 +1830,56 @@ function renderDetail() {
 }
 
 // a link that opens this marker on this game page; the system share sheet when there is one, else the clipboard
-async function shareMarker(id) {
+// the link to a marker: a page link for official markers; for the user's own, the marker itself is in the link
+async function shareMarker(id, btn) {
   const l = state.byId.get(id);
   if (!l) return;
   const url = new URL(location.href);
   url.hash = '';
-  url.search = new URLSearchParams({ loc: String(id), map: state.mapInfo.slug }).toString();
-  if (navigator.share) {
-    try { return await navigator.share({ title: `${l.title} · ${state.entry.title}`, url: url.href }); }
+  if (l.user) {
+    const cat = l.temp ? null : state.cats.get(l.cat);
+    const packed = await packMarker({ title: l.title, category: cat?.title || '', desc: l.desc, lat: l.lat, lng: l.lng, map: state.mapInfo.slug });
+    url.search = new URLSearchParams({ tm: packed, map: state.mapInfo.slug }).toString();
+  } else {
+    url.search = new URLSearchParams({ loc: String(id), map: state.mapInfo.slug }).toString();
+  }
+  await deliverLink(url.href, btn);
+}
+
+// on a mouse, the link goes to the clipboard and the button says so; on a phone, the system share sheet opens.
+// If the clipboard is not available, the link is shown as a plain link to copy with a right-click.
+async function deliverLink(url, btn) {
+  const mouse = matchMedia('(pointer: fine)').matches;
+  if (!mouse && navigator.share) {
+    try { return await navigator.share({ title: state.entry.title, url }); }
     catch (e) { if (e.name === 'AbortError') return; }
   }
-  try { await navigator.clipboard.writeText(url.href); toast('Link copied'); }
-  catch { toast(url.href, 6000); }
+  try {
+    await navigator.clipboard.writeText(url);
+    flashCopied(btn);
+  } catch {
+    showLinkFallback(url);
+  }
+}
+
+let copiedTimer = null;
+function flashCopied(btn) {
+  if (!btn) return;
+  btn.classList.remove('copied');
+  void btn.offsetWidth; // restart the animation if it is already showing
+  btn.classList.add('copied');
+  btn.title = 'Link copied';
+  clearTimeout(copiedTimer);
+  copiedTimer = setTimeout(() => { btn.classList.remove('copied'); btn.title = 'Share'; }, 1800);
+}
+
+function showLinkFallback(url) {
+  const body = $('#detail-body');
+  body.querySelector('.share-fallback')?.remove();
+  const p = document.createElement('p');
+  p.className = 'share-fallback';
+  p.innerHTML = `Copy this link: <a href="${esc(url)}" target="_blank" rel="noopener">${esc(url)}</a>`;
+  (body.querySelector('.d-actions') || body.firstElementChild)?.after(p);
 }
 
 function toggleFound(id) {
@@ -1814,7 +1969,7 @@ function wire() {
   addEventListener('popstate', onPopState);
   $('#detail-body').addEventListener('click', e => {
     if (e.target.closest('.found-btn')) return toggleFound(state.selected);
-    if (e.target.closest('.share-btn')) return shareMarker(state.selected);
+    if (e.target.closest('.share-btn')) return shareMarker(state.selected, e.target.closest('.share-btn'));
     const um = e.target.closest('[data-um]');
     if (um) return state.um.detailAction(um.dataset.um, state.selected);
     const a = e.target.closest('a[data-loc]');

@@ -2,6 +2,7 @@
 // in this tab. They are drawn as a ping in their category colour, can hold notes (markdown), and link to any
 // other marker the same way official markers link to each other. Export and import carry the profile's copy.
 import { PALETTE } from './drawing.js';
+import { unpackMarker } from './share-link.mjs';
 
 export const TEMP_CAT_ID = -1;
 export const TEMP_CAT = { id: TEMP_CAT_ID, title: 'Temporary', color: '#ffb547', temp: true };
@@ -134,8 +135,8 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
   }
 
   /* ---- the marker form: new (at a point) or edit ---- */
-  async function markerForm({ marker = null, pos = null, temp = false }) {
-    const isTemp = marker ? !!marker.temp : temp;
+  async function markerForm({ marker = null, pos = null, temp = false, promote = false }) {
+    const isTemp = promote ? false : marker ? !!marker.temp : temp; // promoting a temporary marker: it becomes a permanent one
     const cats = profileCats();
     const links = [...(marker?.links || [])];
     const selCat = marker && !marker.temp ? marker.cat : (cats[0]?.id ?? NEW_CAT);
@@ -192,7 +193,8 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
       drawChips();
     };
 
-    const res = await dialog(marker ? 'Edit marker' : 'New marker', body, { ok: marker ? 'Save' : 'Place', danger: marker ? 'Delete' : null, onReady });
+    const heading = promote ? 'Make permanent' : marker ? 'Edit marker' : 'New marker';
+    const res = await dialog(heading, body, { ok: marker && !promote ? 'Save' : promote ? 'Make permanent' : 'Place', danger: marker && !promote ? 'Delete' : null, onReady });
     if (!res) return null;
     if (res.del) { await deleteMarker(marker); return null; }
 
@@ -213,7 +215,12 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     const data = { title, cat, desc: f.desc.value, links: links.filter(id => id !== marker?.id && state.byId.has(id)) };
     let saved;
     const oldCat = marker?.cat;
-    if (marker) saved = Object.assign(marker, data);
+    if (promote) {
+      // the temporary marker leaves the temporary list and joins the profile's own, keeping its place and id
+      state.tempMarkers = state.tempMarkers.filter(x => x.id !== marker.id);
+      saved = { id: marker.id, ...data, lat: marker.lat, lng: marker.lng, created: Date.now(), map: marker.map };
+      profileMarkers().push(saved);
+    } else if (marker) saved = Object.assign(marker, data);
     else if (isTemp) { saved = { id: newId(), ...data, lat: pos.lat, lng: pos.lng, temp: true, map: state.mapInfo.slug }; state.tempMarkers.push(saved); }
     else { saved = { id: newId(), ...data, lat: pos.lat, lng: pos.lng, created: Date.now(), map: state.mapInfo.slug }; profileMarkers().push(saved); }
     if (oldCat !== undefined && oldCat !== saved.cat) pruneEmptyCategories([oldCat]); // moved out of its old category
@@ -317,6 +324,17 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     markerBtn.setAttribute('aria-pressed', String(on));
   }
 
+  // a link to a user marker: it is added as a temporary marker on the current map, and focused
+  async function addSharedTemp(packed) {
+    const d = await unpackMarker(packed);
+    if (!d) return toast('That link does not hold a valid marker.', 5000);
+    const m = { id: newId(), title: d.title, desc: d.desc, cat: TEMP_CAT_ID, lat: d.lat, lng: d.lng, links: [], temp: true, map: state.mapInfo.slug };
+    state.tempMarkers.push(m);
+    changed();
+    select(m.id, { fly: true });
+    toast('Shared marker added as temporary. Make it permanent from its card.', 5000);
+  }
+
   /* ---- hooks for the sidebar's group and category menus ---- */
   function menuItems(user) {
     if (!user) return [];
@@ -347,16 +365,18 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
       ? `<div class="d-links"><h3>Links</h3><ul>${links.map(t => `<li><a href="#loc=${t.id}" data-loc="${t.id}">${esc(t.title)}</a></li>`).join('')}</ul></div>`
       : '';
     return `<div class="um-bar"><span class="um-badge">${l.temp ? 'Temporary' : 'Your marker'}</span>` +
+      (l.temp ? '<button type="button" data-um="promote">Make permanent</button>' : '') +
       '<button type="button" data-um="edit">Edit</button><button type="button" data-um="move">Move</button>' +
       '<button type="button" data-um="delete" class="danger">Delete</button></div>' + list;
   }
   async function detailAction(act, id) {
     const m = findMarker(id);
     if (!m) return;
-    if (act === 'edit') await markerForm({ marker: m });
+    if (act === 'promote') await markerForm({ marker: m, promote: true });
+    else if (act === 'edit') await markerForm({ marker: m });
     else if (act === 'move') startMove(m);
     else if (act === 'delete') await deleteMarker(m);
   }
 
-  return { setActive, menuItems, menuAction, detailHtml, detailAction, deleteMany };
+  return { setActive, menuItems, menuAction, detailHtml, detailAction, deleteMany, addSharedTemp };
 }

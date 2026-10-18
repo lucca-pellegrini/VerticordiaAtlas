@@ -19,6 +19,7 @@ import { readFile, readdir, stat, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { ROOT, exists, loadGames, markerHtml, chromePath, drawCard, socialTags, withHead, plainText } from './cards.mjs';
+import { unpackMarker } from './share-link.mjs';
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
@@ -146,6 +147,44 @@ async function sharePage(req, res, gameSlug, mapSlug, id) {
   return true;
 }
 
+// a marker the user made, shared as a link: the marker is in the link itself, so its preview is made from the link
+async function sharedMarkerPage(req, res, gameSlug, packed) {
+  const d = await unpackMarker(packed);
+  const g = d && (await games()).find(x => x.slug === gameSlug);
+  if (!g) return false;
+  const origin = await siteOrigin(req);
+  const shownTitle = `${d.title} · ${g.title}`;
+  const description = [d.category, plainText(d.desc, 150)].filter(Boolean).join(' · ') || `A marker on the ${g.title} map.`;
+  const block = socialTags({
+    title: shownTitle, description,
+    url: `${origin}/maps/${encodeURI(gameSlug)}/?tm=${packed}&map=${encodeURIComponent(d.map)}`,
+    image: `${origin}/cards/tm/${encodeURI(gameSlug)}.jpg?tm=${packed}`,
+    alt: `${d.title} on the ${g.title} map`,
+  });
+  const html = withHead(await readFile(path.join(ROOT, 'maps', gameSlug, 'index.html'), 'utf8'), block, `${shownTitle} · Verticordia Atlas`);
+  send(res, 200, html, 'text/html; charset=utf-8', { 'Cache-Control': 'no-cache' });
+  return true;
+}
+
+async function sharedMarkerCard(res, gameSlug, packed) {
+  const d = await unpackMarker(packed);
+  const g = d && (await games()).find(x => x.slug === gameSlug);
+  if (!g) return send(res, 404, 'no such marker');
+  const key = crypto.createHash('sha1').update('tm1').update(packed).digest('hex').slice(0, 16);
+  const file = path.join(ROOT, 'cache', 'share', `tm-${encodeURIComponent(gameSlug)}-${key}.jpg`);
+  if (!await exists(file)) {
+    await once(file, async () => {
+      if (await exists(file)) return;
+      console.log(`card: shared marker in ${gameSlug} (${d.title})`);
+      await drawCard(await chrome(), markerHtml({
+        title: d.title, category: d.category, description: plainText(d.desc, 150), gameTitle: g.title, theme: g.theme, poster: g.poster,
+      }), file);
+    });
+  }
+  res.writeHead(200, { 'Content-Type': 'image/jpeg', 'Cache-Control': 'public, max-age=86400' });
+  createReadStream(file).pipe(res);
+}
+
 // plain files from the site folder; a folder asks for its trailing slash, and hidden or cache paths are not served
 async function serveStatic(req, res, url) {
   const rel = decodeURIComponent(url.pathname);
@@ -199,7 +238,12 @@ const server = http.createServer(async (req, res) => {
     const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
     if (card) return await shareCard(res, card[1], card[2], Number(card[3]));
 
+    const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
+    if (tmCard) return await sharedMarkerCard(res, tmCard[1], url.searchParams.get('tm') || '');
+
     const page = /^\/maps\/([^/]+)\/?$/.exec(p);
+    const tm = url.searchParams.get('tm');
+    if (page && tm && await sharedMarkerPage(req, res, page[1], tm)) return;
     const loc = url.searchParams.get('loc');
     if (page && loc && /^\d+$/.test(loc)) {
       const map = url.searchParams.get('map') || '';

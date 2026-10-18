@@ -618,3 +618,25 @@ body.loading-map #map::after { opacity: 1; }
 #map .maplibregl-canvas-container, #map .maplibregl-control-container { transition: opacity .9s var(--ease); }
 body.loading-map #map .maplibregl-canvas-container, body.loading-map #map .maplibregl-control-container { opacity: 0; }
 
+
+/* the share button: after a copy, its glyph becomes a tick and the button turns green for a moment */
+.share-btn .glyph, .share-btn .tick { transition: opacity .2s var(--ease); }
+.share-btn .tick { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0; }
+.share-btn.copied { background: var(--ok); border-color: var(--ok); color: #0b0e10; animation: copy-pop .4s var(--ease); }
+.share-btn.copied .glyph { opacity: 0; }
+.share-btn.copied .tick { opacity: 1; }
+@keyframes copy-pop { 0% { transform: scale(1); } 40% { transform: scale(1.12); } 100% { transform: scale(1); } }
+
+/* when the clipboard is not available: the link itself, to copy with a right-click */
+.share-fallback { margin: -6px 0 16px; font-size: 12.5px; color: var(--ink-dim); word-break: break-all; }
+.share-fallback a { color: var(--accent-soft); }
+
+/* import: items that already exist */
+.bulk { display: flex; gap: 8px; margin: 4px 0 12px; }
+.bulk button { padding: 6px 12px; border-radius: 999px; font-size: 12.5px; background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink); }
+.bulk button:hover { background: color-mix(in srgb, var(--panel-2), #fff 8%); }
+.conflicts { display: grid; gap: 10px; }
+.conflict { margin: 0; padding: 10px 12px; border: 1px solid var(--line-2); border-radius: 12px; display: grid; gap: 6px; }
+.conflict legend { padding: 0 6px; color: var(--ink); font-size: 14px; }
+.conflict label { display: flex; align-items: center; gap: 8px; color: var(--ink-dim); font-size: 13.5px; cursor: pointer; }
+.conflict input { accent-color: var(--accent); }
