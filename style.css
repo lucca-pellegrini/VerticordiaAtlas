@@ -344,3 +344,26 @@ dialog input[type=text] { margin-bottom: 14px; }
   body.side-collapsed #app { grid-template-columns: 1fr; }
   body.side-collapsed #side { display: none; }
 }
+
+/* ---------- map tools: hand + selection (stacked under the zoom buttons) ---------- */
+.tool-ctrl { margin-top: 10px; }
+.tool-ctrl button { position: relative; display: grid; place-items: center; }
+.tool-ctrl svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tool-ctrl button[aria-pressed="true"] { color: var(--accent-soft); background: var(--tint); }
+/* the notch in the lower right corner marks a tool with a flyout: right-click or hold for its options */
+.tool-ctrl #tool-select.notched::after {
+  content: ""; position: absolute; right: 3px; bottom: 3px; width: 5px; height: 5px; opacity: .75;
+  background: currentColor; clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+/* select tool: crosshair over the map, and the browser must not scroll or zoom under a drag */
+.tool-select .maplibregl-canvas-container, .tool-select canvas { cursor: crosshair !important; touch-action: none !important; }
+
+.sel-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 1; }
+.sel-shape {
+  fill: color-mix(in srgb, var(--accent) 16%, transparent); stroke: var(--accent-soft); stroke-width: 1.5;
+  stroke-dasharray: 6 4; animation: march 1.4s linear infinite;
+}
+@keyframes march { to { stroke-dashoffset: -20; } }
+
+#shape-menu button { position: relative; padding-right: 30px; }
+#shape-menu [aria-checked="true"]::after { content: "\2713"; position: absolute; right: 11px; top: 50%; translate: 0 -50%; color: var(--accent-soft); }
