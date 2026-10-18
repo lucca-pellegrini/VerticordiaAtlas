@@ -566,3 +566,55 @@ dialog.um textarea:focus, dialog.um select:focus, dialog.um input:focus { border
 .map-switch button { flex: 1 0 auto; padding: 7px 14px; border: 0; border-radius: 999px; background: none; color: var(--ink-dim); font: 500 13px/1 var(--sans); white-space: nowrap; transition: background-color var(--fast), color var(--fast); }
 .map-switch button:hover { color: var(--ink); }
 .map-switch button[aria-pressed="true"] { background: var(--tint); color: var(--ink); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent); }
+
+/* loading, and the fades that follow it. Throbbers stand in for what is not ready yet; everything fades in once it is. */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* the theme: its colours are registered, so they animate when a game changes them (and on the first load) */
+@property --night { syntax: '<color>'; inherits: true; initial-value: #0b0e10; }
+@property --panel { syntax: '<color>'; inherits: true; initial-value: #12161a; }
+@property --panel-2 { syntax: '<color>'; inherits: true; initial-value: #181e22; }
+@property --line { syntax: '<color>'; inherits: true; initial-value: #252d33; }
+@property --line-2 { syntax: '<color>'; inherits: true; initial-value: #3a434b; }
+@property --accent { syntax: '<color>'; inherits: true; initial-value: #d6453b; }
+@property --accent-soft { syntax: '<color>'; inherits: true; initial-value: #f0877d; }
+@property --backlink { syntax: '<color>'; inherits: true; initial-value: #b5685f; }
+@property --tint { syntax: '<color>'; inherits: true; initial-value: #d6453b33; }
+@property --glow { syntax: '<color>'; inherits: true; initial-value: #d6453b38; }
+@property --hover { syntax: '<color>'; inherits: true; initial-value: #ffffff0f; }
+:root {
+  transition: --night .8s var(--ease), --panel .8s var(--ease), --panel-2 .8s var(--ease), --line .8s var(--ease), --line-2 .8s var(--ease),
+    --accent .8s var(--ease), --accent-soft .8s var(--ease), --backlink .8s var(--ease), --tint .8s var(--ease), --glow .8s var(--ease), --hover .8s var(--ease);
+}
+
+/* the sidebar's numbers and selectors: they cross-fade with their throbbers */
+.progress { position: relative; }
+.profile-row { position: relative; }
+.progress-num, .progress .bar, #profile-select, #tag-row, #preset-select, #profile-menu-btn, #preset-menu-btn {
+  transition: opacity .5s var(--ease);
+}
+body.loading-side .progress-num, body.loading-side .progress .bar, body.loading-side #profile-select, body.loading-side #tag-row,
+body.loading-side #preset-select, body.loading-side #preset-menu-btn, body.loading-side #profile-menu-btn { opacity: 0; pointer-events: none; }
+
+/* throbbers: hidden unless their part is loading */
+.progress::after, .profile-row::after, #groups::after, #map::after {
+  content: ""; position: absolute; left: 50%; border-radius: 50%; border: 2px solid var(--line-2); border-top-color: var(--accent-soft);
+  animation: spin .8s linear infinite; opacity: 0; transition: opacity .35s var(--ease); pointer-events: none;
+}
+.progress::after, .profile-row::after { top: 50%; width: 22px; height: 22px; margin: -11px 0 0 -11px; }
+#groups::after { top: 56px; width: 26px; height: 26px; margin-left: -13px; }
+#map::after { top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-width: 3px; border-color: rgb(255 255 255 / .12); border-top-color: var(--accent-soft); z-index: 5; }
+body.loading-side .progress::after, body.loading-side .profile-row::after, body.loading-side #groups::after { opacity: 1; }
+body.loading-map #map::after { opacity: 1; }
+
+.spinner { display: inline-block; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line-2); border-top-color: var(--accent-soft); animation: spin .8s linear infinite; }
+.map-switch.placeholder { display: flex; justify-content: center; align-items: center; min-height: 40px; padding: 4px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 999px; overflow: visible; }
+
+/* the marker list fades in once it is built */
+#groups.enter { animation: fade-in .6s var(--ease) both; }
+
+/* the map: hidden until its first tiles are drawn (the tiles themselves fade in), then the canvas and the controls fade in */
+#map .maplibregl-canvas-container, #map .maplibregl-control-container { transition: opacity .9s var(--ease); }
+body.loading-map #map .maplibregl-canvas-container, body.loading-map #map .maplibregl-control-container { opacity: 0; }
+

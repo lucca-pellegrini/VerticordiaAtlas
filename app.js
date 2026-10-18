@@ -197,6 +197,7 @@ function loadImage(src) {
 }
 
 function fatal(msg) {
+  document.body.classList.remove('loading-side', 'loading-map');
   $('#groups').innerHTML = `<p style="padding:16px;color:var(--blood)">${esc(msg)}</p>`;
   console.error(msg);
 }
@@ -257,6 +258,7 @@ async function loadMeta() {
 }
 
 async function loadGame(entry) {
+  showMapSwitchPlaceholder();
   state.entry = entry;
   state.folder = '.'; // data files sit next to the page
   applyTheme(entry.theme);
@@ -286,6 +288,9 @@ async function loadGame(entry) {
   catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
   buildSidebar();
   renderMapSwitch();
+  updateSidebar();
+  $('#groups').classList.add('enter'); // the list fades in as the panel comes up
+  document.body.classList.remove('loading-side'); // the side panel has its numbers and selectors now
   createMap();
 }
 
@@ -362,8 +367,7 @@ async function loadMapState() {
 }
 
 // the map switcher in the side panel: one button per map, shown when the game has more than one
-function renderMapSwitch() {
-  const maps = state.meta?.maps || [];
+function mapSwitchEl() {
   let nav = document.getElementById('map-switch');
   if (!nav) {
     nav = document.createElement('nav');
@@ -373,6 +377,19 @@ function renderMapSwitch() {
     nav.onclick = e => { const b = e.target.closest('button[data-map]'); if (b) switchMap(b.dataset.map); };
     document.querySelector('.side-head .progress').before(nav);
   }
+  return nav;
+}
+// while the game loads: a throbber where the map buttons will go
+function showMapSwitchPlaceholder() {
+  const nav = mapSwitchEl();
+  nav.hidden = false;
+  nav.classList.add('placeholder');
+  nav.innerHTML = '<span class="spinner" role="status" aria-label="Loading maps"></span>';
+}
+function renderMapSwitch() {
+  const maps = state.meta?.maps || [];
+  const nav = mapSwitchEl();
+  nav.classList.remove('placeholder');
   nav.hidden = maps.length < 2;
   nav.innerHTML = maps.map(m => `<button type="button" data-map="${esc(m.slug)}" aria-pressed="${m.slug === state.mapInfo?.slug}">${esc(m.title || m.slug)}</button>`).join('');
 }
@@ -404,7 +421,7 @@ function setBaseTiles(map) {
     minzoom: ts.minzoom ?? 0, maxzoom: ts.maxzoom ?? 18,
     bounds: [w, s + 0.001, e - 0.001, n],
   });
-  map.addLayer({ id: 'base', type: 'raster', source: 'base', paint: { 'raster-fade-duration': 0 } }, map.getLayer('sel') ? 'sel' : undefined);
+  map.addLayer({ id: 'base', type: 'raster', source: 'base', paint: { 'raster-fade-duration': 600 } }, map.getLayer('sel') ? 'sel' : undefined);
 }
 
 // the camera of the open map goes into the profile (with which map it is), so a visit resumes where it was
@@ -422,9 +439,10 @@ async function switchMap(slug, { remember = true } = {}) {
   if (!state.mapReady || slug === state.mapInfo?.slug) return;
   const info = state.meta.maps.find(m => m.slug === slug);
   if (!info) return;
+  document.body.classList.add('loading-map');
   if (remember) rememberCamera(true); // where we were on the map we are leaving
   try { await prepareMap(info); }
-  catch (e) { return toast(`Could not load ${info.title}.`, 4000); }
+  catch (e) { document.body.classList.remove('loading-map'); return toast(`Could not load ${info.title}.`, 4000); }
   dismiss();
   state.sel = null;
   setBaseTiles(state.map);
@@ -433,6 +451,8 @@ async function switchMap(slug, { remember = true } = {}) {
   state.map.setMaxZoom(lim.maxZoom);
   state.map.setMaxBounds(lim.maxBounds);
   state.map.jumpTo(startOf(info, state.data, state.profile?.cameras?.[slug]));
+  state.map.once('idle', () => document.body.classList.remove('loading-map'));
+  setTimeout(() => document.body.classList.remove('loading-map'), 8000);
   if (remember) rememberCamera(true);
   refreshAll();
   renderMapSwitch();
@@ -1145,6 +1165,8 @@ function createMap() {
     });
 
     state.mapReady = true;
+    map.once('idle', () => document.body.classList.remove('loading-map'));
+    setTimeout(() => document.body.classList.remove('loading-map'), 8000); // in case the tiles never report idle
     updateSidebar();
     refreshMap();
     // a shared link carries ?loc=<id>; the hash (#loc=<id>) is what the app writes while browsing
