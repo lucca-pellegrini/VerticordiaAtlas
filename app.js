@@ -821,7 +821,9 @@ function iconHtml(name) {
 function setSideCollapsed(collapsed) {
   document.body.classList.toggle('side-collapsed', collapsed);
   const b = $('#side-collapse');
-  b.textContent = collapsed ? '\u00bb' : '\u00ab';
+  b.innerHTML = collapsed
+    ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l6 6-6 6M13 6l6 6-6 6"/></svg>'
+    : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-6 6 6 6M11 6l-6 6 6 6"/></svg>';
   const label = collapsed ? 'Show panel' : 'Hide panel';
   b.title = label;
   b.setAttribute('aria-label', label);

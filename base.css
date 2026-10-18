@@ -23,8 +23,8 @@
   --tint: color-mix(in srgb, var(--accent) 20%, transparent);
   --hover: color-mix(in srgb, #fff 6%, transparent);
 
-  --serif: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Instrument Serif";
+  --sans: Inter;
 
   --ease: cubic-bezier(.2, .7, .2, 1);
   --fast: .14s;
@@ -45,3 +45,7 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* every piece of text is one of the two Google faces (--serif, --sans); controls and code do not fall back to the system font */
+button, input, select, textarea, optgroup, option { font-family: inherit; }
+code, pre, kbd, samp { font-family: var(--sans); }

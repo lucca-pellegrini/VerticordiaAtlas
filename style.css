@@ -121,7 +121,11 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
   flex: none; padding: 5px 11px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 12px; color: var(--ink-dim); text-decoration: none; white-space: nowrap;
   transition: color var(--fast), background-color var(--fast), border-color var(--fast);
 }
-.home-link::before { content: "\2190"; margin-right: 6px; }
+.home-link::before {
+  content: ""; display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: -2px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M11 6l-6 6 6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M11 6l-6 6 6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 .home-link:hover { color: var(--ink); background: var(--hover); border-color: var(--ink-dim); }
 
 .progress-num { font: 400 42px/1 var(--serif); font-variant-numeric: tabular-nums; }
@@ -371,7 +375,10 @@ dialog input[type=text] { margin-bottom: 14px; }
 @keyframes march { to { stroke-dashoffset: -20; } }
 
 #shape-menu button { position: relative; padding-right: 30px; }
-#shape-menu [aria-checked="true"]::after { content: "\2713"; position: absolute; right: 11px; top: 50%; translate: 0 -50%; color: var(--accent-soft); }
+#shape-menu [aria-checked="true"]::after {
+  content: ""; position: absolute; right: 11px; top: 50%; translate: 0 -50%; width: 13px; height: 13px; background: var(--accent-soft);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
 
 /* drawings: under the selection overlay, above the map canvas */
 .draw-layer { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 1; }
@@ -758,3 +765,21 @@ body.loading-map #map .draw-layer, body.loading-map #map .text-layer { opacity: 
 /* no padding at the top of the scrolling part: scrolled content would show through it. The first row keeps the spacing as a margin. */
 .side-scroll { padding: 0 16px; }
 .side-scroll > :first-child { margin-top: 14px; }
+
+/* the three-dot menu buttons and the collapse chevrons, as icons */
+.icon-btn svg.dots { width: 18px; height: 18px; fill: currentColor; }
+.side-collapse svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* the Show all / Hide all / Hide found row stays at the top of the scrolling list, and the group headings stick just below it */
+.side-scroll > .list-tools {
+  position: sticky; top: 0; z-index: 4; height: 44px; box-sizing: border-box; align-items: center;
+  background: color-mix(in srgb, var(--panel) 90%, transparent); backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1);
+}
+.side-scroll .group-head { top: 44px; }
+.side-scroll > .list-tools { background: color-mix(in srgb, var(--panel) 97%, transparent); }
+/* the group headings overlap the toolbar's bottom pixel row (their backgrounds are opaque), so no sub-pixel seam shows */
+.side-scroll .group-head { top: 43px; }
+.side-scroll > .list-tools { z-index: 1; }
+/* no light edge where the heading meets the toolbar, and no ghost of the list behind the toolbar */
+.side-scroll .group-head { box-shadow: 0 1px 0 #00000066; }
+.side-scroll > .list-tools { border-bottom: 0; background: var(--panel); }
