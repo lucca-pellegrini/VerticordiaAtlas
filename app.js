@@ -450,7 +450,7 @@ function setBaseTiles(map) {
     minzoom: ts.minzoom ?? 0, maxzoom: ts.maxzoom ?? 18,
     bounds: [w, s + 0.001, e - 0.001, n],
   });
-  map.addLayer({ id: 'base', type: 'raster', source: 'base', paint: { 'raster-fade-duration': 600 } }, map.getLayer('sel') ? 'sel' : undefined);
+  map.addLayer({ id: 'base', type: 'raster', source: 'base', paint: { 'raster-fade-duration': 900 } }, map.getLayer('sel') ? 'sel' : undefined);
 }
 
 // the camera of the open map goes into the profile (with which map it is), so a visit resumes where it was
@@ -468,6 +468,7 @@ const sameCamera = (a, b) => Math.abs(a.lng - b.lng) < 1e-5 && Math.abs(a.lat - 
 
 function rememberCamera(now = false) {
   if (state.capturing) return; // a screenshot moves the view for a moment; the camera is the one before
+  if (state.glide && !state.glide.touched) return; // mid-glide to another device's view: not where we want to be yet
   let changed = false;
   if (state.mapReady && state.profile && state.mapInfo) {
     const p = state.profile, slug = state.mapInfo.slug, key = cameraKey();
@@ -482,14 +483,36 @@ function rememberCamera(now = false) {
   if (now) saveProfileNow(); else scheduleSave();
 }
 
+const FADE_MS = 1600; // the map fades out and in over this long (see style.css)
+const delay = ms => new Promise(r => setTimeout(r, ms));
+
+// the map is shown once its tiles are in: not merely when the engine is idle, which can come before the new tiles start
+let revealToken = 0; // only the latest reveal may show the map: an older one must not lift the fade of a newer switch
+// the map is shown once it reports loaded (its tiles are in). Idle maps do not repaint, so this polls as well as listening
+function revealWhenSettled(map, minMs = 1000) {
+  const token = ++revealToken, start = performance.now();
+  let timer = null;
+  const stop = () => { clearInterval(timer); map.off('idle', check); };
+  const done = () => {
+    stop();
+    if (token === revealToken && !state.capturing) document.body.classList.remove('loading-map');
+  };
+  const check = () => { if (performance.now() - start >= minMs && map.loaded()) done(); };
+  timer = setInterval(check, 100);
+  map.on('idle', check);
+  check();
+  setTimeout(() => { if (token === revealToken) done(); }, 15000); // in case the tiles never settle
+}
+
 // switches the map in place: the tiles, the bounds and the marker data change; the camera follows the profile
 async function switchMap(slug, { remember = true } = {}) {
   if (!state.mapReady || slug === state.mapInfo?.slug) return;
   const info = state.meta.maps.find(m => m.slug === slug);
   if (!info) return;
+  revealToken++; // a reveal waiting from an earlier switch must not lift this fade
   document.body.classList.add('loading-map');
   if (remember) rememberCamera(true); // where we were on the map we are leaving
-  try { await prepareMap(info); }
+  try { await Promise.all([prepareMap(info), delay(FADE_MS)]); } // the jump happens once the map is black
   catch (e) { document.body.classList.remove('loading-map'); return toast(`Could not load ${info.title}.`, 4000); }
   dismiss();
   state.sel = null;
@@ -499,12 +522,19 @@ async function switchMap(slug, { remember = true } = {}) {
   state.map.setMaxZoom(lim.maxZoom);
   state.map.setMaxBounds(lim.maxBounds);
   state.map.jumpTo(startOf(info, state.data, state.profile?.cameras?.[slug]));
-  state.map.once('idle', () => document.body.classList.remove('loading-map'));
-  setTimeout(() => document.body.classList.remove('loading-map'), 8000);
+  revealWhenSettled(state.map);
   if (remember) rememberCamera(true);
   refreshAll();
   renderMapSwitch();
   updateSidebar();
+}
+
+// a view another device moved: glide there. It is agreed once it has landed; if the user moved the map meanwhile, that
+// move is theirs and is kept (see the moveend handler)
+function glideTo(cam) {
+  const target = startOf(state.mapInfo, state.data, cam);
+  state.glide = { touched: false };
+  state.map.flyTo({ ...target, speed: 1.1, essential: true });
 }
 
 // after switching profile: the profile's map and camera
@@ -1294,7 +1324,13 @@ function createMap() {
   });
   state.map = map;
   let camTimer = null;
-  map.on('moveend', () => { clearTimeout(camTimer); camTimer = setTimeout(() => rememberCamera(false), 400); });
+  map.on('movestart', e => { if (state.glide && e.originalEvent) state.glide.touched = true; }); // a hand on the map, during a glide
+  map.on('moveend', () => {
+    const g = state.glide;
+    state.glide = null;
+    if (g && !g.touched) agreeCamera(); // it landed where the other device put it: nothing to send back
+    clearTimeout(camTimer); camTimer = setTimeout(() => rememberCamera(false), 400);
+  });
   map.touchZoomRotate.disableRotation();
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
   const tools = setupSelection(map);
@@ -1385,8 +1421,7 @@ function createMap() {
 
     state.mapReady = true;
     agreeCamera(); // where it opened is where it is agreed to be
-    map.once('idle', () => document.body.classList.remove('loading-map'));
-    setTimeout(() => document.body.classList.remove('loading-map'), 8000); // in case the tiles never report idle
+    revealWhenSettled(map);
     updateSidebar();
     refreshMap();
     state.drawing?.render(); // the profile's drawings appear with the map, not on the first move
@@ -2276,6 +2311,7 @@ async function refreshFromStore(keys) {
       if (withProgress) cur = withProgress;
     }
     if (cur) {
+      state.drawing?.animateNext(); // the drawings that changed elsewhere fade in or out (applyProfile redraws them)
       applyProfile(cur);
       renderProfileSelect();
       // the view belongs to the profile: show this map's view from it, whatever map this is (switchMap below may not run yet)
@@ -2288,10 +2324,7 @@ async function refreshFromStore(keys) {
           agreeCamera();
         } else {
           const cam = cur.cameras?.[state.mapInfo?.slug];
-          if (cam && state.mapReady && !sameCamera(cam, cameraNow())) {
-            state.map.jumpTo(startOf(state.mapInfo, state.data, cam));
-            agreeCamera();
-          }
+          if (cam && state.mapReady && !sameCamera(cam, cameraNow())) glideTo(cam);
         }
       }
     }

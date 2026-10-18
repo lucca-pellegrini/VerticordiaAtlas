@@ -623,8 +623,8 @@ body.loading-map #map::after { opacity: 1; }
 /* the marker list fades in once it is built */
 #groups.enter { animation: fade-in .6s var(--ease) both; }
 
-/* the map: hidden until its first tiles are drawn (the tiles themselves fade in), then the canvas and the controls fade in */
-#map .maplibregl-canvas-container, #map .maplibregl-control-container { transition: opacity .9s var(--ease); }
+/* the map: hidden until its new tiles are in (the tiles themselves fade in), then the canvas and the controls fade in, slowly */
+#map .maplibregl-canvas-container, #map .maplibregl-control-container { transition: opacity 1.6s var(--ease); }
 body.loading-map #map .maplibregl-canvas-container, body.loading-map #map .maplibregl-control-container { opacity: 0; }
 
 
@@ -718,7 +718,7 @@ svg.i .clock { fill: var(--panel-2); }
 .shot-actions .ibtn:hover::after { opacity: 1; transform: translate(-50%, 0); }
 
 /* drawings and their text notes fade in with the map */
-#map .draw-layer, #map .text-layer { transition: opacity .9s var(--ease); }
+#map .draw-layer, #map .text-layer { transition: opacity 1.6s var(--ease); }
 body.loading-map #map .draw-layer, body.loading-map #map .text-layer { opacity: 0; }
 
 /* ---------- the icon picker (category forms) ---------- */

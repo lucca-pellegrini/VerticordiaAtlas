@@ -212,14 +212,46 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, getMap, onChan
     return node;
   }
 
+  /* Remote changes fade: a drawing that appears (another device drew it) fades in, one that is gone (erased there) fades
+     out where it was. The fade is worked out here, per frame, so a re-render never cuts it short. Only the render right after
+     animateNext() starts fades, and only for the map that stays on screen. */
+  const FADE_MS = 1100;
+  let animate = false;
+  let shown = null;          // { map, nodes: Map id -> node drawn for it at the last render }
+  const fades = new Map();   // id -> { kind: 'in' | 'out', t0, node (for out: the node it leaves behind) }
+  let fadeFrame = 0;
+  const easeInOut = k => (k < 0.5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2);
+  const alphaOf = (f, now) => { const e = easeInOut(Math.min(1, (now - f.t0) / FADE_MS)); return f.kind === 'in' ? e : 1 - e; };
+  const setAlpha = (node, a) => { if (node instanceof SVGElement) node.setAttribute('opacity', a.toFixed(3)); else node.style.opacity = a.toFixed(3); };
   function render() {
+    const mapNow = getMap(), fade = animate && shown && shown.map === mapNow;
+    animate = false;
+    if (shown && shown.map !== mapNow) fades.clear(); // another map: nothing fades across it
+    const prev = fade ? shown.nodes : new Map(), nodes = new Map(), now = performance.now();
     layer.textContent = '';
     texts.textContent = '';
     for (const it of here()) {
-      if (it.kind === 'text') texts.appendChild(textNode(it));
-      else if (it.kind === 'pen' || it.kind === 'highlighter') layer.appendChild(strokeNode(it));
-      else for (const e of svgFor(it, sp, scaleOf(it))) layer.appendChild(e);
+      let node;
+      if (it.kind === 'text') { node = textNode(it); texts.appendChild(node); }
+      else if (it.kind === 'pen' || it.kind === 'highlighter') { node = strokeNode(it); layer.appendChild(node); }
+      else { node = el('g', {}); for (const e of svgFor(it, sp, scaleOf(it))) node.appendChild(e); layer.appendChild(node); }
+      if (fade && !prev.has(it.id)) fades.set(it.id, { kind: 'in', t0: now });
+      nodes.set(it.id, node);
     }
+    if (fade) for (const [id, old] of prev) if (!nodes.has(id) && !fades.has(id)) fades.set(id, { kind: 'out', t0: now, node: old });
+    for (const [id, f] of fades) {
+      const over = now - f.t0 >= FADE_MS;
+      if (f.kind === 'in') {
+        if (over || !nodes.has(id)) { fades.delete(id); continue; }
+        setAlpha(nodes.get(id), alphaOf(f, now));
+      } else {
+        if (over || nodes.has(id)) { fades.delete(id); continue; } // done, or it came back
+        setAlpha(f.node, alphaOf(f, now));
+        (f.node instanceof SVGElement ? layer : texts).appendChild(f.node);
+      }
+    }
+    shown = { map: mapNow, nodes };
+    if (fades.size && !fadeFrame) fadeFrame = requestAnimationFrame(() => { fadeFrame = 0; render(); });
     if (draft) {
       const d = draft.kind === 'path' && draft.hover ? { ...draft, pts: [...draft.pts, draft.hover] } : draft;
       for (const e of svgFor(d, p => p, 1)) layer.appendChild(e);
@@ -673,6 +705,8 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, getMap, onChan
     },
     // a new profile has its own drawings and its own undo history
     reset() { history.length = 0; redoStack.length = 0; draft = null; gesture = null; clearTimeout(holdTimer); closeEditor(); render(); },
+    // the next render fades in what is new and fades out what is gone (for a change made on another device)
+    animateNext() { animate = true; },
     keydown, // called first by the app's key handler; true when the key was used
   };
 }
