@@ -540,6 +540,60 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "blasphemous",
+      "slug": "blasphemous",
+      "title": "Blasphemous",
+      "description": "Every marker on the Blasphemous map.",
+      "poster": "blasphemous/poster",
+      "theme": {
+        "accent": "#aa8b43",
+        "accent-soft": "#d2bd8c",
+        "night": "#0c0a06",
+        "panel": "#16130c",
+        "panel-2": "#1f1b11",
+        "line": "#363021"
+      },
+      "stats": [
+        {
+          "value": 580,
+          "label": "markers"
+        },
+        {
+          "value": 33,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "blasphemous-2",
+      "slug": "blasphemous-2",
+      "title": "Blasphemous 2",
+      "description": "Every marker on the Blasphemous 2 map.",
+      "poster": "blasphemous-2/poster",
+      "theme": {
+        "accent": "#915a31",
+        "accent-soft": "#cc9267",
+        "night": "#0c0906",
+        "panel": "#16100c",
+        "panel-2": "#1f1711",
+        "line": "#362a21"
+      },
+      "stats": [
+        {
+          "value": 1625,
+          "label": "markers"
+        },
+        {
+          "value": 58,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }

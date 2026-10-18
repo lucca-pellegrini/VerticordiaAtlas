@@ -1,0 +1,38 @@
+{
+  "id": "blasphemous-2",
+  "title": "Blasphemous 2",
+  "slug": "blasphemous-2",
+  "source": "https://mapgenie.io/blasphemous-2/maps/cvstodia",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "cvstodia",
+      "title": "Cvstodia",
+      "data": "cvstodia/data.json",
+      "tilesets": [
+        {
+          "name": "V2",
+          "template": "cvstodia/tiles/default-v4/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 14,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}
