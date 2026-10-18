@@ -47,8 +47,48 @@ main { flex: 1; }
 
 /* header */
 .top { padding-block: calc(18px + env(safe-area-inset-top, 0px)) 0; }
-.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); }
+.top-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-width: 0; }
+.brand { display: inline-flex; flex: none; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); }
 .brand span { color: var(--ink); font: 400 1.55rem/1 var(--serif); letter-spacing: .01em; }
+
+/* search: a bar that slides open to the left of the magnifier toggle */
+.top-tools { display: flex; align-items: center; gap: 10px; min-width: 0; margin-left: auto; }
+.search-toggle {
+  display: grid; place-items: center; width: 40px; height: 40px; flex: none; padding: 0; cursor: pointer;
+  border: 1px solid var(--line-2); border-radius: 50%; background: rgb(255 255 255 / .03); color: var(--ink-dim);
+  transition: color .2s, border-color .2s, background-color .2s, transform .2s;
+}
+.search-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+.search-toggle:hover { color: var(--ink); border-color: var(--accent); }
+.search-toggle[aria-expanded="true"] { color: var(--accent-soft); border-color: var(--accent); background: rgb(214 69 59 / .12); }
+.search-toggle:active { transform: scale(.94); }
+.search-toggle:focus-visible, .search input:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
+
+.search {
+  flex: 0 1 0; min-width: 0; padding: 3px; visibility: hidden; opacity: 0; overflow: hidden;
+  transition: flex-basis .45s cubic-bezier(.2, .7, .2, 1), opacity .3s ease, visibility 0s linear .45s;
+}
+.search.open { flex-basis: 280px; visibility: visible; opacity: 1; transition-delay: 0s; }
+.search input {
+  display: block; box-sizing: border-box; width: 100%; height: 40px; padding: 0 18px;
+  border: 1px solid var(--line-2); border-radius: 999px;
+  background: linear-gradient(180deg, var(--panel-2), var(--panel)); color: var(--ink);
+  font: 400 .98rem/1 var(--sans); box-shadow: inset 0 1px 0 rgb(255 255 255 / .04);
+  transition: border-color .2s, box-shadow .2s;
+}
+.search input::placeholder { color: var(--ink-dim); opacity: .7; }
+.search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgb(214 69 59 / .15); }
+.search input::-webkit-search-cancel-button { filter: invert(.7); cursor: pointer; }
+
+/* narrow screens: while searching, the wordmark steps aside so the bar has room */
+.brand span { transition: max-width .45s cubic-bezier(.2, .7, .2, 1), opacity .3s ease; max-width: 12em; overflow: hidden; white-space: nowrap; }
+@media (max-width: 560px) {
+  .top-bar:has(.search.open) .brand span { max-width: 0; opacity: 0; }
+}
+
+/* partial matches sit below the results, with the same heading style */
+.partial { margin-top: clamp(40px, 6vw, 72px); }
+.partial[hidden], #no-results[hidden], #game-list[hidden], #games-title[hidden] { display: none; }
 
 /* logo: map pin cross-fades into a slow beating heart on hover (mouse) or tap (.beat, set in home.js) */
 .brand .mark { position: relative; display: block; width: 26px; height: 26px; }
@@ -103,6 +143,10 @@ h1 em { font-style: italic; color: var(--accent-soft); }
   list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(16px, 2.5vw, 28px);
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 560px));
   justify-content: center;
+}
+/* wide desktops: fit three cards in a row (phones and tablets keep the layout above) */
+@media (min-width: 1100px) {
+  .game-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 380px)); }
 }
 
 .card {

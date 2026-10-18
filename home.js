@@ -44,6 +44,105 @@ async function main() {
   }
   if (!index.games?.length) return fail('No maps have been added yet.');
   list.innerHTML = index.games.map(card).join('');
+  setupSearch(list);
+}
+
+// Search. Results: cards whose title or description contains the query as a substring.
+// Partial matches: the remaining cards where every query word is within a small edit distance
+// (Levenshtein) of some word in the card, sorted by total distance (closest first).
+const norm = s => String(s).normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
+const words = s => norm(s).split(/[^\p{L}\p{N}]+/u).filter(w => w.length >= 3);
+
+function levenshtein(a, b) {
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    }
+    prev = cur;
+  }
+  return prev[b.length];
+}
+
+// Total edit distance of the query words against the card's words, or null if any word is too far off.
+function fuzzyScore(queryWords, cardWords) {
+  let total = 0;
+  for (const qw of queryWords) {
+    if (qw.length < 3) return null;
+    const allowed = qw.length <= 4 ? 1 : 2;
+    let best = Infinity;
+    for (const cw of cardWords) best = Math.min(best, levenshtein(qw, cw));
+    if (best > allowed) return null;
+    total += best;
+  }
+  return total;
+}
+
+function setupSearch(list) {
+  const toggle = document.querySelector('.search-toggle');
+  const form = document.getElementById('map-search');
+  const input = document.getElementById('map-query');
+  const none = document.getElementById('no-results');
+  const label = document.getElementById('games-title');
+  const partialSection = document.getElementById('partial');
+  const partialList = document.getElementById('partial-list');
+  if (!toggle || !form || !input) return;
+
+  const labelText = label.textContent;
+  const cardText = li => `${li.querySelector('h3')?.textContent} ${li.querySelector('.card-body > p')?.textContent || ''}`;
+
+  const filter = () => {
+    const q = norm(input.value).trim();
+    const queryWords = q.split(/\s+/).filter(Boolean);
+    const fuzzy = [];
+    let exact = 0;
+
+    for (const li of list.children) {
+      if (!q) { li.hidden = false; continue; }
+      const text = norm(cardText(li));
+      if (text.includes(q)) {
+        li.hidden = false;
+        exact++;
+        continue;
+      }
+      li.hidden = true;
+      // fuzzy matching needs a few characters, otherwise short queries match almost everything
+      if (q.length < 4) continue;
+      const score = fuzzyScore(queryWords, words(cardText(li)));
+      if (score !== null) fuzzy.push({ li, score, title: li.querySelector('h3').textContent });
+    }
+
+    fuzzy.sort((a, b) => a.score - b.score || a.title.localeCompare(b.title));
+    partialList.replaceChildren(...fuzzy.map(({ li }) => {
+      const copy = li.cloneNode(true);
+      copy.hidden = false;
+      return copy;
+    }));
+
+    // no exact matches: drop the Results heading and grid entirely (partial matches, or the notice, take over)
+    const noExact = !!q && exact === 0;
+    label.textContent = q ? 'Results' : labelText;
+    label.hidden = noExact;
+    list.hidden = noExact;
+    partialSection.hidden = !q || fuzzy.length === 0;
+    none.hidden = !q || exact + fuzzy.length > 0;
+  };
+
+  const setOpen = open => {
+    form.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    if (open) input.focus({ preventScroll: true });
+    else { input.value = ''; filter(); toggle.focus({ preventScroll: true }); }
+  };
+
+  toggle.addEventListener('click', () => setOpen(!form.classList.contains('open')));
+  input.addEventListener('input', filter);
+  input.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  form.addEventListener('submit', e => e.preventDefault());
 }
 
 main();
