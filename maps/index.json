@@ -16,11 +16,44 @@
         "line": "#34222a"
       },
       "stats": [
-        { "value": 1145, "label": "markers" },
-        { "value": 52, "label": "categories" }
+        {
+          "value": 1145,
+          "label": "markers"
+        },
+        {
+          "value": 52,
+          "label": "categories"
+        }
       ],
       "tagLabel": "Difficulty",
       "defaultTag": "Standard"
+    },
+    {
+      "id": "re4",
+      "slug": "re4",
+      "title": "Resident Evil 4 (Remake)",
+      "description": "Every marker on the Resident Evil 4 (Remake) map.",
+      "poster": "re4/poster",
+      "theme": {
+        "accent": "#3a6788",
+        "accent-soft": "#709fc2",
+        "night": "#06090c",
+        "panel": "#0c1116",
+        "panel-2": "#11191f",
+        "line": "#212d36"
+      },
+      "stats": [
+        {
+          "value": 398,
+          "label": "markers"
+        },
+        {
+          "value": 23,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }
