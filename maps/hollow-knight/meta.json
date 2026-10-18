@@ -1,0 +1,38 @@
+{
+  "id": "hollow-knight",
+  "title": "Hollow Knight",
+  "slug": "hollow-knight",
+  "source": "https://mapgenie.io/hollow-knight/maps/hallownest",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "hallownest",
+      "title": "Hallownest",
+      "data": "hallownest/data.json",
+      "tilesets": [
+        {
+          "name": "Titles",
+          "template": "hallownest/tiles/titles-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 14,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

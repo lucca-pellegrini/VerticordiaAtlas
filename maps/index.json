@@ -54,6 +54,141 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "hollow-knight",
+      "slug": "hollow-knight",
+      "title": "Hollow Knight",
+      "description": "Every marker on the Hollow Knight map.",
+      "poster": "hollow-knight/poster",
+      "theme": {
+        "accent": "#3a7c88",
+        "accent-soft": "#70b5c2",
+        "night": "#060b0c",
+        "panel": "#0c1416",
+        "panel-2": "#111d1f",
+        "line": "#213336"
+      },
+      "stats": [
+        {
+          "value": 979,
+          "label": "markers"
+        },
+        {
+          "value": 38,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "silksong",
+      "slug": "Silksong",
+      "title": "Hollow Knight: Silksong",
+      "description": "Every marker on the Hollow Knight: Silksong map.",
+      "poster": "Silksong/poster",
+      "theme": {
+        "accent": "#c14e3c",
+        "accent-soft": "#dd9b91",
+        "night": "#0c0706",
+        "panel": "#160d0c",
+        "panel-2": "#1f1311",
+        "line": "#362321"
+      },
+      "stats": [
+        {
+          "value": 1939,
+          "label": "markers"
+        },
+        {
+          "value": 49,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "elden-ring",
+      "slug": "elden-ring",
+      "title": "Elden Ring",
+      "description": "Every marker on the Elden Ring map.",
+      "poster": "elden-ring/poster",
+      "theme": {
+        "accent": "#358d85",
+        "accent-soft": "#6bc7bf",
+        "night": "#060c0b",
+        "panel": "#0c1615",
+        "panel-2": "#111f1e",
+        "line": "#213634"
+      },
+      "stats": [
+        {
+          "value": 7576,
+          "label": "markers"
+        },
+        {
+          "value": 144,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "shadow-of-the-erdtree",
+      "slug": "shadow-of-the-erdtree",
+      "title": "Elden Ring: Shadow of the Erdtree",
+      "description": "Every marker on the Shadow of the Erdtree map.",
+      "poster": "shadow-of-the-erdtree/poster",
+      "theme": {
+        "accent": "#886a3a",
+        "accent-soft": "#c2a370",
+        "night": "#0c0a06",
+        "panel": "#16120c",
+        "panel-2": "#1f1a11",
+        "line": "#362e21"
+      },
+      "stats": [
+        {
+          "value": 7576,
+          "label": "markers"
+        },
+        {
+          "value": 144,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "botw",
+      "slug": "botw",
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "description": "Every marker on the The Legend of Zelda: Breath of the Wild map.",
+      "poster": "botw/poster",
+      "theme": {
+        "accent": "#209ddf",
+        "accent-soft": "#86c7ea",
+        "night": "#060a0c",
+        "panel": "#0c1216",
+        "panel-2": "#111a1f",
+        "line": "#212f36"
+      },
+      "stats": [
+        {
+          "value": 16504,
+          "label": "markers"
+        },
+        {
+          "value": 162,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }

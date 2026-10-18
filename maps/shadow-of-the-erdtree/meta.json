@@ -1,0 +1,59 @@
+{
+  "id": "shadow-of-the-erdtree",
+  "title": "Elden Ring",
+  "slug": "elden-ring",
+  "source": "https://mapgenie.io/elden-ring/maps/the-shadow-realm",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "the-shadow-realm",
+      "title": "Realm of Shadow",
+      "data": "the-shadow-realm/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "the-shadow-realm/tiles/asdnlkkveao-v1/{z}/{x}/{y}.jpg",
+          "minzoom": 8,
+          "maxzoom": 17,
+          "viewMaxzoom": 17,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "the-lands-between",
+      "title": "The Lands Between",
+      "data": "the-lands-between/data.json",
+      "tilesets": [
+        {
+          "name": "Interiors",
+          "template": "the-lands-between/tiles/default-v5/{z}/{x}/{y}.jpg",
+          "minzoom": 9,
+          "maxzoom": 16,
+          "viewMaxzoom": 17,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

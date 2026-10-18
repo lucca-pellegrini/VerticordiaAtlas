@@ -1,0 +1,38 @@
+{
+  "id": "silksong",
+  "title": "Hollow Knight: Silksong",
+  "slug": "hollow-knight-silksong",
+  "source": "https://mapgenie.io/hollow-knight-silksong/maps/pharloom",
+  "poster": "poster.webp",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "pharloom",
+      "title": "Pharloom",
+      "data": "pharloom/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "pharloom/tiles/default-v9/{z}/{y}/{x}.jpg",
+          "minzoom": 9,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}
