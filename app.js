@@ -300,7 +300,7 @@ async function loadProfiles() {
   state.profiles = (await dbAll('profiles')).filter(p => p.game === state.entry.id)
     .sort((a, b) => a.created - b.created);
   if (!state.profiles.length) {
-    const p = makeProfile('Playthrough 1', defaultTagId());
+    const p = makeProfile('Default', defaultTagId());
     await dbPut('profiles', p);
     state.profiles = [p];
   }
@@ -376,7 +376,7 @@ async function profileAction(act) {
     await dbDelete('profiles', p.key);
     state.profiles = state.profiles.filter(x => x.id !== p.id);
     if (!state.profiles.length) {
-      const np = makeProfile('Playthrough 1', defaultTagId());
+      const np = makeProfile('Default', defaultTagId());
       await dbPut('profiles', np); state.profiles.push(np);
     }
     state.profile = null;
