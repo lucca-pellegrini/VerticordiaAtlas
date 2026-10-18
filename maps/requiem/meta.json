@@ -1,0 +1,38 @@
+{
+  "id": "re9",
+  "title": "Resident Evil Requiem",
+  "slug": "resident-evil-requiem",
+  "source": "https://mapgenie.io/resident-evil-requiem/maps/world",
+  "poster": "poster.jpg",
+  "tagLabel": "Difficulty",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "world",
+      "title": "World",
+      "data": "world/data.json",
+      "tilesets": [
+        {
+          "name": "V2",
+          "template": "world/tiles/default-v2/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 17,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

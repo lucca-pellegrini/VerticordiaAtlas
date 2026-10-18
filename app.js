@@ -218,6 +218,13 @@ function mixColor(a, b, t) {
   return 'rgb(' + pa.map((v, i) => Math.round(v * t + pb[i] * (1 - t))).join(',') + ')';
 }
 
+// meta.json (written by add-game.mjs) says where a game's data, sprite and tiles are.
+async function loadMeta() {
+  const r = await fetch('./meta.json');
+  if (!r.ok) throw new Error(`meta.json: HTTP ${r.status}. Run add-game.mjs for this game`);
+  return r.json();
+}
+
 async function loadGame(entry) {
   state.entry = entry;
   state.folder = '.'; // data files sit next to the page
@@ -226,17 +233,23 @@ async function loadGame(entry) {
   document.title = `${entry.title} · Verticordia Atlas`;
   $('#tag-label').textContent = entry.tagLabel || 'Filter';
 
-  let data, spriteDefs, spriteImg;
+  let meta, data, spriteDefs, spriteImg, spriteFile;
   try {
+    meta = await loadMeta();
+    const m = meta.maps[0]; // TODO: a map switcher for games with several maps
+    state.mapInfo = m;
+    const mk = meta.markers;
+    // prefer the @2x sprite when the game has one: markers look sharper on phones
+    spriteFile = mk.png2x && mk.json2x ? { json: mk.json2x, png: mk.png2x } : { json: mk.json, png: mk.png };
     [data, spriteDefs] = await Promise.all([
-      fetchJSON(`${state.folder}/data.json`),
-      fetchJSON(`${state.folder}/markers.json`),
+      fetchJSON(`${state.folder}/${m.data}`),
+      fetchJSON(`${state.folder}/${spriteFile.json}`),
     ]);
-    spriteImg = await loadImage(`${state.folder}/markers.png`);
+    spriteImg = await loadImage(`${state.folder}/${spriteFile.png}`);
   } catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
 
   state.data = data;
-  state.sprite = { defs: spriteDefs, img: spriteImg };
+  state.sprite = { defs: spriteDefs, img: spriteImg, png: spriteFile.png };
 
   // categories and groups
   const catById = new Map(Object.values(data.categories).map(c => [c.id, c]));
@@ -454,7 +467,7 @@ function iconHtml(name) {
   const d = state.sprite.defs[name];
   if (!d) return '';
   const s = 28 / d.height;
-  return `<span class="ico" style="width:${d.width}px;height:${d.height}px;background-image:url('${state.folder}/markers.png');` +
+  return `<span class="ico" style="width:${d.width}px;height:${d.height}px;background-image:url('${state.folder}/${state.sprite.png}');` +
     `background-position:-${d.x}px -${d.y}px;transform:scale(${s})"></span>`;
 }
 
@@ -687,8 +700,9 @@ function iconScale(z) {
 const emptyFC = { type: 'FeatureCollection', features: [] };
 
 function createMap() {
-  const data = state.data, cfg = data.mapConfig, ts = cfg.tile_sets[0];
-  const [w, s, e, n] = data.styles?.mapStyle?.bounds || [-180, -85, 180, 85];
+  const data = state.data, cfg = data.mapConfig;
+  const ts = state.mapInfo.tilesets[0]; // { template, minzoom, maxzoom (stored tiles), viewMaxzoom, bounds }
+  const [w, s, e, n] = ts.bounds || data.styles?.mapStyle?.bounds || [-180, -85, 180, 85];
   const pad = 0.25;
 
   const map = new maplibregl.Map({
@@ -696,8 +710,8 @@ function createMap() {
     style: { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': themeVar('night') } }] },
     center: [cfg.start_lng, cfg.start_lat],
     zoom: cfg.initial_zoom ?? 11,
-    minZoom: ts.min_zoom ?? 0,
-    maxZoom: ts.max_zoom ?? 18,
+    minZoom: ts.minzoom ?? 0,
+    maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18,
     maxBounds: [[w - pad, s - pad], [e + pad, n + pad]],
     attributionControl: false,
     renderWorldCopies: false,
@@ -719,12 +733,11 @@ function createMap() {
       map.addImage(name, ctx.getImageData(0, 0, d.width, d.height), { pixelRatio: d.pixelRatio || 1 });
     }
 
-    // tiles are stored as {z}/{y}/{x}.jpg, the same order the original site uses
-    const rel = ts.pattern.startsWith(ts.path + '/') ? ts.pattern.slice(ts.path.length + 1) : '{z}/{y}/{x}.' + (ts.extension || 'jpg');
-    const tileBase = new URL(state.folder + '/tiles/', document.baseURI).href;
+    // tiles sit where meta.json says (the original site's {z}/{y}/{x} order); zooming past the stored ones just enlarges them
     map.addSource('base', {
-      type: 'raster', tiles: [tileBase + rel], tileSize: 256,
-      minzoom: ts.min_zoom ?? 0, maxzoom: ts.tiles_max_zoom ?? ts.max_zoom ?? 18,
+      // resolve only the folder: running the template through new URL() would escape the {z}/{y}/{x} placeholders
+      type: 'raster', tiles: [new URL(state.folder + '/', document.baseURI).href + ts.template], tileSize: ts.tileSize || 256,
+      minzoom: ts.minzoom ?? 0, maxzoom: ts.maxzoom ?? 18,
       bounds: [w, s + 0.001, e - 0.001, n],
     });
     map.addLayer({ id: 'base', type: 'raster', source: 'base', paint: { 'raster-fade-duration': 0 } });
