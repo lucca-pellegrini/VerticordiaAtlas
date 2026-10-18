@@ -450,6 +450,7 @@ async function main() {
   tilesBases.push('https://tiles.mapgenie.io/games');
 
   const metaMaps = [];
+  const tileJobs = [];   // downloaded after the game is registered in meta.json and the manifest
   for (const md of maps) {
     const ms = md.map?.slug || 'map';
     const dir = path.join(outDir, ms);
@@ -463,23 +464,14 @@ async function main() {
       const tail = ts.pattern.slice(ts.pattern.indexOf('{'));
       const localTail = `tiles/${key}/${tail}`;
       const info = { name: ts.name, template: `${ms}/${localTail}`, minzoom: ts.min_zoom ?? 0, maxzoom: ts.tiles_max_zoom ?? ts.max_zoom, viewMaxzoom: ts.max_zoom, bounds: boundsFor(md, ts).bounds, tileSize: 256 };
-      if (!v['no-tiles']) {
-        console.log(`\nTiles for ${ms} / ${ts.name}`);
-        const r = await downloadTiles({ md, ts, baseCandidates: tilesBases, destDir: dir, localTail, opts });
-        info.minzoom = r.minzoom; info.maxzoom = r.maxzoom;
-      }
       if (opts.maxZoom != null) info.maxzoom = Math.min(info.maxzoom ?? 99, opts.maxZoom); // --max-zoom applies even when tiles are not fetched now
       entry.tilesets.push(info);
+      if (!v['no-tiles']) tileJobs.push({ md, ts, ms, dir, localTail, info });
     }
     metaMaps.push(entry);
   }
 
-  // 5. media
-  const { urls, kinds, embedded } = collectMedia(maps, v.videos);
-  console.log(`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ''}; ${urls.size} file(s) to fetch${v.videos ? '' : ' (images only; use --videos for the rest)'}`);
-  if (!v['no-media'] && urls.size) await downloadMedia(urls, path.join(outDir, 'media'), opts);
-
-  // 6. poster: --poster wins, then one already in the folder (hand-picked, kept), then the page's og:image
+  // 5. poster: --poster wins, then one already in the folder (hand-picked, kept), then the page's og:image
   let poster = null;
   const existingPoster = (await readdir(outDir)).find(f => /^poster\.(jpe?g|png|webp|avif)$/i.test(f));
   const posterSrc = v.poster || (existingPoster ? null : (html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)/i) || [])[1]);
@@ -503,7 +495,9 @@ async function main() {
     markers: sprite ? { json: sprite.json, png: sprite.png, json2x: sprite.json2x, png2x: sprite.png2x } : null,
     maps: metaMaps,
   };
-  await writeFile(path.join(outDir, 'meta.json'), JSON.stringify(meta, null, 2) + '\n');
+  // tile zoom ranges are filled in as tiles arrive, so the file is rewritten after each tile set
+  const writeMeta = () => writeFile(path.join(outDir, 'meta.json'), JSON.stringify(meta, null, 2) + '\n');
+  await writeMeta();
 
   // 8. the page itself: a copy of an existing game's index.html, pointed at this game
   const pageFile = path.join(outDir, 'index.html');
@@ -541,7 +535,21 @@ async function main() {
   const at = index.games.findIndex(g => g.slug === pageSlug);
   if (at >= 0) index.games[at] = entry; else index.games.push(entry);   // keep the homepage order stable
   await writeFile(v.index, JSON.stringify(index, null, 2) + '\n');
-  console.log(`\nWrote ${path.join(outDir, 'meta.json')} and updated ${v.index}`);
+  console.log(`\nWrote ${path.join(outDir, 'meta.json')} and updated ${v.index}; the game is now listed, fetching tiles and media`);
+
+  // 10. tiles, then media
+  for (const { md, ts, ms, dir, localTail, info } of tileJobs) {
+    console.log(`\nTiles for ${ms} / ${ts.name}`);
+    const r = await downloadTiles({ md, ts, baseCandidates: tilesBases, destDir: dir, localTail, opts });
+    info.minzoom = r.minzoom; info.maxzoom = r.maxzoom;
+    if (opts.maxZoom != null) info.maxzoom = Math.min(info.maxzoom ?? 99, opts.maxZoom);
+    await writeMeta();
+  }
+
+  const { urls, kinds, embedded } = collectMedia(maps, v.videos);
+  console.log(`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ''}; ${urls.size} file(s) to fetch${v.videos ? '' : ' (images only; use --videos for the rest)'}`);
+  if (!v['no-media'] && urls.size) await downloadMedia(urls, path.join(outDir, 'media'), opts);
+  console.log(`\nDone: ${outDir}`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
