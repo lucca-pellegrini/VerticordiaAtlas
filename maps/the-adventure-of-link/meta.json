@@ -1,0 +1,38 @@
+{
+  "id": "the-adventure-of-link",
+  "title": "Zelda II: The Adventure of Link",
+  "slug": "zelda-2-the-adventure-of-link",
+  "source": "https://mapgenie.io/zelda-2-the-adventure-of-link/maps/hyrule",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "hyrule",
+      "title": "Hyrule",
+      "data": "hyrule/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "hyrule/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 16,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

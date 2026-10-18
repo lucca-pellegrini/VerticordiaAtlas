@@ -1,0 +1,38 @@
+{
+  "id": "wind-waker",
+  "title": "The Legend of Zelda: The Wind Waker",
+  "slug": "zelda-wind-waker",
+  "source": "https://mapgenie.io/zelda-wind-waker/maps/great-sea",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "great-sea",
+      "title": "Great Sea",
+      "data": "great-sea/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "great-sea/tiles/default-v4/{z}/{y}/{x}.jpg",
+          "minzoom": 9,
+          "maxzoom": 16,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

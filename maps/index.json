@@ -137,26 +137,26 @@
       "defaultTag": null
     },
     {
-      "id": "shadow-of-the-erdtree",
-      "slug": "shadow-of-the-erdtree",
-      "title": "Elden Ring: Shadow of the Erdtree",
-      "description": "Every marker on the Shadow of the Erdtree map.",
-      "poster": "shadow-of-the-erdtree/poster",
+      "id": "nightreign",
+      "slug": "nightreign",
+      "title": "Elden Ring Nightreign",
+      "description": "Every marker on the Elden Ring Nightreign map.",
+      "poster": "nightreign/poster",
       "theme": {
-        "accent": "#886a3a",
-        "accent-soft": "#c2a370",
-        "night": "#0c0a06",
-        "panel": "#16120c",
-        "panel-2": "#1f1a11",
-        "line": "#362e21"
+        "accent": "#34438e",
+        "accent-soft": "#6a7ac8",
+        "night": "#06070c",
+        "panel": "#0c0d16",
+        "panel-2": "#11141f",
+        "line": "#212436"
       },
       "stats": [
         {
-          "value": 7576,
+          "value": 230,
           "label": "markers"
         },
         {
-          "value": 144,
+          "value": 20,
           "label": "categories"
         }
       ],
@@ -373,6 +373,114 @@
         },
         {
           "value": 33,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "wind-waker",
+      "slug": "wind-waker",
+      "title": "The Legend of Zelda: The Wind Waker",
+      "description": "Every marker on the The Legend of Zelda: The Wind Waker map.",
+      "poster": "wind-waker/poster",
+      "theme": {
+        "accent": "#cc9125",
+        "accent-soft": "#e7c17a",
+        "night": "#0c0a06",
+        "panel": "#16120c",
+        "panel-2": "#1f1a11",
+        "line": "#362f21"
+      },
+      "stats": [
+        {
+          "value": 1232,
+          "label": "markers"
+        },
+        {
+          "value": 32,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "links-awakening",
+      "slug": "links-awakening",
+      "title": "The Legend of Zelda: Link’s Awakening",
+      "description": "Every marker on the The Legend of Zelda: Link’s Awakening map.",
+      "poster": "links-awakening/poster",
+      "theme": {
+        "accent": "#2097df",
+        "accent-soft": "#86c4ea",
+        "night": "#060a0c",
+        "panel": "#0c1216",
+        "panel-2": "#111a1f",
+        "line": "#212e36"
+      },
+      "stats": [
+        {
+          "value": 409,
+          "label": "markers"
+        },
+        {
+          "value": 23,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "tloz",
+      "slug": "tloz",
+      "title": "The Legend of Zelda",
+      "description": "Every marker on the The Legend of Zelda map.",
+      "poster": "tloz/poster",
+      "theme": {
+        "accent": "#df6c20",
+        "accent-soft": "#eaad86",
+        "night": "#0c0806",
+        "panel": "#16100c",
+        "panel-2": "#1f1711",
+        "line": "#362921"
+      },
+      "stats": [
+        {
+          "value": 545,
+          "label": "markers"
+        },
+        {
+          "value": 26,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "the-adventure-of-link",
+      "slug": "the-adventure-of-link",
+      "title": "Zelda II: The Adventure of Link",
+      "description": "Every marker on the Zelda II: The Adventure of Link map.",
+      "poster": "the-adventure-of-link/poster",
+      "theme": {
+        "accent": "#209bdf",
+        "accent-soft": "#86c6ea",
+        "night": "#060a0c",
+        "panel": "#0c1216",
+        "panel-2": "#111a1f",
+        "line": "#212e36"
+      },
+      "stats": [
+        {
+          "value": 258,
+          "label": "markers"
+        },
+        {
+          "value": 16,
           "label": "categories"
         }
       ],

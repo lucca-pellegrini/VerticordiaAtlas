@@ -1,0 +1,38 @@
+{
+  "id": "nightreign",
+  "title": "Elden Ring Nightreign",
+  "slug": "elden-ring-nightreign",
+  "source": "https://mapgenie.io/elden-ring-nightreign/maps/limveld",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "limveld",
+      "title": "Limveld",
+      "data": "limveld/data.json",
+      "tilesets": [
+        {
+          "name": "V3",
+          "template": "limveld/tiles/default-v3/{z}/{y}/{x}.jpg",
+          "minzoom": 9,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}
