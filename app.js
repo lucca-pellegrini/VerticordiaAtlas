@@ -8,6 +8,7 @@ const fmt = n => Number(n).toLocaleString();
 import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML, setupDrawing } from './drawing.js';
 import { MARKER_CONTROL_HTML, TEMP_CAT, pingImage, setupUserMarkers } from './usermarkers.js';
 import { packMarker } from './share-link.mjs';
+import { svgIcon } from './icons.mjs';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
 
@@ -882,8 +883,9 @@ function rowMenuEl() {
   if (el) return el;
   el = document.createElement('div');
   el.id = 'row-menu'; el.className = 'menu row-menu'; el.hidden = true; el.setAttribute('role', 'menu');
-  el.innerHTML = '<div class="rm-head"></div><hr><button type="button" role="menuitem" data-act="found">Mark all as found</button>' +
-    '<button type="button" role="menuitem" data-act="unfound">Mark all as not found</button>';
+  el.innerHTML = '<div class="rm-head"></div><hr>' +
+    `<button type="button" role="menuitem" data-act="found">${svgIcon('check')}<span>Mark all as found</span></button>` +
+    `<button type="button" role="menuitem" data-act="unfound">${svgIcon('open')}<span>Mark all as not found</span></button>`;
   el.onclick = e => {
     const um = e.target.closest('[data-um]');
     if (um) { const user = el._user; closeRowMenu(); state.um?.menuAction(um.dataset.um, user); return; }
@@ -925,7 +927,8 @@ function openRowMenu(e, { title, icon, color, cats, user = null }) {
   el.querySelectorAll('[data-um]').forEach(b => b.remove());
   for (const it of state.um?.menuItems(user) || []) {
     const b = document.createElement('button');
-    b.type = 'button'; b.setAttribute('role', 'menuitem'); b.dataset.um = it.act; b.textContent = it.label;
+    b.type = 'button'; b.setAttribute('role', 'menuitem'); b.dataset.um = it.act;
+    b.innerHTML = svgIcon(it.icon) + `<span>${esc(it.label)}</span>`;
     if (it.danger) b.className = 'danger';
     el.appendChild(b);
   }
@@ -1309,6 +1312,32 @@ function createMap() {
   });
   map.on('mouseleave', 'locs', () => { map.getCanvas().style.cursor = ''; tip.remove(); });
   map.on('move', updateLinkHeads);
+  map.on('movestart', closeCtx);
+  map.on('contextmenu', ev => {
+    const e = ev.originalEvent;
+    if (state.tool !== 'pan' && state.tool !== 'marker') return;
+    if (inSelection(ev.point)) return; // the selection's own menu
+    e.preventDefault();
+    mapMenuAt(e.clientX, e.clientY, ev.point, ev.lngLat);
+  });
+  // press and hold on touch (pan tool only: the marker tool places on press)
+  const canvas = map.getCanvasContainer();
+  let pressT = null, pressAt = null;
+  canvas.addEventListener('pointerdown', e => {
+    clearTimeout(pressT);
+    if (e.pointerType !== 'touch' || e.button !== 0 || state.tool !== 'pan') return;
+    pressAt = { x: e.clientX, y: e.clientY };
+    pressT = setTimeout(() => {
+      pressT = null;
+      const r = canvas.getBoundingClientRect();
+      const pt = { x: pressAt.x - r.left, y: pressAt.y - r.top };
+      if (!inSelection(pt)) mapMenuAt(pressAt.x, pressAt.y, pt, map.unproject([pt.x, pt.y]));
+    }, 500);
+  });
+  canvas.addEventListener('pointermove', e => {
+    if (pressT && pressAt && Math.hypot(e.clientX - pressAt.x, e.clientY - pressAt.y) > 10) { clearTimeout(pressT); pressT = null; }
+  });
+  ['pointerup', 'pointercancel'].forEach(t => canvas.addEventListener(t, () => { clearTimeout(pressT); pressT = null; }));
 
   map.on('click', ev => {
     if (state.tool !== 'pan') return; // markers cannot be clicked while selecting or drawing
@@ -1400,15 +1429,15 @@ function setupSelection(map) {
   const shapeMenu = document.createElement('div');
   shapeMenu.id = 'shape-menu'; shapeMenu.className = 'menu row-menu'; shapeMenu.hidden = true; shapeMenu.setAttribute('role', 'menu');
   shapeMenu.innerHTML = Object.entries(SHAPE_NAMES).map(([k, v]) =>
-    `<button type="button" role="menuitemradio" data-shape="${k}" aria-checked="false">${v}</button>`).join('');
+    `<button type="button" role="menuitemradio" data-shape="${k}" aria-checked="false">${svgIcon(k)}<span>${v}</span></button>`).join('');
   document.body.appendChild(shapeMenu);
 
   const selMenu = document.createElement('div');
   selMenu.id = 'sel-menu'; selMenu.className = 'menu row-menu'; selMenu.hidden = true; selMenu.setAttribute('role', 'menu');
   selMenu.innerHTML = '<div class="rm-head"><div class="rm-text"><div class="rm-title">Selection</div><div class="rm-sub"></div></div></div><hr>' +
-    '<button type="button" role="menuitem" data-act="found">Mark all as found</button>' +
-    '<button type="button" role="menuitem" data-act="unfound">Mark all as not found</button>' +
-    '<button type="button" role="menuitem" data-act="delete-user" class="danger" hidden>Delete user markers</button>';
+    `<button type="button" role="menuitem" data-act="found">${svgIcon('check')}<span>Mark all as found</span></button>` +
+    `<button type="button" role="menuitem" data-act="unfound">${svgIcon('open')}<span>Mark all as not found</span></button>` +
+    `<button type="button" role="menuitem" data-act="delete-user" class="danger" hidden>${svgIcon('trash')}<span>Delete user markers</span></button>`;
   document.body.appendChild(selMenu);
 
   // the drawn shapes, above the map canvas
@@ -1481,7 +1510,7 @@ function setupSelection(map) {
     const users = userInSelection().length;
     const del = selMenu.querySelector('[data-act="delete-user"]');
     del.hidden = users === 0;
-    del.textContent = `Delete ${users} user marker${users === 1 ? '' : 's'}`;
+    del.querySelector('span').textContent = `Delete ${users} user marker${users === 1 ? '' : 's'}`;
     placeMenu(selMenu, x, y);
   }
   selMenu.onclick = e => {
@@ -1830,6 +1859,105 @@ function renderDetail() {
 }
 
 // a link that opens this marker on this game page; the system share sheet when there is one, else the clipboard
+/* ---------- right-click on the map: what is here ----------
+   On an empty spot: add a marker there (either kind), or share the spot. On a marker: found or not found, share;
+   a user marker also has its own actions (the card's buttons). Pan and marker tools only; press and hold on touch. */
+let ctxMenu = null, ctxItems = [], ctxOpenedAt = 0;
+function ctxEl() {
+  if (!ctxMenu) {
+    ctxMenu = document.createElement('div');
+    ctxMenu.id = 'ctx-menu';
+    ctxMenu.className = 'menu row-menu ctx';
+    ctxMenu.hidden = true;
+    ctxMenu.setAttribute('role', 'menu');
+    ctxMenu.onclick = e => {
+      const b = e.target.closest('[data-i]');
+      if (!b) return;
+      const it = ctxItems[+b.dataset.i];
+      closeCtx();
+      it?.fn();
+    };
+    document.body.appendChild(ctxMenu);
+  }
+  return ctxMenu;
+}
+function closeCtx() { if (ctxMenu) ctxMenu.hidden = true; ctxItems = []; }
+function openCtx(x, y, { title = '', items }) {
+  const el = ctxEl();
+  ctxItems = items;
+  el.innerHTML = (title ? `<div class="rm-head"><div class="rm-text"><div class="rm-title">${esc(title)}</div></div></div><hr>` : '') +
+    items.map((it, i) => it.sep ? '<hr>' : `<button type="button" role="menuitem" data-i="${i}"${it.danger ? ' class="danger"' : ''}>${svgIcon(it.icon)}<span>${esc(it.label)}</span></button>`).join('');
+  el.hidden = false;
+  const w = el.offsetWidth, h = el.offsetHeight, pad = 8;
+  let lx = x + 4;
+  if (lx + w > innerWidth - pad) lx = x - w - 4;
+  el.style.left = Math.max(pad, Math.min(lx, innerWidth - w - pad)) + 'px';
+  el.style.top = Math.max(pad, Math.min(y, innerHeight - h - pad)) + 'px';
+  ctxOpenedAt = Date.now();
+}
+
+function setFound(id, on) {
+  if (on) state.found.add(id); else state.found.delete(id);
+  scheduleSave();
+  updateSidebar();
+  refreshMap();
+  if (state.selected === id) renderDetail();
+}
+
+async function shareLocation(pos) {
+  const packed = await packMarker({ title: 'Shared location', lat: pos.lat, lng: pos.lng, map: state.mapInfo.slug });
+  const url = new URL(location.href);
+  url.hash = '';
+  url.search = new URLSearchParams({ tm: packed, map: state.mapInfo.slug }).toString();
+  await deliverLink(url.href, null);
+}
+
+function spotMenu(ll, x, y) {
+  const pos = { lat: ll.lat, lng: ll.lng };
+  openCtx(x, y, { items: [
+    { icon: 'pin', label: 'Add marker here', fn: () => state.um.placeAt(pos, false) },
+    { icon: 'tempPin', label: 'Add temporary marker here', fn: () => state.um.placeAt(pos, true) },
+    { sep: true },
+    { icon: 'share', label: 'Share this location', fn: () => shareLocation(pos) },
+  ] });
+}
+
+function markerMenu(l, x, y) {
+  const found = state.found.has(l.id);
+  const items = [
+    { icon: found ? 'open' : 'check', label: found ? 'Mark as not found' : 'Mark as found', fn: () => setFound(l.id, !found) },
+    { icon: 'share', label: 'Share', fn: () => shareMarker(l.id, null) },
+    { icon: 'card', label: 'Open card', fn: () => select(l.id, { fly: false }) },
+  ];
+  if (l.user) {
+    items.push({ sep: true });
+    if (l.temp) items.push({ icon: 'save', label: 'Make permanent', fn: () => state.um.detailAction('promote', l.id) });
+    items.push({ icon: 'pencil', label: 'Edit', fn: () => state.um.detailAction('edit', l.id) });
+    items.push({ icon: 'move', label: 'Move', fn: () => state.um.detailAction('move', l.id) });
+    items.push({ icon: 'trash', label: 'Delete', danger: true, fn: () => state.um.detailAction('delete', l.id) });
+  }
+  openCtx(x, y, { title: l.title, items });
+}
+
+function mapMenuAt(x, y, pt, ll) {
+  const hit = state.map.queryRenderedFeatures(pt, { layers: ['locs'] })[0];
+  const l = hit && state.byId.get(Number(hit.properties.id));
+  if (l) markerMenu(l, x, y);
+  else spotMenu(ll, x, y);
+}
+
+// the selection has its own menu: a point inside it is left to that one
+function inSelection(pt) {
+  if (!state.sel) return false;
+  const g = geomOf(state.sel, p => state.map.project([p.lng, p.lat]));
+  return insideGeom(g, pt.x, pt.y);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCtx(); });
+document.addEventListener('click', e => {
+  if (!e.target.closest('#ctx-menu') && Date.now() - ctxOpenedAt > 350) closeCtx(); // a touch's click can follow its press
+});
+
 // the link to a marker: a page link for official markers; for the user's own, the marker itself is in the link
 async function shareMarker(id, btn) {
   const l = state.byId.get(id);
@@ -1856,9 +1984,10 @@ async function deliverLink(url, btn) {
   }
   try {
     await navigator.clipboard.writeText(url);
-    flashCopied(btn);
+    if (btn) flashCopied(btn); else toast('Link copied');
   } catch {
-    showLinkFallback(url);
+    if (btn) showLinkFallback(url);
+    else await askDialog({ title: 'Copy this link', value: url, okLabel: 'Done' });
   }
 }
 

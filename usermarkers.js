@@ -3,6 +3,7 @@
 // other marker the same way official markers link to each other. Export and import carry the profile's copy.
 import { PALETTE } from './drawing.js';
 import { unpackMarker } from './share-link.mjs';
+import { ICONS, svgIcon } from './icons.mjs';
 
 export const TEMP_CAT_ID = -1;
 export const TEMP_CAT = { id: TEMP_CAT_ID, title: 'Temporary', color: '#ffb547', temp: true };
@@ -265,7 +266,13 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     if (moveId != null) {
       const m = findMarker(moveId);
       moveId = null;
-      if (m) { m.lat = pos.lat; m.lng = pos.lng; changed(); }
+      if (m) {
+        m.lat = pos.lat;
+        m.lng = pos.lng;
+        changed();
+        select(m.id, { fly: false, push: false }); // the selection ring follows the marker to its new place
+        requestTool('pan'); // one move at a time: back to the hand
+      }
       return;
     }
     addMarker(pos, kind === 'temp');
@@ -275,8 +282,11 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
   const markerBtn = document.getElementById('tool-marker');
   const pickMenu = document.createElement('div');
   pickMenu.id = 'marker-menu'; pickMenu.className = 'menu row-menu'; pickMenu.hidden = true; pickMenu.setAttribute('role', 'menu');
-  pickMenu.innerHTML = '<button type="button" role="menuitemradio" data-kind="perm" aria-checked="false">Permanent marker</button>' +
-    '<button type="button" role="menuitemradio" data-kind="temp" aria-checked="false">Temporary marker</button>';
+  pickMenu.innerHTML = '<button type="button" role="menuitemradio" data-kind="perm" aria-checked="false">' + svgIcon('pin') + '<span>Permanent marker</span></button>' +
+    '<button type="button" role="menuitemradio" data-kind="temp" aria-checked="false">' + svgIcon('tempPin') + '<span>Temporary marker</span></button>';
+  // the tool's icon: a pin, or a pin with a clock when the next marker is temporary
+  function syncToolIcon() { markerBtn.querySelector('svg').innerHTML = ICONS[kind === 'temp' ? 'tempPin' : 'pin']; }
+  syncToolIcon();
   document.body.appendChild(pickMenu);
 
   function placeBeside(elm, rect) {
@@ -307,6 +317,7 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     const b = e.target.closest('[data-kind]');
     if (!b) return;
     kind = b.dataset.kind;
+    syncToolIcon();
     pickMenu.hidden = true;
     requestTool('marker');
   };
@@ -338,12 +349,11 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
   /* ---- hooks for the sidebar's group and category menus ---- */
   function menuItems(user) {
     if (!user) return [];
-    if (user.kind === 'group') return [{ act: 'newcat', label: 'New category' }];
-    if (user.kind === 'cat' && user.id === TEMP_CAT_ID) return [{ act: 'clear-temp', label: 'Clear temporary markers', danger: true }];
-    if (user.kind === 'cat') return [{ act: 'editcat', label: 'Edit category' }, { act: 'delcat', label: 'Delete category', danger: true }];
+    if (user.kind === 'group') return [{ act: 'newcat', label: 'New category', icon: 'plus' }];
+    if (user.kind === 'cat' && user.id === TEMP_CAT_ID) return [{ act: 'clear-temp', label: 'Clear temporary markers', icon: 'trash', danger: true }];
+    if (user.kind === 'cat') return [{ act: 'editcat', label: 'Edit category', icon: 'pencil' }, { act: 'delcat', label: 'Delete category', icon: 'trash', danger: true }];
     return [];
-  }
-  async function menuAction(act, user) {
+  }  async function menuAction(act, user) {
     if (act === 'newcat') return categoryForm(null);
     if (act === 'clear-temp') {
       const n = state.tempMarkers.length;
@@ -364,12 +374,13 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     const list = links.length
       ? `<div class="d-links"><h3>Links</h3><ul>${links.map(t => `<li><a href="#loc=${t.id}" data-loc="${t.id}">${esc(t.title)}</a></li>`).join('')}</ul></div>`
       : '';
+    const btn = (act, label, icon, danger) =>
+      `<button type="button" class="ibtn${danger ? ' danger' : ''}" data-um="${act}" data-tip="${label}" aria-label="${label}">${svgIcon(icon)}</button>`;
     return `<div class="um-bar"><span class="um-badge">${l.temp ? 'Temporary' : 'Your marker'}</span>` +
-      (l.temp ? '<button type="button" data-um="promote">Make permanent</button>' : '') +
-      '<button type="button" data-um="edit">Edit</button><button type="button" data-um="move">Move</button>' +
-      '<button type="button" data-um="delete" class="danger">Delete</button></div>' + list;
-  }
-  async function detailAction(act, id) {
+      (l.temp ? btn('promote', 'Make permanent', 'save') : '') +
+      btn('edit', 'Edit', 'pencil') + btn('move', 'Move', 'move') + btn('delete', 'Delete', 'trash', true) +
+      '</div>' + list;
+  }  async function detailAction(act, id) {
     const m = findMarker(id);
     if (!m) return;
     if (act === 'promote') await markerForm({ marker: m, promote: true });
@@ -378,5 +389,5 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     else if (act === 'delete') await deleteMarker(m);
   }
 
-  return { setActive, menuItems, menuAction, detailHtml, detailAction, deleteMany, addSharedTemp };
+  return { setActive, menuItems, menuAction, detailHtml, detailAction, deleteMany, addSharedTemp, placeAt: addMarker, startMove };
 }
