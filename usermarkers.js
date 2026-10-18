@@ -1,0 +1,362 @@
+// User markers: your own markers and categories, saved with the profile, plus temporary markers that only live
+// in this tab. They are drawn as a ping in their category colour, can hold notes (markdown), and link to any
+// other marker the same way official markers link to each other. Export and import carry the profile's copy.
+import { PALETTE } from './drawing.js';
+
+export const TEMP_CAT_ID = -1;
+export const TEMP_CAT = { id: TEMP_CAT_ID, title: 'Temporary', color: '#ffb547', temp: true };
+const NEW_CAT = '__new';
+
+// the tool-stack button: a ping
+export const MARKER_CONTROL_HTML =
+  '<button type="button" id="tool-marker" class="notched" aria-label="Place marker" title="Place a marker. Tap again, or right-click or hold, for more">' +
+  '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="11" r="5.5"/><circle cx="12" cy="11" r="1.8"/><path d="M12 16.5V21"/></svg></button>';
+
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// record ids are negative: they cannot collide with the game's own marker ids (positive)
+const newId = () => -(Math.floor(Math.random() * 2e9) + 1);
+
+// The picture of a ping for the map: a dot in a soft halo on a short tail. Temporary ones get a dashed ring.
+// `name` is "up-<rrggbb>" or "up-<rrggbb>-t".
+export function pingImage(name) {
+  const temp = name.endsWith('-t');
+  const hex = '#' + name.slice(3).replace('-t', '');
+  const S = 36, R = 2, cx = S / 2, cy = 14, r = 8.5;
+  const c = document.createElement('canvas');
+  c.width = c.height = S * R;
+  const g = c.getContext('2d');
+  g.scale(R, R);
+  g.beginPath(); g.arc(cx, cy, 13, 0, Math.PI * 2); g.fillStyle = hex + '38'; g.fill();
+  g.beginPath(); g.moveTo(cx - 4.5, cy + 6); g.lineTo(cx, S - 2.5); g.lineTo(cx + 4.5, cy + 6); g.closePath(); g.fillStyle = hex; g.fill();
+  g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.fillStyle = hex; g.fill();
+  g.lineWidth = 2; g.strokeStyle = '#fff';
+  if (temp) g.setLineDash([2.5, 2]);
+  g.stroke();
+  g.setLineDash([]);
+  g.beginPath(); g.arc(cx, cy, 2.6, 0, Math.PI * 2); g.fillStyle = '#fff'; g.fill();
+  return g.getImageData(0, 0, S * R, S * R);
+}
+
+export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select, closeDetail, askDialog, toast, requestTool }) {
+  const profileCats = () => (state.profile.userCats ||= []);
+  const profileMarkers = () => (state.profile.userMarkers ||= []);
+  const findMarker = id => profileMarkers().find(m => m.id === id) || state.tempMarkers.find(m => m.id === id) || null;
+  const local = e => { const r = canvasBox.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+
+  let active = false, kind = 'perm', moveId = null;
+
+  /* ---- the shared dialog element, filled with a form ---- */
+  function dialog(title, body, { ok = 'Save', danger = null, onReady } = {}) {
+    return new Promise(resolve => {
+      const d = document.getElementById('dlg'), form = document.getElementById('dlg-form');
+      form.innerHTML = `<h2>${esc(title)}</h2>${body}<div class="dlg-actions">` +
+        (danger ? `<button type="button" class="danger" data-del>${esc(danger)}</button>` : '') +
+        `<button type="button" data-cancel>Cancel</button><button class="primary">${esc(ok)}</button></div>`;
+      d.classList.add('um');
+      const finish = r => { d.classList.remove('um'); if (d.open) d.close(); resolve(r); };
+      form.onsubmit = e => { e.preventDefault(); finish({ form }); };
+      form.querySelector('[data-cancel]').onclick = () => finish(null);
+      form.querySelector('[data-del]')?.addEventListener('click', () => finish({ del: true }));
+      d.oncancel = () => finish(null);
+      onReady?.(form);
+      d.showModal();
+    });
+  }
+  // a colour: palette swatches, a native colour picker (its wheel), and the hex code. Name must be "color".
+  function colorField(c) {
+    return `<div class="field um-color"><span>Colour</span><div class="um-sw">${PALETTE.map(p =>
+      `<button type="button" class="sw" data-color="${p}" style="--c:${p}" aria-label="${p}"></button>`).join('')}</div>` +
+      `<div class="um-colorrow"><input type="color" name="color" value="${c}" aria-label="Colour wheel">` +
+      `<input class="um-hex" maxlength="7" value="${c}" spellcheck="false" aria-label="Hex colour"></div></div>`;
+  }
+  function wireColor(root) {
+    const color = root.querySelector('input[name="color"]'), hex = root.querySelector('.um-hex');
+    const set = c => {
+      color.value = c;
+      hex.value = c;
+      root.querySelectorAll('.sw').forEach(b => b.classList.toggle('on', b.dataset.color === c));
+    };
+    root.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => set(b.dataset.color)));
+    color.addEventListener('input', () => set(color.value));
+    hex.addEventListener('input', () => { const v = hex.value.trim(); if (/^#?[0-9a-f]{6}$/i.test(v)) set('#' + v.replace('#', '').toLowerCase()); });
+    set(color.value);
+  }
+
+  /* ---- records ---- */
+  function removeRecords(ids) {
+    const gone = new Set(ids);
+    state.profile.userMarkers = profileMarkers().filter(m => !gone.has(m.id));
+    state.tempMarkers = state.tempMarkers.filter(m => !gone.has(m.id));
+    for (const id of ids) state.found.delete(id);
+    for (const m of [...state.profile.userMarkers, ...state.tempMarkers]) {
+      if (m.links?.length) m.links = m.links.filter(x => !gone.has(x));
+    }
+  }
+
+  // a category whose last marker is gone goes too, so an empty "User markers" group does not linger
+  function pruneEmptyCategories(catIds) {
+    const used = new Set(profileMarkers().map(m => m.cat));
+    state.profile.userCats = profileCats().filter(c => !catIds.includes(c.id) || used.has(c.id));
+  }
+
+  async function deleteMarker(m) {
+    const ok = await askDialog({ title: 'Delete marker?', message: `"${m.title}" will be removed.`, okLabel: 'Delete', danger: true });
+    if (!ok) return;
+    const cat = m.cat;
+    removeRecords([m.id]);
+    pruneEmptyCategories([cat]);
+    if (state.selected === m.id) closeDetail();
+    changed();
+  }
+
+  // several user markers at once (from a selection); categories left empty go too
+  async function deleteMany(ids) {
+    if (!ids.length) return;
+    const n = ids.length;
+    const ok = await askDialog({ title: `Delete ${n} user marker${n === 1 ? '' : 's'}?`, message: 'They will be removed from this profile.', okLabel: 'Delete', danger: true });
+    if (!ok) return;
+    const cats = [...new Set(ids.map(id => findMarker(id)?.cat))];
+    removeRecords(ids);
+    pruneEmptyCategories(cats);
+    if (ids.includes(state.selected)) closeDetail();
+    changed();
+  }
+
+  async function deleteCategory(cat) {
+    const ids = profileMarkers().filter(m => m.cat === cat.id).map(m => m.id);
+    const message = ids.length ? `"${cat.title}" and its ${ids.length} marker${ids.length === 1 ? '' : 's'} will be removed.` : `"${cat.title}" will be removed.`;
+    const ok = await askDialog({ title: 'Delete category?', message, okLabel: 'Delete', danger: true });
+    if (!ok) return;
+    removeRecords(ids);
+    state.profile.userCats = profileCats().filter(c => c.id !== cat.id);
+    if (ids.includes(state.selected)) closeDetail();
+    changed();
+  }
+
+  /* ---- the marker form: new (at a point) or edit ---- */
+  async function markerForm({ marker = null, pos = null, temp = false }) {
+    const isTemp = marker ? !!marker.temp : temp;
+    const cats = profileCats();
+    const links = [...(marker?.links || [])];
+    const selCat = marker && !marker.temp ? marker.cat : (cats[0]?.id ?? NEW_CAT);
+    const opts = cats.map(c => `<option value="${c.id}"${c.id === selCat ? ' selected' : ''}>${esc(c.title)}</option>`).join('') +
+      `<option value="${NEW_CAT}"${selCat === NEW_CAT ? ' selected' : ''}>New category…</option>`;
+    const body =
+      `<label class="field"><span>Name</span><input name="title" maxlength="80" required value="${esc(marker?.title || '')}" autocomplete="off"></label>` +
+      (isTemp
+        ? '<p class="d-note">Temporary: this marker is gone when the tab closes.</p>'
+        : `<label class="field"><span>Category</span><select name="cat">${opts}</select></label>` +
+          `<div class="um-newcat" ${selCat === NEW_CAT ? '' : 'hidden'}><label class="field"><span>New category</span>` +
+          `<input name="newcat" maxlength="40" placeholder="e.g. Keys" autocomplete="off"></label>${colorField(PALETTE[0])}</div>`) +
+      `<label class="field"><span>Notes</span><textarea name="desc" rows="4" placeholder="Markdown works">${esc(marker?.desc || '')}</textarea></label>` +
+      '<div class="field"><span>Links</span><div class="um-chips"></div>' +
+      '<input type="search" class="um-q" placeholder="Find a marker to link" autocomplete="off"><ul class="um-pick" hidden></ul></div>';
+
+    const onReady = form => {
+      const sel = form.elements.cat, block = form.querySelector('.um-newcat');
+      if (sel) sel.addEventListener('change', () => { block.hidden = sel.value !== NEW_CAT; });
+      if (block) wireColor(block);
+      const chips = form.querySelector('.um-chips'), q = form.querySelector('.um-q'), pick = form.querySelector('.um-pick');
+      const drawChips = () => {
+        chips.innerHTML = links.map(id => {
+          const t = state.byId.get(id);
+          return `<span class="um-chip">${esc(t ? t.title : 'Missing marker')}<button type="button" data-rm="${id}" aria-label="Remove link">&times;</button></span>`;
+        }).join('');
+      };
+      chips.onclick = e => {
+        const b = e.target.closest('[data-rm]');
+        if (!b) return;
+        const i = links.indexOf(Number(b.dataset.rm));
+        if (i >= 0) links.splice(i, 1);
+        drawChips();
+      };
+      const drawPick = () => {
+        const s = q.value.trim().toLowerCase();
+        if (!s) { pick.hidden = true; pick.innerHTML = ''; return; }
+        const hits = state.locs.filter(l => l.id !== marker?.id && !links.includes(l.id) && l.title.toLowerCase().includes(s)).slice(0, 8);
+        pick.innerHTML = hits.length
+          ? hits.map(l => `<li data-add="${l.id}">${esc(l.title)}<small>${esc(state.cats.get(l.cat)?.title || '')}</small></li>`).join('')
+          : '<li class="none">No marker matches</li>';
+        pick.hidden = false;
+      };
+      q.addEventListener('input', drawPick);
+      q.addEventListener('keydown', e => { if (e.key === 'Enter') e.preventDefault(); }); // Enter in the search must not submit the form
+      pick.onclick = e => {
+        const li = e.target.closest('[data-add]');
+        if (!li) return;
+        links.push(Number(li.dataset.add));
+        q.value = '';
+        drawPick();
+        drawChips();
+      };
+      drawChips();
+    };
+
+    const res = await dialog(marker ? 'Edit marker' : 'New marker', body, { ok: marker ? 'Save' : 'Place', danger: marker ? 'Delete' : null, onReady });
+    if (!res) return null;
+    if (res.del) { await deleteMarker(marker); return null; }
+
+    const f = res.form.elements;
+    const title = f.title.value.trim();
+    if (!title) { toast('A marker needs a name.'); return null; }
+    let cat = TEMP_CAT_ID;
+    if (!isTemp) {
+      cat = f.cat.value;
+      if (cat === NEW_CAT) {
+        const name = f.newcat.value.trim();
+        if (!name) { toast('Give the new category a name.'); return null; }
+        const c = { id: newId(), title: name, color: f.color.value };
+        profileCats().push(c);
+        cat = c.id;
+      } else cat = Number(cat);
+    }
+    const data = { title, cat, desc: f.desc.value, links: links.filter(id => id !== marker?.id && state.byId.has(id)) };
+    let saved;
+    const oldCat = marker?.cat;
+    if (marker) saved = Object.assign(marker, data);
+    else if (isTemp) { saved = { id: newId(), ...data, lat: pos.lat, lng: pos.lng, temp: true }; state.tempMarkers.push(saved); }
+    else { saved = { id: newId(), ...data, lat: pos.lat, lng: pos.lng, created: Date.now() }; profileMarkers().push(saved); }
+    if (oldCat !== undefined && oldCat !== saved.cat) pruneEmptyCategories([oldCat]); // moved out of its old category
+    changed();
+    return saved;
+  }
+
+  // a category on its own: create, rename, recolour, delete
+  async function categoryForm(cat) {
+    const body = `<label class="field"><span>Name</span><input name="title" maxlength="40" required value="${esc(cat?.title || '')}" autocomplete="off"></label>` +
+      colorField(cat?.color || PALETTE[2]);
+    const res = await dialog(cat ? 'Edit category' : 'New category', body,
+      { ok: cat ? 'Save' : 'Create', danger: cat ? 'Delete category' : null, onReady: form => wireColor(form) });
+    if (!res) return;
+    if (res.del) return deleteCategory(cat);
+    const f = res.form.elements;
+    const title = f.title.value.trim();
+    if (!title) return;
+    if (cat) { cat.title = title; cat.color = f.color.value; }
+    else profileCats().push({ id: newId(), title, color: f.color.value });
+    changed();
+  }
+
+  /* ---- placing, moving ---- */
+  async function addMarker(pos, temp) {
+    const m = await markerForm({ pos, temp });
+    if (!m) return;
+    select(m.id, { fly: false });
+    requestTool('pan'); // one marker at a time: a placed marker puts the hand back on
+  }
+  function startMove(m) {
+    moveId = m.id;
+    requestTool('marker');
+    toast(`Click the map to move "${m.title}". Esc cancels.`, 4000);
+  }
+
+  canvasBox.addEventListener('pointerdown', e => {
+    if (!active || e.button !== 0) return;
+    const p = local(e);
+    const ll = map.unproject([p.x, p.y]);
+    const pos = { lat: ll.lat, lng: ll.lng };
+    if (moveId != null) {
+      const m = findMarker(moveId);
+      moveId = null;
+      if (m) { m.lat = pos.lat; m.lng = pos.lng; changed(); }
+      return;
+    }
+    addMarker(pos, kind === 'temp');
+  });
+
+  /* ---- the marker button: tap = place; tap again, right-click or hold = permanent or temporary ---- */
+  const markerBtn = document.getElementById('tool-marker');
+  const pickMenu = document.createElement('div');
+  pickMenu.id = 'marker-menu'; pickMenu.className = 'menu row-menu'; pickMenu.hidden = true; pickMenu.setAttribute('role', 'menu');
+  pickMenu.innerHTML = '<button type="button" role="menuitemradio" data-kind="perm" aria-checked="false">Permanent marker</button>' +
+    '<button type="button" role="menuitemradio" data-kind="temp" aria-checked="false">Temporary marker</button>';
+  document.body.appendChild(pickMenu);
+
+  function placeBeside(elm, rect) {
+    elm.hidden = false;
+    const w = elm.offsetWidth, h = elm.offsetHeight, pad = 8;
+    elm.style.left = Math.max(pad, Math.min(rect.left - 8 - w, innerWidth - w - pad)) + 'px';
+    elm.style.top = Math.max(pad, Math.min(rect.top, innerHeight - h - pad)) + 'px';
+  }
+  function openPick() {
+    pickMenu.querySelectorAll('[data-kind]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.kind === kind)));
+    placeBeside(pickMenu, markerBtn.getBoundingClientRect());
+  }
+  let holdT = null, held = false;
+  markerBtn.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    held = false;
+    holdT = setTimeout(() => { held = true; openPick(); }, 500);
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(t => markerBtn.addEventListener(t, () => clearTimeout(holdT)));
+  markerBtn.addEventListener('click', () => {
+    if (held) { held = false; return; }
+    if (active) { if (pickMenu.hidden) openPick(); else pickMenu.hidden = true; return; }
+    pickMenu.hidden = true;
+    requestTool('marker');
+  });
+  markerBtn.addEventListener('contextmenu', e => { e.preventDefault(); openPick(); });
+  pickMenu.onclick = e => {
+    const b = e.target.closest('[data-kind]');
+    if (!b) return;
+    kind = b.dataset.kind;
+    pickMenu.hidden = true;
+    requestTool('marker');
+  };
+  document.addEventListener('click', e => { if (!e.target.closest('#marker-menu, #tool-marker')) pickMenu.hidden = true; });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    pickMenu.hidden = true;
+    if (moveId != null) { moveId = null; toast('Move cancelled'); }
+  });
+
+  function setActive(on) {
+    active = on;
+    if (!on) moveId = null;
+    mapEl.classList.toggle('tool-marker', on);
+    markerBtn.setAttribute('aria-pressed', String(on));
+  }
+
+  /* ---- hooks for the sidebar's group and category menus ---- */
+  function menuItems(user) {
+    if (!user) return [];
+    if (user.kind === 'group') return [{ act: 'newcat', label: 'New category' }];
+    if (user.kind === 'cat' && user.id === TEMP_CAT_ID) return [{ act: 'clear-temp', label: 'Clear temporary markers', danger: true }];
+    if (user.kind === 'cat') return [{ act: 'editcat', label: 'Edit category' }, { act: 'delcat', label: 'Delete category', danger: true }];
+    return [];
+  }
+  async function menuAction(act, user) {
+    if (act === 'newcat') return categoryForm(null);
+    if (act === 'clear-temp') {
+      const n = state.tempMarkers.length;
+      const ok = await askDialog({ title: 'Clear temporary markers?', message: `${n} temporary marker${n === 1 ? '' : 's'} will be removed.`, okLabel: 'Clear', danger: true });
+      if (!ok) return;
+      removeRecords(state.tempMarkers.map(m => m.id));
+      return changed();
+    }
+    const cat = profileCats().find(c => c.id === user.id);
+    if (!cat) return;
+    if (act === 'editcat') return categoryForm(cat);
+    if (act === 'delcat') return deleteCategory(cat);
+  }
+
+  /* ---- hooks for the detail card of a user marker ---- */
+  function detailHtml(l) {
+    const links = (l.links || []).map(id => state.byId.get(id)).filter(Boolean);
+    const list = links.length
+      ? `<div class="d-links"><h3>Links</h3><ul>${links.map(t => `<li><a href="#loc=${t.id}" data-loc="${t.id}">${esc(t.title)}</a></li>`).join('')}</ul></div>`
+      : '';
+    return `<div class="um-bar"><span class="um-badge">${l.temp ? 'Temporary' : 'Your marker'}</span>` +
+      '<button type="button" data-um="edit">Edit</button><button type="button" data-um="move">Move</button>' +
+      '<button type="button" data-um="delete" class="danger">Delete</button></div>' + list;
+  }
+  async function detailAction(act, id) {
+    const m = findMarker(id);
+    if (!m) return;
+    if (act === 'edit') await markerForm({ marker: m });
+    else if (act === 'move') startMove(m);
+    else if (act === 'delete') await deleteMarker(m);
+  }
+
+  return { setActive, menuItems, menuAction, detailHtml, detailAction, deleteMany };
+}

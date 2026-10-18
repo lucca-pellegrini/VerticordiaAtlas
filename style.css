@@ -340,7 +340,8 @@ dialog input[type=text] { margin-bottom: 14px; }
 }
 
 @media (min-width: 761px) {
-  .maplibregl-ctrl-top-right, .maplibregl-ctrl-bottom-right { transition: right .2s var(--ease); }
+  .maplibregl-ctrl-top-right, .maplibregl-ctrl-bottom-right { transition: right .2s var(--ease), transform .25s var(--ease), opacity .25s var(--ease); }
+  body.detail-open #tools-open { right: 396px; }
   body.detail-open .maplibregl-ctrl-top-right, body.detail-open .maplibregl-ctrl-bottom-right { right: 384px; }
   .side-collapse { display: block; }
   body.side-collapsed #app { grid-template-columns: 1fr; }
@@ -464,3 +465,84 @@ dialog input[type=text] { margin-bottom: 14px; }
 .ink-pop .ink-sizes button:hover { background: var(--panel); border-color: var(--line-2); }
 .ink-pop .ink-sizes button.on { border-color: var(--accent-soft); background: var(--tint); }
 .ink-sizes i { display: block; width: var(--w); height: var(--w); border-radius: 50%; background: var(--ink); }
+
+/* ---------- user markers ---------- */
+/* a ping in the sidebar: the category colour, with a white rim; temporary ones are a dashed ring */
+.ico-ping {
+  position: absolute; left: 4px; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--c);
+  box-shadow: 0 0 0 1.5px #fff, 0 0 0 4px color-mix(in srgb, var(--c) 28%, transparent);
+}
+.ico-ping.temp { background: transparent; border: 2px dashed var(--c); box-shadow: none; }
+
+/* the card of a user marker: its colour in the heading, a badge and its own actions */
+#detail.user-loc { box-shadow: inset 3px 0 0 var(--c, var(--accent)), 0 24px 60px -24px #000; }
+#detail.user-loc .d-cat { color: var(--ink); }
+.um-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: -4px 0 14px; }
+.um-badge {
+  margin-right: auto; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink); background: color-mix(in srgb, var(--c, var(--accent)) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--c, var(--accent)) 60%, transparent);
+}
+.um-bar button {
+  padding: 6px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 500; background: var(--panel-2);
+  border: 1px solid var(--line-2); color: var(--ink); transition: background-color var(--fast);
+}
+.um-bar button:hover { background: color-mix(in srgb, var(--panel-2), #fff 8%); }
+.um-bar button.danger { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 50%, transparent); }
+.d-links { margin: 0 0 16px; }
+.d-links h3 { margin: 0 0 6px; color: var(--ink-dim); font: 500 11px var(--sans); letter-spacing: .09em; text-transform: uppercase; }
+.d-links ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.d-links a { font-size: 13px; color: var(--accent-soft); text-decoration: none; border-bottom: 1px dotted color-mix(in srgb, var(--accent-soft) 50%, transparent); }
+
+/* the marker form (in the shared dialog) */
+dialog.um { max-height: calc(100% - 32px); overflow: auto; width: min(440px, calc(100% - 32px)); }
+dialog.um .field + .field, dialog.um .field + .um-newcat, dialog.um .um-newcat + .field { margin-top: 12px; }
+dialog.um textarea {
+  box-sizing: border-box; width: 100%; padding: 9px 11px; resize: vertical; border-radius: 10px;
+  background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink); font: 400 14.5px/1.45 var(--sans); outline: none;
+}
+dialog.um textarea:focus, dialog.um select:focus, dialog.um input:focus { border-color: var(--accent-soft); }
+.um-newcat { display: grid; gap: 12px; padding: 12px; margin-top: 12px; border: 1px dashed var(--line-2); border-radius: 12px; }
+.um-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.um-chips:empty { display: none; }
+.um-chip {
+  display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px 3px 10px; border-radius: 999px;
+  background: var(--tint); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); font-size: 12.5px;
+}
+.um-chip button { width: 20px; height: 20px; padding: 0; border-radius: 50%; background: none; border: 0; color: var(--ink-dim); font-size: 15px; line-height: 1; }
+.um-chip button:hover { color: var(--ink); background: var(--hover); }
+.um-q { width: 100%; box-sizing: border-box; padding: 8px 11px; border-radius: 10px; background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink); font: 400 14px/1.2 var(--sans); outline: none; }
+.um-pick {
+  list-style: none; margin: 6px 0 0; padding: 4px; max-height: 180px; overflow: auto; border-radius: 10px;
+  background: var(--panel-2); border: 1px solid var(--line-2);
+}
+.um-pick li { display: flex; justify-content: space-between; gap: 10px; padding: 7px 9px; border-radius: 8px; cursor: pointer; font-size: 13.5px; }
+.um-pick li:hover { background: var(--hover); }
+.um-pick li small { color: var(--ink-dim); white-space: nowrap; }
+.um-pick li.none { cursor: default; color: var(--ink-dim); }
+.um-pick li.none:hover { background: none; }
+.um-color { display: grid; gap: 8px; }
+.um-sw { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; }
+.um-sw .sw { width: 100%; aspect-ratio: 1; padding: 0; border-radius: 50%; background: var(--c); border: 0; box-shadow: inset 0 0 0 1px #0003; }
+.um-sw .sw.on { box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px var(--ink); }
+.um-colorrow { display: flex; align-items: center; gap: 8px; }
+.um-colorrow input[type=color] { width: 38px; height: 34px; padding: 2px; border-radius: 9px; background: var(--panel-2); border: 1px solid var(--line-2); cursor: pointer; }
+.um-hex { flex: 1; min-width: 0; height: 34px; padding: 0 10px; border-radius: 9px; background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink); font: 500 13px/1 var(--sans); letter-spacing: .05em; outline: none; }
+
+/* the marker tool points like the other tools */
+.tool-marker .maplibregl-canvas-container, .tool-marker canvas { cursor: crosshair !important; touch-action: none !important; }
+#marker-menu button { display: block; }
+
+/* the tool stack folds away to the right; a button brings it back */
+.maplibregl-ctrl-top-right { transition: transform .25s var(--ease), opacity .25s var(--ease); }
+#map.tools-collapsed .maplibregl-ctrl-top-right { transform: translateX(calc(100% + 24px)); opacity: 0; pointer-events: none; }
+#tools-open {
+  display: grid; opacity: 0; visibility: hidden; position: absolute; top: 10px; right: 10px; z-index: 3; place-items: center; width: 38px; height: 38px; padding: 0;
+  border-radius: var(--r); background: color-mix(in srgb, var(--panel) 90%, transparent); backdrop-filter: blur(12px);
+  border: 1px solid var(--line-2); color: var(--ink-dim); box-shadow: 0 10px 28px -10px #000d;
+  transition: opacity .25s var(--ease), visibility .25s, background-color var(--fast), color var(--fast), transform var(--fast);
+}
+#tools-open svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+#tools-open:hover { color: var(--ink); background: var(--panel-2); }
+#tools-open:active { transform: scale(.94); }
+#map.tools-collapsed #tools-open { opacity: 1; visibility: visible; }

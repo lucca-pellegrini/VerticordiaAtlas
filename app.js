@@ -5,7 +5,8 @@
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const fmt = n => Number(n).toLocaleString();
-import { DRAW_CONTROLS_HTML, setupDrawing } from './drawing.js';
+import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML, setupDrawing } from './drawing.js';
+import { MARKER_CONTROL_HTML, TEMP_CAT, pingImage, setupUserMarkers } from './usermarkers.js';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
 
@@ -19,6 +20,8 @@ const state = {
   presets: [], presetId: null, baseline: null, // baseline: the view before the first preset was picked
   trail: [], session: uid(), // navigation stack of opened markers (last = current); session ties history entries to it
   outLinks: new Map(), inLinks: new Map(), // location id -> ids its description links to / ids linking to it
+  tempMarkers: [], // temporary markers: kept for this tab only, never saved
+  officialLocs: null, um: null, // the game's own markers (the rest of state.locs is the user's); the user-markers module
   tool: 'pan', shape: 'box', sel: null, drag: null, // map tool; selection shape kind; the selection (map coordinates) and the one being drawn
 };
 
@@ -298,6 +301,7 @@ async function loadGame(entry) {
     tags: l.tags || [], media: l.media || [],
     icon: catById.get(l.category_id)?.icon,
   })).filter(l => Number.isFinite(l.lat) && Number.isFinite(l.lng));
+  state.officialLocs = state.locs;
   state.byId = new Map(state.locs.map(l => [l.id, l]));
   buildLinkIndex();
   state.tags = [...(data.tags || [])].sort((a, b) => a.id - b.id);
@@ -382,6 +386,7 @@ async function loadProfiles() {
 
 function applyProfile(p) {
   state.profile = p;
+  rebuildUserData(); // the profile's own categories and markers
   state.drawing?.reset(); // drawings belong to the profile: each one has its own undo history
   state.found = new Set(p.found || []);
   state.tag = state.tags.length ? (p.tag ?? null) : null;
@@ -463,7 +468,7 @@ async function profileAction(act) {
     await saveProfileNow();
     const payload = {
       app: 'offline-map-viewer', version: 1, game: state.entry.id, exported: new Date().toISOString(),
-      profiles: state.profiles.map(({ id, name, tag, found, created, updated, drawings }) => ({ id, name, tag, found, created, updated, drawings: drawings || [] })),
+      profiles: state.profiles.map(({ id, name, tag, found, created, updated, drawings, userCats, userMarkers }) => ({ id, name, tag, found, created, updated, drawings: drawings || [], userCats: userCats || [], userMarkers: userMarkers || [] })),
       presets: state.presets.map(({ id, name, hidden }) => ({ id, name, hidden })),
     };
     const a = document.createElement('a');
@@ -488,7 +493,8 @@ async function importFile(file) {
     for (const q of payload.profiles) {
       if (!q.id || !Array.isArray(q.found)) continue;
       const rec = { key: `${state.entry.id}:${q.id}`, id: q.id, game: state.entry.id, name: String(q.name || 'Imported'), tag: q.tag ?? null,
-        found: q.found.filter(Number.isFinite), drawings: Array.isArray(q.drawings) ? q.drawings : [], created: q.created || Date.now(), updated: Date.now() };
+        found: q.found.filter(Number.isFinite), drawings: Array.isArray(q.drawings) ? q.drawings : [],
+        userCats: Array.isArray(q.userCats) ? q.userCats : [], userMarkers: Array.isArray(q.userMarkers) ? q.userMarkers : [], created: q.created || Date.now(), updated: Date.now() };
       await dbPut('profiles', rec);
       const at = state.profiles.findIndex(x => x.id === rec.id);
       if (at >= 0) state.profiles[at] = rec; else state.profiles.push(rec);
@@ -532,6 +538,7 @@ function computeStats() {
 /* ---------- sidebar ---------- */
 
 function iconHtml(name) {
+  if (name && name.startsWith('up-')) return `<span class="ico-ping${name.endsWith('-t') ? ' temp' : ''}" style="--c:#${name.slice(3).replace('-t', '')}"></span>`;
   const d = state.sprite.defs[name];
   if (!d) return '';
   const s = 28 / d.height;
@@ -583,7 +590,7 @@ function buildSidebar() {
       onViewChanged();
     };
     el.querySelector('.group-head').oncontextmenu = e => { e.preventDefault(); showOnly(g.cats.map(c => c.id)); };
-    el.querySelector('.row-menu-btn').onclick = e => openRowMenu(e, { title: g.title, color: g.col, cats: g.cats });
+    el.querySelector('.row-menu-btn').onclick = e => openRowMenu(e, { title: g.title, color: g.col, cats: g.cats, user: g.user ? { kind: 'group' } : null });
 
     const rows = [];
     for (const c of g.cats) {
@@ -594,7 +601,7 @@ function buildSidebar() {
       const cb = row.querySelector('input');
       cb.onchange = () => { cb.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id); onViewChanged(); };
       row.oncontextmenu = e => { e.preventDefault(); showOnly([c.id]); };
-      row.querySelector('.row-menu-btn').onclick = e => openRowMenu(e, { title: c.title, icon: c.icon, cats: [c] });
+      row.querySelector('.row-menu-btn').onclick = e => openRowMenu(e, { title: c.title, icon: c.icon, cats: [c], user: c.user ? { kind: 'cat', id: c.id } : null });
       catsEl.appendChild(row);
       rows.push({ c, row, cb, tally: row.querySelector('.tally') });
       state.ui.cats.set(c.id, rows[rows.length - 1]);
@@ -617,6 +624,8 @@ function rowMenuEl() {
   el.innerHTML = '<div class="rm-head"></div><hr><button type="button" role="menuitem" data-act="found">Mark all as found</button>' +
     '<button type="button" role="menuitem" data-act="unfound">Mark all as not found</button>';
   el.onclick = e => {
+    const um = e.target.closest('[data-um]');
+    if (um) { const user = el._user; closeRowMenu(); state.um?.menuAction(um.dataset.um, user); return; }
     const b = e.target.closest('button[data-act]');
     if (!b || b.disabled || !el._cats) return;
     const locs = rowLocs(el._cats);
@@ -635,7 +644,7 @@ function rowLocs(cats) {
   return state.locs.filter(l => ids.has(l.cat) && applicable(l));
 }
 
-function openRowMenu(e, { title, icon, color, cats }) {
+function openRowMenu(e, { title, icon, color, cats, user = null }) {
   e.preventDefault(); e.stopPropagation();
   const btn = e.currentTarget;
   const el = rowMenuEl();
@@ -649,7 +658,16 @@ function openRowMenu(e, { title, icon, color, cats }) {
   el.querySelector('.rm-head').innerHTML = `${head}<div class="rm-text"><div class="rm-title">${esc(title)}</div>` +
     `<div class="rm-sub">${kind} · ${locs.length ? `${found}/${locs.length} found` : 'No markers shown'}</div></div>`;
   el._cats = cats;
+  el._user = user;
   el.querySelectorAll('button[data-act]').forEach(b => { b.disabled = locs.length === 0; });
+  // a user category or group gets its own items: edit, delete, new
+  el.querySelectorAll('[data-um]').forEach(b => b.remove());
+  for (const it of state.um?.menuItems(user) || []) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.setAttribute('role', 'menuitem'); b.dataset.um = it.act; b.textContent = it.label;
+    if (it.danger) b.className = 'danger';
+    el.appendChild(b);
+  }
   rowMenuBtn = btn;
   btn.setAttribute('aria-expanded', 'true');
   el.hidden = false;
@@ -833,6 +851,49 @@ async function presetAction(act) {
   }
 }
 
+const USER_GROUP = 'user-markers';
+const iconName = (color, temp) => `up-${color.replace('#', '')}${temp ? '-t' : ''}`;
+
+// Rebuilds the user side of the data: the "User markers" group (only when there are categories), the user markers
+// and the temporary ones, and the link index. Called whenever the profile or the temporary markers change.
+function rebuildUserData() {
+  if (!state.officialLocs) return;
+  const p = state.profile, temps = state.tempMarkers;
+  const cats = [...(p?.userCats || [])];
+  if (temps.length) cats.push(TEMP_CAT);
+  for (const id of [...state.cats.keys()]) if (id < 0) state.cats.delete(id);
+  state.groups = state.groups.filter(g => g.id !== USER_GROUP);
+  if (cats.length) {
+    const made = cats.map((c, i) => {
+      const cat = { id: c.id, title: c.title, group_id: USER_GROUP, order: 1000 + i, icon: iconName(c.color, c.temp), user: true };
+      state.cats.set(c.id, cat);
+      return cat;
+    });
+    state.groups.push({ id: USER_GROUP, title: 'User markers', col: 'var(--accent-soft)', user: true, cats: made });
+  }
+  state.groupOfCat = new Map();
+  for (const g of state.groups) for (const c of g.cats) state.groupOfCat.set(c.id, g);
+
+  const userLocs = [...(p?.userMarkers || []), ...temps].map(m => {
+    const cat = state.cats.get(m.cat);
+    return { id: m.id, cat: m.cat, title: m.title || '', desc: m.desc || '', lat: m.lat, lng: m.lng, tags: [], media: [],
+      icon: cat?.icon || iconName('#e5484d'), user: true, temp: !!m.temp, links: m.links || [] };
+  });
+  state.locs = [...state.officialLocs, ...userLocs];
+  state.byId = new Map(state.locs.map(l => [l.id, l]));
+  state.outLinks = new Map();
+  state.inLinks = new Map();
+  buildLinkIndex();
+  if (state.ui) buildSidebar();
+}
+
+// a change to the user's markers or categories: rebuild, save with the profile, redraw
+function userChanged() {
+  rebuildUserData();
+  scheduleSave();
+  refreshAll();
+}
+
 function refreshAll() {
   updateSidebar();
   renderPresets(); // the tag and its switch change which categories count as selected
@@ -881,6 +942,7 @@ function createMap() {
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
   const tools = setupSelection(map);
   state.drawing = setupDrawing({ map, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), getProfile: () => state.profile, onChange: () => scheduleSave(), requestTool: t => tools.setTool(t), renderMd });
+  state.um = setupUserMarkers({ map, state, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), changed: userChanged, select, closeDetail, askDialog, toast, requestTool: t => tools.setTool(t) });
 
   map.on('load', () => {
     // marker icons cropped out of the sprite sheet
@@ -1004,6 +1066,7 @@ function refreshMap() {
   const feats = [];
   for (const l of state.locs) {
     if (!shownOnMap(l)) continue;
+    if (l.user && l.icon && !state.map.hasImage(l.icon)) state.map.addImage(l.icon, pingImage(l.icon), { pixelRatio: 2 });
     const f = state.found.has(l.id) ? 1 : 0;
     feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: { id: l.id, icon: l.icon, f, z: f ? 0 : 1 } });
   }
@@ -1058,7 +1121,17 @@ function setupSelection(map) {
       c.innerHTML = `<button type="button" id="tool-pan" title="Move the map" aria-label="Move the map">` +
         `<svg viewBox="0 0 24 24" aria-hidden="true">${HAND_ICON}</svg></button>` +
         `<button type="button" id="tool-select" class="notched" title="Select markers. Right-click or hold for shapes" aria-label="Selection tool">` +
-        `<svg viewBox="0 0 24 24" aria-hidden="true"></svg></button>` + DRAW_CONTROLS_HTML;
+        `<svg viewBox="0 0 24 24" aria-hidden="true"></svg></button>` + DRAW_CONTROLS_HTML + INK_CONTROL_HTML;
+      return c;
+    },
+    onRemove() {},
+  }, 'top-right');
+  // the marker tool is its own group, below the drawing tools and the colour chip
+  map.addControl({
+    onAdd() {
+      const c = document.createElement('div');
+      c.className = 'maplibregl-ctrl maplibregl-ctrl-group tool-ctrl';
+      c.innerHTML = MARKER_CONTROL_HTML;
       return c;
     },
     onRemove() {},
@@ -1076,7 +1149,8 @@ function setupSelection(map) {
   selMenu.id = 'sel-menu'; selMenu.className = 'menu row-menu'; selMenu.hidden = true; selMenu.setAttribute('role', 'menu');
   selMenu.innerHTML = '<div class="rm-head"><div class="rm-text"><div class="rm-title">Selection</div><div class="rm-sub"></div></div></div><hr>' +
     '<button type="button" role="menuitem" data-act="found">Mark all as found</button>' +
-    '<button type="button" role="menuitem" data-act="unfound">Mark all as not found</button>';
+    '<button type="button" role="menuitem" data-act="unfound">Mark all as not found</button>' +
+    '<button type="button" role="menuitem" data-act="delete-user" class="danger" hidden>Delete user markers</button>';
   document.body.appendChild(selMenu);
 
   // the drawn shapes, above the map canvas
@@ -1096,6 +1170,7 @@ function setupSelection(map) {
     selBtn.setAttribute('aria-pressed', String(t === 'select'));
     selBtn.querySelector('svg').innerHTML = SHAPE_ICONS[state.shape];
     if (state.drawing) state.drawing.setActive(t === 'draw');
+    state.um?.setActive(t === 'marker');
     selBtn.setAttribute('aria-label', `Selection tool: ${SHAPE_NAMES[state.shape]}`);
   }
   state.tool = 'pan';
@@ -1134,22 +1209,55 @@ function setupSelection(map) {
     const g = geomOf(state.sel, proj);
     return state.locs.filter(l => { if (!shownOnMap(l)) return false; const q = map.project([l.lng, l.lat]); return insideGeom(g, q.x, q.y); });
   }
+  // every user marker inside the selection, whether or not it is currently shown
+  function userInSelection() {
+    if (!state.sel) return [];
+    const g = geomOf(state.sel, proj);
+    return state.locs.filter(l => { if (!l.user) return false; const q = map.project([l.lng, l.lat]); return insideGeom(g, q.x, q.y); });
+  }
   function openSelMenu(x, y) {
     closeRowMenu();
     const n = markersInSelection().length;
     selMenu.querySelector('.rm-sub').textContent = n ? `${n} visible marker${n === 1 ? '' : 's'}` : 'No visible markers inside';
-    selMenu.querySelectorAll('button[data-act]').forEach(b => { b.disabled = n === 0; });
+    selMenu.querySelectorAll('button[data-act="found"], button[data-act="unfound"]').forEach(b => { b.disabled = n === 0; });
+    const users = userInSelection().length;
+    const del = selMenu.querySelector('[data-act="delete-user"]');
+    del.hidden = users === 0;
+    del.textContent = `Delete ${users} user marker${users === 1 ? '' : 's'}`;
     placeMenu(selMenu, x, y);
   }
   selMenu.onclick = e => {
     const b = e.target.closest('button[data-act]');
     if (!b || b.disabled) return;
+    if (b.dataset.act === 'delete-user') {
+      const ids = userInSelection().map(l => l.id);
+      closeToolMenus();
+      state.um.deleteMany(ids);
+      return;
+    }
     const found = b.dataset.act === 'found';
     for (const l of markersInSelection()) found ? state.found.add(l.id) : state.found.delete(l.id);
     closeToolMenus();
     saveProfileNow();
     refreshAll();
   };
+
+  // the tool stack folds away to the right: the hand is already on, so tapping it again (or Esc) does this.
+  // Whatever is selected goes with it. A button brings the stack back.
+  function collapseTools() {
+    closeToolMenus();
+    state.sel = null;
+    cancelDrag();
+    mapEl.classList.add('tools-collapsed');
+  }
+  function expandTools() { mapEl.classList.remove('tools-collapsed'); }
+  const reopen = document.createElement('button');
+  reopen.id = 'tools-open'; reopen.type = 'button';
+  reopen.title = 'Show tools'; reopen.setAttribute('aria-label', 'Show tools');
+  reopen.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 12h4M12 12h8M4 17h12M20 17h0"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="17" r="2"/></svg>';
+  reopen.onclick = expandTools;
+  mapEl.appendChild(reopen);
+  mapEl.classList.add('tools-collapsed'); // the tools start folded away; the button brings them back
 
   // --- the selection button: tap = selection tool; right-click or hold = shape menu
   let btnTimer = null, btnHeld = false;
@@ -1169,7 +1277,11 @@ function setupSelection(map) {
     setTool('select');
   });
   selBtn.addEventListener('contextmenu', e => { e.preventDefault(); openShapeMenu(selBtn); });
-  panBtn.addEventListener('click', () => { closeToolMenus(); setTool('pan'); });
+  panBtn.addEventListener('click', () => {
+    if (state.tool === 'pan') return collapseTools(); // already the hand: fold the tools away
+    closeToolMenus();
+    setTool('pan');
+  });
 
   // --- drawing on the map (select tool), and press-and-hold on the selection (both tools)
   const pointers = new Map();   // pointer id -> screen position, for detecting pinch gestures
@@ -1179,7 +1291,7 @@ function setupSelection(map) {
   function cancelDrag() { state.drag = null; if (press) { clearTimeout(press.timer); press = null; } renderSelection(); }
 
   canvasBox.addEventListener('pointerdown', e => {
-    if (e.button !== 0 || state.tool === 'draw') return;
+    if (e.button !== 0 || state.tool === 'draw' || state.tool === 'marker') return;
     pointers.set(e.pointerId, localPos(e));
     if (pointers.size > 1) { cancelDrag(); return; } // a second finger means pinch-zoom, not a selection
     const p = localPos(e);
@@ -1190,7 +1302,7 @@ function setupSelection(map) {
   });
 
   canvasBox.addEventListener('pointermove', e => {
-    if (state.tool === 'draw') return;
+    if (state.tool === 'draw' || state.tool === 'marker') return;
     if (pointers.has(e.pointerId)) pointers.set(e.pointerId, localPos(e));
     if (!press || press.id !== e.pointerId || press.held || pointers.size > 1) return;
     const p = localPos(e);
@@ -1282,6 +1394,7 @@ function setupSelection(map) {
     if (state.sel || state.drag) { state.sel = null; cancelDrag(); }
     // with nothing left to clear, Esc goes back to the hand
     else if (!hadSomething && state.tool !== 'pan') setTool('pan');
+    else if (!hadSomething) collapseTools(); // the hand is already on: fold the tools away
   });
   document.addEventListener('click', e => {
     if (!e.target.closest('#shape-menu, #sel-menu, #tool-select')) closeToolMenus();
@@ -1323,6 +1436,7 @@ function onPopState(ev) {
 function buildLinkIndex() {
   for (const l of state.locs) {
     const out = internalRefs(l.desc, l.id);
+    for (const t of l.links || []) if (t !== l.id && state.byId.has(t) && !out.includes(t)) out.push(t); // user links
     state.outLinks.set(l.id, out);
     for (const t of out) {
       if (!state.inLinks.has(t)) state.inLinks.set(t, []);
@@ -1437,14 +1551,18 @@ function renderDetail() {
     : '';
 
   $('#detail-body').innerHTML =
-    `<div class="d-cat" style="--c:${g ? g.col : '#888'}"><i></i>${esc(cat?.title || '')}</div>` +
-    `<h2 class="d-title">${esc(l.title)}</h2>` +
+    `<div class="d-cat" style="--c:${l.user && cat?.icon ? '#' + cat.icon.slice(3).replace('-t', '') : (g ? g.col : '#888')}"><i></i>${esc(cat?.title || '')}</div>` +
+    `<h2 class="d-title">${esc(l.title)}</h2>` + (l.user ? state.um.detailHtml(l) : '') +
     (ok ? `<button class="found-btn${isFound ? ' on' : ''}" type="button" aria-pressed="${isFound}">${isFound ? 'Found. Tap to undo' : 'Mark as found'}</button>` : '') +
     `<div class="d-desc">${renderMd(l.desc)}</div>` + only + notHere +
     (shots ? `<div class="shots">${shots}</div>` : '') + backrefs;
 
   $('#detail-back').hidden = state.trail.length < 2;
   $('#detail').hidden = false;
+  $('#detail').classList.toggle('user-loc', !!l.user);
+  // a user marker's card takes its category colour as the accent
+  if (l.user && cat?.icon) $('#detail').style.setProperty('--c', '#' + cat.icon.slice(3).replace('-t', ''));
+  else $('#detail').style.removeProperty('--c');
   document.body.classList.add('detail-open');
   $('#detail-body').querySelectorAll('.shots img').forEach(img => img.addEventListener('error', () => {
     img.replaceWith(Object.assign(document.createElement('p'), { className: 'd-note', textContent: 'Screenshot not downloaded.' }));
@@ -1539,6 +1657,8 @@ function wire() {
   addEventListener('popstate', onPopState);
   $('#detail-body').addEventListener('click', e => {
     if (e.target.closest('.found-btn')) return toggleFound(state.selected);
+    const um = e.target.closest('[data-um]');
+    if (um) return state.um.detailAction(um.dataset.um, state.selected);
     const a = e.target.closest('a[data-loc]');
     if (a) { e.preventDefault(); return select(Number(a.dataset.loc)); }
     const img = e.target.closest('.shots img');

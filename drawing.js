@@ -25,11 +25,12 @@ const ICON_CROSS = '<path d="M6 6l12 12M18 6L6 18"/>';
 const ICON_UNDO = '<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>';
 const ICON_REDO = '<path d="M15 14l5-5-5-5"/><path d="M20 9H10a6 6 0 0 0 0 12h3"/>';
 
-// the buttons in the map's tool stack, under the selection button: draw, eraser, colour
+// the buttons in the map's tool stack: draw and eraser (the colour chip is INK_CONTROL_HTML, placed last)
 export const DRAW_CONTROLS_HTML =
   '<button type="button" id="tool-draw" class="notched" aria-label="Drawing tools" title="Draw. Tap again, or right-click or hold, for more tools">' +
   '<svg viewBox="0 0 24 24" aria-hidden="true"></svg></button>' +
-  `<button type="button" id="tool-eraser" aria-label="Eraser" title="Eraser"><svg viewBox="0 0 24 24" aria-hidden="true">${TOOLS.eraser.icon}</svg></button>` +
+  `<button type="button" id="tool-eraser" aria-label="Eraser" title="Eraser"><svg viewBox="0 0 24 24" aria-hidden="true">${TOOLS.eraser.icon}</svg></button>`;
+export const INK_CONTROL_HTML =
   '<button type="button" id="tool-ink" aria-label="Colour and size" title="Colour and size"><span class="ink-dot"></span></button>';
 
 /* ---------- small pure helpers (exported for tests) ---------- */
