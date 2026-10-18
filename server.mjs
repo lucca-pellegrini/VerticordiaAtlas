@@ -22,6 +22,8 @@ import zlib from 'node:zlib';
 import { promisify } from 'node:util';
 import { ROOT, exists, loadGames, markerHtml, chromePath, drawCard, socialTags, withHead, plainText, categoryIcon, officialIcon } from './cards.mjs';
 import { unpackMarker } from './share-link.mjs';
+import { createApi } from './api.mjs';
+import { readFileSync } from 'node:fs';
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8',
@@ -301,10 +303,19 @@ function notModified(req, etag, mtime) {
   return false;
 }
 
+// accounts and sync (optional for the user): the Google client ID comes from site.json, the database from data/
+const siteFile = JSON.parse(readFileSync(path.join(ROOT, 'site.json'), 'utf8'));
+const api = createApi({ root: ROOT, googleClientId: process.env.GOOGLE_CLIENT_ID || siteFile.googleClientId || null });
+
 const server = http.createServer(async (req, res) => {
   try {
-    if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'method not allowed');
     const url = new URL(req.url, 'http://localhost');
+    if (url.pathname.startsWith('/api/')) {
+      const handled = await api.handle(req, res, url);
+      if (handled === false) send(res, 404, '{"error":"not found"}', 'application/json; charset=utf-8', { 'Cache-Control': 'no-store' });
+      return;
+    }
+    if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'method not allowed');
     const p = decodeURIComponent(url.pathname);
 
     const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
@@ -328,6 +339,16 @@ const server = http.createServer(async (req, res) => {
     if (!res.headersSent) send(res, 500, 'server error');
     else res.end();
   }
+});
+
+// live updates for signed-in devices (see api.mjs): only /api/ws takes an upgrade
+server.on('upgrade', (req, socket, head) => {
+  socket.on('error', () => socket.destroy());
+  try {
+    const url = new URL(req.url, 'http://localhost');
+    if (url.pathname === '/api/ws') return api.upgrade(req, socket, head, url);
+  } catch (e) { console.error(e); }
+  socket.destroy();
 });
 
 server.listen(PORT, HOST, () => {

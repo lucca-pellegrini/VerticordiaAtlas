@@ -11,6 +11,8 @@ import { packMarker } from './share-link.mjs';
 import { svgIcon } from './icons.mjs';
 import { loadIconLibrary, iconsReady, iconInner, glyphPinImage, glyphInk } from './icons-lib.mjs';
 import { CAPTURE_CONTROL_HTML, setupCapture } from './capture.mjs';
+import { initAccount, accountSlot, api, currentUser, setOnlineStatus, socketUrl } from './account.js';
+import { createSync } from './sync.js';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
 
@@ -82,7 +84,11 @@ async function dbDelete(store, key) {
   await withStore(store, 'readwrite', s => s.delete(key));
 }
 const getMeta = async k => (await dbGet('meta', k))?.v;
-const setMeta = (k, v) => dbPut('meta', { k, v });
+const setMeta = (k, v) => {
+  const done = dbPut('meta', { k, v });
+  if (/^presets:/.test(k)) syncNote();
+  return done;
+};
 
 /* ---------- small helpers ---------- */
 
@@ -307,6 +313,7 @@ async function loadGame(entry) {
   $('#groups').classList.add('enter'); // the list fades in as the panel comes up
   document.body.classList.remove('loading-side'); // the side panel has its numbers and selectors now
   createMap();
+  startAccountSync(); // signed-in users only; a no-op otherwise
 }
 
 // everything that belongs to one map of the game: its data, categories, locations, tags, view and presets
@@ -370,11 +377,18 @@ const presetsKey = (map = state.mapInfo.slug) => perMap('presets:', map);
 
 async function loadMapState() {
   const map = state.mapInfo.slug;
-  const v = (await getMeta(viewKey(map))) || {};
+  // the view lives in the profile (so it follows the profile to other devices); meta is only read for profiles saved before that
+  const v = state.profile?.view?.[map] || (await getMeta(viewKey(map))) || {};
   state.view.hidden = new Set(v.hidden || []);
   state.view.hideFound = !!v.hideFound;
   state.view.collapsed = new Set(v.collapsed || []);
   $('#hide-found').checked = state.view.hideFound;
+  // the difficulty (tag) and its switch are per map too: tag ids are only unique within one map
+  const t = 'tag' in v ? v.tag : (state.profile?.tag ?? null);
+  state.tag = (t === UNTAGGED || (state.tags.length && state.tags.some(x => x.id === t))) ? t : null;
+  state.tagStrict = state.tag != null && state.tag !== UNTAGGED && !!('tagStrict' in v ? v.tagStrict : state.profile?.tagStrict);
+  if (state.tags.length) $('#tag-select').value = state.tag == null ? '' : String(state.tag);
+  syncTagStrict();
   state.presets = (await getMeta(presetsKey(map))) || [];
   state.presetId = state.presets.some(p => p.id === v.presetId) ? v.presetId : null;
   state.baseline = state.presetId && Array.isArray(v.baseline) ? v.baseline : null;
@@ -446,6 +460,7 @@ function rememberCamera(now = false) {
     const c = state.map.getCenter(), p = state.profile, slug = state.mapInfo.slug;
     p.map = slug;
     p.cameras = { ...(p.cameras || {}), [slug]: { lng: +c.lng.toFixed(6), lat: +c.lat.toFixed(6), zoom: +state.map.getZoom().toFixed(2) } };
+    state.camKey = JSON.stringify(p.cameras[slug]); // what this device last agreed the camera is (see refreshFromStore)
   }
   if (now) saveProfileNow(); else scheduleSave();
 }
@@ -480,7 +495,7 @@ async function syncMapToProfile() {
   const want = state.profile?.map;
   if (want && want !== state.mapInfo?.slug && state.meta.maps.some(m => m.slug === want)) return switchMap(want, { remember: false });
   const cam = state.profile?.cameras?.[state.mapInfo?.slug];
-  if (cam && state.mapReady) state.map.jumpTo(startOf(state.mapInfo, state.data, cam));
+  if (cam && state.mapReady) { state.camKey = JSON.stringify(cam); state.map.jumpTo(startOf(state.mapInfo, state.data, cam)); }
 }
 
 /* ---------- profiles ---------- */
@@ -516,7 +531,7 @@ function syncTagStrict() {
     if (!tagSwitchUsable()) { showTip(btn); return; }
     state.tagStrict = !state.tagStrict;
     syncTagStrict();
-    saveProfileNow();
+    scheduleViewSave();
     refreshAll();
   });
 }
@@ -588,10 +603,7 @@ function applyProfile(p) {
   rebuildUserData(); // the profile's own categories and markers
   state.drawing?.reset(); // drawings belong to the profile: each one has its own undo history
   state.found = new Set(p.found || []);
-  state.tag = state.tags.length ? (p.tag ?? null) : null;
-  state.tagStrict = !!p.tagStrict;
   renderProfileSelect();
-  if (state.tags.length) $('#tag-select').value = state.tag == null ? '' : String(state.tag);
   syncTagStrict();
 }
 
@@ -608,19 +620,22 @@ async function saveProfileNow() {
   const p = state.profile;
   if (!p) return;
   p.found = [...state.found];
-  p.tag = state.tag;
-  p.tagStrict = state.tagStrict;
   p.updated = Date.now();
-  try { await dbPut('profiles', p); }
+  try { await dbPut('profiles', p); syncNote(); }
   catch (e) { console.error(e); toast('Could not save progress in this browser.'); }
 }
 let viewTimer;
 function scheduleViewSave() {
   clearTimeout(viewTimer);
-  viewTimer = setTimeout(() => setMeta(viewKey(state.mapInfo.slug), {
-    hidden: [...state.view.hidden], hideFound: state.view.hideFound, collapsed: [...state.view.collapsed],
-    presetId: state.presetId, baseline: state.baseline,
-  }).catch(() => {}), 250);
+  viewTimer = setTimeout(() => {
+    const p = state.profile, slug = state.mapInfo?.slug;
+    if (!p || !slug) return;
+    p.view = { ...(p.view || {}), [slug]: {
+      hidden: [...state.view.hidden], hideFound: state.view.hideFound, collapsed: [...state.view.collapsed],
+      presetId: state.presetId, baseline: state.baseline, tag: state.tag, tagStrict: state.tagStrict,
+    } };
+    scheduleSave();
+  }, 250);
 }
 
 async function switchProfile(id) {
@@ -629,6 +644,7 @@ async function switchProfile(id) {
   const p = state.profiles.find(x => x.id === id);
   if (!p) return;
   applyProfile(p);
+  await loadMapState(); // the view belongs to the profile
   await syncMapToProfile();
   await setMeta('last-profile:' + state.entry.id, p.id).catch(() => {});
   refreshAll();
@@ -663,6 +679,7 @@ async function profileAction(act) {
     }
     state.profile = null;
     applyProfile(state.profiles[0]);
+    await loadMapState();
     await setMeta('last-profile:' + state.entry.id, state.profile.id).catch(() => {});
     refreshAll();
   } else if (act === 'export') {
@@ -764,6 +781,7 @@ async function importFile(file) {
 
     const cur = state.profiles.find(x => x.id === state.profile.id) || state.profiles[0];
     applyProfile(cur);
+    await loadMapState();
     await syncMapToProfile();
     refreshAll();
     renderPresets();
@@ -2186,8 +2204,100 @@ function arrangeSidebar() {
   head.after(scroll);
 }
 
+/* ---------- accounts: sync for signed-in users (see sync.js). The app never waits for it. ---------- */
+let syncer = null;
+const syncNote = () => syncer?.noteLocal();
+
+// a profile with no progress yet (what a new device starts with)
+const emptyProfile = p => !p.found?.length && !p.drawings?.length && !p.userMarkers?.length && !p.userCats?.length;
+
+// what sync reads and writes: this device's IndexedDB
+const syncStore = {
+  profiles: () => dbAll('profiles'),
+  isEmpty: emptyProfile,
+  metaEntries: async () => (await dbAll('meta')).map(r => ({ k: r.k, v: r.v })),
+  putProfile: rec => dbPut('profiles', rec),
+  deleteProfile: key => dbDelete('profiles', key),
+  putMeta: (k, v) => dbPut('meta', { k, v }),
+  removeMeta: k => dbDelete('meta', k),
+  getMeta: async k => (await dbGet('meta', k))?.v ?? null,
+};
+
+let accountReady = Promise.resolve(null);
+async function startAccountSync() {
+  await accountReady;
+  if (!currentUser()) return;
+  syncer = createSync({
+    store: syncStore,
+    api,
+    socketUrl,
+    ui: {
+      status: ({ online }) => setOnlineStatus(online),
+      conflicts: list => showConflicts(list),
+      remoteChanged: async keys => {
+        await refreshFromStore(keys);
+        if (keys.length) toast('Updated from your other device.');
+      },
+      signedOut: () => location.reload(),
+    },
+  });
+  syncer.start();
+}
+
+// the open screen follows what sync wrote into IndexedDB (the profile, its presets and view), so nothing stale is saved over it
+async function refreshFromStore(keys) {
+  const gid = state.entry?.id;
+  if (!gid || !state.profile) return;
+  if (keys.some(k => k.startsWith(`profile:${gid}:`))) {
+    state.profiles = (await dbAll('profiles')).filter(p => p.game === gid).sort((a, b) => a.created - b.created);
+    // a new device starts with an empty profile of its own: when the account's profiles arrive, the one with progress is the one to show
+    let cur = state.profiles.find(p => p.id === state.profile.id) || state.profiles[0];
+    if (cur && emptyProfile(cur)) {
+      const withProgress = state.profiles.filter(p => !emptyProfile(p)).sort((x, y) => (y.updated || 0) - (x.updated || 0))[0];
+      if (withProgress) cur = withProgress;
+    }
+    if (cur) {
+      applyProfile(cur);
+      renderProfileSelect();
+      // the profile carries the map, the camera and the view: follow them, as the other device left them
+      if (cur.map && cur.map !== state.mapInfo.slug && state.meta.maps.some(m => m.slug === cur.map)) {
+        await switchMap(cur.map, { remember: false }); // prepareMap loads the view too
+      } else {
+        const cam = cur.cameras?.[state.mapInfo.slug];
+        if (cam && state.mapReady && JSON.stringify(cam) !== state.camKey) { // only a camera that changed elsewhere moves the map
+          state.camKey = JSON.stringify(cam);
+          state.map.jumpTo(startOf(state.mapInfo, state.data, cam));
+        }
+        await loadMapState();
+      }
+    }
+  }
+  if (keys.some(k => k === `meta:${presetsKey(state.mapInfo.slug)}`)) await loadMapState();
+  refreshAll();
+}
+// the conflict message: the server has newer data, and this device has changes of its own
+function showConflicts(list) {
+  const d = $('#dlg'), form = $('#dlg-form');
+  if (!list.length || d.open) return;
+  form.innerHTML = '<h2>Your changes and the server\'s disagree</h2>' +
+    '<p>You have unsynced changes on this device, and the server has newer data for: ' + list.map(i => esc(i.label)).join(', ') + '.</p>' +
+    '<div class="dlg-actions"><button type="button" data-keep="local">Overwrite with this device\'s data</button>' +
+    '<button type="button" class="primary" data-keep="server">Use the server\'s data</button></div>';
+  form.onsubmit = e => e.preventDefault();
+  const pick = async which => {
+    d.close();
+    try { await syncer?.resolveConflicts(which); } catch (e) { console.error(e); }
+    if (which === 'server') location.reload(); // the server's data is in place: start again from it, so nothing stale stays on screen
+  };
+  form.querySelector('[data-keep="server"]').onclick = () => pick('server');
+  form.querySelector('[data-keep="local"]').onclick = () => pick('local');
+  d.showModal();
+}
+
 function wire() {
   arrangeSidebar();
+  document.querySelector('.side-scroll')?.appendChild(accountSlot());
+  accountReady = initAccount({ toast }); // resolves once we know whether someone is signed in
   $('#profile-select').onchange = e => switchProfile(e.target.value);
   const menu = $('#profile-menu'), menuBtn = $('#profile-menu-btn');
   menuBtn.onclick = e => { e.stopPropagation(); menu.hidden = !menu.hidden; menuBtn.setAttribute('aria-expanded', String(!menu.hidden)); };
@@ -2204,7 +2314,7 @@ function wire() {
   presetMenuBtn.onclick = e => { e.stopPropagation(); presetMenu.hidden = !presetMenu.hidden; presetMenuBtn.setAttribute('aria-expanded', String(!presetMenu.hidden)); };
   presetMenu.onclick = e => { const b = e.target.closest('button[data-act]'); if (b && !b.disabled) { presetMenu.hidden = true; presetAction(b.dataset.act); } };
 
-  $('#tag-select').onchange = e => { state.tag = e.target.value === '' ? null : e.target.value === UNTAGGED ? UNTAGGED : Number(e.target.value); syncTagStrict(); saveProfileNow(); refreshAll(); };
+  $('#tag-select').onchange = e => { state.tag = e.target.value === '' ? null : e.target.value === UNTAGGED ? UNTAGGED : Number(e.target.value); syncTagStrict(); scheduleViewSave(); refreshAll(); };
   $('#hide-found').onchange = e => { state.view.hideFound = e.target.checked; onViewChanged(); };
   $('#show-all').onclick = () => { state.view.hidden.clear(); onViewChanged(); };
   $('#hide-all').onclick = () => { state.cats.forEach(c => state.view.hidden.add(c.id)); onViewChanged(); };

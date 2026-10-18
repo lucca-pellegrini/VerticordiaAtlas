@@ -210,3 +210,7 @@ h1 em { font-style: italic; color: var(--accent-soft); }
 .hero > *, .game-grid > li { animation: rise .7s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i, 0) * 80ms); }
 .hero > :nth-child(1) { --i: 0; } .hero > :nth-child(2) { --i: 1; } .hero > :nth-child(3) { --i: 2; }
 
+
+/* the account button steps aside while the search is open or focused */
+.top-tools:has(.search.open) .acct, .top-tools:has(.search:focus-within) .acct { display: none; }
+.top-tools .acct { display: inline-block; }

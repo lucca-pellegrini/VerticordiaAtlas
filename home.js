@@ -1,3 +1,4 @@
+import { initAccount, accountSlot, notify } from './account.js';
 // Homepage: renders one card per entry in maps/index.json.
 //
 // To add a game: put its files in maps/<slug>/ (with an index.html like maps/requiem/index.html),
@@ -146,6 +147,11 @@ function setupSearch(list) {
 }
 
 main();
+
+// the account button, to the right of the search (it steps aside while the search is open)
+const topTools = document.querySelector('.top-tools');
+if (topTools) topTools.appendChild(accountSlot());
+initAccount({ toast: notify });
 
 // Logo tap: the logo links to this same page, so tapping it shows the heart instead of reloading,
 // then it switches back to the pin after a few seconds.

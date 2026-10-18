@@ -49,3 +49,47 @@ a { color: inherit; }
 /* every piece of text is one of the two Google faces (--serif, --sans); controls and code do not fall back to the system font */
 button, input, select, textarea, optgroup, option { font-family: inherit; }
 code, pre, kbd, samp { font-family: var(--sans); }
+
+/* ---------- shared by every page: the toast, the account button and its menu, the offline indicator ---------- */
+#toast {
+  position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 60; max-width: calc(100% - 32px);
+  background: var(--panel-2); border: 1px solid var(--line-2); padding: 10px 18px; border-radius: 999px; box-shadow: 0 16px 40px -10px #000e;
+  font-size: 14px; animation: toast-in .24s var(--ease);
+}
+#toast[hidden] { display: none; }
+@keyframes toast-in { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translateX(-50%); } }
+
+.acct { position: relative; display: inline-block; }
+.acct-btn {
+  display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border-radius: 999px; cursor: pointer; text-decoration: none;
+  font: 500 13.5px/1 Inter; color: var(--ink-dim); background: color-mix(in srgb, var(--panel) 88%, transparent); border: 1px solid var(--line-2);
+  transition: color .15s, background-color .15s, border-color .15s;
+}
+.acct-btn:hover { color: var(--ink); border-color: var(--ink-dim); }
+.acct-btn svg.i { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.acct-menu {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 40; min-width: 240px; padding: 6px; border-radius: 14px;
+  background: var(--panel-2); border: 1px solid var(--line-2); box-shadow: 0 22px 44px -12px #000d; animation: toast-in .16s var(--ease);
+}
+.acct-menu[hidden] { display: none; }
+.acct-who { margin: 6px 10px 8px; color: var(--ink-dim); font-size: 12px; display: grid; gap: 2px; }
+.acct-who strong { color: var(--ink); font-weight: 600; font-size: 13.5px; word-break: break-all; }
+.acct-menu button {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 11px; border: 0; border-radius: 9px; background: none;
+  color: var(--ink); font: 500 13.5px/1.2 Inter; text-align: left; cursor: pointer;
+}
+.acct-menu button:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.acct-menu button.danger { color: var(--danger); }
+.acct-menu svg.i { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.acct-slot { margin: 0 -16px; padding: 14px 16px 18px; border-top: 1px solid var(--line); display: flex; justify-content: flex-start; }
+.acct-slot .acct { width: 100%; }
+.acct-slot .acct-btn { width: 100%; justify-content: center; }
+.acct-slot .acct-menu { left: 0; right: 0; }
+
+.net-status {
+  position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 70; display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 12px; border-radius: 999px; font: 500 12px/1 Inter; color: var(--ink-dim);
+  background: color-mix(in srgb, var(--panel-2) 92%, transparent); border: 1px solid var(--line-2); backdrop-filter: blur(8px);
+}
+.net-status[hidden] { display: none; }
+.net-status svg.i { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }

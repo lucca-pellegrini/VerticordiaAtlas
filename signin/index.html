@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sign in to sync · Verticordia Atlas</title>
+<meta name="description" content="Optional. Sign in only to keep your progress in step across devices. The app works offline without it.">
+<meta name="theme-color" content="#0b0e10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d6453b' d='M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z'/%3E%3Ccircle cx='12' cy='10' r='2.8' fill='%230b0e10'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400..800&display=swap">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="signin.css">
+</head>
+<body>
+<main class="signin">
+  <a class="back" href="../">Back to the maps</a>
+
+  <h1>Sign in to sync</h1>
+  <p class="lede">Signing in is <strong>entirely optional</strong>. Verticordia Atlas works offline without an account, and your progress lives on this device.</p>
+
+  <ul class="promise">
+    <li><span class="tick"></span>Signing in adds <strong>no new features</strong>. It only lets the same progress follow you to another device.</li>
+    <li><span class="tick"></span>Everything still works offline. Progress is saved on the device first, and syncs when a connection is there.</li>
+    <li><span class="tick"></span>You can log out at any time. Your progress stays on the device.</li>
+  </ul>
+
+  <section class="primary" aria-labelledby="google-title">
+    <h2 id="google-title">With Google</h2>
+    <div id="google-btn" class="google-btn"></div>
+    <p class="notice" id="google-off" hidden>Google sign-in is not set up on this server yet.</p>
+  </section>
+
+  <section class="other">
+    <button type="button" class="quiet" id="toggle-secret" aria-expanded="false" aria-controls="secret-panel">Or use a secret key instead</button>
+    <div id="secret-panel" hidden>
+      <p class="small">A secret key is a long random code. It replaces Google: keep it somewhere safe, because it is the only way back into this account. It is shown once.</p>
+
+      <button type="button" class="ghost" id="secret-new">Create a new secret key</button>
+
+      <div id="secret-shown" hidden>
+        <p class="small">Your secret key. Save it now:</p>
+        <code id="secret-value" class="secret"></code>
+        <label class="saved"><input type="checkbox" id="secret-saved"> I have saved it somewhere safe</label>
+        <button type="button" class="primary-btn" id="secret-continue" disabled>Continue</button>
+      </div>
+
+      <form id="secret-login" class="login">
+        <label class="field">
+          <span>Already have a key?</span>
+          <input id="secret-input" type="text" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XX">
+        </label>
+        <button type="submit" class="ghost">Sign in with the key</button>
+      </form>
+      <p class="error" id="secret-error" role="alert" hidden></p>
+    </div>
+  </section>
+
+  <p class="skip"><a href="../">Not now. Keep using the app.</a></p>
+</main>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script type="module" src="signin.js"></script>
+</body>
+</html>
