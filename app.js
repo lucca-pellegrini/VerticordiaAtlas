@@ -268,18 +268,18 @@ async function loadGame(entry) {
     meta = await loadMeta();
     const m = meta.maps[0]; // TODO: a map switcher for games with several maps
     state.mapInfo = m;
-    const mk = meta.markers;
+    const mk = meta.markers || null; // null: add-game found no marker sprite for this game
     // prefer the @2x sprite when the game has one: markers look sharper on phones
-    spriteFile = mk.png2x && mk.json2x ? { json: mk.json2x, png: mk.png2x } : { json: mk.json, png: mk.png };
+    spriteFile = !mk ? null : mk.png2x && mk.json2x ? { json: mk.json2x, png: mk.png2x } : { json: mk.json, png: mk.png };
     [data, spriteDefs] = await Promise.all([
       fetchJSON(`${state.folder}/${m.data}`),
-      fetchJSON(`${state.folder}/${spriteFile.json}`),
+      spriteFile ? fetchJSON(`${state.folder}/${spriteFile.json}`) : Promise.resolve({}),
     ]);
-    spriteImg = await loadImage(`${state.folder}/${spriteFile.png}`);
+    spriteImg = spriteFile ? await loadImage(`${state.folder}/${spriteFile.png}`) : null;
   } catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
 
   state.data = data;
-  state.sprite = { defs: spriteDefs, img: spriteImg, png: spriteFile.png };
+  state.sprite = { defs: spriteDefs, img: spriteImg, png: spriteFile?.png ?? null };
 
   // categories and groups
   const catById = new Map(Object.values(data.categories).map(c => [c.id, c]));
@@ -290,6 +290,8 @@ async function loadGame(entry) {
       .filter(Boolean).sort((a, b) => a.order - b.order);
     return { id: g.id, title: g.title, col: vivid(g.color), cats };
   });
+  // without a sprite, each category gets a ping in its group's colour (the same kind as user markers)
+  if (!spriteFile) state.groups.forEach(g => g.cats.forEach(c => { c.icon = 'up-' + String(g.col).replace('#', ''); }));
   const groupOfCat = new Map();
   state.groups.forEach(g => g.cats.forEach(c => groupOfCat.set(c.id, g)));
   state.groupOfCat = groupOfCat;
@@ -1068,7 +1070,7 @@ function refreshMap() {
   const feats = [];
   for (const l of state.locs) {
     if (!shownOnMap(l)) continue;
-    if (l.user && l.icon && !state.map.hasImage(l.icon)) state.map.addImage(l.icon, pingImage(l.icon), { pixelRatio: 2 });
+    if (l.icon?.startsWith('up-') && !state.map.hasImage(l.icon)) state.map.addImage(l.icon, pingImage(l.icon), { pixelRatio: 2 });
     const f = state.found.has(l.id) ? 1 : 0;
     feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: { id: l.id, icon: l.icon, f, z: f ? 0 : 1 } });
   }

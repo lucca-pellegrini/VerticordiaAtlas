@@ -201,6 +201,9 @@ async function downloadMarkers({ html, slug, mediaBase, outDir, cats }) {
   const hit = html.match(/https?:\/\/[^"'\s\\]+?\/markers\/markers\.json([^"'\s\\]*)/);
   const bases = [];
   if (hit) bases.push({ dir: hit[0].replace(/markers\.json.*$/, ''), q: hit[1] });
+  // newer games are served from a versioned folder (markers/v30/markers@2x.png), which the page links to
+  const versioned = html.match(/https?:\/\/[^"'\s\\]+?\/markers\/v\d+\/markers@2x\.png/);
+  if (versioned) bases.unshift({ dir: versioned[0].replace(/markers@2x\.png.*$/, ''), q: '' });
   bases.push({ dir: `${mediaBase}/${slug}/markers/`, q: hit ? hit[1] : '' }, { dir: `${mediaBase}/${slug}/markers/`, q: '?v=2' });
   for (const { dir, q } of bases) {
     const j = await getBin(dir + 'markers.json' + q, 1);
