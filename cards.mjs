@@ -164,8 +164,9 @@ export async function categoryIcon({ glyph, color }) {
 // the icon's graphic inside its disc: a library glyph, or a cut-out of the game's sprite sheet scaled up
 function iconGraphic(icon) {
   if (icon.sprite) {
-    const { file, x, y, w, h } = icon.sprite;
-    const s = 100 / Math.max(h, w); // the sprite cut-outs have padding: scale past the disc so the glyph reads
+    const n = v => (Number.isFinite(+v) ? +v : 0); // numbers only: these go into a style attribute
+    const file = icon.sprite.file, x = n(icon.sprite.x), y = n(icon.sprite.y), w = n(icon.sprite.w), h = n(icon.sprite.h);
+    const s = 100 / Math.max(h, w, 1); // the sprite cut-outs have padding: scale past the disc so the glyph reads
     return `<span class="spr" style="width:${w}px;height:${h}px;background-image:url('${fileUrl(file)}');background-position:-${x}px -${y}px;transform:translate(-50%,-50%) scale(${s})"></span>`;
   }
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${icon.inner}</svg>`;

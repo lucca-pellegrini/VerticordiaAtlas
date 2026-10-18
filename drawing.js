@@ -173,11 +173,51 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, getMap, onChan
     return d;
   }
 
+  // Zoom and pan are uniform scaling and translation of the map, so a freehand stroke is computed once (its outline in
+  // pixels at the zoom it was drawn at, relative to its first point) and placed each frame with a transform. Likewise a
+  // text note's markup is made once and only moved. Nothing is re-computed per frame.
+  const worldAt = (q, z) => {
+    const size = 512 * 2 ** z, sin = Math.sin(q.lat * Math.PI / 180);
+    return { x: (q.lng + 180) / 360 * size, y: (0.5 - Math.log((1 + sin) / (1 - sin)) / (4 * Math.PI)) * size };
+  };
+  const strokes = new WeakMap();
+  function strokeNode(it) {
+    let e = strokes.get(it);
+    if (!e) {
+      const z0 = it.z ?? zoom();
+      const anchor = worldAt(it.pts[0], z0);
+      const rel = it.pts.map(q => { const w = worldAt(q, z0); return { x: w.x - anchor.x, y: w.y - anchor.y }; });
+      const path = el('path', { d: smoothPath(strokeOutline(rel, it, 1)), fill: it.color, opacity: it.kind === 'highlighter' ? 0.4 : 1 });
+      e = { z0, path };
+      strokes.set(it, e);
+    }
+    const at = sp(it.pts[0]), k = 2 ** (zoom() - e.z0);
+    const g = el('g', { transform: `translate(${at.x} ${at.y}) scale(${k})` });
+    g.appendChild(e.path);
+    return g;
+  }
+  const textNodes = new WeakMap();
+  function textNode(it) {
+    let node = textNodes.get(it);
+    if (!node) {
+      node = document.createElement('div');
+      node.className = 'ann';
+      node.dataset.id = it.id;
+      node.style.color = it.color;
+      node.innerHTML = renderMd(it.text);
+      textNodes.set(it, node);
+    }
+    const at = sp(it.pts[0]);
+    node.style.transform = `translate(${at.x}px, ${at.y}px) scale(${scaleOf(it)})`;
+    return node;
+  }
+
   function render() {
     layer.textContent = '';
     texts.textContent = '';
     for (const it of here()) {
-      if (it.kind === 'text') texts.appendChild(textEl(it));
+      if (it.kind === 'text') texts.appendChild(textNode(it));
+      else if (it.kind === 'pen' || it.kind === 'highlighter') layer.appendChild(strokeNode(it));
       else for (const e of svgFor(it, sp, scaleOf(it))) layer.appendChild(e);
     }
     if (draft) {
@@ -290,6 +330,7 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, getMap, onChan
       const list = items(), it = list.find(x => x.id === ed.id);
       if (!it || text === it.text) { render(); return; }
       pushHistory(it.pts[0]);
+      textNodes.delete(it);
       if (text) it.text = text; else list.splice(list.indexOf(it), 1);
       onChange();
       render();

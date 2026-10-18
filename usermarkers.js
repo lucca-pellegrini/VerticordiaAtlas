@@ -45,7 +45,7 @@ function iconField(current) {
   return '<div class="field um-icon"><span>Icon</span>' +
     '<input type="search" class="um-icon-q" placeholder="Search icons, e.g. key, skull, tree" autocomplete="off" aria-label="Search icons">' +
     '<div class="um-icon-grid" role="listbox" aria-label="Icons"></div>' +
-    `<input type="hidden" name="glyph" value="${String(current || '').replace(/"/g, '')}"></div>`;
+    `<input type="hidden" name="glyph" value="${esc(current || '')}"></div>`;
 }
 function wireIcon(root) {
   const q = root.querySelector('.um-icon-q'), grid = root.querySelector('.um-icon-grid'), hid = root.querySelector('input[name="glyph"]');
@@ -104,8 +104,8 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
   function colorField(c) {
     return `<div class="field um-color"><span>Colour</span><div class="um-sw">${PALETTE.map(p =>
       `<button type="button" class="sw" data-color="${p}" style="--c:${p}" aria-label="${p}"></button>`).join('')}</div>` +
-      `<div class="um-colorrow"><input type="color" name="color" value="${c}" aria-label="Colour wheel">` +
-      `<input class="um-hex" maxlength="7" value="${c}" spellcheck="false" aria-label="Hex colour"></div></div>`;
+      `<div class="um-colorrow"><input type="color" name="color" value="${esc(c)}" aria-label="Colour wheel">` +
+      `<input class="um-hex" maxlength="7" value="${esc(c)}" spellcheck="false" aria-label="Hex colour"></div></div>`;
   }
   function wireColor(root) {
     const color = root.querySelector('input[name="color"]'), hex = root.querySelector('.um-hex');

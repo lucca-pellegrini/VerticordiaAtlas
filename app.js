@@ -538,7 +538,46 @@ async function loadProfiles() {
   applyProfile(state.profiles.find(p => p.id === last) || state.profiles[0]);
 }
 
+// A profile's own data (categories, markers, drawings, cameras) can come from an imported file, so nothing in it is
+// trusted: every field is checked and clipped to what the page expects, and anything else is dropped.
+const HEX = /^#[0-9a-f]{6}$/i, GLYPH = /^[a-z0-9-]{1,60}$/, DRAW_KINDS = ['pen', 'highlighter', 'line', 'arrow', 'path', 'rect', 'ellipse', 'text'];
+const finite = v => (Number.isFinite(v) ? v : undefined);
+const clip = (v, max) => (typeof v === 'string' ? v.slice(0, max) : '');
+function cleanUserData(p) {
+  const firstMap = state.meta?.maps?.[0]?.slug || '';
+  const list = v => (Array.isArray(v) ? v : []);
+  p.userCats = list(p.userCats).filter(c => c && finite(c.id) !== undefined).map(c => ({
+    id: c.id, title: clip(c.title, 40) || 'Category',
+    color: HEX.test(c.color) ? c.color : '#e5484d',
+    glyph: GLYPH.test(c.glyph || '') ? c.glyph : null,
+  }));
+  p.userMarkers = list(p.userMarkers).filter(m => m && finite(m.id) !== undefined && finite(m.lat) !== undefined && finite(m.lng) !== undefined).map(m => ({
+    id: m.id, cat: finite(m.cat) ?? null, title: clip(m.title, 80) || 'Marker', desc: clip(m.desc, 5000),
+    lat: m.lat, lng: m.lng, links: list(m.links).filter(id => finite(id) !== undefined).slice(0, 200),
+    map: clip(m.map, 80) || firstMap, created: finite(m.created) ?? Date.now(),
+  }));
+  p.drawings = list(p.drawings).filter(d => d && DRAW_KINDS.includes(d.kind) && Array.isArray(d.pts) && d.pts.length
+    && d.pts.every(q => q && finite(q.lng) !== undefined && finite(q.lat) !== undefined)).slice(0, 5000).map(d => ({
+    id: clip(d.id, 40) || uid(), kind: d.kind,
+    color: HEX.test(d.color) ? d.color : '#e5484d',
+    size: ['s', 'm', 'l'].includes(d.size) ? d.size : 'm',
+    pts: d.pts.slice(0, 5000).map(q => ({ lng: q.lng, lat: q.lat })),
+    circle: !!d.circle, text: clip(d.text, 2000), z: finite(d.z), map: clip(d.map, 80) || firstMap,
+  }));
+  const cams = {};
+  if (p.cameras && typeof p.cameras === 'object') {
+    for (const [k, c] of Object.entries(p.cameras)) {
+      if (c && finite(c.lng) !== undefined && finite(c.lat) !== undefined && finite(c.zoom) !== undefined) cams[clip(k, 80)] = { lng: c.lng, lat: c.lat, zoom: c.zoom };
+    }
+  }
+  p.cameras = cams;
+  p.map = clip(p.map, 80) || null;
+  p.found = list(p.found).filter(id => finite(id) !== undefined);
+  return p;
+}
+
 function applyProfile(p) {
+  cleanUserData(p);
   state.profile = p;
   // records from before there were several maps belong to the game's first map
   const first = state.meta?.maps?.[0]?.slug;
@@ -693,11 +732,9 @@ async function importFile(file) {
         state.profiles = state.profiles.filter(p => !gone.includes(p));
       }
       takenNames.add(name);
-      const rec = { key: `${state.entry.id}:${id}`, id, game: state.entry.id, name, tag: q.tag ?? null,
-        found: q.found.filter(Number.isFinite), drawings: Array.isArray(q.drawings) ? q.drawings : [],
-        userCats: Array.isArray(q.userCats) ? q.userCats : [], userMarkers: Array.isArray(q.userMarkers) ? q.userMarkers : [],
-        map: q.map || undefined, cameras: q.cameras && typeof q.cameras === 'object' ? q.cameras : undefined,
-        created: q.created || Date.now(), updated: Date.now() };
+      const rec = cleanUserData({ key: `${state.entry.id}:${id}`, id, game: state.entry.id, name: clip(name, 60) || 'Imported', tag: typeof q.tag === 'string' ? q.tag : null,
+        found: q.found, drawings: q.drawings, userCats: q.userCats, userMarkers: q.userMarkers,
+        map: q.map, cameras: q.cameras, created: finite(q.created) ?? Date.now(), updated: Date.now() });
       await dbPut('profiles', rec);
       const at = state.profiles.findIndex(x => x.id === rec.id);
       if (at >= 0) state.profiles[at] = rec; else state.profiles.push(rec);
@@ -809,7 +846,10 @@ function iconHtml(name) {
     if (inner) return `<span class="ico-glyph" style="--c:#${m[2]};--g:${glyphInk('#' + m[2])}"><svg class="i" viewBox="0 0 24 24" aria-hidden="true">${inner}</svg></span>`;
     return `<span class="ico-ping" style="--c:#${m ? m[2] : 'e5484d'}"></span>`; // the library has not arrived yet
   }
-  if (name && name.startsWith('up-')) return `<span class="ico-ping${name.endsWith('-t') ? ' temp' : ''}" style="--c:#${name.slice(3).replace('-t', '')}"></span>`;
+  if (name && name.startsWith('up-')) {
+    const hex = name.slice(3).replace('-t', '');
+    return `<span class="ico-ping${name.endsWith('-t') ? ' temp' : ''}" style="--c:${HEX.test('#' + hex) ? '#' + hex : '#e5484d'}"></span>`;
+  }
   const d = state.sprite.defs[name];
   if (!d) return '';
   const s = 28 / d.height;

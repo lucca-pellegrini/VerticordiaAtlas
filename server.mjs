@@ -61,6 +61,30 @@ async function readData(file) {
   return json;
 }
 
+// Card renders start headless Chromium, which is expensive. So: a few at a time; a limit per client per window; and when a
+// client is over its limit (or the queue is full) it gets the game's plain card, not a render.
+const RENDER_CONCURRENCY = 2, RENDER_QUEUE = 20, RENDERS_PER_WINDOW = 25, WINDOW_MS = 10 * 60 * 1000;
+const clients = new Map();
+const clientIp = req => String(req.headers['x-real-ip'] || req.socket.remoteAddress || 'unknown').split(',')[0].trim();
+function allowRender(ip) {
+  const now = Date.now();
+  if (clients.size > 10000) clients.clear();
+  let c = clients.get(ip);
+  if (!c || now - c.start > WINDOW_MS) { c = { start: now, count: 0 }; clients.set(ip, c); }
+  if (c.count >= RENDERS_PER_WINDOW) return false;
+  c.count++;
+  return true;
+}
+let active = 0;
+const queued = [];
+function takeSlot() {
+  return new Promise(res => { if (active < RENDER_CONCURRENCY) { active++; res(); } else queued.push(res); });
+}
+function freeSlot() {
+  const next = queued.shift();
+  if (next) next(); else active--;
+}
+
 let chromeBin = null;
 const chrome = async () => (chromeBin ??= await chromePath());
 
@@ -112,7 +136,7 @@ function send(res, status, body, type = 'text/plain; charset=utf-8', headers = {
   res.end(body);
 }
 
-async function shareCard(res, gameSlug, mapSlug, id) {
+async function shareCard(req, res, gameSlug, mapSlug, id) {
   const info = await markerInfo(gameSlug, mapSlug, id);
   if (!info) return send(res, 404, 'no such marker');
   // the card is keyed by everything it shows, so a change to the marker or its colours makes a new one
@@ -120,17 +144,41 @@ async function shareCard(res, gameSlug, mapSlug, id) {
   const dir = path.join(ROOT, 'cache', 'share');
   const prefix = `${encodeURIComponent(gameSlug)}__${encodeURIComponent(mapSlug)}__${id}__`;
   const file = path.join(dir, `${prefix}${key}.jpg`);
-  if (!await exists(file)) {
-    await once(file, async () => {
-      if (await exists(file)) return;
-      console.log(`card: ${gameSlug}/${mapSlug}/${id} (${info.title})`);
-      await drawCard(await chrome(), markerHtml(info), file);
-      for (const old of await readdir(dir).catch(() => [])) {
-        if (old.startsWith(prefix) && old !== path.basename(file)) await unlink(path.join(dir, old)).catch(() => {});
-      }
-    });
+  const ready = await ensureCard(file, clientIp(req), async () => {
+    console.log(`card: ${gameSlug}/${mapSlug}/${id} (${info.title})`);
+    return markerHtml(info);
+  });
+  if (!ready) return sendPlainCard(res, gameSlug);
+  if (ready && !(await exists(file))) return sendPlainCard(res, gameSlug);
+  // older cards of this marker are dropped once a new one exists
+  for (const old of await readdir(dir).catch(() => [])) {
+    if (old.startsWith(prefix) && old !== path.basename(file)) await unlink(path.join(dir, old)).catch(() => {});
   }
   res.writeHead(200, { 'Content-Type': 'image/jpeg', 'Cache-Control': 'public, max-age=86400' });
+  createReadStream(file).pipe(res);
+}
+
+// a card from the cache, or made now if the client may have one; false when it may not (see RENDERS_PER_WINDOW)
+async function ensureCard(file, ip, htmlFor) {
+  if (await exists(file)) return true;
+  if (!allowRender(ip) || queued.length >= RENDER_QUEUE) return false;
+  return once(file, async () => {
+    if (await exists(file)) return true;
+    await takeSlot();
+    try {
+      await drawCard(await chrome(), await htmlFor(), file);
+      return true;
+    } finally {
+      freeSlot();
+    }
+  });
+}
+
+// the game's plain card, sent to a client that may not have a render (not cached, so the next request can get one)
+async function sendPlainCard(res, gameSlug) {
+  const game = path.join(ROOT, 'maps', gameSlug, 'card.jpg');
+  const file = (await exists(game)) ? game : path.join(ROOT, 'card.jpg');
+  res.writeHead(200, { 'Content-Type': 'image/jpeg', 'Cache-Control': 'no-store' });
   createReadStream(file).pipe(res);
 }
 
@@ -172,22 +220,20 @@ async function sharedMarkerPage(req, res, gameSlug, packed) {
   return true;
 }
 
-async function sharedMarkerCard(res, gameSlug, packed) {
+async function sharedMarkerCard(req, res, gameSlug, packed) {
   const d = await unpackMarker(packed);
   const g = d && (await games()).find(x => x.slug === gameSlug);
   if (!g) return send(res, 404, 'no such marker');
   const key = crypto.createHash('sha1').update('tm2').update(packed).digest('hex').slice(0, 16);
   const file = path.join(ROOT, 'cache', 'share', `tm-${encodeURIComponent(gameSlug)}-${key}.jpg`);
-  if (!await exists(file)) {
-    await once(file, async () => {
-      if (await exists(file)) return;
-      console.log(`card: shared marker in ${gameSlug} (${d.title})`);
-      await drawCard(await chrome(), markerHtml({
-        title: d.title, category: d.category, description: plainText(d.desc, 150), gameTitle: g.title, theme: g.theme, poster: g.poster,
-        icon: d.category ? await categoryIcon(d) : null,
-      }), file);
+  const ready = await ensureCard(file, clientIp(req), async () => {
+    console.log(`card: shared marker in ${gameSlug} (${d.title})`);
+    return markerHtml({
+      title: d.title, category: d.category, description: plainText(d.desc, 150), gameTitle: g.title, theme: g.theme, poster: g.poster,
+      icon: d.category ? await categoryIcon(d) : null,
     });
-  }
+  });
+  if (!ready || !(await exists(file))) return sendPlainCard(res, gameSlug);
   res.writeHead(200, { 'Content-Type': 'image/jpeg', 'Cache-Control': 'public, max-age=86400' });
   createReadStream(file).pipe(res);
 }
@@ -262,10 +308,10 @@ const server = http.createServer(async (req, res) => {
     const p = decodeURIComponent(url.pathname);
 
     const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
-    if (card) return await shareCard(res, card[1], card[2], Number(card[3]));
+    if (card) return await shareCard(req, res, card[1], card[2], Number(card[3]));
 
     const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
-    if (tmCard) return await sharedMarkerCard(res, tmCard[1], url.searchParams.get('tm') || '');
+    if (tmCard) return await sharedMarkerCard(req, res, tmCard[1], url.searchParams.get('tm') || '');
 
     const page = /^\/maps\/([^/]+)\/?$/.exec(p);
     const tm = url.searchParams.get('tm');
