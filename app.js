@@ -1959,9 +1959,23 @@ function markerMenu(l, x, y) {
   openCtx(x, y, { title: l.title, items });
 }
 
+// the marker a point is on: the query covers a wide area around the icons (more on touch), so a point counts only
+// when it is on the drawn icon, close to its centre
+function markerAt(pt) {
+  const k = iconScale(state.map.getZoom());
+  let best = null, bestD = Infinity;
+  for (const f of state.map.queryRenderedFeatures(pt, { layers: ['locs'] })) {
+    const l = state.byId.get(Number(f.properties.id));
+    if (!l) continue;
+    const p = state.map.project([l.lng, l.lat]);
+    const d = Math.hypot(pt.x - p.x, pt.y - (p.y - 22 * k)); // the icon sits above its point; 22px is about half of it
+    if (d <= 26 * k && d < bestD) { best = l; bestD = d; }
+  }
+  return best;
+}
+
 function mapMenuAt(x, y, pt, ll) {
-  const hit = state.map.queryRenderedFeatures(pt, { layers: ['locs'] })[0];
-  const l = hit && state.byId.get(Number(hit.properties.id));
+  const l = markerAt(pt);
   if (l) markerMenu(l, x, y);
   else spotMenu(ll, x, y);
 }
