@@ -79,7 +79,7 @@ const ellipseOf = (pts, circle) => {
 
 /* ---------- the drawing layer ---------- */
 
-export function setupDrawing({ map, mapEl, canvasBox, getProfile, onChange, requestTool, renderMd }) {
+export function setupDrawing({ map, mapEl, canvasBox, getProfile, getMap, onChange, requestTool, renderMd }) {
   const NS = 'http://www.w3.org/2000/svg';
   const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
   const zoom = () => map.getZoom();
@@ -103,6 +103,7 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, onChange, requ
   const redoStack = [];          // redo snapshots, same shape
 
   const items = () => { const p = getProfile(); return p ? (p.drawings ||= []) : []; };
+  const here = () => items().filter(it => it.map === getMap()); // the drawings of the map on screen
 
   /* ---- layers: under the selection overlay, above the map canvas ---- */
   const layer = document.createElementNS(NS, 'svg');
@@ -175,7 +176,7 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, onChange, requ
   function render() {
     layer.textContent = '';
     texts.textContent = '';
-    for (const it of items()) {
+    for (const it of here()) {
       if (it.kind === 'text') texts.appendChild(textEl(it));
       else for (const e of svgFor(it, sp, scaleOf(it))) layer.appendChild(e);
     }
@@ -214,7 +215,7 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, onChange, requ
     return segs.some(([a, b]) => segDist(p, a, b) <= tol);
   }
   function hitTest(p) {
-    const list = items();
+    const list = here();
     for (let i = list.length - 1; i >= 0; i--) if (hits(list[i], p)) return list[i];
     return null;
   }
@@ -256,7 +257,7 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, onChange, requ
   const redo = () => step(redoStack, history);
   function commit(item) {
     pushHistory(centroid(item.pts));
-    items().push({ id: uid(), z: Math.round(zoom() * 1000) / 1000, ...item });
+    items().push({ id: uid(), z: Math.round(zoom() * 1000) / 1000, map: getMap(), ...item });
     draft = null;
     onChange();
     render();

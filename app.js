@@ -20,6 +20,7 @@ const state = {
   presets: [], presetId: null, baseline: null, // baseline: the view before the first preset was picked
   trail: [], session: uid(), // navigation stack of opened markers (last = current); session ties history entries to it
   outLinks: new Map(), inLinks: new Map(), // location id -> ids its description links to / ids linking to it
+  meta: null, spriteFile: null, // the game's meta.json, and which sprite file it uses
   tempMarkers: [], // temporary markers: kept for this tab only, never saved
   officialLocs: null, um: null, // the game's own markers (the rest of state.locs is the user's); the user-markers module
   tool: 'pan', shape: 'box', sel: null, drag: null, // map tool; selection shape kind; the selection (map coordinates) and the one being drawn
@@ -263,25 +264,39 @@ async function loadGame(entry) {
   document.title = `${entry.title} · Verticordia Atlas`;
   $('#tag-label').textContent = entry.tagLabel || 'Filter';
 
-  let meta, data, spriteDefs, spriteImg, spriteFile;
   try {
-    meta = await loadMeta();
-    const m = meta.maps[0]; // TODO: a map switcher for games with several maps
-    state.mapInfo = m;
-    const mk = meta.markers || null; // null: add-game found no marker sprite for this game
+    state.meta = await loadMeta();
+    const mk = state.meta.markers || null; // null: add-game found no marker sprite for this game
     // prefer the @2x sprite when the game has one: markers look sharper on phones
-    spriteFile = !mk ? null : mk.png2x && mk.json2x ? { json: mk.json2x, png: mk.png2x } : { json: mk.json, png: mk.png };
-    [data, spriteDefs] = await Promise.all([
-      fetchJSON(`${state.folder}/${m.data}`),
+    const spriteFile = !mk ? null : mk.png2x && mk.json2x ? { json: mk.json2x, png: mk.png2x } : { json: mk.json, png: mk.png };
+    const [spriteDefs, spriteImg] = await Promise.all([
       spriteFile ? fetchJSON(`${state.folder}/${spriteFile.json}`) : Promise.resolve({}),
+      spriteFile ? loadImage(`${state.folder}/${spriteFile.png}`) : Promise.resolve(null),
     ]);
-    spriteImg = spriteFile ? await loadImage(`${state.folder}/${spriteFile.png}`) : null;
+    state.sprite = { defs: spriteDefs, img: spriteImg, png: spriteFile?.png ?? null };
+    state.spriteFile = spriteFile;
   } catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
 
+  // the profile comes first: it says which map was open, and where
+  await loadProfiles();
+  // the map to open: a shared link's map, else the one this profile was last on, else the game's first
+  const want = new URLSearchParams(location.search).get('map');
+  const info = state.meta.maps.find(m => m.slug === want) || state.meta.maps.find(m => m.slug === state.profile?.map) || state.meta.maps[0];
+  try { await prepareMap(info); }
+  catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
+  buildSidebar();
+  renderMapSwitch();
+  createMap();
+}
+
+// everything that belongs to one map of the game: its data, categories, locations, tags, view and presets
+async function prepareMap(info) {
+  const data = await mapData(info);
+  state.mapInfo = info;
   state.data = data;
-  state.sprite = { defs: spriteDefs, img: spriteImg, png: spriteFile?.png ?? null };
 
   // categories and groups
+  const spriteFile = state.spriteFile;
   const catById = new Map(Object.values(data.categories).map(c => [c.id, c]));
   state.cats = catById;
   state.groups = [...data.groups].sort((a, b) => a.order - b.order).map(g => {
@@ -305,30 +320,131 @@ async function loadGame(entry) {
   })).filter(l => Number.isFinite(l.lat) && Number.isFinite(l.lng));
   state.officialLocs = state.locs;
   state.byId = new Map(state.locs.map(l => [l.id, l]));
-  buildLinkIndex();
   state.tags = [...(data.tags || [])].sort((a, b) => a.id - b.id);
 
-  // view settings
-  const v = (await getMeta('view:' + entry.id)) || {};
+  await loadMapState();
+
+  // difficulty / tag selector
+  $('#tag-field').hidden = state.tags.length === 0;
+  syncTagStrict();
+  // "Everything" (value "") shows every marker, including ones carrying a tag; it is the default
+  $('#tag-select').innerHTML = '<option value="">Everything</option><option value="' + UNTAGGED + '">Only untagged</option>' + state.tags.map(t => `<option value="${t.id}">${esc(t.title)}</option>`).join('');
+  if (state.tags.length) $('#tag-select').value = state.tag == null ? '' : String(state.tag);
+
+  rebuildUserData(); // links, the user's markers on this map, and the sidebar when it exists
+}
+
+// map data is fetched once per map
+const mapCache = new Map();
+function mapData(info) {
+  if (!mapCache.has(info.slug)) {
+    mapCache.set(info.slug, fetchJSON(`${state.folder}/${info.data}`).catch(e => { mapCache.delete(info.slug); throw e; }));
+  }
+  return mapCache.get(info.slug);
+}
+
+// view settings and presets are per map: category ids repeat between maps. The first map keeps the old keys.
+const perMap = (prefix, map) => prefix + state.entry.id + (map === state.meta.maps[0].slug ? '' : ':' + map);
+const viewKey = map => perMap('view:', map);
+const presetsKey = (map = state.mapInfo.slug) => perMap('presets:', map);
+
+async function loadMapState() {
+  const map = state.mapInfo.slug;
+  const v = (await getMeta(viewKey(map))) || {};
   state.view.hidden = new Set(v.hidden || []);
   state.view.hideFound = !!v.hideFound;
   state.view.collapsed = new Set(v.collapsed || []);
   $('#hide-found').checked = state.view.hideFound;
-  state.presets = (await getMeta('presets:' + entry.id)) || [];
+  state.presets = (await getMeta(presetsKey(map))) || [];
   state.presetId = state.presets.some(p => p.id === v.presetId) ? v.presetId : null;
   state.baseline = state.presetId && Array.isArray(v.baseline) ? v.baseline : null;
   renderPresets();
+}
 
-  // difficulty / tag selector
-  const tagField = $('#tag-field');
-  tagField.hidden = state.tags.length === 0;
-  syncTagStrict();
-  // "Everything" (value "") shows every marker, including ones carrying a tag; it is the default
-  $('#tag-select').innerHTML = '<option value="">Everything</option><option value="' + UNTAGGED + '">Only untagged</option>' + state.tags.map(t => `<option value="${t.id}">${esc(t.title)}</option>`).join('');
+// the map switcher in the side panel: one button per map, shown when the game has more than one
+function renderMapSwitch() {
+  const maps = state.meta?.maps || [];
+  let nav = document.getElementById('map-switch');
+  if (!nav) {
+    nav = document.createElement('nav');
+    nav.id = 'map-switch';
+    nav.className = 'map-switch';
+    nav.setAttribute('aria-label', 'Maps in this game');
+    nav.onclick = e => { const b = e.target.closest('button[data-map]'); if (b) switchMap(b.dataset.map); };
+    document.querySelector('.side-head .progress').before(nav);
+  }
+  nav.hidden = maps.length < 2;
+  nav.innerHTML = maps.map(m => `<button type="button" data-map="${esc(m.slug)}" aria-pressed="${m.slug === state.mapInfo?.slug}">${esc(m.title || m.slug)}</button>`).join('');
+}
 
-  await loadProfiles();
-  buildSidebar();
-  createMap();
+// the bounds, zoom limits and tile set of a map
+function mapLimits(info, data) {
+  const ts = info.tilesets[0]; // { template, minzoom, maxzoom (stored tiles), viewMaxzoom, bounds }
+  const box = ts.bounds || data.styles?.mapStyle?.bounds || [-180, -85, 180, 85];
+  const [w, s, e, n] = box, pad = 0.25;
+  return { ts, box, minZoom: ts.minzoom ?? 0, maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18, maxBounds: [[w - pad, s - pad], [e + pad, n + pad]] };
+}
+
+// where a map opens: the saved camera for it, else the game's start position
+function startOf(info, data, cam) {
+  if (cam && Number.isFinite(cam.lng) && Number.isFinite(cam.lat) && Number.isFinite(cam.zoom)) return { center: [cam.lng, cam.lat], zoom: cam.zoom };
+  const cfg = data.mapConfig || {};
+  return { center: [cfg.start_lng, cfg.start_lat], zoom: cfg.initial_zoom ?? 11 };
+}
+
+// the raster tiles of the current map (replaced when the map changes)
+function setBaseTiles(map) {
+  const { ts, box } = mapLimits(state.mapInfo, state.data);
+  const [w, s, e, n] = box;
+  if (map.getLayer('base')) map.removeLayer('base');
+  if (map.getSource('base')) map.removeSource('base');
+  map.addSource('base', {
+    // resolve only the folder: running the template through new URL() would escape the {z}/{y}/{x} placeholders
+    type: 'raster', tiles: [new URL(state.folder + '/', document.baseURI).href + ts.template], tileSize: ts.tileSize || 256,
+    minzoom: ts.minzoom ?? 0, maxzoom: ts.maxzoom ?? 18,
+    bounds: [w, s + 0.001, e - 0.001, n],
+  });
+  map.addLayer({ id: 'base', type: 'raster', source: 'base', paint: { 'raster-fade-duration': 0 } }, map.getLayer('sel') ? 'sel' : undefined);
+}
+
+// the camera of the open map goes into the profile (with which map it is), so a visit resumes where it was
+function rememberCamera(now = false) {
+  if (state.mapReady && state.profile && state.mapInfo) {
+    const c = state.map.getCenter(), p = state.profile, slug = state.mapInfo.slug;
+    p.map = slug;
+    p.cameras = { ...(p.cameras || {}), [slug]: { lng: +c.lng.toFixed(6), lat: +c.lat.toFixed(6), zoom: +state.map.getZoom().toFixed(2) } };
+  }
+  if (now) saveProfileNow(); else scheduleSave();
+}
+
+// switches the map in place: the tiles, the bounds and the marker data change; the camera follows the profile
+async function switchMap(slug, { remember = true } = {}) {
+  if (!state.mapReady || slug === state.mapInfo?.slug) return;
+  const info = state.meta.maps.find(m => m.slug === slug);
+  if (!info) return;
+  if (remember) rememberCamera(true); // where we were on the map we are leaving
+  try { await prepareMap(info); }
+  catch (e) { return toast(`Could not load ${info.title}.`, 4000); }
+  dismiss();
+  state.sel = null;
+  setBaseTiles(state.map);
+  const lim = mapLimits(info, state.data);
+  state.map.setMinZoom(lim.minZoom);
+  state.map.setMaxZoom(lim.maxZoom);
+  state.map.setMaxBounds(lim.maxBounds);
+  state.map.jumpTo(startOf(info, state.data, state.profile?.cameras?.[slug]));
+  if (remember) rememberCamera(true);
+  refreshAll();
+  renderMapSwitch();
+  updateSidebar();
+}
+
+// after switching profile: the profile's map and camera
+async function syncMapToProfile() {
+  const want = state.profile?.map;
+  if (want && want !== state.mapInfo?.slug && state.meta.maps.some(m => m.slug === want)) return switchMap(want, { remember: false });
+  const cam = state.profile?.cameras?.[state.mapInfo?.slug];
+  if (cam && state.mapReady) state.map.jumpTo(startOf(state.mapInfo, state.data, cam));
 }
 
 /* ---------- profiles ---------- */
@@ -388,6 +504,12 @@ async function loadProfiles() {
 
 function applyProfile(p) {
   state.profile = p;
+  // records from before there were several maps belong to the game's first map
+  const first = state.meta?.maps?.[0]?.slug;
+  if (first) {
+    for (const d of p.drawings || []) d.map ??= first;
+    for (const m of p.userMarkers || []) m.map ??= first;
+  }
   rebuildUserData(); // the profile's own categories and markers
   state.drawing?.reset(); // drawings belong to the profile: each one has its own undo history
   state.found = new Set(p.found || []);
@@ -420,17 +542,19 @@ async function saveProfileNow() {
 let viewTimer;
 function scheduleViewSave() {
   clearTimeout(viewTimer);
-  viewTimer = setTimeout(() => setMeta('view:' + state.entry.id, {
+  viewTimer = setTimeout(() => setMeta(viewKey(state.mapInfo.slug), {
     hidden: [...state.view.hidden], hideFound: state.view.hideFound, collapsed: [...state.view.collapsed],
     presetId: state.presetId, baseline: state.baseline,
   }).catch(() => {}), 250);
 }
 
 async function switchProfile(id) {
+  rememberCamera(false); // the camera belongs to the profile being left
   await saveProfileNow();
   const p = state.profiles.find(x => x.id === id);
   if (!p) return;
   applyProfile(p);
+  await syncMapToProfile();
   await setMeta('last-profile:' + state.entry.id, p.id).catch(() => {});
   refreshAll();
 }
@@ -732,7 +856,6 @@ function onViewChanged() {
 
 /* ---------- selection presets (which categories are on/off) ---------- */
 
-const presetsKey = () => 'presets:' + state.entry.id;
 const savePresets = () => setMeta(presetsKey(), state.presets).catch(() => toast('Could not save presets in this browser.'));
 const presetById = id => state.presets.find(p => p.id === id) || null;
 const currentPreset = () => presetById(state.presetId);
@@ -860,7 +983,7 @@ const iconName = (color, temp) => `up-${color.replace('#', '')}${temp ? '-t' : '
 // and the temporary ones, and the link index. Called whenever the profile or the temporary markers change.
 function rebuildUserData() {
   if (!state.officialLocs) return;
-  const p = state.profile, temps = state.tempMarkers;
+  const p = state.profile, here = state.mapInfo?.slug, temps = state.tempMarkers.filter(m => m.map === here);
   const cats = [...(p?.userCats || [])];
   if (temps.length) cats.push(TEMP_CAT);
   for (const id of [...state.cats.keys()]) if (id < 0) state.cats.delete(id);
@@ -876,7 +999,7 @@ function rebuildUserData() {
   state.groupOfCat = new Map();
   for (const g of state.groups) for (const c of g.cats) state.groupOfCat.set(c.id, g);
 
-  const userLocs = [...(p?.userMarkers || []), ...temps].map(m => {
+  const userLocs = [...(p?.userMarkers || []).filter(m => m.map === here), ...temps].map(m => {
     const cat = state.cats.get(m.cat);
     return { id: m.id, cat: m.cat, title: m.title || '', desc: m.desc || '', lat: m.lat, lng: m.lng, tags: [], media: [],
       icon: cat?.icon || iconName('#e5484d'), user: true, temp: !!m.temp, links: m.links || [] };
@@ -920,19 +1043,16 @@ function iconScale(z) {
 const emptyFC = { type: 'FeatureCollection', features: [] };
 
 function createMap() {
-  const data = state.data, cfg = data.mapConfig;
-  const ts = state.mapInfo.tilesets[0]; // { template, minzoom, maxzoom (stored tiles), viewMaxzoom, bounds }
-  const [w, s, e, n] = ts.bounds || data.styles?.mapStyle?.bounds || [-180, -85, 180, 85];
-  const pad = 0.25;
-
+  const start = startOf(state.mapInfo, state.data, state.profile?.cameras?.[state.mapInfo.slug]);
+  const lim = mapLimits(state.mapInfo, state.data);
   const map = new maplibregl.Map({
     container: 'map',
     style: { version: 8, sources: {}, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': themeVar('night') } }] },
-    center: [cfg.start_lng, cfg.start_lat],
-    zoom: cfg.initial_zoom ?? 11,
-    minZoom: ts.minzoom ?? 0,
-    maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18,
-    maxBounds: [[w - pad, s - pad], [e + pad, n + pad]],
+    center: start.center,
+    zoom: start.zoom,
+    minZoom: lim.minZoom,
+    maxZoom: lim.maxZoom,
+    maxBounds: lim.maxBounds,
     attributionControl: false,
     renderWorldCopies: false,
     dragRotate: false,
@@ -940,10 +1060,12 @@ function createMap() {
     fadeDuration: 0,
   });
   state.map = map;
+  let camTimer = null;
+  map.on('moveend', () => { clearTimeout(camTimer); camTimer = setTimeout(() => rememberCamera(false), 400); });
   map.touchZoomRotate.disableRotation();
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
   const tools = setupSelection(map);
-  state.drawing = setupDrawing({ map, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), getProfile: () => state.profile, onChange: () => scheduleSave(), requestTool: t => tools.setTool(t), renderMd });
+  state.drawing = setupDrawing({ map, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), getProfile: () => state.profile, getMap: () => state.mapInfo?.slug, onChange: () => scheduleSave(), requestTool: t => tools.setTool(t), renderMd });
   state.um = setupUserMarkers({ map, state, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), changed: userChanged, select, closeDetail, askDialog, toast, requestTool: t => tools.setTool(t) });
 
   map.on('load', () => {
@@ -956,14 +1078,7 @@ function createMap() {
       map.addImage(name, ctx.getImageData(0, 0, d.width, d.height), { pixelRatio: d.pixelRatio || 1 });
     }
 
-    // tiles sit where meta.json says (the original site's {z}/{y}/{x} order); zooming past the stored ones just enlarges them
-    map.addSource('base', {
-      // resolve only the folder: running the template through new URL() would escape the {z}/{y}/{x} placeholders
-      type: 'raster', tiles: [new URL(state.folder + '/', document.baseURI).href + ts.template], tileSize: ts.tileSize || 256,
-      minzoom: ts.minzoom ?? 0, maxzoom: ts.maxzoom ?? 18,
-      bounds: [w, s + 0.001, e - 0.001, n],
-    });
-    map.addLayer({ id: 'base', type: 'raster', source: 'base', paint: { 'raster-fade-duration': 0 } });
+    setBaseTiles(map);
 
     map.addSource('sel', { type: 'geojson', data: emptyFC });
     map.addLayer({
@@ -1696,8 +1811,8 @@ function wire() {
   $('#side-close').onclick = () => document.body.classList.remove('side-open');
   $('#side-collapse').onclick = () => setSideCollapsed(!document.body.classList.contains('side-collapsed'));
 
-  addEventListener('pagehide', saveProfileNow);
-  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') saveProfileNow(); });
+  addEventListener('pagehide', () => rememberCamera(true));
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') rememberCamera(true); });
 }
 
 wire();

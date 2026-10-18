@@ -214,8 +214,8 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     let saved;
     const oldCat = marker?.cat;
     if (marker) saved = Object.assign(marker, data);
-    else if (isTemp) { saved = { id: newId(), ...data, lat: pos.lat, lng: pos.lng, temp: true }; state.tempMarkers.push(saved); }
-    else { saved = { id: newId(), ...data, lat: pos.lat, lng: pos.lng, created: Date.now() }; profileMarkers().push(saved); }
+    else if (isTemp) { saved = { id: newId(), ...data, lat: pos.lat, lng: pos.lng, temp: true, map: state.mapInfo.slug }; state.tempMarkers.push(saved); }
+    else { saved = { id: newId(), ...data, lat: pos.lat, lng: pos.lng, created: Date.now(), map: state.mapInfo.slug }; profileMarkers().push(saved); }
     if (oldCat !== undefined && oldCat !== saved.cat) pruneEmptyCategories([oldCat]); // moved out of its old category
     changed();
     return saved;
