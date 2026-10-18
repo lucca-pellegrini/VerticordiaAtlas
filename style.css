@@ -672,3 +672,42 @@ svg.i .clock { fill: var(--panel-2); }
 .menu button:hover svg.i, .menu button.danger svg.i { color: currentColor; }
 .menu.ctx { min-width: 228px; }
 #shape-menu button { padding-right: 30px; }
+
+/* ---------- screenshots ---------- */
+.tool-capture .maplibregl-canvas-container, .tool-capture canvas { cursor: crosshair !important; touch-action: none !important; }
+/* the area being drawn: a dashed frame, and the map dimmed outside it */
+.shot-rect {
+  position: absolute; z-index: 4; pointer-events: none; border: 1.5px dashed var(--accent-soft); border-radius: 2px;
+  box-shadow: 0 0 0 9999px rgb(0 0 0 / .42);
+}
+.shot-rect[hidden] { display: none; }
+/* the thumbnail of the last screenshot, bottom centre of the map */
+#shot-card {
+  position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 6; width: min(300px, calc(100% - 32px));
+  display: grid; gap: 8px; padding: 8px; border-radius: 16px; background: color-mix(in srgb, var(--panel) 94%, transparent);
+  border: 1px solid var(--line-2); box-shadow: 0 24px 50px -18px #000; backdrop-filter: blur(14px);
+  animation: fade-in .3s var(--ease);
+}
+#shot-card[hidden] { display: none; }
+#shot-card img { display: block; width: 100%; max-height: 190px; object-fit: contain; border-radius: 10px; background: #000; }
+.shot-bar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 2px; }
+.shot-size { color: var(--ink-dim); font-size: 12px; font-variant-numeric: tabular-nums; }
+.shot-actions { display: flex; gap: 6px; }
+.shot-actions .ibtn {
+  position: relative; display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border-radius: 999px;
+  background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink-dim);
+  transition: color var(--fast), background-color var(--fast), transform var(--fast);
+}
+.shot-actions .ibtn[hidden] { display: none; }
+.shot-actions .ibtn:hover { color: var(--ink); background: color-mix(in srgb, var(--panel-2), #fff 8%); }
+.shot-actions .ibtn:active { transform: scale(.93); }
+.shot-actions .ibtn::after {
+  content: attr(data-tip); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translate(-50%, 4px); z-index: 4;
+  padding: 5px 9px; border-radius: 8px; white-space: nowrap; font-size: 12px; color: var(--ink);
+  background: var(--panel-2); border: 1px solid var(--line-2); opacity: 0; pointer-events: none; transition: opacity .18s, transform .18s;
+}
+.shot-actions .ibtn:hover::after { opacity: 1; transform: translate(-50%, 0); }
+
+/* drawings and their text notes fade in with the map */
+#map .draw-layer, #map .text-layer { transition: opacity .9s var(--ease); }
+body.loading-map #map .draw-layer, body.loading-map #map .text-layer { opacity: 0; }

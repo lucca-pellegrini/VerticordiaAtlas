@@ -9,6 +9,7 @@ import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML, setupDrawing } from './drawing.js
 import { MARKER_CONTROL_HTML, TEMP_CAT, pingImage, setupUserMarkers } from './usermarkers.js';
 import { packMarker } from './share-link.mjs';
 import { svgIcon } from './icons.mjs';
+import { CAPTURE_CONTROL_HTML, setupCapture } from './capture.mjs';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
 
@@ -22,6 +23,7 @@ const state = {
   presets: [], presetId: null, baseline: null, // baseline: the view before the first preset was picked
   trail: [], session: uid(), // navigation stack of opened markers (last = current); session ties history entries to it
   outLinks: new Map(), inLinks: new Map(), // location id -> ids its description links to / ids linking to it
+  capturing: false, capture: null, // a screenshot is being rendered (the camera is not saved then)
   meta: null, spriteFile: null, // the game's meta.json, and which sprite file it uses
   tempMarkers: [], // temporary markers: kept for this tab only, never saved
   officialLocs: null, um: null, // the game's own markers (the rest of state.locs is the user's); the user-markers module
@@ -438,6 +440,7 @@ function setBaseTiles(map) {
 
 // the camera of the open map goes into the profile (with which map it is), so a visit resumes where it was
 function rememberCamera(now = false) {
+  if (state.capturing) return; // a screenshot moves the view for a moment; the camera is the one before
   if (state.mapReady && state.profile && state.mapInfo) {
     const c = state.map.getCenter(), p = state.profile, slug = state.mapInfo.slug;
     p.map = slug;
@@ -1204,6 +1207,12 @@ function createMap() {
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
   const tools = setupSelection(map);
   state.drawing = setupDrawing({ map, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), getProfile: () => state.profile, getMap: () => state.mapInfo?.slug, onChange: () => scheduleSave(), requestTool: t => tools.setTool(t), renderMd });
+  state.capture = setupCapture({
+    map, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), drawing: state.drawing,
+    requestTool: t => tools.setTool(t), toast,
+    names: () => ({ file: `${state.entry.id}-${state.mapInfo.slug}`, label: `${state.entry.title} · ${state.mapInfo.title}` }),
+    setBusy: b => { state.capturing = b; document.body.classList.toggle('loading-map', b); },
+  });
   state.um = setupUserMarkers({ map, state, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), changed: userChanged, select, closeDetail, askDialog, toast, requestTool: t => tools.setTool(t) });
 
   map.on('load', () => {
@@ -1287,6 +1296,7 @@ function createMap() {
     setTimeout(() => document.body.classList.remove('loading-map'), 8000); // in case the tiles never report idle
     updateSidebar();
     refreshMap();
+    state.drawing?.render(); // the profile's drawings appear with the map, not on the first move
     // a shared link carries ?loc=<id>; the hash (#loc=<id>) is what the app writes while browsing
     const q = new URLSearchParams(location.search).get('loc');
     const m = /^#loc=(\d+)/.exec(location.hash) || (/^\d+$/.test(q || '') ? [null, q] : null);
@@ -1423,6 +1433,15 @@ function setupSelection(map) {
     },
     onRemove() {},
   }, 'top-right');
+  map.addControl({
+    onAdd() {
+      const c = document.createElement('div');
+      c.className = 'maplibregl-ctrl maplibregl-ctrl-group tool-ctrl';
+      c.innerHTML = CAPTURE_CONTROL_HTML;
+      return c;
+    },
+    onRemove() {},
+  }, 'top-right');
   const panBtn = document.getElementById('tool-pan');
   const selBtn = document.getElementById('tool-select');
 
@@ -1458,6 +1477,7 @@ function setupSelection(map) {
     selBtn.querySelector('svg').innerHTML = SHAPE_ICONS[state.shape];
     if (state.drawing) state.drawing.setActive(t === 'draw');
     state.um?.setActive(t === 'marker');
+    state.capture?.setActive(t === 'capture');
     selBtn.setAttribute('aria-label', `Selection tool: ${SHAPE_NAMES[state.shape]}`);
   }
   state.tool = 'pan';
@@ -1578,7 +1598,7 @@ function setupSelection(map) {
   function cancelDrag() { state.drag = null; if (press) { clearTimeout(press.timer); press = null; } renderSelection(); }
 
   canvasBox.addEventListener('pointerdown', e => {
-    if (e.button !== 0 || state.tool === 'draw' || state.tool === 'marker') return;
+    if (e.button !== 0 || state.tool === 'draw' || state.tool === 'marker' || state.tool === 'capture') return;
     pointers.set(e.pointerId, localPos(e));
     if (pointers.size > 1) { cancelDrag(); return; } // a second finger means pinch-zoom, not a selection
     const p = localPos(e);
@@ -1589,7 +1609,7 @@ function setupSelection(map) {
   });
 
   canvasBox.addEventListener('pointermove', e => {
-    if (state.tool === 'draw' || state.tool === 'marker') return;
+    if (state.tool === 'draw' || state.tool === 'marker' || state.tool === 'capture') return;
     if (pointers.has(e.pointerId)) pointers.set(e.pointerId, localPos(e));
     if (!press || press.id !== e.pointerId || press.held || pointers.size > 1) return;
     const p = localPos(e);

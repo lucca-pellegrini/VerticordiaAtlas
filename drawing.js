@@ -624,6 +624,12 @@ export function setupDrawing({ map, mapEl, canvasBox, getProfile, getMap, onChan
   return {
     setActive,
     render,
+    // the drawings as an svg of the given size (for a screenshot), at the map's current view
+    snapshot(cssW, cssH) {
+      const c = layer.cloneNode(true);
+      c.setAttribute('width', cssW); c.setAttribute('height', cssH); c.setAttribute('viewBox', `0 0 ${cssW} ${cssH}`);
+      return new XMLSerializer().serializeToString(c);
+    },
     // a new profile has its own drawings and its own undo history
     reset() { history.length = 0; redoStack.length = 0; draft = null; gesture = null; clearTimeout(holdTimer); closeEditor(); render(); },
     keydown, // called first by the app's key handler; true when the key was used
