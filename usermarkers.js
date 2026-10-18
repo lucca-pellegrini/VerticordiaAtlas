@@ -3,6 +3,7 @@
 // other marker the same way official markers link to each other. Export and import carry the profile's copy.
 import { PALETTE } from './drawing.js';
 import { unpackMarker } from './share-link.mjs';
+import { iconInner, iconsReady, loadIconLibrary, searchIcons, PIN } from './icons-lib.mjs';
 import { ICONS, svgIcon } from './icons.mjs';
 
 export const TEMP_CAT_ID = -1;
@@ -23,20 +24,55 @@ const newId = () => -(Math.floor(Math.random() * 2e9) + 1);
 export function pingImage(name) {
   const temp = name.endsWith('-t');
   const hex = '#' + name.slice(3).replace('-t', '');
-  const S = 36, R = 2, cx = S / 2, cy = 14, r = 8.5;
+  const { S, R, cx, cy, head, halo, tail } = PIN;
   const c = document.createElement('canvas');
   c.width = c.height = S * R;
   const g = c.getContext('2d');
   g.scale(R, R);
-  g.beginPath(); g.arc(cx, cy, 13, 0, Math.PI * 2); g.fillStyle = hex + '38'; g.fill();
-  g.beginPath(); g.moveTo(cx - 4.5, cy + 6); g.lineTo(cx, S - 2.5); g.lineTo(cx + 4.5, cy + 6); g.closePath(); g.fillStyle = hex; g.fill();
-  g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.fillStyle = hex; g.fill();
+  g.beginPath(); g.arc(cx, cy, halo, 0, Math.PI * 2); g.fillStyle = hex + '38'; g.fill();
+  g.beginPath(); g.moveTo(cx - 6, cy + tail); g.lineTo(cx, S - 1.5); g.lineTo(cx + 6, cy + tail); g.closePath(); g.fillStyle = hex; g.fill();
+  g.beginPath(); g.arc(cx, cy, head, 0, Math.PI * 2); g.fillStyle = hex; g.fill();
   g.lineWidth = 2; g.strokeStyle = '#fff';
   if (temp) g.setLineDash([2.5, 2]);
   g.stroke();
   g.setLineDash([]);
-  g.beginPath(); g.arc(cx, cy, 2.6, 0, Math.PI * 2); g.fillStyle = '#fff'; g.fill();
+  g.beginPath(); g.arc(cx, cy, 3.2, 0, Math.PI * 2); g.fillStyle = '#fff'; g.fill();
   return g.getImageData(0, 0, S * R, S * R);
+}
+
+// the icon picker: a search box over the library, and a grid; the first tile is the plain dot (the default)
+function iconField(current) {
+  return '<div class="field um-icon"><span>Icon</span>' +
+    '<input type="search" class="um-icon-q" placeholder="Search icons, e.g. key, skull, tree" autocomplete="off" aria-label="Search icons">' +
+    '<div class="um-icon-grid" role="listbox" aria-label="Icons"></div>' +
+    `<input type="hidden" name="glyph" value="${String(current || '').replace(/"/g, '')}"></div>`;
+}
+function wireIcon(root) {
+  const q = root.querySelector('.um-icon-q'), grid = root.querySelector('.um-icon-grid'), hid = root.querySelector('input[name="glyph"]');
+  const color = root.querySelector('input[name="color"]');
+  const paintColor = () => grid.style.setProperty('--c', color?.value || '#e5484d');
+  root.addEventListener('um-color', paintColor); // the colour fields announce their changes
+  const draw = () => {
+    const tile = (val, label, inner) =>
+      `<button type="button" class="ic-tile${hid.value === val ? ' on' : ''}" data-glyph="${val}" aria-label="${label}" title="${label}">${inner}</button>`;
+    const names = searchIcons(q.value, 120);
+    grid.innerHTML = tile('', 'Plain dot', '<span class="ico-ping-mini"></span>') +
+      names.map(n => tile(n, n.replace(/-/g, ' '), `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${iconInner(n)}</svg>`)).join('') +
+      (names.length ? '' : '<p class="none">No icon matches.</p>');
+  };
+  q.addEventListener('input', draw);
+  grid.addEventListener('click', e => {
+    const b = e.target.closest('[data-glyph]');
+    if (!b) return;
+    hid.value = b.dataset.glyph;
+    draw();
+  });
+  paintColor();
+  if (iconsReady()) draw();
+  else {
+    grid.innerHTML = '<p class="none">Loading icons…</p>';
+    loadIconLibrary().then(draw, () => { grid.innerHTML = '<p class="none">The icons could not be loaded.</p>'; });
+  }
 }
 
 export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select, closeDetail, askDialog, toast, requestTool }) {
@@ -77,6 +113,7 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
       color.value = c;
       hex.value = c;
       root.querySelectorAll('.sw').forEach(b => b.classList.toggle('on', b.dataset.color === c));
+      root.dispatchEvent(new Event('um-color'));
     };
     root.querySelectorAll('.sw').forEach(b => b.addEventListener('click', () => set(b.dataset.color)));
     color.addEventListener('input', () => set(color.value));
@@ -140,7 +177,10 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     const isTemp = promote ? false : marker ? !!marker.temp : temp; // promoting a temporary marker: it becomes a permanent one
     const cats = profileCats();
     const links = [...(marker?.links || [])];
-    const selCat = marker && !marker.temp ? marker.cat : (cats[0]?.id ?? NEW_CAT);
+    const sh = marker?.shared || null;
+    const sameName = sh ? cats.find(c => c.title.trim().toLowerCase() === sh.name.trim().toLowerCase()) : null;
+    const selCat = marker && !marker.temp ? marker.cat : sameName ? sameName.id : sh ? NEW_CAT : (cats[0]?.id ?? NEW_CAT);
+    const fresh = sh && !sameName ? sh : null; // the new category starts as the shared one
     const opts = cats.map(c => `<option value="${c.id}"${c.id === selCat ? ' selected' : ''}>${esc(c.title)}</option>`).join('') +
       `<option value="${NEW_CAT}"${selCat === NEW_CAT ? ' selected' : ''}>New category…</option>`;
     const body =
@@ -149,7 +189,7 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
         ? '<p class="d-note">Temporary: this marker is gone when the tab closes.</p>'
         : `<label class="field"><span>Category</span><select name="cat">${opts}</select></label>` +
           `<div class="um-newcat" ${selCat === NEW_CAT ? '' : 'hidden'}><label class="field"><span>New category</span>` +
-          `<input name="newcat" maxlength="40" placeholder="e.g. Keys" autocomplete="off"></label>${colorField(PALETTE[0])}</div>`) +
+          `<input name="newcat" maxlength="40" placeholder="e.g. Keys" autocomplete="off" value="${esc(fresh?.name || '')}"></label>${colorField(fresh?.color || PALETTE[0])}${iconField(fresh?.glyph || '')}</div>`) +
       `<label class="field"><span>Notes</span><textarea name="desc" rows="4" placeholder="Markdown works">${esc(marker?.desc || '')}</textarea></label>` +
       '<div class="field"><span>Links</span><div class="um-chips"></div>' +
       '<input type="search" class="um-q" placeholder="Find a marker to link" autocomplete="off"><ul class="um-pick" hidden></ul></div>';
@@ -157,12 +197,12 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
     const onReady = form => {
       const sel = form.elements.cat, block = form.querySelector('.um-newcat');
       if (sel) sel.addEventListener('change', () => { block.hidden = sel.value !== NEW_CAT; });
-      if (block) wireColor(block);
+      if (block) { wireColor(block); wireIcon(block); }
       const chips = form.querySelector('.um-chips'), q = form.querySelector('.um-q'), pick = form.querySelector('.um-pick');
       const drawChips = () => {
         chips.innerHTML = links.map(id => {
           const t = state.byId.get(id);
-          return `<span class="um-chip">${esc(t ? t.title : 'Missing marker')}<button type="button" data-rm="${id}" aria-label="Remove link">&times;</button></span>`;
+          return `<span class="um-chip">${esc(t ? t.title : id > 0 ? 'Marker on another map' : 'Missing marker')}<button type="button" data-rm="${id}" aria-label="Remove link">&times;</button></span>`;
         }).join('');
       };
       chips.onclick = e => {
@@ -208,12 +248,12 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
       if (cat === NEW_CAT) {
         const name = f.newcat.value.trim();
         if (!name) { toast('Give the new category a name.'); return null; }
-        const c = { id: newId(), title: name, color: f.color.value };
+        const c = { id: newId(), title: name, color: f.color.value, glyph: f.glyph?.value || null };
         profileCats().push(c);
         cat = c.id;
       } else cat = Number(cat);
     }
-    const data = { title, cat, desc: f.desc.value, links: links.filter(id => id !== marker?.id && state.byId.has(id)) };
+    const data = { title, cat, desc: f.desc.value, links: links.filter(id => id !== marker?.id && (id > 0 || state.byId.has(id))) };
     let saved;
     const oldCat = marker?.cat;
     if (promote) {
@@ -232,16 +272,17 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
   // a category on its own: create, rename, recolour, delete
   async function categoryForm(cat) {
     const body = `<label class="field"><span>Name</span><input name="title" maxlength="40" required value="${esc(cat?.title || '')}" autocomplete="off"></label>` +
-      colorField(cat?.color || PALETTE[2]);
+      colorField(cat?.color || PALETTE[2]) + iconField(cat?.glyph || '');
     const res = await dialog(cat ? 'Edit category' : 'New category', body,
-      { ok: cat ? 'Save' : 'Create', danger: cat ? 'Delete category' : null, onReady: form => wireColor(form) });
+      { ok: cat ? 'Save' : 'Create', danger: cat ? 'Delete category' : null, onReady: form => { wireColor(form); wireIcon(form); } });
     if (!res) return;
     if (res.del) return deleteCategory(cat);
     const f = res.form.elements;
     const title = f.title.value.trim();
     if (!title) return;
-    if (cat) { cat.title = title; cat.color = f.color.value; }
-    else profileCats().push({ id: newId(), title, color: f.color.value });
+    const glyph = f.glyph.value || null;
+    if (cat) { cat.title = title; cat.color = f.color.value; cat.glyph = glyph; }
+    else profileCats().push({ id: newId(), title, color: f.color.value, glyph });
     changed();
   }
 
@@ -339,7 +380,8 @@ export function setupUserMarkers({ map, state, mapEl, canvasBox, changed, select
   async function addSharedTemp(packed) {
     const d = await unpackMarker(packed);
     if (!d) return toast('That link does not hold a valid marker.', 5000);
-    const m = { id: newId(), title: d.title, desc: d.desc, cat: TEMP_CAT_ID, lat: d.lat, lng: d.lng, links: [], temp: true, map: state.mapInfo.slug };
+    const shared = d.category ? { name: d.category, color: d.color, glyph: d.glyph } : null;
+    const m = { id: newId(), title: d.title, desc: d.desc, cat: TEMP_CAT_ID, lat: d.lat, lng: d.lng, links: d.links, temp: true, map: state.mapInfo.slug, shared };
     state.tempMarkers.push(m);
     changed();
     select(m.id, { fly: true });

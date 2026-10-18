@@ -6,6 +6,7 @@ import { readdir, readFile, writeFile, access, mkdtemp, rm, mkdir } from 'node:f
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { glyphInk } from './icons-lib.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 
@@ -45,7 +46,7 @@ export async function loadGames() {
     const entry = listed.get(d.name) || {};
     const title = cleanTitle(entry.title || meta.title || d.name);
     games.push({
-      slug: d.name, dir, title, maps: meta.maps || [],
+      slug: d.name, dir, title, maps: meta.maps || [], markers: meta.markers || null,
       description: entry.description || `Every marker on the ${title} map.`,
       alt: entry.posterAlt || `${title} key art`,
       theme: { ...DEFAULT_THEME, ...(entry.theme || {}) },
@@ -128,20 +129,73 @@ export function gameHtml(g) {
 }
 
 // a card for one marker: its category as the eyebrow, its name, a line of its notes, the game underneath
-export function markerHtml({ title, category, description, gameTitle, theme, poster, shot }) {
+// the Lucide icon's markup, read once (the library is the same file the page fetches)
+let lucide = null;
+export async function glyphInner(name) {
+  if (!lucide) lucide = JSON.parse(await readFile(path.join(ROOT, 'vendor', 'lucide', 'icons.json'), 'utf8'));
+  return lucide[name]?.[0] ?? null;
+}
+// the game's own marker sprite (the same file the map uses): its definitions and sheet, read once
+const sheetCache = new Map();
+export async function spriteSheet(gameDir, markers) {
+  if (!markers) return null;
+  const pick = markers.json2x && markers.png2x ? { json: markers.json2x, png: markers.png2x } : { json: markers.json, png: markers.png };
+  const jsonPath = path.join(gameDir, pick.json);
+  if (!sheetCache.has(jsonPath)) {
+    sheetCache.set(jsonPath, readFile(jsonPath, 'utf8').then(t => ({ defs: JSON.parse(t), png: path.join(gameDir, pick.png) })));
+  }
+  return sheetCache.get(jsonPath);
+}
+// an official category's icon: its sprite cut-out, on a disc of its group's colour
+export async function officialIcon(game, iconName, color) {
+  const sheet = await spriteSheet(game.dir, game.markers);
+  const d = sheet?.defs?.[iconName];
+  if (!d || !color) return null;
+  return { sprite: { file: sheet.png, x: d.x, y: d.y, w: d.width, h: d.height }, color, ink: '#ffffff' };
+}
+
+// a category's icon for a card: its colour, the glyph's contrasting ink, and the markup (or null when unknown)
+export async function categoryIcon({ glyph, color }) {
+  if (!glyph || !color) return null;
+  const inner = await glyphInner(glyph);
+  return inner ? { glyph, color, ink: glyphInk(color), inner } : null;
+}
+
+// the icon's graphic inside its disc: a library glyph, or a cut-out of the game's sprite sheet scaled up
+function iconGraphic(icon) {
+  if (icon.sprite) {
+    const { file, x, y, w, h } = icon.sprite;
+    const s = 100 / Math.max(h, w); // the sprite cut-outs have padding: scale past the disc so the glyph reads
+    return `<span class="spr" style="width:${w}px;height:${h}px;background-image:url('${fileUrl(file)}');background-position:-${x}px -${y}px;transform:translate(-50%,-50%) scale(${s})"></span>`;
+  }
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">${icon.inner}</svg>`;
+}
+
+// a card for one marker. With a category icon, the icon is shown large beside the category's name.
+export function markerHtml({ title, category, description, gameTitle, theme, poster, shot, icon }) {
   const size = title.length > 60 ? 'xlong' : title.length > 26 ? 'long' : '';
   const picture = shot ? `<img class="shot" src="${fileUrl(shot)}" alt="">` : '';
-  const css = `.shot { position: absolute; right: 64px; top: 50%; transform: translateY(-50%); max-width: 500px; max-height: 430px;
-    border-radius: 18px; border: 1px solid rgb(255 255 255 / .14); box-shadow: 0 34px 60px -22px #000; object-fit: contain; }`;
+  const head = icon && category
+    ? `<div class="cat-row"><span class="cat-disc" style="--c:${icon.color};--g:${icon.ink}">${iconGraphic(icon)}</span><span class="cat-name">${esc(category)}</span></div>`
+    : (category ? `<p class="eyebrow"><span>${esc(category)}</span></p>` : '');
+  const css = (picture ? `.shot { position: absolute; right: 64px; top: 50%; transform: translateY(-50%); max-width: 500px; max-height: 430px;
+    border-radius: 18px; border: 1px solid rgb(255 255 255 / .14); box-shadow: 0 34px 60px -22px #000; object-fit: contain; }` : '') +
+    `.cat-row { display: flex; align-items: center; gap: 22px; margin: 0 0 30px; }
+    .cat-disc { flex: none; width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center; background: var(--c); color: var(--g);
+      box-shadow: 0 0 0 5px rgb(255 255 255 / .12), 0 20px 44px -14px var(--c); }
+    .cat-disc { position: relative; overflow: hidden; }
+    .cat-disc svg { width: 58px; height: 58px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+    .cat-disc .spr { position: absolute; left: 50%; top: 50%; image-rendering: auto; }
+    .cat-name { font: 700 30px/1.15 Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); overflow: hidden; text-overflow: ellipsis; }`;
   return page(`${posterDiv(poster)}
 ${picture}
 <header class="brand">${PIN}<span>Verticordia Atlas</span></header>
 <main class="copy">
-  ${category ? `<p class="eyebrow"><span>${esc(category)}</span></p>` : ''}
+  ${head}
   <h1 class="${size}">${esc(title)}</h1>
   ${description ? `<p class="lede">${esc(description)}</p>` : ''}
 </main>
-<footer>${esc(gameTitle)}</footer>`, theme, picture ? css : '');
+<footer>${esc(gameTitle)}</footer>`, theme, css);
 }
 
 // the homepage card: three posters picked at random from the games that have one, fanned on the right

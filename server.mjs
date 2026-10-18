@@ -18,7 +18,9 @@ import { createReadStream } from 'node:fs';
 import { readFile, readdir, stat, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import { ROOT, exists, loadGames, markerHtml, chromePath, drawCard, socialTags, withHead, plainText } from './cards.mjs';
+import zlib from 'node:zlib';
+import { promisify } from 'node:util';
+import { ROOT, exists, loadGames, markerHtml, chromePath, drawCard, socialTags, withHead, plainText, categoryIcon, officialIcon } from './cards.mjs';
 import { unpackMarker } from './share-link.mjs';
 
 const TYPES = {
@@ -80,9 +82,13 @@ async function markerInfo(gameSlug, mapSlug, id) {
   if (!loc) return null;
   const cat = Object.values(data.categories || {}).find(c => c.id === loc.category_id);
   const shot = await firstScreenshot(g.dir, loc.media);
+  // the card shows the category's icon: the game's own sprite, on its group's colour
+  const group = (data.groups || []).find(x => x.id === cat?.group_id);
+  const color = /^#?[0-9a-f]{6}$/i.test(group?.color || '') ? '#' + String(group.color).replace('#', '') : null;
+  const icon = cat?.icon ? await officialIcon(g, cat.icon, color) : null;
   return {
     title: loc.title || 'Marker', category: cat?.title || '', description: plainText(loc.description, 150),
-    gameTitle: g.title, theme: g.theme, poster: g.poster, shot, gameSlug, mapSlug, id,
+    gameTitle: g.title, theme: g.theme, poster: g.poster, shot, icon, gameSlug, mapSlug, id,
   };
 }
 
@@ -110,7 +116,7 @@ async function shareCard(res, gameSlug, mapSlug, id) {
   const info = await markerInfo(gameSlug, mapSlug, id);
   if (!info) return send(res, 404, 'no such marker');
   // the card is keyed by everything it shows, so a change to the marker or its colours makes a new one
-  const key = crypto.createHash('sha1').update(JSON.stringify({ ...info, v: 1 })).digest('hex').slice(0, 12);
+  const key = crypto.createHash('sha1').update(JSON.stringify({ ...info, v: 2 })).digest('hex').slice(0, 12);
   const dir = path.join(ROOT, 'cache', 'share');
   const prefix = `${encodeURIComponent(gameSlug)}__${encodeURIComponent(mapSlug)}__${id}__`;
   const file = path.join(dir, `${prefix}${key}.jpg`);
@@ -170,7 +176,7 @@ async function sharedMarkerCard(res, gameSlug, packed) {
   const d = await unpackMarker(packed);
   const g = d && (await games()).find(x => x.slug === gameSlug);
   if (!g) return send(res, 404, 'no such marker');
-  const key = crypto.createHash('sha1').update('tm1').update(packed).digest('hex').slice(0, 16);
+  const key = crypto.createHash('sha1').update('tm2').update(packed).digest('hex').slice(0, 16);
   const file = path.join(ROOT, 'cache', 'share', `tm-${encodeURIComponent(gameSlug)}-${key}.jpg`);
   if (!await exists(file)) {
     await once(file, async () => {
@@ -178,6 +184,7 @@ async function sharedMarkerCard(res, gameSlug, packed) {
       console.log(`card: shared marker in ${gameSlug} (${d.title})`);
       await drawCard(await chrome(), markerHtml({
         title: d.title, category: d.category, description: plainText(d.desc, 150), gameTitle: g.title, theme: g.theme, poster: g.poster,
+        icon: d.category ? await categoryIcon(d) : null,
       }), file);
     });
   }
@@ -213,12 +220,31 @@ async function serveStatic(req, res, url) {
     res.writeHead(304, { ETag: etag, 'Last-Modified': lastModified, 'Cache-Control': headers['Cache-Control'] });
     return res.end();
   }
+  // text is sent gzipped when the client takes it (cached per file date, so the work is done once)
+  if (TEXT.test(type) && st.size > 1024 && /\bgzip\b/.test(req.headers['accept-encoding'] || '')) {
+    const body = await gzipped(file, st);
+    headers['Content-Encoding'] = 'gzip';
+    headers['Content-Length'] = body.length;
+    headers.Vary = 'Accept-Encoding';
+    res.writeHead(200, headers);
+    if (req.method === 'HEAD') return res.end();
+    return res.end(body);
+  }
   headers['Content-Length'] = st.size;
   res.writeHead(200, headers);
   if (req.method === 'HEAD') return res.end();
   createReadStream(file).pipe(res);
 }
 
+const gzip = promisify(zlib.gzip);
+const gzCache = new Map();
+async function gzipped(file, st) {
+  const hit = gzCache.get(file);
+  if (hit && hit.mtime === st.mtimeMs) return hit.body;
+  const body = await gzip(await readFile(file));
+  gzCache.set(file, { mtime: st.mtimeMs, body });
+  return body;
+}
 // RFC 9110: If-None-Match wins when present; If-Modified-Since is only checked without it
 function notModified(req, etag, mtime) {
   const inm = req.headers['if-none-match'];

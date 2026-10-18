@@ -711,3 +711,31 @@ svg.i .clock { fill: var(--panel-2); }
 /* drawings and their text notes fade in with the map */
 #map .draw-layer, #map .text-layer { transition: opacity .9s var(--ease); }
 body.loading-map #map .draw-layer, body.loading-map #map .text-layer { opacity: 0; }
+
+/* ---------- the icon picker (category forms) ---------- */
+.um-icon { gap: 8px; }
+.um-icon-q {
+  width: 100%; box-sizing: border-box; padding: 8px 11px; border-radius: 10px; outline: none;
+  background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink); font: 400 14px/1.2 var(--sans);
+}
+.um-icon-q:focus { border-color: var(--accent-soft); }
+.um-icon-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(42px, 1fr)); gap: 6px; max-height: 214px; overflow: auto;
+  padding: 6px; border-radius: 12px; background: var(--panel-2); border: 1px solid var(--line-2); --c: #e5484d;
+}
+.um-icon-grid .none { grid-column: 1 / -1; margin: 6px; color: var(--ink-dim); font-size: 13px; }
+.ic-tile {
+  display: grid; place-items: center; aspect-ratio: 1; padding: 0; border-radius: 10px; background: none;
+  border: 1px solid transparent; color: var(--ink-dim); transition: background-color var(--fast), border-color var(--fast), color var(--fast);
+}
+.ic-tile svg.i { width: 20px; height: 20px; color: var(--c); }
+.ic-tile:hover { background: var(--hover); color: var(--ink); }
+.ic-tile.on { border-color: var(--c); background: color-mix(in srgb, var(--c) 18%, transparent); }
+.ico-ping-mini { width: 14px; height: 14px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 1.5px var(--ink-dim); }
+
+/* a library icon in the sidebar: the glyph in white on a disc of the category colour */
+.ico-glyph {
+  position: absolute; left: 3px; top: 6px; width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--c); box-shadow: 0 0 0 1.5px #fff, 0 0 0 4px color-mix(in srgb, var(--c) 28%, transparent); color: var(--g, #fff);
+}
+.ico-glyph svg.i { width: 12px; height: 12px; stroke-width: 2.4; }

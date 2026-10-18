@@ -9,6 +9,7 @@ import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML, setupDrawing } from './drawing.js
 import { MARKER_CONTROL_HTML, TEMP_CAT, pingImage, setupUserMarkers } from './usermarkers.js';
 import { packMarker } from './share-link.mjs';
 import { svgIcon } from './icons.mjs';
+import { loadIconLibrary, iconsReady, iconInner, glyphPinImage, glyphInk } from './icons-lib.mjs';
 import { CAPTURE_CONTROL_HTML, setupCapture } from './capture.mjs';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
@@ -803,6 +804,11 @@ function computeStats() {
 /* ---------- sidebar ---------- */
 
 function iconHtml(name) {
+  if (name && name.startsWith('ic-')) {
+    const m = /^ic-(.+)-([0-9a-f]{6})$/i.exec(name), inner = m && iconInner(m[1]);
+    if (inner) return `<span class="ico-glyph" style="--c:#${m[2]};--g:${glyphInk('#' + m[2])}"><svg class="i" viewBox="0 0 24 24" aria-hidden="true">${inner}</svg></span>`;
+    return `<span class="ico-ping" style="--c:#${m ? m[2] : 'e5484d'}"></span>`; // the library has not arrived yet
+  }
   if (name && name.startsWith('up-')) return `<span class="ico-ping${name.endsWith('-t') ? ' temp' : ''}" style="--c:#${name.slice(3).replace('-t', '')}"></span>`;
   const d = state.sprite.defs[name];
   if (!d) return '';
@@ -1118,6 +1124,8 @@ async function presetAction(act) {
 }
 
 const USER_GROUP = 'user-markers';
+// a category's icon: its library glyph in its colour, or the plain dot of that colour
+const iconFor = c => c.glyph ? `ic-${c.glyph}-${String(c.color).replace('#', '')}` : iconName(c.color, c.temp);
 const iconName = (color, temp) => `up-${color.replace('#', '')}${temp ? '-t' : ''}`;
 
 // Rebuilds the user side of the data: the "User markers" group (only when there are categories), the user markers
@@ -1128,10 +1136,12 @@ function rebuildUserData() {
   const cats = [...(p?.userCats || [])];
   if (temps.length) cats.push(TEMP_CAT);
   for (const id of [...state.cats.keys()]) if (id < 0) state.cats.delete(id);
+  // a category with a library icon needs the library: fetch it once, then draw again with it
+  if (cats.some(c => c.glyph) && !iconsReady()) loadIconLibrary().then(() => { rebuildUserData(); refreshAll(); }).catch(() => {});
   state.groups = state.groups.filter(g => g.id !== USER_GROUP);
   if (cats.length) {
     const made = cats.map((c, i) => {
-      const cat = { id: c.id, title: c.title, group_id: USER_GROUP, order: 1000 + i, icon: iconName(c.color, c.temp), user: true };
+      const cat = { id: c.id, title: c.title, group_id: USER_GROUP, order: 1000 + i, icon: iconFor(c), user: true };
       state.cats.set(c.id, cat);
       return cat;
     });
@@ -1358,14 +1368,38 @@ function createMap() {
   });
 }
 
+// the picture a location shows on the map. Library icons are drawn once (as a pin with the glyph); until then the
+// plain pin of the same colour stands in, and the map is drawn again when the pin is ready.
+const pendingGlyphs = new Set();
+function mapIcon(name) {
+  const map = state.map;
+  if (!name) return name;
+  if (name.startsWith('up-')) {
+    if (!map.hasImage(name)) map.addImage(name, pingImage(name), { pixelRatio: 2 });
+    return name;
+  }
+  if (!name.startsWith('ic-')) return name;
+  if (map.hasImage(name)) return name;
+  const plain = `up-${name.slice(-6)}`;
+  if (!map.hasImage(plain)) map.addImage(plain, pingImage(plain), { pixelRatio: 2 });
+  if (iconsReady() && !pendingGlyphs.has(name)) {
+    pendingGlyphs.add(name);
+    glyphPinImage(name).then(img => {
+      if (img && !map.hasImage(name)) map.addImage(name, img, { pixelRatio: 2 });
+      refreshMap();
+    }).catch(() => {}).finally(() => pendingGlyphs.delete(name));
+  }
+  return plain;
+}
+
 function refreshMap() {
   if (!state.mapReady) return;
   const feats = [];
   for (const l of state.locs) {
     if (!shownOnMap(l)) continue;
-    if (l.icon?.startsWith('up-') && !state.map.hasImage(l.icon)) state.map.addImage(l.icon, pingImage(l.icon), { pixelRatio: 2 });
+    const icon = mapIcon(l.icon);
     const f = state.found.has(l.id) ? 1 : 0;
-    feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: { id: l.id, icon: l.icon, f, z: f ? 0 : 1 } });
+    feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: { id: l.id, icon, f, z: f ? 0 : 1 } });
   }
   state.map.getSource('locs').setData({ type: 'FeatureCollection', features: feats });
 }
@@ -1999,8 +2033,14 @@ async function shareMarker(id, btn) {
   const url = new URL(location.href);
   url.hash = '';
   if (l.user) {
-    const cat = l.temp ? null : state.cats.get(l.cat);
-    const packed = await packMarker({ title: l.title, category: cat?.title || '', desc: l.desc, lat: l.lat, lng: l.lng, map: state.mapInfo.slug });
+    // the category travels with its colour and icon, so the receiver can use or recreate it; only links to official
+    // markers travel (the user's own would point at nothing for anyone else)
+    const own = l.temp ? null : (state.profile?.userCats || []).find(c => c.id === l.cat) || null;
+    const packed = await packMarker({
+      title: l.title, category: own?.title || '', color: own?.color || null, glyph: own?.glyph || null,
+      desc: l.desc, lat: l.lat, lng: l.lng, map: state.mapInfo.slug,
+      links: (l.links || []).filter(id => id > 0),
+    });
     url.search = new URLSearchParams({ tm: packed, map: state.mapInfo.slug }).toString();
   } else {
     url.search = new URLSearchParams({ loc: String(id), map: state.mapInfo.slug }).toString();
