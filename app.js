@@ -5,6 +5,8 @@
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const fmt = n => Number(n).toLocaleString();
+import { DRAW_CONTROLS_HTML, setupDrawing } from './drawing.js';
+
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
 
 const state = {
@@ -380,6 +382,7 @@ async function loadProfiles() {
 
 function applyProfile(p) {
   state.profile = p;
+  state.drawing?.reset(); // drawings belong to the profile: each one has its own undo history
   state.found = new Set(p.found || []);
   state.tag = state.tags.length ? (p.tag ?? null) : null;
   state.tagStrict = !!p.tagStrict;
@@ -460,7 +463,7 @@ async function profileAction(act) {
     await saveProfileNow();
     const payload = {
       app: 'offline-map-viewer', version: 1, game: state.entry.id, exported: new Date().toISOString(),
-      profiles: state.profiles.map(({ id, name, tag, found, created, updated }) => ({ id, name, tag, found, created, updated })),
+      profiles: state.profiles.map(({ id, name, tag, found, created, updated, drawings }) => ({ id, name, tag, found, created, updated, drawings: drawings || [] })),
       presets: state.presets.map(({ id, name, hidden }) => ({ id, name, hidden })),
     };
     const a = document.createElement('a');
@@ -485,7 +488,7 @@ async function importFile(file) {
     for (const q of payload.profiles) {
       if (!q.id || !Array.isArray(q.found)) continue;
       const rec = { key: `${state.entry.id}:${q.id}`, id: q.id, game: state.entry.id, name: String(q.name || 'Imported'), tag: q.tag ?? null,
-        found: q.found.filter(Number.isFinite), created: q.created || Date.now(), updated: Date.now() };
+        found: q.found.filter(Number.isFinite), drawings: Array.isArray(q.drawings) ? q.drawings : [], created: q.created || Date.now(), updated: Date.now() };
       await dbPut('profiles', rec);
       const at = state.profiles.findIndex(x => x.id === rec.id);
       if (at >= 0) state.profiles[at] = rec; else state.profiles.push(rec);
@@ -834,6 +837,7 @@ function refreshAll() {
   updateSidebar();
   renderPresets(); // the tag and its switch change which categories count as selected
   refreshMap();
+  state.drawing?.render();
   if (!$('#results').hidden) runSearch();
   if (state.selected != null) renderDetail();
 }
@@ -874,8 +878,9 @@ function createMap() {
   });
   state.map = map;
   map.touchZoomRotate.disableRotation();
-  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-  setupSelection(map);
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
+  const tools = setupSelection(map);
+  state.drawing = setupDrawing({ map, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), getProfile: () => state.profile, onChange: () => scheduleSave(), requestTool: t => tools.setTool(t), renderMd });
 
   map.on('load', () => {
     // marker icons cropped out of the sprite sheet
@@ -973,7 +978,7 @@ function createMap() {
 
   const tip = new maplibregl.Popup({ closeButton: false, closeOnClick: false, className: 'tip', anchor: 'bottom' });
   map.on('mousemove', 'locs', ev => {
-    if (state.tool === 'select') return;
+    if (state.tool !== 'pan') return;
     const f = ev.features && ev.features[0];
     if (!f) return;
     const l = state.byId.get(Number(f.properties.id));
@@ -986,7 +991,7 @@ function createMap() {
   map.on('move', updateLinkHeads);
 
   map.on('click', ev => {
-    if (state.tool === 'select') return; // markers cannot be clicked while selecting
+    if (state.tool !== 'pan') return; // markers cannot be clicked while selecting or drawing
     document.body.classList.remove('side-open');
     const hits = map.queryRenderedFeatures(ev.point, { layers: ['locs'] });
     if (hits.length) select(Number(hits[0].properties.id), { fly: false });
@@ -1053,7 +1058,7 @@ function setupSelection(map) {
       c.innerHTML = `<button type="button" id="tool-pan" title="Move the map" aria-label="Move the map">` +
         `<svg viewBox="0 0 24 24" aria-hidden="true">${HAND_ICON}</svg></button>` +
         `<button type="button" id="tool-select" class="notched" title="Select markers. Right-click or hold for shapes" aria-label="Selection tool">` +
-        `<svg viewBox="0 0 24 24" aria-hidden="true"></svg></button>`;
+        `<svg viewBox="0 0 24 24" aria-hidden="true"></svg></button>` + DRAW_CONTROLS_HTML;
       return c;
     },
     onRemove() {},
@@ -1090,6 +1095,7 @@ function setupSelection(map) {
     panBtn.setAttribute('aria-pressed', String(t === 'pan'));
     selBtn.setAttribute('aria-pressed', String(t === 'select'));
     selBtn.querySelector('svg').innerHTML = SHAPE_ICONS[state.shape];
+    if (state.drawing) state.drawing.setActive(t === 'draw');
     selBtn.setAttribute('aria-label', `Selection tool: ${SHAPE_NAMES[state.shape]}`);
   }
   state.tool = 'pan';
@@ -1155,8 +1161,12 @@ function setupSelection(map) {
   ['pointerup', 'pointerleave', 'pointercancel'].forEach(t => selBtn.addEventListener(t, () => clearTimeout(btnTimer)));
   selBtn.addEventListener('click', () => {
     if (btnHeld) { btnHeld = false; return; }
+    if (state.tool === 'select') { // already on it: tap again to open its shapes
+      if (shapeMenu.hidden) openShapeMenu(selBtn); else closeToolMenus();
+      return;
+    }
     closeToolMenus();
-    if (state.tool !== 'select') setTool('select');
+    setTool('select');
   });
   selBtn.addEventListener('contextmenu', e => { e.preventDefault(); openShapeMenu(selBtn); });
   panBtn.addEventListener('click', () => { closeToolMenus(); setTool('pan'); });
@@ -1169,7 +1179,7 @@ function setupSelection(map) {
   function cancelDrag() { state.drag = null; if (press) { clearTimeout(press.timer); press = null; } renderSelection(); }
 
   canvasBox.addEventListener('pointerdown', e => {
-    if (e.button !== 0) return;
+    if (e.button !== 0 || state.tool === 'draw') return;
     pointers.set(e.pointerId, localPos(e));
     if (pointers.size > 1) { cancelDrag(); return; } // a second finger means pinch-zoom, not a selection
     const p = localPos(e);
@@ -1180,6 +1190,7 @@ function setupSelection(map) {
   });
 
   canvasBox.addEventListener('pointermove', e => {
+    if (state.tool === 'draw') return;
     if (pointers.has(e.pointerId)) pointers.set(e.pointerId, localPos(e));
     if (!press || press.id !== e.pointerId || press.held || pointers.size > 1) return;
     const p = localPos(e);
@@ -1243,7 +1254,7 @@ function setupSelection(map) {
 
   // right-click or long press on the selection: its menu
   canvasBox.addEventListener('contextmenu', e => {
-    if (state.tool === 'select') e.preventDefault(); // no browser menu over the map while selecting
+    if (state.tool !== 'pan') e.preventDefault(); // no browser menu over the map while selecting or drawing
     if (selInside(localPos(e))) { e.preventDefault(); openSelMenu(e.clientX, e.clientY); }
   });
 
@@ -1264,16 +1275,18 @@ function setupSelection(map) {
 
   // --- Escape clears the selection and closes its menus; clicks elsewhere close the menus
   document.addEventListener('keydown', e => {
+    if (state.drawing?.keydown(e)) { e.preventDefault(); return; } // drawing first: it may own Esc, Enter or Ctrl+Z
     if (e.key !== 'Escape') return;
     const hadSomething = !shapeMenu.hidden || !selMenu.hidden || !!state.sel || !!state.drag;
     closeToolMenus();
     if (state.sel || state.drag) { state.sel = null; cancelDrag(); }
     // with nothing left to clear, Esc goes back to the hand
-    else if (!hadSomething && state.tool === 'select') setTool('pan');
+    else if (!hadSomething && state.tool !== 'pan') setTool('pan');
   });
   document.addEventListener('click', e => {
     if (!e.target.closest('#shape-menu, #sel-menu, #tool-select')) closeToolMenus();
   });
+  return { setTool };
 }
 
 /* ---------- detail panel ---------- */

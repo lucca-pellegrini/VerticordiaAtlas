@@ -242,7 +242,8 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
   border: 1px solid var(--line-2); box-shadow: 0 10px 28px -10px #000d;
   transition: background-color var(--fast), border-color var(--fast), transform var(--fast);
 }
-.fab { display: none; border-radius: 999px; padding: 9px 18px; font-weight: 500; }
+.fab { display: none; place-items: center; width: 40px; height: 40px; padding: 0; border-radius: var(--r); }
+.fab svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
 .side-collapse { display: none; top: 12px; width: 38px; height: 38px; padding: 0; line-height: 1; font-size: 18px; border-radius: var(--r); }
 .fab:hover, .side-collapse:hover { background: var(--panel-2); border-color: var(--ink-dim); }
 .fab:active, .side-collapse:active { transform: scale(.95); }
@@ -331,32 +332,33 @@ dialog input[type=text] { margin-bottom: 14px; }
   body.side-open #side { transform: none; }
   #stage::before { content: ""; position: absolute; inset: 0; z-index: 20; background: #0009; opacity: 0; pointer-events: none; transition: opacity .24s; }
   body.side-open #stage::before { opacity: 1; }
-  .fab { display: block; }
+  .fab { display: grid; }
+  body.detail-open .maplibregl-ctrl-bottom-left { display: none; } /* the detail card covers the bottom on phones */
   .mobile-only { display: inline; }
   #detail { top: auto; left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); width: auto; max-height: 62%; }
   input[type=text], input[type=search], select { font-size: 16px; }
 }
 
 @media (min-width: 761px) {
-  .maplibregl-ctrl-top-right { transition: right .2s var(--ease); }
-  body.detail-open .maplibregl-ctrl-top-right { right: 384px; }
+  .maplibregl-ctrl-top-right, .maplibregl-ctrl-bottom-right { transition: right .2s var(--ease); }
+  body.detail-open .maplibregl-ctrl-top-right, body.detail-open .maplibregl-ctrl-bottom-right { right: 384px; }
   .side-collapse { display: block; }
   body.side-collapsed #app { grid-template-columns: 1fr; }
   body.side-collapsed #side { display: none; }
 }
 
 /* ---------- map tools: hand + selection (stacked under the zoom buttons) ---------- */
-.tool-ctrl { margin-top: 10px; }
+.tool-ctrl { margin-top: 0; }
 .tool-ctrl button { position: relative; display: grid; place-items: center; }
 .tool-ctrl svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .tool-ctrl button[aria-pressed="true"] { color: var(--accent-soft); background: var(--tint); }
 /* the notch in the lower right corner marks a tool with a flyout: right-click or hold for its options */
-.tool-ctrl #tool-select.notched::after {
+.tool-ctrl .notched::after {
   content: ""; position: absolute; right: 3px; bottom: 3px; width: 5px; height: 5px; opacity: .75;
   background: currentColor; clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 /* select tool: crosshair over the map, and the browser must not scroll or zoom under a drag */
-.tool-select .maplibregl-canvas-container, .tool-select canvas { cursor: crosshair !important; touch-action: none !important; }
+.tool-select .maplibregl-canvas-container, .tool-select canvas, .tool-draw .maplibregl-canvas-container, .tool-draw canvas { cursor: crosshair !important; touch-action: none !important; }
 
 .sel-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 1; }
 .sel-shape {
@@ -367,3 +369,98 @@ dialog input[type=text] { margin-bottom: 14px; }
 
 #shape-menu button { position: relative; padding-right: 30px; }
 #shape-menu [aria-checked="true"]::after { content: "\2713"; position: absolute; right: 11px; top: 50%; translate: 0 -50%; color: var(--accent-soft); }
+
+/* drawings: under the selection overlay, above the map canvas */
+.draw-layer { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; z-index: 1; }
+.text-layer { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+/* text annotations: a bold sans on a dark plate, so they read over busy map art. Scaled with the map by drawing.js */
+.ann {
+  position: absolute; left: 0; top: 0; transform-origin: 0 0; max-width: 280px; padding: 4px 9px 5px; border-radius: 9px;
+  font: 700 16px/1.35 var(--sans); letter-spacing: .01em; color: var(--ink);
+  background: rgb(8 10 12 / .72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / .08), 0 10px 24px -12px #000; white-space: normal; overflow-wrap: anywhere;
+}
+.ann p { margin: 0; } .ann p + p { margin-top: .35em; } .ann strong { font-weight: 800; }
+.ann a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.ann ul, .ann ol { margin: .2em 0; padding-left: 1.2em; }
+
+/* text editor: a quiet card where the text will go; Enter places it, Shift+Enter starts a new line */
+.ann-editor { position: absolute; left: 0; top: 0; z-index: 4; width: 260px; transform-origin: 0 0; }
+.ann-editor textarea {
+  display: block; box-sizing: border-box; width: 100%; min-height: 60px; padding: 8px 10px; resize: vertical;
+  border: 1px solid var(--line-2); border-radius: 12px; outline: none;
+  background: rgb(10 13 16 / .86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  font: 700 16px/1.35 var(--sans); letter-spacing: .01em; color: var(--ink); box-shadow: 0 16px 36px -14px #000c;
+}
+.ann-editor textarea:focus { border-color: var(--accent-soft); }
+.ann-bar { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.ann-hint { flex: 1; min-width: 0; padding-left: 2px; font-size: 11px; color: var(--ink-dim); letter-spacing: .02em; }
+.ann-bar button {
+  display: grid; place-items: center; flex: none; width: 34px; height: 34px; padding: 0; border-radius: 50%;
+  background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink); transition: background-color var(--fast), transform var(--fast);
+}
+.ann-bar button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ann-bar button:hover { background: var(--hover); }
+.ann-bar button:active { transform: scale(.92); }
+.ann-bar .ann-ok { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ann-bar .ann-ok:hover { background: var(--accent-soft); border-color: var(--accent-soft); }
+
+/* hint while a path is being placed */
+.path-hint {
+  position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 3; pointer-events: none;
+  padding: 7px 14px; border-radius: 999px; white-space: nowrap; font-size: 12.5px; color: var(--ink);
+  background: rgb(10 13 16 / .8); border: 1px solid var(--line-2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.path-hint[hidden] { display: none; }
+
+/* undo / redo, bottom right */
+.history-ctrl button { position: relative; display: grid; place-items: center; }
+.history-ctrl svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.history-ctrl button:hover { color: var(--ink); }
+.history-ctrl button:active { transform: scale(.94); }
+/* tool buttons: the draw tool shows its current icon, the colour chip shows the ink */
+#tool-ink { display: grid; place-items: center; }
+.ink-dot { width: 15px; height: 15px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 2px var(--panel), 0 0 0 3px var(--line-2); }
+
+/* tool list (right-click or hold the draw button) */
+#draw-menu button { display: flex; align-items: center; gap: 10px; }
+#draw-menu svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+#draw-menu [aria-checked="true"] { color: var(--accent-soft); }
+
+/* colour and size popover */
+.menu.row-menu.ink-pop { width: 204px; min-width: 0; padding: 12px; }
+.ink-swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; justify-items: center; }
+.ink-pop .sw {
+  width: 28px; height: 28px; padding: 0; border-radius: 50%; background: var(--c);
+  box-shadow: inset 0 0 0 1px #0003; transition: transform var(--fast);
+}
+.ink-pop .sw:hover { background: var(--c); transform: scale(1.08); }
+.ink-pop .sw.on { box-shadow: 0 0 0 2px var(--panel-2), 0 0 0 3.5px var(--ink); }
+.ink-wheel { position: relative; width: 150px; height: 150px; margin: 14px auto 12px; }
+.ring {
+  position: absolute; inset: 0; border-radius: 50%; cursor: pointer; touch-action: none;
+  background: conic-gradient(hsl(0 90% 60%), hsl(60 90% 60%), hsl(120 90% 60%), hsl(180 90% 60%), hsl(240 90% 60%), hsl(300 90% 60%), hsl(360 90% 60%));
+  -webkit-mask: radial-gradient(circle closest-side, transparent 80%, #000 81%);
+          mask: radial-gradient(circle closest-side, transparent 80%, #000 81%);
+}
+.sv { position: absolute; left: 29px; top: 29px; width: 92px; height: 92px; border-radius: 8px; cursor: crosshair; touch-action: none; box-shadow: inset 0 0 0 1px #fff2; }
+.ring-knob, .sv-knob {
+  position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; pointer-events: none;
+  border: 2px solid #fff; box-shadow: 0 0 0 1px #0008;
+}
+.ink-row { display: flex; align-items: center; gap: 8px; }
+.ink-prev { flex: none; width: 28px; height: 28px; border-radius: 8px; box-shadow: inset 0 0 0 1px #fff2; }
+.ink-hex {
+  flex: 1; min-width: 0; height: 30px; padding: 0 9px; border-radius: 8px; outline: none;
+  background: var(--panel); border: 1px solid var(--line-2); color: var(--ink);
+  font: 500 13px/1 var(--sans); letter-spacing: .05em; text-transform: lowercase;
+}
+.ink-hex:focus { border-color: var(--accent-soft); }
+.ink-sizes { display: flex; gap: 6px; margin-top: 10px; }
+.ink-pop .ink-sizes button {
+  flex: 1; width: auto; height: 32px; padding: 0; display: grid; place-items: center; border-radius: 8px;
+  background: var(--panel); border: 1px solid var(--line-2);
+}
+.ink-pop .ink-sizes button:hover { background: var(--panel); border-color: var(--line-2); }
+.ink-pop .ink-sizes button.on { border-color: var(--accent-soft); background: var(--tint); }
+.ink-sizes i { display: block; width: var(--w); height: var(--w); border-radius: 50%; background: var(--ink); }
