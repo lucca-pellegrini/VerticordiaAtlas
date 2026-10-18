@@ -10,6 +10,7 @@
   --line: #252d33;
   --accent: #d6453b;
   --accent-soft: #f0877d;
+  --backlink: color-mix(in srgb, var(--accent-soft) 70%, var(--night)); /* dimmer accent for backreferences; app.js sets it from the theme */
 
   --ink: #eef1f3;
   --ink-dim: #9aa6ad;

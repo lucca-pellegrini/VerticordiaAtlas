@@ -85,7 +85,10 @@
     <button id="side-toggle" class="fab" aria-controls="side">Filters</button>
     <button id="side-collapse" class="side-collapse" aria-controls="side" aria-expanded="true" title="Hide panel" aria-label="Hide panel">&#171;</button>
     <section id="detail" aria-live="polite" hidden>
-      <button id="detail-close" class="icon-btn close" aria-label="Close">&times;</button>
+      <div class="d-tools">
+        <button id="detail-back" class="icon-btn" aria-label="Back" title="Back" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button id="detail-close" class="icon-btn" aria-label="Close" title="Close">&times;</button>
+      </div>
       <div id="detail-body"></div>
     </section>
   </main>

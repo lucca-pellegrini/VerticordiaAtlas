@@ -15,6 +15,8 @@ const state = {
   selected: null, map: null, mapReady: false, memoryOnly: false,
   stats: new Map(), searchHits: [], searchIdx: -1,
   presets: [], presetId: null, baseline: null, // baseline: the view before the first preset was picked
+  trail: [], session: uid(), // navigation stack of opened markers (last = current); session ties history entries to it
+  outLinks: new Map(), inLinks: new Map(), // location id -> ids its description links to / ids linking to it
 };
 
 /* ---------- storage: IndexedDB with an in-memory fallback ---------- */
@@ -192,6 +194,8 @@ function applyTheme(theme = {}) {
   for (const [name, value] of Object.entries(theme)) {
     if (CSS.supports(`--${name}`, value)) root.setProperty(`--${name}`, value);
   }
+  // backreferences: accent-soft pulled towards the night colour, so they read as the same family but dimmer
+  root.setProperty('--backlink', mixColor(themeVar('accent-soft'), themeVar('night'), 0.7));
   // browser chrome follows the theme too: tab colour on mobile and the favicon pin
   document.querySelector('meta[name=theme-color]')?.setAttribute('content', themeVar('night'));
   const icon = document.querySelector('link[rel=icon]');
@@ -201,6 +205,18 @@ function applyTheme(theme = {}) {
   }
 }
 const themeVar = name => getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+
+// Blend two CSS colours: t of a, the rest of b. Parsed through a canvas, so any CSS colour format works.
+const colorProbe = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
+function mixColor(a, b, t) {
+  const rgb = c => {
+    colorProbe.clearRect(0, 0, 1, 1); colorProbe.fillStyle = '#000'; colorProbe.fillStyle = c;
+    colorProbe.fillRect(0, 0, 1, 1);
+    return [...colorProbe.getImageData(0, 0, 1, 1).data].slice(0, 3);
+  };
+  const pa = rgb(a), pb = rgb(b);
+  return 'rgb(' + pa.map((v, i) => Math.round(v * t + pb[i] * (1 - t))).join(',') + ')';
+}
 
 async function loadGame(entry) {
   state.entry = entry;
@@ -243,6 +259,7 @@ async function loadGame(entry) {
     icon: catById.get(l.category_id)?.icon,
   })).filter(l => Number.isFinite(l.lat) && Number.isFinite(l.lng));
   state.byId = new Map(state.locs.map(l => [l.id, l]));
+  buildLinkIndex();
   state.tags = [...(data.tags || [])].sort((a, b) => a.id - b.id);
 
   // view settings
@@ -718,20 +735,33 @@ function createMap() {
       paint: { 'circle-radius': 21, 'circle-color': themeVar('accent'), 'circle-opacity': 0.22, 'circle-stroke-color': themeVar('accent-soft'), 'circle-stroke-width': 2.5, 'circle-translate': [0, -17] },
     });
 
-    // arrows from the selected location to the locations its description links to
-    const ac = document.createElement('canvas');
-    ac.width = ac.height = 24;
-    const actx = ac.getContext('2d');
-    actx.beginPath(); actx.moveTo(12, 2); actx.lineTo(21, 21); actx.lineTo(3, 21); actx.closePath();
-    actx.fillStyle = themeVar('accent-soft'); actx.strokeStyle = themeVar('night'); actx.lineWidth = 2.5; actx.lineJoin = 'round';
-    actx.fill(); actx.stroke();
-    map.addImage('link-arrow', actx.getImageData(0, 0, 24, 24), { pixelRatio: 2 });
+    // arrowhead images: forward links use the accent colour, backreferences the dimmer one
+    const arrowImage = (name, fill) => {
+      const ac = document.createElement('canvas');
+      ac.width = ac.height = 24;
+      const actx = ac.getContext('2d');
+      actx.beginPath(); actx.moveTo(12, 2); actx.lineTo(21, 21); actx.lineTo(3, 21); actx.closePath();
+      actx.fillStyle = fill; actx.strokeStyle = themeVar('night'); actx.lineWidth = 2.5; actx.lineJoin = 'round';
+      actx.fill(); actx.stroke();
+      map.addImage(name, actx.getImageData(0, 0, 24, 24), { pixelRatio: 2 });
+    };
+    arrowImage('link-arrow', themeVar('accent-soft'));
+    arrowImage('backlink-arrow', themeVar('backlink'));
 
+    // arrows from the selected location to the locations its description links to
     map.addSource('links', { type: 'geojson', data: emptyFC });
     map.addLayer({
       id: 'links', type: 'line', source: 'links',
       layout: { 'line-cap': 'round' },
       paint: { 'line-color': themeVar('accent-soft'), 'line-width': 2, 'line-opacity': 0.8, 'line-dasharray': [2, 1.5] },
+    });
+
+    // the reverse: locations whose description links to the selected one (only where the link is not two-way)
+    map.addSource('backlinks', { type: 'geojson', data: emptyFC });
+    map.addLayer({
+      id: 'backlinks', type: 'line', source: 'backlinks',
+      layout: { 'line-cap': 'round' },
+      paint: { 'line-color': themeVar('backlink'), 'line-width': 2, 'line-opacity': 0.9, 'line-dasharray': [2, 1.5] },
     });
 
     map.addSource('locs', { type: 'geojson', data: emptyFC });
@@ -754,12 +784,24 @@ function createMap() {
         'icon-allow-overlap': true, 'icon-ignore-placement': true,
       },
     });
+    map.addSource('backlink-heads', { type: 'geojson', data: emptyFC });
+    map.addLayer({
+      id: 'backlink-heads', type: 'symbol', source: 'backlink-heads',
+      layout: {
+        'icon-image': 'backlink-arrow', 'icon-size': 0.6, 'icon-rotate': ['get', 'rot'], 'icon-rotation-alignment': 'map',
+        'icon-allow-overlap': true, 'icon-ignore-placement': true,
+      },
+    });
 
     state.mapReady = true;
     updateSidebar();
     refreshMap();
     const m = /^#loc=(\d+)/.exec(location.hash);
-    if (m && state.byId.has(+m[1])) select(+m[1], { fly: true });
+    if (m && state.byId.has(+m[1])) {
+      // a shared link starts a stack of its own: the page entry underneath is the bottom of it
+      history.replaceState(null, '', location.pathname + location.search);
+      select(+m[1], { fly: true });
+    }
   });
 
   const tip = new maplibregl.Popup({ closeButton: false, closeOnClick: false, className: 'tip', anchor: 'bottom' });
@@ -796,9 +838,67 @@ function refreshMap() {
 
 /* ---------- detail panel ---------- */
 
-function select(id, { fly = true } = {}) {
+/* ---------- navigation stack ----------
+   The trail is the markers opened so far, the last one being the current one. Each push also adds a history
+   entry ({ session, depth, loc }), so the device back button walks the trail. Closing the card starts a new
+   session: old entries are then skipped over, so they can no longer walk back into the closed trail. */
+
+function stackPush(id) {
+  if (state.trail[state.trail.length - 1] === id) return;
+  state.trail.push(id);
+  history.pushState({ session: state.session, depth: state.trail.length, loc: id }, '', '#loc=' + id);
+}
+
+function goBack() {
+  if (state.trail.length > 1) history.back(); // the popstate handler does the actual step
+}
+
+function onPopState(ev) {
+  const s = ev.state;
+  if (!s || !s.session) return dismiss(); // the page entry below the stack
+  if (s.session !== state.session) {
+    // an entry from a stack that was closed: jump to the page entry under that stack
+    if (s.depth > 0) history.go(-s.depth);
+    return;
+  }
+  state.trail.length = Math.min(state.trail.length, s.depth - 1);
+  state.trail.splice(s.depth - 1, 1, s.loc);
+  select(s.loc, { fly: true, push: false });
+}
+
+// Markers that the description links to (self and unknown IDs skipped), and the markers that link to this one.
+function buildLinkIndex() {
+  for (const l of state.locs) {
+    const out = [];
+    for (const m of l.desc.matchAll(/locationIds=([\d,]+)/g))
+      for (const x of m[1].split(',')) {
+        const id = Number(x);
+        if (id !== l.id && state.byId.has(id) && !out.includes(id)) out.push(id);
+      }
+    state.outLinks.set(l.id, out);
+    for (const t of out) {
+      if (!state.inLinks.has(t)) state.inLinks.set(t, []);
+      state.inLinks.get(t).push(l.id);
+    }
+  }
+}
+
+function linkedLocations(l) {
+  return (state.outLinks.get(l.id) || []).map(id => state.byId.get(id));
+}
+
+// Locations that link to this one but are not linked back: a two-way link is already shown as a forward link.
+function referrersOneWay(l) {
+  const out = new Set(state.outLinks.get(l.id));
+  return (state.inLinks.get(l.id) || []).filter(id => !out.has(id))
+    .map(id => state.byId.get(id))
+    .sort((a, b) => a.title.localeCompare(b.title));
+}
+
+function select(id, { fly = true, push = true } = {}) {
   const l = state.byId.get(id);
   if (!l) return;
+  if (push) stackPush(id);
   state.selected = id;
   if (applicable(l) && state.view.hidden.has(l.cat)) {
     state.view.hidden.delete(l.cat);
@@ -812,55 +912,57 @@ function select(id, { fly = true } = {}) {
     }
   }
   document.body.classList.remove('side-open');
-  history.replaceState(null, '', '#loc=' + id);
   renderDetail();
-}
-
-// Locations referenced by a description via ...?locationIds=N links (self and unknown IDs skipped).
-function linkedLocations(l) {
-  const ids = new Set();
-  for (const m of l.desc.matchAll(/locationIds=([\d,]+)/g))
-    for (const x of m[1].split(',')) { const id = Number(x); if (id !== l.id && state.byId.has(id)) ids.add(id); }
-  return [...ids].map(id => state.byId.get(id));
 }
 
 function updateLinks() {
   if (!state.mapReady) return;
   const from = state.selected != null ? state.byId.get(state.selected) : null;
   const targets = from ? linkedLocations(from) : [];
-  state.links = { from, targets };
-  state.map.getSource('links').setData({
-    type: 'FeatureCollection',
-    features: targets.map(t => ({ type: 'Feature', geometry: { type: 'LineString', coordinates: [[from.lng, from.lat], [t.lng, t.lat]] }, properties: {} })),
-  });
+  const refs = from ? referrersOneWay(from) : [];
+  state.links = { from, targets, refs };
+  const line = (a, b) => ({ type: 'Feature', geometry: { type: 'LineString', coordinates: [[a.lng, a.lat], [b.lng, b.lat]] }, properties: {} });
+  state.map.getSource('links').setData({ type: 'FeatureCollection', features: from ? targets.map(t => line(from, t)) : [] });
+  state.map.getSource('backlinks').setData({ type: 'FeatureCollection', features: from ? refs.map(r => line(r, from)) : [] });
   updateLinkHeads();
 }
 
 // Arrowheads are placed in screen space so they stay right after panning and zooming.
-function updateLinkHeads() {
-  if (!state.mapReady || !state.links) return;
-  const { from, targets } = state.links;
+// Each pair is [from, to]; the head sits just before "to", pointing at it.
+function arrowHeads(pairs) {
   const feats = [];
-  if (from) {
+  for (const [from, to] of pairs) {
     const a = state.map.project([from.lng, from.lat]);
-    for (const t of targets) {
-      const b = state.map.project([t.lng, t.lat]);
-      const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy);
-      if (len < 1) continue;
-      const back = Math.min(28, len * 0.5);
-      const p = state.map.unproject([b.x - dx / len * back, b.y - dy / len * back]);
-      feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [p.lng, p.lat] }, properties: { rot: Math.atan2(dx, -dy) * 180 / Math.PI } });
-    }
+    const b = state.map.project([to.lng, to.lat]);
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy);
+    if (len < 1) continue;
+    const back = Math.min(28, len * 0.5);
+    const p = state.map.unproject([b.x - dx / len * back, b.y - dy / len * back]);
+    feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [p.lng, p.lat] }, properties: { rot: Math.atan2(dx, -dy) * 180 / Math.PI } });
   }
-  state.map.getSource('link-heads').setData({ type: 'FeatureCollection', features: feats });
+  return { type: 'FeatureCollection', features: feats };
 }
 
-function closeDetail() {
+function updateLinkHeads() {
+  if (!state.mapReady || !state.links) return;
+  const { from, targets, refs } = state.links;
+  state.map.getSource('link-heads').setData(arrowHeads(from ? targets.map(t => [from, t]) : []));
+  state.map.getSource('backlink-heads').setData(arrowHeads(from ? refs.map(r => [r, from]) : []));
+}
+
+// Closes the card and clears the navigation stack. History entries are left alone here (see closeDetail).
+function dismiss() {
+  state.trail = [];
+  state.session = uid();
   state.selected = null;
   $('#detail').hidden = true;
   document.body.classList.remove('detail-open');
   if (state.mapReady) state.map.getSource('sel').setData(emptyFC);
   updateLinks();
+}
+
+function closeDetail() {
+  dismiss();
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
 }
 
@@ -869,6 +971,7 @@ function renderDetail() {
   if (!l) return closeDetail();
   const cat = state.cats.get(l.cat), g = state.groupOfCat.get(l.cat);
   const ok = applicable(l), isFound = state.found.has(l.id);
+  const refs = referrersOneWay(l);
 
   let only = '';
   if (l.tags.length && l.tags.length < state.tags.length) {
@@ -881,13 +984,18 @@ function renderDetail() {
     return `<img loading="lazy" src="${esc(state.folder + '/media/' + file)}" alt="${esc(m.title || l.title)}">`;
   }).join('');
 
+  const backrefs = refs.length
+    ? `<div class="d-backrefs"><h3>Referenced by</h3><ul>${refs.map(r => `<li><a href="#loc=${r.id}" data-loc="${r.id}">${esc(r.title)}</a></li>`).join('')}</ul></div>`
+    : '';
+
   $('#detail-body').innerHTML =
     `<div class="d-cat" style="--c:${g ? g.col : '#888'}"><i></i>${esc(cat?.title || '')}</div>` +
     `<h2 class="d-title">${esc(l.title)}</h2>` +
     (ok ? `<button class="found-btn${isFound ? ' on' : ''}" type="button" aria-pressed="${isFound}">${isFound ? 'Found. Tap to undo' : 'Mark as found'}</button>` : '') +
     `<div class="d-desc">${renderMd(l.desc)}</div>` + only + notHere +
-    (shots ? `<div class="shots">${shots}</div>` : '');
+    (shots ? `<div class="shots">${shots}</div>` : '') + backrefs;
 
+  $('#detail-back').hidden = state.trail.length < 2;
   $('#detail').hidden = false;
   document.body.classList.add('detail-open');
   $('#detail-body').querySelectorAll('.shots img').forEach(img => img.addEventListener('error', () => {
@@ -975,6 +1083,8 @@ function wire() {
   });
 
   $('#detail-close').onclick = closeDetail;
+  $('#detail-back').onclick = goBack;
+  addEventListener('popstate', onPopState);
   $('#detail-body').addEventListener('click', e => {
     if (e.target.closest('.found-btn')) return toggleFound(state.selected);
     const a = e.target.closest('a[data-loc]');
