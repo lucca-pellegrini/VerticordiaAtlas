@@ -540,7 +540,7 @@ function buildSidebar() {
     el.className = 'group' + (state.view.collapsed.has(g.id) ? ' collapsed' : '');
     el.style.setProperty('--c', g.col);
     el.innerHTML =
-      `<div class="group-head"><button class="name" type="button">${esc(g.title)}</button>` +
+      `<div class="group-head">${menuBtnHtml(g.title)}<button class="name" type="button">${esc(g.title)}</button>` +
       `<span class="tally"></span><input type="checkbox" class="g-toggle" aria-label="Show all in ${esc(g.title)}"></div>` +
       `<div class="cats"></div>`;
     const catsEl = el.querySelector('.cats');
@@ -555,16 +555,18 @@ function buildSidebar() {
       onViewChanged();
     };
     el.querySelector('.group-head').oncontextmenu = e => { e.preventDefault(); showOnly(g.cats.map(c => c.id)); };
+    el.querySelector('.row-menu-btn').onclick = e => openRowMenu(e, { title: g.title, color: g.col, cats: g.cats });
 
     const rows = [];
     for (const c of g.cats) {
       const row = document.createElement('label');
       row.className = 'cat-row';
       if (c.info) row.title = c.info;
-      row.innerHTML = `<span class="ico-wrap">${iconHtml(c.icon)}</span><span class="label">${esc(c.title)}</span><span class="tally"></span><input type="checkbox">`;
+      row.innerHTML = `${menuBtnHtml(c.title)}<span class="ico-wrap">${iconHtml(c.icon)}</span><span class="label">${esc(c.title)}</span><span class="tally"></span><input type="checkbox">`;
       const cb = row.querySelector('input');
       cb.onchange = () => { cb.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id); onViewChanged(); };
       row.oncontextmenu = e => { e.preventDefault(); showOnly([c.id]); };
+      row.querySelector('.row-menu-btn').onclick = e => openRowMenu(e, { title: c.title, icon: c.icon, cats: [c] });
       catsEl.appendChild(row);
       rows.push({ c, row, cb, tally: row.querySelector('.tally') });
       state.ui.cats.set(c.id, rows[rows.length - 1]);
@@ -572,6 +574,70 @@ function buildSidebar() {
     state.ui.groups.set(g.id, { g, el, gToggle, tally: el.querySelector('.group-head .tally'), rows });
     root.appendChild(el);
   }
+}
+
+const menuBtnHtml = name => `<button type="button" class="row-menu-btn" aria-haspopup="menu" aria-label="Actions for ${esc(name)}" title="Actions">` +
+  '<svg viewBox="0 0 4 16" aria-hidden="true"><circle cx="2" cy="2" r="1.6"/><circle cx="2" cy="8" r="1.6"/><circle cx="2" cy="14" r="1.6"/></svg></button>';
+
+// Pop-up for a whole category or group: mark every rendering marker in it found or not found.
+let rowMenuBtn = null;
+function rowMenuEl() {
+  let el = document.getElementById('row-menu');
+  if (el) return el;
+  el = document.createElement('div');
+  el.id = 'row-menu'; el.className = 'menu row-menu'; el.hidden = true; el.setAttribute('role', 'menu');
+  el.innerHTML = '<div class="rm-head"></div><hr><button type="button" role="menuitem" data-act="found">Mark all as found</button>' +
+    '<button type="button" role="menuitem" data-act="unfound">Mark all as not found</button>';
+  el.onclick = e => {
+    const b = e.target.closest('button[data-act]');
+    if (!b || b.disabled || !el._cats) return;
+    const locs = rowLocs(el._cats);
+    for (const l of locs) b.dataset.act === 'found' ? state.found.add(l.id) : state.found.delete(l.id);
+    closeRowMenu();
+    saveProfileNow();
+    refreshAll();
+  };
+  document.body.appendChild(el);
+  return el;
+}
+
+// the markers a row covers right now: all its categories, filtered by the tag selection
+function rowLocs(cats) {
+  const ids = new Set(cats.map(c => c.id));
+  return state.locs.filter(l => ids.has(l.cat) && applicable(l));
+}
+
+function openRowMenu(e, { title, icon, color, cats }) {
+  e.preventDefault(); e.stopPropagation();
+  const btn = e.currentTarget;
+  const el = rowMenuEl();
+  if (rowMenuBtn === btn && !el.hidden) return closeRowMenu();
+  const locs = rowLocs(cats);
+  const found = locs.filter(l => state.found.has(l.id)).length;
+  const head = icon
+    ? `<span class="ico-wrap">${iconHtml(icon)}</span>`
+    : `<span class="rm-dot" style="--c:${esc(color || '#888')}"></span>`;
+  const kind = icon ? 'Category' : 'Group';
+  el.querySelector('.rm-head').innerHTML = `${head}<div class="rm-text"><div class="rm-title">${esc(title)}</div>` +
+    `<div class="rm-sub">${kind} · ${locs.length ? `${found}/${locs.length} found` : 'No markers shown'}</div></div>`;
+  el._cats = cats;
+  el.querySelectorAll('button[data-act]').forEach(b => { b.disabled = locs.length === 0; });
+  rowMenuBtn = btn;
+  btn.setAttribute('aria-expanded', 'true');
+  el.hidden = false;
+  const r = btn.getBoundingClientRect(), pad = 8;
+  const w = el.offsetWidth, h = el.offsetHeight;
+  let left = r.right + 8;
+  if (left + w > innerWidth - pad) left = Math.max(pad, r.left - w - 8);
+  el.style.left = left + 'px';
+  el.style.top = Math.max(pad, Math.min(r.top, innerHeight - h - pad)) + 'px';
+}
+
+function closeRowMenu() {
+  const el = document.getElementById('row-menu');
+  if (el) { el.hidden = true; el._cats = null; }
+  if (rowMenuBtn) rowMenuBtn.setAttribute('aria-expanded', 'false');
+  rowMenuBtn = null;
 }
 
 // Right-click on a category or group: show only those categories, hide everything else.
@@ -1152,12 +1218,16 @@ function wire() {
   };
   results.onclick = e => { const li = e.target.closest('li[data-id]'); if (li) { results.hidden = true; select(Number(li.dataset.id)); } };
   document.addEventListener('click', e => {
+    if (!e.target.closest('#row-menu, .row-menu-btn')) closeRowMenu();
     if (!e.target.closest('.search')) results.hidden = true;
     if (!e.target.closest('.profile-row')) menu.hidden = true;
     if (!e.target.closest('.preset-row')) presetMenu.hidden = true;
   });
 
   $('#detail-close').onclick = closeDetail;
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeRowMenu(); });
+  addEventListener('resize', closeRowMenu);
+  document.addEventListener('scroll', e => { if (!e.target.closest?.('#row-menu')) closeRowMenu(); }, true);
   $('#detail-back').onclick = goBack;
   addEventListener('popstate', onPopState);
   $('#detail-body').addEventListener('click', e => {

@@ -201,7 +201,7 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 .group.collapsed .cats { display: none; }
 .cats { padding: 0 8px 8px; }
 
-.cat-row { display: grid; grid-template-columns: 26px 1fr auto 18px; align-items: center; gap: 10px; padding: 5px 8px; border-radius: 10px; cursor: pointer; transition: background-color var(--fast); }
+.cat-row { display: grid; grid-template-columns: 16px 26px 1fr auto 18px; align-items: center; gap: 10px; padding: 5px 8px; border-radius: 10px; cursor: pointer; transition: background-color var(--fast); }
 .cat-row:hover { background: var(--hover); }
 .cat-row.off .ico-wrap, .cat-row.off .label { opacity: .38; }
 .ico-wrap { width: 22px; height: 28px; position: relative; transition: opacity var(--fast); }
@@ -209,6 +209,27 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 .cat-row .label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity var(--fast); }
 .cat-row .tally { color: var(--ink-dim); font-variant-numeric: tabular-nums; font-size: 12px; }
 .cat-row .tally.done { color: var(--accent-soft); }
+
+/* three-dot button that opens the row menu (category rows and group headers) */
+.row-menu-btn {
+  display: grid; place-items: center; flex: none; width: 16px; height: 24px; margin: 0; padding: 0; cursor: pointer;
+  background: none; border: 0; border-radius: 6px; color: var(--ink-dim); opacity: .45;
+  transition: opacity var(--fast), background-color var(--fast), color var(--fast);
+}
+.row-menu-btn svg { width: 4px; height: 16px; fill: currentColor; }
+.row-menu-btn:hover, .row-menu-btn[aria-expanded="true"] { opacity: 1; color: var(--ink); background: var(--hover); }
+.row-menu-btn:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; opacity: 1; }
+.group-head .row-menu-btn { margin-left: -6px; }
+.cat-row:hover .row-menu-btn { opacity: .9; }
+
+/* pop-up for a whole category or group (built in app.js); escapes the sidebar's overflow and transforms */
+.menu.row-menu { position: fixed; right: auto; top: auto; z-index: 60; margin: 0; min-width: 232px; max-width: min(300px, 100vw - 16px); transform-origin: top left; }
+.rm-head { display: flex; align-items: center; gap: 10px; padding: 8px 10px 10px; min-width: 0; }
+.rm-head .ico-wrap { flex: none; }
+.rm-dot { flex: none; width: 10px; height: 10px; margin: 0 5px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
+.rm-text { min-width: 0; }
+.rm-title { color: var(--ink); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rm-sub { color: var(--ink-dim); font-size: 12px; font-variant-numeric: tabular-nums; }
 
 /* ---------- stage ---------- */
 
