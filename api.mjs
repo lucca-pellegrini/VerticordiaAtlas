@@ -24,7 +24,7 @@ const KEY_PATTERN = new RegExp(`^(profile:${SEG}:${SEG}|meta:(presets|view):${SE
 const MAX_VALUE = 2_000_000, MAX_ITEMS = 200;
 const B32 = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
 
-export function createApi({ root, googleClientId = null, googleCertsUrl = process.env.GOOGLE_CERTS_URL || 'https://www.googleapis.com/oauth2/v3/certs' }) {
+export function createApi({ root, debug = false, googleClientId = null, publicUrl = null, googleCertsUrl = process.env.GOOGLE_CERTS_URL || 'https://www.googleapis.com/oauth2/v3/certs' }) {
   mkdirSync(path.join(root, 'data'), { recursive: true });
   const db = new DatabaseSync(path.join(root, 'data', 'atlas.db'));
   db.exec(`
@@ -50,6 +50,12 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
       last_used INTEGER NOT NULL
     );
     CREATE INDEX IF NOT EXISTS sessions_by_user ON sessions(user_id);
+    CREATE TABLE IF NOT EXISTS oauth_states (
+      state TEXT PRIMARY KEY,
+      nonce TEXT NOT NULL,
+      next TEXT NOT NULL,
+      expires_at INTEGER NOT NULL
+    );
     CREATE TABLE IF NOT EXISTS user_data (
       user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
       key TEXT NOT NULL,
@@ -74,6 +80,7 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
   }
 
   /* ---------- small helpers ---------- */
+  const dbg = (...parts) => { if (debug) console.log('[auth]', new Date().toISOString(), ...parts); };
   const json = (res, status, body, headers = {}) => {
     res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', ...headers });
     res.end(JSON.stringify(body));
@@ -92,6 +99,17 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
     }
     try { return JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}'); }
     catch { throw httpError(400, 'bad JSON'); }
+  }
+  async function readForm(req, limit) {
+    if (!String(req.headers['content-type'] || '').startsWith('application/x-www-form-urlencoded')) throw httpError(415, 'expected a form');
+    const chunks = [];
+    let size = 0;
+    for await (const c of req) {
+      size += c.length;
+      if (size > limit) throw httpError(413, 'too large');
+      chunks.push(c);
+    }
+    return Object.fromEntries(new URLSearchParams(Buffer.concat(chunks).toString('utf8')));
   }
   function httpError(status, message) { const e = new Error(message); e.status = status; return e; }
 
@@ -143,7 +161,7 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
     }
     return certs;
   }
-  async function verifyGoogleToken(token) {
+  async function verifyGoogleToken(token, nonce) {
     const parts = String(token || '').split('.');
     if (parts.length !== 3) throw httpError(400, 'not a token');
     const [h, p, s] = parts;
@@ -159,6 +177,7 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
     if (!googleClientId || payload.aud !== googleClientId) throw httpError(401, 'wrong audience');
     if (!(payload.exp * 1000 > now())) throw httpError(401, 'token expired');
     if (payload.email_verified !== true) throw httpError(401, 'e-mail not verified');
+    if (!nonce || payload.nonce !== nonce) throw httpError(401, 'wrong nonce'); // this sign-in, and no other
     if (typeof payload.sub !== 'string' || !payload.sub) throw httpError(401, 'no subject');
     return { sub: payload.sub, email: String(payload.email || ''), name: String(payload.name || '') };
   }
@@ -296,16 +315,49 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
         return json(res, 200, { user: session ? session.user : null });
       }
 
-      if (route === 'POST /api/auth/google') {
-        if (!allowLogin(ip)) throw httpError(429, 'too many attempts, try again later');
-        const body = await readJson(req, 16_000);
-        const g = await verifyGoogleToken(body.credential);
+      if (route === 'GET /api/auth/google/start') {
+        const back = msg => { res.writeHead(303, { Location: '/signin/?error=' + encodeURIComponent(msg), 'Cache-Control': 'no-store' }); res.end(); };
+        if (!googleClientId || !publicUrl) return back('Google sign-in is not set up on this server yet.');
+        if (!allowLogin(ip)) return back('Too many attempts. Please wait a little and try again.');
+        const n = url.searchParams.get('next') || '';
+        const next = /^\/(?!\/)/.test(n) ? n : '/'; // only a path on this site
+        const state = crypto.randomBytes(24).toString('base64url'), nonce = crypto.randomBytes(24).toString('base64url');
+        dbg('start: next=' + next + ' redirect_uri=' + publicUrl + '/api/auth/google/callback');
+        db.prepare('DELETE FROM oauth_states WHERE expires_at < ?').run(now());
+        db.prepare('INSERT INTO oauth_states (state, nonce, next, expires_at) VALUES (?, ?, ?, ?)').run(state, nonce, next, now() + 10 * 60 * 1000);
+        const q = new URLSearchParams({
+          client_id: googleClientId, redirect_uri: `${publicUrl}/api/auth/google/callback`, response_type: 'id_token', response_mode: 'form_post',
+          scope: 'openid email profile', state, nonce, prompt: 'select_account',
+        });
+        res.writeHead(302, { Location: `https://accounts.google.com/o/oauth2/v2/auth?${q}`, 'Cache-Control': 'no-store' });
+        return res.end();
+      }
+
+      if (route === 'POST /api/auth/google/callback') {
+        // Google posts the signed ID token back here (response_mode=form_post). Each state is good once, for 10 minutes.
+        const back = msg => { res.writeHead(303, { Location: '/signin/?error=' + encodeURIComponent(msg), 'Cache-Control': 'no-store' }); res.end(); };
+        const form = await readForm(req, 16_000);
+        const state = String(form.state || '');
+        // Google names the signed token id_token in this flow (credential is the name the button uses)
+        const token = String(form.id_token || form.credential || '');
+        const row = db.prepare('SELECT nonce, next, expires_at FROM oauth_states WHERE state = ?').get(state);
+        db.prepare('DELETE FROM oauth_states WHERE state = ?').run(state);
+        dbg('callback: fields=[' + Object.keys(form).join(',') + '] error=' + (form.error || '-') + ' state_known=' + !!row + ' expired=' + (row ? row.expires_at <= now() : '-') + ' token_bytes=' + token.length);
+        if (debug && token) { // the claims only, never the signature or the e-mail address
+          try { const p = JSON.parse(Buffer.from(String(token).split('.')[1], 'base64url').toString('utf8')); dbg('callback: token iss=' + p.iss + ' aud=' + p.aud + ' azp=' + p.azp + ' exp=' + p.exp + ' email_verified=' + p.email_verified + ' nonce_matches=' + (!!row && p.nonce === row.nonce)); } catch (e) { dbg('callback: token does not decode: ' + e.message); }
+        }
+        if (!row || row.expires_at <= now()) { dbg('callback: unknown or expired state'); return back('That sign-in took too long. Please try again.'); }
+        if (!token) { dbg('callback: no credential, cancelled or refused by Google'); return back('Sign-in with Google was cancelled.'); }
+        let g;
+        try { g = await verifyGoogleToken(token, row.nonce); }
+        catch (e) { dbg('callback: verification failed: ' + e.message); return back('Google could not confirm your account. Please try again.'); }
         db.prepare(`INSERT INTO users (id, provider, google_sub, email, display_name, created_at) VALUES (?, 'google', ?, ?, ?, ?)
                     ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email, display_name = excluded.display_name`)
           .run(crypto.randomUUID(), g.sub, g.email, g.name, now());
         const user = db.prepare("SELECT * FROM users WHERE provider = 'google' AND google_sub = ?").get(g.sub);
         startSession(req, res, user.id);
-        return json(res, 200, { user: publicUser(user) });
+        res.writeHead(303, { Location: row.next, 'Cache-Control': 'no-store' }); // the cookie is set on this response
+        return res.end();
       }
 
       if (route === 'POST /api/auth/secret/new') {

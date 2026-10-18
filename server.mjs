@@ -305,7 +305,8 @@ function notModified(req, etag, mtime) {
 
 // accounts and sync (optional for the user): the Google client ID comes from site.json, the database from data/
 const siteFile = JSON.parse(readFileSync(path.join(ROOT, 'site.json'), 'utf8'));
-const api = createApi({ root: ROOT, googleClientId: process.env.GOOGLE_CLIENT_ID || siteFile.googleClientId || null });
+const DEBUG = args.includes('--debug'); // logs sign-in steps (no tokens, no e-mail addresses)
+const api = createApi({ debug: DEBUG, root: ROOT, googleClientId: process.env.GOOGLE_CLIENT_ID || siteFile.googleClientId || null, publicUrl: (process.env.PUBLIC_URL || siteFile.url || '').replace(/\/+$/, '') || null });
 
 const server = http.createServer(async (req, res) => {
   try {
