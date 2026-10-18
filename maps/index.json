@@ -189,6 +189,33 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "totk",
+      "slug": "totk",
+      "title": "The Legend of Zelda: Tears of the Kingdom",
+      "description": "Every marker on the The Legend of Zelda: Tears of the Kingdom map.",
+      "poster": "totk/poster",
+      "theme": {
+        "accent": "#4cb3a8",
+        "accent-soft": "#9bd4ce",
+        "night": "#060c0b",
+        "panel": "#0c1614",
+        "panel-2": "#111f1e",
+        "line": "#213634"
+      },
+      "stats": [
+        {
+          "value": 7956,
+          "label": "markers"
+        },
+        {
+          "value": 162,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }
