@@ -16,7 +16,7 @@ const BATCH = 100;
 export function createSync({ store, ui, api, socketUrl = null }) {
   const bc = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(CHANNEL) : null;
   let leader = false, running = false, online = navigator.onLine;
-  let st = { sent: {}, seen: {}, conflicts: {} }; // sent: key -> hash of what we last agreed on; seen: key -> server time
+  let st = { sent: {}, content: {}, seen: {}, conflicts: {} }; // sent: key -> hash of what we last agreed on; content: the same, for the content only; seen: key -> server time
   let pushTimer = null, interval = null, stopped = false, again = false;
   const clientId = crypto.randomUUID(); // names this tab to the server, so it is not told about its own pushes
   let sock = null, sockTimer = null, sockFails = 0, live = false;
@@ -42,9 +42,21 @@ export function createSync({ store, ui, api, socketUrl = null }) {
     }
     return map;
   }
+  /* What counts as a change for conflicts: a profile's content (progress, drawings, markers, filters), not its position
+     (map, camera) or the time it was touched: those are last-write-wins and never cause a conflict. Keep in step with api.mjs. */
+  const POSITION = new Set(['updated', 'map', 'cameras']);
+  // what decides whether an item needs sending: everything but the time it was touched (saving changes nothing is not a change)
+  const sendHash = (key, v) => (v === null || v === undefined ? null : hash(key.startsWith('profile:') ? Object.fromEntries(Object.entries(v).filter(([k]) => k !== 'updated')) : v));
+  const contentHash = (key, v) => {
+    if (v === null || v === undefined) return null;
+    return hash(key.startsWith('profile:') ? Object.fromEntries(Object.entries(v).filter(([k]) => !POSITION.has(k))) : v);
+  };
   const isDirty = (key, snap) => {
-    const cur = snap.has(key) ? hash(snap.get(key)) : null;
-    return cur !== (st.sent[key] ?? null);
+    if (!(key in st.content) && key in st.sent) { // state from before content hashes: the whole item decides, as it did
+      return (snap.has(key) ? sendHash(key, snap.get(key)) : null) !== st.sent[key];
+    }
+    const cur = snap.has(key) ? contentHash(key, snap.get(key)) : null;
+    return cur !== (st.content[key] ?? null);
   };
 
   /* ---------- applying server data to this device ---------- */
@@ -62,7 +74,7 @@ export function createSync({ store, ui, api, socketUrl = null }) {
 
   async function loadState() {
     const saved = await store.getMeta('sync:state');
-    if (saved) st = { sent: saved.sent || {}, seen: saved.seen || {}, conflicts: saved.conflicts || {} };
+    if (saved) st = { sent: saved.sent || {}, content: saved.content || {}, seen: saved.seen || {}, conflicts: saved.conflicts || {} };
   }
   const saveState = () => store.putMeta('sync:state', st);
 
@@ -90,7 +102,8 @@ export function createSync({ store, ui, api, socketUrl = null }) {
       }
       if (item.key.startsWith('profile:') && item.value !== null) await adoptOverPlaceholders(item.key);
       await applyRemote(item);
-      st.sent[item.key] = item.value === null ? null : hash(item.value);
+      st.sent[item.key] = sendHash(item.key, item.value);
+      st.content[item.key] = contentHash(item.key, item.value);
       st.seen[item.key] = item.updated_at;
       changed.push(item.key);
     }
@@ -106,7 +119,7 @@ export function createSync({ store, ui, api, socketUrl = null }) {
     const snap = await snapshot();
     const items = [];
     for (const [key, value] of snap) {
-      if (st.sent[key] !== hash(value)) items.push({ key, value, base: st.seen[key] ?? 0 });
+      if (st.sent[key] !== sendHash(key, value)) items.push({ key, value, base: st.seen[key] ?? 0 });
     }
     for (const key of Object.keys(st.sent)) {
       if (!snap.has(key) && st.sent[key] !== null) items.push({ key, value: null, base: st.seen[key] ?? 0 }); // deleted here
@@ -118,7 +131,8 @@ export function createSync({ store, ui, api, socketUrl = null }) {
       for (const r of results) {
         const it = sent.get(r.key);
         if (r.status === 'ok') {
-          st.sent[r.key] = it.value === null ? null : hash(it.value);
+          st.sent[r.key] = sendHash(r.key, it.value);
+          st.content[r.key] = contentHash(r.key, it.value);
           st.seen[r.key] = r.updated_at;
           delete st.conflicts[r.key];
         } else {
@@ -206,7 +220,8 @@ export function createSync({ store, ui, api, socketUrl = null }) {
       const c = st.conflicts[key];
       if (choice === 'server') {
         await applyRemote({ key, value: c.server, updated_at: c.updated_at });
-        st.sent[key] = c.server === null ? null : hash(c.server);
+        st.sent[key] = sendHash(key, c.server);
+        st.content[key] = contentHash(key, c.server);
         taken.push(key);
       }
       // 'local': this device's copy stays as it is; based on the server's newer time, it goes up on the next push

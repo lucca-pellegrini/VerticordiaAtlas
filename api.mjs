@@ -178,6 +178,21 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
   const normalizeSecret = s => String(s || '').toUpperCase().replace(/[^0-9A-Z]/g, '').replace(/O/g, '0').replace(/[IL]/g, '1');
 
   /* ---------- sync ---------- */
+  /* What counts as a change for conflicts: the content of a profile (progress, drawings, markers, filters). Its position
+     (map, camera) and the time it was touched are not: those are last-write-wins. Keep in step with sync.js. */
+  const POSITION = new Set(['updated', 'map', 'cameras']);
+  const canonical = v => (v && typeof v === 'object'
+    ? (Array.isArray(v) ? `[${v.map(canonical).join(',')}]` : `{${Object.keys(v).sort().filter(k => v[k] !== undefined).map(k => JSON.stringify(k) + ':' + canonical(v[k])).join(',')}}`)
+    : JSON.stringify(v ?? null));
+  const contentOf = (key, v) => {
+    if (v === null || !key.startsWith('profile:')) return canonical(v);
+    return canonical(Object.fromEntries(Object.entries(v).filter(([k]) => !POSITION.has(k))));
+  };
+
+  // the same data, apart from the time it was touched: sending it again changes nothing, so it is not stored or announced
+  const withoutTouched = (key, v) => canonical(key.startsWith('profile:') && v && typeof v === 'object' && !Array.isArray(v)
+    ? Object.fromEntries(Object.entries(v).filter(([k]) => k !== 'updated')) : v);
+
   function validItem(it) {
     if (!it || typeof it.key !== 'string' || !KEY_PATTERN.test(it.key)) return false;
     if (it.value !== null && JSON.stringify(it.value ?? null).length > MAX_VALUE) return false;
@@ -193,9 +208,20 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
       for (const it of items) {
         const cur = get.get(userId, it.key);
         const base = Number.isFinite(it.base) ? it.base : 0;
+        if (cur) {
+          const curValue = cur.value === null ? null : JSON.parse(cur.value);
+          if (withoutTouched(it.key, curValue) === withoutTouched(it.key, it.value)) { // nothing to store: the device is simply up to date
+            results.push({ key: it.key, status: 'ok', updated_at: cur.updated_at, same: true });
+            continue;
+          }
+        }
         if (cur && cur.updated_at > base) {
-          results.push({ key: it.key, status: 'conflict', value: cur.value === null ? null : JSON.parse(cur.value), updated_at: cur.updated_at });
-          continue;
+          const curValue = cur.value === null ? null : JSON.parse(cur.value);
+          // newer on the server, but the same content: only the position differs, so the newer position simply wins
+          if (contentOf(it.key, curValue) !== contentOf(it.key, it.value)) {
+            results.push({ key: it.key, status: 'conflict', value: curValue, updated_at: cur.updated_at });
+            continue;
+          }
         }
         // server time orders the writes; it always moves forward for a key
         let t = now();
@@ -335,7 +361,7 @@ export function createApi({ root, googleClientId = null, googleCertsUrl = proces
         const items = Array.isArray(body.items) ? body.items : [];
         if (items.length > MAX_ITEMS || !items.every(validItem)) throw httpError(400, 'bad sync request');
         const results = syncPush(userId, items);
-        if (results.some(r => r.status === 'ok')) announce(userId, String(body.client || '').slice(0, 64)); // the other devices of this account
+        if (results.some(r => r.status === 'ok' && !r.same)) announce(userId, String(body.client || '').slice(0, 64)); // the other devices of this account
         return json(res, 200, { results });
       }
 

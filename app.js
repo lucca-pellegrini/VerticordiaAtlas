@@ -454,14 +454,31 @@ function setBaseTiles(map) {
 }
 
 // the camera of the open map goes into the profile (with which map it is), so a visit resumes where it was
+const cameraNow = () => {
+  const c = state.map.getCenter();
+  return { lng: +c.lng.toFixed(6), lat: +c.lat.toFixed(6), zoom: +state.map.getZoom().toFixed(2) };
+};
+const cameraKey = () => (state.mapReady && state.mapInfo ? state.mapInfo.slug + JSON.stringify(cameraNow()) : '');
+// Where the map is, as far as the profile (and so the other devices) are concerned. The map is put there by us (opening
+// it, a profile or a map switch, or an update from another device), and the move that follows is not the user's: it must
+// not be written back, or two devices would keep handing each other their own rounding of the same view.
+const agreeCamera = () => { state.camKey = cameraKey(); };
+const viewUntouched = () => !state.mapReady || cameraKey() === state.camKey; // the user has not moved the view since it was last agreed
+const sameCamera = (a, b) => Math.abs(a.lng - b.lng) < 1e-5 && Math.abs(a.lat - b.lat) < 1e-5 && Math.abs(a.zoom - b.zoom) < 0.005;
+
 function rememberCamera(now = false) {
   if (state.capturing) return; // a screenshot moves the view for a moment; the camera is the one before
+  let changed = false;
   if (state.mapReady && state.profile && state.mapInfo) {
-    const c = state.map.getCenter(), p = state.profile, slug = state.mapInfo.slug;
-    p.map = slug;
-    p.cameras = { ...(p.cameras || {}), [slug]: { lng: +c.lng.toFixed(6), lat: +c.lat.toFixed(6), zoom: +state.map.getZoom().toFixed(2) } };
-    state.camKey = JSON.stringify(p.cameras[slug]); // what this device last agreed the camera is (see refreshFromStore)
-  }
+    const p = state.profile, slug = state.mapInfo.slug, key = cameraKey();
+    if (key !== state.camKey || p.map !== slug) { // the view really moved (or the map changed)
+      p.map = slug;
+      p.cameras = { ...(p.cameras || {}), [slug]: cameraNow() };
+      state.camKey = key;
+      changed = true;
+    }
+  } else changed = true;
+  if (!changed && !savePending) return; // nothing moved and nothing waits to be saved: nothing to write, nothing to send
   if (now) saveProfileNow(); else scheduleSave();
 }
 
@@ -493,9 +510,9 @@ async function switchMap(slug, { remember = true } = {}) {
 // after switching profile: the profile's map and camera
 async function syncMapToProfile() {
   const want = state.profile?.map;
-  if (want && want !== state.mapInfo?.slug && state.meta.maps.some(m => m.slug === want)) return switchMap(want, { remember: false });
+  if (want && want !== state.mapInfo?.slug && state.meta.maps.some(m => m.slug === want)) { await switchMap(want, { remember: false }); agreeCamera(); return; }
   const cam = state.profile?.cameras?.[state.mapInfo?.slug];
-  if (cam && state.mapReady) { state.camKey = JSON.stringify(cam); state.map.jumpTo(startOf(state.mapInfo, state.data, cam)); }
+  if (cam && state.mapReady) { state.map.jumpTo(startOf(state.mapInfo, state.data, cam)); agreeCamera(); }
 }
 
 /* ---------- profiles ---------- */
@@ -613,10 +630,11 @@ function renderProfileSelect() {
   sel.value = state.profile.id;
 }
 
-let saveTimer;
-function scheduleSave() { clearTimeout(saveTimer); saveTimer = setTimeout(saveProfileNow, 200); }
+let saveTimer, savePending = false;
+function scheduleSave() { clearTimeout(saveTimer); savePending = true; saveTimer = setTimeout(saveProfileNow, 200); }
 async function saveProfileNow() {
   clearTimeout(saveTimer);
+  savePending = false;
   const p = state.profile;
   if (!p) return;
   p.found = [...state.found];
@@ -1366,6 +1384,7 @@ function createMap() {
     });
 
     state.mapReady = true;
+    agreeCamera(); // where it opened is where it is agreed to be
     map.once('idle', () => document.body.classList.remove('loading-map'));
     setTimeout(() => document.body.classList.remove('loading-map'), 8000); // in case the tiles never report idle
     updateSidebar();
@@ -2259,16 +2278,21 @@ async function refreshFromStore(keys) {
     if (cur) {
       applyProfile(cur);
       renderProfileSelect();
-      // the profile carries the map, the camera and the view: follow them, as the other device left them
-      if (cur.map && cur.map !== state.mapInfo.slug && state.meta.maps.some(m => m.slug === cur.map)) {
-        await switchMap(cur.map, { remember: false }); // prepareMap loads the view too
-      } else {
-        const cam = cur.cameras?.[state.mapInfo.slug];
-        if (cam && state.mapReady && JSON.stringify(cam) !== state.camKey) { // only a camera that changed elsewhere moves the map
-          state.camKey = JSON.stringify(cam);
-          state.map.jumpTo(startOf(state.mapInfo, state.data, cam));
+      // the view belongs to the profile: show this map's view from it, whatever map this is (switchMap below may not run yet)
+      if (state.mapInfo) await loadMapState();
+      // the profile also carries the map and the camera: follow them, as the other device left them
+      // ...but only while this device's own view is as it was left: someone moving the map here keeps it where they put it
+      if (viewUntouched()) {
+        if (cur.map && cur.map !== state.mapInfo?.slug && state.meta.maps.some(m => m.slug === cur.map)) {
+          await switchMap(cur.map, { remember: false }); // prepareMap loads the view again
+          agreeCamera();
+        } else {
+          const cam = cur.cameras?.[state.mapInfo?.slug];
+          if (cam && state.mapReady && !sameCamera(cam, cameraNow())) {
+            state.map.jumpTo(startOf(state.mapInfo, state.data, cam));
+            agreeCamera();
+          }
         }
-        await loadMapState();
       }
     }
   }
