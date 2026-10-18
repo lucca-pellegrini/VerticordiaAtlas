@@ -49,15 +49,22 @@
       <div class="profile-row preset-row">
         <label class="field">
           <span>Selection preset</span>
-          <select id="preset-select"></select>
+          <div class="picker">
+            <select id="preset-select"></select>
+            <span id="preset-status" class="dot preset-status" aria-hidden="true" hidden></span>
+          </div>
         </label>
         <button id="preset-menu-btn" class="icon-btn" aria-haspopup="true" aria-expanded="false" title="Preset actions">&#8943;</button>
         <div id="preset-menu" class="menu" hidden>
-          <button data-act="save">Save current selection</button>
-          <button data-act="update" data-needs-preset>Overwrite with current selection</button>
+          <button data-act="save">Save as new preset</button>
           <button data-act="rename" data-needs-preset>Rename</button>
           <button data-act="delete" data-needs-preset class="danger">Delete preset</button>
         </div>
+      </div>
+      <div id="preset-bar" class="preset-bar" hidden>
+        <span class="preset-note">Changed from the saved preset</span>
+        <button data-act="revert" class="chip">Revert</button>
+        <button data-act="overwrite" class="chip primary">Overwrite</button>
       </div>
       <div class="search">
         <input id="search" type="search" placeholder="Search locations" autocomplete="off" aria-label="Search locations">

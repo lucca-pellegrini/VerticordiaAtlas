@@ -14,7 +14,7 @@ const state = {
   view: { hidden: new Set(), hideFound: false, collapsed: new Set() },
   selected: null, map: null, mapReady: false, memoryOnly: false,
   stats: new Map(), searchHits: [], searchIdx: -1,
-  presets: [],
+  presets: [], presetId: null, baseline: null, // baseline: the view before the first preset was picked
 };
 
 /* ---------- storage: IndexedDB with an in-memory fallback ---------- */
@@ -252,6 +252,8 @@ async function loadGame(entry) {
   state.view.collapsed = new Set(v.collapsed || []);
   $('#hide-found').checked = state.view.hideFound;
   state.presets = (await getMeta('presets:' + entry.id)) || [];
+  state.presetId = state.presets.some(p => p.id === v.presetId) ? v.presetId : null;
+  state.baseline = state.presetId && Array.isArray(v.baseline) ? v.baseline : null;
   renderPresets();
 
   // difficulty / tag selector
@@ -320,6 +322,7 @@ function scheduleViewSave() {
   clearTimeout(viewTimer);
   viewTimer = setTimeout(() => setMeta('view:' + state.entry.id, {
     hidden: [...state.view.hidden], hideFound: state.view.hideFound, collapsed: [...state.view.collapsed],
+    presetId: state.presetId, baseline: state.baseline,
   }).catch(() => {}), 250);
 }
 
@@ -547,7 +550,8 @@ function onViewChanged() {
 
 const presetsKey = () => 'presets:' + state.entry.id;
 const savePresets = () => setMeta(presetsKey(), state.presets).catch(() => toast('Could not save presets in this browser.'));
-const selectedPreset = () => state.presets.find(p => p.id === $('#preset-select').value) || null;
+const presetById = id => state.presets.find(p => p.id === id) || null;
+const currentPreset = () => presetById(state.presetId);
 
 function matchesView(p) {
   const h = new Set(p.hidden);
@@ -555,31 +559,81 @@ function matchesView(p) {
   return true;
 }
 
-function renderPresets() {
+// The selected preset stays selected while it is edited (shown as modified). It is only replaced when
+// the current selection exactly matches a different preset, or when the selected preset no longer exists.
+function syncPresetSelection() {
+  const cur = currentPreset();
+  if (cur && matchesView(cur)) return;
+  if (!cur) state.presetId = null;
+  const same = state.presets.find(matchesView);
+  if (same) state.presetId = same.id;
+}
+
+function applyPreset(p) {
+  if (!state.presetId) state.baseline = [...state.view.hidden]; // remember how things were before any preset
+  state.presetId = p.id;
+  state.view.hidden = new Set(p.hidden);
+  onViewChanged();
+}
+
+// Leaves the preset and returns to the selection from before it was first picked (or keeps the current
+// selection when there was none). Does not auto-match a preset, so "No preset" sticks.
+function exitPreset() {
+  if (state.baseline) state.view.hidden = new Set(state.baseline);
+  state.presetId = null;
+  state.baseline = null;
+  updateSidebar();
+  refreshMap();
+  scheduleViewSave();
+  renderPresets({ sync: false });
+}
+
+function renderPresets({ sync = true } = {}) {
   if (!state.entry) return;
+  if (sync) syncPresetSelection();
+  if (!state.presetId) state.baseline = null;
+  const cur = currentPreset();
+  const modified = !!cur && !matchesView(cur);
+
   const sel = $('#preset-select');
-  sel.innerHTML = '<option value="">Choose a preset…</option>' +
-    state.presets.map(p => `<option value="${esc(p.id)}">${esc(p.name)}</option>`).join('');
-  sel.value = state.presets.find(matchesView)?.id ?? '';
-  const has = !!sel.value;
-  document.querySelectorAll('#preset-menu [data-needs-preset]').forEach(b => { b.disabled = !has; });
+  const first = cur ? 'No preset' : 'Choose a preset…';
+  sel.innerHTML = `<option value="">${first}</option>` + state.presets.map(p => {
+    const sel1 = p.id === state.presetId;
+    const dot = sel1 && modified ? 'modified' : 'clean';
+    return `<option value="${esc(p.id)}"${sel1 && modified ? ' class="modified"' : ''}>` +
+      `<span class="dot ${dot}"></span>${esc(p.name)}</option>`;
+  }).join('');
+  sel.value = state.presetId ?? '';
+  sel.classList.toggle('modified', modified);
+  sel.classList.toggle('has-status', !!cur);
+
+  const status = $('#preset-status');
+  status.hidden = !cur;
+  status.className = 'dot preset-status ' + (modified ? 'modified' : 'clean');
+
+  $('#preset-bar').hidden = !modified;
+  document.querySelectorAll('#preset-menu [data-needs-preset]').forEach(b => { b.disabled = !cur; });
 }
 
 async function presetAction(act) {
   if (act === 'save') {
     const name = await askDialog({ title: 'Save selection', message: 'Stores which categories are on and off.', value: `Selection ${state.presets.length + 1}`, okLabel: 'Save' });
     if (!name) return;
-    state.presets.push({ id: uid(), name, hidden: [...state.view.hidden] });
+    const np = { id: uid(), name, hidden: [...state.view.hidden] };
+    state.presets.push(np);
+    state.presetId = np.id;
     await savePresets(); renderPresets();
     toast('Preset saved.');
     return;
   }
-  const p = selectedPreset();
+  const p = currentPreset();
   if (!p) return;
-  if (act === 'update') {
+  if (act === 'overwrite') {
     p.hidden = [...state.view.hidden];
     await savePresets(); renderPresets();
-    toast('Preset updated.');
+    toast('Preset overwritten.');
+  } else if (act === 'revert') {
+    applyPreset(p);
   } else if (act === 'rename') {
     const name = await askDialog({ title: 'Rename preset', value: p.name, okLabel: 'Rename' });
     if (!name) return;
@@ -589,7 +643,8 @@ async function presetAction(act) {
     const ok = await askDialog({ title: 'Delete preset?', message: `"${p.name}" will be removed from this browser.`, okLabel: 'Delete', danger: true });
     if (!ok) return;
     state.presets = state.presets.filter(x => x.id !== p.id);
-    await savePresets(); renderPresets();
+    await savePresets();
+    exitPreset();
   }
 }
 
@@ -890,11 +945,11 @@ function wire() {
 
   const presetMenu = $('#preset-menu'), presetMenuBtn = $('#preset-menu-btn');
   $('#preset-select').onchange = e => {
-    const p = state.presets.find(x => x.id === e.target.value);
-    if (!p) return;
-    state.view.hidden = new Set(p.hidden);
-    onViewChanged();
+    const p = presetById(e.target.value);
+    if (p) applyPreset(p);
+    else exitPreset();
   };
+  $('#preset-bar').onclick = e => { const b = e.target.closest('button[data-act]'); if (b) presetAction(b.dataset.act); };
   presetMenuBtn.onclick = e => { e.stopPropagation(); presetMenu.hidden = !presetMenu.hidden; presetMenuBtn.setAttribute('aria-expanded', String(!presetMenu.hidden)); };
   presetMenu.onclick = e => { const b = e.target.closest('button[data-act]'); if (b && !b.disabled) { presetMenu.hidden = true; presetAction(b.dataset.act); } };
 

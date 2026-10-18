@@ -43,11 +43,29 @@ option { background: var(--panel-2); color: var(--ink); }
     opacity: 1; transform: none; transition: opacity var(--fast), transform var(--fast) var(--ease);
   }
   @starting-style { ::picker(select) { opacity: 0; transform: translateY(-4px); } }
+  ::picker(select) { font-style: normal; }
   select option { display: flex; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 9px; cursor: pointer; transition: background-color var(--fast); }
   select option:hover, select option:focus-visible { background: var(--tint); outline: none; }
   select option:checked { color: var(--accent-soft); font-weight: 500; }
   select option::checkmark { order: 1; margin-left: auto; color: var(--accent-soft); }
 }
+
+/* preset status: a dot in the picker, a modified preset is also italic */
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex: none; }
+.dot.clean { background: var(--ok); box-shadow: 0 0 8px color-mix(in srgb, var(--ok) 55%, transparent); }
+.dot.modified { background: var(--warn); box-shadow: 0 0 8px color-mix(in srgb, var(--warn) 55%, transparent); }
+select.modified { font-style: italic; }
+option.modified { font-style: italic; }
+select option:not(.modified) { font-style: normal; }
+.picker { position: relative; }
+.preset-status { position: absolute; left: 14px; top: 50%; translate: 0 -50%; pointer-events: none; }
+select.has-status { padding-left: 32px; }
+.preset-bar { display: flex; align-items: center; gap: 6px; margin-top: -4px; animation: pop .16s var(--ease); }
+.preset-note { display: inline-flex; align-items: center; gap: 7px; flex: 1; min-width: 0; font-size: 12px; color: var(--ink-dim); }
+.chip { padding: 5px 12px; border-radius: 999px; border: 1px solid var(--line-2); background: var(--panel-2); font-size: 12px; font-weight: 500; transition: background-color var(--fast), border-color var(--fast); }
+.chip:hover { border-color: var(--ink-dim); }
+.chip.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.chip.primary:hover { filter: brightness(1.12); }
 
 /* checkboxes */
 input[type=checkbox] {
@@ -134,7 +152,15 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 
 .groups { overflow: auto; flex: 1; padding-bottom: 28px; }
 .group { border-bottom: 1px solid var(--line); }
-.group-head { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 11px 16px 9px; background: color-mix(in srgb, var(--panel) 92%, transparent); backdrop-filter: blur(10px); }
+/* group header: a faint frosted bar that stays on top while its categories scroll under it */
+.group-head {
+  position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 11px 16px 9px;
+  background: linear-gradient(180deg, color-mix(in srgb, #fff 8%, var(--panel)), color-mix(in srgb, #fff 4%, var(--panel)));
+  box-shadow: inset 0 1px 0 #ffffff14, 0 1px 0 #00000066;
+  backdrop-filter: blur(14px) saturate(1.15); -webkit-backdrop-filter: blur(14px) saturate(1.15);
+}
+.group-head .g-toggle { width: 20px; height: 20px; border-radius: 7px; }
+.group-head .g-toggle::after { width: 11px; height: 11px; }
 .group-head .name {
   flex: 1; display: inline-flex; align-items: center; gap: 9px; background: none; border: 0; padding: 0; text-align: left;
   font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;

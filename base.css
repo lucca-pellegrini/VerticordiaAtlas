@@ -14,6 +14,8 @@
   --ink: #eef1f3;
   --ink-dim: #9aa6ad;
   --danger: #ea7468;
+  --ok: #6fd38a;      /* preset status: saved and unchanged */
+  --warn: #f2c04d;    /* preset status: changed since it was saved */
 
   --line-2: color-mix(in srgb, var(--line), #fff 13%);
   --glow: color-mix(in srgb, var(--accent) 22%, transparent);
