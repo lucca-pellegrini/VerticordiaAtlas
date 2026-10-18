@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy policy · Verticordia Atlas</title>
+<meta name="description" content="What Verticordia Atlas stores, why, where it stays on your device, and what you can ask us to do with it.">
+<meta name="theme-color" content="#0b0e10">
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400..800&display=swap">
+<link rel="stylesheet" href="../base.css">
+<link rel="stylesheet" href="../legal/legal.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<header class="legal-top">
+  <a class="brand" href="../" aria-label="Verticordia Atlas, home">
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"/><circle cx="12" cy="10" r="2.8" fill="var(--night)"/></svg></span>
+    <span>Verticordia Atlas</span>
+  </a>
+  <a class="back" href="../"><span>Back to the maps</span></a>
+</header>
+
+<div class="legal">
+  <nav class="toc" aria-label="Sections of this policy">
+    <p class="toc-title">Contents</p>
+    <ol>
+      <li><a href="#controller">Who is responsible</a></li>
+      <li><a href="#collect">What we collect</a></li>
+      <li><a href="#on-device">What stays on your device</a></li>
+      <li><a href="#use">How we use it</a></li>
+      <li><a href="#legal-basis">Legal bases</a></li>
+      <li><a href="#cookies">Cookies and storage</a></li>
+      <li><a href="#sharing">Who receives it</a></li>
+      <li><a href="#retention">How long we keep it</a></li>
+      <li><a href="#rights">Your rights</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#transfers">Where it is processed</a></li>
+      <li><a href="#changes">Changes to this policy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+    <p class="toc-note">Read with our <a href="../terms/">Terms of service</a>.</p>
+  </nav>
+
+  <article class="doc">
+    <p class="eyebrow">Legal</p>
+    <h1>Privacy policy</h1>
+    <p class="lede">We collect as little as we can. The maps need no account and no personal data. If you sign in, we keep the progress you choose to sync and the minimum needed to recognise your account. We do not run analytics, advertising or tracking.</p>
+    <p class="updated">Last updated <time datetime="2026-10-18">18 October 2026</time></p>
+
+    <section id="controller">
+      <h2>Who is responsible</h2>
+      <p>This policy explains how Verticordia (“we”, “us”) handles personal data in connection with Verticordia Atlas at <a href="https://atlas.verticordia.com:11680/">atlas.verticordia.com</a> (the “Service”). Where Brazil’s General Data Protection Law (Lei nº 13.709/2018, “LGPD”) applies, we are the controller of the personal data described here. Where the EU or UK GDPR also applies, the same applies under those laws.</p>
+      <p>You do not have to give us any personal data to use the maps.</p>
+    </section>
+
+    <section id="collect">
+      <h2>What we collect</h2>
+      <p>We only collect what the Service needs to work. In summary:</p>
+      <h3>If you sign in with Google</h3>
+      <ul>
+        <li>your Google account identifier (a stable random-looking number that Google assigns to your account);</li>
+        <li>your e-mail address, as verified by Google;</li>
+        <li>your display name, as Google provides it.</li>
+      </ul>
+      <p>We check the signed token Google sends us. We do not receive your Google password, and we do not ask Google for access to anything else in your account.</p>
+      <h3>If you create a secret key</h3>
+      <ul>
+        <li>a one-way fingerprint (hash) of the key. We cannot read the key from it, and we never store the key itself.</li>
+      </ul>
+      <p>A secret-key account has no e-mail address, name or other identity attached to it.</p>
+      <h3>If you are signed in</h3>
+      <ul>
+        <li>your synced progress: profiles and their names, found markers, drawings, your own markers and categories, filter and view settings, the map and camera position you were last on, and presets;</li>
+        <li>timestamps of when that data changed, so that devices can be kept in step;</li>
+        <li>a session record: a one-way fingerprint of your session token, when it was created, when it was last used and when it expires.</li>
+      </ul>
+      <h3>For every visit</h3>
+      <ul>
+        <li>your IP address, which the server sees with each request. We use it to keep the Service secure, to limit repeated sign-in attempts and to limit how many preview images can be generated. Our server may also write it to its logs (see retention below); we do not use it to identify you.</li>
+      </ul>
+      <p>We do not collect your location, your contacts, your device identifiers, or any browsing data beyond what is described here.</p>
+    </section>
+
+    <section id="on-device">
+      <h2>What stays on your device</h2>
+      <p>Most of what you do is stored in your browser, not on our servers. Your progress, profiles and drawings are kept in the browser’s own database on your device (IndexedDB), so the maps keep working without a connection.</p>
+      <p>Your browser also keeps copies of the map images and the app itself (the service worker cache), so that they load offline. You can clear them at any time through your browser’s settings, or by clearing the site’s data. Doing so removes progress that has not yet been synced, so sign in and let it sync first if you want to keep it.</p>
+    </section>
+
+    <section id="use">
+      <h2>How we use it</h2>
+      <ul>
+        <li><strong>To provide sync.</strong> Keeping your progress the same on each device you sign in to.</li>
+        <li><strong>To sign you in and keep you signed in.</strong> Recognising your account, and keeping your session open for up to 30 days of use.</li>
+        <li><strong>To keep the Service secure.</strong> Detecting abuse, limiting repeated attempts and protecting the servers.</li>
+        <li><strong>To fix problems.</strong> Looking into errors, using the minimum data needed.</li>
+      </ul>
+      <p>We do not sell your data, we do not share it for advertising, and we do not build profiles of people from it.</p>
+    </section>
+
+    <section id="legal-basis">
+      <h2>Legal bases</h2>
+      <p>Under the LGPD, we rely on the following legal bases (Article 7). Where the GDPR or UK GDPR applies, the same grounds apply under Article 6 of those laws.</p>
+      <ul>
+        <li><strong>Consent</strong> (LGPD Art. 7, I; GDPR Art. 6(1)(a)) for signing in and syncing. Signing in is optional, and you can withdraw consent at any time by logging out and asking us to delete your account.</li>
+        <li><strong>Performance of the contract</strong> (LGPD Art. 7, V; GDPR Art. 6(1)(b)) for providing the sync you asked for.</li>
+        <li><strong>Legitimate interests</strong> (LGPD Art. 7, IX; GDPR Art. 6(1)(f)) for keeping the Service secure and preventing abuse, where these interests are not overridden by your rights and freedoms.</li>
+      </ul>
+    </section>
+
+    <section id="cookies">
+      <h2>Cookies and storage</h2>
+      <p>We use one cookie, and it is strictly necessary for signing in:</p>
+      <ul>
+        <li><strong>va_session</strong>: holds your session token, is <em>HttpOnly</em> (scripts on the page cannot read it), and is removed when you log out. It expires after 30 days of inactivity, and that period is renewed each time you use the Service.</li>
+      </ul>
+      <p>We do not use advertising cookies, analytics cookies or any other tracking cookie. Your browser also keeps the local database and cache described above, and a small record that tells the app whether you are signed in.</p>
+    </section>
+
+    <section id="sharing">
+      <h2>Who receives it</h2>
+      <p>We share personal data only with the service providers we need to run the Service:</p>
+      <ul>
+        <li><strong>Google</strong>, when you sign in with Google, under Google’s own terms and privacy policy. Google Identity Services also loads its script from Google when the sign-in page opens.</li>
+        <li><strong>Google Fonts</strong>, which serves the typefaces. Your browser contacts Google to download them, so Google can see your IP address.</li>
+        <li><strong>Our hosting provider</strong>, IONOS (IONOS SE, Germany), which runs our server and stores the database in the United States.</li>
+      </ul>
+      <p>We may disclose data if the law requires it, for example in response to a valid court order, and only to the extent required.</p>
+    </section>
+
+    <section id="retention">
+      <h2>How long we keep it</h2>
+      <ul>
+        <li><strong>Account and synced progress:</strong> for as long as the account exists. Deleting the account removes its synced data from the server.</li>
+        <li><strong>Session records:</strong> until they expire (30 days after last use) or you log out, whichever comes first. Expired records are removed when they are next used.</li>
+        <li><strong>Request logs and IP addresses:</strong> one year, then deleted.</li>
+        <li><strong>Data on your device:</strong> until you clear it, or log out and clear the site’s data.</li>
+      </ul>
+    </section>
+
+    <section id="rights">
+      <h2>Your rights</h2>
+      <p>Under the LGPD (Article 18), you have the right to confirmation of processing, access, correction, anonymisation, blocking or deletion of unnecessary or excessive data, portability, information about who we share data with, information about the possibility of refusing consent and its consequences, and revocation of consent. Depending on where you live, GDPR or other laws may give you similar rights. You may have the right to:</p>
+      <ul>
+        <li><strong>access</strong> the personal data we hold about you;</li>
+        <li><strong>correct</strong> data that is wrong;</li>
+        <li><strong>delete</strong> your account and the data attached to it;</li>
+        <li><strong>receive a copy</strong> of your data in a portable form;</li>
+        <li><strong>object</strong> to processing based on legitimate interests, or <strong>withdraw consent</strong> at any time, which does not affect processing before the withdrawal;</li>
+        <li><strong>complain</strong> to your data protection authority. In Brazil this is the <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>, at <a href="https://www.gov.br/anpd/">gov.br/anpd</a>.</li>
+      </ul>
+      <p>Your progress can already be exported from the app as a file at any time. To use any of the other rights, write to us at the address below. We will respond within one month, and we may need to confirm that the request really comes from the account holder before acting on it.</p>
+    </section>
+
+    <section id="security">
+      <h2>Security</h2>
+      <p>All connections to the Service use HTTPS. Secret keys and session tokens are stored only as one-way fingerprints. Sync data is checked on the server before it is accepted, and each account can only read and write its own data.</p>
+      <p>No system is perfectly secure. If we learn of a breach that affects your personal data, we will tell you and the relevant authorities as the law requires.</p>
+    </section>
+
+    <section id="children">
+      <h2>Children</h2>
+      <p>The Service is not directed at children under 16, and we do not knowingly collect personal data from them. If you believe a child has given us personal data, please write to us and we will delete it.</p>
+    </section>
+
+    <section id="transfers">
+      <h2>Where it is processed</h2>
+      <p>Our server and its database are located in the United States, so your data is transferred to and processed there. Under the LGPD (Article 33), we make such transfers on the basis of the safeguards the law allows, including standard contractual clauses and, where applicable, an adequacy decision. Google and Google Fonts process data in the places described in their own policies, which may include countries outside your own. Where data leaves the EEA or UK, we rely on the safeguards those providers offer, such as standard contractual clauses.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy. When we make a material change we will update the date at the top of this page and tell you in the Service before the change takes effect.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>To ask about your data, to exercise your rights, or to report a concern, write to <a href="mailto:atlas-contact@verticordia.com">atlas-contact@verticordia.com</a>.</p>
+      <p>Our data protection contact (the LGPD “encarregado”) is the same address.</p>
+          </section>
+  </article>
+</div>
+
+<script src="../legal/legal.js" defer></script>
+</body>
+</html>

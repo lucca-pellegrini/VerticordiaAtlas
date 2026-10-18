@@ -11,7 +11,7 @@ import { packMarker } from './share-link.mjs';
 import { svgIcon } from './icons.mjs';
 import { loadIconLibrary, iconsReady, iconInner, glyphPinImage, glyphInk } from './icons-lib.mjs';
 import { CAPTURE_CONTROL_HTML, setupCapture } from './capture.mjs';
-import { initAccount, accountSlot, api, currentUser, setOnlineStatus, socketUrl } from './account.js';
+import { initAccount, accountSlot, legalLinks, api, currentUser, setOnlineStatus, socketUrl } from './account.js';
 import { createSync } from './sync.js';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
@@ -2354,6 +2354,7 @@ function showConflicts(list) {
 function wire() {
   arrangeSidebar();
   document.querySelector('.side-scroll')?.appendChild(accountSlot());
+  document.querySelector('.side-scroll')?.appendChild(legalLinks());
   accountReady = initAccount({ toast }); // resolves once we know whether someone is signed in
   $('#profile-select').onchange = e => switchProfile(e.target.value);
   const menu = $('#profile-menu'), menuBtn = $('#profile-menu-btn');

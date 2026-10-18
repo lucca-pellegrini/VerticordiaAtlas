@@ -7,10 +7,26 @@ html, body { margin: 0; min-height: 100vh; min-height: 100dvh; color: var(--ink)
 h1 { font: 400 52px/1.05 "Instrument Serif"; margin: 36px 0 12px; }
 h2 { font: 400 26px/1.1 "Instrument Serif"; margin: 0 0 14px; }
 .lede { color: var(--ink-dim); font-size: 16px; margin: 0 0 26px; max-width: 46ch; }
-.google-btn { display: flex; justify-content: flex-start; min-height: 40px; margin-top: 4px; }
+.google-btn { display: flex; align-items: center; justify-content: center; gap: 12px; box-sizing: border-box; width: min(100%, 320px); height: 52px; margin: 4px auto 0; padding: 0 26px;
+  border-radius: 999px; background: var(--ink); color: var(--night); font: 600 15.5px/1 Inter; text-decoration: none; letter-spacing: .005em;
+  box-shadow: 0 16px 36px -16px rgb(214 69 59 / .65), inset 0 1px 0 rgb(255 255 255 / .6); transition: transform .15s var(--ease), box-shadow .25s var(--ease), background-color .2s; }
+.google-btn:hover { background: #fff; transform: translateY(-1px); box-shadow: 0 22px 44px -16px rgb(214 69 59 / .8), inset 0 1px 0 rgb(255 255 255 / .6); }
+.google-btn:active { transform: scale(.98); }
+.google-btn:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 4px; }
+.google-btn[hidden] { display: none; }
+.google-btn .g-logo { width: 20px; height: 20px; flex: none; }
+.google-btn span { white-space: nowrap; }
 .notice, .error { color: var(--ink-dim); font-size: 14px; margin: 10px 0 0; }
+.notice { text-align: center; }
+#google-error { text-align: center; }
 .error { color: var(--danger); }
-.other { margin-top: 22px; }
+.other { margin-top: 22px; text-align: center; }
+.secret-toggle { display: inline-flex; align-items: center; height: 36px; padding: 0 18px; border-radius: 999px; font: 500 13.5px/1 Inter; color: var(--ink-dim); background: transparent; border: 1px solid var(--line-2); cursor: pointer; transition: color .2s, border-color .2s; }
+.secret-toggle:hover, .secret-toggle:focus-visible { color: var(--ink); border-color: var(--ink-dim); outline: none; }
+.secret-toggle[aria-expanded="true"] { color: var(--ink); border-color: var(--ink-dim); }
+#secret-panel { text-align: left; }
+.fine { color: var(--ink-dim); font-size: 13px; margin: 14px 0 0; text-align: center; }
+.fine a { color: var(--ink-dim); text-underline-offset: 3px; }
 .quiet { background: none; border: 0; color: var(--ink-dim); font: 500 14px/1 Inter; padding: 8px 2px; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
 .quiet:hover { color: var(--ink); }
 #secret-panel { margin-top: 12px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; display: grid; gap: 16px; }
@@ -27,6 +43,5 @@ h2 { font: 400 26px/1.1 "Instrument Serif"; margin: 0 0 14px; }
 .field span { color: var(--ink-dim); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 .field input { padding: 11px 14px; border-radius: 12px; background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink); font: 500 15px/1.2 Inter; letter-spacing: .06em; outline: none; }
 .field input:focus { border-color: var(--accent-soft); }
-.skip { text-align: left; margin-top: 30px; }
-.google-btn:empty { display: none; }
+.skip { text-align: center; margin-top: 30px; }
 .skip a { color: var(--ink-dim); font-size: 14px; }

@@ -1,9 +1,8 @@
-// The sign-in page: Google (the server checks the ID token), or a secret key. Either way the server sets the session.
-const next = (() => {
-  const n = new URLSearchParams(location.search).get('next') || '';
-  // only a path on this site: "/x" (not "//host") or nothing
-  return /^\/(?!\/)/.test(n) ? n : '../';
-})();
+// The sign-in page: Google (the server does the redirect and checks the ID token), or a secret key. Either way the server sets the session.
+const rawNext = new URLSearchParams(location.search).get('next') || '';
+// only a path on this site: "/x" (not "//host") or nothing
+const nextPath = /^\/(?!\/)/.test(rawNext) ? rawNext : '/';
+const next = nextPath === '/' ? '../' : nextPath;
 const api = (method, path, body) => fetch(new URL('../api/' + path, location.href), {
   method, cache: 'no-store', credentials: 'same-origin',
   headers: body !== undefined ? { 'Content-Type': 'application/json' } : {},
@@ -17,24 +16,16 @@ const $ = id => document.getElementById(id);
 const showError = msg => { const e = $('secret-error'); e.textContent = msg; e.hidden = !msg; };
 const done = () => { location.href = next; };
 
-/* ---------- Google ---------- */
+/* ---------- Google: our own button; the server sends the browser to Google and back (see api.mjs) ---------- */
 async function setupGoogle() {
-  let clientId = null;
-  try { ({ googleClientId: clientId } = await api('GET', 'config')); } catch { /* offline: no Google */ }
-  if (!clientId) { $('google-off').hidden = false; return; }
-  const start = () => {
-    if (!window.google?.accounts?.id) { $('google-off').textContent = 'Google sign-in could not load. Check your connection, or use a secret key.'; $('google-off').hidden = false; return; }
-    google.accounts.id.initialize({
-      client_id: clientId,
-      callback: async ({ credential }) => {
-        try { await api('POST', 'auth/google', { credential }); done(); }
-        catch (e) { showError(e.message); }
-      },
-    });
-    google.accounts.id.renderButton($('google-btn'), { type: 'standard', theme: 'filled_black', size: 'large', shape: 'pill', text: 'signin_with', width: 240 });
-  };
-  if (window.google?.accounts) start();
-  else addEventListener('load', start, { once: true });
+  const error = new URLSearchParams(location.search).get('error');
+  if (error) { $('google-error').textContent = error; $('google-error').hidden = false; }
+  let configured = false;
+  try { configured = !!(await api('GET', 'config')).googleClientId; } catch { /* offline: no Google */ }
+  if (!configured) { $('google-off').hidden = false; return; }
+  const btn = $('google-btn');
+  btn.href = `../api/auth/google/start?next=${encodeURIComponent(nextPath)}`;
+  btn.hidden = false;
 }
 setupGoogle();
 

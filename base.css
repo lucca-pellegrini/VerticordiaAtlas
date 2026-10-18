@@ -112,6 +112,12 @@ code, pre, kbd, samp { font-family: var(--sans); }
           mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000, transparent 72%);
 }
 
+/* the legal links: small and quiet, findable at the foot of the side panel and the home page */
+.legal-links { margin: 0; padding: 0 16px 16px; font-size: 12px; line-height: 1.6; color: var(--ink-dim); text-align: center; }
+.legal-links a { color: var(--ink-dim); text-decoration: none; border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+.legal-links a:hover, .legal-links a:focus-visible { color: var(--ink); border-bottom-color: var(--ink-dim); outline: none; }
+.legal-links .sep { margin: 0 8px; opacity: .45; }
+
 .net-status {
   position: fixed; top: 12px; left: 50%; transform: translateX(-50%); z-index: 70; display: inline-flex; align-items: center; gap: 7px;
   padding: 5px 12px; border-radius: 999px; font: 500 12px/1 Inter; color: var(--ink-dim);

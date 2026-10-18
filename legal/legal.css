@@ -1,0 +1,91 @@
+/* the legal pages (terms, privacy): the shared backdrop and type from base.css, a document with a section navigator */
+
+html { background: var(--night); scroll-behavior: smooth; }
+html, body { margin: 0; min-height: 100vh; min-height: 100dvh; color: var(--ink); font: 400 16px/1.7 Inter; -webkit-font-smoothing: antialiased; }
+body { display: flex; flex-direction: column; }
+
+/* top bar: the wordmark and a way back, as on the home page */
+.legal-top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 16px clamp(18px, 5vw, 40px); background: color-mix(in srgb, var(--night) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1); border-bottom: 1px solid var(--line); }
+.legal-top .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); text-decoration: none; }
+.legal-top .brand .mark { position: relative; display: block; width: 22px; height: 22px; }
+.legal-top .brand .mark svg { width: 100%; height: 100%; display: block; fill: currentColor; }
+.legal-top .brand span { color: var(--ink); font: 400 1.4rem/1 "Instrument Serif"; }
+.legal-top .back { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-dim); text-decoration: none; font-size: 14px;
+  padding: 7px 13px; border: 1px solid var(--line-2); border-radius: 999px; transition: color .2s, border-color .2s; }
+.legal-top .back:hover { color: var(--ink); border-color: var(--ink-dim); }
+.legal-top .back::before { content: ""; width: 14px; height: 14px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M12 19l-7-7 7-7'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M12 19l-7-7 7-7'/%3E%3C/svg%3E") center / contain no-repeat; }
+
+/* the layout: navigator on the left, the document on the right */
+.legal { width: min(1120px, 100% - 2 * clamp(18px, 5vw, 40px)); margin: 0 auto; padding: 44px 0 96px;
+  display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; flex: 1; }
+
+/* navigator */
+.toc { position: sticky; top: 96px; max-height: calc(100dvh - 120px); overflow-y: auto; scrollbar-width: thin; padding-right: 4px; }
+.toc-title { margin: 0 0 12px 12px; color: var(--ink-dim); font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: sec; }
+.toc li { counter-increment: sec; }
+.toc ol a { position: relative; display: flex; gap: 10px; align-items: baseline; padding: 8px 12px; border-radius: 10px; color: var(--ink-dim);
+  text-decoration: none; font-size: 14px; line-height: 1.35; transition: color .2s, background-color .2s; }
+.toc ol a::before { content: counter(sec, decimal-leading-zero); font-size: 11px; color: var(--ink-dim); opacity: .6; font-variant-numeric: tabular-nums; min-width: 1.6em; }
+.toc ol a:hover { color: var(--ink); background: rgb(255 255 255 / .03); }
+.toc ol a[aria-current="true"] { color: var(--ink); background: rgb(214 69 59 / .1); }
+.toc ol a[aria-current="true"]::after { content: ""; position: absolute; left: -4px; top: 9px; bottom: 9px; width: 2px; border-radius: 2px; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.toc ol a:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
+.toc-note { margin: 18px 12px 0; color: var(--ink-dim); font-size: 12px; line-height: 1.5; }
+.toc-note a { color: var(--ink-dim); text-underline-offset: 3px; }
+
+/* the document */
+.doc { min-width: 0; max-width: 72ch; }
+.doc .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px; color: var(--accent-soft); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+.doc .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.doc h1 { font: 400 clamp(44px, 6vw, 60px)/1.02 "Instrument Serif"; margin: 0 0 14px; letter-spacing: -.005em; }
+.doc .lede { color: var(--ink-dim); font-size: 17px; margin: 0 0 14px; }
+.doc .updated { color: var(--ink-dim); font-size: 13px; margin: 0 0 40px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.doc section { scroll-margin-top: 110px; padding-bottom: 8px; }
+.doc section + section { margin-top: 48px; }
+.doc h2 { font: 400 30px/1.15 "Instrument Serif"; margin: 0 0 14px; }
+.doc h3 { font-size: 15px; font-weight: 600; margin: 26px 0 8px; letter-spacing: .01em; }
+.doc p { margin: 0 0 14px; color: color-mix(in srgb, var(--ink) 84%, var(--ink-dim)); }
+.doc ul { margin: 0 0 16px; padding-left: 20px; color: color-mix(in srgb, var(--ink) 84%, var(--ink-dim)); }
+.doc li { margin: 0 0 7px; padding-left: 2px; }
+.doc li::marker { color: var(--accent); }
+.doc strong { color: var(--ink); font-weight: 600; }
+.doc a { color: var(--accent-soft); text-underline-offset: 3px; }
+.doc .callout { margin: 22px 0; padding: 16px 18px; border-radius: 14px; background: rgb(255 255 255 / .03); border: 1px solid var(--line-2); color: var(--ink-dim); font-size: 14.5px; }
+.doc .callout strong { color: var(--ink); }
+.doc .placeholder { color: var(--accent-soft); background: rgb(214 69 59 / .1); padding: 0 4px; border-radius: 4px; }
+
+.doc dl.notices { margin: 8px 0 18px; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.doc dl.notices dt { margin: 0; padding: 14px 0 4px; color: var(--ink); font-weight: 600; font-size: 15px; }
+.doc dl.notices dt span { color: var(--ink-dim); font-weight: 400; font-size: 13px; margin-left: 4px; }
+.doc dl.notices dd { margin: 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); color: color-mix(in srgb, var(--ink) 84%, var(--ink-dim)); font-size: 14.5px; line-height: 1.6; }
+
+/* narrow screens: the navigator becomes a horizontal strip above the text, with the sections in order */
+@media (max-width: 860px) {
+  .legal { grid-template-columns: minmax(0, 1fr); padding-top: 28px; gap: 18px; }
+  .toc { position: sticky; top: 66px; z-index: 5; max-height: none; overflow: visible; margin: 0 calc(-1 * clamp(18px, 5vw, 40px)); padding: 10px clamp(18px, 5vw, 40px);
+    background: color-mix(in srgb, var(--night) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .toc-title, .toc-note { display: none; }
+  .toc ol { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .toc ol::-webkit-scrollbar { display: none; }
+  .toc li { flex: none; }
+  .toc ol a { padding: 7px 13px; border: 1px solid var(--line-2); border-radius: 999px; white-space: nowrap; font-size: 13.5px; }
+  .toc ol a::before { display: none; }
+  .toc ol a[aria-current="true"] { border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
+  .toc ol a[aria-current="true"]::after { display: none; }
+  .doc section { scroll-margin-top: 130px; }
+}
+@media (max-width: 480px) {
+  .legal-top .back span { display: none; }
+  .doc h1 { font-size: 44px; }
+  .doc h2 { font-size: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc ol a, .legal-top .back { transition: none; }
+  html { scroll-behavior: auto !important; }
+}
