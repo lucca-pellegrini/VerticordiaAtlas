@@ -164,11 +164,30 @@ async function serveStatic(req, res, url) {
   }
   const type = TYPES[path.extname(file).toLowerCase()];
   if (!type) return send(res, 404, 'not found');
-  const headers = { 'Content-Type': type, 'Content-Length': st.size };
+  // validators: an ETag from size and modification time, and Last-Modified for clients that only use dates
+  const etag = `W/"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`;
+  const lastModified = st.mtime.toUTCString();
+  const headers = { 'Content-Type': type, ETag: etag, 'Last-Modified': lastModified };
+  // text (json, js, css, html) is revalidated on every use, which costs a 304 when unchanged; media is cached for an hour
   headers['Cache-Control'] = TEXT.test(type) ? 'no-cache' : 'public, max-age=3600';
+  if (notModified(req, etag, st.mtime)) {
+    res.writeHead(304, { ETag: etag, 'Last-Modified': lastModified, 'Cache-Control': headers['Cache-Control'] });
+    return res.end();
+  }
+  headers['Content-Length'] = st.size;
   res.writeHead(200, headers);
   if (req.method === 'HEAD') return res.end();
   createReadStream(file).pipe(res);
+}
+
+// RFC 9110: If-None-Match wins when present; If-Modified-Since is only checked without it
+function notModified(req, etag, mtime) {
+  const inm = req.headers['if-none-match'];
+  const strip = t => t.trim().replace(/^W\//, '');
+  if (inm) return inm.trim() === '*' || inm.split(',').some(t => strip(t) === strip(etag));
+  const ims = req.headers['if-modified-since'];
+  if (ims) { const since = Date.parse(ims); return Number.isFinite(since) && Math.floor(mtime.getTime() / 1000) * 1000 <= since; }
+  return false;
 }
 
 const server = http.createServer(async (req, res) => {
