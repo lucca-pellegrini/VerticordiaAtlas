@@ -216,6 +216,60 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "alttp",
+      "slug": "alttp",
+      "title": "The Legend of Zelda: A Link to the Past",
+      "description": "Every marker on the The Legend of Zelda: A Link to the Past map.",
+      "poster": "alttp/poster",
+      "theme": {
+        "accent": "#906e32",
+        "accent-soft": "#caa768",
+        "night": "#0c0a06",
+        "panel": "#16120c",
+        "panel-2": "#1f1a11",
+        "line": "#362e21"
+      },
+      "stats": [
+        {
+          "value": 815,
+          "label": "markers"
+        },
+        {
+          "value": 20,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "altbw",
+      "slug": "altbw",
+      "title": "The Legend of Zelda: A Link Between Worlds",
+      "description": "Every marker on the The Legend of Zelda: A Link Between Worlds map.",
+      "poster": "altbw/poster",
+      "theme": {
+        "accent": "#74a819",
+        "accent-soft": "#ace051",
+        "night": "#0a0c06",
+        "panel": "#12160c",
+        "panel-2": "#1a1f11",
+        "line": "#2e3621"
+      },
+      "stats": [
+        {
+          "value": 332,
+          "label": "markers"
+        },
+        {
+          "value": 18,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }

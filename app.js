@@ -289,7 +289,9 @@ async function loadGame(entry) {
   // difficulty / tag selector
   const tagField = $('#tag-field');
   tagField.hidden = state.tags.length === 0;
-  $('#tag-select').innerHTML = state.tags.map(t => `<option value="${t.id}">${esc(t.title)}</option>`).join('');
+  syncTagStrict();
+  // "Everything" (value "") shows every marker, including ones carrying a tag; it is the default
+  $('#tag-select').innerHTML = '<option value="">Everything</option><option value="' + UNTAGGED + '">Only untagged</option>' + state.tags.map(t => `<option value="${t.id}">${esc(t.title)}</option>`).join('');
 
   await loadProfiles();
   buildSidebar();
@@ -298,10 +300,40 @@ async function loadGame(entry) {
 
 /* ---------- profiles ---------- */
 
-function defaultTagId() {
-  if (!state.tags.length) return null;
-  const want = (state.entry.defaultTag || '').toLowerCase();
-  return (state.tags.find(t => t.title.toLowerCase() === want) || state.tags[0]).id;
+// tag filter value for "only markers with no tag" (tag ids are numbers, so this cannot clash)
+const UNTAGGED = 'untagged';
+
+// the "only this tag" switch means nothing under "Everything", so it is dimmed then (and only shows a hint)
+function syncTagStrict() {
+  const btn = $('#tag-strict');
+  $('#tag-row').hidden = !state.tags.length;
+  btn.setAttribute('aria-pressed', String(tagOnly()));
+  btn.setAttribute('aria-disabled', String(!tagSwitchUsable()));
+}
+
+// a tap toggles the switch; holding it down shows the description instead (the hover bubble is CSS)
+{
+  let pressTimer, tipTimer, held = false;
+  const showTip = btn => {
+    btn.classList.add('tip');
+    clearTimeout(tipTimer);
+    tipTimer = setTimeout(() => btn.classList.remove('tip'), 1800);
+  };
+  const btn = $('#tag-strict');
+  btn.addEventListener('pointerdown', e => {
+    held = false;
+    if (e.pointerType === 'mouse') return; // mouse users get the hover bubble
+    pressTimer = setTimeout(() => { held = true; showTip(btn); }, 450);
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(t => btn.addEventListener(t, () => clearTimeout(pressTimer)));
+  btn.addEventListener('click', () => {
+    if (held) { held = false; return; }
+    if (!tagSwitchUsable()) { showTip(btn); return; }
+    state.tagStrict = !state.tagStrict;
+    syncTagStrict();
+    saveProfileNow();
+    refreshAll();
+  });
 }
 
 function makeProfile(name, tag) {
@@ -313,7 +345,7 @@ async function loadProfiles() {
   state.profiles = (await dbAll('profiles')).filter(p => p.game === state.entry.id)
     .sort((a, b) => a.created - b.created);
   if (!state.profiles.length) {
-    const p = makeProfile('Default', defaultTagId());
+    const p = makeProfile('Default', null);
     await dbPut('profiles', p);
     state.profiles = [p];
   }
@@ -324,9 +356,11 @@ async function loadProfiles() {
 function applyProfile(p) {
   state.profile = p;
   state.found = new Set(p.found || []);
-  state.tag = state.tags.length ? (p.tag ?? defaultTagId()) : null;
+  state.tag = state.tags.length ? (p.tag ?? null) : null;
+  state.tagStrict = !!p.tagStrict;
   renderProfileSelect();
-  if (state.tags.length) $('#tag-select').value = String(state.tag);
+  if (state.tags.length) $('#tag-select').value = state.tag == null ? '' : String(state.tag);
+  syncTagStrict();
 }
 
 function renderProfileSelect() {
@@ -343,6 +377,7 @@ async function saveProfileNow() {
   if (!p) return;
   p.found = [...state.found];
   p.tag = state.tag;
+  p.tagStrict = state.tagStrict;
   p.updated = Date.now();
   try { await dbPut('profiles', p); }
   catch (e) { console.error(e); toast('Could not save progress in this browser.'); }
@@ -371,7 +406,7 @@ async function profileAction(act) {
     const name = await askDialog({ title: 'New profile', message: 'One profile per save file keeps found markers separate.', value: `Playthrough ${state.profiles.length + 1}`, okLabel: 'Create' });
     if (!name) return;
     await saveProfileNow();
-    const np = makeProfile(name, state.tag ?? defaultTagId());
+    const np = makeProfile(name, state.tag);
     await dbPut('profiles', np);
     state.profiles.push(np);
     await switchProfile(np.id);
@@ -389,7 +424,7 @@ async function profileAction(act) {
     await dbDelete('profiles', p.key);
     state.profiles = state.profiles.filter(x => x.id !== p.id);
     if (!state.profiles.length) {
-      const np = makeProfile('Default', defaultTagId());
+      const np = makeProfile('Default', null);
       await dbPut('profiles', np); state.profiles.push(np);
     }
     state.profile = null;
@@ -446,7 +481,12 @@ async function importFile(file) {
 
 /* ---------- filtering and stats ---------- */
 
-const applicable = l => !state.tag || l.tags.length === 0 || l.tags.includes(state.tag);
+// with a tag selected, untagged markers are shown unless "only markers with this tag" is on
+const applicable = l => {
+  if (state.tag == null) return true;
+  if (state.tag === UNTAGGED) return l.tags.length === 0;
+  return l.tags.includes(state.tag) || (!state.tagStrict && l.tags.length === 0);
+};
 const shownOnMap = l => applicable(l) && !state.view.hidden.has(l.cat) && !(state.view.hideFound && state.found.has(l.id));
 
 function computeStats() {
@@ -583,9 +623,30 @@ const savePresets = () => setMeta(presetsKey(), state.presets).catch(() => toast
 const presetById = id => state.presets.find(p => p.id === id) || null;
 const currentPreset = () => presetById(state.presetId);
 
+// With the tag switch on, a category only counts as selected if some of its markers render under the tag.
+// Presets are saved and compared on that basis, so non-rendering categories are stored as unselected.
+const tagSwitchUsable = () => state.tag != null && state.tag !== UNTAGGED; // the switch only narrows a specific tag
+const tagOnly = () => tagSwitchUsable() && !!state.tagStrict;
+function renderedCatIds() {
+  const ids = new Set();
+  for (const l of state.locs) if (applicable(l)) ids.add(l.cat);
+  return ids;
+}
+function selectedIn(hiddenIds) {
+  const h = new Set(hiddenIds), rendered = tagOnly() ? renderedCatIds() : null;
+  return new Set([...state.cats.keys()].filter(id => !h.has(id) && (!rendered || rendered.has(id))));
+}
+// what a preset stores for the given hidden set
+function presetHidden(hiddenIds) {
+  if (!tagOnly()) return [...hiddenIds];
+  const sel = selectedIn(hiddenIds);
+  return [...state.cats.keys()].filter(id => !sel.has(id));
+}
+
 function matchesView(p) {
-  const h = new Set(p.hidden);
-  for (const id of state.cats.keys()) if (h.has(id) !== state.view.hidden.has(id)) return false;
+  const a = selectedIn(p.hidden), b = selectedIn(state.view.hidden);
+  if (a.size !== b.size) return false;
+  for (const id of a) if (!b.has(id)) return false;
   return true;
 }
 
@@ -649,7 +710,7 @@ async function presetAction(act) {
   if (act === 'save') {
     const name = await askDialog({ title: 'Save selection', message: 'Stores which categories are on and off.', value: `Selection ${state.presets.length + 1}`, okLabel: 'Save' });
     if (!name) return;
-    const np = { id: uid(), name, hidden: [...state.view.hidden] };
+    const np = { id: uid(), name, hidden: presetHidden(state.view.hidden) };
     state.presets.push(np);
     state.presetId = np.id;
     await savePresets(); renderPresets();
@@ -659,7 +720,7 @@ async function presetAction(act) {
   const p = currentPreset();
   if (!p) return;
   if (act === 'overwrite') {
-    p.hidden = [...state.view.hidden];
+    p.hidden = presetHidden(state.view.hidden);
     await savePresets(); renderPresets();
     toast('Preset overwritten.');
   } else if (act === 'revert') {
@@ -680,6 +741,7 @@ async function presetAction(act) {
 
 function refreshAll() {
   updateSidebar();
+  renderPresets(); // the tag and its switch change which categories count as selected
   refreshMap();
   if (!$('#results').hidden) runSearch();
   if (state.selected != null) renderDetail();
@@ -991,7 +1053,7 @@ function renderDetail() {
     const names = l.tags.map(id => state.tags.find(t => t.id === id)?.title).filter(Boolean);
     only = `<p class="d-note">Only on ${esc(names.join(', '))}.</p>`;
   }
-  const notHere = !ok ? `<p class="d-note">This marker is not shown on ${esc(state.tags.find(t => t.id === state.tag)?.title || 'this setting')}.</p>` : '';
+  const notHere = !ok ? `<p class="d-note">This marker is not shown on ${esc(state.tag === UNTAGGED ? 'Only untagged' : state.tags.find(t => t.id === state.tag)?.title || 'this setting')}.</p>` : '';
   const shots = l.media.map(m => {
     const file = decodeURIComponent(new URL(m.url).pathname.split('/').pop());
     return `<img loading="lazy" src="${esc(state.folder + '/media/' + file)}" alt="${esc(m.title || l.title)}">`;
@@ -1074,7 +1136,7 @@ function wire() {
   presetMenuBtn.onclick = e => { e.stopPropagation(); presetMenu.hidden = !presetMenu.hidden; presetMenuBtn.setAttribute('aria-expanded', String(!presetMenu.hidden)); };
   presetMenu.onclick = e => { const b = e.target.closest('button[data-act]'); if (b && !b.disabled) { presetMenu.hidden = true; presetAction(b.dataset.act); } };
 
-  $('#tag-select').onchange = e => { state.tag = Number(e.target.value); saveProfileNow(); refreshAll(); };
+  $('#tag-select').onchange = e => { state.tag = e.target.value === '' ? null : e.target.value === UNTAGGED ? UNTAGGED : Number(e.target.value); syncTagStrict(); saveProfileNow(); refreshAll(); };
   $('#hide-found').onchange = e => { state.view.hideFound = e.target.checked; onViewChanged(); };
   $('#show-all').onclick = () => { state.view.hidden.clear(); onViewChanged(); };
   $('#hide-all').onclick = () => { state.cats.forEach(c => state.view.hidden.add(c.id)); onViewChanged(); };

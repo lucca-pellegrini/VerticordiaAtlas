@@ -43,10 +43,13 @@
           <button data-act="import">Import progress</button>
         </div>
       </div>
-      <label class="field" id="tag-field">
-        <span id="tag-label">Difficulty</span>
-        <select id="tag-select"></select>
-      </label>
+      <div class="tag-row" id="tag-row">
+        <label class="field" id="tag-field">
+          <span id="tag-label">Difficulty</span>
+          <select id="tag-select"></select>
+        </label>
+        <button type="button" class="tag-strict" id="tag-strict" aria-pressed="false" aria-label="Show only markers with this tag" data-tip="Show only markers with this tag"><span class="knob"></span></button>
+      </div>
       <div class="profile-row preset-row">
         <label class="field">
           <span>Selection preset</span>
