@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="-8%" r="95%">
+      <stop offset="0" stop-color="#d6453b" stop-opacity=".42"/>
+      <stop offset=".62" stop-color="#d6453b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#171c21"/>
+      <stop offset="1" stop-color="#0b0e10"/>
+    </linearGradient>
+    <clipPath id="square"><rect width="120" height="120" rx="26"/></clipPath>
+  </defs>
+  <g clip-path="url(#square)">
+    <rect width="120" height="120" fill="url(#tile)"/>
+    <rect width="120" height="120" fill="url(#glow)"/>
+    <rect x="0.75" y="0.75" width="118.5" height="118.5" rx="25.5" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="1.5"/>
+    <!-- the map pin of the header, in the accent red -->
+    <svg x="32" y="26" width="56" height="56" viewBox="0 0 24 24" overflow="visible">
+      <path fill="#d6453b" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"/>
+      <circle cx="12" cy="10" r="2.8" fill="#0b0e10"/>
+    </svg>
+    <rect x="44" y="92" width="32" height="2.5" rx="1.25" fill="#d6453b" fill-opacity=".55"/>
+  </g>
+</svg>
