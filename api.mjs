@@ -300,6 +300,7 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
     ws.onHeartbeat(() => sessionAlive(session.tokenHash));
     ws.onClose(() => { set.delete(entry); if (!set.size) sockets.delete(userId); });
     ws.send('{"type":"hello"}');
+
   }
 
   async function handle(req, res, url) {
