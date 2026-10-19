@@ -1,7 +1,7 @@
-maps/*/tiles/
-maps/*/media/
-maps/*/*/tiles/
-maps/*/*/media/
+public/maps/*/tiles/
+public/maps/*/media/
+public/maps/*/*/tiles/
+public/maps/*/*/media/
 cache/
 **/card.jpg
 data/
