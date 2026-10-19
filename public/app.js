@@ -26,7 +26,7 @@ const state = {
   selected: null, map: null, mapReady: false, memoryOnly: false,
   stats: new Map(),
   // search: see the search section. ids: the matches on this map while searching (null when not searching)
-  search: { active: false, scope: 'map', ids: null, rows: [], idx: 0, preview: null, run: 0, busy: false },
+  search: { active: false, scope: 'map', ids: null, rows: [], idx: 0, preview: null, run: 0, busy: false, wild: false },
   presets: [], presetId: null, baseline: null, // baseline: the view before the first preset was picked
   trail: [], session: uid(), // navigation stack of opened markers (last = current); session ties history entries to it
   outLinks: new Map(), inLinks: new Map(), // location id -> ids its description links to / ids linking to it
@@ -1195,12 +1195,14 @@ function rowMenuEl() {
   el.id = 'row-menu'; el.className = 'menu row-menu'; el.hidden = true; el.setAttribute('role', 'menu');
   el.innerHTML = '<div class="rm-head"></div><hr>' +
     `<button type="button" role="menuitem" data-act="found">${svgIcon('check')}<span>Mark all as found</span></button>` +
-    `<button type="button" role="menuitem" data-act="unfound">${svgIcon('open')}<span>Mark all as not found</span></button>`;
+    `<button type="button" role="menuitem" data-act="unfound">${svgIcon('open')}<span>Mark all as not found</span></button>` +
+    `<button type="button" role="menuitem" data-act="list">${svgIcon('list')}<span>List these markers</span></button>`;
   el.onclick = e => {
     const um = e.target.closest('[data-um]');
     if (um) { const user = el._user; closeRowMenu(); state.um?.menuAction(um.dataset.um, user); return; }
     const b = e.target.closest('button[data-act]');
     if (!b || b.disabled || !el._cats) return;
+    if (b.dataset.act === 'list') { const cats = el._cats; closeRowMenu(); listCats(cats); return; }
     const locs = rowLocs(el._cats);
     for (const l of locs) b.dataset.act === 'found' ? state.found.add(l.id) : state.found.delete(l.id);
     closeRowMenu();
@@ -1265,6 +1267,13 @@ function showOnly(ids) {
   const keep = new Set(ids);
   for (const id of state.cats.keys()) keep.has(id) ? state.view.hidden.delete(id) : state.view.hidden.add(id);
   onViewChanged();
+}
+
+// "List these markers": the categories shown alone, and the search lists everything they show (the wildcard "*")
+function listCats(cats) {
+  showOnly(cats.map(c => c.id));
+  $('#search').value = '*';
+  runSearch();
 }
 
 function updateSidebar() {
@@ -2581,11 +2590,13 @@ async function runSearch() {
   const s = state.search;
   endPreview({ instant: true }); // a hover move is undone first: the order is by the view the user has
   const text = $('#search').value.trim();
-  if ([...text].length < SEARCH_MIN) return leaveSearch();
+  const wild = text === '*'; // the wildcard: every marker shown here, not a match
+  if (!wild && [...text].length < SEARCH_MIN) return leaveSearch();
   const my = ++s.run;
   s.active = true;
+  s.wild = wild;
   document.body.classList.add('searching');
-  const all = s.scope === 'all' && state.meta.maps.length > 1;
+  const all = !wild && s.scope === 'all' && state.meta.maps.length > 1;
   let entries = localEntries();
   if (all) {
     s.busy = true; s.rows = []; renderResults();
@@ -2594,7 +2605,9 @@ async function runSearch() {
     entries = entries.concat(others);
     s.busy = false;
   }
-  const hits = rankEntries(queryOf(text), entries, { byDistance: !all });
+  const hits = wild
+    ? entries.map(e => ({ e, tier: 0, typo: 0, here: true, dist: 0 })).sort((a, b) => a.e.l.title.localeCompare(b.e.l.title))
+    : rankEntries(queryOf(text), entries, { byDistance: !all });
   s.rows = hits;
   s.ids = new Set(hits.filter(h => h.here).map(h => h.e.l.id));
   s.idx = 0;
@@ -2606,7 +2619,7 @@ function leaveSearch() {
   const s = state.search;
   endPreview({ instant: true });
   s.run++;
-  s.active = false; s.ids = null; s.rows = []; s.busy = false;
+  s.active = false; s.ids = null; s.rows = []; s.busy = false; s.wild = false;
   document.body.classList.remove('searching');
   $('#results').innerHTML = '';
   refreshMap();
@@ -2630,7 +2643,7 @@ function renderResults() {
     : `${fmt(n)} result${n === 1 ? '' : 's'}${n > SEARCH_SHOWN ? `, first ${SEARCH_SHOWN} listed` : ''}`;
   // a game with one map has nothing to choose between: the pills are not there at all
   const scope = $('#scope-switch');
-  scope.hidden = state.meta.maps.length < 2;
+  scope.hidden = state.meta.maps.length < 2 || s.wild; // the wildcard lists this map only
   scope.querySelectorAll('[data-scope]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.scope === s.scope)));
   placeThumb(scope, 'data-scope', s.scope);
   scope.classList.add('ready'); // from now on the pill slides
