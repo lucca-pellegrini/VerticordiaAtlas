@@ -450,5 +450,17 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
     }
   }
 
-  return { handle, upgrade, close: () => db.close(), _db: db, newSecret, normalizeSecret };
+  // expired sessions and sign-in states are removed at startup and hourly, not only when their cookie comes back
+  const sweep = () => {
+    try {
+      const sessions = db.prepare('DELETE FROM sessions WHERE expires_at < ?').run(now()).changes;
+      const states = db.prepare('DELETE FROM oauth_states WHERE expires_at < ?').run(now()).changes;
+      if (sessions || states) dbg(`sweep: removed ${sessions} expired session(s), ${states} sign-in state(s)`);
+    } catch (e) { console.error('api: cleanup failed:', e.message); }
+  };
+  sweep();
+  const sweepTimer = setInterval(sweep, 60 * 60 * 1000);
+  sweepTimer.unref();
+
+  return { handle, upgrade, close: () => { clearInterval(sweepTimer); db.close(); }, _db: db, newSecret, normalizeSecret };
 }
