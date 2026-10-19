@@ -220,7 +220,12 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
 
   function validItem(it) {
     if (!it || typeof it.key !== 'string' || !KEY_PATTERN.test(it.key)) return false;
-    if (it.value !== null && JSON.stringify(it.value ?? null).length > MAX_VALUE) return false;
+    // "value" must be present: null (a deletion) or a JSON value. undefined is not JSON and would reach SQLite as undefined
+    if (!('value' in it) || it.value === undefined) return false;
+    if (it.value !== null) {
+      const json = JSON.stringify(it.value);
+      if (typeof json !== 'string' || json.length > MAX_VALUE) return false;
+    }
     return true;
   }
   function syncPush(userId, items) {
