@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // server.mjs: serves the site, and makes the preview cards for shared markers on demand.
 //
-//   node server.mjs [--port 8080] [--host 127.0.0.1]
+//   node server/server.mjs [--port 8080] [--host 127.0.0.1] [--debug]
 //
 // Plain files are served as they are. Two routes are added:
 //   /maps/<game>/?loc=<id>&map=<map>        the game page, with that marker's own preview tags. The page itself
