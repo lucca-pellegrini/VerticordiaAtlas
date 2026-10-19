@@ -88,7 +88,6 @@
       </div>
       <div class="search">
         <input id="search" type="search" placeholder="Search locations" autocomplete="off" aria-label="Search locations">
-        <ul id="results" hidden></ul>
       </div>
     </header>
     <div class="list-tools">
@@ -97,6 +96,8 @@
       <label class="check"><input type="checkbox" id="hide-found"><span>Hide found</span></label>
       <button id="side-close" class="link-btn mobile-only">Close</button>
     </div>
+    <div id="results-bar" class="results-bar"><span class="r-count"></span><div id="scope-switch" class="map-switch scope-switch" role="group" aria-label="Search in"><span class="map-thumb" aria-hidden="true"></span><button type="button" data-scope="map" aria-pressed="true">This map</button><button type="button" data-scope="all" aria-pressed="false">All maps</button></div></div>
+    <ul id="results"></ul>
     <div id="groups" class="groups"></div>
   </aside>
 

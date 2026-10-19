@@ -3,6 +3,8 @@
 // markers.json + markers.png, tiles/{z}/{y}/{x}.jpg and media/<file>.jpg.
 
 const $ = (s, r = document) => r.querySelector(s);
+import { norm, flat, words, fuzzyScore } from './shared/search.mjs';
+
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const fmt = n => Number(n).toLocaleString();
 import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML, setupDrawing } from './drawing.js';
@@ -22,7 +24,9 @@ const state = {
   profiles: [], profile: null, found: new Set(), tag: null,
   view: { hidden: new Set(), hideFound: false, collapsed: new Set() },
   selected: null, map: null, mapReady: false, memoryOnly: false,
-  stats: new Map(), searchHits: [], searchIdx: -1,
+  stats: new Map(),
+  // search: see the search section. ids: the matches on this map while searching (null when not searching)
+  search: { active: false, scope: 'map', ids: null, rows: [], idx: 0, preview: null, run: 0, busy: false },
   presets: [], presetId: null, baseline: null, // baseline: the view before the first preset was picked
   trail: [], session: uid(), // navigation stack of opened markers (last = current); session ties history entries to it
   outLinks: new Map(), inLinks: new Map(), // location id -> ids its description links to / ids linking to it
@@ -489,15 +493,16 @@ function markSwitchTarget(slug) {
   nav.querySelector('select').value = slug;
   moveThumb(slug);
 }
-function moveThumb(slug) {
-  const nav = document.getElementById('map-switch');
+// the sliding pill behind the chosen button of a pill bar (.map-switch: the map pills, and the search's scope)
+function placeThumb(nav, attr, value) {
   const thumb = nav?.querySelector('.map-thumb');
   if (!thumb) return;
-  const b = nav.querySelector(`button[data-map="${CSS.escape(slug ?? '')}"]`);
+  const b = nav.querySelector(`button[${attr}="${CSS.escape(value ?? '')}"]`);
   if (!b || nav.classList.contains('as-select')) { thumb.style.width = '0px'; return; }
   thumb.style.width = b.offsetWidth + 'px';
   thumb.style.transform = `translateX(${b.offsetLeft}px)`;
 }
+function moveThumb(slug) { placeThumb(document.getElementById('map-switch'), 'data-map', slug); }
 // The pills while they fit the sidebar. A little too wide is squeezed (the names are cut short) rather than turning into a
 // drop-down; only clearly too wide becomes the drop-down. Measured with the pills in their natural state, before anything is drawn.
 const SWITCH_TOLERANCE = 16; // px
@@ -1294,6 +1299,7 @@ function onViewChanged() {
   updateSidebar();
   refreshMap();
   renderPresets();
+  if (state.search.active) runSearch(); // hidden categories and "hide found" change what matches
 }
 
 /* ---------- selection presets (which categories are on/off) ---------- */
@@ -1471,7 +1477,7 @@ function refreshAll() {
   renderPresets(); // the tag and its switch change which categories count as selected
   refreshMap();
   state.drawing?.render();
-  if (!$('#results').hidden) runSearch();
+  if (state.search.active) runSearch();
   if (state.selected != null) renderDetail();
 }
 
@@ -1508,11 +1514,15 @@ function createMap() {
   });
   state.map = map;
   let camTimer = null;
-  map.on('movestart', e => { if (state.glide && e.originalEvent) state.glide.touched = true; }); // a hand on the map, during a glide
+  map.on('movestart', e => {
+    if (state.glide && e.originalEvent) state.glide.touched = true; // a hand on the map, during a glide
+    if (e.originalEvent && state.search.preview) state.search.preview = null; // a hand on the map ends a preview, and keeps the view
+  });
   map.on('moveend', () => {
     const g = state.glide;
     state.glide = null;
     if (g && !g.touched) agreeCamera(); // it landed where the other device put it: nothing to send back
+    if (state.search.preview) return; // a search preview is on screen: the view is not the user's to save yet
     clearTimeout(camTimer); camTimer = setTimeout(() => rememberCamera(false), 400);
   });
   map.touchZoomRotate.disableRotation();
@@ -1723,6 +1733,7 @@ function refreshMap() {
   const feats = [];
   for (const l of state.locs) {
     if (!shownOnMap(l)) continue;
+    if (state.search.ids && !state.search.ids.has(l.id)) continue; // while searching: the matches only
     const icon = mapIcon(l.icon);
     const f = state.found.has(l.id) ? 1 : 0;
     feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: { id: l.id, icon, f, z: f ? 0 : 1 } });
@@ -2433,34 +2444,223 @@ function toggleFound(id) {
   renderDetail();
 }
 
-/* ---------- search ---------- */
+/* ---------- search ----------
+   From two letters on, the sidebar's list gives way to the results, and the map shows only the matches (on this map;
+   "All maps" lists the other maps too). Matching is shared/search.mjs: the title before the description; within a
+   title, exact, then the phrase, then every word, then with typos. Among equal matches the nearest to the view comes
+   first. Hovering a result moves the map to it; leaving the list (or pressing Esc) puts the view back. That move is
+   not saved, so it does not count as the user moving the map. */
 
-function runSearch() {
-  const q = $('#search').value.trim().toLowerCase();
-  const box = $('#results');
-  if (!q) { box.hidden = true; state.searchHits = []; return; }
-  const toks = q.split(/\s+/);
+const SEARCH_MIN = 2, SEARCH_SHOWN = 300, PREVIEW_MS = 350;
+const mapName = slug => state.meta?.maps?.find(m => m.slug === slug)?.title || slug;
+
+function queryOf(text) {
+  const toks = flat(text).split(' ').filter(Boolean);
+  return { phrase: toks.join(' '), toks, long: toks.filter(t => t.length >= 3) };
+}
+
+// the normalised title and description of a location, cached (descriptions are long)
+const textCache = new WeakMap();
+function textOf(l) {
+  let c = textCache.get(l);
+  if (!c) textCache.set(l, c = { title: flat(l.title), titleWords: words(l.title), desc: flat(l.desc), descWords: null });
+  return c;
+}
+
+// a query word in a text: a word of three letters or more anywhere in it, a shorter one only as a whole word
+const hasWord = (text, t) => (t.length >= 3 ? text.includes(t) : (' ' + text + ' ').includes(' ' + t + ' '));
+
+// [tier, typos] when the location matches, else null. Lower tiers first: 0 exact title, 1 title contains the phrase,
+// 2 title contains every word, 3 title with typos, 4 description contains every word, 5 description with typos.
+function matchOf(q, l) {
+  const c = textOf(l);
+  if (c.title === q.phrase) return [0, 0];
+  if (c.title.includes(q.phrase)) return [1, 0];
+  if (q.toks.every(t => hasWord(c.title, t))) return [2, 0];
+  const t3 = fuzzyScore(q.long, c.titleWords);
+  if (t3 !== null) return [3, t3];
+  if (q.toks.every(t => hasWord(c.desc, t))) return [4, 0];
+  c.descWords ??= words(l.desc);
+  const t5 = fuzzyScore(q.long, c.descWords);
+  return t5 !== null ? [5, t5] : null;
+}
+
+// the locations of this map a search may match: shown now (category on, found ones only when they are shown)
+function localEntries() {
+  const cur = state.mapInfo.slug;
+  return state.locs
+    .filter(l => applicable(l) && !state.view.hidden.has(l.cat) && !(state.view.hideFound && state.found.has(l.id)))
+    .map(l => ({ l, slug: cur, cat: state.cats.get(l.cat), col: state.groupOfCat.get(l.cat)?.col }));
+}
+
+// the other maps of the game, from their data (fetched once, as when a map opens). Their categories and found markers
+// are as that map's saved view has them; the tag switch of this map does not apply to them.
+async function otherEntries() {
+  const others = state.meta.maps.filter(m => m.slug !== state.mapInfo.slug);
+  const lists = await Promise.all(others.map(async info => {
+    const data = await mapData(info);
+    const cats = new Map(Object.values(data.categories).map(c => [c.id, c]));
+    const groupCol = new Map(data.groups.map(g => [g.id, vivid(g.color)]));
+    const view = state.profile?.view?.[info.slug] || {};
+    const hidden = new Set(view.hidden || []);
+    const out = [];
+    for (const d of data.locations) {
+      const lat = parseFloat(d.latitude), lng = parseFloat(d.longitude);
+      if (!Number.isFinite(lat) || !Number.isFinite(lng) || hidden.has(d.category_id)) continue;
+      if (view.hideFound && state.found.has(d.id)) continue;
+      const cat = cats.get(d.category_id);
+      out.push({ l: { id: d.id, title: d.title || '', desc: d.description || '', lat, lng }, slug: info.slug, cat, col: groupCol.get(cat?.group_id) });
+    }
+    return out;
+  }));
+  return lists.flat();
+}
+
+// matches, best first. Within a tier: this map before the others, then the nearest to the camera. With all maps listed
+// the camera means nothing across maps, so there the order inside a tier is by title (this map still first).
+function rankEntries(q, entries, { byDistance = true } = {}) {
+  const cam = state.map ? state.map.getCenter() : { lng: 0, lat: 0 }, cur = state.mapInfo.slug;
   const hits = [];
-  for (const l of state.locs) {
-    if (!applicable(l)) continue;
-    const hay = (l.title + ' ' + (state.cats.get(l.cat)?.title || '')).toLowerCase();
-    if (toks.every(t => hay.includes(t))) hits.push({ l, rank: l.title.toLowerCase().startsWith(toks[0]) ? 0 : 1 });
+  for (const e of entries) {
+    const m = matchOf(q, e.l);
+    if (!m) continue;
+    const here = e.slug === cur;
+    const dist = byDistance && here ? Math.hypot(e.l.lng - cam.lng, e.l.lat - cam.lat) : 0;
+    hits.push({ e, tier: m[0], typo: m[1], here, dist });
   }
-  hits.sort((a, b) => a.rank - b.rank || a.l.title.localeCompare(b.l.title));
-  state.searchHits = hits.slice(0, 40).map(h => h.l);
-  state.searchIdx = state.searchHits.length ? 0 : -1;
-  box.innerHTML = state.searchHits.length
-    ? state.searchHits.map((l, i) => `<li data-id="${l.id}" class="${i === 0 ? 'active' : ''}"><span>${esc(l.title)}</span><span class="cat${state.found.has(l.id) ? ' found' : ''}">${state.found.has(l.id) ? 'found' : esc(state.cats.get(l.cat)?.title || '')}</span></li>`).join('')
-    : '<li>No matches</li>';
-  box.hidden = false;
+  const cmp = (x, y) => (x < y ? -1 : x > y ? 1 : 0);
+  hits.sort((a, b) => cmp(a.tier, b.tier) || cmp(a.typo, b.typo) || cmp(b.here, a.here) || cmp(a.dist, b.dist)
+    || a.e.l.title.localeCompare(b.e.l.title));
+  return hits;
+}
+
+async function runSearch() {
+  const s = state.search;
+  endPreview({ instant: true }); // a hover move is undone first: the order is by the view the user has
+  const text = $('#search').value.trim();
+  if ([...text].length < SEARCH_MIN) return leaveSearch();
+  const my = ++s.run;
+  s.active = true;
+  document.body.classList.add('searching');
+  const all = s.scope === 'all' && state.meta.maps.length > 1;
+  let entries = localEntries();
+  if (all) {
+    s.busy = true; s.rows = []; renderResults();
+    const others = await otherEntries().catch(() => []);
+    if (my !== s.run) return; // a newer query has taken over
+    entries = entries.concat(others);
+    s.busy = false;
+  }
+  const hits = rankEntries(queryOf(text), entries, { byDistance: !all });
+  s.rows = hits;
+  s.ids = new Set(hits.filter(h => h.here).map(h => h.e.l.id));
+  s.idx = 0;
+  renderResults();
+  refreshMap();
+}
+
+function leaveSearch() {
+  const s = state.search;
+  endPreview({ instant: true });
+  s.run++;
+  s.active = false; s.ids = null; s.rows = []; s.busy = false;
+  document.body.classList.remove('searching');
+  $('#results').innerHTML = '';
+  refreshMap();
+}
+
+function resultHtml(h, i) {
+  const { e, here } = h, l = e.l, found = state.found.has(l.id);
+  const icon = e.cat ? iconHtml(e.cat.icon, e.cat.color || e.col) : '';
+  const sub = [e.cat?.title, here ? '' : mapName(e.slug)].filter(Boolean).join(' · ');
+  return `<li class="result${found ? ' found' : ''}${i === state.search.idx ? ' active' : ''}" data-id="${l.id}" data-map="${esc(e.slug)}">` +
+    `<div class="r-head"><span class="ico-wrap">${icon}</span><span class="r-title">${esc(l.title)}</span>${found ? '<span class="r-found">found</span>' : ''}</div>` +
+    `<div class="r-sub">${esc(sub)}</div>` + (l.desc ? `<div class="r-desc">${renderMd(l.desc)}</div>` : '') + '</li>';
+}
+
+function renderResults() {
+  const s = state.search, n = s.rows.length;
+  $('#results').innerHTML = s.rows.slice(0, SEARCH_SHOWN).map(resultHtml).join('');
+  const bar = $('#results-bar');
+  bar.querySelector('.r-count').textContent = s.busy ? 'Searching the other maps…'
+    : n === 0 ? 'No matches'
+    : `${fmt(n)} result${n === 1 ? '' : 's'}${n > SEARCH_SHOWN ? `, first ${SEARCH_SHOWN} listed` : ''}`;
+  // a game with one map has nothing to choose between: the pills are not there at all
+  const scope = $('#scope-switch');
+  scope.hidden = state.meta.maps.length < 2;
+  scope.querySelectorAll('[data-scope]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.scope === s.scope)));
+  placeThumb(scope, 'data-scope', s.scope);
+  scope.classList.add('ready'); // from now on the pill slides
+}
+
+// a thin dotted ring on the result under the pointer: the same circle a selected marker gets (style.css .search-ring),
+// drawn over the map and kept on its location while the map moves
+let ringEl = null, ringAt = null;
+function showRing(l) {
+  if (!ringEl) {
+    ringEl = document.createElement('div');
+    ringEl.className = 'search-ring';
+    ringEl.hidden = true;
+    state.map.getContainer().appendChild(ringEl);
+    state.map.on('move', placeRing);
+  }
+  ringAt = l;
+  ringEl.hidden = false;
+  placeRing();
+}
+function hideRing() {
+  ringAt = null;
+  if (ringEl) ringEl.hidden = true;
+}
+function placeRing() {
+  if (!ringEl || ringEl.hidden || !ringAt) return;
+  const p = state.map.project([ringAt.lng, ringAt.lat]);
+  // the selected marker's circle sits 17px above its point (see the 'sel' layer), so the ring does too
+  ringEl.style.transform = `translate(${p.x - 21}px, ${p.y - 38}px)`;
+}
+
+// the map moves to a result on this map (hover, or the arrow keys); the view is kept aside to go back to
+function previewRow(li) {
+  const s = state.search;
+  if (!li || !state.mapReady) return;
+  const hit = s.rows.find(h => String(h.e.l.id) === li.dataset.id && h.e.slug === li.dataset.map);
+  if (!hit || !hit.here) return;
+  if (!s.preview) s.preview = { cam: { center: state.map.getCenter(), zoom: state.map.getZoom() } };
+  const { lng, lat } = hit.e.l;
+  state.map.easeTo({ center: [lng, lat], zoom: Math.max(state.map.getZoom(), 12), duration: PREVIEW_MS });
+  showRing(hit.e.l);
+}
+
+// puts the view back where it was before the preview; a move that is not a preview is never undone
+function endPreview({ instant = false, restore = true } = {}) {
+  const s = state.search, p = s.preview;
+  hideRing();
+  if (!p) return;
+  s.preview = null;
+  if (!restore || !state.mapReady) return;
+  if (instant) state.map.jumpTo({ center: p.cam.center, zoom: p.cam.zoom });
+  else state.map.easeTo({ center: p.cam.center, zoom: p.cam.zoom, duration: PREVIEW_MS });
 }
 
 function moveSearch(d) {
-  const items = [...$('#results').querySelectorAll('li[data-id]')];
+  const s = state.search, items = [...$('#results').querySelectorAll('li.result')];
   if (!items.length) return;
-  state.searchIdx = (state.searchIdx + d + items.length) % items.length;
-  items.forEach((el, i) => el.classList.toggle('active', i === state.searchIdx));
-  items[state.searchIdx].scrollIntoView({ block: 'nearest' });
+  s.idx = (s.idx + d + items.length) % items.length;
+  items.forEach((el, i) => el.classList.toggle('active', i === s.idx));
+  items[s.idx].scrollIntoView({ block: 'nearest' });
+  previewRow(items[s.idx]);
+}
+
+// a result is opened: its map is switched to first if it is another one; the card and the camera then go to it
+async function openResult(li) {
+  if (!li) return;
+  const id = Number(li.dataset.id), slug = li.dataset.map;
+  endPreview({ restore: false }); // select() flies there from where the preview left the map
+  if (slug !== state.mapInfo.slug) {
+    await switchMap(slug);
+    if (state.mapInfo?.slug !== slug) return;
+  }
+  select(id);
 }
 
 /* ---------- events ---------- */
@@ -2473,7 +2673,7 @@ function arrangeSidebar() {
   const scroll = document.createElement('div');
   scroll.className = 'side-scroll';
   for (const el of [...head.children]) if (!el.matches('.title-row, .progress')) scroll.appendChild(el);
-  for (const sel of ['.list-tools', '#groups']) {
+  for (const sel of ['.list-tools', '#results-bar', '#results', '#groups']) {
     const el = document.querySelector('#side ' + sel);
     if (el) scroll.appendChild(el);
   }
@@ -2610,19 +2810,27 @@ function wire() {
   $('#show-all').onclick = () => { state.view.hidden.clear(); onViewChanged(); };
   $('#hide-all').onclick = () => { state.cats.forEach(c => state.view.hidden.add(c.id)); onViewChanged(); };
 
-  const search = $('#search'), results = $('#results');
-  search.oninput = runSearch;
+  const search = $('#search'), results = $('#results'), resultsBar = $('#results-bar');
+  search.oninput = () => runSearch();
   search.onfocus = () => { if (search.value.trim()) runSearch(); };
   search.onkeydown = e => {
-    if (e.key === 'ArrowDown') { e.preventDefault(); moveSearch(1); }
-    else if (e.key === 'ArrowUp') { e.preventDefault(); moveSearch(-1); }
-    else if (e.key === 'Enter') { const l = state.searchHits[state.searchIdx]; if (l) { results.hidden = true; select(l.id); } }
-    else if (e.key === 'Escape') { results.hidden = true; }
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); moveSearch(e.key === 'ArrowDown' ? 1 : -1); }
+    else if (e.key === 'Enter') { e.preventDefault(); openResult(results.querySelectorAll('li.result')[state.search.idx]); }
+    else if (e.key === 'Escape') { search.value = ''; leaveSearch(); }
   };
-  results.onclick = e => { const li = e.target.closest('li[data-id]'); if (li) { results.hidden = true; select(Number(li.dataset.id)); } };
+  results.onclick = e => {
+    const a = e.target.closest('a');
+    if (a) { if (a.dataset.loc) { e.preventDefault(); select(Number(a.dataset.loc)); } return; } // links in a description
+    openResult(e.target.closest('li.result'));
+  };
+  results.onpointerover = e => { const li = e.target.closest('li.result'); if (li && li !== results.hoverRow) { results.hoverRow = li; previewRow(li); } };
+  results.onpointerleave = () => { results.hoverRow = null; endPreview(); };
+  resultsBar.onclick = e => {
+    const b = e.target.closest('button[data-scope]');
+    if (b) { state.search.scope = b.dataset.scope; runSearch(); }
+  };
   document.addEventListener('click', e => {
     if (!e.target.closest('#row-menu, .row-menu-btn')) closeRowMenu();
-    if (!e.target.closest('.search')) results.hidden = true;
     if (!e.target.closest('.profile-row')) menu.hidden = true;
     if (!e.target.closest('.preset-row')) presetMenu.hidden = true;
   });

@@ -144,14 +144,26 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 
 .search { position: relative; }
 .search input { padding: 10px 14px 10px 38px; border-radius: 999px; background-image: var(--search); background-repeat: no-repeat; background-position: 14px center; background-size: 16px; }
-#results {
-  position: absolute; left: 0; right: 0; top: 100%; margin: 6px 0 0; padding: 6px; list-style: none; z-index: 15; max-height: 50vh; overflow: auto;
-  background: var(--panel-2); border: 1px solid var(--line-2); border-radius: 14px; box-shadow: 0 22px 44px -12px #000d, inset 0 1px 0 #ffffff0d; animation: pop .16s var(--ease);
-}
-#results li { padding: 8px 10px; border-radius: 9px; cursor: pointer; display: flex; justify-content: space-between; gap: 12px; }
-#results li:hover, #results li.active { background: var(--tint); }
-#results .cat { color: var(--ink-dim); font-size: 12px; white-space: nowrap; }
-#results .found { color: var(--accent-soft); }
+/* search: while searching, the results take the place of the list (body.searching), and the bar above them counts */
+#results, .results-bar { display: none; }
+body.searching #groups { display: none; }
+body.searching #results { display: block; list-style: none; margin: 0; padding: 6px 8px 16px; }
+body.searching .results-bar { display: flex; align-items: center; gap: 8px; padding: 8px 12px 6px; font-size: 12px; color: var(--ink-dim); }
+.results-bar .r-count { flex: 1; min-width: 0; }
+.results-bar .scope-switch { flex: none; }
+#results li.result { padding: 9px 10px; border-radius: 12px; cursor: pointer; border: 1px solid transparent; }
+#results li.result:hover, #results li.result.active { background: var(--tint); }
+#results .r-head { display: flex; align-items: center; gap: 9px; min-width: 0; }
+#results .ico-wrap { flex: none; width: 18px; height: 18px; display: inline-flex; justify-content: center; }
+#results .r-title { flex: 1; min-width: 0; font-size: 14px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#results .r-found { flex: none; font-size: 11px; color: var(--accent-soft); }
+#results .r-sub { margin: 2px 0 0 27px; font-size: 11.5px; color: var(--ink-dim); }
+#results .r-desc { margin: 6px 0 0 27px; font-size: 12.5px; line-height: 1.5; color: var(--ink-dim); }
+#results .r-desc p { margin: 0 0 6px; }
+#results .r-desc ul, #results .r-desc ol { margin: 0 0 6px; padding-left: 18px; }
+#results li.result.found .r-title { color: var(--ink-dim); }
+/* the ring on a search result under the pointer (app.js showRing): like a selected marker's circle, but dotted and thin */
+.search-ring { position: absolute; left: 0; top: 0; width: 42px; height: 42px; box-sizing: border-box; border-radius: 50%; border: 1.5px dotted var(--accent-soft); pointer-events: none; z-index: 4; }
 
 .list-tools { display: flex; align-items: center; gap: 4px; padding: 8px 10px 8px 12px; border-bottom: 1px solid var(--line); }
 .check { margin-left: auto; display: flex; align-items: center; gap: 8px; padding: 4px 6px; color: var(--ink-dim); font-size: 12.5px; cursor: pointer; }

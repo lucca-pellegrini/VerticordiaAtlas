@@ -1,4 +1,5 @@
 import { initAccount, accountSlot, notify } from './account.js';
+import { norm, words, fuzzyScore } from './shared/search.mjs';
 // Homepage: renders one card per entry in maps/index.json.
 //
 // To add a game: put its files in maps/<slug>/ (with an index.html like maps/requiem/index.html),
@@ -48,40 +49,7 @@ async function main() {
   setupSearch(list);
 }
 
-// Search. Results: cards whose title or description contains the query as a substring.
-// Partial matches: the remaining cards where every query word is within a small edit distance
-// (Levenshtein) of some word in the card, sorted by total distance (closest first).
-const norm = s => String(s).normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
-const words = s => norm(s).split(/[^\p{L}\p{N}]+/u).filter(w => w.length >= 3);
-
-function levenshtein(a, b) {
-  if (a === b) return 0;
-  if (!a.length) return b.length;
-  if (!b.length) return a.length;
-  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
-  for (let i = 1; i <= a.length; i++) {
-    const cur = [i];
-    for (let j = 1; j <= b.length; j++) {
-      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-    }
-    prev = cur;
-  }
-  return prev[b.length];
-}
-
-// Total edit distance of the query words against the card's words, or null if any word is too far off.
-function fuzzyScore(queryWords, cardWords) {
-  let total = 0;
-  for (const qw of queryWords) {
-    if (qw.length < 3) return null;
-    const allowed = qw.length <= 4 ? 1 : 2;
-    let best = Infinity;
-    for (const cw of cardWords) best = Math.min(best, levenshtein(qw, cw));
-    if (best > allowed) return null;
-    total += best;
-  }
-  return total;
-}
+// Search: a card matches by its title or description, exactly or with typos (shared/search.mjs).
 
 function setupSearch(list) {
   const toggle = document.querySelector('.search-toggle');
