@@ -48,7 +48,7 @@ export async function loadGames() {
     const entry = listed.get(d.name) || {};
     const title = cleanTitle(entry.title || meta.title || d.name);
     games.push({
-      slug: d.name, dir, title, maps: meta.maps || [], markers: meta.markers || null,
+      slug: d.name, dir, title, maps: meta.maps || [], markers: meta.markers || null, icons: meta.icons || null,
       description: entry.description || `Every marker on the ${title} map.`,
       alt: entry.posterAlt || `${title} key art`,
       theme: { ...DEFAULT_THEME, ...(entry.theme || {}) },
@@ -137,23 +137,24 @@ export async function glyphInner(name) {
   if (!lucide) lucide = JSON.parse(await readFile(path.join(PUBLIC, 'vendor', 'lucide', 'icons.json'), 'utf8'));
   return lucide[name]?.[0] ?? null;
 }
-// the game's own marker sprite (the same file the map uses): its definitions and sheet, read once
-const sheetCache = new Map();
-export async function spriteSheet(gameDir, markers) {
-  if (!markers) return null;
-  const pick = markers.json2x && markers.png2x ? { json: markers.json2x, png: markers.png2x } : { json: markers.json, png: markers.png };
-  const jsonPath = path.join(gameDir, pick.json);
-  if (!sheetCache.has(jsonPath)) {
-    sheetCache.set(jsonPath, readFile(jsonPath, 'utf8').then(t => ({ defs: JSON.parse(t), png: path.join(gameDir, pick.png) })));
-  }
-  return sheetCache.get(jsonPath);
-}
-// an official category's icon: its sprite cut-out, on a disc of its group's colour
-export async function officialIcon(game, iconName, color) {
-  const sheet = await spriteSheet(game.dir, game.markers);
-  const d = sheet?.defs?.[iconName];
-  if (!d || !color) return null;
-  return { sprite: { file: sheet.png, x: d.x, y: d.y, w: d.width, h: d.height }, color, ink: '#ffffff' };
+// an official category's icon: the game's own icon-font glyph (add-game.mjs keeps the glyph map in meta.json), in the ink
+// that reads on its group's colour, as the sidebar draws it. Black or white layers take that ink; coloured ones keep theirs.
+const HEX = /^#[0-9a-f]{3,8}$/i, EM = /^-?\d+(\.\d+)?(em|px)$/, CODEPOINT = /^[0-9a-f]{1,6}$/i;
+const BLACK_OR_WHITE = new Set(['#000', '#000000', '#fff', '#ffffff']);
+export function officialIcon(game, iconName, color) {
+  const icons = game.icons;
+  const raw = icons?.glyphs?.[iconName];
+  if (!raw || !icons.font || !HEX.test(color || '')) return null;
+  const ink = glyphInk(color);
+  const layers = (Array.isArray(raw) ? raw : [raw]).map(l => {
+    const layer = typeof l === 'string' ? { cp: l } : l || {};
+    const cp = String(layer.cp ?? '').toLowerCase();
+    if (!CODEPOINT.test(cp)) return null;
+    const tint = HEX.test(layer.color || '') && !BLACK_OR_WHITE.has(layer.color.toLowerCase()) ? layer.color : ink;
+    return { cp, tint, ml: EM.test(layer.ml || '') ? layer.ml : '' };
+  }).filter(Boolean);
+  if (!layers.length) return null;
+  return { font: path.join(game.dir, icons.font), layers, color, ink };
 }
 
 // a category's icon for a card: its colour, the glyph's contrasting ink, and the markup (or null when unknown)
@@ -163,13 +164,10 @@ export async function categoryIcon({ glyph, color }) {
   return inner ? { glyph, color, ink: glyphInk(color), inner } : null;
 }
 
-// the icon's graphic inside its disc: a library glyph, or a cut-out of the game's sprite sheet scaled up
+// the icon's graphic inside its disc: the game's icon-font glyph, or a library glyph
 function iconGraphic(icon) {
-  if (icon.sprite) {
-    const n = v => (Number.isFinite(+v) ? +v : 0); // numbers only: these go into a style attribute
-    const file = icon.sprite.file, x = n(icon.sprite.x), y = n(icon.sprite.y), w = n(icon.sprite.w), h = n(icon.sprite.h);
-    const s = 100 / Math.max(h, w, 1); // the sprite cut-outs have padding: scale past the disc so the glyph reads
-    return `<span class="spr" style="width:${w}px;height:${h}px;background-image:url('${fileUrl(file)}');background-position:-${x}px -${y}px;transform:translate(-50%,-50%) scale(${s})"></span>`;
+  if (icon.layers) {
+    return `<span class="gi">${icon.layers.map(l => `<span style="color:${l.tint}${l.ml ? `;margin-left:${l.ml}` : ''}">&#x${l.cp};</span>`).join('')}</span>`;
   }
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${icon.inner}</svg>`;
 }
@@ -181,14 +179,15 @@ export function markerHtml({ title, category, description, gameTitle, theme, pos
   const head = icon && category
     ? `<div class="cat-row"><span class="cat-disc" style="--c:${icon.color};--g:${icon.ink}">${iconGraphic(icon)}</span><span class="cat-name">${esc(category)}</span></div>`
     : (category ? `<p class="eyebrow"><span>${esc(category)}</span></p>` : '');
-  const css = (picture ? `.shot { position: absolute; right: 64px; top: 50%; transform: translateY(-50%); max-width: 500px; max-height: 430px;
+  const fontFace = icon?.layers ? `@font-face { font-family: "CardIcon"; src: url("${fileUrl(icon.font)}") format("woff"); }\n` : '';
+  const css = fontFace + (picture ? `.shot { position: absolute; right: 64px; top: 50%; transform: translateY(-50%); max-width: 500px; max-height: 430px;
     border-radius: 18px; border: 1px solid rgb(255 255 255 / .14); box-shadow: 0 34px 60px -22px #000; object-fit: contain; }` : '') +
     `.cat-row { display: flex; align-items: center; gap: 22px; margin: 0 0 30px; }
     .cat-disc { flex: none; width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center; background: var(--c); color: var(--g);
       box-shadow: 0 0 0 5px rgb(255 255 255 / .12), 0 20px 44px -14px var(--c); }
     .cat-disc { position: relative; overflow: hidden; }
     .cat-disc svg { width: 58px; height: 58px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-    .cat-disc .spr { position: absolute; left: 50%; top: 50%; image-rendering: auto; }
+    .cat-disc .gi { display: flex; align-items: center; font: 400 58px/1 "CardIcon"; color: var(--g); }
     .cat-name { font: 700 30px/1.15 Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); overflow: hidden; text-overflow: ellipsis; }`;
   return page(`${posterDiv(poster)}
 ${picture}

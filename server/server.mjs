@@ -108,7 +108,7 @@ async function markerInfo(gameSlug, mapSlug, id) {
   if (!loc) return null;
   const cat = Object.values(data.categories || {}).find(c => c.id === loc.category_id);
   const shot = await firstScreenshot(g.dir, loc.media);
-  // the card shows the category's icon: the game's own sprite, on its group's colour
+  // the card shows the category's icon: the game's own icon-font glyph, on its group's colour
   const group = (data.groups || []).find(x => x.id === cat?.group_id);
   const color = /^#?[0-9a-f]{6}$/i.test(group?.color || '') ? '#' + String(group.color).replace('#', '') : null;
   const icon = cat?.icon ? await officialIcon(g, cat.icon, color) : null;
