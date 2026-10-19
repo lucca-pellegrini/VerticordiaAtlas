@@ -2182,8 +2182,9 @@ function select(id, { fly = true, push = true } = {}) {
   state.selected = id;
   refreshMap(); // the card's marker and its links are drawn whatever the filters say
   if (applicable(l) && state.view.hidden.has(l.cat)) {
+    // showing the category is a change of the view like any other: the selected preset then shows as modified
     state.view.hidden.delete(l.cat);
-    scheduleViewSave(); updateSidebar(); refreshMap();
+    onViewChanged();
   }
   if (state.mapReady) {
     state.map.getSource('sel').setData({ type: 'FeatureCollection', features: [{ type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: {} }] });
