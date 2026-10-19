@@ -6,7 +6,7 @@
 //   /api/ (accounts, sync): never cached, never answered from the cache
 // Bump VERSION when the precache list changes.
 
-const VERSION = 'v16';
+const VERSION = 'v17';
 const SHELL = `va-shell-${VERSION}`, DATA = `va-data-${VERSION}`, TILES = `va-tiles-${VERSION}`, FONTS = `va-fonts-${VERSION}`;
 const KEEP = new Set([SHELL, DATA, TILES, FONTS]);
 const TILE_LIMIT = 2000;

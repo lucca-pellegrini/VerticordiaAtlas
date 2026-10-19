@@ -573,6 +573,8 @@ async function switchMap(slug, { remember = true } = {}) {
   revealToken++; // a reveal waiting from an earlier switch must not lift this fade
   // the pill being switched to shows a spinner from the click on (the sidebar is locked while the map loads: see wire)
   markSwitchTarget(slug);
+  closeDetail(); // the card closes the way a close does, first thing
+  state.setTool?.('pan'); // and the hand is back on, whatever tool was up
   document.body.classList.add('loading-map');
   startMorph(); // the sidebar's numbers and bar move from the old map's values to the new one's (see updateSidebar)
   if (remember) rememberCamera(true); // where we were on the map we are leaving
@@ -1460,6 +1462,7 @@ function createMap() {
   map.touchZoomRotate.disableRotation();
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'bottom-left');
   const tools = setupSelection(map);
+  state.setTool = t => tools.setTool(t); // the switch puts the hand back on (see switchMap)
   state.drawing = setupDrawing({ map, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), getProfile: () => state.profile, getMap: () => state.mapInfo?.slug, onChange: () => scheduleSave(), requestTool: t => tools.setTool(t), renderMd });
   state.capture = setupCapture({
     map, mapEl: map.getContainer(), canvasBox: map.getCanvasContainer(), drawing: state.drawing,
@@ -2118,12 +2121,23 @@ function updateLinkHeads() {
   state.map.getSource('backlink-heads').setData(arrowHeads(from ? refs.map(r => [r, from]) : []));
 }
 
+// the card leaves with the same panel motion in reverse (style.css #detail.leaving), then is hidden
+const DETAIL_OUT_MS = 200;
+function hideDetail() {
+  const d = $('#detail');
+  clearTimeout(d.outTimer);
+  if (d.hidden) return;
+  if (d.classList.contains('leaving')) return; // already on its way out
+  d.classList.add('leaving');
+  d.outTimer = setTimeout(() => { d.hidden = true; d.classList.remove('leaving'); }, DETAIL_OUT_MS);
+}
+
 // Closes the card and clears the navigation stack. History entries are left alone here (see closeDetail).
 function dismiss() {
   state.trail = [];
   state.session = uid();
   state.selected = null;
-  $('#detail').hidden = true;
+  hideDetail();
   document.body.classList.remove('detail-open');
   if (state.mapReady) state.map.getSource('sel').setData(emptyFC);
   updateLinks();
@@ -2165,7 +2179,10 @@ function renderDetail() {
     (shots ? `<div class="shots">${shots}</div>` : '') + backrefs;
 
   $('#detail-back').hidden = state.trail.length < 2;
-  $('#detail').hidden = false;
+  const detail = $('#detail');
+  clearTimeout(detail.outTimer); // a card closing as this one opens is cancelled
+  detail.classList.remove('leaving');
+  detail.hidden = false;
   $('#detail').classList.toggle('user-loc', !!l.user);
   // a user marker's card takes its category colour as the accent
   if (l.user && cat?.icon) $('#detail').style.setProperty('--c', '#' + cat.icon.slice(3).replace('-t', ''));
