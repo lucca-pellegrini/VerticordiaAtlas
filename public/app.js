@@ -311,6 +311,7 @@ async function loadGame(entry) {
     } catch (e) { console.warn('icon font not loaded, using the marker sprite:', e.message); }
   }
 
+  await migratePresets(); // presets are per game (see presetsKey)
   // the profile comes first: it says which map was open, and where
   await loadProfiles();
   // the map to open: a shared link's map, else the one this profile was last on, else the game's first
@@ -386,10 +387,31 @@ function mapData(info) {
   return mapCache.get(info.slug);
 }
 
-// view settings and presets are per map: category ids repeat between maps. The first map keeps the old keys.
+// view settings are per map (what is on screen). Presets are per game: categories are the same in every map of a game,
+// so a preset works in any of its maps. The first map's view key is the old one; the presets key is the game's.
 const perMap = (prefix, map) => prefix + state.entry.id + (map === state.meta.maps[0].slug ? '' : ':' + map);
 const viewKey = map => perMap('view:', map);
-const presetsKey = (map = state.mapInfo.slug) => perMap('presets:', map);
+const presetsKey = () => 'presets:' + state.entry.id;
+
+// presets used to be kept per map. Once per game, the lists of all its maps are merged into the game's list (same ids
+// are the same preset, so a second device doing this changes nothing). Names that clash get "- copy", as in an import.
+async function migratePresets() {
+  const flag = 'presets-per-game:' + state.entry.id;
+  if (await getMeta(flag)) return;
+  const merged = [...((await getMeta(presetsKey())) || [])];
+  const names = new Set(merged.map(p => p.name));
+  for (const m of state.meta.maps) {
+    // the first map's old key is the game's key, so its list is already in `merged`
+    if (m.slug === state.meta.maps[0].slug) continue;
+    for (const p of (await getMeta(perMap('presets:', m.slug))) || []) {
+      if (merged.some(x => x.id === p.id)) continue;
+      merged.push({ ...p, name: names.has(p.name) ? uniqueName(p.name, names) : p.name });
+      names.add(merged[merged.length - 1].name);
+    }
+  }
+  await setMeta(presetsKey(), merged);
+  await setMeta(flag, true);
+}
 
 async function loadMapState() {
   const map = state.mapInfo.slug;
@@ -405,7 +427,7 @@ async function loadMapState() {
   state.tagStrict = state.tag != null && state.tag !== UNTAGGED && !!('tagStrict' in v ? v.tagStrict : state.profile?.tagStrict);
   if (state.tags.length) $('#tag-select').value = state.tag == null ? '' : String(state.tag);
   syncTagStrict();
-  state.presets = (await getMeta(presetsKey(map))) || [];
+  state.presets = (await getMeta(presetsKey())) || [];
   state.presetId = state.presets.some(p => p.id === v.presetId) ? v.presetId : null;
   state.baseline = state.presetId && Array.isArray(v.baseline) ? v.baseline : null;
   renderPresets();
@@ -846,9 +868,8 @@ async function profileAction(act) {
   } else if (act === 'export') {
     await saveProfileNow();
     // every profile with what is in it: found markers, drawings, the user's own categories and markers, and the
-    // map and camera it was on; plus the presets of every map (each one says which map it belongs to)
-    const presets = [];
-    for (const m of state.meta.maps) for (const q of await presetsOf(m.slug)) presets.push({ map: m.slug, id: q.id, name: q.name, hidden: q.hidden });
+    // map and camera it was on; plus the game's presets (they are per game, so there is one list)
+    const presets = state.presets.map(q => ({ id: q.id, name: q.name, hidden: q.hidden }));
     const payload = {
       app: 'offline-map-viewer', version: 1, game: state.entry.id, exported: new Date().toISOString(),
       profiles: state.profiles.map(({ id, name, tag, found, created, updated, map, cameras, drawings, userCats, userMarkers }) => ({
@@ -875,7 +896,7 @@ async function importFile(file) {
     const profs = payload.profiles.filter(q => q && q.id && Array.isArray(q.found));
     const pres = (Array.isArray(payload.presets) ? payload.presets : []).filter(p => p && p.id && Array.isArray(p.hidden));
 
-    // what would collide: a profile with the same id or name; a preset with the same id or name on its map
+    // what would collide: a profile with the same id or name; a preset with the same id or name in this game
     const conflicts = [];
     for (const q of profs) {
       if (state.profiles.some(p => p.id === q.id || p.name === String(q.name || ''))) {
@@ -883,10 +904,8 @@ async function importFile(file) {
       }
     }
     for (const p of pres) {
-      const map = p.map || state.mapInfo.slug;
-      const list = await presetsOf(map);
-      if (list.some(x => x.id === String(p.id) || x.name === String(p.name || ''))) {
-        conflicts.push({ key: `s:${map}:${p.id}`, label: `Preset "${p.name || 'Imported'}" on ${mapTitle(map)}` });
+      if (state.presets.some(x => x.id === String(p.id) || x.name === String(p.name || ''))) {
+        conflicts.push({ key: `s:${p.id}`, label: `Preset "${p.name || 'Imported'}"` });
       }
     }
     let decisions = new Map();
@@ -918,14 +937,11 @@ async function importFile(file) {
       if (at >= 0) state.profiles[at] = rec; else state.profiles.push(rec);
     }
 
-    // presets go to the map they were made on; each map keeps its own list
-    const lists = new Map();
+    // presets are per game: they all go into the game's one list
+    const list = [...state.presets];
     for (const p of pres) {
-      const map = p.map || state.mapInfo.slug;
-      if (!lists.has(map)) lists.set(map, [...await presetsOf(map)]);
-      const list = lists.get(map);
       let id = String(p.id), name = String(p.name || 'Imported');
-      const d = decisions.get(`s:${map}:${p.id}`);
+      const d = decisions.get(`s:${p.id}`);
       if (d === 'overwrite') {
         const at = list.findIndex(x => x.id === id || x.name === name);
         if (at >= 0) list.splice(at, 1);
@@ -935,10 +951,8 @@ async function importFile(file) {
       }
       list.push({ id, name, hidden: p.hidden.filter(Number.isFinite) });
     }
-    for (const [map, list] of lists) {
-      if (map === state.mapInfo.slug) { state.presets = list; await savePresets(); }
-      else await setMeta(presetsKey(map), list);
-    }
+    state.presets = list;
+    await savePresets();
 
     const cur = state.profiles.find(x => x.id === state.profile.id) || state.profiles[0];
     applyProfile(cur);
@@ -950,12 +964,6 @@ async function importFile(file) {
   } catch (e) { toast('Import failed: ' + e.message, 5000); }
 }
 
-// presets of a map: the open map's list, or the stored one for another map
-async function presetsOf(map) {
-  if (state.mapInfo && map === state.mapInfo.slug) return state.presets;
-  return (await getMeta(presetsKey(map))) || [];
-}
-const mapTitle = map => state.meta?.maps?.find(m => m.slug === map)?.title || map;
 
 // "Name - copy" (then "- copy 2"...), not already in the set; the name is added to it
 function uniqueName(base, taken) {
@@ -1391,7 +1399,8 @@ async function presetAction(act) {
   const p = currentPreset();
   if (!p) return;
   if (act === 'overwrite') {
-    p.hidden = presetHidden(state.view.hidden);
+    // categories this map does not have keep their state: the preset may have been made on another map of the game
+    p.hidden = [...p.hidden.filter(id => !state.cats.has(id)), ...presetHidden(state.view.hidden)];
     await savePresets(); renderPresets();
     toast('Preset overwritten.');
   } else if (act === 'revert') {
@@ -2541,7 +2550,7 @@ async function refreshFromStore(keys) {
       }
     }
   }
-  if (keys.some(k => k === `meta:${presetsKey(state.mapInfo.slug)}`)) await loadMapState();
+  if (keys.some(k => k === `meta:${presetsKey()}`)) await loadMapState();
   refreshAll();
 }
 // the conflict message: the server has newer data, and this device has changes of its own
