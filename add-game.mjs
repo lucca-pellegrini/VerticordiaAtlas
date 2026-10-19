@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 // add-game.mjs: add (or refresh) a MapGenie game from just its link.
 //
-//   node add-game.mjs https://mapgenie.io/<game>/maps/<map> [options]
+//   node add-game.mjs https://mapgenie.io/<game> [options]
+//
+// Give the game's page link. Its maps are found on that page and added in the order it lists them. (A link to one
+// map, https://mapgenie.io/<game>/maps/<map>, also works: the game's maps are still all added, in the same order.)
 //
 // First run it with --no-tiles --no-media: it only reads the page and prints a report of what
 // the game contains (maps, tile sets, marker sprite, media, features the viewer cannot draw yet).
@@ -376,6 +379,18 @@ export async function accentFromPoster(file) {
   return hslToHex(h, Math.min(0.75, Math.max(0.4, sat)), Math.min(0.5, Math.max(0.38, l)));
 }
 
+/* ---------- the game page: its maps, as links, in the order they are displayed ---------- */
+
+// the map cards of the game page are <a href="/<game>/maps/<map>">, in display order; each map is listed once
+async function listGameMaps(origin, game, pageUrl) {
+  const { html } = await getPage(pageUrl || `${origin}/${game}`);
+  const esc = game.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const re = new RegExp(`href="[^"]*/${esc}/maps/([a-z0-9][a-z0-9-]*)/?"`, 'gi');
+  const out = [];
+  for (const m of html.matchAll(re)) if (!out.includes(m[1])) out.push(m[1]);
+  return out;
+}
+
 /* ---------- main ---------- */
 
 const guessTagLabel = tags => (tags.some(t => /casual|easy|normal|standard|hard|insane|insanity|nightmare|veteran|survival|legend/i.test(t.title)) ? 'Difficulty' : 'Filter');
@@ -393,13 +408,32 @@ async function main() {
       concurrency: { type: 'string', default: '4' }, delay: { type: 'string', default: '100' }, 'max-tiles': { type: 'string', default: '400000' },
     },
   });
-  if (!positionals[0]) { console.error('Usage: node add-game.mjs https://mapgenie.io/<game>/maps/<map> [options]'); process.exit(1); }
+  if (!positionals[0]) { console.error('Usage: node add-game.mjs https://mapgenie.io/<game> [options]'); process.exit(1); }
   const opts = { concurrency: +v.concurrency, delay: +v.delay, maxTiles: +v['max-tiles'], maxZoom: v['max-zoom'] ? +v['max-zoom'] : undefined };
 
-  const startUrl = new URL(positionals[0]);
+  const given = new URL(positionals[0]);
+  const givenSegs = given.pathname.split('/').filter(Boolean);
+  const gameSlug = givenSegs[0];
+  if (!gameSlug) throw new Error('Give the game link, e.g. https://mapgenie.io/pragmata');
+  const isGameLink = givenSegs[1] !== 'maps';
+  const origin = given.origin;
+  let startUrl = given;
+
+  // the game page lists its maps, in display order; with --mapdata there is no page to read, so the map data decides
+  let mapOrder = null;
+  if (!v.mapdata) {
+    try { mapOrder = await listGameMaps(origin, gameSlug); }
+    catch (e) {
+      if (isGameLink) throw new Error(`Could not read ${origin}/${gameSlug}: ${e.message}`);
+      console.log(`  ! could not read the game page (${e.message}); using the map data for the map list`);
+    }
+    if (isGameLink) {
+      if (!mapOrder?.length) throw new Error(`No maps are listed on ${origin}/${gameSlug}. Check the link.`);
+      startUrl = new URL(`/${gameSlug}/maps/${mapOrder[0]}`, origin); // the first map on the page is read first
+    }
+  }
   const segs = startUrl.pathname.split('/').filter(Boolean);
   let slug = segs[0], mapSlug = segs[1] === 'maps' ? segs[2] : null;
-  const origin = startUrl.origin;
 
   // 1. first page and its mapData
   let page, md0;
@@ -416,18 +450,20 @@ async function main() {
   if (finalSegs[0]) slug = finalSegs[0];
   mapSlug = md0.map?.slug || mapSlug || 'map';
 
-  // 2. every other map of the game
-  const maps = [md0];
+  // 2. every map of the game, in the order the game page lists them (the map data's own list is the fallback)
+  const bySlug = new Map([[mapSlug, md0]]);
   if (!v.mapdata) {
-    for (const m of md0.maps || []) {
-      if (m.slug === mapSlug) continue;
+    for (const ms of mapOrder?.length ? mapOrder : (md0.maps || []).map(m => m.slug)) {
+      if (bySlug.has(ms)) continue;
       try {
-        const p = await getPage(`${origin}/${slug}/maps/${m.slug}`);
+        const p = await getPage(`${origin}/${slug}/maps/${ms}`);
         const md = await loadMapData(p.html, origin, slug, p.url);
-        if (isMapData(md)) maps.push(md); else console.log(`  ! no mapData on map "${m.slug}"`);
-      } catch (e) { console.log(`  ! could not load map "${m.slug}": ${e.message}`); }
+        if (isMapData(md)) bySlug.set(ms, md); else console.log(`  ! no mapData on map "${ms}"`);
+      } catch (e) { console.log(`  ! could not load map "${ms}": ${e.message}`); }
     }
   }
+  const maps = (mapOrder?.length ? mapOrder : [...bySlug.keys()]).map(ms => bySlug.get(ms)).filter(Boolean);
+  console.log(`Maps, in page order: ${maps.map(m => m.map?.slug).join(', ')}`);
 
   const game = extractVar(html, 'game') || {};
   const ogTitle = (html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)/i) || [])[1];
