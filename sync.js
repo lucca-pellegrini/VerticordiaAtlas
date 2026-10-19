@@ -6,6 +6,8 @@
 // Conflicts: an item is sent with the server timestamp this device last saw ("base"). If the server has something newer
 // while this device also has unsent changes to the same item, the user is asked which to keep. Otherwise the newer wins.
 
+import { contentKey, sendKey, fnv } from './shared/sync-rules.mjs'; // the same rules as the server (see that file)
+
 const CHANNEL = 'va-sync';
 const LOCK = 'va-sync-leader';
 const BATCH = 100;
@@ -22,15 +24,9 @@ export function createSync({ store, ui, api, socketUrl = null }) {
   let sock = null, sockTimer = null, sockFails = 0, live = false;
 
   /* ---------- what this device holds, as sync items ---------- */
-  const stable = v => (v && typeof v === 'object'
-    ? (Array.isArray(v) ? `[${v.map(stable).join(',')}]` : `{${Object.keys(v).sort().filter(k => v[k] !== undefined).map(k => JSON.stringify(k) + ':' + stable(v[k])).join(',')}}`)
-    : JSON.stringify(v ?? null));
-  const hash = v => { // FNV-1a over the stable form: enough to tell whether something changed
-    const s = stable(v);
-    let h = 0x811c9dc5;
-    for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }
-    return (h >>> 0).toString(16);
-  };
+  // hashes of what a device holds: sendHash decides whether an item needs sending, contentHash whether it is a conflict
+  const sendHash = (key, v) => (v === null || v === undefined ? null : fnv(sendKey(key, v)));
+  const contentHash = (key, v) => (v === null || v === undefined ? null : fnv(contentKey(key, v)));
   async function snapshot() {
     const map = new Map();
     for (const p of await store.profiles()) {
@@ -42,15 +38,6 @@ export function createSync({ store, ui, api, socketUrl = null }) {
     }
     return map;
   }
-  /* What counts as a change for conflicts: a profile's content (progress, drawings, markers, filters), not its position
-     (map, camera) or the time it was touched: those are last-write-wins and never cause a conflict. Keep in step with api.mjs. */
-  const POSITION = new Set(['updated', 'map', 'cameras']);
-  // what decides whether an item needs sending: everything but the time it was touched (saving changes nothing is not a change)
-  const sendHash = (key, v) => (v === null || v === undefined ? null : hash(key.startsWith('profile:') ? Object.fromEntries(Object.entries(v).filter(([k]) => k !== 'updated')) : v));
-  const contentHash = (key, v) => {
-    if (v === null || v === undefined) return null;
-    return hash(key.startsWith('profile:') ? Object.fromEntries(Object.entries(v).filter(([k]) => !POSITION.has(k))) : v);
-  };
   const isDirty = (key, snap) => {
     if (!(key in st.content) && key in st.sent) { // state from before content hashes: the whole item decides, as it did
       return (snap.has(key) ? sendHash(key, snap.get(key)) : null) !== st.sent[key];

@@ -6,7 +6,7 @@
 //   /api/ (accounts, sync): never cached, never answered from the cache
 // Bump VERSION when the precache list changes.
 
-const VERSION = 'v6';
+const VERSION = 'v7';
 const SHELL = `va-shell-${VERSION}`, DATA = `va-data-${VERSION}`, TILES = `va-tiles-${VERSION}`, FONTS = `va-fonts-${VERSION}`;
 const KEEP = new Set([SHELL, DATA, TILES, FONTS]);
 const TILE_LIMIT = 2000;
@@ -15,7 +15,7 @@ const TILE_MAX_AGE = 30 * 24 * 3600 * 1000;
 const PRECACHE = [
   '', 'index.html', 'signin/', 'signin/index.html', 'signin/signin.js', 'signin/signin.css',
   'style.css', 'base.css', 'home.css', 'app.js', 'home.js', 'account.js', 'sync.js', 'drawing.js', 'usermarkers.js',
-  'capture.mjs', 'icons.mjs', 'icons-lib.mjs', 'share-link.mjs', 'perfect-freehand.mjs',
+  'capture.mjs', 'icons.mjs', 'icons-lib.mjs', 'share-link.mjs', 'perfect-freehand.mjs', 'shared/sync-rules.mjs',
   'vendor/maplibre-gl.js', 'vendor/maplibre-gl.css', 'vendor/marked.umd.js', 'vendor/perfect-freehand.mjs',
   'vendor/lucide/icons.json', 'card.jpg',
 ];

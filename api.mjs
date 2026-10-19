@@ -13,6 +13,7 @@ import path from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
 import { acceptWebSocket } from './ws.mjs';
+import { contentKey, sendKey } from './shared/sync-rules.mjs';
 
 const DAY = 86400000;
 const SESSION_DAYS = 30, REFRESH_WITHIN = 7 * DAY;
@@ -203,20 +204,7 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
   const normalizeSecret = s => String(s || '').toUpperCase().replace(/[^0-9A-Z]/g, '').replace(/O/g, '0').replace(/[IL]/g, '1');
 
   /* ---------- sync ---------- */
-  /* What counts as a change for conflicts: the content of a profile (progress, drawings, markers, filters). Its position
-     (map, camera) and the time it was touched are not: those are last-write-wins. Keep in step with sync.js. */
-  const POSITION = new Set(['updated', 'map', 'cameras']);
-  const canonical = v => (v && typeof v === 'object'
-    ? (Array.isArray(v) ? `[${v.map(canonical).join(',')}]` : `{${Object.keys(v).sort().filter(k => v[k] !== undefined).map(k => JSON.stringify(k) + ':' + canonical(v[k])).join(',')}}`)
-    : JSON.stringify(v ?? null));
-  const contentOf = (key, v) => {
-    if (v === null || !key.startsWith('profile:')) return canonical(v);
-    return canonical(Object.fromEntries(Object.entries(v).filter(([k]) => !POSITION.has(k))));
-  };
-
-  // the same data, apart from the time it was touched: sending it again changes nothing, so it is not stored or announced
-  const withoutTouched = (key, v) => canonical(key.startsWith('profile:') && v && typeof v === 'object' && !Array.isArray(v)
-    ? Object.fromEntries(Object.entries(v).filter(([k]) => k !== 'updated')) : v);
+  /* what a change means for sync: contentKey (conflicts) and sendKey (whether to push) are in shared/sync-rules.mjs */
 
   function validItem(it) {
     if (!it || typeof it.key !== 'string' || !KEY_PATTERN.test(it.key)) return false;
@@ -240,7 +228,7 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
         const base = Number.isFinite(it.base) ? it.base : 0;
         if (cur) {
           const curValue = cur.value === null ? null : JSON.parse(cur.value);
-          if (withoutTouched(it.key, curValue) === withoutTouched(it.key, it.value)) { // nothing to store: the device is simply up to date
+          if (sendKey(it.key, curValue) === sendKey(it.key, it.value)) { // nothing to store: the device is simply up to date
             results.push({ key: it.key, status: 'ok', updated_at: cur.updated_at, same: true });
             continue;
           }
@@ -248,7 +236,7 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
         if (cur && cur.updated_at > base) {
           const curValue = cur.value === null ? null : JSON.parse(cur.value);
           // newer on the server, but the same content: only the position differs, so the newer position simply wins
-          if (contentOf(it.key, curValue) !== contentOf(it.key, it.value)) {
+          if (contentKey(it.key, curValue) !== contentKey(it.key, it.value)) {
             results.push({ key: it.key, status: 'conflict', value: curValue, updated_at: cur.updated_at });
             continue;
           }
