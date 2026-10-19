@@ -113,7 +113,9 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
   }
   function httpError(status, message) { const e = new Error(message); e.status = status; return e; }
 
-  const cookies = req => Object.fromEntries(String(req.headers.cookie || '').split(';').map(c => c.trim().split('=')).filter(p => p.length === 2).map(([k, v]) => [k, decodeURIComponent(v)]));
+  // a malformed cookie (say, a stray "%") must never throw: it is read as it was sent, and cannot match a session anyway
+  const unescapeCookie = v => { try { return decodeURIComponent(v); } catch { return v; } };
+  const cookies = req => Object.fromEntries(String(req.headers.cookie || '').split(';').map(c => c.trim().split('=')).filter(p => p.length === 2).map(([k, v]) => [k, unescapeCookie(v)]));
   const cookieHeader = (req, value, maxAge) => `${COOKIE}=${encodeURIComponent(value)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}${secure(req) ? '; Secure' : ''}`;
 
   const publicUser = u => ({
@@ -277,6 +279,14 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
 
   function upgrade(req, socket, head, url) {
     const refuse = (code, text) => { try { socket.end(`HTTP/1.1 ${code} ${text}\r\nConnection: close\r\nContent-Length: 0\r\n\r\n`); } catch { /* gone */ } };
+    try {
+      return upgradeChecked(req, socket, head, url, refuse);
+    } catch (e) {
+      dbg('upgrade: refused after an error: ' + e.message);
+      refuse(400, 'Bad Request');
+    }
+  }
+  function upgradeChecked(req, socket, head, url, refuse) {
     if (url.pathname !== '/api/ws' || String(req.headers.upgrade || '').toLowerCase() !== 'websocket') return refuse(400, 'Bad Request');
     // a page on another site must not be able to open this socket with the visitor's cookie
     const origin = req.headers.origin;
