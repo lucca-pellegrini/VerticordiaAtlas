@@ -34,5 +34,185 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "achievement": [
+        {
+          "cp": "e900"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e901"
+        }
+      ],
+      "breakable_surface": [
+        {
+          "cp": "e902"
+        }
+      ],
+      "child_of_moonlight": [
+        {
+          "cp": "e903"
+        }
+      ],
+      "collectible": [
+        {
+          "cp": "e904"
+        }
+      ],
+      "confessor_statue": [
+        {
+          "cp": "e905"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e906"
+        }
+      ],
+      "empty_bile_vessel": [
+        {
+          "cp": "e907"
+        }
+      ],
+      "enemy": [
+        {
+          "cp": "e908"
+        }
+      ],
+      "gate_of_travel": [
+        {
+          "cp": "e909"
+        }
+      ],
+      "key": [
+        {
+          "cp": "e90a"
+        }
+      ],
+      "lady_of_the_six_sorrows": [
+        {
+          "cp": "e90b"
+        }
+      ],
+      "landmark": [
+        {
+          "cp": "e90c"
+        }
+      ],
+      "lever": [
+        {
+          "cp": "e90d"
+        }
+      ],
+      "locked_door": [
+        {
+          "cp": "e90e"
+        }
+      ],
+      "lore": [
+        {
+          "cp": "e90f"
+        }
+      ],
+      "mea_culpa_heart": [
+        {
+          "cp": "e910"
+        }
+      ],
+      "mea_culpa_shrine": [
+        {
+          "cp": "e911"
+        }
+      ],
+      "miriams_challenge": [
+        {
+          "cp": "e912"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e913"
+        }
+      ],
+      "npc": [
+        {
+          "cp": "e914"
+        }
+      ],
+      "oil_of_the_pilgrims": [
+        {
+          "cp": "e915"
+        }
+      ],
+      "prayer": [
+        {
+          "cp": "e916"
+        }
+      ],
+      "prie_dieu": [
+        {
+          "cp": "e917"
+        }
+      ],
+      "quest_item": [
+        {
+          "cp": "e918"
+        }
+      ],
+      "quest": [
+        {
+          "cp": "e919"
+        }
+      ],
+      "quicksilver": [
+        {
+          "cp": "e91a"
+        }
+      ],
+      "relic": [
+        {
+          "cp": "e91b"
+        }
+      ],
+      "rosary_bead": [
+        {
+          "cp": "e91c"
+        }
+      ],
+      "rosary_knot": [
+        {
+          "cp": "e91d"
+        }
+      ],
+      "sanguine_fountain": [
+        {
+          "cp": "e91e"
+        }
+      ],
+      "skin": [
+        {
+          "cp": "e91f"
+        }
+      ],
+      "speaking_corpse": [
+        {
+          "cp": "e920"
+        }
+      ],
+      "the_stir_of_dawn": [
+        {
+          "cp": "e921"
+        }
+      ],
+      "wounds_of_eventide": [
+        {
+          "cp": "e922"
+        }
+      ]
+    }
+  }
 }

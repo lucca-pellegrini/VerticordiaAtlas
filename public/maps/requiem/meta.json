@@ -34,5 +34,322 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "127x55mm_ammo": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "antique_coin": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "blood_specimen": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "breakable": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "charm": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "empty_bottle": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "empty_injector": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "file": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "green_herb": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "gunpowder": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "hand_grenade": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "handgun_ammo": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "hemolytic_injector": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "hip_pouch": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "infected_blood": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "ink_ribbon": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "interactable": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "item_box": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "key_item": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "knife": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "lightswitch": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "lock": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "lockpick": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "machine_gun_ammo": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "map": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "med_injector": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "microscope": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "mixed_herb": [
+        {
+          "cp": "e91e",
+          "color": "#ffffff"
+        }
+      ],
+      "mr_raccoon": [
+        {
+          "cp": "e91f",
+          "color": "#ffffff"
+        }
+      ],
+      "power_distributor": [
+        {
+          "cp": "e920",
+          "color": "#ffffff"
+        }
+      ],
+      "puzzle": [
+        {
+          "cp": "e921",
+          "color": "#ffffff"
+        }
+      ],
+      "random_pickup": [
+        {
+          "cp": "e922",
+          "color": "#ffffff"
+        }
+      ],
+      "rare_metal": [
+        {
+          "cp": "e923",
+          "color": "#ffffff"
+        }
+      ],
+      "recipe": [
+        {
+          "cp": "e924",
+          "color": "#ffffff"
+        }
+      ],
+      "rifle_ammo": [
+        {
+          "cp": "e925",
+          "color": "#ffffff"
+        }
+      ],
+      "safe": [
+        {
+          "cp": "e926",
+          "color": "#ffffff"
+        }
+      ],
+      "save_point": [
+        {
+          "cp": "e927",
+          "color": "#ffffff"
+        }
+      ],
+      "scrap": [
+        {
+          "cp": "e928",
+          "color": "#ffffff"
+        }
+      ],
+      "security_point_lv_1": [
+        {
+          "cp": "e929",
+          "color": "#ffffff"
+        }
+      ],
+      "security_point_lv_2": [
+        {
+          "cp": "e92a",
+          "color": "#ffffff"
+        }
+      ],
+      "security_point_lv_3": [
+        {
+          "cp": "e92b",
+          "color": "#ffffff"
+        }
+      ],
+      "seedling": [
+        {
+          "cp": "e92c",
+          "color": "#ffffff"
+        }
+      ],
+      "shotgun_shells": [
+        {
+          "cp": "e92d",
+          "color": "#ffffff"
+        }
+      ],
+      "supply_box": [
+        {
+          "cp": "e92e",
+          "color": "#ffffff"
+        }
+      ],
+      "tracking_module": [
+        {
+          "cp": "e92f",
+          "color": "#ffffff"
+        }
+      ],
+      "transition": [
+        {
+          "cp": "e930",
+          "color": "#ffffff"
+        }
+      ],
+      "warped_closet": [
+        {
+          "cp": "e931",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e932",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon_upgrade": [
+        {
+          "cp": "e933",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }

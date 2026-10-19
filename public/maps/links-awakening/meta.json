@@ -34,5 +34,160 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "boss": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "bottle": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "compass": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "dungeon": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "fairy_bottle": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "fairy_fountain": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "heart_piece": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "house": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "item": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "mad_batter": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "map": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "mario_figurine": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "minigame": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "nightmare_key": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "owl_statue": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "seashell": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "shop": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "small_key": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "stone_beak": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "telephone_booth": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "trading_sequence": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure_chest": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "warp_point": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }

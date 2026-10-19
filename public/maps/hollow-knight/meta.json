@@ -34,5 +34,262 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "ability": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "achievement": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "arcane_egg": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "area": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "bench": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "breakable_surface": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "captive_grub": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "charm": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "charm_notch": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "dreamer": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "geo_deposit": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "grimm_troupe": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "hallownest_seal": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "hot_spring": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "journal_entry": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "kings_idol": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "lever": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "lifeblood_cocoon": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "lore": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "mask_shard": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "nail_art": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "npc": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "pale_ore": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "quest": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "quest_item": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "rancid_egg": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "shade_gate": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "shortcut": [
+        {
+          "cp": "e91e",
+          "color": "#ffffff"
+        }
+      ],
+      "soul_totem": [
+        {
+          "cp": "e91f",
+          "color": "#ffffff"
+        }
+      ],
+      "spell": [
+        {
+          "cp": "e920",
+          "color": "#ffffff"
+        }
+      ],
+      "stag_station": [
+        {
+          "cp": "e921",
+          "color": "#ffffff"
+        }
+      ],
+      "tram_station": [
+        {
+          "cp": "e922",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure_chest": [
+        {
+          "cp": "e923",
+          "color": "#ffffff"
+        }
+      ],
+      "trial": [
+        {
+          "cp": "e924",
+          "color": "#ffffff"
+        }
+      ],
+      "vendor": [
+        {
+          "cp": "e925",
+          "color": "#ffffff"
+        }
+      ],
+      "vessel_fragment": [
+        {
+          "cp": "e926",
+          "color": "#ffffff"
+        }
+      ],
+      "wanderers_journal": [
+        {
+          "cp": "e927",
+          "color": "#ffffff"
+        }
+      ],
+      "warriors_dream": [
+        {
+          "cp": "e928",
+          "color": "#ffffff"
+        }
+      ],
+      "whispering_root": [
+        {
+          "cp": "e929",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }

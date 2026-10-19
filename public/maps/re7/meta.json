@@ -76,5 +76,292 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "antique_coin": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "area_map": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "backpack": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "bomb": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "burner_fuel": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "cassette_tape": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "chem_fluid": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "corrosive": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "crate": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "critter": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "effigy": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "examinable": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "file": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "first_aid": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "grenade_rounds": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "gunpowder": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "handgun_ammo": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "herb": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "item_box": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "key_item": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "lock": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "lockpick": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "machine_gun_ammo": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "mag_ammo": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "mr_everywhere": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "psychostimulant": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "puzzle": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "random_pickup": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "repair_kit": [
+        {
+          "cp": "e91e",
+          "color": "#ffffff"
+        }
+      ],
+      "scrap_metal": [
+        {
+          "cp": "e91f",
+          "color": "#ffffff"
+        }
+      ],
+      "separating_agent": [
+        {
+          "cp": "e920",
+          "color": "#ffffff"
+        }
+      ],
+      "shotgun_shells": [
+        {
+          "cp": "e921",
+          "color": "#ffffff"
+        }
+      ],
+      "solid_fuel": [
+        {
+          "cp": "e922",
+          "color": "#ffffff"
+        }
+      ],
+      "stabilizer": [
+        {
+          "cp": "e923",
+          "color": "#ffffff"
+        }
+      ],
+      "steroids": [
+        {
+          "cp": "e924",
+          "color": "#ffffff"
+        }
+      ],
+      "strong_chem_fluid": [
+        {
+          "cp": "e925",
+          "color": "#ffffff"
+        }
+      ],
+      "supplement": [
+        {
+          "cp": "e926",
+          "color": "#ffffff"
+        }
+      ],
+      "tape_recorder": [
+        {
+          "cp": "e927",
+          "color": "#ffffff"
+        }
+      ],
+      "telephone": [
+        {
+          "cp": "e928",
+          "color": "#ffffff"
+        }
+      ],
+      "transition": [
+        {
+          "cp": "e929",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure_map": [
+        {
+          "cp": "e92a",
+          "color": "#ffffff"
+        }
+      ],
+      "tree_branch": [
+        {
+          "cp": "e92b",
+          "color": "#ffffff"
+        }
+      ],
+      "video_tape": [
+        {
+          "cp": "e92c",
+          "color": "#ffffff"
+        }
+      ],
+      "video_tape_player": [
+        {
+          "cp": "e92d",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e92e",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }

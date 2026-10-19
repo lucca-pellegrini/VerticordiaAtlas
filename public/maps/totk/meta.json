@@ -34,5 +34,604 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "area": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "armor": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "armor_shop": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "arrows": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "bargainer_statue": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "blupee": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "bubbulfrog": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "building": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "cave": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "cave_entrance": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "chasm": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "chest": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "cooking_pot": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "cracked_wall": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "creature": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "creature_fish": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "crystal_refinery": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "device_dispenser": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "divine_beast": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "dragon": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "dragon_tear": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "dye_shop": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "elixir": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "enemy_camp": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "falling_platform": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "frox": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "gem": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "general_store": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "geoglyph": [
+        {
+          "cp": "e91e",
+          "color": "#ffffff"
+        }
+      ],
+      "gleeok": [
+        {
+          "cp": "e91f",
+          "color": "#ffffff"
+        }
+      ],
+      "goddess_statue": [
+        {
+          "cp": "e920",
+          "color": "#ffffff"
+        }
+      ],
+      "great_fairy": [
+        {
+          "cp": "e921",
+          "color": "#ffffff"
+        }
+      ],
+      "guardian": [
+        {
+          "cp": "e922",
+          "color": "#ffffff"
+        }
+      ],
+      "heart_container": [
+        {
+          "cp": "e923",
+          "color": "#ffffff"
+        }
+      ],
+      "hestu": [
+        {
+          "cp": "e924",
+          "color": "#ffffff"
+        }
+      ],
+      "hinox": [
+        {
+          "cp": "e925",
+          "color": "#ffffff"
+        }
+      ],
+      "hudson_sign": [
+        {
+          "cp": "e926",
+          "color": "#ffffff"
+        }
+      ],
+      "inn": [
+        {
+          "cp": "e927",
+          "color": "#ffffff"
+        }
+      ],
+      "jewelry_shop": [
+        {
+          "cp": "e928",
+          "color": "#ffffff"
+        }
+      ],
+      "key_item": [
+        {
+          "cp": "e929",
+          "color": "#ffffff"
+        }
+      ],
+      "koltin": [
+        {
+          "cp": "e92a",
+          "color": "#ffffff"
+        }
+      ],
+      "korok_seed": [
+        {
+          "cp": "e92b",
+          "color": "#ffffff"
+        }
+      ],
+      "landmark": [
+        {
+          "cp": "e92c",
+          "color": "#ffffff"
+        }
+      ],
+      "lighthouse": [
+        {
+          "cp": "e92d",
+          "color": "#ffffff"
+        }
+      ],
+      "lightroot": [
+        {
+          "cp": "e92e",
+          "color": "#ffffff"
+        }
+      ],
+      "lore": [
+        {
+          "cp": "e92f",
+          "color": "#ffffff"
+        }
+      ],
+      "lynel": [
+        {
+          "cp": "e930",
+          "color": "#ffffff"
+        }
+      ],
+      "main_quest": [
+        {
+          "cp": "e931",
+          "color": "#ffffff"
+        }
+      ],
+      "master_sword": [
+        {
+          "cp": "e932",
+          "color": "#ffffff"
+        }
+      ],
+      "material": [
+        {
+          "cp": "e933",
+          "color": "#ffffff"
+        }
+      ],
+      "memory": [
+        {
+          "cp": "e934",
+          "color": "#ffffff"
+        }
+      ],
+      "mini_game": [
+        {
+          "cp": "e935",
+          "color": "#ffffff"
+        }
+      ],
+      "miniboss": [
+        {
+          "cp": "e936",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e937",
+          "color": "#ffffff"
+        }
+      ],
+      "molduga": [
+        {
+          "cp": "e938",
+          "color": "#ffffff"
+        }
+      ],
+      "mushroom": [
+        {
+          "cp": "e939",
+          "color": "#ffffff"
+        }
+      ],
+      "npc": [
+        {
+          "cp": "e93a",
+          "color": "#ffffff"
+        }
+      ],
+      "octorok": [
+        {
+          "cp": "e93b",
+          "color": "#ffffff"
+        }
+      ],
+      "ore_deposit": [
+        {
+          "cp": "e93c",
+          "color": "#ffffff"
+        }
+      ],
+      "paraglider_fabric": [
+        {
+          "cp": "e93d",
+          "color": "#ffffff"
+        }
+      ],
+      "poe": [
+        {
+          "cp": "e93e",
+          "color": "#ffffff"
+        }
+      ],
+      "point_of_interest": [
+        {
+          "cp": "e93f",
+          "color": "#ffffff"
+        }
+      ],
+      "province": [
+        {
+          "cp": "e940",
+          "color": "#ffffff"
+        }
+      ],
+      "quest_objective": [
+        {
+          "cp": "e941",
+          "color": "#ffffff"
+        }
+      ],
+      "rupees": [
+        {
+          "cp": "e942",
+          "color": "#ffffff"
+        }
+      ],
+      "sages_will": [
+        {
+          "cp": "e943",
+          "color": "#ffffff"
+        }
+      ],
+      "satori_tree": [
+        {
+          "cp": "e944",
+          "color": "#ffffff"
+        }
+      ],
+      "schema_stone": [
+        {
+          "cp": "e945",
+          "color": "#ffffff"
+        }
+      ],
+      "settlement": [
+        {
+          "cp": "e946",
+          "color": "#ffffff"
+        }
+      ],
+      "shield": [
+        {
+          "cp": "e947",
+          "color": "#ffffff"
+        }
+      ],
+      "shrine": [
+        {
+          "cp": "e948",
+          "color": "#ffffff"
+        }
+      ],
+      "shrine_quest": [
+        {
+          "cp": "e949",
+          "color": "#ffffff"
+        }
+      ],
+      "side_adventure": [
+        {
+          "cp": "e94a",
+          "color": "#ffffff"
+        }
+      ],
+      "side_quest": [
+        {
+          "cp": "e94b",
+          "color": "#ffffff"
+        }
+      ],
+      "skyview_tower": [
+        {
+          "cp": "e94c",
+          "color": "#ffffff"
+        }
+      ],
+      "stable": [
+        {
+          "cp": "e94d",
+          "color": "#ffffff"
+        }
+      ],
+      "stalnox": [
+        {
+          "cp": "e94e",
+          "color": "#ffffff"
+        }
+      ],
+      "stronghold": [
+        {
+          "cp": "e94f",
+          "color": "#ffffff"
+        }
+      ],
+      "talus": [
+        {
+          "cp": "e950",
+          "color": "#ffffff"
+        }
+      ],
+      "tech_lab": [
+        {
+          "cp": "e951",
+          "color": "#ffffff"
+        }
+      ],
+      "temple": [
+        {
+          "cp": "e952",
+          "color": "#ffffff"
+        }
+      ],
+      "travelling_merchant": [
+        {
+          "cp": "e953",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure": [
+        {
+          "cp": "e954",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure_chest": [
+        {
+          "cp": "e955",
+          "color": "#ffffff"
+        }
+      ],
+      "unique_horse": [
+        {
+          "cp": "e956",
+          "color": "#ffffff"
+        }
+      ],
+      "vehicle": [
+        {
+          "cp": "e957",
+          "color": "#ffffff"
+        }
+      ],
+      "voice_memory": [
+        {
+          "cp": "e958",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e959",
+          "color": "#ffffff"
+        }
+      ],
+      "well": [
+        {
+          "cp": "e95a",
+          "color": "#ffffff"
+        }
+      ],
+      "wizzrobe": [
+        {
+          "cp": "e95b",
+          "color": "#ffffff"
+        }
+      ],
+      "yiga": [
+        {
+          "cp": "e95c",
+          "color": "#ffffff"
+        }
+      ],
+      "yiga_schematic": [
+        {
+          "cp": "e95d",
+          "color": "#ffffff"
+        }
+      ],
+      "zonai": [
+        {
+          "cp": "e95e",
+          "color": "#ffffff"
+        }
+      ],
+      "zonai_charge": [
+        {
+          "cp": "e95f",
+          "color": "#ffffff"
+        }
+      ],
+      "zonai_component": [
+        {
+          "cp": "e960",
+          "color": "#ffffff"
+        }
+      ],
+      "zonai_relief": [
+        {
+          "cp": "e961",
+          "color": "#ffffff"
+        }
+      ],
+      "zonai_survey_team_base": [
+        {
+          "cp": "e962",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }

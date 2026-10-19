@@ -34,5 +34,82 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "boss": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "cave": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "fixed_encounter": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "heart_container": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "key": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "key_item": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "npc": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "palace": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "sword_technique": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure_bag": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }

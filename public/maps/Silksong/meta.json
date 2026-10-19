@@ -34,5 +34,436 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "wish": [
+        {
+          "cp": "e900",
+          "color": "#fff"
+        }
+      ],
+      "whispering_root": [
+        {
+          "cp": "e901",
+          "color": "#fff"
+        }
+      ],
+      "weaver_effigy": [
+        {
+          "cp": "e902",
+          "color": "#fff"
+        }
+      ],
+      "warriors_dream": [
+        {
+          "cp": "e903",
+          "color": "#fff"
+        }
+      ],
+      "wanderers_journal": [
+        {
+          "cp": "e904",
+          "color": "#fff"
+        }
+      ],
+      "void_mass": [
+        {
+          "cp": "e905",
+          "color": "#fff"
+        }
+      ],
+      "vessel_fragment": [
+        {
+          "cp": "e906",
+          "color": "#fff"
+        }
+      ],
+      "ventrica_station": [
+        {
+          "cp": "e907",
+          "color": "#fff"
+        }
+      ],
+      "vendor": [
+        {
+          "cp": "e908",
+          "color": "#fff"
+        }
+      ],
+      "upgrade": [
+        {
+          "cp": "e909",
+          "color": "#fff"
+        }
+      ],
+      "trial": [
+        {
+          "cp": "e90a",
+          "color": "#fff"
+        }
+      ],
+      "treasure_chest": [
+        {
+          "cp": "e90b",
+          "color": "#fff"
+        }
+      ],
+      "tram_station": [
+        {
+          "cp": "e90c",
+          "color": "#fff"
+        }
+      ],
+      "tool": [
+        {
+          "cp": "e90d",
+          "color": "#fff"
+        }
+      ],
+      "stag_station": [
+        {
+          "cp": "e90e",
+          "color": "#fff"
+        }
+      ],
+      "spool_fragment": [
+        {
+          "cp": "e90f",
+          "color": "#fff"
+        }
+      ],
+      "spell": [
+        {
+          "cp": "e910",
+          "color": "#fff"
+        }
+      ],
+      "soul_totem": [
+        {
+          "cp": "e911",
+          "color": "#fff"
+        }
+      ],
+      "silkeater": [
+        {
+          "cp": "e912",
+          "color": "#fff"
+        }
+      ],
+      "silk_wall": [
+        {
+          "cp": "e913",
+          "color": "#fff"
+        }
+      ],
+      "silk_skill": [
+        {
+          "cp": "e914",
+          "color": "#fff"
+        }
+      ],
+      "silk_heart": [
+        {
+          "cp": "e915",
+          "color": "#fff"
+        }
+      ],
+      "shortcut": [
+        {
+          "cp": "e916",
+          "color": "#fff"
+        }
+      ],
+      "shell_shards": [
+        {
+          "cp": "e917",
+          "color": "#fff"
+        }
+      ],
+      "shard_bundle": [
+        {
+          "cp": "e918",
+          "color": "#fff"
+        }
+      ],
+      "shade_gate": [
+        {
+          "cp": "e919",
+          "color": "#fff"
+        }
+      ],
+      "rune_harp": [
+        {
+          "cp": "e91a",
+          "color": "#fff"
+        }
+      ],
+      "ruined_tool": [
+        {
+          "cp": "e91b",
+          "color": "#fff"
+        }
+      ],
+      "rosary_string": [
+        {
+          "cp": "e91c",
+          "color": "#fff"
+        }
+      ],
+      "rosary": [
+        {
+          "cp": "e91d",
+          "color": "#fff"
+        }
+      ],
+      "rancid_egg": [
+        {
+          "cp": "e91e",
+          "color": "#fff"
+        }
+      ],
+      "quest_item": [
+        {
+          "cp": "e91f",
+          "color": "#fff"
+        }
+      ],
+      "psalm_cylinder": [
+        {
+          "cp": "e920",
+          "color": "#fff"
+        }
+      ],
+      "pollip_heart": [
+        {
+          "cp": "e921",
+          "color": "#fff"
+        }
+      ],
+      "point_of_interest": [
+        {
+          "cp": "e922",
+          "color": "#fff"
+        }
+      ],
+      "plasmium_cocoon": [
+        {
+          "cp": "e923",
+          "color": "#fff"
+        }
+      ],
+      "pale_ore": [
+        {
+          "cp": "e924",
+          "color": "#fff"
+        }
+      ],
+      "objective": [
+        {
+          "cp": "e925",
+          "color": "#fff"
+        }
+      ],
+      "npc": [
+        {
+          "cp": "e926",
+          "color": "#fff"
+        }
+      ],
+      "needolin_door": [
+        {
+          "cp": "e927",
+          "color": "#fff"
+        }
+      ],
+      "nail_art": [
+        {
+          "cp": "e928",
+          "color": "#fff"
+        }
+      ],
+      "mossberry": [
+        {
+          "cp": "e929",
+          "color": "#fff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e92a",
+          "color": "#fff"
+        }
+      ],
+      "memory_locket": [
+        {
+          "cp": "e92b",
+          "color": "#fff"
+        }
+      ],
+      "memento": [
+        {
+          "cp": "e92c",
+          "color": "#fff"
+        }
+      ],
+      "materium_entry": [
+        {
+          "cp": "e92d",
+          "color": "#fff"
+        }
+      ],
+      "mask_shard": [
+        {
+          "cp": "e92e",
+          "color": "#fff"
+        }
+      ],
+      "lost_flea": [
+        {
+          "cp": "e92f",
+          "color": "#fff"
+        }
+      ],
+      "lore": [
+        {
+          "cp": "e930",
+          "color": "#fff"
+        }
+      ],
+      "locked_door": [
+        {
+          "cp": "e931",
+          "color": "#fff"
+        }
+      ],
+      "lever": [
+        {
+          "cp": "e932",
+          "color": "#fff"
+        }
+      ],
+      "kings_idol": [
+        {
+          "cp": "e933",
+          "color": "#fff"
+        }
+      ],
+      "journal_entry": [
+        {
+          "cp": "e934",
+          "color": "#fff"
+        }
+      ],
+      "hallownest_seal": [
+        {
+          "cp": "e935",
+          "color": "#fff"
+        }
+      ],
+      "grimm_troupe": [
+        {
+          "cp": "e936",
+          "color": "#fff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e937",
+          "color": "#fff"
+        }
+      ],
+      "crest": [
+        {
+          "cp": "e938",
+          "color": "#fff"
+        }
+      ],
+      "craftmetal": [
+        {
+          "cp": "e939",
+          "color": "#fff"
+        }
+      ],
+      "choral_commandment": [
+        {
+          "cp": "e93a",
+          "color": "#fff"
+        }
+      ],
+      "charm_notch": [
+        {
+          "cp": "e93b",
+          "color": "#fff"
+        }
+      ],
+      "charm": [
+        {
+          "cp": "e93c",
+          "color": "#fff"
+        }
+      ],
+      "breakable_surface": [
+        {
+          "cp": "e93d",
+          "color": "#fff"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e93e",
+          "color": "#fff"
+        }
+      ],
+      "bone_scroll": [
+        {
+          "cp": "e93f",
+          "color": "#fff"
+        }
+      ],
+      "bench": [
+        {
+          "cp": "e940",
+          "color": "#fff"
+        }
+      ],
+      "bellway_station": [
+        {
+          "cp": "e941",
+          "color": "#fff"
+        }
+      ],
+      "area_map": [
+        {
+          "cp": "e942",
+          "color": "#fff"
+        }
+      ],
+      "area": [
+        {
+          "cp": "e943",
+          "color": "#fff"
+        }
+      ],
+      "arcane_egg": [
+        {
+          "cp": "e944",
+          "color": "#fff"
+        }
+      ],
+      "achievement": [
+        {
+          "cp": "e945",
+          "color": "#fff"
+        }
+      ],
+      "ability": [
+        {
+          "cp": "e946",
+          "color": "#fff"
+        }
+      ]
+    }
+  }
 }

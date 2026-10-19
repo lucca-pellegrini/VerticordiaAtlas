@@ -76,5 +76,310 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "ancient_magic_hotspot": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "assignment": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "astronomy_table": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "balloon": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "bandit_camp": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "battle_arena": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "beast": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "beast_den": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "broom": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "broom_trial": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "butterflies": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "cairn_dungeon": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "chest": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "collection_chest": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "conjuration": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "creature_lair": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "daedalian_key": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "demiguise_statue": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "dungeon": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "eye_chest": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "field_guide_page": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "floo_flame": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "Frame": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "gear": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "gear_chest": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "hamlet": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "hedge_maze": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "house_coin": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "infamous_foe": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "ingredient": [
+        {
+          "cp": "e91e",
+          "color": "#ffffff"
+        }
+      ],
+      "landing_platform": [
+        {
+          "cp": "e91f",
+          "color": "#ffffff"
+        }
+      ],
+      "legendary_chest": [
+        {
+          "cp": "e920",
+          "color": "#ffffff"
+        }
+      ],
+      "location": [
+        {
+          "cp": "e921",
+          "color": "#ffffff"
+        }
+      ],
+      "lock": [
+        {
+          "cp": "e922",
+          "color": "#ffffff"
+        }
+      ],
+      "lore_note": [
+        {
+          "cp": "e923",
+          "color": "#ffffff"
+        }
+      ],
+      "main_quest": [
+        {
+          "cp": "e924",
+          "color": "#ffffff"
+        }
+      ],
+      "merlin_trial": [
+        {
+          "cp": "e925",
+          "color": "#ffffff"
+        }
+      ],
+      "minor_loot": [
+        {
+          "cp": "e926",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e927",
+          "color": "#ffffff"
+        }
+      ],
+      "moth": [
+        {
+          "cp": "e928",
+          "color": "#ffffff"
+        }
+      ],
+      "npc": [
+        {
+          "cp": "e929",
+          "color": "#ffffff"
+        }
+      ],
+      "point_of_interest": [
+        {
+          "cp": "e92a",
+          "color": "#ffffff"
+        }
+      ],
+      "puzzle": [
+        {
+          "cp": "e92b",
+          "color": "#ffffff"
+        }
+      ],
+      "relationship_quest": [
+        {
+          "cp": "e92c",
+          "color": "#ffffff"
+        }
+      ],
+      "side_quest": [
+        {
+          "cp": "e92d",
+          "color": "#ffffff"
+        }
+      ],
+      "trait": [
+        {
+          "cp": "e92e",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure_vault": [
+        {
+          "cp": "e92f",
+          "color": "#ffffff"
+        }
+      ],
+      "vendor": [
+        {
+          "cp": "e930",
+          "color": "#ffffff"
+        }
+      ],
+      "wand_handle": [
+        {
+          "cp": "e931",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }

@@ -34,5 +34,214 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "big_octo": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "bottle": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "cave": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "enemy_platform": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "equipment": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "fairy_fountain": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "golden_frog": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "heart_piece": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "island": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "mailbox": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "monster": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "nintendo_gallery_picture": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "npc": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "point_of_interest": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "primary_quest": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "quest_item": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "rupee": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "rupee_chest": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "secondary_quest": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "shop": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "song": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "special_chart": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "submarine": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "switch": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure_chart": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "treasure_chest": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "triforce_chart": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "triforce_shard": [
+        {
+          "cp": "e91e",
+          "color": "#ffffff"
+        }
+      ],
+      "upgrade": [
+        {
+          "cp": "e91f",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e920",
+          "color": "#ffffff"
+        }
+      ],
+      "withered_deku_tree": [
+        {
+          "cp": "e921",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }

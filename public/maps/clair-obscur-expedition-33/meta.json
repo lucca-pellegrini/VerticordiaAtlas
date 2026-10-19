@@ -34,5 +34,226 @@
         }
       ]
     }
-  ]
+  ],
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "area": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "character": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "chroma": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "chroma_catalyst": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "colour_of_lumina": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "enemy": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "grapple": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "haircut": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "interactable": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "journal_entry": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "location": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "lost_gestral": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "merchant": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "music_record": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "optional_boss": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "outfit": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "paint_cage": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "paint_cage_lock": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "paint_spike": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "pictos": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "point_of_interest": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "primary_quest": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "quest_item": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "recoat": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "rest_point": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "rope": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "secondary_quest": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "shortcut": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "side_quest": [
+        {
+          "cp": "e91e",
+          "color": "#ffffff"
+        }
+      ],
+      "story_boss": [
+        {
+          "cp": "e91f",
+          "color": "#ffffff"
+        }
+      ],
+      "tint": [
+        {
+          "cp": "e920",
+          "color": "#ffffff"
+        }
+      ],
+      "underwater_treasure": [
+        {
+          "cp": "e921",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e922",
+          "color": "#ffffff"
+        }
+      ],
+      "world_boss": [
+        {
+          "cp": "e923",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  }
 }
