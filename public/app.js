@@ -1595,7 +1595,8 @@ function createMap() {
       layout: {
         'icon-image': ['get', 'icon'], 'icon-anchor': 'bottom',
         'icon-allow-overlap': true, 'icon-ignore-placement': true,
-        'icon-size': ['*', ['interpolate', ['linear'], ['zoom'], ...ICON_STOPS.flat()], 1.22],
+        // the zoom stops scaled by 1.22 (zoom may only be the input of interpolate, not inside a product)
+        'icon-size': ['interpolate', ['linear'], ['zoom'], ...ICON_STOPS.flat().map((v, i) => (i % 2 ? v * 1.22 : v))],
       },
     });
 
