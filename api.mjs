@@ -144,12 +144,16 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
       res.setHeader('Set-Cookie', cookieHeader(req, session.token, SESSION_DAYS * 86400));
     }
   }
+  // binds a Google sign-in to the browser that started it. Google posts back cross-site, so the cookie must be
+  // SameSite=None, which browsers only accept with Secure: this binding is therefore only on HTTPS (see secure()).
+  const OAUTH_COOKIE = 'va_oauth', OAUTH_PATH = '/api/auth/google';
+  const oauthCookie = (req, value, maxAge) => `${OAUTH_COOKIE}=${value}; Path=${OAUTH_PATH}; HttpOnly; Secure; SameSite=None; Max-Age=${maxAge}`;
   function startSession(req, res, userId) {
     const token = crypto.randomBytes(32).toString('base64url');
     const t = now();
     db.prepare('INSERT INTO sessions (token_hash, user_id, created_at, expires_at, last_used) VALUES (?, ?, ?, ?, ?)')
       .run(sha256(token), userId, t, t + SESSION_DAYS * DAY, t);
-    res.setHeader('Set-Cookie', cookieHeader(req, token, SESSION_DAYS * 86400));
+    res.appendHeader('Set-Cookie', cookieHeader(req, token, SESSION_DAYS * 86400));
   }
 
   /* ---------- Google: verify the ID token ourselves (signature, issuer, audience, expiry) ---------- */
@@ -340,13 +344,15 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
           client_id: googleClientId, redirect_uri: `${publicUrl}/api/auth/google/callback`, response_type: 'id_token', response_mode: 'form_post',
           scope: 'openid email profile', state, nonce, prompt: 'select_account',
         });
+        if (secure(req)) res.appendHeader('Set-Cookie', oauthCookie(req, state, 600));
+        else dbg('start: not HTTPS, so the sign-in is not bound to this browser (development only)');
         res.writeHead(302, { Location: `https://accounts.google.com/o/oauth2/v2/auth?${q}`, 'Cache-Control': 'no-store' });
         return res.end();
       }
 
       if (route === 'POST /api/auth/google/callback') {
         // Google posts the signed ID token back here (response_mode=form_post). Each state is good once, for 10 minutes.
-        const back = msg => { res.writeHead(303, { Location: '/signin/?error=' + encodeURIComponent(msg), 'Cache-Control': 'no-store' }); res.end(); };
+        const back = msg => { res.appendHeader('Set-Cookie', oauthCookie(req, '', 0)); res.writeHead(303, { Location: '/signin/?error=' + encodeURIComponent(msg), 'Cache-Control': 'no-store' }); res.end(); };
         const form = await readForm(req, 16_000);
         const state = String(form.state || '');
         // Google names the signed token id_token in this flow (credential is the name the button uses)
@@ -358,6 +364,8 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
           try { const p = JSON.parse(Buffer.from(String(token).split('.')[1], 'base64url').toString('utf8')); dbg('callback: token iss=' + p.iss + ' aud=' + p.aud + ' azp=' + p.azp + ' exp=' + p.exp + ' email_verified=' + p.email_verified + ' nonce_matches=' + (!!row && p.nonce === row.nonce)); } catch (e) { dbg('callback: token does not decode: ' + e.message); }
         }
         if (!row || row.expires_at <= now()) { dbg('callback: unknown or expired state'); return back('That sign-in took too long. Please try again.'); }
+        // the state must belong to this browser: a sign-in started by someone else (or in another browser) is refused
+        if (secure(req) && cookies(req)[OAUTH_COOKIE] !== state) { dbg('callback: state not bound to this browser'); return back('This sign-in was started in another browser. Please try again here.'); }
         if (!token) { dbg('callback: no credential, cancelled or refused by Google'); return back('Sign-in with Google was cancelled.'); }
         let g;
         try { g = await verifyGoogleToken(token, row.nonce); }
@@ -367,7 +375,8 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
           .run(crypto.randomUUID(), g.sub, g.email, g.name, now());
         const user = db.prepare("SELECT * FROM users WHERE provider = 'google' AND google_sub = ?").get(g.sub);
         startSession(req, res, user.id);
-        res.writeHead(303, { Location: row.next, 'Cache-Control': 'no-store' }); // the cookie is set on this response
+        res.appendHeader('Set-Cookie', oauthCookie(req, '', 0));
+        res.writeHead(303, { Location: row.next, 'Cache-Control': 'no-store' }); // the session cookie was set above
         return res.end();
       }
 
