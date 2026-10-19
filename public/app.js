@@ -2860,6 +2860,12 @@ function wire() {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); moveSearch(e.key === 'ArrowDown' ? 1 : -1); }
     else if (e.key === 'Enter') { e.preventDefault(); openResult(results.querySelectorAll('li.result')[state.search.idx]); }
   };
+  document.addEventListener('keydown', e => { // Ctrl/Cmd+F searches this map, instead of the browser's find
+    if (!(e.ctrlKey || e.metaKey) || e.shiftKey || e.altKey || e.key.toLowerCase() !== 'f' || $('#dlg').open) return;
+    e.preventDefault();
+    search.focus();
+    search.select();
+  });
   document.addEventListener('keydown', e => { // Esc leaves the search, wherever the focus is
     if (e.key !== 'Escape' || !state.search.active || $('#dlg').open) return;
     search.value = '';
