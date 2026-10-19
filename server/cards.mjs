@@ -174,7 +174,8 @@ function iconGraphic(icon) {
 
 // a card for one marker. With a category icon, the icon is shown large beside the category's name.
 export function markerHtml({ title, category, description, gameTitle, theme, poster, shot, icon }) {
-  const size = title.length > 60 ? 'xlong' : title.length > 26 ? 'long' : '';
+  // the size steps down early: a title over two lines pushes the copy into the brand row (the copy is anchored below it)
+  const size = title.length > 60 ? 'xlong' : title.length > 18 ? 'long' : '';
   const picture = shot ? `<img class="shot" src="${fileUrl(shot)}" alt="">` : '';
   const head = icon && category
     ? `<div class="cat-row"><span class="cat-disc" style="--c:${icon.color};--g:${icon.ink}">${iconGraphic(icon)}</span><span class="cat-name">${esc(category)}</span></div>`
@@ -188,6 +189,8 @@ export function markerHtml({ title, category, description, gameTitle, theme, pos
     .cat-disc { position: relative; overflow: hidden; }
     .cat-disc svg { width: 58px; height: 58px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
     .cat-disc .gi { display: flex; align-items: center; font: 400 58px/1 "CardIcon"; color: var(--g); }
+    .copy { top: 124px; transform: none; }
+    .copy .lede { ${icon && size ? '-webkit-line-clamp: 2;' : ''} }
     .cat-name { font: 700 30px/1.15 Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); overflow: hidden; text-overflow: ellipsis; }`;
   return page(`${posterDiv(poster)}
 ${picture}
