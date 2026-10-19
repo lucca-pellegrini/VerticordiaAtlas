@@ -2248,6 +2248,7 @@ function hideDetail() {
   clearTimeout(d.outTimer);
   if (d.hidden) return;
   if (d.classList.contains('leaving')) return; // already on its way out
+  endPreview(); // a link hovered in the card: the view goes back, as the card leaves
   // a closed card stops its video: an embed unloads (and stops its sound) once its frame is on about:blank
   d.querySelectorAll('iframe').forEach(f => { f.src = 'about:blank'; });
   d.classList.add('leaving');
@@ -2269,6 +2270,18 @@ function dismiss() {
 function closeDetail() {
   dismiss();
   if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+}
+
+// the last place the pointer was (for a card that renders under it)
+let lastPointer = null;
+
+// A card that renders under a stationary pointer gets pointerover on the link there, which is not a hover: that link
+// is ignored until the pointer has left it and come back.
+function armCardLinks() {
+  const body = $('#detail-body');
+  body.hoverLink = null;
+  const under = lastPointer ? document.elementFromPoint(lastPointer.x, lastPointer.y) : null;
+  body.pendingLink = under?.closest?.('a[data-loc]') && body.contains(under) ? under.closest('a[data-loc]') : null;
 }
 
 function renderDetail() {
@@ -2311,6 +2324,7 @@ function renderDetail() {
   $('#detail-body').querySelectorAll('.shots img').forEach(img => img.addEventListener('error', () => {
     img.replaceWith(Object.assign(document.createElement('p'), { className: 'd-note', textContent: 'Screenshot not downloaded.' }));
   }));
+  armCardLinks();
   updateLinks();
 }
 
@@ -2697,10 +2711,19 @@ function previewRow(li) {
   if (!li || !state.mapReady) return;
   const hit = s.rows.find(h => String(h.e.l.id) === li.dataset.id && h.e.slug === li.dataset.map);
   if (!hit || !hit.here) return;
+  previewAt(hit.e.l);
+}
+
+// the map moves to a location of this map, kept aside to go back to (see endPreview). With the card open, the
+// location is centred in the room the card leaves, as select() does.
+function previewAt(l) {
+  if (!l || !state.mapReady) return;
+  const s = state.search;
   if (!s.preview) s.preview = { cam: { center: state.map.getCenter(), zoom: state.map.getZoom() } };
-  const { lng, lat } = hit.e.l;
-  state.map.easeTo({ center: [lng, lat], zoom: Math.max(state.map.getZoom(), 12), duration: PREVIEW_MS });
-  showRing(hit.e.l);
+  const padding = !document.body.classList.contains('detail-open') ? {}
+    : isMobile() ? { bottom: Math.round(innerHeight * 0.4) } : { right: 384 };
+  state.map.easeTo({ center: [l.lng, l.lat], zoom: Math.max(state.map.getZoom(), 12), padding, duration: PREVIEW_MS });
+  showRing(l);
 }
 
 // puts the view back where it was before the preview; a move that is not a preview is never undone
@@ -2710,8 +2733,8 @@ function endPreview({ instant = false, restore = true } = {}) {
   if (!p) return;
   s.preview = null;
   if (!restore || !state.mapReady) return;
-  if (instant) state.map.jumpTo({ center: p.cam.center, zoom: p.cam.zoom });
-  else state.map.easeTo({ center: p.cam.center, zoom: p.cam.zoom, duration: PREVIEW_MS });
+  if (instant) state.map.jumpTo({ center: p.cam.center, zoom: p.cam.zoom, padding: {} });
+  else state.map.easeTo({ center: p.cam.center, zoom: p.cam.zoom, padding: {}, duration: PREVIEW_MS });
 }
 
 function moveSearch(d) {
@@ -2923,13 +2946,30 @@ function wire() {
   document.addEventListener('scroll', e => { if (!e.target.closest?.('#row-menu')) closeRowMenu(); }, true);
   $('#detail-back').onclick = goBack;
   addEventListener('popstate', onPopState);
-  $('#detail-body').addEventListener('click', e => {
+  // hovering a link in the card moves the map to what it points at, as hovering a search result does
+  const detailBody = $('#detail-body');
+  detailBody.addEventListener('pointerover', e => {
+    const a = e.target.closest('a[data-loc]');
+    if (!a || a === detailBody.hoverLink || a === detailBody.pendingLink) return;
+    detailBody.hoverLink = a;
+    previewAt(state.byId.get(Number(a.dataset.loc)));
+  });
+  detailBody.addEventListener('pointerout', e => {
+    const a = e.target.closest('a[data-loc]');
+    if (a && !a.contains(e.relatedTarget)) {
+      if (a === detailBody.pendingLink) detailBody.pendingLink = null;
+      if (a === detailBody.hoverLink) detailBody.hoverLink = null;
+    }
+  });
+  detailBody.addEventListener('pointerleave', () => { detailBody.hoverLink = null; endPreview(); });
+  document.addEventListener('pointermove', e => { lastPointer = { x: e.clientX, y: e.clientY }; }, { passive: true });
+  detailBody.addEventListener('click', e => {
     if (e.target.closest('.found-btn')) return toggleFound(state.selected);
     if (e.target.closest('.share-btn')) return shareMarker(state.selected, e.target.closest('.share-btn'));
     const um = e.target.closest('[data-um]');
     if (um) return state.um.detailAction(um.dataset.um, state.selected);
     const a = e.target.closest('a[data-loc]');
-    if (a) { e.preventDefault(); return select(Number(a.dataset.loc)); }
+    if (a) { e.preventDefault(); endPreview({ restore: false }); return select(Number(a.dataset.loc)); }
     const img = e.target.closest('.shots img');
     if (img) { const lb = $('#lightbox'); lb.querySelector('img').src = img.src; lb.hidden = false; }
   });
