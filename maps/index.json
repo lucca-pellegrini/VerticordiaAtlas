@@ -594,6 +594,33 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "pragmata",
+      "slug": "pragmata",
+      "title": "Pragmata",
+      "description": "Every marker on the Pragmata map.",
+      "poster": "pragmata/poster",
+      "theme": {
+        "accent": "#24389d",
+        "accent-soft": "#586ed9",
+        "night": "#06070c",
+        "panel": "#0c0d16",
+        "panel-2": "#11141f",
+        "line": "#212436"
+      },
+      "stats": [
+        {
+          "value": 1099,
+          "label": "markers"
+        },
+        {
+          "value": 36,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }
