@@ -1728,17 +1728,57 @@ function mapIcon(name) {
   return plain;
 }
 
+// the markers a selected one links to, and the ones that link to it (both directions)
+function relatedOf(id) {
+  const out = new Set([...(state.outLinks.get(id) || []), ...(state.inLinks.get(id) || [])]);
+  out.delete(id);
+  return out;
+}
+
 function refreshMap() {
   if (!state.mapReady) return;
+  const sel = state.selected, rel = sel != null ? relatedOf(sel) : new Set();
   const feats = [];
   for (const l of state.locs) {
-    if (!shownOnMap(l)) continue;
-    if (state.search.ids && !state.search.ids.has(l.id)) continue; // while searching: the matches only
+    // the card's marker and the markers it links to are always drawn: a filter (hidden category, hide found, a search)
+    // must not hide what the card is about
+    const pinned = l.id === sel || rel.has(l.id);
+    if (!pinned) {
+      if (!shownOnMap(l)) continue;
+      if (state.search.ids && !state.search.ids.has(l.id)) continue; // while searching: the matches only
+    }
     const icon = mapIcon(l.icon);
     const f = state.found.has(l.id) ? 1 : 0;
     feats.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: { id: l.id, icon, f, z: f ? 0 : 1 } });
   }
   state.map.getSource('locs').setData({ type: 'FeatureCollection', features: feats });
+  syncRelatedRings(rel);
+}
+
+// a dotted ring on each related marker (the selected one has its solid circle, the 'sel' layer)
+const relRings = new Map(); // location id -> ring element
+function syncRelatedRings(rel) {
+  for (const [id, el] of relRings) if (!rel.has(id)) { el.remove(); relRings.delete(id); }
+  for (const id of rel) {
+    if (relRings.has(id)) continue;
+    const el = document.createElement('div');
+    el.className = 'search-ring rel-ring';
+    state.map.getContainer().appendChild(el);
+    relRings.set(id, el);
+  }
+  if (rel.size && !syncRelatedRings.listening) {
+    syncRelatedRings.listening = true;
+    state.map.on('move', placeRelatedRings);
+  }
+  placeRelatedRings();
+}
+function placeRelatedRings() {
+  for (const [id, el] of relRings) {
+    const l = state.byId.get(id);
+    if (!l) continue;
+    const p = state.map.project([l.lng, l.lat]);
+    el.style.transform = `translate(${p.x - 21}px, ${p.y - 38}px)`;
+  }
 }
 
 /* ---------- map tools: hand (move the map) and selection (box, ellipse, free) ----------
@@ -2140,6 +2180,7 @@ function select(id, { fly = true, push = true } = {}) {
   if (!l) return;
   if (push) stackPush(id);
   state.selected = id;
+  refreshMap(); // the card's marker and its links are drawn whatever the filters say
   if (applicable(l) && state.view.hidden.has(l.cat)) {
     state.view.hidden.delete(l.cat);
     scheduleViewSave(); updateSidebar(); refreshMap();
@@ -2206,6 +2247,7 @@ function dismiss() {
   state.trail = [];
   state.session = uid();
   state.selected = null;
+  refreshMap(); // its links are no longer pinned
   hideDetail();
   document.body.classList.remove('detail-open');
   if (state.mapReady) state.map.getSource('sel').setData(emptyFC);
@@ -2816,8 +2858,12 @@ function wire() {
   search.onkeydown = e => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); moveSearch(e.key === 'ArrowDown' ? 1 : -1); }
     else if (e.key === 'Enter') { e.preventDefault(); openResult(results.querySelectorAll('li.result')[state.search.idx]); }
-    else if (e.key === 'Escape') { search.value = ''; leaveSearch(); }
   };
+  document.addEventListener('keydown', e => { // Esc leaves the search, wherever the focus is
+    if (e.key !== 'Escape' || !state.search.active || $('#dlg').open) return;
+    search.value = '';
+    leaveSearch();
+  });
   results.onclick = e => {
     const a = e.target.closest('a');
     if (a) { if (a.dataset.loc) { e.preventDefault(); select(Number(a.dataset.loc)); } return; } // links in a description
