@@ -210,6 +210,8 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 .cat-row:hover { background: var(--hover); }
 .cat-row.off .ico-wrap, .cat-row.off .label { opacity: .38; }
 .ico-wrap { width: 22px; height: 28px; position: relative; transition: opacity var(--fast); }
+/* a category logo from the game's icon font, centred in its 22x28 slot */
+.ico-font { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 20px; line-height: 1; font-style: normal; font-weight: normal; white-space: nowrap; }
 .ico { position: absolute; left: 0; top: 0; width: 33px; height: 44px; transform: scale(.64); transform-origin: 0 0; background-repeat: no-repeat; }
 .cat-row .label { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity var(--fast); }
 .cat-row .tally { color: var(--ink-dim); font-variant-numeric: tabular-nums; font-size: 12px; }

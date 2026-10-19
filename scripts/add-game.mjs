@@ -23,7 +23,8 @@
 //   --max-zoom <n>       cap tile zoom (default: the tile set's tiles_max_zoom)
 //   --all-tilesets       download every tile set of a map (default: only the first)
 //   --videos             also download video media (default: images only)
-//   --no-tiles --no-media --no-markers
+//   --no-tiles --no-media --no-markers --no-icons
+//   --icons-only         only (re)fetch the sidebar icons of a game that was already added, and update its meta.json
 //   --no-cards           don't rebuild the social preview cards (make-cards.mjs) at the end
 //   --html <file>        read the map page from a saved file instead of fetching it
 //   --mapdata <file>     use a saved window.mapData JSON (the old console snippet) for this one map
@@ -231,6 +232,44 @@ async function downloadMarkers({ html, slug, mediaBase, outDir, cats }) {
   return null;
 }
 
+/* ---------- icons: the sidebar shows each category's logo, from the site's icon font (one glyph per category icon) ---------- */
+
+// The map page links the game's icon stylesheet (relative, as "game-icons/<game>/icons.css?v=..."). Its rules map each
+// category icon name to code points of its font. An icon is one glyph, or several stacked layers (.path1, .path2, ...)
+// each with its own colour (#000000 means "the colour of the category") and offset.
+// Returns { font, glyphs } or null when the site has none for this game (then the sidebar keeps the marker sprite).
+async function downloadIcons({ html, origin, slug, outDir }) {
+  // every stylesheet of the page that looks like an icon sheet (games differ: "game-icons/<game>/icons.css" for some,
+  // "css/themes/icons/<game>-icons.css" for others), then the game's own default guess
+  const base = origin + '/';
+  const candidates = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(m => m[1].replace(/&amp;/g, '&')).filter(u => /icon/i.test(u) && /\.css(\?|$)/i.test(u));
+  candidates.push(`game-icons/${slug}/icons.css`);
+  for (const link of [...new Set(candidates.map(u => new URL(u, base).href))]) {
+    const css = await getBin(link, 1);
+    if (css.status !== 200) continue;
+    const text = css.buf.toString('utf8');
+    const glyphs = {};
+    for (const m of text.matchAll(/\.icon-([a-z0-9_]+)((?:\s+\.path\d+)?):before\s*\{([^}]*)\}/gi)) {
+      const cp = m[3].match(/content:\s*"\\([0-9a-f]{4})"/i);
+      if (!cp) continue;
+      const path = m[2] ? parseInt(m[2].match(/\d+/)[0], 10) : 0;
+      const color = (m[3].match(/color:\s*(#[0-9a-f]{3,8})/i) || [])[1]?.toLowerCase();
+      const ml = (m[3].match(/margin-left:\s*([^;]+)/i) || [])[1]?.trim();
+      (glyphs[m[1]] ||= []).push({ path, cp: cp[1].toLowerCase(), ...(color ? { color } : {}), ...(ml ? { ml } : {}) });
+    }
+    if (!Object.keys(glyphs).length) continue;
+    for (const k of Object.keys(glyphs)) glyphs[k] = glyphs[k].sort((a, b) => a.path - b.path).map(({ path, ...layer }) => layer);
+    const font = text.match(/url\(['"]?([^'")?]+\.woff)/); // relative to this stylesheet; a query string is not part of the path
+    if (!font) continue;
+    const f = await getBin(new URL(font[1], link).href, 1);
+    if (f.status !== 200) continue;
+    await mkdir(path.join(outDir, 'icons'), { recursive: true });
+    await writeFile(path.join(outDir, 'icons', 'icons.woff'), f.buf);
+    return { font: 'icons/icons.woff', glyphs };
+  }
+  return null;
+}
+
 /* ---------- media ---------- */
 
 function collectMedia(maps, withVideos) {
@@ -403,6 +442,7 @@ async function main() {
       'tag-label': { type: 'string' }, 'default-tag': { type: 'string' }, index: { type: 'string', default: './public/maps/index.json' },
       'max-zoom': { type: 'string' }, 'all-tilesets': { type: 'boolean', default: false }, videos: { type: 'boolean', default: false },
       'no-tiles': { type: 'boolean', default: false }, 'no-media': { type: 'boolean', default: false }, 'no-markers': { type: 'boolean', default: false }, 'no-cards': { type: 'boolean', default: false },
+      'no-icons': { type: 'boolean', default: false }, 'icons-only': { type: 'boolean', default: false },
       html: { type: 'string' }, mapdata: { type: 'string' },
       'tiles-base': { type: 'string' }, 'media-base': { type: 'string', default: 'https://media.mapgenie.io/v2/assets/prod/games' },
       concurrency: { type: 'string', default: '4' }, delay: { type: 'string', default: '100' }, 'max-tiles': { type: 'string', default: '400000' },
@@ -472,6 +512,16 @@ async function main() {
   const title = v.title || game.title || (ogTitle ? ogTitle.replace(/\s*(Interactive )?Map.*$/i, '').trim() : slug);
   const outDir = path.join(v.out, pageSlug);
   await mkdir(outDir, { recursive: true });
+  if (v['icons-only']) { // refresh the icons of a game that is already added, and nothing else
+    const metaFile = path.join(outDir, 'meta.json');
+    if (!await exists(metaFile)) throw new Error(`${metaFile} not found: add the game first (without --icons-only)`);
+    const icons = await downloadIcons({ html, origin, slug, outDir }).catch(e => { console.log('  ! icons:', e.message); return null; });
+    const meta = JSON.parse(await readFile(metaFile, 'utf8'));
+    meta.icons = icons;
+    await writeFile(metaFile, JSON.stringify(meta, null, 2) + '\n');
+    console.log(icons ? `icons: ${Object.keys(icons.glyphs).length} glyphs in ${icons.font}` : '! no icon font for this game: the sidebar keeps the marker sprite');
+    return;
+  }
   console.log(`Game "${title}" (${slug}) -> ${outDir}, ${maps.length} map(s)`);
 
   const cats = maps.flatMap(m => Object.values(m.categories || {}));
@@ -481,6 +531,8 @@ async function main() {
   let sprite = null;
   if (!v['no-markers']) { sprite = await downloadMarkers({ html, slug, mediaBase: v['media-base'].replace(/\/$/, ''), outDir, cats }); }
   report(slug, maps, sprite);
+  const icons = v['no-icons'] ? null : await downloadIcons({ html, origin, slug, outDir }).catch(e => { console.log('  ! icons:', e.message); return null; });
+  console.log(icons ? `icons: ${Object.keys(icons.glyphs).length} category glyphs in ${icons.font}` : '! no icon font for this game: the sidebar will use the marker sprite');
 
   // 4. per map: data + tiles
   const tilesBases = [];
@@ -533,6 +585,7 @@ async function main() {
     id, title, slug, source: positionals[0], poster,
     tagLabel: v['tag-label'] || guessTagLabel(tags), defaultTag: v['default-tag'] || null,
     markers: sprite ? { json: sprite.json, png: sprite.png, json2x: sprite.json2x, png2x: sprite.png2x } : null,
+    icons,
     maps: metaMaps,
   };
   // tile zoom ranges are filled in as tiles arrive, so the file is rewritten after each tile set

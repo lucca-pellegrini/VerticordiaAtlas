@@ -299,6 +299,17 @@ async function loadGame(entry) {
     state.sprite = { defs: spriteDefs, img: spriteImg, png: spriteFile?.png ?? null };
     state.spriteFile = spriteFile;
   } catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
+  // the sidebar's category logos come from the game's icon font (add-game.mjs); without it the marker sprite is used
+  state.glyphs = null;
+  if (state.meta.icons?.font && state.meta.icons.glyphs) {
+    try {
+      const family = `gi-${entry.id}`;
+      const face = new FontFace(family, `url("${state.folder}/${state.meta.icons.font}")`);
+      await face.load();
+      document.fonts.add(face);
+      state.glyphs = { family, map: state.meta.icons.glyphs };
+    } catch (e) { console.warn('icon font not loaded, using the marker sprite:', e.message); }
+  }
 
   // the profile comes first: it says which map was open, and where
   await loadProfiles();
@@ -958,7 +969,17 @@ function computeStats() {
 
 /* ---------- sidebar ---------- */
 
-function iconHtml(name) {
+const BLACK_OR_WHITE = new Set(['#000', '#000000', '#fff', '#ffffff']); // layers the site leaves to the category colour
+function iconHtml(name, color) {
+  // the sidebar logo: the game's own glyph for this category, in the category colour (the map keeps the marker sprite)
+  const glyph = name && state.glyphs?.map[name];
+  if (glyph) {
+    // one glyph, or stacked layers; a layer in black takes the category colour, the others keep the site's colours
+    const tint = HEX.test(color || '') ? color : 'var(--ink)';
+    const layers = (Array.isArray(glyph) ? glyph : [{ cp: glyph }]).map(l =>
+      `<span style="color:${l.color && !BLACK_OR_WHITE.has(l.color) ? l.color : tint}${l.ml ? `;margin-left:${l.ml}` : ''}">&#x${l.cp};</span>`).join('');
+    return `<span class="ico-font" style="font-family:'${state.glyphs.family}'">${layers}</span>`;
+  }
   if (name && name.startsWith('ic-')) {
     const m = /^ic-(.+)-([0-9a-f]{6})$/i.exec(name), inner = m && iconInner(m[1]);
     if (inner) return `<span class="ico-glyph" style="--c:#${m[2]};--g:${glyphInk('#' + m[2])}"><svg class="i" viewBox="0 0 24 24" aria-hidden="true">${inner}</svg></span>`;
@@ -1028,7 +1049,7 @@ function buildSidebar() {
       const row = document.createElement('label');
       row.className = 'cat-row';
       if (c.info) row.title = c.info;
-      row.innerHTML = `${menuBtnHtml(c.title)}<span class="ico-wrap">${iconHtml(c.icon)}</span><span class="label">${esc(c.title)}</span><span class="tally"></span><input type="checkbox">`;
+      row.innerHTML = `${menuBtnHtml(c.title)}<span class="ico-wrap">${iconHtml(c.icon, c.color || g.col)}</span><span class="label">${esc(c.title)}</span><span class="tally"></span><input type="checkbox">`;
       // the row is a label: it must activate the checkbox. Without this it would activate the first button inside it
       // (the three-dot menu), so a click on the name would open that menu instead of toggling the category
       const cb = row.querySelector('input');
@@ -1088,7 +1109,7 @@ function openRowMenu(e, { title, icon, color, cats, user = null }) {
   const locs = rowLocs(cats);
   const found = locs.filter(l => state.found.has(l.id)).length;
   const head = icon
-    ? `<span class="ico-wrap">${iconHtml(icon)}</span>`
+    ? `<span class="ico-wrap">${iconHtml(icon, color)}</span>`
     : `<span class="rm-dot" style="--c:${esc(color || '#888')}"></span>`;
   const kind = icon ? 'Category' : 'Group';
   el.querySelector('.rm-head').innerHTML = `${head}<div class="rm-text"><div class="rm-title">${esc(title)}</div>` +
