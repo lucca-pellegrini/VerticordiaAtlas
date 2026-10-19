@@ -2248,6 +2248,8 @@ function hideDetail() {
   clearTimeout(d.outTimer);
   if (d.hidden) return;
   if (d.classList.contains('leaving')) return; // already on its way out
+  // a closed card stops its video: an embed unloads (and stops its sound) once its frame is on about:blank
+  d.querySelectorAll('iframe').forEach(f => { f.src = 'about:blank'; });
   d.classList.add('leaving');
   d.outTimer = setTimeout(() => { d.hidden = true; d.classList.remove('leaving'); }, DETAIL_OUT_MS);
 }
@@ -2282,10 +2284,7 @@ function renderDetail() {
     only = `<p class="d-note">Only on ${esc(names.join(', '))}.</p>`;
   }
   const notHere = !ok ? `<p class="d-note">This marker is not shown on ${esc(state.tag === UNTAGGED ? 'Only untagged' : state.tags.find(t => t.id === state.tag)?.title || 'this setting')}.</p>` : '';
-  const shots = l.media.map(m => {
-    const file = decodeURIComponent(new URL(m.url).pathname.split('/').pop());
-    return `<img loading="lazy" src="${esc(state.folder + '/media/' + file)}" alt="${esc(m.title || l.title)}">`;
-  }).join('');
+  const shots = l.media.map(m => mediaHtml(m, l)).join('');
 
   const backrefs = refs.length
     ? `<div class="d-backrefs"><h3>Referenced by</h3><ul>${refs.map(r => `<li><a href="#loc=${r.id}" data-loc="${r.id}">${esc(r.title)}</a></li>`).join('')}</ul></div>`
@@ -2313,6 +2312,23 @@ function renderDetail() {
     img.replaceWith(Object.assign(document.createElement('p'), { className: 'd-note', textContent: 'Screenshot not downloaded.' }));
   }));
   updateLinks();
+}
+
+// one piece of a marker's media on its card. YouTube videos are embedded (nothing is downloaded for them); a picture is
+// the copy add-game.mjs saved; anything else (a video page elsewhere) is a link to it.
+const YOUTUBE = /(?:youtube\.com\/watch\?(?:.*&)?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{11})/;
+function mediaHtml(m, l) {
+  const alt = esc(m.title || l.title);
+  const yt = YOUTUBE.exec(m.url || '') || (m.type === 'youtube' && /^[\w-]{11}$/.test(m.file_name || '') ? [null, m.file_name] : null);
+  if (yt) {
+    return `<div class="shot-video"><iframe src="https://www.youtube-nocookie.com/embed/${yt[1]}" title="${alt}" loading="lazy" ` +
+      `allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>`;
+  }
+  if (!m.url) return '';
+  const isImage = m.type === 'image' || (m.mime_type || '').startsWith('image/');
+  if (!isImage) return `<p class="d-note"><a href="${esc(m.url)}" target="_blank" rel="noopener noreferrer">${esc(m.title || 'Video')}</a></p>`;
+  const file = decodeURIComponent(new URL(m.url).pathname.split('/').pop());
+  return `<img loading="lazy" src="${esc(state.folder + '/media/' + file)}" alt="${alt}">`;
 }
 
 // a link that opens this marker on this game page; the system share sheet when there is one, else the clipboard

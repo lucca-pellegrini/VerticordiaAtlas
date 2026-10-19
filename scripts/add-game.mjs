@@ -275,16 +275,18 @@ async function downloadIcons({ html, origin, slug, outDir }) {
 function collectMedia(maps, withVideos) {
   const urls = new Map();   // url -> kind
   const kinds = {};
+  let youtube = 0;
   for (const md of maps) for (const l of md.locations) for (const m of l.media || []) {
     const kind = (m.type || (m.mime_type || '').split('/')[0] || 'unknown');
     kinds[kind] = (kinds[kind] || 0) + 1;
     if (!m.url) continue;
+    if (kind === 'youtube') { youtube++; continue; } // the card embeds these (app.js mediaHtml): nothing to download
     if (kind === 'image' || withVideos) urls.set(m.url, kind);
   }
   // images embedded in descriptions: ![alt](url)
   let embedded = 0;
   for (const md of maps) for (const l of md.locations) for (const m of (l.description || '').matchAll(/!\[[^\]]*\]\((https?:[^)\s]+)\)/g)) { embedded++; urls.set(m[1], 'image'); }
-  return { urls, kinds, embedded };
+  return { urls, kinds, embedded, youtube };
 }
 
 async function downloadMedia(urls, dir, opts) {
@@ -639,8 +641,8 @@ async function main() {
     await writeMeta();
   }
 
-  const { urls, kinds, embedded } = collectMedia(maps, v.videos);
-  console.log(`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ''}; ${urls.size} file(s) to fetch${v.videos ? '' : ' (images only; use --videos for the rest)'}`);
+  const { urls, kinds, embedded, youtube } = collectMedia(maps, v.videos);
+  console.log(`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ''}${youtube ? `, ${youtube} YouTube videos (embedded, not downloaded)` : ''}; ${urls.size} file(s) to fetch${v.videos ? '' : ' (images only; use --videos for the rest)'}`);
   if (!v['no-media'] && urls.size) await downloadMedia(urls, path.join(outDir, 'media'), opts);
   console.log(`\nDone: ${outDir}`);
 
