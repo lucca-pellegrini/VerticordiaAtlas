@@ -404,7 +404,13 @@ function mapSwitchEl() {
     nav.className = 'map-switch';
     nav.setAttribute('aria-label', 'Maps in this game');
     nav.onclick = e => { const b = e.target.closest('button[data-map]'); if (b) switchMap(b.dataset.map); };
+    nav.onchange = e => { if (e.target.matches('select[data-map-select]')) switchMap(e.target.value); };
     document.querySelector('.side-head .progress').before(nav);
+    // the pills, or a drop-down when they do not fit the sidebar: decided again whenever the sidebar changes width
+    new ResizeObserver(() => layoutMapSwitch()).observe(nav.parentElement);
+    // the web font arrives after the first layout, and it makes the names wider: decide again once it is here
+    document.fonts?.ready.then(() => layoutMapSwitch());
+    document.fonts?.addEventListener('loadingdone', () => layoutMapSwitch());
   }
   return nav;
 }
@@ -415,12 +421,56 @@ function showMapSwitchPlaceholder() {
   nav.classList.add('placeholder');
   nav.innerHTML = '<span class="spinner" role="status" aria-label="Loading maps"></span>';
 }
+// The map buttons are built once per game and then only updated, so the highlight can glide from one to the next.
 function renderMapSwitch() {
   const maps = state.meta?.maps || [];
   const nav = mapSwitchEl();
   nav.classList.remove('placeholder');
   nav.hidden = maps.length < 2;
-  nav.innerHTML = maps.map(m => `<button type="button" data-map="${esc(m.slug)}" aria-pressed="${m.slug === state.mapInfo?.slug}">${esc(m.title || m.slug)}</button>`).join('');
+  if (nav.hidden) return;
+  const key = maps.map(m => m.slug).join('|');
+  if (nav.dataset.maps !== key || !nav.querySelector('button[data-map]')) {
+    nav.dataset.maps = key;
+    nav.classList.remove('ready');
+    nav.innerHTML = '<span class="map-thumb" aria-hidden="true"></span>' +
+      maps.map(m => `<button type="button" data-map="${esc(m.slug)}">${esc(m.title || m.slug)}</button>`).join('') +
+      `<select data-map-select aria-label="Map">${maps.map(m => `<option value="${esc(m.slug)}">${esc(m.title || m.slug)}</option>`).join('')}</select>`;
+  }
+  const cur = state.mapInfo?.slug;
+  nav.removeAttribute('data-pending');
+  nav.querySelectorAll('button[data-map]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.map === cur)); b.removeAttribute('data-pending'); });
+  nav.querySelector('select').value = cur ?? '';
+  layoutMapSwitch();
+  if (!nav.classList.contains('ready')) requestAnimationFrame(() => nav.classList.add('ready')); // first placement does not glide in from the left
+}
+// a switch has begun: the pill (or the drop-down) shows where it is going, and the highlight glides there at once
+function markSwitchTarget(slug) {
+  const nav = mapSwitchEl();
+  nav.setAttribute('data-pending', '');
+  nav.querySelectorAll('button[data-map]').forEach(b => b.toggleAttribute('data-pending', b.dataset.map === slug));
+  nav.querySelector('select').value = slug;
+  moveThumb(slug);
+}
+function moveThumb(slug) {
+  const nav = document.getElementById('map-switch');
+  const thumb = nav?.querySelector('.map-thumb');
+  if (!thumb) return;
+  const b = nav.querySelector(`button[data-map="${CSS.escape(slug ?? '')}"]`);
+  if (!b || nav.classList.contains('as-select')) { thumb.style.width = '0px'; return; }
+  thumb.style.width = b.offsetWidth + 'px';
+  thumb.style.transform = `translateX(${b.offsetLeft}px)`;
+}
+// The pills while they fit the sidebar. A little too wide is squeezed (the names are cut short) rather than turning into a
+// drop-down; only clearly too wide becomes the drop-down. Measured with the pills in their natural state, before anything is drawn.
+const SWITCH_TOLERANCE = 16; // px
+function layoutMapSwitch() {
+  const nav = document.getElementById('map-switch');
+  if (!nav || nav.hidden || !nav.clientWidth || nav.querySelector('.spinner')) return;
+  nav.classList.remove('as-select', 'squeeze');
+  const over = nav.scrollWidth - nav.clientWidth;
+  if (over > SWITCH_TOLERANCE) nav.classList.add('as-select');
+  else if (over > 1) nav.classList.add('squeeze');
+  moveThumb(state.mapInfo?.slug);
 }
 
 // the bounds, zoom limits and tile set of a map
@@ -510,10 +560,12 @@ async function switchMap(slug, { remember = true } = {}) {
   const info = state.meta.maps.find(m => m.slug === slug);
   if (!info) return;
   revealToken++; // a reveal waiting from an earlier switch must not lift this fade
+  // the pill being switched to shows a spinner from the click on (the sidebar is locked while the map loads: see wire)
+  markSwitchTarget(slug);
   document.body.classList.add('loading-map');
   if (remember) rememberCamera(true); // where we were on the map we are leaving
   try { await Promise.all([prepareMap(info), delay(FADE_MS)]); } // the jump happens once the map is black
-  catch (e) { document.body.classList.remove('loading-map'); return toast(`Could not load ${info.title}.`, 4000); }
+  catch (e) { document.body.classList.remove('loading-map'); renderMapSwitch(); return toast(`Could not load ${info.title}.`, 4000); }
   dismiss();
   state.sel = null;
   setBaseTiles(state.map);
@@ -2353,6 +2405,17 @@ function showConflicts(list) {
 
 function wire() {
   arrangeSidebar();
+  // the throbber for a map switch: sticky at the top of the scrolling sidebar, so it stays in the middle of what is visible
+  const scroll = document.querySelector('#side .side-scroll'), groups = document.getElementById('groups');
+  if (scroll && groups && !scroll.querySelector('.groups-throbber')) {
+    const t = document.createElement('div');
+    t.className = 'groups-throbber';
+    t.setAttribute('aria-hidden', 'true');
+    scroll.insertBefore(t, groups);
+  }
+  // while a map loads, the side panel takes no input, from the mouse or the keyboard (its content is dimmed, see style.css)
+  new MutationObserver(() => { const side = document.getElementById('side'); if (side) side.inert = document.body.classList.contains('loading-map'); })
+    .observe(document.body, { attributes: true, attributeFilter: ['class'] });
   document.querySelector('.side-scroll')?.appendChild(accountSlot());
   document.querySelector('.side-scroll')?.appendChild(legalLinks());
   accountReady = initAccount({ toast }); // resolves once we know whether someone is signed in

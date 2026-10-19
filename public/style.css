@@ -114,7 +114,7 @@ input[type=checkbox]:active { transform: scale(.88); }
 #side { position: relative; background: color-mix(in srgb, var(--panel) 88%, transparent); backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1); border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; z-index: 5; }
 #side::before { content: ""; position: absolute; inset: 0 0 auto; height: 240px; pointer-events: none; background: radial-gradient(120% 100% at 50% -25%, var(--glow), transparent 70%); }
 .side-head, .list-tools, .groups { position: relative; }
-.side-head { padding: 18px 16px 14px; display: grid; gap: 14px; border-bottom: 1px solid var(--line); }
+.side-head { padding: 18px 16px 14px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; border-bottom: 1px solid var(--line); }
 .title-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-wrap: balance; }
 .home-link {
@@ -573,7 +573,30 @@ dialog.um textarea:focus, dialog.um select:focus, dialog.um input:focus { border
 .map-switch::-webkit-scrollbar { display: none; }
 .map-switch button { flex: 1 0 auto; padding: 7px 14px; border: 0; border-radius: 999px; background: none; color: var(--ink-dim); font: 500 13px/1 var(--sans); white-space: nowrap; transition: background-color var(--fast), color var(--fast); }
 .map-switch button:hover { color: var(--ink); }
-.map-switch button[aria-pressed="true"] { background: var(--tint); color: var(--ink); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent); }
+/* loading: the pill being switched to spins, and stays spinning while its map is drawn */
+.map-switch button { display: inline-flex; align-items: center; justify-content: center; }
+.map-switch button::before { content: ""; display: inline-block; flex: none; width: 0; height: 11px; border-radius: 50%; border: 0 solid transparent; transition: width .25s var(--ease), margin .25s var(--ease), border-width .25s; }
+.map-switch button[data-pending]::before, body.loading-map .map-switch:not(:has([data-pending])) button[aria-pressed="true"]::before {
+  width: 11px; margin-right: 7px; border: 1.5px solid var(--line-2); border-top-color: var(--accent-soft); animation: spin .8s linear infinite;
+}
+.map-switch button[aria-pressed="true"] { color: var(--ink); }
+/* the highlight is one element that glides between the pills (app.js moveThumb) */
+.map-switch { position: relative; min-width: 0; } /* a grid item may shrink to its column: its width is then the real room for the pills */
+.map-switch .map-thumb { position: absolute; top: 4px; bottom: 4px; left: 0; width: 0; border-radius: 999px; pointer-events: none;
+  background: var(--tint); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent); }
+.map-switch.ready .map-thumb { transition: transform .5s var(--ease), width .5s var(--ease); }
+.map-switch button { position: relative; z-index: 1; }
+/* too many maps for the sidebar: a drop-down the size of the pill group (27px inside its 4px padding), with the same spinner */
+.map-switch select { display: none; box-sizing: border-box; width: 100%; height: 27px; margin: 0; border: 0; border-radius: 999px; background-color: transparent; color: var(--ink); font: 500 13px/27px var(--sans); padding: 0 36px 0 14px; }
+.map-switch.as-select { overflow: visible; }
+/* a little too wide for the sidebar: the names are cut short, the pills stay (see app.js layoutMapSwitch) */
+.map-switch.squeeze button { flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.map-switch select { position: relative; }
+.map-switch select::picker-icon { position: absolute; right: 14px; top: 50%; translate: 0 -50%; margin: 0; }
+.map-switch.as-select select { display: block; }
+.map-switch.as-select button, .map-switch.as-select .map-thumb { display: none; }
+body.loading-map .map-switch.as-select::after { content: ""; position: absolute; right: 36px; top: 50%; margin-top: -6px; width: 11px; height: 11px; border-radius: 50%;
+  border: 1.5px solid var(--line-2); border-top-color: var(--accent-soft); animation: spin .8s linear infinite; pointer-events: none; }
 
 /* loading, and the fades that follow it. Throbbers stand in for what is not ready yet; everything fades in once it is. */
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -614,6 +637,13 @@ body.loading-side #preset-select, body.loading-side #preset-menu-btn, body.loadi
 #groups::after { top: 56px; width: 26px; height: 26px; margin-left: -13px; }
 #map::after { top: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-width: 3px; border-color: rgb(255 255 255 / .12); border-top-color: var(--accent-soft); z-index: 5; }
 body.loading-side .progress::after, body.loading-side .profile-row::after, body.loading-side #groups::after { opacity: 1; }
+/* a map switch: the marker list is replaced by a throbber, held in the middle of the visible part of the sidebar */
+.groups-throbber { display: none; position: sticky; top: 50%; height: 0; }
+body.loading-map .groups-throbber { display: block; }
+.groups-throbber::after { content: ""; position: absolute; left: 50%; top: 0; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%;
+  border: 2.5px solid rgb(255 255 255 / .12); border-top-color: var(--accent-soft); animation: spin .8s linear infinite; }
+#groups > * { transition: opacity .3s var(--ease); }
+body.loading-map #groups > * { opacity: 0; pointer-events: none; }
 body.loading-map #map::after { opacity: 1; }
 
 .spinner { display: inline-block; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line-2); border-top-color: var(--accent-soft); animation: spin .8s linear infinite; }
@@ -621,6 +651,21 @@ body.loading-map #map::after { opacity: 1; }
 
 /* the marker list fades in once it is built */
 #groups.enter { animation: fade-in .6s var(--ease) both; }
+
+/* while a map loads, its controls are grey and take no input: the sidebar (header, filters, list), the toggles, the zoom and
+   the tool buttons. The map pills keep their colour, since they show the switch in progress. (The sidebar is also locked
+   and inert, see app.js wire.) */
+#side .side-scroll, #side > .side-head > *:not(#map-switch), #side-toggle, #side-collapse, .maplibregl-ctrl-group, .tool-ctrl {
+  transition: filter .4s var(--ease), opacity .4s var(--ease);
+}
+body.loading-map #side { pointer-events: none; cursor: progress; }
+body.loading-map #side > .side-head > *:not(#map-switch),
+body.loading-map #side-toggle, body.loading-map #side-collapse, body.loading-map .maplibregl-ctrl-group, body.loading-map .tool-ctrl {
+  filter: grayscale(1) opacity(.5); pointer-events: none;
+}
+/* the marker list is not greyed: it is replaced by the throbber above, which keeps its colour */
+body.loading-map #side .side-scroll > *:not(#groups):not(.groups-throbber) { filter: grayscale(1) opacity(.5); pointer-events: none; }
+body.loading-map #side .side-scroll > #groups { filter: none; opacity: 1; }
 
 /* the map: hidden until its new tiles are in (the tiles themselves fade in), then the canvas and the controls fade in, slowly */
 #map .maplibregl-canvas-container, #map .maplibregl-control-container { transition: opacity 1.6s var(--ease); }
