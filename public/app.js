@@ -1475,6 +1475,17 @@ function createMap() {
       paint: { 'icon-opacity': ['case', ['==', ['get', 'f'], 1], 0.4, 1] },
     });
 
+    // a user marker under the pointer is drawn again here, a little larger, above the rest (see setHover)
+    map.addSource('hover-loc', { type: 'geojson', data: emptyFC });
+    map.addLayer({
+      id: 'hover-loc', type: 'symbol', source: 'hover-loc',
+      layout: {
+        'icon-image': ['get', 'icon'], 'icon-anchor': 'bottom',
+        'icon-allow-overlap': true, 'icon-ignore-placement': true,
+        'icon-size': ['*', ['interpolate', ['linear'], ['zoom'], ...ICON_STOPS.flat()], 1.22],
+      },
+    });
+
     map.addSource('link-heads', { type: 'geojson', data: emptyFC });
     map.addLayer({
       id: 'link-heads', type: 'symbol', source: 'link-heads',
@@ -1511,17 +1522,27 @@ function createMap() {
   });
 
   const tip = new maplibregl.Popup({ closeButton: false, closeOnClick: false, className: 'tip', anchor: 'bottom' });
+  // a user marker under the pointer grows a little (the copy in 'hover-loc'); official markers do not react
+  let hoverId = null;
+  const setHover = l => {
+    const id = l && l.user ? l.id : null;
+    if (id === hoverId) return;
+    hoverId = id;
+    map.getSource('hover-loc').setData(id == null ? emptyFC : { type: 'FeatureCollection', features: [
+      { type: 'Feature', geometry: { type: 'Point', coordinates: [l.lng, l.lat] }, properties: { icon: l.icon } }] });
+  };
   map.on('mousemove', 'locs', ev => {
-    if (state.tool !== 'pan') return;
     const f = ev.features && ev.features[0];
+    const l = f && state.byId.get(Number(f.properties.id));
+    setHover(l || null);
+    if (state.tool !== 'pan') return;
     if (!f) return;
-    const l = state.byId.get(Number(f.properties.id));
     if (!l) return;
     map.getCanvas().style.cursor = 'pointer';
     tip.setLngLat([l.lng, l.lat]).setOffset([0, -(44 * iconScale(map.getZoom())) - 6])
       .setText(l.title + (state.found.has(l.id) ? ' (found)' : '')).addTo(map);
   });
-  map.on('mouseleave', 'locs', () => { map.getCanvas().style.cursor = ''; tip.remove(); });
+  map.on('mouseleave', 'locs', () => { map.getCanvas().style.cursor = ''; tip.remove(); setHover(null); });
   map.on('move', updateLinkHeads);
   map.on('movestart', closeCtx);
   map.on('contextmenu', ev => {

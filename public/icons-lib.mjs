@@ -45,28 +45,68 @@ export function glyphInk(hex) {
   return white >= dark ? '#ffffff' : '#14161a';
 }
 
-// the pin geometry, shared with the plain pings (usermarkers.js): a head of about 26px, a tail, and a halo
-export const PIN = { S: 40, R: 2, cx: 20, cy: 16, head: 13, halo: 16.5, tail: 10, glyph: 15 };
+// The user markers' pin: the site's own favicon pin (the same outline), with a faint glow. Sizes are in the pin's own
+// 24-unit grid, drawn K times larger, on a canvas of S units at R times the device pixels.
+export const PIN = { S: 60, R: 2, K: 2.4 }; // K: the pin is slightly taller than the official markers
+const PIN_OUTLINE = 'M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z';
 
-// "ic-<glyph>-<rrggbb>": a pin in that colour with the glyph on its head, as an ImageData for MapLibre
+// draws a user marker's pin on a canvas context: solid with a glow (a permanent marker), or a translucent fill with a
+// dashed outline (a temporary one). `glyph` is an already-decoded icon drawn in the head.
+export function drawPin(g, hex, { temp = false, glyph = null } = {}) {
+  const { S, R, K } = PIN;
+  // centred horizontally, the tip just above the bottom edge (room for the glow)
+  const ox = S / 2 - 12 * K, oy = S - 3 - 22 * K;
+  g.setTransform(R * K, 0, 0, R * K, R * ox, R * oy);
+  const pin = new Path2D(PIN_OUTLINE);
+  pin.moveTo(12 + 2.8, 10); pin.arc(12, 10, 2.8, 0, Math.PI * 2); // the hole in the head (the favicon's)
+  if (temp) {
+    g.fillStyle = hex + '40';
+    g.fill(pin, 'evenodd');
+    g.strokeStyle = hex; g.lineWidth = 1.3; g.setLineDash([1.6, 1.3]);
+    g.stroke(pin);
+    g.setLineDash([]);
+  } else {
+    // the glow: a soft radial falloff round the head, drawn inside the canvas (a blurred shadow would be cut off at the
+    // bottom edge, where the tip sits close to the canvas edge)
+    const x0 = -ox / K, x1 = (S - ox) / K, y0 = -oy / K, y1 = (S - oy) / K;
+    const glow = g.createRadialGradient(12, 10, 0, 12, 10, 13);
+    glow.addColorStop(0, hex + '70'); glow.addColorStop(1, hex + '00');
+    g.fillStyle = glow;
+    g.fillRect(x0, y0, x1 - x0, y1 - y0);
+    g.fillStyle = hex;
+    g.fill(pin, 'evenodd');
+    g.strokeStyle = 'rgba(255,255,255,.85)'; g.lineWidth = 0.8;
+    g.stroke(pin);
+  }
+  if (glyph) g.drawImage(glyph, 12 - 5.5, 10 - 5.5, 11, 11); // the category's icon, in the head
+}
+
+// a plain pin in a colour, as an ImageData for MapLibre
+export function pinImage(hex, temp = false) {
+  const { S, R } = PIN;
+  const c = document.createElement('canvas');
+  c.width = c.height = S * R;
+  const g = c.getContext('2d');
+  drawPin(g, hex, { temp });
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  return g.getImageData(0, 0, S * R, S * R);
+}
+
+// "ic-<glyph>-<rrggbb>": the pin in that colour with the glyph on its head, as an ImageData for MapLibre
 export async function glyphPinImage(name) {
   const m = /^ic-(.+)-([0-9a-f]{6})$/i.exec(name);
   const inner = m && iconInner(m[1]);
   if (!inner) return null;
   const hex = '#' + m[2];
-  const { S, R, cx, cy, head, halo, tail, glyph } = PIN;
-  const c = document.createElement('canvas');
-  c.width = c.height = S * R;
-  const g = c.getContext('2d');
-  g.scale(R, R);
-  g.beginPath(); g.arc(cx, cy, halo, 0, Math.PI * 2); g.fillStyle = hex + '38'; g.fill();
-  g.beginPath(); g.moveTo(cx - 6, cy + tail); g.lineTo(cx, S - 1.5); g.lineTo(cx + 6, cy + tail); g.closePath(); g.fillStyle = hex; g.fill();
-  g.beginPath(); g.arc(cx, cy, head, 0, Math.PI * 2); g.fillStyle = hex; g.fill();
-  g.lineWidth = 2; g.strokeStyle = '#fff'; g.stroke();
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="${glyphInk(hex)}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${inner}</svg>`;
   const img = new Image();
   img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
   await img.decode();
-  g.drawImage(img, cx - glyph / 2, cy - glyph / 2, glyph, glyph);
+  const { S, R } = PIN;
+  const c = document.createElement('canvas');
+  c.width = c.height = S * R;
+  const g = c.getContext('2d');
+  drawPin(g, hex, { glyph: img });
+  g.setTransform(1, 0, 0, 1, 0, 0);
   return g.getImageData(0, 0, S * R, S * R);
 }

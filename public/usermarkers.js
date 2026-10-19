@@ -3,7 +3,7 @@
 // other marker the same way official markers link to each other. Export and import carry the profile's copy.
 import { PALETTE } from './drawing.js';
 import { unpackMarker } from './share-link.mjs';
-import { iconInner, iconsReady, loadIconLibrary, searchIcons, PIN } from './icons-lib.mjs';
+import { iconInner, iconsReady, loadIconLibrary, searchIcons, pinImage } from './icons-lib.mjs';
 import { ICONS, svgIcon } from './icons.mjs';
 
 export const TEMP_CAT_ID = -1;
@@ -19,25 +19,10 @@ const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').re
 // record ids are negative: they cannot collide with the game's own marker ids (positive)
 const newId = () => -(Math.floor(Math.random() * 2e9) + 1);
 
-// The picture of a ping for the map: a dot in a soft halo on a short tail. Temporary ones get a dashed ring.
-// `name` is "up-<rrggbb>" or "up-<rrggbb>-t".
+// The picture of a user marker for the map: the site's pin in its colour (see icons-lib drawPin). Temporary ones are
+// translucent with a dashed outline. `name` is "up-<rrggbb>" or "up-<rrggbb>-t".
 export function pingImage(name) {
-  const temp = name.endsWith('-t');
-  const hex = '#' + name.slice(3).replace('-t', '');
-  const { S, R, cx, cy, head, halo, tail } = PIN;
-  const c = document.createElement('canvas');
-  c.width = c.height = S * R;
-  const g = c.getContext('2d');
-  g.scale(R, R);
-  g.beginPath(); g.arc(cx, cy, halo, 0, Math.PI * 2); g.fillStyle = hex + '38'; g.fill();
-  g.beginPath(); g.moveTo(cx - 6, cy + tail); g.lineTo(cx, S - 1.5); g.lineTo(cx + 6, cy + tail); g.closePath(); g.fillStyle = hex; g.fill();
-  g.beginPath(); g.arc(cx, cy, head, 0, Math.PI * 2); g.fillStyle = hex; g.fill();
-  g.lineWidth = 2; g.strokeStyle = '#fff';
-  if (temp) g.setLineDash([2.5, 2]);
-  g.stroke();
-  g.setLineDash([]);
-  g.beginPath(); g.arc(cx, cy, 3.2, 0, Math.PI * 2); g.fillStyle = '#fff'; g.fill();
-  return g.getImageData(0, 0, S * R, S * R);
+  return pinImage('#' + name.slice(3).replace('-t', ''), name.endsWith('-t'));
 }
 
 // the icon picker: a search box over the library, and a grid; the first tile is the plain dot (the default)
