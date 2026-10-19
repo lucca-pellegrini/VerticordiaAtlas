@@ -135,8 +135,8 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 .bar .seg { background: var(--panel-2); border-radius: 99px; overflow: hidden; }
 .bar .seg i { display: block; height: 100%; width: 0; border-radius: 99px; background: var(--c, var(--accent)); transition: width .3s var(--ease); }
 /* a map switch: segments grow or shrink and fills move to the new map's values over the same curve as the numbers (app.js MORPH_MS) */
-.bar.morph .seg { transition: flex-grow 1s cubic-bezier(0.65, 0, 0.35, 1); }
-.bar.morph .seg i { transition: width 1s cubic-bezier(0.65, 0, 0.35, 1); }
+.bar.morph .seg { transition: flex-grow 1.5s cubic-bezier(0.65, 0, 0.35, 1); }
+.bar.morph .seg i { transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1); }
 
 .field { display: grid; gap: 6px; }
 .field > span { color: var(--ink-dim); font-size: 11px; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; }
@@ -646,11 +646,11 @@ body.loading-side #preset-select, body.loading-side #preset-menu-btn, body.loadi
 body.loading-side .progress::after, body.loading-side .profile-row::after, body.loading-side #groups::after { opacity: 1; }
 /* a map switch: the marker list is replaced by a throbber, held in the middle of the visible part of the sidebar */
 .groups-throbber { display: none; position: sticky; top: 50%; height: 0; }
-body.loading-map .groups-throbber { display: block; }
+body.loading-map .groups-throbber, body.profile-switch .groups-throbber { display: block; }
 .groups-throbber::after { content: ""; position: absolute; left: 50%; top: 0; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%;
   border: 2.5px solid rgb(255 255 255 / .12); border-top-color: var(--accent-soft); animation: spin .8s linear infinite; }
 #groups > * { transition: opacity .3s var(--ease); }
-body.loading-map #groups > * { opacity: 0; pointer-events: none; }
+body.loading-map #groups > *, body.profile-switch #groups > * { opacity: 0; pointer-events: none; }
 body.loading-map #map::after { opacity: 1; }
 
 .spinner { display: inline-block; flex: none; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--line-2); border-top-color: var(--accent-soft); animation: spin .8s linear infinite; }
@@ -665,14 +665,15 @@ body.loading-map #map::after { opacity: 1; }
 #side .side-scroll, #side > .side-head > *:not(#map-switch), #side-toggle, #side-collapse, .maplibregl-ctrl-group, .tool-ctrl {
   transition: filter .4s var(--ease), opacity .4s var(--ease);
 }
-body.loading-map #side { pointer-events: none; cursor: progress; }
-body.loading-map #side > .side-head > *:not(#map-switch),
-body.loading-map #side-toggle, body.loading-map #side-collapse, body.loading-map .maplibregl-ctrl-group, body.loading-map .tool-ctrl {
+body.loading-map #side, body.profile-switch #side { pointer-events: none; cursor: progress; }
+body.loading-map #side > .side-head > *:not(#map-switch), body.profile-switch #side > .side-head > *:not(#map-switch),
+body.loading-map #side-toggle, body.loading-map #side-collapse, body.loading-map .maplibregl-ctrl-group, body.loading-map .tool-ctrl,
+body.profile-switch #side-toggle, body.profile-switch #side-collapse, body.profile-switch .maplibregl-ctrl-group, body.profile-switch .tool-ctrl {
   filter: grayscale(1) opacity(.5); pointer-events: none;
 }
 /* the marker list is not greyed: it is replaced by the throbber above, which keeps its colour */
-body.loading-map #side .side-scroll > *:not(#groups):not(.groups-throbber) { filter: grayscale(1) opacity(.5); pointer-events: none; }
-body.loading-map #side .side-scroll > #groups { filter: none; opacity: 1; }
+body.loading-map #side .side-scroll > *:not(#groups):not(.groups-throbber), body.profile-switch #side .side-scroll > *:not(#groups):not(.groups-throbber) { filter: grayscale(1) opacity(.5); pointer-events: none; }
+body.loading-map #side .side-scroll > #groups, body.profile-switch #side .side-scroll > #groups { filter: none; opacity: 1; }
 
 /* the map: hidden until its new tiles are in (the tiles themselves fade in), then the canvas and the controls fade in, slowly */
 #map .maplibregl-canvas-container, #map .maplibregl-control-container { transition: opacity 1.6s var(--ease); }

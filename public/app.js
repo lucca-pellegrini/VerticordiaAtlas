@@ -318,9 +318,14 @@ async function loadGame(entry) {
   const info = state.meta.maps.find(m => m.slug === want) || state.meta.maps.find(m => m.slug === state.profile?.map) || state.meta.maps[0];
   try { await prepareMap(info); }
   catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
+  // the numbers count up from zero and the bar grows in, on the same curve as a map switch
+  shownCounts = { found: 0, total: 0 };
+  startMorph();
   buildSidebar();
+  void $('#progress-bar').offsetWidth; // flush the zero-size segments, so the transition starts from them
   renderMapSwitch();
   updateSidebar();
+  endMorph({ later: true });
   $('#groups').classList.add('enter'); // the list fades in as the panel comes up
   document.body.classList.remove('loading-side'); // the side panel has its numbers and selectors now
   createMap();
@@ -753,16 +758,57 @@ function scheduleViewSave() {
   }, 250);
 }
 
+// A profile switch: the sidebar goes to loading and comes back (body.profile-switch, as a map switch does), its numbers and
+// bar morph, and the markers and drawings fade out and back in (the veil). The map itself stays put; if the profile is on
+// another map, syncMapToProfile runs the map switch, which keeps its own fade.
+const VEIL_OUT_MS = 350, VEIL_IN_MS = 1500;
+let veil = 1, veilRaf = 0, veilDone = null;
+function setVeil(v) {
+  veil = v;
+  const clear = v >= 1; // full strength: no inline style, so the stylesheet's own opacity rules apply again
+  if (state.mapReady && state.map.getLayer('locs')) {
+    state.map.setPaintProperty('locs', 'icon-opacity', clear ? ['case', ['==', ['get', 'f'], 1], 0.4, 1] : ['*', ['case', ['==', ['get', 'f'], 1], 0.4, 1], v]);
+    if (state.map.getLayer('hover-loc')) state.map.setPaintProperty('hover-loc', 'icon-opacity', v);
+  }
+  // the stylesheet eases drawings in over 1.6s; the veil sets them every frame, so their own transition is switched off
+  for (const el of document.querySelectorAll('#map .draw-layer, #map .text-layer')) {
+    el.style.transition = clear ? '' : 'none';
+    el.style.opacity = clear ? '' : String(v);
+  }
+}
+function tweenVeil(to, ms) {
+  return new Promise(resolve => {
+    cancelAnimationFrame(veilRaf);
+    veilDone?.();
+    veilDone = resolve;
+    const from = veil, start = performance.now();
+    const step = now => {
+      const k = easeInOutCubic(Math.min(1, Math.max(0, (now - start) / ms)));
+      setVeil(from + (to - from) * k);
+      if (k < 1) veilRaf = requestAnimationFrame(step);
+      else { veilDone = null; resolve(); }
+    };
+    veilRaf = requestAnimationFrame(step);
+  });
+}
+
 async function switchProfile(id) {
   rememberCamera(false); // the camera belongs to the profile being left
   await saveProfileNow();
   const p = state.profiles.find(x => x.id === id);
   if (!p) return;
+  closeDetail(); // a card open on the old profile's marker closes the way a close does
+  document.body.classList.add('profile-switch');
+  startMorph();
+  await tweenVeil(0, VEIL_OUT_MS);
   applyProfile(p);
   await loadMapState(); // the view belongs to the profile
   await syncMapToProfile();
   await setMeta('last-profile:' + state.entry.id, p.id).catch(() => {});
   refreshAll();
+  endMorph({ later: true });
+  document.body.classList.remove('profile-switch');
+  await tweenVeil(1, VEIL_IN_MS);
 }
 
 async function profileAction(act) {
@@ -1016,7 +1062,7 @@ function setSideCollapsed(collapsed) {
 /* ---------- a map switch morphs the sidebar's numbers and progress bar to the new map ----------
    The numbers count from the old totals to the new ones, and the bar segments grow or shrink to the new sizes. Both use
    the same curve and length (MORPH_MS, cubic in-out, as the CSS in style.css .bar.morph). Outside a switch nothing animates. */
-const MORPH_MS = 1000;
+const MORPH_MS = 1500;
 const barSegs = new Map(); // group id -> its segment in #progress-bar, kept across map switches
 const easeInOutCubic = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 let morphing = false;
@@ -1042,7 +1088,8 @@ function showCounts(found, total) {
   }
   const from = shownCounts, start = performance.now();
   const step = now => {
-    const k = easeInOutCubic(Math.min(1, (now - start) / MORPH_MS));
+    // clamped to [0, 1]: a frame's timestamp can precede `start`, and the curve would dip below zero there
+    const k = easeInOutCubic(Math.min(1, Math.max(0, (now - start) / MORPH_MS)));
     shownCounts = k < 1
       ? { found: Math.round(from.found + (found - from.found) * k), total: Math.round(from.total + (total - from.total) * k) }
       : { found, total };
@@ -1528,13 +1575,14 @@ function createMap() {
         'icon-size': ['interpolate', ['linear'], ['zoom'], ...ICON_STOPS.flat()],
         'symbol-sort-key': ['get', 'z'],
       },
-      paint: { 'icon-opacity': ['case', ['==', ['get', 'f'], 1], 0.4, 1] },
+      paint: { 'icon-opacity': ['case', ['==', ['get', 'f'], 1], 0.4, 1], 'icon-opacity-transition': { duration: 0 } }, // the veil animates it per frame
     });
 
     // a user marker under the pointer is drawn again here, a little larger, above the rest (see setHover)
     map.addSource('hover-loc', { type: 'geojson', data: emptyFC });
     map.addLayer({
       id: 'hover-loc', type: 'symbol', source: 'hover-loc',
+      paint: { 'icon-opacity-transition': { duration: 0 } },
       layout: {
         'icon-image': ['get', 'icon'], 'icon-anchor': 'bottom',
         'icon-allow-overlap': true, 'icon-ignore-placement': true,
@@ -2526,7 +2574,7 @@ function wire() {
     scroll.insertBefore(t, groups);
   }
   // while a map loads, the side panel takes no input, from the mouse or the keyboard (its content is dimmed, see style.css)
-  new MutationObserver(() => { const side = document.getElementById('side'); if (side) side.inert = document.body.classList.contains('loading-map'); })
+  new MutationObserver(() => { const side = document.getElementById('side'); if (side) side.inert = document.body.classList.contains('loading-map') || document.body.classList.contains('profile-switch'); })
     .observe(document.body, { attributes: true, attributeFilter: ['class'] });
   document.querySelector('.side-scroll')?.appendChild(accountSlot());
   document.querySelector('.side-scroll')?.appendChild(legalLinks());
