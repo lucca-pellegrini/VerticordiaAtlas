@@ -134,6 +134,9 @@ h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-
 .bar { display: flex; gap: 4px; height: 6px; margin-top: 10px; }
 .bar .seg { background: var(--panel-2); border-radius: 99px; overflow: hidden; }
 .bar .seg i { display: block; height: 100%; width: 0; border-radius: 99px; background: var(--c, var(--accent)); transition: width .3s var(--ease); }
+/* a map switch: segments grow or shrink and fills move to the new map's values over the same curve as the numbers (app.js MORPH_MS) */
+.bar.morph .seg { transition: flex-grow 1s cubic-bezier(0.65, 0, 0.35, 1); }
+.bar.morph .seg i { transition: width 1s cubic-bezier(0.65, 0, 0.35, 1); }
 
 .field { display: grid; gap: 6px; }
 .field > span { color: var(--ink-dim); font-size: 11px; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; }

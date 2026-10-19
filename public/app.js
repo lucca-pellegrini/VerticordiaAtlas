@@ -574,9 +574,10 @@ async function switchMap(slug, { remember = true } = {}) {
   // the pill being switched to shows a spinner from the click on (the sidebar is locked while the map loads: see wire)
   markSwitchTarget(slug);
   document.body.classList.add('loading-map');
+  startMorph(); // the sidebar's numbers and bar move from the old map's values to the new one's (see updateSidebar)
   if (remember) rememberCamera(true); // where we were on the map we are leaving
   try { await Promise.all([prepareMap(info), delay(FADE_MS)]); } // the jump happens once the map is black
-  catch (e) { document.body.classList.remove('loading-map'); renderMapSwitch(); return toast(`Could not load ${info.title}.`, 4000); }
+  catch (e) { endMorph(); document.body.classList.remove('loading-map'); renderMapSwitch(); return toast(`Could not load ${info.title}.`, 4000); }
   dismiss();
   state.sel = null;
   setBaseTiles(state.map);
@@ -588,6 +589,7 @@ async function switchMap(slug, { remember = true } = {}) {
   revealWhenSettled(state.map);
   if (remember) rememberCamera(true);
   refreshAll();
+  endMorph({ later: true }); // the tween runs its full length from the numbers this refresh set
   renderMapSwitch();
   updateSidebar();
 }
@@ -1009,18 +1011,62 @@ function setSideCollapsed(collapsed) {
   b.setAttribute('aria-expanded', String(!collapsed));
 }
 
+/* ---------- a map switch morphs the sidebar's numbers and progress bar to the new map ----------
+   The numbers count from the old totals to the new ones, and the bar segments grow or shrink to the new sizes. Both use
+   the same curve and length (MORPH_MS, cubic in-out, as the CSS in style.css .bar.morph). Outside a switch nothing animates. */
+const MORPH_MS = 1000;
+const barSegs = new Map(); // group id -> its segment in #progress-bar, kept across map switches
+const easeInOutCubic = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+let morphing = false;
+let shownCounts = null; // { found, total } as last drawn, so a tween starts from what the user sees
+let countRaf = 0;
+
+function startMorph() {
+  morphing = true;
+  $('#progress-bar').classList.add('morph');
+}
+function endMorph({ later = false } = {}) {
+  const done = () => { morphing = false; $('#progress-bar').classList.remove('morph'); };
+  if (later) setTimeout(done, MORPH_MS); else done();
+}
+
+function showCounts(found, total) {
+  const fEl = $('#found-count'), tEl = $('#total-count');
+  cancelAnimationFrame(countRaf);
+  if (!morphing || !shownCounts) { // first draw, or a plain change: no count
+    shownCounts = { found, total };
+    fEl.textContent = fmt(found); tEl.textContent = fmt(total);
+    return;
+  }
+  const from = shownCounts, start = performance.now();
+  const step = now => {
+    const k = easeInOutCubic(Math.min(1, (now - start) / MORPH_MS));
+    shownCounts = k < 1
+      ? { found: Math.round(from.found + (found - from.found) * k), total: Math.round(from.total + (total - from.total) * k) }
+      : { found, total };
+    fEl.textContent = fmt(shownCounts.found); tEl.textContent = fmt(shownCounts.total);
+    if (k < 1) countRaf = requestAnimationFrame(step);
+  };
+  countRaf = requestAnimationFrame(step);
+}
+
 function buildSidebar() {
   const root = $('#groups');
   root.textContent = '';
   state.ui = { groups: new Map(), cats: new Map(), segs: new Map() };
   const bar = $('#progress-bar');
-  bar.textContent = '';
 
   for (const g of state.groups) {
-    const seg = document.createElement('div');
-    seg.className = 'seg'; seg.style.setProperty('--c', g.col); seg.title = g.title;
-    seg.innerHTML = '<i></i>';
-    bar.appendChild(seg);
+    // segments persist across map switches, so the bar morphs to the new sizes instead of being rebuilt
+    let seg = barSegs.get(g.id);
+    if (!seg) {
+      seg = document.createElement('div');
+      seg.className = 'seg'; seg.style.flexGrow = '0.0001';
+      seg.innerHTML = '<i></i>';
+      barSegs.set(g.id, seg);
+    }
+    seg.style.setProperty('--c', g.col); seg.title = g.title;
+    bar.appendChild(seg); // moving an existing node keeps the bar in group order
     state.ui.segs.set(g.id, seg);
 
     const el = document.createElement('section');
@@ -1064,6 +1110,14 @@ function buildSidebar() {
     }
     state.ui.groups.set(g.id, { g, el, gToggle, tally: el.querySelector('.group-head .tally'), rows });
     root.appendChild(el);
+  }
+  // groups the new map does not have: shrink their segments away, then drop them
+  for (const [id, seg] of barSegs) {
+    if (state.ui.segs.has(id)) continue;
+    barSegs.delete(id);
+    seg.style.flexGrow = '0.0001';
+    seg.firstChild.style.width = '0';
+    setTimeout(() => seg.remove(), MORPH_MS);
   }
 }
 
@@ -1175,8 +1229,7 @@ function updateSidebar() {
     seg.firstChild.style.width = gt ? (100 * gf / gt) + '%' : '0';
     total += gt; found += gf;
   }
-  $('#found-count').textContent = fmt(found);
-  $('#total-count').textContent = fmt(total);
+  showCounts(found, total);
 }
 
 function onViewChanged() {
