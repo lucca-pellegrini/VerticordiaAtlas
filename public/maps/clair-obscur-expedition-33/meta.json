@@ -1,0 +1,38 @@
+{
+  "id": "clair-obscur-expedition-33",
+  "title": "Clair Obscur: Expedition 33",
+  "slug": "clair-obscur-expedition-33",
+  "source": "https://mapgenie.io/clair-obscur-expedition-33",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "the-continent",
+      "title": "The Continent",
+      "data": "the-continent/data.json",
+      "tilesets": [
+        {
+          "name": "Map",
+          "template": "the-continent/tiles/default-v10/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 17,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

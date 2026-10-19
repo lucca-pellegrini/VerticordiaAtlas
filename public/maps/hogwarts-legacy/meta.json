@@ -1,0 +1,80 @@
+{
+  "id": "hogwarts-legacy",
+  "title": "Hogwarts Legacy",
+  "slug": "hogwarts-legacy",
+  "source": "https://mapgenie.io/hogwarts-legacy",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "maps": [
+    {
+      "slug": "world",
+      "title": "World",
+      "data": "world/data.json",
+      "tilesets": [
+        {
+          "name": "V1",
+          "template": "world/tiles/low-res-v1/{z}/{x}/{y}.jpg",
+          "minzoom": 9,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.2083587222388,
+            -0.20442844239476,
+            -0.13474622290478,
+            1.62825179924728
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "hogwarts",
+      "title": "Hogwarts",
+      "data": "hogwarts/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "hogwarts/tiles/default-v1/{z}/{x}/{y}.jpg",
+          "minzoom": 9,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.24152257745152,
+            0.054879334507550004,
+            -0.15896207332921997,
+            1.33879815025862
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "hogsmeade",
+      "title": "Hogsmeade",
+      "data": "hogsmeade/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "hogsmeade/tiles/derp-v1/{z}/{x}/{y}.jpg",
+          "minzoom": 9,
+          "maxzoom": 14,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.04556458424796,
+            0.34088124978368994,
+            -0.39439936397823994,
+            1.01199522325836
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

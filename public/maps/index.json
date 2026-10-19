@@ -621,6 +621,60 @@
       ],
       "tagLabel": "Filter",
       "defaultTag": null
+    },
+    {
+      "id": "hogwarts-legacy",
+      "slug": "hogwarts-legacy",
+      "title": "Hogwarts Legacy",
+      "description": "Every marker on the Hogwarts Legacy map.",
+      "poster": "hogwarts-legacy/poster",
+      "theme": {
+        "accent": "#3a7c88",
+        "accent-soft": "#70b5c2",
+        "night": "#060b0c",
+        "panel": "#0c1416",
+        "panel-2": "#111d1f",
+        "line": "#213336"
+      },
+      "stats": [
+        {
+          "value": 2104,
+          "label": "markers"
+        },
+        {
+          "value": 81,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
+    },
+    {
+      "id": "clair-obscur-expedition-33",
+      "slug": "clair-obscur-expedition-33",
+      "title": "Clair Obscur: Expedition 33",
+      "description": "Every marker on the Clair Obscur: Expedition 33 map.",
+      "poster": "clair-obscur-expedition-33/poster",
+      "theme": {
+        "accent": "#967540",
+        "accent-soft": "#c8ac7e",
+        "night": "#0c0a06",
+        "panel": "#16120c",
+        "panel-2": "#1f1a11",
+        "line": "#362e21"
+      },
+      "stats": [
+        {
+          "value": 2815,
+          "label": "markers"
+        },
+        {
+          "value": 33,
+          "label": "categories"
+        }
+      ],
+      "tagLabel": "Filter",
+      "defaultTag": null
     }
   ]
 }
