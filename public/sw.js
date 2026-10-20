@@ -6,7 +6,7 @@
 //   /api/ (accounts, sync): never cached, never answered from the cache
 // Bump VERSION when the precache list changes.
 
-const VERSION = 'v33';
+const VERSION = 'v34';
 const SHELL = `va-shell-${VERSION}`, DATA = `va-data-${VERSION}`, TILES = `va-tiles-${VERSION}`, FONTS = `va-fonts-${VERSION}`;
 const KEEP = new Set([SHELL, DATA, TILES, FONTS]);
 const TILE_LIMIT = 2000;
@@ -18,6 +18,7 @@ const PRECACHE = [
   'capture.mjs', 'icons.mjs', 'icons-lib.mjs', 'share-link.mjs', 'perfect-freehand.mjs', 'shared/sync-rules.mjs', 'shared/search.mjs',
   'vendor/maplibre-gl.js', 'vendor/maplibre-gl.css', 'vendor/marked.umd.js', 'vendor/perfect-freehand.mjs',
   'vendor/lucide/icons.json', 'card.jpg',
+  'manifest.webmanifest', 'logo.svg', 'icons/apple-touch-icon.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png',
 ];
 
 const scope = self.registration.scope;
