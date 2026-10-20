@@ -2534,6 +2534,7 @@ function toggleFound(id) {
    not saved, so it does not count as the user moving the map. */
 
 const SEARCH_MIN = 2, SEARCH_SHOWN = 300, PREVIEW_MS = 350;
+const HOVER_MS = 250; // the pointer must rest this long on a result or a link before the map follows it
 const mapName = slug => state.meta?.maps?.find(m => m.slug === slug)?.title || slug;
 
 function queryOf(text) {
@@ -2928,8 +2929,21 @@ function wire() {
     if (a) { if (a.dataset.loc) { e.preventDefault(); select(Number(a.dataset.loc)); } return; } // links in a description
     openResult(e.target.closest('li.result'));
   };
-  results.onpointerover = e => { const li = e.target.closest('li.result'); if (li && li !== results.hoverRow) { results.hoverRow = li; previewRow(li); } };
-  results.onpointerleave = () => { results.hoverRow = null; endPreview(); };
+  // a hover moves the map once the pointer has rested a moment (HOVER_MS), and only for a mouse: on a touch screen the
+  // pointer "hovers" just before the tap, and that must not move the map
+  results.onpointerover = e => {
+    if (e.pointerType !== 'mouse') return;
+    const li = e.target.closest('li.result');
+    if (!li || li === results.hoverRow) return;
+    results.hoverRow = li;
+    clearTimeout(results.hoverTimer);
+    results.hoverTimer = setTimeout(() => previewRow(li), HOVER_MS);
+  };
+  results.onpointerout = e => {
+    const row = results.hoverRow;
+    if (row && e.target.closest('li.result') === row && !row.contains(e.relatedTarget)) { clearTimeout(results.hoverTimer); results.hoverRow = null; }
+  };
+  results.onpointerleave = () => { clearTimeout(results.hoverTimer); results.hoverRow = null; endPreview(); };
   resultsBar.onclick = e => {
     const b = e.target.closest('button[data-scope]');
     if (b) { state.search.scope = b.dataset.scope; runSearch(); }
@@ -2948,20 +2962,23 @@ function wire() {
   addEventListener('popstate', onPopState);
   // hovering a link in the card moves the map to what it points at, as hovering a search result does
   const detailBody = $('#detail-body');
+  // (mouse only, and after a moment of rest: see results.onpointerover)
   detailBody.addEventListener('pointerover', e => {
+    if (e.pointerType !== 'mouse') return;
     const a = e.target.closest('a[data-loc]');
     if (!a || a === detailBody.hoverLink || a === detailBody.pendingLink) return;
     detailBody.hoverLink = a;
-    previewAt(state.byId.get(Number(a.dataset.loc)));
+    clearTimeout(detailBody.hoverTimer);
+    detailBody.hoverTimer = setTimeout(() => { if (detailBody.hoverLink === a) previewAt(state.byId.get(Number(a.dataset.loc))); }, HOVER_MS);
   });
   detailBody.addEventListener('pointerout', e => {
     const a = e.target.closest('a[data-loc]');
     if (a && !a.contains(e.relatedTarget)) {
       if (a === detailBody.pendingLink) detailBody.pendingLink = null;
-      if (a === detailBody.hoverLink) detailBody.hoverLink = null;
+      if (a === detailBody.hoverLink) { clearTimeout(detailBody.hoverTimer); detailBody.hoverLink = null; }
     }
   });
-  detailBody.addEventListener('pointerleave', () => { detailBody.hoverLink = null; endPreview(); });
+  detailBody.addEventListener('pointerleave', () => { clearTimeout(detailBody.hoverTimer); detailBody.hoverLink = null; endPreview(); });
   document.addEventListener('pointermove', e => { lastPointer = { x: e.clientX, y: e.clientY }; }, { passive: true });
   detailBody.addEventListener('click', e => {
     if (e.target.closest('.found-btn')) return toggleFound(state.selected);
