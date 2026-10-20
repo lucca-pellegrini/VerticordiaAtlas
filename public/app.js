@@ -2627,6 +2627,7 @@ async function runSearch() {
   s.active = true;
   s.wild = wild;
   document.body.classList.add('searching');
+  syncSideClose();
   const all = !wild && s.scope === 'all' && state.meta.maps.length > 1;
   let entries = localEntries();
   if (all) {
@@ -2646,12 +2647,23 @@ async function runSearch() {
   refreshMap();
 }
 
+// the list's close button: "Close" (it folds the panel on a phone, and is hidden on a desktop) becomes a red X while
+// searching, which closes the search, on a phone and a desktop alike
+function syncSideClose() {
+  const b = $('#side-close'), on = state.search.active;
+  b.classList.toggle('search-close', on);
+  b.innerHTML = on ? svgIcon('x') : 'Close';
+  b.setAttribute('aria-label', on ? 'Close search' : 'Close panel');
+  b.title = on ? 'Close search' : '';
+}
+
 function leaveSearch() {
   const s = state.search;
   endPreview({ instant: true });
   s.run++;
   s.active = false; s.ids = null; s.rows = []; s.busy = false; s.wild = false;
   document.body.classList.remove('searching');
+  syncSideClose();
   $('#results').innerHTML = '';
   refreshMap();
 }
@@ -2998,7 +3010,11 @@ function wire() {
   });
 
   $('#side-toggle').onclick = () => document.body.classList.add('side-open');
-  $('#side-close').onclick = () => document.body.classList.remove('side-open');
+  // the list's close button: it closes the panel, or while searching it closes the search (see syncSideClose)
+  $('#side-close').onclick = () => {
+    if (state.search.active) { $('#search').value = ''; leaveSearch(); }
+    else document.body.classList.remove('side-open');
+  };
   $('#side-collapse').onclick = () => setSideCollapsed(!document.body.classList.contains('side-collapsed'));
 
   addEventListener('pagehide', () => rememberCamera(true));

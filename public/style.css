@@ -162,6 +162,10 @@ body.searching .results-bar { display: flex; align-items: center; gap: 8px; padd
 #results .r-desc p { margin: 0 0 6px; }
 #results .r-desc ul, #results .r-desc ol { margin: 0 0 6px; padding-left: 18px; }
 #results li.result.found .r-title { color: var(--ink-dim); }
+/* while searching, the list's close button is a red X that closes the search: on a desktop too (see app.js syncSideClose) */
+#side-close.search-close { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; padding: 0; border-radius: 999px; color: var(--danger); }
+#side-close.search-close:hover { background: rgb(234 116 104 / .12); color: var(--danger); }
+#side-close.search-close svg.i { width: 15px; height: 15px; stroke-width: 2.2; }
 /* the ring on a search result under the pointer (app.js showRing): like a selected marker's circle, but dotted and thin */
 .search-ring { position: absolute; left: 0; top: 0; width: 42px; height: 42px; box-sizing: border-box; border-radius: 50%; border: 1.5px dotted var(--accent-soft); pointer-events: none; z-index: 4; }
 
