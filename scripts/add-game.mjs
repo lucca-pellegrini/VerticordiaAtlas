@@ -31,6 +31,8 @@
 //   --tiles-base <url>   tile CDN base (default https://tiles.mapgenie.io/games)
 //   --media-base <url>   marker CDN base (default https://media.mapgenie.io/v2/assets/prod/games)
 //   --concurrency <n> --delay <ms> --max-tiles <n>
+//   --force-get-tiles <map>  fetch every tile of that map inside its bounds, not only the ones under a tile that
+//                        exists (repeatable; slow: use it for a map whose tiles have gaps, e.g. Solstheim)
 
 import { mkdir, writeFile, readFile, readdir, access, copyFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -154,7 +156,7 @@ function boundsFor(md, ts) {
   return { bounds: [Math.min(...lngs) - dx, Math.min(...lats) - dy, Math.max(...lngs) + dx, Math.max(...lats) + dy], guessed: true };
 }
 
-/* ---------- tiles: crawl the pyramid top-down, 404 prunes ---------- */
+/* ---------- tiles: crawl the pyramid top-down, 404 prunes (--force-get-tiles: every tile in the bounds, no pruning) ---------- */
 
 async function downloadTiles({ md, ts, baseCandidates, destDir, localTail, opts }) {
   const minZ = ts.min_zoom ?? 0;
@@ -177,6 +179,9 @@ async function downloadTiles({ md, ts, baseCandidates, destDir, localTail, opts 
   const stats = { saved: 0, skipped: 0, missing: 0, failed: 0, bytes: 0 };
   let cands = first;
   for (let z = minZ; z <= maxZ; z++) {
+    // --force-get-tiles: every tile inside the bounds is asked for at this zoom, the children of a missing tile included
+    // (some servers lack a lower-zoom tile and still have its children, e.g. Solstheim 11/1017/1016 is 403, 13/4068/4066 is there)
+    if (opts.unpruned) cands = tilesCovering(bounds, z, 0);
     if (stats.saved + stats.skipped + cands.length > opts.maxTiles) { console.log(`  stopping before zoom ${z}: would pass --max-tiles ${opts.maxTiles}`); break; }
     const found = [];
     await pool(cands, opts.concurrency, async ([x, y]) => {
@@ -192,8 +197,8 @@ async function downloadTiles({ md, ts, baseCandidates, destDir, localTail, opts 
       if (opts.delay) await sleep(opts.delay);
     });
     console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)`);
-    if (!found.length) break;
-    cands = found.flatMap(([x, y]) => [[2 * x, 2 * y], [2 * x + 1, 2 * y], [2 * x, 2 * y + 1], [2 * x + 1, 2 * y + 1]]);
+    if (!found.length && !opts.unpruned) break;
+    if (!opts.unpruned) cands = found.flatMap(([x, y]) => [[2 * x, 2 * y], [2 * x + 1, 2 * y], [2 * x, 2 * y + 1], [2 * x + 1, 2 * y + 1]]);
   }
   console.log(`  tiles: saved ${stats.saved}, already had ${stats.skipped}, missing ${stats.missing}, failed ${stats.failed}, ${mb(stats.bytes)}`);
   return { minzoom: minZ, maxzoom: maxZ, bounds, stats };
@@ -448,10 +453,12 @@ async function main() {
       html: { type: 'string' }, mapdata: { type: 'string' },
       'tiles-base': { type: 'string' }, 'media-base': { type: 'string', default: 'https://media.mapgenie.io/v2/assets/prod/games' },
       concurrency: { type: 'string', default: '4' }, delay: { type: 'string', default: '100' }, 'max-tiles': { type: 'string', default: '400000' },
+      'force-get-tiles': { type: 'string', multiple: true, default: [] },
     },
   });
   if (!positionals[0]) { console.error('Usage: node add-game.mjs https://mapgenie.io/<game> [options]'); process.exit(1); }
   const opts = { concurrency: +v.concurrency, delay: +v.delay, maxTiles: +v['max-tiles'], maxZoom: v['max-zoom'] ? +v['max-zoom'] : undefined };
+  const forceTiles = new Set(v['force-get-tiles']); // map slugs whose tiles are fetched without pruning (see downloadTiles)
 
   const given = new URL(positionals[0]);
   const givenSegs = given.pathname.split('/').filter(Boolean);
@@ -583,11 +590,14 @@ async function main() {
   if (posterFile) console.log(`  poster: ${poster}${variants ? ' + poster-600.webp / poster-1200.webp' : ' (ImageMagick not found: no webp variants, the homepage will use the original file)'}`);
 
   // 7. meta.json for the game and the homepage manifest
+  // a part that was skipped (--no-markers, --no-icons) keeps what the game's meta.json already has
+  const prevMeta = await exists(path.join(outDir, 'meta.json')) ? JSON.parse(await readFile(path.join(outDir, 'meta.json'), 'utf8')) : null;
   const meta = {
     id, title, slug, source: positionals[0], poster,
     tagLabel: v['tag-label'] || guessTagLabel(tags), defaultTag: v['default-tag'] || null,
-    markers: sprite ? { json: sprite.json, png: sprite.png, json2x: sprite.json2x, png2x: sprite.png2x } : null,
-    icons,
+    markers: sprite ? { json: sprite.json, png: sprite.png, json2x: sprite.json2x, png2x: sprite.png2x }
+      : v['no-markers'] ? prevMeta?.markers ?? null : null,
+    icons: v['no-icons'] ? prevMeta?.icons ?? null : icons,
     maps: metaMaps,
   };
   // tile zoom ranges are filled in as tiles arrive, so the file is rewritten after each tile set
@@ -633,9 +643,10 @@ async function main() {
   console.log(`\nWrote ${path.join(outDir, 'meta.json')} and updated ${v.index}; the game is now listed, fetching tiles and media`);
 
   // 10. tiles, then media
+  for (const m of forceTiles) if (!maps.some(md => md.map?.slug === m)) console.log(`! --force-get-tiles: no map "${m}" in this game`);
   for (const { md, ts, ms, dir, localTail, info } of tileJobs) {
     console.log(`\nTiles for ${ms} / ${ts.name}`);
-    const r = await downloadTiles({ md, ts, baseCandidates: tilesBases, destDir: dir, localTail, opts });
+    const r = await downloadTiles({ md, ts, baseCandidates: tilesBases, destDir: dir, localTail, opts: { ...opts, unpruned: forceTiles.has(ms) } });
     info.minzoom = r.minzoom; info.maxzoom = r.maxzoom;
     if (opts.maxZoom != null) info.maxzoom = Math.min(info.maxzoom ?? 99, opts.maxZoom);
     await writeMeta();
