@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 // server.mjs: serves the site, and makes the preview cards for shared markers on demand.
 //
 //   node server/server.mjs [--port 8080] [--host 127.0.0.1] [--debug]

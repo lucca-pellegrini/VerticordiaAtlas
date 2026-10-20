@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 // make-cards.mjs: social preview cards for the homepage and every game, and the tags that point at them.
 //
 //   node scripts/make-cards.mjs

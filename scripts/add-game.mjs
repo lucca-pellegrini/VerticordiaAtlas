@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 // add-game.mjs: add (or refresh) a MapGenie game from just its link.
 //
 //   node add-game.mjs https://mapgenie.io/<game> [options]
