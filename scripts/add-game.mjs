@@ -2,6 +2,7 @@
 // add-game.mjs: add (or refresh) a MapGenie game from just its link.
 //
 //   node add-game.mjs https://mapgenie.io/<game> [options]
+//   node add-game.mjs https://fallout4map.com/ --id fallout-4 [options]     (a game with its own domain)
 //
 // Give the game's page link. Its maps are found on that page and added in the order it lists them. (A link to one
 // map, https://mapgenie.io/<game>/maps/<map>, also works: the game's maps are still all added, in the same order.)
@@ -23,6 +24,11 @@
 //   --max-zoom <n>       cap tile zoom (default: the tile set's tiles_max_zoom)
 //   --all-tilesets       download every tile set of a map (default: only the first)
 //   --videos             also download video media (default: images only)
+//   --game <name>        the game's name on MapGenie (the folder of its markers/icons on the CDN, e.g. fallout-4). Needed
+//                        only for a game with its own domain (https://fallout4map.com, https://fo76map.com) when it
+//                        cannot be read from the page
+//   --map-url <template> where a map lives, with {map} for its slug, e.g. https://fallout4map.com/maps/{map}. Only used
+//                        when the game page has no links to its maps
 //   --no-tiles --no-media --no-markers --no-icons
 //   --icons-only         only (re)fetch the sidebar icons of a game that was already added, and update its meta.json
 //   --no-cards           don't rebuild the social preview cards (make-cards.mjs) at the end
@@ -106,11 +112,17 @@ async function loadMapData(html, origin, slug, referer) {
   return { ...inline, ...api };
 }
 
-async function getBin(url, tries = 3) {
+async function getBin(url, tries = 3, referer = 'https://mapgenie.io/') {
   let last;
   for (let a = 1; a <= tries; a++) {
     try {
-      const r = await fetch(url, { headers: { Referer: 'https://mapgenie.io/', 'User-Agent': UA } });
+      const r = await fetch(url, {
+        headers: {
+          'User-Agent': UA,
+          Referer: referer,
+          Origin: new URL(referer).origin,
+      },
+    });
       if ([403, 404, 410].includes(r.status)) return { status: r.status };
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return { status: 200, buf: Buffer.from(await r.arrayBuffer()), type: r.headers.get('content-type') || '' };
@@ -206,19 +218,42 @@ async function downloadTiles({ md, ts, baseCandidates, destDir, localTail, opts 
 
 /* ---------- markers sprite ---------- */
 
-async function downloadMarkers({ html, slug, mediaBase, outDir, cats }) {
+async function downloadMarkers({ html, slug, mediaBase, outDir, cats, origin, cdnUrl }) {
   const hit = html.match(/https?:\/\/[^"'\s\\]+?\/markers\/markers\.json([^"'\s\\]*)/);
   const bases = [];
   if (hit) bases.push({ dir: hit[0].replace(/markers\.json.*$/, ''), q: hit[1] });
   // newer games are served from a versioned folder (markers/v30/markers@2x.png), which the page links to
   const versioned = html.match(/https?:\/\/[^"'\s\\]+?\/markers\/v\d+\/markers@2x\.png/);
   if (versioned) bases.unshift({ dir: versioned[0].replace(/markers@2x\.png.*$/, ''), q: '' });
-  bases.push({ dir: `${mediaBase}/${slug}/markers/`, q: hit ? hit[1] : '' }, { dir: `${mediaBase}/${slug}/markers/`, q: '?v=2' });
+  // --- NEW: classic images/games/{slug}/ layout (Fallout 4, FO76, older titles)
+  const spriteHit =
+    html.match(/marker_sprite_url["']?\s*[:=]\s*["']([^"']+)["']/i) ||
+    html.match(/MARKER_IMAGES_URL\s*=\s*['"]([^'"]+)['"]/i) ||
+    html.match(/\/images\/games\/[a-z0-9-]+\/markers(?:@2x)?\.png[^"'\s]*/i);
+  const cdn = (cdnUrl || 'https://cdn.mapgenie.io').replace(/\/$/, '');
+  if (spriteHit) {
+    let path = spriteHit[1] || spriteHit[0];
+    // normalize to the directory that holds markers.json / markers.png
+    path = path.replace(/markers(?:@2x)?\.png.*$/, '').replace(/^\//, '');
+    if (!path.startsWith('http')) path = `${cdn}/${path}`;
+    bases.unshift({ dir: path.endsWith('/') ? path : path + '/', q: '' });
+  }
+  // explicit classic fallback
+  bases.push({ dir: `${cdn}/images/games/${slug}/`, q: '' });
+
+  // existing mediaBase candidates
+  bases.push(
+    { dir: `${mediaBase}/${slug}/markers/`, q: hit ? hit[1] : '' },
+    { dir: `${mediaBase}/${slug}/markers/`, q: '?v=2' },
+  );
+
+  const referer = origin || 'https://mapgenie.io/';
+
   for (const { dir, q } of bases) {
-    const j = await getBin(dir + 'markers.json' + q, 1);
+    const j = await getBin(dir + 'markers.json' + q, 1, referer);
     if (j.status !== 200) continue;
     let defs; try { defs = JSON.parse(j.buf.toString('utf8')); } catch { continue; }
-    const p = await getBin(dir + 'markers.png' + q);
+    const p = await getBin(dir + 'markers.png' + q, 3, referer);
     if (p.status !== 200) continue;
     await writeFile(path.join(outDir, 'markers.json'), j.buf);
     await writeFile(path.join(outDir, 'markers.png'), p.buf);
@@ -427,14 +462,23 @@ export async function accentFromPoster(file) {
 
 /* ---------- the game page: its maps, as links, in the order they are displayed ---------- */
 
-// the map cards of the game page are <a href="/<game>/maps/<map>">, in display order; each map is listed once
-async function listGameMaps(origin, game, pageUrl) {
-  const { html } = await getPage(pageUrl || `${origin}/${game}`);
-  const esc = game.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(`href="[^"]*/${esc}/maps/([a-z0-9][a-z0-9-]*)/?"`, 'gi');
-  const out = [];
-  for (const m of html.matchAll(re)) if (!out.includes(m[1])) out.push(m[1]);
-  return out;
+// the map cards of the game page are <a href=".../maps/<map>">, in display order; each map is listed once.
+// The URLs are taken from the links themselves, so it does not matter whether the maps live at mapgenie.io/<game>/maps/<map>
+// or at the root of a game's own domain (fallout4map.com/maps/<map>). Returns { maps: [{ slug, url }], finalUrl } (the
+// page may redirect from mapgenie.io to the game's own domain, which is why the final URL is returned).
+const isShared = host => /(^|\.)mapgenie\.io$/i.test(host);
+async function listGameMaps(pageUrl, game) {
+  const { html, url } = await getPage(pageUrl);
+  const here = new URL(url);
+  const maps = [];
+  for (const m of html.matchAll(/href="([^"#?]*\/maps\/([a-z0-9][a-z0-9-]*))\/?(?:[?#][^"]*)?"/gi)) {
+    let u; try { u = new URL(m[1].replace(/&amp;/g, '&'), url); } catch { continue; }
+    if (u.origin !== here.origin) continue;
+    // mapgenie.io is shared by every game: keep only this game's maps. A game's own domain serves that game alone.
+    if (game && isShared(here.hostname) && !u.pathname.toLowerCase().startsWith(`/${game.toLowerCase()}/maps/`)) continue;
+    if (!maps.some(x => x.slug === m[2])) maps.push({ slug: m[2], url: u.href });
+  }
+  return { maps, finalUrl: here };
 }
 
 /* ---------- main ---------- */
@@ -450,7 +494,7 @@ async function main() {
       'max-zoom': { type: 'string' }, 'all-tilesets': { type: 'boolean', default: false }, videos: { type: 'boolean', default: false },
       'no-tiles': { type: 'boolean', default: false }, 'no-media': { type: 'boolean', default: false }, 'no-markers': { type: 'boolean', default: false }, 'no-cards': { type: 'boolean', default: false },
       'no-icons': { type: 'boolean', default: false }, 'icons-only': { type: 'boolean', default: false },
-      html: { type: 'string' }, mapdata: { type: 'string' },
+      html: { type: 'string' }, mapdata: { type: 'string' }, game: { type: 'string' }, 'map-url': { type: 'string' },
       'tiles-base': { type: 'string' }, 'media-base': { type: 'string', default: 'https://media.mapgenie.io/v2/assets/prod/games' },
       concurrency: { type: 'string', default: '4' }, delay: { type: 'string', default: '100' }, 'max-tiles': { type: 'string', default: '400000' },
       'force-get-tiles': { type: 'string', multiple: true, default: [] },
@@ -462,27 +506,37 @@ async function main() {
 
   const given = new URL(positionals[0]);
   const givenSegs = given.pathname.split('/').filter(Boolean);
-  const gameSlug = givenSegs[0];
-  if (!gameSlug) throw new Error('Give the game link, e.g. https://mapgenie.io/pragmata');
-  const isGameLink = givenSegs[1] !== 'maps';
-  const origin = given.origin;
+  // mapgenie.io hosts every game as /<game>/...; some games (fallout4map.com, fo76map.com) have their own domain serving
+  // the same site for that one game only, with no /<game> in the path
+  let origin = given.origin;
+  let dedicated = !isShared(given.hostname);
+  const isGameLink = dedicated ? !givenSegs.includes('maps') : givenSegs[1] !== 'maps';
+  const gameSlug = dedicated ? v.game : givenSegs[0];   // on a dedicated domain the game's name comes from the page (below)
+  if (!dedicated && !gameSlug) throw new Error('Give the game link, e.g. https://mapgenie.io/pragmata');
   let startUrl = given;
+  let slug = dedicated ? null : gameSlug;
+  const mapUrl = ms => new URL(v['map-url'] ? v['map-url'].replace('{map}', ms) : dedicated ? `/maps/${ms}` : `/${slug}/maps/${ms}`, origin).href;
 
   // the game page lists its maps, in display order; with --mapdata there is no page to read, so the map data decides
-  let mapOrder = null;
+  let mapOrder = null;   // [{ slug, url }]
   if (!v.mapdata) {
-    try { mapOrder = await listGameMaps(origin, gameSlug); }
-    catch (e) {
-      if (isGameLink) throw new Error(`Could not read ${origin}/${gameSlug}: ${e.message}`);
+    try {
+      const listed = await listGameMaps(dedicated ? `${origin}/` : `${origin}/${gameSlug}`, dedicated ? null : gameSlug);
+      mapOrder = listed.maps;
+      if (listed.finalUrl.origin !== origin) { origin = listed.finalUrl.origin; dedicated = !isShared(listed.finalUrl.hostname); } // redirected to the game's own domain
+    } catch (e) {
+      if (isGameLink && !dedicated) throw new Error(`Could not read ${origin}/${gameSlug}: ${e.message}`);
       console.log(`  ! could not read the game page (${e.message}); using the map data for the map list`);
     }
     if (isGameLink) {
-      if (!mapOrder?.length) throw new Error(`No maps are listed on ${origin}/${gameSlug}. Check the link.`);
-      startUrl = new URL(`/${gameSlug}/maps/${mapOrder[0]}`, origin); // the first map on the page is read first
+      if (mapOrder?.length) startUrl = new URL(mapOrder[0].url);   // the first map on the page is read first
+      else if (!dedicated) throw new Error(`No maps are listed on ${origin}/${gameSlug}. Check the link.`);
+      else console.log('  ! no map links on the game page: reading that page itself as the first map');
     }
   }
   const segs = startUrl.pathname.split('/').filter(Boolean);
-  let slug = segs[0], mapSlug = segs[1] === 'maps' ? segs[2] : null;
+  let mapSlug = segs.includes('maps') ? segs[segs.indexOf('maps') + 1] : null;
+  if (!dedicated) slug = segs[0] || slug;
 
   // 1. first page and its mapData
   let page, md0;
@@ -491,30 +545,37 @@ async function main() {
     page = { html: v.html ? await readFile(v.html, 'utf8') : '', url: startUrl.href };
   } else {
     page = v.html ? { html: await readFile(v.html, 'utf8'), url: startUrl.href } : await getPage(startUrl.href);
+    const landed = new URL(page.url);
+    if (landed.origin !== origin) { origin = landed.origin; dedicated = !isShared(landed.hostname); } // the API is on the site we landed on
     md0 = await loadMapData(page.html, origin, slug, startUrl.href).catch(e => { throw new Error('Loading map data failed: ' + e.message); });
     if (!isMapData(md0)) throw new Error('Could not find window.mapData (with locations) for this page. Save the page and use --html, or use --mapdata with the console snippet.');
   }
   const html = page.html;
-  const finalSegs = new URL(page.url).pathname.split('/').filter(Boolean);
-  if (finalSegs[0]) slug = finalSegs[0];
+  if (!dedicated) { const finalSegs = new URL(page.url).pathname.split('/').filter(Boolean); if (finalSegs[0]) slug = finalSegs[0]; }
   mapSlug = md0.map?.slug || mapSlug || 'map';
 
   // 2. every map of the game, in the order the game page lists them (the map data's own list is the fallback)
   const bySlug = new Map([[mapSlug, md0]]);
   if (!v.mapdata) {
-    for (const ms of mapOrder?.length ? mapOrder : (md0.maps || []).map(m => m.slug)) {
+    const urlOf = new Map((mapOrder || []).map(m => [m.slug, m.url]));
+    for (const ms of mapOrder?.length ? mapOrder.map(m => m.slug) : (md0.maps || []).map(m => m.slug)) {
       if (bySlug.has(ms)) continue;
       try {
-        const p = await getPage(`${origin}/${slug}/maps/${ms}`);
+        const p = await getPage(urlOf.get(ms) || mapUrl(ms));
         const md = await loadMapData(p.html, origin, slug, p.url);
         if (isMapData(md)) bySlug.set(ms, md); else console.log(`  ! no mapData on map "${ms}"`);
       } catch (e) { console.log(`  ! could not load map "${ms}": ${e.message}`); }
     }
   }
-  const maps = (mapOrder?.length ? mapOrder : [...bySlug.keys()]).map(ms => bySlug.get(ms)).filter(Boolean);
+  const maps = (mapOrder?.length ? mapOrder.map(m => m.slug) : [...bySlug.keys()]).map(ms => bySlug.get(ms)).filter(Boolean);
   console.log(`Maps, in page order: ${maps.map(m => m.map?.slug).join(', ')}`);
 
   const game = extractVar(html, 'game') || {};
+  const cdnUrl = game.config?.cdn_url || 'https://cdn.mapgenie.io';
+  // the game's name on MapGenie: its markers, icons and media sit under it on the CDN. On a dedicated domain the path does not carry it.
+  if (v.game) slug = v.game;
+  else if (!slug) slug = game.slug || (html.match(/\/games\/([a-z0-9][a-z0-9-]*)\/markers\//i) || [])[1] || (html.match(/game-icons\/([a-z0-9][a-z0-9-]*)\//i) || [])[1] || null;
+  if (!slug) throw new Error("Could not tell the game's MapGenie name from the page: give it with --game <name> (e.g. fallout-4).");
   const ogTitle = (html.match(/<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)/i) || [])[1];
   const id = v.id || slug;
   const pageSlug = v.slug || id; // folder name under --out, and the page's URL
@@ -538,7 +599,7 @@ async function main() {
 
   // 3. markers
   let sprite = null;
-  if (!v['no-markers']) { sprite = await downloadMarkers({ html, slug, mediaBase: v['media-base'].replace(/\/$/, ''), outDir, cats }); }
+  if (!v['no-markers']) { sprite = await downloadMarkers({ html, slug, mediaBase: v['media-base'].replace(/\/$/, ''), outDir, cats, origin, cdnUrl }); }
   report(slug, maps, sprite);
   const icons = v['no-icons'] ? null : await downloadIcons({ html, origin, slug, outDir }).catch(e => { console.log('  ! icons:', e.message); return null; });
   console.log(icons ? `icons: ${Object.keys(icons.glyphs).length} category glyphs in ${icons.font}` : '! no icon font for this game: the sidebar will use the marker sprite');
