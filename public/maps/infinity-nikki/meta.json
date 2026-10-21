@@ -1,0 +1,464 @@
+{
+  "id": "infinity-nikki",
+  "title": "Infinity Nikki",
+  "slug": "infinity-nikki",
+  "source": "https://mapgenie.io/infinity-nikki",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "world_quest": [
+        {
+          "cp": "e900"
+        }
+      ],
+      "whimstar": [
+        {
+          "cp": "e901"
+        }
+      ],
+      "whimcycle_rental": [
+        {
+          "cp": "e902"
+        }
+      ],
+      "whim_jade": [
+        {
+          "cp": "e903"
+        }
+      ],
+      "whim_bubble": [
+        {
+          "cp": "e904"
+        }
+      ],
+      "whim_balloon": [
+        {
+          "cp": "e905"
+        }
+      ],
+      "warp_spire": [
+        {
+          "cp": "e906"
+        }
+      ],
+      "warp_nexus": [
+        {
+          "cp": "e907"
+        }
+      ],
+      "wardrobe": [
+        {
+          "cp": "e908"
+        }
+      ],
+      "violin_performance": [
+        {
+          "cp": "e909"
+        }
+      ],
+      "valuable": [
+        {
+          "cp": "e90a"
+        }
+      ],
+      "upgrade_material": [
+        {
+          "cp": "e90b"
+        }
+      ],
+      "surprise_o_matic": [
+        {
+          "cp": "e90c"
+        }
+      ],
+      "styling_challenge": [
+        {
+          "cp": "e90d"
+        }
+      ],
+      "stray_hatty": [
+        {
+          "cp": "e90e"
+        }
+      ],
+      "starlit_crystal": [
+        {
+          "cp": "e90f"
+        }
+      ],
+      "springbloom": [
+        {
+          "cp": "e910"
+        }
+      ],
+      "sky_monarch": [
+        {
+          "cp": "e911"
+        }
+      ],
+      "sketch": [
+        {
+          "cp": "e912"
+        }
+      ],
+      "serenity_dewdrop": [
+        {
+          "cp": "e913"
+        }
+      ],
+      "recycling": [
+        {
+          "cp": "e914"
+        }
+      ],
+      "record": [
+        {
+          "cp": "e915"
+        }
+      ],
+      "random_quest": [
+        {
+          "cp": "e916"
+        }
+      ],
+      "quest_item": [
+        {
+          "cp": "e917"
+        }
+      ],
+      "power_box": [
+        {
+          "cp": "e918"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e919"
+        }
+      ],
+      "mini_game": [
+        {
+          "cp": "e91a"
+        }
+      ],
+      "main_quest": [
+        {
+          "cp": "e91b"
+        }
+      ],
+      "lore_item": [
+        {
+          "cp": "e91c"
+        }
+      ],
+      "inkrealm_scroll": [
+        {
+          "cp": "e91d"
+        }
+      ],
+      "house": [
+        {
+          "cp": "e91e"
+        }
+      ],
+      "greedy_pouch": [
+        {
+          "cp": "e91f"
+        }
+      ],
+      "gliding_station": [
+        {
+          "cp": "e920"
+        }
+      ],
+      "general_store": [
+        {
+          "cp": "e921"
+        }
+      ],
+      "fishing_spot": [
+        {
+          "cp": "e922"
+        }
+      ],
+      "firework_launcher": [
+        {
+          "cp": "e923"
+        }
+      ],
+      "expedition_photo": [
+        {
+          "cp": "e924"
+        }
+      ],
+      "exclusive_quest": [
+        {
+          "cp": "e925"
+        }
+      ],
+      "eureka": [
+        {
+          "cp": "e926"
+        }
+      ],
+      "ethereal_star": [
+        {
+          "cp": "e927"
+        }
+      ],
+      "enemy": [
+        {
+          "cp": "e928"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e929"
+        }
+      ],
+      "dig_spot": [
+        {
+          "cp": "e92a"
+        }
+      ],
+      "dew_of_inspiration": [
+        {
+          "cp": "e92b"
+        }
+      ],
+      "dew_of_firework": [
+        {
+          "cp": "e92c"
+        }
+      ],
+      "danqing_jade_soul": [
+        {
+          "cp": "e92d"
+        }
+      ],
+      "curio_domain": [
+        {
+          "cp": "e92e"
+        }
+      ],
+      "consumable": [
+        {
+          "cp": "e92f"
+        }
+      ],
+      "chest_primary": [
+        {
+          "cp": "e930"
+        }
+      ],
+      "chest_intermediate": [
+        {
+          "cp": "e931"
+        }
+      ],
+      "chest_advanced": [
+        {
+          "cp": "e932"
+        }
+      ],
+      "cavern": [
+        {
+          "cp": "e933"
+        }
+      ],
+      "catapult_seal": [
+        {
+          "cp": "e934"
+        }
+      ],
+      "box_game": [
+        {
+          "cp": "e935"
+        }
+      ],
+      "boutique": [
+        {
+          "cp": "e936"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e937"
+        }
+      ],
+      "bling_esseling": [
+        {
+          "cp": "e938"
+        }
+      ],
+      "bling": [
+        {
+          "cp": "e939"
+        }
+      ],
+      "area": [
+        {
+          "cp": "e93a"
+        }
+      ]
+    }
+  },
+  "maps": [
+    {
+      "slug": "miraland",
+      "title": "Miraland",
+      "data": "miraland/data.json",
+      "tilesets": [
+        {
+          "name": "Base",
+          "template": "miraland/tiles/default-v6/{z}/{y}/{x}.jpg",
+          "minzoom": 9,
+          "maxzoom": 16,
+          "viewMaxzoom": 18,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "firework-isles",
+      "title": "Firework Isles",
+      "data": "firework-isles/data.json",
+      "tilesets": [
+        {
+          "name": "Base",
+          "template": "firework-isles/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 13,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "sea-of-stars",
+      "title": "Sea of Stars",
+      "data": "sea-of-stars/data.json",
+      "tilesets": [
+        {
+          "name": "V3",
+          "template": "sea-of-stars/tiles/default-v3/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "serenity-island",
+      "title": "Serenity Island",
+      "data": "serenity-island/data.json",
+      "tilesets": [
+        {
+          "name": "Base",
+          "template": "serenity-island/tiles/default-v2/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 14,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "danqing-island",
+      "title": "Danqing Island",
+      "data": "danqing-island/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "danqing-island/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 9,
+          "maxzoom": 13,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "danqing-realm",
+      "title": "Danqing Realm",
+      "data": "danqing-realm/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "danqing-realm/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 13,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "wanxiang-realm",
+      "title": "Wanxiang Realm",
+      "data": "wanxiang-realm/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "wanxiang-realm/tiles/default-v1/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 14,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,422 @@
+{
+  "id": "the-outer-worlds",
+  "title": "The Outer Worlds",
+  "slug": "the-outer-worlds",
+  "source": "https://mapgenie.io/the-outer-worlds",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "door": [
+        {
+          "cp": "e900",
+          "color": "#fbeac2"
+        }
+      ],
+      "equipment": [
+        {
+          "cp": "e901",
+          "color": "#fbeac2"
+        }
+      ],
+      "unique_equipment": [
+        {
+          "cp": "e902",
+          "color": "#fbeac2"
+        }
+      ],
+      "companion_quest": [
+        {
+          "cp": "e903",
+          "color": "#fbeac2"
+        }
+      ],
+      "faction_quest": [
+        {
+          "cp": "e904",
+          "color": "#fbeac2"
+        }
+      ],
+      "fast_travel": [
+        {
+          "cp": "e905",
+          "color": "#fbeac2"
+        }
+      ],
+      "item": [
+        {
+          "cp": "e906",
+          "color": "#fbeac2"
+        }
+      ],
+      "main_quest": [
+        {
+          "cp": "e907",
+          "color": "#fbeac2"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e908",
+          "color": "#fbeac2"
+        }
+      ],
+      "point_of_interest": [
+        {
+          "cp": "e909",
+          "color": "#fbeac2"
+        }
+      ],
+      "quest_item": [
+        {
+          "cp": "e90a",
+          "color": "#fbeac2"
+        }
+      ],
+      "side_quest": [
+        {
+          "cp": "e90b",
+          "color": "#fbeac2"
+        }
+      ],
+      "task": [
+        {
+          "cp": "e90c",
+          "color": "#fbeac2"
+        }
+      ],
+      "vending_machine": [
+        {
+          "cp": "e90d",
+          "color": "#fbeac2"
+        }
+      ],
+      "vendor": [
+        {
+          "cp": "e90e",
+          "color": "#fbeac2"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e90f",
+          "color": "#fbeac2"
+        }
+      ],
+      "unique_weapon": [
+        {
+          "cp": "e910",
+          "color": "#fbeac2"
+        }
+      ],
+      "workbench": [
+        {
+          "cp": "e911",
+          "color": "#fbeac2"
+        }
+      ],
+      "transition": [
+        {
+          "cp": "e912"
+        }
+      ],
+      "decoration": [
+        {
+          "cp": "e913"
+        }
+      ],
+      "keycard": [
+        {
+          "cp": "e914"
+        }
+      ],
+      "loot": [
+        {
+          "cp": "e915"
+        }
+      ],
+      "terminal": [
+        {
+          "cp": "e916"
+        }
+      ],
+      "codex": [
+        {
+          "cp": "e917"
+        }
+      ],
+      "mega_creature": [
+        {
+          "cp": "e918"
+        }
+      ],
+      "npc": [
+        {
+          "cp": "e919"
+        }
+      ]
+    }
+  },
+  "maps": [
+    {
+      "slug": "emerald-vale",
+      "title": "Emerald Vale",
+      "data": "emerald-vale/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "emerald-vale/tiles/default-1/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 15,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -168.75,
+            83.83,
+            -167.5,
+            83.98
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "groundbreaker",
+      "title": "Groundbreaker",
+      "data": "groundbreaker/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "groundbreaker/tiles/default-v2/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -168.75,
+            83.82994542398042,
+            -167.34375,
+            83.97925949886206
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "byzantium",
+      "title": "Byzantium",
+      "data": "byzantium/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "byzantium/tiles/default-v2/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -168.75,
+            83.82994542398042,
+            -167.34375,
+            83.97925949886206
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "ships",
+      "title": "Ships",
+      "data": "ships/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "ships/tiles/default-v2/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -168.75,
+            83.82994542398042,
+            -167.34375,
+            83.97925949886206
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "monarch",
+      "title": "Monarch",
+      "data": "monarch/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "monarch/tiles/default/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 16,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -168.75,
+            83.83,
+            -167.5,
+            83.98
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "tartarus",
+      "title": "Tartarus",
+      "data": "tartarus/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "tartarus/tiles/default/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 15,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -168.75,
+            83.83,
+            -167.5,
+            83.98
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "roseway",
+      "title": "Roseway",
+      "data": "roseway/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "roseway/tiles/default/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -168.75,
+            83.83,
+            -167.5,
+            83.98
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "satellites",
+      "title": "Satellites",
+      "data": "satellites/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "satellites/tiles/default/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 14,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -168.75,
+            83.82994542398042,
+            -167.34375,
+            83.97925949886206
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "scylla",
+      "title": "Scylla",
+      "data": "scylla/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "scylla/tiles/default/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 14,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -168.75,
+            83.82994542398042,
+            -167.34375,
+            83.97925949886206
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "gorgon",
+      "title": "Gorgon",
+      "data": "gorgon/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "gorgon/tiles/default-v4/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 15,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -168.75,
+            83.82994542398042,
+            -167.34375,
+            83.97925949886206
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "olympus",
+      "title": "Olympus",
+      "data": "olympus/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "olympus/tiles/default-v2/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -168.75,
+            83.82994542398042,
+            -167.34375,
+            83.97925949886206
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "eridanos",
+      "title": "Eridanos",
+      "data": "eridanos/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "eridanos/tiles/default-v1/{z}/{x}/{y}.png",
+          "minzoom": 10,
+          "maxzoom": 15,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.40625,
+            0,
+            0,
+            1.4061088354351563
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "id": "skyrim",
   "title": "Skyrim",
   "slug": "skyrim",
-  "source": "https://mapgenie.io/skyrim/maps/skyrim",
+  "source": "https://mapgenie.io/skyrim",
   "poster": "poster.jpg",
   "tagLabel": "Filter",
   "defaultTag": null,
@@ -12,50 +12,6 @@
     "json2x": "markers@2x.json",
     "png2x": "markers@2x.png"
   },
-  "maps": [
-    {
-      "slug": "skyrim",
-      "title": "Skyrim",
-      "data": "skyrim/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "skyrim/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 9,
-          "maxzoom": 16,
-          "viewMaxzoom": 18,
-          "bounds": [
-            -1.9037789120133097,
-            0.5613429753156398,
-            -0.21947298195505005,
-            1.7417199819925002
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "solstheim",
-      "title": "Solstheim",
-      "data": "solstheim/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "solstheim/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 11,
-          "maxzoom": 17,
-          "viewMaxzoom": 17,
-          "bounds": [
-            -1.41154678916696,
-            1.12704799125774,
-            -1.12264122416477,
-            1.4927623711901998
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
   "icons": {
     "font": "icons/icons.woff",
     "glyphs": {
@@ -1011,5 +967,49 @@
         }
       ]
     }
-  }
+  },
+  "maps": [
+    {
+      "slug": "skyrim",
+      "title": "Skyrim",
+      "data": "skyrim/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "skyrim/tiles/default-v1/{z}/{x}/{y}.jpg",
+          "minzoom": 9,
+          "maxzoom": 16,
+          "viewMaxzoom": 18,
+          "bounds": [
+            -1.9037789120133097,
+            0.5613429753156398,
+            -0.21947298195505005,
+            1.7417199819925002
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "solstheim",
+      "title": "Solstheim",
+      "data": "solstheim/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "solstheim/tiles/default-v1/{z}/{x}/{y}.jpg",
+          "minzoom": 11,
+          "maxzoom": 17,
+          "viewMaxzoom": 17,
+          "bounds": [
+            -1.41154678916696,
+            1.12704799125774,
+            -1.12264122416477,
+            1.4927623711901998
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
 }

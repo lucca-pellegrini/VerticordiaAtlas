@@ -1,0 +1,445 @@
+{
+  "id": "tarkov",
+  "title": "Escape From Tarkov",
+  "slug": "tarkov",
+  "source": "https://mapgenie.io/tarkov",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "ammo_box": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "armor": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "battle_pass_documents": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e903",
+          "color": "#ffffff"
+        }
+      ],
+      "btr_stop": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "cache": [
+        {
+          "cp": "e905",
+          "color": "#ffffff"
+        }
+      ],
+      "clothes": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "crate": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "cultist": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "dead_scav": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "duffle_bag": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "emplacement": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "exit": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "extraction": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "filing_cabinet": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "grenade": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "jacket": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "key": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "location": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "locked_door": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "loose_loot": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "meds": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "mine": [
+        {
+          "cp": "e917",
+          "color": "#ffffff"
+        }
+      ],
+      "minefield": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "money": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "other_loot": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "pc_block": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "provisions": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "quest_item": [
+        {
+          "cp": "e91e",
+          "color": "#ffffff"
+        }
+      ],
+      "raid_dealer": [
+        {
+          "cp": "e91f",
+          "color": "#ffffff"
+        }
+      ],
+      "rogue": [
+        {
+          "cp": "e920",
+          "color": "#ffffff"
+        }
+      ],
+      "safe": [
+        {
+          "cp": "e921",
+          "color": "#ffffff"
+        }
+      ],
+      "scav": [
+        {
+          "cp": "e922",
+          "color": "#ffffff"
+        }
+      ],
+      "scav_sniper": [
+        {
+          "cp": "e923",
+          "color": "#ffffff"
+        }
+      ],
+      "scav_spawn": [
+        {
+          "cp": "e924",
+          "color": "#ffffff"
+        }
+      ],
+      "spawn_point": [
+        {
+          "cp": "e925",
+          "color": "#ffffff"
+        }
+      ],
+      "suitcase": [
+        {
+          "cp": "e926",
+          "color": "#ffffff"
+        }
+      ],
+      "toolbox": [
+        {
+          "cp": "e927",
+          "color": "#ffffff"
+        }
+      ],
+      "transit": [
+        {
+          "cp": "e928",
+          "color": "#ffffff"
+        }
+      ],
+      "transition": [
+        {
+          "cp": "e929",
+          "color": "#ffffff"
+        }
+      ],
+      "valuable": [
+        {
+          "cp": "e92a",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon_box": [
+        {
+          "cp": "e92b",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon_emplacement": [
+        {
+          "cp": "e92c",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon_mods": [
+        {
+          "cp": "e92d",
+          "color": "#ffffff"
+        }
+      ]
+    }
+  },
+  "maps": [
+    {
+      "slug": "factory",
+      "title": "Factory",
+      "data": "factory/data.json",
+      "tilesets": [
+        {
+          "name": "Light",
+          "template": "factory/tiles/default-v3/{z}/{x}/{y}.png",
+          "minzoom": 9,
+          "maxzoom": 15,
+          "viewMaxzoom": 14,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "woods",
+      "title": "Woods",
+      "data": "woods/data.json",
+      "tilesets": [
+        {
+          "name": "Light",
+          "template": "woods/tiles/default-v11/{z}/{x}/{y}.jpg",
+          "minzoom": 8,
+          "maxzoom": 16,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "customs",
+      "title": "Customs",
+      "data": "customs/data.json",
+      "tilesets": [
+        {
+          "name": "Light",
+          "template": "customs/tiles/default-v4/{z}/{x}/{y}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "interchange",
+      "title": "Interchange",
+      "data": "interchange/data.json",
+      "tilesets": [
+        {
+          "name": "Light",
+          "template": "interchange/tiles/default-v2/{z}/{x}/{y}.jpg",
+          "minzoom": 8,
+          "maxzoom": 16,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "shoreline",
+      "title": "Shoreline",
+      "data": "shoreline/data.json",
+      "tilesets": [
+        {
+          "name": "0.14",
+          "template": "shoreline/tiles/default-v3/{z}/{x}/{y}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "lab",
+      "title": "The Lab",
+      "data": "lab/data.json",
+      "tilesets": [
+        {
+          "name": "Light",
+          "template": "lab/tiles/default-v3/{z}/{x}/{y}.png",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 16,
+          "bounds": [
+            -1.40625,
+            0,
+            0,
+            1.4061088354351563
+          ],
+          "tileSize": 256
+        }
+      ]
+    },
+    {
+      "slug": "labyrinth",
+      "title": "The Labyrinth",
+      "data": "labyrinth/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "labyrinth/tiles/default-v1/{z}/{x}/{y}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.4,
+            0,
+            0,
+            1.4
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

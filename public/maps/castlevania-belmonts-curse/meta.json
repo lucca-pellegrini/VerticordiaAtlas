@@ -1,0 +1,229 @@
+{
+  "id": "castlevania-belmonts-curse",
+  "title": "Castlevania: Belmont's Curse",
+  "slug": "castlevania-belmonts-curse",
+  "source": "https://mapgenie.io/castlevania-belmonts-curse",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "arcana": [
+        {
+          "cp": "e900",
+          "color": "#ffffff"
+        }
+      ],
+      "arcane_power": [
+        {
+          "cp": "e901",
+          "color": "#ffffff"
+        }
+      ],
+      "arena_battle": [
+        {
+          "cp": "e902",
+          "color": "#ffffff"
+        }
+      ],
+      "blue_book": [
+        {
+          "cp": "e903",
+          "color": "#3cafcf"
+        }
+      ],
+      "boss": [
+        {
+          "cp": "e904",
+          "color": "#ffffff"
+        }
+      ],
+      "brave_heart_fragment": [
+        {
+          "cp": "e905",
+          "color": "#d73737"
+        }
+      ],
+      "breakable_wall": [
+        {
+          "cp": "e906",
+          "color": "#ffffff"
+        }
+      ],
+      "chaos_shard_wall": [
+        {
+          "cp": "e907",
+          "color": "#ffffff"
+        }
+      ],
+      "character_skin": [
+        {
+          "cp": "e908",
+          "color": "#ffffff"
+        }
+      ],
+      "chicken": [
+        {
+          "cp": "e909",
+          "color": "#ffffff"
+        }
+      ],
+      "clue": [
+        {
+          "cp": "e90a",
+          "color": "#ffffff"
+        }
+      ],
+      "destructible_block": [
+        {
+          "cp": "e90b",
+          "color": "#ffffff"
+        }
+      ],
+      "elevator": [
+        {
+          "cp": "e90c",
+          "color": "#ffffff"
+        }
+      ],
+      "ferrymans_wharf": [
+        {
+          "cp": "e90d",
+          "color": "#ffffff"
+        }
+      ],
+      "haunted_coffin": [
+        {
+          "cp": "e90e",
+          "color": "#ffffff"
+        }
+      ],
+      "interactable": [
+        {
+          "cp": "e90f",
+          "color": "#ffffff"
+        }
+      ],
+      "keepsake": [
+        {
+          "cp": "e910",
+          "color": "#ffffff"
+        }
+      ],
+      "locked_door": [
+        {
+          "cp": "e911",
+          "color": "#ffffff"
+        }
+      ],
+      "lore": [
+        {
+          "cp": "e912",
+          "color": "#ffffff"
+        }
+      ],
+      "mirror_of_life": [
+        {
+          "cp": "e913",
+          "color": "#ffffff"
+        }
+      ],
+      "miscellaneous": [
+        {
+          "cp": "e914",
+          "color": "#ffffff"
+        }
+      ],
+      "objective": [
+        {
+          "cp": "e915",
+          "color": "#ffffff"
+        }
+      ],
+      "point_of_interest": [
+        {
+          "cp": "e916",
+          "color": "#ffffff"
+        }
+      ],
+      "red_book": [
+        {
+          "cp": "e917",
+          "color": "#d73737"
+        }
+      ],
+      "relic": [
+        {
+          "cp": "e918",
+          "color": "#ffffff"
+        }
+      ],
+      "statue": [
+        {
+          "cp": "e919",
+          "color": "#ffffff"
+        }
+      ],
+      "tarot_card": [
+        {
+          "cp": "e91a",
+          "color": "#ffffff"
+        }
+      ],
+      "transition": [
+        {
+          "cp": "e91b",
+          "color": "#ffffff"
+        }
+      ],
+      "transition_mirror": [
+        {
+          "cp": "e91c",
+          "color": "#ffffff"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e91d",
+          "color": "#ffffff"
+        }
+      ],
+      "wise_heart_fragment": [
+        {
+          "cp": "e91e",
+          "color": "#3cafcf"
+        }
+      ]
+    }
+  },
+  "maps": [
+    {
+      "slug": "streets-of-paris",
+      "title": "Streets of Paris",
+      "data": "streets-of-paris/data.json",
+      "tilesets": [
+        {
+          "name": "streets-paris_v3",
+          "template": "streets-of-paris/tiles/streets-paris_v3/{z}/{y}/{x}.jpg",
+          "minzoom": 8,
+          "maxzoom": 14,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -2.2479391279360996,
+            0.010018147990690007,
+            0.8291266387077999,
+            1.37928083027959
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

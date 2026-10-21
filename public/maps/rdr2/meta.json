@@ -1,0 +1,813 @@
+{
+  "id": "rdr2",
+  "title": "Red Dead Redemption 2",
+  "slug": "rdr2",
+  "source": "https://rdr2map.com/",
+  "poster": "poster.jpg",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "wild_horse": [
+        {
+          "cp": "e901"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e904"
+        }
+      ],
+      "treasure_online": [
+        {
+          "cp": "e905"
+        }
+      ],
+      "treasure_map": [
+        {
+          "cp": "e906"
+        }
+      ],
+      "treasure_hunter": [
+        {
+          "cp": "e907"
+        }
+      ],
+      "treasure": [
+        {
+          "cp": "e908"
+        }
+      ],
+      "trapper": [
+        {
+          "cp": "e909"
+        }
+      ],
+      "train_station": [
+        {
+          "cp": "e90a"
+        }
+      ],
+      "train": [
+        {
+          "cp": "e90b"
+        }
+      ],
+      "tarot_wands": [
+        {
+          "cp": "e90c"
+        }
+      ],
+      "tarot_swords": [
+        {
+          "cp": "e912"
+        }
+      ],
+      "tarot_pentacles": [
+        {
+          "cp": "e918"
+        }
+      ],
+      "tarot_cups": [
+        {
+          "cp": "e91e"
+        }
+      ],
+      "tarot_card_wands": [
+        {
+          "cp": "e91f"
+        }
+      ],
+      "tarot_card_swords": [
+        {
+          "cp": "e920"
+        }
+      ],
+      "tarot_card_pentacles": [
+        {
+          "cp": "e921"
+        }
+      ],
+      "tarot_card_cups": [
+        {
+          "cp": "e924"
+        }
+      ],
+      "tailor": [
+        {
+          "cp": "e925"
+        }
+      ],
+      "stranger": [
+        {
+          "cp": "e927"
+        }
+      ],
+      "store": [
+        {
+          "cp": "e92c"
+        }
+      ],
+      "stagecoach": [
+        {
+          "cp": "e92d"
+        }
+      ],
+      "stage_coach": [
+        {
+          "cp": "e932"
+        }
+      ],
+      "stable": [
+        {
+          "cp": "e933"
+        }
+      ],
+      "show": [
+        {
+          "cp": "e934"
+        }
+      ],
+      "shack": [
+        {
+          "cp": "e935"
+        }
+      ],
+      "saloon": [
+        {
+          "cp": "e936"
+        }
+      ],
+      "rock_carving": [
+        {
+          "cp": "e937"
+        }
+      ],
+      "robbery": [
+        {
+          "cp": "e938"
+        }
+      ],
+      "random_event": [
+        {
+          "cp": "e939"
+        }
+      ],
+      "postoffice": [
+        {
+          "cp": "e93a"
+        }
+      ],
+      "post_office": [
+        {
+          "cp": "e93b"
+        }
+      ],
+      "poker": [
+        {
+          "cp": "e93c"
+        }
+      ],
+      "point_of_interest": [
+        {
+          "cp": "e93d"
+        }
+      ],
+      "plant": [
+        {
+          "cp": "e93e"
+        }
+      ],
+      "photo_studio": [
+        {
+          "cp": "e93f"
+        }
+      ],
+      "newspaper_seller": [
+        {
+          "cp": "e940"
+        }
+      ],
+      "newspaper": [
+        {
+          "cp": "e941"
+        }
+      ],
+      "misc": [
+        {
+          "cp": "e942"
+        }
+      ],
+      "madam_nazar": [
+        {
+          "cp": "e943"
+        }
+      ],
+      "lost_jewelry_ring": [
+        {
+          "cp": "e944"
+        }
+      ],
+      "lost_jewelry_necklace": [
+        {
+          "cp": "e945"
+        }
+      ],
+      "lost_jewelry_earring": [
+        {
+          "cp": "e946"
+        }
+      ],
+      "lost_jewelry_bracelet": [
+        {
+          "cp": "e947"
+        }
+      ],
+      "loot": [
+        {
+          "cp": "e948"
+        }
+      ],
+      "legendary_fish": [
+        {
+          "cp": "e949"
+        }
+      ],
+      "legendary_animal_online": [
+        {
+          "cp": "e94a"
+        }
+      ],
+      "legendary_animal": [
+        {
+          "cp": "e94b"
+        }
+      ],
+      "landmark": [
+        {
+          "cp": "e94c"
+        }
+      ],
+      "jewelry_ring": [
+        {
+          "cp": "e94d"
+        }
+      ],
+      "jewelry_necklace": [
+        {
+          "cp": "e94e"
+        }
+      ],
+      "jewelry_earrings": [
+        {
+          "cp": "e94f"
+        }
+      ],
+      "jewelry_bracelet": [
+        {
+          "cp": "e950"
+        }
+      ],
+      "item_request": [
+        {
+          "cp": "e951"
+        }
+      ],
+      "item": [
+        {
+          "cp": "e952"
+        }
+      ],
+      "hunting_request": [
+        {
+          "cp": "e953"
+        }
+      ],
+      "hunting": [
+        {
+          "cp": "e954"
+        }
+      ],
+      "house": [
+        {
+          "cp": "e955"
+        }
+      ],
+      "hotel": [
+        {
+          "cp": "e956"
+        }
+      ],
+      "horse": [
+        {
+          "cp": "e957"
+        }
+      ],
+      "homestead": [
+        {
+          "cp": "e958"
+        }
+      ],
+      "hideout_online": [
+        {
+          "cp": "e959"
+        }
+      ],
+      "hat": [
+        {
+          "cp": "e95a"
+        }
+      ],
+      "harrietum": [
+        {
+          "cp": "e95b"
+        }
+      ],
+      "gunsmith_store": [
+        {
+          "cp": "e95c"
+        }
+      ],
+      "gun": [
+        {
+          "cp": "e95d"
+        }
+      ],
+      "grave": [
+        {
+          "cp": "e95e"
+        }
+      ],
+      "general_store": [
+        {
+          "cp": "e95f"
+        }
+      ],
+      "gang_hideout": [
+        {
+          "cp": "e960"
+        }
+      ],
+      "fossils": [
+        {
+          "cp": "e961"
+        }
+      ],
+      "fossil_coastal": [
+        {
+          "cp": "e962"
+        }
+      ],
+      "fivefingerfillet": [
+        {
+          "cp": "e963"
+        }
+      ],
+      "five_finger_fillet": [
+        {
+          "cp": "e964"
+        }
+      ],
+      "fence_vendor": [
+        {
+          "cp": "e965"
+        }
+      ],
+      "fence": [
+        {
+          "cp": "e966"
+        }
+      ],
+      "fast_travel": [
+        {
+          "cp": "e967"
+        }
+      ],
+      "family_heirloom": [
+        {
+          "cp": "e968"
+        }
+      ],
+      "exotic": [
+        {
+          "cp": "e969"
+        }
+      ],
+      "event": [
+        {
+          "cp": "e96a"
+        }
+      ],
+      "encounter": [
+        {
+          "cp": "e96b"
+        }
+      ],
+      "easter_egg": [
+        {
+          "cp": "e96c"
+        }
+      ],
+      "dreamcatcher": [
+        {
+          "cp": "e96d"
+        }
+      ],
+      "dominoes": [
+        {
+          "cp": "e96e"
+        }
+      ],
+      "doctor": [
+        {
+          "cp": "e96f"
+        }
+      ],
+      "dinosaur_bone": [
+        {
+          "cp": "e970"
+        }
+      ],
+      "collector_encounter": [
+        {
+          "cp": "e971"
+        }
+      ],
+      "coin": [
+        {
+          "cp": "e972"
+        }
+      ],
+      "cigarette_card": [
+        {
+          "cp": "e973"
+        }
+      ],
+      "cheat_code": [
+        {
+          "cp": "e974"
+        }
+      ],
+      "campsite": [
+        {
+          "cp": "e975"
+        }
+      ],
+      "campfire": [
+        {
+          "cp": "e976"
+        }
+      ],
+      "camp": [
+        {
+          "cp": "e977"
+        }
+      ],
+      "camera": [
+        {
+          "cp": "e978"
+        }
+      ],
+      "butcher": [
+        {
+          "cp": "e979"
+        }
+      ],
+      "bounty_poster": [
+        {
+          "cp": "e97a"
+        }
+      ],
+      "bounty": [
+        {
+          "cp": "e97b"
+        }
+      ],
+      "bone": [
+        {
+          "cp": "e97c"
+        }
+      ],
+      "blackjack": [
+        {
+          "cp": "e97d"
+        }
+      ],
+      "bird_egg": [
+        {
+          "cp": "e97e"
+        }
+      ],
+      "barber": [
+        {
+          "cp": "e97f"
+        }
+      ],
+      "baitshop": [
+        {
+          "cp": "e980"
+        }
+      ],
+      "bait_shop": [
+        {
+          "cp": "e981"
+        }
+      ],
+      "arrowhead": [
+        {
+          "cp": "e982"
+        }
+      ],
+      "antique_bottle": [
+        {
+          "cp": "e983"
+        }
+      ],
+      "american_flower": [
+        {
+          "cp": "e984"
+        }
+      ],
+      "alcohol_bottle": [
+        {
+          "cp": "e985"
+        }
+      ],
+      "fast_travel1": [
+        {
+          "cp": "e930"
+        }
+      ],
+      "recipe": [
+        {
+          "cp": "e92a"
+        }
+      ],
+      "stranger1": [
+        {
+          "cp": "e913"
+        }
+      ],
+      "exotic1": [
+        {
+          "cp": "e92e"
+        }
+      ],
+      "fossil_coastal1": [
+        {
+          "cp": "e986"
+        }
+      ],
+      "fossil_fauna": [
+        {
+          "cp": "e987"
+        }
+      ],
+      "fossil_oceanic": [
+        {
+          "cp": "e988"
+        }
+      ],
+      "madam_nazar1": [
+        {
+          "cp": "e989"
+        }
+      ],
+      "antique_bottle1": [
+        {
+          "cp": "e98a"
+        }
+      ],
+      "arrowhead1": [
+        {
+          "cp": "e98b"
+        }
+      ],
+      "bird_egg1": [
+        {
+          "cp": "e98c"
+        }
+      ],
+      "campfire1": [
+        {
+          "cp": "e98d"
+        }
+      ],
+      "american_flower1": [
+        {
+          "cp": "e98e"
+        }
+      ],
+      "coin1": [
+        {
+          "cp": "e98f"
+        }
+      ],
+      "family_heirloom1": [
+        {
+          "cp": "e990"
+        }
+      ],
+      "lost_jewelry_bracelet1": [
+        {
+          "cp": "e991"
+        }
+      ],
+      "lost_jewelry_earring1": [
+        {
+          "cp": "e992"
+        }
+      ],
+      "lost_jewelry_necklace1": [
+        {
+          "cp": "e993"
+        }
+      ],
+      "lost_jewelry_ring1": [
+        {
+          "cp": "e994"
+        }
+      ],
+      "tarot_card_cups1": [
+        {
+          "cp": "e995"
+        }
+      ],
+      "tarot_card_pentacles1": [
+        {
+          "cp": "e996"
+        }
+      ],
+      "tarot_card_swords1": [
+        {
+          "cp": "e997"
+        }
+      ],
+      "tarot_card_wands1": [
+        {
+          "cp": "e998"
+        }
+      ],
+      "cigarette_card1": [
+        {
+          "cp": "e929"
+        }
+      ],
+      "doctor1": [
+        {
+          "cp": "e900"
+        }
+      ],
+      "camera1": [
+        {
+          "cp": "e914"
+        }
+      ],
+      "stagecoach1": [
+        {
+          "cp": "e915"
+        }
+      ],
+      "tailor1": [
+        {
+          "cp": "e916"
+        }
+      ],
+      "store1": [
+        {
+          "cp": "e90d"
+        }
+      ],
+      "house1": [
+        {
+          "cp": "e90e"
+        }
+      ],
+      "bank": [
+        {
+          "cp": "e90f"
+        }
+      ],
+      "landmark1": [
+        {
+          "cp": "e910"
+        }
+      ],
+      "train1": [
+        {
+          "cp": "e911"
+        }
+      ],
+      "night": [
+        {
+          "cp": "e903"
+        }
+      ],
+      "dice": [
+        {
+          "cp": "e902"
+        }
+      ],
+      "spades": [
+        {
+          "cp": "e917"
+        }
+      ],
+      "camp1": [
+        {
+          "cp": "e919"
+        }
+      ],
+      "item_request1": [
+        {
+          "cp": "e931"
+        }
+      ],
+      "newspaper1": [
+        {
+          "cp": "e91a"
+        }
+      ],
+      "barber1": [
+        {
+          "cp": "e91b"
+        }
+      ],
+      "trapper1": [
+        {
+          "cp": "e91c"
+        }
+      ],
+      "hotel1": [
+        {
+          "cp": "e91d"
+        }
+      ],
+      "fence1": [
+        {
+          "cp": "e926"
+        }
+      ],
+      "legendary_fish1": [
+        {
+          "cp": "e922"
+        }
+      ],
+      "point_of_interest1": [
+        {
+          "cp": "e923"
+        }
+      ],
+      "hunting1": [
+        {
+          "cp": "e92f"
+        }
+      ],
+      "plant1": [
+        {
+          "cp": "e92b"
+        }
+      ],
+      "harrietum1": [
+        {
+          "cp": "e999"
+        }
+      ],
+      "misc1": [
+        {
+          "cp": "e928"
+        }
+      ]
+    }
+  },
+  "maps": [
+    {
+      "slug": "rdr2",
+      "title": "Red Dead Redemption 2",
+      "data": "rdr2/data.json",
+      "tilesets": [
+        {
+          "name": "Default",
+          "template": "rdr2/tiles/atlas-v1/{z}/{x}/{y}.jpg",
+          "minzoom": 2,
+          "maxzoom": 7,
+          "viewMaxzoom": 8,
+          "bounds": [
+            -180,
+            -66.51326044311186,
+            180,
+            85.05112877980659
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}

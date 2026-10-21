@@ -1,7 +1,8 @@
 /* Homepage styles. Shared tokens live in base.css, the map page uses style.css. */
 
 :root {
-  --gutter: clamp(18px, 5vw, 40px);
+  --gutter: clamp(18px, 4vw, 44px);
+  --wrap-max: 1600px;
   --radius: 20px;
 }
 
@@ -19,7 +20,7 @@ body {
 }
 main { flex: 1; }
 
-.wrap { width: min(1120px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+.wrap { width: min(var(--wrap-max, 1600px), 100% - 2 * var(--gutter)); margin-inline: auto; }
 
 .skip {
   position: absolute; left: 12px; top: -60px; z-index: 10;
@@ -125,13 +126,19 @@ h1 em { font-style: italic; color: var(--accent-soft); }
 .section-label::after { transform: scaleX(-1); }
 
 .game-grid {
-  list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(16px, 2.5vw, 28px);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 560px));
+  list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(16px, 2vw, 24px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   justify-content: center;
 }
-/* wide desktops: fit three cards in a row (phones and tablets keep the layout above) */
-@media (min-width: 1100px) {
-  .game-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 380px)); }
+@media (min-width: 560px) {
+  .game-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .game-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* widescreen desktop: fit four cards per row */
+@media (min-width: 1240px) {
+  .game-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 .card {
@@ -149,19 +156,20 @@ h1 em { font-style: italic; color: var(--accent-soft); }
 /* melt the bright artwork into the dark caption */
 .card-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--panel) 0%, transparent 38%); }
 
-.card-body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 6px clamp(18px, 3vw, 26px) clamp(18px, 3vw, 24px); }
-.card h3 { margin: 0; font: 400 clamp(1.7rem, 1.3rem + 1.2vw, 2.2rem)/1.1 var(--serif); }
+.card-body { display: flex; flex-direction: column; gap: 10px; flex: 1; padding: 6px clamp(16px, 1.6vw, 22px) clamp(16px, 1.6vw, 22px); }
+.card h3 { margin: 0; font: 400 clamp(1.45rem, 1.15rem + .7vw, 1.95rem)/1.15 var(--serif); }
 .card:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 4px; }
-.card p { margin: 0; color: var(--ink-dim); text-wrap: pretty; }
+.card p { margin: 0; color: var(--ink-dim); font-size: .94rem; line-height: 1.5; text-wrap: pretty; }
 
-.card-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; margin-top: auto; padding-top: 10px; }
-.stats { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-.stats li { padding: 3px 11px; border: 1px solid var(--line-2); border-radius: 999px; font-size: .8rem; color: var(--ink-dim); }
+.card-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 14px; margin-top: auto; padding-top: 10px; }
+.stats { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.stats li { padding: 3px 10px; border: 1px solid var(--line-2); border-radius: 999px; font-size: .78rem; color: var(--ink-dim); white-space: nowrap; }
 .stats b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 
 .cta {
-  display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px 9px 18px; border-radius: 999px;
-  background: var(--accent); color: #fff; font-weight: 600; font-size: .9rem; line-height: 1;
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px 8px 16px; border-radius: 999px;
+  background: var(--accent); color: #fff; font-weight: 600; font-size: .86rem; line-height: 1;
+  white-space: nowrap; margin-left: auto;
   transition: filter .2s;
 }
 .cta svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .25s; }

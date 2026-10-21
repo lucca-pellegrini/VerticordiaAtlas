@@ -1,0 +1,368 @@
+{
+  "id": "fallout-76",
+  "title": "Fallout 76",
+  "slug": "fallout76",
+  "source": "https://fo76map.com/",
+  "poster": "poster.png",
+  "tagLabel": "Filter",
+  "defaultTag": null,
+  "markers": {
+    "json": "markers.json",
+    "png": "markers.png",
+    "json2x": "markers@2x.json",
+    "png2x": "markers@2x.png"
+  },
+  "icons": {
+    "font": "icons/icons.woff",
+    "glyphs": {
+      "armor_workbench": [
+        {
+          "cp": "e92f"
+        }
+      ],
+      "brewing_station": [
+        {
+          "cp": "e930"
+        }
+      ],
+      "chemistry_station": [
+        {
+          "cp": "e931"
+        }
+      ],
+      "cooking_station": [
+        {
+          "cp": "e932"
+        }
+      ],
+      "power_armor_station": [
+        {
+          "cp": "e933"
+        }
+      ],
+      "tinkers_workbench": [
+        {
+          "cp": "e934"
+        }
+      ],
+      "weapons_workbench": [
+        {
+          "cp": "e935"
+        }
+      ],
+      "resin": [
+        {
+          "cp": "e936"
+        }
+      ],
+      "coal": [
+        {
+          "cp": "e937"
+        }
+      ],
+      "iron": [
+        {
+          "cp": "e938"
+        }
+      ],
+      "fertilizer": [
+        {
+          "cp": "e93d"
+        }
+      ],
+      "concrete": [
+        {
+          "cp": "e96e"
+        }
+      ],
+      "locked_safe": [
+        {
+          "cp": "e939"
+        }
+      ],
+      "crystal": [
+        {
+          "cp": "e927"
+        }
+      ],
+      "uranium": [
+        {
+          "cp": "e928"
+        }
+      ],
+      "copper": [
+        {
+          "cp": "e929"
+        }
+      ],
+      "gold": [
+        {
+          "cp": "e92a"
+        }
+      ],
+      "lead": [
+        {
+          "cp": "e92b"
+        }
+      ],
+      "silver": [
+        {
+          "cp": "e92c"
+        }
+      ],
+      "springs": [
+        {
+          "cp": "e924"
+        }
+      ],
+      "fissure": [
+        {
+          "cp": "e918"
+        }
+      ],
+      "vendor": [
+        {
+          "cp": "e915"
+        }
+      ],
+      "armor": [
+        {
+          "cp": "e913"
+        }
+      ],
+      "aluminum": [
+        {
+          "cp": "e91b"
+        }
+      ],
+      "black_titanium": [
+        {
+          "cp": "e91d"
+        }
+      ],
+      "ultracite": [
+        {
+          "cp": "e921"
+        }
+      ],
+      "screws": [
+        {
+          "cp": "e922"
+        }
+      ],
+      "vending_machine": [
+        {
+          "cp": "e91a"
+        }
+      ],
+      "nuke": [
+        {
+          "cp": "e900"
+        }
+      ],
+      "treasure": [
+        {
+          "cp": "e901"
+        }
+      ],
+      "workshop": [
+        {
+          "cp": "e902"
+        }
+      ],
+      "unmarked_location": [
+        {
+          "cp": "e93a"
+        }
+      ],
+      "recipe1": [
+        {
+          "cp": "e91e"
+        }
+      ],
+      "character": [
+        {
+          "cp": "e93b"
+        }
+      ],
+      "event": [
+        {
+          "cp": "e914"
+        }
+      ],
+      "cola": [
+        {
+          "cp": "e903"
+        }
+      ],
+      "home": [
+        {
+          "cp": "e904"
+        }
+      ],
+      "house": [
+        {
+          "cp": "e904"
+        }
+      ],
+      "vault": [
+        {
+          "cp": "e905"
+        }
+      ],
+      "oil": [
+        {
+          "cp": "e92e"
+        }
+      ],
+      "key": [
+        {
+          "cp": "e925"
+        }
+      ],
+      "recipe2": [
+        {
+          "cp": "e91f"
+        }
+      ],
+      "plan": [
+        {
+          "cp": "e920"
+        }
+      ],
+      "schematic": [
+        {
+          "cp": "e91c"
+        }
+      ],
+      "stash_box": [
+        {
+          "cp": "e919"
+        }
+      ],
+      "quest": [
+        {
+          "cp": "e917"
+        }
+      ],
+      "apparel": [
+        {
+          "cp": "e916"
+        }
+      ],
+      "location": [
+        {
+          "cp": "e906"
+        }
+      ],
+      "station": [
+        {
+          "cp": "e907"
+        }
+      ],
+      "misc": [
+        {
+          "cp": "e908"
+        }
+      ],
+      "town": [
+        {
+          "cp": "e909"
+        }
+      ],
+      "treasure_map": [
+        {
+          "cp": "e90a"
+        }
+      ],
+      "office": [
+        {
+          "cp": "e90b"
+        }
+      ],
+      "buildings": [
+        {
+          "cp": "e90b"
+        }
+      ],
+      "work": [
+        {
+          "cp": "e90b"
+        }
+      ],
+      "building": [
+        {
+          "cp": "e90c"
+        }
+      ],
+      "weapon": [
+        {
+          "cp": "e90d"
+        }
+      ],
+      "nuka_cherry": [
+        {
+          "cp": "e90e"
+        }
+      ],
+      "fusion_core": [
+        {
+          "cp": "e90f"
+        }
+      ],
+      "magazine": [
+        {
+          "cp": "e910"
+        }
+      ],
+      "holotape": [
+        {
+          "cp": "e911"
+        }
+      ],
+      "bobblehead": [
+        {
+          "cp": "e912"
+        }
+      ],
+      "acid": [
+        {
+          "cp": "e92d"
+        }
+      ],
+      "junk": [
+        {
+          "cp": "e926"
+        }
+      ],
+      "overseers_cache": [
+        {
+          "cp": "e923"
+        }
+      ]
+    }
+  },
+  "maps": [
+    {
+      "slug": "appalachia",
+      "title": "Appalachia",
+      "data": "appalachia/data.json",
+      "tilesets": [
+        {
+          "name": "V3",
+          "template": "appalachia/tiles/default-v4/{z}/{x}/{y}.jpg",
+          "minzoom": 8,
+          "maxzoom": 15,
+          "viewMaxzoom": 15,
+          "bounds": [
+            -1.6189097918129,
+            -0.21278376275996996,
+            0.17309436763570002,
+            1.60144415033943
+          ],
+          "tileSize": 256
+        }
+      ]
+    }
+  ]
+}
