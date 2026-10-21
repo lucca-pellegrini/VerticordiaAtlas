@@ -285,7 +285,7 @@ async function downloadIcons({ html, origin, slug, outDir }) {
   const candidates = [...html.matchAll(/(?:href|src)="([^"]+)"/g)].map(m => m[1].replace(/&amp;/g, '&')).filter(u => /icon/i.test(u) && /\.css(\?|$)/i.test(u));
   candidates.push(`game-icons/${slug}/icons.css`);
   for (const link of [...new Set(candidates.map(u => new URL(u, base).href))]) {
-    const css = await getBin(link, 1);
+    const css = await getBin(link, 1, base);
     if (css.status !== 200) continue;
     const text = css.buf.toString('utf8');
     const glyphs = {};
@@ -297,15 +297,32 @@ async function downloadIcons({ html, origin, slug, outDir }) {
       const ml = (m[3].match(/margin-left:\s*([^;]+)/i) || [])[1]?.trim();
       (glyphs[m[1]] ||= []).push({ path, cp: cp[1].toLowerCase(), ...(color ? { color } : {}), ...(ml ? { ml } : {}) });
     }
+    if (Object.keys(glyphs).length) {
+      for (const k of Object.keys(glyphs)) glyphs[k] = glyphs[k].sort((a, b) => a.path - b.path).map(({ path, ...layer }) => layer);
+      const font = text.match(/url\(['"]?([^'")?]+\.woff)/); // relative to this stylesheet; a query string is not part of the path
+      if (!font) continue;
+      const f = await getBin(new URL(font[1], link).href, 1, base);
+      if (f.status !== 200) continue;
+      await mkdir(path.join(outDir, 'icons'), { recursive: true });
+      await writeFile(path.join(outDir, 'icons', 'icons.woff'), f.buf);
+      return { font: 'icons/icons.woff', glyphs };
+    }
+    // Older games (e.g. Fallout 4) serve sidebar icons as a vertical PNG sprite sheet instead of a webfont.
+    const imgMatch = text.match(/background(?:-image)?:\s*url\(['"]?([^'")?]+\.png)/i);
+    if (!imgMatch) continue;
+    for (const m of text.matchAll(/\.icon-([a-z0-9_]+)\s*\{([^}]*)\}/gi)) {
+      const pos = m[2].match(/background-position:\s*(-?\d+)(?:px)?\s+(-?\d+)(?:px)?/i);
+      if (!pos) continue;
+      const x = -parseInt(pos[1], 10) || 0, y = -parseInt(pos[2], 10) || 0;
+      glyphs[m[1]] = x ? { x, y } : y;
+    }
     if (!Object.keys(glyphs).length) continue;
-    for (const k of Object.keys(glyphs)) glyphs[k] = glyphs[k].sort((a, b) => a.path - b.path).map(({ path, ...layer }) => layer);
-    const font = text.match(/url\(['"]?([^'")?]+\.woff)/); // relative to this stylesheet; a query string is not part of the path
-    if (!font) continue;
-    const f = await getBin(new URL(font[1], link).href, 1);
-    if (f.status !== 200) continue;
+    const img = await getBin(new URL(imgMatch[1], link).href, 1, base);
+    if (img.status !== 200) continue;
+    const size = parseInt((text.match(/width:\s*(\d+)px/i) || [])[1], 10) || 18;
     await mkdir(path.join(outDir, 'icons'), { recursive: true });
-    await writeFile(path.join(outDir, 'icons', 'icons.woff'), f.buf);
-    return { font: 'icons/icons.woff', glyphs };
+    await writeFile(path.join(outDir, 'icons', 'icons.png'), img.buf);
+    return { image: 'icons/icons.png', size, glyphs };
   }
   return null;
 }
@@ -589,7 +606,7 @@ async function main() {
     const meta = JSON.parse(await readFile(metaFile, 'utf8'));
     meta.icons = icons;
     await writeFile(metaFile, JSON.stringify(meta, null, 2) + '\n');
-    console.log(icons ? `icons: ${Object.keys(icons.glyphs).length} glyphs in ${icons.font}` : '! no icon font for this game: the sidebar keeps the marker sprite');
+    console.log(icons ? `icons: ${Object.keys(icons.glyphs).length} glyphs in ${icons.font || icons.image}` : '! no icon font for this game: the sidebar keeps the marker sprite');
     return;
   }
   console.log(`Game "${title}" (${slug}) -> ${outDir}, ${maps.length} map(s)`);
@@ -602,7 +619,7 @@ async function main() {
   if (!v['no-markers']) { sprite = await downloadMarkers({ html, slug, mediaBase: v['media-base'].replace(/\/$/, ''), outDir, cats, origin, cdnUrl }); }
   report(slug, maps, sprite);
   const icons = v['no-icons'] ? null : await downloadIcons({ html, origin, slug, outDir }).catch(e => { console.log('  ! icons:', e.message); return null; });
-  console.log(icons ? `icons: ${Object.keys(icons.glyphs).length} category glyphs in ${icons.font}` : '! no icon font for this game: the sidebar will use the marker sprite');
+  console.log(icons ? `icons: ${Object.keys(icons.glyphs).length} category glyphs in ${icons.font || icons.image}` : '! no icon font for this game: the sidebar will use the marker sprite');
 
   // 4. per map: data + tiles
   const tilesBases = [];

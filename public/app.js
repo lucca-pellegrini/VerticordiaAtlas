@@ -310,7 +310,7 @@ async function loadGame(entry) {
     state.sprite = { defs: spriteDefs, img: spriteImg, png: spriteFile?.png ?? null };
     state.spriteFile = spriteFile;
   } catch (e) { return fatal(e.message + ' (check the files next to this page)'); }
-  // the sidebar's category logos come from the game's icon font (add-game.mjs); without it the marker sprite is used
+  // the sidebar's category logos come from the game's icon font or sprite (add-game.mjs); without it the marker sprite is used
   state.glyphs = null;
   if (state.meta.icons?.font && state.meta.icons.glyphs) {
     try {
@@ -320,6 +320,8 @@ async function loadGame(entry) {
       document.fonts.add(face);
       state.glyphs = { family, map: state.meta.icons.glyphs };
     } catch (e) { console.warn('icon font not loaded, using the marker sprite:', e.message); }
+  } else if (state.meta.icons?.image && state.meta.icons.glyphs) {
+    state.glyphs = { image: `${state.folder}/${state.meta.icons.image}`, size: state.meta.icons.size || 18, map: state.meta.icons.glyphs };
   }
 
   await migratePresets(); // presets are per game (see presetsKey)
@@ -1043,9 +1045,16 @@ const BLACK_OR_WHITE = new Set(['#000', '#000000', '#fff', '#ffffff']); // layer
 function iconHtml(name, color) {
   // the sidebar logo: the game's own glyph for this category, in the category colour (the map keeps the marker sprite)
   const glyph = name && state.glyphs?.map[name];
-  if (glyph) {
-    // one glyph, or stacked layers; a layer in black takes the category colour, the others keep the site's colours
+  if (glyph !== undefined) {
     const tint = HEX.test(color || '') ? color : 'var(--ink)';
+    if (state.glyphs.image) {
+      const x = typeof glyph === 'number' ? 0 : (glyph.x || 0);
+      const y = typeof glyph === 'number' ? glyph : (glyph.y || 0);
+      const sz = state.glyphs.size;
+      const m = `url('${state.glyphs.image}') -${x}px -${y}px / ${sz}px auto no-repeat`;
+      return `<span class="ico-img" style="width:${sz}px;height:${sz}px;background:${tint};-webkit-mask:${m};mask:${m}"></span>`;
+    }
+    // one glyph, or stacked layers; a layer in black takes the category colour, the others keep the site's colours
     const layers = (Array.isArray(glyph) ? glyph : [{ cp: glyph }]).map(l =>
       `<span style="color:${l.color && !BLACK_OR_WHITE.has(l.color) ? l.color : tint}${l.ml ? `;margin-left:${l.ml}` : ''}">&#x${l.cp};</span>`).join('');
     return `<span class="ico-font" style="font-family:'${state.glyphs.family}'">${layers}</span>`;

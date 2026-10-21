@@ -144,8 +144,15 @@ const BLACK_OR_WHITE = new Set(['#000', '#000000', '#fff', '#ffffff']);
 export function officialIcon(game, iconName, color) {
   const icons = game.icons;
   const raw = icons?.glyphs?.[iconName];
-  if (!raw || !icons.font || !HEX.test(color || '')) return null;
+  if (raw === undefined || !HEX.test(color || '')) return null;
   const ink = glyphInk(color);
+  if (icons.image) {
+    const x = typeof raw === 'number' ? 0 : (Number(raw?.x) || 0);
+    const y = typeof raw === 'number' ? raw : (Number(raw?.y) || 0);
+    const size = Number(icons.size) || 18;
+    return { image: path.join(game.dir, icons.image), x, y, size, color, ink };
+  }
+  if (!icons.font) return null;
   const layers = (Array.isArray(raw) ? raw : [raw]).map(l => {
     const layer = typeof l === 'string' ? { cp: l } : l || {};
     const cp = String(layer.cp ?? '').toLowerCase();
@@ -164,8 +171,13 @@ export async function categoryIcon({ glyph, color }) {
   return inner ? { glyph, color, ink: glyphInk(color), inner } : null;
 }
 
-// the icon's graphic inside its disc: the game's icon-font glyph, or a library glyph
+// the icon's graphic inside its disc: the game's icon-font glyph, image sprite, or a library glyph
 function iconGraphic(icon) {
+  if (icon.image) {
+    const scale = 58 / icon.size;
+    const m = `url('${fileUrl(icon.image)}') -${Math.round(icon.x * scale)}px -${Math.round(icon.y * scale)}px / 58px auto no-repeat`;
+    return `<span class="gi-img" style="width:58px;height:58px;display:block;background:var(--g);-webkit-mask:${m};mask:${m}"></span>`;
+  }
   if (icon.layers) {
     return `<span class="gi">${icon.layers.map(l => `<span style="color:${l.tint}${l.ml ? `;margin-left:${l.ml}` : ''}">&#x${l.cp};</span>`).join('')}</span>`;
   }
