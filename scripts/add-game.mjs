@@ -145,6 +145,8 @@ const lat2y = (lat, n) => {
   const r = Math.max(-85.05, Math.min(85.05, lat)) * Math.PI / 180;
   return (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * n;
 };
+const x2lon = (x, n) => x / n * 360 - 180;
+const y2lat = (y, n) => Math.atan(Math.sinh(Math.PI * (1 - 2 * y / n))) * 180 / Math.PI;
 
 export function tilesCovering(bounds, z, pad = 0) {
   const n = 2 ** z, [w, s, e, nn] = bounds;
@@ -160,8 +162,21 @@ export function tilesCovering(bounds, z, pad = 0) {
 const fill = (tpl, z, x, y) => tpl.replace('{z}', z).replace('{x}', x).replace('{y}', y);
 
 function boundsFor(md, ts) {
+  // tile-index bounds per zoom level: { "8": { x: { min, max }, y: { min, max } }, ... }
+  if (ts.bounds && typeof ts.bounds === 'object' && !Array.isArray(ts.bounds)) {
+    const zs = Object.keys(ts.bounds).map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+    const z = zs.includes(ts.min_zoom) ? ts.min_zoom : zs[0];
+    const bz = ts.bounds[z];
+    if (bz?.x && bz?.y && Number.isFinite(bz.x.min) && Number.isFinite(bz.x.max) && Number.isFinite(bz.y.min) && Number.isFinite(bz.y.max)) {
+      const n = 2 ** z;
+      return { bounds: [x2lon(bz.x.min, n), y2lat(bz.y.max + 1, n), x2lon(bz.x.max + 1, n), y2lat(bz.y.min, n)], guessed: false };
+    }
+  }
   const b = ts.bounds || md.styles?.mapStyle?.bounds;
-  if (Array.isArray(b) && b.length === 4 && b.every(Number.isFinite)) return { bounds: b, guessed: false };
+  // ignore whole-world placeholder bounds (e.g. [-180, -85, 180, 85] on Fallout 76), which would try 65,536 tiles at zoom 8
+  if (Array.isArray(b) && b.length === 4 && b.every(Number.isFinite) && (b[2] - b[0] < 300 || b[3] - b[1] < 150)) {
+    return { bounds: b, guessed: false };
+  }
   const lats = md.locations.map(l => parseFloat(l.latitude)).filter(Number.isFinite);
   const lngs = md.locations.map(l => parseFloat(l.longitude)).filter(Number.isFinite);
   const dx = (Math.max(...lngs) - Math.min(...lngs)) || 1, dy = (Math.max(...lats) - Math.min(...lats)) || 1;
@@ -191,9 +206,19 @@ async function downloadTiles({ md, ts, baseCandidates, destDir, localTail, opts 
   const stats = { saved: 0, skipped: 0, missing: 0, failed: 0, bytes: 0 };
   let cands = first;
   for (let z = minZ; z <= maxZ; z++) {
-    // --force-get-tiles: every tile inside the bounds is asked for at this zoom, the children of a missing tile included
-    // (some servers lack a lower-zoom tile and still have its children, e.g. Solstheim 11/1017/1016 is 403, 13/4068/4066 is there)
-    if (opts.unpruned) cands = tilesCovering(bounds, z, 0);
+    const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[z] : null;
+    if (bz?.x && bz?.y && Number.isFinite(bz.x.min) && Number.isFinite(bz.x.max) && Number.isFinite(bz.y.min) && Number.isFinite(bz.y.max)) {
+      if (z === minZ || opts.unpruned) {
+        cands = [];
+        for (let x = bz.x.min; x <= bz.x.max; x++) for (let y = bz.y.min; y <= bz.y.max; y++) cands.push([x, y]);
+      } else {
+        cands = cands.filter(([x, y]) => x >= bz.x.min && x <= bz.x.max && y >= bz.y.min && y <= bz.y.max);
+      }
+    } else if (opts.unpruned) {
+      // --force-get-tiles: every tile inside the bounds is asked for at this zoom, the children of a missing tile included
+      // (some servers lack a lower-zoom tile and still have its children, e.g. Solstheim 11/1017/1016 is 403, 13/4068/4066 is there)
+      cands = tilesCovering(bounds, z, 0);
+    }
     if (stats.saved + stats.skipped + cands.length > opts.maxTiles) { console.log(`  stopping before zoom ${z}: would pass --max-tiles ${opts.maxTiles}`); break; }
     const found = [];
     await pool(cands, opts.concurrency, async ([x, y]) => {
@@ -479,9 +504,10 @@ export async function accentFromPoster(file) {
 
 /* ---------- the game page: its maps, as links, in the order they are displayed ---------- */
 
-// the map cards of the game page are <a href=".../maps/<map>">, in display order; each map is listed once.
+// the map cards of the game page are <a href=".../maps/<map>"> (or <a class="map-link" href=".../<map>"> on a dedicated
+// domain), in display order; each map is listed once.
 // The URLs are taken from the links themselves, so it does not matter whether the maps live at mapgenie.io/<game>/maps/<map>
-// or at the root of a game's own domain (fallout4map.com/maps/<map>). Returns { maps: [{ slug, url }], finalUrl } (the
+// or at the root of a game's own domain (fallout4map.com/<map>). Returns { maps: [{ slug, url }], finalUrl } (the
 // page may redirect from mapgenie.io to the game's own domain, which is why the final URL is returned).
 const isShared = host => /(^|\.)mapgenie\.io$/i.test(host);
 async function listGameMaps(pageUrl, game) {
@@ -494,6 +520,16 @@ async function listGameMaps(pageUrl, game) {
     // mapgenie.io is shared by every game: keep only this game's maps. A game's own domain serves that game alone.
     if (game && isShared(here.hostname) && !u.pathname.toLowerCase().startsWith(`/${game.toLowerCase()}/maps/`)) continue;
     if (!maps.some(x => x.slug === m[2])) maps.push({ slug: m[2], url: u.href });
+  }
+  if (!maps.length && !isShared(here.hostname)) {
+    const inline = extractVar(html, 'mapData', v => v && typeof v === 'object' && v.map?.slug);
+    if (inline) maps.push({ slug: inline.map.slug, url: here.href });
+    for (const m of html.matchAll(/<a[^>]+class="[^"]*\bmap-link\b[^"]*"[^>]+href="([^"#?]+)"/gi)) {
+      let u; try { u = new URL(m[1].replace(/&amp;/g, '&'), url); } catch { continue; }
+      if (u.origin !== here.origin) continue;
+      const s = u.pathname.split('/').filter(Boolean).pop();
+      if (s && !maps.some(x => x.slug === s)) maps.push({ slug: s, url: u.href });
+    }
   }
   return { maps, finalUrl: here };
 }
