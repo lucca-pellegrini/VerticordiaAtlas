@@ -143,11 +143,18 @@ function askDialog({ title, message = '', value = null, okLabel = 'OK', danger =
 
 /* ---------- descriptions: markdown (vendor/marked.umd.js). MapGenie location links become local #loc links ---------- */
 
-// "https://mapgenie.io/<game>/maps/<map>?locationIds=N" (also relative, or a #L suffix) -> N; anything else -> null
+// Any HTTP(S) URL containing a MapGenie locationIds parameter -> ID, or null.
+// Works with mapgenie.io, standalone MapGenie domains, and relative URLs.
 function mapgenieLocId(href) {
   let u;
-  try { u = new URL(href, "https://mapgenie.io/"); } catch { return null; }
-  if (!/^https?:$/.test(u.protocol) || !/(^|\.)mapgenie\.io$/i.test(u.hostname)) return null;
+  try {
+    u = new URL(href, "https://mapgenie.io/");
+  } catch {
+    return null;
+  }
+
+  if (!/^https?:$/.test(u.protocol)) return null;
+
   const m = /^(\d+)/.exec(u.searchParams.get("locationIds") || "");
   return m ? Number(m[1]) : null;
 }
