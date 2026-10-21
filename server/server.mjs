@@ -241,10 +241,27 @@ async function sharedMarkerCard(req, res, gameSlug, packed) {
   createReadStream(file).pipe(res);
 }
 
+// sanitize the request target so scheme-relative paths ("//", "//////"), backslashes, or bad %-encoding never throw
+function parseUrl(raw) {
+  if (typeof raw !== 'string') return null;
+  const trimmed = raw.replace(/^[\/\\]+/, '/');
+  if (!trimmed.startsWith('/')) return null;
+  try {
+    const url = new URL(trimmed, 'http://localhost');
+    const pathname = decodeURIComponent(url.pathname).replace(/\\/g, '/').replace(/\/+/g, '/');
+    if (/[\x00-\x1f\x7f]/.test(pathname)) return null;
+    url.pathname = encodeURI(pathname);
+    return { url, pathname };
+  } catch {
+    return null;
+  }
+}
+
 // plain files from the site folder; a folder asks for its trailing slash, and hidden or cache paths are not served
-async function serveStatic(req, res, url) {
-  const rel = decodeURIComponent(url.pathname);
-  const file = path.normalize(path.join(PUBLIC, rel));
+async function serveStatic(req, res, rel, search = '') {
+  const rawParts = rel.split('/').filter(Boolean);
+  if (rawParts.includes('..')) return send(res, 403, 'forbidden');
+  let file = path.normalize(path.join(PUBLIC, rel));
   if (file !== PUBLIC && !file.startsWith(PUBLIC + path.sep)) return send(res, 403, 'forbidden');
   const parts = path.relative(PUBLIC, file).split(path.sep).filter(Boolean);
   if (parts.some(p => p.startsWith('.') || p === 'cache' || p === 'node_modules')) return send(res, 404, 'not found');
@@ -252,11 +269,13 @@ async function serveStatic(req, res, url) {
   try { st = await stat(file); } catch { return send(res, 404, 'not found'); }
   if (st.isDirectory()) {
     if (!rel.endsWith('/')) {
-      res.writeHead(301, { Location: rel + '/' + url.search });
+      res.writeHead(301, { Location: encodeURI(rel) + '/' + search });
       return res.end();
     }
-    return serveStatic(req, res, new URL(rel + 'index.html', 'http://localhost'));
+    file = path.join(file, 'index.html');
+    try { st = await stat(file); } catch { return send(res, 404, 'not found'); }
   }
+  if (!st.isFile()) return send(res, 404, 'not found');
   const type = TYPES[path.extname(file).toLowerCase()];
   if (!type) return send(res, 404, 'not found');
   // validators: an ETag from size and modification time, and Last-Modified for clients that only use dates
@@ -311,14 +330,15 @@ const api = createApi({ debug: DEBUG, root: REPO, googleClientId: process.env.GO
 
 const server = http.createServer(async (req, res) => {
   try {
-    const url = new URL(req.url, 'http://localhost');
-    if (url.pathname.startsWith('/api/')) {
+    const parsed = parseUrl(req.url);
+    if (!parsed) return send(res, 400, 'bad request');
+    const { url, pathname: p } = parsed;
+    if (p.startsWith('/api/')) {
       const handled = await api.handle(req, res, url);
       if (handled === false) send(res, 404, '{"error":"not found"}', 'application/json; charset=utf-8', { 'Cache-Control': 'no-store' });
       return;
     }
     if (req.method !== 'GET' && req.method !== 'HEAD') return send(res, 405, 'method not allowed');
-    const p = decodeURIComponent(url.pathname);
 
     const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
     if (card) return await shareCard(req, res, card[1], card[2], Number(card[3]));
@@ -335,7 +355,7 @@ const server = http.createServer(async (req, res) => {
       if (await sharePage(req, res, page[1], map, Number(loc))) return;
     }
 
-    return await serveStatic(req, res, url);
+    return await serveStatic(req, res, p, url.search);
   } catch (e) {
     console.error(e);
     if (!res.headersSent) send(res, 500, 'server error');
@@ -347,8 +367,8 @@ const server = http.createServer(async (req, res) => {
 server.on('upgrade', (req, socket, head) => {
   socket.on('error', () => socket.destroy());
   try {
-    const url = new URL(req.url, 'http://localhost');
-    if (url.pathname === '/api/ws') return api.upgrade(req, socket, head, url);
+    const parsed = parseUrl(req.url);
+    if (parsed?.pathname === '/api/ws') return api.upgrade(req, socket, head, parsed.url);
   } catch (e) { console.error(e); }
   socket.destroy();
 });
