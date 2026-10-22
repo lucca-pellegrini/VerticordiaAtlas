@@ -464,6 +464,16 @@ export function describePage(pathname, fullUrl = null, titleOverride = null) {
     };
   }
 
+  if (normPath.startsWith('/about')) {
+    return {
+      type: 'about',
+      path: '/about/',
+      fullUrl: targetUrl,
+      title: 'about',
+      buttonText: 'Return to about',
+    };
+  }
+
   if (normPath.startsWith('/terms')) {
     return {
       type: 'terms',

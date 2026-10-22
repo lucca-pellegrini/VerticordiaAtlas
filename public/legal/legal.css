@@ -69,6 +69,13 @@ body { display: flex; flex-direction: column; }
 .doc dl.notices dt span { color: var(--ink-dim); font-weight: 400; font-size: 13px; margin-left: 4px; }
 .doc dl.notices dd { margin: 0; padding: 0 0 14px; border-bottom: 1px solid var(--line); color: color-mix(in srgb, var(--ink) 84%, var(--ink-dim)); font-size: 14.5px; line-height: 1.6; }
 
+/* the signature at the foot of the about page */
+.doc .motto { margin: 72px 0 0; text-align: center; }
+.doc .motto::before { content: ""; display: block; width: 36px; height: 1px; margin: 0 auto 22px; background: var(--accent); opacity: .6; }
+.doc .motto p { margin: 0; }
+.doc .motto .latin { font: italic 400 26px/1.2 "Instrument Serif"; letter-spacing: .04em; color: var(--ink-dim); }
+.doc .motto .gloss { margin-top: 8px; font-size: 12.5px; line-height: 1.5; letter-spacing: .02em; color: var(--ink-dim); opacity: .75; }
+
 /* narrow screens: the navigator becomes a horizontal strip above the text, with the sections in order */
 @media (max-width: 860px) {
   .legal { grid-template-columns: minmax(0, 1fr); padding-top: 0; gap: 0; }
