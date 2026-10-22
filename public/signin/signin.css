@@ -1,19 +1,53 @@
 /* the sign-in page: quiet and readable; Google is the one big button, the key option is smaller but always there */
 :root {
   --gutter: clamp(18px, 4vw, 44px);
+  --wrap-max: 1600px;
 }
-html { background: var(--night); }
+html { background: var(--night); height: 100%; }
 html, body {
-  margin: 0; min-height: 100vh; min-height: 100dvh; color: var(--ink); font: 400 16px/1.55 Inter; -webkit-font-smoothing: antialiased;
+  margin: 0; color: var(--ink); font: 400 16px/1.55 Inter; -webkit-font-smoothing: antialiased;
   padding-inline: env(safe-area-inset-left, 0) env(safe-area-inset-right, 0);
 }
-body { display: flex; flex-direction: column; }
-.signin {
-  width: min(560px, 100% - 2 * var(--gutter)); margin: 0 auto; min-height: 100vh; min-height: 100dvh;
-  box-sizing: border-box; display: flex; flex-direction: column;
-  padding: calc(18px + env(safe-area-inset-top, 0px)) 0 calc(28px + env(safe-area-inset-bottom, 0px));
+body { display: flex; flex-direction: column; min-height: 100%; min-height: 100svh; }
+
+.wrap {
+  width: min(var(--wrap-max, 1600px), 100% - 2 * var(--gutter));
+  margin-inline: auto;
 }
-.signin-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+/* top bar: brand on the left, tools on the right, matching home and legal */
+.signin-top {
+  box-sizing: border-box;
+  padding-block: calc(18px + env(safe-area-inset-top, 0px)) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand { display: inline-flex; flex: none; align-items: center; gap: 10px; text-decoration: none; color: var(--accent); }
+.brand span { color: var(--ink); font: 400 1.55rem/1 var(--serif); letter-spacing: .01em; white-space: nowrap; }
+.brand .mark { position: relative; display: block; width: 26px; height: 26px; flex: none; }
+.brand .mark svg { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); }
+.brand .mark .heart { opacity: 0; transform: scale(.6); }
+.brand.beat .mark .pin { opacity: 0; transform: scale(.6); }
+.brand.beat .mark .heart { opacity: 1; transform: scale(1); animation: heartbeat 1.8s ease-in-out .6s infinite; }
+@media (hover: hover) {
+  .brand:hover .mark .pin { opacity: 0; transform: scale(.6); }
+  .brand:hover .mark .heart { opacity: 1; transform: scale(1); animation: heartbeat 1.8s ease-in-out .6s infinite; }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.12); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.08); }
+  60% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand .mark svg, .brand.beat .mark .heart, .brand:hover .mark .heart { animation: none !important; }
+}
+
+.signin-top-tools { display: flex; flex: none; align-items: center; gap: 10px; }
+
 .back {
   display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 8px; height: 40px; box-sizing: border-box;
   color: var(--ink-dim); text-decoration: none; font-size: 14px; padding: 0 14px; border: 1px solid var(--line-2);
@@ -27,12 +61,31 @@ body { display: flex; flex-direction: column; }
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M11 6l-6 6 6 6'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 @media (max-width: 600px) {
-  .back { width: 40px; padding: 0; }
+  .signin-top { padding-block: calc(10px + env(safe-area-inset-top, 0px)) 0; gap: 8px; }
+  .brand { gap: 8px; min-width: 0; }
+  .brand .mark { width: 22px; height: 22px; }
+  .brand span { font-size: clamp(1.15rem, 4.5vw, 1.55rem); }
+  .signin-top-tools { gap: 6px; }
+  .signin-top .theme-switch { grid-template-columns: repeat(3, 30px); height: 36px; }
+  .back { width: 36px; height: 36px; padding: 0; }
   .back span { display: none; }
 }
-h1 { font: 400 52px/1.05 "Instrument Serif"; margin: 36px 0 12px; }
+
+/* card */
+.signin {
+  width: min(560px, 100% - 2 * var(--gutter));
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+h1 { font: 400 52px/1.05 "Instrument Serif"; margin: 16px 0 12px; }
 h2 { font: 400 26px/1.1 "Instrument Serif"; margin: 0 0 14px; }
-.lede { color: var(--ink-dim); font-size: 16px; margin: 0 0 26px; max-width: 46ch; }
+.lede { color: var(--ink-dim); font-size: 16px; margin: 0 0 24px; max-width: 46ch; }
 .google-btn { display: flex; align-items: center; justify-content: center; gap: 12px; box-sizing: border-box; width: min(100%, 320px); height: 52px; margin: 4px auto 0; padding: 0 26px;
   border-radius: 999px; background: var(--ink); color: var(--night); font: 600 15.5px/1 Inter; text-decoration: none; letter-spacing: .005em;
   box-shadow: 0 16px 36px -16px rgb(214 69 59 / .65), inset 0 1px 0 rgb(255 255 255 / .6); transition: transform .15s var(--ease), box-shadow .25s var(--ease), background-color .2s; }
@@ -46,7 +99,7 @@ h2 { font: 400 26px/1.1 "Instrument Serif"; margin: 0 0 14px; }
 .notice { text-align: center; }
 #google-error { text-align: center; }
 .error { color: var(--danger); }
-.other { margin-top: 22px; text-align: center; }
+.other { margin-top: 20px; text-align: center; }
 .secret-toggle { display: inline-flex; align-items: center; height: 36px; padding: 0 18px; border-radius: 999px; font: 500 13.5px/1 Inter; color: var(--ink-dim); background: transparent; border: 1px solid var(--line-2); cursor: pointer; transition: color .2s, border-color .2s; }
 .secret-toggle:hover, .secret-toggle:focus-visible { color: var(--ink); border-color: var(--ink-dim); outline: none; }
 .secret-toggle[aria-expanded="true"] { color: var(--ink); border-color: var(--ink-dim); }
@@ -68,9 +121,12 @@ h2 { font: 400 26px/1.1 "Instrument Serif"; margin: 0 0 14px; }
 .field input { padding: 11px 14px; border-radius: 12px; background: var(--panel-2); border: 1px solid var(--line-2); color: var(--ink); font: 500 15px/1.2 Inter; letter-spacing: .06em; outline: none; }
 .field input:focus { border-color: var(--accent-soft); }
 
+/* footer: pinned to bottom, balanced vertical separation */
 .signin-foot {
+  box-sizing: border-box;
   margin-top: auto;
-  padding-top: clamp(36px, 8vh, 72px);
+  padding-top: 20px;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
   align-items: center;
