@@ -383,7 +383,11 @@ dialog input[type=text] { margin-bottom: 14px; }
 
 @media (max-width: 760px) {
   #app { grid-template-columns: 1fr; }
-  #side { position: fixed; inset: 0 14% 0 0; width: auto; max-width: 400px; transform: translateX(-102%); transition: transform .24s var(--ease); z-index: 30; box-shadow: 12px 0 40px #000c; }
+  #side {
+    position: fixed; inset: 0 14% 0 0; width: auto; max-width: 400px; transform: translateX(-102%);
+    transition: transform .24s var(--ease); z-index: 30; box-shadow: 12px 0 40px #000c;
+    background: color-mix(in srgb, var(--panel) 84%, var(--night));
+  }
   body.side-open #side { transform: none; }
   #stage::before { content: ""; position: absolute; inset: 0; z-index: 20; background: #0009; opacity: 0; pointer-events: none; transition: opacity .24s; }
   body.side-open #stage::before { opacity: 1; }
@@ -883,7 +887,7 @@ html[data-theme="light"] {
   --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235a636a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
   --search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235a636a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
 }
-html[data-theme="light"] #side { background: color-mix(in srgb, var(--panel) 84%, transparent); }
+html[data-theme="light"] #side { background: color-mix(in srgb, var(--panel) 84%, var(--night)); }
 html[data-theme="light"] .group-head {
   background: linear-gradient(180deg, color-mix(in srgb, var(--panel-2) 65%, var(--panel)), color-mix(in srgb, var(--panel-2) 38%, var(--panel)));
 }
@@ -915,13 +919,17 @@ html[data-theme="light"] .ann-editor textarea, html[data-theme="light"] .path-hi
 html[data-theme="light"] #map::after, html[data-theme="light"] .groups-throbber::after {
   border-color: var(--line-2); border-top-color: var(--accent-soft);
 }
+@media (max-width: 760px) {
+  html[data-theme="light"] #side { box-shadow: 12px 0 36px rgb(20 23 26 / .2); }
+  html[data-theme="light"] #stage::before { background: rgb(20 23 26 / .45); }
+}
 
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) {
     --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235a636a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
     --search: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235a636a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
   }
-  html:not([data-theme="dark"]) #side { background: color-mix(in srgb, var(--panel) 84%, transparent); }
+  html:not([data-theme="dark"]) #side { background: color-mix(in srgb, var(--panel) 84%, var(--night)); }
   html:not([data-theme="dark"]) .group-head {
     background: linear-gradient(180deg, color-mix(in srgb, var(--panel-2) 65%, var(--panel)), color-mix(in srgb, var(--panel-2) 38%, var(--panel)));
   }
@@ -952,5 +960,9 @@ html[data-theme="light"] #map::after, html[data-theme="light"] .groups-throbber:
   }
   html:not([data-theme="dark"]) #map::after, html:not([data-theme="dark"]) .groups-throbber::after {
     border-color: var(--line-2); border-top-color: var(--accent-soft);
+  }
+  @media (max-width: 760px) {
+    html:not([data-theme="dark"]) #side { box-shadow: 12px 0 36px rgb(20 23 26 / .2); }
+    html:not([data-theme="dark"]) #stage::before { background: rgb(20 23 26 / .45); }
   }
 }
