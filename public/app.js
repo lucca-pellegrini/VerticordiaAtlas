@@ -530,12 +530,20 @@ function mapLimits(info, data) {
   const ts = info.tilesets[0]; // { template, minzoom, maxzoom (stored tiles), viewMaxzoom, bounds }
   const box = ts.bounds || data.styles?.mapStyle?.bounds || [-180, -85, 180, 85];
   const [w, s, e, n] = box, pad = 0.25;
-  return { ts, box, minZoom: ts.minzoom ?? 0, maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18, maxBounds: [[w - pad, s - pad], [e + pad, n + pad]] };
+  // MapLibre's maxBounds wraps longitudes modulo 360: whole-world bounds (or [-180, 180] with padding)
+  // collapse the allowed range to 0-11px at the antimeridian, forcing zoom to max and pinning the view at lng 180.
+  const isWholeWorld = (e - w) >= 359 || (w <= -179 && e >= 179);
+  const maxBounds = isWholeWorld ? null : [[Math.max(-180, w - pad), Math.max(-85.05, s - pad)], [Math.min(180, e + pad), Math.min(85.05, n + pad)]];
+  return { ts, box, minZoom: ts.minzoom ?? 0, maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18, maxBounds };
 }
 
 // where a map opens: the saved camera for it, else the game's start position
 function startOf(info, data, cam) {
-  if (cam && Number.isFinite(cam.lng) && Number.isFinite(cam.lat) && Number.isFinite(cam.zoom)) return { center: [cam.lng, cam.lat], zoom: cam.zoom };
+  const lim = mapLimits(info, data);
+  if (cam && Number.isFinite(cam.lng) && Number.isFinite(cam.lat) && Number.isFinite(cam.zoom)) {
+    // disregard saved views outside the allowed zoom levels (e.g. from previous maxBounds bugs)
+    if (cam.zoom <= lim.maxZoom && cam.zoom >= lim.minZoom) return { center: [cam.lng, cam.lat], zoom: cam.zoom };
+  }
   const cfg = data.mapConfig || {};
   return { center: [cfg.start_lng, cfg.start_lat], zoom: cfg.initial_zoom ?? 11 };
 }
@@ -1530,7 +1538,7 @@ function createMap() {
     zoom: start.zoom,
     minZoom: lim.minZoom,
     maxZoom: lim.maxZoom,
-    maxBounds: lim.maxBounds,
+    ...(lim.maxBounds ? { maxBounds: lim.maxBounds } : {}),
     attributionControl: false,
     renderWorldCopies: false,
     dragRotate: false,
