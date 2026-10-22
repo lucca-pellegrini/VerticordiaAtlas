@@ -2617,7 +2617,7 @@ function toggleFound(id) {
    not saved, so it does not count as the user moving the map. */
 
 const SEARCH_MIN = 2, SEARCH_SHOWN = 300, PREVIEW_MS = 350;
-const HOVER_MS = 250; // the pointer must rest this long on a result or a link before the map follows it
+const HOVER_MS = 50; // the pointer must rest this long on a result or a link before the map follows it
 const mapName = slug => state.meta?.maps?.find(m => m.slug === slug)?.title || slug;
 
 function queryOf(text) {
