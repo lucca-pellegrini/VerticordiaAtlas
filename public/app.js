@@ -14,6 +14,7 @@ import { svgIcon } from './icons.mjs';
 import { loadIconLibrary, iconsReady, iconInner, glyphPinImage, glyphInk } from './icons-lib.mjs';
 import { CAPTURE_CONTROL_HTML, setupCapture } from './capture.mjs';
 import { initAccount, accountSlot, legalLinks, api, currentUser, setOnlineStatus, socketUrl } from './account.js';
+import { isLightTheme, onThemeChange, themeToggle } from './theme.js';
 import { createSync } from './sync.js';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
@@ -242,10 +243,39 @@ async function boot() {
   await loadGame(entry);
 }
 
+function hexToHsl(hex) {
+  const clean = String(hex || '#d6453b').replace('#', '');
+  const [r, g, b] = [0, 2, 4].map(i => parseInt(clean.slice(i, i + 2), 16) / 255);
+  const mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, d = mx - mn;
+  if (!d) return [0, 0, l];
+  const sat = d / (1 - Math.abs(2 * l - 1));
+  const h = mx === r ? ((g - b) / d + 6) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  return [h * 60, sat, l];
+}
+function hslToHex(h, s, l) {
+  const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l);
+  const f = n => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1))))).toString(16).padStart(2, '0');
+  return '#' + f(0) + f(8) + f(4);
+}
+function deriveLightTheme(theme = {}) {
+  const accent = theme.accent || '#d6453b';
+  const [h, s, al] = hexToHsl(accent);
+  const tint = (sat, l) => hslToHex(h, Math.min(sat, s), l);
+  return {
+    accent,
+    'accent-soft': hslToHex(h, Math.min(s, 0.78), Math.max(0.26, Math.min(0.40, al - 0.06))),
+    night: tint(0.32, 0.945),
+    panel: tint(0.28, 0.982),
+    'panel-2': tint(0.26, 0.935),
+    line: tint(0.24, 0.855),
+  };
+}
+
 // Each game's colours come from "theme" in maps/index.json and become CSS variables (see style.css :root).
 function applyTheme(theme = {}) {
   const root = document.documentElement.style;
-  for (const [name, value] of Object.entries(theme)) {
+  const active = isLightTheme() ? deriveLightTheme(theme) : theme;
+  for (const [name, value] of Object.entries(active)) {
     if (CSS.supports(`--${name}`, value)) { root.setProperty(`--${name}`, value); themeState.set(name, value); }
   }
   // backreferences: accent-soft pulled towards the night colour, so they read as the same family but dimmer
@@ -258,6 +288,28 @@ function applyTheme(theme = {}) {
   if (icon) {
     const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='${themeVar('accent-soft')}' d='M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z'/><circle cx='12' cy='10' r='2.8' fill='${themeVar('night')}'/></svg>`;
     icon.href = 'data:image/svg+xml,' + encodeURIComponent(svg);
+  }
+  if (state.map && state.mapReady) {
+    const map = state.map;
+    if (map.getLayer('bg')) map.setPaintProperty('bg', 'background-color', themeVar('night'));
+    if (map.getLayer('sel')) {
+      map.setPaintProperty('sel', 'circle-color', themeVar('accent'));
+      map.setPaintProperty('sel', 'circle-stroke-color', themeVar('accent-soft'));
+    }
+    if (map.getLayer('links')) map.setPaintProperty('links', 'line-color', themeVar('accent-soft'));
+    if (map.getLayer('backlinks')) map.setPaintProperty('backlinks', 'line-color', themeVar('backlink'));
+    const updateArrow = (name, fill) => {
+      if (!map.hasImage(name)) return;
+      const ac = document.createElement('canvas');
+      ac.width = ac.height = 24;
+      const actx = ac.getContext('2d');
+      actx.beginPath(); actx.moveTo(12, 2); actx.lineTo(21, 21); actx.lineTo(3, 21); actx.closePath();
+      actx.fillStyle = fill; actx.strokeStyle = themeVar('night'); actx.lineWidth = 2.5; actx.lineJoin = 'round';
+      actx.fill(); actx.stroke();
+      map.updateImage(name, actx.getImageData(0, 0, 24, 24));
+    };
+    updateArrow('link-arrow', themeVar('accent-soft'));
+    updateArrow('backlink-arrow', themeVar('backlink'));
   }
 }
 // the colours applyTheme set, as written (hex or rgb). Read from here rather than from the page: the registered theme
@@ -2918,6 +2970,8 @@ function wire() {
   // while a map loads, the side panel takes no input, from the mouse or the keyboard (its content is dimmed, see style.css)
   new MutationObserver(() => { const side = document.getElementById('side'); if (side) side.inert = document.body.classList.contains('loading-map') || document.body.classList.contains('profile-switch'); })
     .observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  document.querySelector('#side .progress')?.insertBefore(themeToggle('side-theme'), document.getElementById('progress-bar'));
+  onThemeChange(() => { if (state.entry) applyTheme(state.entry.theme); });
   document.querySelector('.side-scroll')?.appendChild(accountSlot());
   document.querySelector('.side-scroll')?.appendChild(legalLinks());
   accountReady = initAccount({ toast }); // resolves once we know whether someone is signed in

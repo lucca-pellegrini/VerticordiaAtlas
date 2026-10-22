@@ -40,13 +40,13 @@
   color-scheme: dark;
 }
 
-/* Light theme tokens for non-map pages (forced light, or auto when the system prefers light) */
+/* Light theme tokens (forced light, or auto when the system prefers light) */
 html[data-theme="light"] {
   --night: #f6f4f0;
   --panel: #ffffff;
   --panel-2: #fcfbf9;
   --line: #e4dfd7;
-  --line-2: #d0c9be;
+  --line-2: color-mix(in srgb, var(--line), #000 12%);
   --accent: #d6453b;
   --accent-soft: #bf342b;
   --backlink: color-mix(in srgb, var(--accent-soft) 75%, var(--night));
@@ -73,12 +73,12 @@ html[data-theme="light"] {
 }
 
 @media (prefers-color-scheme: light) {
-  html[data-theme="auto"] {
+  html:not([data-theme="dark"]) {
     --night: #f6f4f0;
     --panel: #ffffff;
     --panel-2: #fcfbf9;
     --line: #e4dfd7;
-    --line-2: #d0c9be;
+    --line-2: color-mix(in srgb, var(--line), #000 12%);
     --accent: #d6453b;
     --accent-soft: #bf342b;
     --backlink: color-mix(in srgb, var(--accent-soft) 75%, var(--night));

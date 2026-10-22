@@ -1,4 +1,4 @@
-// theme.js: three-way color theme switch (light · auto · dark) for non-map pages.
+// theme.js: three-way color theme switch (light · auto · dark).
 // Default is "auto" (follows system preference). A local cookie (va_theme) is written only when the user changes it.
 
 const COOKIE = 'va_theme';
@@ -20,6 +20,7 @@ const ICONS = {
 const mql = typeof window !== 'undefined' && window.matchMedia
   ? window.matchMedia('(prefers-color-scheme: light)')
   : null;
+const listeners = new Set();
 
 export function readThemeCookie() {
   const m = document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
@@ -37,11 +38,27 @@ export function currentThemeMode() {
   return readThemeCookie() || 'auto';
 }
 
+export function isLightTheme(mode = currentThemeMode()) {
+  return mode === 'light' || (mode === 'auto' && !!mql?.matches);
+}
+
+export function onThemeChange(fn) {
+  listeners.add(fn);
+  return () => listeners.delete(fn);
+}
+
 function syncMetaThemeColor(mode) {
+  if (document.body?.dataset.game) return; // map pages set their own tinted theme-color in applyTheme
   const meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) return;
-  const effective = mode === 'auto' ? (mql?.matches ? 'light' : 'dark') : mode;
-  meta.setAttribute('content', THEME_COLORS[effective] || THEME_COLORS.dark);
+  const effective = isLightTheme(mode) ? 'light' : 'dark';
+  meta.setAttribute('content', THEME_COLORS[effective]);
+}
+
+function notifyListeners() {
+  const light = isLightTheme();
+  const mode = currentThemeMode();
+  for (const fn of listeners) fn({ mode, light });
 }
 
 export function applyThemeMode(mode, { persist = false } = {}) {
@@ -50,6 +67,7 @@ export function applyThemeMode(mode, { persist = false } = {}) {
   if (persist) writeThemeCookie(mode);
   syncMetaThemeColor(mode);
   document.querySelectorAll('[data-theme-toggle]').forEach(el => updateToggleUI(el, mode));
+  notifyListeners();
 }
 
 function updateToggleUI(root, mode) {
@@ -62,6 +80,11 @@ function updateToggleUI(root, mode) {
 }
 
 function buildToggle(root) {
+  if (root.dataset.themeBuilt) {
+    updateToggleUI(root, currentThemeMode());
+    return root;
+  }
+  root.dataset.themeBuilt = '1';
   root.classList.add('theme-switch');
   root.setAttribute('role', 'radiogroup');
   root.setAttribute('aria-label', 'Color theme');
@@ -95,6 +118,14 @@ function buildToggle(root) {
   });
 
   updateToggleUI(root, currentThemeMode());
+  return root;
+}
+
+export function themeToggle(extraClass = '') {
+  const el = document.createElement('div');
+  if (extraClass) el.className = extraClass;
+  el.dataset.themeToggle = '';
+  return buildToggle(el);
 }
 
 export function initTheme() {
@@ -103,7 +134,10 @@ export function initTheme() {
   syncMetaThemeColor(initial);
   document.querySelectorAll('[data-theme-toggle]').forEach(buildToggle);
   mql?.addEventListener?.('change', () => {
-    if (currentThemeMode() === 'auto') syncMetaThemeColor('auto');
+    if (currentThemeMode() === 'auto') {
+      syncMetaThemeColor('auto');
+      notifyListeners();
+    }
   });
 }
 
