@@ -2260,7 +2260,7 @@ function referrersOneWay(l) {
     .sort((a, b) => a.title.localeCompare(b.title));
 }
 
-function select(id, { fly = true, push = true } = {}) {
+function select(id, { fly = true, push = true, closeSide = true } = {}) {
   const l = state.byId.get(id);
   if (!l) return;
   if (push) stackPush(id);
@@ -2278,8 +2278,9 @@ function select(id, { fly = true, push = true } = {}) {
       state.map.flyTo({ center: [l.lng, l.lat], zoom: Math.max(state.map.getZoom(), 13.5), padding, speed: 1.5, essential: true });
     }
   }
-  document.body.classList.remove('side-open');
+  if (closeSide) document.body.classList.remove('side-open');
   renderDetail();
+  syncSearchActive(id, state.mapInfo?.slug);
 }
 
 function updateLinks() {
@@ -2341,6 +2342,7 @@ function dismiss() {
   document.body.classList.remove('detail-open');
   if (state.mapReady) state.map.getSource('sel').setData(emptyFC);
   updateLinks();
+  syncSearchActive(null);
 }
 
 function closeDetail() {
@@ -2718,8 +2720,15 @@ async function runSearch() {
     : rankEntries(queryOf(text), entries, { byDistance: !all });
   s.rows = hits;
   s.ids = new Set(hits.filter(h => h.here).map(h => h.e.l.id));
-  s.idx = 0;
+  const selIdx = state.selected != null
+    ? hits.findIndex(h => h.here && h.e.l.id === state.selected)
+    : -1;
+  s.idx = selIdx;
   renderResults();
+  if (selIdx > 0) {
+    const activeEl = $('#results').querySelector('li.result.active');
+    if (activeEl) activeEl.scrollIntoView({ block: 'nearest' });
+  }
   refreshMap();
 }
 
@@ -2737,7 +2746,7 @@ function leaveSearch() {
   const s = state.search;
   endPreview({ instant: true });
   s.run++;
-  s.active = false; s.ids = null; s.rows = []; s.busy = false; s.wild = false;
+  s.active = false; s.ids = null; s.rows = []; s.busy = false; s.wild = false; s.idx = -1;
   document.body.classList.remove('searching');
   syncSideClose();
   $('#results').innerHTML = '';
@@ -2826,19 +2835,40 @@ function endPreview({ instant = false, restore = true } = {}) {
   else state.map.easeTo({ center: p.cam.center, zoom: p.cam.zoom, padding: {}, duration: PREVIEW_MS });
 }
 
+function syncSearchActive(id, slug = state.mapInfo?.slug) {
+  if (!state.search.active) return;
+  const items = [...$('#results').querySelectorAll('li.result')];
+  const idx = id != null
+    ? items.findIndex(el => Number(el.dataset.id) === id && el.dataset.map === slug)
+    : -1;
+  state.search.idx = idx;
+  items.forEach((el, i) => el.classList.toggle('active', i === idx));
+  if (idx !== -1) items[idx].scrollIntoView({ block: 'nearest' });
+}
+
 function moveSearch(d) {
   const s = state.search, items = [...$('#results').querySelectorAll('li.result')];
   if (!items.length) return;
-  s.idx = (s.idx + d + items.length) % items.length;
+  if (s.idx < 0) {
+    s.idx = d > 0 ? 0 : items.length - 1;
+  } else {
+    s.idx = (s.idx + d + items.length) % items.length;
+  }
   items.forEach((el, i) => el.classList.toggle('active', i === s.idx));
   items[s.idx].scrollIntoView({ block: 'nearest' });
-  previewRow(items[s.idx]);
+  const li = items[s.idx];
+  const id = Number(li.dataset.id), slug = li.dataset.map;
+  if (slug === state.mapInfo?.slug) {
+    select(id, { fly: false, push: false, closeSide: false });
+  }
+  previewRow(li);
 }
 
 // a result is opened: its map is switched to first if it is another one; the card and the camera then go to it
 async function openResult(li) {
   if (!li) return;
   const id = Number(li.dataset.id), slug = li.dataset.map;
+  syncSearchActive(id, slug);
   endPreview({ restore: false }); // select() flies there from where the preview left the map
   if (slug !== state.mapInfo.slug) {
     await switchMap(slug);
@@ -3044,7 +3074,12 @@ function wire() {
   search.onfocus = () => { if (search.value.trim()) runSearch(); };
   search.onkeydown = e => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); moveSearch(e.key === 'ArrowDown' ? 1 : -1); }
-    else if (e.key === 'Enter') { e.preventDefault(); openResult(results.querySelectorAll('li.result')[state.search.idx]); }
+    else if (e.key === 'Enter') {
+      e.preventDefault();
+      const all = results.querySelectorAll('li.result');
+      const target = state.search.idx >= 0 ? all[state.search.idx] : all[0];
+      if (target) openResult(target);
+    }
   };
   document.addEventListener('keydown', e => { // Ctrl/Cmd+F searches this map, instead of the browser's find
     if (!(e.ctrlKey || e.metaKey) || e.shiftKey || e.altKey || e.key.toLowerCase() !== 'f' || $('#dlg').open) return;
@@ -3060,7 +3095,8 @@ function wire() {
   results.onclick = e => {
     const a = e.target.closest('a');
     if (a) { if (a.dataset.loc) { e.preventDefault(); select(Number(a.dataset.loc)); } return; } // links in a description
-    openResult(e.target.closest('li.result'));
+    const li = e.target.closest('li.result');
+    if (li) openResult(li);
   };
   // a hover moves the map once the pointer has rested a moment (HOVER_MS), and only for a mouse: on a touch screen the
   // pointer "hovers" just before the tap, and that must not move the map
