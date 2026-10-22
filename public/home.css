@@ -243,6 +243,9 @@ h1 em { font-style: italic; color: var(--accent-soft); }
     width: 100%; max-width: none; grid-template-columns: repeat(3, 1fr);
     opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: none !important; margin: 0 !important;
   }
+  .top-more-panel .theme-switch-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .top-more-panel .acct-slot.top {
     max-width: none; width: 100%; overflow: visible;
     opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; transform: none !important; margin: 0 !important;

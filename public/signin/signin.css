@@ -66,6 +66,7 @@ body { display: flex; flex-direction: column; min-height: 100%; min-height: 100s
   .brand .mark { width: 22px; height: 22px; }
   .brand span { font-size: clamp(1.15rem, 4.5vw, 1.55rem); }
   .signin-top-tools { gap: 6px; }
+  .signin-top .theme-switch-2 { grid-template-columns: repeat(2, 32px); height: 36px; }
   .signin-top .theme-switch { grid-template-columns: repeat(3, 30px); height: 36px; }
   .back { width: 36px; height: 36px; padding: 0; }
   .back span { display: none; }
