@@ -195,6 +195,8 @@ h1 em { font-style: italic; color: var(--accent-soft); }
 /* footer, notices */
 .foot { padding-block: clamp(36px, 6vw, 64px) calc(28px + env(safe-area-inset-bottom, 0px)); color: var(--ink-dim); font-size: .82rem; text-align: center; }
 .foot p { margin: 0; }
+.foot .legal-links { margin-top: 10px; padding-bottom: 0; }
+.foot .foot-motto { margin-top: 6px; padding-bottom: 0; }
 .notice { margin: 0 auto; max-width: 52ch; padding: 16px 18px; text-align: center; color: var(--ink-dim); border: 1px dashed var(--line-2); border-radius: 12px; }
 .notice a { color: var(--accent-soft); }
 

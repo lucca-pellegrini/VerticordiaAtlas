@@ -140,3 +140,5 @@ h2 { font: 400 26px/1.1 "Instrument Serif"; margin: 0 0 14px; }
 .fine { color: var(--ink-dim); font-size: 13px; margin: 0; text-align: center; }
 .fine a { color: var(--ink-dim); text-underline-offset: 3px; transition: color .2s; }
 .fine a:hover { color: var(--ink); }
+.fine .sep { margin: 0 8px; opacity: .45; }
+.signin-foot .foot-motto { padding-bottom: 0; margin-top: -4px; }

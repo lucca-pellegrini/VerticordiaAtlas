@@ -67,10 +67,10 @@ function renderAccount() {
 
 // the legal pages, discreet, at the foot of the side panel (and of the home page, as plain links there)
 export function legalLinks() {
-  const p = document.createElement('p');
-  p.className = 'legal-links';
-  p.innerHTML = `<a href="${new URL('terms/', ROOT).pathname}">Terms of service</a><span class="sep" aria-hidden="true">·</span><a href="${new URL('privacy/', ROOT).pathname}">Privacy policy</a>`;
-  return p;
+  const wrap = document.createElement('div');
+  wrap.className = 'side-footer';
+  wrap.innerHTML = `<p class="legal-links"><a href="${new URL('about/', ROOT).pathname}">About</a><span class="sep" aria-hidden="true">·</span><a href="${new URL('terms/', ROOT).pathname}">Terms of service</a><span class="sep" aria-hidden="true">·</span><a href="${new URL('privacy/', ROOT).pathname}">Privacy policy</a></p><p class="foot-motto" lang="la"><em>Nisi Dominus frustra</em></p>`;
+  return wrap;
 }
 
 // a new slot, for the side panel (the caller places it)
