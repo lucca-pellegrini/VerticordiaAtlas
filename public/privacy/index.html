@@ -123,9 +123,10 @@
 
     <section id="cookies">
       <h2>Cookies and storage</h2>
-      <p>We use one cookie, and it is strictly necessary for signing in:</p>
+      <p>We use at most two cookies, and only for features you actively use:</p>
       <ul>
-        <li><strong>va_session</strong>: holds your session token, is <em>HttpOnly</em> (scripts on the page cannot read it), and is removed when you log out. It expires after 30 days of inactivity, and that period is renewed each time you use the Service.</li>
+        <li><strong>va_session</strong>: strictly necessary for signing in. It holds your session token, is <em>HttpOnly</em> (scripts on the page cannot read it), and is removed when you log out. It expires after 30 days of inactivity, and that period is renewed each time you use the Service.</li>
+        <li><strong>va_theme</strong>: remembers your choice if you change the light/dark mode switch. It is not set unless you change the switch from its default (auto), contains only your chosen preference (<code>light</code>, <code>auto</code> or <code>dark</code>), and is kept for up to one year.</li>
       </ul>
       <p>We do not use advertising cookies, analytics cookies or any other tracking cookie. Your browser also keeps the local database and cache described above, and a small record that tells the app whether you are signed in.</p>
     </section>
