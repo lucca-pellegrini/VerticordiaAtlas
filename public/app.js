@@ -14,7 +14,7 @@ import { svgIcon } from './icons.mjs';
 import { loadIconLibrary, iconsReady, iconInner, glyphPinImage, glyphInk } from './icons-lib.mjs';
 import { CAPTURE_CONTROL_HTML, setupCapture } from './capture.mjs';
 import { initAccount, accountSlot, legalLinks, api, currentUser, setOnlineStatus, socketUrl } from './account.js';
-import { isLightTheme, onThemeChange, themeToggle, recordGameOpen } from './theme.js';
+import { isLightTheme, onThemeChange, themeToggle, recordGameOpen, storeGameTitles } from './theme.js';
 import { createSync } from './sync.js';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
@@ -241,6 +241,7 @@ async function boot() {
   const slug = document.body.dataset.game || (pathMatch ? decodeURIComponent(pathMatch[1]) : '');
   const entry = index.games.find(g => g.slug === slug);
   if (!entry) return fatal(`maps/index.json has no game with slug "${slug}".`);
+  if (index.games) storeGameTitles(index.games);
   document.body.dataset.game = entry.slug;
   if (!document.title || document.title === 'Verticordia Atlas' || document.title === 'Map · Verticordia Atlas') {
     document.title = `${entry.title} · Verticordia Atlas`;
@@ -351,7 +352,7 @@ async function loadGame(entry) {
   state.entry = entry;
   state.folder = '.'; // data files sit next to the page
   applyTheme(entry.theme);
-  recordGameOpen(entry.slug, entry.theme);
+  recordGameOpen(entry.slug, entry.theme, entry.title);
   $('#game-title').textContent = entry.title;
   document.title = `${entry.title} · Verticordia Atlas`;
   $('#tag-label').textContent = entry.tagLabel || 'Filter';

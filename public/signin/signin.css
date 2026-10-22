@@ -53,7 +53,7 @@ body { display: flex; flex-direction: column; min-height: 100%; min-height: 100s
   color: var(--ink-dim); text-decoration: none; font-size: 14px; padding: 0 14px; border: 1px solid var(--line-2);
   border-radius: 999px; white-space: nowrap; transition: color .2s, border-color .2s;
 }
-.back span { white-space: nowrap; }
+.back span { white-space: nowrap; max-width: min(280px, 42vw); overflow: hidden; text-overflow: ellipsis; }
 .back:hover { color: var(--ink); border-color: var(--ink-dim); }
 .back::before {
   content: ""; width: 14px; height: 14px; flex: none; background: currentColor;

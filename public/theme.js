@@ -376,8 +376,309 @@ export function writeRecentGames(slugs) {
   try { localStorage.setItem('va_recent_games', val); } catch {}
 }
 
-export function recordGameOpen(slug, theme = null) {
+const TRAIL_KEY = 'va_nav_trail';
+const TITLES_KEY = 'va_game_titles';
+const ROOT_URL = typeof document !== 'undefined' ? new URL('./', import.meta.url) : null;
+
+export function recordGameTitle(slug, title) {
+  if (!slug || !title || typeof localStorage === 'undefined') return;
+  try {
+    const titles = JSON.parse(localStorage.getItem(TITLES_KEY) || '{}');
+    if (titles[slug] !== title) {
+      titles[slug] = title;
+      localStorage.setItem(TITLES_KEY, JSON.stringify(titles));
+    }
+  } catch {}
+}
+
+export function storeGameTitles(games) {
+  if (!Array.isArray(games) || typeof localStorage === 'undefined') return;
+  try {
+    const titles = JSON.parse(localStorage.getItem(TITLES_KEY) || '{}');
+    let changed = false;
+    for (const g of games) {
+      if (g?.slug && g?.title && titles[g.slug] !== g.title) {
+        titles[g.slug] = g.title;
+        changed = true;
+      }
+    }
+    if (changed) localStorage.setItem(TITLES_KEY, JSON.stringify(titles));
+  } catch {}
+}
+
+export function getGameTitle(slug) {
+  if (!slug) return '';
+  if (typeof localStorage !== 'undefined') {
+    try {
+      const titles = JSON.parse(localStorage.getItem(TITLES_KEY) || '{}');
+      if (titles[slug]) return titles[slug];
+    } catch {}
+    try {
+      const last = JSON.parse(localStorage.getItem('va_last_session') || '{}');
+      if (last.slug === slug && last.title) return last.title;
+    } catch {}
+  }
+  if (typeof document !== 'undefined') {
+    const docTitle = (document.title || '').replace(/\s*·.*$/, '').trim();
+    if (docTitle && docTitle !== 'Map' && docTitle !== 'Loading map…' && docTitle !== 'Verticordia Atlas' && !docTitle.startsWith('Loading')) {
+      return docTitle;
+    }
+  }
+  return slug
+    .split('-')
+    .filter(Boolean)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+}
+
+export function normalizePath(pathname) {
+  if (!pathname) return '/';
+  let p = pathname.replace(/\/index\.html?$/i, '/');
+  if (!/\.[a-zA-Z0-9]+$/.test(p) && !p.endsWith('/')) {
+    p += '/';
+  }
+  return p;
+}
+
+function resolveAppUrl(pathOrUrl) {
+  if (!ROOT_URL || !pathOrUrl) return pathOrUrl || '/';
+  try {
+    const u = new URL(pathOrUrl, ROOT_URL);
+    return u.pathname + u.search + u.hash;
+  } catch {
+    return pathOrUrl;
+  }
+}
+
+export function describePage(pathname, fullUrl = null, titleOverride = null) {
+  const normPath = normalizePath(pathname);
+  const targetUrl = resolveAppUrl(fullUrl || normPath);
+
+  if (normPath === '/' || normPath === '') {
+    return {
+      type: 'home',
+      path: '/',
+      fullUrl: targetUrl,
+      title: 'the maps',
+      buttonText: 'Back to the maps',
+    };
+  }
+
+  if (normPath.startsWith('/terms')) {
+    return {
+      type: 'terms',
+      path: '/terms/',
+      fullUrl: targetUrl,
+      title: 'terms',
+      buttonText: 'Return to terms',
+    };
+  }
+
+  if (normPath.startsWith('/privacy')) {
+    return {
+      type: 'privacy',
+      path: '/privacy/',
+      fullUrl: targetUrl,
+      title: 'privacy policy',
+      buttonText: 'Return to privacy policy',
+    };
+  }
+
+  if (normPath.startsWith('/signin')) {
+    return {
+      type: 'signin',
+      path: '/signin/',
+      fullUrl: targetUrl,
+      title: 'sign in',
+      buttonText: 'Return to sign in',
+    };
+  }
+
+  const mapMatch = normPath.match(/\/maps\/([^/]+)/);
+  if (mapMatch) {
+    const slug = decodeURIComponent(mapMatch[1]);
+    const title = titleOverride || getGameTitle(slug);
+    return {
+      type: 'map',
+      slug,
+      path: `/maps/${slug}/`,
+      fullUrl: targetUrl,
+      title,
+      buttonText: `Return to ${title}`,
+    };
+  }
+
+  const fallbackTitle = titleOverride || 'the maps';
+  return {
+    type: 'page',
+    path: normPath,
+    fullUrl: targetUrl,
+    title: fallbackTitle,
+    buttonText: `Return to ${fallbackTitle}`,
+  };
+}
+
+export function readTrail() {
+  if (typeof sessionStorage === 'undefined') return [];
+  try {
+    const raw = sessionStorage.getItem(TRAIL_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+export function writeTrail(trail) {
+  if (typeof sessionStorage === 'undefined') return;
+  try {
+    sessionStorage.setItem(TRAIL_KEY, JSON.stringify(trail.slice(-30)));
+  } catch {}
+}
+
+export function popTrailTo(targetPath) {
+  let trail = readTrail();
+  const idx = trail.findIndex(e => e.path === targetPath);
+  if (idx !== -1) {
+    trail = trail.slice(0, idx + 1);
+  } else if (trail.length > 1) {
+    trail.pop();
+  }
+  writeTrail(trail);
+}
+
+export function initNav() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+
+  const currentPath = normalizePath(location.pathname);
+  const currentFullUrl = location.pathname + location.search + location.hash;
+  const currentInfo = describePage(currentPath, currentFullUrl);
+
+  // If user is on the homepage, reset trail so any future navigation starts fresh from home
+  if (currentInfo.type === 'home') {
+    writeTrail([currentInfo]);
+    return;
+  }
+
+  let trail = readTrail();
+
+  // If trail is empty, try seeding from document.referrer or sign-in next param
+  if (!trail.length) {
+    if (document.referrer) {
+      try {
+        const ref = new URL(document.referrer);
+        if (ref.origin === location.origin) {
+          const refPath = normalizePath(ref.pathname);
+          if (refPath !== currentPath) {
+            trail = [describePage(refPath, ref.pathname + ref.search + ref.hash)];
+          }
+        }
+      } catch {}
+    }
+    if (!trail.length && currentInfo.type === 'signin') {
+      const rawNext = new URLSearchParams(location.search).get('next');
+      if (rawNext && /^\/(?!\/)/.test(rawNext)) {
+        const nextPath = normalizePath(rawNext);
+        if (nextPath !== currentPath) {
+          trail = [describePage(nextPath, rawNext)];
+        }
+      }
+    }
+  }
+
+  // Record current page into trail
+  const existingIdx = trail.findIndex(e => e.path === currentPath);
+  if (existingIdx !== -1) {
+    // Unwind trail to existing entry to avoid loops
+    trail = trail.slice(0, existingIdx);
+    trail.push(currentInfo);
+  } else {
+    trail.push(currentInfo);
+  }
+  writeTrail(trail);
+
+  // Determine previous page target
+  let target = trail.length >= 2 ? trail[trail.length - 2] : null;
+
+  // On sign-in page, if target is home but ?next= points somewhere specific, prefer next
+  if (currentInfo.type === 'signin' && (!target || target.type === 'home')) {
+    const rawNext = new URLSearchParams(location.search).get('next');
+    if (rawNext && /^\/(?!\/)/.test(rawNext)) {
+      const nextPath = normalizePath(rawNext);
+      if (nextPath !== '/' && nextPath !== currentPath) {
+        target = describePage(nextPath, rawNext);
+      }
+    }
+  }
+
+  // Fallback to home if no previous page
+  if (!target) {
+    target = describePage('/');
+  }
+
+  // Re-resolve title in case it was stored/updated
+  if (target.type === 'map' && target.slug) {
+    const freshTitle = getGameTitle(target.slug);
+    if (freshTitle && freshTitle !== target.slug) {
+      target.title = freshTitle;
+      target.buttonText = `Return to ${freshTitle}`;
+    }
+  }
+
+  // Update all .back buttons
+  const backButtons = document.querySelectorAll('a.back');
+  backButtons.forEach(btn => {
+    btn.href = target.fullUrl;
+    btn.title = target.buttonText;
+    btn.setAttribute('aria-label', target.buttonText);
+    const span = btn.querySelector('span');
+    if (span) span.textContent = target.buttonText;
+
+    btn.onclick = (e) => {
+      if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      popTrailTo(target.path);
+
+      const refMatches = document.referrer && (() => {
+        try {
+          const r = new URL(document.referrer);
+          return r.origin === location.origin && normalizePath(r.pathname) === target.path;
+        } catch { return false; }
+      })();
+
+      if (refMatches && window.history.length > 1) {
+        e.preventDefault?.();
+        window.history.back();
+      }
+    };
+  });
+
+  // On signin page, also wire up the footer skip link: "Not now. Keep using the app."
+  if (currentInfo.type === 'signin') {
+    const skipLink = document.querySelector('footer.signin-foot .skip a');
+    if (skipLink) {
+      skipLink.href = target.fullUrl;
+      skipLink.onclick = (e) => {
+        if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+        popTrailTo(target.path);
+        const refMatches = document.referrer && (() => {
+          try {
+            const r = new URL(document.referrer);
+            return r.origin === location.origin && normalizePath(r.pathname) === target.path;
+          } catch { return false; }
+        })();
+        if (refMatches && window.history.length > 1) {
+          e.preventDefault?.();
+          window.history.back();
+        }
+      };
+    }
+  }
+}
+
+export function recordGameOpen(slug, theme = null, title = null) {
   if (!slug) return;
+  if (title) recordGameTitle(slug, title);
   const recent = readRecentGames().filter(s => s !== slug);
   recent.unshift(slug);
   writeRecentGames(recent);
@@ -386,6 +687,17 @@ export function recordGameOpen(slug, theme = null) {
     writeStoredTint(theme.accent, theme['accent-soft'] || null);
     applyStoredTint({ accent: theme.accent, accentSoft: theme['accent-soft'] || null });
   }
+
+  // Update current entry in trail if on this map
+  try {
+    let trail = readTrail();
+    if (trail.length && trail[trail.length - 1].path === `/maps/${slug}/`) {
+      const gameTitle = title || getGameTitle(slug);
+      trail[trail.length - 1].title = gameTitle;
+      trail[trail.length - 1].buttonText = `Return to ${gameTitle}`;
+      writeTrail(trail);
+    }
+  } catch {}
 }
 
 export function initTheme() {
@@ -404,4 +716,12 @@ export function initTheme() {
   });
 }
 
-if (typeof document !== 'undefined') initTheme();
+if (typeof document !== 'undefined') {
+  initTheme();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => initNav(), { once: true });
+  } else {
+    initNav();
+  }
+  window.addEventListener('pageshow', () => initNav());
+}

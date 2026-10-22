@@ -1,4 +1,4 @@
-import { readRecentGames, recordGameOpen } from './theme.js';
+import { readRecentGames, recordGameOpen, storeGameTitles } from './theme.js';
 import { initAccount, accountSlot, notify } from './account.js';
 import { norm, words, fuzzyScore } from './shared/search.mjs';
 // Homepage: renders one card per entry in maps/index.json.
@@ -65,6 +65,7 @@ async function main() {
     return fail('Could not load the list of maps. Serve this folder over HTTP (for example with "npx serve") and reload.');
   }
   if (!index.games?.length) return fail('No maps have been added yet.');
+  storeGameTitles(index.games);
   const recent = readRecentGames();
   const games = orderGames(index.games, recent);
   const featured = renderResume(index.games);
@@ -80,7 +81,7 @@ async function main() {
     if (!a) return;
     const slug = a.dataset.slug;
     const g = index.games.find(x => x.slug === slug);
-    if (g) recordGameOpen(g.slug, g.theme);
+    if (g) recordGameOpen(g.slug, g.theme, g.title);
   };
   list.addEventListener('click', onOpen);
   list.addEventListener('auxclick', onOpen);
@@ -334,7 +335,7 @@ function renderResume(gamesList) {
 
   root.addEventListener('click', e => {
     const a = e.target.closest('a[data-slug]');
-    if (a) { recordGameOpen(g.slug, g.theme); return; }
+    if (a) { recordGameOpen(g.slug, g.theme, g.title); return; }
     if (e.target.closest('.resume-dismiss')) {
       try { localStorage.removeItem('va_last_session'); } catch {}
       root.hidden = true;
