@@ -1,5 +1,5 @@
 // Offline map viewer. No network needed once maps/<slug>/ is filled in.
-// Data per game (next to its index.html): data.json (window.mapData saved from the site),
+// Data per game: data.json (window.mapData saved from the site),
 // markers.json + markers.png, tiles/{z}/{y}/{x}.jpg and media/<file>.jpg.
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -232,14 +232,19 @@ async function boot() {
     toast('Storage is unavailable here, so progress will not be kept after this tab closes.', 6000);
   }
 
-  // Each map page lives in maps/<slug>/ next to its data and says which game it is via <body data-game>.
+  // Each map page lives in maps/<slug>/ next to its data and says which game it is via <body data-game> or the URL.
   let index;
   try { index = await fetchJSON('../index.json'); }
   catch (e) { return fatal('Could not load maps/index.json. Serve this folder over HTTP (for example with "npx serve").'); }
 
-  const slug = document.body.dataset.game;
+  const pathMatch = location.pathname.match(/\/maps\/([^/]+)/);
+  const slug = document.body.dataset.game || (pathMatch ? decodeURIComponent(pathMatch[1]) : '');
   const entry = index.games.find(g => g.slug === slug);
   if (!entry) return fatal(`maps/index.json has no game with slug "${slug}".`);
+  document.body.dataset.game = entry.slug;
+  if (!document.title || document.title === 'Verticordia Atlas' || document.title === 'Map · Verticordia Atlas') {
+    document.title = `${entry.title} · Verticordia Atlas`;
+  }
   await loadGame(entry);
 }
 

@@ -6,14 +6,14 @@
 //   /api/ (accounts, sync): never cached, never answered from the cache
 // Bump VERSION when the precache list changes.
 
-const VERSION = 'v36';
+const VERSION = 'v37';
 const SHELL = `va-shell-${VERSION}`, DATA = `va-data-${VERSION}`, TILES = `va-tiles-${VERSION}`, FONTS = `va-fonts-${VERSION}`;
 const KEEP = new Set([SHELL, DATA, TILES, FONTS]);
 const TILE_LIMIT = 2000;
 const TILE_MAX_AGE = 30 * 24 * 3600 * 1000;
 
 const PRECACHE = [
-  '', 'index.html', 'signin/', 'signin/index.html', 'signin/signin.js', 'signin/signin.css',
+  '', 'index.html', 'map.html', 'signin/', 'signin/index.html', 'signin/signin.js', 'signin/signin.css',
   'style.css', 'base.css', 'home.css', 'app.js', 'home.js', 'theme.js', 'account.js', 'sync.js', 'drawing.js', 'usermarkers.js',
   'capture.mjs', 'icons.mjs', 'icons-lib.mjs', 'share-link.mjs', 'perfect-freehand.mjs', 'shared/sync-rules.mjs', 'shared/search.mjs',
   'vendor/maplibre-gl.js', 'vendor/maplibre-gl.css', 'vendor/marked.umd.js', 'vendor/perfect-freehand.mjs',
@@ -45,13 +45,23 @@ const offline = () => new Response('Offline, and not cached yet.', { status: 503
 // serve what we have, refresh it behind the scenes
 async function staleWhileRevalidate(event, cacheName, req) {
   const cache = await caches.open(cacheName);
-  const cached = await cache.match(req);
+  let cached = await cache.match(req);
+  if (!cached && req.mode === 'navigate') {
+    cached = await cache.match(req, { ignoreSearch: true });
+  }
   const refresh = fetch(req, { cache: 'no-cache' }).then(res => {
     if (res.ok && res.status === 200) cache.put(req, res.clone());
     return res;
   }).catch(() => null);
   if (cached) { event.waitUntil(refresh); return cached; }
-  return (await refresh) || offline();
+  const fresh = await refresh;
+  if (fresh) return fresh;
+  if (req.mode === 'navigate') {
+    const shell = await caches.open(SHELL);
+    const fallback = await shell.match(at('map.html'));
+    if (fallback) return fallback;
+  }
+  return offline();
 }
 
 // a copy remembers when it was made, so tiles can age out
@@ -103,6 +113,13 @@ self.addEventListener('fetch', event => {
 
   const rel = url.pathname.slice(new URL(scope).pathname.length);
   if (/^maps\/[^/]+\/[^/]+\/tiles\//.test(rel)) { event.respondWith(tile(event, req)); return; }
-  if (rel.startsWith('maps/')) { event.respondWith(staleWhileRevalidate(event, DATA, req)); return; }
+  if (rel.startsWith('maps/')) {
+    if (req.mode === 'navigate' && /^maps\/[^/]+$/.test(rel)) {
+      event.respondWith(Response.redirect(url.href + '/', 301));
+      return;
+    }
+    event.respondWith(staleWhileRevalidate(event, DATA, req));
+    return;
+  }
   event.respondWith(staleWhileRevalidate(event, SHELL, req));
 });

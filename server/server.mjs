@@ -20,7 +20,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import zlib from 'node:zlib';
 import { promisify } from 'node:util';
-import { REPO, PUBLIC, exists, loadGames, markerHtml, chromePath, drawCard, socialTags, withHead, plainText, categoryIcon, officialIcon } from './cards.mjs';
+import { REPO, PUBLIC, exists, loadGames, markerHtml, chromePath, drawCard, socialTags, withHead, plainText, categoryIcon, officialIcon, gameThemeColor, gameFavicon, esc } from './cards.mjs';
 import { unpackMarker } from '../public/share-link.mjs';
 import { createApi } from './api.mjs';
 import { readFileSync } from 'node:fs';
@@ -185,6 +185,56 @@ async function sendPlainCard(res, gameSlug) {
   createReadStream(file).pipe(res);
 }
 
+let mapTemplateCache = null;
+async function mapTemplate() {
+  const file = path.join(PUBLIC, 'map.html');
+  const st = await stat(file);
+  if (mapTemplateCache && mapTemplateCache.mtime === st.mtimeMs) return mapTemplateCache.html;
+  const html = await readFile(file, 'utf8');
+  mapTemplateCache = { mtime: st.mtimeMs, html };
+  return html;
+}
+
+async function gamePageHtml(req, gameSlug, { block = null, pageTitle = null } = {}) {
+  const g = (await games()).find(x => x.slug === gameSlug);
+  if (!g) return null;
+  const template = await mapTemplate();
+  const isLight = /(?:^|;\s*)va_theme=light\b/.test(req.headers.cookie || '');
+  const themeColor = gameThemeColor(g.theme, isLight);
+  const favicon = gameFavicon(g.theme, isLight);
+  const fullTitle = pageTitle ? `${pageTitle} · Verticordia Atlas` : `${g.title} · Verticordia Atlas`;
+
+  let gameBlock = block;
+  if (!gameBlock) {
+    const origin = await siteOrigin(req);
+    const slug = encodeURI(g.slug);
+    gameBlock = socialTags({
+      title: fullTitle,
+      description: g.description,
+      url: `${origin}/maps/${slug}/`,
+      image: `${origin}/maps/${slug}/card.jpg`,
+      alt: g.alt,
+    });
+  }
+
+  let out = template;
+  out = out.replace(/<title>[^<]*<\/title>/, () => `<title>${esc(fullTitle)}</title>`);
+  out = out.replace(/<meta name="theme-color" content="[^"]*">/, () => `<meta name="theme-color" content="${esc(themeColor)}">`);
+  out = out.replace(/<link rel="icon" href="[^"]*">/, () => `<link rel="icon" href="${esc(favicon)}">`);
+  out = out.replace(/<body([^>]*)>/, (m, attrs) => {
+    const cleaned = attrs.replace(/\s*data-game="[^"]*"/g, '');
+    return `<body${cleaned} data-game="${esc(g.slug)}">`;
+  });
+  out = withHead(out, gameBlock, fullTitle);
+  return out;
+}
+
+async function gamePage(req, res, gameSlug) {
+  const html = await gamePageHtml(req, gameSlug);
+  if (!html) return send(res, 404, 'not found');
+  send(res, 200, html, 'text/html; charset=utf-8', { 'Cache-Control': 'no-cache' });
+}
+
 // the game page with this marker's tags; false when the marker does not exist (the plain page is served then)
 async function sharePage(req, res, gameSlug, mapSlug, id) {
   const info = await markerInfo(gameSlug, mapSlug, id);
@@ -199,7 +249,8 @@ async function sharePage(req, res, gameSlug, mapSlug, id) {
     image: `${origin}/cards/share/${enc(gameSlug)}/${enc(mapSlug)}/${id}.jpg`,
     alt: `${info.title} on the ${info.gameTitle} map`,
   });
-  const html = withHead(await readFile(path.join(PUBLIC, 'maps', gameSlug, 'index.html'), 'utf8'), block, `${shownTitle} · Verticordia Atlas`);
+  const html = await gamePageHtml(req, gameSlug, { block, pageTitle: shownTitle });
+  if (!html) return false;
   send(res, 200, html, 'text/html; charset=utf-8', { 'Cache-Control': 'no-cache' });
   return true;
 }
@@ -218,7 +269,8 @@ async function sharedMarkerPage(req, res, gameSlug, packed) {
     image: `${origin}/cards/tm/${encodeURI(gameSlug)}.jpg?tm=${packed}`,
     alt: `${d.title} on the ${g.title} map`,
   });
-  const html = withHead(await readFile(path.join(PUBLIC, 'maps', gameSlug, 'index.html'), 'utf8'), block, `${shownTitle} · Verticordia Atlas`);
+  const html = await gamePageHtml(req, gameSlug, { block, pageTitle: shownTitle });
+  if (!html) return false;
   send(res, 200, html, 'text/html; charset=utf-8', { 'Cache-Control': 'no-cache' });
   return true;
 }
@@ -346,13 +398,25 @@ const server = http.createServer(async (req, res) => {
     const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
     if (tmCard) return await sharedMarkerCard(req, res, tmCard[1], url.searchParams.get('tm') || '');
 
-    const page = /^\/maps\/([^/]+)\/?$/.exec(p);
-    const tm = url.searchParams.get('tm');
-    if (page && tm && await sharedMarkerPage(req, res, page[1], tm)) return;
-    const loc = url.searchParams.get('loc');
-    if (page && loc && /^\d+$/.test(loc)) {
-      const map = url.searchParams.get('map') || '';
-      if (await sharePage(req, res, page[1], map, Number(loc))) return;
+    const page = /^\/maps\/([^/]+)(?:\/|\/index\.html)?$/.exec(p);
+    if (page && page[1] !== 'index.json' && page[1] !== 'map.html') {
+      const gameList = await games();
+      const match = gameList.find(x => x.slug === page[1]);
+      if (match) {
+        if (!p.endsWith('/') && !p.endsWith('/index.html')) {
+          res.writeHead(301, { Location: `/maps/${encodeURI(page[1])}/${url.search}` });
+          return res.end();
+        }
+        const tm = url.searchParams.get('tm');
+        if (tm && await sharedMarkerPage(req, res, page[1], tm)) return;
+        const loc = url.searchParams.get('loc');
+        if (loc && /^\d+$/.test(loc)) {
+          const map = url.searchParams.get('map') || '';
+          if (await sharePage(req, res, page[1], map, Number(loc))) return;
+        }
+        await gamePage(req, res, page[1]);
+        return;
+      }
     }
 
     return await serveStatic(req, res, p, url.search);

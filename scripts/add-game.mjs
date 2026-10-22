@@ -718,21 +718,7 @@ async function main() {
   const writeMeta = () => writeFile(path.join(outDir, 'meta.json'), JSON.stringify(meta, null, 2) + '\n');
   await writeMeta();
 
-  // 8. the page itself: a copy of an existing game's index.html, pointed at this game
-  const pageFile = path.join(outDir, 'index.html');
-  if (!(await exists(pageFile))) {
-    let template = null;
-    for (const d of await readdir(v.out, { withFileTypes: true }).catch(() => [])) {
-      const f = path.join(v.out, d.name, 'index.html');
-      if (d.isDirectory() && d.name !== pageSlug && await exists(f)) { template = f; break; }
-    }
-    if (template) {
-      await writeFile(pageFile, (await readFile(template, 'utf8')).replace(/data-game="[^"]*"/, `data-game="${pageSlug}"`));
-      console.log(`  page: ${pageFile} (copied from ${template})`);
-    } else console.log(`  ! no existing game page to copy: create ${pageFile} by hand`);
-  }
-
-  // 9. homepage manifest. Hand-edited fields (title, description, theme, stats, poster...) are kept on re-runs.
+  // 8. homepage manifest. Hand-edited fields (title, description, theme, stats, poster...) are kept on re-runs.
   let index = { games: [] };
   if (await exists(v.index)) index = JSON.parse(await readFile(v.index, 'utf8'));
   const prev = index.games.find(g => g.slug === pageSlug) || {};

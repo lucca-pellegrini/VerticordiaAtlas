@@ -3,7 +3,7 @@ import { initAccount, accountSlot, notify } from './account.js';
 import { norm, words, fuzzyScore } from './shared/search.mjs';
 // Homepage: renders one card per entry in maps/index.json.
 //
-// To add a game: put its files in maps/<slug>/ (with an index.html like maps/requiem/index.html),
+// To add a game: put its files in maps/<slug>/ (see add-game.mjs),
 // add an entry to maps/index.json, and drop the poster in as
 //   maps/<slug>/poster-600.webp   (600x300)
 //   maps/<slug>/poster-1200.webp  (1200x600)

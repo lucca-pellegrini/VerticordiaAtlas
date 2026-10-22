@@ -4,7 +4,7 @@
 //   node scripts/make-cards.mjs
 //
 // Writes card.jpg (1200x630) for the homepage (three random games' posters) and maps/<game>/card.jpg for each
-// game folder, then sets the <head> of index.html and maps/<game>/index.html (between social:start / social:end).
+// game folder, then sets the <head> of index.html (between social:start / social:end). Game map pages are rendered dynamically.
 // Run again after adding a game or changing a description; add-game.mjs runs it for you.
 //
 // Needs Chromium (on PATH, or CHROME=/path/to/chromium) and ImageMagick (magick). The domain comes from
@@ -37,14 +37,6 @@ console.log('homepage: card.jpg');
 
 // one card per game folder
 for (const g of games) {
-  const slug = encodeURI(g.slug);
   await drawCard(chrome, gameHtml(g), path.join(g.dir, 'card.jpg'));
-  const file = path.join(g.dir, 'index.html');
-  const title = `${g.title} · Verticordia Atlas`;
-  const block = socialTags({
-    title, description: g.description,
-    url: `${site}/maps/${slug}/`, image: `${site}/maps/${slug}/card.jpg`, alt: g.alt,
-  });
-  await writeFile(file, withHead(await readFile(file, 'utf8'), block, title));
   console.log(`${g.slug}: card.jpg${g.poster ? '' : ' (no poster found, plain card)'}`);
 }
