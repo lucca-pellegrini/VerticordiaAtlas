@@ -770,8 +770,10 @@ async function loadProfiles() {
     await dbPut('profiles', p);
     state.profiles = [p];
   }
-  const last = await getMeta('last-profile:' + state.entry.id);
-  applyProfile(state.profiles.find(p => p.id === last) || state.profiles[0]);
+  const wantProfile = new URLSearchParams(location.search).get('profile');
+  const last = wantProfile || (await getMeta('last-profile:' + state.entry.id));
+  applyProfile(state.profiles.find(p => p.id === last || p.name === last) || state.profiles[0]);
+  if (wantProfile && state.profile) setMeta('last-profile:' + state.entry.id, state.profile.id);
 }
 
 // A profile's own data (categories, markers, drawings, cameras) can come from an imported file, so nothing in it is
@@ -1409,7 +1411,8 @@ function saveSession() {
       if (!c) continue;
       near.push({ t: c.title, c: state.groupOfCat?.get(id)?.col || null, f: s.found, n: s.total });
     }
-    near.sort((a, b) => b.f / b.n - a.f / a.n || (a.n - a.f) - (b.n - b.f));
+    const score = item => (item.f / item.n) * (1 - 1 / Math.sqrt(item.n + 1));
+    near.sort((a, b) => score(b) - score(a) || (b.f / b.n) - (a.f / a.n) || b.n - a.n);
     const recent = [];
     for (const id of [...state.found].reverse()) {
       const l = state.byId.get(id);
@@ -1420,14 +1423,20 @@ function saveSession() {
     }
     const map = state.mapInfo.slug;
     const tag = state.tag === UNTAGGED ? 'Only untagged' : state.tags.find(t => t.id === state.tag)?.title || null;
+    const visited = new Set(Object.keys(state.profile?.cameras || {}));
+    const allMaps = (state.meta?.maps || []).map(m => ({ slug: m.slug, title: m.title || m.slug }));
+    allMaps.sort((a, b) => (visited.has(b.slug) ? 1 : 0) - (visited.has(a.slug) ? 1 : 0));
+
     const snap = {
       v: 1, slug: state.entry.slug, updated: Date.now(),
       map, mapTitle: state.mapInfo.title || map,
-      maps: (state.meta?.maps || []).map(m => ({ slug: m.slug, title: m.title || m.slug })),
-      profile: state.profile?.name || null, profiles: state.profiles.length,
+      maps: allMaps,
+      profile: state.profile?.name || null,
+      profileId: state.profile?.id || null,
+      profiles: (state.profiles || []).map(p => ({ id: p.id, name: p.name })),
       tagLabel: state.entry.tagLabel || null, tag,
       found: groups.reduce((a, g) => a + g.f, 0), total: groups.reduce((a, g) => a + g.n, 0),
-      groups, near: near.slice(0, 3), recent,
+      groups, near: near.slice(0, 5), recent,
       userMarkers: (state.profile?.userMarkers || []).filter(m => m.map === map).length,
       drawings: (state.profile?.drawings || []).filter(d => d.map === map).length,
       presets: state.presets.length,

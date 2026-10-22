@@ -321,13 +321,6 @@ html[data-theme="light"] .resume-card { --accent-soft: color-mix(in srgb, var(--
 .resume-eyebrow time { color: var(--ink-dim); font-weight: 500; letter-spacing: .08em; }
 .resume-eyebrow .sep { color: var(--ink-dim); opacity: .6; }
 .resume-eyebrow .when { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
-@media (max-width: 560px) {
-  .resume-eyebrow { font-size: .66rem; letter-spacing: .12em; }
-  .resume-ring { width: 84px; }
-  .ring-num { font-size: 1.7rem; margin-top: -8px; }
-  .ring-label { font-size: .52rem; bottom: 24%; }
-  .resume-cta { flex: 1 1 100%; justify-content: center; }
-}
 .resume-eyebrow .live { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
 .resume-eyebrow .live::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--accent); animation: live 2.4s ease-out infinite; }
 @keyframes live { from { transform: scale(.5); opacity: .9; } to { transform: scale(1.8); opacity: 0; } }
@@ -395,6 +388,29 @@ html[data-theme="light"] .resume-card { --accent-soft: color-mix(in srgb, var(--
 .resume-extras { display: flex; flex-wrap: wrap; gap: 6px 16px; width: 100%; margin: 0; padding: 12px 0 0; list-style: none; border-top: 1px solid var(--line); font-size: .8rem; color: var(--ink-dim); }
 .resume-extras li { display: inline-flex; align-items: center; gap: 6px; }
 .resume-extras b { color: var(--ink); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .resume-cols { display: none; }
+  .resume-maps {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+    padding-bottom: 2px;
+  }
+  .resume-maps::-webkit-scrollbar { display: none; }
+  .resume-maps span { flex: none; }
+  .resume-maps a { flex: none; white-space: nowrap; }
+  .resume-maps a:nth-child(n+5) { display: none; }
+}
+@media (max-width: 560px) {
+  .resume-eyebrow { font-size: .66rem; letter-spacing: .12em; }
+  .resume-ring { width: 84px; }
+  .ring-num { font-size: 1.7rem; margin-top: -8px; }
+  .ring-label { font-size: .52rem; bottom: 24%; }
+  .resume-cta { flex: 1 1 100%; justify-content: center; }
+}
 
 /* wide screens: artwork on the left, everything else on the right */
 @media (min-width: 900px) {

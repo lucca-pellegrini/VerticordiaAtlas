@@ -205,7 +205,7 @@ function readSession() {
 function ago(t) {
   const s = (Date.now() - t) / 1000;
   if (!Number.isFinite(s) || s < 45) return 'just now';
-  const rtf = new Intl.RelativeTimeFormat(undefined, { numeric: 'auto' });
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
   const mins = s / 60, hours = mins / 60, days = hours / 24;
   if (mins < 60) return rtf.format(-Math.round(mins), 'minute');
   if (hours < 24) return rtf.format(-Math.round(hours), 'hour');
@@ -243,16 +243,28 @@ function renderResume(gamesList) {
   const more = groups.length - legend.length;
   const R = 52, C = 2 * Math.PI * R;
 
+  const totalProfiles = Array.isArray(s.profiles) ? s.profiles.length : (typeof s.profiles === 'number' ? s.profiles : 1);
+  const profileList = Array.isArray(s.profiles) ? s.profiles : [];
+  const otherProfiles = profileList
+    .filter(p => p && p.id && p.name && p.name !== s.profile && p.id !== s.profileId)
+    .slice(0, 6);
+  const profileHref = id => `${href}?profile=${encodeURIComponent(id)}`;
+
   const chips = [
-    `<li title="Map">${ICON.map}<span>${esc(s.mapTitle || s.map)}${maps.length > 1 && mapIdx >= 0 ? `<small>${mapIdx + 1} of ${maps.length}</small>` : ''}</span></li>`,
-    s.profile ? `<li title="Profile">${ICON.user}<span>${esc(s.profile)}${s.profiles > 1 ? `<small>${fmt(s.profiles)} profiles</small>` : ''}</span></li>` : '',
+    maps.length > 1 ? `<li title="Map">${ICON.map}<span>${esc(s.mapTitle || s.map)}${mapIdx >= 0 ? `<small>${mapIdx + 1} of ${maps.length}</small>` : ''}</span></li>` : '',
+    s.profile ? `<li title="Profile">${ICON.user}<span>${esc(s.profile)}${totalProfiles > 1 ? `<small>${fmt(totalProfiles)} profiles</small>` : ''}</span></li>` : '',
     s.tag ? `<li title="${esc(s.tagLabel || 'Filter')}">${ICON.tag}<span><small>${esc(s.tagLabel || 'Filter')}</small>${esc(s.tag)}</span></li>` : '',
   ].join('');
 
   const recent = (Array.isArray(s.recent) ? s.recent : []).slice(0, 4).map(r =>
     `<li style="--c:${colour(r.c)}"><span class="dot" aria-hidden="true"></span><span class="what">${esc(r.t)}</span>` +
     (r.cat && r.cat !== r.t ? `<span class="cat">${esc(r.cat)}</span>` : '') + `</li>`).join('');
-  const near = (Array.isArray(s.near) ? s.near : []).slice(0, 3).map(r =>
+
+  const nearScore = r => (r.f / r.n) * (1 - 1 / Math.sqrt(r.n + 1));
+  const nearList = (Array.isArray(s.near) ? s.near : [])
+    .filter(r => r && r.n > 0 && r.f > 0 && r.f < r.n)
+    .sort((a, b) => nearScore(b) - nearScore(a) || (b.f / b.n) - (a.f / a.n) || b.n - a.n);
+  const near = nearList.slice(0, 3).map(r =>
     `<li style="--c:${colour(r.c)}"><div class="near-row"><span class="what">${esc(r.t)}</span><span class="num"><b>${fmt(r.f)}</b>/${fmt(r.n)}</span></div>` +
     `<div class="mini" aria-hidden="true"><i data-w="${pct(r.f, r.n)}"></i></div><span class="hint">${fmt(r.n - r.f)} left</span></li>`).join('');
 
@@ -302,6 +314,8 @@ function renderResume(gamesList) {
           `<a class="cta resume-cta" href="${esc(mapHref(s.map))}" data-slug="${esc(g.slug)}">Resume${maps.length > 1 ? ` on ${esc(s.mapTitle || s.map)}` : ''} ${ARROW}</a>` +
           (otherMaps.length ? `<nav class="resume-maps" aria-label="Other maps in ${esc(g.title)}"><span>Or jump to</span>` +
             otherMaps.map(m => `<a href="${esc(mapHref(m.slug))}" data-slug="${esc(g.slug)}">${esc(m.title)}</a>`).join('') + `</nav>` : '') +
+          (otherProfiles.length ? `<nav class="resume-maps resume-profiles" aria-label="Other profiles in ${esc(g.title)}"><span>Or profile</span>` +
+            otherProfiles.map(p => `<a href="${esc(profileHref(p.id))}" data-slug="${esc(g.slug)}">${esc(p.name)}</a>`).join('') + `</nav>` : '') +
           (extras ? `<ul class="resume-extras">${extras}</ul>` : '') +
         `</footer>` +
       `</div>` +
