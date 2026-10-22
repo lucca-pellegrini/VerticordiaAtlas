@@ -12,6 +12,7 @@ body { display: flex; flex-direction: column; }
 .legal-top .brand .mark { position: relative; display: block; width: 22px; height: 22px; }
 .legal-top .brand .mark svg { width: 100%; height: 100%; display: block; fill: currentColor; }
 .legal-top .brand span { color: var(--ink); font: 400 1.4rem/1 "Instrument Serif"; }
+.legal-top-tools { display: flex; align-items: center; gap: 10px; }
 .legal-top .back { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-dim); text-decoration: none; font-size: 14px;
   padding: 7px 13px; border: 1px solid var(--line-2); border-radius: 999px; transition: color .2s, border-color .2s; }
 .legal-top .back:hover { color: var(--ink); border-color: var(--ink-dim); }
@@ -31,7 +32,7 @@ body { display: flex; flex-direction: column; }
 .toc ol a { position: relative; display: flex; gap: 10px; align-items: baseline; padding: 8px 12px; border-radius: 10px; color: var(--ink-dim);
   text-decoration: none; font-size: 14px; line-height: 1.35; transition: color .2s, background-color .2s; }
 .toc ol a::before { content: counter(sec, decimal-leading-zero); font-size: 11px; color: var(--ink-dim); opacity: .6; font-variant-numeric: tabular-nums; min-width: 1.6em; }
-.toc ol a:hover { color: var(--ink); background: rgb(255 255 255 / .03); }
+.toc ol a:hover { color: var(--ink); background: var(--hover); }
 .toc ol a[aria-current="true"] { color: var(--ink); background: rgb(214 69 59 / .1); }
 .toc ol a[aria-current="true"]::after { content: ""; position: absolute; left: -4px; top: 9px; bottom: 9px; width: 2px; border-radius: 2px; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
 .toc ol a:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
@@ -55,7 +56,7 @@ body { display: flex; flex-direction: column; }
 .doc li::marker { color: var(--accent); }
 .doc strong { color: var(--ink); font-weight: 600; }
 .doc a { color: var(--accent-soft); text-underline-offset: 3px; }
-.doc .callout { margin: 22px 0; padding: 16px 18px; border-radius: 14px; background: rgb(255 255 255 / .03); border: 1px solid var(--line-2); color: var(--ink-dim); font-size: 14.5px; }
+.doc .callout { margin: 22px 0; padding: 16px 18px; border-radius: 14px; background: var(--pill-bg); border: 1px solid var(--line-2); color: var(--ink-dim); font-size: 14.5px; }
 .doc .callout strong { color: var(--ink); }
 .doc .placeholder { color: var(--accent-soft); background: rgb(214 69 59 / .1); padding: 0 4px; border-radius: 4px; }
 

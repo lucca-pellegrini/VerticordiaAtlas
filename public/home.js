@@ -1,3 +1,4 @@
+import './theme.js';
 import { initAccount, accountSlot, notify } from './account.js';
 import { norm, words, fuzzyScore } from './shared/search.mjs';
 // Homepage: renders one card per entry in maps/index.json.

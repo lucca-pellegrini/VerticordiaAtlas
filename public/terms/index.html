@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Terms of service · Verticordia Atlas</title>
 <meta name="description" content="The terms for using Verticordia Atlas: the free, offline-first game maps, and the optional account that syncs your progress.">
 <meta name="theme-color" content="#0b0e10">
+<script>(()=>{const m=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);if(m)document.documentElement.dataset.theme=m[1];})()</script>
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,7 +26,10 @@
     <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"/><circle cx="12" cy="10" r="2.8" fill="var(--night)"/></svg></span>
     <span>Verticordia Atlas</span>
   </a>
-  <a class="back" href="../"><span>Back to the maps</span></a>
+  <div class="legal-top-tools">
+    <div data-theme-toggle></div>
+    <a class="back" href="../"><span>Back to the maps</span></a>
+  </div>
 </header>
 
 <div class="legal">
@@ -186,6 +190,7 @@
   </article>
 </div>
 
+<script type="module" src="../theme.js"></script>
 <script src="../legal/legal.js" defer></script>
 </body>
 </html>

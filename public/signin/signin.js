@@ -1,4 +1,5 @@
 // The sign-in page: Google (the server does the redirect and checks the ID token), or a secret key. Either way the server sets the session.
+import '../theme.js';
 const rawNext = new URLSearchParams(location.search).get('next') || '';
 // only a path on this site: "/x" (not "//host") or nothing
 const nextPath = /^\/(?!\/)/.test(rawNext) ? rawNext : '/';

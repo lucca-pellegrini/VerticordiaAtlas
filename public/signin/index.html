@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sign in to sync · Verticordia Atlas</title>
 <meta name="description" content="Optional. Sign in only to keep your progress in step across devices. The app works offline without it.">
 <meta name="theme-color" content="#0b0e10">
+<script>(()=>{const m=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);if(m)document.documentElement.dataset.theme=m[1];})()</script>
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,7 +21,10 @@
 <body>
 <div class="bg" aria-hidden="true"></div>
 <main class="signin">
-  <a class="back" href="../">Back to the maps</a>
+  <div class="signin-top">
+    <a class="back" href="../">Back to the maps</a>
+    <div data-theme-toggle></div>
+  </div>
 
   <h1>Sign in to sync</h1>
   <p class="lede">Signing in is <strong>entirely optional</strong>: it adds no features, it only lets the same progress follow you to another device. Everything works offline, and your progress stays on this device either way.</p>

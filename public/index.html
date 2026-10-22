@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Verticordia Atlas · Interactive game maps</title>
 <meta name="description" content="Interactive game maps that work offline. Track every collectible across playthroughs, right in your browser.">
 <meta name="theme-color" content="#0b0e10">
+<script>(()=>{const m=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);if(m)document.documentElement.dataset.theme=m[1];})()</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -54,6 +55,7 @@
       <button class="search-toggle" type="button" aria-expanded="false" aria-controls="map-search" aria-label="Search maps">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
       </button>
+      <div data-theme-toggle></div>
     </div>
   </div>
 </header>
