@@ -1383,7 +1383,59 @@ function updateSidebar() {
     total += gt; found += gf;
   }
   showCounts(found, total);
+  saveSessionSoon();
 }
+
+/* ---------- the homepage's "continue" card: a small summary of this session, kept in localStorage only ----------
+   Never sent anywhere (see the privacy policy): the homepage reads it to show where the user left off. */
+let sessionTimer = 0;
+function saveSessionSoon() {
+  clearTimeout(sessionTimer);
+  sessionTimer = setTimeout(saveSession, 400);
+}
+function saveSession() {
+  if (!state.entry || !state.mapInfo || !state.ui) return;
+  try {
+    const groups = [];
+    for (const { g, rows } of state.ui.groups.values()) {
+      let n = 0, f = 0;
+      for (const { c } of rows) { const s = state.stats.get(c.id); if (s) { n += s.total; f += s.found; } }
+      if (n) groups.push({ t: g.title, c: g.col, f, n });
+    }
+    const near = [];
+    for (const [id, s] of state.stats) {
+      if (s.total < 2 || s.found >= s.total || !s.found) continue;
+      const c = state.cats.get(id);
+      if (!c) continue;
+      near.push({ t: c.title, c: state.groupOfCat?.get(id)?.col || null, f: s.found, n: s.total });
+    }
+    near.sort((a, b) => b.f / b.n - a.f / a.n || (a.n - a.f) - (b.n - b.f));
+    const recent = [];
+    for (const id of [...state.found].reverse()) {
+      const l = state.byId.get(id);
+      if (!l) continue;
+      const c = state.cats.get(l.cat);
+      recent.push({ t: l.title || c?.title || 'Marker', cat: c?.title || '', c: state.groupOfCat?.get(l.cat)?.col || null });
+      if (recent.length >= 4) break;
+    }
+    const map = state.mapInfo.slug;
+    const tag = state.tag === UNTAGGED ? 'Only untagged' : state.tags.find(t => t.id === state.tag)?.title || null;
+    const snap = {
+      v: 1, slug: state.entry.slug, updated: Date.now(),
+      map, mapTitle: state.mapInfo.title || map,
+      maps: (state.meta?.maps || []).map(m => ({ slug: m.slug, title: m.title || m.slug })),
+      profile: state.profile?.name || null, profiles: state.profiles.length,
+      tagLabel: state.entry.tagLabel || null, tag,
+      found: groups.reduce((a, g) => a + g.f, 0), total: groups.reduce((a, g) => a + g.n, 0),
+      groups, near: near.slice(0, 3), recent,
+      userMarkers: (state.profile?.userMarkers || []).filter(m => m.map === map).length,
+      drawings: (state.profile?.drawings || []).filter(d => d.map === map).length,
+      presets: state.presets.length,
+    };
+    localStorage.setItem('va_last_session', JSON.stringify(snap));
+  } catch { /* storage full or unavailable: the homepage just shows its usual hero */ }
+}
+addEventListener('pagehide', () => { clearTimeout(sessionTimer); saveSession(); });
 
 function onViewChanged() {
   scheduleViewSave();
@@ -3087,8 +3139,8 @@ function wire() {
       if (target) openResult(target);
     }
   };
-  document.addEventListener('keydown', e => { // Ctrl/Cmd+F searches this map, instead of the browser's find
-    if (!(e.ctrlKey || e.metaKey) || e.shiftKey || e.altKey || e.key.toLowerCase() !== 'f' || $('#dlg').open) return;
+  document.addEventListener('keydown', e => { // Ctrl/Cmd+F or Ctrl/Cmd+K searches this map, instead of the browser's find
+    if (!(e.ctrlKey || e.metaKey) || e.shiftKey || e.altKey || !['f', 'k'].includes(e.key.toLowerCase()) || $('#dlg').open) return;
     e.preventDefault();
     search.focus();
     search.select();

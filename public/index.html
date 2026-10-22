@@ -83,11 +83,18 @@
 </header>
 
 <main>
-  <section class="hero wrap">
-    <p class="eyebrow">Interactive game maps</p>
-    <h1>Every secret, <em>mapped</em> and available offline.</h1>
-    <p class="lede">Pick a game, track what you have found across playthroughs, and keep going without a connection. Your progress never leaves your browser.</p>
-  </section>
+  <!-- the hero: the welcome, or (once a map has been opened in this browser) a card to pick up where you left off.
+       It folds away while the search is in use (home.js sets body.searching). -->
+  <div class="hero-shell" id="hero-shell">
+    <div class="hero-fold">
+      <section class="hero wrap" id="hero">
+        <p class="eyebrow">Interactive game maps</p>
+        <h1>Every secret, <em>mapped</em> and available offline.</h1>
+        <p class="lede">Pick a game, track what you have found across playthroughs, and keep going without a connection. Your progress never leaves your browser.</p>
+      </section>
+      <section class="resume wrap" id="resume" aria-labelledby="resume-title" hidden></section>
+    </div>
+  </div>
 
   <section id="games" class="wrap" aria-labelledby="games-title">
     <h2 id="games-title" class="section-label">Choose a game</h2>

@@ -253,3 +253,157 @@ h1 em { font-style: italic; color: var(--accent-soft); }
   .top-more-panel .acct-slot.top .acct,
   .top-more-panel .acct-slot.top .acct-btn { width: 100%; justify-content: center; }
 }
+
+/* ---------- the hero folds away while searching (body.searching, set in home.js) ---------- */
+.hero-shell { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .5s var(--ease), opacity .35s ease; }
+.hero-fold { min-height: 0; overflow: hidden; overflow: clip; overflow-clip-margin: 40px; }
+body.searching .hero-shell { grid-template-rows: 0fr; opacity: 0; pointer-events: none; }
+body.searching #games { margin-top: clamp(24px, 4vw, 40px); }
+#games { transition: margin-top .5s var(--ease); }
+.hero[hidden], .resume[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .hero-shell, #games { transition: none; } }
+
+/* ---------- "continue where you left off": the last opened game ---------- */
+.resume { padding-block: clamp(28px, 5vw, 56px) clamp(36px, 6vw, 64px); }
+.resume-card {
+  --accent-soft: var(--g-soft, #f0877d);
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr); overflow: hidden;
+  border: 1px solid var(--line); border-radius: calc(var(--radius) + 6px);
+  background:
+    radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--panel-2), var(--panel));
+  box-shadow: var(--card-shadow), 0 40px 80px -50px color-mix(in srgb, var(--accent) 70%, transparent);
+  animation: rise .7s var(--ease) both;
+}
+html[data-theme="light"] .resume-card { --accent-soft: color-mix(in srgb, var(--accent) 80%, #000); }
+@media (prefers-color-scheme: light) { html[data-theme="auto"] .resume-card { --accent-soft: color-mix(in srgb, var(--accent) 80%, #000); } }
+/* a thin accent line along the top edge */
+.resume-card::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: 1px; z-index: 2;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-soft) 80%, transparent), transparent);
+}
+
+/* artwork, with the completion ring over it */
+.resume-media { position: relative; aspect-ratio: 2 / 1; overflow: hidden; background: #1b1413; }
+.resume-media img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); transition: transform 1.2s var(--ease); }
+.resume-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, var(--panel) 0%, transparent 55%); pointer-events: none; }
+@media (hover: hover) { .resume-card:hover .resume-media img { transform: scale(1.06); } }
+
+.resume-ring {
+  position: absolute; z-index: 1; left: clamp(16px, 2.4vw, 28px); bottom: clamp(14px, 2.4vw, 28px);
+  display: grid; place-items: center; width: clamp(96px, 11vw, 132px); aspect-ratio: 1;
+  border-radius: 50%; color: #fff;
+  background: radial-gradient(circle, rgb(8 10 12 / .72) 58%, rgb(8 10 12 / .35) 72%, transparent 73%);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  filter: drop-shadow(0 12px 24px rgb(0 0 0 / .45));
+}
+.resume-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.resume-ring circle { fill: none; stroke-width: 7; }
+.resume-ring .track { stroke: rgb(255 255 255 / .14); }
+.resume-ring .arc {
+  stroke: var(--accent-soft); stroke-linecap: round;
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 80%, transparent));
+  transition: stroke-dashoffset 1.6s cubic-bezier(.65, 0, .35, 1) .25s;
+}
+.ring-num { position: relative; margin-top: -10px; font: 400 clamp(2rem, 1.4rem + 1.6vw, 2.7rem)/1 var(--serif); font-variant-numeric: tabular-nums; }
+.ring-num small { font-size: .5em; margin-left: 1px; opacity: .8; }
+.ring-num svg { width: 1.1em; height: 1.1em; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; vertical-align: middle; }
+.ring-label { position: absolute; bottom: 26%; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; opacity: .72; }
+.resume-card.done .resume-ring .arc { stroke: var(--ok); filter: drop-shadow(0 0 8px color-mix(in srgb, var(--ok) 70%, transparent)); }
+
+/* the text side */
+.resume-body { display: flex; flex-direction: column; gap: clamp(14px, 1.6vw, 20px); min-width: 0; padding: 4px clamp(18px, 2.6vw, 36px) clamp(20px, 2.6vw, 34px); }
+.resume-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.resume-eyebrow {
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0;
+  font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-soft);
+}
+.resume-eyebrow time { color: var(--ink-dim); font-weight: 500; letter-spacing: .08em; }
+.resume-eyebrow .sep { color: var(--ink-dim); opacity: .6; }
+.resume-eyebrow .when { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+@media (max-width: 560px) {
+  .resume-eyebrow { font-size: .66rem; letter-spacing: .12em; }
+  .resume-ring { width: 84px; }
+  .ring-num { font-size: 1.7rem; margin-top: -8px; }
+  .ring-label { font-size: .52rem; bottom: 24%; }
+  .resume-cta { flex: 1 1 100%; justify-content: center; }
+}
+.resume-eyebrow .live { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+.resume-eyebrow .live::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 1px solid var(--accent); animation: live 2.4s ease-out infinite; }
+@keyframes live { from { transform: scale(.5); opacity: .9; } to { transform: scale(1.8); opacity: 0; } }
+.resume-dismiss {
+  display: grid; place-items: center; flex: none; width: 32px; height: 32px; padding: 0; cursor: pointer;
+  border: 1px solid transparent; border-radius: 50%; background: none; color: var(--ink-dim); opacity: .7;
+  transition: color .2s, border-color .2s, opacity .2s, background-color .2s;
+}
+.resume-dismiss svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.resume-dismiss:hover, .resume-dismiss:focus-visible { opacity: 1; color: var(--ink); border-color: var(--line-2); background: var(--hover); outline: none; }
+
+.resume-title { margin: -4px 0 0; max-width: none; text-align: left; font: 400 clamp(2.2rem, 1.2rem + 3.4vw, 3.9rem)/1.02 var(--serif); letter-spacing: -.01em; text-wrap: balance; }
+
+.resume-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.resume-chips li {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 9px; border-radius: 12px;
+  border: 1px solid var(--line-2); background: var(--pill-bg); font-size: .86rem; color: var(--ink);
+}
+.resume-chips li > span { display: inline-flex; align-items: baseline; gap: 6px; }
+.resume-chips small { color: var(--ink-dim); font-size: .76rem; }
+.resume-chips svg, .resume-extras svg { width: 16px; height: 16px; flex: none; fill: none; stroke: var(--accent-soft); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* progress: the count, the bar by group (as in the map view), and a legend */
+.resume-progress { padding: clamp(14px, 1.6vw, 18px); border-radius: 16px; border: 1px solid var(--line); background: color-mix(in srgb, var(--night) 45%, transparent); }
+.resume-count { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0; }
+.resume-count b { font: 400 clamp(1.9rem, 1.5rem + 1vw, 2.4rem)/1 var(--serif); font-variant-numeric: tabular-nums; }
+.resume-count .of { color: var(--ink-dim); font-size: .92rem; }
+.resume-count .togo { margin-left: auto; padding: 3px 10px; border-radius: 999px; font-size: .76rem; font-weight: 600; color: var(--accent-soft); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.resume-card.done .resume-count .togo { color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent); }
+.resume .bar { display: flex; gap: 4px; height: 8px; margin-top: 12px; }
+.resume .bar .seg { min-width: 4px; background: color-mix(in srgb, var(--ink) 9%, transparent); border-radius: 99px; overflow: hidden; }
+.resume .bar .seg i { display: block; height: 100%; width: 0; border-radius: 99px; background: var(--c, var(--accent)); transition: width 1.5s cubic-bezier(.65, 0, .35, 1) .2s; }
+.resume-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 12px 0 0; padding: 0; list-style: none; font-size: .8rem; color: var(--ink-dim); }
+.resume-legend li { display: inline-flex; align-items: center; gap: 7px; }
+.resume-legend .num { color: var(--ink); font-variant-numeric: tabular-nums; }
+.resume-legend .more { font-style: italic; opacity: .8; }
+.resume .dot { width: 8px; height: 8px; flex: none; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px color-mix(in srgb, var(--c) 60%, transparent); }
+
+/* recently found / almost complete */
+.resume-cols { display: grid; gap: clamp(14px, 2vw, 24px); grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.resume-cols h2 { margin: 0 0 10px; font: 600 .68rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
+.resume-cols ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.resume-recent li { display: flex; align-items: center; gap: 10px; min-width: 0; font-size: .9rem; }
+.resume-recent .what { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.resume-recent .cat { margin-left: auto; flex: none; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-dim); font-size: .76rem; }
+.resume-near li { display: grid; grid-template-columns: 1fr auto; gap: 5px 10px; font-size: .9rem; }
+.resume-near .near-row { display: contents; }
+.resume-near .what { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.resume-near .num { color: var(--ink-dim); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.resume-near .num b { color: var(--ink); font-weight: 600; }
+.resume-near .mini { grid-column: 1 / -1; height: 4px; border-radius: 99px; overflow: hidden; background: color-mix(in srgb, var(--ink) 9%, transparent); }
+.resume-near .mini i { display: block; height: 100%; width: 0; border-radius: 99px; background: var(--c); transition: width 1.3s cubic-bezier(.65, 0, .35, 1) .45s; }
+.resume-near .hint { display: none; }
+
+/* actions */
+.resume-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: auto; padding-top: 4px; }
+.resume-cta { margin-left: 0; padding: 13px 20px 13px 22px; font-size: .95rem; text-decoration: none; box-shadow: 0 14px 30px -14px var(--accent); }
+.resume-cta:hover { filter: brightness(1.12); }
+.resume-cta:hover svg { transform: translateX(4px); }
+.resume-cta:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
+.resume-maps { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: .8rem; color: var(--ink-dim); }
+.resume-maps span { margin-right: 2px; }
+.resume-maps a { padding: 5px 11px; border: 1px solid var(--line-2); border-radius: 999px; color: var(--ink); text-decoration: none; transition: border-color .2s, background-color .2s; }
+.resume-maps a:hover, .resume-maps a:focus-visible { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); outline: none; }
+.resume-extras { display: flex; flex-wrap: wrap; gap: 6px 16px; width: 100%; margin: 0; padding: 12px 0 0; list-style: none; border-top: 1px solid var(--line); font-size: .8rem; color: var(--ink-dim); }
+.resume-extras li { display: inline-flex; align-items: center; gap: 6px; }
+.resume-extras b { color: var(--ink); font-weight: 600; }
+
+/* wide screens: artwork on the left, everything else on the right */
+@media (min-width: 900px) {
+  .resume-card { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+  .resume-media { aspect-ratio: auto; min-height: 100%; }
+  .resume-media::after { background: linear-gradient(90deg, transparent 55%, var(--panel) 100%), linear-gradient(to top, rgb(0 0 0 / .35), transparent 40%); }
+  .resume-body { padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 40px) clamp(24px, 2.8vw, 36px) clamp(8px, 1vw, 16px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .resume-ring .arc, .resume .bar .seg i, .resume-near .mini i { transition: none; }
+  .resume-eyebrow .live::after { animation: none; }
+}
