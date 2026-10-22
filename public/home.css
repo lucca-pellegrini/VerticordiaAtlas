@@ -45,7 +45,7 @@ main { flex: 1; }
 }
 .search-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
 .search-toggle:hover { color: var(--ink); border-color: var(--accent); }
-.search-toggle[aria-expanded="true"] { color: var(--accent-soft); border-color: var(--accent); background: rgb(214 69 59 / .12); }
+.search-toggle[aria-expanded="true"] { color: var(--accent-soft); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .search-toggle:active { transform: scale(.94); }
 .search-toggle:focus-visible, .search input:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
 
@@ -63,7 +63,7 @@ main { flex: 1; }
   transition: border-color .2s, box-shadow .2s;
 }
 .search input::placeholder { color: var(--ink-dim); opacity: .7; }
-.search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgb(214 69 59 / .15); }
+.search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 15%, transparent); }
 .search input::-webkit-search-cancel-button { filter: var(--cancel-filter); cursor: pointer; }
 
 /* narrow screens: while searching, the wordmark steps aside so the bar has room */
@@ -186,7 +186,7 @@ h1 em { font-style: italic; color: var(--accent-soft); }
 .features ul { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(24px, 4vw, 40px); grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
 .feat-ico {
   display: grid; place-items: center; width: 44px; height: 44px; margin-bottom: 14px; border-radius: 12px;
-  background: rgb(214 69 59 / .12); border: 1px solid rgb(214 69 59 / .3); color: var(--accent-soft);
+  background: color-mix(in srgb, var(--accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); color: var(--accent-soft);
 }
 .feat-ico svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .features h3 { margin: 0 0 6px; font-size: 1rem; font-weight: 600; }
@@ -213,7 +213,7 @@ h1 em { font-style: italic; color: var(--accent-soft); }
 }
 .more-toggle svg { width: 18px; height: 18px; fill: currentColor; }
 .more-toggle:hover { color: var(--ink); border-color: var(--accent); }
-.more-toggle[aria-expanded="true"] { color: var(--accent-soft); border-color: var(--accent); background: rgb(214 69 59 / .12); }
+.more-toggle[aria-expanded="true"] { color: var(--accent-soft); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .more-toggle:active { transform: scale(.94); }
 .more-toggle:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
 .top-more-panel { display: flex; align-items: center; gap: 10px; }

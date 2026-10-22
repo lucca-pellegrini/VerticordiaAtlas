@@ -6,7 +6,22 @@
 <title>Privacy policy · Verticordia Atlas</title>
 <meta name="description" content="What Verticordia Atlas stores, why, where it stays on your device, and what you can ask us to do with it.">
 <meta name="theme-color" content="#0b0e10">
-<script>(()=>{const m=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);if(m)document.documentElement.dataset.theme=m[1];})()</script>
+<script>(()=>{
+  const tm=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
+  if(tm)document.documentElement.dataset.theme=tm[1];
+  let raw=null;
+  const tn=document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
+  if(tn){try{raw=decodeURIComponent(tn[1]);}catch{}}
+  if(!raw){try{raw=localStorage.getItem('va_tint');}catch{}}
+  if(raw){
+    const [a,s]=raw.split('|');
+    if(a&&/^#[0-9a-fA-F]{3,8}$/.test(a)){
+      const st=document.documentElement.style;
+      st.setProperty('--accent',a);
+      if(s&&/^#[0-9a-fA-F]{3,8}$/.test(s))st.setProperty('--accent-soft',s);
+    }
+  }
+})()</script>
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -123,10 +138,10 @@
 
     <section id="cookies">
       <h2>Cookies and storage</h2>
-      <p>We use at most two cookies, and only for features you actively use:</p>
+      <p>We use cookies only for features you actively use:</p>
       <ul>
         <li><strong>va_session</strong>: strictly necessary for signing in. It holds your session token, is <em>HttpOnly</em> (scripts on the page cannot read it), and is removed when you log out. It expires after 30 days of inactivity, and that period is renewed each time you use the Service.</li>
-        <li><strong>va_theme</strong>: remembers your choice if you change the light/dark mode switch. It is not set unless you change the switch from its default (auto), contains only your chosen preference (<code>light</code>, <code>auto</code> or <code>dark</code>), and is kept for up to one year.</li>
+        <li><strong>va_theme</strong>, <strong>va_tint</strong> and <strong>va_recent</strong>: cookies and local data used solely by the app scripts to keep your theming preference (light, auto or dark), the color tint of the last map you opened, and the order of recently opened games locally on your device. These values are never sent to the server even if you are logged in, and are kept for up to one year.</li>
       </ul>
       <p>We do not use advertising cookies, analytics cookies or any other tracking cookie. Your browser also keeps the local database and cache described above, and a small record that tells the app whether you are signed in.</p>
     </section>

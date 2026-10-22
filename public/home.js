@@ -1,4 +1,4 @@
-import './theme.js';
+import { readRecentGames, recordGameOpen } from './theme.js';
 import { initAccount, accountSlot, notify } from './account.js';
 import { norm, words, fuzzyScore } from './shared/search.mjs';
 // Homepage: renders one card per entry in maps/index.json.
@@ -28,10 +28,29 @@ function card(g, i) {
       `loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async"${eager}></div>`;
   const stats = (g.stats || []).map(s => `<li><b>${fmt(s.value)}</b> ${esc(s.label)}</li>`).join('');
   // The whole card is one real link, so clicks on the button or anywhere else go to the same place.
-  return `<li style="--i:${i + 3}"><a class="card" href="${href}"${accent}>${img}` +
+  return `<li style="--i:${i + 3}"><a class="card" href="${href}" data-slug="${esc(g.slug)}"${accent}>${img}` +
     `<div class="card-body"><h3>${esc(g.title)}</h3>` +
     (g.description ? `<p>${esc(g.description)}</p>` : '') +
     `<div class="card-foot"><ul class="stats">${stats}</ul><span class="cta">Open map ${ARROW}</span></div></div></a></li>`;
+}
+
+export function orderGames(games, recentSlugs = []) {
+  if (!recentSlugs?.length) return games.slice();
+  const map = new Map(games.map(g => [g.slug, g]));
+  const ordered = [];
+  for (const slug of recentSlugs) {
+    const g = map.get(slug);
+    if (g) {
+      ordered.push(g);
+      map.delete(slug);
+    }
+  }
+  for (const g of games) {
+    if (map.has(g.slug)) {
+      ordered.push(g);
+    }
+  }
+  return ordered;
 }
 
 async function main() {
@@ -46,7 +65,20 @@ async function main() {
     return fail('Could not load the list of maps. Serve this folder over HTTP (for example with "npx serve") and reload.');
   }
   if (!index.games?.length) return fail('No maps have been added yet.');
-  list.innerHTML = index.games.map(card).join('');
+  const recent = readRecentGames();
+  const games = orderGames(index.games, recent);
+  list.innerHTML = games.map(card).join('');
+
+  const onOpen = e => {
+    const a = e.target.closest('a.card');
+    if (!a) return;
+    const slug = a.dataset.slug;
+    const g = index.games.find(x => x.slug === slug);
+    if (g) recordGameOpen(g.slug, g.theme);
+  };
+  list.addEventListener('click', onOpen);
+  list.addEventListener('auxclick', onOpen);
+
   setupSearch(list);
 }
 

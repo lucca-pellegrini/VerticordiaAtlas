@@ -6,7 +6,22 @@
 <title>Terms of service · Verticordia Atlas</title>
 <meta name="description" content="The terms for using Verticordia Atlas: the free, offline-first game maps, and the optional account that syncs your progress.">
 <meta name="theme-color" content="#0b0e10">
-<script>(()=>{const m=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);if(m)document.documentElement.dataset.theme=m[1];})()</script>
+<script>(()=>{
+  const tm=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
+  if(tm)document.documentElement.dataset.theme=tm[1];
+  let raw=null;
+  const tn=document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
+  if(tn){try{raw=decodeURIComponent(tn[1]);}catch{}}
+  if(!raw){try{raw=localStorage.getItem('va_tint');}catch{}}
+  if(raw){
+    const [a,s]=raw.split('|');
+    if(a&&/^#[0-9a-fA-F]{3,8}$/.test(a)){
+      const st=document.documentElement.style;
+      st.setProperty('--accent',a);
+      if(s&&/^#[0-9a-fA-F]{3,8}$/.test(s))st.setProperty('--accent-soft',s);
+    }
+  }
+})()</script>
 <link rel="manifest" href="../manifest.webmanifest">
 <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">

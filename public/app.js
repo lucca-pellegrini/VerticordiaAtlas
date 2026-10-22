@@ -14,7 +14,7 @@ import { svgIcon } from './icons.mjs';
 import { loadIconLibrary, iconsReady, iconInner, glyphPinImage, glyphInk } from './icons-lib.mjs';
 import { CAPTURE_CONTROL_HTML, setupCapture } from './capture.mjs';
 import { initAccount, accountSlot, legalLinks, api, currentUser, setOnlineStatus, socketUrl } from './account.js';
-import { isLightTheme, onThemeChange, themeToggle } from './theme.js';
+import { isLightTheme, onThemeChange, themeToggle, recordGameOpen } from './theme.js';
 import { createSync } from './sync.js';
 
 const isMobile = () => matchMedia('(max-width: 760px)').matches;
@@ -351,6 +351,7 @@ async function loadGame(entry) {
   state.entry = entry;
   state.folder = '.'; // data files sit next to the page
   applyTheme(entry.theme);
+  recordGameOpen(entry.slug, entry.theme);
   $('#game-title').textContent = entry.title;
   document.title = `${entry.title} · Verticordia Atlas`;
   $('#tag-label').textContent = entry.tagLabel || 'Filter';

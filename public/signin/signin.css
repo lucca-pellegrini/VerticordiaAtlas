@@ -89,8 +89,8 @@ h2 { font: 400 26px/1.1 "Instrument Serif"; margin: 0 0 14px; }
 .lede { color: var(--ink-dim); font-size: 16px; margin: 0 0 24px; max-width: 46ch; }
 .google-btn { display: flex; align-items: center; justify-content: center; gap: 12px; box-sizing: border-box; width: min(100%, 320px); height: 52px; margin: 4px auto 0; padding: 0 26px;
   border-radius: 999px; background: var(--ink); color: var(--night); font: 600 15.5px/1 Inter; text-decoration: none; letter-spacing: .005em;
-  box-shadow: 0 16px 36px -16px rgb(214 69 59 / .65), inset 0 1px 0 rgb(255 255 255 / .6); transition: transform .15s var(--ease), box-shadow .25s var(--ease), background-color .2s; }
-.google-btn:hover { background: var(--google-hover); transform: translateY(-1px); box-shadow: 0 22px 44px -16px rgb(214 69 59 / .8), inset 0 1px 0 rgb(255 255 255 / .6); }
+  box-shadow: 0 16px 36px -16px color-mix(in srgb, var(--accent) 65%, transparent), inset 0 1px 0 rgb(255 255 255 / .6); transition: transform .15s var(--ease), box-shadow .25s var(--ease), background-color .2s; }
+.google-btn:hover { background: var(--google-hover); transform: translateY(-1px); box-shadow: 0 22px 44px -16px color-mix(in srgb, var(--accent) 80%, transparent), inset 0 1px 0 rgb(255 255 255 / .6); }
 .google-btn:active { transform: scale(.98); }
 .google-btn:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 4px; }
 .google-btn[hidden] { display: none; }

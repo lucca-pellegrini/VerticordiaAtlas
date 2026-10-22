@@ -2,6 +2,8 @@
 // Default is "auto" (follows system preference). A local cookie (va_theme) is written only when the user changes it.
 
 const COOKIE = 'va_theme';
+const TINT_COOKIE = 'va_tint';
+const RECENT_COOKIE = 'va_recent';
 const MODES = ['light', 'auto', 'dark'];
 const LABELS = { light: 'Light', auto: 'Auto', dark: 'Dark' };
 const TITLES = {
@@ -23,6 +25,7 @@ const mql = typeof window !== 'undefined' && window.matchMedia
 const listeners = new Set();
 
 export function readThemeCookie() {
+  if (typeof document === 'undefined') return null;
   const m = document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
   return m ? m[1] : null;
 }
@@ -66,6 +69,7 @@ export function applyThemeMode(mode, { persist = false } = {}) {
   document.documentElement.dataset.theme = mode;
   if (persist) writeThemeCookie(mode);
   syncMetaThemeColor(mode);
+  applyStoredTint();
   document.querySelectorAll('[data-theme-toggle]').forEach(el => updateToggleUI(el, mode));
   notifyListeners();
 }
@@ -272,18 +276,132 @@ export function themeToggle(extraClass = '') {
   return buildToggle(el);
 }
 
+function hexToHsl(hex) {
+  const m = String(hex || '').replace('#', '').match(/../g);
+  if (!m) return [0, 0, 0];
+  const [r, g, b] = m.map(x => parseInt(x, 16) / 255);
+  const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn;
+  const l = (mx + mn) / 2;
+  if (!d) return [0, 0, l];
+  const sat = d / (1 - Math.abs(2 * l - 1));
+  const h = mx === r ? ((g - b) / d + 6) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
+  return [h * 60, sat, l];
+}
+
+function hslToHex(h, s, l) {
+  const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l);
+  const f = n => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1))))).toString(16).padStart(2, '0');
+  return '#' + f(0) + f(8) + f(4);
+}
+
+export function deriveLightAccentSoft(accent) {
+  if (!accent) return '#b03028';
+  const [h, s, al] = hexToHsl(accent);
+  return hslToHex(h, Math.min(s, 0.78), Math.max(0.26, Math.min(0.40, al - 0.06)));
+}
+
+export function readStoredTint() {
+  if (typeof document === 'undefined') return null;
+  let raw = null;
+  const m = document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
+  if (m) {
+    try { raw = decodeURIComponent(m[1]); } catch {}
+  }
+  if (!raw) {
+    try { raw = localStorage.getItem('va_tint'); } catch {}
+  }
+  if (!raw) return null;
+  const [accent, accentSoft] = raw.split('|');
+  if (/^#[0-9a-fA-F]{3,8}$/.test(accent)) {
+    return { accent, accentSoft: accentSoft && /^#[0-9a-fA-F]{3,8}$/.test(accentSoft) ? accentSoft : null };
+  }
+  return null;
+}
+
+export function writeStoredTint(accent, accentSoft = null) {
+  if (typeof document === 'undefined') return;
+  if (!accent || !/^#[0-9a-fA-F]{3,8}$/.test(accent)) return;
+  const val = `${accent}|${accentSoft || ''}`;
+  const secure = typeof location !== 'undefined' && location.protocol === 'https:' ? '; Secure' : '';
+  document.cookie = `${TINT_COOKIE}=${encodeURIComponent(val)}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`;
+  try { localStorage.setItem('va_tint', val); } catch {}
+}
+
+export function updateFavicon(accent) {
+  if (typeof document === 'undefined' || !accent) return;
+  const icon = document.querySelector('link[rel="icon"]');
+  if (icon) {
+    const fill = encodeURIComponent(accent);
+    icon.type = 'image/svg+xml';
+    icon.href = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='${fill}' d='M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z'/%3E%3Ccircle cx='12' cy='10' r='2.8' fill='%230b0e10'/%3E%3C/svg%3E`;
+  }
+}
+
+export function applyStoredTint(tint = readStoredTint()) {
+  if (typeof document === 'undefined') return;
+  if (document.body?.dataset.game || document.getElementById('app')) return;
+  const root = document.documentElement.style;
+  if (tint?.accent) {
+    root.setProperty('--accent', tint.accent);
+    const light = isLightTheme();
+    const soft = light ? deriveLightAccentSoft(tint.accent) : (tint.accentSoft || tint.accent);
+    root.setProperty('--accent-soft', soft);
+    updateFavicon(tint.accent);
+  } else {
+    root.removeProperty('--accent');
+    root.removeProperty('--accent-soft');
+    updateFavicon('#d6453b');
+  }
+}
+
+export function readRecentGames() {
+  if (typeof document === 'undefined') return [];
+  let raw = null;
+  const m = document.cookie.match(/(?:^|;\s*)va_recent=([^;]+)/);
+  if (m) {
+    try { raw = decodeURIComponent(m[1]); } catch {}
+  }
+  if (!raw) {
+    try { raw = localStorage.getItem('va_recent_games'); } catch {}
+  }
+  if (!raw) return [];
+  return raw.split(',').map(s => s.trim()).filter(Boolean);
+}
+
+export function writeRecentGames(slugs) {
+  if (typeof document === 'undefined') return;
+  const val = (slugs || []).slice(0, 50).join(',');
+  const secure = typeof location !== 'undefined' && location.protocol === 'https:' ? '; Secure' : '';
+  document.cookie = `${RECENT_COOKIE}=${encodeURIComponent(val)}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`;
+  try { localStorage.setItem('va_recent_games', val); } catch {}
+}
+
+export function recordGameOpen(slug, theme = null) {
+  if (!slug) return;
+  const recent = readRecentGames().filter(s => s !== slug);
+  recent.unshift(slug);
+  writeRecentGames(recent);
+
+  if (theme?.accent) {
+    writeStoredTint(theme.accent, theme['accent-soft'] || null);
+    applyStoredTint({ accent: theme.accent, accentSoft: theme['accent-soft'] || null });
+  }
+}
+
 export function initTheme() {
   const initial = readThemeCookie() || currentThemeMode();
   document.documentElement.dataset.theme = initial;
   syncMetaThemeColor(initial);
+  applyStoredTint();
   document.querySelectorAll('[data-theme-toggle]').forEach(buildToggle);
   mql?.addEventListener?.('change', () => {
     if (currentThemeMode() === 'auto') {
       syncMetaThemeColor('auto');
+      applyStoredTint();
       document.querySelectorAll('[data-theme-toggle]').forEach(el => updateToggleUI(el, 'auto'));
       notifyListeners();
     }
   });
 }
 
-initTheme();
+if (typeof document !== 'undefined') initTheme();
