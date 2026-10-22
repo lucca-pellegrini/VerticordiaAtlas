@@ -116,24 +116,45 @@ input[type=checkbox]:active { transform: scale(.88); }
 .side-head, .list-tools, .groups { position: relative; }
 .side-head { padding: 18px 16px 14px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; border-bottom: 1px solid var(--line); }
 .title-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-h1 { font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-wrap: balance; }
-.home-link {
-  flex: none; padding: 5px 11px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 12px; color: var(--ink-dim); text-decoration: none; white-space: nowrap;
-  transition: color var(--fast), background-color var(--fast), border-color var(--fast);
+.title-row h1 { flex: 1; min-width: 0; font: 400 29px/1.05 var(--serif); letter-spacing: -.005em; margin: 0; text-wrap: balance; }
+.side-top-tools { display: flex; align-items: center; gap: 6px; flex: none; }
+.home-link { display: none; }
+.side-more { position: relative; }
+.side-more-btn { width: 34px; height: 34px; }
+.side-more-menu {
+  position: absolute; right: 0; top: 100%; margin-top: 6px; z-index: 25; min-width: 196px; padding: 6px;
+  border-radius: 14px; background: var(--panel-2); border: 1px solid var(--line-2);
+  box-shadow: var(--shadow-menu); animation: pop .16s var(--ease);
 }
-.home-link::before {
-  content: ""; display: inline-block; width: 14px; height: 14px; margin-right: 6px; vertical-align: -2px; background: currentColor;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M11 6l-6 6 6 6'/%3E%3C/svg%3E") center / contain no-repeat;
-          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M11 6l-6 6 6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+.side-menu-link {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 10px; border-radius: 9px;
+  text-decoration: none; color: var(--ink); font: 500 13.5px/1.2 var(--sans);
+  transition: background-color var(--fast), color var(--fast);
 }
-.home-link:hover { color: var(--ink); background: var(--hover); border-color: var(--ink-dim); }
+.side-menu-link:hover { background: var(--tint); color: var(--accent-soft); }
+.side-menu-link svg.i { width: 16px; height: 16px; flex: none; stroke-width: 1.9; }
+.side-more-menu hr { border: 0; border-top: 1px solid var(--line); margin: 6px 4px; }
+.side-menu-theme { display: grid; gap: 6px; padding: 4px 4px 6px; }
+.side-menu-label { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); padding-left: 4px; }
+.side-dropdown-theme { width: 100%; grid-template-columns: repeat(3, 1fr); height: 36px; padding: 2px; }
 
-.progress { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px 8px; }
-.progress .side-theme { height: 34px; grid-template-columns: repeat(3, 34px); }
+.side-drawer-close { display: none; }
+@media (max-width: 760px) {
+  .side-drawer-close {
+    display: inline-grid; place-items: center; width: 34px; height: 34px; padding: 0;
+    border: 1px solid var(--line-2); border-radius: 50%; background: var(--panel-2);
+    color: var(--danger); transition: background-color var(--fast), border-color var(--fast), color var(--fast), transform var(--fast);
+  }
+  .side-drawer-close:hover { background: color-mix(in srgb, var(--danger) 14%, var(--panel-2)); border-color: var(--danger); }
+  .side-drawer-close:active { transform: scale(.93); }
+  .side-drawer-close svg.i { width: 16px; height: 16px; stroke-width: 2.2; }
+}
+
+.progress { position: relative; }
 .progress-num { font: 400 42px/1 var(--serif); font-variant-numeric: tabular-nums; }
 .progress-num .of { font: 400 14px var(--sans); color: var(--ink-dim); }
 .progress-num #total-count { font-size: 22px; color: var(--ink-dim); }
-.bar { grid-column: 1 / -1; display: flex; gap: 4px; height: 6px; margin-top: 0; }
+.bar { display: flex; gap: 4px; height: 6px; margin-top: 10px; }
 .bar .seg { background: var(--panel-2); border-radius: 99px; overflow: hidden; }
 .bar .seg i { display: block; height: 100%; width: 0; border-radius: 99px; background: var(--c, var(--accent)); transition: width .3s var(--ease); }
 /* a map switch: segments grow or shrink and fills move to the new map's values over the same curve as the numbers (app.js MORPH_MS) */
@@ -165,6 +186,7 @@ body.searching .results-bar { display: flex; align-items: center; gap: 8px; padd
 #results .r-desc ul, #results .r-desc ol { margin: 0 0 6px; padding-left: 18px; }
 #results li.result.found .r-title { color: var(--ink-dim); }
 /* while searching, the list's close button is a red X that closes the search: on a desktop too (see app.js syncSideClose) */
+#side-close:not(.search-close) { display: none !important; }
 #side-close.search-close { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; padding: 0; border-radius: 999px; color: var(--danger); }
 #side-close.search-close:hover { background: rgb(234 116 104 / .12); color: var(--danger); }
 #side-close.search-close svg.i { width: 15px; height: 15px; stroke-width: 2.2; }
@@ -650,10 +672,10 @@ body.loading-map .map-switch.as-select::after { content: ""; position: absolute;
 /* the sidebar's numbers and selectors: they cross-fade with their throbbers */
 .progress { position: relative; }
 .profile-row { position: relative; }
-.progress-num, .progress .side-theme, .progress .bar, #profile-select, #tag-row, #preset-select, #profile-menu-btn, #preset-menu-btn {
+.progress-num, .progress .bar, #profile-select, #tag-row, #preset-select, #profile-menu-btn, #preset-menu-btn {
   transition: opacity .5s var(--ease);
 }
-body.loading-side .progress-num, body.loading-side .progress .side-theme, body.loading-side .progress .bar, body.loading-side #profile-select, body.loading-side #tag-row,
+body.loading-side .progress-num, body.loading-side .progress .bar, body.loading-side #profile-select, body.loading-side #tag-row,
 body.loading-side #preset-select, body.loading-side #preset-menu-btn, body.loading-side #profile-menu-btn { opacity: 0; pointer-events: none; }
 
 /* throbbers: hidden unless their part is loading */

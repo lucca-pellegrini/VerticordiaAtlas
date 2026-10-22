@@ -2957,7 +2957,51 @@ function showConflicts(list) {
   d.showModal();
 }
 
+function setupTitleRow() {
+  const row = document.querySelector('#side .title-row');
+  if (!row || row.querySelector('.side-top-tools')) return;
+  row.querySelector('.home-link')?.remove();
+
+  const tools = document.createElement('div');
+  tools.className = 'side-top-tools';
+  tools.innerHTML =
+    `<div class="side-more" id="side-more">` +
+      `<button id="side-more-btn" class="icon-btn side-more-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Menu" aria-label="Menu">` +
+        `<svg class="dots" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></svg>` +
+      `</button>` +
+      `<div id="side-more-menu" class="menu side-more-menu" hidden>` +
+        `<a class="side-menu-link" href="../../">` +
+          `<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10.5 9-7.5 9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-5a1.5 1.5 0 0 1-1.5-1.5v-4.5h-2v4.5A1.5 1.5 0 0 1 7.5 21h-5A1.5 1.5 0 0 1 1 19.5v-9z"/></svg>` +
+          `<span>All maps</span>` +
+        `</a>` +
+        `<hr>` +
+        `<div class="side-menu-theme">` +
+          `<span class="side-menu-label">Theme</span>` +
+        `</div>` +
+      `</div>` +
+    `</div>` +
+    `<button id="side-drawer-close" class="side-drawer-close" type="button" title="Close panel" aria-label="Close panel">` +
+      `<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>` +
+    `</button>`;
+
+  tools.querySelector('.side-menu-theme')?.appendChild(themeToggle('side-dropdown-theme'));
+  row.appendChild(tools);
+
+  const moreBtn = tools.querySelector('#side-more-btn');
+  const moreMenu = tools.querySelector('#side-more-menu');
+  const closeBtn = tools.querySelector('#side-drawer-close');
+
+  moreBtn.onclick = e => {
+    e.stopPropagation();
+    const open = !moreMenu.hidden;
+    moreMenu.hidden = open;
+    moreBtn.setAttribute('aria-expanded', String(!open));
+  };
+  closeBtn.onclick = () => document.body.classList.remove('side-open');
+}
+
 function wire() {
+  setupTitleRow();
   arrangeSidebar();
   // the throbber for a map switch: sticky at the top of the scrolling sidebar, so it stays in the middle of what is visible
   const scroll = document.querySelector('#side .side-scroll'), groups = document.getElementById('groups');
@@ -2970,7 +3014,6 @@ function wire() {
   // while a map loads, the side panel takes no input, from the mouse or the keyboard (its content is dimmed, see style.css)
   new MutationObserver(() => { const side = document.getElementById('side'); if (side) side.inert = document.body.classList.contains('loading-map') || document.body.classList.contains('profile-switch'); })
     .observe(document.body, { attributes: true, attributeFilter: ['class'] });
-  document.querySelector('#side .progress')?.insertBefore(themeToggle('side-theme'), document.getElementById('progress-bar'));
   onThemeChange(() => { if (state.entry) applyTheme(state.entry.theme); });
   document.querySelector('.side-scroll')?.appendChild(accountSlot());
   document.querySelector('.side-scroll')?.appendChild(legalLinks());
@@ -3042,10 +3085,26 @@ function wire() {
     if (!e.target.closest('#row-menu, .row-menu-btn')) closeRowMenu();
     if (!e.target.closest('.profile-row')) menu.hidden = true;
     if (!e.target.closest('.preset-row')) presetMenu.hidden = true;
+    if (!e.target.closest('#side-more')) {
+      const smm = $('#side-more-menu');
+      if (smm && !smm.hidden) {
+        smm.hidden = true;
+        $('#side-more-btn')?.setAttribute('aria-expanded', 'false');
+      }
+    }
   });
 
   $('#detail-close').onclick = closeDetail;
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeRowMenu(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeRowMenu();
+      const smm = $('#side-more-menu');
+      if (smm && !smm.hidden) {
+        smm.hidden = true;
+        $('#side-more-btn')?.setAttribute('aria-expanded', 'false');
+      }
+    }
+  });
   addEventListener('resize', closeRowMenu);
   document.addEventListener('scroll', e => { if (!e.target.closest?.('#row-menu')) closeRowMenu(); }, true);
   $('#detail-back').onclick = goBack;
