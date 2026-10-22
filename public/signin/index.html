@@ -20,12 +20,13 @@
 </head>
 <body>
 <div class="bg" aria-hidden="true"></div>
-<main class="signin">
-  <div class="signin-top">
-    <a class="back" href="../">Back to the maps</a>
-    <div data-theme-toggle></div>
-  </div>
 
+<header class="signin-top wrap">
+  <a class="back" href="../"><span>Back to the maps</span></a>
+  <div data-theme-toggle></div>
+</header>
+
+<main class="signin">
   <h1>Sign in to sync</h1>
   <p class="lede">Signing in is <strong>entirely optional</strong>: it adds no features, it only lets the same progress follow you to another device. Everything works offline, and your progress stays on this device either way.</p>
 
@@ -65,10 +66,12 @@
       <p class="error" id="secret-error" role="alert" hidden></p>
     </div>
   </div>
+</main>
 
+<footer class="signin-foot wrap">
   <p class="skip"><a href="../">Not now. Keep using the app.</a></p>
   <p class="fine">By signing in you agree to our <a href="../terms/">Terms of service</a> and <a href="../privacy/">Privacy policy</a>.</p>
-</main>
+</footer>
 
 <script type="module" src="signin.js"></script>
 </body>
