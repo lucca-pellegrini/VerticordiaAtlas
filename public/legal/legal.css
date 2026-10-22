@@ -8,15 +8,19 @@ body { display: flex; flex-direction: column; }
 .legal-top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 16px;
   padding: 16px clamp(18px, 5vw, 40px); background: color-mix(in srgb, var(--night) 82%, transparent);
   backdrop-filter: blur(14px) saturate(1.1); -webkit-backdrop-filter: blur(14px) saturate(1.1); border-bottom: 1px solid var(--line); }
-.legal-top .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); text-decoration: none; }
-.legal-top .brand .mark { position: relative; display: block; width: 22px; height: 22px; }
+.legal-top .brand { display: inline-flex; flex: none; align-items: center; gap: 10px; color: var(--accent); text-decoration: none; white-space: nowrap; }
+.legal-top .brand .mark { position: relative; display: block; width: 22px; height: 22px; flex: none; }
 .legal-top .brand .mark svg { width: 100%; height: 100%; display: block; fill: currentColor; }
-.legal-top .brand span { color: var(--ink); font: 400 1.4rem/1 "Instrument Serif"; }
-.legal-top-tools { display: flex; align-items: center; gap: 10px; }
-.legal-top .back { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-dim); text-decoration: none; font-size: 14px;
-  padding: 7px 13px; border: 1px solid var(--line-2); border-radius: 999px; transition: color .2s, border-color .2s; }
+.legal-top .brand span { color: var(--ink); font: 400 1.4rem/1 "Instrument Serif"; white-space: nowrap; }
+.legal-top-tools { display: flex; flex: none; align-items: center; gap: 10px; }
+.legal-top .back {
+  display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 8px; height: 40px; box-sizing: border-box;
+  padding: 0 14px; border: 1px solid var(--line-2); border-radius: 999px; color: var(--ink-dim); text-decoration: none;
+  font: 500 14px/1 Inter; white-space: nowrap; transition: color .2s, border-color .2s;
+}
+.legal-top .back span { white-space: nowrap; }
 .legal-top .back:hover { color: var(--ink); border-color: var(--ink-dim); }
-.legal-top .back::before { content: ""; width: 14px; height: 14px; background: currentColor;
+.legal-top .back::before { content: ""; width: 14px; height: 14px; flex: none; background: currentColor;
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M12 19l-7-7 7-7'/%3E%3C/svg%3E") center / contain no-repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 12H5M12 19l-7-7 7-7'/%3E%3C/svg%3E") center / contain no-repeat; }
 
@@ -67,8 +71,8 @@ body { display: flex; flex-direction: column; }
 
 /* narrow screens: the navigator becomes a horizontal strip above the text, with the sections in order */
 @media (max-width: 860px) {
-  .legal { grid-template-columns: minmax(0, 1fr); padding-top: 28px; gap: 18px; }
-  .toc { position: sticky; top: 66px; z-index: 5; max-height: none; overflow: visible; margin: 0 calc(-1 * clamp(18px, 5vw, 40px)); padding: 10px clamp(18px, 5vw, 40px);
+  .legal { grid-template-columns: minmax(0, 1fr); padding-top: 0; gap: 0; }
+  .toc { position: sticky; top: 73px; z-index: 5; max-height: none; overflow: visible; margin: 0 calc(-1 * clamp(18px, 5vw, 40px)); padding: 10px clamp(18px, 5vw, 40px);
     background: color-mix(in srgb, var(--night) 88%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
   .toc-title, .toc-note { display: none; }
   .toc ol { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
@@ -78,10 +82,14 @@ body { display: flex; flex-direction: column; }
   .toc ol a::before { display: none; }
   .toc ol a[aria-current="true"] { border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
   .toc ol a[aria-current="true"]::after { display: none; }
+  .doc { padding-top: 28px; }
   .doc section { scroll-margin-top: 130px; }
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+  .legal-top .back { width: 40px; padding: 0; }
   .legal-top .back span { display: none; }
+}
+@media (max-width: 480px) {
   .doc h1 { font-size: 44px; }
   .doc h2 { font-size: 26px; }
 }

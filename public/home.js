@@ -105,7 +105,11 @@ function setupSearch(list) {
   const setOpen = open => {
     form.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    if (open) input.focus({ preventScroll: true });
+    if (open) {
+      document.getElementById('top-more')?.classList.remove('open');
+      document.querySelector('.more-toggle')?.setAttribute('aria-expanded', 'false');
+      input.focus({ preventScroll: true });
+    }
     else { input.value = ''; filter(); toggle.focus({ preventScroll: true }); }
   };
 
@@ -117,10 +121,32 @@ function setupSearch(list) {
 
 main();
 
-// the account button, to the right of the search (it steps aside while the search is open)
-const topTools = document.querySelector('.top-tools');
-if (topTools) topTools.appendChild(accountSlot('top'));
+// the account button, to the right of the search (on mobile, inside the three-dots menu with the theme switch)
+const topMore = document.getElementById('top-more');
+const topMorePanel = document.getElementById('top-more-panel');
+const moreToggle = topMore?.querySelector('.more-toggle');
+if (topMorePanel) topMorePanel.appendChild(accountSlot('top'));
 initAccount({ toast: notify });
+
+if (topMore && moreToggle) {
+  const setMoreOpen = open => {
+    topMore.classList.toggle('open', open);
+    moreToggle.setAttribute('aria-expanded', String(open));
+  };
+  moreToggle.addEventListener('click', e => {
+    e.stopPropagation();
+    setMoreOpen(!topMore.classList.contains('open'));
+  });
+  document.addEventListener('click', e => {
+    if (!topMore.contains(e.target)) setMoreOpen(false);
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && topMore.classList.contains('open')) {
+      setMoreOpen(false);
+      moreToggle.focus({ preventScroll: true });
+    }
+  });
+}
 
 // Logo tap: the logo links to this same page, so tapping it shows the heart instead of reloading,
 // then it switches back to the pin after a few seconds.
