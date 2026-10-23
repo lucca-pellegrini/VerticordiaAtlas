@@ -1,6 +1,6 @@
 import { describe, expect, test, beforeEach, afterEach } from 'bun:test';
 import http from 'node:http';
-import { mkdtemp, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import {
@@ -9,6 +9,8 @@ import {
 } from '../server/cards.ts';
 import { createApi } from '../server/api.ts';
 import { extractVar, tilesCovering, deriveTheme } from '../scripts/add-game.ts';
+import { buildClient, verifyAndHashPrecache } from '../scripts/build.ts';
+import { PRECACHE } from '../src/client/sw.ts';
 
 describe('server/cards helpers', () => {
   test('hexToHsl and hslToHex round-trip', () => {
@@ -80,6 +82,41 @@ describe('scripts/add-game pure helpers', () => {
     const theme = deriveTheme('#d6453b');
     expect(theme.accent).toBe('#d6453b');
     expect(theme.night).toMatch(/^#[0-9a-f]{6}$/);
+  });
+});
+
+describe('build, self-hosted fonts, and service worker precache', () => {
+  test('buildClient bundles all targets, verifies every PRECACHE path on disk, and embeds content hash in public/sw.js', async () => {
+    await buildClient({ quiet: true });
+    const swVersion = await verifyAndHashPrecache();
+    expect(swVersion).toMatch(/^v40-[0-9a-f]{8}$/);
+    expect(PRECACHE).toContain('fonts/inter-latin-400-normal.woff2');
+    expect(PRECACHE).toContain('fonts/instrument-serif-latin-400-normal.woff2');
+    expect(PRECACHE).not.toContain('perfect-freehand.mjs');
+
+    const swCode = await readFile(path.join(process.cwd(), 'public', 'sw.js'), 'utf8');
+    expect(swCode).toContain(swVersion);
+    expect(swCode).not.toContain('fonts.googleapis.com');
+  });
+
+  test('HTML pages do not load external Google Fonts and base.css declares @font-face for Inter and Instrument Serif', async () => {
+    const htmlPages = [
+      'public/index.html',
+      'public/map.html',
+      'public/signin/index.html',
+      'public/about/index.html',
+      'public/terms/index.html',
+      'public/privacy/index.html',
+    ];
+    for (const rel of htmlPages) {
+      const html = await readFile(path.join(process.cwd(), rel), 'utf8');
+      expect(html).not.toContain('fonts.googleapis.com');
+      expect(html).not.toContain('fonts.gstatic.com');
+    }
+    const baseCss = await readFile(path.join(process.cwd(), 'public', 'base.css'), 'utf8');
+    expect(baseCss).toContain('font-family: "Inter"');
+    expect(baseCss).toContain('font-family: "Instrument Serif"');
+    expect(baseCss).toContain('./fonts/inter-latin-400-normal.woff2');
   });
 });
 

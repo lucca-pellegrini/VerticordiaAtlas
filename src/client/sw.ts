@@ -1,0 +1,148 @@
+// sw.ts: the offline cache. The app works from what it holds, and asks the network only to refresh it.
+//   shell (pages, scripts, styles, fonts, icons, vendor files): served from cache at once, refreshed in the background
+//   game data (metadata, marker data, posters, cards): the same, and the refresh revalidates with the stored ETag
+//   map tiles: cache first, kept for 30 days and at most TILE_LIMIT tiles
+//   /api/ (accounts, sync): never cached, never answered from the cache
+
+declare const __SW_VERSION__: string | undefined;
+declare const self: ServiceWorkerGlobalScope;
+
+export const VERSION = typeof __SW_VERSION__ !== 'undefined' ? __SW_VERSION__ : 'v40';
+export const SHELL = `va-shell-${VERSION}`;
+export const DATA = `va-data-${VERSION}`;
+export const TILES = `va-tiles-${VERSION}`;
+export const KEEP = new Set([SHELL, DATA, TILES]);
+export const TILE_LIMIT = 2000;
+export const TILE_MAX_AGE = 30 * 24 * 3600 * 1000;
+
+export const PRECACHE: readonly string[] = [
+  '',
+  'index.html',
+  'map.html',
+  'about/',
+  'about/index.html',
+  'terms/',
+  'terms/index.html',
+  'privacy/',
+  'privacy/index.html',
+  'signin/',
+  'signin/index.html',
+  'signin/signin.js',
+  'signin/signin.css',
+  'legal/legal.css',
+  'legal/legal.js',
+  'style.css',
+  'base.css',
+  'home.css',
+  'app.js',
+  'home.js',
+  'theme.js',
+  'fonts/instrument-serif-latin-400-normal.woff2',
+  'fonts/inter-latin-400-normal.woff2',
+  'fonts/inter-latin-600-normal.woff2',
+  'fonts/inter-latin-700-normal.woff2',
+  'fonts/inter-latin-800-normal.woff2',
+  'vendor/maplibre-gl.js',
+  'vendor/maplibre-gl.css',
+  'vendor/marked.umd.js',
+  'vendor/lucide/icons.json',
+  'manifest.webmanifest',
+  'logo.svg',
+  'icons/apple-touch-icon.png',
+  'icons/icon-192.png',
+  'icons/icon-512.png',
+  'icons/maskable-512.png',
+];
+
+const offline = () => new Response('Offline, and not cached yet.', { status: 503, headers: { 'Content-Type': 'text/plain' } });
+
+if (typeof self !== 'undefined' && 'registration' in self) {
+  const scope = self.registration.scope;
+  const at = (p: string) => new URL(p, scope).href;
+
+  self.addEventListener('install', (event: ExtendableEvent) => {
+    event.waitUntil((async () => {
+      const cache = await caches.open(SHELL);
+      // one missing file must not stop the rest from being cached
+      await Promise.all(PRECACHE.map(p => cache.add(at(p)).catch(() => {})));
+      await self.skipWaiting();
+    })());
+  });
+
+  self.addEventListener('activate', (event: ExtendableEvent) => {
+    event.waitUntil((async () => {
+      for (const name of await caches.keys()) if (!KEEP.has(name)) await caches.delete(name);
+      await self.clients.claim();
+    })());
+  });
+
+  // serve what we have, refresh it behind the scenes
+  async function staleWhileRevalidate(event: FetchEvent, cacheName: string, req: Request): Promise<Response> {
+    const cache = await caches.open(cacheName);
+    let cached = await cache.match(req);
+    if (!cached && req.mode === 'navigate') {
+      cached = await cache.match(req, { ignoreSearch: true });
+    }
+    const refresh = fetch(req, { cache: 'no-cache' }).then(res => {
+      if (res.ok && res.status === 200) cache.put(req, res.clone());
+      return res;
+    }).catch(() => null);
+    if (cached) { event.waitUntil(refresh); return cached; }
+    const fresh = await refresh;
+    if (fresh) return fresh;
+    if (req.mode === 'navigate') {
+      const shell = await caches.open(SHELL);
+      const fallback = await shell.match(at('map.html'));
+      if (fallback) return fallback;
+    }
+    return offline();
+  }
+
+  // a copy remembers when it was made, so tiles can age out
+  async function stamped(res: Response): Promise<Response> {
+    const body = await res.blob();
+    const headers = new Headers(res.headers);
+    headers.set('x-va-cached-at', String(Date.now()));
+    return new Response(body, { status: res.status, statusText: res.statusText, headers });
+  }
+
+  async function trimTiles(cache: Cache): Promise<void> {
+    const keys = await cache.keys();
+    for (const k of keys.slice(0, Math.max(0, keys.length - TILE_LIMIT))) await cache.delete(k);
+  }
+
+  async function tile(event: FetchEvent, req: Request): Promise<Response> {
+    const cache = await caches.open(TILES);
+    const hit = await cache.match(req);
+    if (hit && Date.now() - Number(hit.headers.get('x-va-cached-at') || 0) < TILE_MAX_AGE) return hit;
+    try {
+      const res = await fetch(req);
+      if (res.ok) {
+        event.waitUntil(stamped(res.clone()).then(copy => cache.put(req, copy)).then(() => trimTiles(cache)));
+        return res;
+      }
+    } catch { /* offline: below */ }
+    return hit || offline();
+  }
+
+  self.addEventListener('fetch', (event: FetchEvent) => {
+    const req = event.request;
+    if (req.method !== 'GET') return;
+    const url = new URL(req.url);
+
+    if (url.pathname.startsWith(new URL(scope).pathname + 'api/')) return; // accounts and sync: the network, always
+    if (url.origin !== self.location.origin) return;
+
+    const rel = url.pathname.slice(new URL(scope).pathname.length);
+    if (/^maps\/[^/]+\/[^/]+\/tiles\//.test(rel)) { event.respondWith(tile(event, req)); return; }
+    if (rel.startsWith('maps/')) {
+      if (req.mode === 'navigate' && /^maps\/[^/]+$/.test(rel)) {
+        event.respondWith(Response.redirect(url.href + '/', 301));
+        return;
+      }
+      event.respondWith(staleWhileRevalidate(event, DATA, req));
+      return;
+    }
+    event.respondWith(staleWhileRevalidate(event, SHELL, req));
+  });
+}
