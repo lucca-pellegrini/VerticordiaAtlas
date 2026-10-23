@@ -6,9 +6,9 @@ import path from 'node:path';
 import {
   hexToHsl, hslToHex, deriveLightTheme, gameThemeColor, gameFavicon,
   esc, socialTags, withHead, plainText, officialIcon,
-} from '../server/cards.mjs';
-import { createApi } from '../server/api.mjs';
-import { extractVar, tilesCovering, deriveTheme } from '../scripts/add-game.mjs';
+} from '../server/cards.ts';
+import { createApi } from '../server/api.ts';
+import { extractVar, tilesCovering, deriveTheme } from '../scripts/add-game.ts';
 
 describe('server/cards helpers', () => {
   test('hexToHsl and hslToHex round-trip', () => {

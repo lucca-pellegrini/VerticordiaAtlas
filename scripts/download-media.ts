@@ -2,12 +2,12 @@ import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import path from 'node:path';
 
 const data = JSON.parse(await readFile('./public/maps/requiem/data.json', 'utf8'));
-const urls = [...new Set(data.locations.flatMap(l => (l.media ?? []).map(m => m.url)))];
+const urls: string[] = [...new Set<string>(data.locations.flatMap((l: any) => (l.media ?? []).map((m: any) => m.url)))];
 const OUT = './public/maps/requiem/media';
 await mkdir(OUT, { recursive: true });
 
 let i = 0, saved = 0, skipped = 0, failed = 0, bytes = 0;
-const exists = p => access(p).then(() => true, () => false);
+const exists = (p: string) => access(p).then(() => true, () => false);
 
 async function worker() {
   while (i < urls.length) {

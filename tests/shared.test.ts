@@ -1,7 +1,9 @@
 import { describe, expect, test } from 'bun:test';
-import { norm, flat, words, levenshtein, fuzzyScore } from '../public/shared/search.mjs';
-import { TOUCH_FIELD, POSITION_FIELDS, stable, contentKey, sendKey, fnv } from '../public/shared/sync-rules.mjs';
-import { packMarker, unpackMarker } from '../public/share-link.mjs';
+import { norm, flat, words, levenshtein, fuzzyScore } from '../src/shared/search.ts';
+import { TOUCH_FIELD, POSITION_FIELDS, stable, contentKey, sendKey, fnv } from '../src/shared/sync-rules.ts';
+import { packMarker, unpackMarker } from '../src/shared/share-link.ts';
+import { esc, fmt, fmtEn } from '../src/shared/escape.ts';
+import { hexToHsl, hslToHex, deriveLightAccentSoft, deriveLightTheme, glyphInk } from '../src/shared/theme-math.ts';
 
 describe('shared/search', () => {
   test('norm strips diacritics and lowercases', () => {
@@ -117,5 +119,24 @@ describe('share-link', () => {
 
     const badLat = await packMarker({ title: 'Out of bounds', lat: 95, lng: 0, map: 'world' });
     expect(await unpackMarker(badLat)).toBeNull();
+  });
+});
+
+describe('shared/escape and shared/theme-math', () => {
+  test('esc, fmt, and fmtEn format strings and numbers', () => {
+    expect(esc('A & <"B">')).toBe('A &amp; &lt;&quot;B&quot;&gt;');
+    expect(esc(null)).toBe('');
+    expect(fmtEn(12345)).toBe('12,345');
+    expect(typeof fmt(12345)).toBe('string');
+  });
+
+  test('theme-math functions compute consistent HSL and light theme palettes', () => {
+    const [h, s, l] = hexToHsl('#d6453b');
+    expect(hslToHex(h, s, l)).toBe('#d6453b');
+    expect(deriveLightAccentSoft('#d6453b')).toMatch(/^#[0-9a-f]{6}$/);
+    const light = deriveLightTheme({ accent: '#d6453b' });
+    expect(light['accent-soft']).toBe(deriveLightAccentSoft('#d6453b'));
+    expect(glyphInk('#000000')).toBe('#ffffff');
+    expect(glyphInk('#ffffff')).toBe('#14161a');
   });
 });

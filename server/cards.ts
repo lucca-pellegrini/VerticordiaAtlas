@@ -1,76 +1,56 @@
-// cards.mjs: the social preview cards and the tags that point at them.
-// Used by make-cards.mjs (the homepage and game cards, built ahead of time) and by server.mjs (a card per shared
+// cards.ts: the social preview cards and the tags that point at them.
+// Used by make-cards.ts (the homepage and game cards, built ahead of time) and by server.ts (a card per shared
 // marker, rendered on first request and cached).
 
 import { readdir, readFile, writeFile, access, mkdtemp, rm, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { glyphInk } from '../public/icons-lib.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { esc, fmtEn as fmt } from '../src/shared/escape.ts';
+import {
+  hexToHsl, hslToHex, deriveLightTheme, gameThemeColor, gameFavicon, glyphInk,
+} from '../src/shared/theme-math.ts';
+import type { ThemePalette, GameManifestEntry, GameMeta, MapMeta, GameIconsMeta, GameMarkersMeta, GameStat } from '../src/shared/types.ts';
+
+export { esc, hexToHsl, hslToHex, deriveLightTheme, gameThemeColor, gameFavicon };
 
 const execFileP = promisify(execFile);
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const REPO = path.resolve(HERE, '..');            // the project: site.json, data/, cache/
 export const PUBLIC = path.join(REPO, 'public');        // the web root: maps/, vendor/, card.jpg
 const FONTS = path.join(HERE, 'assets', 'fonts');
-export const exists = p => access(p).then(() => true, () => false);
-export const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const fmt = n => Number(n).toLocaleString('en-US');
-const fileUrl = p => pathToFileURL(p).href;
+export const exists = (p: string): Promise<boolean> => access(p).then(() => true, () => false);
+const fileUrl = (p: string): string => pathToFileURL(p).href;
 
-export function hexToHsl(hex) {
-  const clean = String(hex || '#d6453b').replace('#', '');
-  const [r, g, b] = [0, 2, 4].map(i => parseInt(clean.slice(i, i + 2), 16) / 255);
-  const mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, d = mx - mn;
-  if (!d) return [0, 0, l];
-  const sat = d / (1 - Math.abs(2 * l - 1));
-  const h = mx === r ? ((g - b) / d + 6) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
-  return [h * 60, sat, l];
-}
-
-export function hslToHex(h, s, l) {
-  const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l);
-  const f = n => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1))))).toString(16).padStart(2, '0');
-  return '#' + f(0) + f(8) + f(4);
-}
-
-export function deriveLightTheme(theme = {}) {
-  const accent = theme.accent || '#d6453b';
-  const [h, s, al] = hexToHsl(accent);
-  const tint = (sat, l) => hslToHex(h, Math.min(sat, s), l);
-  return {
-    accent,
-    'accent-soft': hslToHex(h, Math.min(s, 0.78), Math.max(0.26, Math.min(0.40, al - 0.06))),
-    night: tint(0.32, 0.945),
-    panel: tint(0.28, 0.982),
-    'panel-2': tint(0.26, 0.935),
-    line: tint(0.24, 0.855),
-  };
-}
-
-export function gameThemeColor(theme = {}, isLight = false) {
-  if (isLight) return deriveLightTheme(theme).night;
-  return theme.night || '#0b0e10';
-}
-
-export function gameFavicon(theme = {}, isLight = false) {
-  const active = isLight ? deriveLightTheme(theme) : theme;
-  const pin = active['accent-soft'] || active.accent || '#d6453b';
-  const dot = active.night || '#0b0e10';
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='${pin}' d='M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z'/><circle cx='12' cy='10' r='2.8' fill='${dot}'/></svg>`;
-  return 'data:image/svg+xml,' + encodeURIComponent(svg);
-}
-
-const DEFAULT_THEME = { accent: '#d6453b', 'accent-soft': '#f0877d', night: '#0b0e10', panel: '#12161a', line: '#252d33' };
+const DEFAULT_THEME: ThemePalette = { accent: '#d6453b', 'accent-soft': '#f0877d', night: '#0b0e10', panel: '#12161a', line: '#252d33' };
 const PIN = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"/><circle cx="12" cy="10" r="2.8" fill="var(--night)"/></svg>';
+
+export interface LoadedGame {
+  slug: string;
+  dir: string;
+  title: string;
+  maps: MapMeta[];
+  markers: GameMarkersMeta | null;
+  icons: GameIconsMeta | null;
+  description: string;
+  alt: string;
+  theme: ThemePalette;
+  stats: GameStat[];
+  poster: string | null;
+}
+
+export type CardIcon =
+  | { image: string; x: number; y: number; size: number; color: string; ink: string; layers?: undefined; inner?: undefined }
+  | { font: string; layers: { cp: string; tint: string; ml: string }[]; color: string; ink: string; image?: undefined; inner?: undefined }
+  | { glyph: string; color: string; ink: string; inner: string; image?: undefined; layers?: undefined };
 
 /* ---------- what to draw ---------- */
 
-const cleanTitle = t => String(t || '').replace(/\s*\(WIP\)\s*$/i, '').trim();
+const cleanTitle = (t: unknown): string => String(t || '').replace(/\s*\(WIP\)\s*$/i, '').trim();
 
-export async function findPoster(dir) {
+export async function findPoster(dir: string): Promise<string | null> {
   for (const name of ['poster-1200.webp', 'poster-600.webp']) {
     if (await exists(path.join(dir, name))) return path.join(dir, name);
   }
@@ -79,16 +59,16 @@ export async function findPoster(dir) {
 }
 
 // every game folder under maps/ (with a meta.json), plus the manifest's order for the homepage
-export async function loadGames() {
-  const manifest = JSON.parse(await readFile(path.join(PUBLIC, 'maps', 'index.json'), 'utf8')).games || [];
-  const listed = new Map(manifest.map(g => [g.slug, g]));
-  const games = [];
+export async function loadGames(): Promise<{ games: LoadedGame[]; shown: LoadedGame[] }> {
+  const manifest: GameManifestEntry[] = JSON.parse(await readFile(path.join(PUBLIC, 'maps', 'index.json'), 'utf8')).games || [];
+  const listed = new Map<string, GameManifestEntry>(manifest.map(g => [g.slug, g]));
+  const games: LoadedGame[] = [];
   for (const d of await readdir(path.join(PUBLIC, 'maps'), { withFileTypes: true })) {
     if (!d.isDirectory()) continue;
     const dir = path.join(PUBLIC, 'maps', d.name);
     if (!await exists(path.join(dir, 'meta.json'))) continue;
-    const meta = JSON.parse(await readFile(path.join(dir, 'meta.json'), 'utf8'));
-    const entry = listed.get(d.name) || {};
+    const meta: GameMeta = JSON.parse(await readFile(path.join(dir, 'meta.json'), 'utf8'));
+    const entry: Partial<GameManifestEntry> = listed.get(d.name) || {};
     const title = cleanTitle(entry.title || meta.title || d.name);
     games.push({
       slug: d.name, dir, title, maps: meta.maps || [], markers: meta.markers || null, icons: meta.icons || null,
@@ -99,15 +79,16 @@ export async function loadGames() {
       poster: await findPoster(dir),
     });
   }
-  const shown = manifest.map(e => games.find(g => g.slug === e.slug)).filter(Boolean);
+  const shown = manifest.map(e => games.find(g => g.slug === e.slug)).filter((g): g is LoadedGame => Boolean(g));
   return { games, shown };
 }
 
 /* ---------- the card markup: one page per card, drawn in headless Chromium ---------- */
 
-export function page(body, theme, extraCss = '') {
-  const face = (family, file, weight) => `@font-face { font-family: "${family}"; src: url("${fileUrl(path.join(FONTS, file))}") format("woff2"); font-weight: ${weight}; font-style: normal; font-display: block; }`;
-  const vars = Object.entries(theme).map(([k, v]) => `--${k}: ${v};`).join(' ');
+export function page(body: string, theme: ThemePalette, extraCss = ''): string {
+  const face = (family: string, file: string, weight: number) =>
+    `@font-face { font-family: "${family}"; src: url("${fileUrl(path.join(FONTS, file))}") format("woff2"); font-weight: ${weight}; font-style: normal; font-display: block; }`;
+  const vars = Object.entries(theme).filter(([, v]) => v !== undefined).map(([k, v]) => `--${k}: ${v};`).join(' ');
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 ${face('Inter', 'inter-latin-400-normal.woff2', 400)}
 ${face('Inter', 'inter-latin-600-normal.woff2', 600)}
@@ -157,11 +138,11 @@ ${body}
 </body></html>`;
 }
 
-function posterDiv(poster) {
+function posterDiv(poster: string | null | undefined): string {
   return poster ? `<div class="poster" style="background-image: url('${fileUrl(poster)}')"></div>` : '';
 }
 
-export function gameHtml(g) {
+export function gameHtml(g: LoadedGame): string {
   const stats = g.stats.map(s => `<li><b>${fmt(s.value)}</b> ${esc(s.label)}</li>`).join('');
   return page(`${posterDiv(g.poster)}
 <header class="brand">${PIN}<span>Verticordia Atlas</span></header>
@@ -175,47 +156,47 @@ export function gameHtml(g) {
 
 // a card for one marker: its category as the eyebrow, its name, a line of its notes, the game underneath
 // the Lucide icon's markup, read once (the library is the same file the page fetches)
-let lucide = null;
-export async function glyphInner(name) {
+let lucide: Record<string, [string, string[]]> | null = null;
+export async function glyphInner(name: string): Promise<string | null> {
   if (!lucide) lucide = JSON.parse(await readFile(path.join(PUBLIC, 'vendor', 'lucide', 'icons.json'), 'utf8'));
-  return lucide[name]?.[0] ?? null;
+  return lucide![name]?.[0] ?? null;
 }
-// an official category's icon: the game's own icon-font glyph (add-game.mjs keeps the glyph map in meta.json), in the ink
+// an official category's icon: the game's own icon-font glyph (add-game.ts keeps the glyph map in meta.json), in the ink
 // that reads on its group's colour, as the sidebar draws it. Black or white layers take that ink; coloured ones keep theirs.
 const HEX = /^#[0-9a-f]{3,8}$/i, EM = /^-?\d+(\.\d+)?(em|px)$/, CODEPOINT = /^[0-9a-f]{1,6}$/i;
 const BLACK_OR_WHITE = new Set(['#000', '#000000', '#fff', '#ffffff']);
-export function officialIcon(game, iconName, color) {
+export function officialIcon(game: { dir: string; icons?: GameIconsMeta | null }, iconName: string, color?: string | null): CardIcon | null {
   const icons = game.icons;
   const raw = icons?.glyphs?.[iconName];
-  if (raw === undefined || !HEX.test(color || '')) return null;
+  if (raw === undefined || !color || !HEX.test(color)) return null;
   const ink = glyphInk(color);
-  if (icons.image) {
+  if (icons?.image) {
     const x = typeof raw === 'number' ? 0 : (Number(raw?.x) || 0);
     const y = typeof raw === 'number' ? raw : (Number(raw?.y) || 0);
     const size = Number(icons.size) || 18;
     return { image: path.join(game.dir, icons.image), x, y, size, color, ink };
   }
-  if (!icons.font) return null;
-  const layers = (Array.isArray(raw) ? raw : [raw]).map(l => {
+  if (!icons?.font) return null;
+  const layers = (Array.isArray(raw) ? raw : [raw]).map((l: any) => {
     const layer = typeof l === 'string' ? { cp: l } : l || {};
     const cp = String(layer.cp ?? '').toLowerCase();
     if (!CODEPOINT.test(cp)) return null;
     const tint = HEX.test(layer.color || '') && !BLACK_OR_WHITE.has(layer.color.toLowerCase()) ? layer.color : ink;
     return { cp, tint, ml: EM.test(layer.ml || '') ? layer.ml : '' };
-  }).filter(Boolean);
+  }).filter((x): x is { cp: string; tint: string; ml: string } => Boolean(x));
   if (!layers.length) return null;
   return { font: path.join(game.dir, icons.font), layers, color, ink };
 }
 
 // a category's icon for a card: its colour, the glyph's contrasting ink, and the markup (or null when unknown)
-export async function categoryIcon({ glyph, color }) {
+export async function categoryIcon({ glyph, color }: { glyph?: string | null; color?: string | null }): Promise<CardIcon | null> {
   if (!glyph || !color) return null;
   const inner = await glyphInner(glyph);
   return inner ? { glyph, color, ink: glyphInk(color), inner } : null;
 }
 
 // the icon's graphic inside its disc: the game's icon-font glyph, image sprite, or a library glyph
-function iconGraphic(icon) {
+function iconGraphic(icon: CardIcon): string {
   if (icon.image) {
     const scale = 58 / icon.size;
     const m = `url('${fileUrl(icon.image)}') -${Math.round(icon.x * scale)}px -${Math.round(icon.y * scale)}px / 58px auto no-repeat`;
@@ -227,8 +208,22 @@ function iconGraphic(icon) {
   return `<svg viewBox="0 0 24 24" aria-hidden="true">${icon.inner}</svg>`;
 }
 
+export interface MarkerCardInfo {
+  title: string;
+  category: string;
+  description: string;
+  gameTitle: string;
+  theme: ThemePalette;
+  poster?: string | null;
+  shot?: string | null;
+  icon?: CardIcon | null;
+  gameSlug?: string;
+  mapSlug?: string;
+  id?: number;
+}
+
 // a card for one marker. With a category icon, the icon is shown large beside the category's name.
-export function markerHtml({ title, category, description, gameTitle, theme, poster, shot, icon }) {
+export function markerHtml({ title, category, description, gameTitle, theme, poster, shot, icon }: MarkerCardInfo): string {
   // the size steps down early: a title over two lines pushes the copy into the brand row (the copy is anchored below it)
   const size = title.length > 60 ? 'xlong' : title.length > 18 ? 'long' : '';
   const picture = shot ? `<img class="shot" src="${fileUrl(shot)}" alt="">` : '';
@@ -259,12 +254,12 @@ ${picture}
 }
 
 // the homepage card: three posters picked at random from the games that have one, fanned on the right
-export function homeHtml(games) {
+export function homeHtml(games: LoadedGame[]): string {
   const pool = games.filter(g => g.poster);
   for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
   const cards = pool.slice(0, 3).map((g, i) => {
     const left = 650 + (i % 2) * 130, top = 66 + i * 176, rot = (i - 1) * -5;
-    return `<div class="fan" style="left:${left}px; top:${top}px; transform: rotate(${rot}deg); background-image: url('${fileUrl(g.poster)}'); --accent: ${g.theme.accent}"></div>`;
+    return `<div class="fan" style="left:${left}px; top:${top}px; transform: rotate(${rot}deg); background-image: url('${fileUrl(g.poster!)}'); --accent: ${g.theme.accent}"></div>`;
   }).join('\n');
   const css = `
 .fan { position: absolute; width: 340px; height: 170px; border-radius: 18px; overflow: hidden; background-size: cover; background-position: center;
@@ -283,7 +278,7 @@ h1 { font-size: 104px; }
 
 /* ---------- drawing ---------- */
 
-export async function chromePath() {
+export async function chromePath(): Promise<string> {
   if (process.env.CHROME) return process.env.CHROME;
   for (const bin of ['chromium', 'chromium-browser', 'google-chrome', 'google-chrome-stable', 'chrome']) {
     try { await execFileP('which', [bin]); return bin; } catch {}
@@ -292,7 +287,7 @@ export async function chromePath() {
 }
 
 // draws html as a 1200x630 JPG at `out`
-export async function drawCard(chrome, html, out) {
+export async function drawCard(chrome: string, html: string, out: string): Promise<void> {
   const tmp = await mkdtemp(path.join(os.tmpdir(), 'card-'));
   try {
     const file = path.join(tmp, 'card.html'), png = path.join(tmp, 'card.png');
@@ -311,7 +306,16 @@ export async function drawCard(chrome, html, out) {
 
 /* ---------- tags ---------- */
 
-export function socialTags({ title, description, url, image, alt, type = 'website' }) {
+export interface SocialTagsInput {
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+  alt: string;
+  type?: string;
+}
+
+export function socialTags({ title, description, url, image, alt, type = 'website' }: SocialTagsInput): string {
   return [
     `<meta property="og:type" content="${type}">`,
     '<meta property="og:site_name" content="Verticordia Atlas">',
@@ -323,7 +327,7 @@ export function socialTags({ title, description, url, image, alt, type = 'websit
     '<meta property="og:image:height" content="630">',
     `<meta property="og:image:alt" content="${esc(alt)}">`,
     '<meta name="twitter:card" content="summary_large_image">',
-    `<meta name="twitter:title" content="${esc(title)}">`,
+    `<meta name="twitter:title" content="${esc(title)}">',`.slice(0, -2),
     `<meta name="twitter:description" content="${esc(description)}">`,
     `<meta name="twitter:image" content="${esc(image)}">`,
     `<meta name="twitter:image:alt" content="${esc(alt)}">`,
@@ -331,7 +335,7 @@ export function socialTags({ title, description, url, image, alt, type = 'websit
 }
 
 // the page's HTML with its social block replaced (or added before </head>), and optionally its <title>
-export function withHead(html, block, pageTitle) {
+export function withHead(html: string, block: string, pageTitle?: string | null): string {
   const wrapped = `<!-- social:start (make-cards.mjs) -->\n${block}\n<!-- social:end -->`;
   const re = /<!-- social:start[\s\S]*?<!-- social:end -->/;
   let out = re.test(html) ? html.replace(re, () => wrapped) : html.replace('</head>', () => `${wrapped}\n</head>`);
@@ -340,7 +344,7 @@ export function withHead(html, block, pageTitle) {
 }
 
 // marker notes (markdown) as one short plain line for a card or a preview
-export function plainText(md, max = 160) {
+export function plainText(md: unknown, max = 160): string {
   let t = String(md || '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')

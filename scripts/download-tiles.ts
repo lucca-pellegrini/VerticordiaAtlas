@@ -6,10 +6,10 @@ const OUT = './public/maps/requiem/tiles';
 const MIN_Z = 8, MAX_Z = Number(process.argv[2] ?? 14);
 const CONCURRENCY = 4, DELAY_MS = 100;
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-const exists = p => access(p).then(() => true, () => false);
+const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
+const exists = (p: string) => access(p).then(() => true, () => false);
 
-const jobs = [];
+const jobs: [number, number, number][] = [];
 for (let z = MIN_Z; z <= MAX_Z; z++) {
   const n = 2 ** (z - 8), start = 127 * n;
   for (let x = start; x < start + n; x++)
@@ -18,7 +18,7 @@ for (let z = MIN_Z; z <= MAX_Z; z++) {
 
 let i = 0, processed = 0, saved = 0, skipped = 0, missing = 0, failed = 0, bytes = 0;
 
-async function getTile([z, x, y]) {
+async function getTile([z, x, y]: [number, number, number]) {
   const file = path.join(OUT, String(z), String(x), `${y}.jpg`);
   if (await exists(file)) { skipped++; return; }
   for (let attempt = 1; attempt <= 3; attempt++) {

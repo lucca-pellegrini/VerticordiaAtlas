@@ -1,18 +1,18 @@
 #!/usr/bin/env bun
-// make-cards.mjs: social preview cards for the homepage and every game, and the tags that point at them.
+// make-cards.ts: social preview cards for the homepage and every game, and the tags that point at them.
 //
-//   node scripts/make-cards.mjs
+//   bun scripts/make-cards.ts
 //
 // Writes card.jpg (1200x630) for the homepage (three random games' posters) and maps/<game>/card.jpg for each
 // game folder, then sets the <head> of index.html (between social:start / social:end). Game map pages are rendered dynamically.
-// Run again after adding a game or changing a description; add-game.mjs runs it for you.
+// Run again after adding a game or changing a description; add-game.ts runs it for you.
 //
 // Needs Chromium (on PATH, or CHROME=/path/to/chromium) and ImageMagick (magick). The domain comes from
-// site.json (or SITE_URL): crawlers need absolute URLs. Per-marker share cards are made by the server (server/server.mjs) instead.
+// site.json (or SITE_URL): crawlers need absolute URLs. Per-marker share cards are made by the server (server/server.ts) instead.
 
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { REPO, PUBLIC, loadGames, gameHtml, homeHtml, chromePath, drawCard, socialTags, withHead } from '../server/cards.mjs';
+import { REPO, PUBLIC, loadGames, gameHtml, homeHtml, chromePath, drawCard, socialTags, withHead } from '../server/cards.ts';
 
 const configured = process.env.SITE_URL || JSON.parse(await readFile(path.join(REPO, 'site.json'), 'utf8')).url || '';
 const site = configured.replace(/\/+$/, '');

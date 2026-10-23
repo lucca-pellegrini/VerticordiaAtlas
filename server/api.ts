@@ -1,4 +1,4 @@
-// api.mjs: optional accounts and cross-device sync, under /api/. The app works without any of this: an account only
+// api.ts: optional accounts and cross-device sync, under /api/. The app works without any of this: an account only
 // lets the same progress follow you to another device. Everything is in one SQLite file (data/atlas.db).
 //
 // Accounts: Google sign-in (the ID token is verified here, and the account is keyed by Google's `sub`), or a random
@@ -12,8 +12,11 @@ import crypto from 'node:crypto';
 import path from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
-import { acceptWebSocket } from './ws.mjs';
-import { contentKey, sendKey } from '../public/shared/sync-rules.mjs';
+import type { IncomingMessage, ServerResponse } from 'node:http';
+import type { Duplex } from 'node:stream';
+import { acceptWebSocket, type WebSocketConn } from './ws.ts';
+import { contentKey, sendKey } from '../src/shared/sync-rules.ts';
+import type { SyncItem, SyncPushResult, UserAccount } from '../src/shared/types.ts';
 
 const DAY = 86400000;
 const SESSION_DAYS = 30, REFRESH_WITHIN = 7 * DAY;
@@ -25,7 +28,38 @@ const KEY_PATTERN = new RegExp(`^(profile:${SEG}:${SEG}|meta:(presets|view):${SE
 const MAX_VALUE = 2_000_000, MAX_ITEMS = 200;
 const B32 = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
 
-export function createApi({ root, debug = false, googleClientId = null, publicUrl = null, googleCertsUrl = process.env.GOOGLE_CERTS_URL || 'https://www.googleapis.com/oauth2/v3/certs' }) {
+export interface ApiOptions {
+  root: string;
+  debug?: boolean;
+  googleClientId?: string | null;
+  publicUrl?: string | null;
+  googleCertsUrl?: string;
+}
+
+interface HttpError extends Error {
+  status?: number;
+}
+
+interface SessionInfo {
+  token: string;
+  user: UserAccount;
+  tokenHash: string;
+  expiresAt: number;
+}
+
+interface SocketEntry {
+  ws: WebSocketConn;
+  client: string;
+  tokenHash: string;
+}
+
+export function createApi({
+  root,
+  debug = false,
+  googleClientId = null,
+  publicUrl = null,
+  googleCertsUrl = process.env.GOOGLE_CERTS_URL || 'https://www.googleapis.com/oauth2/v3/certs',
+}: ApiOptions) {
   mkdirSync(path.join(root, 'data'), { recursive: true });
   const db = new DatabaseSync(path.join(root, 'data', 'atlas.db'));
   db.exec(`
@@ -66,12 +100,12 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
     );
   `);
 
-  const sha256 = s => crypto.createHash('sha256').update(s).digest('hex');
-  const now = () => Date.now();
+  const sha256 = (s: string): string => crypto.createHash('sha256').update(s).digest('hex');
+  const now = (): number => Date.now();
 
   /* ---------- rate limit for the sign-in endpoints ---------- */
-  const hits = new Map();
-  function allowLogin(ip) {
+  const hits = new Map<string, { start: number; count: number }>();
+  function allowLogin(ip: string): boolean {
     const t = now();
     if (hits.size > 10000) hits.clear();
     let h = hits.get(ip);
@@ -81,63 +115,80 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
   }
 
   /* ---------- small helpers ---------- */
-  const dbg = (...parts) => { if (debug) console.log('[auth]', new Date().toISOString(), ...parts); };
-  const json = (res, status, body, headers = {}) => {
+  const dbg = (...parts: unknown[]) => { if (debug) console.log('[auth]', new Date().toISOString(), ...parts); };
+  const json = (res: ServerResponse, status: number, body: unknown, headers: Record<string, string> = {}) => {
     res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', ...headers });
     res.end(JSON.stringify(body));
   };
-  const clientIp = req => String(req.headers['x-real-ip'] || req.socket.remoteAddress || 'unknown').split(',')[0].trim();
-  const secure = req => req.socket.encrypted || req.headers['x-forwarded-proto'] === 'https';
+  const clientIp = (req: IncomingMessage): string =>
+    String(req.headers['x-real-ip'] || req.socket.remoteAddress || 'unknown').split(',')[0].trim();
+  const secure = (req: IncomingMessage): boolean =>
+    Boolean((req.socket as { encrypted?: boolean }).encrypted || req.headers['x-forwarded-proto'] === 'https');
 
-  async function readJson(req, limit) {
+  async function readJson(req: IncomingMessage, limit: number): Promise<any> {
     if (!String(req.headers['content-type'] || '').startsWith('application/json')) throw httpError(415, 'expected JSON');
-    const chunks = [];
+    const chunks: Buffer[] = [];
     let size = 0;
     for await (const c of req) {
-      size += c.length;
+      const buf = Buffer.isBuffer(c) ? c : Buffer.from(c);
+      size += buf.length;
       if (size > limit) throw httpError(413, 'too large');
-      chunks.push(c);
+      chunks.push(buf);
     }
     try { return JSON.parse(Buffer.concat(chunks).toString('utf8') || '{}'); }
     catch { throw httpError(400, 'bad JSON'); }
   }
-  async function readForm(req, limit) {
+  async function readForm(req: IncomingMessage, limit: number): Promise<Record<string, string>> {
     if (!String(req.headers['content-type'] || '').startsWith('application/x-www-form-urlencoded')) throw httpError(415, 'expected a form');
-    const chunks = [];
+    const chunks: Buffer[] = [];
     let size = 0;
     for await (const c of req) {
-      size += c.length;
+      const buf = Buffer.isBuffer(c) ? c : Buffer.from(c);
+      size += buf.length;
       if (size > limit) throw httpError(413, 'too large');
-      chunks.push(c);
+      chunks.push(buf);
     }
     return Object.fromEntries(new URLSearchParams(Buffer.concat(chunks).toString('utf8')));
   }
-  function httpError(status, message) { const e = new Error(message); e.status = status; return e; }
+  function httpError(status: number, message: string): HttpError {
+    const e: HttpError = new Error(message);
+    e.status = status;
+    return e;
+  }
 
   // a malformed cookie (say, a stray "%") must never throw: it is read as it was sent, and cannot match a session anyway
-  const unescapeCookie = v => { try { return decodeURIComponent(v); } catch { return v; } };
-  const cookies = req => Object.fromEntries(String(req.headers.cookie || '').split(';').map(c => c.trim().split('=')).filter(p => p.length === 2).map(([k, v]) => [k, unescapeCookie(v)]));
-  const cookieHeader = (req, value, maxAge) => `${COOKIE}=${encodeURIComponent(value)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}${secure(req) ? '; Secure' : ''}`;
+  const unescapeCookie = (v: string): string => { try { return decodeURIComponent(v); } catch { return v; } };
+  const cookies = (req: IncomingMessage): Record<string, string> =>
+    Object.fromEntries(
+      String(req.headers.cookie || '')
+        .split(';')
+        .map(c => c.trim().split('='))
+        .filter((p): p is [string, string] => p.length === 2)
+        .map(([k, v]) => [k, unescapeCookie(v)]),
+    );
+  const cookieHeader = (req: IncomingMessage, value: string, maxAge: number): string =>
+    `${COOKIE}=${encodeURIComponent(value)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}${secure(req) ? '; Secure' : ''}`;
 
-  const publicUser = u => ({
-    id: u.id, provider: u.provider,
-    email: u.email || null,
-    name: u.provider === 'google' ? (u.display_name || u.email || 'Google account') : 'Secret key account',
+  const publicUser = (u: any): UserAccount => ({
+    id: String(u.id),
+    provider: u.provider as 'google' | 'secret',
+    email: u.email ? String(u.email) : null,
+    name: u.provider === 'google' ? String(u.display_name || u.email || 'Google account') : 'Secret key account',
   });
 
   /* ---------- sessions ---------- */
-  function sessionFrom(req) {
+  function sessionFrom(req: IncomingMessage): SessionInfo | null {
     const token = cookies(req)[COOKIE];
     if (!token) return null;
     const row = db.prepare(`SELECT s.token_hash, s.expires_at, u.id, u.provider, u.email, u.display_name
-                            FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = ?`).get(sha256(token));
+                            FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = ?`).get(sha256(token)) as any;
     if (!row) return null;
     const t = now();
     if (row.expires_at <= t) { db.prepare('DELETE FROM sessions WHERE token_hash = ?').run(row.token_hash); return null; }
-    return { token, user: publicUser(row), tokenHash: row.token_hash, expiresAt: row.expires_at };
+    return { token, user: publicUser(row), tokenHash: String(row.token_hash), expiresAt: Number(row.expires_at) };
   }
   // sliding expiry: a session close to its end is extended, and the cookie with it
-  function touch(req, res, session) {
+  function touch(req: IncomingMessage, res: ServerResponse, session: SessionInfo) {
     const t = now();
     if (session.expiresAt - t < REFRESH_WITHIN) {
       const expires = t + SESSION_DAYS * DAY;
@@ -148,8 +199,9 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
   // binds a Google sign-in to the browser that started it. Google posts back cross-site, so the cookie must be
   // SameSite=None, which browsers only accept with Secure: this binding is therefore only on HTTPS (see secure()).
   const OAUTH_COOKIE = 'va_oauth', OAUTH_PATH = '/api/auth/google';
-  const oauthCookie = (req, value, maxAge) => `${OAUTH_COOKIE}=${value}; Path=${OAUTH_PATH}; HttpOnly; Secure; SameSite=None; Max-Age=${maxAge}`;
-  function startSession(req, res, userId) {
+  const oauthCookie = (_req: IncomingMessage, value: string, maxAge: number): string =>
+    `${OAUTH_COOKIE}=${value}; Path=${OAUTH_PATH}; HttpOnly; Secure; SameSite=None; Max-Age=${maxAge}`;
+  function startSession(req: IncomingMessage, res: ServerResponse, userId: string) {
     const token = crypto.randomBytes(32).toString('base64url');
     const t = now();
     db.prepare('INSERT INTO sessions (token_hash, user_id, created_at, expires_at, last_used) VALUES (?, ?, ?, ?, ?)')
@@ -158,17 +210,17 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
   }
 
   /* ---------- Google: verify the ID token ourselves (signature, issuer, audience, expiry) ---------- */
-  let certs = null, certsAt = 0;
-  async function googleKeys(force = false) {
+  let certs: any[] | null = null, certsAt = 0;
+  async function googleKeys(force = false): Promise<any[]> {
     if (force || !certs || now() - certsAt > 3600_000) {
       const r = await fetch(googleCertsUrl);
       if (!r.ok) throw httpError(502, 'could not fetch Google keys');
-      certs = (await r.json()).keys || [];
+      certs = ((await r.json()) as any).keys || [];
       certsAt = now();
     }
-    return certs;
+    return certs!;
   }
-  async function verifyGoogleToken(token, nonce) {
+  async function verifyGoogleToken(token: string, nonce: string): Promise<{ sub: string; email: string; name: string }> {
     const parts = String(token || '').split('.');
     if (parts.length !== 3) throw httpError(400, 'not a token');
     const [h, p, s] = parts;
@@ -190,7 +242,7 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
   }
 
   /* ---------- secret keys: 128 random bits, shown once, stored as a hash ---------- */
-  function newSecret() {
+  function newSecret(): string {
     const bytes = crypto.randomBytes(16);
     let bits = 0, value = 0, out = '';
     for (const b of bytes) {
@@ -198,34 +250,35 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
       while (bits >= 5) { out += B32[(value >>> (bits - 5)) & 31]; bits -= 5; }
     }
     if (bits > 0) out += B32[(value << (5 - bits)) & 31];
-    return out.match(/.{1,4}/g).join('-');
+    return out.match(/.{1,4}/g)!.join('-');
   }
   // people type these by hand: case, dashes and the look-alikes (O, I, L) do not matter
-  const normalizeSecret = s => String(s || '').toUpperCase().replace(/[^0-9A-Z]/g, '').replace(/O/g, '0').replace(/[IL]/g, '1');
+  const normalizeSecret = (s: unknown): string =>
+    String(s || '').toUpperCase().replace(/[^0-9A-Z]/g, '').replace(/O/g, '0').replace(/[IL]/g, '1');
 
   /* ---------- sync ---------- */
-  /* what a change means for sync: contentKey (conflicts) and sendKey (whether to push) are in shared/sync-rules.mjs */
+  /* what a change means for sync: contentKey (conflicts) and sendKey (whether to push) are in shared/sync-rules.ts */
 
-  function validItem(it) {
+  function validItem(it: any): it is SyncItem {
     if (!it || typeof it.key !== 'string' || !KEY_PATTERN.test(it.key)) return false;
     // "value" must be present: null (a deletion) or a JSON value. undefined is not JSON and would reach SQLite as undefined
     if (!('value' in it) || it.value === undefined) return false;
     if (it.value !== null) {
-      const json = JSON.stringify(it.value);
-      if (typeof json !== 'string' || json.length > MAX_VALUE) return false;
+      const jsonStr = JSON.stringify(it.value);
+      if (typeof jsonStr !== 'string' || jsonStr.length > MAX_VALUE) return false;
     }
     return true;
   }
-  function syncPush(userId, items) {
+  function syncPush(userId: string, items: SyncItem[]): SyncPushResult[] {
     const get = db.prepare('SELECT value, updated_at FROM user_data WHERE user_id = ? AND key = ?');
     const put = db.prepare(`INSERT INTO user_data (user_id, key, value, updated_at) VALUES (?, ?, ?, ?)
                             ON CONFLICT (user_id, key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`);
-    const results = [];
+    const results: SyncPushResult[] = [];
     db.exec('BEGIN IMMEDIATE');
     try {
       for (const it of items) {
-        const cur = get.get(userId, it.key);
-        const base = Number.isFinite(it.base) ? it.base : 0;
+        const cur = get.get(userId, it.key) as { value: string | null; updated_at: number } | undefined;
+        const base = Number.isFinite(it.base) ? Number(it.base) : 0;
         if (cur) {
           const curValue = cur.value === null ? null : JSON.parse(cur.value);
           if (sendKey(it.key, curValue) === sendKey(it.key, it.value)) { // nothing to store: the device is simply up to date
@@ -255,62 +308,63 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
     }
     return results;
   }
-  const syncPull = userId => db.prepare('SELECT key, value, updated_at FROM user_data WHERE user_id = ?').all(userId)
-    .map(r => ({ key: r.key, value: r.value === null ? null : JSON.parse(r.value), updated_at: r.updated_at }));
+  const syncPull = (userId: string): SyncItem[] =>
+    (db.prepare('SELECT key, value, updated_at FROM user_data WHERE user_id = ?').all(userId) as { key: string; value: string | null; updated_at: number }[])
+      .map(r => ({ key: r.key, value: r.value === null ? null : JSON.parse(r.value), updated_at: r.updated_at }));
 
   /* ---------- the routes ---------- */
   /* ---------- live updates: a WebSocket per signed-in device, told when another device pushed ---------- */
   const MAX_SOCKETS_PER_USER = 8;
-  const sockets = new Map(); // user id -> Set of { ws, client, tokenHash }
+  const sockets = new Map<string, Set<SocketEntry>>(); // user id -> Set of { ws, client, tokenHash }
 
-  function announce(userId, exceptClient) {
+  function announce(userId: string, exceptClient: string) {
     for (const c of sockets.get(userId) || []) if (!exceptClient || c.client !== exceptClient) c.ws.send('{"type":"changed"}');
   }
-  function dropSockets(match) { // sign-out: the sockets it belonged to go too
+  function dropSockets(match: (c: SocketEntry) => boolean) { // sign-out: the sockets it belonged to go too
     for (const set of sockets.values()) for (const c of [...set]) if (match(c)) c.ws.close(4401, 'signed out');
   }
-  const sessionAlive = tokenHash => {
-    const row = db.prepare('SELECT expires_at FROM sessions WHERE token_hash = ?').get(tokenHash);
+  const sessionAlive = (tokenHash: string): boolean => {
+    const row = db.prepare('SELECT expires_at FROM sessions WHERE token_hash = ?').get(tokenHash) as { expires_at: number } | undefined;
     return !!row && row.expires_at > now();
   };
 
-  function upgrade(req, socket, head, url) {
-    const refuse = (code, text) => { try { socket.end(`HTTP/1.1 ${code} ${text}\r\nConnection: close\r\nContent-Length: 0\r\n\r\n`); } catch { /* gone */ } };
+  function upgrade(req: IncomingMessage, socket: Duplex, head: Buffer, url: URL) {
+    const refuse = (code: number, text: string) => { try { socket.end(`HTTP/1.1 ${code} ${text}\r\nConnection: close\r\nContent-Length: 0\r\n\r\n`); } catch { /* gone */ } };
     try {
       return upgradeChecked(req, socket, head, url, refuse);
-    } catch (e) {
+    } catch (e: any) {
       dbg('upgrade: refused after an error: ' + e.message);
       refuse(400, 'Bad Request');
     }
   }
-  function upgradeChecked(req, socket, head, url, refuse) {
+  function upgradeChecked(req: IncomingMessage, socket: Duplex, head: Buffer, url: URL, refuse: (code: number, text: string) => void) {
     if (url.pathname !== '/api/ws' || String(req.headers.upgrade || '').toLowerCase() !== 'websocket') return refuse(400, 'Bad Request');
     // a page on another site must not be able to open this socket with the visitor's cookie
     const origin = req.headers.origin;
     if (origin) {
-      let host = null;
+      let host: string | null = null;
       try { host = new URL(origin).host; } catch { /* malformed */ }
       const hosts = [req.headers.host, ...String(req.headers['x-forwarded-host'] || '').split(',')].map(h => String(h || '').trim()).filter(Boolean);
       if (!host || !hosts.includes(host)) return refuse(403, 'Forbidden');
     }
     const session = sessionFrom(req);
     if (!session) return refuse(401, 'Unauthorized');
-    const userId = db.prepare('SELECT user_id FROM sessions WHERE token_hash = ?').get(session.tokenHash).user_id;
+    const row = db.prepare('SELECT user_id FROM sessions WHERE token_hash = ?').get(session.tokenHash) as { user_id: string };
+    const userId = row.user_id;
     const ws = acceptWebSocket(req, socket, head);
     if (!ws) return refuse(400, 'Bad Request');
     const client = String(url.searchParams.get('c') || '').slice(0, 64);
-    const entry = { ws, client, tokenHash: session.tokenHash };
-    const set = sockets.get(userId) || new Set();
+    const entry: SocketEntry = { ws, client, tokenHash: session.tokenHash };
+    const set = sockets.get(userId) || new Set<SocketEntry>();
     sockets.set(userId, set);
     set.add(entry);
-    while (set.size > MAX_SOCKETS_PER_USER) set.values().next().value.ws.close(1008, 'too many connections'); // the oldest goes
+    while (set.size > MAX_SOCKETS_PER_USER) set.values().next().value!.ws.close(1008, 'too many connections'); // the oldest goes
     ws.onHeartbeat(() => sessionAlive(session.tokenHash));
     ws.onClose(() => { set.delete(entry); if (!set.size) sockets.delete(userId); });
     ws.send('{"type":"hello"}');
-
   }
 
-  async function handle(req, res, url) {
+  async function handle(req: IncomingMessage, res: ServerResponse, url: URL): Promise<boolean | void> {
     try {
       const route = `${req.method} ${url.pathname}`;
       const ip = clientIp(req);
@@ -324,7 +378,7 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
       }
 
       if (route === 'GET /api/auth/google/start') {
-        const back = msg => { res.writeHead(303, { Location: '/signin/?error=' + encodeURIComponent(msg), 'Cache-Control': 'no-store' }); res.end(); };
+        const back = (msg: string) => { res.writeHead(303, { Location: '/signin/?error=' + encodeURIComponent(msg), 'Cache-Control': 'no-store' }); res.end(); };
         if (!googleClientId || !publicUrl) return back('Google sign-in is not set up on this server yet.');
         if (!allowLogin(ip)) return back('Too many attempts. Please wait a little and try again.');
         const n = url.searchParams.get('next') || '';
@@ -345,16 +399,16 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
 
       if (route === 'POST /api/auth/google/callback') {
         // Google posts the signed ID token back here (response_mode=form_post). Each state is good once, for 10 minutes.
-        const back = msg => { res.appendHeader('Set-Cookie', oauthCookie(req, '', 0)); res.writeHead(303, { Location: '/signin/?error=' + encodeURIComponent(msg), 'Cache-Control': 'no-store' }); res.end(); };
+        const back = (msg: string) => { res.appendHeader('Set-Cookie', oauthCookie(req, '', 0)); res.writeHead(303, { Location: '/signin/?error=' + encodeURIComponent(msg), 'Cache-Control': 'no-store' }); res.end(); };
         const form = await readForm(req, 16_000);
         const state = String(form.state || '');
         // Google names the signed token id_token in this flow (credential is the name the button uses)
         const token = String(form.id_token || form.credential || '');
-        const row = db.prepare('SELECT nonce, next, expires_at FROM oauth_states WHERE state = ?').get(state);
+        const row = db.prepare('SELECT nonce, next, expires_at FROM oauth_states WHERE state = ?').get(state) as { nonce: string; next: string; expires_at: number } | undefined;
         db.prepare('DELETE FROM oauth_states WHERE state = ?').run(state);
         dbg('callback: fields=[' + Object.keys(form).join(',') + '] error=' + (form.error || '-') + ' state_known=' + !!row + ' expired=' + (row ? row.expires_at <= now() : '-') + ' token_bytes=' + token.length);
         if (debug && token) { // the claims only, never the signature or the e-mail address
-          try { const p = JSON.parse(Buffer.from(String(token).split('.')[1], 'base64url').toString('utf8')); dbg('callback: token iss=' + p.iss + ' aud=' + p.aud + ' azp=' + p.azp + ' exp=' + p.exp + ' email_verified=' + p.email_verified + ' nonce_matches=' + (!!row && p.nonce === row.nonce)); } catch (e) { dbg('callback: token does not decode: ' + e.message); }
+          try { const p = JSON.parse(Buffer.from(String(token).split('.')[1], 'base64url').toString('utf8')); dbg('callback: token iss=' + p.iss + ' aud=' + p.aud + ' azp=' + p.azp + ' exp=' + p.exp + ' email_verified=' + p.email_verified + ' nonce_matches=' + (!!row && p.nonce === row.nonce)); } catch (e: any) { dbg('callback: token does not decode: ' + e.message); }
         }
         if (!row || row.expires_at <= now()) { dbg('callback: unknown or expired state'); return back('That sign-in took too long. Please try again.'); }
         // the state must belong to this browser: a sign-in started by someone else (or in another browser) is refused
@@ -362,11 +416,11 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
         if (!token) { dbg('callback: no credential, cancelled or refused by Google'); return back('Sign-in with Google was cancelled.'); }
         let g;
         try { g = await verifyGoogleToken(token, row.nonce); }
-        catch (e) { dbg('callback: verification failed: ' + e.message); return back('Google could not confirm your account. Please try again.'); }
+        catch (e: any) { dbg('callback: verification failed: ' + e.message); return back('Google could not confirm your account. Please try again.'); }
         db.prepare(`INSERT INTO users (id, provider, google_sub, email, display_name, created_at) VALUES (?, 'google', ?, ?, ?, ?)
                     ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email, display_name = excluded.display_name`)
           .run(crypto.randomUUID(), g.sub, g.email, g.name, now());
-        const user = db.prepare("SELECT * FROM users WHERE provider = 'google' AND google_sub = ?").get(g.sub);
+        const user = db.prepare("SELECT * FROM users WHERE provider = 'google' AND google_sub = ?").get(g.sub) as { id: string };
         startSession(req, res, user.id);
         res.appendHeader('Set-Cookie', oauthCookie(req, '', 0));
         res.writeHead(303, { Location: row.next, 'Cache-Control': 'no-store' }); // the session cookie was set above
@@ -393,9 +447,9 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
         const body = await readJson(req, 1000);
         const norm = normalizeSecret(body.secret);
         if (norm.length !== 26) throw httpError(401, 'that key does not match an account');
-        const row = db.prepare(`SELECT u.* FROM secret_accounts a JOIN users u ON u.id = a.user_id WHERE a.secret_hash = ?`).get(sha256(norm));
+        const row = db.prepare(`SELECT u.* FROM secret_accounts a JOIN users u ON u.id = a.user_id WHERE a.secret_hash = ?`).get(sha256(norm)) as any;
         if (!row) throw httpError(401, 'that key does not match an account');
-        startSession(req, res, row.id);
+        startSession(req, res, String(row.id));
         return json(res, 200, { user: publicUser(row) });
       }
 
@@ -409,7 +463,8 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
       if (route === 'POST /api/auth/logout-all') {
         const session = sessionFrom(req);
         if (!session) throw httpError(401, 'not signed in');
-        const userId = db.prepare('SELECT user_id FROM sessions WHERE token_hash = ?').get(session.tokenHash).user_id;
+        const row = db.prepare('SELECT user_id FROM sessions WHERE token_hash = ?').get(session.tokenHash) as { user_id: string };
+        const userId = row.user_id;
         db.prepare('DELETE FROM sessions WHERE user_id = ?').run(userId);
         for (const c of [...(sockets.get(userId) || [])]) c.ws.close(4401, 'signed out');
         res.setHeader('Set-Cookie', cookieHeader(req, '', 0));
@@ -420,10 +475,11 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
         const session = sessionFrom(req);
         if (!session) throw httpError(401, 'not signed in');
         touch(req, res, session);
-        const userId = db.prepare('SELECT user_id FROM sessions WHERE token_hash = ?').get(session.tokenHash).user_id;
+        const row = db.prepare('SELECT user_id FROM sessions WHERE token_hash = ?').get(session.tokenHash) as { user_id: string };
+        const userId = row.user_id;
         if (req.method === 'GET') return json(res, 200, { items: syncPull(userId) });
         const body = await readJson(req, 8 * 1024 * 1024);
-        const items = Array.isArray(body.items) ? body.items : [];
+        const items: unknown[] = Array.isArray(body.items) ? body.items : [];
         if (items.length > MAX_ITEMS || !items.every(validItem)) throw httpError(400, 'bad sync request');
         const results = syncPush(userId, items);
         if (results.some(r => r.status === 'ok' && !r.same)) announce(userId, String(body.client || '').slice(0, 64)); // the other devices of this account
@@ -431,7 +487,7 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
       }
 
       return false;
-    } catch (e) {
+    } catch (e: any) {
       if (e.status) return json(res, e.status, { error: e.message });
       console.error('api:', e);
       return json(res, 500, { error: 'server error' });
@@ -444,7 +500,7 @@ export function createApi({ root, debug = false, googleClientId = null, publicUr
       const sessions = db.prepare('DELETE FROM sessions WHERE expires_at < ?').run(now()).changes;
       const states = db.prepare('DELETE FROM oauth_states WHERE expires_at < ?').run(now()).changes;
       if (sessions || states) dbg(`sweep: removed ${sessions} expired session(s), ${states} sign-in state(s)`);
-    } catch (e) { console.error('api: cleanup failed:', e.message); }
+    } catch (e: any) { console.error('api: cleanup failed:', e.message); }
   };
   sweep();
   const sweepTimer = setInterval(sweep, 60 * 60 * 1000);

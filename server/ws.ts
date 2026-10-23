@@ -1,13 +1,22 @@
-// ws.mjs: the little of WebSocket (RFC 6455) this site needs, without a dependency. The server only ever sends short
+// ws.ts: the little of WebSocket (RFC 6455) this site needs, without a dependency. The server only ever sends short
 // text messages ("something changed, come and get it"); what clients send is read for pings and closes and then dropped.
 
 import crypto from 'node:crypto';
+import type { IncomingMessage } from 'node:http';
+import type { Duplex } from 'node:stream';
 
 const GUID = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11';
 const MAX_FRAME = 64 * 1024; // clients have nothing big to say: more than this closes the connection
 const PING_EVERY = 25_000;   // under the 60 s idle timeout reverse proxies usually have
 
-function frame(opcode, payload = Buffer.alloc(0)) {
+export interface WebSocketConn {
+  send(text: string): void;
+  close(code?: number, reason?: string): void;
+  onClose(fn: () => void): void;
+  onHeartbeat(fn: () => boolean): void;
+}
+
+function frame(opcode: number, payload: Buffer = Buffer.alloc(0)): Buffer {
   const n = payload.length;
   const head = n < 126 ? Buffer.from([0x80 | opcode, n])
     : n < 65536 ? Buffer.from([0x80 | opcode, 126, n >> 8, n & 255])
@@ -17,20 +26,20 @@ function frame(opcode, payload = Buffer.alloc(0)) {
 
 /* Completes the handshake on an upgraded socket and returns a connection, or null when the request is not a valid
    WebSocket handshake (nothing has been written then). */
-export function acceptWebSocket(req, socket, head) {
+export function acceptWebSocket(req: IncomingMessage, socket: Duplex & { setNoDelay?: (noDelay?: boolean) => void; setTimeout?: (msecs: number) => void }, head?: Buffer): WebSocketConn | null {
   const key = req.headers['sec-websocket-key'];
   if (!key || req.headers['sec-websocket-version'] !== '13') return null;
   const accept = crypto.createHash('sha1').update(key + GUID).digest('base64');
   socket.write('HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\n' +
     `Sec-WebSocket-Accept: ${accept}\r\n\r\n`);
-  socket.setNoDelay(true);
-  socket.setTimeout(0);
+  socket.setNoDelay?.(true);
+  socket.setTimeout?.(0);
 
-  let buf = head?.length ? Buffer.from(head) : Buffer.alloc(0);
+  let buf: Buffer = head?.length ? Buffer.from(head) : Buffer.alloc(0);
   let alive = true, closed = false, closeHandler = () => {}, heartbeat = () => true;
 
-  const conn = {
-    send(text) { if (!closed && socket.writable) socket.write(frame(0x1, Buffer.from(String(text)))); },
+  const conn: WebSocketConn = {
+    send(text: string) { if (!closed && socket.writable) socket.write(frame(0x1, Buffer.from(String(text)))); },
     close(code = 1000, reason = '') {
       if (closed) return;
       closed = true;
@@ -39,8 +48,8 @@ export function acceptWebSocket(req, socket, head) {
       try { socket.end(frame(0x8, p)); } catch { /* already gone */ }
       setTimeout(() => socket.destroy(), 2000).unref(); // the client has two seconds to answer the close
     },
-    onClose(fn) { closeHandler = fn; },
-    onHeartbeat(fn) { heartbeat = fn; }, // called with each ping round; false closes the connection
+    onClose(fn: () => void) { closeHandler = fn; },
+    onHeartbeat(fn: () => boolean) { heartbeat = fn; }, // called with each ping round; false closes the connection
   };
 
   function read() {
@@ -66,7 +75,7 @@ export function acceptWebSocket(req, socket, head) {
     }
   }
 
-  socket.on('data', chunk => { buf = buf.length ? Buffer.concat([buf, chunk]) : chunk; read(); });
+  socket.on('data', (chunk: Buffer) => { buf = buf.length ? Buffer.concat([buf, chunk]) : chunk; read(); });
   const timer = setInterval(() => {
     if (closed) return;
     if (!alive) return socket.destroy(); // no answer to the last ping: the connection is dead
