@@ -1,1015 +1,1005 @@
 {
-  "id": "skyrim",
-  "title": "Skyrim",
-  "slug": "skyrim",
-  "source": "https://mapgenie.io/skyrim",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "alchemist": [
-        {
-          "cp": "e900",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e901",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "beehive": [
-        {
-          "cp": "e902",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e903",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "blacksmith": [
-        {
-          "cp": "e904",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e905",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "camp": [
-        {
-          "cp": "e906",
-          "color": "#000000"
-        },
-        {
-          "cp": "e907",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "castle": [
-        {
-          "cp": "e908",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e909",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "cave": [
-        {
-          "cp": "e90a",
-          "color": "#000000"
-        },
-        {
-          "cp": "e90b",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "cemetery": [
-        {
-          "cp": "e90c",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e90d",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "city": [
-        {
-          "cp": "e90e",
-          "color": "#000000"
-        },
-        {
-          "cp": "e90f",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "clay_deposit": [
-        {
-          "cp": "e910",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e911",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "clearing": [
-        {
-          "cp": "e912",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e913",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "corundum_ore": [
-        {
-          "cp": "e914",
-          "color": "#000000"
-        },
-        {
-          "cp": "e915",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "court_wizard": [
-        {
-          "cp": "e916",
-          "color": "#000000"
-        },
-        {
-          "cp": "e917",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "daedric_shrine": [
-        {
-          "cp": "e918",
-          "color": "#000000"
-        },
-        {
-          "cp": "e919",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "dock": [
-        {
-          "cp": "e91a",
-          "color": "#000000"
-        },
-        {
-          "cp": "e91b",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "door": [
-        {
-          "cp": "e91c",
-          "color": "#000000"
-        },
-        {
-          "cp": "e91d",
-          "color": "#aaacae",
-          "ml": "-1em"
-        }
-      ],
-      "dragon_lair": [
-        {
-          "cp": "e91e",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e91f",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "dragon_mound": [
-        {
-          "cp": "e920",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e921",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "dragon_priest": [
-        {
-          "cp": "e922",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e923",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "dwemer_ruin": [
-        {
-          "cp": "e924",
-          "color": "#000000"
-        },
-        {
-          "cp": "e925",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "east_empire_pendant": [
-        {
-          "cp": "e926",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e927",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "ebony_ore": [
-        {
-          "cp": "e928",
-          "color": "#000000"
-        },
-        {
-          "cp": "e929",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "farm": [
-        {
-          "cp": "e92a",
-          "color": "#000000"
-        },
-        {
-          "cp": "e92b",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "fence": [
-        {
-          "cp": "e92c",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e92d",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "follower": [
-        {
-          "cp": "e92e",
-          "color": "#999999"
-        },
-        {
-          "cp": "e92f",
-          "color": "#000000",
-          "ml": "-1em"
-        },
-        {
-          "cp": "e930",
-          "color": "#bbbdbf",
-          "ml": "-1em"
-        }
-      ],
-      "fort": [
-        {
-          "cp": "e931",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e932",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "gem_geode": [
-        {
-          "cp": "e933",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e934",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "general_merch": [
-        {
-          "cp": "e935",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e936",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "giant_camp": [
-        {
-          "cp": "e937",
-          "color": "#000000"
-        },
-        {
-          "cp": "e938",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "gold_ore": [
-        {
-          "cp": "e939",
-          "color": "#000000"
-        },
-        {
-          "cp": "e93a",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "grove": [
-        {
-          "cp": "e93b",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e93c",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "guild_hall": [
-        {
-          "cp": "e93d",
-          "color": "#000000"
-        },
-        {
-          "cp": "e93e",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "heart_stone": [
-        {
-          "cp": "e93f",
-          "color": "#000000"
-        },
-        {
-          "cp": "e940",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "house": [
-        {
-          "cp": "e941",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e942",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "house_ownable": [
-        {
-          "cp": "e943",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e944",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "imperial_camp": [
-        {
-          "cp": "e945",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e946",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "imperial_tower": [
-        {
-          "cp": "e947",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e948",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "inn": [
-        {
-          "cp": "e949",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e94a",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "iron_ore": [
-        {
-          "cp": "e94b",
-          "color": "#000000"
-        },
-        {
-          "cp": "e94c",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "item": [
-        {
-          "cp": "e94d",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e94e",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "jail": [
-        {
-          "cp": "e94f",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e950",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "jeweler": [
-        {
-          "cp": "e951",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e952",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "landmark": [
-        {
-          "cp": "e953",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e954",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "library": [
-        {
-          "cp": "e955",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e956",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "lighthouse": [
-        {
-          "cp": "e957",
-          "color": "#000000"
-        },
-        {
-          "cp": "e958",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "malachite_ore": [
-        {
-          "cp": "e959",
-          "color": "#000000"
-        },
-        {
-          "cp": "e95a",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "marriage": [
-        {
-          "cp": "e95b",
-          "color": "#000000"
-        },
-        {
-          "cp": "e95c",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "mine": [
-        {
-          "cp": "e95d",
-          "color": "#000000"
-        },
-        {
-          "cp": "e95e",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "misc_quest": [
-        {
-          "cp": "e95f",
-          "color": "#000000"
-        },
-        {
-          "cp": "e960",
-          "color": "#bbbdbf",
-          "ml": "-1em"
-        }
-      ],
-      "moonstone_ore": [
-        {
-          "cp": "e961",
-          "color": "#000000"
-        },
-        {
-          "cp": "e962",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "nordic_ruin": [
-        {
-          "cp": "e963",
-          "color": "#000000"
-        },
-        {
-          "cp": "e964",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "nordic_tower": [
-        {
-          "cp": "e965",
-          "color": "#000000"
-        },
-        {
-          "cp": "e966",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "orc_stronghold": [
-        {
-          "cp": "e967",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e968",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "ore": [
-        {
-          "cp": "e969",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e96a",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "orichalcum_ore": [
-        {
-          "cp": "e96b",
-          "color": "#000000"
-        },
-        {
-          "cp": "e96c",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "other": [
-        {
-          "cp": "e96d",
-          "color": "#000000"
-        },
-        {
-          "cp": "e96e",
-          "color": "#aaacae",
-          "ml": "-1em"
-        }
-      ],
-      "pass": [
-        {
-          "cp": "e96f",
-          "color": "#000000"
-        },
-        {
-          "cp": "e970",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "pickaxe": [
-        {
-          "cp": "e971",
-          "color": "#000000"
-        },
-        {
-          "cp": "e972",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e973",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e974",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "quest": [
-        {
-          "cp": "e975",
-          "color": "#000000"
-        },
-        {
-          "cp": "e976",
-          "color": "#bbbdbf",
-          "ml": "-1em"
-        }
-      ],
-      "quicksilver_ore": [
-        {
-          "cp": "e977",
-          "color": "#000000"
-        },
-        {
-          "cp": "e978",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "ruin": [
-        {
-          "cp": "e979",
-          "color": "#000000"
-        },
-        {
-          "cp": "e97a",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "settlement": [
-        {
-          "cp": "e97b",
-          "color": "#000000"
-        },
-        {
-          "cp": "e97c",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "shack": [
-        {
-          "cp": "e97d",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e97e",
-          "color": "#020202",
-          "ml": "-1em"
-        }
-      ],
-      "shipwreck": [
-        {
-          "cp": "e97f",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e980",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "shrine": [
-        {
-          "cp": "e981",
-          "color": "#000000"
-        },
-        {
-          "cp": "e982",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "side_quest": [
-        {
-          "cp": "e983",
-          "color": "#000000"
-        },
-        {
-          "cp": "e984",
-          "color": "#bbbdbf",
-          "ml": "-1em"
-        }
-      ],
-      "silver_ore": [
-        {
-          "cp": "e985",
-          "color": "#000000"
-        },
-        {
-          "cp": "e986",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "skill_book": [
-        {
-          "cp": "e987",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e988",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "smelter": [
-        {
-          "cp": "e989",
-          "color": "#000000"
-        },
-        {
-          "cp": "e98a",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "spell_tome": [
-        {
-          "cp": "e98b",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e98c",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "spell_vendor": [
-        {
-          "cp": "e98d",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e98e",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "stable": [
-        {
-          "cp": "e98f",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e990",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "stalhrim_deposit": [
-        {
-          "cp": "e991",
-          "color": "#000000"
-        },
-        {
-          "cp": "e992",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "standing_stone": [
-        {
-          "cp": "e993",
-          "color": "#000000"
-        },
-        {
-          "cp": "e994",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "stone_quarry": [
-        {
-          "cp": "e995",
-          "color": "#000000"
-        },
-        {
-          "cp": "e996",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "stormcloak_camp": [
-        {
-          "cp": "e997",
-          "color": "#000000"
-        },
-        {
-          "cp": "e998",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "temple": [
-        {
-          "cp": "e999",
-          "color": "#000000"
-        },
-        {
-          "cp": "e99a",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "town": [
-        {
-          "cp": "e99b",
-          "color": "#000000"
-        },
-        {
-          "cp": "e99c",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ],
-      "trainer": [
-        {
-          "cp": "e99d",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e99e",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "transport": [
-        {
-          "cp": "e99f",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e9a0",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "treasure_chest": [
-        {
-          "cp": "e9a1",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e9a2",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "treasure_map": [
-        {
-          "cp": "e9a3",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e9a4",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "unusual_gem": [
-        {
-          "cp": "e9a5",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e9a6",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "wheat_mill": [
-        {
-          "cp": "e9a7",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e9a8",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "wood_mill": [
-        {
-          "cp": "e9a9",
-          "color": "#bcbec0"
-        },
-        {
-          "cp": "e9aa",
-          "color": "#000000",
-          "ml": "-1em"
-        }
-      ],
-      "word_wall": [
-        {
-          "cp": "e9ab",
-          "color": "#000000"
-        },
-        {
-          "cp": "e9ac",
-          "color": "#bcbec0",
-          "ml": "-1em"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "skyrim",
-      "title": "Skyrim",
-      "data": "skyrim/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "skyrim/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 9,
-          "maxzoom": 16,
-          "viewMaxzoom": 18,
-          "bounds": [
-            -1.9037789120133097,
-            0.5613429753156398,
-            -0.21947298195505005,
-            1.7417199819925002
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "solstheim",
-      "title": "Solstheim",
-      "data": "solstheim/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "solstheim/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 11,
-          "maxzoom": 17,
-          "viewMaxzoom": 17,
-          "bounds": [
-            -1.41154678916696,
-            1.12704799125774,
-            -1.12264122416477,
-            1.4927623711901998
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "skyrim",
+	"title": "Skyrim",
+	"slug": "skyrim",
+	"source": "https://mapgenie.io/skyrim",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"alchemist": [
+				{
+					"cp": "e900",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e901",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"beehive": [
+				{
+					"cp": "e902",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e903",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e904",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e905",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"camp": [
+				{
+					"cp": "e906",
+					"color": "#000000"
+				},
+				{
+					"cp": "e907",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"castle": [
+				{
+					"cp": "e908",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e909",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e90a",
+					"color": "#000000"
+				},
+				{
+					"cp": "e90b",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"cemetery": [
+				{
+					"cp": "e90c",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e90d",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"city": [
+				{
+					"cp": "e90e",
+					"color": "#000000"
+				},
+				{
+					"cp": "e90f",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"clay_deposit": [
+				{
+					"cp": "e910",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e911",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"clearing": [
+				{
+					"cp": "e912",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e913",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"corundum_ore": [
+				{
+					"cp": "e914",
+					"color": "#000000"
+				},
+				{
+					"cp": "e915",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"court_wizard": [
+				{
+					"cp": "e916",
+					"color": "#000000"
+				},
+				{
+					"cp": "e917",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"daedric_shrine": [
+				{
+					"cp": "e918",
+					"color": "#000000"
+				},
+				{
+					"cp": "e919",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"dock": [
+				{
+					"cp": "e91a",
+					"color": "#000000"
+				},
+				{
+					"cp": "e91b",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"door": [
+				{
+					"cp": "e91c",
+					"color": "#000000"
+				},
+				{
+					"cp": "e91d",
+					"color": "#aaacae",
+					"ml": "-1em"
+				}
+			],
+			"dragon_lair": [
+				{
+					"cp": "e91e",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e91f",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"dragon_mound": [
+				{
+					"cp": "e920",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e921",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"dragon_priest": [
+				{
+					"cp": "e922",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e923",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"dwemer_ruin": [
+				{
+					"cp": "e924",
+					"color": "#000000"
+				},
+				{
+					"cp": "e925",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"east_empire_pendant": [
+				{
+					"cp": "e926",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e927",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"ebony_ore": [
+				{
+					"cp": "e928",
+					"color": "#000000"
+				},
+				{
+					"cp": "e929",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"farm": [
+				{
+					"cp": "e92a",
+					"color": "#000000"
+				},
+				{
+					"cp": "e92b",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"fence": [
+				{
+					"cp": "e92c",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e92d",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"follower": [
+				{
+					"cp": "e92e",
+					"color": "#999999"
+				},
+				{
+					"cp": "e92f",
+					"color": "#000000",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e930",
+					"color": "#bbbdbf",
+					"ml": "-1em"
+				}
+			],
+			"fort": [
+				{
+					"cp": "e931",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e932",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"gem_geode": [
+				{
+					"cp": "e933",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e934",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"general_merch": [
+				{
+					"cp": "e935",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e936",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"giant_camp": [
+				{
+					"cp": "e937",
+					"color": "#000000"
+				},
+				{
+					"cp": "e938",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"gold_ore": [
+				{
+					"cp": "e939",
+					"color": "#000000"
+				},
+				{
+					"cp": "e93a",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"grove": [
+				{
+					"cp": "e93b",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e93c",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"guild_hall": [
+				{
+					"cp": "e93d",
+					"color": "#000000"
+				},
+				{
+					"cp": "e93e",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"heart_stone": [
+				{
+					"cp": "e93f",
+					"color": "#000000"
+				},
+				{
+					"cp": "e940",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"house": [
+				{
+					"cp": "e941",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e942",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"house_ownable": [
+				{
+					"cp": "e943",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e944",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"imperial_camp": [
+				{
+					"cp": "e945",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e946",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"imperial_tower": [
+				{
+					"cp": "e947",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e948",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"inn": [
+				{
+					"cp": "e949",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e94a",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"iron_ore": [
+				{
+					"cp": "e94b",
+					"color": "#000000"
+				},
+				{
+					"cp": "e94c",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"item": [
+				{
+					"cp": "e94d",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e94e",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"jail": [
+				{
+					"cp": "e94f",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e950",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"jeweler": [
+				{
+					"cp": "e951",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e952",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e953",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e954",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"library": [
+				{
+					"cp": "e955",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e956",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"lighthouse": [
+				{
+					"cp": "e957",
+					"color": "#000000"
+				},
+				{
+					"cp": "e958",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"malachite_ore": [
+				{
+					"cp": "e959",
+					"color": "#000000"
+				},
+				{
+					"cp": "e95a",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"marriage": [
+				{
+					"cp": "e95b",
+					"color": "#000000"
+				},
+				{
+					"cp": "e95c",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"mine": [
+				{
+					"cp": "e95d",
+					"color": "#000000"
+				},
+				{
+					"cp": "e95e",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"misc_quest": [
+				{
+					"cp": "e95f",
+					"color": "#000000"
+				},
+				{
+					"cp": "e960",
+					"color": "#bbbdbf",
+					"ml": "-1em"
+				}
+			],
+			"moonstone_ore": [
+				{
+					"cp": "e961",
+					"color": "#000000"
+				},
+				{
+					"cp": "e962",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"nordic_ruin": [
+				{
+					"cp": "e963",
+					"color": "#000000"
+				},
+				{
+					"cp": "e964",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"nordic_tower": [
+				{
+					"cp": "e965",
+					"color": "#000000"
+				},
+				{
+					"cp": "e966",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"orc_stronghold": [
+				{
+					"cp": "e967",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e968",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"ore": [
+				{
+					"cp": "e969",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e96a",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"orichalcum_ore": [
+				{
+					"cp": "e96b",
+					"color": "#000000"
+				},
+				{
+					"cp": "e96c",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"other": [
+				{
+					"cp": "e96d",
+					"color": "#000000"
+				},
+				{
+					"cp": "e96e",
+					"color": "#aaacae",
+					"ml": "-1em"
+				}
+			],
+			"pass": [
+				{
+					"cp": "e96f",
+					"color": "#000000"
+				},
+				{
+					"cp": "e970",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"pickaxe": [
+				{
+					"cp": "e971",
+					"color": "#000000"
+				},
+				{
+					"cp": "e972",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e973",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e974",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"quest": [
+				{
+					"cp": "e975",
+					"color": "#000000"
+				},
+				{
+					"cp": "e976",
+					"color": "#bbbdbf",
+					"ml": "-1em"
+				}
+			],
+			"quicksilver_ore": [
+				{
+					"cp": "e977",
+					"color": "#000000"
+				},
+				{
+					"cp": "e978",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"ruin": [
+				{
+					"cp": "e979",
+					"color": "#000000"
+				},
+				{
+					"cp": "e97a",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"settlement": [
+				{
+					"cp": "e97b",
+					"color": "#000000"
+				},
+				{
+					"cp": "e97c",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"shack": [
+				{
+					"cp": "e97d",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e97e",
+					"color": "#020202",
+					"ml": "-1em"
+				}
+			],
+			"shipwreck": [
+				{
+					"cp": "e97f",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e980",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"shrine": [
+				{
+					"cp": "e981",
+					"color": "#000000"
+				},
+				{
+					"cp": "e982",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e983",
+					"color": "#000000"
+				},
+				{
+					"cp": "e984",
+					"color": "#bbbdbf",
+					"ml": "-1em"
+				}
+			],
+			"silver_ore": [
+				{
+					"cp": "e985",
+					"color": "#000000"
+				},
+				{
+					"cp": "e986",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"skill_book": [
+				{
+					"cp": "e987",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e988",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"smelter": [
+				{
+					"cp": "e989",
+					"color": "#000000"
+				},
+				{
+					"cp": "e98a",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"spell_tome": [
+				{
+					"cp": "e98b",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e98c",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"spell_vendor": [
+				{
+					"cp": "e98d",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e98e",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"stable": [
+				{
+					"cp": "e98f",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e990",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"stalhrim_deposit": [
+				{
+					"cp": "e991",
+					"color": "#000000"
+				},
+				{
+					"cp": "e992",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"standing_stone": [
+				{
+					"cp": "e993",
+					"color": "#000000"
+				},
+				{
+					"cp": "e994",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"stone_quarry": [
+				{
+					"cp": "e995",
+					"color": "#000000"
+				},
+				{
+					"cp": "e996",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"stormcloak_camp": [
+				{
+					"cp": "e997",
+					"color": "#000000"
+				},
+				{
+					"cp": "e998",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"temple": [
+				{
+					"cp": "e999",
+					"color": "#000000"
+				},
+				{
+					"cp": "e99a",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"town": [
+				{
+					"cp": "e99b",
+					"color": "#000000"
+				},
+				{
+					"cp": "e99c",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			],
+			"trainer": [
+				{
+					"cp": "e99d",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e99e",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"transport": [
+				{
+					"cp": "e99f",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e9a0",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e9a1",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e9a2",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"treasure_map": [
+				{
+					"cp": "e9a3",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e9a4",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"unusual_gem": [
+				{
+					"cp": "e9a5",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e9a6",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"wheat_mill": [
+				{
+					"cp": "e9a7",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e9a8",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"wood_mill": [
+				{
+					"cp": "e9a9",
+					"color": "#bcbec0"
+				},
+				{
+					"cp": "e9aa",
+					"color": "#000000",
+					"ml": "-1em"
+				}
+			],
+			"word_wall": [
+				{
+					"cp": "e9ab",
+					"color": "#000000"
+				},
+				{
+					"cp": "e9ac",
+					"color": "#bcbec0",
+					"ml": "-1em"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "skyrim",
+			"title": "Skyrim",
+			"data": "skyrim/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "skyrim/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 18,
+					"bounds": [-1.9037789120133097, 0.5613429753156398, -0.21947298195505005, 1.7417199819925002],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "solstheim",
+			"title": "Solstheim",
+			"data": "solstheim/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "solstheim/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 11,
+					"maxzoom": 17,
+					"viewMaxzoom": 17,
+					"bounds": [-1.41154678916696, 1.12704799125774, -1.12264122416477, 1.4927623711901998],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

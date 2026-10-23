@@ -1,322 +1,312 @@
 {
-  "id": "oblivion",
-  "title": "The Elder Scrolls IV: Oblivion",
-  "slug": "oblivion",
-  "source": "https://mapgenie.io/oblivion/maps/cyrodiil",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "cyrodiil",
-      "title": "Cyrodiil",
-      "data": "cyrodiil/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "cyrodiil/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "shivering-isles",
-      "title": "Shivering Isles",
-      "data": "shivering-isles/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "shivering-isles/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "alchemist": [
-        {
-          "cp": "e900",
-          "color": "#000000"
-        }
-      ],
-      "ayleid_ruin": [
-        {
-          "cp": "e901",
-          "color": "#000000"
-        }
-      ],
-      "ayleid_well": [
-        {
-          "cp": "e902",
-          "color": "#000000"
-        }
-      ],
-      "blacksmith": [
-        {
-          "cp": "e903",
-          "color": "#000000"
-        }
-      ],
-      "bookstore": [
-        {
-          "cp": "e904",
-          "color": "#000000"
-        }
-      ],
-      "campsite": [
-        {
-          "cp": "e905",
-          "color": "#000000"
-        }
-      ],
-      "cave": [
-        {
-          "cp": "e906",
-          "color": "#000000"
-        }
-      ],
-      "chapel": [
-        {
-          "cp": "e907",
-          "color": "#000000"
-        }
-      ],
-      "city": [
-        {
-          "cp": "e908",
-          "color": "#000000"
-        }
-      ],
-      "crystal_chest": [
-        {
-          "cp": "e909",
-          "color": "#000000"
-        }
-      ],
-      "daedric_artifact": [
-        {
-          "cp": "e90a",
-          "color": "#000000"
-        }
-      ],
-      "daedric_quest": [
-        {
-          "cp": "e90b",
-          "color": "#000000"
-        }
-      ],
-      "daedric_shrine": [
-        {
-          "cp": "e90c",
-          "color": "#000000"
-        }
-      ],
-      "dark_brotherhood_quest": [
-        {
-          "cp": "e90d",
-          "color": "#000000"
-        }
-      ],
-      "door": [
-        {
-          "cp": "e90e",
-          "color": "#000000"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e90f",
-          "color": "#000000"
-        }
-      ],
-      "fence": [
-        {
-          "cp": "e910",
-          "color": "#000000"
-        }
-      ],
-      "fighters_guild_quest": [
-        {
-          "cp": "e911",
-          "color": "#000000"
-        }
-      ],
-      "follower": [
-        {
-          "cp": "e912",
-          "color": "#000000"
-        }
-      ],
-      "fort": [
-        {
-          "cp": "e913",
-          "color": "#000000"
-        }
-      ],
-      "guild_hall": [
-        {
-          "cp": "e914",
-          "color": "#000000"
-        }
-      ],
-      "house": [
-        {
-          "cp": "e915",
-          "color": "#000000"
-        }
-      ],
-      "inn": [
-        {
-          "cp": "e916",
-          "color": "#000000"
-        }
-      ],
-      "innkeeper": [
-        {
-          "cp": "e917",
-          "color": "#000000"
-        }
-      ],
-      "jeweler": [
-        {
-          "cp": "e918",
-          "color": "#000000"
-        }
-      ],
-      "landmark": [
-        {
-          "cp": "e919",
-          "color": "#000000"
-        }
-      ],
-      "mages_guild_quest": [
-        {
-          "cp": "e91a",
-          "color": "#000000"
-        }
-      ],
-      "magical_stone": [
-        {
-          "cp": "e91b",
-          "color": "#000000"
-        }
-      ],
-      "magical_supplier": [
-        {
-          "cp": "e91c",
-          "color": "#000000"
-        }
-      ],
-      "main_quest": [
-        {
-          "cp": "e91d",
-          "color": "#000000"
-        }
-      ],
-      "merchant": [
-        {
-          "cp": "e91e",
-          "color": "#000000"
-        }
-      ],
-      "mine": [
-        {
-          "cp": "e91f",
-          "color": "#000000"
-        }
-      ],
-      "nirnroot": [
-        {
-          "cp": "e920",
-          "color": "#000000"
-        }
-      ],
-      "obelisk_of_order": [
-        {
-          "cp": "e921",
-          "color": "#000000"
-        }
-      ],
-      "oblivion_gate": [
-        {
-          "cp": "e922",
-          "color": "#000000"
-        }
-      ],
-      "settlement": [
-        {
-          "cp": "e923",
-          "color": "#000000"
-        }
-      ],
-      "side_quest": [
-        {
-          "cp": "e924",
-          "color": "#000000"
-        }
-      ],
-      "skill_book": [
-        {
-          "cp": "e925",
-          "color": "#000000"
-        }
-      ],
-      "stable": [
-        {
-          "cp": "e926",
-          "color": "#000000"
-        }
-      ],
-      "thieves_guild_quest": [
-        {
-          "cp": "e927",
-          "color": "#000000"
-        }
-      ],
-      "trainer": [
-        {
-          "cp": "e928",
-          "color": "#000000"
-        }
-      ],
-      "unique_item": [
-        {
-          "cp": "e929",
-          "color": "#000000"
-        }
-      ],
-      "wayshrine": [
-        {
-          "cp": "e92a",
-          "color": "#000000"
-        }
-      ]
-    }
-  }
+	"id": "oblivion",
+	"title": "The Elder Scrolls IV: Oblivion",
+	"slug": "oblivion",
+	"source": "https://mapgenie.io/oblivion/maps/cyrodiil",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "cyrodiil",
+			"title": "Cyrodiil",
+			"data": "cyrodiil/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "cyrodiil/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "shivering-isles",
+			"title": "Shivering Isles",
+			"data": "shivering-isles/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "shivering-isles/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"alchemist": [
+				{
+					"cp": "e900",
+					"color": "#000000"
+				}
+			],
+			"ayleid_ruin": [
+				{
+					"cp": "e901",
+					"color": "#000000"
+				}
+			],
+			"ayleid_well": [
+				{
+					"cp": "e902",
+					"color": "#000000"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e903",
+					"color": "#000000"
+				}
+			],
+			"bookstore": [
+				{
+					"cp": "e904",
+					"color": "#000000"
+				}
+			],
+			"campsite": [
+				{
+					"cp": "e905",
+					"color": "#000000"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e906",
+					"color": "#000000"
+				}
+			],
+			"chapel": [
+				{
+					"cp": "e907",
+					"color": "#000000"
+				}
+			],
+			"city": [
+				{
+					"cp": "e908",
+					"color": "#000000"
+				}
+			],
+			"crystal_chest": [
+				{
+					"cp": "e909",
+					"color": "#000000"
+				}
+			],
+			"daedric_artifact": [
+				{
+					"cp": "e90a",
+					"color": "#000000"
+				}
+			],
+			"daedric_quest": [
+				{
+					"cp": "e90b",
+					"color": "#000000"
+				}
+			],
+			"daedric_shrine": [
+				{
+					"cp": "e90c",
+					"color": "#000000"
+				}
+			],
+			"dark_brotherhood_quest": [
+				{
+					"cp": "e90d",
+					"color": "#000000"
+				}
+			],
+			"door": [
+				{
+					"cp": "e90e",
+					"color": "#000000"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90f",
+					"color": "#000000"
+				}
+			],
+			"fence": [
+				{
+					"cp": "e910",
+					"color": "#000000"
+				}
+			],
+			"fighters_guild_quest": [
+				{
+					"cp": "e911",
+					"color": "#000000"
+				}
+			],
+			"follower": [
+				{
+					"cp": "e912",
+					"color": "#000000"
+				}
+			],
+			"fort": [
+				{
+					"cp": "e913",
+					"color": "#000000"
+				}
+			],
+			"guild_hall": [
+				{
+					"cp": "e914",
+					"color": "#000000"
+				}
+			],
+			"house": [
+				{
+					"cp": "e915",
+					"color": "#000000"
+				}
+			],
+			"inn": [
+				{
+					"cp": "e916",
+					"color": "#000000"
+				}
+			],
+			"innkeeper": [
+				{
+					"cp": "e917",
+					"color": "#000000"
+				}
+			],
+			"jeweler": [
+				{
+					"cp": "e918",
+					"color": "#000000"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e919",
+					"color": "#000000"
+				}
+			],
+			"mages_guild_quest": [
+				{
+					"cp": "e91a",
+					"color": "#000000"
+				}
+			],
+			"magical_stone": [
+				{
+					"cp": "e91b",
+					"color": "#000000"
+				}
+			],
+			"magical_supplier": [
+				{
+					"cp": "e91c",
+					"color": "#000000"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e91d",
+					"color": "#000000"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e91e",
+					"color": "#000000"
+				}
+			],
+			"mine": [
+				{
+					"cp": "e91f",
+					"color": "#000000"
+				}
+			],
+			"nirnroot": [
+				{
+					"cp": "e920",
+					"color": "#000000"
+				}
+			],
+			"obelisk_of_order": [
+				{
+					"cp": "e921",
+					"color": "#000000"
+				}
+			],
+			"oblivion_gate": [
+				{
+					"cp": "e922",
+					"color": "#000000"
+				}
+			],
+			"settlement": [
+				{
+					"cp": "e923",
+					"color": "#000000"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e924",
+					"color": "#000000"
+				}
+			],
+			"skill_book": [
+				{
+					"cp": "e925",
+					"color": "#000000"
+				}
+			],
+			"stable": [
+				{
+					"cp": "e926",
+					"color": "#000000"
+				}
+			],
+			"thieves_guild_quest": [
+				{
+					"cp": "e927",
+					"color": "#000000"
+				}
+			],
+			"trainer": [
+				{
+					"cp": "e928",
+					"color": "#000000"
+				}
+			],
+			"unique_item": [
+				{
+					"cp": "e929",
+					"color": "#000000"
+				}
+			],
+			"wayshrine": [
+				{
+					"cp": "e92a",
+					"color": "#000000"
+				}
+			]
+		}
+	}
 }

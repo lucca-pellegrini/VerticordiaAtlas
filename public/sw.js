@@ -49,7 +49,7 @@
     TILE_MAX_AGE: () => TILE_MAX_AGE,
     VERSION: () => VERSION
   });
-  var VERSION = "v40-af2fb931";
+  var VERSION = "v40-559d2fa6";
   var SHELL = `va-shell-${VERSION}`;
   var DATA = `va-data-${VERSION}`;
   var TILES = `va-tiles-${VERSION}`;

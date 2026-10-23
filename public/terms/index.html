@@ -1,213 +1,407 @@
 <!doctype html>
 <html lang="en" data-theme="auto">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Terms of service · Verticordia Atlas</title>
-<meta name="description" content="The terms for using Verticordia Atlas: the free, offline-first game maps, and the optional account that syncs your progress.">
-<meta name="theme-color" content="#0b0e10">
-<script>(()=>{
-  const tm=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
-  if(tm)document.documentElement.dataset.theme=tm[1];
-  let raw=null;
-  const tn=document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
-  if(tn){try{raw=decodeURIComponent(tn[1]);}catch{}}
-  if(!raw){try{raw=localStorage.getItem('va_tint');}catch{}}
-  if(raw){
-    const [a,s]=raw.split('|');
-    if(a&&/^#[0-9a-fA-F]{3,8}$/.test(a)){
-      const st=document.documentElement.style;
-      st.setProperty('--accent',a);
-      if(s&&/^#[0-9a-fA-F]{3,8}$/.test(s))st.setProperty('--accent-soft',s);
-    }
-  }
-})()</script>
-<link rel="manifest" href="../manifest.webmanifest">
-<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Atlas">
-<link rel="icon" href="../logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../base.css">
-<link rel="stylesheet" href="../legal/legal.css">
-</head>
-<body>
-<div class="bg" aria-hidden="true"></div>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>Terms of service · Verticordia Atlas</title>
+		<meta
+			name="description"
+			content="The terms for using Verticordia Atlas: the free, offline-first game maps, and the optional account that syncs your progress."
+		/>
+		<meta name="theme-color" content="#0b0e10" />
+		<script>
+			(() => {
+				const tm = document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
+				if (tm) document.documentElement.dataset.theme = tm[1];
+				let raw = null;
+				const tn = document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
+				if (tn) {
+					try {
+						raw = decodeURIComponent(tn[1]);
+					} catch {}
+				}
+				if (!raw) {
+					try {
+						raw = localStorage.getItem("va_tint");
+					} catch {}
+				}
+				if (raw) {
+					const [a, s] = raw.split("|");
+					if (a && /^#[0-9a-fA-F]{3,8}$/.test(a)) {
+						const st = document.documentElement.style;
+						st.setProperty("--accent", a);
+						if (s && /^#[0-9a-fA-F]{3,8}$/.test(s)) st.setProperty("--accent-soft", s);
+					}
+				}
+			})();
+		</script>
+		<link rel="manifest" href="../manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Atlas" />
+		<link rel="icon" href="../logo.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="../base.css" />
+		<link rel="stylesheet" href="../legal/legal.css" />
+	</head>
+	<body>
+		<div class="bg" aria-hidden="true"></div>
 
-<header class="legal-top">
-  <a class="brand" href="../" aria-label="Verticordia Atlas, home">
-    <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"/><circle cx="12" cy="10" r="2.8" fill="var(--night)"/></svg></span>
-    <span>Verticordia Atlas</span>
-  </a>
-  <div class="legal-top-tools">
-    <div data-theme-toggle></div>
-    <a class="back" href="../"><span>Back to the maps</span></a>
-  </div>
-</header>
+		<header class="legal-top">
+			<a class="brand" href="../" aria-label="Verticordia Atlas, home">
+				<span class="mark" aria-hidden="true"
+					><svg viewBox="0 0 24 24">
+						<path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z" />
+						<circle cx="12" cy="10" r="2.8" fill="var(--night)" /></svg
+				></span>
+				<span>Verticordia Atlas</span>
+			</a>
+			<div class="legal-top-tools">
+				<div data-theme-toggle></div>
+				<a class="back" href="../"><span>Back to the maps</span></a>
+			</div>
+		</header>
 
-<div class="legal">
-  <nav class="toc" aria-label="Sections of these terms">
-    <p class="toc-title">Contents</p>
-    <ol>
-      <li><a href="#about">About these terms</a></li>
-      <li><a href="#accounts">Accounts and sign-in</a></li>
-      <li><a href="#service">What the service is</a></li>
-      <li><a href="#your-content">Your progress and content</a></li>
-      <li><a href="#acceptable-use">Acceptable use</a></li>
-      <li><a href="#game-content">Game content and trademarks</a></li>
-      <li><a href="#third-parties">Third-party services</a></li>
-      <li><a href="#availability">Availability and offline use</a></li>
-      <li><a href="#ending">Ending your account</a></li>
-      <li><a href="#disclaimers">Disclaimers</a></li>
-      <li><a href="#liability">Limitation of liability</a></li>
-      <li><a href="#changes">Changes to these terms</a></li>
-      <li><a href="#open-source">Open-source software</a></li>
-      <li><a href="#law">Governing law</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ol>
-    <p class="toc-note">Read with our <a href="../privacy/">Privacy Policy</a>.</p>
-  </nav>
+		<div class="legal">
+			<nav class="toc" aria-label="Sections of these terms">
+				<p class="toc-title">Contents</p>
+				<ol>
+					<li><a href="#about">About these terms</a></li>
+					<li><a href="#accounts">Accounts and sign-in</a></li>
+					<li><a href="#service">What the service is</a></li>
+					<li><a href="#your-content">Your progress and content</a></li>
+					<li><a href="#acceptable-use">Acceptable use</a></li>
+					<li><a href="#game-content">Game content and trademarks</a></li>
+					<li><a href="#third-parties">Third-party services</a></li>
+					<li><a href="#availability">Availability and offline use</a></li>
+					<li><a href="#ending">Ending your account</a></li>
+					<li><a href="#disclaimers">Disclaimers</a></li>
+					<li><a href="#liability">Limitation of liability</a></li>
+					<li><a href="#changes">Changes to these terms</a></li>
+					<li><a href="#open-source">Open-source software</a></li>
+					<li><a href="#law">Governing law</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ol>
+				<p class="toc-note">Read with our <a href="../privacy/">Privacy Policy</a>.</p>
+			</nav>
 
-  <article class="doc">
-    <p class="eyebrow">Legal</p>
-    <h1>Terms of service</h1>
-    <p class="lede">The short version: the maps are free and work without an account. An account is optional, and only lets your progress follow you between devices. Please use the site in good faith.</p>
-    <p class="updated">Last updated <time datetime="2026-10-22">22 October 2026</time></p>
+			<article class="doc">
+				<p class="eyebrow">Legal</p>
+				<h1>Terms of service</h1>
+				<p class="lede">
+					The short version: the maps are free and work without an account. An account is optional, and only
+					lets your progress follow you between devices. Please use the site in good faith.
+				</p>
+				<p class="updated">Last updated <time datetime="2026-10-22">22 October 2026</time></p>
 
-    <section id="about">
-      <h2>About these terms</h2>
-      <p>These terms of service (the “Terms”) are the agreement between you and Verticordia (“we”, “us”), the operator of Verticordia Atlas at <a href="https://atlas.verticordia.com:11680/">atlas.verticordia.com</a> (the “Service”).</p>
-      <p>By opening the Service, you agree to these Terms. If you do not agree, please do not use the Service. If you are using the Service on behalf of an organisation, you confirm that you may bind that organisation to these Terms.</p>
-      <p>You must be old enough to form a binding contract where you live, or have the permission of a parent or guardian to use the Service.</p>
-    </section>
+				<section id="about">
+					<h2>About these terms</h2>
+					<p>
+						These terms of service (the “Terms”) are the agreement between you and Verticordia (“we”, “us”),
+						the operator of Verticordia Atlas at
+						<a href="https://atlas.verticordia.com:11680/">atlas.verticordia.com</a> (the “Service”).
+					</p>
+					<p>
+						By opening the Service, you agree to these Terms. If you do not agree, please do not use the
+						Service. If you are using the Service on behalf of an organisation, you confirm that you may
+						bind that organisation to these Terms.
+					</p>
+					<p>
+						You must be old enough to form a binding contract where you live, or have the permission of a
+						parent or guardian to use the Service.
+					</p>
+				</section>
 
-    <section id="accounts">
-      <h2>Accounts and sign-in</h2>
-      <p>You can use the Service without an account. An account is only needed to keep your progress in step across devices.</p>
-      <h3>Signing in</h3>
-      <p>You can sign in in one of two ways:</p>
-      <ul>
-        <li><strong>With Google.</strong> We rely on Google to confirm who you are. We receive a signed token from Google that contains your Google account identifier, your e-mail address and your display name, and we check that the e-mail address has been verified by Google.</li>
-        <li><strong>With a secret key.</strong> When you create a key, the Service shows you a random code once. We keep only a one-way fingerprint of it. Whoever holds the key can sign in to the account, so you must keep it safe.</li>
-      </ul>
-      <div class="callout"><strong>A lost secret key cannot be recovered.</strong><br>We never see the key itself, so we cannot reset it or send it back to you. If you lose it and have no other way in, the account and its synced progress cannot be restored. The progress stays on the devices that still hold it.</div>
-      <h3>Responsibility for your account</h3>
-      <p>You are responsible for everything done through your account, and for keeping your sign-in details secure. Tell us promptly if you believe someone else has access. You can end all your sessions at once with “Log out from all devices”.</p>
-      <p>We may suspend or close an account that we reasonably believe is being used in breach of these Terms, or to harm the Service or other people.</p>
-    </section>
+				<section id="accounts">
+					<h2>Accounts and sign-in</h2>
+					<p>
+						You can use the Service without an account. An account is only needed to keep your progress in
+						step across devices.
+					</p>
+					<h3>Signing in</h3>
+					<p>You can sign in in one of two ways:</p>
+					<ul>
+						<li>
+							<strong>With Google.</strong> We rely on Google to confirm who you are. We receive a signed
+							token from Google that contains your Google account identifier, your e-mail address and your
+							display name, and we check that the e-mail address has been verified by Google.
+						</li>
+						<li>
+							<strong>With a secret key.</strong> When you create a key, the Service shows you a random
+							code once. We keep only a one-way fingerprint of it. Whoever holds the key can sign in to
+							the account, so you must keep it safe.
+						</li>
+					</ul>
+					<div class="callout">
+						<strong>A lost secret key cannot be recovered.</strong><br />We never see the key itself, so we
+						cannot reset it or send it back to you. If you lose it and have no other way in, the account and
+						its synced progress cannot be restored. The progress stays on the devices that still hold it.
+					</div>
+					<h3>Responsibility for your account</h3>
+					<p>
+						You are responsible for everything done through your account, and for keeping your sign-in
+						details secure. Tell us promptly if you believe someone else has access. You can end all your
+						sessions at once with “Log out from all devices”.
+					</p>
+					<p>
+						We may suspend or close an account that we reasonably believe is being used in breach of these
+						Terms, or to harm the Service or other people.
+					</p>
+				</section>
 
-    <section id="service">
-      <h2>What the service is</h2>
-      <p>Verticordia Atlas shows interactive maps for video games. You can mark what you have found, draw on maps, add your own markers and categories, and export or import your progress as a file.</p>
-      <p>The Service is provided free of charge. We may add, change or remove features, and we may introduce paid features in the future; we will not charge you for anything without telling you first and giving you the choice.</p>
-      <p>The maps are fan-made reference material. They are not made, checked or endorsed by the publishers or developers of the games they cover, and information about the games may be incomplete, out of date or wrong.</p>
-    </section>
+				<section id="service">
+					<h2>What the service is</h2>
+					<p>
+						Verticordia Atlas shows interactive maps for video games. You can mark what you have found, draw
+						on maps, add your own markers and categories, and export or import your progress as a file.
+					</p>
+					<p>
+						The Service is provided free of charge. We may add, change or remove features, and we may
+						introduce paid features in the future; we will not charge you for anything without telling you
+						first and giving you the choice.
+					</p>
+					<p>
+						The maps are fan-made reference material. They are not made, checked or endorsed by the
+						publishers or developers of the games they cover, and information about the games may be
+						incomplete, out of date or wrong.
+					</p>
+				</section>
 
-    <section id="your-content">
-      <h2>Your progress and content</h2>
-      <p>The progress you record (found markers, profiles, drawings, markers, categories, view settings and similar) belongs to you. We do not claim ownership of it.</p>
-      <p>To provide the Service, you give us a limited permission to store that content, to send it between your devices when you are signed in, and to show it back to you. We do not publish your content, and we do not use it for advertising.</p>
-      <p>You are responsible for the content you create. Do not add material that is unlawful, that infringes someone else’s rights, that is abusive or sexual in nature, or that is otherwise contrary to public order or to good morals and customs <em>(bons costumes)</em>, such as content that promotes violence or the exploitation of others. We may remove content that breaks these rules and, unless the law prevents us, we will tell you why.</p>
-    </section>
+				<section id="your-content">
+					<h2>Your progress and content</h2>
+					<p>
+						The progress you record (found markers, profiles, drawings, markers, categories, view settings
+						and similar) belongs to you. We do not claim ownership of it.
+					</p>
+					<p>
+						To provide the Service, you give us a limited permission to store that content, to send it
+						between your devices when you are signed in, and to show it back to you. We do not publish your
+						content, and we do not use it for advertising.
+					</p>
+					<p>
+						You are responsible for the content you create. Do not add material that is unlawful, that
+						infringes someone else’s rights, that is abusive or sexual in nature, or that is otherwise
+						contrary to public order or to good morals and customs <em>(bons costumes)</em>, such as content
+						that promotes violence or the exploitation of others. We may remove content that breaks these
+						rules and, unless the law prevents us, we will tell you why.
+					</p>
+				</section>
 
-    <section id="acceptable-use">
-      <h2>Acceptable use</h2>
-      <p>You agree not to:</p>
-      <ul>
-        <li>attempt to break, overload or probe the Service, its servers or its security, or to get around the limits we set (for example on sign-in attempts or on the generation of preview images);</li>
-        <li>use automated tools to download the maps or the account service in bulk, or to scrape them for reuse elsewhere, beyond what a normal browser does;</li>
-        <li>use another person’s account, or sign in with a secret key that is not yours;</li>
-        <li>interfere with other people’s use of the Service, or send them unwanted messages through it;</li>
-        <li>use the Service for anything unlawful.</li>
-      </ul>
-      <p>We keep limited technical records, including the IP address of each request, to keep the Service secure and to enforce these rules. See our <a href="../privacy/">Privacy Policy</a>.</p>
-    </section>
+				<section id="acceptable-use">
+					<h2>Acceptable use</h2>
+					<p>You agree not to:</p>
+					<ul>
+						<li>
+							attempt to break, overload or probe the Service, its servers or its security, or to get
+							around the limits we set (for example on sign-in attempts or on the generation of preview
+							images);
+						</li>
+						<li>
+							use automated tools to download the maps or the account service in bulk, or to scrape them
+							for reuse elsewhere, beyond what a normal browser does;
+						</li>
+						<li>use another person’s account, or sign in with a secret key that is not yours;</li>
+						<li>
+							interfere with other people’s use of the Service, or send them unwanted messages through it;
+						</li>
+						<li>use the Service for anything unlawful.</li>
+					</ul>
+					<p>
+						We keep limited technical records, including the IP address of each request, to keep the Service
+						secure and to enforce these rules. See our <a href="../privacy/">Privacy Policy</a>.
+					</p>
+				</section>
 
-    <section id="game-content">
-      <h2>Game content and trademarks</h2>
-      <p>The names, logos, artwork and other material of the games shown on the Service belong to their respective owners. Verticordia Atlas is an unofficial fan resource. It has no affiliation with, and is not sponsored or approved by, any game publisher or developer.</p>
-      <p>Where the Service uses images or map data from games, it does so for reference and commentary. If you are the owner of material shown on the Service and want it removed or changed, please contact us at the address below. We will look at the request promptly and act on it where we agree it is justified.</p>
-      <p>Our own software, design and text are ours or are used under licence. You may use the Service for your own personal play and reference, but you may not sell it or present it as your own.</p>
-    </section>
+				<section id="game-content">
+					<h2>Game content and trademarks</h2>
+					<p>
+						The names, logos, artwork and other material of the games shown on the Service belong to their
+						respective owners. Verticordia Atlas is an unofficial fan resource. It has no affiliation with,
+						and is not sponsored or approved by, any game publisher or developer.
+					</p>
+					<p>
+						Where the Service uses images or map data from games, it does so for reference and commentary.
+						If you are the owner of material shown on the Service and want it removed or changed, please
+						contact us at the address below. We will look at the request promptly and act on it where we
+						agree it is justified.
+					</p>
+					<p>
+						Our own software, design and text are ours or are used under licence. You may use the Service
+						for your own personal play and reference, but you may not sell it or present it as your own.
+					</p>
+				</section>
 
-    <section id="third-parties">
-      <h2>Third-party services</h2>
-      <p>The Service uses some third-party services that have their own terms:</p>
-      <ul>
-        <li><strong>Google Identity Services</strong>, for “Sign in with Google”. Your use of it is subject to Google’s terms and privacy policy.</li>
-        <li><strong>Google Fonts</strong>, for the typefaces. Loading the fonts sends your IP address to Google.</li>
-      </ul>
-      <p>We are not responsible for the content or practices of third-party services, but we choose them with care and only use what the Service needs.</p>
-    </section>
+				<section id="third-parties">
+					<h2>Third-party services</h2>
+					<p>The Service uses some third-party services that have their own terms:</p>
+					<ul>
+						<li>
+							<strong>Google Identity Services</strong>, for “Sign in with Google”. Your use of it is
+							subject to Google’s terms and privacy policy.
+						</li>
+						<li>
+							<strong>Google Fonts</strong>, for the typefaces. Loading the fonts sends your IP address to
+							Google.
+						</li>
+					</ul>
+					<p>
+						We are not responsible for the content or practices of third-party services, but we choose them
+						with care and only use what the Service needs.
+					</p>
+				</section>
 
-    <section id="availability">
-      <h2>Availability and offline use</h2>
-      <p>The maps are designed to work offline once they have been opened on a device. Your progress is saved on the device first, and is sent to the server only when a connection is available and you are signed in.</p>
-      <p>We try to keep the Service available, but we do not promise that it will be uninterrupted or error-free, and we may need to take it down for maintenance or because of events outside our control.</p>
-      <p>If you use more than one device, changes made on one device reach the others when they are connected. If the same item was changed on two devices while they were apart, the Service asks you which version to keep. We are not responsible for changes you choose to overwrite.</p>
-    </section>
+				<section id="availability">
+					<h2>Availability and offline use</h2>
+					<p>
+						The maps are designed to work offline once they have been opened on a device. Your progress is
+						saved on the device first, and is sent to the server only when a connection is available and you
+						are signed in.
+					</p>
+					<p>
+						We try to keep the Service available, but we do not promise that it will be uninterrupted or
+						error-free, and we may need to take it down for maintenance or because of events outside our
+						control.
+					</p>
+					<p>
+						If you use more than one device, changes made on one device reach the others when they are
+						connected. If the same item was changed on two devices while they were apart, the Service asks
+						you which version to keep. We are not responsible for changes you choose to overwrite.
+					</p>
+				</section>
 
-    <section id="ending">
-      <h2>Ending your account</h2>
-      <p>You can log out at any time, on one device or on all of them. Logging out does not delete your progress on the device, and it does not delete it from the server.</p>
-      <p>You can ask us to delete your account and the progress stored on the server by writing to us at the address below. We will do so within 30 days, unless we are required by law to keep something for longer. You can also stop using the Service at any time.</p>
-      <p>Sections that by their nature should survive the end of the agreement (for example liability, governing law and the provisions on content you have already shared) will continue to apply.</p>
-    </section>
+				<section id="ending">
+					<h2>Ending your account</h2>
+					<p>
+						You can log out at any time, on one device or on all of them. Logging out does not delete your
+						progress on the device, and it does not delete it from the server.
+					</p>
+					<p>
+						You can ask us to delete your account and the progress stored on the server by writing to us at
+						the address below. We will do so within 30 days, unless we are required by law to keep something
+						for longer. You can also stop using the Service at any time.
+					</p>
+					<p>
+						Sections that by their nature should survive the end of the agreement (for example liability,
+						governing law and the provisions on content you have already shared) will continue to apply.
+					</p>
+				</section>
 
-    <section id="disclaimers">
-      <h2>Disclaimers</h2>
-      <p>The Service is provided “as is” and “as available”. To the fullest extent the law allows, we disclaim all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose and non-infringement.</p>
-      <p>We do not warrant that the maps are accurate, complete or current, that the Service will meet your particular needs, or that data will never be lost. Keep your own copies of anything important, and use the export function regularly.</p>
-    </section>
+				<section id="disclaimers">
+					<h2>Disclaimers</h2>
+					<p>
+						The Service is provided “as is” and “as available”. To the fullest extent the law allows, we
+						disclaim all warranties, express or implied, including warranties of merchantability, fitness
+						for a particular purpose and non-infringement.
+					</p>
+					<p>
+						We do not warrant that the maps are accurate, complete or current, that the Service will meet
+						your particular needs, or that data will never be lost. Keep your own copies of anything
+						important, and use the export function regularly.
+					</p>
+				</section>
 
-    <section id="liability">
-      <h2>Limitation of liability</h2>
-      <p>To the fullest extent permitted by law, we are not liable for any indirect, incidental, special, consequential or punitive loss, or for any loss of data, profit, goodwill or opportunity, arising from your use of, or inability to use, the Service.</p>
-      <p>Our total liability for any claim relating to the Service is limited to the amount you have paid us for it in the twelve months before the claim (which, for a free Service, is nothing).</p>
-      <p>Nothing in these Terms limits liability that cannot be limited by law, including for death or personal injury caused by negligence, or for fraud.</p>
-    </section>
+				<section id="liability">
+					<h2>Limitation of liability</h2>
+					<p>
+						To the fullest extent permitted by law, we are not liable for any indirect, incidental, special,
+						consequential or punitive loss, or for any loss of data, profit, goodwill or opportunity,
+						arising from your use of, or inability to use, the Service.
+					</p>
+					<p>
+						Our total liability for any claim relating to the Service is limited to the amount you have paid
+						us for it in the twelve months before the claim (which, for a free Service, is nothing).
+					</p>
+					<p>
+						Nothing in these Terms limits liability that cannot be limited by law, including for death or
+						personal injury caused by negligence, or for fraud.
+					</p>
+				</section>
 
-    <section id="changes">
-      <h2>Changes to these terms</h2>
-      <p>We may update these Terms from time to time. When we do, we will change the date at the top of this page and, for material changes, tell you in the Service before they take effect.</p>
-      <p>If you keep using the Service after a change takes effect, you accept the updated Terms. If you do not accept them, stop using the Service and, if you wish, ask us to delete your account.</p>
-    </section>
+				<section id="changes">
+					<h2>Changes to these terms</h2>
+					<p>
+						We may update these Terms from time to time. When we do, we will change the date at the top of
+						this page and, for material changes, tell you in the Service before they take effect.
+					</p>
+					<p>
+						If you keep using the Service after a change takes effect, you accept the updated Terms. If you
+						do not accept them, stop using the Service and, if you wish, ask us to delete your account.
+					</p>
+				</section>
 
-    <section id="open-source">
-      <h2>Open-source software</h2>
-      <p>The Service is built with open-source software and uses open fonts. Each component below is licensed to us by its authors under the licence named. Nothing in these Terms limits your rights under those licences. Where a licence asks for it, the copyright notice and the full licence text are given or linked.</p>
-      <dl class="notices">
-        <dt>MapLibre GL JS <span>v5.24.0</span></dt>
-        <dd>The map engine. Licensed under the <strong>3-Clause BSD License</strong>. Full text: <a href="https://github.com/maplibre/maplibre-gl-js/blob/v5.24.0/LICENSE.txt">github.com/maplibre/maplibre-gl-js</a>.</dd>
-        <dt>marked <span>v18.1.1</span></dt>
-        <dd>The markdown parser used for marker descriptions. Copyright (c) 2018–2026 MarkedJS; copyright (c) 2011–2018 Christopher Jeffrey. Licensed under the <strong>MIT License</strong>. Repository: <a href="https://github.com/markedjs/marked">github.com/markedjs/marked</a>.</dd>
-        <dt>perfect-freehand</dt>
-        <dd>The smooth pen strokes for drawings. Copyright (c) 2021 Stephen Ruiz Ltd. Licensed under the <strong>MIT License</strong>. Full text: <a href="../vendor/perfect-freehand.LICENSE.txt">perfect-freehand.LICENSE.txt</a>.</dd>
-        <dt>Lucide icons</dt>
-        <dd>The icons used across the interface. Copyright (c) 2026 Lucide Icons and Contributors. Licensed under the <strong>ISC License</strong>. Full text: <a href="../vendor/lucide/LICENSE.txt">lucide/LICENSE.txt</a>.</dd>
-        <dt>Inter and Instrument Serif</dt>
-        <dd>The typefaces, loaded from Google Fonts. Both are licensed under the <strong>SIL Open Font License 1.1</strong>. Details: <a href="https://fonts.google.com/specimen/Inter">Inter</a> and <a href="https://fonts.google.com/specimen/Instrument+Serif">Instrument Serif</a>.</dd>
-      </dl>
-      <p>If you think a notice is missing or wrong, tell us at the address below and we will fix it.</p>
-    </section>
+				<section id="open-source">
+					<h2>Open-source software</h2>
+					<p>
+						The Service is built with open-source software and uses open fonts. Each component below is
+						licensed to us by its authors under the licence named. Nothing in these Terms limits your rights
+						under those licences. Where a licence asks for it, the copyright notice and the full licence
+						text are given or linked.
+					</p>
+					<dl class="notices">
+						<dt>MapLibre GL JS <span>v5.24.0</span></dt>
+						<dd>
+							The map engine. Licensed under the <strong>3-Clause BSD License</strong>. Full text:
+							<a href="https://github.com/maplibre/maplibre-gl-js/blob/v5.24.0/LICENSE.txt"
+								>github.com/maplibre/maplibre-gl-js</a
+							>.
+						</dd>
+						<dt>marked <span>v18.1.1</span></dt>
+						<dd>
+							The markdown parser used for marker descriptions. Copyright (c) 2018–2026 MarkedJS;
+							copyright (c) 2011–2018 Christopher Jeffrey. Licensed under the
+							<strong>MIT License</strong>. Repository:
+							<a href="https://github.com/markedjs/marked">github.com/markedjs/marked</a>.
+						</dd>
+						<dt>perfect-freehand</dt>
+						<dd>
+							The smooth pen strokes for drawings. Copyright (c) 2021 Stephen Ruiz Ltd. Licensed under the
+							<strong>MIT License</strong>. Full text:
+							<a href="../vendor/perfect-freehand.LICENSE.txt">perfect-freehand.LICENSE.txt</a>.
+						</dd>
+						<dt>Lucide icons</dt>
+						<dd>
+							The icons used across the interface. Copyright (c) 2026 Lucide Icons and Contributors.
+							Licensed under the <strong>ISC License</strong>. Full text:
+							<a href="../vendor/lucide/LICENSE.txt">lucide/LICENSE.txt</a>.
+						</dd>
+						<dt>Inter and Instrument Serif</dt>
+						<dd>
+							The typefaces, loaded from Google Fonts. Both are licensed under the
+							<strong>SIL Open Font License 1.1</strong>. Details:
+							<a href="https://fonts.google.com/specimen/Inter">Inter</a> and
+							<a href="https://fonts.google.com/specimen/Instrument+Serif">Instrument Serif</a>.
+						</dd>
+					</dl>
+					<p>If you think a notice is missing or wrong, tell us at the address below and we will fix it.</p>
+				</section>
 
-    <section id="law">
-      <h2>Governing law</h2>
-      <p>These Terms are governed by the laws of Brazil, without regard to its conflict-of-laws rules. Courts in that jurisdiction have jurisdiction over disputes, except where mandatory consumer protection rules in your country give you the right to bring a claim where you live.</p>
-    </section>
+				<section id="law">
+					<h2>Governing law</h2>
+					<p>
+						These Terms are governed by the laws of Brazil, without regard to its conflict-of-laws rules.
+						Courts in that jurisdiction have jurisdiction over disputes, except where mandatory consumer
+						protection rules in your country give you the right to bring a claim where you live.
+					</p>
+				</section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>For questions about these Terms, a takedown request, or to ask us to delete your account, write to <a href="mailto:atlas-contact@verticordia.com">atlas-contact@verticordia.com</a>.</p>
-    </section>
+				<section id="contact">
+					<h2>Contact</h2>
+					<p>
+						For questions about these Terms, a takedown request, or to ask us to delete your account, write
+						to <a href="mailto:atlas-contact@verticordia.com">atlas-contact@verticordia.com</a>.
+					</p>
+				</section>
 
-    <footer class="motto">
-      <p class="latin" lang="la">Nisi Dominus frustra</p>
-      <p class="gloss">“Unless the Lord build the house, they labour in vain that build it.<br>Unless the Lord keep the city, he watcheth in vain that keepeth it.”<br>Psalm 126 (127):1</p>
-    </footer>
-  </article>
-</div>
+				<footer class="motto">
+					<p class="latin" lang="la">Nisi Dominus frustra</p>
+					<p class="gloss">
+						“Unless the Lord build the house, they labour in vain that build it.<br />Unless the Lord keep
+						the city, he watcheth in vain that keepeth it.”<br />Psalm 126 (127):1
+					</p>
+				</footer>
+			</article>
+		</div>
 
-<script type="module" src="../theme.js"></script>
-<script src="../legal/legal.js" defer></script>
-</body>
+		<script type="module" src="../theme.js"></script>
+		<script src="../legal/legal.js" defer></script>
+	</body>
 </html>

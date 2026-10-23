@@ -1,3 +1,181 @@
+// src/shared/escape.ts
+var esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+var fmt = (n) => Number(n).toLocaleString();
+
+// src/shared/search.ts
+var norm = (s) => String(s ?? "").normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
+var flat = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+var words = (s) => flat(s).split(" ").filter((w) => w.length >= 3);
+function levenshtein(a, b) {
+  if (a === b)
+    return 0;
+  if (!a.length)
+    return b.length;
+  if (!b.length)
+    return a.length;
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1;i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1;j <= b.length; j++) {
+      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    }
+    prev = cur;
+  }
+  return prev[b.length];
+}
+function fuzzyScore(queryWords, textWords) {
+  let total = 0, counted = 0;
+  for (const qw of queryWords) {
+    if (qw.length < 3)
+      continue;
+    const allowed = qw.length <= 4 ? 1 : 2;
+    let best = Infinity;
+    for (const tw of textWords)
+      best = Math.min(best, levenshtein(qw, tw));
+    if (best > allowed)
+      return null;
+    total += best;
+    counted++;
+  }
+  return counted ? total : null;
+}
+
+// src/client/account.ts
+var ROOT = new URL("./", import.meta.url);
+var SIGNED_IN_KEY = "va-account";
+async function api(method, path, body) {
+  let res;
+  const rel = String(path).replace(/^\/+/, "").replace(/^api\//, "");
+  try {
+    res = await fetch(new URL("api/" + rel, ROOT), {
+      method,
+      cache: "no-store",
+      credentials: "same-origin",
+      headers: body !== undefined ? { "Content-Type": "application/json" } : {},
+      body: body !== undefined ? JSON.stringify(body) : undefined
+    });
+  } catch {
+    throw Object.assign(new Error("network"), { network: true });
+  }
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok)
+    throw Object.assign(new Error(data.error || res.statusText), { status: res.status });
+  return data;
+}
+var user = null;
+var toastFn = null;
+var ICON = {
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>',
+  out: '<path d="M15 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/>',
+  all: '<rect x="3" y="4" width="13" height="10" rx="2"/><path d="M7 20h5M9 14v6M18 9h3v11h-3"/>',
+  cloudOff: '<path d="M3 3l18 18M8.5 8.6A6 6 0 0 0 6 19h11a4 4 0 0 0 1.4-7.7A6 6 0 0 0 12 6c-.7 0-1.4.1-2 .3"/>'
+};
+var svg = (name, cls = "i") => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICON[name]}</svg>`;
+var signinUrl = () => new URL("signin/", ROOT).href + "?next=" + encodeURIComponent(location.pathname + location.search);
+function menuMarkup(u) {
+  return `<div class="acct" data-acct-menu>` + `<button type="button" class="acct-btn" aria-haspopup="menu" aria-expanded="false">${svg("user")}<span>My Account</span></button>` + `<div class="acct-menu" role="menu" hidden>` + `<p class="acct-who">Signed in as:<strong>${esc(u.email || u.name || "your account")}</strong></p>` + `<button type="button" role="menuitem" data-act="logout">${svg("out")}<span>Log out</span></button>` + `<button type="button" role="menuitem" data-act="logout-all" class="danger">${svg("all")}<span>Log out from all devices</span></button>` + `</div></div>`;
+}
+function renderAccount() {
+  const signinMarkup = `<a class="acct-btn" href="${esc(signinUrl())}">${svg("user")}<span>Sign in</span></a>`;
+  document.querySelectorAll("[data-account]").forEach((slot) => {
+    slot.innerHTML = user ? menuMarkup(user) : signinMarkup;
+  });
+}
+function accountSlot(variant = "side") {
+  const el = document.createElement("div");
+  el.className = variant === "top" ? "acct-slot top" : "acct-slot";
+  el.dataset.account = "";
+  return el;
+}
+async function loadAccount() {
+  try {
+    const { user: u } = await api("GET", "me");
+    user = u;
+    if (u)
+      localStorage.setItem(SIGNED_IN_KEY, JSON.stringify(u));
+    else
+      localStorage.removeItem(SIGNED_IN_KEY);
+  } catch {
+    try {
+      user = JSON.parse(localStorage.getItem(SIGNED_IN_KEY) || "null");
+    } catch {
+      user = null;
+    }
+  }
+  renderAccount();
+  return user;
+}
+function notify(msg, ms = 2600) {
+  if (toastFn)
+    return toastFn(msg, ms);
+  const t = document.getElementById("toast");
+  if (!t)
+    return;
+  t.textContent = msg;
+  t.hidden = false;
+  setTimeout(() => {
+    t.hidden = true;
+  }, ms);
+}
+var armed = null;
+async function logout(all) {
+  try {
+    await api("POST", all ? "auth/logout-all" : "auth/logout");
+  } catch {}
+  localStorage.removeItem(SIGNED_IN_KEY);
+  location.reload();
+}
+function initAccount({
+  toast
+} = {}) {
+  toastFn = toast || null;
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register(new URL("sw.js", ROOT), { scope: ROOT.pathname }).catch(() => {});
+  }
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (!target)
+      return;
+    const btn = target.closest(".acct-btn");
+    const menu = target.closest("[data-acct-menu]");
+    if (btn && menu) {
+      const mEl = menu.querySelector(".acct-menu");
+      const open = mEl.hidden;
+      document.querySelectorAll(".acct-menu").forEach((m) => {
+        m.hidden = true;
+      });
+      mEl.hidden = !open;
+      btn.setAttribute("aria-expanded", String(open));
+      return;
+    }
+    const act = target.closest("[data-act]");
+    if (act && act.closest(".acct-menu")) {
+      if (act.dataset.act === "logout")
+        return logout(false);
+      if (act.dataset.act === "logout-all") {
+        if (armed !== act) {
+          armed = act;
+          act.querySelector("span").textContent = "Click again to log out everywhere";
+          setTimeout(() => {
+            if (armed === act) {
+              armed = null;
+              act.querySelector("span").textContent = "Log out from all devices";
+            }
+          }, 4000);
+          return;
+        }
+        return logout(true);
+      }
+    }
+    if (!target.closest("[data-acct-menu]"))
+      document.querySelectorAll(".acct-menu").forEach((m) => {
+        m.hidden = true;
+      });
+  });
+  renderAccount();
+  return loadAccount();
+}
+
 // src/shared/theme-math.ts
 function hexToHsl(hex) {
   const clean = String(hex || "#d6453b").replace("#", "");
@@ -669,182 +847,6 @@ if (typeof document !== "undefined") {
   window.addEventListener("pageshow", () => initNav());
 }
 
-// src/shared/escape.ts
-var esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-var fmt = (n) => Number(n).toLocaleString();
-
-// src/client/account.ts
-var ROOT = new URL("./", import.meta.url);
-var SIGNED_IN_KEY = "va-account";
-async function api(method, path, body) {
-  let res;
-  const rel = String(path).replace(/^\/+/, "").replace(/^api\//, "");
-  try {
-    res = await fetch(new URL("api/" + rel, ROOT), {
-      method,
-      cache: "no-store",
-      credentials: "same-origin",
-      headers: body !== undefined ? { "Content-Type": "application/json" } : {},
-      body: body !== undefined ? JSON.stringify(body) : undefined
-    });
-  } catch {
-    throw Object.assign(new Error("network"), { network: true });
-  }
-  const data = await res.json().catch(() => ({}));
-  if (!res.ok)
-    throw Object.assign(new Error(data.error || res.statusText), { status: res.status });
-  return data;
-}
-var user = null;
-var toastFn = null;
-var ICON = {
-  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>',
-  out: '<path d="M15 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/>',
-  all: '<rect x="3" y="4" width="13" height="10" rx="2"/><path d="M7 20h5M9 14v6M18 9h3v11h-3"/>',
-  cloudOff: '<path d="M3 3l18 18M8.5 8.6A6 6 0 0 0 6 19h11a4 4 0 0 0 1.4-7.7A6 6 0 0 0 12 6c-.7 0-1.4.1-2 .3"/>'
-};
-var svg = (name, cls = "i") => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICON[name]}</svg>`;
-var signinUrl = () => new URL("signin/", ROOT).href + "?next=" + encodeURIComponent(location.pathname + location.search);
-function menuMarkup(u) {
-  return `<div class="acct" data-acct-menu>` + `<button type="button" class="acct-btn" aria-haspopup="menu" aria-expanded="false">${svg("user")}<span>My Account</span></button>` + `<div class="acct-menu" role="menu" hidden>` + `<p class="acct-who">Signed in as:<strong>${esc(u.email || u.name || "your account")}</strong></p>` + `<button type="button" role="menuitem" data-act="logout">${svg("out")}<span>Log out</span></button>` + `<button type="button" role="menuitem" data-act="logout-all" class="danger">${svg("all")}<span>Log out from all devices</span></button>` + `</div></div>`;
-}
-function renderAccount() {
-  const signinMarkup = `<a class="acct-btn" href="${esc(signinUrl())}">${svg("user")}<span>Sign in</span></a>`;
-  document.querySelectorAll("[data-account]").forEach((slot) => {
-    slot.innerHTML = user ? menuMarkup(user) : signinMarkup;
-  });
-}
-function accountSlot(variant = "side") {
-  const el = document.createElement("div");
-  el.className = variant === "top" ? "acct-slot top" : "acct-slot";
-  el.dataset.account = "";
-  return el;
-}
-async function loadAccount() {
-  try {
-    const { user: u } = await api("GET", "me");
-    user = u;
-    if (u)
-      localStorage.setItem(SIGNED_IN_KEY, JSON.stringify(u));
-    else
-      localStorage.removeItem(SIGNED_IN_KEY);
-  } catch {
-    try {
-      user = JSON.parse(localStorage.getItem(SIGNED_IN_KEY) || "null");
-    } catch {
-      user = null;
-    }
-  }
-  renderAccount();
-  return user;
-}
-function notify(msg, ms = 2600) {
-  if (toastFn)
-    return toastFn(msg, ms);
-  const t = document.getElementById("toast");
-  if (!t)
-    return;
-  t.textContent = msg;
-  t.hidden = false;
-  setTimeout(() => {
-    t.hidden = true;
-  }, ms);
-}
-var armed = null;
-async function logout(all) {
-  try {
-    await api("POST", all ? "auth/logout-all" : "auth/logout");
-  } catch {}
-  localStorage.removeItem(SIGNED_IN_KEY);
-  location.reload();
-}
-function initAccount({ toast } = {}) {
-  toastFn = toast || null;
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register(new URL("sw.js", ROOT), { scope: ROOT.pathname }).catch(() => {});
-  }
-  document.addEventListener("click", (e) => {
-    const target = e.target;
-    if (!target)
-      return;
-    const btn = target.closest(".acct-btn");
-    const menu = target.closest("[data-acct-menu]");
-    if (btn && menu) {
-      const mEl = menu.querySelector(".acct-menu");
-      const open = mEl.hidden;
-      document.querySelectorAll(".acct-menu").forEach((m) => {
-        m.hidden = true;
-      });
-      mEl.hidden = !open;
-      btn.setAttribute("aria-expanded", String(open));
-      return;
-    }
-    const act = target.closest("[data-act]");
-    if (act && act.closest(".acct-menu")) {
-      if (act.dataset.act === "logout")
-        return logout(false);
-      if (act.dataset.act === "logout-all") {
-        if (armed !== act) {
-          armed = act;
-          act.querySelector("span").textContent = "Click again to log out everywhere";
-          setTimeout(() => {
-            if (armed === act) {
-              armed = null;
-              act.querySelector("span").textContent = "Log out from all devices";
-            }
-          }, 4000);
-          return;
-        }
-        return logout(true);
-      }
-    }
-    if (!target.closest("[data-acct-menu]"))
-      document.querySelectorAll(".acct-menu").forEach((m) => {
-        m.hidden = true;
-      });
-  });
-  renderAccount();
-  return loadAccount();
-}
-
-// src/shared/search.ts
-var norm = (s) => String(s ?? "").normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
-var flat = (s) => norm(s).replace(/[^\p{L}\p{N}]+/gu, " ").trim();
-var words = (s) => flat(s).split(" ").filter((w) => w.length >= 3);
-function levenshtein(a, b) {
-  if (a === b)
-    return 0;
-  if (!a.length)
-    return b.length;
-  if (!b.length)
-    return a.length;
-  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
-  for (let i = 1;i <= a.length; i++) {
-    const cur = [i];
-    for (let j = 1;j <= b.length; j++) {
-      cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-    }
-    prev = cur;
-  }
-  return prev[b.length];
-}
-function fuzzyScore(queryWords, textWords) {
-  let total = 0, counted = 0;
-  for (const qw of queryWords) {
-    if (qw.length < 3)
-      continue;
-    const allowed = qw.length <= 4 ? 1 : 2;
-    let best = Infinity;
-    for (const tw of textWords)
-      best = Math.min(best, levenshtein(qw, tw));
-    if (best > allowed)
-      return null;
-    total += best;
-    counted++;
-  }
-  return counted ? total : null;
-}
-
 // src/client/home.ts
 var ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 function card(g, i) {
@@ -1008,7 +1010,10 @@ function setupSearch(list) {
       setOpen(true);
     input.focus({ preventScroll: true });
     input.select();
-    window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"
+    });
   });
 }
 var HEXCOL = /^#[0-9a-f]{3,8}$/i;

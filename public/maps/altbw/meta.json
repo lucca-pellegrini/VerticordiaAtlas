@@ -1,173 +1,168 @@
 {
-  "id": "altbw",
-  "title": "The Legend of Zelda: A Link Between Worlds",
-  "slug": "zelda-a-link-between-worlds",
-  "source": "https://mapgenie.io/zelda-a-link-between-worlds/maps/hyrule-lorule",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "hyrule-lorule",
-      "title": "Hyrule & Lorule",
-      "data": "hyrule-lorule/data.json",
-      "tilesets": [
-        {
-          "name": "default-v2",
-          "template": "hyrule-lorule/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -2.16722333564301,
-            0.0771459392441699,
-            0.75893285893962,
-            1.3456604766372
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "sage_painting": [
-        {
-          "cp": "e900"
-        }
-      ],
-      "big_key": [
-        {
-          "cp": "e901"
-        }
-      ],
-      "boss": [
-        {
-          "cp": "e902"
-        }
-      ],
-      "compass": [
-        {
-          "cp": "e903"
-        }
-      ],
-      "dungeon": [
-        {
-          "cp": "e904"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e905"
-        }
-      ],
-      "empty_bottle": [
-        {
-          "cp": "e906"
-        }
-      ],
-      "gear": [
-        {
-          "cp": "e907"
-        }
-      ],
-      "golden_rupee": [
-        {
-          "cp": "e908"
-        }
-      ],
-      "heart_container": [
-        {
-          "cp": "e909"
-        }
-      ],
-      "heart_piece": [
-        {
-          "cp": "e90a"
-        }
-      ],
-      "house": [
-        {
-          "cp": "e90b"
-        }
-      ],
-      "item": [
-        {
-          "cp": "e90c"
-        }
-      ],
-      "locked_door": [
-        {
-          "cp": "e90d"
-        }
-      ],
-      "maiamai": [
-        {
-          "cp": "e90e"
-        }
-      ],
-      "master_ore": [
-        {
-          "cp": "e90f"
-        }
-      ],
-      "minigame": [
-        {
-          "cp": "e910"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e911"
-        }
-      ],
-      "monster_guts": [
-        {
-          "cp": "e912"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e913"
-        }
-      ],
-      "portal": [
-        {
-          "cp": "e914"
-        }
-      ],
-      "shop": [
-        {
-          "cp": "e915"
-        }
-      ],
-      "small_key": [
-        {
-          "cp": "e916"
-        }
-      ],
-      "treasure_chest": [
-        {
-          "cp": "e917"
-        }
-      ],
-      "treasure_room": [
-        {
-          "cp": "e918"
-        }
-      ],
-      "weather_vane": [
-        {
-          "cp": "e919"
-        }
-      ]
-    }
-  }
+	"id": "altbw",
+	"title": "The Legend of Zelda: A Link Between Worlds",
+	"slug": "zelda-a-link-between-worlds",
+	"source": "https://mapgenie.io/zelda-a-link-between-worlds/maps/hyrule-lorule",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "hyrule-lorule",
+			"title": "Hyrule & Lorule",
+			"data": "hyrule-lorule/data.json",
+			"tilesets": [
+				{
+					"name": "default-v2",
+					"template": "hyrule-lorule/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-2.16722333564301, 0.0771459392441699, 0.75893285893962, 1.3456604766372],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"sage_painting": [
+				{
+					"cp": "e900"
+				}
+			],
+			"big_key": [
+				{
+					"cp": "e901"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e902"
+				}
+			],
+			"compass": [
+				{
+					"cp": "e903"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e904"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e905"
+				}
+			],
+			"empty_bottle": [
+				{
+					"cp": "e906"
+				}
+			],
+			"gear": [
+				{
+					"cp": "e907"
+				}
+			],
+			"golden_rupee": [
+				{
+					"cp": "e908"
+				}
+			],
+			"heart_container": [
+				{
+					"cp": "e909"
+				}
+			],
+			"heart_piece": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"house": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"item": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"maiamai": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"master_ore": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e910"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e911"
+				}
+			],
+			"monster_guts": [
+				{
+					"cp": "e912"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e913"
+				}
+			],
+			"portal": [
+				{
+					"cp": "e914"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e915"
+				}
+			],
+			"small_key": [
+				{
+					"cp": "e916"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e917"
+				}
+			],
+			"treasure_room": [
+				{
+					"cp": "e918"
+				}
+			],
+			"weather_vane": [
+				{
+					"cp": "e919"
+				}
+			]
+		}
+	}
 }

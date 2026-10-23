@@ -1,313 +1,288 @@
 {
-  "id": "hitman-3",
-  "title": "Hitman 3",
-  "slug": "hitman-3",
-  "source": "https://mapgenie.io/hitman-3",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "blend_in": [
-        {
-          "cp": "e900",
-          "color": "#fff"
-        }
-      ],
-      "hiding_spot": [
-        {
-          "cp": "e901",
-          "color": "#fff"
-        }
-      ],
-      "non_lethal_melee": [
-        {
-          "cp": "e902",
-          "color": "#fff"
-        }
-      ],
-      "stairs": [
-        {
-          "cp": "e903",
-          "color": "#fff"
-        }
-      ],
-      "agency_pickup": [
-        {
-          "cp": "e904",
-          "color": "#fff"
-        }
-      ],
-      "alarm": [
-        {
-          "cp": "e905",
-          "color": "#fff"
-        }
-      ],
-      "ammo": [
-        {
-          "cp": "e906",
-          "color": "#fff"
-        }
-      ],
-      "conceal_item": [
-        {
-          "cp": "e907",
-          "color": "#fff"
-        }
-      ],
-      "discovery": [
-        {
-          "cp": "e908",
-          "color": "#fff"
-        }
-      ],
-      "disguise": [
-        {
-          "cp": "e909",
-          "color": "#fff"
-        }
-      ],
-      "distraction": [
-        {
-          "cp": "e90a",
-          "color": "#fff"
-        }
-      ],
-      "exit": [
-        {
-          "cp": "e90b",
-          "color": "#fff"
-        }
-      ],
-      "explosive": [
-        {
-          "cp": "e90c",
-          "color": "#fff"
-        }
-      ],
-      "firearm": [
-        {
-          "cp": "e90d",
-          "color": "#fff"
-        }
-      ],
-      "food_drink": [
-        {
-          "cp": "e90e",
-          "color": "#fff"
-        }
-      ],
-      "intel": [
-        {
-          "cp": "e90f",
-          "color": "#fff"
-        }
-      ],
-      "interaction": [
-        {
-          "cp": "e910",
-          "color": "#fff"
-        }
-      ],
-      "key": [
-        {
-          "cp": "e911",
-          "color": "#fff"
-        }
-      ],
-      "lethal_melee": [
-        {
-          "cp": "e912",
-          "color": "#fff"
-        }
-      ],
-      "location": [
-        {
-          "cp": "e913",
-          "color": "#fff"
-        }
-      ],
-      "locked_door": [
-        {
-          "cp": "e914",
-          "color": "#fff"
-        }
-      ],
-      "passage": [
-        {
-          "cp": "e915",
-          "color": "#fff"
-        }
-      ],
-      "persistent_shortcut": [
-        {
-          "cp": "e916",
-          "color": "#fff"
-        }
-      ],
-      "poison": [
-        {
-          "cp": "e917",
-          "color": "#fff"
-        }
-      ],
-      "sabotage": [
-        {
-          "cp": "e918",
-          "color": "#fff"
-        }
-      ],
-      "security_camera": [
-        {
-          "cp": "e919",
-          "color": "#fff"
-        }
-      ],
-      "security_check": [
-        {
-          "cp": "e91a",
-          "color": "#fff"
-        }
-      ],
-      "security_footage": [
-        {
-          "cp": "e91b",
-          "color": "#fff"
-        }
-      ],
-      "starting_location": [
-        {
-          "cp": "e91c",
-          "color": "#fff"
-        }
-      ],
-      "tool": [
-        {
-          "cp": "e91d",
-          "color": "#fff"
-        }
-      ],
-      "vertical_traversal": [
-        {
-          "cp": "e91e",
-          "color": "#fff"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "dubai",
-      "title": "Dubai",
-      "data": "dubai/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "dubai/tiles/default-v2/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "dartmoor",
-      "title": "Dartmoor",
-      "data": "dartmoor/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "dartmoor/tiles/default-v2/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "berlin",
-      "title": "Berlin",
-      "data": "berlin/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "berlin/tiles/default-v2/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "chongqing",
-      "title": "Chongqing",
-      "data": "chongqing/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "chongqing/tiles/default-v3/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "mendoza",
-      "title": "Mendoza",
-      "data": "mendoza/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "mendoza/tiles/default-v2/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "hitman-3",
+	"title": "Hitman 3",
+	"slug": "hitman-3",
+	"source": "https://mapgenie.io/hitman-3",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"blend_in": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"hiding_spot": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"non_lethal_melee": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"stairs": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"agency_pickup": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"alarm": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"ammo": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"conceal_item": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"discovery": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"disguise": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"distraction": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"exit": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"explosive": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"firearm": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"food_drink": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"intel": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"interaction": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"lethal_melee": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"passage": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"persistent_shortcut": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"poison": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"sabotage": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"security_camera": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"security_check": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"security_footage": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"starting_location": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"tool": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"vertical_traversal": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "dubai",
+			"title": "Dubai",
+			"data": "dubai/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "dubai/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "dartmoor",
+			"title": "Dartmoor",
+			"data": "dartmoor/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "dartmoor/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "berlin",
+			"title": "Berlin",
+			"data": "berlin/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "berlin/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "chongqing",
+			"title": "Chongqing",
+			"data": "chongqing/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "chongqing/tiles/default-v3/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "mendoza",
+			"title": "Mendoza",
+			"data": "mendoza/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "mendoza/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

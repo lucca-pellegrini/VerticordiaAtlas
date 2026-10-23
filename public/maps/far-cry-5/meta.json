@@ -1,425 +1,410 @@
 {
-  "id": "far-cry-5",
-  "title": "Far Cry 5",
-  "slug": "far-cry-5",
-  "source": "https://mapgenie.io/far-cry-5",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "bald_eagle": [
-        {
-          "cp": "e900"
-        }
-      ],
-      "american_bear": [
-        {
-          "cp": "e901"
-        }
-      ],
-      "bison": [
-        {
-          "cp": "e902"
-        }
-      ],
-      "caribou": [
-        {
-          "cp": "e903"
-        }
-      ],
-      "cougar": [
-        {
-          "cp": "e904"
-        }
-      ],
-      "elk": [
-        {
-          "cp": "e905"
-        }
-      ],
-      "bass": [
-        {
-          "cp": "e906"
-        }
-      ],
-      "salmon": [
-        {
-          "cp": "e907"
-        }
-      ],
-      "sturgeon": [
-        {
-          "cp": "e908"
-        }
-      ],
-      "trout": [
-        {
-          "cp": "e909"
-        }
-      ],
-      "grey_wolf": [
-        {
-          "cp": "e90a"
-        }
-      ],
-      "grizzly_bear": [
-        {
-          "cp": "e90b"
-        }
-      ],
-      "hare": [
-        {
-          "cp": "e90c"
-        }
-      ],
-      "moose": [
-        {
-          "cp": "e90d"
-        }
-      ],
-      "jimson_weed": [
-        {
-          "cp": "e90e"
-        }
-      ],
-      "lettuce": [
-        {
-          "cp": "e90f"
-        }
-      ],
-      "lupine": [
-        {
-          "cp": "e910"
-        }
-      ],
-      "mustard": [
-        {
-          "cp": "e911"
-        }
-      ],
-      "prairie_fire": [
-        {
-          "cp": "e912"
-        }
-      ],
-      "pronghorn": [
-        {
-          "cp": "e913"
-        }
-      ],
-      "ruffed_grouse": [
-        {
-          "cp": "e914"
-        }
-      ],
-      "skunk": [
-        {
-          "cp": "e915"
-        }
-      ],
-      "turkey": [
-        {
-          "cp": "e916"
-        }
-      ],
-      "white_tailed_deer": [
-        {
-          "cp": "e917"
-        }
-      ],
-      "wild_boar": [
-        {
-          "cp": "e918"
-        }
-      ],
-      "wolverine": [
-        {
-          "cp": "e919"
-        }
-      ],
-      "aa_gun": [
-        {
-          "cp": "e91a"
-        }
-      ],
-      "energy_core": [
-        {
-          "cp": "e91b"
-        }
-      ],
-      "nva_camp": [
-        {
-          "cp": "e91c"
-        }
-      ],
-      "nva_commander": [
-        {
-          "cp": "e91d"
-        }
-      ],
-      "pow": [
-        {
-          "cp": "e91e"
-        }
-      ],
-      "prisoner": [
-        {
-          "cp": "e91f"
-        }
-      ],
-      "clutch_nixon": [
-        {
-          "cp": "e920"
-        }
-      ],
-      "main_mission": [
-        {
-          "cp": "e921"
-        }
-      ],
-      "perk_magazine": [
-        {
-          "cp": "e922"
-        }
-      ],
-      "wolf_beacon": [
-        {
-          "cp": "e923"
-        }
-      ],
-      "antenna": [
-        {
-          "cp": "e924"
-        }
-      ],
-      "base_jump": [
-        {
-          "cp": "e925"
-        }
-      ],
-      "baseball_card": [
-        {
-          "cp": "e926"
-        }
-      ],
-      "boat_shop": [
-        {
-          "cp": "e927"
-        }
-      ],
-      "specialist": [
-        {
-          "cp": "e928"
-        }
-      ],
-      "comic_book": [
-        {
-          "cp": "e929"
-        }
-      ],
-      "cult_outpost": [
-        {
-          "cp": "e92a"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e92b"
-        }
-      ],
-      "garage": [
-        {
-          "cp": "e92c"
-        }
-      ],
-      "general_shop": [
-        {
-          "cp": "e92d"
-        }
-      ],
-      "hanger": [
-        {
-          "cp": "e92e"
-        }
-      ],
-      "helipad": [
-        {
-          "cp": "e92f"
-        }
-      ],
-      "location": [
-        {
-          "cp": "e930"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e931"
-        }
-      ],
-      "prepper_stash": [
-        {
-          "cp": "e932"
-        }
-      ],
-      "shrine": [
-        {
-          "cp": "e933"
-        }
-      ],
-      "side_mission": [
-        {
-          "cp": "e934"
-        }
-      ],
-      "vietnam_lighter": [
-        {
-          "cp": "e935"
-        }
-      ],
-      "vinyl_crate": [
-        {
-          "cp": "e936"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e937"
-        }
-      ],
-      "whiskey_cask": [
-        {
-          "cp": "e938"
-        }
-      ],
-      "lore": [
-        {
-          "cp": "e939"
-        }
-      ],
-      "larrys_note": [
-        {
-          "cp": "e93a"
-        }
-      ],
-      "hurks_body_part": [
-        {
-          "cp": "e93b"
-        }
-      ],
-      "magazine": [
-        {
-          "cp": "e93c"
-        }
-      ],
-      "silo": [
-        {
-          "cp": "e93d"
-        }
-      ],
-      "nva_speaker": [
-        {
-          "cp": "e93e"
-        }
-      ],
-      "bobblehead": [
-        {
-          "cp": "e93f"
-        }
-      ],
-      "character": [
-        {
-          "cp": "e940"
-        }
-      ],
-      "safe": [
-        {
-          "cp": "e941"
-        }
-      ],
-      "vault": [
-        {
-          "cp": "e941"
-        }
-      ],
-      "backup": [
-        {
-          "cp": "e941"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "montana",
-      "title": "Montana",
-      "data": "montana/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "montana/tiles/default/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -168.75,
-            83.82994542398042,
-            -167.34375,
-            83.97925949886206
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "vietnam",
-      "title": "Vietnam",
-      "data": "vietnam/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "vietnam/tiles/default/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "mars",
-      "title": "Mars",
-      "data": "mars/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "mars/tiles/default/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 13,
-          "viewMaxzoom": 12,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "far-cry-5",
+	"title": "Far Cry 5",
+	"slug": "far-cry-5",
+	"source": "https://mapgenie.io/far-cry-5",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"bald_eagle": [
+				{
+					"cp": "e900"
+				}
+			],
+			"american_bear": [
+				{
+					"cp": "e901"
+				}
+			],
+			"bison": [
+				{
+					"cp": "e902"
+				}
+			],
+			"caribou": [
+				{
+					"cp": "e903"
+				}
+			],
+			"cougar": [
+				{
+					"cp": "e904"
+				}
+			],
+			"elk": [
+				{
+					"cp": "e905"
+				}
+			],
+			"bass": [
+				{
+					"cp": "e906"
+				}
+			],
+			"salmon": [
+				{
+					"cp": "e907"
+				}
+			],
+			"sturgeon": [
+				{
+					"cp": "e908"
+				}
+			],
+			"trout": [
+				{
+					"cp": "e909"
+				}
+			],
+			"grey_wolf": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"grizzly_bear": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"hare": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"moose": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"jimson_weed": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"lettuce": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"lupine": [
+				{
+					"cp": "e910"
+				}
+			],
+			"mustard": [
+				{
+					"cp": "e911"
+				}
+			],
+			"prairie_fire": [
+				{
+					"cp": "e912"
+				}
+			],
+			"pronghorn": [
+				{
+					"cp": "e913"
+				}
+			],
+			"ruffed_grouse": [
+				{
+					"cp": "e914"
+				}
+			],
+			"skunk": [
+				{
+					"cp": "e915"
+				}
+			],
+			"turkey": [
+				{
+					"cp": "e916"
+				}
+			],
+			"white_tailed_deer": [
+				{
+					"cp": "e917"
+				}
+			],
+			"wild_boar": [
+				{
+					"cp": "e918"
+				}
+			],
+			"wolverine": [
+				{
+					"cp": "e919"
+				}
+			],
+			"aa_gun": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"energy_core": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"nva_camp": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"nva_commander": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"pow": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"prisoner": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"clutch_nixon": [
+				{
+					"cp": "e920"
+				}
+			],
+			"main_mission": [
+				{
+					"cp": "e921"
+				}
+			],
+			"perk_magazine": [
+				{
+					"cp": "e922"
+				}
+			],
+			"wolf_beacon": [
+				{
+					"cp": "e923"
+				}
+			],
+			"antenna": [
+				{
+					"cp": "e924"
+				}
+			],
+			"base_jump": [
+				{
+					"cp": "e925"
+				}
+			],
+			"baseball_card": [
+				{
+					"cp": "e926"
+				}
+			],
+			"boat_shop": [
+				{
+					"cp": "e927"
+				}
+			],
+			"specialist": [
+				{
+					"cp": "e928"
+				}
+			],
+			"comic_book": [
+				{
+					"cp": "e929"
+				}
+			],
+			"cult_outpost": [
+				{
+					"cp": "e92a"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e92b"
+				}
+			],
+			"garage": [
+				{
+					"cp": "e92c"
+				}
+			],
+			"general_shop": [
+				{
+					"cp": "e92d"
+				}
+			],
+			"hanger": [
+				{
+					"cp": "e92e"
+				}
+			],
+			"helipad": [
+				{
+					"cp": "e92f"
+				}
+			],
+			"location": [
+				{
+					"cp": "e930"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e931"
+				}
+			],
+			"prepper_stash": [
+				{
+					"cp": "e932"
+				}
+			],
+			"shrine": [
+				{
+					"cp": "e933"
+				}
+			],
+			"side_mission": [
+				{
+					"cp": "e934"
+				}
+			],
+			"vietnam_lighter": [
+				{
+					"cp": "e935"
+				}
+			],
+			"vinyl_crate": [
+				{
+					"cp": "e936"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e937"
+				}
+			],
+			"whiskey_cask": [
+				{
+					"cp": "e938"
+				}
+			],
+			"lore": [
+				{
+					"cp": "e939"
+				}
+			],
+			"larrys_note": [
+				{
+					"cp": "e93a"
+				}
+			],
+			"hurks_body_part": [
+				{
+					"cp": "e93b"
+				}
+			],
+			"magazine": [
+				{
+					"cp": "e93c"
+				}
+			],
+			"silo": [
+				{
+					"cp": "e93d"
+				}
+			],
+			"nva_speaker": [
+				{
+					"cp": "e93e"
+				}
+			],
+			"bobblehead": [
+				{
+					"cp": "e93f"
+				}
+			],
+			"character": [
+				{
+					"cp": "e940"
+				}
+			],
+			"safe": [
+				{
+					"cp": "e941"
+				}
+			],
+			"vault": [
+				{
+					"cp": "e941"
+				}
+			],
+			"backup": [
+				{
+					"cp": "e941"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "montana",
+			"title": "Montana",
+			"data": "montana/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "montana/tiles/default/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "vietnam",
+			"title": "Vietnam",
+			"data": "vietnam/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "vietnam/tiles/default/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "mars",
+			"title": "Mars",
+			"data": "mars/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "mars/tiles/default/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 12,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

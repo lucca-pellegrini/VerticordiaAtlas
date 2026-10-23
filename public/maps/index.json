@@ -1,1139 +1,1139 @@
 {
-  "games": [
-    {
-      "id": "re9",
-      "slug": "requiem",
-      "title": "Resident Evil Requiem",
-      "description": "Bosses, locks, puzzle solutions, and key collectibles on the world map.",
-      "poster": "requiem/poster",
-      "posterAlt": "Resident Evil Requiem key art: a white-haired woman in a dark hood and red jacket, looking to the right.",
-      "theme": {
-        "accent": "#a8332b",
-        "accent-soft": "#e0837a",
-        "night": "#0b0708",
-        "panel": "#150e10",
-        "panel-2": "#1e1517",
-        "line": "#34222a"
-      },
-      "stats": [
-        {
-          "value": 1145,
-          "label": "markers"
-        },
-        {
-          "value": 52,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Difficulty",
-      "defaultTag": "Standard"
-    },
-    {
-      "id": "re2",
-      "slug": "re2",
-      "title": "Resident Evil 2",
-      "description": "Puzzles, safes, Mr. Raccoons, weapons, and key items for Leon and Claire.",
-      "poster": "re2/poster",
-      "theme": {
-        "accent": "#2c5a96",
-        "accent-soft": "#6192d1",
-        "night": "#06090c",
-        "panel": "#0c1016",
-        "panel-2": "#11171f",
-        "line": "#212a36"
-      },
-      "stats": [
-        {
-          "value": 2366,
-          "label": "markers"
-        },
-        {
-          "value": 143,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Difficulty",
-      "defaultTag": null
-    },
-    {
-      "id": "re7",
-      "slug": "re7",
-      "title": "Resident Evil 7: Biohazard",
-      "description": "Antique Coins, Mr. Everywheres, files, and weapon upgrades across Baker Ranch.",
-      "poster": "re7/poster",
-      "theme": {
-        "accent": "#91723e",
-        "accent-soft": "#c6a979",
-        "night": "#0c0a06",
-        "panel": "#16120c",
-        "panel-2": "#1f1a11",
-        "line": "#362e21"
-      },
-      "stats": [
-        {
-          "value": 1420,
-          "label": "markers"
-        },
-        {
-          "value": 77,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Difficulty",
-      "defaultTag": null
-    },
-    {
-      "id": "village",
-      "slug": "village",
-      "title": "Resident Evil Village",
-      "description": "Goats of Warding, treasures, weapon parts, and boss encounters across the village.",
-      "poster": "village/poster",
-      "theme": {
-        "accent": "#3a6f88",
-        "accent-soft": "#70a8c2",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111b1f",
-        "line": "#212f36"
-      },
-      "stats": [
-        {
-          "value": 964,
-          "label": "markers"
-        },
-        {
-          "value": 33,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "elden-ring",
-      "slug": "elden-ring",
-      "title": "Elden Ring",
-      "description": "Sites of Grace, dungeon bosses, Golden Seeds, tears, and secrets in the Lands Between.",
-      "poster": "elden-ring/poster",
-      "theme": {
-        "accent": "#358d85",
-        "accent-soft": "#6bc7bf",
-        "night": "#060c0b",
-        "panel": "#0c1615",
-        "panel-2": "#111f1e",
-        "line": "#213634"
-      },
-      "stats": [
-        {
-          "value": 7576,
-          "label": "markers"
-        },
-        {
-          "value": 144,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "nightreign",
-      "slug": "nightreign",
-      "title": "Elden Ring Nightreign",
-      "description": "Sites of Grace, Evergaols, Spectral Hawk Trees, Scarabs, and loot in Limveld.",
-      "poster": "nightreign/poster",
-      "theme": {
-        "accent": "#34438e",
-        "accent-soft": "#6a7ac8",
-        "night": "#06070c",
-        "panel": "#0c0d16",
-        "panel-2": "#11141f",
-        "line": "#212436"
-      },
-      "stats": [
-        {
-          "value": 230,
-          "label": "markers"
-        },
-        {
-          "value": 20,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "skyrim",
-      "slug": "skyrim",
-      "title": "Skyrim",
-      "description": "Dragon Shouts, Daedric shrines, Dragon Priest masks, and dungeons across Skyrim.",
-      "poster": "skyrim/poster",
-      "theme": {
-        "accent": "#3d708e",
-        "accent-soft": "#77a8c4",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111a1f",
-        "line": "#212e36"
-      },
-      "stats": [
-        {
-          "value": 2802,
-          "label": "markers"
-        },
-        {
-          "value": 125,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "oblivion",
-      "slug": "oblivion",
-      "title": "The Elder Scrolls IV: Oblivion",
-      "description": "Oblivion Gates, Ayleid ruins, Daedric shrines, and Nirnroots across Cyrodiil.",
-      "poster": "oblivion/poster",
-      "theme": {
-        "accent": "#aa3118",
-        "accent-soft": "#e06a52",
-        "night": "#0c0706",
-        "panel": "#160d0c",
-        "panel-2": "#1f1411",
-        "line": "#362421"
-      },
-      "stats": [
-        {
-          "value": 1703,
-          "label": "markers"
-        },
-        {
-          "value": 57,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "fallout-76",
-      "slug": "fallout-76",
-      "title": "Fallout 76",
-      "description": "Bobbleheads, Magazines, Power Armor frames, workshops, and loot in Appalachia.",
-      "poster": "fallout-76/poster",
-      "theme": {
-        "accent": "#c4a42d",
-        "accent-soft": "#e2cd7f",
-        "night": "#0c0a06",
-        "panel": "#16130c",
-        "panel-2": "#1f1c11",
-        "line": "#363221"
-      },
-      "stats": [
-        {
-          "value": 2511,
-          "label": "markers"
-        },
-        {
-          "value": 53,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "fallout-4",
-      "slug": "fallout-4",
-      "title": "Fallout 4",
-      "description": "Bobbleheads, Perk Magazines, Power Armor suits, and holotapes across the Commonwealth.",
-      "poster": "fallout-4/poster",
-      "theme": {
-        "accent": "#886e3a",
-        "accent-soft": "#c2a770",
-        "night": "#0c0a06",
-        "panel": "#16120c",
-        "panel-2": "#1f1a11",
-        "line": "#362f21"
-      },
-      "stats": [
-        {
-          "value": 3581,
-          "label": "markers"
-        },
-        {
-          "value": 285,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "fallout-new-vegas",
-      "slug": "fallout-new-vegas",
-      "title": "Fallout: New Vegas",
-      "description": "Snow globes, Star Bottle Caps, unique weapons, and faction hubs across the Mojave.",
-      "poster": "fallout-new-vegas/poster",
-      "theme": {
-        "accent": "#974d2b",
-        "accent-soft": "#d28460",
-        "night": "#0c0806",
-        "panel": "#160f0c",
-        "panel-2": "#1f1611",
-        "line": "#362721"
-      },
-      "stats": [
-        {
-          "value": 2635,
-          "label": "markers"
-        },
-        {
-          "value": 150,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "fallout-3",
-      "slug": "fallout-3",
-      "title": "Fallout 3",
-      "description": "Vault-Tec Bobbleheads, skill books, unique weapons, and vaults in the Capital Wasteland.",
-      "poster": "fallout-3/poster",
-      "theme": {
-        "accent": "#93b34d",
-        "accent-soft": "#c3d59c",
-        "night": "#0a0c06",
-        "panel": "#12160c",
-        "panel-2": "#1b1f11",
-        "line": "#2f3621"
-      },
-      "stats": [
-        {
-          "value": 987,
-          "label": "markers"
-        },
-        {
-          "value": 33,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "botw",
-      "slug": "botw",
-      "title": "The Legend of Zelda: Breath of the Wild",
-      "description": "Korok seeds, Shrines, Sheikah Towers, Great Fairies, and Hinox across Hyrule.",
-      "poster": "botw/poster",
-      "theme": {
-        "accent": "#209ddf",
-        "accent-soft": "#86c7ea",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111a1f",
-        "line": "#212f36"
-      },
-      "stats": [
-        {
-          "value": 16504,
-          "label": "markers"
-        },
-        {
-          "value": 162,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "totk",
-      "slug": "totk",
-      "title": "The Legend of Zelda: Tears of the Kingdom",
-      "description": "Skyview Towers, Shrines, Lightroots, Koroks, and caves across surface, sky, and Depths.",
-      "poster": "totk/poster",
-      "theme": {
-        "accent": "#4cb3a8",
-        "accent-soft": "#9bd4ce",
-        "night": "#060c0b",
-        "panel": "#0c1614",
-        "panel-2": "#111f1e",
-        "line": "#213634"
-      },
-      "stats": [
-        {
-          "value": 7956,
-          "label": "markers"
-        },
-        {
-          "value": 162,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "alttp",
-      "slug": "alttp",
-      "title": "The Legend of Zelda: A Link to the Past",
-      "description": "Heart Pieces, dungeon entrances, magic medallions, and secrets in Light and Dark Worlds.",
-      "poster": "alttp/poster",
-      "theme": {
-        "accent": "#906e32",
-        "accent-soft": "#caa768",
-        "night": "#0c0a06",
-        "panel": "#16120c",
-        "panel-2": "#1f1a11",
-        "line": "#362e21"
-      },
-      "stats": [
-        {
-          "value": 815,
-          "label": "markers"
-        },
-        {
-          "value": 20,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "altbw",
-      "slug": "altbw",
-      "title": "The Legend of Zelda: A Link Between Worlds",
-      "description": "Lost Maiamais, Heart Pieces, Master Ore, portals, and dungeons across Hyrule and Lorule.",
-      "poster": "altbw/poster",
-      "theme": {
-        "accent": "#74a819",
-        "accent-soft": "#ace051",
-        "night": "#0a0c06",
-        "panel": "#12160c",
-        "panel-2": "#1a1f11",
-        "line": "#2e3621"
-      },
-      "stats": [
-        {
-          "value": 332,
-          "label": "markers"
-        },
-        {
-          "value": 18,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "wind-waker",
-      "slug": "wind-waker",
-      "title": "The Legend of Zelda: The Wind Waker",
-      "description": "Treasure Charts, Heart Pieces, Great Fairies, and sunken loot across the Great Sea.",
-      "poster": "wind-waker/poster",
-      "theme": {
-        "accent": "#cc9125",
-        "accent-soft": "#e7c17a",
-        "night": "#0c0a06",
-        "panel": "#16120c",
-        "panel-2": "#1f1a11",
-        "line": "#362f21"
-      },
-      "stats": [
-        {
-          "value": 1232,
-          "label": "markers"
-        },
-        {
-          "value": 32,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "links-awakening",
-      "slug": "links-awakening",
-      "title": "The Legend of Zelda: Link’s Awakening",
-      "description": "Secret Seashells, Pieces of Heart, instruments, and dungeons across Koholint Island.",
-      "poster": "links-awakening/poster",
-      "theme": {
-        "accent": "#2097df",
-        "accent-soft": "#86c4ea",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111a1f",
-        "line": "#212e36"
-      },
-      "stats": [
-        {
-          "value": 409,
-          "label": "markers"
-        },
-        {
-          "value": 23,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "tloz",
-      "slug": "tloz",
-      "title": "The Legend of Zelda",
-      "description": "Dungeon entrances, Heart Containers, secret shops, and items for First and Second Quests.",
-      "poster": "tloz/poster",
-      "theme": {
-        "accent": "#df6c20",
-        "accent-soft": "#eaad86",
-        "night": "#0c0806",
-        "panel": "#16100c",
-        "panel-2": "#1f1711",
-        "line": "#362921"
-      },
-      "stats": [
-        {
-          "value": 545,
-          "label": "markers"
-        },
-        {
-          "value": 26,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "the-adventure-of-link",
-      "slug": "the-adventure-of-link",
-      "title": "Zelda II: The Adventure of Link",
-      "description": "Palaces, Magic Containers, Heart Containers, spells, and hidden caves across Hyrule.",
-      "poster": "the-adventure-of-link/poster",
-      "theme": {
-        "accent": "#209bdf",
-        "accent-soft": "#86c6ea",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111a1f",
-        "line": "#212e36"
-      },
-      "stats": [
-        {
-          "value": 258,
-          "label": "markers"
-        },
-        {
-          "value": 16,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "hollow-knight",
-      "slug": "hollow-knight",
-      "title": "Hollow Knight",
-      "description": "Mask Shards, Vessel Fragments, Charms, Grubs, Dreamers, and benches in Hallownest.",
-      "poster": "hollow-knight/poster",
-      "theme": {
-        "accent": "#3a7c88",
-        "accent-soft": "#70b5c2",
-        "night": "#060b0c",
-        "panel": "#0c1416",
-        "panel-2": "#111d1f",
-        "line": "#213336"
-      },
-      "stats": [
-        {
-          "value": 979,
-          "label": "markers"
-        },
-        {
-          "value": 38,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "silksong",
-      "slug": "Silksong",
-      "title": "Hollow Knight: Silksong",
-      "description": "Lost Fleas, Mask Shards, Spool Fragments, crests, and Bellway stations in Pharloom.",
-      "poster": "Silksong/poster",
-      "theme": {
-        "accent": "#c14e3c",
-        "accent-soft": "#dd9b91",
-        "night": "#0c0706",
-        "panel": "#160d0c",
-        "panel-2": "#1f1311",
-        "line": "#362321"
-      },
-      "stats": [
-        {
-          "value": 1939,
-          "label": "markers"
-        },
-        {
-          "value": 49,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "blasphemous",
-      "slug": "blasphemous",
-      "title": "Blasphemous",
-      "description": "Cherubs, Rosary Beads, Mea Culpa Shrines, relics, and Prie Dieu altars in Cvstodia.",
-      "poster": "blasphemous/poster",
-      "theme": {
-        "accent": "#aa8b43",
-        "accent-soft": "#d2bd8c",
-        "night": "#0c0a06",
-        "panel": "#16130c",
-        "panel-2": "#1f1b11",
-        "line": "#363021"
-      },
-      "stats": [
-        {
-          "value": 580,
-          "label": "markers"
-        },
-        {
-          "value": 33,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "blasphemous-2",
-      "slug": "blasphemous-2",
-      "title": "Blasphemous 2",
-      "description": "Weapon upgrades, Cobijadas, altar pieces, Fervor flasks, and secrets across Cvstodia.",
-      "poster": "blasphemous-2/poster",
-      "theme": {
-        "accent": "#915a31",
-        "accent-soft": "#cc9267",
-        "night": "#0c0906",
-        "panel": "#16100c",
-        "panel-2": "#1f1711",
-        "line": "#362a21"
-      },
-      "stats": [
-        {
-          "value": 1625,
-          "label": "markers"
-        },
-        {
-          "value": 58,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "re4",
-      "slug": "re4",
-      "title": "Resident Evil 4 (WIP)",
-      "description": "Clockwork Castellans, Merchant requests, treasures, and puzzles in the Village, Castle, and Island.",
-      "poster": "re4/poster",
-      "theme": {
-        "accent": "#3a6788",
-        "accent-soft": "#709fc2",
-        "night": "#06090c",
-        "panel": "#0c1116",
-        "panel-2": "#11191f",
-        "line": "#212d36"
-      },
-      "stats": [
-        {
-          "value": 398,
-          "label": "markers"
-        },
-        {
-          "value": 23,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "re5",
-      "slug": "re5",
-      "title": "Resident Evil 5",
-      "description": "BSAA Emblems, treasures, weapons, and partner actions across Kijuju and story DLCs.",
-      "poster": "re5/poster",
-      "theme": {
-        "accent": "#aa2f18",
-        "accent-soft": "#e06852",
-        "night": "#0c0706",
-        "panel": "#160d0c",
-        "panel-2": "#1f1411",
-        "line": "#362421"
-      },
-      "stats": [
-        {
-          "value": 1514,
-          "label": "markers"
-        },
-        {
-          "value": 53,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "pragmata",
-      "slug": "pragmata",
-      "title": "Pragmata",
-      "description": "Earth Memories, Cartridge Holders, Unit Printers, and data logs on the lunar station.",
-      "poster": "pragmata/poster",
-      "theme": {
-        "accent": "#24389d",
-        "accent-soft": "#586ed9",
-        "night": "#06070c",
-        "panel": "#0c0d16",
-        "panel-2": "#11141f",
-        "line": "#212436"
-      },
-      "stats": [
-        {
-          "value": 1099,
-          "label": "markers"
-        },
-        {
-          "value": 36,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "hogwarts-legacy",
-      "slug": "hogwarts-legacy",
-      "title": "Hogwarts Legacy",
-      "description": "Field Guide Pages, Merlin Trials, Demiguise Statues, and Floo Flames in the Highlands.",
-      "poster": "hogwarts-legacy/poster",
-      "theme": {
-        "accent": "#3a7c88",
-        "accent-soft": "#70b5c2",
-        "night": "#060b0c",
-        "panel": "#0c1416",
-        "panel-2": "#111d1f",
-        "line": "#213336"
-      },
-      "stats": [
-        {
-          "value": 2104,
-          "label": "markers"
-        },
-        {
-          "value": 81,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "clair-obscur-expedition-33",
-      "slug": "clair-obscur-expedition-33",
-      "title": "Clair Obscur: Expedition 33",
-      "description": "Pictos, Music Records, journal entries, and underwater treasures across the Continent.",
-      "poster": "clair-obscur-expedition-33/poster",
-      "theme": {
-        "accent": "#967540",
-        "accent-soft": "#c8ac7e",
-        "night": "#0c0a06",
-        "panel": "#16120c",
-        "panel-2": "#1f1a11",
-        "line": "#362e21"
-      },
-      "stats": [
-        {
-          "value": 2815,
-          "label": "markers"
-        },
-        {
-          "value": 33,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "witcher-3",
-      "slug": "witcher-3",
-      "title": "The Witcher 3: Wild Hunt",
-      "description": "Places of Power, Witcher Gear diagrams, monster nests, and treasure hunts across the realm.",
-      "poster": "witcher-3/poster",
-      "theme": {
-        "accent": "#3a6e88",
-        "accent-soft": "#70a7c2",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111a1f",
-        "line": "#212f36"
-      },
-      "stats": [
-        {
-          "value": 3305,
-          "label": "markers"
-        },
-        {
-          "value": 218,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "castlevania-belmonts-curse",
-      "slug": "castlevania-belmonts-curse",
-      "title": "Castlevania: Belmont's Curse",
-      "description": "Relics, Arcana, Tarot Cards, weapons, and hidden passages throughout Paris.",
-      "poster": "castlevania-belmonts-curse/poster",
-      "theme": {
-        "accent": "#88573a",
-        "accent-soft": "#c28f70",
-        "night": "#0c0806",
-        "panel": "#160f0c",
-        "panel-2": "#1f1611",
-        "line": "#362921"
-      },
-      "stats": [
-        {
-          "value": 1339,
-          "label": "markers"
-        },
-        {
-          "value": 31,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "grand-theft-auto-san-andreas",
-      "slug": "grand-theft-auto-san-andreas",
-      "title": "Grand Theft Auto: San Andreas",
-      "description": "Tags, Snapshots, Horseshoes, Oysters, Stunt Jumps, and weapons across San Andreas.",
-      "poster": "grand-theft-auto-san-andreas/poster",
-      "theme": {
-        "accent": "#71b34d",
-        "accent-soft": "#b0d59c",
-        "night": "#080c06",
-        "panel": "#0f160c",
-        "panel-2": "#161f11",
-        "line": "#283621"
-      },
-      "stats": [
-        {
-          "value": 1440,
-          "label": "markers"
-        },
-        {
-          "value": 63,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "infinity-nikki",
-      "slug": "infinity-nikki",
-      "title": "Infinity Nikki",
-      "description": "Whimstars, sketches, Warp Spires, chests, and styling challenges across Miraland.",
-      "poster": "infinity-nikki/poster",
-      "theme": {
-        "accent": "#3b94c4",
-        "accent-soft": "#91c3de",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111a1f",
-        "line": "#212f36"
-      },
-      "stats": [
-        {
-          "value": 7790,
-          "label": "markers"
-        },
-        {
-          "value": 149,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "animal-well",
-      "slug": "animal-well",
-      "title": "Animal Well",
-      "description": "Secret eggs, rabbits, candles, tools, and mysterious puzzles hidden in the well.",
-      "poster": "animal-well/poster",
-      "theme": {
-        "accent": "#2191a0",
-        "accent-soft": "#55ccdc",
-        "night": "#060b0c",
-        "panel": "#0c1416",
-        "panel-2": "#111d1f",
-        "line": "#213436"
-      },
-      "stats": [
-        {
-          "value": 364,
-          "label": "markers"
-        },
-        {
-          "value": 23,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "far-cry-5",
-      "slug": "far-cry-5",
-      "title": "Far Cry 5",
-      "description": "Cult outposts, Prepper Stashes, perk magazines, and shrines across Hope County.",
-      "poster": "far-cry-5/poster",
-      "theme": {
-        "accent": "#a76943",
-        "accent-soft": "#d0a58a",
-        "night": "#0c0806",
-        "panel": "#160f0c",
-        "panel-2": "#1f1711",
-        "line": "#362921"
-      },
-      "stats": [
-        {
-          "value": 1272,
-          "label": "markers"
-        },
-        {
-          "value": 70,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "rdr2",
-      "slug": "rdr2",
-      "title": "Red Dead Redemption 2",
-      "description": "Legendary animals, dinosaur bones, rock carvings, and treasure maps on the frontier.",
-      "poster": "rdr2/poster",
-      "theme": {
-        "accent": "#aa1821",
-        "accent-soft": "#e0525b",
-        "night": "#0c0607",
-        "panel": "#160c0c",
-        "panel-2": "#1f1112",
-        "line": "#362122"
-      },
-      "stats": [
-        {
-          "value": 6153,
-          "label": "markers"
-        },
-        {
-          "value": 74,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "hitman-3",
-      "slug": "hitman-3",
-      "title": "Hitman 3",
-      "description": "Assassination opportunities, shortcuts, disguised access, and intel in the trilogy finale.",
-      "poster": "hitman-3/poster",
-      "theme": {
-        "accent": "#b31a23",
-        "accent-soft": "#e25b63",
-        "night": "#0c0607",
-        "panel": "#160c0c",
-        "panel-2": "#1f1112",
-        "line": "#362122"
-      },
-      "stats": [
-        {
-          "value": 3031,
-          "label": "markers"
-        },
-        {
-          "value": 145,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "hitman-2",
-      "slug": "hitman-2",
-      "title": "Hitman 2",
-      "description": "Mission stories, disguise points, security keys, and extraction routes across the globe.",
-      "poster": "hitman-2/poster",
-      "theme": {
-        "accent": "#4d8cb3",
-        "accent-soft": "#9cbfd5",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111a1f",
-        "line": "#212e36"
-      },
-      "stats": [
-        {
-          "value": 10613,
-          "label": "markers"
-        },
-        {
-          "value": 360,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "hitman",
-      "slug": "hitman",
-      "title": "Hitman",
-      "description": "Agency pickups, disguises, security cameras, keycards, and assassination opportunities.",
-      "poster": "hitman/poster",
-      "theme": {
-        "accent": "#4da9b3",
-        "accent-soft": "#9ccfd5",
-        "night": "#060b0c",
-        "panel": "#0c1516",
-        "panel-2": "#111e1f",
-        "line": "#213436"
-      },
-      "stats": [
-        {
-          "value": 7960,
-          "label": "markers"
-        },
-        {
-          "value": 432,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "tarkov",
-      "slug": "tarkov",
-      "title": "Escape From Tarkov",
-      "description": "Extraction points, key spawns, weapon crates, and high-tier loot zones in Norvinsk.",
-      "poster": "tarkov/poster",
-      "theme": {
-        "accent": "#3c6c8b",
-        "accent-soft": "#74a4c3",
-        "night": "#060a0c",
-        "panel": "#0c1216",
-        "panel-2": "#111a1f",
-        "line": "#212e36"
-      },
-      "stats": [
-        {
-          "value": 5051,
-          "label": "markers"
-        },
-        {
-          "value": 223,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "the-outer-worlds",
-      "slug": "the-outer-worlds",
-      "title": "The Outer Worlds",
-      "description": "Science weapons, tossball cards, vending machines, and quest loot across Halcyon.",
-      "poster": "the-outer-worlds/poster",
-      "theme": {
-        "accent": "#b88f47",
-        "accent-soft": "#d7c098",
-        "night": "#0c0a06",
-        "panel": "#16120c",
-        "panel-2": "#1f1a11",
-        "line": "#362e21"
-      },
-      "stats": [
-        {
-          "value": 3076,
-          "label": "markers"
-        },
-        {
-          "value": 230,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    },
-    {
-      "id": "the-outer-worlds-2",
-      "slug": "the-outer-worlds-2",
-      "title": "The Outer Worlds 2",
-      "description": "Unique science weapons, faction terminals, keycards, and caches in the star system.",
-      "poster": "the-outer-worlds-2/poster",
-      "theme": {
-        "accent": "#bf6e40",
-        "accent-soft": "#dbae94",
-        "night": "#0c0806",
-        "panel": "#160f0c",
-        "panel-2": "#1f1611",
-        "line": "#362821"
-      },
-      "stats": [
-        {
-          "value": 6500,
-          "label": "markers"
-        },
-        {
-          "value": 316,
-          "label": "categories"
-        }
-      ],
-      "tagLabel": "Filter",
-      "defaultTag": null
-    }
-  ]
+	"games": [
+		{
+			"id": "re9",
+			"slug": "requiem",
+			"title": "Resident Evil Requiem",
+			"description": "Bosses, locks, puzzle solutions, and key collectibles on the world map.",
+			"poster": "requiem/poster",
+			"posterAlt": "Resident Evil Requiem key art: a white-haired woman in a dark hood and red jacket, looking to the right.",
+			"theme": {
+				"accent": "#a8332b",
+				"accent-soft": "#e0837a",
+				"night": "#0b0708",
+				"panel": "#150e10",
+				"panel-2": "#1e1517",
+				"line": "#34222a"
+			},
+			"stats": [
+				{
+					"value": 1145,
+					"label": "markers"
+				},
+				{
+					"value": 52,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Difficulty",
+			"defaultTag": "Standard"
+		},
+		{
+			"id": "re2",
+			"slug": "re2",
+			"title": "Resident Evil 2",
+			"description": "Puzzles, safes, Mr. Raccoons, weapons, and key items for Leon and Claire.",
+			"poster": "re2/poster",
+			"theme": {
+				"accent": "#2c5a96",
+				"accent-soft": "#6192d1",
+				"night": "#06090c",
+				"panel": "#0c1016",
+				"panel-2": "#11171f",
+				"line": "#212a36"
+			},
+			"stats": [
+				{
+					"value": 2366,
+					"label": "markers"
+				},
+				{
+					"value": 143,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Difficulty",
+			"defaultTag": null
+		},
+		{
+			"id": "re7",
+			"slug": "re7",
+			"title": "Resident Evil 7: Biohazard",
+			"description": "Antique Coins, Mr. Everywheres, files, and weapon upgrades across Baker Ranch.",
+			"poster": "re7/poster",
+			"theme": {
+				"accent": "#91723e",
+				"accent-soft": "#c6a979",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 1420,
+					"label": "markers"
+				},
+				{
+					"value": 77,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Difficulty",
+			"defaultTag": null
+		},
+		{
+			"id": "village",
+			"slug": "village",
+			"title": "Resident Evil Village",
+			"description": "Goats of Warding, treasures, weapon parts, and boss encounters across the village.",
+			"poster": "village/poster",
+			"theme": {
+				"accent": "#3a6f88",
+				"accent-soft": "#70a8c2",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111b1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 964,
+					"label": "markers"
+				},
+				{
+					"value": 33,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "elden-ring",
+			"slug": "elden-ring",
+			"title": "Elden Ring",
+			"description": "Sites of Grace, dungeon bosses, Golden Seeds, tears, and secrets in the Lands Between.",
+			"poster": "elden-ring/poster",
+			"theme": {
+				"accent": "#358d85",
+				"accent-soft": "#6bc7bf",
+				"night": "#060c0b",
+				"panel": "#0c1615",
+				"panel-2": "#111f1e",
+				"line": "#213634"
+			},
+			"stats": [
+				{
+					"value": 7576,
+					"label": "markers"
+				},
+				{
+					"value": 144,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "nightreign",
+			"slug": "nightreign",
+			"title": "Elden Ring Nightreign",
+			"description": "Sites of Grace, Evergaols, Spectral Hawk Trees, Scarabs, and loot in Limveld.",
+			"poster": "nightreign/poster",
+			"theme": {
+				"accent": "#34438e",
+				"accent-soft": "#6a7ac8",
+				"night": "#06070c",
+				"panel": "#0c0d16",
+				"panel-2": "#11141f",
+				"line": "#212436"
+			},
+			"stats": [
+				{
+					"value": 230,
+					"label": "markers"
+				},
+				{
+					"value": 20,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "skyrim",
+			"slug": "skyrim",
+			"title": "Skyrim",
+			"description": "Dragon Shouts, Daedric shrines, Dragon Priest masks, and dungeons across Skyrim.",
+			"poster": "skyrim/poster",
+			"theme": {
+				"accent": "#3d708e",
+				"accent-soft": "#77a8c4",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 2802,
+					"label": "markers"
+				},
+				{
+					"value": 125,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "oblivion",
+			"slug": "oblivion",
+			"title": "The Elder Scrolls IV: Oblivion",
+			"description": "Oblivion Gates, Ayleid ruins, Daedric shrines, and Nirnroots across Cyrodiil.",
+			"poster": "oblivion/poster",
+			"theme": {
+				"accent": "#aa3118",
+				"accent-soft": "#e06a52",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1411",
+				"line": "#362421"
+			},
+			"stats": [
+				{
+					"value": 1703,
+					"label": "markers"
+				},
+				{
+					"value": 57,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "fallout-76",
+			"slug": "fallout-76",
+			"title": "Fallout 76",
+			"description": "Bobbleheads, Magazines, Power Armor frames, workshops, and loot in Appalachia.",
+			"poster": "fallout-76/poster",
+			"theme": {
+				"accent": "#c4a42d",
+				"accent-soft": "#e2cd7f",
+				"night": "#0c0a06",
+				"panel": "#16130c",
+				"panel-2": "#1f1c11",
+				"line": "#363221"
+			},
+			"stats": [
+				{
+					"value": 2511,
+					"label": "markers"
+				},
+				{
+					"value": 53,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "fallout-4",
+			"slug": "fallout-4",
+			"title": "Fallout 4",
+			"description": "Bobbleheads, Perk Magazines, Power Armor suits, and holotapes across the Commonwealth.",
+			"poster": "fallout-4/poster",
+			"theme": {
+				"accent": "#886e3a",
+				"accent-soft": "#c2a770",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362f21"
+			},
+			"stats": [
+				{
+					"value": 3581,
+					"label": "markers"
+				},
+				{
+					"value": 285,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "fallout-new-vegas",
+			"slug": "fallout-new-vegas",
+			"title": "Fallout: New Vegas",
+			"description": "Snow globes, Star Bottle Caps, unique weapons, and faction hubs across the Mojave.",
+			"poster": "fallout-new-vegas/poster",
+			"theme": {
+				"accent": "#974d2b",
+				"accent-soft": "#d28460",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362721"
+			},
+			"stats": [
+				{
+					"value": 2635,
+					"label": "markers"
+				},
+				{
+					"value": 150,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "fallout-3",
+			"slug": "fallout-3",
+			"title": "Fallout 3",
+			"description": "Vault-Tec Bobbleheads, skill books, unique weapons, and vaults in the Capital Wasteland.",
+			"poster": "fallout-3/poster",
+			"theme": {
+				"accent": "#93b34d",
+				"accent-soft": "#c3d59c",
+				"night": "#0a0c06",
+				"panel": "#12160c",
+				"panel-2": "#1b1f11",
+				"line": "#2f3621"
+			},
+			"stats": [
+				{
+					"value": 987,
+					"label": "markers"
+				},
+				{
+					"value": 33,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "botw",
+			"slug": "botw",
+			"title": "The Legend of Zelda: Breath of the Wild",
+			"description": "Korok seeds, Shrines, Sheikah Towers, Great Fairies, and Hinox across Hyrule.",
+			"poster": "botw/poster",
+			"theme": {
+				"accent": "#209ddf",
+				"accent-soft": "#86c7ea",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 16504,
+					"label": "markers"
+				},
+				{
+					"value": 162,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "totk",
+			"slug": "totk",
+			"title": "The Legend of Zelda: Tears of the Kingdom",
+			"description": "Skyview Towers, Shrines, Lightroots, Koroks, and caves across surface, sky, and Depths.",
+			"poster": "totk/poster",
+			"theme": {
+				"accent": "#4cb3a8",
+				"accent-soft": "#9bd4ce",
+				"night": "#060c0b",
+				"panel": "#0c1614",
+				"panel-2": "#111f1e",
+				"line": "#213634"
+			},
+			"stats": [
+				{
+					"value": 7956,
+					"label": "markers"
+				},
+				{
+					"value": 162,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "alttp",
+			"slug": "alttp",
+			"title": "The Legend of Zelda: A Link to the Past",
+			"description": "Heart Pieces, dungeon entrances, magic medallions, and secrets in Light and Dark Worlds.",
+			"poster": "alttp/poster",
+			"theme": {
+				"accent": "#906e32",
+				"accent-soft": "#caa768",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 815,
+					"label": "markers"
+				},
+				{
+					"value": 20,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "altbw",
+			"slug": "altbw",
+			"title": "The Legend of Zelda: A Link Between Worlds",
+			"description": "Lost Maiamais, Heart Pieces, Master Ore, portals, and dungeons across Hyrule and Lorule.",
+			"poster": "altbw/poster",
+			"theme": {
+				"accent": "#74a819",
+				"accent-soft": "#ace051",
+				"night": "#0a0c06",
+				"panel": "#12160c",
+				"panel-2": "#1a1f11",
+				"line": "#2e3621"
+			},
+			"stats": [
+				{
+					"value": 332,
+					"label": "markers"
+				},
+				{
+					"value": 18,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "wind-waker",
+			"slug": "wind-waker",
+			"title": "The Legend of Zelda: The Wind Waker",
+			"description": "Treasure Charts, Heart Pieces, Great Fairies, and sunken loot across the Great Sea.",
+			"poster": "wind-waker/poster",
+			"theme": {
+				"accent": "#cc9125",
+				"accent-soft": "#e7c17a",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362f21"
+			},
+			"stats": [
+				{
+					"value": 1232,
+					"label": "markers"
+				},
+				{
+					"value": 32,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "links-awakening",
+			"slug": "links-awakening",
+			"title": "The Legend of Zelda: Link’s Awakening",
+			"description": "Secret Seashells, Pieces of Heart, instruments, and dungeons across Koholint Island.",
+			"poster": "links-awakening/poster",
+			"theme": {
+				"accent": "#2097df",
+				"accent-soft": "#86c4ea",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 409,
+					"label": "markers"
+				},
+				{
+					"value": 23,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "tloz",
+			"slug": "tloz",
+			"title": "The Legend of Zelda",
+			"description": "Dungeon entrances, Heart Containers, secret shops, and items for First and Second Quests.",
+			"poster": "tloz/poster",
+			"theme": {
+				"accent": "#df6c20",
+				"accent-soft": "#eaad86",
+				"night": "#0c0806",
+				"panel": "#16100c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 545,
+					"label": "markers"
+				},
+				{
+					"value": 26,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "the-adventure-of-link",
+			"slug": "the-adventure-of-link",
+			"title": "Zelda II: The Adventure of Link",
+			"description": "Palaces, Magic Containers, Heart Containers, spells, and hidden caves across Hyrule.",
+			"poster": "the-adventure-of-link/poster",
+			"theme": {
+				"accent": "#209bdf",
+				"accent-soft": "#86c6ea",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 258,
+					"label": "markers"
+				},
+				{
+					"value": 16,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "hollow-knight",
+			"slug": "hollow-knight",
+			"title": "Hollow Knight",
+			"description": "Mask Shards, Vessel Fragments, Charms, Grubs, Dreamers, and benches in Hallownest.",
+			"poster": "hollow-knight/poster",
+			"theme": {
+				"accent": "#3a7c88",
+				"accent-soft": "#70b5c2",
+				"night": "#060b0c",
+				"panel": "#0c1416",
+				"panel-2": "#111d1f",
+				"line": "#213336"
+			},
+			"stats": [
+				{
+					"value": 979,
+					"label": "markers"
+				},
+				{
+					"value": 38,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "silksong",
+			"slug": "Silksong",
+			"title": "Hollow Knight: Silksong",
+			"description": "Lost Fleas, Mask Shards, Spool Fragments, crests, and Bellway stations in Pharloom.",
+			"poster": "Silksong/poster",
+			"theme": {
+				"accent": "#c14e3c",
+				"accent-soft": "#dd9b91",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1311",
+				"line": "#362321"
+			},
+			"stats": [
+				{
+					"value": 1939,
+					"label": "markers"
+				},
+				{
+					"value": 49,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "blasphemous",
+			"slug": "blasphemous",
+			"title": "Blasphemous",
+			"description": "Cherubs, Rosary Beads, Mea Culpa Shrines, relics, and Prie Dieu altars in Cvstodia.",
+			"poster": "blasphemous/poster",
+			"theme": {
+				"accent": "#aa8b43",
+				"accent-soft": "#d2bd8c",
+				"night": "#0c0a06",
+				"panel": "#16130c",
+				"panel-2": "#1f1b11",
+				"line": "#363021"
+			},
+			"stats": [
+				{
+					"value": 580,
+					"label": "markers"
+				},
+				{
+					"value": 33,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "blasphemous-2",
+			"slug": "blasphemous-2",
+			"title": "Blasphemous 2",
+			"description": "Weapon upgrades, Cobijadas, altar pieces, Fervor flasks, and secrets across Cvstodia.",
+			"poster": "blasphemous-2/poster",
+			"theme": {
+				"accent": "#915a31",
+				"accent-soft": "#cc9267",
+				"night": "#0c0906",
+				"panel": "#16100c",
+				"panel-2": "#1f1711",
+				"line": "#362a21"
+			},
+			"stats": [
+				{
+					"value": 1625,
+					"label": "markers"
+				},
+				{
+					"value": 58,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "re4",
+			"slug": "re4",
+			"title": "Resident Evil 4 (WIP)",
+			"description": "Clockwork Castellans, Merchant requests, treasures, and puzzles in the Village, Castle, and Island.",
+			"poster": "re4/poster",
+			"theme": {
+				"accent": "#3a6788",
+				"accent-soft": "#709fc2",
+				"night": "#06090c",
+				"panel": "#0c1116",
+				"panel-2": "#11191f",
+				"line": "#212d36"
+			},
+			"stats": [
+				{
+					"value": 398,
+					"label": "markers"
+				},
+				{
+					"value": 23,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "re5",
+			"slug": "re5",
+			"title": "Resident Evil 5",
+			"description": "BSAA Emblems, treasures, weapons, and partner actions across Kijuju and story DLCs.",
+			"poster": "re5/poster",
+			"theme": {
+				"accent": "#aa2f18",
+				"accent-soft": "#e06852",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1411",
+				"line": "#362421"
+			},
+			"stats": [
+				{
+					"value": 1514,
+					"label": "markers"
+				},
+				{
+					"value": 53,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "pragmata",
+			"slug": "pragmata",
+			"title": "Pragmata",
+			"description": "Earth Memories, Cartridge Holders, Unit Printers, and data logs on the lunar station.",
+			"poster": "pragmata/poster",
+			"theme": {
+				"accent": "#24389d",
+				"accent-soft": "#586ed9",
+				"night": "#06070c",
+				"panel": "#0c0d16",
+				"panel-2": "#11141f",
+				"line": "#212436"
+			},
+			"stats": [
+				{
+					"value": 1099,
+					"label": "markers"
+				},
+				{
+					"value": 36,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "hogwarts-legacy",
+			"slug": "hogwarts-legacy",
+			"title": "Hogwarts Legacy",
+			"description": "Field Guide Pages, Merlin Trials, Demiguise Statues, and Floo Flames in the Highlands.",
+			"poster": "hogwarts-legacy/poster",
+			"theme": {
+				"accent": "#3a7c88",
+				"accent-soft": "#70b5c2",
+				"night": "#060b0c",
+				"panel": "#0c1416",
+				"panel-2": "#111d1f",
+				"line": "#213336"
+			},
+			"stats": [
+				{
+					"value": 2104,
+					"label": "markers"
+				},
+				{
+					"value": 81,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "clair-obscur-expedition-33",
+			"slug": "clair-obscur-expedition-33",
+			"title": "Clair Obscur: Expedition 33",
+			"description": "Pictos, Music Records, journal entries, and underwater treasures across the Continent.",
+			"poster": "clair-obscur-expedition-33/poster",
+			"theme": {
+				"accent": "#967540",
+				"accent-soft": "#c8ac7e",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 2815,
+					"label": "markers"
+				},
+				{
+					"value": 33,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "witcher-3",
+			"slug": "witcher-3",
+			"title": "The Witcher 3: Wild Hunt",
+			"description": "Places of Power, Witcher Gear diagrams, monster nests, and treasure hunts across the realm.",
+			"poster": "witcher-3/poster",
+			"theme": {
+				"accent": "#3a6e88",
+				"accent-soft": "#70a7c2",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 3305,
+					"label": "markers"
+				},
+				{
+					"value": 218,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "castlevania-belmonts-curse",
+			"slug": "castlevania-belmonts-curse",
+			"title": "Castlevania: Belmont's Curse",
+			"description": "Relics, Arcana, Tarot Cards, weapons, and hidden passages throughout Paris.",
+			"poster": "castlevania-belmonts-curse/poster",
+			"theme": {
+				"accent": "#88573a",
+				"accent-soft": "#c28f70",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 1339,
+					"label": "markers"
+				},
+				{
+					"value": 31,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "grand-theft-auto-san-andreas",
+			"slug": "grand-theft-auto-san-andreas",
+			"title": "Grand Theft Auto: San Andreas",
+			"description": "Tags, Snapshots, Horseshoes, Oysters, Stunt Jumps, and weapons across San Andreas.",
+			"poster": "grand-theft-auto-san-andreas/poster",
+			"theme": {
+				"accent": "#71b34d",
+				"accent-soft": "#b0d59c",
+				"night": "#080c06",
+				"panel": "#0f160c",
+				"panel-2": "#161f11",
+				"line": "#283621"
+			},
+			"stats": [
+				{
+					"value": 1440,
+					"label": "markers"
+				},
+				{
+					"value": 63,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "infinity-nikki",
+			"slug": "infinity-nikki",
+			"title": "Infinity Nikki",
+			"description": "Whimstars, sketches, Warp Spires, chests, and styling challenges across Miraland.",
+			"poster": "infinity-nikki/poster",
+			"theme": {
+				"accent": "#3b94c4",
+				"accent-soft": "#91c3de",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 7790,
+					"label": "markers"
+				},
+				{
+					"value": 149,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "animal-well",
+			"slug": "animal-well",
+			"title": "Animal Well",
+			"description": "Secret eggs, rabbits, candles, tools, and mysterious puzzles hidden in the well.",
+			"poster": "animal-well/poster",
+			"theme": {
+				"accent": "#2191a0",
+				"accent-soft": "#55ccdc",
+				"night": "#060b0c",
+				"panel": "#0c1416",
+				"panel-2": "#111d1f",
+				"line": "#213436"
+			},
+			"stats": [
+				{
+					"value": 364,
+					"label": "markers"
+				},
+				{
+					"value": 23,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "far-cry-5",
+			"slug": "far-cry-5",
+			"title": "Far Cry 5",
+			"description": "Cult outposts, Prepper Stashes, perk magazines, and shrines across Hope County.",
+			"poster": "far-cry-5/poster",
+			"theme": {
+				"accent": "#a76943",
+				"accent-soft": "#d0a58a",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 1272,
+					"label": "markers"
+				},
+				{
+					"value": 70,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "rdr2",
+			"slug": "rdr2",
+			"title": "Red Dead Redemption 2",
+			"description": "Legendary animals, dinosaur bones, rock carvings, and treasure maps on the frontier.",
+			"poster": "rdr2/poster",
+			"theme": {
+				"accent": "#aa1821",
+				"accent-soft": "#e0525b",
+				"night": "#0c0607",
+				"panel": "#160c0c",
+				"panel-2": "#1f1112",
+				"line": "#362122"
+			},
+			"stats": [
+				{
+					"value": 6153,
+					"label": "markers"
+				},
+				{
+					"value": 74,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "hitman-3",
+			"slug": "hitman-3",
+			"title": "Hitman 3",
+			"description": "Assassination opportunities, shortcuts, disguised access, and intel in the trilogy finale.",
+			"poster": "hitman-3/poster",
+			"theme": {
+				"accent": "#b31a23",
+				"accent-soft": "#e25b63",
+				"night": "#0c0607",
+				"panel": "#160c0c",
+				"panel-2": "#1f1112",
+				"line": "#362122"
+			},
+			"stats": [
+				{
+					"value": 3031,
+					"label": "markers"
+				},
+				{
+					"value": 145,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "hitman-2",
+			"slug": "hitman-2",
+			"title": "Hitman 2",
+			"description": "Mission stories, disguise points, security keys, and extraction routes across the globe.",
+			"poster": "hitman-2/poster",
+			"theme": {
+				"accent": "#4d8cb3",
+				"accent-soft": "#9cbfd5",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 10613,
+					"label": "markers"
+				},
+				{
+					"value": 360,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "hitman",
+			"slug": "hitman",
+			"title": "Hitman",
+			"description": "Agency pickups, disguises, security cameras, keycards, and assassination opportunities.",
+			"poster": "hitman/poster",
+			"theme": {
+				"accent": "#4da9b3",
+				"accent-soft": "#9ccfd5",
+				"night": "#060b0c",
+				"panel": "#0c1516",
+				"panel-2": "#111e1f",
+				"line": "#213436"
+			},
+			"stats": [
+				{
+					"value": 7960,
+					"label": "markers"
+				},
+				{
+					"value": 432,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "tarkov",
+			"slug": "tarkov",
+			"title": "Escape From Tarkov",
+			"description": "Extraction points, key spawns, weapon crates, and high-tier loot zones in Norvinsk.",
+			"poster": "tarkov/poster",
+			"theme": {
+				"accent": "#3c6c8b",
+				"accent-soft": "#74a4c3",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 5051,
+					"label": "markers"
+				},
+				{
+					"value": 223,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "the-outer-worlds",
+			"slug": "the-outer-worlds",
+			"title": "The Outer Worlds",
+			"description": "Science weapons, tossball cards, vending machines, and quest loot across Halcyon.",
+			"poster": "the-outer-worlds/poster",
+			"theme": {
+				"accent": "#b88f47",
+				"accent-soft": "#d7c098",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 3076,
+					"label": "markers"
+				},
+				{
+					"value": 230,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "the-outer-worlds-2",
+			"slug": "the-outer-worlds-2",
+			"title": "The Outer Worlds 2",
+			"description": "Unique science weapons, faction terminals, keycards, and caches in the star system.",
+			"poster": "the-outer-worlds-2/poster",
+			"theme": {
+				"accent": "#bf6e40",
+				"accent-soft": "#dbae94",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362821"
+			},
+			"stats": [
+				{
+					"value": 6500,
+					"label": "markers"
+				},
+				{
+					"value": 316,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		}
+	]
 }

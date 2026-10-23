@@ -1,575 +1,530 @@
 {
-  "id": "the-outer-worlds-2",
-  "title": "The Outer Worlds 2",
-  "slug": "the-outer-worlds-2",
-  "source": "https://mapgenie.io/the-outer-worlds-2",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "workbench": [
-        {
-          "cp": "e900",
-          "color": "#fef7db"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e901",
-          "color": "#fef7db"
-        }
-      ],
-      "vendor": [
-        {
-          "cp": "e902",
-          "color": "#fef7db"
-        }
-      ],
-      "vending_machine": [
-        {
-          "cp": "e903",
-          "color": "#fef7db"
-        }
-      ],
-      "unique_weapon": [
-        {
-          "cp": "e904",
-          "color": "#fef7db"
-        }
-      ],
-      "unique_item": [
-        {
-          "cp": "e905",
-          "color": "#fef7db"
-        }
-      ],
-      "unique_helmet": [
-        {
-          "cp": "e906",
-          "color": "#fef7db"
-        }
-      ],
-      "unique_armor": [
-        {
-          "cp": "e907",
-          "color": "#fef7db"
-        }
-      ],
-      "transition": [
-        {
-          "cp": "e908",
-          "color": "#fef7db"
-        }
-      ],
-      "throwable": [
-        {
-          "cp": "e909",
-          "color": "#fef7db"
-        }
-      ],
-      "terminal": [
-        {
-          "cp": "e90a",
-          "color": "#fef7db"
-        }
-      ],
-      "task": [
-        {
-          "cp": "e90b",
-          "color": "#fef7db"
-        }
-      ],
-      "sojourners_log": [
-        {
-          "cp": "e90c",
-          "color": "#fef7db"
-        }
-      ],
-      "side_quest": [
-        {
-          "cp": "e90d",
-          "color": "#fef7db"
-        }
-      ],
-      "ship_decoration": [
-        {
-          "cp": "e90e",
-          "color": "#fef7db"
-        }
-      ],
-      "science_weapon": [
-        {
-          "cp": "e90f",
-          "color": "#fef7db"
-        }
-      ],
-      "rift_anomaly": [
-        {
-          "cp": "e910",
-          "color": "#fef7db"
-        }
-      ],
-      "resource": [
-        {
-          "cp": "e911",
-          "color": "#fef7db"
-        }
-      ],
-      "remains": [
-        {
-          "cp": "e912",
-          "color": "#fef7db"
-        }
-      ],
-      "recipe": [
-        {
-          "cp": "e913",
-          "color": "#fef7db"
-        }
-      ],
-      "quest_item": [
-        {
-          "cp": "e914",
-          "color": "#fef7db"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e915",
-          "color": "#fef7db"
-        }
-      ],
-      "pitchball_card": [
-        {
-          "cp": "e916",
-          "color": "#fef7db"
-        }
-      ],
-      "pet": [
-        {
-          "cp": "e917",
-          "color": "#fef7db"
-        }
-      ],
-      "npc": [
-        {
-          "cp": "e918",
-          "color": "#fef7db"
-        }
-      ],
-      "mural_piece": [
-        {
-          "cp": "e919",
-          "color": "#fef7db"
-        }
-      ],
-      "mod": [
-        {
-          "cp": "e91a",
-          "color": "#fef7db"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e91b",
-          "color": "#fef7db"
-        }
-      ],
-      "miniboss": [
-        {
-          "cp": "e91c",
-          "color": "#fef7db"
-        }
-      ],
-      "mega_creature": [
-        {
-          "cp": "e91d",
-          "color": "#fef7db"
-        }
-      ],
-      "main_quest": [
-        {
-          "cp": "e91e",
-          "color": "#fef7db"
-        }
-      ],
-      "magazine": [
-        {
-          "cp": "e91f",
-          "color": "#fef7db"
-        }
-      ],
-      "loot": [
-        {
-          "cp": "e920",
-          "color": "#fef7db"
-        }
-      ],
-      "loose_loot": [
-        {
-          "cp": "e921",
-          "color": "#fef7db"
-        }
-      ],
-      "locked_door": [
-        {
-          "cp": "e922",
-          "color": "#fef7db"
-        }
-      ],
-      "location": [
-        {
-          "cp": "e923",
-          "color": "#fef7db"
-        }
-      ],
-      "keycard": [
-        {
-          "cp": "e924",
-          "color": "#fef7db"
-        }
-      ],
-      "interactable": [
-        {
-          "cp": "e925",
-          "color": "#fef7db"
-        }
-      ],
-      "high_security_lockbox": [
-        {
-          "cp": "e926",
-          "color": "#fef7db"
-        }
-      ],
-      "helmet": [
-        {
-          "cp": "e927",
-          "color": "#fef7db"
-        }
-      ],
-      "hazard": [
-        {
-          "cp": "e928",
-          "color": "#fef7db"
-        }
-      ],
-      "fast_travel": [
-        {
-          "cp": "e929",
-          "color": "#fef7db"
-        }
-      ],
-      "faction_quest": [
-        {
-          "cp": "e92a",
-          "color": "#fef7db"
-        }
-      ],
-      "encounter": [
-        {
-          "cp": "e92b",
-          "color": "#fef7db"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e92c",
-          "color": "#fef7db"
-        }
-      ],
-      "decryption_key": [
-        {
-          "cp": "e92d",
-          "color": "#fef7db"
-        }
-      ],
-      "container": [
-        {
-          "cp": "e92e",
-          "color": "#fef7db"
-        }
-      ],
-      "companion_quest": [
-        {
-          "cp": "e92f",
-          "color": "#fef7db"
-        }
-      ],
-      "companion": [
-        {
-          "cp": "e930",
-          "color": "#fef7db"
-        }
-      ],
-      "collectible_quest": [
-        {
-          "cp": "e931",
-          "color": "#fef7db"
-        }
-      ],
-      "codex": [
-        {
-          "cp": "e932",
-          "color": "#fef7db"
-        }
-      ],
-      "bounty_terminal": [
-        {
-          "cp": "e933",
-          "color": "#fef7db"
-        }
-      ],
-      "autodoc": [
-        {
-          "cp": "e934",
-          "color": "#fef7db"
-        }
-      ],
-      "armor": [
-        {
-          "cp": "e935",
-          "color": "#fef7db"
-        }
-      ],
-      "transition1": [
-        {
-          "cp": "e936"
-        }
-      ],
-      "decoration": [
-        {
-          "cp": "e937"
-        }
-      ],
-      "keycard1": [
-        {
-          "cp": "e938"
-        }
-      ],
-      "loot1": [
-        {
-          "cp": "e939"
-        }
-      ],
-      "terminal1": [
-        {
-          "cp": "e93a"
-        }
-      ],
-      "codex1": [
-        {
-          "cp": "e93b"
-        }
-      ],
-      "mega_creature1": [
-        {
-          "cp": "e93c"
-        }
-      ],
-      "npc1": [
-        {
-          "cp": "e93d"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "ships",
-      "title": "Ships",
-      "data": "ships/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "ships/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "horizon-point-station",
-      "title": "Horizon Point Station",
-      "data": "horizon-point-station/data.json",
-      "tilesets": [
-        {
-          "name": "V2",
-          "template": "horizon-point-station/tiles/default-v3/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "paradise-island",
-      "title": "Paradise Island",
-      "data": "paradise-island/data.json",
-      "tilesets": [
-        {
-          "name": "V4",
-          "template": "paradise-island/tiles/default-v4/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "golden-ridge",
-      "title": "Golden Ridge",
-      "data": "golden-ridge/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "golden-ridge/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "free-market-station",
-      "title": "Free Market Station",
-      "data": "free-market-station/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "free-market-station/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "praetor",
-      "title": "Praetor",
-      "data": "praetor/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "praetor/tiles/default-v3/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "cloister",
-      "title": "Cloister",
-      "data": "cloister/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "cloister/tiles/default-v3/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "acs-undisputed-claim",
-      "title": "ACS Undisputed Claim",
-      "data": "acs-undisputed-claim/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "acs-undisputed-claim/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "reconstituted-horizon-point",
-      "title": "Reconstituted Horizon Point",
-      "data": "reconstituted-horizon-point/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "reconstituted-horizon-point/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "the-outer-worlds-2",
+	"title": "The Outer Worlds 2",
+	"slug": "the-outer-worlds-2",
+	"source": "https://mapgenie.io/the-outer-worlds-2",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"workbench": [
+				{
+					"cp": "e900",
+					"color": "#fef7db"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e901",
+					"color": "#fef7db"
+				}
+			],
+			"vendor": [
+				{
+					"cp": "e902",
+					"color": "#fef7db"
+				}
+			],
+			"vending_machine": [
+				{
+					"cp": "e903",
+					"color": "#fef7db"
+				}
+			],
+			"unique_weapon": [
+				{
+					"cp": "e904",
+					"color": "#fef7db"
+				}
+			],
+			"unique_item": [
+				{
+					"cp": "e905",
+					"color": "#fef7db"
+				}
+			],
+			"unique_helmet": [
+				{
+					"cp": "e906",
+					"color": "#fef7db"
+				}
+			],
+			"unique_armor": [
+				{
+					"cp": "e907",
+					"color": "#fef7db"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e908",
+					"color": "#fef7db"
+				}
+			],
+			"throwable": [
+				{
+					"cp": "e909",
+					"color": "#fef7db"
+				}
+			],
+			"terminal": [
+				{
+					"cp": "e90a",
+					"color": "#fef7db"
+				}
+			],
+			"task": [
+				{
+					"cp": "e90b",
+					"color": "#fef7db"
+				}
+			],
+			"sojourners_log": [
+				{
+					"cp": "e90c",
+					"color": "#fef7db"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e90d",
+					"color": "#fef7db"
+				}
+			],
+			"ship_decoration": [
+				{
+					"cp": "e90e",
+					"color": "#fef7db"
+				}
+			],
+			"science_weapon": [
+				{
+					"cp": "e90f",
+					"color": "#fef7db"
+				}
+			],
+			"rift_anomaly": [
+				{
+					"cp": "e910",
+					"color": "#fef7db"
+				}
+			],
+			"resource": [
+				{
+					"cp": "e911",
+					"color": "#fef7db"
+				}
+			],
+			"remains": [
+				{
+					"cp": "e912",
+					"color": "#fef7db"
+				}
+			],
+			"recipe": [
+				{
+					"cp": "e913",
+					"color": "#fef7db"
+				}
+			],
+			"quest_item": [
+				{
+					"cp": "e914",
+					"color": "#fef7db"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e915",
+					"color": "#fef7db"
+				}
+			],
+			"pitchball_card": [
+				{
+					"cp": "e916",
+					"color": "#fef7db"
+				}
+			],
+			"pet": [
+				{
+					"cp": "e917",
+					"color": "#fef7db"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e918",
+					"color": "#fef7db"
+				}
+			],
+			"mural_piece": [
+				{
+					"cp": "e919",
+					"color": "#fef7db"
+				}
+			],
+			"mod": [
+				{
+					"cp": "e91a",
+					"color": "#fef7db"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e91b",
+					"color": "#fef7db"
+				}
+			],
+			"miniboss": [
+				{
+					"cp": "e91c",
+					"color": "#fef7db"
+				}
+			],
+			"mega_creature": [
+				{
+					"cp": "e91d",
+					"color": "#fef7db"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e91e",
+					"color": "#fef7db"
+				}
+			],
+			"magazine": [
+				{
+					"cp": "e91f",
+					"color": "#fef7db"
+				}
+			],
+			"loot": [
+				{
+					"cp": "e920",
+					"color": "#fef7db"
+				}
+			],
+			"loose_loot": [
+				{
+					"cp": "e921",
+					"color": "#fef7db"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e922",
+					"color": "#fef7db"
+				}
+			],
+			"location": [
+				{
+					"cp": "e923",
+					"color": "#fef7db"
+				}
+			],
+			"keycard": [
+				{
+					"cp": "e924",
+					"color": "#fef7db"
+				}
+			],
+			"interactable": [
+				{
+					"cp": "e925",
+					"color": "#fef7db"
+				}
+			],
+			"high_security_lockbox": [
+				{
+					"cp": "e926",
+					"color": "#fef7db"
+				}
+			],
+			"helmet": [
+				{
+					"cp": "e927",
+					"color": "#fef7db"
+				}
+			],
+			"hazard": [
+				{
+					"cp": "e928",
+					"color": "#fef7db"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e929",
+					"color": "#fef7db"
+				}
+			],
+			"faction_quest": [
+				{
+					"cp": "e92a",
+					"color": "#fef7db"
+				}
+			],
+			"encounter": [
+				{
+					"cp": "e92b",
+					"color": "#fef7db"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e92c",
+					"color": "#fef7db"
+				}
+			],
+			"decryption_key": [
+				{
+					"cp": "e92d",
+					"color": "#fef7db"
+				}
+			],
+			"container": [
+				{
+					"cp": "e92e",
+					"color": "#fef7db"
+				}
+			],
+			"companion_quest": [
+				{
+					"cp": "e92f",
+					"color": "#fef7db"
+				}
+			],
+			"companion": [
+				{
+					"cp": "e930",
+					"color": "#fef7db"
+				}
+			],
+			"collectible_quest": [
+				{
+					"cp": "e931",
+					"color": "#fef7db"
+				}
+			],
+			"codex": [
+				{
+					"cp": "e932",
+					"color": "#fef7db"
+				}
+			],
+			"bounty_terminal": [
+				{
+					"cp": "e933",
+					"color": "#fef7db"
+				}
+			],
+			"autodoc": [
+				{
+					"cp": "e934",
+					"color": "#fef7db"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e935",
+					"color": "#fef7db"
+				}
+			],
+			"transition1": [
+				{
+					"cp": "e936"
+				}
+			],
+			"decoration": [
+				{
+					"cp": "e937"
+				}
+			],
+			"keycard1": [
+				{
+					"cp": "e938"
+				}
+			],
+			"loot1": [
+				{
+					"cp": "e939"
+				}
+			],
+			"terminal1": [
+				{
+					"cp": "e93a"
+				}
+			],
+			"codex1": [
+				{
+					"cp": "e93b"
+				}
+			],
+			"mega_creature1": [
+				{
+					"cp": "e93c"
+				}
+			],
+			"npc1": [
+				{
+					"cp": "e93d"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "ships",
+			"title": "Ships",
+			"data": "ships/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "ships/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "horizon-point-station",
+			"title": "Horizon Point Station",
+			"data": "horizon-point-station/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "horizon-point-station/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "paradise-island",
+			"title": "Paradise Island",
+			"data": "paradise-island/data.json",
+			"tilesets": [
+				{
+					"name": "V4",
+					"template": "paradise-island/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "golden-ridge",
+			"title": "Golden Ridge",
+			"data": "golden-ridge/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "golden-ridge/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "free-market-station",
+			"title": "Free Market Station",
+			"data": "free-market-station/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "free-market-station/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "praetor",
+			"title": "Praetor",
+			"data": "praetor/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "praetor/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "cloister",
+			"title": "Cloister",
+			"data": "cloister/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "cloister/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "acs-undisputed-claim",
+			"title": "ACS Undisputed Claim",
+			"data": "acs-undisputed-claim/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "acs-undisputed-claim/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "reconstituted-horizon-point",
+			"title": "Reconstituted Horizon Point",
+			"data": "reconstituted-horizon-point/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "reconstituted-horizon-point/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

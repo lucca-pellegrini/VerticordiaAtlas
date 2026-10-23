@@ -1,415 +1,410 @@
 {
-  "id": "botw",
-  "title": "The Legend of Zelda: Breath of the Wild",
-  "slug": "zelda-breath-of-the-wild",
-  "source": "https://mapgenie.io/zelda-breath-of-the-wild/maps/hyrule",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "hyrule",
-      "title": "Hyrule",
-      "data": "hyrule/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "hyrule/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 9,
-          "maxzoom": 17,
-          "viewMaxzoom": 17,
-          "bounds": [
-            -1.6597394975946897,
-            -0.05623923401136993,
-            0.2500184332273799,
-            1.4543676709221498
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "area": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "armor": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "armor_shop": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "arrow_chest": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "blupee": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "cooking_pot": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "cracked_wall": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "creature": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "creature_fish": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "divine_beast": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "dragon": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "dye_shop": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "enemy_camp": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "fang_and_bone": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "gem": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "general_store": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "goddess_statue": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "great_fairy": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "guardian": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "hestu": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "hinox": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "hyrule_castle": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "inn": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "jewelry_shop": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ],
-      "journal": [
-        {
-          "cp": "e919",
-          "color": "#ffffff"
-        }
-      ],
-      "key_item": [
-        {
-          "cp": "e91a",
-          "color": "#ffffff"
-        }
-      ],
-      "korok_seed": [
-        {
-          "cp": "e91b",
-          "color": "#ffffff"
-        }
-      ],
-      "landmark": [
-        {
-          "cp": "e91c",
-          "color": "#ffffff"
-        }
-      ],
-      "lynel": [
-        {
-          "cp": "e91d",
-          "color": "#ffffff"
-        }
-      ],
-      "main_quest": [
-        {
-          "cp": "e91e",
-          "color": "#ffffff"
-        }
-      ],
-      "material": [
-        {
-          "cp": "e91f",
-          "color": "#ffffff"
-        }
-      ],
-      "memory": [
-        {
-          "cp": "e920",
-          "color": "#ffffff"
-        }
-      ],
-      "mini_game": [
-        {
-          "cp": "e921",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e922",
-          "color": "#ffffff"
-        }
-      ],
-      "molduga": [
-        {
-          "cp": "e923",
-          "color": "#ffffff"
-        }
-      ],
-      "mushroom": [
-        {
-          "cp": "e924",
-          "color": "#ffffff"
-        }
-      ],
-      "npc": [
-        {
-          "cp": "e925",
-          "color": "#ffffff"
-        }
-      ],
-      "ore_deposit": [
-        {
-          "cp": "e926",
-          "color": "#ffffff"
-        }
-      ],
-      "other_enemy": [
-        {
-          "cp": "e927",
-          "color": "#ffffff"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e928",
-          "color": "#ffffff"
-        }
-      ],
-      "province": [
-        {
-          "cp": "e929",
-          "color": "#ffffff"
-        }
-      ],
-      "quest_objective": [
-        {
-          "cp": "e92a",
-          "color": "#ffffff"
-        }
-      ],
-      "raft": [
-        {
-          "cp": "e92b",
-          "color": "#ffffff"
-        }
-      ],
-      "rupees": [
-        {
-          "cp": "e92c",
-          "color": "#ffffff"
-        }
-      ],
-      "settlement": [
-        {
-          "cp": "e92d",
-          "color": "#ffffff"
-        }
-      ],
-      "sheikah_tower": [
-        {
-          "cp": "e92e",
-          "color": "#ffffff"
-        }
-      ],
-      "shield": [
-        {
-          "cp": "e92f",
-          "color": "#ffffff"
-        }
-      ],
-      "shrine": [
-        {
-          "cp": "e930",
-          "color": "#ffffff"
-        }
-      ],
-      "shrine_quest": [
-        {
-          "cp": "e931",
-          "color": "#ffffff"
-        }
-      ],
-      "side_quest": [
-        {
-          "cp": "e932",
-          "color": "#ffffff"
-        }
-      ],
-      "stable": [
-        {
-          "cp": "e933",
-          "color": "#ffffff"
-        }
-      ],
-      "stalnox": [
-        {
-          "cp": "e934",
-          "color": "#ffffff"
-        }
-      ],
-      "talus": [
-        {
-          "cp": "e935",
-          "color": "#ffffff"
-        }
-      ],
-      "tech_lab": [
-        {
-          "cp": "e936",
-          "color": "#ffffff"
-        }
-      ],
-      "treasure_chest": [
-        {
-          "cp": "e937",
-          "color": "#ffffff"
-        }
-      ],
-      "unique_horse": [
-        {
-          "cp": "e938",
-          "color": "#ffffff"
-        }
-      ],
-      "village": [
-        {
-          "cp": "e939",
-          "color": "#ffffff"
-        }
-      ],
-      "voice_memory": [
-        {
-          "cp": "e93a",
-          "color": "#ffffff"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e93b",
-          "color": "#ffffff"
-        }
-      ],
-      "wizzrobe": [
-        {
-          "cp": "e93c",
-          "color": "#ffffff"
-        }
-      ],
-      "yiga": [
-        {
-          "cp": "e93d",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "botw",
+	"title": "The Legend of Zelda: Breath of the Wild",
+	"slug": "zelda-breath-of-the-wild",
+	"source": "https://mapgenie.io/zelda-breath-of-the-wild/maps/hyrule",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "hyrule",
+			"title": "Hyrule",
+			"data": "hyrule/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hyrule/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 17,
+					"viewMaxzoom": 17,
+					"bounds": [-1.6597394975946897, -0.05623923401136993, 0.2500184332273799, 1.4543676709221498],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"area": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"armor_shop": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"arrow_chest": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"blupee": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"cooking_pot": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"cracked_wall": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"creature": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"creature_fish": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"divine_beast": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"dragon": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"dye_shop": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"enemy_camp": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"fang_and_bone": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"gem": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"goddess_statue": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"great_fairy": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"guardian": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"hestu": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"hinox": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"hyrule_castle": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"inn": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"jewelry_shop": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"journal": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"korok_seed": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"lynel": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"material": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"memory": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"mini_game": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"molduga": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"mushroom": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"ore_deposit": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"other_enemy": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"province": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"quest_objective": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"raft": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"rupees": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"settlement": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"sheikah_tower": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"shield": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"shrine": [
+				{
+					"cp": "e930",
+					"color": "#ffffff"
+				}
+			],
+			"shrine_quest": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e932",
+					"color": "#ffffff"
+				}
+			],
+			"stable": [
+				{
+					"cp": "e933",
+					"color": "#ffffff"
+				}
+			],
+			"stalnox": [
+				{
+					"cp": "e934",
+					"color": "#ffffff"
+				}
+			],
+			"talus": [
+				{
+					"cp": "e935",
+					"color": "#ffffff"
+				}
+			],
+			"tech_lab": [
+				{
+					"cp": "e936",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e937",
+					"color": "#ffffff"
+				}
+			],
+			"unique_horse": [
+				{
+					"cp": "e938",
+					"color": "#ffffff"
+				}
+			],
+			"village": [
+				{
+					"cp": "e939",
+					"color": "#ffffff"
+				}
+			],
+			"voice_memory": [
+				{
+					"cp": "e93a",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e93b",
+					"color": "#ffffff"
+				}
+			],
+			"wizzrobe": [
+				{
+					"cp": "e93c",
+					"color": "#ffffff"
+				}
+			],
+			"yiga": [
+				{
+					"cp": "e93d",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

@@ -1,253 +1,238 @@
 {
-  "id": "re5",
-  "title": "Resident Evil 5",
-  "slug": "resident-evil-5",
-  "source": "https://mapgenie.io/resident-evil-5/maps/africa",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "africa",
-      "title": "Africa",
-      "data": "africa/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "africa/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "lost-in-nightmares",
-      "title": "Lost in Nightmares",
-      "data": "lost-in-nightmares/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "lost-in-nightmares/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 11,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "desperate-escape",
-      "title": "Desperate Escape",
-      "data": "desperate-escape/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "desperate-escape/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 9,
-          "maxzoom": 11,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "agitator": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "boss": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "breakable": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "bsaa_emblem": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "chapter_start": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "checkpoint": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "explosive": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "figurine": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "file": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "interactable": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "key_item": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "ladder": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "lock": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "medical": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "miniboss": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "money": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "partner_action": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "pickup": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "puzzle": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "random_pickup": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "score_star": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "sturdy_door": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "transition": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ],
-      "trap": [
-        {
-          "cp": "e919",
-          "color": "#ffffff"
-        }
-      ],
-      "treasure": [
-        {
-          "cp": "e91a",
-          "color": "#ffffff"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e91b",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "re5",
+	"title": "Resident Evil 5",
+	"slug": "resident-evil-5",
+	"source": "https://mapgenie.io/resident-evil-5/maps/africa",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "africa",
+			"title": "Africa",
+			"data": "africa/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "africa/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "lost-in-nightmares",
+			"title": "Lost in Nightmares",
+			"data": "lost-in-nightmares/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "lost-in-nightmares/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 11,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "desperate-escape",
+			"title": "Desperate Escape",
+			"data": "desperate-escape/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "desperate-escape/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 11,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"agitator": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"breakable": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"bsaa_emblem": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_start": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"checkpoint": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"explosive": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"figurine": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"file": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"interactable": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"ladder": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"lock": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"medical": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"miniboss": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"money": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"partner_action": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"pickup": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"puzzle": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"random_pickup": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"score_star": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"sturdy_door": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"trap": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

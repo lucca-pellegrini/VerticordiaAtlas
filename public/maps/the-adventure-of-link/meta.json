@@ -1,115 +1,110 @@
 {
-  "id": "the-adventure-of-link",
-  "title": "Zelda II: The Adventure of Link",
-  "slug": "zelda-2-the-adventure-of-link",
-  "source": "https://mapgenie.io/zelda-2-the-adventure-of-link/maps/hyrule",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "hyrule",
-      "title": "Hyrule",
-      "data": "hyrule/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "hyrule/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "boss": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "cave": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "fixed_encounter": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "heart_container": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "key": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "key_item": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "npc": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "palace": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "sword_technique": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "treasure_bag": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "the-adventure-of-link",
+	"title": "Zelda II: The Adventure of Link",
+	"slug": "zelda-2-the-adventure-of-link",
+	"source": "https://mapgenie.io/zelda-2-the-adventure-of-link/maps/hyrule",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "hyrule",
+			"title": "Hyrule",
+			"data": "hyrule/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hyrule/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"boss": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"fixed_encounter": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"heart_container": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"palace": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"sword_technique": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_bag": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

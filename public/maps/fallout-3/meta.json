@@ -1,235 +1,230 @@
 {
-  "id": "fallout-3",
-  "title": "Fallout 3",
-  "slug": "fallout-3",
-  "source": "https://mapgenie.io/fallout-3",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "armor": [
-        {
-          "cp": "e900",
-          "color": "#000000"
-        }
-      ],
-      "bobblehead": [
-        {
-          "cp": "e901",
-          "color": "#000000"
-        }
-      ],
-      "building": [
-        {
-          "cp": "e902",
-          "color": "#000000"
-        }
-      ],
-      "cave": [
-        {
-          "cp": "e903",
-          "color": "#000000"
-        }
-      ],
-      "companion": [
-        {
-          "cp": "e904",
-          "color": "#000000"
-        }
-      ],
-      "companion_quest": [
-        {
-          "cp": "e905",
-          "color": "#000000"
-        }
-      ],
-      "district": [
-        {
-          "cp": "e906",
-          "color": "#000000"
-        }
-      ],
-      "doctor": [
-        {
-          "cp": "e907",
-          "color": "#000000"
-        }
-      ],
-      "factory": [
-        {
-          "cp": "e908",
-          "color": "#000000"
-        }
-      ],
-      "holotape": [
-        {
-          "cp": "e909",
-          "color": "#000000"
-        }
-      ],
-      "landmark": [
-        {
-          "cp": "e90a",
-          "color": "#000000"
-        }
-      ],
-      "main_quest": [
-        {
-          "cp": "e90b",
-          "color": "#000000"
-        }
-      ],
-      "merchant": [
-        {
-          "cp": "e90c",
-          "color": "#000000"
-        }
-      ],
-      "metro": [
-        {
-          "cp": "e90d",
-          "color": "#000000"
-        }
-      ],
-      "military": [
-        {
-          "cp": "e90e",
-          "color": "#000000"
-        }
-      ],
-      "monument": [
-        {
-          "cp": "e90f",
-          "color": "#000000"
-        }
-      ],
-      "npc": [
-        {
-          "cp": "e910",
-          "color": "#000000"
-        }
-      ],
-      "repeatable_quest": [
-        {
-          "cp": "e911",
-          "color": "#000000"
-        }
-      ],
-      "ruins": [
-        {
-          "cp": "e912",
-          "color": "#000000"
-        }
-      ],
-      "safehouse": [
-        {
-          "cp": "e913",
-          "color": "#000000"
-        }
-      ],
-      "schematic": [
-        {
-          "cp": "e914",
-          "color": "#000000"
-        }
-      ],
-      "settlement": [
-        {
-          "cp": "e915",
-          "color": "#000000"
-        }
-      ],
-      "sewer": [
-        {
-          "cp": "e916",
-          "color": "#000000"
-        }
-      ],
-      "side_quest": [
-        {
-          "cp": "e917",
-          "color": "#000000"
-        }
-      ],
-      "skill_book": [
-        {
-          "cp": "e918",
-          "color": "#000000"
-        }
-      ],
-      "unique_armor": [
-        {
-          "cp": "e919",
-          "color": "#000000"
-        }
-      ],
-      "unique_weapon": [
-        {
-          "cp": "e91a",
-          "color": "#000000"
-        }
-      ],
-      "unmarked_quest": [
-        {
-          "cp": "e91b",
-          "color": "#000000"
-        }
-      ],
-      "urban_ruins": [
-        {
-          "cp": "e91c",
-          "color": "#000000"
-        }
-      ],
-      "vault": [
-        {
-          "cp": "e91d",
-          "color": "#000000"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e91e",
-          "color": "#000000"
-        }
-      ],
-      "workbench": [
-        {
-          "cp": "e91f",
-          "color": "#000000"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "capital-wasteland",
-      "title": "Capital Wasteland",
-      "data": "capital-wasteland/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "capital-wasteland/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 10,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "fallout-3",
+	"title": "Fallout 3",
+	"slug": "fallout-3",
+	"source": "https://mapgenie.io/fallout-3",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"armor": [
+				{
+					"cp": "e900",
+					"color": "#000000"
+				}
+			],
+			"bobblehead": [
+				{
+					"cp": "e901",
+					"color": "#000000"
+				}
+			],
+			"building": [
+				{
+					"cp": "e902",
+					"color": "#000000"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e903",
+					"color": "#000000"
+				}
+			],
+			"companion": [
+				{
+					"cp": "e904",
+					"color": "#000000"
+				}
+			],
+			"companion_quest": [
+				{
+					"cp": "e905",
+					"color": "#000000"
+				}
+			],
+			"district": [
+				{
+					"cp": "e906",
+					"color": "#000000"
+				}
+			],
+			"doctor": [
+				{
+					"cp": "e907",
+					"color": "#000000"
+				}
+			],
+			"factory": [
+				{
+					"cp": "e908",
+					"color": "#000000"
+				}
+			],
+			"holotape": [
+				{
+					"cp": "e909",
+					"color": "#000000"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e90a",
+					"color": "#000000"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e90b",
+					"color": "#000000"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e90c",
+					"color": "#000000"
+				}
+			],
+			"metro": [
+				{
+					"cp": "e90d",
+					"color": "#000000"
+				}
+			],
+			"military": [
+				{
+					"cp": "e90e",
+					"color": "#000000"
+				}
+			],
+			"monument": [
+				{
+					"cp": "e90f",
+					"color": "#000000"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e910",
+					"color": "#000000"
+				}
+			],
+			"repeatable_quest": [
+				{
+					"cp": "e911",
+					"color": "#000000"
+				}
+			],
+			"ruins": [
+				{
+					"cp": "e912",
+					"color": "#000000"
+				}
+			],
+			"safehouse": [
+				{
+					"cp": "e913",
+					"color": "#000000"
+				}
+			],
+			"schematic": [
+				{
+					"cp": "e914",
+					"color": "#000000"
+				}
+			],
+			"settlement": [
+				{
+					"cp": "e915",
+					"color": "#000000"
+				}
+			],
+			"sewer": [
+				{
+					"cp": "e916",
+					"color": "#000000"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e917",
+					"color": "#000000"
+				}
+			],
+			"skill_book": [
+				{
+					"cp": "e918",
+					"color": "#000000"
+				}
+			],
+			"unique_armor": [
+				{
+					"cp": "e919",
+					"color": "#000000"
+				}
+			],
+			"unique_weapon": [
+				{
+					"cp": "e91a",
+					"color": "#000000"
+				}
+			],
+			"unmarked_quest": [
+				{
+					"cp": "e91b",
+					"color": "#000000"
+				}
+			],
+			"urban_ruins": [
+				{
+					"cp": "e91c",
+					"color": "#000000"
+				}
+			],
+			"vault": [
+				{
+					"cp": "e91d",
+					"color": "#000000"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e91e",
+					"color": "#000000"
+				}
+			],
+			"workbench": [
+				{
+					"cp": "e91f",
+					"color": "#000000"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "capital-wasteland",
+			"title": "Capital Wasteland",
+			"data": "capital-wasteland/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "capital-wasteland/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 10,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

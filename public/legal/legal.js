@@ -1,6 +1,9 @@
 (() => {
   // src/client/legal.ts
-  var links = new Map([...document.querySelectorAll('.toc a[href^="#"]')].map((a) => [a.getAttribute("href").slice(1), a]));
+  var links = new Map([...document.querySelectorAll('.toc a[href^="#"]')].map((a) => [
+    a.getAttribute("href").slice(1),
+    a
+  ]));
   var sections = [...document.querySelectorAll(".doc section[id]")];
   function mark(id) {
     for (const [key, a] of links)

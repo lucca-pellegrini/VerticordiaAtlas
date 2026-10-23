@@ -1,640 +1,630 @@
 {
-  "id": "elden-ring",
-  "title": "Elden Ring",
-  "slug": "elden-ring",
-  "source": "https://mapgenie.io/elden-ring",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "whetblade": [
-        {
-          "cp": "e900",
-          "color": "#fff"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e901",
-          "color": "#fff"
-        }
-      ],
-      "wandering_mausoleum": [
-        {
-          "cp": "e902",
-          "color": "#fff"
-        }
-      ],
-      "trinas_lilly": [
-        {
-          "cp": "e903",
-          "color": "#fff"
-        }
-      ],
-      "transition": [
-        {
-          "cp": "e904",
-          "color": "#fff"
-        }
-      ],
-      "trainer": [
-        {
-          "cp": "e905",
-          "color": "#fff"
-        }
-      ],
-      "tool": [
-        {
-          "cp": "e906",
-          "color": "#fff"
-        }
-      ],
-      "teardrop_scarab": [
-        {
-          "cp": "e907",
-          "color": "#fff"
-        }
-      ],
-      "talisman_pouch": [
-        {
-          "cp": "e908",
-          "color": "#fff"
-        }
-      ],
-      "talisman": [
-        {
-          "cp": "e909",
-          "color": "#fff"
-        }
-      ],
-      "summoning_sigil": [
-        {
-          "cp": "e90a",
-          "color": "#fff"
-        }
-      ],
-      "stonesword_key": [
-        {
-          "cp": "e90b",
-          "color": "#fff"
-        }
-      ],
-      "stone_cairn": [
-        {
-          "cp": "e90c",
-          "color": "#fff"
-        }
-      ],
-      "stake_of_marika": [
-        {
-          "cp": "e90d",
-          "color": "#fff"
-        }
-      ],
-      "spiritspring_jump": [
-        {
-          "cp": "e90e",
-          "color": "#fff"
-        }
-      ],
-      "spirit_ashes": [
-        {
-          "cp": "e90f",
-          "color": "#fff"
-        }
-      ],
-      "spellbook": [
-        {
-          "cp": "e910",
-          "color": "#fff"
-        }
-      ],
-      "sorcery": [
-        {
-          "cp": "e911",
-          "color": "#fff"
-        }
-      ],
-      "somber_smithing_stone": [
-        {
-          "cp": "e912",
-          "color": "#fff"
-        }
-      ],
-      "smithing_table": [
-        {
-          "cp": "e913",
-          "color": "#fff"
-        }
-      ],
-      "smithing_stone": [
-        {
-          "cp": "e914",
-          "color": "#fff"
-        }
-      ],
-      "slumbering_egg": [
-        {
-          "cp": "e915",
-          "color": "#fff"
-        }
-      ],
-      "site_of_grace": [
-        {
-          "cp": "e916",
-          "color": "#d2b97c"
-        }
-      ],
-      "shield": [
-        {
-          "cp": "e917",
-          "color": "#fff"
-        }
-      ],
-      "scadutree_fragment": [
-        {
-          "cp": "e918",
-          "color": "#fff"
-        }
-      ],
-      "sacred_tear": [
-        {
-          "cp": "e919",
-          "color": "#fff"
-        }
-      ],
-      "sacramental_bud": [
-        {
-          "cp": "e91a",
-          "color": "#fff"
-        }
-      ],
-      "rune_arc": [
-        {
-          "cp": "e91b",
-          "color": "#fff"
-        }
-      ],
-      "ruin_fragment": [
-        {
-          "cp": "e91c",
-          "color": "#fff"
-        }
-      ],
-      "ritual_pot": [
-        {
-          "cp": "e91d",
-          "color": "#fff"
-        }
-      ],
-      "revered_spirit_ash": [
-        {
-          "cp": "e91e",
-          "color": "#fff"
-        }
-      ],
-      "remembrance": [
-        {
-          "cp": "e91f",
-          "color": "#fff"
-        }
-      ],
-      "rebirth_monument": [
-        {
-          "cp": "e920",
-          "color": "#fff"
-        }
-      ],
-      "quest": [
-        {
-          "cp": "e921",
-          "color": "#fff"
-        }
-      ],
-      "puzzle": [
-        {
-          "cp": "e922",
-          "color": "#fff"
-        }
-      ],
-      "portal": [
-        {
-          "cp": "e923",
-          "color": "#fff"
-        }
-      ],
-      "perfume_bottle": [
-        {
-          "cp": "e924",
-          "color": "#fff"
-        }
-      ],
-      "painting": [
-        {
-          "cp": "e925",
-          "color": "#fff"
-        }
-      ],
-      "nascient_butterfly": [
-        {
-          "cp": "e926",
-          "color": "#fff"
-        }
-      ],
-      "multiplayer_item": [
-        {
-          "cp": "e927",
-          "color": "#fff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e928",
-          "color": "#fff"
-        }
-      ],
-      "miquellas_lilly": [
-        {
-          "cp": "e929",
-          "color": "#fff"
-        }
-      ],
-      "miquellas_cross": [
-        {
-          "cp": "e92a",
-          "color": "#fff"
-        }
-      ],
-      "minor_erdtree": [
-        {
-          "cp": "e92b",
-          "color": "#fff"
-        }
-      ],
-      "mimics_tear": [
-        {
-          "cp": "e92c",
-          "color": "#fff"
-        }
-      ],
-      "merchant": [
-        {
-          "cp": "e92d",
-          "color": "#fff"
-        }
-      ],
-      "memory_stone": [
-        {
-          "cp": "e92e",
-          "color": "#fff"
-        }
-      ],
-      "martyr_effigy": [
-        {
-          "cp": "e92f",
-          "color": "#fff"
-        }
-      ],
-      "map_fragment": [
-        {
-          "cp": "e930",
-          "color": "#fff"
-        }
-      ],
-      "lore": [
-        {
-          "cp": "e931",
-          "color": "#fff"
-        }
-      ],
-      "location": [
-        {
-          "cp": "e932",
-          "color": "#fff"
-        }
-      ],
-      "legacy_dungeon": [
-        {
-          "cp": "e933",
-          "color": "#fff"
-        }
-      ],
-      "landmark": [
-        {
-          "cp": "e934",
-          "color": "#fff"
-        }
-      ],
-      "key_item": [
-        {
-          "cp": "e935",
-          "color": "#fff"
-        }
-      ],
-      "item": [
-        {
-          "cp": "e936",
-          "color": "#fff"
-        }
-      ],
-      "invasion": [
-        {
-          "cp": "e937",
-          "color": "#fff"
-        }
-      ],
-      "incantation": [
-        {
-          "cp": "e938",
-          "color": "#fff"
-        }
-      ],
-      "imp_seal_statue": [
-        {
-          "cp": "e939",
-          "color": "#fff"
-        }
-      ],
-      "hidden_passage": [
-        {
-          "cp": "e93a",
-          "color": "#fff"
-        }
-      ],
-      "guiding_statue": [
-        {
-          "cp": "e93b",
-          "color": "#fff"
-        }
-      ],
-      "great_rune": [
-        {
-          "cp": "e93c",
-          "color": "#fff"
-        }
-      ],
-      "great_glovewort": [
-        {
-          "cp": "e93d",
-          "color": "#c2dae8"
-        }
-      ],
-      "great_boss": [
-        {
-          "cp": "e93e",
-          "color": "#fff"
-        }
-      ],
-      "golden_seed": [
-        {
-          "cp": "e93f",
-          "color": "#fff"
-        }
-      ],
-      "golden_rune": [
-        {
-          "cp": "e940",
-          "color": "#fff"
-        }
-      ],
-      "glovewort": [
-        {
-          "cp": "e941",
-          "color": "#fff"
-        }
-      ],
-      "ghost_glovewort": [
-        {
-          "cp": "e942",
-          "color": "#fff"
-        }
-      ],
-      "ghost": [
-        {
-          "cp": "e943",
-          "color": "#fff"
-        }
-      ],
-      "gesture": [
-        {
-          "cp": "e944",
-          "color": "#fff"
-        }
-      ],
-      "evergaol": [
-        {
-          "cp": "e945",
-          "color": "#fff"
-        }
-      ],
-      "enemy": [
-        {
-          "cp": "e946",
-          "color": "#fff"
-        }
-      ],
-      "elite_enemy": [
-        {
-          "cp": "e947",
-          "color": "#fff"
-        }
-      ],
-      "elevator": [
-        {
-          "cp": "e948",
-          "color": "#fff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e949",
-          "color": "#fff"
-        }
-      ],
-      "dungeon": [
-        {
-          "cp": "e94a",
-          "color": "#fff"
-        }
-      ],
-      "dragon_shrine": [
-        {
-          "cp": "e94b",
-          "color": "#fff"
-        }
-      ],
-      "dragon_heart": [
-        {
-          "cp": "e94c",
-          "color": "#fff"
-        }
-      ],
-      "divine_tower": [
-        {
-          "cp": "e94d",
-          "color": "#fff"
-        }
-      ],
-      "demigod": [
-        {
-          "cp": "e94e",
-          "color": "#fff"
-        }
-      ],
-      "deathroot": [
-        {
-          "cp": "e94f",
-          "color": "#fff"
-        }
-      ],
-      "crystal_tear": [
-        {
-          "cp": "e950",
-          "color": "#fff"
-        }
-      ],
-      "creature": [
-        {
-          "cp": "e951",
-          "color": "#fff"
-        }
-      ],
-      "crafting_material": [
-        {
-          "cp": "e952",
-          "color": "#fff"
-        }
-      ],
-      "cracked_pot": [
-        {
-          "cp": "e953",
-          "color": "#fff"
-        }
-      ],
-      "cookbook": [
-        {
-          "cp": "e954",
-          "color": "#fff"
-        }
-      ],
-      "consumable": [
-        {
-          "cp": "e955",
-          "color": "#fff"
-        }
-      ],
-      "character": [
-        {
-          "cp": "e956",
-          "color": "#fff"
-        }
-      ],
-      "cerulean_scarab": [
-        {
-          "cp": "e957",
-          "color": "#fff"
-        }
-      ],
-      "boss": [
-        {
-          "cp": "e958",
-          "color": "#fff"
-        }
-      ],
-      "bolstering_material": [
-        {
-          "cp": "e959",
-          "color": "#fff"
-        }
-      ],
-      "birdseye_telescope": [
-        {
-          "cp": "e95a",
-          "color": "#fff"
-        }
-      ],
-      "bell_bearing": [
-        {
-          "cp": "e95b",
-          "color": "#fff"
-        }
-      ],
-      "ash_of_war": [
-        {
-          "cp": "e95c",
-          "color": "#fff"
-        }
-      ],
-      "armor": [
-        {
-          "cp": "e95d",
-          "color": "#fff"
-        }
-      ],
-      "ancient_smithing_stone": [
-        {
-          "cp": "e95e",
-          "color": "#c2dae8"
-        }
-      ],
-      "ammunition": [
-        {
-          "cp": "e95f",
-          "color": "#fff"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "the-lands-between",
-      "title": "The Lands Between",
-      "data": "the-lands-between/data.json",
-      "tilesets": [
-        {
-          "name": "Interiors",
-          "template": "the-lands-between/tiles/default-v5/{z}/{x}/{y}.jpg",
-          "minzoom": 9,
-          "maxzoom": 16,
-          "viewMaxzoom": 17,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "the-shadow-realm",
-      "title": "Realm of Shadow",
-      "data": "the-shadow-realm/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "the-shadow-realm/tiles/asdnlkkveao-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 17,
-          "viewMaxzoom": 17,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "elden-ring",
+	"title": "Elden Ring",
+	"slug": "elden-ring",
+	"source": "https://mapgenie.io/elden-ring",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"whetblade": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"wandering_mausoleum": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"trinas_lilly": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"trainer": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"tool": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"teardrop_scarab": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"talisman_pouch": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"talisman": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"summoning_sigil": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"stonesword_key": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"stone_cairn": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"stake_of_marika": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"spiritspring_jump": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"spirit_ashes": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"spellbook": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"sorcery": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"somber_smithing_stone": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"smithing_table": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"smithing_stone": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"slumbering_egg": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"site_of_grace": [
+				{
+					"cp": "e916",
+					"color": "#d2b97c"
+				}
+			],
+			"shield": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"scadutree_fragment": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"sacred_tear": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"sacramental_bud": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"rune_arc": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"ruin_fragment": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"ritual_pot": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"revered_spirit_ash": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"remembrance": [
+				{
+					"cp": "e91f",
+					"color": "#fff"
+				}
+			],
+			"rebirth_monument": [
+				{
+					"cp": "e920",
+					"color": "#fff"
+				}
+			],
+			"quest": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"puzzle": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			],
+			"portal": [
+				{
+					"cp": "e923",
+					"color": "#fff"
+				}
+			],
+			"perfume_bottle": [
+				{
+					"cp": "e924",
+					"color": "#fff"
+				}
+			],
+			"painting": [
+				{
+					"cp": "e925",
+					"color": "#fff"
+				}
+			],
+			"nascient_butterfly": [
+				{
+					"cp": "e926",
+					"color": "#fff"
+				}
+			],
+			"multiplayer_item": [
+				{
+					"cp": "e927",
+					"color": "#fff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e928",
+					"color": "#fff"
+				}
+			],
+			"miquellas_lilly": [
+				{
+					"cp": "e929",
+					"color": "#fff"
+				}
+			],
+			"miquellas_cross": [
+				{
+					"cp": "e92a",
+					"color": "#fff"
+				}
+			],
+			"minor_erdtree": [
+				{
+					"cp": "e92b",
+					"color": "#fff"
+				}
+			],
+			"mimics_tear": [
+				{
+					"cp": "e92c",
+					"color": "#fff"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e92d",
+					"color": "#fff"
+				}
+			],
+			"memory_stone": [
+				{
+					"cp": "e92e",
+					"color": "#fff"
+				}
+			],
+			"martyr_effigy": [
+				{
+					"cp": "e92f",
+					"color": "#fff"
+				}
+			],
+			"map_fragment": [
+				{
+					"cp": "e930",
+					"color": "#fff"
+				}
+			],
+			"lore": [
+				{
+					"cp": "e931",
+					"color": "#fff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e932",
+					"color": "#fff"
+				}
+			],
+			"legacy_dungeon": [
+				{
+					"cp": "e933",
+					"color": "#fff"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e934",
+					"color": "#fff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e935",
+					"color": "#fff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e936",
+					"color": "#fff"
+				}
+			],
+			"invasion": [
+				{
+					"cp": "e937",
+					"color": "#fff"
+				}
+			],
+			"incantation": [
+				{
+					"cp": "e938",
+					"color": "#fff"
+				}
+			],
+			"imp_seal_statue": [
+				{
+					"cp": "e939",
+					"color": "#fff"
+				}
+			],
+			"hidden_passage": [
+				{
+					"cp": "e93a",
+					"color": "#fff"
+				}
+			],
+			"guiding_statue": [
+				{
+					"cp": "e93b",
+					"color": "#fff"
+				}
+			],
+			"great_rune": [
+				{
+					"cp": "e93c",
+					"color": "#fff"
+				}
+			],
+			"great_glovewort": [
+				{
+					"cp": "e93d",
+					"color": "#c2dae8"
+				}
+			],
+			"great_boss": [
+				{
+					"cp": "e93e",
+					"color": "#fff"
+				}
+			],
+			"golden_seed": [
+				{
+					"cp": "e93f",
+					"color": "#fff"
+				}
+			],
+			"golden_rune": [
+				{
+					"cp": "e940",
+					"color": "#fff"
+				}
+			],
+			"glovewort": [
+				{
+					"cp": "e941",
+					"color": "#fff"
+				}
+			],
+			"ghost_glovewort": [
+				{
+					"cp": "e942",
+					"color": "#fff"
+				}
+			],
+			"ghost": [
+				{
+					"cp": "e943",
+					"color": "#fff"
+				}
+			],
+			"gesture": [
+				{
+					"cp": "e944",
+					"color": "#fff"
+				}
+			],
+			"evergaol": [
+				{
+					"cp": "e945",
+					"color": "#fff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e946",
+					"color": "#fff"
+				}
+			],
+			"elite_enemy": [
+				{
+					"cp": "e947",
+					"color": "#fff"
+				}
+			],
+			"elevator": [
+				{
+					"cp": "e948",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e949",
+					"color": "#fff"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e94a",
+					"color": "#fff"
+				}
+			],
+			"dragon_shrine": [
+				{
+					"cp": "e94b",
+					"color": "#fff"
+				}
+			],
+			"dragon_heart": [
+				{
+					"cp": "e94c",
+					"color": "#fff"
+				}
+			],
+			"divine_tower": [
+				{
+					"cp": "e94d",
+					"color": "#fff"
+				}
+			],
+			"demigod": [
+				{
+					"cp": "e94e",
+					"color": "#fff"
+				}
+			],
+			"deathroot": [
+				{
+					"cp": "e94f",
+					"color": "#fff"
+				}
+			],
+			"crystal_tear": [
+				{
+					"cp": "e950",
+					"color": "#fff"
+				}
+			],
+			"creature": [
+				{
+					"cp": "e951",
+					"color": "#fff"
+				}
+			],
+			"crafting_material": [
+				{
+					"cp": "e952",
+					"color": "#fff"
+				}
+			],
+			"cracked_pot": [
+				{
+					"cp": "e953",
+					"color": "#fff"
+				}
+			],
+			"cookbook": [
+				{
+					"cp": "e954",
+					"color": "#fff"
+				}
+			],
+			"consumable": [
+				{
+					"cp": "e955",
+					"color": "#fff"
+				}
+			],
+			"character": [
+				{
+					"cp": "e956",
+					"color": "#fff"
+				}
+			],
+			"cerulean_scarab": [
+				{
+					"cp": "e957",
+					"color": "#fff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e958",
+					"color": "#fff"
+				}
+			],
+			"bolstering_material": [
+				{
+					"cp": "e959",
+					"color": "#fff"
+				}
+			],
+			"birdseye_telescope": [
+				{
+					"cp": "e95a",
+					"color": "#fff"
+				}
+			],
+			"bell_bearing": [
+				{
+					"cp": "e95b",
+					"color": "#fff"
+				}
+			],
+			"ash_of_war": [
+				{
+					"cp": "e95c",
+					"color": "#fff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e95d",
+					"color": "#fff"
+				}
+			],
+			"ancient_smithing_stone": [
+				{
+					"cp": "e95e",
+					"color": "#c2dae8"
+				}
+			],
+			"ammunition": [
+				{
+					"cp": "e95f",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "the-lands-between",
+			"title": "The Lands Between",
+			"data": "the-lands-between/data.json",
+			"tilesets": [
+				{
+					"name": "Interiors",
+					"template": "the-lands-between/tiles/default-v5/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "the-shadow-realm",
+			"title": "Realm of Shadow",
+			"data": "the-shadow-realm/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-shadow-realm/tiles/asdnlkkveao-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 17,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }
