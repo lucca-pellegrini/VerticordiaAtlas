@@ -39,7 +39,6 @@ export async function buildClient(opts: { quiet?: boolean } = {}): Promise<void>
       format: target.format ?? 'esm',
       minify: false,
       sourcemap: 'none',
-      external: ['./vendor/*', '../vendor/*', '../../vendor/*'],
     });
     if (!result.success) {
       const msg = result.logs.map(l => l.message || String(l)).join('\n');

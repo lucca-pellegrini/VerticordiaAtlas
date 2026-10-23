@@ -1,7 +1,7 @@
-// icons.mjs: the line icons used by the map tools and the marker menus. 24x24, drawn with currentColor.
+// icons.ts: the line icons used by the map tools and the marker menus. 24x24, drawn with currentColor.
 // `clock` marks the part of an icon that is filled with the background (so it reads on top of the pin head).
 
-export const ICONS = {
+export const ICONS: Record<string, string> = {
   pin: '<path d="M12 21s-6.5-6-6.5-11.5a6.5 6.5 0 0 1 13 0C18.5 15 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/>',
   tempPin: '<path d="M9.5 19.5s-5-4.4-5-8.3a5 5 0 0 1 10 0c0 3.9-5 8.3-5 8.3z"/><circle cx="9.5" cy="11.2" r="1.7"/>' +
     '<circle class="clock" cx="17.2" cy="6.2" r="3.9"/><path d="M17.2 4.2v2.1l1.4 1.1"/>',
@@ -22,5 +22,5 @@ export const ICONS = {
 };
 
 // an icon as markup: the paths of ICONS.name inside a 24x24 svg with the shared styling (class "i")
-export const svgIcon = (name, extra = '') =>
+export const svgIcon = (name: string, extra = ''): string =>
   `<svg class="i${extra ? ' ' + extra : ''}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ''}</svg>`;

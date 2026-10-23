@@ -1,4 +1,4 @@
-// sync.js: keeps this device's progress in step with the server, for signed-in users only. The app never needs it:
+// sync.ts: keeps this device's progress in step with the server, for signed-in users only. The app never needs it:
 // everything is written to IndexedDB first, and this only moves that data around in the background.
 //
 // Tabs: exactly one tab is the leader (it holds the Web Lock 'va-sync-leader'); it alone talks to the server. Other
@@ -6,40 +6,81 @@
 // Conflicts: an item is sent with the server timestamp this device last saw ("base"). If the server has something newer
 // while this device also has unsent changes to the same item, the user is asked which to keep. Otherwise the newer wins.
 
-import { contentKey, sendKey, fnv } from './shared/sync-rules.mjs'; // the same rules as the server (see that file)
+import { contentKey, sendKey, fnv } from '../shared/sync-rules.ts';
+import type { Profile, SyncItem } from '../shared/types.ts';
 
 const CHANNEL = 'va-sync';
 const LOCK = 'va-sync-leader';
 const BATCH = 100;
 
-// the store the app gives us: IndexedDB, through the app's helpers
-// ui: { status({online}), conflicts([{key,label}]), remoteChanged(keys), signedOut() }
+export interface SyncStore {
+  profiles(): Promise<Profile[]>;
+  putProfile(p: Profile): Promise<unknown>;
+  deleteProfile(key: string): Promise<unknown>;
+  metaEntries(): Promise<{ k: string; v: any }[]>;
+  getMeta(k: string): Promise<any>;
+  putMeta(k: string, v: any): Promise<unknown>;
+  removeMeta(k: string): Promise<unknown>;
+  isEmpty(p: Profile): boolean;
+}
 
-export function createSync({ store, ui, api, socketUrl = null }) {
+export interface SyncConflictItem {
+  key: string;
+  label: string;
+}
+
+export interface SyncUI {
+  status(s: { online: boolean }): void;
+  conflicts(list: SyncConflictItem[]): void;
+  remoteChanged(keys: string[]): Promise<void> | void;
+  signedOut(): void;
+}
+
+interface SyncPersistedState {
+  sent: Record<string, string | null>;
+  content: Record<string, string | null>;
+  seen: Record<string, number>;
+  conflicts: Record<string, { server: any; updated_at: number }>;
+}
+
+export function createSync({
+  store,
+  ui,
+  api,
+  socketUrl = null,
+}: {
+  store: SyncStore;
+  ui: SyncUI;
+  api: (method: string, path: string, body?: any) => Promise<any>;
+  socketUrl?: ((clientId: string) => string) | null;
+}) {
   const bc = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel(CHANNEL) : null;
-  let leader = false, running = false, online = navigator.onLine;
-  let st = { sent: {}, content: {}, seen: {}, conflicts: {} }; // sent: key -> hash of what we last agreed on; content: the same, for the content only; seen: key -> server time
-  let pushTimer = null, interval = null, stopped = false, again = false;
-  const clientId = crypto.randomUUID(); // names this tab to the server, so it is not told about its own pushes
-  let sock = null, sockTimer = null, sockFails = 0, live = false;
+  let leader = false, running = false, online = typeof navigator !== 'undefined' ? navigator.onLine : true;
+  let st: SyncPersistedState = { sent: {}, content: {}, seen: {}, conflicts: {} };
+  let pushTimer: ReturnType<typeof setTimeout> | null = null;
+  let interval: ReturnType<typeof setInterval> | null = null;
+  let stopped = false, again = false;
+  const clientId = crypto.randomUUID();
+  let sock: WebSocket | null = null;
+  let sockTimer: ReturnType<typeof setTimeout> | null = null;
+  let sockFails = 0, live = false;
 
   /* ---------- what this device holds, as sync items ---------- */
-  // hashes of what a device holds: sendHash decides whether an item needs sending, contentHash whether it is a conflict
-  const sendHash = (key, v) => (v === null || v === undefined ? null : fnv(sendKey(key, v)));
-  const contentHash = (key, v) => (v === null || v === undefined ? null : fnv(contentKey(key, v)));
-  async function snapshot() {
-    const map = new Map();
+  const sendHash = (key: string, v: unknown): string | null => (v === null || v === undefined ? null : fnv(sendKey(key, v)));
+  const contentHash = (key: string, v: unknown): string | null => (v === null || v === undefined ? null : fnv(contentKey(key, v)));
+  async function snapshot(): Promise<Map<string, any>> {
+    const map = new Map<string, any>();
     for (const p of await store.profiles()) {
-      const { key, ...v } = p;
+      const { key: _key, ...v } = p;
       map.set(`profile:${p.game}:${p.id}`, v);
     }
     for (const e of await store.metaEntries()) {
-      if (/^presets:/.test(e.k)) map.set(`meta:${e.k}`, e.v); // the view is part of the profile now
+      if (/^presets:/.test(e.k)) map.set(`meta:${e.k}`, e.v);
     }
     return map;
   }
-  const isDirty = (key, snap) => {
-    if (!(key in st.content) && key in st.sent) { // state from before content hashes: the whole item decides, as it did
+  const isDirty = (key: string, snap: Map<string, any>): boolean => {
+    if (!(key in st.content) && key in st.sent) {
       return (snap.has(key) ? sendHash(key, snap.get(key)) : null) !== st.sent[key];
     }
     const cur = snap.has(key) ? contentHash(key, snap.get(key)) : null;
@@ -47,27 +88,25 @@ export function createSync({ store, ui, api, socketUrl = null }) {
   };
 
   /* ---------- applying server data to this device ---------- */
-  async function applyRemote(item) {
+  async function applyRemote(item: SyncItem): Promise<void> {
     if (item.key.startsWith('profile:')) {
       const [, game, id] = item.key.split(':');
       if (item.value === null) await store.deleteProfile(`${game}:${id}`);
-      else await store.putProfile({ ...item.value, key: `${game}:${id}`, game, id });
+      else await store.putProfile({ ...(item.value as Profile), key: `${game}:${id}`, game, id });
     } else {
-      const k = item.key.slice(5); // "meta:" prefix
+      const k = item.key.slice(5);
       if (item.value === null) await store.removeMeta(k);
       else await store.putMeta(k, item.value);
     }
   }
 
-  async function loadState() {
+  async function loadState(): Promise<void> {
     const saved = await store.getMeta('sync:state');
     if (saved) st = { sent: saved.sent || {}, content: saved.content || {}, seen: saved.seen || {}, conflicts: saved.conflicts || {} };
   }
   const saveState = () => store.putMeta('sync:state', st);
 
-  /* A new device starts with an empty profile of its own. When the account's profile for that game arrives, the
-     placeholder (empty, and never synced from here) gives way to it, so the two do not sit side by side. */
-  async function adoptOverPlaceholders(key) {
+  async function adoptOverPlaceholders(key: string): Promise<void> {
     const game = key.split(':')[1];
     for (const p of await store.profiles()) {
       const k = `profile:${p.game}:${p.id}`;
@@ -76,14 +115,13 @@ export function createSync({ store, ui, api, socketUrl = null }) {
   }
 
   /* ---------- pull: the server's newer items ---------- */
-  async function pull() {
+  async function pull(): Promise<void> {
     const { items } = await api('GET', 'sync');
     const snap = await snapshot();
-    const changed = [];
-    for (const item of items) {
+    const changed: string[] = [];
+    for (const item of items as SyncItem[]) {
       if ((st.seen[item.key] ?? 0) >= item.updated_at) continue;
       if (isDirty(item.key, snap)) {
-        // we have unsent changes here, and the server has moved on: the user decides
         st.conflicts[item.key] = { server: item.value, updated_at: item.updated_at };
         continue;
       }
@@ -102,21 +140,21 @@ export function createSync({ store, ui, api, socketUrl = null }) {
   }
 
   /* ---------- push: this device's changes ---------- */
-  async function push() {
+  async function push(): Promise<void> {
     const snap = await snapshot();
-    const items = [];
+    const items: { key: string; value: any; base: number }[] = [];
     for (const [key, value] of snap) {
       if (st.sent[key] !== sendHash(key, value)) items.push({ key, value, base: st.seen[key] ?? 0 });
     }
     for (const key of Object.keys(st.sent)) {
-      if (!snap.has(key) && st.sent[key] !== null) items.push({ key, value: null, base: st.seen[key] ?? 0 }); // deleted here
+      if (!snap.has(key) && st.sent[key] !== null) items.push({ key, value: null, base: st.seen[key] ?? 0 });
     }
     for (let i = 0; i < items.length; i += BATCH) {
       const batch = items.slice(i, i + BATCH);
       const { results } = await api('POST', 'sync', { items: batch, client: clientId });
       const sent = new Map(batch.map(it => [it.key, it]));
       for (const r of results) {
-        const it = sent.get(r.key);
+        const it = sent.get(r.key)!;
         if (r.status === 'ok') {
           st.sent[r.key] = sendHash(r.key, it.value);
           st.content[r.key] = contentHash(r.key, it.value);
@@ -130,16 +168,16 @@ export function createSync({ store, ui, api, socketUrl = null }) {
     if (Object.keys(st.conflicts).length) ui.conflicts(conflictList());
   }
 
-  const conflictList = () => Object.keys(st.conflicts).map(key => ({ key, label: labelFor(key) }));
-  const labelFor = key => {
+  const conflictList = (): SyncConflictItem[] => Object.keys(st.conflicts).map(key => ({ key, label: labelFor(key) }));
+  const labelFor = (key: string): string => {
     if (key.startsWith('profile:')) return `Progress for "${key.split(':')[2]}"`;
     return 'Selection presets';
   };
 
   /* ---------- the cycle (leader only) ---------- */
-  async function cycle() {
+  async function cycle(): Promise<void> {
     if (!leader || stopped) return;
-    if (running) { again = true; return; } // something changed mid-cycle: go round once more afterwards, so it is not left for the timer
+    if (running) { again = true; return; }
     if (!online) return;
     running = true;
     try {
@@ -148,7 +186,7 @@ export function createSync({ store, ui, api, socketUrl = null }) {
       await push();
       await saveState();
       setOnline(true);
-    } catch (e) {
+    } catch (e: any) {
       if (e.status === 401) { stopped = true; sock?.close(); ui.signedOut(); }
       else if (e.network) setOnline(false);
       else console.error('sync:', e);
@@ -158,51 +196,53 @@ export function createSync({ store, ui, api, socketUrl = null }) {
     }
   }
 
-  /* ---------- live updates ----------
-     While the socket is open the server says when another device pushed, so the timer is only a safety net. Without
-     it (a proxy that does not pass WebSockets, or no connection) the timer polls every minute, as it always did. */
+  /* ---------- live updates ---------- */
   const POLL_FAST = 60_000, POLL_SLOW = 5 * 60_000;
-  function setPolling(ms) { clearInterval(interval); interval = setInterval(cycle, ms); }
+  function setPolling(ms: number): void {
+    if (interval) clearInterval(interval);
+    interval = setInterval(cycle, ms);
+    (interval as any).unref?.();
+  }
 
-  function openSocket() {
+  function openSocket(): void {
     if (!socketUrl || !leader || stopped || !online || sock || typeof WebSocket === 'undefined') return;
-    let ws;
+    let ws: WebSocket;
     try { ws = new WebSocket(socketUrl(clientId)); } catch { return scheduleSocket(); }
     sock = ws;
     ws.onopen = () => { sockFails = 0; };
     ws.onmessage = ev => {
-      let m = null;
-      try { m = JSON.parse(ev.data); } catch { /* not ours */ }
-      if (m?.type === 'hello') { live = true; setPolling(POLL_SLOW); cycle(); } // catch up on whatever happened while it was down
+      let m: any = null;
+      try { m = JSON.parse(String(ev.data)); } catch { /* not ours */ }
+      if (m?.type === 'hello') { live = true; setPolling(POLL_SLOW); cycle(); }
       else if (m?.type === 'changed') cycle();
     };
     ws.onclose = ev => {
       if (sock === ws) sock = null;
       if (live) { live = false; setPolling(POLL_FAST); }
-      if (ev.code === 4401) return; // signed out: the next cycle finds out and takes the page there
+      if (ev.code === 4401) return;
       sockFails++;
       scheduleSocket();
     };
     ws.onerror = () => { /* onclose follows */ };
   }
-  function scheduleSocket() {
-    clearTimeout(sockTimer);
+  function scheduleSocket(): void {
+    if (sockTimer) clearTimeout(sockTimer);
     if (!socketUrl || !leader || stopped) return;
     const wait = Math.min(5 * 60_000, 1000 * 2 ** Math.min(sockFails, 9)) * (0.75 + Math.random() * 0.5);
     sockTimer = setTimeout(openSocket, wait);
+    (sockTimer as any).unref?.();
   }
 
-  function setOnline(v) {
+  function setOnline(v: boolean): void {
     if (online === v) return;
     online = v;
     bc?.postMessage({ type: 'status', online: v });
     ui.status({ online: v });
   }
 
-  /* the user's answer to a conflict: keep the server's copy, or send this device's copy over it */
-  async function resolveConflicts(choice) {
+  async function resolveConflicts(choice: 'server' | 'local'): Promise<void> {
     await loadState();
-      const taken = [];
+    const taken: string[] = [];
     for (const key of Object.keys(st.conflicts)) {
       const c = st.conflicts[key];
       if (choice === 'server') {
@@ -211,7 +251,6 @@ export function createSync({ store, ui, api, socketUrl = null }) {
         st.content[key] = contentHash(key, c.server);
         taken.push(key);
       }
-      // 'local': this device's copy stays as it is; based on the server's newer time, it goes up on the next push
       st.seen[key] = c.updated_at;
       delete st.conflicts[key];
     }
@@ -223,9 +262,10 @@ export function createSync({ store, ui, api, socketUrl = null }) {
     schedulePush(0);
   }
 
-  function schedulePush(ms = 1500) {
-    clearTimeout(pushTimer);
+  function schedulePush(ms = 1500): void {
+    if (pushTimer) clearTimeout(pushTimer);
     pushTimer = setTimeout(cycle, ms);
+    (pushTimer as any).unref?.();
   }
 
   /* ---------- tabs ---------- */
@@ -235,9 +275,10 @@ export function createSync({ store, ui, api, socketUrl = null }) {
     if (m.type === 'remote' && !leader) ui.remoteChanged(m.keys || []);
     if (m.type === 'status' && !leader) ui.status({ online: m.online });
   });
+  (bc as any)?.unref?.();
 
-  function start() {
-    const hold = () => new Promise(() => {}); // held for as long as this tab lives
+  function start(): void {
+    const hold = () => new Promise(() => {});
     const becomeLeader = () => {
       leader = true;
       cycle();
@@ -247,13 +288,23 @@ export function createSync({ store, ui, api, socketUrl = null }) {
     };
     if (navigator.locks) navigator.locks.request(LOCK, becomeLeader);
     else becomeLeader();
-    addEventListener('online', () => { setOnline(true); cycle(); sockFails = 0; clearTimeout(sockTimer); openSocket(); });
+    addEventListener('online', () => { setOnline(true); cycle(); sockFails = 0; if (sockTimer) clearTimeout(sockTimer); openSocket(); });
     addEventListener('offline', () => { setOnline(false); sock?.close(); });
     document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') cycle(); });
   }
 
+  function stop(): void {
+    stopped = true;
+    if (pushTimer) clearTimeout(pushTimer);
+    if (interval) clearInterval(interval);
+    if (sockTimer) clearTimeout(sockTimer);
+    sock?.close();
+    bc?.close();
+  }
+
   return {
     start,
+    stop,
     noteLocal() { bc?.postMessage({ type: 'local' }); if (leader) schedulePush(); },
     resolveConflicts,
     isLeader: () => leader,

@@ -1,13 +1,14 @@
-// capture.mjs: screenshots of the map. A tap captures the whole visible map; a drag captures a rectangle (with an
+// capture.ts: screenshots of the map. A tap captures the whole visible map; a drag captures a rectangle (with an
 // optional fixed shape). The image is rendered at the highest zoom the tiles allow, stepping down one level at a
 // time until it fits in MAX_SIDE device pixels. Drawings are composited on top of the map; text notes and the
 // selection outline are not part of the picture.
 
-import { ICONS, svgIcon } from './icons.mjs';
+import { ICONS } from '../icons.ts';
+import type { DrawingController } from './drawing.ts';
 
-const MAX_SIDE = 4096;          // the longest side, in device pixels ("4k-ish")
+const MAX_SIDE = 4096;
 const JPEG_QUALITY = 0.92;
-const ASPECTS = {
+const ASPECTS: Record<string, { name: string; ratio: number | null; icon: string }> = {
   free: { name: 'Free', ratio: null, icon: '<rect x="4.5" y="5.5" width="15" height="13" rx="1.5" stroke-dasharray="3 2.5"/>' },
   square: { name: 'Square (1:1)', ratio: 1, icon: '<rect x="5" y="5" width="14" height="14" rx="1.5"/>' },
   wide: { name: 'Widescreen (16:9)', ratio: 16 / 9, icon: '<rect x="2.5" y="6.5" width="19" height="11" rx="1.5"/>' },
@@ -16,19 +17,42 @@ const ASPECTS = {
 const CAMERA = '<path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>';
 const DOWNLOAD = '<path d="M12 4v11m0 0l-4-4m4 4l4-4M5 20h14"/>';
 const CLOSE = '<path d="M6 6l12 12M18 6L6 18"/>';
-const shot = inner => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${inner}</svg>`;
+const shot = (inner: string) => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${inner}</svg>`;
 
-// the tool-stack button (its own group, under the marker tool)
 export const CAPTURE_CONTROL_HTML =
   `<button type="button" id="tool-shot" class="notched" aria-label="Screenshot" title="Screenshot. Tap for the whole view, or drag an area. Right-click or hold for the shape">` +
   `<svg viewBox="0 0 24 24" aria-hidden="true">${CAMERA}</svg></button>`;
 
-export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, names, toast, setBusy }) {
-  const box = map.getContainer();
-  const btn = document.getElementById('tool-shot');
-  let active = false, aspect = 'free', drag = null, busy = false, current = null;
+export interface CaptureController {
+  setActive(on: boolean): void;
+}
 
-  /* ---- the thumbnail: download, share (where the browser can share files), close ---- */
+export function setupCapture({
+  map,
+  mapEl,
+  canvasBox,
+  drawing,
+  requestTool,
+  names,
+  toast,
+  setBusy,
+}: {
+  map: maplibregl.Map;
+  mapEl: HTMLElement;
+  canvasBox: HTMLElement;
+  drawing: DrawingController;
+  requestTool: (tool: string) => void;
+  names: () => { file: string; label: string };
+  toast: (msg: string, ms?: number) => void;
+  setBusy: (busy: boolean) => void;
+}): CaptureController {
+  const box = map.getContainer();
+  const btn = document.getElementById('tool-shot')!;
+  let active = false, aspect = 'free', busy = false;
+  let drag: { id: number; x0: number; y0: number; moved: boolean; last: { x: number; y: number } } | null = null;
+  let current: { url: string; name: string; file: File } | null = null;
+
+  /* ---- the thumbnail ---- */
   const card = document.createElement('div');
   card.id = 'shot-card';
   card.hidden = true;
@@ -40,29 +64,29 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
     '</div></div>';
   mapEl.appendChild(card);
   card.onclick = e => {
-    const b = e.target.closest('[data-act]');
+    const b = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-act]');
     if (!b || !current) return;
     if (b.dataset.act === 'close') { card.hidden = true; return; }
     if (b.dataset.act === 'download') download();
     if (b.dataset.act === 'share') share();
   };
-  function download() {
+  function download(): void {
+    if (!current) return;
     const a = document.createElement('a');
     a.href = current.url;
     a.download = current.name;
     a.click();
   }
-  // browsers differ: some share files (Chrome on Android), some have share but no canShare (Firefox on Android),
-  // and desktops mostly have neither. So the button is always there; it tries, and says so when it cannot.
-  async function share() {
+  async function share(): Promise<void> {
+    if (!current) return;
     const data = { files: [current.file], title: names().label };
     const possible = typeof navigator.share === 'function' && (typeof navigator.canShare !== 'function' || navigator.canShare(data));
-    if (!possible) return toast("Sharing is not available in this browser. Use Download instead.", 4000);
+    if (!possible) { toast('Sharing is not available in this browser. Use Download instead.', 4000); return; }
     try { await navigator.share(data); }
-    catch (e) { if (e.name !== 'AbortError') toast("Could not share the image. Use Download instead.", 4000); }
+    catch (e: any) { if (e.name !== 'AbortError') toast('Could not share the image. Use Download instead.', 4000); }
   }
 
-  /* ---- the shape menu, from the button's right-click or hold (like the marker tool's) ---- */
+  /* ---- the shape menu ---- */
   const menu = document.createElement('div');
   menu.id = 'shot-menu';
   menu.className = 'menu row-menu';
@@ -71,30 +95,30 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
   menu.innerHTML = Object.entries(ASPECTS).map(([k, a]) =>
     `<button type="button" role="menuitemradio" data-aspect="${k}" aria-checked="false">${shot(a.icon)}<span>${a.name}</span></button>`).join('');
   document.body.appendChild(menu);
-  function placeBeside(el, rect) {
+  function placeBeside(el: HTMLElement, rect: DOMRect): void {
     el.hidden = false;
     const w = el.offsetWidth, h = el.offsetHeight, pad = 8;
     el.style.left = Math.max(pad, Math.min(rect.left - 8 - w, innerWidth - w - pad)) + 'px';
     el.style.top = Math.max(pad, Math.min(rect.top, innerHeight - h - pad)) + 'px';
   }
-  function openMenu() {
-    menu.querySelectorAll('[data-aspect]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.aspect === aspect)));
+  function openMenu(): void {
+    menu.querySelectorAll<HTMLElement>('[data-aspect]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.aspect === aspect)));
     placeBeside(menu, btn.getBoundingClientRect());
   }
   menu.onclick = e => {
-    const b = e.target.closest('[data-aspect]');
-    if (!b) return;
+    const b = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-aspect]');
+    if (!b || !b.dataset.aspect) return;
     aspect = b.dataset.aspect;
     menu.hidden = true;
     requestTool('capture');
   };
-  let holdT = null, held = false;
+  let holdT: ReturnType<typeof setTimeout> | null = null, held = false;
   btn.addEventListener('pointerdown', e => {
     if (e.button !== 0) return;
     held = false;
     holdT = setTimeout(() => { held = true; openMenu(); }, 500);
   });
-  ['pointerup', 'pointerleave', 'pointercancel'].forEach(t => btn.addEventListener(t, () => clearTimeout(holdT)));
+  (['pointerup', 'pointerleave', 'pointercancel'] as const).forEach(t => btn.addEventListener(t, () => { if (holdT) clearTimeout(holdT); }));
   btn.addEventListener('click', () => {
     if (held) { held = false; return; }
     if (active) { if (menu.hidden) openMenu(); else menu.hidden = true; return; }
@@ -102,18 +126,16 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
     requestTool('capture');
   });
   btn.addEventListener('contextmenu', e => { e.preventDefault(); openMenu(); });
-  document.addEventListener('click', e => { if (!e.target.closest('#shot-menu, #tool-shot')) menu.hidden = true; });
+  document.addEventListener('click', e => { if (!(e.target as HTMLElement | null)?.closest('#shot-menu, #tool-shot')) menu.hidden = true; });
 
-  /* ---- drawing the area: a rectangle with the dim outside it ---- */
+  /* ---- drawing the area ---- */
   const rectEl = document.createElement('div');
   rectEl.className = 'shot-rect';
   rectEl.hidden = true;
   mapEl.appendChild(rectEl);
-  // the map container, not the canvas: the canvas container can report no height of its own
-  const local = e => { const r = mapEl.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+  const local = (e: PointerEvent) => { const r = mapEl.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
 
-  // the rectangle from the drag's start to the pointer; a fixed shape keeps its ratio (the longer way wins)
-  function rectFor(d, x, y) {
+  function rectFor(d: { x0: number; y0: number }, x: number, y: number) {
     let dx = x - d.x0, dy = y - d.y0;
     const ratio = ASPECTS[aspect].ratio;
     if (ratio) {
@@ -124,7 +146,7 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
     }
     return { x: Math.min(d.x0, d.x0 + dx), y: Math.min(d.y0, d.y0 + dy), w: Math.abs(dx), h: Math.abs(dy) };
   }
-  function showRect(r) {
+  function showRect(r: { x: number; y: number; w: number; h: number }): void {
     Object.assign(rectEl.style, { left: r.x + 'px', top: r.y + 'px', width: r.w + 'px', height: r.h + 'px' });
     rectEl.hidden = false;
   }
@@ -147,7 +169,7 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
     drag = null;
     rectEl.hidden = true;
     if (!active) return;
-    const r = d.moved ? rectFor(d, d.last.x, d.last.y) : null; // no drag: the whole visible map
+    const r = d.moved ? rectFor(d, d.last.x, d.last.y) : null;
     if (r && (r.w < 6 || r.h < 6)) return;
     capture(r);
   });
@@ -155,33 +177,31 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
     if (e.key === 'Escape' && drag) { drag = null; rectEl.hidden = true; }
   });
 
-  /* ---- rendering: the highest zoom that fits, drawn at the capture size ---- */
-  // the device-pixel size of the region when the map is at zoom z (the region is in CSS pixels at the current zoom)
-  function pick(region) {
+  /* ---- rendering ---- */
+  function pick(region: { w: number; h: number }) {
     const dpr = window.devicePixelRatio || 1, z0 = map.getZoom();
-    const sizeAt = z => ({ w: region.w * 2 ** (z - z0), h: region.h * 2 ** (z - z0) });
+    const sizeAt = (z: number) => ({ w: region.w * 2 ** (z - z0), h: region.h * 2 ** (z - z0) });
     let z = Math.floor(map.getMaxZoom());
     const min = Math.ceil(map.getMinZoom());
     while (z > min && Math.max(sizeAt(z).w, sizeAt(z).h) * dpr > MAX_SIDE) z -= 1;
     return { zoom: z, size: sizeAt(z) };
   }
 
-  // draws the map at `zoom` centred on `center`, in a canvas of cssW x cssH CSS pixels; then puts the view back
-  async function renderAt(cssW, cssH, center, zoom) {
+  async function renderAt(cssW: number, cssH: number, center: maplibregl.LngLat, zoom: number) {
     const prev = { center: map.getCenter(), zoom: map.getZoom() };
     box.style.width = cssW + 'px';
     box.style.height = cssH + 'px';
     try {
       map.resize();
-      const idle = new Promise(res => { map.once('idle', res); setTimeout(res, 30000); });
+      const idle = new Promise<void>(res => { map.once('idle', () => res()); setTimeout(res, 30000); });
       map.jumpTo({ center, zoom });
       await idle;
       const src = map.getCanvas();
       const base = document.createElement('canvas');
       base.width = src.width;
       base.height = src.height;
-      const copied = new Promise(res => {
-        map.once('render', () => { base.getContext('2d').drawImage(src, 0, 0); res(); });
+      const copied = new Promise<void>(res => {
+        map.once('render', () => { base.getContext('2d')!.drawImage(src, 0, 0); res(); });
         map.triggerRepaint();
       });
       await copied;
@@ -194,7 +214,7 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
     }
   }
 
-  async function capture(rect) {
+  async function capture(rect: { x: number; y: number; w: number; h: number } | null): Promise<void> {
     busy = true;
     setBusy(true);
     try {
@@ -205,11 +225,10 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
       const cssW = Math.round(size.w), cssH = Math.round(size.h);
       const { base, svg } = await renderAt(cssW, cssH, center, zoom);
 
-      // the drawings go on top
       const out = document.createElement('canvas');
       out.width = base.width;
       out.height = base.height;
-      const g = out.getContext('2d');
+      const g = out.getContext('2d')!;
       g.drawImage(base, 0, 0);
       if (svg.includes('<line') || svg.includes('<path') || svg.includes('<polygon') || svg.includes('<rect') || svg.includes('<ellipse') || svg.includes('<polyline')) {
         const img = new Image();
@@ -217,33 +236,32 @@ export function setupCapture({ map, mapEl, canvasBox, drawing, requestTool, name
         await img.decode();
         g.drawImage(img, 0, 0, out.width, out.height);
       }
-      const blob = await new Promise(res => out.toBlob(res, 'image/jpeg', JPEG_QUALITY));
-      show(blob, out.width, out.height);
+      const blob = await new Promise<Blob | null>(res => out.toBlob(res, 'image/jpeg', JPEG_QUALITY));
+      if (blob) show(blob, out.width, out.height);
     } catch (e) {
       console.error(e);
       toast('Could not take the screenshot.', 4000);
     } finally {
       busy = false;
       setBusy(false);
-      requestTool('pan'); // one picture at a time: back to the hand
+      requestTool('pan');
     }
   }
 
-  function show(blob, w, h) {
+  function show(blob: Blob, w: number, h: number): void {
     if (current) URL.revokeObjectURL(current.url);
-    const { file: base, label } = names();
+    const { file: base } = names();
     const stamp = new Date().toISOString().slice(0, 16).replace(/[-:T]/g, '');
     const name = `${base}-${stamp}.jpg`;
     const file = new File([blob], name, { type: 'image/jpeg' });
     current = { url: URL.createObjectURL(blob), name, file };
-    card.querySelector('img').src = current.url;
-    card.querySelector('.shot-size').textContent = `${w} × ${h}`;
-    card.querySelector('[data-act="share"]').hidden = false; // always offered; share() explains when the browser cannot
+    card.querySelector<HTMLImageElement>('img')!.src = current.url;
+    card.querySelector<HTMLElement>('.shot-size')!.textContent = `${w} × ${h}`;
+    card.querySelector<HTMLElement>('[data-act="share"]')!.hidden = false;
     card.hidden = false;
   }
 
-  /* ---- the mode, from the tool stack ---- */
-  function setActive(on) {
+  function setActive(on: boolean): void {
     active = on;
     if (!on) { drag = null; rectEl.hidden = true; }
     mapEl.classList.toggle('tool-capture', on);

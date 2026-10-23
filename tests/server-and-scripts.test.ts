@@ -110,6 +110,7 @@ describe('server/api and server/ws integration', () => {
   });
 
   afterEach(async () => {
+    server.closeAllConnections?.();
     await new Promise<void>(resolve => server.close(() => resolve()));
     api.close();
     await rm(tmpDir, { recursive: true, force: true });

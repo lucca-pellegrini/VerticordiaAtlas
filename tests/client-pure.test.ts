@@ -1,9 +1,16 @@
 import { describe, expect, test } from 'bun:test';
-import { hsvToHex, hexToHsv, simplify, PALETTE, DRAW_CONTROLS_HTML, INK_CONTROL_HTML } from '../public/drawing.js';
-import { glyphInk, PIN } from '../public/icons-lib.mjs';
-import { ICONS, svgIcon } from '../public/icons.mjs';
-import { deriveLightAccentSoft, normalizePath, describePage } from '../public/theme.js';
-import { createSync } from '../public/sync.js';
+import { hsvToHex, hexToHsv, simplify, PALETTE, DRAW_CONTROLS_HTML, INK_CONTROL_HTML } from '../src/client/map/drawing.ts';
+import { glyphInk, PIN } from '../src/client/icons-lib.ts';
+import { ICONS, svgIcon } from '../src/client/icons.ts';
+import { deriveLightAccentSoft, normalizePath, describePage } from '../src/client/theme.ts';
+import { createSync } from '../src/client/sync.ts';
+import { orderGames } from '../src/client/home.ts';
+import { geomOf, insideGeom } from '../src/client/map/selection.ts';
+import { mapgenieLocId } from '../src/client/map/markdown.ts';
+import { queryOf, matchOf } from '../src/client/map/search.ts';
+import { cleanUserData, uniqueName } from '../src/client/map/profiles.ts';
+import { iconScale, vivid } from '../src/client/map/state.ts';
+import { mapLimits, startOf, sameCamera } from '../src/client/map/map-view.ts';
 
 describe('drawing pure helpers', () => {
   test('hsvToHex and hexToHsv round-trip palette colors', () => {
@@ -81,6 +88,91 @@ describe('theme and navigation helpers', () => {
   });
 });
 
+describe('modularized map and home helpers', () => {
+  test('orderGames sorts recent games first while preserving remaining order', () => {
+    const games = [
+      { id: 1, slug: 'zelda', title: 'Zelda', locations: 10, categories: 2 },
+      { id: 2, slug: 'astro', title: 'Astro', locations: 5, categories: 1 },
+      { id: 3, slug: 'hollow-knight', title: 'Hollow Knight', locations: 20, categories: 4 },
+    ];
+    const ordered = orderGames(games, ['hollow-knight']);
+    expect(ordered.map(g => g.slug)).toEqual(['hollow-knight', 'zelda', 'astro']);
+  });
+
+  test('geomOf and insideGeom test box, ellipse, and freehand polygon geometry', () => {
+    const id = (p: { x: number; y: number }) => p;
+    const box = geomOf({ shape: 'box', pts: [{ x: 10, y: 20 }, { x: 0, y: 0 }] }, id);
+    expect(box).toEqual({ shape: 'box', x: 0, y: 0, w: 10, h: 20 });
+    expect(insideGeom(box, 5, 10)).toBe(true);
+    expect(insideGeom(box, 15, 10)).toBe(false);
+
+    const ellipse = geomOf({ shape: 'ellipse', pts: [{ x: 0, y: 0 }, { x: 10, y: 5 }] }, id);
+    expect(insideGeom(ellipse, 5, 2)).toBe(true);
+    expect(insideGeom(ellipse, 10, 5)).toBe(false);
+
+    const poly = geomOf({ shape: 'free', pts: [{ x: 0, y: 0 }, { x: 10, y: 0 }, { x: 10, y: 10 }, { x: 0, y: 10 }] }, id);
+    expect(insideGeom(poly, 5, 5)).toBe(true);
+    expect(insideGeom(poly, 15, 5)).toBe(false);
+  });
+
+  test('mapgenieLocId extracts locationIds from URLs', () => {
+    expect(mapgenieLocId('https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165234')).toBe(165234);
+    expect(mapgenieLocId('?locationIds=42')).toBe(42);
+    expect(mapgenieLocId('mailto:test@example.com')).toBeNull();
+    expect(mapgenieLocId('https://example.com/no-loc')).toBeNull();
+  });
+
+  test('queryOf and matchOf rank exact, phrase, word, and fuzzy matches', () => {
+    const q = queryOf('Golden Seed');
+    expect(matchOf(q, { title: 'Golden Seed', desc: '' })).toEqual([0, 0]);
+    expect(matchOf(q, { title: 'Ancient Golden Seed Tree', desc: '' })).toEqual([1, 0]);
+    expect(matchOf(q, { title: 'Seed of the Golden Order', desc: '' })).toEqual([2, 0]);
+    expect(matchOf(q, { title: 'Goldn Seed', desc: '' })?.[0]).toBe(3);
+    expect(matchOf(q, { title: 'Shrine', desc: 'Contains a golden seed inside.' })).toEqual([4, 0]);
+    expect(matchOf(q, { title: 'Unrelated', desc: 'Nothing here' })).toBeNull();
+  });
+
+  test('cleanUserData sanitizes untrusted imported profile fields and uniqueName avoids collisions', () => {
+    const taken = new Set(['Default']);
+    expect(uniqueName('Default', taken)).toBe('Default - copy');
+    expect(uniqueName('Default', taken)).toBe('Default - copy 2');
+
+    const dirty: any = {
+      userCats: [{ id: -1, title: 'A'.repeat(100), color: 'not-a-hex', glyph: 'BAD GLYPH!' }],
+      userMarkers: [{ id: -10, cat: -1, title: '', desc: 'ok', lat: 12.5, lng: 34.5, links: [1, 'bad', 2] }],
+      drawings: [{ id: 'd1', kind: 'pen', color: '#112233', size: 'xl', pts: [{ lng: 1, lat: 2 }] }],
+      cameras: { main: { lng: 1, lat: 2, zoom: 10 }, broken: { lng: 'x' } },
+      found: [1, 2, 'bad', null],
+    };
+    const cleaned = cleanUserData(dirty);
+    expect(cleaned.userCats[0]).toEqual({ id: -1, title: 'A'.repeat(40), color: '#e5484d', glyph: null });
+    expect(cleaned.userMarkers[0].title).toBe('Marker');
+    expect(cleaned.userMarkers[0].links).toEqual([1, 2]);
+    expect(cleaned.drawings[0].size).toBe('m');
+    expect(cleaned.cameras).toEqual({ main: { lng: 1, lat: 2, zoom: 10 } });
+    expect(cleaned.found).toEqual([1, 2]);
+  });
+
+  test('state and map-view pure calculations (vivid, iconScale, mapLimits, startOf, sameCamera)', () => {
+    expect(vivid('#000000')).not.toBe('#000000');
+    expect(iconScale(6)).toBe(0.5);
+    expect(iconScale(16)).toBe(1);
+
+    const info = { tilesets: [{ minzoom: 8, maxzoom: 14, bounds: [-1, -1, 1, 1] }] };
+    const data = { mapConfig: { start_lng: 0.5, start_lat: -0.5, initial_zoom: 10 } };
+    const lim = mapLimits(info, data);
+    expect(lim.minZoom).toBe(8);
+    expect(lim.maxZoom).toBe(14);
+    expect(lim.maxBounds).not.toBeNull();
+
+    expect(startOf(info, data, null)).toEqual({ center: [0.5, -0.5], zoom: 10 });
+    expect(startOf(info, data, { lng: 0.1, lat: 0.2, zoom: 12 })).toEqual({ center: [0.1, 0.2], zoom: 12 });
+    // Out-of-range zoom falls back to mapConfig
+    expect(startOf(info, data, { lng: 0.1, lat: 0.2, zoom: 22 })).toEqual({ center: [0.5, -0.5], zoom: 10 });
+    expect(sameCamera({ lng: 1, lat: 2, zoom: 10 }, { lng: 1.000001, lat: 2.000001, zoom: 10.001 })).toBe(true);
+  });
+});
+
 describe('sync client engine (createSync)', () => {
   function makeMockEnv() {
     const profiles = new Map<string, any>();
@@ -155,26 +247,36 @@ describe('sync client engine (createSync)', () => {
     });
 
     // Shim navigator.onLine and addEventListener/document for start()
+    const origNav = (globalThis as any).navigator;
+    const origAdd = (globalThis as any).addEventListener;
+    const origDoc = (globalThis as any).document;
     (globalThis as any).navigator = { onLine: true };
     (globalThis as any).addEventListener = () => {};
     (globalThis as any).document = { addEventListener: () => {}, visibilityState: 'visible' };
 
     const sync = createSync({ store: env.store, ui: env.ui, api: env.api });
-    sync.start();
-    await new Promise(r => setTimeout(r, 30));
+    try {
+      sync.start();
+      await new Promise(r => setTimeout(r, 30));
 
-    // Empty local placeholder should be replaced by remote-1
-    expect(env.profiles.has('totk:local-empty')).toBe(false);
-    expect(env.profiles.get('totk:remote-1')?.found).toEqual([10, 20]);
-    expect(env.events.remoteChanged).toEqual([['profile:totk:remote-1']]);
+      // Empty local placeholder should be replaced by remote-1
+      expect(env.profiles.has('totk:local-empty')).toBe(false);
+      expect(env.profiles.get('totk:remote-1')?.found).toEqual([10, 20]);
+      expect(env.events.remoteChanged).toEqual([['profile:totk:remote-1']]);
 
-    // Now make a local change and push it
-    const prof = env.profiles.get('totk:remote-1');
-    prof.found.push(30);
-    env.profiles.set('totk:remote-1', prof);
-    sync.noteLocal();
-    await new Promise(r => setTimeout(r, 1600));
+      // Now make a local change and push it
+      const prof = env.profiles.get('totk:remote-1');
+      prof.found.push(30);
+      env.profiles.set('totk:remote-1', prof);
+      sync.noteLocal();
+      await new Promise(r => setTimeout(r, 1600));
 
-    expect(env.serverItems.get('profile:totk:remote-1')?.value.found).toEqual([10, 20, 30]);
+      expect(env.serverItems.get('profile:totk:remote-1')?.value.found).toEqual([10, 20, 30]);
+    } finally {
+      sync.stop();
+      (globalThis as any).navigator = origNav;
+      (globalThis as any).addEventListener = origAdd;
+      (globalThis as any).document = origDoc;
+    }
   });
 });
