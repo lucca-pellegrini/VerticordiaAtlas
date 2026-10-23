@@ -4,7 +4,7 @@
       "id": "re9",
       "slug": "requiem",
       "title": "Resident Evil Requiem",
-      "description": "Every boss, lock, collectible and transition on the world map.",
+      "description": "Bosses, locks, puzzle solutions, and key collectibles on the world map.",
       "poster": "requiem/poster",
       "posterAlt": "Resident Evil Requiem key art: a white-haired woman in a dark hood and red jacket, looking to the right.",
       "theme": {
@@ -32,7 +32,7 @@
       "id": "re2",
       "slug": "re2",
       "title": "Resident Evil 2",
-      "description": "Every marker on the Resident Evil 2 (Remake) map.",
+      "description": "Puzzles, safes, Mr. Raccoons, weapons, and key items for Leon and Claire.",
       "poster": "re2/poster",
       "theme": {
         "accent": "#2c5a96",
@@ -59,7 +59,7 @@
       "id": "re7",
       "slug": "re7",
       "title": "Resident Evil 7: Biohazard",
-      "description": "Every marker on the Resident Evil 7: Biohazard map.",
+      "description": "Antique Coins, Mr. Everywheres, files, and weapon upgrades across Baker Ranch.",
       "poster": "re7/poster",
       "theme": {
         "accent": "#91723e",
@@ -86,7 +86,7 @@
       "id": "village",
       "slug": "village",
       "title": "Resident Evil Village",
-      "description": "Every marker on the Resident Evil Village map.",
+      "description": "Goats of Warding, treasures, weapon parts, and boss encounters across the village.",
       "poster": "village/poster",
       "theme": {
         "accent": "#3a6f88",
@@ -113,7 +113,7 @@
       "id": "elden-ring",
       "slug": "elden-ring",
       "title": "Elden Ring",
-      "description": "Every marker on the Elden Ring map.",
+      "description": "Sites of Grace, dungeon bosses, Golden Seeds, tears, and secrets in the Lands Between.",
       "poster": "elden-ring/poster",
       "theme": {
         "accent": "#358d85",
@@ -140,7 +140,7 @@
       "id": "nightreign",
       "slug": "nightreign",
       "title": "Elden Ring Nightreign",
-      "description": "Every marker on the Elden Ring Nightreign map.",
+      "description": "Sites of Grace, Evergaols, Spectral Hawk Trees, Scarabs, and loot in Limveld.",
       "poster": "nightreign/poster",
       "theme": {
         "accent": "#34438e",
@@ -167,7 +167,7 @@
       "id": "skyrim",
       "slug": "skyrim",
       "title": "Skyrim",
-      "description": "Every marker on the Skyrim map.",
+      "description": "Dragon Shouts, Daedric shrines, Dragon Priest masks, and dungeons across Skyrim.",
       "poster": "skyrim/poster",
       "theme": {
         "accent": "#3d708e",
@@ -194,7 +194,7 @@
       "id": "oblivion",
       "slug": "oblivion",
       "title": "The Elder Scrolls IV: Oblivion",
-      "description": "Every marker on the The Elder Scrolls IV: Oblivion map.",
+      "description": "Oblivion Gates, Ayleid ruins, Daedric shrines, and Nirnroots across Cyrodiil.",
       "poster": "oblivion/poster",
       "theme": {
         "accent": "#aa3118",
@@ -221,7 +221,7 @@
       "id": "fallout-76",
       "slug": "fallout-76",
       "title": "Fallout 76",
-      "description": "Every marker on the Fallout 76 map.",
+      "description": "Bobbleheads, Magazines, Power Armor frames, workshops, and loot in Appalachia.",
       "poster": "fallout-76/poster",
       "theme": {
         "accent": "#c4a42d",
@@ -248,7 +248,7 @@
       "id": "fallout-4",
       "slug": "fallout-4",
       "title": "Fallout 4",
-      "description": "Every marker on the Fallout 4 map.",
+      "description": "Bobbleheads, Perk Magazines, Power Armor suits, and holotapes across the Commonwealth.",
       "poster": "fallout-4/poster",
       "theme": {
         "accent": "#886e3a",
@@ -275,7 +275,7 @@
       "id": "fallout-new-vegas",
       "slug": "fallout-new-vegas",
       "title": "Fallout: New Vegas",
-      "description": "Every marker on the Fallout: New Vegas map.",
+      "description": "Snow globes, Star Bottle Caps, unique weapons, and faction hubs across the Mojave.",
       "poster": "fallout-new-vegas/poster",
       "theme": {
         "accent": "#974d2b",
@@ -302,7 +302,7 @@
       "id": "fallout-3",
       "slug": "fallout-3",
       "title": "Fallout 3",
-      "description": "Every marker on the Fallout 3 map.",
+      "description": "Vault-Tec Bobbleheads, skill books, unique weapons, and vaults in the Capital Wasteland.",
       "poster": "fallout-3/poster",
       "theme": {
         "accent": "#93b34d",
@@ -329,7 +329,7 @@
       "id": "botw",
       "slug": "botw",
       "title": "The Legend of Zelda: Breath of the Wild",
-      "description": "Every marker on the The Legend of Zelda: Breath of the Wild map.",
+      "description": "Korok seeds, Shrines, Sheikah Towers, Great Fairies, and Hinox across Hyrule.",
       "poster": "botw/poster",
       "theme": {
         "accent": "#209ddf",
@@ -356,7 +356,7 @@
       "id": "totk",
       "slug": "totk",
       "title": "The Legend of Zelda: Tears of the Kingdom",
-      "description": "Every marker on the The Legend of Zelda: Tears of the Kingdom map.",
+      "description": "Skyview Towers, Shrines, Lightroots, Koroks, and caves across surface, sky, and Depths.",
       "poster": "totk/poster",
       "theme": {
         "accent": "#4cb3a8",
@@ -383,7 +383,7 @@
       "id": "alttp",
       "slug": "alttp",
       "title": "The Legend of Zelda: A Link to the Past",
-      "description": "Every marker on the The Legend of Zelda: A Link to the Past map.",
+      "description": "Heart Pieces, dungeon entrances, magic medallions, and secrets in Light and Dark Worlds.",
       "poster": "alttp/poster",
       "theme": {
         "accent": "#906e32",
@@ -410,7 +410,7 @@
       "id": "altbw",
       "slug": "altbw",
       "title": "The Legend of Zelda: A Link Between Worlds",
-      "description": "Every marker on the The Legend of Zelda: A Link Between Worlds map.",
+      "description": "Lost Maiamais, Heart Pieces, Master Ore, portals, and dungeons across Hyrule and Lorule.",
       "poster": "altbw/poster",
       "theme": {
         "accent": "#74a819",
@@ -437,7 +437,7 @@
       "id": "wind-waker",
       "slug": "wind-waker",
       "title": "The Legend of Zelda: The Wind Waker",
-      "description": "Every marker on the The Legend of Zelda: The Wind Waker map.",
+      "description": "Treasure Charts, Heart Pieces, Great Fairies, and sunken loot across the Great Sea.",
       "poster": "wind-waker/poster",
       "theme": {
         "accent": "#cc9125",
@@ -464,7 +464,7 @@
       "id": "links-awakening",
       "slug": "links-awakening",
       "title": "The Legend of Zelda: Link’s Awakening",
-      "description": "Every marker on the The Legend of Zelda: Link’s Awakening map.",
+      "description": "Secret Seashells, Pieces of Heart, instruments, and dungeons across Koholint Island.",
       "poster": "links-awakening/poster",
       "theme": {
         "accent": "#2097df",
@@ -491,7 +491,7 @@
       "id": "tloz",
       "slug": "tloz",
       "title": "The Legend of Zelda",
-      "description": "Every marker on the The Legend of Zelda map.",
+      "description": "Dungeon entrances, Heart Containers, secret shops, and items for First and Second Quests.",
       "poster": "tloz/poster",
       "theme": {
         "accent": "#df6c20",
@@ -518,7 +518,7 @@
       "id": "the-adventure-of-link",
       "slug": "the-adventure-of-link",
       "title": "Zelda II: The Adventure of Link",
-      "description": "Every marker on the Zelda II: The Adventure of Link map.",
+      "description": "Palaces, Magic Containers, Heart Containers, spells, and hidden caves across Hyrule.",
       "poster": "the-adventure-of-link/poster",
       "theme": {
         "accent": "#209bdf",
@@ -545,7 +545,7 @@
       "id": "hollow-knight",
       "slug": "hollow-knight",
       "title": "Hollow Knight",
-      "description": "Every marker on the Hollow Knight map.",
+      "description": "Mask Shards, Vessel Fragments, Charms, Grubs, Dreamers, and benches in Hallownest.",
       "poster": "hollow-knight/poster",
       "theme": {
         "accent": "#3a7c88",
@@ -572,7 +572,7 @@
       "id": "silksong",
       "slug": "Silksong",
       "title": "Hollow Knight: Silksong",
-      "description": "Every marker on the Hollow Knight: Silksong map.",
+      "description": "Lost Fleas, Mask Shards, Spool Fragments, crests, and Bellway stations in Pharloom.",
       "poster": "Silksong/poster",
       "theme": {
         "accent": "#c14e3c",
@@ -599,7 +599,7 @@
       "id": "blasphemous",
       "slug": "blasphemous",
       "title": "Blasphemous",
-      "description": "Every marker on the Blasphemous map.",
+      "description": "Cherubs, Rosary Beads, Mea Culpa Shrines, relics, and Prie Dieu altars in Cvstodia.",
       "poster": "blasphemous/poster",
       "theme": {
         "accent": "#aa8b43",
@@ -626,7 +626,7 @@
       "id": "blasphemous-2",
       "slug": "blasphemous-2",
       "title": "Blasphemous 2",
-      "description": "Every marker on the Blasphemous 2 map.",
+      "description": "Weapon upgrades, Cobijadas, altar pieces, Fervor flasks, and secrets across Cvstodia.",
       "poster": "blasphemous-2/poster",
       "theme": {
         "accent": "#915a31",
@@ -653,7 +653,7 @@
       "id": "re4",
       "slug": "re4",
       "title": "Resident Evil 4 (WIP)",
-      "description": "Every marker on the Resident Evil 4 (Remake) map.",
+      "description": "Clockwork Castellans, Merchant requests, treasures, and puzzles in the Village, Castle, and Island.",
       "poster": "re4/poster",
       "theme": {
         "accent": "#3a6788",
@@ -680,7 +680,7 @@
       "id": "re5",
       "slug": "re5",
       "title": "Resident Evil 5",
-      "description": "Every marker on the Resident Evil 5 map.",
+      "description": "BSAA Emblems, treasures, weapons, and partner actions across Kijuju and story DLCs.",
       "poster": "re5/poster",
       "theme": {
         "accent": "#aa2f18",
@@ -707,7 +707,7 @@
       "id": "pragmata",
       "slug": "pragmata",
       "title": "Pragmata",
-      "description": "Every marker on the Pragmata map.",
+      "description": "Earth Memories, Cartridge Holders, Unit Printers, and data logs on the lunar station.",
       "poster": "pragmata/poster",
       "theme": {
         "accent": "#24389d",
@@ -734,7 +734,7 @@
       "id": "hogwarts-legacy",
       "slug": "hogwarts-legacy",
       "title": "Hogwarts Legacy",
-      "description": "Every marker on the Hogwarts Legacy map.",
+      "description": "Field Guide Pages, Merlin Trials, Demiguise Statues, and Floo Flames in the Highlands.",
       "poster": "hogwarts-legacy/poster",
       "theme": {
         "accent": "#3a7c88",
@@ -761,7 +761,7 @@
       "id": "clair-obscur-expedition-33",
       "slug": "clair-obscur-expedition-33",
       "title": "Clair Obscur: Expedition 33",
-      "description": "Every marker on the Clair Obscur: Expedition 33 map.",
+      "description": "Pictos, Music Records, journal entries, and underwater treasures across the Continent.",
       "poster": "clair-obscur-expedition-33/poster",
       "theme": {
         "accent": "#967540",
@@ -788,7 +788,7 @@
       "id": "witcher-3",
       "slug": "witcher-3",
       "title": "The Witcher 3: Wild Hunt",
-      "description": "Every marker on the The Witcher 3: Wild Hunt map.",
+      "description": "Places of Power, Witcher Gear diagrams, monster nests, and treasure hunts across the realm.",
       "poster": "witcher-3/poster",
       "theme": {
         "accent": "#3a6e88",
@@ -815,7 +815,7 @@
       "id": "castlevania-belmonts-curse",
       "slug": "castlevania-belmonts-curse",
       "title": "Castlevania: Belmont's Curse",
-      "description": "Every marker on the Castlevania: Belmont's Curse map.",
+      "description": "Relics, Arcana, Tarot Cards, weapons, and hidden passages throughout Paris.",
       "poster": "castlevania-belmonts-curse/poster",
       "theme": {
         "accent": "#88573a",
@@ -842,7 +842,7 @@
       "id": "grand-theft-auto-san-andreas",
       "slug": "grand-theft-auto-san-andreas",
       "title": "Grand Theft Auto: San Andreas",
-      "description": "Every marker on the Grand Theft Auto: San Andreas map.",
+      "description": "Tags, Snapshots, Horseshoes, Oysters, Stunt Jumps, and weapons across San Andreas.",
       "poster": "grand-theft-auto-san-andreas/poster",
       "theme": {
         "accent": "#71b34d",
@@ -869,7 +869,7 @@
       "id": "infinity-nikki",
       "slug": "infinity-nikki",
       "title": "Infinity Nikki",
-      "description": "Every marker on the Infinity Nikki map.",
+      "description": "Whimstars, sketches, Warp Spires, chests, and styling challenges across Miraland.",
       "poster": "infinity-nikki/poster",
       "theme": {
         "accent": "#3b94c4",
@@ -896,7 +896,7 @@
       "id": "animal-well",
       "slug": "animal-well",
       "title": "Animal Well",
-      "description": "Every marker on the Animal Well map.",
+      "description": "Secret eggs, rabbits, candles, tools, and mysterious puzzles hidden in the well.",
       "poster": "animal-well/poster",
       "theme": {
         "accent": "#2191a0",
@@ -923,7 +923,7 @@
       "id": "far-cry-5",
       "slug": "far-cry-5",
       "title": "Far Cry 5",
-      "description": "Every marker on the Far Cry 5 map.",
+      "description": "Cult outposts, Prepper Stashes, perk magazines, and shrines across Hope County.",
       "poster": "far-cry-5/poster",
       "theme": {
         "accent": "#a76943",
@@ -950,7 +950,7 @@
       "id": "rdr2",
       "slug": "rdr2",
       "title": "Red Dead Redemption 2",
-      "description": "Every marker on the Red Dead Redemption 2 map.",
+      "description": "Legendary animals, dinosaur bones, rock carvings, and treasure maps on the frontier.",
       "poster": "rdr2/poster",
       "theme": {
         "accent": "#aa1821",
@@ -977,7 +977,7 @@
       "id": "hitman-3",
       "slug": "hitman-3",
       "title": "Hitman 3",
-      "description": "Every marker on the Hitman 3 map.",
+      "description": "Assassination opportunities, shortcuts, disguised access, and intel in the trilogy finale.",
       "poster": "hitman-3/poster",
       "theme": {
         "accent": "#b31a23",
@@ -1004,7 +1004,7 @@
       "id": "hitman-2",
       "slug": "hitman-2",
       "title": "Hitman 2",
-      "description": "Every marker on the Hitman 2 map.",
+      "description": "Mission stories, disguise points, security keys, and extraction routes across the globe.",
       "poster": "hitman-2/poster",
       "theme": {
         "accent": "#4d8cb3",
@@ -1031,7 +1031,7 @@
       "id": "hitman",
       "slug": "hitman",
       "title": "Hitman",
-      "description": "Every marker on the Hitman map.",
+      "description": "Agency pickups, disguises, security cameras, keycards, and assassination opportunities.",
       "poster": "hitman/poster",
       "theme": {
         "accent": "#4da9b3",
@@ -1058,7 +1058,7 @@
       "id": "tarkov",
       "slug": "tarkov",
       "title": "Escape From Tarkov",
-      "description": "Every marker on the Escape From Tarkov map.",
+      "description": "Extraction points, key spawns, weapon crates, and high-tier loot zones in Norvinsk.",
       "poster": "tarkov/poster",
       "theme": {
         "accent": "#3c6c8b",
@@ -1085,7 +1085,7 @@
       "id": "the-outer-worlds",
       "slug": "the-outer-worlds",
       "title": "The Outer Worlds",
-      "description": "Every marker on the The Outer Worlds map.",
+      "description": "Science weapons, tossball cards, vending machines, and quest loot across Halcyon.",
       "poster": "the-outer-worlds/poster",
       "theme": {
         "accent": "#b88f47",
@@ -1112,7 +1112,7 @@
       "id": "the-outer-worlds-2",
       "slug": "the-outer-worlds-2",
       "title": "The Outer Worlds 2",
-      "description": "Every marker on the The Outer Worlds 2 map.",
+      "description": "Unique science weapons, faction terminals, keycards, and caches in the star system.",
       "poster": "the-outer-worlds-2/poster",
       "theme": {
         "accent": "#bf6e40",
