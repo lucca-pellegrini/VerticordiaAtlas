@@ -9,6 +9,8 @@
 //   /cards/share/<game>/<map>/<id>.jpg      that marker's card. Rendered the first time it is asked for, then
 //                                           cached in cache/share/ and served from there. A changed marker (or
 //                                           a changed category or game colour) gets a new card.
+//   /maps/<game>/<map>/tiles/<set>/...      a map tile: the stored one, else the one in cache/tiles/, else made from the
+//                                           four tiles of the next zoom and cached (see tile-service.ts).
 //
 // The static homepage and game cards still come from make-cards.ts. Share cards need Chromium and ImageMagick,
 // like make-cards.ts. The address in tags comes from site.json when it is set, otherwise from the request.
@@ -45,6 +47,8 @@ import {
 	withHead,
 } from "./cards.ts";
 import type { LoadedGame, MarkerCardInfo } from "./cards.ts";
+import { DEFAULT_MAX_BYTES, DEFAULT_TARGET_BYTES, parseSize, TileCache } from "./tile-cache.ts";
+import { createTileService } from "./tile-service.ts";
 
 const TYPES: Record<string, string> = {
 	".html": "text/html; charset=utf-8",
@@ -523,6 +527,25 @@ const api = createApi({
 	publicUrl: (process.env.PUBLIC_URL || siteFile.url || "").replace(/\/+$/, "") || null,
 });
 
+// the tile cache: made tiles (the zooms between the stored ones) are kept on disk. Limits: --tile-cache-max / TILE_CACHE_MAX
+// (default 2GB) and --tile-cache-target / TILE_CACHE_TARGET (default 1GB, what an eviction pass shrinks it to).
+const tileCache = new TileCache({
+	root: path.join(REPO, "cache", "tiles"),
+	maxBytes: parseSize(opt("tile-cache-max", process.env.TILE_CACHE_MAX || "")) ?? DEFAULT_MAX_BYTES,
+	targetBytes: parseSize(opt("tile-cache-target", process.env.TILE_CACHE_TARGET || "")) ?? DEFAULT_TARGET_BYTES,
+	popularity: () => api.gamePopularity(),
+});
+void tileCache.init().catch((e) => console.error("tile cache:", e));
+const tiles = createTileService({
+	publicDir: PUBLIC,
+	cache: tileCache,
+	tilesets: async (game) => {
+		const g = (await games()).find((x) => x.slug === game);
+		return g ? g.maps.flatMap((m) => m.tilesets || []) : null;
+	},
+	onNewMap: (game) => api.recordGameRequest(game),
+});
+
 const server = http.createServer(async (req, res) => {
 	try {
 		const parsed = parseUrl(req.url);
@@ -565,6 +588,9 @@ const server = http.createServer(async (req, res) => {
 				return;
 			}
 		}
+
+		const tile = /^\/maps\/([^/]+)\/([^/]+)\/tiles\/([^/]+)\/(.+)$/.exec(p);
+		if (tile && (await tiles.serve(req, res, tile[1], tile[2], tile[3], tile[4]))) return;
 
 		return await serveStatic(req, res, p, url.search);
 	} catch (e) {

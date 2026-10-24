@@ -101,6 +101,11 @@ export function createApi({
       updated_at INTEGER NOT NULL,
       PRIMARY KEY (user_id, key)
     );
+    CREATE TABLE IF NOT EXISTS game_popularity (
+      game TEXT PRIMARY KEY,
+      requests INTEGER NOT NULL,
+      last_requested INTEGER NOT NULL
+    );
   `);
 
 	const sha256 = (s: string): string => crypto.createHash("sha256").update(s).digest("hex");
@@ -691,9 +696,26 @@ export function createApi({
 	const sweepTimer = setInterval(sweep, 60 * 60 * 1000);
 	sweepTimer.unref();
 
+	// How often a game's maps are opened, for the tile cache to decide what to keep. One write per game when one of its maps
+	// is newly requested (the caller throttles), never per tile.
+	const recordGameRequest = (game: string): void => {
+		db.prepare(
+			`INSERT INTO game_popularity (game, requests, last_requested) VALUES (?, 1, ?)
+             ON CONFLICT (game) DO UPDATE SET requests = requests + 1, last_requested = excluded.last_requested`,
+		).run(game, now());
+	};
+	const gamePopularity = (): Map<string, number> =>
+		new Map(
+			(
+				db.prepare("SELECT game, requests FROM game_popularity").all() as { game: string; requests: number }[]
+			).map((r) => [r.game, r.requests]),
+		);
+
 	return {
 		handle,
 		upgrade,
+		recordGameRequest,
+		gamePopularity,
 		close: () => {
 			clearInterval(sweepTimer);
 			db.close();
