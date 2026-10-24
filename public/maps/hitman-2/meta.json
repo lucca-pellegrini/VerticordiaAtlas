@@ -1,481 +1,416 @@
 {
-  "id": "hitman-2",
-  "title": "Hitman 2",
-  "slug": "hitman-2",
-  "source": "https://mapgenie.io/hitman-2",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "blend_in": [
-        {
-          "cp": "e900",
-          "color": "#fff"
-        }
-      ],
-      "hiding_spot": [
-        {
-          "cp": "e901",
-          "color": "#fff"
-        }
-      ],
-      "non_lethal_melee": [
-        {
-          "cp": "e902",
-          "color": "#fff"
-        }
-      ],
-      "stairs": [
-        {
-          "cp": "e903",
-          "color": "#fff"
-        }
-      ],
-      "agency_pickup": [
-        {
-          "cp": "e904",
-          "color": "#fff"
-        }
-      ],
-      "alarm": [
-        {
-          "cp": "e905",
-          "color": "#fff"
-        }
-      ],
-      "ammo": [
-        {
-          "cp": "e906",
-          "color": "#fff"
-        }
-      ],
-      "conceal_item": [
-        {
-          "cp": "e907",
-          "color": "#fff"
-        }
-      ],
-      "discovery": [
-        {
-          "cp": "e908",
-          "color": "#fff"
-        }
-      ],
-      "disguise": [
-        {
-          "cp": "e909",
-          "color": "#fff"
-        }
-      ],
-      "distraction": [
-        {
-          "cp": "e90a",
-          "color": "#fff"
-        }
-      ],
-      "exit": [
-        {
-          "cp": "e90b",
-          "color": "#fff"
-        }
-      ],
-      "explosive": [
-        {
-          "cp": "e90c",
-          "color": "#fff"
-        }
-      ],
-      "firearm": [
-        {
-          "cp": "e90d",
-          "color": "#fff"
-        }
-      ],
-      "food_drink": [
-        {
-          "cp": "e90e",
-          "color": "#fff"
-        }
-      ],
-      "intel": [
-        {
-          "cp": "e90f",
-          "color": "#fff"
-        }
-      ],
-      "interaction": [
-        {
-          "cp": "e910",
-          "color": "#fff"
-        }
-      ],
-      "key": [
-        {
-          "cp": "e911",
-          "color": "#fff"
-        }
-      ],
-      "lethal_melee": [
-        {
-          "cp": "e912",
-          "color": "#fff"
-        }
-      ],
-      "location": [
-        {
-          "cp": "e913",
-          "color": "#fff"
-        }
-      ],
-      "locked_door": [
-        {
-          "cp": "e914",
-          "color": "#fff"
-        }
-      ],
-      "passage": [
-        {
-          "cp": "e915",
-          "color": "#fff"
-        }
-      ],
-      "persistent_shortcut": [
-        {
-          "cp": "e916",
-          "color": "#fff"
-        }
-      ],
-      "poison": [
-        {
-          "cp": "e917",
-          "color": "#fff"
-        }
-      ],
-      "sabotage": [
-        {
-          "cp": "e918",
-          "color": "#fff"
-        }
-      ],
-      "security_camera": [
-        {
-          "cp": "e919",
-          "color": "#fff"
-        }
-      ],
-      "security_check": [
-        {
-          "cp": "e91a",
-          "color": "#fff"
-        }
-      ],
-      "security_footage": [
-        {
-          "cp": "e91b",
-          "color": "#fff"
-        }
-      ],
-      "starting_location": [
-        {
-          "cp": "e91c",
-          "color": "#fff"
-        }
-      ],
-      "tool": [
-        {
-          "cp": "e91d",
-          "color": "#fff"
-        }
-      ],
-      "vertical_traversal": [
-        {
-          "cp": "e91e",
-          "color": "#fff"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "hawkes-bay-nightcall",
-      "title": "Hawke's Bay: Nightcall",
-      "data": "hawkes-bay-nightcall/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "hawkes-bay-nightcall/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "hawkes-bay-the-mills-reverie",
-      "title": "Hawke's Bay: The Mills Reverie",
-      "data": "hawkes-bay-the-mills-reverie/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "hawkes-bay-the-mills-reverie/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "miami-the-finish-line",
-      "title": "Miami: The Finish Line",
-      "data": "miami-the-finish-line/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "miami-the-finish-line/tiles/default-v2/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "miami-a-silver-tongue",
-      "title": "Miami: A Silver Tongue",
-      "data": "miami-a-silver-tongue/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "miami-a-silver-tongue/tiles/default-v2/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "santa-fortuna-three-headed-serpent",
-      "title": "Santa Fortuna: Three-Headed Serpent",
-      "data": "santa-fortuna-three-headed-serpent/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "santa-fortuna-three-headed-serpent/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "santa-fortuna-embrace-of-the-serpent",
-      "title": "Santa Fortuna: Embrace of the Serpent",
-      "data": "santa-fortuna-embrace-of-the-serpent/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "santa-fortuna-embrace-of-the-serpent/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "mumbai-chasing-a-ghost",
-      "title": "Mumbai: Chasing a Ghost",
-      "data": "mumbai-chasing-a-ghost/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "mumbai-chasing-a-ghost/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "mumbai-illusions-of-grandeur",
-      "title": "Mumbai: Illusions of Grandeur",
-      "data": "mumbai-illusions-of-grandeur/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "mumbai-illusions-of-grandeur/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "whittleton-creek-another-life",
-      "title": "Whittleton Creek: Another Life",
-      "data": "whittleton-creek-another-life/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "whittleton-creek-another-life/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "whittleton-creek-a-bitter-pill",
-      "title": "Whittleton Creek: A Bitter Pill",
-      "data": "whittleton-creek-a-bitter-pill/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "whittleton-creek-a-bitter-pill/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "isle-of-sgail-the-ark-society",
-      "title": "Isle of Sgàil: The Ark Society",
-      "data": "isle-of-sgail-the-ark-society/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "isle-of-sgail-the-ark-society/tiles/default-v2/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "new-york-golden-handshake",
-      "title": "New York: Golden Handshake",
-      "data": "new-york-golden-handshake/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "new-york-golden-handshake/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "haven-island-the-last-resort",
-      "title": "Haven Island: The Last Resort",
-      "data": "haven-island-the-last-resort/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "haven-island-the-last-resort/tiles/default-v1/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 16,
-          "viewMaxzoom": 18,
-          "bounds": [
-            -1.40625,
-            0,
-            0,
-            1.4061088354351563
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "hitman-2",
+	"title": "Hitman 2",
+	"slug": "hitman-2",
+	"source": "https://mapgenie.io/hitman-2",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"blend_in": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"hiding_spot": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"non_lethal_melee": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"stairs": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"agency_pickup": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"alarm": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"ammo": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"conceal_item": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"discovery": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"disguise": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"distraction": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"exit": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"explosive": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"firearm": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"food_drink": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"intel": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"interaction": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"lethal_melee": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"passage": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"persistent_shortcut": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"poison": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"sabotage": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"security_camera": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"security_check": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"security_footage": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"starting_location": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"tool": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"vertical_traversal": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "hawkes-bay-nightcall",
+			"title": "Hawke's Bay: Nightcall",
+			"data": "hawkes-bay-nightcall/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hawkes-bay-nightcall/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "hawkes-bay-the-mills-reverie",
+			"title": "Hawke's Bay: The Mills Reverie",
+			"data": "hawkes-bay-the-mills-reverie/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hawkes-bay-the-mills-reverie/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "miami-the-finish-line",
+			"title": "Miami: The Finish Line",
+			"data": "miami-the-finish-line/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "miami-the-finish-line/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "miami-a-silver-tongue",
+			"title": "Miami: A Silver Tongue",
+			"data": "miami-a-silver-tongue/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "miami-a-silver-tongue/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "santa-fortuna-three-headed-serpent",
+			"title": "Santa Fortuna: Three-Headed Serpent",
+			"data": "santa-fortuna-three-headed-serpent/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "santa-fortuna-three-headed-serpent/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "santa-fortuna-embrace-of-the-serpent",
+			"title": "Santa Fortuna: Embrace of the Serpent",
+			"data": "santa-fortuna-embrace-of-the-serpent/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "santa-fortuna-embrace-of-the-serpent/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "mumbai-chasing-a-ghost",
+			"title": "Mumbai: Chasing a Ghost",
+			"data": "mumbai-chasing-a-ghost/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "mumbai-chasing-a-ghost/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "mumbai-illusions-of-grandeur",
+			"title": "Mumbai: Illusions of Grandeur",
+			"data": "mumbai-illusions-of-grandeur/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "mumbai-illusions-of-grandeur/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "whittleton-creek-another-life",
+			"title": "Whittleton Creek: Another Life",
+			"data": "whittleton-creek-another-life/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "whittleton-creek-another-life/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "whittleton-creek-a-bitter-pill",
+			"title": "Whittleton Creek: A Bitter Pill",
+			"data": "whittleton-creek-a-bitter-pill/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "whittleton-creek-a-bitter-pill/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "isle-of-sgail-the-ark-society",
+			"title": "Isle of Sgàil: The Ark Society",
+			"data": "isle-of-sgail-the-ark-society/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "isle-of-sgail-the-ark-society/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "new-york-golden-handshake",
+			"title": "New York: Golden Handshake",
+			"data": "new-york-golden-handshake/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "new-york-golden-handshake/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "haven-island-the-last-resort",
+			"title": "Haven Island: The Last Resort",
+			"data": "haven-island-the-last-resort/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "haven-island-the-last-resort/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 18,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

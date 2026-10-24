@@ -1,141 +1,272 @@
 <!doctype html>
 <html lang="en" data-theme="auto">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>About · Verticordia Atlas</title>
-<meta name="description" content="What Verticordia Atlas is, why it exists, what it promises, and who is behind it: offline-first game maps, a passion project by Verticordia.">
-<meta name="theme-color" content="#0b0e10">
-<script>(()=>{
-  const tm=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
-  if(tm)document.documentElement.dataset.theme=tm[1];
-  let raw=null;
-  const tn=document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
-  if(tn){try{raw=decodeURIComponent(tn[1]);}catch{}}
-  if(!raw){try{raw=localStorage.getItem('va_tint');}catch{}}
-  if(raw){
-    const [a,s]=raw.split('|');
-    if(a&&/^#[0-9a-fA-F]{3,8}$/.test(a)){
-      const st=document.documentElement.style;
-      st.setProperty('--accent',a);
-      if(s&&/^#[0-9a-fA-F]{3,8}$/.test(s))st.setProperty('--accent-soft',s);
-    }
-  }
-})()</script>
-<link rel="manifest" href="../manifest.webmanifest">
-<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Atlas">
-<link rel="icon" href="../logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400..800&display=swap">
-<link rel="stylesheet" href="../base.css">
-<link rel="stylesheet" href="../legal/legal.css">
-</head>
-<body>
-<div class="bg" aria-hidden="true"></div>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>About · Verticordia Atlas</title>
+		<meta
+			name="description"
+			content="What Verticordia Atlas is, why it exists, what it promises, and who is behind it: offline-first game maps, a passion project by Verticordia."
+		/>
+		<meta name="theme-color" content="#0b0e10" />
+		<script>
+			(() => {
+				const tm = document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
+				if (tm) document.documentElement.dataset.theme = tm[1];
+				let raw = null;
+				const tn = document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
+				if (tn) {
+					try {
+						raw = decodeURIComponent(tn[1]);
+					} catch {}
+				}
+				if (!raw) {
+					try {
+						raw = localStorage.getItem("va_tint");
+					} catch {}
+				}
+				if (raw) {
+					const [a, s] = raw.split("|");
+					if (a && /^#[0-9a-fA-F]{3,8}$/.test(a)) {
+						const st = document.documentElement.style;
+						st.setProperty("--accent", a);
+						if (s && /^#[0-9a-fA-F]{3,8}$/.test(s)) st.setProperty("--accent-soft", s);
+					}
+				}
+			})();
+		</script>
+		<link rel="manifest" href="../manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Atlas" />
+		<link rel="icon" href="../logo.svg" type="image/svg+xml" />
+		<link rel="stylesheet" href="../base.css" />
+		<link rel="stylesheet" href="../legal/legal.css" />
+	</head>
+	<body>
+		<div class="bg" aria-hidden="true"></div>
 
-<header class="legal-top">
-  <a class="brand" href="../" aria-label="Verticordia Atlas, home">
-    <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"/><circle cx="12" cy="10" r="2.8" fill="var(--night)"/></svg></span>
-    <span>Verticordia Atlas</span>
-  </a>
-  <div class="legal-top-tools">
-    <div data-theme-toggle></div>
-    <a class="back" href="../"><span>Back to the maps</span></a>
-  </div>
-</header>
+		<header class="legal-top">
+			<a class="brand" href="../" aria-label="Verticordia Atlas, home">
+				<span class="mark" aria-hidden="true"
+					><svg viewBox="0 0 24 24">
+						<path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z" />
+						<circle cx="12" cy="10" r="2.8" fill="var(--night)" /></svg
+				></span>
+				<span>Verticordia Atlas</span>
+			</a>
+			<div class="legal-top-tools">
+				<div data-theme-toggle></div>
+				<a class="back" href="../"><span>Back to the maps</span></a>
+			</div>
+		</header>
 
-<div class="legal">
-  <nav class="toc" aria-label="Sections of this page">
-    <p class="toc-title">Contents</p>
-    <ol>
-      <li><a href="#why">Why this exists</a></li>
-      <li><a href="#what">What it does</a></li>
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#promises">Our promises</a></li>
-      <li><a href="#maps">About the maps</a></li>
-      <li><a href="#name">The name</a></li>
-      <li><a href="#who">Who is behind it</a></li>
-      <li><a href="#support">Support and warranty</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ol>
-    <p class="toc-note">Read with our <a href="../terms/">Terms of service</a> and <a href="../privacy/">Privacy Policy</a>.</p>
-  </nav>
+		<div class="legal">
+			<nav class="toc" aria-label="Sections of this page">
+				<p class="toc-title">Contents</p>
+				<ol>
+					<li><a href="#why">Why this exists</a></li>
+					<li><a href="#what">What it does</a></li>
+					<li><a href="#how">How it works</a></li>
+					<li><a href="#promises">Our promises</a></li>
+					<li><a href="#maps">About the maps</a></li>
+					<li><a href="#name">The name</a></li>
+					<li><a href="#who">Who is behind it</a></li>
+					<li><a href="#support">Support and warranty</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ol>
+				<p class="toc-note">
+					Read with our <a href="../terms/">Terms of service</a> and <a href="../privacy/">Privacy Policy</a>.
+				</p>
+			</nav>
 
-  <article class="doc">
-    <p class="eyebrow">About</p>
-    <h1>About Verticordia Atlas</h1>
-    <p class="lede">Interactive game maps that work offline, keep your progress on your own device, and do not hold the basics hostage behind a paywall. It is a passion project, and this page says plainly what that means.</p>
-    <p class="updated">A passion project by Verticordia</p>
+			<article class="doc">
+				<p class="eyebrow">About</p>
+				<h1>About Verticordia Atlas</h1>
+				<p class="lede">
+					Interactive game maps that work offline, keep your progress on your own device, and do not hold the
+					basics hostage behind a paywall. It is a passion project, and this page says plainly what that
+					means.
+				</p>
+				<p class="updated">A passion project by Verticordia</p>
 
-    <section id="why">
-      <h2>Why this exists</h2>
-      <p>Finishing a game properly means keeping track of hundreds of collectibles, and the interactive maps that help with that tend to cap how much you can mark unless you subscribe, and to need a connection at exactly the moments you do not have one, such as on a trip. Atlas began as a small answer to that: the whole map, progress without a limit, and nothing locked away that a printed page and a pencil would have given you for free.</p>
-      <p>It was first made for me, my girlfriend, my family and a few close friends, who wanted to see games through to the end. That is why the first maps are the ones they are: the newer Resident Evil titles, Elden Ring, and The Legend of Zelda: Tears of the Kingdom.</p>
-    </section>
+				<section id="why">
+					<h2>Why this exists</h2>
+					<p>
+						Finishing a game properly means keeping track of hundreds of collectibles, and the interactive
+						maps that help with that tend to cap how much you can mark unless you subscribe, and to need a
+						connection at exactly the moments you do not have one, such as on a trip. Atlas began as a small
+						answer to that: the whole map, progress without a limit, and nothing locked away that a printed
+						page and a pencil would have given you for free.
+					</p>
+					<p>
+						It was first made for me, my girlfriend, my family and a few close friends, who wanted to see
+						games through to the end. That is why the first maps are the ones they are: the newer Resident
+						Evil titles, Elden Ring, and The Legend of Zelda: Tears of the Kingdom.
+					</p>
+				</section>
 
-    <section id="what">
-      <h2>What it does</h2>
-      <p>Atlas shows interactive maps for video games and remembers what you have found. It is offline first: once a map has been opened on a device, it keeps working without a connection. You can keep separate profiles for each save or playthrough, with no limit and nothing to pay, and your progress is always yours to take away, since you can export it as a JSON file whenever you like and import it back.</p>
-      <p>Beyond marking what you have found, you can add markers and categories of your own for notes and routes, select an area, even by freehand, and act on everything inside it at once, and send someone a link to a particular place on a map. There are smaller comforts too: a refined search for markers, a tidy interface, and drawing on the map as a cherry on top. An account is optional, and only needed if you want your progress to follow you between devices.</p>
-      <p>This page is not documentation, and does not explain how to use each feature. It only tells you what is there.</p>
-    </section>
+				<section id="what">
+					<h2>What it does</h2>
+					<p>
+						Atlas shows interactive maps for video games and remembers what you have found. It is offline
+						first: once a map has been opened on a device, it keeps working without a connection. You can
+						keep separate profiles for each save or playthrough, with no limit and nothing to pay, and your
+						progress is always yours to take away, since you can export it as a JSON file whenever you like
+						and import it back.
+					</p>
+					<p>
+						Beyond marking what you have found, you can add markers and categories of your own for notes and
+						routes, select an area, even by freehand, and act on everything inside it at once, and send
+						someone a link to a particular place on a map. There are smaller comforts too: a refined search
+						for markers, a tidy interface, and drawing on the map as a cherry on top. An account is
+						optional, and only needed if you want your progress to follow you between devices.
+					</p>
+					<p>
+						This page is not documentation, and does not explain how to use each feature. It only tells you
+						what is there.
+					</p>
+				</section>
 
-    <section id="how">
-      <h2>How it works</h2>
-      <p>Each game has a single page, and much of it is generated on the fly. Your browser saves the app and the maps on your device (a service worker does the caching), and your progress is written to a database in your browser first. It only reaches our server if you sign in and ask for sync. Signing in is optional: you can start from the <a href="../signin">sign-in page</a>, and it works in one of two ways, explained in the <a href="../terms/#accounts">Terms</a>. What we keep, and for how long, is in the <a href="../privacy/">Privacy Policy</a>.</p>
-      <p>The theme toggle in the top bar switches between light and dark with a single press. Right-click it, or press and hold on a touch screen, to hand the choice back to your device (automatic).</p>
-      <p>Atlas is built on a handful of widely used open-source libraries and fonts, each credited with its licence in the <a href="../terms/#open-source">Terms</a>. The <a href="../">home page</a> lists the games and maps that are available.</p>
-    </section>
+				<section id="how">
+					<h2>How it works</h2>
+					<p>
+						Each game has a single page, and much of it is generated on the fly. Your browser saves the app
+						and the maps on your device (a service worker does the caching), and your progress is written to
+						a database in your browser first. It only reaches our server if you sign in and ask for sync.
+						Signing in is optional: you can start from the <a href="../signin">sign-in page</a>, and it
+						works in one of two ways, explained in the <a href="../terms/#accounts">Terms</a>. What we keep,
+						and for how long, is in the <a href="../privacy/">Privacy Policy</a>.
+					</p>
+					<p>
+						The theme toggle in the top bar switches between light and dark with a single press. Right-click
+						it, or press and hold on a touch screen, to hand the choice back to your device (automatic).
+					</p>
+					<p>
+						Atlas is built on a handful of widely used open-source libraries and fonts, each credited with
+						its licence in the <a href="../terms/#open-source">Terms</a>. The
+						<a href="../">home page</a> lists the games and maps that are available.
+					</p>
+				</section>
 
-    <section id="promises">
-      <h2>Our promises</h2>
-      <div class="callout"><strong>No ads. No tracking. No paywalled basics.</strong></div>
-      <p>We do not run advertising, analytics or any tracking (details in the <a href="../privacy/">Privacy Policy</a>). Tracking strikes us as inelegant, and not in the spirit in which a tool like this should be made.</p>
-      <p>Everything Atlas does today will stay free. Since it runs in your browser and keeps your data on your device, there is nothing to hold back in the first place. The <a href="../terms/#service">Terms</a> keep the door open to paid features, and if hosting costs ever made them necessary, they would be optional extras that need our servers, never a lock on what you already have, and we would tell you first.</p>
-    </section>
+				<section id="promises">
+					<h2>Our promises</h2>
+					<div class="callout"><strong>No ads. No tracking. No paywalled basics.</strong></div>
+					<p>
+						We do not run advertising, analytics or any tracking (details in the
+						<a href="../privacy/">Privacy Policy</a>). Tracking strikes us as inelegant, and not in the
+						spirit in which a tool like this should be made.
+					</p>
+					<p>
+						Everything Atlas does today will stay free. Since it runs in your browser and keeps your data on
+						your device, there is nothing to hold back in the first place. The
+						<a href="../terms/#service">Terms</a> keep the door open to paid features, and if hosting costs
+						ever made them necessary, they would be optional extras that need our servers, never a lock on
+						what you already have, and we would tell you first.
+					</p>
+				</section>
 
-    <section id="maps">
-      <h2>About the maps</h2>
-      <p>The maps are fan-made reference material, in the sense the <a href="../terms/#game-content">Terms</a> describe. They grew out of the example of existing interactive map sites, which Atlas aims to match in usefulness while being more capable offline. We are rewriting and redrawing the material in our own words and hands, and if you own something shown here and want it changed or removed, tell us and we will look at it promptly.</p>
-    </section>
+				<section id="maps">
+					<h2>About the maps</h2>
+					<p>
+						The maps are fan-made reference material, in the sense the
+						<a href="../terms/#game-content">Terms</a> describe. They grew out of the example of existing
+						interactive map sites, which Atlas aims to match in usefulness while being more capable offline.
+						We are rewriting and redrawing the material in our own words and hands, and if you own something
+						shown here and want it changed or removed, tell us and we will look at it promptly.
+					</p>
+				</section>
 
-    <section id="name">
-      <h2>The name</h2>
-      <p><em>Verticordia</em> is Latin for “turner of hearts”. It began as an old title of the Roman Venus, invoked to turn hearts from lust toward chastity. I came across it long before I was a believer, as a teenager reading Roman history and trying to teach myself Latin, and I kept it only because I liked the sound.</p>
-      <p>Years later, coming back to the Church, I understood why it had stayed with me. Purity is not pagan piety, but a fundamental virtue that nobody is saved without, and the title that the Romans originally gave to a goddess seemed to me, in the end, a fitting one for Our Lady, whom <a href="https://www.vatican.va/special/rosary/documents/litanie-lauretane_en.html">the Litany of Loreto</a> calls Mother most pure, and Mother most chaste. Appropriating what is good in the pagan world is an old Christian habit, from St. Justin Martyr’s recognition of the seeds of the Word in the philosophers, to St. Augustine’s praise of Roman civic virtue, to St. Thomas’s synthesis of Aristotelian philosophy. Even St. Boniface, when he felled the idol-tree, took the timber and built a church with it.</p>
-    </section>
+				<section id="name">
+					<h2>The name</h2>
+					<p>
+						<em>Verticordia</em> is Latin for “turner of hearts”. It began as an old title of the Roman
+						Venus, invoked to turn hearts from lust toward chastity. I came across it long before I was a
+						believer, as a teenager reading Roman history and trying to teach myself Latin, and I kept it
+						only because I liked the sound.
+					</p>
+					<p>
+						Years later, coming back to the Church, I understood why it had stayed with me. Purity is not
+						pagan piety, but a fundamental virtue that nobody is saved without, and the title that the
+						Romans originally gave to a goddess seemed to me, in the end, a fitting one for Our Lady, whom
+						<a href="https://www.vatican.va/special/rosary/documents/litanie-lauretane_en.html"
+							>the Litany of Loreto</a
+						>
+						calls Mother most pure, and Mother most chaste. Appropriating what is good in the pagan world is
+						an old Christian habit, from St. Justin Martyr’s recognition of the seeds of the Word in the
+						philosophers, to St. Augustine’s praise of Roman civic virtue, to St. Thomas’s synthesis of
+						Aristotelian philosophy. Even St. Boniface, when he felled the idol-tree, took the timber and
+						built a church with it.
+					</p>
+				</section>
 
-    <section id="who">
-      <h2>Who is behind it</h2>
-      <p>Verticordia is the name under which I publish my passion projects. It is a “we” on paper and one person in practice, which may change. I am a Roman Catholic from Brazil and an undergraduate in computer engineering. I was baptised as a baby, lost the faith as a teenager to bad philosophy, and found my way back through St. Thomas Aquinas, devotion to the Holy Rosary and the Traditional Latin Mass.</p>
-      <p>I was providentially exposed to the Latin Mass thanks in no small part to the evangelizing work of the Personal Apostolic Administration of Saint John Mary Vianney, its priests, and its bishop, Dom Fernando Arêas Rifan, who confirmed me, to all of whom I am forever grateful. I have not missed a Sunday Mass since.</p>
-      <p>I am a fervent Catholic, and I hope to be more fervent and more devoted each day. The work I do with technology should be coherent with that, and that is the philosophy behind anything I build, however I build it.</p>
-      <p>Almost all of this code was originally written by LLMs: Claude, Gemini and ChatGPT, working through coding agents such as OpenCode and Antigravity. I do my own editing in NeoVim, entirely in the terminal, but I wrote almost none of it by hand. I do not count that against it. I wanted a tool that works, and I do not think of code as creative work unless it is elegant for its own sake, which is not what this project is aiming at. The care went into deciding what it should do and how it should treat you.</p>
-    </section>
+				<section id="who">
+					<h2>Who is behind it</h2>
+					<p>
+						Verticordia is the name under which I publish my passion projects. It is a “we” on paper and one
+						person in practice, which may change. I am a Roman Catholic from Brazil and an undergraduate in
+						computer engineering. I was baptised as a baby, lost the faith as a teenager to bad philosophy,
+						and found my way back through St. Thomas Aquinas, devotion to the Holy Rosary and the
+						Traditional Latin Mass.
+					</p>
+					<p>
+						I was providentially exposed to the Latin Mass thanks in no small part to the evangelizing work
+						of the Personal Apostolic Administration of Saint John Mary Vianney, its priests, and its
+						bishop, Dom Fernando Arêas Rifan, who confirmed me, to all of whom I am forever grateful. I have
+						not missed a Sunday Mass since.
+					</p>
+					<p>
+						I am a fervent Catholic, and I hope to be more fervent and more devoted each day. The work I do
+						with technology should be coherent with that, and that is the philosophy behind anything I
+						build, however I build it.
+					</p>
+					<p>
+						Almost all of this code was originally written by LLMs: Claude, Gemini and ChatGPT, working
+						through coding agents such as OpenCode and Antigravity. I do my own editing in NeoVim, entirely
+						in the terminal, but I wrote almost none of it by hand. I do not count that against it. I wanted
+						a tool that works, and I do not think of code as creative work unless it is elegant for its own
+						sake, which is not what this project is aiming at. The care went into deciding what it should do
+						and how it should treat you.
+					</p>
+				</section>
 
-    <section id="support">
-      <h2>Support and warranty</h2>
-      <div class="callout"><strong>This is a spare-time project, kept up on a best-effort basis.</strong><br>It comes with no warranty of any kind, as the <a href="../terms/#disclaimers">Terms</a> set out.</div>
-      <p>Bugs get fixed when time allows, and we cannot promise a reply to every report. The exception is anything that puts your data at risk, such as a security vulnerability. Please write to us about those at once, and we will treat them seriously.</p>
-      <p>Atlas is not an open-source project, and we are not accepting outside contributions or pull requests.</p>
-    </section>
+				<section id="support">
+					<h2>Support and warranty</h2>
+					<div class="callout">
+						<strong>This is a spare-time project, kept up on a best-effort basis.</strong><br />It comes
+						with no warranty of any kind, as the <a href="../terms/#disclaimers">Terms</a> set out.
+					</div>
+					<p>
+						Bugs get fixed when time allows, and we cannot promise a reply to every report. The exception is
+						anything that puts your data at risk, such as a security vulnerability. Please write to us about
+						those at once, and we will treat them seriously.
+					</p>
+					<p>
+						Atlas is not an open-source project, and we are not accepting outside contributions or pull
+						requests.
+					</p>
+				</section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>For questions, a takedown request, a security concern, to ask us to delete your account, or anything else, write to <a href="mailto:atlas-contact@verticordia.com">atlas-contact@verticordia.com</a>.</p>
-    </section>
+				<section id="contact">
+					<h2>Contact</h2>
+					<p>
+						For questions, a takedown request, a security concern, to ask us to delete your account, or
+						anything else, write to
+						<a href="mailto:atlas-contact@verticordia.com">atlas-contact@verticordia.com</a>.
+					</p>
+				</section>
 
-    <footer class="motto">
-      <p class="latin" lang="la">Nisi Dominus frustra</p>
-      <p class="gloss">“Unless the Lord build the house, they labour in vain that build it.<br>Unless the Lord keep the city, he watcheth in vain that keepeth it.”<br>Psalm 126 (127):1, DRV</p>
-    </footer>
-  </article>
-</div>
+				<footer class="motto">
+					<p class="latin" lang="la">Nisi Dominus frustra</p>
+					<p class="gloss">
+						“Unless the Lord build the house, they labour in vain that build it.<br />Unless the Lord keep
+						the city, he watcheth in vain that keepeth it.”<br />Psalm 126 (127):1, DRV
+					</p>
+				</footer>
+			</article>
+		</div>
 
-<script type="module" src="../theme.js"></script>
-<script src="../legal/legal.js" defer></script>
-</body>
+		<script type="module" src="../theme.js"></script>
+		<script src="../legal/legal.js" defer></script>
+	</body>
 </html>

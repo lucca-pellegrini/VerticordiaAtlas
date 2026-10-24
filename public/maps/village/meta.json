@@ -1,253 +1,248 @@
 {
-  "id": "village",
-  "title": "Resident Evil Village",
-  "slug": "resident-evil-village",
-  "source": "https://mapgenie.io/resident-evil-village/maps/the-village",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "the-village",
-      "title": "The Village",
-      "data": "the-village/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "the-village/tiles/default-v5/{z}/{x}/{y}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -2.00353402474594,
-            -0.09108986682517989,
-            0.5698767702615801,
-            1.6051129144135898
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "ammo": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "area": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "blue_bird": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "castle_window": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "chem_fluid": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "chicken": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "crafting_recipe": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "crate": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "file": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "fish": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "goat": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "goat_of_warding": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "gunpowder": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "herbs_meds": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "key_item": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "labyrinth_item": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "lock": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "lockpick": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "lockpick_drawer": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "map": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "metal_scrap": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "outhouse": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "pig": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ],
-      "poultry": [
-        {
-          "cp": "e919",
-          "color": "#ffffff"
-        }
-      ],
-      "puzzle": [
-        {
-          "cp": "e91a",
-          "color": "#ffffff"
-        }
-      ],
-      "rusted_scrap": [
-        {
-          "cp": "e91b",
-          "color": "#ffffff"
-        }
-      ],
-      "the_duke": [
-        {
-          "cp": "e91c",
-          "color": "#ffffff"
-        }
-      ],
-      "transition": [
-        {
-          "cp": "e91d",
-          "color": "#ffffff"
-        }
-      ],
-      "treasure": [
-        {
-          "cp": "e91e",
-          "color": "#ffffff"
-        }
-      ],
-      "treasure_chest": [
-        {
-          "cp": "e91f",
-          "color": "#ffffff"
-        }
-      ],
-      "typewriter": [
-        {
-          "cp": "e920",
-          "color": "#ffffff"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e921",
-          "color": "#ffffff"
-        }
-      ],
-      "well": [
-        {
-          "cp": "e922",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "village",
+	"title": "Resident Evil Village",
+	"slug": "resident-evil-village",
+	"source": "https://mapgenie.io/resident-evil-village/maps/the-village",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "the-village",
+			"title": "The Village",
+			"data": "the-village/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-village/tiles/default-v5/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-2.00353402474594, -0.09108986682517989, 0.5698767702615801, 1.6051129144135898],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"ammo": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"blue_bird": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"castle_window": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"chem_fluid": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"chicken": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"crafting_recipe": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"crate": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"file": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"fish": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"goat": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"goat_of_warding": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"gunpowder": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"herbs_meds": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"labyrinth_item": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"lock": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"lockpick": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"lockpick_drawer": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"map": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"metal_scrap": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"outhouse": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"pig": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"poultry": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"puzzle": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"rusted_scrap": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"the_duke": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"typewriter": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"well": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

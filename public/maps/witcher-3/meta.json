@@ -1,892 +1,842 @@
 {
-  "id": "witcher-3",
-  "title": "The Witcher 3: Wild Hunt",
-  "slug": "witcher-3",
-  "source": "https://mapgenie.io/witcher-3",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "abandoned_site": [
-        {
-          "cp": "e900",
-          "color": "#343444"
-        },
-        {
-          "cp": "e901",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "alchemy_supplies": [
-        {
-          "cp": "e902",
-          "color": "#343444"
-        },
-        {
-          "cp": "e903",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "armorer": [
-        {
-          "cp": "e904",
-          "color": "#343444"
-        },
-        {
-          "cp": "e905",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "armorers_table": [
-        {
-          "cp": "e906",
-          "color": "#343444"
-        },
-        {
-          "cp": "e907",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "bandit_camp": [
-        {
-          "cp": "e908",
-          "color": "#343444"
-        },
-        {
-          "cp": "e909",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "barber": [
-        {
-          "cp": "e90a",
-          "color": "#343444"
-        },
-        {
-          "cp": "e90b",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "beehive": [
-        {
-          "cp": "e90c",
-          "color": "#343444"
-        },
-        {
-          "cp": "e90d",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "blacksmith": [
-        {
-          "cp": "e90e",
-          "color": "#343444"
-        },
-        {
-          "cp": "e90f",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "book": [
-        {
-          "cp": "e910",
-          "color": "#343444"
-        },
-        {
-          "cp": "e911",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "brothel": [
-        {
-          "cp": "e912",
-          "color": "#343444"
-        },
-        {
-          "cp": "e913",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "chest": [
-        {
-          "cp": "e914",
-          "color": "#343444"
-        },
-        {
-          "cp": "e915",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "contract": [
-        {
-          "cp": "e916",
-          "color": "#343444"
-        },
-        {
-          "cp": "e917",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "diagram_chest": [
-        {
-          "cp": "e918",
-          "color": "#343444"
-        },
-        {
-          "cp": "e919",
-          "color": "#e5cb74",
-          "ml": "-1em"
-        }
-      ],
-      "dye_merchant": [
-        {
-          "cp": "e91a",
-          "color": "#343444"
-        },
-        {
-          "cp": "e91b",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "entrance": [
-        {
-          "cp": "e91c",
-          "color": "#343444"
-        },
-        {
-          "cp": "e91d",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "fistfight": [
-        {
-          "cp": "e91e",
-          "color": "#343444"
-        },
-        {
-          "cp": "e91f",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "grindstone": [
-        {
-          "cp": "e920",
-          "color": "#343444"
-        },
-        {
-          "cp": "e921",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "guarded_treasure": [
-        {
-          "cp": "e922",
-          "color": "#343444"
-        },
-        {
-          "cp": "e923",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "gwent_card": [
-        {
-          "cp": "e924",
-          "color": "#343444"
-        },
-        {
-          "cp": "e925",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "gwent_merchant": [
-        {
-          "cp": "e926",
-          "color": "#343444"
-        },
-        {
-          "cp": "e927",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "gwent_player": [
-        {
-          "cp": "e928",
-          "color": "#343444"
-        },
-        {
-          "cp": "e929",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "gwent_quest": [
-        {
-          "cp": "e92a",
-          "color": "#343444"
-        },
-        {
-          "cp": "e92b",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "hanse_base": [
-        {
-          "cp": "e92c",
-          "color": "#343444"
-        },
-        {
-          "cp": "e92d",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "harbor": [
-        {
-          "cp": "e92e",
-          "color": "#343444"
-        },
-        {
-          "cp": "e92f",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "herbalist": [
-        {
-          "cp": "e930",
-          "color": "#343444"
-        },
-        {
-          "cp": "e931",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "hidden_treasure": [
-        {
-          "cp": "e932",
-          "color": "#343444"
-        },
-        {
-          "cp": "e933",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "hollow_tree": [
-        {
-          "cp": "e934",
-          "color": "#343444"
-        },
-        {
-          "cp": "e935",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "horse_race": [
-        {
-          "cp": "e936",
-          "color": "#343444"
-        },
-        {
-          "cp": "e937",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "innkeep": [
-        {
-          "cp": "e938",
-          "color": "#343444"
-        },
-        {
-          "cp": "e939",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "knight_in_distress": [
-        {
-          "cp": "e93a",
-          "color": "#343444"
-        },
-        {
-          "cp": "e93b",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "lebioda_monument": [
-        {
-          "cp": "e93c",
-          "color": "#343444"
-        },
-        {
-          "cp": "e93d",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "magic_lamp": [
-        {
-          "cp": "e93e",
-          "color": "#343444"
-        },
-        {
-          "cp": "e93f",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "main_quest": [
-        {
-          "cp": "e940",
-          "color": "#343444"
-        },
-        {
-          "cp": "e941",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e942",
-          "color": "#343444"
-        },
-        {
-          "cp": "e943",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "monster_den": [
-        {
-          "cp": "e944",
-          "color": "#343444"
-        },
-        {
-          "cp": "e945",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "monster_nest": [
-        {
-          "cp": "e946",
-          "color": "#343444"
-        },
-        {
-          "cp": "e947",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "mutagen": [
-        {
-          "cp": "e948",
-          "color": "#343444"
-        },
-        {
-          "cp": "e949",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "notice_board": [
-        {
-          "cp": "e94a",
-          "color": "#343444"
-        },
-        {
-          "cp": "e94b",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "npc": [
-        {
-          "cp": "e94c",
-          "color": "#343444"
-        },
-        {
-          "cp": "e94d",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "objective": [
-        {
-          "cp": "e94e",
-          "color": "#343444"
-        },
-        {
-          "cp": "e94f",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "oil": [
-        {
-          "cp": "e950",
-          "color": "#343444"
-        },
-        {
-          "cp": "e951",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "person_in_distress": [
-        {
-          "cp": "e952",
-          "color": "#343444"
-        },
-        {
-          "cp": "e953",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "place_of_power": [
-        {
-          "cp": "e954",
-          "color": "#343444"
-        },
-        {
-          "cp": "e955",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e956",
-          "color": "#343444"
-        },
-        {
-          "cp": "e957",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "portal": [
-        {
-          "cp": "e958",
-          "color": "#343444"
-        },
-        {
-          "cp": "e959",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "quest_item": [
-        {
-          "cp": "e95a",
-          "color": "#343444"
-        },
-        {
-          "cp": "e95b",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "recipe": [
-        {
-          "cp": "e95c",
-          "color": "#343444"
-        },
-        {
-          "cp": "e95d",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "relic_item": [
-        {
-          "cp": "e95e",
-          "color": "#343444"
-        },
-        {
-          "cp": "e95f",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "runewright": [
-        {
-          "cp": "e960",
-          "color": "#343444"
-        },
-        {
-          "cp": "e961",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "secondary_quest": [
-        {
-          "cp": "e962",
-          "color": "#343444"
-        },
-        {
-          "cp": "e963",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "shopkeeper": [
-        {
-          "cp": "e964",
-          "color": "#343444"
-        },
-        {
-          "cp": "e965",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "signal_fire": [
-        {
-          "cp": "e966",
-          "color": "#343444"
-        },
-        {
-          "cp": "e967",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "signpost": [
-        {
-          "cp": "e968",
-          "color": "#343444"
-        },
-        {
-          "cp": "e969",
-          "color": "#89d889",
-          "ml": "-1em"
-        }
-      ],
-      "smugglers_cache": [
-        {
-          "cp": "e96a",
-          "color": "#343444"
-        },
-        {
-          "cp": "e96b",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "spoils_of_war": [
-        {
-          "cp": "e96c",
-          "color": "#343444"
-        },
-        {
-          "cp": "e96d",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "stash": [
-        {
-          "cp": "e96e",
-          "color": "#343444"
-        },
-        {
-          "cp": "e96f",
-          "color": "#89d889",
-          "ml": "-1em"
-        }
-      ],
-      "treasure_chest": [
-        {
-          "cp": "e970",
-          "color": "#343444"
-        },
-        {
-          "cp": "e971",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "vineyard_infestation": [
-        {
-          "cp": "e972",
-          "color": "#343444"
-        },
-        {
-          "cp": "e973",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "vinters_contract": [
-        {
-          "cp": "e974",
-          "color": "#343444"
-        },
-        {
-          "cp": "e975",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ],
-      "witcher_gear": [
-        {
-          "cp": "e976",
-          "color": "#343444"
-        },
-        {
-          "cp": "e977",
-          "color": "#ffffff",
-          "ml": "-1em"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "white-orchard",
-      "title": "White Orchard",
-      "data": "white-orchard/data.json",
-      "tilesets": [
-        {
-          "name": "V2",
-          "template": "white-orchard/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "vizima-palace",
-      "title": "Royal Palace in Vizima",
-      "data": "vizima-palace/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "vizima-palace/tiles/default-v6/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 11,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "velen-novigrad",
-      "title": "Velen & Novigrad",
-      "data": "velen-novigrad/data.json",
-      "tilesets": [
-        {
-          "name": "V2",
-          "template": "velen-novigrad/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 17,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "skellige",
-      "title": "Skellige Isles",
-      "data": "skellige/data.json",
-      "tilesets": [
-        {
-          "name": "V2",
-          "template": "skellige/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 17,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "kaer-morhen",
-      "title": "Kaer Morhen",
-      "data": "kaer-morhen/data.json",
-      "tilesets": [
-        {
-          "name": "V2",
-          "template": "kaer-morhen/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "time-and-space",
-      "title": "Time and Space",
-      "data": "time-and-space/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "time-and-space/tiles/default-v3/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "isle-of-mists",
-      "title": "Isle of Mists",
-      "data": "isle-of-mists/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "isle-of-mists/tiles/default/{z}/{x}/{y}.png",
-          "minzoom": 8,
-          "maxzoom": 13,
-          "viewMaxzoom": 13,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "realm-of-rumination",
-      "title": "Realm of Rumination",
-      "data": "realm-of-rumination/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "realm-of-rumination/tiles/default-v3/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 12,
-          "viewMaxzoom": 12,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "toussaint",
-      "title": "Toussaint",
-      "data": "toussaint/data.json",
-      "tilesets": [
-        {
-          "name": "V2",
-          "template": "toussaint/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "fablesphere",
-      "title": "Fablesphere",
-      "data": "fablesphere/data.json",
-      "tilesets": [
-        {
-          "name": "V2",
-          "template": "fablesphere/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 13,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -168.75,
-            83.83,
-            -167.5,
-            83.98
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "witcher-3",
+	"title": "The Witcher 3: Wild Hunt",
+	"slug": "witcher-3",
+	"source": "https://mapgenie.io/witcher-3",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"abandoned_site": [
+				{
+					"cp": "e900",
+					"color": "#343444"
+				},
+				{
+					"cp": "e901",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"alchemy_supplies": [
+				{
+					"cp": "e902",
+					"color": "#343444"
+				},
+				{
+					"cp": "e903",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"armorer": [
+				{
+					"cp": "e904",
+					"color": "#343444"
+				},
+				{
+					"cp": "e905",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"armorers_table": [
+				{
+					"cp": "e906",
+					"color": "#343444"
+				},
+				{
+					"cp": "e907",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"bandit_camp": [
+				{
+					"cp": "e908",
+					"color": "#343444"
+				},
+				{
+					"cp": "e909",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"barber": [
+				{
+					"cp": "e90a",
+					"color": "#343444"
+				},
+				{
+					"cp": "e90b",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"beehive": [
+				{
+					"cp": "e90c",
+					"color": "#343444"
+				},
+				{
+					"cp": "e90d",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e90e",
+					"color": "#343444"
+				},
+				{
+					"cp": "e90f",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"book": [
+				{
+					"cp": "e910",
+					"color": "#343444"
+				},
+				{
+					"cp": "e911",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"brothel": [
+				{
+					"cp": "e912",
+					"color": "#343444"
+				},
+				{
+					"cp": "e913",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e914",
+					"color": "#343444"
+				},
+				{
+					"cp": "e915",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"contract": [
+				{
+					"cp": "e916",
+					"color": "#343444"
+				},
+				{
+					"cp": "e917",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"diagram_chest": [
+				{
+					"cp": "e918",
+					"color": "#343444"
+				},
+				{
+					"cp": "e919",
+					"color": "#e5cb74",
+					"ml": "-1em"
+				}
+			],
+			"dye_merchant": [
+				{
+					"cp": "e91a",
+					"color": "#343444"
+				},
+				{
+					"cp": "e91b",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"entrance": [
+				{
+					"cp": "e91c",
+					"color": "#343444"
+				},
+				{
+					"cp": "e91d",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"fistfight": [
+				{
+					"cp": "e91e",
+					"color": "#343444"
+				},
+				{
+					"cp": "e91f",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"grindstone": [
+				{
+					"cp": "e920",
+					"color": "#343444"
+				},
+				{
+					"cp": "e921",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"guarded_treasure": [
+				{
+					"cp": "e922",
+					"color": "#343444"
+				},
+				{
+					"cp": "e923",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"gwent_card": [
+				{
+					"cp": "e924",
+					"color": "#343444"
+				},
+				{
+					"cp": "e925",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"gwent_merchant": [
+				{
+					"cp": "e926",
+					"color": "#343444"
+				},
+				{
+					"cp": "e927",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"gwent_player": [
+				{
+					"cp": "e928",
+					"color": "#343444"
+				},
+				{
+					"cp": "e929",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"gwent_quest": [
+				{
+					"cp": "e92a",
+					"color": "#343444"
+				},
+				{
+					"cp": "e92b",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"hanse_base": [
+				{
+					"cp": "e92c",
+					"color": "#343444"
+				},
+				{
+					"cp": "e92d",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"harbor": [
+				{
+					"cp": "e92e",
+					"color": "#343444"
+				},
+				{
+					"cp": "e92f",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"herbalist": [
+				{
+					"cp": "e930",
+					"color": "#343444"
+				},
+				{
+					"cp": "e931",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"hidden_treasure": [
+				{
+					"cp": "e932",
+					"color": "#343444"
+				},
+				{
+					"cp": "e933",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"hollow_tree": [
+				{
+					"cp": "e934",
+					"color": "#343444"
+				},
+				{
+					"cp": "e935",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"horse_race": [
+				{
+					"cp": "e936",
+					"color": "#343444"
+				},
+				{
+					"cp": "e937",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"innkeep": [
+				{
+					"cp": "e938",
+					"color": "#343444"
+				},
+				{
+					"cp": "e939",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"knight_in_distress": [
+				{
+					"cp": "e93a",
+					"color": "#343444"
+				},
+				{
+					"cp": "e93b",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"lebioda_monument": [
+				{
+					"cp": "e93c",
+					"color": "#343444"
+				},
+				{
+					"cp": "e93d",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"magic_lamp": [
+				{
+					"cp": "e93e",
+					"color": "#343444"
+				},
+				{
+					"cp": "e93f",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e940",
+					"color": "#343444"
+				},
+				{
+					"cp": "e941",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e942",
+					"color": "#343444"
+				},
+				{
+					"cp": "e943",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"monster_den": [
+				{
+					"cp": "e944",
+					"color": "#343444"
+				},
+				{
+					"cp": "e945",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"monster_nest": [
+				{
+					"cp": "e946",
+					"color": "#343444"
+				},
+				{
+					"cp": "e947",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"mutagen": [
+				{
+					"cp": "e948",
+					"color": "#343444"
+				},
+				{
+					"cp": "e949",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"notice_board": [
+				{
+					"cp": "e94a",
+					"color": "#343444"
+				},
+				{
+					"cp": "e94b",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e94c",
+					"color": "#343444"
+				},
+				{
+					"cp": "e94d",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"objective": [
+				{
+					"cp": "e94e",
+					"color": "#343444"
+				},
+				{
+					"cp": "e94f",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"oil": [
+				{
+					"cp": "e950",
+					"color": "#343444"
+				},
+				{
+					"cp": "e951",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"person_in_distress": [
+				{
+					"cp": "e952",
+					"color": "#343444"
+				},
+				{
+					"cp": "e953",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"place_of_power": [
+				{
+					"cp": "e954",
+					"color": "#343444"
+				},
+				{
+					"cp": "e955",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e956",
+					"color": "#343444"
+				},
+				{
+					"cp": "e957",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"portal": [
+				{
+					"cp": "e958",
+					"color": "#343444"
+				},
+				{
+					"cp": "e959",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"quest_item": [
+				{
+					"cp": "e95a",
+					"color": "#343444"
+				},
+				{
+					"cp": "e95b",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"recipe": [
+				{
+					"cp": "e95c",
+					"color": "#343444"
+				},
+				{
+					"cp": "e95d",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"relic_item": [
+				{
+					"cp": "e95e",
+					"color": "#343444"
+				},
+				{
+					"cp": "e95f",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"runewright": [
+				{
+					"cp": "e960",
+					"color": "#343444"
+				},
+				{
+					"cp": "e961",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"secondary_quest": [
+				{
+					"cp": "e962",
+					"color": "#343444"
+				},
+				{
+					"cp": "e963",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"shopkeeper": [
+				{
+					"cp": "e964",
+					"color": "#343444"
+				},
+				{
+					"cp": "e965",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"signal_fire": [
+				{
+					"cp": "e966",
+					"color": "#343444"
+				},
+				{
+					"cp": "e967",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"signpost": [
+				{
+					"cp": "e968",
+					"color": "#343444"
+				},
+				{
+					"cp": "e969",
+					"color": "#89d889",
+					"ml": "-1em"
+				}
+			],
+			"smugglers_cache": [
+				{
+					"cp": "e96a",
+					"color": "#343444"
+				},
+				{
+					"cp": "e96b",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"spoils_of_war": [
+				{
+					"cp": "e96c",
+					"color": "#343444"
+				},
+				{
+					"cp": "e96d",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"stash": [
+				{
+					"cp": "e96e",
+					"color": "#343444"
+				},
+				{
+					"cp": "e96f",
+					"color": "#89d889",
+					"ml": "-1em"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e970",
+					"color": "#343444"
+				},
+				{
+					"cp": "e971",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"vineyard_infestation": [
+				{
+					"cp": "e972",
+					"color": "#343444"
+				},
+				{
+					"cp": "e973",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"vinters_contract": [
+				{
+					"cp": "e974",
+					"color": "#343444"
+				},
+				{
+					"cp": "e975",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"witcher_gear": [
+				{
+					"cp": "e976",
+					"color": "#343444"
+				},
+				{
+					"cp": "e977",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "white-orchard",
+			"title": "White Orchard",
+			"data": "white-orchard/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "white-orchard/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "vizima-palace",
+			"title": "Royal Palace in Vizima",
+			"data": "vizima-palace/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "vizima-palace/tiles/default-v6/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 11,
+					"viewMaxzoom": 14,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "velen-novigrad",
+			"title": "Velen & Novigrad",
+			"data": "velen-novigrad/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "velen-novigrad/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 17,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "skellige",
+			"title": "Skellige Isles",
+			"data": "skellige/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "skellige/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 17,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "kaer-morhen",
+			"title": "Kaer Morhen",
+			"data": "kaer-morhen/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "kaer-morhen/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "time-and-space",
+			"title": "Time and Space",
+			"data": "time-and-space/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "time-and-space/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "isle-of-mists",
+			"title": "Isle of Mists",
+			"data": "isle-of-mists/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "isle-of-mists/tiles/default/{z}/{x}/{y}.png",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "realm-of-rumination",
+			"title": "Realm of Rumination",
+			"data": "realm-of-rumination/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "realm-of-rumination/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 12,
+					"viewMaxzoom": 12,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "toussaint",
+			"title": "Toussaint",
+			"data": "toussaint/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "toussaint/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "fablesphere",
+			"title": "Fablesphere",
+			"data": "fablesphere/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "fablesphere/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 15,
+					"bounds": [-168.75, 83.83, -167.5, 83.98],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

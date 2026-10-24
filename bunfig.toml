@@ -1,0 +1,7 @@
+[fmt]
+printWidth = 120
+semi = true
+useTabs = true
+tabWidth = 4
+insertFinalNewline = false
+sortImports = true

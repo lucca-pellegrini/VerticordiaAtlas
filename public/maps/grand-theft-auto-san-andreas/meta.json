@@ -1,553 +1,548 @@
 {
-  "id": "grand-theft-auto-san-andreas",
-  "title": "Grand Theft Auto: San Andreas",
-  "slug": "grand-theft-auto-san-andreas",
-  "source": "https://mapgenie.io/grand-theft-auto-san-andreas",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "wheel_of_fortune": [
-        {
-          "cp": "e900",
-          "color": "#fff"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e901",
-          "color": "#fff"
-        }
-      ],
-      "vigilante_mission": [
-        {
-          "cp": "e902",
-          "color": "#fff"
-        }
-      ],
-      "video_poker": [
-        {
-          "cp": "e903",
-          "color": "#fff"
-        }
-      ],
-      "vehicle_spawn": [
-        {
-          "cp": "e904",
-          "color": "#fff"
-        }
-      ],
-      "vehicle_mission": [
-        {
-          "cp": "e905",
-          "color": "#fff"
-        }
-      ],
-      "vehicle_challenge": [
-        {
-          "cp": "e906",
-          "color": "#fff"
-        }
-      ],
-      "triathlon": [
-        {
-          "cp": "e907",
-          "color": "#fff"
-        }
-      ],
-      "train_station": [
-        {
-          "cp": "e908",
-          "color": "#fff"
-        }
-      ],
-      "taxi_driver_mission": [
-        {
-          "cp": "e909",
-          "color": "#fff"
-        }
-      ],
-      "tattoo_parlor": [
-        {
-          "cp": "e90a",
-          "color": "#fff"
-        }
-      ],
-      "tag": [
-        {
-          "cp": "e90b",
-          "color": "#fff"
-        }
-      ],
-      "stunt_jump": [
-        {
-          "cp": "e90c",
-          "color": "#fff"
-        }
-      ],
-      "strip_club": [
-        {
-          "cp": "e90d",
-          "color": "#fff"
-        }
-      ],
-      "street_race": [
-        {
-          "cp": "e90e",
-          "color": "#fff"
-        }
-      ],
-      "stadium_event": [
-        {
-          "cp": "e90f",
-          "color": "#fff"
-        }
-      ],
-      "snapshot": [
-        {
-          "cp": "e910",
-          "color": "#fff"
-        }
-      ],
-      "slot_machine": [
-        {
-          "cp": "e911",
-          "color": "#fff"
-        }
-      ],
-      "shooting_range_mission": [
-        {
-          "cp": "e912",
-          "color": "#fff"
-        }
-      ],
-      "shooting_range": [
-        {
-          "cp": "e913",
-          "color": "#fff"
-        }
-      ],
-      "school_mission": [
-        {
-          "cp": "e914",
-          "color": "#fff"
-        }
-      ],
-      "school": [
-        {
-          "cp": "e915",
-          "color": "#fff"
-        }
-      ],
-      "safe_house": [
-        {
-          "cp": "e916",
-          "color": "#fff"
-        }
-      ],
-      "roulette": [
-        {
-          "cp": "e917",
-          "color": "#fff"
-        }
-      ],
-      "robbery": [
-        {
-          "cp": "e918",
-          "color": "#fff"
-        }
-      ],
-      "restaurant": [
-        {
-          "cp": "e919",
-          "color": "#fff"
-        }
-      ],
-      "rc_mission": [
-        {
-          "cp": "e91a",
-          "color": "#fff"
-        }
-      ],
-      "rampage": [
-        {
-          "cp": "e91b",
-          "color": "#fff"
-        }
-      ],
-      "pool": [
-        {
-          "cp": "e91c",
-          "color": "#fff"
-        }
-      ],
-      "police_station": [
-        {
-          "cp": "e91d",
-          "color": "#fff"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e91e",
-          "color": "#fff"
-        }
-      ],
-      "pizza_boy_mission": [
-        {
-          "cp": "e91f",
-          "color": "#fff"
-        }
-      ],
-      "phone_mission": [
-        {
-          "cp": "e920",
-          "color": "#fff"
-        }
-      ],
-      "pay_n_spray": [
-        {
-          "cp": "e921",
-          "color": "#fff"
-        }
-      ],
-      "paramedic_mission": [
-        {
-          "cp": "e922",
-          "color": "#fff"
-        }
-      ],
-      "oyster": [
-        {
-          "cp": "e923",
-          "color": "#fff"
-        }
-      ],
-      "other_mission": [
-        {
-          "cp": "e924",
-          "color": "#fff"
-        }
-      ],
-      "off_road_mission": [
-        {
-          "cp": "e925",
-          "color": "#fff"
-        }
-      ],
-      "mod_garage": [
-        {
-          "cp": "e926",
-          "color": "#fff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e927",
-          "color": "#fff"
-        }
-      ],
-      "main_mission": [
-        {
-          "cp": "e928",
-          "color": "#fff"
-        }
-      ],
-      "lowrider_challenge": [
-        {
-          "cp": "e929",
-          "color": "#fff"
-        }
-      ],
-      "landing_area": [
-        {
-          "cp": "e92a",
-          "color": "#fff"
-        }
-      ],
-      "jetpack": [
-        {
-          "cp": "e92b",
-          "color": "#fff"
-        }
-      ],
-      "item": [
-        {
-          "cp": "e92c",
-          "color": "#fff"
-        }
-      ],
-      "inside_track": [
-        {
-          "cp": "e92d",
-          "color": "#fff"
-        }
-      ],
-      "importexport": [
-        {
-          "cp": "e92e",
-          "color": "#fff"
-        }
-      ],
-      "import_garage": [
-        {
-          "cp": "e92f",
-          "color": "#fff"
-        }
-      ],
-      "hospital": [
-        {
-          "cp": "e930",
-          "color": "#fff"
-        }
-      ],
-      "horseshoe": [
-        {
-          "cp": "e931",
-          "color": "#fff"
-        }
-      ],
-      "hidden_package": [
-        {
-          "cp": "e932",
-          "color": "#fff"
-        }
-      ],
-      "health": [
-        {
-          "cp": "e933",
-          "color": "#fff"
-        }
-      ],
-      "hardware_store": [
-        {
-          "cp": "e934",
-          "color": "#fff"
-        }
-      ],
-      "gym": [
-        {
-          "cp": "e935",
-          "color": "#fff"
-        }
-      ],
-      "grocery_store": [
-        {
-          "cp": "e936",
-          "color": "#fff"
-        }
-      ],
-      "girlfriend": [
-        {
-          "cp": "e937",
-          "color": "#fff"
-        }
-      ],
-      "gift": [
-        {
-          "cp": "e938",
-          "color": "#fff"
-        }
-      ],
-      "gang_mission": [
-        {
-          "cp": "e939",
-          "color": "#fff"
-        }
-      ],
-      "free_roam_event": [
-        {
-          "cp": "e93a",
-          "color": "#fff"
-        }
-      ],
-      "firefighter_mission": [
-        {
-          "cp": "e93b",
-          "color": "#fff"
-        }
-      ],
-      "fire_station": [
-        {
-          "cp": "e93c",
-          "color": "#fff"
-        }
-      ],
-      "fast_food": [
-        {
-          "cp": "e93d",
-          "color": "#fff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e93e",
-          "color": "#fff"
-        }
-      ],
-      "diner": [
-        {
-          "cp": "e93f",
-          "color": "#fff"
-        }
-      ],
-      "club": [
-        {
-          "cp": "e940",
-          "color": "#fff"
-        }
-      ],
-      "clothing": [
-        {
-          "cp": "e941",
-          "color": "#fff"
-        }
-      ],
-      "clothes_shop": [
-        {
-          "cp": "e942",
-          "color": "#fff"
-        }
-      ],
-      "chopper_checkpoint": [
-        {
-          "cp": "e943",
-          "color": "#fff"
-        }
-      ],
-      "casino": [
-        {
-          "cp": "e944",
-          "color": "#fff"
-        }
-      ],
-      "bribe": [
-        {
-          "cp": "e945",
-          "color": "#fff"
-        }
-      ],
-      "bomb_shop": [
-        {
-          "cp": "e946",
-          "color": "#fff"
-        }
-      ],
-      "blackjack": [
-        {
-          "cp": "e947",
-          "color": "#fff"
-        }
-      ],
-      "basketball": [
-        {
-          "cp": "e948",
-          "color": "#fff"
-        }
-      ],
-      "barber": [
-        {
-          "cp": "e949",
-          "color": "#fff"
-        }
-      ],
-      "bar": [
-        {
-          "cp": "e94a",
-          "color": "#fff"
-        }
-      ],
-      "asset_mission": [
-        {
-          "cp": "e94b",
-          "color": "#fff"
-        }
-      ],
-      "asset": [
-        {
-          "cp": "e94c",
-          "color": "#fff"
-        }
-      ],
-      "armor": [
-        {
-          "cp": "e94d",
-          "color": "#fff"
-        }
-      ],
-      "area": [
-        {
-          "cp": "e94e",
-          "color": "#fff"
-        }
-      ],
-      "arcade_game": [
-        {
-          "cp": "e94f",
-          "color": "#fff"
-        }
-      ],
-      "ammu_nation": [
-        {
-          "cp": "e950",
-          "color": "#fff"
-        }
-      ],
-      "airport": [
-        {
-          "cp": "e951",
-          "color": "#fff"
-        }
-      ],
-      "air_race": [
-        {
-          "cp": "e952",
-          "color": "#fff"
-        }
-      ],
-      "adrenaline": [
-        {
-          "cp": "e953",
-          "color": "#fff"
-        }
-      ],
-      "player_mission": [
-        {
-          "cp": "e954",
-          "color": "#fff"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "san-andreas",
-      "title": "San Andreas",
-      "data": "san-andreas/data.json",
-      "tilesets": [
-        {
-          "name": "Atlas",
-          "template": "san-andreas/tiles/atlas-v1/{z}/{x}/{y}.png",
-          "minzoom": 9,
-          "maxzoom": 14,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.52839561950461,
-            -0.11571171644785005,
-            0.10485718971417995,
-            1.5230997953681902
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "grand-theft-auto-san-andreas",
+	"title": "Grand Theft Auto: San Andreas",
+	"slug": "grand-theft-auto-san-andreas",
+	"source": "https://mapgenie.io/grand-theft-auto-san-andreas",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"wheel_of_fortune": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"vigilante_mission": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"video_poker": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"vehicle_spawn": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"vehicle_mission": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"vehicle_challenge": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"triathlon": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"train_station": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"taxi_driver_mission": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"tattoo_parlor": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"tag": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"stunt_jump": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"strip_club": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"street_race": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"stadium_event": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"snapshot": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"slot_machine": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"shooting_range_mission": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"shooting_range": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"school_mission": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"school": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"safe_house": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"roulette": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"robbery": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"restaurant": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"rc_mission": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"rampage": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"pool": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"police_station": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"pizza_boy_mission": [
+				{
+					"cp": "e91f",
+					"color": "#fff"
+				}
+			],
+			"phone_mission": [
+				{
+					"cp": "e920",
+					"color": "#fff"
+				}
+			],
+			"pay_n_spray": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"paramedic_mission": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			],
+			"oyster": [
+				{
+					"cp": "e923",
+					"color": "#fff"
+				}
+			],
+			"other_mission": [
+				{
+					"cp": "e924",
+					"color": "#fff"
+				}
+			],
+			"off_road_mission": [
+				{
+					"cp": "e925",
+					"color": "#fff"
+				}
+			],
+			"mod_garage": [
+				{
+					"cp": "e926",
+					"color": "#fff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e927",
+					"color": "#fff"
+				}
+			],
+			"main_mission": [
+				{
+					"cp": "e928",
+					"color": "#fff"
+				}
+			],
+			"lowrider_challenge": [
+				{
+					"cp": "e929",
+					"color": "#fff"
+				}
+			],
+			"landing_area": [
+				{
+					"cp": "e92a",
+					"color": "#fff"
+				}
+			],
+			"jetpack": [
+				{
+					"cp": "e92b",
+					"color": "#fff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e92c",
+					"color": "#fff"
+				}
+			],
+			"inside_track": [
+				{
+					"cp": "e92d",
+					"color": "#fff"
+				}
+			],
+			"importexport": [
+				{
+					"cp": "e92e",
+					"color": "#fff"
+				}
+			],
+			"import_garage": [
+				{
+					"cp": "e92f",
+					"color": "#fff"
+				}
+			],
+			"hospital": [
+				{
+					"cp": "e930",
+					"color": "#fff"
+				}
+			],
+			"horseshoe": [
+				{
+					"cp": "e931",
+					"color": "#fff"
+				}
+			],
+			"hidden_package": [
+				{
+					"cp": "e932",
+					"color": "#fff"
+				}
+			],
+			"health": [
+				{
+					"cp": "e933",
+					"color": "#fff"
+				}
+			],
+			"hardware_store": [
+				{
+					"cp": "e934",
+					"color": "#fff"
+				}
+			],
+			"gym": [
+				{
+					"cp": "e935",
+					"color": "#fff"
+				}
+			],
+			"grocery_store": [
+				{
+					"cp": "e936",
+					"color": "#fff"
+				}
+			],
+			"girlfriend": [
+				{
+					"cp": "e937",
+					"color": "#fff"
+				}
+			],
+			"gift": [
+				{
+					"cp": "e938",
+					"color": "#fff"
+				}
+			],
+			"gang_mission": [
+				{
+					"cp": "e939",
+					"color": "#fff"
+				}
+			],
+			"free_roam_event": [
+				{
+					"cp": "e93a",
+					"color": "#fff"
+				}
+			],
+			"firefighter_mission": [
+				{
+					"cp": "e93b",
+					"color": "#fff"
+				}
+			],
+			"fire_station": [
+				{
+					"cp": "e93c",
+					"color": "#fff"
+				}
+			],
+			"fast_food": [
+				{
+					"cp": "e93d",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e93e",
+					"color": "#fff"
+				}
+			],
+			"diner": [
+				{
+					"cp": "e93f",
+					"color": "#fff"
+				}
+			],
+			"club": [
+				{
+					"cp": "e940",
+					"color": "#fff"
+				}
+			],
+			"clothing": [
+				{
+					"cp": "e941",
+					"color": "#fff"
+				}
+			],
+			"clothes_shop": [
+				{
+					"cp": "e942",
+					"color": "#fff"
+				}
+			],
+			"chopper_checkpoint": [
+				{
+					"cp": "e943",
+					"color": "#fff"
+				}
+			],
+			"casino": [
+				{
+					"cp": "e944",
+					"color": "#fff"
+				}
+			],
+			"bribe": [
+				{
+					"cp": "e945",
+					"color": "#fff"
+				}
+			],
+			"bomb_shop": [
+				{
+					"cp": "e946",
+					"color": "#fff"
+				}
+			],
+			"blackjack": [
+				{
+					"cp": "e947",
+					"color": "#fff"
+				}
+			],
+			"basketball": [
+				{
+					"cp": "e948",
+					"color": "#fff"
+				}
+			],
+			"barber": [
+				{
+					"cp": "e949",
+					"color": "#fff"
+				}
+			],
+			"bar": [
+				{
+					"cp": "e94a",
+					"color": "#fff"
+				}
+			],
+			"asset_mission": [
+				{
+					"cp": "e94b",
+					"color": "#fff"
+				}
+			],
+			"asset": [
+				{
+					"cp": "e94c",
+					"color": "#fff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e94d",
+					"color": "#fff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e94e",
+					"color": "#fff"
+				}
+			],
+			"arcade_game": [
+				{
+					"cp": "e94f",
+					"color": "#fff"
+				}
+			],
+			"ammu_nation": [
+				{
+					"cp": "e950",
+					"color": "#fff"
+				}
+			],
+			"airport": [
+				{
+					"cp": "e951",
+					"color": "#fff"
+				}
+			],
+			"air_race": [
+				{
+					"cp": "e952",
+					"color": "#fff"
+				}
+			],
+			"adrenaline": [
+				{
+					"cp": "e953",
+					"color": "#fff"
+				}
+			],
+			"player_mission": [
+				{
+					"cp": "e954",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "san-andreas",
+			"title": "San Andreas",
+			"data": "san-andreas/data.json",
+			"tilesets": [
+				{
+					"name": "Atlas",
+					"template": "san-andreas/tiles/atlas-v1/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.52839561950461, -0.11571171644785005, 0.10485718971417995, 1.5230997953681902],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

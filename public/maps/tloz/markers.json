@@ -1,1 +1,22 @@
-{"cave":{"width":33,"height":44,"x":0,"y":0,"pixelRatio":1},"dungeon":{"width":33,"height":44,"x":33,"y":0,"pixelRatio":1},"shop":{"width":33,"height":44,"x":66,"y":0,"pixelRatio":1},"underground_transition":{"width":33,"height":44,"x":99,"y":0,"pixelRatio":1},"compass":{"width":33,"height":44,"x":132,"y":0,"pixelRatio":1},"equipment":{"width":33,"height":44,"x":0,"y":44,"pixelRatio":1},"heart_container":{"width":33,"height":44,"x":33,"y":44,"pixelRatio":1},"key":{"width":33,"height":44,"x":66,"y":44,"pixelRatio":1},"key_item":{"width":33,"height":44,"x":99,"y":44,"pixelRatio":1},"map":{"width":33,"height":44,"x":132,"y":44,"pixelRatio":1},"rupee":{"width":33,"height":44,"x":0,"y":88,"pixelRatio":1},"triforce_fragment":{"width":33,"height":44,"x":33,"y":88,"pixelRatio":1},"boss":{"width":33,"height":44,"x":66,"y":88,"pixelRatio":1},"enemy":{"width":33,"height":44,"x":99,"y":88,"pixelRatio":1},"easter_egg":{"width":33,"height":44,"x":132,"y":88,"pixelRatio":1},"miscellaneous":{"width":33,"height":44,"x":0,"y":132,"pixelRatio":1},"npc":{"width":33,"height":44,"x":33,"y":132,"pixelRatio":1},"placeholder_3":{"width":33,"height":44,"x":66,"y":132,"pixelRatio":1},"placeholder_4":{"width":33,"height":44,"x":66,"y":132,"pixelRatio":1},"placeholder_5":{"width":33,"height":44,"x":66,"y":132,"pixelRatio":1}}
+{
+	"cave": { "width": 33, "height": 44, "x": 0, "y": 0, "pixelRatio": 1 },
+	"dungeon": { "width": 33, "height": 44, "x": 33, "y": 0, "pixelRatio": 1 },
+	"shop": { "width": 33, "height": 44, "x": 66, "y": 0, "pixelRatio": 1 },
+	"underground_transition": { "width": 33, "height": 44, "x": 99, "y": 0, "pixelRatio": 1 },
+	"compass": { "width": 33, "height": 44, "x": 132, "y": 0, "pixelRatio": 1 },
+	"equipment": { "width": 33, "height": 44, "x": 0, "y": 44, "pixelRatio": 1 },
+	"heart_container": { "width": 33, "height": 44, "x": 33, "y": 44, "pixelRatio": 1 },
+	"key": { "width": 33, "height": 44, "x": 66, "y": 44, "pixelRatio": 1 },
+	"key_item": { "width": 33, "height": 44, "x": 99, "y": 44, "pixelRatio": 1 },
+	"map": { "width": 33, "height": 44, "x": 132, "y": 44, "pixelRatio": 1 },
+	"rupee": { "width": 33, "height": 44, "x": 0, "y": 88, "pixelRatio": 1 },
+	"triforce_fragment": { "width": 33, "height": 44, "x": 33, "y": 88, "pixelRatio": 1 },
+	"boss": { "width": 33, "height": 44, "x": 66, "y": 88, "pixelRatio": 1 },
+	"enemy": { "width": 33, "height": 44, "x": 99, "y": 88, "pixelRatio": 1 },
+	"easter_egg": { "width": 33, "height": 44, "x": 132, "y": 88, "pixelRatio": 1 },
+	"miscellaneous": { "width": 33, "height": 44, "x": 0, "y": 132, "pixelRatio": 1 },
+	"npc": { "width": 33, "height": 44, "x": 33, "y": 132, "pixelRatio": 1 },
+	"placeholder_3": { "width": 33, "height": 44, "x": 66, "y": 132, "pixelRatio": 1 },
+	"placeholder_4": { "width": 33, "height": 44, "x": 66, "y": 132, "pixelRatio": 1 },
+	"placeholder_5": { "width": 33, "height": 44, "x": 66, "y": 132, "pixelRatio": 1 }
+}

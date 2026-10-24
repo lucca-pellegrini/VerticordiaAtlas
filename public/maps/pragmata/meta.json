@@ -1,289 +1,284 @@
 {
-  "id": "pragmata",
-  "title": "Pragmata",
-  "slug": "pragmata",
-  "source": "https://mapgenie.io/pragmata",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "the-cradle",
-      "title": "The Cradle",
-      "data": "the-cradle/data.json",
-      "tilesets": [
-        {
-          "name": "Full",
-          "template": "the-cradle/tiles/white-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 17,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "boss": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "bot_data": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "cabin_coin": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "cartridge_holder": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "dead_filament_mass": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "email": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "escape_hatch": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "filament_mass": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "file": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "gate_key": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "guidance": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "guidance_alt": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "hackable_object": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "hacking_node": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "hacking_node_alt": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "holo": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "holo_wall": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "item": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "locked_door": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "mini_cabin_figure": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "mod": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "outfit": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "pure_lunum": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ],
-      "pure_lunum_alt": [
-        {
-          "cp": "e919",
-          "color": "#ffffff"
-        }
-      ],
-      "read_earth_memory": [
-        {
-          "cp": "e91a",
-          "color": "#ffffff"
-        }
-      ],
-      "read_earth_memory_alt": [
-        {
-          "cp": "e91b",
-          "color": "#ffffff"
-        }
-      ],
-      "red_zone": [
-        {
-          "cp": "e91c",
-          "color": "#ffffff"
-        }
-      ],
-      "safe_box": [
-        {
-          "cp": "e91d",
-          "color": "#ffffff"
-        }
-      ],
-      "secret_report": [
-        {
-          "cp": "e91e",
-          "color": "#ffffff"
-        }
-      ],
-      "shelter_license_key": [
-        {
-          "cp": "e91f",
-          "color": "#ffffff"
-        }
-      ],
-      "storage_box": [
-        {
-          "cp": "e920",
-          "color": "#ffffff"
-        }
-      ],
-      "storage_expander": [
-        {
-          "cp": "e921",
-          "color": "#ffffff"
-        }
-      ],
-      "sweeper_bot": [
-        {
-          "cp": "e922",
-          "color": "#ffffff"
-        }
-      ],
-      "training_data": [
-        {
-          "cp": "e923",
-          "color": "#ffffff"
-        }
-      ],
-      "tram_station": [
-        {
-          "cp": "e924",
-          "color": "#ffffff"
-        }
-      ],
-      "transition": [
-        {
-          "cp": "e925",
-          "color": "#ffffff"
-        }
-      ],
-      "unit_printer": [
-        {
-          "cp": "e926",
-          "color": "#ffffff"
-        }
-      ],
-      "upgrade_component": [
-        {
-          "cp": "e927",
-          "color": "#ffffff"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e928",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "pragmata",
+	"title": "Pragmata",
+	"slug": "pragmata",
+	"source": "https://mapgenie.io/pragmata",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "the-cradle",
+			"title": "The Cradle",
+			"data": "the-cradle/data.json",
+			"tilesets": [
+				{
+					"name": "Full",
+					"template": "the-cradle/tiles/white-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"boss": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"bot_data": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"cabin_coin": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"cartridge_holder": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"dead_filament_mass": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"email": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"escape_hatch": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"filament_mass": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"file": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"gate_key": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"guidance": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"guidance_alt": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"hackable_object": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"hacking_node": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"hacking_node_alt": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"holo": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"holo_wall": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"mini_cabin_figure": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"mod": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"outfit": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"pure_lunum": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"pure_lunum_alt": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"read_earth_memory": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"read_earth_memory_alt": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"red_zone": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"safe_box": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"secret_report": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"shelter_license_key": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"storage_box": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"storage_expander": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"sweeper_bot": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"training_data": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"tram_station": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"unit_printer": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"upgrade_component": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

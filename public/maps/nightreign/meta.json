@@ -1,193 +1,188 @@
 {
-  "id": "nightreign",
-  "title": "Elden Ring Nightreign",
-  "slug": "elden-ring-nightreign",
-  "source": "https://mapgenie.io/elden-ring-nightreign/maps/limveld",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "limveld",
-      "title": "Limveld",
-      "data": "limveld/data.json",
-      "tilesets": [
-        {
-          "name": "V3",
-          "template": "limveld/tiles/default-v3/{z}/{y}/{x}.jpg",
-          "minzoom": 9,
-          "maxzoom": 14,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "buried_treasure": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "castle": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "chalice": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "chest": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "enemy": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "evergaol": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "facility": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "field_boss": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "major_location": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "material": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "merchant": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "minor_location": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "nightfarer": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "quest_chapter": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "remembrance_quest": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "scarab": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "site_of_grace": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "smithing_stone": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "smithing_table": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "spectral_hawk_tree": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "spiritstream": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "tunnel_entrance": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "unique_relic": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "nightreign",
+	"title": "Elden Ring Nightreign",
+	"slug": "elden-ring-nightreign",
+	"source": "https://mapgenie.io/elden-ring-nightreign/maps/limveld",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "limveld",
+			"title": "Limveld",
+			"data": "limveld/data.json",
+			"tilesets": [
+				{
+					"name": "V3",
+					"template": "limveld/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"buried_treasure": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"castle": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"chalice": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"evergaol": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"facility": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"field_boss": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"major_location": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"material": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"minor_location": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"nightfarer": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"quest_chapter": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"remembrance_quest": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"scarab": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"site_of_grace": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"smithing_stone": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"smithing_table": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"spectral_hawk_tree": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"spiritstream": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"tunnel_entrance": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"unique_relic": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

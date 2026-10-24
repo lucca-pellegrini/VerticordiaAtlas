@@ -1,211 +1,206 @@
 {
-  "id": "animal-well",
-  "title": "Animal Well",
-  "slug": "animal-well",
-  "source": "https://mapgenie.io/animal-well/",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "animal": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "animal_head": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "blocked_door": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "boss": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "button": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "candle": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "chest": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "disc": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "egg": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "egg_room": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "enemy": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "firecracker": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "fruit": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "item": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "key": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "key_item": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "ladder": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "location": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "match": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "puzzle": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "rabbit": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "song": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ],
-      "speed_run": [
-        {
-          "cp": "e919",
-          "color": "#ffffff"
-        }
-      ],
-      "telephone": [
-        {
-          "cp": "e91a",
-          "color": "#ffffff"
-        }
-      ],
-      "tnt": [
-        {
-          "cp": "e91b",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "world",
-      "title": "World",
-      "data": "world/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "world/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 9,
-          "maxzoom": 15,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "animal-well",
+	"title": "Animal Well",
+	"slug": "animal-well",
+	"source": "https://mapgenie.io/animal-well/",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"animal": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"animal_head": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"blocked_door": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"button": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"candle": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"disc": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"egg": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"egg_room": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"firecracker": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"fruit": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"ladder": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"match": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"puzzle": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"rabbit": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"song": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"speed_run": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"telephone": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"tnt": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "world/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

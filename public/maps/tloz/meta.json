@@ -1,166 +1,156 @@
 {
-  "id": "tloz",
-  "title": "The Legend of Zelda",
-  "slug": "the-legend-of-zelda",
-  "source": "https://mapgenie.io/the-legend-of-zelda/maps/hyrule-first-quest",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "hyrule-first-quest",
-      "title": "Hyrule - First Quest",
-      "data": "hyrule-first-quest/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "hyrule-first-quest/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "hyrule-second-quest",
-      "title": "Hyrule - Second Quest",
-      "data": "hyrule-second-quest/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "hyrule-second-quest/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "boss": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "cave": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "compass": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "dungeon": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "enemy": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "equipment": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "heart_container": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "key": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "key_item": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "map": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "npc": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "rupee": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "shop": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "triforce_fragment": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "underground_transition": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "tloz",
+	"title": "The Legend of Zelda",
+	"slug": "the-legend-of-zelda",
+	"source": "https://mapgenie.io/the-legend-of-zelda/maps/hyrule-first-quest",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "hyrule-first-quest",
+			"title": "Hyrule - First Quest",
+			"data": "hyrule-first-quest/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hyrule-first-quest/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "hyrule-second-quest",
+			"title": "Hyrule - Second Quest",
+			"data": "hyrule-second-quest/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hyrule-second-quest/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"boss": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"compass": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"heart_container": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"map": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"rupee": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"triforce_fragment": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"underground_transition": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

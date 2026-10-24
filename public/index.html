@@ -1,140 +1,224 @@
 <!doctype html>
 <html lang="en" data-theme="auto">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Verticordia Atlas · Interactive game maps</title>
-<meta name="description" content="Interactive game maps that work offline. Track every collectible across playthroughs, right in your browser.">
-<meta name="theme-color" content="#0b0e10">
-<script>(()=>{
-  const tm=document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
-  if(tm)document.documentElement.dataset.theme=tm[1];
-  let raw=null;
-  const tn=document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
-  if(tn){try{raw=decodeURIComponent(tn[1]);}catch{}}
-  if(!raw){try{raw=localStorage.getItem('va_tint');}catch{}}
-  if(raw){
-    const [a,s]=raw.split('|');
-    if(a&&/^#[0-9a-fA-F]{3,8}$/.test(a)){
-      const st=document.documentElement.style;
-      st.setProperty('--accent',a);
-      if(s&&/^#[0-9a-fA-F]{3,8}$/.test(s))st.setProperty('--accent-soft',s);
-    }
-  }
-})()</script>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Atlas">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d6453b' d='M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z'/%3E%3Ccircle cx='12' cy='10' r='2.8' fill='%230b0e10'/%3E%3C/svg%3E">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>Verticordia Atlas · Interactive game maps</title>
+		<meta
+			name="description"
+			content="Interactive game maps that work offline. Track every collectible across playthroughs, right in your browser."
+		/>
+		<meta name="theme-color" content="#0b0e10" />
+		<script>
+			(() => {
+				const tm = document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
+				if (tm) document.documentElement.dataset.theme = tm[1];
+				let raw = null;
+				const tn = document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
+				if (tn) {
+					try {
+						raw = decodeURIComponent(tn[1]);
+					} catch {}
+				}
+				if (!raw) {
+					try {
+						raw = localStorage.getItem("va_tint");
+					} catch {}
+				}
+				if (raw) {
+					const [a, s] = raw.split("|");
+					if (a && /^#[0-9a-fA-F]{3,8}$/.test(a)) {
+						const st = document.documentElement.style;
+						st.setProperty("--accent", a);
+						if (s && /^#[0-9a-fA-F]{3,8}$/.test(s)) st.setProperty("--accent-soft", s);
+					}
+				}
+			})();
+		</script>
+		<link rel="manifest" href="manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Atlas" />
+		<link
+			rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d6453b' d='M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z'/%3E%3Ccircle cx='12' cy='10' r='2.8' fill='%230b0e10'/%3E%3C/svg%3E"
+		/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400..800&display=swap">
-<link rel="stylesheet" href="base.css">
-<link rel="stylesheet" href="home.css">
-<!-- social:start (make-cards.mjs) -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Verticordia Atlas">
-<meta property="og:title" content="Verticordia Atlas · Interactive game maps">
-<meta property="og:description" content="Interactive game maps that work offline. Track every collectible across playthroughs, right in your browser.">
-<meta property="og:url" content="https://atlas.verticordia.com:11680/">
-<meta property="og:image" content="https://atlas.verticordia.com:11680/card.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Verticordia Atlas: interactive game maps that work offline">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Verticordia Atlas · Interactive game maps">
-<meta name="twitter:description" content="Interactive game maps that work offline. Track every collectible across playthroughs, right in your browser.">
-<meta name="twitter:image" content="https://atlas.verticordia.com:11680/card.jpg">
-<meta name="twitter:image:alt" content="Verticordia Atlas: interactive game maps that work offline">
-<!-- social:end -->
-</head>
-<body>
-<a class="skip" href="#games">Skip to maps</a>
-<div class="bg" aria-hidden="true"></div>
+		<link rel="stylesheet" href="base.css" />
+		<link rel="stylesheet" href="home.css" />
+		<!-- social:start (make-cards.mjs) -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Verticordia Atlas" />
+		<meta property="og:title" content="Verticordia Atlas · Interactive game maps" />
+		<meta
+			property="og:description"
+			content="Interactive game maps that work offline. Track every collectible across playthroughs, right in your browser."
+		/>
+		<meta property="og:url" content="https://atlas.verticordia.com:11680/" />
+		<meta property="og:image" content="https://atlas.verticordia.com:11680/card.jpg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content="Verticordia Atlas: interactive game maps that work offline" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Verticordia Atlas · Interactive game maps" />
+		<meta
+			name="twitter:description"
+			content="Interactive game maps that work offline. Track every collectible across playthroughs, right in your browser."
+		/>
+		<meta name="twitter:image" content="https://atlas.verticordia.com:11680/card.jpg" />
+		<meta name="twitter:image:alt" content="Verticordia Atlas: interactive game maps that work offline" />
+		<!-- social:end -->
+	</head>
+	<body>
+		<a class="skip" href="#games">Skip to maps</a>
+		<div class="bg" aria-hidden="true"></div>
 
-<header class="top wrap">
-  <div class="top-bar">
-    <a class="brand" href="./" aria-label="Verticordia Atlas, home">
-      <span class="mark" aria-hidden="true">
-        <svg class="pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"/><circle cx="12" cy="10" r="2.8" fill="var(--night)"/></svg>
-        <svg class="heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      </span>
-      <span>Verticordia Atlas</span>
-    </a>
-    <div class="top-tools">
-      <form id="map-search" class="search" role="search">
-        <input type="search" id="map-query" placeholder="Search maps" autocomplete="off" spellcheck="false" aria-label="Search maps">
-      </form>
-      <button class="search-toggle" type="button" aria-expanded="false" aria-controls="map-search" aria-label="Search maps">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
-      </button>
-      <div class="top-more" id="top-more">
-        <button class="more-toggle" type="button" aria-expanded="false" aria-controls="top-more-panel" aria-label="Theme and account" title="Theme and account">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></svg>
-        </button>
-        <div class="top-more-panel" id="top-more-panel">
-          <div data-theme-toggle></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+		<header class="top wrap">
+			<div class="top-bar">
+				<a class="brand" href="./" aria-label="Verticordia Atlas, home">
+					<span class="mark" aria-hidden="true">
+						<svg class="pin" viewBox="0 0 24 24">
+							<path
+								fill="currentColor"
+								d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"
+							/>
+							<circle cx="12" cy="10" r="2.8" fill="var(--night)" />
+						</svg>
+						<svg class="heart" viewBox="0 0 24 24">
+							<path
+								fill="currentColor"
+								d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+							/>
+						</svg>
+					</span>
+					<span>Verticordia Atlas</span>
+				</a>
+				<div class="top-tools">
+					<form id="map-search" class="search" role="search">
+						<input
+							type="search"
+							id="map-query"
+							placeholder="Search maps"
+							autocomplete="off"
+							spellcheck="false"
+							aria-label="Search maps"
+						/>
+					</form>
+					<button
+						class="search-toggle"
+						type="button"
+						aria-expanded="false"
+						aria-controls="map-search"
+						aria-label="Search maps"
+					>
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<circle cx="11" cy="11" r="6.5" />
+							<path d="m20 20-4.2-4.2" />
+						</svg>
+					</button>
+					<div class="top-more" id="top-more">
+						<button
+							class="more-toggle"
+							type="button"
+							aria-expanded="false"
+							aria-controls="top-more-panel"
+							aria-label="Theme and account"
+							title="Theme and account"
+						>
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<circle cx="12" cy="5" r="1.9" />
+								<circle cx="12" cy="12" r="1.9" />
+								<circle cx="12" cy="19" r="1.9" />
+							</svg>
+						</button>
+						<div class="top-more-panel" id="top-more-panel">
+							<div data-theme-toggle></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
 
-<main>
-  <!-- the hero: the welcome, or (once a map has been opened in this browser) a card to pick up where you left off.
+		<main>
+			<!-- the hero: the welcome, or (once a map has been opened in this browser) a card to pick up where you left off.
        It folds away while the search is in use (home.js sets body.searching). -->
-  <div class="hero-shell" id="hero-shell">
-    <div class="hero-fold">
-      <section class="hero wrap" id="hero">
-        <p class="eyebrow">Interactive game maps</p>
-        <h1>Every secret, <em>mapped</em> and available offline.</h1>
-        <p class="lede">Pick a game, track what you have found across playthroughs, and keep going without a connection. Your progress never leaves your browser.</p>
-      </section>
-      <section class="resume wrap" id="resume" aria-labelledby="resume-title" hidden></section>
-    </div>
-  </div>
+			<div class="hero-shell" id="hero-shell">
+				<div class="hero-fold">
+					<section class="hero wrap" id="hero">
+						<p class="eyebrow">Interactive game maps</p>
+						<h1>Every secret, <em>mapped</em> and available offline.</h1>
+						<p class="lede">
+							Pick a game, track what you have found across playthroughs, and keep going without a
+							connection. Your progress never leaves your browser.
+						</p>
+					</section>
+					<section class="resume wrap" id="resume" aria-labelledby="resume-title" hidden></section>
+				</div>
+			</div>
 
-  <section id="games" class="wrap" aria-labelledby="games-title">
-    <h2 id="games-title" class="section-label">Choose a game</h2>
-    <ul id="game-list" class="game-grid"></ul>
-    <p id="no-results" class="notice" hidden>No maps match your search.</p>
-  </section>
+			<section id="games" class="wrap" aria-labelledby="games-title">
+				<h2 id="games-title" class="section-label">Choose a game</h2>
+				<ul id="game-list" class="game-grid"></ul>
+				<p id="no-results" class="notice" hidden>No maps match your search.</p>
+			</section>
 
-  <section id="partial" class="wrap partial" aria-labelledby="partial-title" hidden>
-    <h2 id="partial-title" class="section-label">Partial matches</h2>
-    <ul id="partial-list" class="game-grid"></ul>
-  </section>
+			<section id="partial" class="wrap partial" aria-labelledby="partial-title" hidden>
+				<h2 id="partial-title" class="section-label">Partial matches</h2>
+				<ul id="partial-list" class="game-grid"></ul>
+			</section>
 
-  <section class="wrap features" aria-label="Features">
-    <ul>
-      <li>
-        <span class="feat-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg></span>
-        <h3>Works offline</h3>
-        <p>Map tiles, markers and screenshots ship with the site, so a map keeps working when your connection does not.</p>
-      </li>
-      <li>
-        <span class="feat-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></svg></span>
-        <h3>Track every playthrough</h3>
-        <p>Keep separate progress for each save file, switch difficulty, and export or import it whenever you like.</p>
-      </li>
-      <li>
-        <span class="feat-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></span>
-        <h3>Show only what matters</h3>
-        <p>Save selection presets to see just the bosses, keys or collectibles you are hunting right now.</p>
-      </li>
-    </ul>
-  </section>
-</main>
+			<section class="wrap features" aria-label="Features">
+				<ul>
+					<li>
+						<span class="feat-ico" aria-hidden="true"
+							><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" /></svg
+						></span>
+						<h3>Works offline</h3>
+						<p>
+							Map tiles, markers and screenshots ship with the site, so a map keeps working when your
+							connection does not.
+						</p>
+					</li>
+					<li>
+						<span class="feat-ico" aria-hidden="true"
+							><svg viewBox="0 0 24 24">
+								<circle cx="12" cy="12" r="9" />
+								<path d="m8 12.5 3 3 5-6" /></svg
+						></span>
+						<h3>Track every playthrough</h3>
+						<p>
+							Keep separate progress for each save file, switch difficulty, and export or import it
+							whenever you like.
+						</p>
+					</li>
+					<li>
+						<span class="feat-ico" aria-hidden="true"
+							><svg viewBox="0 0 24 24">
+								<path d="M4 7h9m4 0h3M4 17h3m4 0h9" />
+								<circle cx="15" cy="7" r="2" />
+								<circle cx="9" cy="17" r="2" /></svg
+						></span>
+						<h3>Show only what matters</h3>
+						<p>
+							Save selection presets to see just the bosses, keys or collectibles you are hunting right
+							now.
+						</p>
+					</li>
+				</ul>
+			</section>
+		</main>
 
-<footer class="foot wrap">
-  <p>An unofficial fan project. Game names, artwork and trademarks belong to their respective owners.</p>
-  <p class="legal-links"><a href="about/">About</a><span class="sep" aria-hidden="true">·</span><a href="terms/">Terms of service</a><span class="sep" aria-hidden="true">·</span><a href="privacy/">Privacy policy</a></p>
-  <p class="foot-motto" lang="la"><em>Nisi Dominus frustra</em></p>
-</footer>
+		<footer class="foot wrap">
+			<p>An unofficial fan project. Game names, artwork and trademarks belong to their respective owners.</p>
+			<p class="legal-links">
+				<a href="about/">About</a><span class="sep" aria-hidden="true">·</span
+				><a href="terms/">Terms of service</a><span class="sep" aria-hidden="true">·</span
+				><a href="privacy/">Privacy policy</a>
+			</p>
+			<p class="foot-motto" lang="la"><em>Nisi Dominus frustra</em></p>
+		</footer>
 
-<div id="toast" role="status" hidden></div>
-<script type="module" src="home.js"></script>
-</body>
+		<div id="toast" role="status" hidden></div>
+		<script type="module" src="home.js"></script>
+	</body>
 </html>

@@ -1,193 +1,188 @@
 {
-  "id": "links-awakening",
-  "title": "The Legend of Zelda: Link’s Awakening",
-  "slug": "zelda-links-awakening",
-  "source": "https://mapgenie.io/zelda-links-awakening/maps/koholint-island",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "koholint-island",
-      "title": "Koholint Island",
-      "data": "koholint-island/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "koholint-island/tiles/default-v2/{z}/{x}/{y}.jpg",
-          "minzoom": 9,
-          "maxzoom": 16,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.80585859677988,
-            -0.1013178152657001,
-            0.41192411612536994,
-            1.4871038512169201
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "boss": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "bottle": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "compass": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "dungeon": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "fairy_bottle": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "fairy_fountain": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "heart_piece": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "house": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "item": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "mad_batter": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "map": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "mario_figurine": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "minigame": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "nightmare_key": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "owl_statue": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "seashell": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "shop": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "small_key": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "stone_beak": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "telephone_booth": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "trading_sequence": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "treasure_chest": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "warp_point": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "links-awakening",
+	"title": "The Legend of Zelda: Link’s Awakening",
+	"slug": "zelda-links-awakening",
+	"source": "https://mapgenie.io/zelda-links-awakening/maps/koholint-island",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "koholint-island",
+			"title": "Koholint Island",
+			"data": "koholint-island/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "koholint-island/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.80585859677988, -0.1013178152657001, 0.41192411612536994, 1.4871038512169201],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"boss": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"bottle": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"compass": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"fairy_bottle": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"fairy_fountain": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"heart_piece": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"house": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"mad_batter": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"map": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"mario_figurine": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"nightmare_key": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"owl_statue": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"seashell": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"small_key": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"stone_beak": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"telephone_booth": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"trading_sequence": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"warp_point": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

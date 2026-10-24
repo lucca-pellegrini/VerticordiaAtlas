@@ -1,235 +1,230 @@
 {
-  "id": "re4",
-  "title": "Resident Evil 4",
-  "slug": "resident-evil-4-remake",
-  "source": "https://mapgenie.io/resident-evil-4-remake/maps/world",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "world",
-      "title": "World",
-      "data": "world/data.json",
-      "tilesets": [
-        {
-          "name": "Village",
-          "template": "world/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 15,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "ammo": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "area": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "blue_medallion": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "boss": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "clockwork_castellan": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "container": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "crafting_recipe": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "crow": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "file": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "gunpowder": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "herbs_meds": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "key": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "key_item": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "lock": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "mechanism": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "merchant": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "merchant_request": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "merchant_request_item": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "pesetas": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "puzzle": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "resources": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "shooting_range": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ],
-      "spinel": [
-        {
-          "cp": "e919",
-          "color": "#ffffff"
-        }
-      ],
-      "transition": [
-        {
-          "cp": "e91a",
-          "color": "#ffffff"
-        }
-      ],
-      "treasure": [
-        {
-          "cp": "e91b",
-          "color": "#ffffff"
-        }
-      ],
-      "typewriter": [
-        {
-          "cp": "e91c",
-          "color": "#ffffff"
-        }
-      ],
-      "wayshrine": [
-        {
-          "cp": "e91d",
-          "color": "#ffffff"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e91e",
-          "color": "#ffffff"
-        }
-      ],
-      "weapon_part": [
-        {
-          "cp": "e91f",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "re4",
+	"title": "Resident Evil 4",
+	"slug": "resident-evil-4-remake",
+	"source": "https://mapgenie.io/resident-evil-4-remake/maps/world",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"tilesets": [
+				{
+					"name": "Village",
+					"template": "world/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"ammo": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"blue_medallion": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"clockwork_castellan": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"container": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"crafting_recipe": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"crow": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"file": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"gunpowder": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"herbs_meds": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"lock": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"mechanism": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"merchant_request": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"merchant_request_item": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"pesetas": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"puzzle": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"resources": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"shooting_range": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"spinel": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"typewriter": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"wayshrine": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_part": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

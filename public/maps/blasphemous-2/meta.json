@@ -1,409 +1,404 @@
 {
-  "id": "blasphemous-2",
-  "title": "Blasphemous 2",
-  "slug": "blasphemous-2",
-  "source": "https://mapgenie.io/blasphemous-2/maps/cvstodia",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "maps": [
-    {
-      "slug": "cvstodia",
-      "title": "Cvstodia",
-      "data": "cvstodia/data.json",
-      "tilesets": [
-        {
-          "name": "V2",
-          "template": "cvstodia/tiles/default-v4/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 16,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ],
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "achievement": [
-        {
-          "cp": "e900",
-          "color": "#ffffff"
-        }
-      ],
-      "altar": [
-        {
-          "cp": "e901",
-          "color": "#ffffff"
-        }
-      ],
-      "bell": [
-        {
-          "cp": "e902",
-          "color": "#ffffff"
-        }
-      ],
-      "bird_cage": [
-        {
-          "cp": "e903",
-          "color": "#ffffff"
-        }
-      ],
-      "blood_upgrade": [
-        {
-          "cp": "e904",
-          "color": "#ffffff"
-        }
-      ],
-      "boss": [
-        {
-          "cp": "e905",
-          "color": "#ffffff"
-        }
-      ],
-      "breakable_surface": [
-        {
-          "cp": "e906",
-          "color": "#ffffff"
-        }
-      ],
-      "carriage": [
-        {
-          "cp": "e907",
-          "color": "#ffffff"
-        }
-      ],
-      "chant": [
-        {
-          "cp": "e908",
-          "color": "#ffffff"
-        }
-      ],
-      "child_of_moonlight": [
-        {
-          "cp": "e909",
-          "color": "#ffffff"
-        }
-      ],
-      "cobijadas": [
-        {
-          "cp": "e90a",
-          "color": "#ffffff"
-        }
-      ],
-      "confessor": [
-        {
-          "cp": "e90b",
-          "color": "#ffffff"
-        }
-      ],
-      "dash_barrier": [
-        {
-          "cp": "e90c",
-          "color": "#ffffff"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e90d",
-          "color": "#ffffff"
-        }
-      ],
-      "emblem": [
-        {
-          "cp": "e90e",
-          "color": "#ffffff"
-        }
-      ],
-      "empty_receptacle": [
-        {
-          "cp": "e90f",
-          "color": "#ffffff"
-        }
-      ],
-      "enemy": [
-        {
-          "cp": "e910",
-          "color": "#ffffff"
-        }
-      ],
-      "fervent_kiss": [
-        {
-          "cp": "e911",
-          "color": "#ffffff"
-        }
-      ],
-      "fervor_upgrade": [
-        {
-          "cp": "e912",
-          "color": "#ffffff"
-        }
-      ],
-      "figure": [
-        {
-          "cp": "e913",
-          "color": "#ffffff"
-        }
-      ],
-      "forgotten_tribute": [
-        {
-          "cp": "e914",
-          "color": "#ffffff"
-        }
-      ],
-      "fountain": [
-        {
-          "cp": "e915",
-          "color": "#ffffff"
-        }
-      ],
-      "golden_ornament": [
-        {
-          "cp": "e916",
-          "color": "#ffffff"
-        }
-      ],
-      "hidden_symbol": [
-        {
-          "cp": "e917",
-          "color": "#ffffff"
-        }
-      ],
-      "imperfectus_lacrimatorio": [
-        {
-          "cp": "e918",
-          "color": "#ffffff"
-        }
-      ],
-      "interactable": [
-        {
-          "cp": "e919",
-          "color": "#ffffff"
-        }
-      ],
-      "key": [
-        {
-          "cp": "e91a",
-          "color": "#ffffff"
-        }
-      ],
-      "living_barrier": [
-        {
-          "cp": "e91b",
-          "color": "#ffffff"
-        }
-      ],
-      "locked_door": [
-        {
-          "cp": "e91c",
-          "color": "#ffffff"
-        }
-      ],
-      "lump_of_gold": [
-        {
-          "cp": "e91d",
-          "color": "#ffffff"
-        }
-      ],
-      "mark_of_martyrdom": [
-        {
-          "cp": "e91e",
-          "color": "#ffffff"
-        }
-      ],
-      "mark_of_the_embrujo": [
-        {
-          "cp": "e91f",
-          "color": "#ffffff"
-        }
-      ],
-      "mark_of_the_preceptor": [
-        {
-          "cp": "e920",
-          "color": "#ffffff"
-        }
-      ],
-      "memento": [
-        {
-          "cp": "e921",
-          "color": "#ffffff"
-        }
-      ],
-      "mirror": [
-        {
-          "cp": "e922",
-          "color": "#ffffff"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e923",
-          "color": "#ffffff"
-        }
-      ],
-      "npc": [
-        {
-          "cp": "e924",
-          "color": "#ffffff"
-        }
-      ],
-      "offering": [
-        {
-          "cp": "e925",
-          "color": "#ffffff"
-        }
-      ],
-      "ornate_chalice": [
-        {
-          "cp": "e926",
-          "color": "#ffffff"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e927",
-          "color": "#ffffff"
-        }
-      ],
-      "prie_dieu": [
-        {
-          "cp": "e928",
-          "color": "#ffffff"
-        }
-      ],
-      "quest_item": [
-        {
-          "cp": "e929",
-          "color": "#ffffff"
-        }
-      ],
-      "quick_verse": [
-        {
-          "cp": "e92a",
-          "color": "#ffffff"
-        }
-      ],
-      "relic_of_contrition": [
-        {
-          "cp": "e92b",
-          "color": "#ffffff"
-        }
-      ],
-      "rosary_bead": [
-        {
-          "cp": "e92c",
-          "color": "#ffffff"
-        }
-      ],
-      "rosary_knot": [
-        {
-          "cp": "e92d",
-          "color": "#ffffff"
-        }
-      ],
-      "rosary_upgrade": [
-        {
-          "cp": "e92e",
-          "color": "#ffffff"
-        }
-      ],
-      "sculptor": [
-        {
-          "cp": "e92f",
-          "color": "#ffffff"
-        }
-      ],
-      "sealed_envelope": [
-        {
-          "cp": "e930",
-          "color": "#ffffff"
-        }
-      ],
-      "shop": [
-        {
-          "cp": "e931",
-          "color": "#ffffff"
-        }
-      ],
-      "shortcut": [
-        {
-          "cp": "e932",
-          "color": "#ffffff"
-        }
-      ],
-      "silver_clad_crystal_shard": [
-        {
-          "cp": "e933",
-          "color": "#ffffff"
-        }
-      ],
-      "skin": [
-        {
-          "cp": "e934",
-          "color": "#ffffff"
-        }
-      ],
-      "sleeping_daughter": [
-        {
-          "cp": "e935",
-          "color": "#ffffff"
-        }
-      ],
-      "tears_of_atonement": [
-        {
-          "cp": "e936",
-          "color": "#ffffff"
-        }
-      ],
-      "teleporter": [
-        {
-          "cp": "e937",
-          "color": "#ffffff"
-        }
-      ],
-      "thorn_barrier": [
-        {
-          "cp": "e938",
-          "color": "#ffffff"
-        }
-      ],
-      "tool": [
-        {
-          "cp": "e939",
-          "color": "#ffffff"
-        }
-      ],
-      "unfinished_lullaby": [
-        {
-          "cp": "e93a",
-          "color": "#ffffff"
-        }
-      ],
-      "wax_seed": [
-        {
-          "cp": "e93b",
-          "color": "#ffffff"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e93c",
-          "color": "#ffffff"
-        }
-      ]
-    }
-  }
+	"id": "blasphemous-2",
+	"title": "Blasphemous 2",
+	"slug": "blasphemous-2",
+	"source": "https://mapgenie.io/blasphemous-2/maps/cvstodia",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"maps": [
+		{
+			"slug": "cvstodia",
+			"title": "Cvstodia",
+			"data": "cvstodia/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "cvstodia/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	],
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"achievement": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"altar": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"bell": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"bird_cage": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"blood_upgrade": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"breakable_surface": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"carriage": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"chant": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"child_of_moonlight": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"cobijadas": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"confessor": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"dash_barrier": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"emblem": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"empty_receptacle": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"fervent_kiss": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"fervor_upgrade": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"figure": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"forgotten_tribute": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"fountain": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"golden_ornament": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"hidden_symbol": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"imperfectus_lacrimatorio": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"interactable": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"living_barrier": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"lump_of_gold": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"mark_of_martyrdom": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"mark_of_the_embrujo": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"mark_of_the_preceptor": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"memento": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"mirror": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"offering": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"ornate_chalice": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"prie_dieu": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"quest_item": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"quick_verse": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"relic_of_contrition": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"rosary_bead": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"rosary_knot": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"rosary_upgrade": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"sculptor": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"sealed_envelope": [
+				{
+					"cp": "e930",
+					"color": "#ffffff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			],
+			"shortcut": [
+				{
+					"cp": "e932",
+					"color": "#ffffff"
+				}
+			],
+			"silver_clad_crystal_shard": [
+				{
+					"cp": "e933",
+					"color": "#ffffff"
+				}
+			],
+			"skin": [
+				{
+					"cp": "e934",
+					"color": "#ffffff"
+				}
+			],
+			"sleeping_daughter": [
+				{
+					"cp": "e935",
+					"color": "#ffffff"
+				}
+			],
+			"tears_of_atonement": [
+				{
+					"cp": "e936",
+					"color": "#ffffff"
+				}
+			],
+			"teleporter": [
+				{
+					"cp": "e937",
+					"color": "#ffffff"
+				}
+			],
+			"thorn_barrier": [
+				{
+					"cp": "e938",
+					"color": "#ffffff"
+				}
+			],
+			"tool": [
+				{
+					"cp": "e939",
+					"color": "#ffffff"
+				}
+			],
+			"unfinished_lullaby": [
+				{
+					"cp": "e93a",
+					"color": "#ffffff"
+				}
+			],
+			"wax_seed": [
+				{
+					"cp": "e93b",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e93c",
+					"color": "#ffffff"
+				}
+			]
+		}
+	}
 }

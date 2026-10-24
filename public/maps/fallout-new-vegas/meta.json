@@ -1,406 +1,381 @@
 {
-  "id": "fallout-new-vegas",
-  "title": "Fallout: New Vegas",
-  "slug": "fallout-new-vegas",
-  "source": "https://mapgenie.io/fallout-new-vegas",
-  "poster": "poster.jpg",
-  "tagLabel": "Filter",
-  "defaultTag": null,
-  "markers": {
-    "json": "markers.json",
-    "png": "markers.png",
-    "json2x": "markers@2x.json",
-    "png2x": "markers@2x.png"
-  },
-  "icons": {
-    "font": "icons/icons.woff",
-    "glyphs": {
-      "weapon_mod": [
-        {
-          "cp": "e900"
-        }
-      ],
-      "weapon": [
-        {
-          "cp": "e901"
-        }
-      ],
-      "warhead": [
-        {
-          "cp": "e902"
-        }
-      ],
-      "vault": [
-        {
-          "cp": "e903"
-        }
-      ],
-      "urban_ruins": [
-        {
-          "cp": "e904"
-        }
-      ],
-      "unmarked_quest": [
-        {
-          "cp": "e905"
-        }
-      ],
-      "unique_weapon": [
-        {
-          "cp": "e906"
-        }
-      ],
-      "unique_armor": [
-        {
-          "cp": "e907"
-        }
-      ],
-      "underground": [
-        {
-          "cp": "e908"
-        }
-      ],
-      "survival_cache": [
-        {
-          "cp": "e909"
-        }
-      ],
-      "star_bottle_cap": [
-        {
-          "cp": "e90a"
-        }
-      ],
-      "snow_globe": [
-        {
-          "cp": "e90b"
-        }
-      ],
-      "sm_vending_machine": [
-        {
-          "cp": "e90c"
-        }
-      ],
-      "skill_magazine": [
-        {
-          "cp": "e90d"
-        }
-      ],
-      "skill_book": [
-        {
-          "cp": "e90e"
-        }
-      ],
-      "side_quest": [
-        {
-          "cp": "e90f"
-        }
-      ],
-      "settlement": [
-        {
-          "cp": "e910"
-        }
-      ],
-      "schematic": [
-        {
-          "cp": "e911"
-        }
-      ],
-      "safehouse": [
-        {
-          "cp": "e912"
-        }
-      ],
-      "ruins": [
-        {
-          "cp": "e913"
-        }
-      ],
-      "reloading_bench": [
-        {
-          "cp": "e914"
-        }
-      ],
-      "ralphie_poster": [
-        {
-          "cp": "e915"
-        }
-      ],
-      "quest_item": [
-        {
-          "cp": "e916"
-        }
-      ],
-      "point_of_interest": [
-        {
-          "cp": "e917"
-        }
-      ],
-      "other_quest": [
-        {
-          "cp": "e918"
-        }
-      ],
-      "office": [
-        {
-          "cp": "e919"
-        }
-      ],
-      "npc": [
-        {
-          "cp": "e91a"
-        }
-      ],
-      "note": [
-        {
-          "cp": "e91b"
-        }
-      ],
-      "natural_landmark": [
-        {
-          "cp": "e91c"
-        }
-      ],
-      "monument": [
-        {
-          "cp": "e91d"
-        }
-      ],
-      "miscellaneous": [
-        {
-          "cp": "e91e"
-        }
-      ],
-      "military": [
-        {
-          "cp": "e91f"
-        }
-      ],
-      "metro": [
-        {
-          "cp": "e920"
-        }
-      ],
-      "merchant": [
-        {
-          "cp": "e921"
-        }
-      ],
-      "main_quest": [
-        {
-          "cp": "e922"
-        }
-      ],
-      "landmark": [
-        {
-          "cp": "e923"
-        }
-      ],
-      "keypassword": [
-        {
-          "cp": "e924"
-        }
-      ],
-      "key": [
-        {
-          "cp": "e925"
-        }
-      ],
-      "holotape": [
-        {
-          "cp": "e926"
-        }
-      ],
-      "hollow_rock": [
-        {
-          "cp": "e927"
-        }
-      ],
-      "factory": [
-        {
-          "cp": "e928"
-        }
-      ],
-      "eyebot_upgrade": [
-        {
-          "cp": "e929"
-        }
-      ],
-      "encampment": [
-        {
-          "cp": "e92a"
-        }
-      ],
-      "easter_egg": [
-        {
-          "cp": "e92b"
-        }
-      ],
-      "doctor": [
-        {
-          "cp": "e92c"
-        }
-      ],
-      "dlc_quest": [
-        {
-          "cp": "e92d"
-        }
-      ],
-      "dean_stash": [
-        {
-          "cp": "e92e"
-        }
-      ],
-      "companion_quest": [
-        {
-          "cp": "e92f"
-        }
-      ],
-      "companion": [
-        {
-          "cp": "e930"
-        }
-      ],
-      "city": [
-        {
-          "cp": "e931"
-        }
-      ],
-      "cave": [
-        {
-          "cp": "e932"
-        }
-      ],
-      "card": [
-        {
-          "cp": "e933"
-        }
-      ],
-      "caravan_player": [
-        {
-          "cp": "e934"
-        }
-      ],
-      "campfire": [
-        {
-          "cp": "e935"
-        }
-      ],
-      "armor": [
-        {
-          "cp": "e936"
-        },
-        {
-          "cp": "e937",
-          "ml": "-1em"
-        }
-      ]
-    }
-  },
-  "maps": [
-    {
-      "slug": "mojave-wasteland",
-      "title": "Mojave Wasteland",
-      "data": "mojave-wasteland/data.json",
-      "tilesets": [
-        {
-          "name": "Pip-Boy",
-          "template": "mojave-wasteland/tiles/default-v2/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 15,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "sierra-madre",
-      "title": "Sierra Madre",
-      "data": "sierra-madre/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "sierra-madre/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "zion-canyon",
-      "title": "Zion Canyon",
-      "data": "zion-canyon/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "zion-canyon/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "big-mt",
-      "title": "Big MT",
-      "data": "big-mt/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "big-mt/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    },
-    {
-      "slug": "the-divide",
-      "title": "The Divide",
-      "data": "the-divide/data.json",
-      "tilesets": [
-        {
-          "name": "Default",
-          "template": "the-divide/tiles/default-v1/{z}/{y}/{x}.jpg",
-          "minzoom": 8,
-          "maxzoom": 14,
-          "viewMaxzoom": 14,
-          "bounds": [
-            -1.4,
-            0,
-            0,
-            1.4
-          ],
-          "tileSize": 256
-        }
-      ]
-    }
-  ]
+	"id": "fallout-new-vegas",
+	"title": "Fallout: New Vegas",
+	"slug": "fallout-new-vegas",
+	"source": "https://mapgenie.io/fallout-new-vegas",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"weapon_mod": [
+				{
+					"cp": "e900"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e901"
+				}
+			],
+			"warhead": [
+				{
+					"cp": "e902"
+				}
+			],
+			"vault": [
+				{
+					"cp": "e903"
+				}
+			],
+			"urban_ruins": [
+				{
+					"cp": "e904"
+				}
+			],
+			"unmarked_quest": [
+				{
+					"cp": "e905"
+				}
+			],
+			"unique_weapon": [
+				{
+					"cp": "e906"
+				}
+			],
+			"unique_armor": [
+				{
+					"cp": "e907"
+				}
+			],
+			"underground": [
+				{
+					"cp": "e908"
+				}
+			],
+			"survival_cache": [
+				{
+					"cp": "e909"
+				}
+			],
+			"star_bottle_cap": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"snow_globe": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"sm_vending_machine": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"skill_magazine": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"skill_book": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"settlement": [
+				{
+					"cp": "e910"
+				}
+			],
+			"schematic": [
+				{
+					"cp": "e911"
+				}
+			],
+			"safehouse": [
+				{
+					"cp": "e912"
+				}
+			],
+			"ruins": [
+				{
+					"cp": "e913"
+				}
+			],
+			"reloading_bench": [
+				{
+					"cp": "e914"
+				}
+			],
+			"ralphie_poster": [
+				{
+					"cp": "e915"
+				}
+			],
+			"quest_item": [
+				{
+					"cp": "e916"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e917"
+				}
+			],
+			"other_quest": [
+				{
+					"cp": "e918"
+				}
+			],
+			"office": [
+				{
+					"cp": "e919"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"note": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"natural_landmark": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"monument": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"military": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"metro": [
+				{
+					"cp": "e920"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e921"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e922"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e923"
+				}
+			],
+			"keypassword": [
+				{
+					"cp": "e924"
+				}
+			],
+			"key": [
+				{
+					"cp": "e925"
+				}
+			],
+			"holotape": [
+				{
+					"cp": "e926"
+				}
+			],
+			"hollow_rock": [
+				{
+					"cp": "e927"
+				}
+			],
+			"factory": [
+				{
+					"cp": "e928"
+				}
+			],
+			"eyebot_upgrade": [
+				{
+					"cp": "e929"
+				}
+			],
+			"encampment": [
+				{
+					"cp": "e92a"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e92b"
+				}
+			],
+			"doctor": [
+				{
+					"cp": "e92c"
+				}
+			],
+			"dlc_quest": [
+				{
+					"cp": "e92d"
+				}
+			],
+			"dean_stash": [
+				{
+					"cp": "e92e"
+				}
+			],
+			"companion_quest": [
+				{
+					"cp": "e92f"
+				}
+			],
+			"companion": [
+				{
+					"cp": "e930"
+				}
+			],
+			"city": [
+				{
+					"cp": "e931"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e932"
+				}
+			],
+			"card": [
+				{
+					"cp": "e933"
+				}
+			],
+			"caravan_player": [
+				{
+					"cp": "e934"
+				}
+			],
+			"campfire": [
+				{
+					"cp": "e935"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e936"
+				},
+				{
+					"cp": "e937",
+					"ml": "-1em"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "mojave-wasteland",
+			"title": "Mojave Wasteland",
+			"data": "mojave-wasteland/data.json",
+			"tilesets": [
+				{
+					"name": "Pip-Boy",
+					"template": "mojave-wasteland/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "sierra-madre",
+			"title": "Sierra Madre",
+			"data": "sierra-madre/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "sierra-madre/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "zion-canyon",
+			"title": "Zion Canyon",
+			"data": "zion-canyon/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "zion-canyon/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "big-mt",
+			"title": "Big MT",
+			"data": "big-mt/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "big-mt/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "the-divide",
+			"title": "The Divide",
+			"data": "the-divide/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-divide/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }
