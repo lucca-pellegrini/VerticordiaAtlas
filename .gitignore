@@ -7,3 +7,5 @@ cache/
 **/card.jpg
 data/
 node_modules/
+*.js
+!public/vendor/*.js
