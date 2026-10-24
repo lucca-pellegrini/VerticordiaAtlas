@@ -291,8 +291,19 @@ export async function downloadTiles({
 	// Only the highest zoom is scraped (--force-get-tiles takes the whole pyramid): the overview is made from it afterwards,
 	// and the zooms in between are made by the server when they are asked for (see server/tile-service.ts).
 	const maxOnly = !opts.unpruned;
+	const hasMaxBounds = Boolean(
+		ts.bounds &&
+		!Array.isArray(ts.bounds) &&
+		ts.bounds[maxZ]?.x &&
+		ts.bounds[maxZ]?.y &&
+		Number.isFinite(ts.bounds[maxZ].x.min) &&
+		Number.isFinite(ts.bounds[maxZ].x.max) &&
+		Number.isFinite(ts.bounds[maxZ].y.min) &&
+		Number.isFinite(ts.bounds[maxZ].y.max),
+	);
+	const startZ = maxOnly && hasMaxBounds ? maxZ : minZ;
 	let cands = first;
-	for (let z = maxOnly ? maxZ : minZ; z <= maxZ; z++) {
+	for (let z = startZ; z <= maxZ; z++) {
 		const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[z] : null;
 		if (
 			bz?.x &&
@@ -302,40 +313,46 @@ export async function downloadTiles({
 			Number.isFinite(bz.y.min) &&
 			Number.isFinite(bz.y.max)
 		) {
-			if (z === minZ || opts.unpruned || maxOnly) {
+			if (z === startZ || opts.unpruned) {
 				cands = [];
 				for (let x = bz.x.min; x <= bz.x.max; x++)
 					for (let y = bz.y.min; y <= bz.y.max; y++) cands.push([x, y]);
 			} else {
 				cands = cands.filter(([x, y]) => x >= bz.x.min && x <= bz.x.max && y >= bz.y.min && y <= bz.y.max);
 			}
-		} else if (opts.unpruned || maxOnly) {
-			cands = tilesCovering(bounds, z, 0);
+		} else if (z === startZ || opts.unpruned) {
+			cands = z === minZ ? first : tilesCovering(bounds, z, 0);
 		}
-		if (stats.saved + stats.skipped + cands.length > opts.maxTiles) {
+		if ((!maxOnly || z === maxZ) && stats.saved + stats.skipped + cands.length > opts.maxTiles) {
 			console.log(`  stopping before zoom ${z}: would pass --max-tiles ${opts.maxTiles}`);
 			break;
 		}
+		const isScouting = maxOnly && z < maxZ;
 		const found: [number, number][] = [];
 		await pool(cands, opts.concurrency, async ([x, y]) => {
 			const file = path.join(destDir, fill(localTail, z, x, y));
 			if (await exists(file)) {
-				stats.skipped++;
+				if (!isScouting) stats.skipped++;
 				found.push([x, y]);
 				return;
 			}
 			const r = await getBin(fill(remote(base!), z, x, y));
 			if (r.status === 200 && r.type?.startsWith("image/") && r.buf) {
-				await mkdir(path.dirname(file), { recursive: true });
-				await writeFile(file, r.buf);
-				stats.saved++;
-				stats.bytes += r.buf.length;
+				if (!isScouting) {
+					await mkdir(path.dirname(file), { recursive: true });
+					await writeFile(file, r.buf);
+					stats.saved++;
+					stats.bytes += r.buf.length;
+				}
 				found.push([x, y]);
-			} else if (r.status === 0) stats.failed++;
-			else stats.missing++;
+			} else if (r.status === 0) {
+				if (!isScouting) stats.failed++;
+			} else {
+				if (!isScouting) stats.missing++;
+			}
 			if (opts.delay) await sleep(opts.delay);
 		});
-		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)`);
+		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)${isScouting ? " (scouting)" : ""}`);
 		if (!found.length && !opts.unpruned) break;
 		if (!opts.unpruned)
 			cands = found.flatMap(([x, y]): [number, number][] => [

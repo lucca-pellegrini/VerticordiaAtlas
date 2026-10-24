@@ -460,6 +460,32 @@ describe("scripts/add-game tile download", () => {
 			c.server.close();
 		}
 	});
+
+	test("when max-zoom bounds are missing, quadtree crawls and saves only the highest zoom", async () => {
+		const c = await cdn();
+		try {
+			const tsNoMaxBounds = {
+				pattern: "{z}/{x}/{y}.png",
+				min_zoom: 1,
+				tiles_max_zoom: 3,
+				bounds: { 1: range(2) }, // bounds only at zoom 1, no bounds at zoom 3
+			};
+			const r = await downloadTiles({
+				md: { locations: [] },
+				ts: tsNoMaxBounds,
+				baseCandidates: [c.base],
+				destDir: path.join(tmp, "c"),
+				localTail: "tiles/set/{z}/{x}/{y}.png",
+				opts: { concurrency: 4, delay: 0, maxTiles: 100000, unpruned: false },
+			});
+			expect(r.stats.saved).toBe(63);
+			const tiles = await listTiles(path.join(tmp, "c/tiles/set"), parseTail("{z}/{x}/{y}.png")!);
+			expect(new Set(tiles.map((t) => t.z))).toEqual(new Set([3]));
+			expect(zoomsAsked(c.asked)).toEqual(new Set(["1", "2", "3"]));
+		} finally {
+			c.server.close();
+		}
+	});
 });
 
 describe("game popularity", () => {
