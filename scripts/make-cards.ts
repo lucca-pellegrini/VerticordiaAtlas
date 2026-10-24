@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // make-cards.ts: social preview cards for the homepage and every game, and the tags that point at them.
 //
 //   bun scripts/make-cards.ts

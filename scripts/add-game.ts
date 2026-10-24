@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // add-game.ts: add (or refresh) a MapGenie game from just its link.
 //
 //   bun scripts/add-game.ts https://mapgenie.io/<game> [options]

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // account-page.ts: the /account/ page. Shows signed-in account details, session controls, account deletion, and
 // device-local offline maps.
 

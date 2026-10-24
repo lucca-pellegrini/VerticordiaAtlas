@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // sync-rules.ts: the one definition of what counts as a change when profiles are synced. The server (api.ts) and the
 // browser (sync.ts) both import it, so they cannot disagree about whether two copies of an item are the same.
 //

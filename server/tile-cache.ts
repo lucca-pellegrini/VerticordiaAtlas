@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // tile-cache.ts: the disk cache of made tiles (cache/tiles/<game>/<map>/<tileset>/<z>/...). The files are the truth about
 // what is cached; recency and hit counts are kept in memory only and are allowed to be lost on a restart (a tile not seen
 // since then is judged by its file date). When the folder grows past maxBytes, the oldest tiles are deleted until it is

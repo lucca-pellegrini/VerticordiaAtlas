@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // build.ts: bundles client TypeScript entrypoints in src/client/ into public/, verifies all Service Worker precache paths, and injects a content-addressed version into public/sw.js.
 
 import crypto from "node:crypto";

@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // clean-markers.ts: rewrite intra-map MapGenie marker links in location descriptions to minimal "#loc=<id>" fragments.
 //
 //   bun scripts/clean-markers.ts [game ...] [--dry-run] [--out public/maps]

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // offline.ts: device-local "Keep offline" manager.
 // A map kept offline is one pack (see pack-store.ts) that the server streams in a single request (server/offline-pack.ts).
 // The pack is stored as a few large blobs plus an index in IndexedDB, and the service worker answers the page's requests

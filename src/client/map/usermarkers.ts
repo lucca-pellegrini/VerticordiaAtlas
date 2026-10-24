@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 import { esc } from "../../shared/escape.ts";
 import { unpackMarker } from "../../shared/share-link.ts";
 import type { UserCategory, UserMarker } from "../../shared/types.ts";

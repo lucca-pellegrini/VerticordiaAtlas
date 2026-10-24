@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // The sign-in page: Google (the server does the redirect and checks the ID token), or a secret key. Either way the server sets the session.
 import "./theme.ts";
 

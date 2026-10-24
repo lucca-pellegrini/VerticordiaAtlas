@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // tile-engine.ts: the image side of the tile strategy. Only the highest zoom of a map is scraped; the lowest zoom (the
 // overview) is generated once, and the zooms in between are made on demand by stitching four tiles of the next zoom
 // and shrinking the result by half. Tiles that are a single colour (the black or grey outside a map) are stored once

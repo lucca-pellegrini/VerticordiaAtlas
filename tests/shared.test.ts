@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 import { describe, expect, test } from "bun:test";
 
 import { esc, fmt, fmtEn } from "../src/shared/escape.ts";

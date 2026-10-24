@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // api.ts: optional accounts and cross-device sync, under /api/. The app works without any of this: an account only
 // lets the same progress follow you to another device. Everything is in one SQLite file (data/atlas.db).
 //
@@ -490,7 +493,8 @@ export function createApi({
 					});
 					res.end();
 				};
-				if (!googleClientId || !publicUrl) return back("We can't seem to reach Google for sign-in. Try again later.");
+				if (!googleClientId || !publicUrl)
+					return back("We can't seem to reach Google for sign-in. Try again later.");
 				if (!allowLogin(ip)) return back("Too many attempts. Please wait a little and try again.");
 				const n = url.searchParams.get("next") || "";
 				const next = /^\/(?!\/)/.test(n) ? n : "/"; // only a path on this site

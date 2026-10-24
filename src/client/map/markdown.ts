@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 /* ---------- descriptions: markdown (vendor/marked.umd.js). MapGenie location links become local #loc links ---------- */
 
 import { esc } from "../../shared/escape.ts";

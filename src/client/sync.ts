@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // sync.ts: keeps this device's progress in step with the server, for signed-in users only. The app never needs it:
 // everything is written to IndexedDB first, and this only moves that data around in the background.
 //

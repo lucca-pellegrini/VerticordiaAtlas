@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // account.ts: optional sign-in for every page. It shows the account button (on the home page, and at the bottom of a
 // map's side panel), the offline indicator (only for signed-in users), and registers the offline cache.
 // Signing in never changes what the app does; it only lets progress sync between devices (see sync.ts).

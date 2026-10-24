@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // Shared color and theme calculations used across server cards, theme.ts,app, and scripts.
 
 import type { ThemePalette } from "./types.ts";

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // pack-store.ts: where a map kept offline lives. One map is one pack: its files (data, markers, icons, every tile) are
 // laid end to end in a few large blobs ("segments", in IndexedDB), with a small index that says where each URL's bytes
 // are. Nothing here goes through the Cache API: with tens of thousands of entries, its lookups are what made pages crawl.

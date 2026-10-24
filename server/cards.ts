@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // cards.ts: the social preview cards and the tags that point at them.
 // Used by make-cards.ts (the homepage and game cards, built ahead of time) and by server.ts (a card per shared
 // marker, rendered on first request and cached).

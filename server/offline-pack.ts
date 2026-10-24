@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // server/offline-pack.ts: streams a complete map package (metadata, markers, icons, tiles)
 // in a single streaming binary pack (VAOP format) for offline storage.
 

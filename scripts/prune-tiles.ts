@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // prune-tiles.ts: make the tiles of the games already in public/maps/ fit the tile strategy (see server/tile-service.ts).
 //
 //   bun scripts/prune-tiles.ts [game ...] [--dry-run] [--no-prune] [--out public/maps] [--concurrency 8]

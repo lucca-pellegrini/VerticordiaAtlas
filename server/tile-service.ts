@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // tile-service.ts: answers a tile request. Order: the stored tile in public/maps (the highest zoom, the overview, and any
 // tile of an older full download) -> the disk cache -> make it from the four tiles of the next zoom, cache it, serve it.
 // The cache is always asked first; a tile is only made on a miss.

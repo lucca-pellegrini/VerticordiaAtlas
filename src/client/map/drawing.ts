@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // Map drawing: pencil and highlighter (perfect-freehand), lines, arrows, paths, rectangles, ellipses, text,
 // an eraser, and undo / redo. Items are kept in map coordinates in the active profile (profile.drawings), so
 // they move with the map. Each item remembers the zoom it was drawn at, and is drawn at the same scale relative

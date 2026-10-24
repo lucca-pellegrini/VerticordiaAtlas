@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // ws.ts: the little of WebSocket (RFC 6455) this site needs, without a dependency. The server only ever sends short
 // text messages ("something changed, come and get it"); what clients send is read for pings and closes and then dropped.
 

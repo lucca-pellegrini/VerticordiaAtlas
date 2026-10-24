@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // server.ts: serves the site, and makes the preview cards for shared markers on demand.
 //
 //   bun server/server.ts [--port 8080] [--host 127.0.0.1] [--debug]

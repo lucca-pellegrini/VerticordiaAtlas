@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // sw.ts: the offline cache. The app works from what it holds, and asks the network only to refresh it.
 //   shell (pages, scripts, styles, fonts, icons, vendor files): served from cache at once, refreshed in the background
 //   game data (metadata, marker data, posters, cards): the same, and the refresh revalidates with the stored ETag

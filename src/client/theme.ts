@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // theme.ts: three-way color theme switch (light · auto · dark).
 // Default is "auto" (follows system preference). A local cookie (va_theme) is written only when the user changes it.
 
