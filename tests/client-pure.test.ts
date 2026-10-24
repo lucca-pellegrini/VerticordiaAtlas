@@ -26,17 +26,16 @@ import { matchOf, queryOf } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
 import { iconScale, vivid } from "../src/client/map/state.ts";
 import {
-	buildOfflineTileSpec,
-	computeZoomRanges,
 	createOfflineManager,
-	expandSpecUrls,
 	fnvBytes,
-	type OfflineCacheAdapter,
 	offlineKey,
 	type OfflineManifest,
+	type OfflineStatus,
 	type OfflineStorageAdapter,
 	pickSampleUrls,
+	unpackVaopStream,
 } from "../src/client/offline.ts";
+import { createMemoryPackStore } from "../src/client/pack-store.ts";
 import { createSync } from "../src/client/sync.ts";
 import { deriveLightAccentSoft, describePage, normalizePath } from "../src/client/theme.ts";
 
@@ -409,156 +408,238 @@ describe("sync client engine (createSync)", () => {
 });
 
 describe("offline maps manager (src/client/offline.ts)", () => {
-	test("pure helpers compute tile ranges, expand URLs, pick samples, and hash bytes", () => {
+	// a VAOP stream of the given files; an entry with `alias` is a second name for an earlier file
+	const vaop = (entries: { url: string; type?: string; data?: string; alias?: string }[], chunk = 7) => {
+		const enc = new TextEncoder();
+		const parts: Buffer[] = [];
+		const hdr = Buffer.alloc(17);
+		hdr.write("VAOP", 0, 4, "ascii");
+		hdr.writeUInt8(1, 4);
+		hdr.writeUInt32BE(entries.length, 5);
+		hdr.writeBigUInt64BE(1000n, 9);
+		parts.push(hdr);
+		for (const e of entries) {
+			const u = Buffer.from(e.url);
+			const m = Buffer.from(e.type ?? "image/jpeg");
+			if (e.alias) {
+				const src = Buffer.from(e.alias);
+				const b = Buffer.alloc(1 + 2 + u.length + 2 + src.length + 1 + m.length);
+				b.writeUInt8(1, 0);
+				b.writeUInt16BE(u.length, 1);
+				u.copy(b, 3);
+				b.writeUInt16BE(src.length, 3 + u.length);
+				src.copy(b, 5 + u.length);
+				b.writeUInt8(m.length, 5 + u.length + src.length);
+				m.copy(b, 6 + u.length + src.length);
+				parts.push(b);
+			} else {
+				const data = Buffer.from(enc.encode(e.data ?? ""));
+				const b = Buffer.alloc(1 + 2 + u.length + 1 + m.length + 4);
+				b.writeUInt8(0, 0);
+				b.writeUInt16BE(u.length, 1);
+				u.copy(b, 3);
+				b.writeUInt8(m.length, 3 + u.length);
+				m.copy(b, 4 + u.length);
+				b.writeUInt32BE(data.length, 4 + u.length + m.length);
+				parts.push(b, data);
+			}
+		}
+		const all = Buffer.concat(parts);
+		let at = 0;
+		return new Response(
+			new ReadableStream<Uint8Array>({
+				pull(c) {
+					if (at >= all.length) return c.close();
+					c.enqueue(all.subarray(at, Math.min(all.length, (at += chunk))));
+				},
+			}),
+		);
+	};
+
+	test("pure helpers hash bytes and pick samples", () => {
 		expect(offlineKey("re7", "baker-ranch")).toBe("offline:re7:baker-ranch");
 		expect(fnvBytes(new Uint8Array([1, 2, 3, 4]))).toMatch(/^[0-9a-f]{8}$/);
 		expect(fnvBytes(new Uint8Array([1, 2, 3, 4]))).not.toBe(fnvBytes(new Uint8Array([1, 2, 3, 5])));
-
-		const ranges = computeZoomRanges([-1.4, 0, 0, 1.4], 9, 10);
-		expect(ranges.length).toBe(2);
-		expect(ranges[0].z).toBe(9);
-		expect(ranges[1].z).toBe(10);
-
-		const meta = {
-			id: "re7",
-			title: "Resident Evil 7",
-			markers: { json: "markers.json", png: "markers.png" },
-			icons: { font: "icons/icons.woff", glyphs: {} },
-			maps: [
-				{
-					slug: "baker-ranch",
-					title: "Baker Ranch",
-					data: "baker-ranch/data.json",
-					tilesets: [
-						{
-							template: "baker-ranch/tiles/default-v1/{z}/{y}/{x}.jpg",
-							minzoom: 9,
-							maxzoom: 10,
-							bounds: [-1.4, 0, 0, 1.4] as [number, number, number, number],
-						},
-					],
-				},
-			],
-		};
-		const spec = buildOfflineTileSpec("re7", meta, meta.maps[0]);
-		expect(spec.dataUrls).toContain("maps/re7/meta.json");
-		expect(spec.dataUrls).toContain("maps/re7/baker-ranch/data.json");
-		expect(spec.dataUrls).toContain("maps/re7/markers.png");
-		expect(spec.dataUrls).toContain("maps/re7/icons/icons.woff");
-
-		const urls = expandSpecUrls(spec);
-		expect(urls.length).toBe(spec.dataUrls.length + 4 + 16);
-		expect(pickSampleUrls(urls, 5).length).toBe(5);
+		const urls = Array.from({ length: 20 }, (_, i) => `/u/${i}`);
+		expect(pickSampleUrls(urls, 5)).toEqual(["/u/0", "/u/4", "/u/9", "/u/14", "/u/19"]);
+		expect(pickSampleUrls(["/a"], 5)).toEqual(["/a"]);
 	});
 
-	test("downloadOfflineMap, verifyOfflineMap, sample hash corruption detection, and removal work end-to-end", async () => {
+	test("a pack is downloaded, answers its URLs (aliases included), is verified, damaged, and removed", async () => {
 		const storeMap = new Map<string, OfflineManifest>();
 		const storage: OfflineStorageAdapter = {
 			get: async (k) => (storeMap.has(k) ? structuredClone(storeMap.get(k)!) : null),
-			put: async (m) => {
-				storeMap.set(m.k, structuredClone(m));
-			},
-			remove: async (k) => {
-				storeMap.delete(k);
-			},
+			put: async (m) => void storeMap.set(m.k, structuredClone(m)),
+			remove: async (k) => void storeMap.delete(k),
 			list: async () => [...storeMap.values()].map((m) => structuredClone(m)),
 		};
-
-		const cacheMap = new Map<string, { bytes: Uint8Array; contentType: string }>();
-		const cache: OfflineCacheAdapter = {
-			keys: async () => [...cacheMap.keys()],
-			match: async (url) => {
-				const entry = cacheMap.get(url);
-				if (!entry) return null;
-				return { size: entry.bytes.byteLength, bytes: async () => entry.bytes };
-			},
-			put: async (url, bytes, contentType) => {
-				cacheMap.set(url, { bytes: new Uint8Array(bytes), contentType });
-			},
-			delete: async (url) => cacheMap.delete(url),
-			clear: async () => cacheMap.clear(),
-		};
-
+		const packs = createMemoryPackStore();
 		const meta = {
 			id: "re7",
 			title: "Resident Evil 7",
-			markers: { json: "markers.json", png: "markers.png" },
 			maps: [
-				{
-					slug: "baker-ranch",
-					title: "Baker Ranch",
-					data: "baker-ranch/data.json",
-					tilesets: [
-						{
-							template: "baker-ranch/tiles/{z}/{y}/{x}.jpg",
-							minzoom: 9,
-							maxzoom: 9,
-							bounds: [-1.4, 0, 0, 1.4] as [number, number, number, number],
-						},
-					],
-				},
+				{ slug: "baker-ranch", title: "Baker Ranch", data: "baker-ranch/data.json", tilesets: [] },
+				{ slug: "end-of-zoe", title: "End of Zoe", data: "end-of-zoe/data.json", tilesets: [] },
 			],
-		};
-
-		let fetchCalls = 0;
+		} as any;
+		const files = [
+			{ url: "/maps/re7/meta.json", type: "application/json", data: "{}" },
+			{ url: "/maps/re7/baker-ranch/tiles/a/9/1/1.jpg", data: "tile-one" },
+			{ url: "/maps/re7/baker-ranch/tiles/a/9/1/2.jpg", data: "tile-two" },
+			{ url: "/maps/re7/baker-ranch/tiles/a/9/2/2.jpg", alias: "/maps/re7/baker-ranch/tiles/a/9/1/1.jpg" },
+		];
+		let requests = 0;
+		let changes = 0;
 		const mgr = createOfflineManager({
 			storage,
-			cache,
+			packs,
 			fetchMeta: async () => meta,
-			fetchUrl: async (url) => {
-				fetchCalls++;
-				// Simulate one 404 tile on an irregular boundary
-				if (url.endsWith("/255/255.jpg")) {
-					return { status: 404, bytes: new Uint8Array(0), contentType: "" };
-				}
-				const bytes = new TextEncoder().encode(`content:${url}`);
-				return { status: 200, bytes, contentType: "image/jpeg" };
-			},
+			fetchPack: async () => (requests++, vaop(files)),
 			now: () => 1700000000000,
+			notifyChanged: () => void changes++,
 		});
 
+		const statuses: OfflineStatus[] = [];
 		const manifest = await mgr.downloadOfflineMap({
 			gameSlug: "re7",
 			mapSlug: "baker-ranch",
+			onStatus: (s) => statuses.push(s),
 		});
-		expect(manifest.enabled).toBe(true);
-		expect(manifest.missingUrls?.length).toBe(1);
-		expect(manifest.expectedCount).toBe(4 + 3); // 4 data URLs + 3 valid tiles (1 tile returned 404)
-		expect(manifest.totalBytes).toBeGreaterThan(0);
-		expect(manifest.sampleHashes.length).toBe(5);
+		expect(statuses[0]).toEqual({ phase: "preparing", map: 1, maps: 1 }); // before anything is asked of the network
+		expect(statuses.slice(1).every((s) => s.phase === "downloading")).toBe(true);
+		expect(manifest.expectedCount).toBe(4);
+		expect(manifest.totalBytes).toBe(2 + "tile-one".length + "tile-two".length); // the alias stores nothing
+		expect(changes).toBe(1);
 
-		// Verify when intact: no additional network fetches
-		const beforeVerifyCalls = fetchCalls;
-		const v1 = await mgr.verifyOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" });
-		expect(v1.status).toBe("intact");
-		expect(v1.missingCount).toBe(0);
-		expect(fetchCalls).toBe(beforeVerifyCalls);
+		const hit = await packs.read("re7", "baker-ranch", "/maps/re7/baker-ranch/tiles/a/9/2/2.jpg");
+		expect(await hit!.blob.text()).toBe("tile-one");
+		expect(hit!.type).toBe("image/jpeg");
+		expect(await packs.read("re7", "baker-ranch", "/maps/re7/nothing.json")).toBeNull();
+		expect(await packs.maps("re7")).toEqual(["baker-ranch"]);
 
-		// Simulate external cache corruption (1 deleted file + 1 corrupted sample file)
-		const sampleUrl = manifest.sampleHashes[0].url;
-		cacheMap.set(sampleUrl, { bytes: new Uint8Array([9, 9, 9]), contentType: "image/jpeg" });
-		const otherUrl = manifest.sampleHashes[1].url;
-		cacheMap.delete(otherUrl);
-
-		// inspectOfflineManifests detects the missing file for the /account/ UI
+		// the account page sees every file as stored
 		const inspected = await mgr.inspectOfflineManifests();
-		expect(inspected.length).toBe(1);
-		expect(inspected[0].intact).toBe(false);
-		expect(renderOfflineListHtml(inspected)).toContain("Missing data");
-		expect(renderOfflineListHtml(inspected)).toContain("data-repair-game");
+		expect(inspected[0].cachedCount).toBe(4);
+		expect(inspected[0].intact).toBe(true);
+		expect(renderOfflineListHtml(inspected)).toContain("Verified");
+		expect((await mgr.verifyOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" })).status).toBe("intact");
+		expect(requests).toBe(1); // verifying asks the network for nothing
 
-		// verifyOfflineMap detects both the missing file and the corrupted sample hash and re-downloads both
-		const v2 = await mgr.verifyOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" });
-		expect(v2.status).toBe("repaired");
-		expect(v2.missingCount).toBe(2);
+		// a game's maps are all fetched, each announced as "preparing" with its place in the game
+		const seen: string[] = [];
+		await mgr.downloadOfflineGame({
+			gameSlug: "re7",
+			onStatus: (s) => s.phase === "preparing" && seen.push(`${s.map}/${s.maps}`),
+		});
+		expect(seen).toEqual(["1/2", "2/2"]);
+		expect((await mgr.getGameOfflineManifests("re7")).map((m) => m.map)).toEqual(["baker-ranch", "end-of-zoe"]);
 
-		const inspectedAfter = await mgr.inspectOfflineManifests();
-		expect(inspectedAfter[0].intact).toBe(true);
-		expect(renderOfflineListHtml(inspectedAfter)).toContain("Verified");
+		// a pack that lost its data is reported, and repaired by downloading it again
+		await packs.remove("re7", "baker-ranch");
+		const damaged = await mgr.inspectOfflineManifests();
+		expect(damaged.find((d) => d.manifest.map === "baker-ranch")!.intact).toBe(false);
+		expect(renderOfflineListHtml(damaged)).toContain("Missing data");
+		expect((await mgr.verifyOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" })).status).toBe("damaged");
+		expect((await mgr.getGameOfflineManifests("re7")).map((m) => m.map)).toEqual(["end-of-zoe"]);
+		await mgr.downloadOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" });
+		expect((await mgr.verifyOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" })).status).toBe("intact");
 
-		// Removing the offline map clears both the manifest and its cached entries
-		await mgr.removeOfflineMap("re7", "baker-ranch");
+		await mgr.removeOfflineGame("re7");
 		expect(await mgr.listOfflineManifests()).toEqual([]);
-		expect(cacheMap.size).toBe(0);
+		expect(await packs.maps("re7")).toEqual([]);
+	});
+
+	test("a cancelled or failed download leaves no pack behind", async () => {
+		const packs = createMemoryPackStore();
+		const mgr = createOfflineManager({
+			storage: { get: async () => null, put: async () => {}, remove: async () => {}, list: async () => [] },
+			packs,
+			fetchMeta: async () =>
+				({ id: "g", title: "G", maps: [{ slug: "m", title: "M", data: "m/data.json", tilesets: [] }] }) as any,
+			fetchPack: async () => new Response(new Blob(["VAOP"]).stream()), // a truncated stream
+			notifyChanged: () => {},
+		});
+		await expect(mgr.downloadOfflineMap({ gameSlug: "g", mapSlug: "m" })).rejects.toThrow();
+		expect(await packs.stat("g", "m")).toBeNull();
+	});
+
+	test("unpackVaopStream decodes binary stream entries and aliases properly", async () => {
+		// Construct a mock VAOP buffer
+		const file1 = new TextEncoder().encode("tile-content-1");
+		const file2 = new TextEncoder().encode("tile-content-2");
+
+		const chunks: Uint8Array[] = [];
+		// 17-byte header: "VAOP", v=1, entries=3, totalBytes=100
+		const hdr = Buffer.alloc(17);
+		hdr.write("VAOP", 0, 4, "ascii");
+		hdr.writeUInt8(1, 4);
+		hdr.writeUInt32BE(3, 5);
+		hdr.writeBigUInt64BE(100n, 9);
+		chunks.push(hdr);
+
+		// Entry 1 (Type 0 file): url="/maps/game/a.jpg", mime="image/jpeg", data=file1
+		const u1 = Buffer.from("/maps/game/a.jpg");
+		const m1 = Buffer.from("image/jpeg");
+		const e1 = Buffer.alloc(1 + 2 + u1.length + 1 + m1.length + 4);
+		e1.writeUInt8(0, 0);
+		e1.writeUInt16BE(u1.length, 1);
+		u1.copy(e1, 3);
+		e1.writeUInt8(m1.length, 3 + u1.length);
+		m1.copy(e1, 4 + u1.length);
+		e1.writeUInt32BE(file1.length, 4 + u1.length + m1.length);
+		chunks.push(e1, file1);
+
+		// Entry 2 (Type 0 file): url="/maps/game/b.jpg", mime="image/jpeg", data=file2
+		const u2 = Buffer.from("/maps/game/b.jpg");
+		const e2 = Buffer.alloc(1 + 2 + u2.length + 1 + m1.length + 4);
+		e2.writeUInt8(0, 0);
+		e2.writeUInt16BE(u2.length, 1);
+		u2.copy(e2, 3);
+		e2.writeUInt8(m1.length, 3 + u2.length);
+		m1.copy(e2, 4 + u2.length);
+		e2.writeUInt32BE(file2.length, 4 + u2.length + m1.length);
+		chunks.push(e2, file2);
+
+		// Entry 3 (Type 1 alias): target="/maps/game/c.jpg", src="/maps/game/a.jpg", mime="image/jpeg"
+		const u3 = Buffer.from("/maps/game/c.jpg");
+		const e3 = Buffer.alloc(1 + 2 + u3.length + 2 + u1.length + 1 + m1.length);
+		e3.writeUInt8(1, 0);
+		e3.writeUInt16BE(u3.length, 1);
+		u3.copy(e3, 3);
+		e3.writeUInt16BE(u1.length, 3 + u3.length);
+		u1.copy(e3, 5 + u3.length);
+		e3.writeUInt8(m1.length, 5 + u3.length + u1.length);
+		m1.copy(e3, 6 + u3.length + u1.length);
+		chunks.push(e3);
+
+		const fullBuf = Buffer.concat(chunks);
+		let offset = 0;
+		const stream = new ReadableStream<Uint8Array>({
+			pull(controller) {
+				if (offset >= fullBuf.length) {
+					controller.close();
+					return;
+				}
+				const chunk = fullBuf.subarray(offset, Math.min(fullBuf.length, offset + 16)); // Split into small chunks to test streaming parser
+				offset += chunk.length;
+				controller.enqueue(chunk);
+			},
+		});
+
+		const entries: any[] = [];
+		await unpackVaopStream(stream, async (e) => {
+			entries.push(e);
+		});
+
+		expect(entries.length).toBe(3);
+		expect(entries[0].type).toBe(0);
+		expect(entries[0].url).toBe("/maps/game/a.jpg");
+		expect(new TextDecoder().decode(entries[0].bytes)).toBe("tile-content-1");
+		expect(entries[1].type).toBe(0);
+		expect(entries[1].url).toBe("/maps/game/b.jpg");
+		expect(new TextDecoder().decode(entries[1].bytes)).toBe("tile-content-2");
+		expect(entries[2].type).toBe(1);
+		expect(entries[2].url).toBe("/maps/game/c.jpg");
+		expect(entries[2].sourceUrl).toBe("/maps/game/a.jpg");
 	});
 });

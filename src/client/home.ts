@@ -9,15 +9,10 @@
 import { esc, fmt } from "../shared/escape.ts";
 import { fuzzyScore, norm, words } from "../shared/search.ts";
 import type { GameManifestEntry, SessionSummary } from "../shared/types.ts";
-import { accountSlot, initAccount, notify } from "./account.ts";
-import { downloadOfflineGame, listOfflineManifests, removeOfflineGame } from "./offline.ts";
+import { accountSlot, initAccount } from "./account.ts";
 import { readRecentGames, recordGameOpen, storeGameTitles } from "./theme.ts";
 
 const ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-const OFFLINE_DL_ICON =
-	'<svg class="off-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>';
-const OFFLINE_OK_ICON =
-	'<svg class="off-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
 
 function card(g: GameManifestEntry, i: number): string {
 	const href = `maps/${encodeURIComponent(g.slug)}/`;
@@ -38,8 +33,7 @@ function card(g: GameManifestEntry, i: number): string {
 		`<li class="card-li" style="--i:${i + 3}"><a class="card" href="${href}" data-slug="${esc(g.slug)}"${accent}>${img}` +
 		`<div class="card-body"><h3>${esc(g.title)}</h3>` +
 		(g.description ? `<p>${esc(g.description)}</p>` : "") +
-		`<div class="card-foot"><ul class="stats">${stats}</ul><span class="cta">Open map ${ARROW}</span></div></div></a>` +
-		`<button type="button" class="card-offline-btn" data-offline-slug="${esc(g.slug)}" data-offline-title="${esc(g.title)}" aria-pressed="false" title="Keep offline" aria-label="Keep ${esc(g.title)} offline">${OFFLINE_DL_ICON}<span class="card-offline-label">Offline</span></button></li>`
+		`<div class="card-foot"><ul class="stats">${stats}</ul><span class="cta">Open map ${ARROW}</span></div></div></a></li>`
 	);
 }
 
@@ -103,7 +97,6 @@ async function main(): Promise<void> {
 	list.addEventListener("auxclick", onOpen);
 
 	setupSearch(list);
-	setupOfflineButtons();
 }
 
 // Search: a card matches by its title or description, exactly or with typos (shared/search.ts).
@@ -355,7 +348,6 @@ function renderResume(gamesList: GameManifestEntry[]): string | null {
 		`<header class="resume-head">` +
 		`<p class="resume-eyebrow"><span class="live" aria-hidden="true"></span>Continue where you left off<span class="when"><span class="sep" aria-hidden="true">·</span><time datetime="${new Date(s.updated).toISOString()}">${esc(ago(s.updated))}</time></span></p>` +
 		`<div class="resume-head-tools">` +
-		`<button type="button" class="card-offline-btn resume-offline-btn" data-offline-slug="${esc(g.slug)}" data-offline-title="${esc(g.title)}" aria-pressed="false" title="Keep offline" aria-label="Keep ${esc(g.title)} offline">${OFFLINE_DL_ICON}<span class="card-offline-label">Offline</span></button>` +
 		`<button type="button" class="resume-dismiss" aria-label="Hide this card" title="Hide this card">${ICON.close}</button>` +
 		`</div>` +
 		`</header>` +
@@ -449,96 +441,6 @@ function renderResume(gamesList: GameManifestEntry[]): string | null {
 	return g.slug;
 }
 
-const activeDownloads = new Map<string, AbortController>();
-
-function setOfflineBtnState(slug: string, state: "off" | "on" | "busy", progressText?: string): void {
-	document.querySelectorAll<HTMLButtonElement>(`button[data-offline-slug="${CSS.escape(slug)}"]`).forEach((btn) => {
-		const title = btn.dataset.offlineTitle || slug;
-		if (state === "busy") {
-			btn.dataset.busy = "1";
-			btn.setAttribute("aria-pressed", "false");
-			btn.innerHTML = `${OFFLINE_DL_ICON}<span class="card-offline-label">${esc(progressText || "…")}</span>`;
-			btn.title = `Downloading ${title} for offline use (click to cancel)`;
-		} else if (state === "on") {
-			delete btn.dataset.busy;
-			btn.setAttribute("aria-pressed", "true");
-			btn.innerHTML = `${OFFLINE_OK_ICON}<span class="card-offline-label">Kept offline</span>`;
-			btn.title = `${title} is kept offline on this device (click to remove)`;
-		} else {
-			delete btn.dataset.busy;
-			btn.setAttribute("aria-pressed", "false");
-			btn.innerHTML = `${OFFLINE_DL_ICON}<span class="card-offline-label">Offline</span>`;
-			btn.title = `Keep ${title} offline on this device`;
-		}
-	});
-}
-
-async function syncOfflineButtonsFromDB(): Promise<void> {
-	try {
-		const manifests = await listOfflineManifests();
-		const keptGames = new Set(manifests.map((m) => m.game));
-		document.querySelectorAll<HTMLButtonElement>("button[data-offline-slug]").forEach((btn) => {
-			const slug = btn.dataset.offlineSlug!;
-			if (!activeDownloads.has(slug)) {
-				setOfflineBtnState(slug, keptGames.has(slug) ? "on" : "off");
-			}
-		});
-	} catch {}
-}
-
-function setupOfflineButtons(): void {
-	syncOfflineButtonsFromDB();
-	document.addEventListener("click", async (e) => {
-		const btn = (e.target as HTMLElement | null)?.closest<HTMLButtonElement>("button[data-offline-slug]");
-		if (!btn) return;
-		e.preventDefault();
-		e.stopPropagation();
-		const slug = btn.dataset.offlineSlug!;
-		const title = btn.dataset.offlineTitle || slug;
-
-		const existingCtrl = activeDownloads.get(slug);
-		if (existingCtrl) {
-			existingCtrl.abort();
-			activeDownloads.delete(slug);
-			await removeOfflineGame(slug);
-			setOfflineBtnState(slug, "off");
-			notify(`Cancelled offline download for ${title}.`);
-			return;
-		}
-
-		if (btn.getAttribute("aria-pressed") === "true") {
-			await removeOfflineGame(slug);
-			setOfflineBtnState(slug, "off");
-			notify(`Removed offline data for ${title}.`);
-			return;
-		}
-
-		const ctrl = new AbortController();
-		activeDownloads.set(slug, ctrl);
-		setOfflineBtnState(slug, "busy", "0%");
-		try {
-			await downloadOfflineGame({
-				gameSlug: slug,
-				gameTitle: title,
-				signal: ctrl.signal,
-				onProgress: (done, total) => {
-					const pctVal = total > 0 ? Math.round((done / total) * 100) : 0;
-					setOfflineBtnState(slug, "busy", `${pctVal}%`);
-				},
-			});
-			activeDownloads.delete(slug);
-			setOfflineBtnState(slug, "on");
-			notify(`${title} is ready for offline use.`);
-		} catch (err: any) {
-			activeDownloads.delete(slug);
-			if (!ctrl.signal.aborted) {
-				setOfflineBtnState(slug, "off");
-				notify(`Could not download ${title} for offline use.`);
-			}
-		}
-	});
-}
-
 if (typeof document !== "undefined") {
 	main();
 
@@ -546,7 +448,7 @@ if (typeof document !== "undefined") {
 	const topMorePanel = document.getElementById("top-more-panel");
 	const moreToggle = topMore?.querySelector<HTMLElement>(".more-toggle");
 	if (topMorePanel) topMorePanel.appendChild(accountSlot("top"));
-	initAccount({ toast: notify });
+	initAccount();
 
 	if (topMore && moreToggle) {
 		const setMoreOpen = (open: boolean) => {

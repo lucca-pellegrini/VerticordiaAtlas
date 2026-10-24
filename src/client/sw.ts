@@ -1,8 +1,11 @@
 // sw.ts: the offline cache. The app works from what it holds, and asks the network only to refresh it.
 //   shell (pages, scripts, styles, fonts, icons, vendor files): served from cache at once, refreshed in the background
 //   game data (metadata, marker data, posters, cards): the same, and the refresh revalidates with the stored ETag
+//   maps kept offline: answered from their pack in IndexedDB before anything else (see pack-store.ts), never the network
 //   map tiles: cache first, kept for 30 days and at most TILE_LIMIT tiles
 //   /api/ (accounts, sync): never cached, never answered from the cache
+
+import { findInPacks, resetPackLookups } from "./pack-store.ts";
 
 declare const __SW_VERSION__: string | undefined;
 declare const self: ServiceWorkerGlobalScope;
@@ -11,8 +14,7 @@ export const VERSION = typeof __SW_VERSION__ !== "undefined" ? __SW_VERSION__ : 
 export const SHELL = `va-shell-${VERSION}`;
 export const DATA = `va-data-${VERSION}`;
 export const TILES = `va-tiles-${VERSION}`;
-export const OFFLINE_TILES = "va-offline-tiles";
-export const KEEP = new Set([SHELL, DATA, TILES, OFFLINE_TILES]);
+export const KEEP = new Set([SHELL, DATA, TILES]); // anything else is deleted on activation, the old "va-offline-tiles" too
 export const TILE_LIMIT = 2000;
 export const TILE_MAX_AGE = 30 * 24 * 3600 * 1000;
 
@@ -20,6 +22,7 @@ export const PRECACHE: readonly string[] = [
 	"",
 	"index.html",
 	"map.html",
+	"maps/index.json",
 	"about/",
 	"about/index.html",
 	"terms/",
@@ -86,17 +89,35 @@ if (typeof self !== "undefined" && "registration" in self) {
 		);
 	});
 
-	// serve what we have, refresh it behind the scenes
+	async function matchInCache(cache: Cache, req: Request, path: string): Promise<Response | undefined> {
+		return (
+			(await cache.match(req)) ||
+			(await cache.match(req, { ignoreSearch: true })) ||
+			(await cache.match(path)) ||
+			(await cache.match(path, { ignoreSearch: true }))
+		);
+	}
+
+	// a file of a map kept offline: straight from its pack
+	async function fromPack(url: URL): Promise<Response | null> {
+		const hit = await findInPacks(url.pathname);
+		if (!hit) return null;
+		return new Response(hit.blob, {
+			status: 200,
+			headers: {
+				"Content-Type": hit.type || "application/octet-stream",
+				"Content-Length": String(hit.blob.size),
+			},
+		});
+	}
+
+	// serve what we have, refresh it behind the scenes. A server that is down may still answer (a proxy's 502/503): that
+	// is not an answer, so what is cached is served and an error is never kept
 	async function staleWhileRevalidate(event: FetchEvent, cacheName: string, req: Request): Promise<Response> {
 		const cache = await caches.open(cacheName);
 		let cached = await cache.match(req);
-		if (!cached && req.mode === "navigate") {
-			cached = await cache.match(req, { ignoreSearch: true });
-		}
-		if (!cached && cacheName === DATA) {
-			const pinned = await caches.open(OFFLINE_TILES);
-			cached = await pinned.match(req);
-		}
+		if (!cached && req.mode === "navigate") cached = await cache.match(req, { ignoreSearch: true });
+		if (!cached && cacheName !== SHELL) cached = await (await caches.open(SHELL)).match(req);
 		const refresh = fetch(req, { cache: "no-cache" })
 			.then((res) => {
 				if (res.ok && res.status === 200) cache.put(req, res.clone());
@@ -108,13 +129,12 @@ if (typeof self !== "undefined" && "registration" in self) {
 			return cached;
 		}
 		const fresh = await refresh;
-		if (fresh) return fresh;
+		if (fresh && fresh.status < 500) return fresh;
 		if (req.mode === "navigate") {
-			const shell = await caches.open(SHELL);
-			const fallback = await shell.match(at("map.html"));
+			const fallback = await (await caches.open(SHELL)).match(at("map.html"));
 			if (fallback) return fallback;
 		}
-		return offline();
+		return fresh ?? offline();
 	}
 
 	// a copy remembers when it was made, so tiles can age out
@@ -131,8 +151,6 @@ if (typeof self !== "undefined" && "registration" in self) {
 	}
 
 	async function tile(event: FetchEvent, req: Request): Promise<Response> {
-		const pinned = await (await caches.open(OFFLINE_TILES)).match(req);
-		if (pinned) return pinned;
 		const cache = await caches.open(TILES);
 		const hit = await cache.match(req);
 		if (hit && Date.now() - Number(hit.headers.get("x-va-cached-at") || 0) < TILE_MAX_AGE) return hit;
@@ -152,6 +170,18 @@ if (typeof self !== "undefined" && "registration" in self) {
 		return hit || offline();
 	}
 
+	self.addEventListener("message", (event: ExtendableMessageEvent) => {
+		if (event.data?.type === "va-offline-changed") resetPackLookups();
+	});
+
+	// the maps folder: tiles from the cache or the network, everything else revalidated
+	function routeMaps(event: FetchEvent, req: Request, url: URL, rel: string): Promise<Response> {
+		if (/^maps\/[^/]+\/[^/]+\/tiles\//.test(rel)) return tile(event, req);
+		if (req.mode === "navigate" && /^maps\/[^/]+$/.test(rel))
+			return Promise.resolve(Response.redirect(url.href + "/", 301));
+		return staleWhileRevalidate(event, DATA, req);
+	}
+
 	self.addEventListener("fetch", (event: FetchEvent) => {
 		const req = event.request;
 		if (req.method !== "GET") return;
@@ -161,16 +191,9 @@ if (typeof self !== "undefined" && "registration" in self) {
 		if (url.origin !== self.location.origin) return;
 
 		const rel = url.pathname.slice(new URL(scope).pathname.length);
-		if (/^maps\/[^/]+\/[^/]+\/tiles\//.test(rel)) {
-			event.respondWith(tile(event, req));
-			return;
-		}
 		if (rel.startsWith("maps/")) {
-			if (req.mode === "navigate" && /^maps\/[^/]+$/.test(rel)) {
-				event.respondWith(Response.redirect(url.href + "/", 301));
-				return;
-			}
-			event.respondWith(staleWhileRevalidate(event, DATA, req));
+			// a file of a map kept offline comes from its pack, before anything else
+			event.respondWith(fromPack(url).then((r) => r ?? routeMaps(event, req, url, rel)));
 			return;
 		}
 		event.respondWith(staleWhileRevalidate(event, SHELL, req));

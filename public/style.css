@@ -493,22 +493,12 @@ input[type="checkbox"]:active {
 	box-sizing: border-box;
 	cursor: pointer;
 }
+.side-offline-btn .spinner {
+	width: 15px;
+	height: 15px;
+}
 .side-offline-btn[aria-pressed="true"] {
 	color: var(--accent-soft);
-}
-.side-offline-quick svg.i {
-	width: 16px;
-	height: 16px;
-	stroke-width: 2;
-}
-.side-offline-quick[aria-pressed="true"] {
-	color: var(--accent-soft);
-	border-color: color-mix(in srgb, var(--accent) 55%, var(--line-2));
-	background: color-mix(in srgb, var(--accent) 16%, var(--panel-2));
-}
-.side-offline-quick[data-busy] {
-	color: var(--accent-soft);
-	border-color: var(--accent);
 }
 .side-more-menu hr {
 	border: 0;

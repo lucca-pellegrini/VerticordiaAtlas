@@ -5,7 +5,7 @@
 //
 // sharp is loaded on first use, so the server and the tests still start when it is not installed.
 
-import { link, mkdir, readFile, rename, stat, unlink, writeFile } from "node:fs/promises";
+import { link, mkdir, readdir, readFile, rename, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 export const TILE = 256;
@@ -260,4 +260,42 @@ export async function dedupeSolid(
 		await unlink(tmp); // the tile is the stored copy already; rename() would leave the second name behind
 	else await rename(tmp, file);
 	return { key, freed: made || st.nlink > 1 ? 0 : st.size };
+}
+
+export interface TileFile {
+	z: number;
+	x: number;
+	y: number;
+	file: string;
+	size: number;
+}
+
+// every tile file of a tile set folder, whatever the order of x and y in its path
+export async function listTiles(dir: string, tail: TileTail): Promise<TileFile[]> {
+	const out: TileFile[] = [];
+	const re = new RegExp(`^(\\d+)\\.${tail.ext}$`, "i");
+	const dirs = async (d: string) =>
+		(await readdir(d, { withFileTypes: true }).catch(() => [])).filter(
+			(e) => e.isDirectory() && /^\d+$/.test(e.name),
+		);
+	for (const zd of await dirs(dir)) {
+		for (const ad of await dirs(path.join(dir, zd.name))) {
+			const folder = path.join(dir, zd.name, ad.name);
+			for (const f of await readdir(folder, { withFileTypes: true })) {
+				const m = f.isFile() ? re.exec(f.name) : null;
+				if (!m) continue;
+				const v: Record<string, number> = {};
+				const nums = [Number(zd.name), Number(ad.name), Number(m[1])];
+				tail.order.forEach((k, i) => (v[k] = nums[i]));
+				out.push({
+					z: v.z,
+					x: v.x,
+					y: v.y,
+					file: path.join(folder, f.name),
+					size: (await stat(path.join(folder, f.name))).size,
+				});
+			}
+		}
+	}
+	return out;
 }

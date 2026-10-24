@@ -6,10 +6,10 @@ import type { UserAccount } from "../shared/types.ts";
 import { api, notify, SIGNED_IN_KEY } from "./account.ts";
 import {
 	clearAllOfflineMaps,
+	downloadOfflineMap,
 	inspectOfflineManifests,
 	type OfflineManifest,
 	removeOfflineMap,
-	verifyOfflineMap,
 } from "./offline.ts";
 import "./theme.ts";
 
@@ -256,11 +256,14 @@ if (typeof document !== "undefined") {
 			rep.disabled = true;
 			rep.textContent = "Repairing…";
 			try {
-				await verifyOfflineMap({
+				await downloadOfflineMap({
 					gameSlug: game,
 					mapSlug: map,
-					onProgress: (done, total) => {
-						rep.textContent = total ? `Repairing ${Math.round((done / total) * 100)}%…` : "Repairing…";
+					onStatus: (st) => {
+						rep.textContent =
+							st.phase === "preparing"
+								? "Preparing…"
+								: `Downloading ${st.total ? Math.min(100, Math.round((st.done / st.total) * 100)) : 0}%…`;
 					},
 				});
 				notify("Offline map repaired.");

@@ -22,14 +22,18 @@ import {
 	dedupeSolid,
 	deriveRaw,
 	encodeTile,
+	listTiles,
 	parseBackground,
 	placeTile,
 	solidKey,
 	splitTemplate,
 	tilePath,
 } from "../server/tile-engine.ts";
-import type { TileTail } from "../server/tile-engine.ts";
+import type { TileFile, TileTail } from "../server/tile-engine.ts";
 import type { GameMeta } from "../src/shared/types.ts";
+
+export { listTiles };
+export type { TileFile };
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const mb = (n: number): string => (n / 1e6).toFixed(1) + " MB";
@@ -41,44 +45,6 @@ async function pool<T>(items: T[], n: number, fn: (item: T) => Promise<void>): P
 			while (i < items.length) await fn(items[i++]);
 		}),
 	);
-}
-
-export interface TileFile {
-	z: number;
-	x: number;
-	y: number;
-	file: string;
-	size: number;
-}
-
-// every tile file of a tile set folder, whatever the order of x and y in its path
-export async function listTiles(dir: string, tail: TileTail): Promise<TileFile[]> {
-	const out: TileFile[] = [];
-	const re = new RegExp(`^(\\d+)\\.${tail.ext}$`, "i");
-	const dirs = async (d: string) =>
-		(await readdir(d, { withFileTypes: true }).catch(() => [])).filter(
-			(e) => e.isDirectory() && /^\d+$/.test(e.name),
-		);
-	for (const zd of await dirs(dir)) {
-		for (const ad of await dirs(path.join(dir, zd.name))) {
-			const folder = path.join(dir, zd.name, ad.name);
-			for (const f of await readdir(folder, { withFileTypes: true })) {
-				const m = f.isFile() ? re.exec(f.name) : null;
-				if (!m) continue;
-				const v: Record<string, number> = {};
-				const nums = [Number(zd.name), Number(ad.name), Number(m[1])];
-				tail.order.forEach((k, i) => (v[k] = nums[i]));
-				out.push({
-					z: v.z,
-					x: v.x,
-					y: v.y,
-					file: path.join(folder, f.name),
-					size: (await stat(path.join(folder, f.name))).size,
-				});
-			}
-		}
-	}
-	return out;
 }
 
 // the tiles of each zoom from which every tile below, down to the stored zoom, exists

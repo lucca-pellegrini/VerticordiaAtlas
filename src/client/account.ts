@@ -140,7 +140,7 @@ export function setOnlineStatus(online: boolean): void {
 	}
 }
 export function notify(msg: string, ms = 2600): void {
-	if (toastFn) return toastFn(msg, ms);
+	if (toastFn && toastFn !== notify) return toastFn(msg, ms);
 	const t = document.getElementById("toast");
 	if (!t) return;
 	t.textContent = msg;

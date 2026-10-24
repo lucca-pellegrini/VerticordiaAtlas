@@ -47,6 +47,7 @@ import {
 	withHead,
 } from "./cards.ts";
 import type { LoadedGame, MarkerCardInfo } from "./cards.ts";
+import { streamOfflinePack } from "./offline-pack.ts";
 import { DEFAULT_MAX_BYTES, DEFAULT_TARGET_BYTES, parseSize, TileCache } from "./tile-cache.ts";
 import { createTileService } from "./tile-service.ts";
 
@@ -551,6 +552,20 @@ const server = http.createServer(async (req, res) => {
 		const parsed = parseUrl(req.url);
 		if (!parsed) return send(res, 400, "bad request");
 		const { url, pathname: p } = parsed;
+		const offlinePack = /^\/api\/maps\/([^/]+)\/([^/]+)\/offline-pack$/.exec(p);
+		if (offlinePack) {
+			if (req.method !== "GET" && req.method !== "HEAD") return send(res, 405, "method not allowed");
+			await streamOfflinePack(
+				req,
+				res,
+				PUBLIC,
+				path.join(REPO, "cache", "tiles"),
+				offlinePack[1],
+				offlinePack[2],
+			);
+			return;
+		}
+
 		if (p.startsWith("/api/")) {
 			const handled = await api.handle(req, res, url);
 			if (handled === false)
