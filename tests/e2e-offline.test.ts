@@ -84,11 +84,20 @@ describe("offline map download & disconnected navigation e2e", () => {
 
 		await page.evaluate(() => {
 			const texts: string[] = ((window as any).__btnTexts = []);
-			const btn = document.querySelector("#side-offline-btn")!;
+			const progresses: string[] = ((window as any).__btnProgresses = []);
+			const btn = document.querySelector("#side-offline-btn") as HTMLElement;
 			new MutationObserver(() => {
 				const t = btn.textContent || "";
 				if (texts[texts.length - 1] !== t) texts.push(t);
-			}).observe(btn, { childList: true, subtree: true, characterData: true });
+				const p = btn.style.getPropertyValue("--progress");
+				if (p && progresses[progresses.length - 1] !== p) progresses.push(p);
+			}).observe(btn, {
+				childList: true,
+				subtree: true,
+				characterData: true,
+				attributes: true,
+				attributeFilter: ["style"],
+			});
 		});
 		await page.click("#side-offline-btn");
 
@@ -101,11 +110,13 @@ describe("offline map download & disconnected navigation e2e", () => {
 			{ timeout: 240000 },
 		);
 
-		// the button said "Preparing map n/4" (with a spinner) while the server worked, and a percentage only while bytes came
+		// the button said "Preparing map n/4" (with a spinner) while the server worked, and "Downloading 1/4" without % (progress shown via filled background)
 		const texts: string[] = await page.evaluate(() => (window as any).__btnTexts);
+		const progresses: string[] = await page.evaluate(() => (window as any).__btnProgresses);
 		expect(texts.some((t) => /^Preparing map 1\/4/.test(t))).toBe(true);
-		expect(texts.some((t) => /^Downloading 1\/4 · \d+%$/.test(t))).toBe(true);
-		expect(texts.filter((t) => t.startsWith("Preparing")).every((t) => !t.includes("%"))).toBe(true);
+		expect(texts.some((t) => t === "Downloading 1/4")).toBe(true);
+		expect(texts.every((t) => !t.includes("%"))).toBe(true);
+		expect(progresses.some((p) => p.endsWith("%") && p !== "0%")).toBe(true);
 
 		// Assert no unhandled range errors or call stack errors occurred
 		const callStackErrors = consoleErrors.filter((e) => e.includes("Maximum call stack size"));

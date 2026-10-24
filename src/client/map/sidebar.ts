@@ -648,11 +648,18 @@ let mapOfflineCtrl: AbortController | null = null;
 
 const SPIN = '<span class="spinner" role="status" aria-hidden="true"></span>';
 
-function setMapOfflineButtons(mode: "off" | "on" | "busy", text?: string, spinner = false): void {
+function setMapOfflineButtons(mode: "off" | "on" | "busy", text?: string, spinner = false, progress = 0): void {
 	const btn = document.getElementById("side-offline-btn") as HTMLButtonElement | null;
 	if (!btn) return;
 	const many = (state.meta?.maps?.length ?? 1) > 1;
 	btn.setAttribute("aria-pressed", String(mode === "on"));
+	if (mode === "busy") {
+		btn.dataset.busy = "1";
+		btn.style.setProperty("--progress", `${Math.max(0, Math.min(100, progress))}%`);
+	} else {
+		delete btn.dataset.busy;
+		btn.style.removeProperty("--progress");
+	}
 	btn.innerHTML =
 		mode === "on"
 			? `${OK_SVG}<span>Kept offline</span>`
@@ -662,11 +669,11 @@ function setMapOfflineButtons(mode: "off" | "on" | "busy", text?: string, spinne
 }
 
 // the line on the button: waiting for the server to get a map ready, or the transfer of it
-function offlineStatusText(s: OfflineStatus): { text: string; spinner: boolean } {
+function offlineStatusText(s: OfflineStatus): { text: string; spinner: boolean; progress: number } {
 	const of = s.maps > 1 ? ` ${s.map}/${s.maps}` : "";
-	if (s.phase === "preparing") return { text: `Preparing map${of}…`, spinner: true };
+	if (s.phase === "preparing") return { text: `Preparing map${of}…`, spinner: true, progress: 0 };
 	const pct = s.total > 0 ? Math.min(100, Math.round((s.done / s.total) * 100)) : 0;
-	return { text: s.maps > 1 ? `Downloading ${s.map}/${s.maps} · ${pct}%` : `Downloading ${pct}%`, spinner: false };
+	return { text: s.maps > 1 ? `Downloading ${s.map}/${s.maps}` : "Downloading…", spinner: false, progress: pct };
 }
 
 export async function toggleCurrentMapOffline(): Promise<void> {
@@ -699,8 +706,8 @@ export async function toggleCurrentMapOffline(): Promise<void> {
 			gameTitle,
 			signal: ctrl.signal,
 			onStatus: (s) => {
-				const { text, spinner } = offlineStatusText(s);
-				setMapOfflineButtons("busy", text, spinner);
+				const { text, spinner, progress } = offlineStatusText(s);
+				setMapOfflineButtons("busy", text, spinner, progress);
 			},
 		});
 		if (mapOfflineCtrl === ctrl) mapOfflineCtrl = null;
