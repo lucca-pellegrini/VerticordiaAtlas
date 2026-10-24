@@ -1,5 +1,7 @@
 import { describe, expect, test } from "bun:test";
 
+import { formatAccountDate, formatBytes, providerLabel, renderAccountInfoHtml } from "../src/client/account-page.ts";
+import { menuMarkup } from "../src/client/account.ts";
 import { orderGames } from "../src/client/home.ts";
 import { glyphInk, PIN } from "../src/client/icons-lib.ts";
 import { ICONS, svgIcon } from "../src/client/icons.ts";
@@ -81,18 +83,50 @@ describe("theme and navigation helpers", () => {
 		expect(normalizePath("/maps/elden-ring/index.html")).toBe("/maps/elden-ring/");
 	});
 
-	test("describePage identifies home, legal, signin, and map pages", () => {
+	test("describePage identifies home, legal, signin, account, and map pages", () => {
 		expect(describePage("/").type).toBe("home");
 		expect(describePage("/about/").type).toBe("about");
 		expect(describePage("/terms/").type).toBe("terms");
 		expect(describePage("/privacy/").type).toBe("privacy");
 		expect(describePage("/signin/").type).toBe("signin");
+		expect(describePage("/account/").type).toBe("account");
 
 		const mapDesc = describePage("/maps/elden-ring/");
 		expect(mapDesc.type).toBe("map");
 		expect(mapDesc.slug).toBe("elden-ring");
 		expect(mapDesc.title).toBe("Elden Ring");
 		expect(mapDesc.buttonText).toBe("Return to Elden Ring");
+	});
+
+	test("account menu and account page helpers format user details and escape HTML", () => {
+		const user = {
+			id: "u1",
+			provider: "google" as const,
+			email: 'alice<"x">@example.com',
+			name: "Alice",
+			createdAt: Date.UTC(2026, 9, 24, 12, 0, 0),
+			sessions: 2,
+			syncedItems: 5,
+		};
+		const menu = menuMarkup(user);
+		expect(menu).toContain('href="');
+		expect(menu).toContain("account/");
+		expect(menu).toContain("alice&lt;&quot;x&quot;&gt;@example.com");
+
+		expect(providerLabel("google")).toBe("Google");
+		expect(providerLabel("secret")).toBe("Secret key");
+		expect(formatAccountDate(undefined)).toBe("—");
+		expect(formatAccountDate(Date.UTC(2026, 9, 24, 12, 0, 0))).toContain("2026");
+		expect(formatBytes(0)).toBe("0 B");
+		expect(formatBytes(512)).toBe("512 B");
+		expect(formatBytes(2048)).toBe("2.0 KB");
+		expect(formatBytes(5 * 1024 * 1024)).toBe("5.0 MB");
+
+		const html = renderAccountInfoHtml(user);
+		expect(html).toContain("Google");
+		expect(html).toContain("alice&lt;&quot;x&quot;&gt;@example.com");
+		expect(html).toContain(">2<");
+		expect(html).toContain(">5<");
 	});
 });
 

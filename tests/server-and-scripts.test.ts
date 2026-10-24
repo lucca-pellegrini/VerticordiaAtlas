@@ -187,6 +187,7 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 			"public/index.html",
 			"public/map.html",
 			"public/signin/index.html",
+			"public/account/index.html",
 			"public/about/index.html",
 			"public/terms/index.html",
 			"public/privacy/index.html",
@@ -342,6 +343,34 @@ describe("server/api and server/ws integration", () => {
 		expect(conflictData.results[0].status).toBe("conflict");
 		expect(conflictData.results[0].value.found).toEqual([1, 2]);
 
-		ws.close();
+		// 8. Authenticated /api/me returns createdAt, sessions, and syncedItems
+		const meAuth = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
+		const meAuthData = await meAuth.json();
+		expect(meAuthData.user.id).toBe(user.id);
+		expect(meAuthData.user.createdAt).toBeGreaterThan(0);
+		expect(meAuthData.user.sessions).toBeGreaterThanOrEqual(1);
+		expect(meAuthData.user.syncedItems).toBe(1);
+
+		// 9. Delete account cascades user_data, sessions, and secret_accounts and closes active WebSockets
+		const wsClosed = new Promise<number>((resolve) => {
+			ws.onclose = (ev) => resolve(ev.code);
+		});
+		const delRes = await fetch(`${baseUrl}/api/auth/delete-account`, {
+			method: "POST",
+			headers: { Cookie: cookie },
+		});
+		expect(delRes.status).toBe(200);
+		expect(await delRes.json()).toEqual({ ok: true });
+		expect(await wsClosed).toBe(4401);
+
+		const meAfterDel = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
+		expect(await meAfterDel.json()).toEqual({ user: null });
+
+		const reloginAfterDel = await fetch(`${baseUrl}/api/auth/secret/login`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret }),
+		});
+		expect(reloginAfterDel.status).toBe(401);
 	});
 });

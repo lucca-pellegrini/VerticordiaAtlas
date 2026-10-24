@@ -125,6 +125,9 @@ export interface UserAccount {
 	provider: "google" | "secret";
 	email: string | null;
 	name: string;
+	createdAt?: number;
+	sessions?: number;
+	syncedItems?: number;
 }
 
 export interface GameStat {
