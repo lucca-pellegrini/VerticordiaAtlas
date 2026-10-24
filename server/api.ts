@@ -204,6 +204,7 @@ export function createApi({
 		provider: u.provider as "google" | "secret",
 		email: u.email ? String(u.email) : null,
 		name: u.provider === "google" ? String(u.display_name || u.email || "Google account") : "Secret key account",
+		...(u.created_at ? { createdAt: Number(u.created_at) } : {}),
 	});
 
 	/* ---------- sessions ---------- */
@@ -212,7 +213,7 @@ export function createApi({
 		if (!token) return null;
 		const row = db
 			.prepare(
-				`SELECT s.token_hash, s.expires_at, u.id, u.provider, u.email, u.display_name
+				`SELECT s.token_hash, s.expires_at, u.id, u.provider, u.email, u.display_name, u.created_at
                             FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = ?`,
 			)
 			.get(sha256(token)) as any;
@@ -464,8 +465,21 @@ export function createApi({
 
 			if (route === "GET /api/me") {
 				const session = sessionFrom(req);
-				if (session) touch(req, res, session);
-				return json(res, 200, { user: session ? session.user : null });
+				if (!session) return json(res, 200, { user: null });
+				touch(req, res, session);
+				const sessionsRow = db
+					.prepare("SELECT COUNT(*) AS n FROM sessions WHERE user_id = ? AND expires_at > ?")
+					.get(session.user.id, now()) as { n: number } | undefined;
+				const syncedRow = db
+					.prepare("SELECT COUNT(*) AS n FROM user_data WHERE user_id = ? AND value IS NOT NULL")
+					.get(session.user.id) as { n: number } | undefined;
+				return json(res, 200, {
+					user: {
+						...session.user,
+						sessions: Number(sessionsRow?.n || 1),
+						syncedItems: Number(syncedRow?.n || 0),
+					},
+				});
 			}
 
 			if (route === "GET /api/auth/google/start") {
@@ -652,6 +666,17 @@ export function createApi({
 				const userId = row.user_id;
 				db.prepare("DELETE FROM sessions WHERE user_id = ?").run(userId);
 				for (const c of [...(sockets.get(userId) || [])]) c.ws.close(4401, "signed out");
+				res.setHeader("Set-Cookie", cookieHeader(req, "", 0));
+				return json(res, 200, { ok: true });
+			}
+
+			if (route === "POST /api/auth/delete-account" || route === "DELETE /api/me") {
+				const session = sessionFrom(req);
+				if (!session) throw httpError(401, "not signed in");
+				const userId = session.user.id;
+				for (const c of [...(sockets.get(userId) || [])]) c.ws.close(4401, "account deleted");
+				sockets.delete(userId);
+				db.prepare("DELETE FROM users WHERE id = ?").run(userId);
 				res.setHeader("Set-Cookie", cookieHeader(req, "", 0));
 				return json(res, 200, { ok: true });
 			}

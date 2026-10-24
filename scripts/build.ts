@@ -28,6 +28,7 @@ export const CLIENT_TARGETS: BuildTarget[] = [
 	{ entry: "src/client/home.ts", outfile: "public/home.js", format: "esm" },
 	{ entry: "src/client/theme.ts", outfile: "public/theme.js", format: "esm" },
 	{ entry: "src/client/signin.ts", outfile: "public/signin/signin.js", format: "esm" },
+	{ entry: "src/client/account-page.ts", outfile: "public/account/account.js", format: "esm" },
 	{ entry: "src/client/legal.ts", outfile: "public/legal/legal.js", format: "iife" },
 ];
 
