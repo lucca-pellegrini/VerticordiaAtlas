@@ -12,8 +12,10 @@ import { createApi } from "../server/api.ts";
 import { parseSize, TileCache } from "../server/tile-cache.ts";
 import {
 	decodeTile,
+	dedupeSolid,
 	deriveRaw,
 	encodeTile,
+	ops,
 	parseBackground,
 	parseTail,
 	parseTilePath,
@@ -136,6 +138,58 @@ describe("tile engine", () => {
 		await placeTile(path.join(dir, "3/1/3.png"), grad, null);
 		expect((await stat(path.join(dir, "3/1/3.png"))).nlink).toBe(1);
 		expect((await readdir(path.join(dir, "3/1"))).sort()).toEqual(["1.png", "2.png", "3.png"]); // no temporary files left
+	});
+});
+
+describe("a stored copy that has run out of hard links", () => {
+	// file systems allow only so many links to a file (65000 on ext4): here, a copy and two tiles
+	const realLink = ops.link;
+	beforeEach(() => {
+		ops.link = async (existing, target) => {
+			if ((await stat(existing)).nlink >= 3) throw Object.assign(new Error("too many links"), { code: "EMLINK" });
+			return realLink(existing, target);
+		};
+	});
+	afterEach(() => {
+		ops.link = realLink;
+	});
+
+	test("placeTile starts the next copy of the colour", async () => {
+		const dir = path.join(tmp, "set");
+		const flat = await solid(7, 7, 7);
+		for (let i = 0; i < 5; i++)
+			await placeTile(path.join(dir, `3/0/${i}.png`), flat, { key: "070707ff", dir, ext: "png" });
+		const names = (await readdir(dir)).filter((f) => f.startsWith("solid-")).sort();
+		expect(names).toEqual(["solid-070707ff-1.png", "solid-070707ff-2.png", "solid-070707ff.png"]);
+		for (let i = 0; i < 5; i++)
+			expect(solidKey(await decodeTile(await readFile(path.join(dir, `3/0/${i}.png`))))).toBe("070707ff");
+		expect((await readdir(path.join(dir, "3/0"))).filter((f) => f.endsWith(".tmp"))).toEqual([]);
+	});
+
+	test("dedupeSolid does the same for tiles already on disk, and a second run changes nothing", async () => {
+		const dir = path.join(tmp, "set");
+		const flat = await solid(9, 9, 9);
+		for (let i = 0; i < 6; i++) await put(path.join(dir, `3/0/${i}.png`), flat);
+		const tail = parseTail("{z}/{x}/{y}.png")!;
+		for (const t of await listTiles(dir, tail))
+			expect((await dedupeSolid(t.file, dir, "png"))?.key).toBe("090909ff");
+		const inodes = new Set<number>();
+		for (let i = 0; i < 6; i++) inodes.add((await stat(path.join(dir, `3/0/${i}.png`))).ino);
+		expect(inodes.size).toBe(3); // two tiles to a copy
+		const before = (await readdir(dir)).sort();
+		for (const t of await listTiles(dir, tail)) expect((await dedupeSolid(t.file, dir, "png"))?.freed).toBe(0);
+		expect((await readdir(dir)).sort()).toEqual(before);
+		expect((await readdir(path.join(dir, "3/0"))).filter((f) => f.endsWith(".tmp"))).toEqual([]);
+	});
+
+	test("optimizeTileset finishes a tile set with more flat tiles than one copy can hold", async () => {
+		const dir = path.join(tmp, "big");
+		const tail = parseTail("{z}/{x}/{y}.png")!;
+		const flat = await solid(0, 0, 0);
+		for (let x = 0; x < 8; x++) for (let y = 0; y < 8; y++) await put(path.join(dir, `3/${x}/${y}.png`), flat);
+		const r = await optimizeTileset({ dir, tail, minZ: 3, maxZ: 3 });
+		expect(r.solid).toBe(64);
+		expect(r.background).toBe("#000000");
 	});
 });
 

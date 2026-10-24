@@ -394,7 +394,8 @@
 					"maxzoom": 14,
 					"viewMaxzoom": 15,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#171310"
 				}
 			]
 		},
@@ -410,7 +411,8 @@
 					"maxzoom": 14,
 					"viewMaxzoom": 15,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#171310"
 				}
 			]
 		},
@@ -426,7 +428,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#0f1410"
 				}
 			]
 		},
@@ -442,7 +445,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#0f1410"
 				}
 			]
 		},
@@ -458,7 +462,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 15,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#0f1410"
 				}
 			]
 		},
@@ -474,7 +479,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#0f1410"
 				}
 			]
 		},
@@ -490,7 +496,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#0f1410"
 				}
 			]
 		},
@@ -506,7 +513,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 15,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#0f1410"
 				}
 			]
 		},
@@ -522,7 +530,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 15,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#251313"
 				}
 			]
 		}

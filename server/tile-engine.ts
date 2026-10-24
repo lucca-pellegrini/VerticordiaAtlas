@@ -5,7 +5,7 @@
 //
 // sharp is loaded on first use, so the server and the tests still start when it is not installed.
 
-import { link, mkdir, readFile, rename, stat, writeFile } from "node:fs/promises";
+import { link, mkdir, readFile, rename, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 export const TILE = 256;
@@ -166,15 +166,53 @@ export async function deriveRaw(z: number, x: number, y: number, o: DeriveOption
 
 /* ---------- writing tiles: a single-colour tile is a hard link to the one copy of that colour ---------- */
 
-const tmpName = (file: string): string => `${file}.${process.pid}.${Math.random().toString(36).slice(2)}.tmp`;
+// the file system calls that can be replaced in tests (a real file system only refuses a link after tens of thousands)
+export const ops = { link };
 
-// the one stored copy of a colour, in the folder of the tile set
-export const solidFile = (dir: string, key: string, ext: string): string => path.join(dir, `solid-${key}.${ext}`);
+const tmpName = (file: string): string => `${file}.${process.pid}.${Math.random().toString(36).slice(2)}.tmp`;
+const codeOf = (e: unknown): string | undefined => (e as NodeJS.ErrnoException)?.code;
+
+// A stored copy of a colour, in the folder of the tile set. A file can only have so many hard links (65000 on ext4), so
+// when one copy is full the next is started: solid-<colour>.jpg, solid-<colour>-1.jpg, solid-<colour>-2.jpg, ...
+export const solidFile = (dir: string, key: string, ext: string, n = 0): string =>
+	path.join(dir, n ? `solid-${key}-${n}.${ext}` : `solid-${key}.${ext}`);
 
 async function writeAtomic(file: string, buf: Buffer): Promise<void> {
 	const tmp = tmpName(file);
 	await writeFile(tmp, buf);
 	await rename(tmp, file);
+}
+
+// Link `dest` to a stored copy of the colour, starting the first copy (with `create`) or the next one when needed.
+// Returns whether the copy that was used was made by this call.
+async function linkSolid(
+	solid: { key: string; dir: string; ext: string },
+	dest: string,
+	create: (canon: string) => Promise<void>,
+): Promise<boolean> {
+	let made = false,
+		tried = -1;
+	for (let n = 0; n < 10_000;) {
+		const canon = solidFile(solid.dir, solid.key, solid.ext, n);
+		try {
+			await ops.link(canon, dest);
+			return made;
+		} catch (e) {
+			if (codeOf(e) === "EMLINK") {
+				n++; // this copy is full
+				made = false;
+			} else if (codeOf(e) === "ENOENT" && tried !== n) {
+				tried = n;
+				try {
+					await create(canon);
+					made = true;
+				} catch (c) {
+					if (codeOf(c) !== "EEXIST") throw c; // another tile of this colour got there first: link to it
+				}
+			} else throw e;
+		}
+	}
+	throw new Error("too many stored copies of one colour");
 }
 
 export async function placeTile(
@@ -184,15 +222,9 @@ export async function placeTile(
 ): Promise<void> {
 	await mkdir(path.dirname(file), { recursive: true });
 	if (solid) {
-		const canon = solidFile(solid.dir, solid.key, solid.ext);
 		const tmp = tmpName(file);
 		try {
-			try {
-				await link(canon, tmp);
-			} catch {
-				await writeAtomic(canon, buf);
-				await link(canon, tmp);
-			}
+			await linkSolid(solid, tmp, (canon) => writeAtomic(canon, buf));
 			await rename(tmp, file);
 			return;
 		} catch {
@@ -202,7 +234,7 @@ export async function placeTile(
 	await writeAtomic(file, buf);
 }
 
-// Turn an existing tile file into a link to the stored copy of its colour. Returns the bytes that were freed, or null
+// Turn an existing tile file into a link to a stored copy of its colour. Returns the bytes that were freed, or null
 // when the tile is not a single colour. Tiles above `maxBytes` are not even decoded: a flat colour is always small.
 export async function dedupeSolid(
 	file: string,
@@ -215,21 +247,17 @@ export async function dedupeSolid(
 	const buf = await readFile(file);
 	const key = solidKey(await decodeTile(buf));
 	if (!key) return null;
-	const canon = solidFile(dir, key, ext);
-	let cs: Awaited<ReturnType<typeof stat>> | null = null;
-	try {
-		cs = await stat(canon);
-	} catch {
-		try {
-			await link(file, canon); // the first tile of this colour becomes the stored copy
-			return { key, freed: 0 };
-		} catch {
-			cs = await stat(canon); // another tile of this colour got there first
-		}
+	// already a link to one of the stored copies?
+	for (let n = 0; n < 10_000; n++) {
+		const cs = await stat(solidFile(dir, key, ext, n)).catch(() => null);
+		if (!cs) break;
+		if (cs.ino === st.ino && cs.dev === st.dev) return { key, freed: 0 };
 	}
-	if (cs.ino === st.ino && cs.dev === st.dev) return { key, freed: 0 };
 	const tmp = tmpName(file);
-	await link(canon, tmp);
-	await rename(tmp, file);
-	return { key, freed: st.nlink > 1 ? 0 : st.size };
+	// the first tile of a colour (or of a new copy) becomes the stored copy itself
+	const made = await linkSolid({ key, dir, ext }, tmp, (canon) => ops.link(file, canon));
+	if (made)
+		await unlink(tmp); // the tile is the stored copy already; rename() would leave the second name behind
+	else await rename(tmp, file);
+	return { key, freed: made || st.nlink > 1 ? 0 : st.size };
 }
