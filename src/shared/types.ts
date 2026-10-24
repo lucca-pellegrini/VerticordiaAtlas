@@ -153,6 +153,8 @@ export interface TilesetMeta {
 	viewMaxzoom?: number;
 	tileSize?: number;
 	bounds?: [number, number, number, number];
+	// the colour of the empty area around the map ("#rrggbb"): what fills a missing quarter when a tile is stitched
+	background?: string;
 }
 
 export interface MapMeta {
