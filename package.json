@@ -2,6 +2,7 @@
 	"scripts": {
 		"start": "bun server/server.ts",
 		"build": "bun scripts/build.ts",
+		"clean": "bun scripts/clean.ts",
 		"test": "bun test"
 	},
 	"dependencies": {
