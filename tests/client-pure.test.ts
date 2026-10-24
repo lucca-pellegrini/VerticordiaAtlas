@@ -8,7 +8,13 @@ import {
 	renderOfflineListHtml,
 } from "../src/client/account-page.ts";
 import { menuMarkup } from "../src/client/account.ts";
-import { orderGames } from "../src/client/home.ts";
+import {
+	allPosterUrls,
+	getGameOfflineState,
+	offlineWarningFor,
+	orderGames,
+	posterUrlsForGame,
+} from "../src/client/home.ts";
 import { glyphInk, PIN } from "../src/client/icons-lib.ts";
 import { ICONS, svgIcon } from "../src/client/icons.ts";
 import {
@@ -156,6 +162,44 @@ describe("modularized map and home helpers", () => {
 		];
 		const ordered = orderGames(games, ["hollow-knight"]);
 		expect(ordered.map((g) => g.slug)).toEqual(["hollow-knight", "zelda", "astro"]);
+	});
+
+	test("getGameOfflineState and offlineWarningFor handle downloaded, cached, and unavailable games", () => {
+		const downloaded = new Set(["re2", "elden-ring"]);
+		const cached = new Set(["slime-rancher", "hollow-knight"]);
+
+		expect(getGameOfflineState("re2", downloaded, cached)).toBe("downloaded");
+		expect(getGameOfflineState("slime-rancher", downloaded, cached)).toBe("cached");
+		expect(getGameOfflineState("skyrim", downloaded, cached)).toBe("unavailable");
+
+		expect(offlineWarningFor("downloaded", "Resident Evil 2")).toBeNull();
+
+		const cachedWarn = offlineWarningFor("cached", "Slime Rancher");
+		expect(cachedWarn).not.toBeNull();
+		expect(cachedWarn!.title).toBe("Slime Rancher");
+		expect(cachedWarn!.message).toContain("no guarantee the map will be visible");
+		expect(cachedWarn!.message).toContain("marker data is there and progress can still be made");
+		expect(cachedWarn!.confirmText).toBe("Continue to map");
+
+		const unavailWarn = offlineWarningFor("unavailable", "Skyrim");
+		expect(unavailWarn).not.toBeNull();
+		expect(unavailWarn!.title).toBe("Skyrim");
+		expect(unavailWarn!.message).toContain("not been downloaded or cached for offline use");
+		expect(unavailWarn!.message).toContain("page will probably not load at all until you're back online");
+		expect(unavailWarn!.confirmText).toBe("Try anyway");
+	});
+
+	test("posterUrlsForGame and allPosterUrls extract poster-600 and poster-1200 webps", () => {
+		const g1 = { slug: "re2", title: "Resident Evil 2", poster: "re2/poster" };
+		const g2 = { slug: "custom", title: "Custom", poster: "custom/art.png" };
+		const g3 = { slug: "no-poster", title: "No Poster" };
+
+		expect(posterUrlsForGame(g1 as any)).toEqual(["maps/re2/poster-600.webp", "maps/re2/poster-1200.webp"]);
+		expect(posterUrlsForGame(g2 as any)).toEqual(["maps/custom/art.png"]);
+		expect(posterUrlsForGame(g3 as any)).toEqual([]);
+
+		const all = allPosterUrls([g1, g2, g3, g1] as any);
+		expect(all).toEqual(["maps/re2/poster-600.webp", "maps/re2/poster-1200.webp", "maps/custom/art.png"]);
 	});
 
 	test("geomOf and insideGeom test box, ellipse, and freehand polygon geometry", () => {

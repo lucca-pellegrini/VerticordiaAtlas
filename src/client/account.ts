@@ -115,14 +115,16 @@ export async function loadAccount(): Promise<UserAccount | null> {
 	return user;
 }
 
-/* ---------- the offline indicator: small, and only for signed-in users ---------- */
+/* ---------- the offline indicator: small, fixed pill at the top ---------- */
 function indicator(): HTMLDivElement {
 	if (!netBox) {
 		netBox = document.createElement("div");
 		netBox.id = "net-status";
 		netBox.className = "net-status";
 		netBox.setAttribute("role", "status");
-		netBox.title = "Your progress is saved on this device and will sync when the connection returns";
+		netBox.title = user
+			? "Your progress is saved on this device and will sync when the connection returns"
+			: "You're offline. Saved maps and cached data remain available.";
 		netBox.hidden = true;
 		netBox.innerHTML = `${svg("cloudOff")}<span>Offline</span>`;
 		document.body.appendChild(netBox);
@@ -131,8 +133,12 @@ function indicator(): HTMLDivElement {
 }
 let warnedThisSession = false;
 export function setOnlineStatus(online: boolean): void {
+	if (typeof document === "undefined") return;
 	const box = indicator();
-	box.hidden = online || !user;
+	box.hidden = online;
+	box.title = user
+		? "Your progress is saved on this device and will sync when the connection returns"
+		: "You're offline. Saved maps and cached data remain available.";
 	if (!online && user && !warnedThisSession && !sessionStorage.getItem("va-offline-warned")) {
 		warnedThisSession = true;
 		sessionStorage.setItem("va-offline-warned", "1");

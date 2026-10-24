@@ -498,6 +498,12 @@ function wire(): void {
 	};
 	$("#side-collapse")!.onclick = () => setSideCollapsed(!document.body.classList.contains("side-collapsed"));
 
+	addEventListener("online", () => setOnlineStatus(true));
+	addEventListener("offline", () => setOnlineStatus(false));
+	if (typeof navigator !== "undefined" && !navigator.onLine) {
+		setOnlineStatus(false);
+	}
+
 	addEventListener("pagehide", () => {
 		saveSession();
 		rememberCamera(true);

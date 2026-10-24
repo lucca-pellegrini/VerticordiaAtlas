@@ -212,10 +212,30 @@ describe("offline map download & disconnected navigation e2e", () => {
 			expect(resultsCount).toBeGreaterThan(0);
 		}
 
-		// the home page has no download buttons; the account page lists every kept map as whole
+		// the home page shows downloaded games as kept offline, and grayed-out warnings for non-downloaded games
 		await page.goto(`${BASE1}/`, { waitUntil: "networkidle2" });
 		await page.waitForSelector(".card", { timeout: 10000 });
 		expect(await page.$("[data-offline-slug]")).toBeNull();
+
+		// 1. re2 (downloaded) has data-offline="downloaded"
+		await page.waitForSelector('li.card-li[data-offline="downloaded"] a[data-slug="re2"]', { timeout: 10000 });
+
+		// 2. non-downloaded games have data-offline="unavailable"
+		const unavailLi = await page.$('li.card-li[data-offline="unavailable"] a[data-slug="elden-ring"]');
+		expect(unavailLi).not.toBeNull();
+
+		// 3. clicking unavailable game brings up the confirmation dialog with warning
+		await page.click('li.card-li[data-offline="unavailable"] a[data-slug="elden-ring"]');
+		await page.waitForSelector("dialog.home-dialog[open]", { timeout: 5000 });
+		const dlgText = await page.$eval("dialog.home-dialog p", (el) => el.textContent || "");
+		expect(dlgText).toContain("This game has not been downloaded or cached for offline use");
+		expect(dlgText).toContain("page will probably not load at all until you're back online");
+
+		// Click cancel closes dialog and keeps user on home page
+		await page.click("dialog.home-dialog .btn-cancel");
+		await new Promise((r) => setTimeout(r, 200));
+		expect(await page.$("dialog.home-dialog")).toBeNull();
+		expect(page.url()).toBe(`${BASE1}/`);
 		await page.goto(`${BASE1}/account/`, { waitUntil: "networkidle2" });
 		await page.waitForSelector("#offline-list .offline-item", { timeout: 10000 });
 		const rows: string[] = await page.$$eval("#offline-list .offline-item", (els) =>

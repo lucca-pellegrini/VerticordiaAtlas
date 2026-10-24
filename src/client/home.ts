@@ -9,10 +9,143 @@
 import { esc, fmt } from "../shared/escape.ts";
 import { fuzzyScore, norm, words } from "../shared/search.ts";
 import type { GameManifestEntry, SessionSummary } from "../shared/types.ts";
-import { accountSlot, initAccount } from "./account.ts";
+import { accountSlot, initAccount, setOnlineStatus } from "./account.ts";
+import { inspectOfflineManifests } from "./offline.ts";
 import { readRecentGames, recordGameOpen, storeGameTitles } from "./theme.ts";
 
 const ARROW = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const OK_SVG =
+	'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 4 12 14.01l-3-3"/></svg>';
+const WARN_SVG =
+	'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="currentColor"/></svg>';
+const OFFLINE_SVG =
+	'<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="1" y1="1" x2="23" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>';
+
+export type GameOfflineState = "downloaded" | "cached" | "unavailable";
+
+export function getGameOfflineState(
+	slug: string,
+	downloadedSlugs: ReadonlySet<string>,
+	cachedSlugs: ReadonlySet<string>,
+): GameOfflineState {
+	if (downloadedSlugs.has(slug)) return "downloaded";
+	if (cachedSlugs.has(slug)) return "cached";
+	return "unavailable";
+}
+
+export function offlineWarningFor(
+	state: GameOfflineState,
+	gameTitle: string,
+): { title: string; message: string; confirmText: string } | null {
+	if (state === "downloaded") return null;
+	if (state === "cached") {
+		return {
+			title: gameTitle,
+			message:
+				"Being offline, there's no guarantee the map will be visible, only that the marker data is there and progress can still be made. Do you want to continue?",
+			confirmText: "Continue to map",
+		};
+	}
+	return {
+		title: gameTitle,
+		message:
+			"This game has not been downloaded or cached for offline use. The page will probably not load at all until you're back online. Do you want to continue anyway?",
+		confirmText: "Try anyway",
+	};
+}
+
+export function showConfirmDialog(opts: {
+	title: string;
+	message: string;
+	confirmText?: string;
+	cancelText?: string;
+}): Promise<boolean> {
+	if (typeof document === "undefined") return Promise.resolve(true);
+	return new Promise((resolve) => {
+		const dlg = document.createElement("dialog");
+		dlg.className = "home-dialog";
+		dlg.innerHTML =
+			`<h2>${esc(opts.title)}</h2>` +
+			`<p>${esc(opts.message)}</p>` +
+			`<div class="dlg-actions">` +
+			`<button type="button" class="btn-cancel">${esc(opts.cancelText || "Cancel")}</button>` +
+			`<button type="button" class="btn-confirm primary">${esc(opts.confirmText || "Continue")}</button>` +
+			`</div>`;
+
+		const cleanUp = (result: boolean) => {
+			try {
+				dlg.close();
+			} catch {}
+			dlg.remove();
+			resolve(result);
+		};
+
+		dlg.querySelector(".btn-cancel")?.addEventListener("click", () => cleanUp(false));
+		dlg.querySelector(".btn-confirm")?.addEventListener("click", () => cleanUp(true));
+		dlg.addEventListener("cancel", (e) => {
+			e.preventDefault();
+			cleanUp(false);
+		});
+		dlg.addEventListener("click", (e) => {
+			if (e.target === dlg) cleanUp(false);
+		});
+
+		document.body.appendChild(dlg);
+		try {
+			dlg.showModal();
+		} catch {
+			dlg.setAttribute("open", "");
+		}
+	});
+}
+
+export async function queryCachedGames(): Promise<Set<string>> {
+	const set = new Set<string>();
+	if (typeof caches === "undefined") return set;
+	try {
+		const names = await caches.keys();
+		for (const name of names) {
+			if (!name.startsWith("va-data-")) continue;
+			const cache = await caches.open(name);
+			const keys = await cache.keys();
+			for (const req of keys) {
+				const path = new URL(req.url, "http://localhost").pathname;
+				const m = path.match(/\/maps\/([^/]+)\/(?:meta\.json|data\.json|markers\.json|[^/]+\/data\.json)/);
+				if (m) set.add(decodeURIComponent(m[1]));
+			}
+		}
+	} catch {}
+	return set;
+}
+
+export async function getDownloadedGameSlugs(): Promise<Set<string>> {
+	const slugs = new Set<string>();
+	try {
+		const manifests = await inspectOfflineManifests();
+		for (const item of manifests) {
+			if (item.intact && item.manifest.game) {
+				slugs.add(item.manifest.game);
+			}
+		}
+	} catch {}
+	return slugs;
+}
+
+let isOnlineState = typeof navigator !== "undefined" ? navigator.onLine : true;
+
+export async function checkOnlineStatus(): Promise<boolean> {
+	if (typeof navigator !== "undefined" && !navigator.onLine) {
+		isOnlineState = false;
+		return false;
+	}
+	try {
+		const res = await fetch("api/config", { method: "HEAD", cache: "no-store", signal: AbortSignal.timeout(2000) });
+		isOnlineState = res.ok || res.status < 500;
+	} catch {
+		isOnlineState = false;
+	}
+	return isOnlineState;
+}
 
 function card(g: GameManifestEntry, i: number): string {
 	const href = `maps/${encodeURIComponent(g.slug)}/`;
@@ -33,8 +166,140 @@ function card(g: GameManifestEntry, i: number): string {
 		`<li class="card-li" style="--i:${i + 3}"><a class="card" href="${href}" data-slug="${esc(g.slug)}"${accent}>${img}` +
 		`<div class="card-body"><h3>${esc(g.title)}</h3>` +
 		(g.description ? `<p>${esc(g.description)}</p>` : "") +
+		`<div class="card-offline-tag" hidden></div>` +
 		`<div class="card-foot"><ul class="stats">${stats}</ul><span class="cta">Open map ${ARROW}</span></div></div></a></li>`
 	);
+}
+
+function reloadBrokenImages(): void {
+	document.querySelectorAll<HTMLImageElement>("img").forEach((img) => {
+		if (img.dataset.failed || !img.complete || img.naturalWidth === 0) {
+			delete img.dataset.failed;
+			const src = img.getAttribute("src");
+			const srcset = img.getAttribute("srcset");
+			if (src) {
+				img.src = "";
+				img.src = src;
+			}
+			if (srcset) {
+				img.srcset = "";
+				img.srcset = srcset;
+			}
+		}
+	});
+}
+
+export async function syncOfflineCardStates(): Promise<void> {
+	if (typeof document === "undefined") return;
+	const list = document.getElementById("game-list");
+	if (!list) return;
+
+	const online = await checkOnlineStatus();
+	document.body.classList.toggle("is-offline", !online);
+	setOnlineStatus(online);
+
+	if (online) {
+		list.querySelectorAll<HTMLElement>(".card-li").forEach((li) => {
+			delete li.dataset.offline;
+			const tag = li.querySelector<HTMLElement>(".card-offline-tag");
+			if (tag) tag.hidden = true;
+		});
+		document.querySelectorAll<HTMLElement>("#partial-list .card-li").forEach((li) => {
+			delete li.dataset.offline;
+			const tag = li.querySelector<HTMLElement>(".card-offline-tag");
+			if (tag) tag.hidden = true;
+		});
+		const resume = document.getElementById("resume");
+		if (resume) {
+			delete resume.dataset.offline;
+			const resumeCard = resume.querySelector<HTMLElement>(".resume-card");
+			if (resumeCard) delete resumeCard.dataset.offline;
+			const rTag = resume.querySelector<HTMLElement>(".resume-offline-tag");
+			if (rTag) rTag.remove();
+		}
+		reloadBrokenImages();
+		return;
+	}
+
+	const [downloaded, cached] = await Promise.all([getDownloadedGameSlugs(), queryCachedGames()]);
+
+	const updateLi = (li: HTMLElement) => {
+		const a = li.querySelector<HTMLElement>("a.card");
+		const slug = a?.dataset.slug;
+		if (!slug) return;
+		const state = getGameOfflineState(slug, downloaded, cached);
+		li.dataset.offline = state;
+		let tag = li.querySelector<HTMLElement>(".card-offline-tag");
+		if (!tag) {
+			tag = document.createElement("div");
+			tag.className = "card-offline-tag";
+			const body = li.querySelector(".card-body");
+			const foot = li.querySelector(".card-foot");
+			if (body && foot) body.insertBefore(tag, foot);
+			else if (body) body.appendChild(tag);
+		}
+		tag.hidden = false;
+		tag.className = `card-offline-tag ${state}`;
+		if (state === "downloaded") {
+			tag.innerHTML = `${OK_SVG}<span>Kept offline</span>`;
+		} else if (state === "cached") {
+			tag.innerHTML = `${WARN_SVG}<span class="tag-full">Markers cached · Missing offline map</span><span class="tag-short">Markers cached</span>`;
+		} else {
+			tag.innerHTML = `${OFFLINE_SVG}<span class="tag-full">Unavailable offline</span><span class="tag-short">Unavailable</span>`;
+		}
+	};
+
+	list.querySelectorAll<HTMLElement>(".card-li").forEach(updateLi);
+	document.querySelectorAll<HTMLElement>("#partial-list .card-li").forEach(updateLi);
+
+	const resume = document.getElementById("resume");
+	const resumeCard = resume?.querySelector<HTMLElement>(".resume-card");
+	const resumeSlug = resumeCard?.querySelector<HTMLElement>("a[data-slug]")?.dataset.slug;
+	if (resume && resumeCard && resumeSlug) {
+		const state = getGameOfflineState(resumeSlug, downloaded, cached);
+		resumeCard.dataset.offline = state;
+		let rTag = resume.querySelector<HTMLElement>(".resume-offline-tag");
+		if (!rTag) {
+			rTag = document.createElement("span");
+			rTag.className = "resume-offline-tag";
+			const media = resume.querySelector(".resume-media");
+			if (media) media.appendChild(rTag);
+			else resumeCard.appendChild(rTag);
+		}
+		rTag.hidden = false;
+		rTag.className = `resume-offline-tag ${state}`;
+		if (state === "downloaded") {
+			rTag.innerHTML = `${OK_SVG}<span>Kept offline</span>`;
+		} else if (state === "cached") {
+			rTag.innerHTML = `${WARN_SVG}<span class="tag-full">Markers cached · Missing offline map</span><span class="tag-short">Markers cached</span>`;
+		} else {
+			rTag.innerHTML = `${OFFLINE_SVG}<span class="tag-full">Unavailable offline</span><span class="tag-short">Unavailable</span>`;
+		}
+	}
+}
+
+async function handleCardOpen(
+	href: string,
+	slug: string,
+	gameTitle: string,
+	state: GameOfflineState,
+	theme?: any,
+): Promise<void> {
+	if (state !== "downloaded") {
+		const warn = offlineWarningFor(state, gameTitle);
+		if (!warn) return;
+		const ok = await showConfirmDialog({
+			title: warn.title,
+			message: warn.message,
+			confirmText: warn.confirmText,
+			cancelText: "Cancel",
+		});
+		if (!ok) return;
+		recordGameOpen(slug, theme, gameTitle);
+		window.location.assign(href);
+		return;
+	}
+	recordGameOpen(slug, theme, gameTitle);
 }
 
 export function orderGames<T extends { slug: string }>(games: T[], recentSlugs: string[] = []): T[] {
@@ -55,6 +320,8 @@ export function orderGames<T extends { slug: string }>(games: T[], recentSlugs: 
 	}
 	return ordered;
 }
+
+let latestManifestGames: GameManifestEntry[] = [];
 
 async function main(): Promise<void> {
 	const list = document.getElementById("game-list")!;
@@ -87,16 +354,26 @@ async function main(): Promise<void> {
 	}
 
 	const onOpen = (e: Event) => {
-		const a = (e.target as HTMLElement | null)?.closest<HTMLElement>("a.card");
+		const a = (e.target as HTMLElement | null)?.closest<HTMLAnchorElement>("a.card");
 		if (!a) return;
 		const slug = a.dataset.slug;
+		if (!slug) return;
+		const li = a.closest<HTMLElement>(".card-li");
+		const state = (li?.dataset.offline as GameOfflineState) || (isOnlineState ? "downloaded" : "unavailable");
+		if (state !== "downloaded") {
+			e.preventDefault();
+		}
 		const g = index.games!.find((x) => x.slug === slug);
-		if (g) recordGameOpen(g.slug, g.theme, g.title);
+		void handleCardOpen(a.href, slug, g?.title || slug, state, g?.theme);
 	};
 	list.addEventListener("click", onOpen);
-	list.addEventListener("auxclick", onOpen);
+	document.getElementById("partial-list")?.addEventListener("click", onOpen);
+
+	void syncOfflineCardStates();
 
 	setupSearch(list);
+	latestManifestGames = index.games;
+	void prefetchPosters(index.games);
 }
 
 // Search: a card matches by its title or description, exactly or with typos (shared/search.ts).
@@ -246,6 +523,63 @@ function ago(t: number): string {
 function posterSrc(g: GameManifestEntry, size: number): string {
 	if (!g.poster) return "";
 	return /\.(jpe?g|png|webp|avif)$/i.test(g.poster) ? `maps/${g.poster}` : `maps/${g.poster}-${size}.webp`;
+}
+
+export function posterUrlsForGame(g: GameManifestEntry): string[] {
+	if (!g.poster) return [];
+	if (/\.(jpe?g|png|webp|avif)$/i.test(g.poster)) {
+		return [`maps/${g.poster}`];
+	}
+	return [`maps/${g.poster}-600.webp`, `maps/${g.poster}-1200.webp`];
+}
+
+export function allPosterUrls(games: readonly GameManifestEntry[]): string[] {
+	const set = new Set<string>();
+	for (const g of games) {
+		for (const u of posterUrlsForGame(g)) {
+			set.add(u);
+		}
+	}
+	return [...set];
+}
+
+export async function prefetchPosters(games: readonly GameManifestEntry[]): Promise<void> {
+	if (typeof window === "undefined") return;
+	if (typeof navigator !== "undefined" && !navigator.onLine) return;
+	const urls = allPosterUrls(games);
+	if (!urls.length) return;
+
+	if ("serviceWorker" in navigator) {
+		try {
+			const reg = await navigator.serviceWorker.ready;
+			if (reg.active) {
+				reg.active.postMessage({ type: "va-cache-posters", urls });
+			}
+		} catch {}
+	}
+
+	const schedule = (cb: () => void) => {
+		if (typeof requestIdleCallback !== "undefined") {
+			requestIdleCallback(cb, { timeout: 3000 });
+		} else {
+			setTimeout(cb, 150);
+		}
+	};
+
+	schedule(async () => {
+		const concurrency = 4;
+		let idx = 0;
+		const worker = async () => {
+			while (idx < urls.length) {
+				if (typeof navigator !== "undefined" && !navigator.onLine) break;
+				const u = urls[idx++];
+				try {
+					await fetch(u, { priority: "low" } as RequestInit);
+				} catch {}
+			}
+		};
+		await Promise.all(Array.from({ length: concurrency }, () => worker()));
+	});
 }
 
 const pct = (f: number, n: number): number => (n ? Math.floor((1000 * f) / n) / 10 : 0);
@@ -418,9 +752,15 @@ function renderResume(gamesList: GameManifestEntry[]): string | null {
 	root.addEventListener("click", (e) => {
 		const target = e.target as HTMLElement | null;
 		if (!target) return;
-		const a = target.closest("a[data-slug]");
-		if (a) {
-			recordGameOpen(g.slug, g.theme, g.title);
+		const a = target.closest<HTMLAnchorElement>("a[data-slug]");
+		if (a && a.dataset.slug) {
+			const resumeCard = root.querySelector<HTMLElement>(".resume-card");
+			const state =
+				(resumeCard?.dataset.offline as GameOfflineState) || (isOnlineState ? "downloaded" : "unavailable");
+			if (state !== "downloaded") {
+				e.preventDefault();
+			}
+			void handleCardOpen(a.href, a.dataset.slug, g.title, state, g.theme);
 			return;
 		}
 		if (target.closest(".resume-dismiss")) {
@@ -478,4 +818,29 @@ if (typeof document !== "undefined") {
 		if (beatTimer) clearTimeout(beatTimer);
 		beatTimer = setTimeout(() => brand.classList.remove("beat"), 6000);
 	});
+
+	document.addEventListener(
+		"error",
+		(e) => {
+			const target = e.target as HTMLElement | null;
+			if (target && target.tagName === "IMG") {
+				(target as HTMLImageElement).dataset.failed = "1";
+			}
+		},
+		true,
+	);
+
+	window.addEventListener("online", () => {
+		void syncOfflineCardStates();
+		if (latestManifestGames.length) void prefetchPosters(latestManifestGames);
+	});
+	window.addEventListener("offline", () => void syncOfflineCardStates());
+	window.addEventListener("focus", () => void syncOfflineCardStates());
+	if ("serviceWorker" in navigator) {
+		navigator.serviceWorker.addEventListener("message", (e) => {
+			if (e.data?.type === "va-online-status" || e.data?.type === "va-offline-changed") {
+				void syncOfflineCardStates();
+			}
+		});
+	}
 }

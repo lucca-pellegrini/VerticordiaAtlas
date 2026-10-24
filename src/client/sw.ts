@@ -111,6 +111,12 @@ if (typeof self !== "undefined" && "registration" in self) {
 		});
 	}
 
+	function broadcastOnline(online: boolean): void {
+		self.clients.matchAll().then((clients) => {
+			for (const c of clients) c.postMessage({ type: "va-online-status", online });
+		});
+	}
+
 	// serve what we have, refresh it behind the scenes. A server that is down may still answer (a proxy's 502/503): that
 	// is not an answer, so what is cached is served and an error is never kept
 	async function staleWhileRevalidate(event: FetchEvent, cacheName: string, req: Request): Promise<Response> {
@@ -121,9 +127,13 @@ if (typeof self !== "undefined" && "registration" in self) {
 		const refresh = fetch(req, { cache: "no-cache" })
 			.then((res) => {
 				if (res.ok && res.status === 200) cache.put(req, res.clone());
+				broadcastOnline(true);
 				return res;
 			})
-			.catch(() => null);
+			.catch(() => {
+				broadcastOnline(false);
+				return null;
+			});
 		if (cached) {
 			event.waitUntil(refresh);
 			return cached;
@@ -157,6 +167,7 @@ if (typeof self !== "undefined" && "registration" in self) {
 		try {
 			const res = await fetch(req);
 			if (res.ok) {
+				broadcastOnline(true);
 				event.waitUntil(
 					stamped(res.clone())
 						.then((copy) => cache.put(req, copy))
@@ -165,6 +176,7 @@ if (typeof self !== "undefined" && "registration" in self) {
 				return res;
 			}
 		} catch {
+			broadcastOnline(false);
 			/* offline: below */
 		}
 		return hit || offline();
@@ -172,6 +184,47 @@ if (typeof self !== "undefined" && "registration" in self) {
 
 	self.addEventListener("message", (event: ExtendableMessageEvent) => {
 		if (event.data?.type === "va-offline-changed") resetPackLookups();
+		if (event.data?.type === "va-check-online") {
+			event.source?.postMessage({
+				type: "va-online-status",
+				online: navigator.onLine,
+			});
+		}
+		if (event.data?.type === "va-query-cached-games") {
+			caches.open(DATA).then(async (cache) => {
+				const keys = await cache.keys();
+				const games = new Set<string>();
+				for (const req of keys) {
+					const path = new URL(req.url).pathname;
+					const m = path.match(/\/maps\/([^/]+)\/(?:meta\.json|data\.json|markers\.json|[^/]+\/data\.json)/);
+					if (m) games.add(decodeURIComponent(m[1]));
+				}
+				event.source?.postMessage({
+					type: "va-cached-games-reply",
+					games: [...games],
+				});
+			});
+		}
+		if (event.data?.type === "va-cache-posters" && Array.isArray(event.data?.urls)) {
+			const urls: string[] = event.data.urls;
+			event.waitUntil(
+				(async () => {
+					const cache = await caches.open(DATA);
+					for (const rel of urls) {
+						const req = new Request(at(rel));
+						const hit = await cache.match(req);
+						if (!hit) {
+							try {
+								const res = await fetch(req);
+								if (res.ok && res.status === 200) {
+									await cache.put(req, res);
+								}
+							} catch {}
+						}
+					}
+				})(),
+			);
+		}
 	});
 
 	// the maps folder: tiles from the cache or the network, everything else revalidated

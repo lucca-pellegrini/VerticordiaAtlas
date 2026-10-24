@@ -490,7 +490,7 @@ export function createApi({
 					});
 					res.end();
 				};
-				if (!googleClientId || !publicUrl) return back("Google sign-in is not set up on this server yet.");
+				if (!googleClientId || !publicUrl) return back("We can't seem to reach Google for sign-in. Try again later.");
 				if (!allowLogin(ip)) return back("Too many attempts. Please wait a little and try again.");
 				const n = url.searchParams.get("next") || "";
 				const next = /^\/(?!\/)/.test(n) ? n : "/"; // only a path on this site

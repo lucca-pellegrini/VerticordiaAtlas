@@ -469,7 +469,7 @@ samp {
 
 .net-status {
 	position: fixed;
-	top: 12px;
+	top: calc(12px + env(safe-area-inset-top, 0px));
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 70;
@@ -479,10 +479,13 @@ samp {
 	padding: 5px 12px;
 	border-radius: 999px;
 	font: 500 12px/1 Inter;
+	white-space: nowrap;
 	color: var(--ink-dim);
 	background: color-mix(in srgb, var(--panel-2) 92%, transparent);
 	border: 1px solid var(--line-2);
 	backdrop-filter: blur(8px);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+	transition: opacity 0.2s ease;
 }
 .net-status[hidden] {
 	display: none;

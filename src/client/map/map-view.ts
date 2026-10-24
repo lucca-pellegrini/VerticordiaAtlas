@@ -137,7 +137,7 @@ export function mixColor(a: string, b: string, t: number): string {
 // meta.json (written by add-game.ts) says where a game's data, sprite and tiles are.
 export async function loadMeta(): Promise<any> {
 	const r = await fetch("./meta.json");
-	if (!r.ok) throw new Error(`meta.json: HTTP ${r.status}. Run add-game.ts for this game`);
+	if (!r.ok) throw new Error(`meta.json: HTTP ${r.status}. We cannot seem to reach the server's game data.`);
 	return r.json();
 }
 
