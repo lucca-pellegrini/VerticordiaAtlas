@@ -4,6 +4,13 @@
 import { esc, fmt } from "../shared/escape.ts";
 import type { UserAccount } from "../shared/types.ts";
 import { api, notify, SIGNED_IN_KEY } from "./account.ts";
+import {
+	clearAllOfflineMaps,
+	inspectOfflineManifests,
+	type OfflineManifest,
+	removeOfflineMap,
+	verifyOfflineMap,
+} from "./offline.ts";
 import "./theme.ts";
 
 export function providerLabel(provider: UserAccount["provider"]): string {
@@ -46,6 +53,37 @@ export function renderAccountInfoHtml(u: UserAccount): string {
 		`<div class="kv-item"><span class="kv-label">Synced records</span><span class="kv-val">${esc(synced)}</span></div>` +
 		`</div>`
 	);
+}
+
+export function renderOfflineListHtml(
+	items: { manifest: OfflineManifest; cachedCount: number; intact: boolean }[],
+): string {
+	if (!items.length) {
+		return `<p class="small muted">No maps are currently kept offline on this device.</p>`;
+	}
+	return items
+		.map(({ manifest: m, cachedCount, intact }) => {
+			const href = `../maps/${encodeURIComponent(m.game)}/?map=${encodeURIComponent(m.map)}`;
+			const statusText = intact
+				? `${fmt(m.expectedCount)} files · ${formatBytes(m.totalBytes)} · Verified ${formatAccountDate(m.lastVerified)}`
+				: `${fmt(cachedCount)} of ${fmt(m.expectedCount)} files cached (${formatBytes(m.totalBytes)} expected) · Missing data`;
+			const repairBtn = intact
+				? ""
+				: `<button type="button" class="ghost" data-repair-game="${esc(m.game)}" data-repair-map="${esc(m.map)}">Repair</button>`;
+			return (
+				`<div class="offline-item" data-offline-row="${esc(m.k)}">` +
+				`<div class="offline-item-info">` +
+				`<a class="offline-item-title" href="${esc(href)}">${esc(m.gameTitle)} · ${esc(m.mapTitle)}</a>` +
+				`<span class="offline-item-meta">${esc(statusText)}</span>` +
+				`</div>` +
+				`<div class="btn-row">` +
+				repairBtn +
+				`<button type="button" class="ghost danger-btn" data-remove-game="${esc(m.game)}" data-remove-map="${esc(m.map)}">Remove</button>` +
+				`</div>` +
+				`</div>`
+			);
+		})
+		.join("");
 }
 
 if (typeof document !== "undefined") {
@@ -174,5 +212,91 @@ if (typeof document !== "undefined") {
 		}
 	};
 
+	async function refreshOfflineSection(): Promise<void> {
+		const badge = $("offline-badge");
+		const listEl = $("offline-list");
+		const actionsEl = $("offline-actions");
+		try {
+			const items = await inspectOfflineManifests();
+			const totalBytes = items.reduce((sum, x) => sum + (x.intact ? x.manifest.totalBytes : 0), 0);
+			if (!items.length) {
+				badge.textContent = "0 maps";
+				badge.classList.remove("active");
+				actionsEl.hidden = true;
+			} else {
+				badge.textContent = `${fmt(items.length)} map${items.length === 1 ? "" : "s"} · ${formatBytes(totalBytes)}`;
+				badge.classList.add("active");
+				actionsEl.hidden = false;
+			}
+			listEl.innerHTML = renderOfflineListHtml(items);
+		} catch {
+			badge.textContent = "0 maps";
+			listEl.innerHTML = `<p class="small muted">Offline storage is unavailable in this browser mode.</p>`;
+			actionsEl.hidden = true;
+		}
+	}
+
+	$("offline-list").addEventListener("click", async (e) => {
+		const target = e.target as HTMLElement | null;
+		if (!target) return;
+		const rem = target.closest<HTMLButtonElement>("button[data-remove-game]");
+		if (rem) {
+			const game = rem.dataset.removeGame!;
+			const map = rem.dataset.removeMap!;
+			rem.disabled = true;
+			await removeOfflineMap(game, map);
+			notify("Removed offline map data from this device.");
+			await refreshOfflineSection();
+			return;
+		}
+		const rep = target.closest<HTMLButtonElement>("button[data-repair-game]");
+		if (rep) {
+			const game = rep.dataset.repairGame!;
+			const map = rep.dataset.repairMap!;
+			rep.disabled = true;
+			rep.textContent = "Repairing…";
+			try {
+				await verifyOfflineMap({
+					gameSlug: game,
+					mapSlug: map,
+					onProgress: (done, total) => {
+						rep.textContent = total ? `Repairing ${Math.round((done / total) * 100)}%…` : "Repairing…";
+					},
+				});
+				notify("Offline map repaired.");
+			} catch (err: any) {
+				notify(err.message || "Could not repair offline map.");
+			}
+			await refreshOfflineSection();
+		}
+	});
+
+	let clearOfflineArmed = false;
+	$("btn-clear-offline").onclick = async () => {
+		const btn = $<HTMLButtonElement>("btn-clear-offline");
+		if (!clearOfflineArmed) {
+			clearOfflineArmed = true;
+			btn.textContent = "Click again to clear all offline data";
+			setTimeout(() => {
+				if (clearOfflineArmed) {
+					clearOfflineArmed = false;
+					btn.textContent = "Clear all offline data";
+				}
+			}, 4000);
+			return;
+		}
+		clearOfflineArmed = false;
+		btn.textContent = "Clear all offline data";
+		btn.disabled = true;
+		try {
+			await clearAllOfflineMaps();
+			notify("Cleared all offline maps on this device.");
+			await refreshOfflineSection();
+		} finally {
+			btn.disabled = false;
+		}
+	};
+
 	loadAccountPage();
+	refreshOfflineSection();
 }

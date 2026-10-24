@@ -19,6 +19,7 @@ import {
 	resetShownCounts,
 	shownOnMap,
 	startMorph,
+	syncMapOfflineState,
 	updateSidebar,
 	userChanged,
 } from "./sidebar.ts";
@@ -215,6 +216,7 @@ export async function loadGame(entry: any): Promise<boolean> {
 	$("#groups")?.classList.add("enter"); // the list fades in as the panel comes up
 	document.body.classList.remove("loading-side"); // the side panel has its numbers and selectors now
 	createMap();
+	syncMapOfflineState();
 	return true;
 }
 
@@ -569,6 +571,7 @@ export async function switchMap(slug: string, { remember = true } = {}): Promise
 	endMorph({ later: true }); // the tween runs its full length from the numbers this refresh set
 	renderMapSwitch();
 	updateSidebar();
+	syncMapOfflineState();
 }
 
 // a view another device moved: glide there. It is agreed once it has landed; if the user moved the map meanwhile, that

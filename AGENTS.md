@@ -39,6 +39,8 @@ src/
 		home.ts             # Homepage entrypoint: game grid, fuzzy search, and "Continue" resume card
 		theme.ts            # Theme mode (light/auto/dark), game accent tinting, and navigation trail
 		account.ts          # Account pill UI, session checks, and API client wrapper
+		account-page.ts     # Account page entrypoint (/account/): session controls, offline maps, and account deletion
+		offline.ts          # Device-local "Keep offline" manifest (IndexedDB) and tile downloader/verifier (Cache API)
 		sync.ts             # Background sync engine, conflict resolution, Web Locks, and WebSocket client
 		signin.ts           # Sign-in page entrypoint (/signin/)
 		legal.ts            # Legal pages entrypoint (/about/, /terms/, /privacy/)
@@ -101,7 +103,7 @@ tests/
 1. **Client Bundles Are Build Artifacts**:
     - All `.js` files outside `public/vendor/*.js` are gitignored (`.gitignore`).
     - Edit TypeScript sources in `src/client/` and `src/shared/`, never the generated `.js` bundles in `public/`.
-    - `scripts/build.ts` compiles six entrypoints (`public/app.js`, `public/home.js`, `public/theme.js`, `public/signin/signin.js`, `public/legal/legal.js`, and `public/sw.js`) in ~35ms.
+    - `scripts/build.ts` compiles seven entrypoints (`public/app.js`, `public/home.js`, `public/theme.js`, `public/signin/signin.js`, `public/account/account.js`, `public/legal/legal.js`, and `public/sw.js`) in ~50ms.
     - `scripts/build.ts` also verifies that every path in `PRECACHE` (`src/client/sw.ts`) exists on disk in `public/` and injects a content-addressed SHA-256 version string (`__SW_VERSION__`) into `public/sw.js`. When adding or renaming static shell assets in `public/`, update `PRECACHE` in `src/client/sw.ts` and run `bun test`.
 
 2. **Sync Hashing & Conflict Rules (`src/shared/sync-rules.ts`)**:

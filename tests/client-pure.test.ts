@@ -1,6 +1,12 @@
 import { describe, expect, test } from "bun:test";
 
-import { formatAccountDate, formatBytes, providerLabel, renderAccountInfoHtml } from "../src/client/account-page.ts";
+import {
+	formatAccountDate,
+	formatBytes,
+	providerLabel,
+	renderAccountInfoHtml,
+	renderOfflineListHtml,
+} from "../src/client/account-page.ts";
 import { menuMarkup } from "../src/client/account.ts";
 import { orderGames } from "../src/client/home.ts";
 import { glyphInk, PIN } from "../src/client/icons-lib.ts";
@@ -19,6 +25,18 @@ import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
 import { iconScale, vivid } from "../src/client/map/state.ts";
+import {
+	buildOfflineTileSpec,
+	computeZoomRanges,
+	createOfflineManager,
+	expandSpecUrls,
+	fnvBytes,
+	type OfflineCacheAdapter,
+	offlineKey,
+	type OfflineManifest,
+	type OfflineStorageAdapter,
+	pickSampleUrls,
+} from "../src/client/offline.ts";
 import { createSync } from "../src/client/sync.ts";
 import { deriveLightAccentSoft, describePage, normalizePath } from "../src/client/theme.ts";
 
@@ -387,5 +405,160 @@ describe("sync client engine (createSync)", () => {
 			(globalThis as any).addEventListener = origAdd;
 			(globalThis as any).document = origDoc;
 		}
+	});
+});
+
+describe("offline maps manager (src/client/offline.ts)", () => {
+	test("pure helpers compute tile ranges, expand URLs, pick samples, and hash bytes", () => {
+		expect(offlineKey("re7", "baker-ranch")).toBe("offline:re7:baker-ranch");
+		expect(fnvBytes(new Uint8Array([1, 2, 3, 4]))).toMatch(/^[0-9a-f]{8}$/);
+		expect(fnvBytes(new Uint8Array([1, 2, 3, 4]))).not.toBe(fnvBytes(new Uint8Array([1, 2, 3, 5])));
+
+		const ranges = computeZoomRanges([-1.4, 0, 0, 1.4], 9, 10);
+		expect(ranges.length).toBe(2);
+		expect(ranges[0].z).toBe(9);
+		expect(ranges[1].z).toBe(10);
+
+		const meta = {
+			id: "re7",
+			title: "Resident Evil 7",
+			markers: { json: "markers.json", png: "markers.png" },
+			icons: { font: "icons/icons.woff", glyphs: {} },
+			maps: [
+				{
+					slug: "baker-ranch",
+					title: "Baker Ranch",
+					data: "baker-ranch/data.json",
+					tilesets: [
+						{
+							template: "baker-ranch/tiles/default-v1/{z}/{y}/{x}.jpg",
+							minzoom: 9,
+							maxzoom: 10,
+							bounds: [-1.4, 0, 0, 1.4] as [number, number, number, number],
+						},
+					],
+				},
+			],
+		};
+		const spec = buildOfflineTileSpec("re7", meta, meta.maps[0]);
+		expect(spec.dataUrls).toContain("maps/re7/meta.json");
+		expect(spec.dataUrls).toContain("maps/re7/baker-ranch/data.json");
+		expect(spec.dataUrls).toContain("maps/re7/markers.png");
+		expect(spec.dataUrls).toContain("maps/re7/icons/icons.woff");
+
+		const urls = expandSpecUrls(spec);
+		expect(urls.length).toBe(spec.dataUrls.length + 4 + 16);
+		expect(pickSampleUrls(urls, 5).length).toBe(5);
+	});
+
+	test("downloadOfflineMap, verifyOfflineMap, sample hash corruption detection, and removal work end-to-end", async () => {
+		const storeMap = new Map<string, OfflineManifest>();
+		const storage: OfflineStorageAdapter = {
+			get: async (k) => (storeMap.has(k) ? structuredClone(storeMap.get(k)!) : null),
+			put: async (m) => {
+				storeMap.set(m.k, structuredClone(m));
+			},
+			remove: async (k) => {
+				storeMap.delete(k);
+			},
+			list: async () => [...storeMap.values()].map((m) => structuredClone(m)),
+		};
+
+		const cacheMap = new Map<string, { bytes: Uint8Array; contentType: string }>();
+		const cache: OfflineCacheAdapter = {
+			keys: async () => [...cacheMap.keys()],
+			match: async (url) => {
+				const entry = cacheMap.get(url);
+				if (!entry) return null;
+				return { size: entry.bytes.byteLength, bytes: async () => entry.bytes };
+			},
+			put: async (url, bytes, contentType) => {
+				cacheMap.set(url, { bytes: new Uint8Array(bytes), contentType });
+			},
+			delete: async (url) => cacheMap.delete(url),
+			clear: async () => cacheMap.clear(),
+		};
+
+		const meta = {
+			id: "re7",
+			title: "Resident Evil 7",
+			markers: { json: "markers.json", png: "markers.png" },
+			maps: [
+				{
+					slug: "baker-ranch",
+					title: "Baker Ranch",
+					data: "baker-ranch/data.json",
+					tilesets: [
+						{
+							template: "baker-ranch/tiles/{z}/{y}/{x}.jpg",
+							minzoom: 9,
+							maxzoom: 9,
+							bounds: [-1.4, 0, 0, 1.4] as [number, number, number, number],
+						},
+					],
+				},
+			],
+		};
+
+		let fetchCalls = 0;
+		const mgr = createOfflineManager({
+			storage,
+			cache,
+			fetchMeta: async () => meta,
+			fetchUrl: async (url) => {
+				fetchCalls++;
+				// Simulate one 404 tile on an irregular boundary
+				if (url.endsWith("/255/255.jpg")) {
+					return { status: 404, bytes: new Uint8Array(0), contentType: "" };
+				}
+				const bytes = new TextEncoder().encode(`content:${url}`);
+				return { status: 200, bytes, contentType: "image/jpeg" };
+			},
+			now: () => 1700000000000,
+		});
+
+		const manifest = await mgr.downloadOfflineMap({
+			gameSlug: "re7",
+			mapSlug: "baker-ranch",
+		});
+		expect(manifest.enabled).toBe(true);
+		expect(manifest.missingUrls?.length).toBe(1);
+		expect(manifest.expectedCount).toBe(4 + 3); // 4 data URLs + 3 valid tiles (1 tile returned 404)
+		expect(manifest.totalBytes).toBeGreaterThan(0);
+		expect(manifest.sampleHashes.length).toBe(5);
+
+		// Verify when intact: no additional network fetches
+		const beforeVerifyCalls = fetchCalls;
+		const v1 = await mgr.verifyOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" });
+		expect(v1.status).toBe("intact");
+		expect(v1.missingCount).toBe(0);
+		expect(fetchCalls).toBe(beforeVerifyCalls);
+
+		// Simulate external cache corruption (1 deleted file + 1 corrupted sample file)
+		const sampleUrl = manifest.sampleHashes[0].url;
+		cacheMap.set(sampleUrl, { bytes: new Uint8Array([9, 9, 9]), contentType: "image/jpeg" });
+		const otherUrl = manifest.sampleHashes[1].url;
+		cacheMap.delete(otherUrl);
+
+		// inspectOfflineManifests detects the missing file for the /account/ UI
+		const inspected = await mgr.inspectOfflineManifests();
+		expect(inspected.length).toBe(1);
+		expect(inspected[0].intact).toBe(false);
+		expect(renderOfflineListHtml(inspected)).toContain("Missing data");
+		expect(renderOfflineListHtml(inspected)).toContain("data-repair-game");
+
+		// verifyOfflineMap detects both the missing file and the corrupted sample hash and re-downloads both
+		const v2 = await mgr.verifyOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" });
+		expect(v2.status).toBe("repaired");
+		expect(v2.missingCount).toBe(2);
+
+		const inspectedAfter = await mgr.inspectOfflineManifests();
+		expect(inspectedAfter[0].intact).toBe(true);
+		expect(renderOfflineListHtml(inspectedAfter)).toContain("Verified");
+
+		// Removing the offline map clears both the manifest and its cached entries
+		await mgr.removeOfflineMap("re7", "baker-ranch");
+		expect(await mgr.listOfflineManifests()).toEqual([]);
+		expect(cacheMap.size).toBe(0);
 	});
 });

@@ -1413,3 +1413,65 @@ html[data-theme="light"] .resume-card {
 		animation: none;
 	}
 }
+
+/* ---------- Keep offline button on game cards and resume card ---------- */
+.card-li {
+	position: relative;
+}
+.card-offline-btn {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	z-index: 3;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	height: 30px;
+	padding: 0 11px;
+	border-radius: 999px;
+	border: 1px solid rgb(255 255 255 / 0.16);
+	background: color-mix(in srgb, var(--night) 78%, transparent);
+	backdrop-filter: blur(8px);
+	color: var(--ink-dim);
+	font: 600 11.5px/1 var(--sans);
+	letter-spacing: 0.02em;
+	cursor: pointer;
+	transition:
+		color 0.18s,
+		background-color 0.18s,
+		border-color 0.18s,
+		transform 0.15s;
+}
+.card-offline-btn:hover {
+	color: var(--ink);
+	border-color: rgb(255 255 255 / 0.35);
+	background: color-mix(in srgb, var(--night) 90%, transparent);
+}
+.card-offline-btn[aria-pressed="true"] {
+	color: #fff;
+	background: color-mix(in srgb, var(--accent) 85%, var(--night));
+	border-color: var(--accent-soft);
+}
+.card-offline-btn[data-busy="1"] {
+	color: var(--accent-soft);
+	border-color: var(--accent);
+}
+.card-offline-btn svg.off-ico {
+	width: 13px;
+	height: 13px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2.2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	flex: none;
+}
+.resume-head-tools {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+}
+.resume-offline-btn {
+	position: static;
+	height: 30px;
+}
