@@ -370,7 +370,8 @@
 					"maxzoom": 14,
 					"viewMaxzoom": 14,
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#000000"
 				}
 			]
 		},
@@ -386,7 +387,8 @@
 					"maxzoom": 14,
 					"viewMaxzoom": 14,
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#000000"
 				}
 			]
 		},
@@ -402,7 +404,8 @@
 					"maxzoom": 13,
 					"viewMaxzoom": 12,
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#000000"
 				}
 			]
 		}

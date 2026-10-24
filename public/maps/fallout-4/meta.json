@@ -214,7 +214,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 15,
 					"bounds": [-2.16100484132472, -0.28215879620426, 0.66816508770234, 1.71066376977118],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#1d1d1d"
 				}
 			]
 		},
@@ -230,7 +231,8 @@
 					"maxzoom": 13,
 					"viewMaxzoom": 14,
 					"bounds": [-1.6894141690475002, -0.22199287063515, 0.2432056196800001, 1.60326499177515],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#1d1d1d"
 				}
 			]
 		},
@@ -246,7 +248,8 @@
 					"maxzoom": 13,
 					"viewMaxzoom": 15,
 					"bounds": [-1.55385732650323, -0.21956755641694992, 0.12251257896143003, 1.59726128750689],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#1d1d1d"
 				}
 			]
 		},
@@ -262,7 +265,8 @@
 					"maxzoom": 14,
 					"viewMaxzoom": 15,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#1d1d1d"
 				}
 			]
 		}
