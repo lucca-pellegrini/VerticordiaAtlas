@@ -12,7 +12,7 @@ import {
 	simplify,
 } from "../src/client/map/drawing.ts";
 import { mapLimits, sameCamera, startOf } from "../src/client/map/map-view.ts";
-import { mapgenieLocId } from "../src/client/map/markdown.ts";
+import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
@@ -152,11 +152,25 @@ describe("modularized map and home helpers", () => {
 		expect(insideGeom(poly, 15, 5)).toBe(false);
 	});
 
-	test("mapgenieLocId extracts locationIds from URLs", () => {
+	test("mapgenieLocId extracts locationIds from URLs and #loc fragments, and isCrossMapUrl detects other maps", () => {
 		expect(mapgenieLocId("https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165234")).toBe(165234);
+		expect(mapgenieLocId("https://rdr2map.com?locationIds=320")).toBe(320);
 		expect(mapgenieLocId("?locationIds=42")).toBe(42);
+		expect(mapgenieLocId("#loc=444895")).toBe(444895);
+		expect(mapgenieLocId("https://mapgenie.io/infinity-nikki/maps/miraland#loc=509074")).toBe(509074);
 		expect(mapgenieLocId("mailto:test@example.com")).toBeNull();
 		expect(mapgenieLocId("https://example.com/no-loc")).toBeNull();
+
+		expect(isLocalLocHref("#loc=444895")).toBe(true);
+		expect(isLocalLocHref("https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=509074")).toBe(false);
+
+		const slugs = ["velen-novigrad", "skellige", "white-orchard"];
+		expect(isCrossMapUrl("https://mapgenie.io/witcher-3/maps/skellige", slugs, "velen-novigrad")).toBe(true);
+		expect(isCrossMapUrl("https://mapgenie.io/witcher-3/maps/velen-novigrad", slugs, "velen-novigrad")).toBe(false);
+		expect(
+			isCrossMapUrl("https://fallout4map.com/far-harbor", ["commonwealth", "far-harbor"], "commonwealth"),
+		).toBe(true);
+		expect(isCrossMapUrl("https://youtu.be/abc", slugs, "velen-novigrad")).toBe(false);
 	});
 
 	test("queryOf and matchOf rank exact, phrase, word, and fuzzy matches", () => {

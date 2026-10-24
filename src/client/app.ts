@@ -453,11 +453,22 @@ function wire(): void {
 		}
 		const um = target.closest<HTMLElement>("[data-um]");
 		if (um) return state.um.detailAction(um.dataset.um, state.selected);
+		const cross = target.closest<HTMLElement>("a[data-cross-loc]");
+		if (cross) {
+			e.preventDefault();
+			toast("This marker is on another map. Map switching on link follow is planned.", 4000);
+			return;
+		}
 		const a = target.closest<HTMLElement>("a[data-loc]");
 		if (a) {
 			e.preventDefault();
 			endPreview({ restore: false });
-			return select(Number(a.dataset.loc));
+			const id = Number(a.dataset.loc);
+			if (!state.byId.has(id)) {
+				toast("This marker is on another map. Map switching on link follow is planned.", 4000);
+				return;
+			}
+			return select(id);
 		}
 		const img = target.closest<HTMLImageElement>(".shots img");
 		if (img) {

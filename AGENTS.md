@@ -72,6 +72,7 @@ server/
 scripts/
 	build.ts                # Bundles src/client/*.ts into public/ and verifies/hashes SW precache files
 	add-game.ts             # Scrapes a MapGenie game/map into public/maps/<slug>/ (only the highest zoom of tiles; --force-get-tiles <map> takes every zoom)
+	clean-markers.ts        # Rewrites intra-map MapGenie locationIds URLs in data.json to "#loc=<id>" fragments
 	prune-tiles.ts          # Links single-colour tiles, makes missing overviews, deletes intermediate zooms the server can remake (--dry-run)
 	download-tiles.ts       # Downloads map raster tiles into public/maps/<slug>/<map>/tiles/
 	download-media.ts       # Downloads marker screenshot media into public/maps/<slug>/media/
