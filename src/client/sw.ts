@@ -11,7 +11,8 @@ export const VERSION = typeof __SW_VERSION__ !== "undefined" ? __SW_VERSION__ : 
 export const SHELL = `va-shell-${VERSION}`;
 export const DATA = `va-data-${VERSION}`;
 export const TILES = `va-tiles-${VERSION}`;
-export const KEEP = new Set([SHELL, DATA, TILES]);
+export const OFFLINE_TILES = "va-offline-tiles";
+export const KEEP = new Set([SHELL, DATA, TILES, OFFLINE_TILES]);
 export const TILE_LIMIT = 2000;
 export const TILE_MAX_AGE = 30 * 24 * 3600 * 1000;
 
@@ -92,6 +93,10 @@ if (typeof self !== "undefined" && "registration" in self) {
 		if (!cached && req.mode === "navigate") {
 			cached = await cache.match(req, { ignoreSearch: true });
 		}
+		if (!cached && cacheName === DATA) {
+			const pinned = await caches.open(OFFLINE_TILES);
+			cached = await pinned.match(req);
+		}
 		const refresh = fetch(req, { cache: "no-cache" })
 			.then((res) => {
 				if (res.ok && res.status === 200) cache.put(req, res.clone());
@@ -126,6 +131,8 @@ if (typeof self !== "undefined" && "registration" in self) {
 	}
 
 	async function tile(event: FetchEvent, req: Request): Promise<Response> {
+		const pinned = await (await caches.open(OFFLINE_TILES)).match(req);
+		if (pinned) return pinned;
 		const cache = await caches.open(TILES);
 		const hit = await cache.match(req);
 		if (hit && Date.now() - Number(hit.headers.get("x-va-cached-at") || 0) < TILE_MAX_AGE) return hit;

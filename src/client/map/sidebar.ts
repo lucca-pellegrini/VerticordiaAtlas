@@ -3,13 +3,14 @@
 import { esc } from "../../shared/escape.ts";
 import { glyphInk, iconInner, iconsReady, loadIconLibrary } from "../icons-lib.ts";
 import { svgIcon } from "../icons.ts";
+import { downloadOfflineMap, getOfflineManifest, removeOfflineMap, verifyOfflineMap } from "../offline.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
 import { refreshAll, refreshMap } from "./map-view.ts";
 import { renderPresets } from "./presets.ts";
 import { HEX, saveProfileNow, scheduleSave, scheduleViewSave } from "./profiles.ts";
 import { runSearch } from "./search.ts";
-import { $, fmt, state, UNTAGGED } from "./state.ts";
+import { $, fmt, state, toast, UNTAGGED } from "./state.ts";
 import { TEMP_CAT } from "./usermarkers.ts";
 
 // with a tag selected, untagged markers are shown unless "only markers with this tag" is on
@@ -598,6 +599,9 @@ export function setupTitleRow(): void {
 	const tools = document.createElement("div");
 	tools.className = "side-top-tools";
 	tools.innerHTML =
+		`<button id="side-offline-quick" class="icon-btn side-more-btn side-offline-quick" type="button" aria-pressed="false" title="Keep map offline" aria-label="Keep map offline">` +
+		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>` +
+		`</button>` +
 		`<div class="side-more" id="side-more">` +
 		`<button id="side-more-btn" class="icon-btn side-more-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Menu" aria-label="Menu">` +
 		`<svg class="dots" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></svg>` +
@@ -607,6 +611,10 @@ export function setupTitleRow(): void {
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10.5 9-7.5 9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-5a1.5 1.5 0 0 1-1.5-1.5v-4.5h-2v4.5A1.5 1.5 0 0 1 7.5 21h-5A1.5 1.5 0 0 1 1 19.5v-9z"/></svg>` +
 		`<span>All maps</span>` +
 		`</a>` +
+		`<button id="side-offline-btn" class="side-menu-link side-offline-btn" type="button" aria-pressed="false">` +
+		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>` +
+		`<span>Keep map offline</span>` +
+		`</button>` +
 		`<hr>` +
 		`<div class="side-menu-theme">` +
 		`<span class="side-menu-label">Theme</span>` +
@@ -623,6 +631,8 @@ export function setupTitleRow(): void {
 	const moreBtn = tools.querySelector<HTMLButtonElement>("#side-more-btn")!;
 	const moreMenu = tools.querySelector<HTMLElement>("#side-more-menu")!;
 	const closeBtn = tools.querySelector<HTMLButtonElement>("#side-drawer-close")!;
+	const offlineBtn = tools.querySelector<HTMLButtonElement>("#side-offline-btn")!;
+	const offlineQuick = tools.querySelector<HTMLButtonElement>("#side-offline-quick")!;
 
 	moreBtn.onclick = (e) => {
 		e.stopPropagation();
@@ -631,4 +641,115 @@ export function setupTitleRow(): void {
 		moreBtn.setAttribute("aria-expanded", String(!open));
 	};
 	closeBtn.onclick = () => document.body.classList.remove("side-open");
+	offlineBtn.onclick = () => toggleCurrentMapOffline();
+	offlineQuick.onclick = () => toggleCurrentMapOffline();
+}
+
+const DL_SVG =
+	'<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>';
+const OK_SVG = '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+let mapOfflineCtrl: AbortController | null = null;
+
+function setMapOfflineButtons(mode: "off" | "on" | "busy", text?: string): void {
+	const btn = document.getElementById("side-offline-btn") as HTMLButtonElement | null;
+	const quick = document.getElementById("side-offline-quick") as HTMLButtonElement | null;
+	const mapTitle = state.mapInfo?.title || "map";
+	if (btn) {
+		btn.setAttribute("aria-pressed", String(mode === "on"));
+		btn.innerHTML =
+			mode === "on"
+				? `${OK_SVG}<span>Kept offline</span>`
+				: mode === "busy"
+					? `${DL_SVG}<span>${esc(text || "Downloading…")}</span>`
+					: `${DL_SVG}<span>Keep map offline</span>`;
+	}
+	if (quick) {
+		quick.setAttribute("aria-pressed", String(mode === "on"));
+		quick.toggleAttribute("data-busy", mode === "busy");
+		quick.innerHTML = mode === "on" ? OK_SVG : DL_SVG;
+		const label =
+			mode === "on"
+				? `${mapTitle} is kept offline (click to remove)`
+				: mode === "busy"
+					? `${text || "Downloading…"} (click to cancel)`
+					: `Keep ${mapTitle} offline`;
+		quick.title = label;
+		quick.setAttribute("aria-label", label);
+	}
+}
+
+export async function toggleCurrentMapOffline(): Promise<void> {
+	const gameSlug = state.entry?.slug || state.entry?.id;
+	const mapSlug = state.mapInfo?.slug;
+	if (!gameSlug || !mapSlug) return;
+	const mapTitle = state.mapInfo?.title || mapSlug;
+
+	if (mapOfflineCtrl) {
+		mapOfflineCtrl.abort();
+		mapOfflineCtrl = null;
+		await removeOfflineMap(gameSlug, mapSlug);
+		setMapOfflineButtons("off");
+		toast(`Cancelled offline download for ${mapTitle}.`);
+		return;
+	}
+
+	const existing = await getOfflineManifest(gameSlug, mapSlug);
+	if (existing?.enabled) {
+		await removeOfflineMap(gameSlug, mapSlug);
+		setMapOfflineButtons("off");
+		toast(`Removed offline data for ${mapTitle}.`);
+		return;
+	}
+
+	const ctrl = new AbortController();
+	mapOfflineCtrl = ctrl;
+	setMapOfflineButtons("busy", "Downloading 0%…");
+	try {
+		await downloadOfflineMap({
+			gameSlug,
+			gameTitle: state.entry?.title,
+			meta: state.meta,
+			mapSlug,
+			signal: ctrl.signal,
+			onProgress: (done, total) => {
+				const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+				setMapOfflineButtons("busy", `Downloading ${pct}%…`);
+			},
+		});
+		if (mapOfflineCtrl === ctrl) mapOfflineCtrl = null;
+		setMapOfflineButtons("on");
+		toast(`${mapTitle} is ready for offline use.`);
+	} catch {
+		if (mapOfflineCtrl === ctrl) mapOfflineCtrl = null;
+		if (!ctrl.signal.aborted) {
+			setMapOfflineButtons("off");
+			toast(`Could not download ${mapTitle} for offline use.`);
+		}
+	}
+}
+
+export async function syncMapOfflineState(): Promise<void> {
+	const gameSlug = state.entry?.slug || state.entry?.id;
+	const mapSlug = state.mapInfo?.slug;
+	if (!gameSlug || !mapSlug) return;
+	try {
+		const m = await getOfflineManifest(gameSlug, mapSlug);
+		if (!m || !m.enabled) {
+			setMapOfflineButtons("off");
+			return;
+		}
+		setMapOfflineButtons("on");
+		const res = await verifyOfflineMap({
+			gameSlug,
+			mapSlug,
+			onProgress: (done, total) => {
+				const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+				setMapOfflineButtons("busy", `Restoring ${pct}%…`);
+			},
+		});
+		setMapOfflineButtons("on");
+		if (res.status === "repaired" && res.missingCount > 0) {
+			toast(`Restored ${fmt(res.missingCount)} missing offline file(s) for ${state.mapInfo?.title || mapSlug}.`);
+		}
+	} catch {}
 }
