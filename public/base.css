@@ -309,11 +309,13 @@ samp {
 	font-size: 13.5px;
 	word-break: break-all;
 }
-.acct-menu button {
+.acct-menu button,
+.acct-menu a.acct-item {
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	width: 100%;
+	box-sizing: border-box;
 	padding: 9px 11px;
 	border: 0;
 	border-radius: 9px;
@@ -321,9 +323,11 @@ samp {
 	color: var(--ink);
 	font: 500 13.5px/1.2 Inter;
 	text-align: left;
+	text-decoration: none;
 	cursor: pointer;
 }
-.acct-menu button:hover {
+.acct-menu button:hover,
+.acct-menu a.acct-item:hover {
 	background: color-mix(in srgb, var(--accent) 16%, transparent);
 }
 .acct-menu button.danger {
