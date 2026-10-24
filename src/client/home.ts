@@ -372,11 +372,11 @@ async function main(): Promise<void> {
 	list.addEventListener("click", onOpen);
 	document.getElementById("partial-list")?.addEventListener("click", onOpen);
 
-	void syncOfflineCardStates();
+	await syncOfflineCardStates();
 
 	setupSearch(list);
 	latestManifestGames = index.games;
-	void prefetchPosters(index.games);
+	if (isOnlineState) void prefetchPosters(index.games);
 }
 
 // Search: a card matches by its title or description, exactly or with typos (shared/search.ts).
@@ -548,7 +548,7 @@ export function allPosterUrls(games: readonly GameManifestEntry[]): string[] {
 
 export async function prefetchPosters(games: readonly GameManifestEntry[]): Promise<void> {
 	if (typeof window === "undefined") return;
-	if (typeof navigator !== "undefined" && !navigator.onLine) return;
+	if (typeof navigator !== "undefined" && (!navigator.onLine || !isOnlineState)) return;
 	const urls = allPosterUrls(games);
 	if (!urls.length) return;
 
@@ -574,7 +574,7 @@ export async function prefetchPosters(games: readonly GameManifestEntry[]): Prom
 		let idx = 0;
 		const worker = async () => {
 			while (idx < urls.length) {
-				if (typeof navigator !== "undefined" && !navigator.onLine) break;
+				if (typeof navigator !== "undefined" && (!navigator.onLine || !isOnlineState)) break;
 				const u = urls[idx++];
 				try {
 					await fetch(u, { priority: "low" } as RequestInit);

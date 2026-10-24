@@ -191,7 +191,7 @@ async function writeAtomic(file: string, buf: Buffer): Promise<void> {
 async function linkSolid(
 	solid: { key: string; dir: string; ext: string },
 	dest: string,
-	create: (canon: string) => Promise<void>,
+	create: (canon: string) => Promise<boolean | void>,
 ): Promise<boolean> {
 	let made = false,
 		tried = -1;
@@ -207,8 +207,9 @@ async function linkSolid(
 			} else if (codeOf(e) === "ENOENT" && tried !== n) {
 				tried = n;
 				try {
-					await create(canon);
+					const linked = await create(canon);
 					made = true;
+					if (linked) return true;
 				} catch (c) {
 					if (codeOf(c) !== "EEXIST") throw c; // another tile of this colour got there first: link to it
 				}
@@ -258,10 +259,11 @@ export async function dedupeSolid(
 	}
 	const tmp = tmpName(file);
 	// the first tile of a colour (or of a new copy) becomes the stored copy itself
-	const made = await linkSolid({ key, dir, ext }, tmp, (canon) => ops.link(file, canon));
-	if (made)
-		await unlink(tmp); // the tile is the stored copy already; rename() would leave the second name behind
-	else await rename(tmp, file);
+	const made = await linkSolid({ key, dir, ext }, tmp, async (canon) => {
+		await ops.link(file, canon);
+		return true;
+	});
+	if (!made) await rename(tmp, file);
 	return { key, freed: made || st.nlink > 1 ? 0 : st.size };
 }
 

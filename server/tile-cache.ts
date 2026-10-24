@@ -145,7 +145,7 @@ export class TileCache {
 				const { files, total } = await this.walk();
 				let left = total,
 					removed = 0;
-				files.sort((a, b) => a.score - b.score);
+				files.sort((a, b) => a.score - b.score || a.rel.localeCompare(b.rel));
 				for (const f of files) {
 					if (left <= this.targetBytes) break;
 					try {

@@ -239,7 +239,7 @@ describe("offline map download & disconnected navigation e2e", () => {
 		await new Promise((r) => setTimeout(r, 200));
 		expect(await page.$("dialog.home-dialog")).toBeNull();
 		expect(page.url()).toBe(`${BASE1}/`);
-		await page.goto(`${BASE1}/account/`, { waitUntil: "networkidle2" });
+		await page.goto(`${BASE1}/account/`, { waitUntil: "domcontentloaded" });
 		await page.waitForSelector("#offline-list .offline-item", { timeout: 10000 });
 		const rows: string[] = await page.$$eval("#offline-list .offline-item", (els) =>
 			els.map((e) => e.textContent || ""),

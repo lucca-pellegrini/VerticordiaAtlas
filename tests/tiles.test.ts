@@ -318,7 +318,7 @@ describe("tile cache", () => {
 		const root = path.join(tmp, "cache2");
 		await fill(root, "g/m/s/1/0/a.png", 1000, 3);
 		await fill(root, "g/m/s/1/0/b.png", 1000, 3);
-		const cache = new TileCache({ root, maxBytes: 2500, targetBytes: 1500 });
+		const cache = new TileCache({ root, maxBytes: 2500, targetBytes: 2000 });
 		await cache.init();
 		cache.touch("g/m/s/1/0/a.png"); // a was served just now: b is the one to go
 		await put(path.join(root, "g/m/s/1/0/c.png"), Buffer.alloc(1000, 1));
