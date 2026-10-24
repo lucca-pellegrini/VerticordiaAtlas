@@ -92,7 +92,7 @@
 					keep the progress you choose to sync and the minimum needed to recognise your account. We do not run
 					analytics, advertising or tracking.
 				</p>
-				<p class="updated">Last updated <time datetime="2026-10-22">22 October 2026</time></p>
+				<p class="updated">Last updated <time datetime="2026-10-24">24 October 2026</time></p>
 
 				<section id="controller">
 					<h2>Who is responsible</h2>
@@ -167,10 +167,16 @@
 						working without a connection.
 					</p>
 					<p>
-						Your browser also keeps copies of the map images and the app itself (the service worker cache),
-						so that they load offline. You can clear them at any time through your browser’s settings, or by
-						clearing the site’s data. Doing so removes progress that has not yet been synced, so sign in and
-						let it sync first if you want to keep it.
+						When you choose to keep a game or map offline, the complete tile pyramid and map assets are
+						downloaded as a pack into your browser’s IndexedDB database. The service worker serves them
+						locally so the entire map functions with zero network connectivity. You can review, repair, or
+						remove offline maps at any time on your <a href="../account/">Account page</a>.
+					</p>
+					<p>
+						Your browser also caches the application shell and static assets so that the site opens offline.
+						You can clear stored data at any time through your browser’s settings, your Account page, or by
+						clearing site data. Doing so removes progress that has not yet been synced, so sign in and let
+						it sync first if you want to keep it.
 					</p>
 				</section>
 
@@ -223,28 +229,35 @@
 
 				<section id="cookies">
 					<h2>Cookies and storage</h2>
-					<p>We use cookies only for features you actively use:</p>
+					<p>We use cookies and browser storage only for features you actively use:</p>
 					<ul>
 						<li>
-							<strong>va_session</strong>: strictly necessary for signing in. It holds your session token,
-							is <em>HttpOnly</em> (scripts on the page cannot read it), and is removed when you log out.
-							It expires after 30 days of inactivity, and that period is renewed each time you use the
-							Service.
+							<strong>va_session</strong>: strictly necessary cookie for signing in. It holds your session
+							token, is <em>HttpOnly</em> (scripts on the page cannot read it), and is removed when you
+							log out. It expires after 30 days of inactivity, and that period is renewed each time you
+							use the Service.
 						</li>
 						<li>
 							<strong>va_theme</strong>, <strong>va_tint</strong> and <strong>va_recent</strong>: cookies
-							and local data used solely by the app scripts to keep your theming preference (light, auto
+							and local storage keys used solely by the app to keep your theming preference (light, auto
 							or dark), the color tint of the last map you opened, and the order of recently opened games
-							locally on your device. Alongside them, the app keeps a short summary of your last session
-							(which game and map you were on and your progress there) so the home page can offer to pick
-							up where you left off. These values are never sent to the server even if you are logged in,
-							and are kept for up to one year.
+							locally on your device.
+						</li>
+						<li>
+							<strong>va_last_session</strong>, <strong>va_recent_titles</strong> and
+							<strong>va_user</strong>: local storage entries kept on your device to show the "Continue"
+							resume card on the homepage, display readable game titles for recent games, and display your
+							account pill without waiting for a network check.
+						</li>
+						<li>
+							<strong>va_trail</strong> and <strong>va-offline-warned</strong>: temporary session storage
+							entries that keep your recent in-app navigation trail and suppress repeated offline
+							notifications during a single browsing session.
 						</li>
 					</ul>
 					<p>
 						We do not use advertising cookies, analytics cookies or any other tracking cookie. Your browser
-						also keeps the local database and cache described above, and a small record that tells the app
-						whether you are signed in.
+						also keeps the local IndexedDB database and offline packs described above.
 					</p>
 				</section>
 
@@ -256,10 +269,6 @@
 							<strong>Google</strong>, when you sign in with Google, under Google’s own terms and privacy
 							policy. Google Identity Services also loads its script from Google when the sign-in page
 							opens.
-						</li>
-						<li>
-							<strong>Google Fonts</strong>, which serves the typefaces. Your browser contacts Google to
-							download them, so Google can see your IP address.
 						</li>
 						<li>
 							<strong>Our hosting provider</strong>, IONOS (IONOS SE, Germany), which runs our server and
@@ -317,9 +326,11 @@
 						</li>
 					</ul>
 					<p>
-						Your progress can already be exported from the app as a file at any time. To use any of the
-						other rights, write to us at the address below. We will respond within one month, and we may
-						need to confirm that the request really comes from the account holder before acting on it.
+						Your progress can be exported from the app as a JSON file at any time, and you can delete your
+						account and all server data instantly from your <a href="../account/">Account page</a>. To
+						exercise any of your other rights, write to us at the address below. We will respond within one
+						month, and we may need to confirm that the request really comes from the account holder before
+						acting on it.
 					</p>
 				</section>
 
@@ -351,9 +362,9 @@
 						Our server and its database are located in the United States, so your data is transferred to and
 						processed there. Under the LGPD (Article 33), we make such transfers on the basis of the
 						safeguards the law allows, including standard contractual clauses and, where applicable, an
-						adequacy decision. Google and Google Fonts process data in the places described in their own
-						policies, which may include countries outside your own. Where data leaves the EEA or UK, we rely
-						on the safeguards those providers offer, such as standard contractual clauses.
+						adequacy decision. If you sign in with Google, Google processes data in the places described in
+						its own policies, which may include countries outside your own. Where data leaves the EEA or UK,
+						we rely on the safeguards those providers offer, such as standard contractual clauses.
 					</p>
 				</section>
 
