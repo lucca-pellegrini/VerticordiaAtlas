@@ -29,7 +29,7 @@
 //                        cannot be read from the page
 //   --map-url <template> where a map lives, with {map} for its slug, e.g. https://fallout4map.com/maps/{map}. Only used
 //                        when the game page has no links to its maps
-//   --no-tiles --no-media --no-markers --no-icons
+//   --no-tiles --no-media --no-markers --no-icons --no-clean-markers
 //   --no-optimize        keep the tiles as downloaded: no overview is made, and single-colour tiles are not linked
 //                        (what prune-tiles.ts does afterwards, for any game; run it by hand later if you skip it here)
 //   --icons-only         only (re)fetch the sidebar icons of a game that was already added, and update its meta.json
@@ -53,6 +53,7 @@ import vm from "node:vm";
 import { splitTemplate } from "../server/tile-engine.ts";
 import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
+import { cleanGameMarkers } from "./clean-markers.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
 
 const execFileP = promisify(execFile);
@@ -767,6 +768,7 @@ async function main() {
 			"no-markers": { type: "boolean", default: false },
 			"no-cards": { type: "boolean", default: false },
 			"no-icons": { type: "boolean", default: false },
+			"no-clean-markers": { type: "boolean", default: false },
 			"no-optimize": { type: "boolean", default: false },
 			"icons-only": { type: "boolean", default: false },
 			html: { type: "string" },
@@ -951,6 +953,16 @@ async function main() {
 	);
 
 	// 4. per map: data + tiles
+	if (!v["no-clean-markers"]) {
+		const cleaned = cleanGameMarkers(
+			maps.map((md, idx) => ({ slug: md.map?.slug || "map", isDefault: idx === 0, data: md })),
+		);
+		if (cleaned.linksCleaned > 0) {
+			console.log(
+				`markers: cleaned ${cleaned.linksCleaned} same-map link(s) across ${cleaned.locationsChanged} marker(s)`,
+			);
+		}
+	}
 	const tilesBases: string[] = [];
 	if (v["tiles-base"]) tilesBases.push(v["tiles-base"].replace(/\/$/, ""));
 	const cdn = extractVar(html, "tilesCdnUrl", (x) => typeof x === "string");

@@ -1134,6 +1134,33 @@
 			],
 			"tagLabel": "Filter",
 			"defaultTag": null
+		},
+		{
+			"id": "palworld",
+			"slug": "palworld",
+			"title": "Palworld",
+			"description": "Every marker on the Palworld map.",
+			"poster": "palworld/poster",
+			"theme": {
+				"accent": "#4775b8",
+				"accent-soft": "#98b2d7",
+				"night": "#06080c",
+				"panel": "#0c1016",
+				"panel-2": "#11171f",
+				"line": "#212936"
+			},
+			"stats": [
+				{
+					"value": 11114,
+					"label": "markers"
+				},
+				{
+					"value": 42,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
 		}
 	]
 }

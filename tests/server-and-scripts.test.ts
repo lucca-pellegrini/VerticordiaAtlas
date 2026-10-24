@@ -6,6 +6,7 @@ import path from "node:path";
 
 import { deriveTheme, extractVar, tilesCovering } from "../scripts/add-game.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
+import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
 import { createApi } from "../server/api.ts";
 import {
 	deriveLightTheme,
@@ -100,6 +101,70 @@ describe("scripts/add-game pure helpers", () => {
 		const theme = deriveTheme("#d6453b");
 		expect(theme.accent).toBe("#d6453b");
 		expect(theme.night).toMatch(/^#[0-9a-f]{6}$/);
+	});
+
+	test("clean-markers rewrites same-map links to #loc=<id> and preserves cross-map and external links", () => {
+		const ctx = {
+			mapSlug: "miraland",
+			isDefaultMap: true,
+			sameMapIds: new Set([509074, 444895, 320]),
+			otherMapIds: new Set([900001]),
+			otherMapSlugs: new Set(["firework-isles"]),
+		};
+		expect(resolveSameMapHref("https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=509074", ctx)).toBe(
+			"#loc=509074",
+		);
+		expect(resolveSameMapHref("https://rdr2map.com?locationIds=320", ctx)).toBe("#loc=320");
+		expect(
+			resolveSameMapHref("https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001", ctx),
+		).toBeNull();
+		expect(resolveSameMapHref("#loc=509074", ctx)).toBeNull();
+
+		const desc =
+			"Find [Crank](https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=444895) or travel to [Isles](https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001).";
+		const res = cleanDescription(desc, ctx);
+		expect(res.cleaned).toBe(1);
+		expect(res.text).toBe(
+			"Find [Crank](#loc=444895) or travel to [Isles](https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001).",
+		);
+
+		const maps = [
+			{
+				slug: "commonwealth",
+				isDefault: true,
+				data: {
+					locations: [
+						{
+							id: 10,
+							description:
+								"Go to [Key](https://fallout4map.com?locationIds=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
+						},
+						{ id: 11, description: "Plain text" },
+					],
+				},
+			},
+			{
+				slug: "far-harbor",
+				isDefault: false,
+				data: {
+					locations: [
+						{
+							id: 20,
+							description:
+								"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](https://fallout4map.com/far-harbor?locationIds=20).",
+						},
+					],
+				},
+			},
+		];
+		const stats = cleanGameMarkers(maps);
+		expect(stats).toEqual({ maps: 2, locationsChanged: 2, linksCleaned: 2 });
+		expect(maps[0].data.locations[0].description).toBe(
+			"Go to [Key](#loc=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
+		);
+		expect(maps[1].data.locations[0].description).toBe(
+			"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](#loc=20).",
+		);
 	});
 });
 
