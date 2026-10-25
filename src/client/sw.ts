@@ -32,6 +32,8 @@ export const PRECACHE: readonly string[] = [
 	"terms/index.html",
 	"privacy/",
 	"privacy/index.html",
+	"license/",
+	"license/index.html",
 	"signin/",
 	"signin/index.html",
 	"signin/signin.js",

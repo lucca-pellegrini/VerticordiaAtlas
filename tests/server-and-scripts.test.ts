@@ -195,6 +195,7 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 			"public/about/index.html",
 			"public/terms/index.html",
 			"public/privacy/index.html",
+			"public/license/index.html",
 		];
 		for (const rel of htmlPages) {
 			const html = await readFile(path.join(process.cwd(), rel), "utf8");

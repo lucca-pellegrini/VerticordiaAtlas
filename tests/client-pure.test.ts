@@ -115,6 +115,7 @@ describe("theme and navigation helpers", () => {
 		expect(describePage("/about/").type).toBe("about");
 		expect(describePage("/terms/").type).toBe("terms");
 		expect(describePage("/privacy/").type).toBe("privacy");
+		expect(describePage("/license/").type).toBe("license");
 		expect(describePage("/signin/").type).toBe("signin");
 		expect(describePage("/account/").type).toBe("account");
 

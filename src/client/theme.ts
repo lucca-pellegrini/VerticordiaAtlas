@@ -463,7 +463,7 @@ function resolveAppUrl(pathOrUrl: string | null | undefined): string {
 }
 
 export interface PageDescription {
-	type: "home" | "about" | "terms" | "privacy" | "signin" | "account" | "map" | "page";
+	type: "home" | "about" | "terms" | "privacy" | "license" | "signin" | "account" | "map" | "page";
 	slug?: string;
 	path: string;
 	fullUrl: string;
@@ -516,6 +516,16 @@ export function describePage(
 			fullUrl: targetUrl,
 			title: "privacy policy",
 			buttonText: "Return to privacy policy",
+		};
+	}
+
+	if (normPath.startsWith("/license")) {
+		return {
+			type: "license",
+			path: "/license/",
+			fullUrl: targetUrl,
+			title: "license",
+			buttonText: "Return to license",
 		};
 	}
 

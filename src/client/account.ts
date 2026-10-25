@@ -89,7 +89,7 @@ function renderAccount(): void {
 export function legalLinks(): HTMLDivElement {
 	const wrap = document.createElement("div");
 	wrap.className = "side-footer";
-	wrap.innerHTML = `<p class="legal-links"><a href="${new URL("account/", ROOT).pathname}">Account</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("about/", ROOT).pathname}">About</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("terms/", ROOT).pathname}">Terms of service</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("privacy/", ROOT).pathname}">Privacy policy</a></p><p class="foot-motto" lang="la"><em>Nisi Dominus frustra</em></p>`;
+	wrap.innerHTML = `<p class="legal-links"><a href="${new URL("account/", ROOT).pathname}">Account</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("about/", ROOT).pathname}">About</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("terms/", ROOT).pathname}">Terms of service</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("privacy/", ROOT).pathname}">Privacy policy</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("license/", ROOT).pathname}">License</a></p><p class="foot-motto" lang="la"><em>Nisi Dominus frustra</em></p>`;
 	return wrap;
 }
 
