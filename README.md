@@ -44,11 +44,12 @@ key with checksum over WebSockets. The browser client has zero npm runtime
 dependencies: third-party client libraries (`maplibre-gl`, `marked`,
 `perfect-freehand`, and `lucide/icons.json`) are vendored in `public/vendor/`,
 and fonts are self-hosted. The server side does indeed have runtime npm
-dependencies: `unique-names-generator` (for generating memorable account
-pseudonyms) and `sharp` (server and scripts only, loaded lazily for tile
-stitching and downsampling so the server can boot without it). Atlas runs
-without advertising or analytics, and relies entirely on vanilla TypeScript
-bundled and executed by Bun.
+dependencies: `jose` (for Google OIDC ID token verification),
+`unique-names-generator` (for generating memorable account pseudonyms) and
+`sharp` (server and scripts only, loaded lazily for tile stitching and
+downsampling so the server can boot without it). Atlas runs without advertising
+or analytics, and relies entirely on vanilla TypeScript bundled and executed by
+Bun.
 
 [![Marker details and location links](public/screenshots/wide-5-totk.jpg)](https://atlas.verticordia.com:11680/maps/totk/?loc=281856&map=hyrule)
 

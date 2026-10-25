@@ -7,6 +7,8 @@ import { mkdtemp, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
+import { SignJWT } from "jose";
+
 import { createApi } from "../server/api.ts";
 
 describe("Google OAuth and session cookie flows", () => {
@@ -21,11 +23,8 @@ describe("Google OAuth and session cookie flows", () => {
 	const { publicKey, privateKey } = crypto.generateKeyPairSync("rsa", { modulusLength: 2048 });
 	const jwk = { ...publicKey.export({ format: "jwk" }), kid: "test-kid" };
 
-	function makeIdToken(claims: Record<string, any>, kid = "test-kid"): string {
-		const header = Buffer.from(JSON.stringify({ alg: "RS256", kid })).toString("base64url");
-		const payload = Buffer.from(JSON.stringify(claims)).toString("base64url");
-		const sig = crypto.sign("RSA-SHA256", Buffer.from(`${header}.${payload}`), privateKey).toString("base64url");
-		return `${header}.${payload}.${sig}`;
+	async function makeIdToken(claims: Record<string, any>, kid = "test-kid"): Promise<string> {
+		return await new SignJWT(claims).setProtectedHeader({ alg: "RS256", kid }).sign(privateKey);
 	}
 
 	beforeEach(async () => {
@@ -107,7 +106,7 @@ describe("Google OAuth and session cookie flows", () => {
 		const nonce = locUrl.searchParams.get("nonce")!;
 
 		// 2. Craft signed Google ID token matching the nonce
-		const idToken = makeIdToken({
+		const idToken = await makeIdToken({
 			iss: "https://accounts.google.com",
 			aud: "test-google-client",
 			sub: "google-sub-42",
@@ -227,5 +226,297 @@ describe("Google OAuth and session cookie flows", () => {
 
 		expect(res.status).toBe(303);
 		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects token with alg: none", async () => {
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+		const nonce = locUrl.searchParams.get("nonce")!;
+
+		const header = Buffer.from(JSON.stringify({ alg: "none", kid: "test-kid" })).toString("base64url");
+		const payload = Buffer.from(
+			JSON.stringify({
+				iss: "https://accounts.google.com",
+				aud: "test-google-client",
+				sub: "google-sub-none",
+				email: "none@example.com",
+				email_verified: true,
+				nonce,
+				exp: Math.floor(Date.now() / 1000) + 3600,
+			}),
+		).toString("base64url");
+		const noneToken = `${header}.${payload}.`;
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: noneToken }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects token with wrong audience", async () => {
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+		const nonce = locUrl.searchParams.get("nonce")!;
+
+		const token = await makeIdToken({
+			iss: "https://accounts.google.com",
+			aud: "wrong-client-id",
+			sub: "google-sub-aud",
+			email: "aud@example.com",
+			email_verified: true,
+			nonce,
+			exp: Math.floor(Date.now() / 1000) + 3600,
+		});
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: token }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects token with wrong issuer", async () => {
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+		const nonce = locUrl.searchParams.get("nonce")!;
+
+		const token = await makeIdToken({
+			iss: "https://evil.issuer.com",
+			aud: "test-google-client",
+			sub: "google-sub-iss",
+			email: "iss@example.com",
+			email_verified: true,
+			nonce,
+			exp: Math.floor(Date.now() / 1000) + 3600,
+		});
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: token }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects expired token", async () => {
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+		const nonce = locUrl.searchParams.get("nonce")!;
+
+		const token = await makeIdToken({
+			iss: "https://accounts.google.com",
+			aud: "test-google-client",
+			sub: "google-sub-exp",
+			email: "exp@example.com",
+			email_verified: true,
+			nonce,
+			exp: Math.floor(Date.now() / 1000) - 300, // expired 5 minutes ago
+		});
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: token }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects token with future nbf", async () => {
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+		const nonce = locUrl.searchParams.get("nonce")!;
+
+		const token = await makeIdToken({
+			iss: "https://accounts.google.com",
+			aud: "test-google-client",
+			sub: "google-sub-nbf",
+			email: "nbf@example.com",
+			email_verified: true,
+			nonce,
+			exp: Math.floor(Date.now() / 1000) + 3600,
+			nbf: Math.floor(Date.now() / 1000) + 1800, // not valid for 30 minutes
+		});
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: token }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects token with unknown kid not in JWKS", async () => {
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+		const nonce = locUrl.searchParams.get("nonce")!;
+
+		const token = await makeIdToken(
+			{
+				iss: "https://accounts.google.com",
+				aud: "test-google-client",
+				sub: "google-sub-kid",
+				email: "kid@example.com",
+				email_verified: true,
+				nonce,
+				exp: Math.floor(Date.now() / 1000) + 3600,
+			},
+			"unknown-unlisted-kid",
+		);
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: token }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects malformed token without 500 error", async () => {
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: "not-a-valid-token-at-all" }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects garbage token with 3 parts without 500 error", async () => {
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: "garbage.token.here" }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+		expect(res.headers.get("location")).toContain("/signin/?error=");
+	});
+
+	test("POST /api/auth/google/callback rejects valid token when email is not on allowlist", async () => {
+		const allowlistApi = createApi({
+			root: tmpDir,
+			googleClientId: "test-google-client",
+			publicUrl: "http://127.0.0.1:8080",
+			googleCertsUrl: certsUrl,
+			allowedEmails: ["allowed@example.com"],
+		});
+		const allowlistServer = Bun.serve({
+			port: 0,
+			hostname: "127.0.0.1",
+			async fetch(req) {
+				const url = new URL(req.url);
+				const res = await allowlistApi.handle(req, url);
+				return res || new Response(null, { status: 404 });
+			},
+		});
+
+		try {
+			const startRes = await fetch(`http://127.0.0.1:${allowlistServer.port}/api/auth/google/start?next=/`, {
+				redirect: "manual",
+			});
+			const locUrl = new URL(startRes.headers.get("location")!);
+			const state = locUrl.searchParams.get("state")!;
+			const nonce = locUrl.searchParams.get("nonce")!;
+
+			const token = await makeIdToken({
+				iss: "https://accounts.google.com",
+				aud: "test-google-client",
+				sub: "google-sub-unauthorized",
+				email: "unauthorized@example.com",
+				name: "Unauthorized User",
+				email_verified: true,
+				nonce,
+				exp: Math.floor(Date.now() / 1000) + 3600,
+			});
+
+			const res = await fetch(`http://127.0.0.1:${allowlistServer.port}/api/auth/google/callback`, {
+				method: "POST",
+				headers: { "Content-Type": "application/x-www-form-urlencoded" },
+				body: new URLSearchParams({ state, id_token: token }).toString(),
+				redirect: "manual",
+			});
+			expect(res.status).toBe(303);
+			expect(res.headers.get("location")).toContain("/signin/?error=");
+		} finally {
+			allowlistServer.stop(true);
+			allowlistApi.close();
+		}
+	});
+
+	test("POST /api/auth/google/callback returns 429 when rate limit is exceeded", async () => {
+		let lastStatus = 0;
+		for (let i = 0; i < 22; i++) {
+			const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+				method: "POST",
+				headers: { "Content-Type": "application/x-www-form-urlencoded", "X-Forwarded-For": "198.51.100.22" },
+				body: new URLSearchParams({ state: "dummy-state", id_token: "dummy" }).toString(),
+				redirect: "manual",
+			});
+			lastStatus = res.status;
+		}
+		expect(lastStatus).toBe(429);
+	});
+
+	test("identities table stores (provider, issuer, subject) mapping for Google sign-ins", async () => {
+		// Log in with a valid token
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+		const nonce = locUrl.searchParams.get("nonce")!;
+
+		const token = await makeIdToken({
+			iss: "https://accounts.google.com",
+			aud: "test-google-client",
+			sub: "google-sub-identity-test",
+			email: "identity@example.com",
+			name: "Identity Test",
+			email_verified: true,
+			nonce,
+			exp: Math.floor(Date.now() / 1000) + 3600,
+		});
+
+		const res = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state, id_token: token }).toString(),
+			redirect: "manual",
+		});
+		expect(res.status).toBe(303);
+
+		const row = api._db
+			.prepare("SELECT * FROM identities WHERE provider = 'google' AND subject = ?")
+			.get("google-sub-identity-test") as any;
+		expect(row).toBeDefined();
+		expect(row.issuer).toBe("https://accounts.google.com");
 	});
 });

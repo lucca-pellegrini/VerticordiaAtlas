@@ -17,6 +17,7 @@ import { mkdirSync } from "node:fs";
 import path from "node:path";
 
 import type { ServerWebSocket } from "bun";
+import { createRemoteJWKSet, jwtVerify } from "jose";
 import { adjectives, animals, colors, uniqueNamesGenerator } from "unique-names-generator";
 
 import { encodeSecret, formatSecret, normalizeSecret, validateSecretKey } from "../src/shared/secret-key.ts";
@@ -57,6 +58,7 @@ export interface ApiOptions {
 	googleClientId?: string | null;
 	publicUrl?: string | null;
 	googleCertsUrl?: string;
+	allowedEmails?: string[] | null;
 }
 
 interface HttpError extends Error {
@@ -82,6 +84,7 @@ export function createApi({
 	googleClientId = null,
 	publicUrl = null,
 	googleCertsUrl = process.env.GOOGLE_CERTS_URL || "https://www.googleapis.com/oauth2/v3/certs",
+	allowedEmails = null,
 }: ApiOptions) {
 	mkdirSync(path.join(root, "data"), { recursive: true });
 	const db = new Database(path.join(root, "data", "atlas.db"), { create: true });
@@ -96,6 +99,17 @@ export function createApi({
       display_name TEXT,
       created_at INTEGER NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS identities (
+      user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      provider TEXT NOT NULL,
+      issuer TEXT NOT NULL,
+      subject TEXT NOT NULL,
+      PRIMARY KEY (provider, issuer, subject)
+    );
+    CREATE INDEX IF NOT EXISTS identities_by_user ON identities(user_id);
+    INSERT OR IGNORE INTO identities (user_id, provider, issuer, subject)
+      SELECT id, 'google', 'https://accounts.google.com', google_sub
+      FROM users WHERE provider = 'google' AND google_sub IS NOT NULL;
     CREATE TABLE IF NOT EXISTS secret_accounts (
       user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
       secret_hash TEXT NOT NULL UNIQUE
@@ -276,41 +290,38 @@ export function createApi({
 		return cookieHeader(req, token, SESSION_DAYS * 86400);
 	}
 
-	/* ---------- Google: verify the ID token ourselves (signature, issuer, audience, expiry) ---------- */
-	let certs: any[] | null = null,
-		certsAt = 0;
-	async function googleKeys(force = false): Promise<any[]> {
-		if (force || !certs || now() - certsAt > 3600_000) {
-			const r = await fetch(googleCertsUrl);
-			if (!r.ok) throw httpError(502, "could not fetch Google keys");
-			certs = ((await r.json()) as any).keys || [];
-			certsAt = now();
-		}
-		return certs!;
-	}
+	/* ---------- Google: verify the ID token via jose ---------- */
+	const googleJwks = createRemoteJWKSet(new URL(googleCertsUrl), {
+		cacheMaxAge: 60 * 60 * 1000,
+		cooldownDuration: 30_000, // at most one forced refetch per 30 s, however many bad tokens arrive
+	});
+
 	async function verifyGoogleToken(
 		token: string,
 		nonce: string,
-	): Promise<{ sub: string; email: string; name: string }> {
-		const parts = String(token || "").split(".");
-		if (parts.length !== 3) throw httpError(400, "not a token");
-		const [h, p, s] = parts;
-		const header = JSON.parse(Buffer.from(h, "base64url").toString("utf8"));
-		const payload = JSON.parse(Buffer.from(p, "base64url").toString("utf8"));
-		if (header.alg !== "RS256") throw httpError(401, "unexpected token algorithm");
-		let key = (await googleKeys()).find((k) => k.kid === header.kid);
-		if (!key) key = (await googleKeys(true)).find((k) => k.kid === header.kid); // keys rotate
-		if (!key) throw httpError(401, "unknown signing key");
-		const publicKey = crypto.createPublicKey({ key, format: "jwk" });
-		if (!crypto.verify("RSA-SHA256", Buffer.from(`${h}.${p}`), publicKey, Buffer.from(s, "base64url")))
-			throw httpError(401, "bad signature");
-		if (!GOOGLE_ISSUERS.includes(payload.iss)) throw httpError(401, "wrong issuer");
-		if (!googleClientId || payload.aud !== googleClientId) throw httpError(401, "wrong audience");
-		if (!(payload.exp * 1000 > now())) throw httpError(401, "token expired");
+	): Promise<{ sub: string; email: string; name: string; iss: string }> {
+		if (!googleClientId) throw httpError(401, "wrong audience");
+		let payload;
+		try {
+			({ payload } = await jwtVerify(token, googleJwks, {
+				issuer: GOOGLE_ISSUERS,
+				audience: googleClientId,
+				algorithms: ["RS256"],
+				clockTolerance: 30,
+			}));
+		} catch (e: any) {
+			dbg("verify: " + (e?.code ?? e?.message));
+			throw httpError(401, "Google could not confirm your token");
+		}
 		if (payload.email_verified !== true) throw httpError(401, "e-mail not verified");
-		if (!nonce || payload.nonce !== nonce) throw httpError(401, "wrong nonce"); // this sign-in, and no other
+		if (!nonce || payload.nonce !== nonce) throw httpError(401, "wrong nonce");
 		if (typeof payload.sub !== "string" || !payload.sub) throw httpError(401, "no subject");
-		return { sub: payload.sub, email: String(payload.email || ""), name: String(payload.name || "") };
+		return {
+			iss: String(payload.iss || ""),
+			sub: payload.sub,
+			email: String(payload.email || ""),
+			name: String(payload.name || ""),
+		};
 	}
 
 	/* ---------- secret keys: 128 random bits with scattered checksum, shown once, stored as a hash ---------- */
@@ -551,6 +562,7 @@ export function createApi({
 			}
 
 			if (route === "POST /api/auth/google/callback") {
+				if (!allowLogin(ip)) throw httpError(429, "too many attempts, try again later");
 				// Google posts the signed ID token back here (response_mode=form_post). Each state is good once, for 10 minutes.
 				const back = (msg: string) => {
 					const headers = new Headers({
@@ -583,21 +595,24 @@ export function createApi({
 				if (debug && token) {
 					// the claims only, never the signature or the e-mail address
 					try {
-						const p = JSON.parse(Buffer.from(String(token).split(".")[1], "base64url").toString("utf8"));
-						dbg(
-							"callback: token iss=" +
-								p.iss +
-								" aud=" +
-								p.aud +
-								" azp=" +
-								p.azp +
-								" exp=" +
-								p.exp +
-								" email_verified=" +
-								p.email_verified +
-								" nonce_matches=" +
-								(!!row && p.nonce === row.nonce),
-						);
+						const parts = String(token).split(".");
+						if (parts.length > 1) {
+							const p = JSON.parse(Buffer.from(parts[1], "base64url").toString("utf8"));
+							dbg(
+								"callback: token iss=" +
+									p.iss +
+									" aud=" +
+									p.aud +
+									" azp=" +
+									p.azp +
+									" exp=" +
+									p.exp +
+									" email_verified=" +
+									p.email_verified +
+									" nonce_matches=" +
+									(!!row && p.nonce === row.nonce),
+							);
+						}
 					} catch (e: any) {
 						dbg("callback: token does not decode: " + e.message);
 					}
@@ -622,14 +637,39 @@ export function createApi({
 					dbg("callback: verification failed: " + e.message);
 					return back("Google could not confirm your account. Please try again.");
 				}
-				db.prepare(
-					`INSERT INTO users (id, provider, google_sub, email, display_name, created_at) VALUES (?, 'google', ?, ?, ?, ?)
-                    ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email, display_name = excluded.display_name`,
-				).run(crypto.randomUUID(), g.sub, g.email, g.name, now());
-				const user = db
-					.prepare("SELECT * FROM users WHERE provider = 'google' AND google_sub = ?")
-					.get(g.sub) as { id: string };
-				const sessionCookie = startSession(req, user.id);
+				const allowedEmailSet = allowedEmails ? new Set(allowedEmails.map((e) => e.toLowerCase())) : null;
+				if (allowedEmailSet && !allowedEmailSet.has(g.email.toLowerCase())) {
+					dbg("callback: email not on allowlist: " + g.email);
+					return back("Your email address is not authorized.");
+				}
+				const canonicalIss = "https://accounts.google.com";
+				const existingIdentity = db
+					.prepare("SELECT user_id FROM identities WHERE provider = 'google' AND issuer = ? AND subject = ?")
+					.get(canonicalIss, g.sub) as { user_id: string } | undefined;
+
+				let userId: string;
+				if (existingIdentity) {
+					userId = existingIdentity.user_id;
+					db.prepare("UPDATE users SET email = ?, display_name = ? WHERE id = ?").run(
+						g.email,
+						g.name,
+						userId,
+					);
+				} else {
+					userId = crypto.randomUUID();
+					const createGoogleUser = db.transaction(() => {
+						db.prepare(
+							`INSERT INTO users (id, provider, google_sub, email, display_name, created_at) VALUES (?, 'google', ?, ?, ?, ?)
+                            ON CONFLICT (google_sub) DO UPDATE SET email = excluded.email, display_name = excluded.display_name`,
+						).run(userId, g.sub, g.email, g.name, now());
+						db.prepare(
+							`INSERT INTO identities (user_id, provider, issuer, subject) VALUES (?, 'google', ?, ?)
+                            ON CONFLICT (provider, issuer, subject) DO UPDATE SET user_id = excluded.user_id`,
+						).run(userId, canonicalIss, g.sub);
+					});
+					createGoogleUser();
+				}
+				const sessionCookie = startSession(req, userId);
 				const headers = new Headers({
 					Location: row.next,
 					"Cache-Control": "no-store",
