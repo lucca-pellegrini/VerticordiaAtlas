@@ -245,10 +245,13 @@ export async function syncOfflineCardStates(): Promise<void> {
 		tag.className = `card-offline-tag ${state}`;
 		if (state === "downloaded") {
 			tag.innerHTML = `${OK_SVG}<span>Kept offline</span>`;
+			tag.title = "Every zoom level is available offline";
 		} else if (state === "cached") {
-			tag.innerHTML = `${WARN_SVG}<span class="tag-full">Markers cached · Missing offline map</span><span class="tag-short">Markers cached</span>`;
+			tag.innerHTML = `${WARN_SVG}<span>Markers cached</span>`;
+			tag.title = "Marker data is cached on this device; map tiles may be missing";
 		} else {
-			tag.innerHTML = `${OFFLINE_SVG}<span class="tag-full">Unavailable offline</span><span class="tag-short">Unavailable</span>`;
+			tag.innerHTML = `${OFFLINE_SVG}<span>Unavailable</span>`;
+			tag.title = "This map has not been downloaded or cached for offline use";
 		}
 	};
 

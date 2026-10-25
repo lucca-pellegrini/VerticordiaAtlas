@@ -471,16 +471,13 @@ h1 em {
 	width: fit-content;
 	white-space: nowrap;
 }
-.card-offline-tag .tag-short,
 .resume-offline-tag .tag-short {
 	display: none;
 }
 @media (max-width: 640px) {
-	.card-offline-tag .tag-full,
 	.resume-offline-tag .tag-full {
 		display: none;
 	}
-	.card-offline-tag .tag-short,
 	.resume-offline-tag .tag-short {
 		display: inline;
 	}
