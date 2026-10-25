@@ -14,10 +14,10 @@ let deadServer: { stop(force?: boolean): unknown } | null = null;
 let browser: Browser;
 
 beforeAll(async () => {
-	serverProc1 = Bun.spawn(
-		["/home/luc/.local/share/mise/installs/bun/1.4.4/bin/bun", "server/server.ts", "--port", String(PORT1)],
-		{ stdout: "ignore", stderr: "inherit" },
-	);
+	serverProc1 = Bun.spawn(["bun", "server/server.ts", "--port", String(PORT1)], {
+		stdout: "ignore",
+		stderr: "inherit",
+	});
 
 	// Wait for server 1 to listen
 	let up = false;
