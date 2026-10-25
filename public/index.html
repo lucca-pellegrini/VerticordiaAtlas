@@ -47,11 +47,13 @@
 
 		<link rel="stylesheet" href="base.css" />
 		<link rel="stylesheet" href="home.css" />
+		<link rel="stylesheet" href="features.css" />
 		<!-- social:start (make-cards.mjs) -->
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="Verticordia Atlas" />
 		<meta property="og:title" content="Verticordia Atlas · Interactive game maps" />
 		<meta
+			name="og:description"
 			property="og:description"
 			content="Interactive game maps that work offline. Track every collectible across playthroughs, right in your browser."
 		/>
@@ -150,7 +152,7 @@
 						<h1>Every secret, <em>mapped</em> and available offline.</h1>
 						<p class="lede">
 							Pick a game, track what you have found across playthroughs, and keep going without a
-							connection. Your progress never leaves your browser.
+							connection. Your progress stays in your browser by default.
 						</p>
 					</section>
 					<section class="resume wrap" id="resume" aria-labelledby="resume-title" hidden></section>
@@ -168,44 +170,1588 @@
 				<ul id="partial-list" class="game-grid"></ul>
 			</section>
 
-			<section class="wrap features" aria-label="Features">
-				<ul>
-					<li>
-						<span class="feat-ico" aria-hidden="true"
-							><svg viewBox="0 0 24 24"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14" /></svg
-						></span>
-						<h3>Works offline</h3>
+			<section class="wrap features" aria-labelledby="features-title">
+				<header class="feat-header">
+					<h2 id="features-title" class="section-label">Why Atlas</h2>
+					<p class="feat-intro">Everything in Atlas is built for the way you actually play.</p>
+				</header>
+
+				<ul class="feat-grid">
+					<!-- 1. Works offline -->
+					<li class="feat-card" tabindex="0">
+						<div class="feat-art">
+							<svg viewBox="0 0 360 180" aria-hidden="true">
+								<defs>
+									<pattern
+										id="feat-grid-pattern"
+										width="20"
+										height="20"
+										patternUnits="userSpaceOnUse"
+									>
+										<path
+											d="M 20 0 L 0 0 0 20"
+											fill="none"
+											stroke="var(--line)"
+											stroke-width="0.8"
+											opacity="0.6"
+										/>
+									</pattern>
+									<!-- Shared Lucide mouse-pointer-2 cursor -->
+									<g id="feat-cursor-shape">
+										<path
+											d="M4.037 4.688a.495.495 0 0 1 .651-.651l16 6.5a.5.5 0 0 1-.063.947l-6.124 1.58a2 2 0 0 0-1.438 1.435l-1.579 6.126a.5.5 0 0 1-.947.063z"
+											fill="var(--ink)"
+											stroke="var(--night)"
+											stroke-width="1.5"
+											stroke-linejoin="round"
+										/>
+									</g>
+								</defs>
+								<rect width="360" height="180" fill="url(#feat-grid-pattern)" />
+
+								<!-- Left: Cache DB + Service Worker Gears -->
+								<!-- Cache Storage Box -->
+								<g transform="translate(18, 22)">
+									<rect
+										x="0"
+										y="0"
+										width="68"
+										height="52"
+										rx="6"
+										fill="var(--panel)"
+										stroke="var(--line-2)"
+										stroke-width="1.2"
+									/>
+									<!-- Lucide database icon -->
+									<g
+										transform="translate(22, 6)"
+										fill="none"
+										stroke="var(--accent-soft)"
+										stroke-width="1.8"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<ellipse cx="12" cy="5" rx="9" ry="3" />
+										<path d="M3 5V19A9 3 0 0 0 21 19V5" />
+										<path d="M3 12A9 3 0 0 0 21 12" />
+									</g>
+									<text
+										x="34"
+										y="44"
+										text-anchor="middle"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="600"
+										fill="var(--ink-dim)"
+									>
+										CACHE
+									</text>
+								</g>
+
+								<!-- Conduit: Cache -> Service Worker -> Pyramid -->
+								<path d="M 52 74 L 52 96" fill="none" stroke="var(--line-2)" stroke-width="2" />
+								<path
+									class="feat-cache-stream"
+									d="M 52 74 L 52 96"
+									fill="none"
+									stroke="var(--accent)"
+									stroke-width="2"
+								/>
+								<path d="M 86 124 L 146 104" fill="none" stroke="var(--line-2)" stroke-width="2" />
+								<path
+									class="feat-cache-stream"
+									d="M 86 124 L 146 104"
+									fill="none"
+									stroke="var(--accent)"
+									stroke-width="2.2"
+								/>
+
+								<!-- Service Worker Box with Spinning Gears -->
+								<g transform="translate(18, 96)">
+									<rect
+										x="0"
+										y="0"
+										width="68"
+										height="58"
+										rx="6"
+										fill="var(--panel)"
+										stroke="var(--accent)"
+										stroke-width="1.2"
+									/>
+									<!-- Gear 1 (Lucide settings) -->
+									<g transform="translate(11, 5)">
+										<g
+											class="feat-sw-gear-1"
+											fill="none"
+											stroke="var(--accent)"
+											stroke-width="1.8"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path
+												d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+											/>
+											<circle cx="12" cy="12" r="3" />
+										</g>
+									</g>
+									<!-- Gear 2 (smaller interlocking cog) -->
+									<g transform="translate(33, 18) scale(0.78)">
+										<g
+											class="feat-sw-gear-2"
+											fill="none"
+											stroke="var(--accent-soft)"
+											stroke-width="2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path
+												d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+											/>
+											<circle cx="12" cy="12" r="3" />
+										</g>
+									</g>
+									<text
+										x="34"
+										y="50"
+										text-anchor="middle"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="600"
+										fill="var(--ink)"
+									>
+										WORKER
+									</text>
+								</g>
+
+								<!-- Right: Isometric 3x3 Tile Pyramid (base always drawn, tiles served periodically) -->
+								<g transform="translate(226, 48)">
+									<!-- Base wireframe pyramid -->
+									<g fill="var(--panel)" stroke="var(--line-2)" stroke-width="1.2">
+										<path d="M 0 0 L 28 16 L 0 32 L -28 16 Z" />
+										<path d="M 32 18 L 60 34 L 32 50 L 4 34 Z" />
+										<path d="M 64 36 L 92 52 L 64 68 L 36 52 Z" />
+										<path d="M -32 18 L -4 34 L -32 50 L -60 34 Z" />
+										<path d="M 0 36 L 28 52 L 0 68 L -28 52 Z" />
+										<path d="M 32 54 L 60 70 L 32 86 L 4 70 Z" />
+										<path d="M -64 36 L -36 52 L -64 68 L -92 52 Z" />
+										<path d="M -32 54 L -4 70 L -32 86 L -60 70 Z" />
+										<path d="M 0 72 L 28 88 L 0 104 L -28 88 Z" />
+									</g>
+									<!-- Periodically served solid tiles -->
+									<path class="feat-tile feat-tile-1" d="M 0 0 L 28 16 L 0 32 L -28 16 Z" />
+									<path class="feat-tile feat-tile-2" d="M 32 18 L 60 34 L 32 50 L 4 34 Z" />
+									<path class="feat-tile feat-tile-3" d="M 64 36 L 92 52 L 64 68 L 36 52 Z" />
+									<path class="feat-tile feat-tile-4" d="M -32 18 L -4 34 L -32 50 L -60 34 Z" />
+									<path class="feat-tile feat-tile-5" d="M 0 36 L 28 52 L 0 68 L -28 52 Z" />
+									<path class="feat-tile feat-tile-6" d="M 32 54 L 60 70 L 32 86 L 4 70 Z" />
+									<path class="feat-tile feat-tile-7" d="M -64 36 L -36 52 L -64 68 L -92 52 Z" />
+									<path class="feat-tile feat-tile-8" d="M -32 54 L -4 70 L -32 86 L -60 70 Z" />
+									<path class="feat-tile feat-tile-9" d="M 0 72 L 28 88 L 0 104 L -28 88 Z" />
+								</g>
+
+								<!-- Cached Check Badge -->
+								<g transform="translate(274, 136)">
+									<g class="feat-offline-check">
+										<rect
+											x="0"
+											y="0"
+											width="68"
+											height="24"
+											rx="12"
+											fill="color-mix(in srgb, var(--ok) 16%, var(--panel))"
+											stroke="var(--ok)"
+											stroke-width="1.2"
+										/>
+										<g
+											transform="translate(8, 4) scale(0.66)"
+											fill="none"
+											stroke="var(--ok)"
+											stroke-width="2.5"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M20 6 9 17l-5-5" />
+										</g>
+										<text
+											x="42"
+											y="12"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ok)"
+										>
+											READY
+										</text>
+									</g>
+								</g>
+
+								<!-- Top-Right: Centered No-Signal Badge with Lucide wifi-off icon -->
+								<g transform="translate(230, 12)">
+									<rect
+										x="0"
+										y="0"
+										width="114"
+										height="28"
+										rx="6"
+										fill="var(--panel)"
+										stroke="var(--line-2)"
+										stroke-width="1.2"
+									/>
+									<!-- Lucide wifi-off icon (24x24 scaled to 16x16, vertically centered at y=6..22) -->
+									<g
+										transform="translate(11, 6) scale(0.67)"
+										fill="none"
+										stroke="var(--danger)"
+										stroke-width="2.2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<path d="M12 20h.01" />
+										<path d="M8.5 16.429a5 5 0 0 1 7 0" />
+										<path d="M5 12.859a10 10 0 0 1 5.17-2.69" />
+										<path d="M19 12.859a10 10 0 0 0-2.007-1.523" />
+										<path d="M2 8.82a15 15 0 0 1 4.177-2.643" />
+										<path d="M22 8.82a15 15 0 0 0-11.288-3.764" />
+										<path d="m2 2 20 20" />
+									</g>
+									<text
+										x="68"
+										y="14"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="600"
+										fill="var(--ink)"
+									>
+										NO SIGNAL
+									</text>
+								</g>
+							</svg>
+							<div class="feat-caption">SERVICE WORKER · MAP TILES SERVED FROM LOCAL PACK</div>
+						</div>
+						<h3>Works offline <span class="feat-badge">Offline-first</span></h3>
 						<p>
-							Map tiles, markers and screenshots ship with the site, so a map keeps working when your
-							connection does not.
+							Map tiles, markers and screenshots ship with the site, so a map keeps working without a
+							connection.
+						</p>
+						<p class="feat-detail">
+							<span class="feat-detail-tag">STORED LOCAL</span> IndexedDB blob storage unpacks map
+							pyramids offline with no network roundtrips.
 						</p>
 					</li>
-					<li>
-						<span class="feat-ico" aria-hidden="true"
-							><svg viewBox="0 0 24 24">
-								<circle cx="12" cy="12" r="9" />
-								<path d="m8 12.5 3 3 5-6" /></svg
-						></span>
-						<h3>Track every playthrough</h3>
+
+					<!-- 2. Track every playthrough -->
+					<li class="feat-card" tabindex="0">
+						<div class="feat-art">
+							<svg viewBox="0 0 360 180" aria-hidden="true">
+								<rect width="360" height="180" fill="url(#feat-grid-pattern)" />
+
+								<!-- Left: 3 Vertically Stacked Non-Overlapping Save Slots -->
+								<!-- Slot 1 (91%) -->
+								<g transform="translate(18, 18)">
+									<g class="feat-slot-box-1">
+										<rect
+											x="0"
+											y="0"
+											width="104"
+											height="42"
+											rx="6"
+											fill="var(--panel)"
+											stroke="var(--line-2)"
+											stroke-width="1.3"
+										/>
+										<circle
+											cx="24"
+											cy="21"
+											r="13"
+											fill="none"
+											stroke="var(--line-2)"
+											stroke-width="2.6"
+										/>
+										<circle
+											class="feat-ring-active"
+											cx="24"
+											cy="21"
+											r="13"
+											fill="none"
+											stroke="var(--accent)"
+											stroke-width="2.6"
+											transform="rotate(-90 24 21)"
+										/>
+										<text
+											x="24"
+											y="21"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											91%
+										</text>
+										<rect x="46" y="13" width="44" height="5" rx="2.5" fill="var(--accent)" />
+										<rect x="46" y="23" width="30" height="5" rx="2.5" fill="var(--line-2)" />
+									</g>
+								</g>
+
+								<!-- Slot 2 (62%) -->
+								<g transform="translate(18, 69)">
+									<g class="feat-slot-box-2">
+										<rect
+											x="0"
+											y="0"
+											width="104"
+											height="42"
+											rx="6"
+											fill="var(--panel)"
+											stroke="var(--line-2)"
+											stroke-width="1.3"
+										/>
+										<circle
+											cx="24"
+											cy="21"
+											r="13"
+											fill="none"
+											stroke="var(--line-2)"
+											stroke-width="2.6"
+										/>
+										<circle
+											cx="24"
+											cy="21"
+											r="13"
+											fill="none"
+											stroke="var(--warn)"
+											stroke-width="2.6"
+											stroke-dasharray="81.68"
+											stroke-dashoffset="31"
+											transform="rotate(-90 24 21)"
+										/>
+										<text
+											x="24"
+											y="21"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											62%
+										</text>
+										<rect x="46" y="13" width="32" height="5" rx="2.5" fill="var(--warn)" />
+										<rect x="46" y="23" width="24" height="5" rx="2.5" fill="var(--line-2)" />
+									</g>
+								</g>
+
+								<!-- Slot 3 (18%) -->
+								<g transform="translate(18, 120)">
+									<rect
+										x="0"
+										y="0"
+										width="104"
+										height="42"
+										rx="6"
+										fill="var(--panel)"
+										stroke="var(--line)"
+										stroke-width="1.2"
+									/>
+									<circle
+										cx="24"
+										cy="21"
+										r="13"
+										fill="none"
+										stroke="var(--line-2)"
+										stroke-width="2.5"
+									/>
+									<circle
+										cx="24"
+										cy="21"
+										r="13"
+										fill="none"
+										stroke="var(--ink-dim)"
+										stroke-width="2.5"
+										stroke-dasharray="81.68"
+										stroke-dashoffset="67"
+										transform="rotate(-90 24 21)"
+									/>
+									<text
+										x="24"
+										y="21"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										fill="var(--ink-dim)"
+									>
+										18%
+									</text>
+									<rect x="46" y="13" width="16" height="5" rx="2.5" fill="var(--ink-dim)" />
+									<rect x="46" y="23" width="28" height="5" rx="2.5" fill="var(--line)" />
+								</g>
+
+								<!-- Right: Map Representation Canvas -->
+								<g transform="translate(144, 18)">
+									<rect
+										x="0"
+										y="0"
+										width="198"
+										height="144"
+										rx="8"
+										fill="var(--panel)"
+										stroke="var(--line-2)"
+										stroke-width="1.2"
+									/>
+									<!-- Subtle map region boundary -->
+									<path
+										d="M 22 32 L 86 18 L 168 34 L 180 98 L 122 126 L 34 114 Z"
+										fill="color-mix(in srgb, var(--panel-2) 85%, var(--line))"
+										stroke="var(--line-2)"
+										stroke-width="1"
+									/>
+
+									<!-- Markers emerging from Slot 1 (91%) -->
+									<g class="feat-slot1-markers">
+										<g transform="translate(48, 42)">
+											<circle
+												class="feat-radar-ring"
+												cx="0"
+												cy="0"
+												r="10"
+												fill="none"
+												stroke="var(--accent)"
+												stroke-width="1.2"
+												vector-effect="non-scaling-stroke"
+											/>
+											<circle cx="0" cy="0" r="5" fill="var(--accent)" />
+											<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										</g>
+										<g transform="translate(96, 36)">
+											<circle cx="0" cy="0" r="5" fill="var(--accent)" />
+											<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										</g>
+										<g transform="translate(148, 52)">
+											<circle cx="0" cy="0" r="5" fill="var(--accent)" />
+											<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										</g>
+										<g transform="translate(72, 92)">
+											<circle cx="0" cy="0" r="5" fill="var(--accent)" />
+											<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										</g>
+										<g transform="translate(128, 98)">
+											<circle
+												class="feat-radar-ring"
+												cx="0"
+												cy="0"
+												r="10"
+												fill="none"
+												stroke="var(--accent)"
+												stroke-width="1.2"
+												vector-effect="non-scaling-stroke"
+											/>
+											<circle cx="0" cy="0" r="5" fill="var(--accent)" />
+											<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										</g>
+									</g>
+
+									<!-- Markers emerging from Slot 2 (62%) -->
+									<g class="feat-slot2-markers">
+										<g transform="translate(56, 68)">
+											<circle
+												class="feat-radar-ring"
+												cx="0"
+												cy="0"
+												r="10"
+												fill="none"
+												stroke="var(--warn)"
+												stroke-width="1.2"
+												vector-effect="non-scaling-stroke"
+											/>
+											<circle cx="0" cy="0" r="5" fill="var(--warn)" />
+											<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										</g>
+										<g transform="translate(114, 62)">
+											<circle cx="0" cy="0" r="5" fill="var(--warn)" />
+											<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										</g>
+										<g transform="translate(154, 84)">
+											<circle
+												class="feat-radar-ring"
+												cx="0"
+												cy="0"
+												r="10"
+												fill="none"
+												stroke="var(--warn)"
+												stroke-width="1.2"
+												vector-effect="non-scaling-stroke"
+											/>
+											<circle cx="0" cy="0" r="5" fill="var(--warn)" />
+											<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										</g>
+									</g>
+								</g>
+
+								<!-- Animated Cursor switching between Slot 1 and Slot 2 -->
+								<g class="feat-slot-cursor">
+									<use href="#feat-cursor-shape" />
+								</g>
+							</svg>
+							<div class="feat-caption">ISOLATED SAVE PROFILES · JSON EXPORT &amp; IMPORT</div>
+						</div>
+						<h3>Track every playthrough <span class="feat-badge">Profiles</span></h3>
 						<p>
-							Keep separate progress for each save file, switch difficulty, and export or import it
-							whenever you like.
+							Each save file or profile keeps its own found-tracking; you can switch difficulty and back
+							up or restore progress by export and import.
+						</p>
+						<p class="feat-detail">
+							<span class="feat-detail-tag">DATA SAFETY</span> Standalone profiles prevent cross-save
+							pollution with instant JSON backup.
 						</p>
 					</li>
-					<li>
-						<span class="feat-ico" aria-hidden="true"
-							><svg viewBox="0 0 24 24">
-								<path d="M4 7h9m4 0h3M4 17h3m4 0h9" />
-								<circle cx="15" cy="7" r="2" />
-								<circle cx="9" cy="17" r="2" /></svg
-						></span>
-						<h3>Show only what matters</h3>
+
+					<!-- 3. Show only what matters -->
+					<li class="feat-card" tabindex="0">
+						<div class="feat-art">
+							<svg viewBox="0 0 360 180" aria-hidden="true">
+								<rect width="360" height="180" fill="url(#feat-grid-pattern)" />
+
+								<!-- Filter Toggles Header -->
+								<!-- Pill 1: BOSSES -->
+								<g transform="translate(18, 14)">
+									<rect
+										x="0"
+										y="0"
+										width="98"
+										height="26"
+										rx="13"
+										fill="var(--panel-2)"
+										stroke="var(--line-2)"
+									/>
+									<rect
+										class="feat-preset-pill-1"
+										x="0"
+										y="0"
+										width="98"
+										height="26"
+										rx="13"
+										fill="color-mix(in srgb, var(--accent) 20%, var(--panel))"
+										stroke="var(--accent)"
+										stroke-width="1.4"
+									/>
+									<circle cx="15" cy="13" r="4" fill="var(--accent)" />
+									<text
+										x="56"
+										y="13"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="700"
+										fill="var(--ink)"
+									>
+										BOSSES
+									</text>
+								</g>
+
+								<!-- Pill 2: KEYS -->
+								<g transform="translate(126, 14)">
+									<rect
+										x="0"
+										y="0"
+										width="92"
+										height="26"
+										rx="13"
+										fill="var(--panel-2)"
+										stroke="var(--line-2)"
+									/>
+									<rect
+										class="feat-preset-pill-2"
+										x="0"
+										y="0"
+										width="92"
+										height="26"
+										rx="13"
+										fill="color-mix(in srgb, var(--accent) 20%, var(--panel))"
+										stroke="var(--accent)"
+										stroke-width="1.4"
+									/>
+									<circle cx="15" cy="13" r="4" fill="var(--accent-soft)" />
+									<text
+										x="52"
+										y="13"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="700"
+										fill="var(--ink)"
+									>
+										KEYS
+									</text>
+								</g>
+
+								<!-- Pill 3: RELICS -->
+								<g transform="translate(228, 14)">
+									<rect
+										x="0"
+										y="0"
+										width="98"
+										height="26"
+										rx="13"
+										fill="var(--panel-2)"
+										stroke="var(--line)"
+									/>
+									<circle cx="15" cy="13" r="4" fill="var(--line-2)" />
+									<text
+										x="56"
+										y="13"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										fill="var(--ink-dim)"
+									>
+										RELICS
+									</text>
+								</g>
+
+								<!-- Always-dim background relic pins -->
+								<g opacity="0.22" fill="var(--ink-dim)">
+									<circle cx="38" cy="72" r="3.5" />
+									<circle cx="136" cy="64" r="3.5" />
+									<circle cx="316" cy="68" r="3.5" />
+									<circle cx="308" cy="148" r="3.5" />
+								</g>
+
+								<!-- Preset 1 Pins: BOSSES -->
+								<g class="feat-preset-group-1">
+									<g transform="translate(76, 98)">
+										<circle
+											class="feat-radar-ring"
+											cx="0"
+											cy="0"
+											r="11"
+											fill="none"
+											stroke="var(--accent)"
+											stroke-width="1.2"
+											vector-effect="non-scaling-stroke"
+										/>
+										<circle cx="0" cy="0" r="5.5" fill="var(--accent)" />
+										<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										<text
+											class="feat-preset-label-1"
+											x="10"
+											y="0"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											ARCH-DEMON
+										</text>
+									</g>
+									<g transform="translate(224, 82)">
+										<circle
+											class="feat-radar-ring"
+											cx="0"
+											cy="0"
+											r="11"
+											fill="none"
+											stroke="var(--accent)"
+											stroke-width="1.2"
+											vector-effect="non-scaling-stroke"
+										/>
+										<circle cx="0" cy="0" r="5.5" fill="var(--accent)" />
+										<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										<text
+											class="feat-preset-label-1"
+											x="10"
+											y="0"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											COLOSSUS
+										</text>
+									</g>
+									<g transform="translate(168, 144)">
+										<circle
+											class="feat-radar-ring"
+											cx="0"
+											cy="0"
+											r="11"
+											fill="none"
+											stroke="var(--accent)"
+											stroke-width="1.2"
+											vector-effect="non-scaling-stroke"
+										/>
+										<circle cx="0" cy="0" r="5.5" fill="var(--accent)" />
+										<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										<text
+											class="feat-preset-label-1"
+											x="10"
+											y="0"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											WARLORD
+										</text>
+									</g>
+								</g>
+
+								<!-- Preset 2 Pins: KEYS -->
+								<g class="feat-preset-group-2">
+									<g transform="translate(56, 142)">
+										<circle
+											class="feat-radar-ring"
+											cx="0"
+											cy="0"
+											r="11"
+											fill="none"
+											stroke="var(--accent-soft)"
+											stroke-width="1.2"
+											vector-effect="non-scaling-stroke"
+										/>
+										<circle cx="0" cy="0" r="5.5" fill="var(--accent-soft)" />
+										<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										<text
+											class="feat-preset-label-2"
+											x="10"
+											y="0"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											CRYPT KEY
+										</text>
+									</g>
+									<g transform="translate(148, 76)">
+										<circle
+											class="feat-radar-ring"
+											cx="0"
+											cy="0"
+											r="11"
+											fill="none"
+											stroke="var(--accent-soft)"
+											stroke-width="1.2"
+											vector-effect="non-scaling-stroke"
+										/>
+										<circle cx="0" cy="0" r="5.5" fill="var(--accent-soft)" />
+										<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										<text
+											class="feat-preset-label-2"
+											x="10"
+											y="0"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											TOWER SEAL
+										</text>
+									</g>
+									<g transform="translate(234, 134)">
+										<circle
+											class="feat-radar-ring"
+											cx="0"
+											cy="0"
+											r="11"
+											fill="none"
+											stroke="var(--accent-soft)"
+											stroke-width="1.2"
+											vector-effect="non-scaling-stroke"
+										/>
+										<circle cx="0" cy="0" r="5.5" fill="var(--accent-soft)" />
+										<circle cx="0" cy="0" r="2" fill="var(--night)" />
+										<text
+											class="feat-preset-label-2"
+											x="10"
+											y="0"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											GATE KEY
+										</text>
+									</g>
+								</g>
+
+								<!-- Animated Cursor clicking between BOSSES and KEYS presets -->
+								<g class="feat-filter-cursor">
+									<use href="#feat-cursor-shape" />
+								</g>
+							</svg>
+							<div class="feat-caption">MARKER SEARCH · INSTANT PRESET TOGGLES</div>
+						</div>
+						<h3>Show only what matters <span class="feat-badge">Presets</span></h3>
 						<p>
-							Save selection presets to see just the bosses, keys or collectibles you are hunting right
-							now.
+							Find any collectible instantly with fuzzy marker search, or switch saved selection presets
+							and category toggles to reveal just the bosses, keys, or shrines you're hunting.
+						</p>
+						<p class="feat-detail">
+							<span class="feat-detail-tag">TARGETED HUNT</span> Tiered location search and instant layer
+							presets mute clutter and pinpoint objectives.
+						</p>
+					</li>
+
+					<!-- 4. Combined: Your own markers & Share a spot -->
+					<li class="feat-card" tabindex="0">
+						<div class="feat-art">
+							<svg viewBox="0 0 360 180" aria-hidden="true">
+								<rect width="360" height="180" fill="url(#feat-grid-pattern)" />
+
+								<!-- Moving Concentric Crosshair Reticle Cursor -->
+								<g class="feat-reticle-cursor">
+									<line
+										x1="-450"
+										y1="0"
+										x2="450"
+										y2="0"
+										stroke="var(--line-2)"
+										stroke-width="1"
+										stroke-dasharray="3 3"
+									/>
+									<line
+										x1="0"
+										y1="-300"
+										x2="0"
+										y2="300"
+										stroke="var(--line-2)"
+										stroke-width="1"
+										stroke-dasharray="3 3"
+									/>
+									<circle
+										cx="0"
+										cy="0"
+										r="15"
+										fill="none"
+										stroke="var(--line-2)"
+										stroke-width="1.2"
+									/>
+									<circle cx="0" cy="0" r="6" fill="none" stroke="var(--accent)" stroke-width="1.4" />
+								</g>
+
+								<!-- Stage 2: Small Name Typing Pop-up -->
+								<g transform="translate(132, 34)">
+									<g class="feat-name-popup">
+										<rect
+											x="0"
+											y="0"
+											width="188"
+											height="72"
+											rx="8"
+											fill="var(--panel)"
+											stroke="var(--line-2)"
+											stroke-width="1.3"
+										/>
+										<!-- Color swatches -->
+										<circle
+											cx="20"
+											cy="18"
+											r="5"
+											fill="var(--accent)"
+											stroke="var(--ink)"
+											stroke-width="1.2"
+										/>
+										<circle cx="38" cy="18" r="4.5" fill="var(--ok)" />
+										<circle cx="55" cy="18" r="4.5" fill="var(--warn)" />
+										<circle cx="72" cy="18" r="4.5" fill="#5b8def" />
+										<!-- Input field -->
+										<rect
+											x="12"
+											y="32"
+											width="126"
+											height="26"
+											rx="4"
+											fill="var(--panel-2)"
+											stroke="var(--accent)"
+											stroke-width="1.2"
+										/>
+										<!-- Typed characters "SHRINE" -->
+										<text
+											x="20"
+											y="45"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="10.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											<tspan class="feat-type-1">S</tspan><tspan class="feat-type-2">H</tspan
+											><tspan class="feat-type-3">R</tspan><tspan class="feat-type-4">I</tspan
+											><tspan class="feat-type-5">N</tspan><tspan class="feat-type-6">E</tspan>
+										</text>
+										<!-- Confirm button -->
+										<rect
+											class="feat-confirm-btn"
+											x="146"
+											y="32"
+											width="30"
+											height="26"
+											rx="4"
+											fill="color-mix(in srgb, var(--accent) 22%, var(--panel))"
+											stroke="var(--accent)"
+											stroke-width="1.2"
+										/>
+										<g
+											transform="translate(153, 37) scale(0.68)"
+											fill="none"
+											stroke="var(--ink)"
+											stroke-width="2.6"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M20 6 9 17l-5-5" />
+										</g>
+									</g>
+								</g>
+
+								<!-- Stage 3: Placed Custom Pin at (104, 108) -->
+								<g transform="translate(104, 108)">
+									<g class="feat-placed-pin">
+										<circle
+											class="feat-radar-ring"
+											cx="0"
+											cy="0"
+											r="14"
+											fill="none"
+											stroke="var(--accent)"
+											stroke-width="1.2"
+											vector-effect="non-scaling-stroke"
+										/>
+										<ellipse cx="0" cy="2" rx="6" ry="2.5" fill="#000" opacity="0.35" />
+										<path
+											d="M 0 0 C -7 -11 -11 -18 -11 -25 A 11 11 0 0 1 11 -25 C 11 -18 7 -11 0 0 Z"
+											fill="var(--accent)"
+											stroke="var(--ink)"
+											stroke-width="1.3"
+										/>
+										<circle cx="0" cy="-25" r="4" fill="var(--night)" />
+									</g>
+								</g>
+
+								<!-- Stage 4: Share Card Pop-up with Share Button -->
+								<g transform="translate(132, 34)">
+									<g class="feat-share-popup">
+										<rect
+											x="0"
+											y="0"
+											width="196"
+											height="92"
+											rx="8"
+											fill="var(--panel)"
+											stroke="var(--line-2)"
+											stroke-width="1.3"
+										/>
+										<text
+											x="14"
+											y="22"
+											font-family="var(--mono)"
+											font-size="10.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											SHRINE · CUSTOM PIN
+										</text>
+										<text
+											x="14"
+											y="38"
+											font-family="var(--mono)"
+											font-size="9.5"
+											fill="var(--ink-dim)"
+										>
+											?tm=NYzLCsI...
+										</text>
+										<!-- Share Button -->
+										<rect
+											class="feat-share-btn"
+											x="14"
+											y="52"
+											width="168"
+											height="28"
+											rx="5"
+											fill="color-mix(in srgb, var(--accent) 18%, var(--panel-2))"
+											stroke="var(--accent)"
+											stroke-width="1.2"
+										/>
+										<!-- Lucide share-2 icon -->
+										<g
+											transform="translate(46, 58) scale(0.67)"
+											fill="none"
+											stroke="var(--ink)"
+											stroke-width="2.2"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<circle cx="18" cy="5" r="3" />
+											<circle cx="6" cy="12" r="3" />
+											<circle cx="18" cy="19" r="3" />
+											<line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+											<line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
+										</g>
+										<text
+											x="108"
+											y="66"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink)"
+										>
+											SHARE LINK
+										</text>
+									</g>
+								</g>
+
+								<!-- Stage 5: Clipboard Copied Toast -->
+								<g transform="translate(148, 136)">
+									<g class="feat-copied-toast">
+										<rect
+											x="0"
+											y="0"
+											width="164"
+											height="28"
+											rx="14"
+											fill="color-mix(in srgb, var(--ok) 18%, var(--panel))"
+											stroke="var(--ok)"
+											stroke-width="1.3"
+										/>
+										<!-- Lucide check icon -->
+										<g
+											transform="translate(16, 6) scale(0.68)"
+											fill="none"
+											stroke="var(--ok)"
+											stroke-width="2.6"
+											stroke-linecap="round"
+											stroke-linejoin="round"
+										>
+											<path d="M20 6 9 17l-5-5" />
+										</g>
+										<text
+											x="92"
+											y="14"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ok)"
+										>
+											LINK COPIED
+										</text>
+									</g>
+								</g>
+
+								<!-- Animated Pointer Cursor -->
+								<g class="feat-custom-pointer">
+									<use href="#feat-cursor-shape" />
+								</g>
+							</svg>
+							<div class="feat-caption">CUSTOM WAYPOINTS · COMPACT SHAREABLE URLS</div>
+						</div>
+						<h3>Custom markers &amp; share links <span class="feat-badge">Pins &amp; Links</span></h3>
+						<p>
+							Drop markers in your own color and icon, then share any spot with a compact link that
+							carries just enough in the URL to preview while keeping notes packed in the fragment.
+						</p>
+						<p class="feat-detail">
+							<span class="feat-detail-tag">ZERO-DB SHARING</span> Personal waypoints stay in your profile
+							and pack cleanly into deflate-raw URLs when shared.
+						</p>
+					</li>
+
+					<!-- 5. Bulk editing for big games -->
+					<li class="feat-card" tabindex="0">
+						<div class="feat-art">
+							<svg viewBox="0 0 360 180" aria-hidden="true">
+								<rect width="360" height="180" fill="url(#feat-grid-pattern)" />
+
+								<!-- Outer Unselected Pins -->
+								<g fill="var(--ink-dim)" opacity="0.32">
+									<circle cx="24" cy="36" r="4" />
+									<circle cx="28" cy="144" r="4" />
+									<circle cx="332" cy="32" r="4" />
+									<circle cx="334" cy="150" r="4" />
+								</g>
+
+								<!-- Dragged Rectangular Marquee Selection Box (stroke-dasharray 4 4, period 8) -->
+								<g transform="translate(48, 34)">
+									<rect
+										class="feat-drag-rect feat-marquee-box"
+										x="0"
+										y="0"
+										width="148"
+										height="108"
+										rx="4"
+										fill="color-mix(in srgb, var(--accent) 8%, transparent)"
+										stroke="var(--accent)"
+										stroke-width="1.6"
+										vector-effect="non-scaling-stroke"
+									/>
+								</g>
+
+								<!-- 5 Target Pins inside Marquee Region -->
+								<g transform="translate(76, 62)">
+									<g class="feat-bulk-pin feat-bulk-pin-1">
+										<circle cx="0" cy="0" r="6" />
+										<circle cx="0" cy="0" r="2.2" fill="var(--night)" />
+									</g>
+								</g>
+								<g transform="translate(128, 54)">
+									<g class="feat-bulk-pin feat-bulk-pin-2">
+										<circle cx="0" cy="0" r="6" />
+										<circle cx="0" cy="0" r="2.2" fill="var(--night)" />
+									</g>
+								</g>
+								<g transform="translate(168, 76)">
+									<g class="feat-bulk-pin feat-bulk-pin-3">
+										<circle cx="0" cy="0" r="6" />
+										<circle cx="0" cy="0" r="2.2" fill="var(--night)" />
+									</g>
+								</g>
+								<g transform="translate(92, 114)">
+									<g class="feat-bulk-pin feat-bulk-pin-4">
+										<circle cx="0" cy="0" r="6" />
+										<circle cx="0" cy="0" r="2.2" fill="var(--night)" />
+									</g>
+								</g>
+								<g transform="translate(152, 118)">
+									<g class="feat-bulk-pin feat-bulk-pin-5">
+										<circle cx="0" cy="0" r="6" />
+										<circle cx="0" cy="0" r="2.2" fill="var(--night)" />
+									</g>
+								</g>
+
+								<!-- Batch Operations Menu (appears after drag finishes) -->
+								<g transform="translate(212, 42)">
+									<g class="feat-batch-menu">
+										<rect
+											x="0"
+											y="0"
+											width="132"
+											height="88"
+											rx="8"
+											fill="var(--panel)"
+											stroke="var(--line-2)"
+											stroke-width="1.3"
+										/>
+										<text
+											x="12"
+											y="20"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ink-dim)"
+										>
+											5 SELECTED
+										</text>
+										<rect
+											class="feat-batch-btn"
+											x="10"
+											y="30"
+											width="112"
+											height="24"
+											rx="4"
+											fill="color-mix(in srgb, var(--ok) 18%, var(--panel-2))"
+											stroke="var(--ok)"
+											stroke-width="1.2"
+										/>
+										<text
+											x="66"
+											y="42"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ok)"
+										>
+											✓ MARK FOUND
+										</text>
+										<rect
+											x="10"
+											y="58"
+											width="112"
+											height="22"
+											rx="4"
+											fill="var(--panel-2)"
+											stroke="var(--line)"
+										/>
+										<text
+											x="66"
+											y="69"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											fill="var(--ink-dim)"
+										>
+											CLEAR ALL
+										</text>
+									</g>
+								</g>
+
+								<!-- Animated Cursor dragging marquee then clicking MARK FOUND -->
+								<g class="feat-bulk-cursor">
+									<use href="#feat-cursor-shape" />
+								</g>
+							</svg>
+							<div class="feat-caption">MARQUEE DRAG SELECTION · BATCH MARK FOUND</div>
+						</div>
+						<h3>Bulk editing for big games <span class="feat-badge">Batch Tools</span></h3>
+						<p>
+							Select many markers at once and edit them together, which helps in large worlds. Drag a box,
+							ellipse or freehand lasso to mark whole regions found in seconds.
+						</p>
+						<p class="feat-detail">
+							<span class="feat-detail-tag">FAST PROGRESS</span> Spatial selection tools update dozens of
+							markers simultaneously.
+						</p>
+					</li>
+
+					<!-- 6. Optional sync across devices -->
+					<li class="feat-card" tabindex="0">
+						<div class="feat-art">
+							<svg viewBox="0 0 360 180" aria-hidden="true">
+								<rect width="360" height="180" fill="url(#feat-grid-pattern)" />
+
+								<!-- Left: DEVICE (Handheld/Tablet with Map) -->
+								<g transform="translate(14, 24)">
+									<rect
+										x="0"
+										y="0"
+										width="82"
+										height="132"
+										rx="8"
+										fill="var(--panel)"
+										stroke="var(--line-2)"
+										stroke-width="1.3"
+									/>
+									<rect
+										x="7"
+										y="10"
+										width="68"
+										height="86"
+										rx="4"
+										fill="var(--panel-2)"
+										stroke="var(--line)"
+									/>
+									<circle
+										cx="41"
+										cy="42"
+										r="15"
+										fill="none"
+										stroke="var(--line-2)"
+										stroke-width="1"
+									/>
+									<circle cx="41" cy="42" r="4" fill="var(--accent)" />
+									<rect
+										x="11"
+										y="72"
+										width="60"
+										height="18"
+										rx="3"
+										fill="color-mix(in srgb, var(--ok) 16%, var(--panel))"
+									/>
+									<text
+										x="41"
+										y="81"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="700"
+										fill="var(--ok)"
+									>
+										91%
+									</text>
+									<text
+										x="41"
+										y="114"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="600"
+										fill="var(--ink)"
+									>
+										DEVICE
+									</text>
+								</g>
+
+								<!-- Conduit Lines between DEVICE, CONFLICT CARD, and SERVER -->
+								<path
+									class="feat-marquee-box"
+									d="M 96 68 L 114 68"
+									fill="none"
+									stroke="var(--accent)"
+									stroke-width="2"
+								/>
+								<path
+									class="feat-marquee-box"
+									d="M 246 68 L 264 68"
+									fill="none"
+									stroke="var(--accent)"
+									stroke-width="2"
+								/>
+
+								<!-- Center: Conflict Resolution Card -->
+								<g transform="translate(114, 24)">
+									<rect
+										x="0"
+										y="0"
+										width="132"
+										height="132"
+										rx="8"
+										fill="var(--panel)"
+										stroke="var(--warn)"
+										stroke-width="1.3"
+									/>
+									<!-- Warning beacon with transform-box: fill-box -->
+									<circle
+										class="feat-conflict-beacon"
+										cx="66"
+										cy="24"
+										r="11"
+										fill="color-mix(in srgb, var(--warn) 20%, transparent)"
+										stroke="var(--warn)"
+										stroke-width="1.3"
+									/>
+									<text
+										x="66"
+										y="24"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="11"
+										font-weight="700"
+										fill="var(--warn)"
+									>
+										!
+									</text>
+									<text
+										x="66"
+										y="48"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="700"
+										fill="var(--ink)"
+									>
+										CONFLICT
+									</text>
+									<!-- Button 1: KEEP DEVICE (tapped by cursor to overwrite server) -->
+									<rect
+										class="feat-keep-device-btn"
+										x="10"
+										y="64"
+										width="112"
+										height="26"
+										rx="5"
+										fill="var(--panel-2)"
+										stroke="var(--line-2)"
+										stroke-width="1.2"
+									/>
+									<text
+										x="66"
+										y="77"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="700"
+										fill="var(--ink)"
+									>
+										KEEP DEVICE
+									</text>
+									<!-- Button 2: KEEP SERVER -->
+									<rect
+										x="10"
+										y="96"
+										width="112"
+										height="26"
+										rx="5"
+										fill="var(--panel-2)"
+										stroke="var(--line)"
+									/>
+									<text
+										x="66"
+										y="109"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										fill="var(--ink-dim)"
+									>
+										KEEP SERVER
+									</text>
+								</g>
+
+								<!-- Right: SERVER (3-Blade Cloud Server Rack) -->
+								<g transform="translate(264, 24)">
+									<rect
+										x="0"
+										y="0"
+										width="82"
+										height="132"
+										rx="8"
+										fill="var(--panel)"
+										stroke="var(--line-2)"
+										stroke-width="1.3"
+									/>
+									<!-- Server Rack Blade 1 -->
+									<rect
+										x="8"
+										y="10"
+										width="66"
+										height="20"
+										rx="3"
+										fill="var(--panel-2)"
+										stroke="var(--line-2)"
+									/>
+									<circle cx="16" cy="20" r="2.5" fill="var(--ok)" />
+									<circle cx="24" cy="20" r="2.5" fill="var(--ok)" />
+									<line x1="36" y1="20" x2="66" y2="20" stroke="var(--line-2)" stroke-width="2" />
+									<!-- Server Rack Blade 2 -->
+									<rect
+										x="8"
+										y="34"
+										width="66"
+										height="20"
+										rx="3"
+										fill="var(--panel-2)"
+										stroke="var(--line-2)"
+									/>
+									<circle cx="16" cy="44" r="2.5" fill="var(--ok)" />
+									<circle cx="24" cy="44" r="2.5" fill="var(--accent)" />
+									<line x1="36" y1="44" x2="66" y2="44" stroke="var(--line-2)" stroke-width="2" />
+									<!-- Server Rack Blade 3 -->
+									<rect
+										x="8"
+										y="58"
+										width="66"
+										height="20"
+										rx="3"
+										fill="var(--panel-2)"
+										stroke="var(--line-2)"
+									/>
+									<circle cx="16" cy="68" r="2.5" fill="var(--ok)" />
+									<circle cx="24" cy="68" r="2.5" fill="var(--ok)" />
+									<line x1="36" y1="68" x2="66" y2="68" stroke="var(--line-2)" stroke-width="2" />
+
+									<!-- Server Status Readout (flips from 62% stale to 91% overwritten) -->
+									<g class="feat-server-stale">
+										<rect
+											x="8"
+											y="84"
+											width="66"
+											height="18"
+											rx="3"
+											fill="color-mix(in srgb, var(--warn) 16%, var(--panel))"
+										/>
+										<text
+											x="41"
+											y="93"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--warn)"
+										>
+											62%
+										</text>
+									</g>
+									<g class="feat-server-synced">
+										<rect
+											x="8"
+											y="84"
+											width="66"
+											height="18"
+											rx="3"
+											fill="color-mix(in srgb, var(--ok) 18%, var(--panel))"
+											stroke="var(--ok)"
+											stroke-width="1"
+										/>
+										<text
+											x="41"
+											y="93"
+											text-anchor="middle"
+											dominant-baseline="central"
+											font-family="var(--mono)"
+											font-size="9.5"
+											font-weight="700"
+											fill="var(--ok)"
+										>
+											✓ 91%
+										</text>
+									</g>
+
+									<text
+										x="41"
+										y="116"
+										text-anchor="middle"
+										dominant-baseline="central"
+										font-family="var(--mono)"
+										font-size="9.5"
+										font-weight="600"
+										fill="var(--ink)"
+									>
+										SERVER
+									</text>
+								</g>
+
+								<!-- Animated Cursor tapping KEEP DEVICE button to overwrite server -->
+								<g class="feat-sync-cursor">
+									<use href="#feat-cursor-shape" />
+								</g>
+							</svg>
+							<div class="feat-caption">OPT-IN GOOGLE OR 26-CHAR KEY · CONFLICT-SAFE</div>
+						</div>
+						<h3>Optional sync across devices <span class="feat-badge">Opt-In</span></h3>
+						<p>
+							Sign in with Google, or use a 26-character secret key, to sync your profiles between
+							devices. Sync is optional: if two devices change the same profile, you're warned and choose
+							which version to keep.
+						</p>
+						<p class="feat-detail">
+							<span class="feat-detail-tag">USER CONTROL</span> Content hashing ignores camera moves and
+							lets you overwrite either side cleanly on conflict.
 						</p>
 					</li>
 				</ul>
+
+				<!-- Free, no ads, no tracking (Closing strip) -->
+				<div class="feat-strip">
+					<p class="feat-strip-motto">
+						<svg viewBox="0 0 24 24" aria-hidden="true">
+							<circle cx="12" cy="12" r="9" />
+							<path d="M12 3v3m0 12v3M3 12h3m12 0h3" />
+							<polygon points="12,8 14,12 12,16 10,12" fill="currentColor" />
+						</svg>
+						Free to use. No ads. No tracking.
+					</p>
+					<p class="feat-strip-sub">
+						Built as an enduring utility. No account required to play, no commercial trackers, no sponsored
+						markers.
+					</p>
+				</div>
 			</section>
 		</main>
 

@@ -47,6 +47,7 @@ export const PRECACHE: readonly string[] = [
 	"style.css",
 	"base.css",
 	"home.css",
+	"features.css",
 	"app.js",
 	"home.js",
 	"theme.js",

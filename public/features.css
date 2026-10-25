@@ -1,0 +1,1284 @@
+/* Features showcase stylesheet: cartographic, isometric, coordinated 8s rhythm, accessible */
+
+:root {
+	--feat-cycle: 8s;
+}
+
+.features {
+	margin-top: clamp(64px, 10vw, 120px);
+	padding-top: clamp(36px, 6vw, 64px);
+	border-top: 1px solid var(--line);
+}
+
+.feat-header {
+	margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.feat-intro {
+	margin: 8px 0 0;
+	font-size: clamp(1.05rem, 2vw, 1.25rem);
+	line-height: 1.5;
+	color: var(--ink-dim);
+	max-width: 62ch;
+	text-wrap: balance;
+}
+
+/* Feature grid: 1 column on mobile, 2 columns on tablet, 3 columns on desktop (6 cards = 2 even rows of 3) */
+.features ul.feat-grid,
+.feat-grid {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: clamp(18px, 2.5vw, 28px);
+}
+
+@media (min-width: 640px) {
+	.features ul.feat-grid,
+	.feat-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	.features ul.feat-grid,
+	.feat-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* Feature cards */
+.feat-card {
+	position: relative;
+	background: var(--panel);
+	border: 1px solid var(--line);
+	border-radius: calc(var(--radius) - 4px);
+	padding: clamp(20px, 3vw, 28px);
+	display: flex;
+	flex-direction: column;
+	box-shadow: var(--card-shadow);
+	transition:
+		border-color var(--fast),
+		box-shadow var(--fast),
+		transform var(--fast);
+}
+
+.feat-card:hover,
+.feat-card:focus-within,
+.feat-card.is-active {
+	border-color: var(--line-2);
+	transform: translateY(-2px);
+	box-shadow: var(--card-hover-shadow);
+}
+
+.feat-card:focus-visible {
+	outline: 2px solid var(--accent-soft);
+	outline-offset: 3px;
+}
+
+/* Illustration viewport + HTML caption bar */
+.feat-art {
+	position: relative;
+	width: 100%;
+	margin-bottom: 18px;
+	border-radius: 12px;
+	background: color-mix(in srgb, var(--panel-2) 75%, var(--night));
+	border: 1px solid var(--line);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+
+.feat-art svg {
+	width: 100%;
+	aspect-ratio: 2 / 1;
+	height: auto;
+	display: block;
+	user-select: none;
+}
+
+.feat-caption {
+	padding: 7px 12px;
+	border-top: 1px solid var(--line);
+	background: color-mix(in srgb, var(--panel) 88%, transparent);
+	font-family: var(--mono);
+	font-size: 0.74rem;
+	font-weight: 500;
+	letter-spacing: 0.04em;
+	color: var(--ink-dim);
+	line-height: 1.35;
+}
+
+/* Card typography */
+.feat-card h3 {
+	margin: 0 0 8px;
+	font-size: 1.14rem;
+	font-weight: 600;
+	color: var(--ink);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+}
+
+.feat-badge {
+	font-family: var(--mono);
+	font-size: 0.72rem;
+	font-weight: 600;
+	color: var(--accent-soft);
+	background: color-mix(in srgb, var(--accent) 12%, transparent);
+	border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
+	border-radius: 4px;
+	padding: 2px 7px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.feat-card p {
+	margin: 0;
+	color: var(--ink-dim);
+	font-size: 0.94rem;
+	line-height: 1.6;
+	text-wrap: pretty;
+}
+
+/* Detail line: full opacity by default for WCAG contrast & keyboard accessibility */
+.feat-detail {
+	margin-top: auto !important;
+	padding-top: 14px;
+	border-top: 1px dashed var(--line);
+	font-family: var(--mono);
+	font-size: 0.81rem !important;
+	line-height: 1.55;
+	color: var(--ink-dim);
+	display: block;
+	opacity: 1;
+	transition: color var(--fast);
+}
+
+.feat-card p + .feat-detail {
+	margin-top: 14px !important;
+}
+
+.feat-card:hover .feat-detail,
+.feat-card:focus-within .feat-detail,
+.feat-card.is-active .feat-detail {
+	color: var(--ink);
+}
+
+.feat-detail-tag {
+	display: inline-block;
+	margin-right: 6px;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	color: var(--accent-soft);
+}
+
+/* Pause animations when offscreen or document hidden */
+.features.is-paused * {
+	animation-play-state: paused !important;
+}
+
+/* Free, no ads, no tracking footer strip */
+.feat-strip {
+	margin-top: clamp(28px, 4vw, 44px);
+	padding: clamp(20px, 3vw, 26px) clamp(22px, 3.5vw, 32px);
+	border: 1px solid var(--line);
+	border-radius: calc(var(--radius) - 6px);
+	background: linear-gradient(135deg, var(--panel-2) 0%, var(--panel) 100%);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	box-shadow: var(--card-shadow);
+}
+
+.feat-strip-motto {
+	margin: 0;
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--ink);
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.feat-strip-motto svg {
+	width: 20px;
+	height: 20px;
+	fill: none;
+	stroke: var(--accent);
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	flex: none;
+}
+
+.feat-strip-sub {
+	margin: 0;
+	font-size: 0.88rem;
+	color: var(--ink-dim);
+}
+
+/* ==========================================================================
+   COORDINATED 8-SECOND SYSTEM ANIMATIONS (Transform, Opacity, Dashoffset)
+   ========================================================================== */
+
+/* Shared dash flow: dasharray 4 4 has period 8; scrolling -40 is 5 exact periods */
+@keyframes featDashScroll {
+	0% {
+		stroke-dashoffset: 0;
+	}
+	100% {
+		stroke-dashoffset: -40;
+	}
+}
+
+.feat-marquee-box,
+.feat-cache-stream {
+	stroke-dasharray: 4 4;
+	animation: featDashScroll calc(var(--feat-cycle) / 2) infinite linear;
+}
+
+/* Shared radar ring using transform: scale() instead of SVG r attribute */
+@keyframes featRadarScale {
+	0% {
+		transform: scale(0.45);
+		opacity: 0.9;
+	}
+	70%,
+	100% {
+		transform: scale(1.75);
+		opacity: 0;
+	}
+}
+
+.feat-radar-ring {
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: featRadarScale calc(var(--feat-cycle) / 2) infinite cubic-bezier(0.16, 0.8, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   1. Works Offline: Service Worker gears & periodic cache-to-pyramid serving
+   -------------------------------------------------------------------------- */
+@keyframes featSpinCW {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes featSpinCCW {
+	0% {
+		transform: rotate(360deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+.feat-sw-gear-1 {
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: featSpinCW var(--feat-cycle) infinite linear;
+}
+
+.feat-sw-gear-2 {
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: featSpinCCW var(--feat-cycle) infinite linear;
+}
+
+@keyframes featTileServe {
+	0%,
+	6% {
+		opacity: 0;
+	}
+	16%,
+	76% {
+		opacity: 1;
+	}
+	90%,
+	100% {
+		opacity: 0;
+	}
+}
+
+.feat-tile {
+	fill: color-mix(in srgb, var(--accent) 22%, var(--panel-2));
+	stroke: var(--accent);
+	stroke-width: 1.2;
+}
+
+.feat-tile-1 {
+	animation: featTileServe var(--feat-cycle) infinite 0s ease-out;
+}
+.feat-tile-2 {
+	animation: featTileServe var(--feat-cycle) infinite 0.2s ease-out;
+}
+.feat-tile-3 {
+	animation: featTileServe var(--feat-cycle) infinite 0.4s ease-out;
+}
+.feat-tile-4 {
+	animation: featTileServe var(--feat-cycle) infinite 0.6s ease-out;
+}
+.feat-tile-5 {
+	animation: featTileServe var(--feat-cycle) infinite 0.8s ease-out;
+}
+.feat-tile-6 {
+	animation: featTileServe var(--feat-cycle) infinite 1s ease-out;
+}
+.feat-tile-7 {
+	animation: featTileServe var(--feat-cycle) infinite 1.2s ease-out;
+}
+.feat-tile-8 {
+	animation: featTileServe var(--feat-cycle) infinite 1.4s ease-out;
+}
+.feat-tile-9 {
+	animation: featTileServe var(--feat-cycle) infinite 1.6s ease-out;
+}
+
+@keyframes featReadyBadge {
+	0%,
+	28% {
+		opacity: 0;
+		transform: scale(0.88);
+	}
+	36%,
+	80% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	90%,
+	100% {
+		opacity: 0;
+		transform: scale(0.88);
+	}
+}
+
+.feat-offline-check {
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: featReadyBadge var(--feat-cycle) infinite ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   2. Track Every Playthrough: Cursor clicks slots, markers populate map
+   -------------------------------------------------------------------------- */
+/* Base dashoffset is 7.35 (91% of 81.68) so reduced-motion displays full 91% ring */
+.feat-ring-active {
+	stroke-dasharray: 81.68;
+	stroke-dashoffset: 7.35;
+}
+
+@keyframes featSlotCursorMove {
+	0%,
+	8% {
+		transform: translate(92px, 38px) scale(1);
+	}
+	12% {
+		transform: translate(92px, 38px) scale(0.82);
+	}
+	16%,
+	42% {
+		transform: translate(92px, 38px) scale(1);
+	}
+	50%,
+	56% {
+		transform: translate(92px, 89px) scale(1);
+	}
+	60% {
+		transform: translate(92px, 89px) scale(0.82);
+	}
+	64%,
+	90% {
+		transform: translate(92px, 89px) scale(1);
+	}
+	98%,
+	100% {
+		transform: translate(92px, 38px) scale(1);
+	}
+}
+
+.feat-slot-cursor {
+	animation: featSlotCursorMove var(--feat-cycle) infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes featSlotBox1 {
+	0%,
+	12% {
+		opacity: 0.55;
+	}
+	16%,
+	60% {
+		opacity: 1;
+	}
+	64%,
+	100% {
+		opacity: 0.55;
+	}
+}
+
+@keyframes featSlotBox2 {
+	0%,
+	12% {
+		opacity: 1;
+	}
+	16%,
+	60% {
+		opacity: 0.55;
+	}
+	64%,
+	100% {
+		opacity: 1;
+	}
+}
+
+.feat-slot-box-1 {
+	animation: featSlotBox1 var(--feat-cycle) infinite ease-in-out;
+}
+
+.feat-slot-box-2 {
+	animation: featSlotBox2 var(--feat-cycle) infinite ease-in-out;
+}
+
+@keyframes featSlot1MapPins {
+	0%,
+	12% {
+		opacity: 0;
+		transform: translate(-36px, -8px) scale(0.5);
+	}
+	18%,
+	60% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+	63%,
+	100% {
+		opacity: 0;
+		transform: translate(-36px, -8px) scale(0.5);
+	}
+}
+
+@keyframes featSlot2MapPins {
+	0%,
+	12% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+	15%,
+	60% {
+		opacity: 0;
+		transform: translate(-36px, 8px) scale(0.5);
+	}
+	66%,
+	100% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+}
+
+.feat-slot1-markers {
+	transform-box: fill-box;
+	transform-origin: left center;
+	animation: featSlot1MapPins var(--feat-cycle) infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.feat-slot2-markers {
+	transform-box: fill-box;
+	transform-origin: left center;
+	animation: featSlot2MapPins var(--feat-cycle) infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   3. Show Only What Matters: Cursor toggles presets, map pins & labels react
+   -------------------------------------------------------------------------- */
+@keyframes featFilterCursorMove {
+	0%,
+	8% {
+		transform: translate(78px, 26px) scale(1);
+	}
+	12% {
+		transform: translate(78px, 26px) scale(0.82);
+	}
+	16%,
+	42% {
+		transform: translate(78px, 26px) scale(1);
+	}
+	50%,
+	56% {
+		transform: translate(182px, 26px) scale(1);
+	}
+	60% {
+		transform: translate(182px, 26px) scale(0.82);
+	}
+	64%,
+	90% {
+		transform: translate(182px, 26px) scale(1);
+	}
+	98%,
+	100% {
+		transform: translate(78px, 26px) scale(1);
+	}
+}
+
+.feat-filter-cursor {
+	animation: featFilterCursorMove var(--feat-cycle) infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes featPillActive1 {
+	0%,
+	12% {
+		opacity: 0;
+	}
+	17%,
+	60% {
+		opacity: 1;
+	}
+	65%,
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes featPillActive2 {
+	0%,
+	12% {
+		opacity: 1;
+	}
+	17%,
+	60% {
+		opacity: 0;
+	}
+	65%,
+	100% {
+		opacity: 1;
+	}
+}
+
+.feat-preset-pill-1,
+.feat-preset-label-1 {
+	animation: featPillActive1 var(--feat-cycle) infinite ease-in-out;
+}
+
+.feat-preset-pill-2,
+.feat-preset-label-2 {
+	animation: featPillActive2 var(--feat-cycle) infinite ease-in-out;
+}
+
+@keyframes featPresetPins1 {
+	0%,
+	12% {
+		opacity: 0.2;
+	}
+	17%,
+	60% {
+		opacity: 1;
+	}
+	65%,
+	100% {
+		opacity: 0.2;
+	}
+}
+
+@keyframes featPresetPins2 {
+	0%,
+	12% {
+		opacity: 1;
+	}
+	17%,
+	60% {
+		opacity: 0.2;
+	}
+	65%,
+	100% {
+		opacity: 1;
+	}
+}
+
+.feat-preset-group-1 {
+	animation: featPresetPins1 var(--feat-cycle) infinite ease-in-out;
+}
+
+.feat-preset-group-2 {
+	animation: featPresetPins2 var(--feat-cycle) infinite ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   4. Custom Markers & Share Links: Slow scanning + 5-stage creation & share
+   -------------------------------------------------------------------------- */
+@keyframes featReticleMove {
+	0% {
+		transform: translate(44px, 142px);
+	}
+	9% {
+		transform: translate(176px, 48px);
+	}
+	18% {
+		transform: translate(248px, 128px);
+	}
+	27%,
+	93% {
+		transform: translate(104px, 108px);
+	}
+	100% {
+		transform: translate(44px, 142px);
+	}
+}
+
+.feat-reticle-cursor {
+	animation: featReticleMove 10s infinite cubic-bezier(0.35, 0, 0.25, 1);
+}
+
+@keyframes featCustomPointerMove {
+	0% {
+		transform: translate(44px, 142px) scale(1);
+	}
+	9% {
+		transform: translate(176px, 48px) scale(1);
+	}
+	18% {
+		transform: translate(248px, 128px) scale(1);
+	}
+	27% {
+		transform: translate(104px, 108px) scale(1);
+	}
+	30% {
+		transform: translate(104px, 108px) scale(0.82);
+	}
+	35%,
+	43% {
+		transform: translate(198px, 82px) scale(1);
+	}
+	47% {
+		transform: translate(292px, 78px) scale(1);
+	}
+	49% {
+		transform: translate(292px, 78px) scale(0.82);
+	}
+	55% {
+		transform: translate(104px, 88px) scale(1);
+	}
+	58% {
+		transform: translate(104px, 88px) scale(0.82);
+	}
+	66% {
+		transform: translate(224px, 98px) scale(1);
+	}
+	69% {
+		transform: translate(224px, 98px) scale(0.82);
+	}
+	73%,
+	91% {
+		transform: translate(224px, 98px) scale(1);
+	}
+	100% {
+		transform: translate(44px, 142px) scale(1);
+	}
+}
+
+.feat-custom-pointer {
+	animation: featCustomPointerMove 10s infinite cubic-bezier(0.35, 0, 0.25, 1);
+}
+
+@keyframes featNamePopupVis {
+	0%,
+	29% {
+		opacity: 0;
+		transform: scale(0.92);
+	}
+	32%,
+	48% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	51%,
+	100% {
+		opacity: 0;
+		transform: scale(0.92);
+	}
+}
+
+.feat-name-popup {
+	transform-box: fill-box;
+	transform-origin: left center;
+	animation: featNamePopupVis 10s infinite ease-out;
+}
+
+@keyframes featTypeChar1 {
+	0%,
+	33% {
+		opacity: 0;
+	}
+	35%,
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes featTypeChar2 {
+	0%,
+	35% {
+		opacity: 0;
+	}
+	37%,
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes featTypeChar3 {
+	0%,
+	37% {
+		opacity: 0;
+	}
+	39%,
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes featTypeChar4 {
+	0%,
+	39% {
+		opacity: 0;
+	}
+	41%,
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes featTypeChar5 {
+	0%,
+	41% {
+		opacity: 0;
+	}
+	43%,
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes featTypeChar6 {
+	0%,
+	43% {
+		opacity: 0;
+	}
+	45%,
+	100% {
+		opacity: 1;
+	}
+}
+
+.feat-type-1 {
+	animation: featTypeChar1 10s infinite steps(1);
+}
+.feat-type-2 {
+	animation: featTypeChar2 10s infinite steps(1);
+}
+.feat-type-3 {
+	animation: featTypeChar3 10s infinite steps(1);
+}
+.feat-type-4 {
+	animation: featTypeChar4 10s infinite steps(1);
+}
+.feat-type-5 {
+	animation: featTypeChar5 10s infinite steps(1);
+}
+.feat-type-6 {
+	animation: featTypeChar6 10s infinite steps(1);
+}
+
+@keyframes featPlacedPinVis {
+	0%,
+	48% {
+		opacity: 0;
+		transform: translateY(-14px);
+	}
+	52%,
+	91% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	95%,
+	100% {
+		opacity: 0;
+		transform: translateY(-14px);
+	}
+}
+
+.feat-placed-pin {
+	animation: featPlacedPinVis 10s infinite cubic-bezier(0.2, 0.85, 0.3, 1.15);
+}
+
+@keyframes featSharePopupVis {
+	0%,
+	57% {
+		opacity: 0;
+		transform: scale(0.92);
+	}
+	61%,
+	90% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	94%,
+	100% {
+		opacity: 0;
+		transform: scale(0.92);
+	}
+}
+
+.feat-share-popup {
+	transform-box: fill-box;
+	transform-origin: left center;
+	animation: featSharePopupVis 10s infinite ease-out;
+}
+
+@keyframes featCopiedToastVis {
+	0%,
+	68% {
+		opacity: 0;
+		transform: translateY(6px) scale(0.92);
+	}
+	72%,
+	90% {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+	94%,
+	100% {
+		opacity: 0;
+		transform: translateY(6px) scale(0.92);
+	}
+}
+
+.feat-copied-toast {
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: featCopiedToastVis 10s infinite ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   5. Bulk Editing: Cursor drags growing marquee rectangle, clicks Mark Found
+   -------------------------------------------------------------------------- */
+@keyframes featBulkCursorMove {
+	0%,
+	5% {
+		transform: translate(48px, 34px) scale(1);
+	}
+	7% {
+		transform: translate(48px, 34px) scale(0.85);
+	}
+	34% {
+		transform: translate(196px, 142px) scale(0.85);
+	}
+	37% {
+		transform: translate(196px, 142px) scale(1);
+	}
+	47% {
+		transform: translate(278px, 84px) scale(1);
+	}
+	51% {
+		transform: translate(278px, 84px) scale(0.82);
+	}
+	55%,
+	84% {
+		transform: translate(278px, 84px) scale(1);
+	}
+	94%,
+	100% {
+		transform: translate(48px, 34px) scale(1);
+	}
+}
+
+.feat-bulk-cursor {
+	animation: featBulkCursorMove var(--feat-cycle) infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes featDragRectGrow {
+	0%,
+	6% {
+		transform: scale(0.02, 0.02);
+		opacity: 0;
+	}
+	8% {
+		transform: scale(0.06, 0.06);
+		opacity: 1;
+	}
+	34%,
+	82% {
+		transform: scale(1, 1);
+		opacity: 1;
+	}
+	88%,
+	100% {
+		transform: scale(1, 1);
+		opacity: 0;
+	}
+}
+
+.feat-drag-rect {
+	transform-box: fill-box;
+	transform-origin: 0% 0%;
+	animation:
+		featDragRectGrow var(--feat-cycle) infinite cubic-bezier(0.25, 0.8, 0.25, 1),
+		featDashScroll calc(var(--feat-cycle) / 2) infinite linear;
+}
+
+@keyframes featBatchMenuVis {
+	0%,
+	34% {
+		opacity: 0;
+		transform: scale(0.92);
+	}
+	39%,
+	82% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	88%,
+	100% {
+		opacity: 0;
+		transform: scale(0.92);
+	}
+}
+
+.feat-batch-menu {
+	transform-box: fill-box;
+	transform-origin: left center;
+	animation: featBatchMenuVis var(--feat-cycle) infinite ease-out;
+}
+
+/* Pins transition: unselected -> selected (accent) right as marquee crosses each pin -> found (ok) together at 52% */
+@keyframes featBulkPin1 {
+	0%,
+	11% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+	14%,
+	50% {
+		fill: var(--accent);
+		opacity: 1;
+		transform: scale(1.1);
+	}
+	53% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.32);
+	}
+	60%,
+	82% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.12);
+	}
+	88%,
+	100% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+}
+@keyframes featBulkPin2 {
+	0%,
+	16% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+	19%,
+	50% {
+		fill: var(--accent);
+		opacity: 1;
+		transform: scale(1.1);
+	}
+	53% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.32);
+	}
+	60%,
+	82% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.12);
+	}
+	88%,
+	100% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+}
+@keyframes featBulkPin4 {
+	0%,
+	21% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+	24%,
+	50% {
+		fill: var(--accent);
+		opacity: 1;
+		transform: scale(1.1);
+	}
+	53% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.32);
+	}
+	60%,
+	82% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.12);
+	}
+	88%,
+	100% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+}
+@keyframes featBulkPin3 {
+	0%,
+	25% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+	28%,
+	50% {
+		fill: var(--accent);
+		opacity: 1;
+		transform: scale(1.1);
+	}
+	53% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.32);
+	}
+	60%,
+	82% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.12);
+	}
+	88%,
+	100% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+}
+@keyframes featBulkPin5 {
+	0%,
+	29% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+	32%,
+	50% {
+		fill: var(--accent);
+		opacity: 1;
+		transform: scale(1.1);
+	}
+	53% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.32);
+	}
+	60%,
+	82% {
+		fill: var(--ok);
+		opacity: 1;
+		transform: scale(1.12);
+	}
+	88%,
+	100% {
+		fill: var(--ink-dim);
+		opacity: 0.4;
+		transform: scale(1);
+	}
+}
+
+.feat-bulk-pin {
+	transform-box: fill-box;
+	transform-origin: center;
+	fill: var(--ok);
+}
+
+.feat-bulk-pin-1 {
+	animation: featBulkPin1 var(--feat-cycle) infinite ease-out;
+}
+.feat-bulk-pin-2 {
+	animation: featBulkPin2 var(--feat-cycle) infinite ease-out;
+}
+.feat-bulk-pin-3 {
+	animation: featBulkPin3 var(--feat-cycle) infinite ease-out;
+}
+.feat-bulk-pin-4 {
+	animation: featBulkPin4 var(--feat-cycle) infinite ease-out;
+}
+.feat-bulk-pin-5 {
+	animation: featBulkPin5 var(--feat-cycle) infinite ease-out;
+}
+
+/* --------------------------------------------------------------------------
+   6. Optional Sync: Cursor taps KEEP DEVICE button to overwrite server data
+   -------------------------------------------------------------------------- */
+@keyframes featBeaconPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		opacity: 0.85;
+	}
+	50% {
+		transform: scale(1.16);
+		opacity: 1;
+	}
+}
+
+.feat-conflict-beacon {
+	transform-box: fill-box;
+	transform-origin: center;
+	animation: featBeaconPulse calc(var(--feat-cycle) / 2) infinite ease-in-out;
+}
+
+@keyframes featSyncCursorMove {
+	0%,
+	18% {
+		transform: translate(96px, 134px) scale(1);
+	}
+	34%,
+	39% {
+		transform: translate(180px, 101px) scale(1);
+	}
+	43% {
+		transform: translate(180px, 101px) scale(0.82);
+	}
+	47%,
+	84% {
+		transform: translate(180px, 101px) scale(1);
+	}
+	94%,
+	100% {
+		transform: translate(96px, 134px) scale(1);
+	}
+}
+
+.feat-sync-cursor {
+	animation: featSyncCursorMove var(--feat-cycle) infinite cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes featKeepBtnActive {
+	0%,
+	41% {
+		stroke: var(--line-2);
+		fill: var(--panel-2);
+	}
+	45%,
+	86% {
+		stroke: var(--ok);
+		fill: color-mix(in srgb, var(--ok) 20%, var(--panel));
+	}
+	92%,
+	100% {
+		stroke: var(--line-2);
+		fill: var(--panel-2);
+	}
+}
+
+.feat-keep-device-btn {
+	animation: featKeepBtnActive var(--feat-cycle) infinite ease-out;
+}
+
+@keyframes featServerStaleVis {
+	0%,
+	45% {
+		opacity: 1;
+	}
+	50%,
+	86% {
+		opacity: 0;
+	}
+	92%,
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes featServerSyncedVis {
+	0%,
+	45% {
+		opacity: 0;
+	}
+	50%,
+	86% {
+		opacity: 1;
+	}
+	92%,
+	100% {
+		opacity: 0;
+	}
+}
+
+.feat-server-stale {
+	animation: featServerStaleVis var(--feat-cycle) infinite ease-in-out;
+}
+
+.feat-server-synced {
+	animation: featServerSyncedVis var(--feat-cycle) infinite ease-in-out;
+}
+
+/* ==========================================================================
+   PREFERS-REDUCED-MOTION: Static final states, zero motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+	.feat-art *,
+	.feat-card * {
+		animation: none !important;
+		transition: none !important;
+	}
+	.feat-tile,
+	.feat-offline-check,
+	.feat-slot1-markers,
+	.feat-preset-pill-1,
+	.feat-preset-group-1,
+	.feat-preset-label-1,
+	.feat-placed-pin,
+	.feat-share-popup,
+	.feat-copied-toast,
+	.feat-drag-rect,
+	.feat-batch-menu,
+	.feat-bulk-pin,
+	.feat-server-synced {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+	.feat-slot2-markers,
+	.feat-preset-pill-2,
+	.feat-preset-label-2,
+	.feat-name-popup,
+	.feat-server-stale,
+	.feat-slot-cursor,
+	.feat-filter-cursor,
+	.feat-custom-pointer,
+	.feat-bulk-cursor,
+	.feat-sync-cursor {
+		opacity: 0 !important;
+	}
+	.feat-preset-group-2 {
+		opacity: 0.22 !important;
+	}
+	.feat-reticle-cursor {
+		transform: translate(104px, 108px) !important;
+	}
+}

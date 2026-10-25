@@ -13,6 +13,7 @@ import { esc, fmt } from "../shared/escape.ts";
 import { fuzzyScore, norm, words } from "../shared/search.ts";
 import type { GameManifestEntry, SessionSummary } from "../shared/types.ts";
 import { accountSlot, initAccount, setOnlineStatus } from "./account.ts";
+import { initFeatures } from "./features.ts";
 import { inspectOfflineManifests } from "./offline.ts";
 import { readRecentGames, recordGameOpen, storeGameTitles } from "./theme.ts";
 
@@ -795,6 +796,7 @@ if (typeof document !== "undefined") {
 	const moreToggle = topMore?.querySelector<HTMLElement>(".more-toggle");
 	if (topMorePanel) topMorePanel.appendChild(accountSlot("top"));
 	initAccount();
+	initFeatures();
 
 	if (topMore && moreToggle) {
 		const setMoreOpen = (open: boolean) => {
