@@ -124,7 +124,24 @@
 
 					<div id="secret-shown" hidden>
 						<p class="small">Your secret key. Save it now:</p>
-						<code id="secret-value" class="secret"></code>
+						<div class="secret-box">
+							<code id="secret-value" class="secret"></code>
+							<button
+								type="button"
+								class="secret-copy-btn"
+								id="secret-copy"
+								aria-label="Copy secret key to clipboard"
+								title="Copy to clipboard"
+							>
+								<svg viewBox="0 0 24 24" aria-hidden="true">
+									<g class="glyph">
+										<rect x="9" y="9" width="11" height="11" rx="2" />
+										<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+									</g>
+									<path class="tick" d="M5 12.5l4.5 4.5L19 7.5" />
+								</svg>
+							</button>
+						</div>
 						<label class="saved"
 							><input type="checkbox" id="secret-saved" /> I have saved it somewhere safe</label
 						>

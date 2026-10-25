@@ -62,10 +62,14 @@ $("toggle-secret").onclick = () => {
 	$("toggle-secret").setAttribute("aria-expanded", String(open));
 };
 
+let currentSecret = "";
+let copiedTimer: ReturnType<typeof setTimeout> | null = null;
+
 $("secret-new").onclick = async () => {
 	showError("");
 	try {
 		const { secret } = await api("POST", "auth/secret/new", {});
+		currentSecret = secret;
 		$("secret-value").textContent = secret;
 		$("secret-shown").hidden = false;
 		$("secret-new").hidden = true;
@@ -73,10 +77,50 @@ $("secret-new").onclick = async () => {
 		showError(e.message);
 	}
 };
+
+const copyBtn = $("secret-copy");
+if (copyBtn) {
+	copyBtn.onclick = async () => {
+		const text = $("secret-value").textContent || "";
+		if (!text) return;
+		try {
+			await navigator.clipboard.writeText(text);
+			copyBtn.classList.remove("copied");
+			void copyBtn.offsetWidth;
+			copyBtn.classList.add("copied");
+			copyBtn.title = "Key copied";
+			if (copiedTimer) clearTimeout(copiedTimer);
+			copiedTimer = setTimeout(() => {
+				copyBtn.classList.remove("copied");
+				copyBtn.title = "Copy to clipboard";
+			}, 1800);
+		} catch {
+			const range = document.createRange();
+			range.selectNodeContents($("secret-value"));
+			const sel = window.getSelection();
+			sel?.removeAllRanges();
+			sel?.addRange(range);
+		}
+	};
+}
+
 $<HTMLInputElement>("secret-saved").onchange = (e) => {
 	$<HTMLButtonElement>("secret-continue").disabled = !(e.target as HTMLInputElement).checked;
 };
-$("secret-continue").onclick = done;
+
+$("secret-continue").onclick = async () => {
+	if (!currentSecret) return;
+	const btn = $<HTMLButtonElement>("secret-continue");
+	btn.disabled = true;
+	showError("");
+	try {
+		await api("POST", "auth/secret/confirm", { secret: currentSecret });
+		done();
+	} catch (err: any) {
+		btn.disabled = false;
+		showError(err.message);
+	}
+};
 
 $("secret-login").onsubmit = async (e) => {
 	e.preventDefault();

@@ -616,14 +616,22 @@ export function createApi({
 				if (!allowLogin(ip)) throw httpError(429, "too many attempts, try again later");
 				await readJson(req, 1000);
 				const secret = newSecret();
+				return json(res, 200, { secret });
+			}
+
+			if (route === "POST /api/auth/secret/confirm") {
+				if (!allowLogin(ip)) throw httpError(429, "too many attempts, try again later");
+				const body = await readJson(req, 1000);
+				const norm = normalizeSecret(body.secret);
+				if (norm.length !== 26) throw httpError(400, "invalid secret key");
+				const secretHash = sha256(norm);
+				const existing = db.prepare("SELECT 1 FROM secret_accounts WHERE secret_hash = ?").get(secretHash);
+				if (existing) throw httpError(409, "this secret key is already registered");
 				const id = crypto.randomUUID();
 				db.exec("BEGIN");
 				try {
 					db.prepare("INSERT INTO users (id, provider, created_at) VALUES (?, 'secret', ?)").run(id, now());
-					db.prepare("INSERT INTO secret_accounts (user_id, secret_hash) VALUES (?, ?)").run(
-						id,
-						sha256(normalizeSecret(secret)),
-					);
+					db.prepare("INSERT INTO secret_accounts (user_id, secret_hash) VALUES (?, ?)").run(id, secretHash);
 					db.exec("COMMIT");
 				} catch (e) {
 					db.exec("ROLLBACK");
@@ -631,8 +639,8 @@ export function createApi({
 				}
 				startSession(req, res, id);
 				return json(res, 200, {
+					ok: true,
 					user: publicUser(db.prepare("SELECT * FROM users WHERE id = ?").get(id)),
-					secret,
 				});
 			}
 

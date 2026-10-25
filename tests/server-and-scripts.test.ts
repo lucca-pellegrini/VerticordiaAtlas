@@ -249,19 +249,37 @@ describe("server/api and server/ws integration", () => {
 		const meAnon = await fetch(`${baseUrl}/api/me`);
 		expect(await meAnon.json()).toEqual({ user: null });
 
-		// 2. Create secret key account
+		// 2. Create secret key account (unconfirmed secret is not registered yet)
 		const newRes = await fetch(`${baseUrl}/api/auth/secret/new`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: "{}",
 		});
 		expect(newRes.status).toBe(200);
-		const setCookie = newRes.headers.get("set-cookie") || "";
+		expect(newRes.headers.get("set-cookie")).toBeNull();
+		const { secret } = await newRes.json();
+		expect(typeof secret).toBe("string");
+
+		// Attempting to log in before confirmation fails
+		const unconfirmedLogin = await fetch(`${baseUrl}/api/auth/secret/login`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret }),
+		});
+		expect(unconfirmedLogin.status).toBe(401);
+
+		// Confirm secret key account
+		const confirmRes = await fetch(`${baseUrl}/api/auth/secret/confirm`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret }),
+		});
+		expect(confirmRes.status).toBe(200);
+		const setCookie = confirmRes.headers.get("set-cookie") || "";
 		const cookie = setCookie.split(";")[0];
 		expect(cookie).toStartWith("va_session=");
-		const { user, secret } = await newRes.json();
+		const { user } = await confirmRes.json();
 		expect(user.provider).toBe("secret");
-		expect(typeof secret).toBe("string");
 
 		// 3. Login with messy secret key (lowercase, spaces, lookalike O/I/L if applicable)
 		const loginRes = await fetch(`${baseUrl}/api/auth/secret/login`, {
