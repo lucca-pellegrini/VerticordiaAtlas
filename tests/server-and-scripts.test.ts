@@ -177,7 +177,7 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 		await buildClient({ quiet: true });
 		const swVersion = await verifyAndHashPrecache();
 		expect(swVersion).toMatch(/^v40-[0-9a-f]{8}$/);
-		expect(PRECACHE).toContain("fonts/inter-latin-400-normal.woff2");
+		expect(PRECACHE).toContain("fonts/instrument-sans-latin-variable.woff2");
 		expect(PRECACHE).toContain("fonts/instrument-serif-latin-400-normal.woff2");
 		expect(PRECACHE).not.toContain("perfect-freehand.mjs");
 
@@ -186,7 +186,7 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 		expect(swCode).not.toContain("fonts.googleapis.com");
 	});
 
-	test("HTML pages do not load external Google Fonts and base.css declares @font-face for Inter and Instrument Serif", async () => {
+	test("HTML pages do not load external Google Fonts and base.css declares @font-face for Instrument Sans and Instrument Serif", async () => {
 		const htmlPages = [
 			"public/index.html",
 			"public/map.html",
@@ -202,9 +202,9 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 			expect(html).not.toContain("fonts.gstatic.com");
 		}
 		const baseCss = await readFile(path.join(process.cwd(), "public", "base.css"), "utf8");
-		expect(baseCss).toContain('font-family: "Inter"');
+		expect(baseCss).toContain('font-family: "Instrument Sans"');
 		expect(baseCss).toContain('font-family: "Instrument Serif"');
-		expect(baseCss).toContain("./fonts/inter-latin-400-normal.woff2");
+		expect(baseCss).toContain("./fonts/instrument-sans-latin-variable.woff2");
 	});
 });
 

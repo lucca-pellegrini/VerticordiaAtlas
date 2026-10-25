@@ -11,7 +11,7 @@ html,
 body {
 	margin: 0;
 	color: var(--ink);
-	font: 400 16px/1.55 Inter;
+	font: 400 16px/1.55 "Instrument Sans";
 	-webkit-font-smoothing: antialiased;
 	padding-inline: env(safe-area-inset-left, 0) env(safe-area-inset-right, 0);
 }
@@ -239,7 +239,7 @@ h2 {
 	border-radius: 999px;
 	background: var(--ink);
 	color: var(--night);
-	font: 600 15.5px/1 Inter;
+	font: 600 15.5px/1 "Instrument Sans";
 	text-decoration: none;
 	letter-spacing: 0.005em;
 	box-shadow:
@@ -300,7 +300,7 @@ h2 {
 	height: 36px;
 	padding: 0 18px;
 	border-radius: 999px;
-	font: 500 13.5px/1 Inter;
+	font: 500 13.5px/1 "Instrument Sans";
 	color: var(--ink-dim);
 	background: transparent;
 	border: 1px solid var(--line-2);
@@ -326,7 +326,7 @@ h2 {
 	background: none;
 	border: 0;
 	color: var(--ink-dim);
-	font: 500 14px/1 Inter;
+	font: 500 14px/1 "Instrument Sans";
 	padding: 8px 2px;
 	text-decoration: underline;
 	text-underline-offset: 4px;
@@ -355,7 +355,7 @@ h2 {
 .primary-btn {
 	padding: 11px 18px;
 	border-radius: 999px;
-	font: 500 14px/1 Inter;
+	font: 500 14px/1 "Instrument Sans";
 	cursor: pointer;
 	border: 1px solid var(--line-2);
 	background: var(--panel-2);

@@ -8,7 +8,7 @@ Verticordia Atlas is a local-first, offline-capable interactive game map viewer 
 
 - **Local-First & Offline-First**: All user progress (found markers, custom markers, custom categories, freehand/shape map drawings, selection presets, per-map camera positions, and filter views) is stored locally in the browser's IndexedDB (`offline-map-viewer`, with an in-memory fallback when storage is blocked). The Service Worker (`src/client/sw.ts`) caches the application shell, game metadata, and map tiles so the app works offline after a game's map is opened. Full map pyramids can be downloaded via "Keep offline" as a single streamed `.vaop` pack into IndexedDB blob storage (`src/client/pack-store.ts`), served directly by the Service Worker even when completely disconnected.
 - **Optional Zero-Wait Sync**: Users can optionally sign in with Google (OIDC `id_token`) or an anonymous 128-bit Base32 secret key with checksum (`XXXX-XXXX-...`) to synchronize progress across devices. Sync (`src/client/sync.ts` + `server/api.ts`) runs asynchronously in the background using Web Locks (`navigator.locks`) for tab leader election, `BroadcastChannel` for cross-tab updates, and WebSockets (`/api/ws`) for instant cross-device push notifications.
-- **Vanilla TypeScript & Zero Runtime Dependencies**: Both client and server are written in strict TypeScript executed and bundled by **Bun**. Do not introduce UI frameworks (React, Vue, Svelte, etc.) or runtime npm packages. The one exception is `sharp` (server and scripts only, never the client), used for tile stitching and downsampling in `server/tile-engine.ts`; it is loaded lazily so the server starts without it. Client third-party libraries (`maplibre-gl`, `marked`, `perfect-freehand`, and `lucide/icons.json`) are vendored in `public/vendor/`, and fonts (`Inter` and `Instrument Serif`) are self-hosted in `public/fonts/`.
+- **Vanilla TypeScript & Zero Runtime Dependencies**: Both client and server are written in strict TypeScript executed and bundled by **Bun**. Do not introduce UI frameworks (React, Vue, Svelte, etc.) or runtime npm packages. The one exception is `sharp` (server and scripts only, never the client), used for tile stitching and downsampling in `server/tile-engine.ts`; it is loaded lazily so the server starts without it. Client third-party libraries (`maplibre-gl`, `marked`, `perfect-freehand`, and `lucide/icons.json`) are vendored in `public/vendor/`, and fonts (`Instrument Sans`, `Instrument Serif`, and `Red Hat Mono`) are self-hosted in `public/fonts/`.
 
 ---
 
@@ -88,7 +88,7 @@ public/                     # Static web root served by server/server.ts
 	base.css                # Shared design tokens, @font-face rules, light/dark themes, and common UI
 	home.css                # Homepage styles
 	style.css               # Map viewer styles
-	fonts/                  # Self-hosted Inter and Instrument Serif .woff2 files
+	fonts/                  # Self-hosted Instrument Sans, Instrument Serif, and Red Hat Mono .woff2 files
 	vendor/                 # Vendored browser dependencies (maplibre-gl, marked, perfect-freehand, lucide)
 	maps/                   # Game manifest (maps/index.json) and per-game directories (meta.json, data.json, sprites)
 tests/

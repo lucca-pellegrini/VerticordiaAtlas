@@ -4,30 +4,9 @@
    accent, accent-soft, night, panel, panel-2 and line. */
 
 @font-face {
-	font-family: "Inter";
-	src: url("./fonts/inter-latin-400-normal.woff2") format("woff2");
-	font-weight: 400 500;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Inter";
-	src: url("./fonts/inter-latin-600-normal.woff2") format("woff2");
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Inter";
-	src: url("./fonts/inter-latin-700-normal.woff2") format("woff2");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Inter";
-	src: url("./fonts/inter-latin-800-normal.woff2") format("woff2");
-	font-weight: 800;
+	font-family: "Instrument Sans";
+	src: url("./fonts/instrument-sans-latin-variable.woff2") format("woff2");
+	font-weight: 400 700;
 	font-style: normal;
 	font-display: swap;
 }
@@ -71,7 +50,7 @@
 	--hover: color-mix(in srgb, #fff 6%, transparent);
 
 	--serif: "Instrument Serif";
-	--sans: Inter;
+	--sans: "Instrument Sans";
 	--mono: "Red Hat Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
 	--ease: cubic-bezier(.2, .7, .2, 1);
@@ -255,7 +234,7 @@ samp {
 	border-radius: 999px;
 	cursor: pointer;
 	text-decoration: none;
-	font: 500 13.5px/1 Inter;
+	font: 500 13.5px/1 "Instrument Sans";
 	color: var(--ink-dim);
 	background: color-mix(in srgb, var(--panel) 88%, transparent);
 	border: 1px solid var(--line-2);
@@ -329,7 +308,7 @@ samp {
 	border-radius: 9px;
 	background: none;
 	color: var(--ink);
-	font: 500 13.5px/1.2 Inter;
+	font: 500 13.5px/1.2 "Instrument Sans";
 	text-align: left;
 	text-decoration: none;
 	cursor: pointer;
@@ -486,7 +465,7 @@ samp {
 	gap: 7px;
 	padding: 5px 12px;
 	border-radius: 999px;
-	font: 500 12px/1 Inter;
+	font: 500 12px/1 "Instrument Sans";
 	white-space: nowrap;
 	color: var(--ink-dim);
 	background: color-mix(in srgb, var(--panel-2) 92%, transparent);
