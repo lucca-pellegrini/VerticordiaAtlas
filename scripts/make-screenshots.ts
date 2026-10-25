@@ -12,7 +12,7 @@
 // side at most 2.3 times the short side. So there are two sets: "wide" (16:9, desktop) and "narrow" (9:16, phones).
 // Both are rendered at a device pixel ratio that keeps them at 2400x1350 and 1080x1920 pixels.
 //
-// The site must be running at --base (for example the test server: node server/server.mjs --port 8072).
+// The site must be running at --base (or if no server is running at --base, one is spawned automatically).
 
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
@@ -232,11 +232,64 @@ async function shoot(cdp: Cdp, shot: Shot, base: string, out: string) {
 
 /* ---------- main ---------- */
 
-const base = arg("base", "http://127.0.0.1:8072");
+const baseArg = arg("base", "http://127.0.0.1:8072");
 const out = arg("out", "public/screenshots");
 const only = arg("only", "").split(",").filter(Boolean);
 const shots = SHOTS.filter((s) => !only.length || only.some((o) => s.name.startsWith(o)));
 await mkdir(out, { recursive: true });
+
+let base = baseArg;
+let serverProc: ReturnType<typeof Bun.spawn> | null = null;
+
+// If no server is already running at base, spawn our own server
+let serverReachable = false;
+try {
+	const res = await fetch(base);
+	if (res.ok || res.status < 500) serverReachable = true;
+} catch {}
+
+if (!serverReachable) {
+	const parsedUrl = new URL(base);
+	const serverPort = parsedUrl.port || "8072";
+	const tsServer = path.join(import.meta.dir, "../server/server.ts");
+	const mjsServer = path.join(import.meta.dir, "../server/server.mjs");
+	const serverScript = (await Bun.file(tsServer).exists()) ? tsServer : mjsServer;
+	serverProc = Bun.spawn(["bun", serverScript, "--port", serverPort], {
+		stdout: "ignore",
+		stderr: "inherit",
+	});
+	const cleanup = () => {
+		try {
+			serverProc?.kill();
+		} catch {}
+	};
+	process.on("SIGINT", () => {
+		cleanup();
+		process.exit(1);
+	});
+	process.on("SIGTERM", () => {
+		cleanup();
+		process.exit(1);
+	});
+
+	let up = false;
+	for (let i = 0; i < 50; i++) {
+		try {
+			const res = await fetch(`${base}/`);
+			if (res.ok || res.status < 500) {
+				up = true;
+				break;
+			}
+		} catch {}
+		await sleep(100);
+	}
+	if (!up) {
+		try {
+			serverProc.kill();
+		} catch {}
+		throw new Error(`Server failed to start on ${base}`);
+	}
+}
 
 const port = 9400 + Math.floor(Math.random() * 500);
 const cdp = await launch(port);
@@ -250,4 +303,7 @@ try {
 	console.log(`\n${shots.length} screenshot(s) in ${out}`);
 } finally {
 	cdp.close();
+	try {
+		serverProc?.kill();
+	} catch {}
 }
