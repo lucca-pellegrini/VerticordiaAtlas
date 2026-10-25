@@ -568,7 +568,9 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 		const inspected = await mgr.inspectOfflineManifests();
 		expect(inspected[0].cachedCount).toBe(4);
 		expect(inspected[0].intact).toBe(true);
-		expect(renderOfflineListHtml(inspected)).toContain("Verified");
+		const offlineHtml = renderOfflineListHtml(inspected);
+		expect(offlineHtml).toContain("<br />Verified");
+		expect(offlineHtml).toContain("data-verify-game=");
 		expect((await mgr.verifyOfflineMap({ gameSlug: "re7", mapSlug: "baker-ranch" })).status).toBe("intact");
 		expect(requests).toBe(1); // verifying asks the network for nothing
 

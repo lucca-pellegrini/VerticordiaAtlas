@@ -13,6 +13,7 @@ import {
 	inspectOfflineManifests,
 	type OfflineManifest,
 	removeOfflineMap,
+	verifyOfflineMap,
 } from "./offline.ts";
 import "./theme.ts";
 
@@ -67,20 +68,22 @@ export function renderOfflineListHtml(
 	return items
 		.map(({ manifest: m, cachedCount, intact }) => {
 			const href = `../maps/${encodeURIComponent(m.game)}/?map=${encodeURIComponent(m.map)}`;
-			const statusText = intact
-				? `${fmt(m.expectedCount)} files · ${formatBytes(m.totalBytes)} · Verified ${formatAccountDate(m.lastVerified)}`
-				: `${fmt(cachedCount)} of ${fmt(m.expectedCount)} files cached (${formatBytes(m.totalBytes)} expected) · Missing data`;
-			const repairBtn = intact
-				? ""
+			const statusHtml = intact
+				? `${esc(fmt(m.expectedCount))} files · ${esc(formatBytes(m.totalBytes))}<br />Verified ${esc(formatAccountDate(m.lastVerified))}`
+				: esc(
+						`${fmt(cachedCount)} of ${fmt(m.expectedCount)} files cached (${formatBytes(m.totalBytes)} expected) · Missing data`,
+					);
+			const actionBtn = intact
+				? `<button type="button" class="ghost" data-verify-game="${esc(m.game)}" data-verify-map="${esc(m.map)}">Verify</button>`
 				: `<button type="button" class="ghost" data-repair-game="${esc(m.game)}" data-repair-map="${esc(m.map)}">Repair</button>`;
 			return (
 				`<div class="offline-item" data-offline-row="${esc(m.k)}">` +
 				`<div class="offline-item-info">` +
 				`<a class="offline-item-title" href="${esc(href)}">${esc(m.gameTitle)} · ${esc(m.mapTitle)}</a>` +
-				`<span class="offline-item-meta">${esc(statusText)}</span>` +
+				`<span class="offline-item-meta">${statusHtml}</span>` +
 				`</div>` +
 				`<div class="btn-row">` +
-				repairBtn +
+				actionBtn +
 				`<button type="button" class="ghost danger-btn" data-remove-game="${esc(m.game)}" data-remove-map="${esc(m.map)}">Remove</button>` +
 				`</div>` +
 				`</div>`
@@ -242,6 +245,25 @@ if (typeof document !== "undefined") {
 	$("offline-list").addEventListener("click", async (e) => {
 		const target = e.target as HTMLElement | null;
 		if (!target) return;
+		const ver = target.closest<HTMLButtonElement>("button[data-verify-game]");
+		if (ver) {
+			const game = ver.dataset.verifyGame!;
+			const map = ver.dataset.verifyMap!;
+			ver.disabled = true;
+			ver.textContent = "Verifying…";
+			try {
+				const res = await verifyOfflineMap({ gameSlug: game, mapSlug: map });
+				if (res.status === "intact") {
+					notify("Offline map data verified.");
+				} else if (res.status === "damaged") {
+					notify("Offline map data damaged. Please repair.");
+				}
+			} catch (err: any) {
+				notify(err.message || "Could not verify offline map.");
+			}
+			await refreshOfflineSection();
+			return;
+		}
 		const rem = target.closest<HTMLButtonElement>("button[data-remove-game]");
 		if (rem) {
 			const game = rem.dataset.removeGame!;
