@@ -136,9 +136,11 @@
 						Each game has a single page, and much of it is generated on the fly. Your browser saves the app
 						and the maps on your device (a service worker does the caching), and your progress is written to
 						a database in your browser first. It only reaches our server if you sign in and ask for sync.
-						Signing in is optional: you can start from the <a href="../signin">sign-in page</a>, and it
-						works in one of two ways, explained in the <a href="../terms/#accounts">Terms</a>. What we keep,
-						and for how long, is in the <a href="../privacy/">Privacy Policy</a>.
+						Marker screenshots and images are delivered via edge object storage with fallback to the server,
+						ensuring views stay fast and disk footprints remain light. Signing in is optional: you can start
+						from the <a href="../signin">sign-in page</a>, and it works in one of two ways, explained in the
+						<a href="../terms/#accounts">Terms</a>. What we keep, and for how long, is in the
+						<a href="../privacy/">Privacy Policy</a>.
 					</p>
 					<p>
 						The theme toggle in the top bar switches between light and dark with a single press. Right-click
