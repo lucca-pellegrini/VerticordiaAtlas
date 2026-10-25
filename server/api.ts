@@ -140,6 +140,14 @@ export function createApi({
       requests INTEGER NOT NULL,
       last_requested INTEGER NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS media (
+      game TEXT NOT NULL,
+      original_name TEXT NOT NULL,
+      sha256 TEXT NOT NULL,
+      size INTEGER NOT NULL,
+      uploaded_at INTEGER NOT NULL,
+      PRIMARY KEY (game, original_name)
+    );
   `);
 
 	// backfill display_name for secret accounts that lack one
@@ -829,12 +837,39 @@ export function createApi({
 			).map((r) => [r.game, r.requests]),
 		);
 
+	const hasMediaStmt = db.prepare("SELECT 1 FROM media WHERE game = ? AND original_name = ?");
+	const getMediaStmt = db.prepare(
+		"SELECT game, original_name, sha256, size, uploaded_at FROM media WHERE game = ? AND original_name = ?",
+	);
+	const putMediaStmt = db.prepare(
+		`INSERT INTO media (game, original_name, sha256, size, uploaded_at) VALUES (?, ?, ?, ?, ?)
+         ON CONFLICT (game, original_name) DO UPDATE SET sha256 = excluded.sha256, size = excluded.size, uploaded_at = excluded.uploaded_at`,
+	);
+	const hasMedia = (game: string, originalName: string): boolean => Boolean(hasMediaStmt.get(game, originalName));
+	const getMedia = (
+		game: string,
+		originalName: string,
+	): { game: string; original_name: string; sha256: string; size: number; uploaded_at: number } | null =>
+		(getMediaStmt.get(game, originalName) as any) ?? null;
+	const recordMedia = (row: {
+		game: string;
+		original_name: string;
+		sha256: string;
+		size: number;
+		uploaded_at?: number;
+	}): void => {
+		putMediaStmt.run(row.game, row.original_name, row.sha256, row.size, row.uploaded_at ?? now());
+	};
+
 	return {
 		handle,
 		upgrade,
 		websocket,
 		recordGameRequest,
 		gamePopularity,
+		hasMedia,
+		getMedia,
+		recordMedia,
 		close: () => {
 			clearInterval(heartbeatTimer);
 			clearInterval(sweepTimer);

@@ -298,7 +298,8 @@ export function markerHtml({
 }: MarkerCardInfo): string {
 	// the size steps down early: a title over two lines pushes the copy into the brand row (the copy is anchored below it)
 	const size = title.length > 60 ? "xlong" : title.length > 18 ? "long" : "";
-	const picture = shot ? `<img class="shot" src="${fileUrl(shot)}" alt="">` : "";
+	const shotSrc = shot ? (/^https?:\/\//i.test(shot) ? esc(shot) : fileUrl(shot)) : "";
+	const picture = shotSrc ? `<img class="shot" src="${shotSrc}" alt="">` : "";
 	const head =
 		icon && category
 			? `<div class="cat-row"><span class="cat-disc" style="--c:${icon.color};--g:${icon.ink}">${iconGraphic(icon)}</span><span class="cat-name">${esc(category)}</span></div>`

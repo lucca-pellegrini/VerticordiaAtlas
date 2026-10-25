@@ -34,6 +34,8 @@
 //   --map-url <template> where a map lives, with {map} for its slug, e.g. https://fallout4map.com/maps/{map}. Only used
 //                        when the game page has no links to its maps
 //   --no-tiles --no-media --no-markers --no-icons --no-clean-markers
+//   --upload-media       stream/upload downloaded media directly to Cloudflare R2 / S3 and record in data/atlas.db
+//   --keep-local         when used with --upload-media, also keep local files in public/maps/<slug>/media/
 //   --no-optimize        keep the tiles as downloaded: no overview is made, and single-colour tiles are not linked
 //                        (what prune-tiles.ts does afterwards, for any game; run it by hand later if you skip it here)
 //   --icons-only         only (re)fetch the sidebar icons of a game that was already added, and update its meta.json
@@ -47,7 +49,7 @@
 //                        slow and big: use it for a map whose tiles have gaps at different places and zooms, e.g. Solstheim,
 //                        or any map that is not a perfect rectangle at the stored zoom)
 
-import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
@@ -58,6 +60,13 @@ import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
+import {
+	createR2Client,
+	type MediaDatabase,
+	openMediaDb,
+	uploadAndVerifyBuffer,
+	validateR2Env,
+} from "./upload-media.ts";
 
 const UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
@@ -518,12 +527,12 @@ async function downloadIcons({
 
 /* ---------- media ---------- */
 
-function collectMedia(maps: any[], withVideos: boolean) {
+export function collectMedia(maps: any[], withVideos: boolean) {
 	const urls = new Map<string, string>();
 	const kinds: Record<string, number> = {};
 	let youtube = 0;
 	for (const md of maps)
-		for (const l of md.locations)
+		for (const l of md.locations || [])
 			for (const m of l.media || []) {
 				const kind = m.type || (m.mime_type || "").split("/")[0] || "unknown";
 				kinds[kind] = (kinds[kind] || 0) + 1;
@@ -536,7 +545,7 @@ function collectMedia(maps: any[], withVideos: boolean) {
 			}
 	let embedded = 0;
 	for (const md of maps)
-		for (const l of md.locations)
+		for (const l of md.locations || [])
 			for (const m of (l.description || "").matchAll(/!\[[^\]]*\]\((https?:[^)\s]+)\)/g)) {
 				embedded++;
 				urls.set(m[1], "image");
@@ -544,31 +553,97 @@ function collectMedia(maps: any[], withVideos: boolean) {
 	return { urls, kinds, embedded, youtube };
 }
 
-async function downloadMedia(urls: Map<string, string>, dir: string, opts: any) {
-	await mkdir(dir, { recursive: true });
-	const st = { saved: 0, skipped: 0, failed: 0, bytes: 0 };
+export async function downloadMedia(
+	urls: Map<string, string>,
+	dir: string,
+	opts: {
+		concurrency: number;
+		delay?: number;
+		game?: string;
+		mediaDb?: MediaDatabase;
+		uploadMedia?: boolean;
+		keepLocal?: boolean;
+		s3?: { presign: (key: string, opts?: any) => string };
+		mediaUrl?: string;
+		getBinImpl?: typeof getBin;
+		fetchImpl?: typeof fetch;
+	},
+) {
+	const writeLocal = !opts.uploadMedia || Boolean(opts.keepLocal);
+	if (writeLocal) await mkdir(dir, { recursive: true });
+	const st = { saved: 0, uploaded: 0, skipped: 0, skippedCloud: 0, failed: 0, bytes: 0 };
 	const names = new Map<string, string>();
+	const cloudSet = opts.game && opts.mediaDb ? opts.mediaDb.uploadedSet(opts.game) : new Set<string>();
+	const fetchBin = opts.getBinImpl || getBin;
+
 	await pool([...urls.keys()], opts.concurrency, async (url) => {
 		const name = decodeURIComponent(new URL(url).pathname.split("/").pop()!);
 		if (names.has(name) && names.get(name) !== url) console.log("  ! file name collision:", name);
 		names.set(name, url);
+
+		// Silently ignore any media already marked as uploaded to R2/S3 in the SQLite media table
+		if (cloudSet.has(name) || (opts.game && opts.mediaDb?.has(opts.game, name))) {
+			st.skippedCloud++;
+			return;
+		}
+
 		const file = path.join(dir, name);
-		if (await exists(file)) {
+		if (!opts.uploadMedia && (await exists(file))) {
 			st.skipped++;
 			return;
 		}
-		const r = await getBin(url);
-		if (r.status === 200 && r.buf) {
-			await writeFile(file, r.buf);
-			st.saved++;
-			st.bytes += r.buf.length;
+
+		// If uploading to R2 and the file is already on disk, upload the local copy instead of re-fetching MapGenie
+		let buf: Buffer | undefined;
+		if (opts.uploadMedia && (await exists(file))) {
+			buf = Buffer.from(await Bun.file(file).arrayBuffer());
 		} else {
-			st.failed++;
-			console.log("  failed", url, r.status || r.error);
+			const r = await fetchBin(url);
+			if (r.status === 200 && r.buf) {
+				buf = r.buf;
+			} else {
+				st.failed++;
+				console.log("  failed", url, r.status || r.error);
+				if (opts.delay) await sleep(opts.delay);
+				return;
+			}
 		}
+
+		if (opts.uploadMedia) {
+			if (!opts.game || !opts.s3 || !opts.mediaUrl || !opts.mediaDb) {
+				throw new Error("uploadMedia requires game, s3, mediaUrl, and mediaDb");
+			}
+			const rec = await uploadAndVerifyBuffer({
+				game: opts.game,
+				originalName: name,
+				buf,
+				s3: opts.s3,
+				mediaUrl: opts.mediaUrl,
+				fetchImpl: opts.fetchImpl,
+			});
+			opts.mediaDb.record(rec);
+			cloudSet.add(name);
+			st.uploaded++;
+			st.bytes += buf.length;
+			if (opts.keepLocal) {
+				if (!(await exists(file))) {
+					await writeFile(file, buf);
+					st.saved++;
+				}
+			} else if (await exists(file)) {
+				await unlink(file).catch(() => {});
+			}
+		} else {
+			await writeFile(file, buf);
+			st.saved++;
+			st.bytes += buf.length;
+		}
+
 		if (opts.delay) await sleep(opts.delay);
 	});
-	console.log(`  media: saved ${st.saved}, already had ${st.skipped}, failed ${st.failed}, ${mb(st.bytes)}`);
+	console.log(
+		`  media: saved ${st.saved}${opts.uploadMedia ? `, uploaded ${st.uploaded}` : ""}, already had ${st.skipped}, skipped ${st.skippedCloud} (in cloud), failed ${st.failed}, ${mb(st.bytes)}`,
+	);
 	return st;
 }
 
@@ -783,6 +858,8 @@ async function main() {
 			videos: { type: "boolean", default: false },
 			"no-tiles": { type: "boolean", default: false },
 			"no-media": { type: "boolean", default: false },
+			"upload-media": { type: "boolean", default: false },
+			"keep-local": { type: "boolean", default: false },
 			"no-markers": { type: "boolean", default: false },
 			"no-cards": { type: "boolean", default: false },
 			"no-icons": { type: "boolean", default: false },
@@ -805,6 +882,9 @@ async function main() {
 		console.error("Usage: bun scripts/add-game.ts https://mapgenie.io/<game> [options]");
 		process.exit(1);
 	}
+	const uploadMedia = Boolean(v["upload-media"]) && !v["no-media"];
+	const r2Cfg = uploadMedia ? validateR2Env() : null;
+	const r2Client = r2Cfg ? createR2Client(r2Cfg) : undefined;
 	const opts = {
 		concurrency: +v.concurrency!,
 		delay: +v.delay!,
@@ -1149,7 +1229,22 @@ async function main() {
 	console.log(
 		`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ""}${youtube ? `, ${youtube} YouTube videos (embedded, not downloaded)` : ""}; ${urls.size} file(s) to fetch${v.videos ? "" : " (images only; use --videos for the rest)"}`,
 	);
-	if (!v["no-media"] && urls.size) await downloadMedia(urls, path.join(outDir, "media"), opts);
+	if (!v["no-media"] && urls.size) {
+		const mediaDb = openMediaDb();
+		try {
+			await downloadMedia(urls, path.join(outDir, "media"), {
+				...opts,
+				game: pageSlug,
+				mediaDb,
+				uploadMedia,
+				keepLocal: Boolean(v["keep-local"]),
+				s3: r2Client,
+				mediaUrl: r2Cfg?.mediaUrl,
+			});
+		} finally {
+			mediaDb.close();
+		}
+	}
 	console.log(`\nDone: ${outDir}`);
 
 	// 11. social preview cards for the homepage and every game, and their tags (make-cards.ts)

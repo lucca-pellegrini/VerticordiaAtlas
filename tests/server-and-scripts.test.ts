@@ -10,6 +10,15 @@ import path from "node:path";
 import { deriveTheme, extractVar, tilesCovering } from "../scripts/add-game.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
 import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
+import { resolveGameSlug } from "../scripts/download-media.ts";
+import {
+	mimeForMedia,
+	openMediaDb,
+	publicMediaUrl,
+	uploadAndVerifyBuffer,
+	uploadMediaBatch,
+	validateR2Env,
+} from "../scripts/upload-media.ts";
 import { createApi, secretName } from "../server/api.ts";
 import {
 	chromePath,
@@ -26,6 +35,7 @@ import {
 	withHead,
 } from "../server/cards.ts";
 import { collectMapPackItems } from "../server/offline-pack.ts";
+import { mediaUrls } from "../src/client/map/detail.ts";
 import { PRECACHE } from "../src/client/sw.ts";
 
 describe("server/cards helpers", () => {
@@ -466,5 +476,297 @@ describe("server/api and server/ws integration", () => {
 		});
 		expect(() => txFail.immediate()).toThrow("aborted transaction");
 		expect(api.gamePopularity().get("test-game-2")).toBeUndefined();
+	});
+
+	test("server media redirect route returns HTTP 308 when in SQLite media table and falls back when not", async () => {
+		// Insert a media record into SQLite
+		api.recordMedia({
+			game: "re2",
+			original_name: "test-cloud.jpg",
+			sha256: "abcdef123456",
+			size: 1024,
+		});
+
+		expect(api.hasMedia("re2", "test-cloud.jpg")).toBe(true);
+		expect(api.hasMedia("re2", "nonexistent.jpg")).toBe(false);
+		expect(api.getMedia("re2", "test-cloud.jpg")).toMatchObject({
+			game: "re2",
+			original_name: "test-cloud.jpg",
+			sha256: "abcdef123456",
+			size: 1024,
+		});
+
+		// Now simulate a server that handles media redirects
+		const mediaServer = Bun.serve({
+			port: 0,
+			hostname: "127.0.0.1",
+			async fetch(req) {
+				const url = new URL(req.url);
+				const mediaMatch = /^\/maps\/([^/]+)\/media\/([^/]+)$/.exec(url.pathname);
+				if (mediaMatch && api.hasMedia(mediaMatch[1], mediaMatch[2])) {
+					return new Response(null, {
+						status: 308,
+						headers: {
+							Location: `https://atlas-media.verticordia.com/v1/${encodeURIComponent(mediaMatch[1])}/${encodeURIComponent(mediaMatch[2])}`,
+							"Cache-Control": "public, max-age=31536000, immutable",
+						},
+					});
+				}
+				return new Response("Not in cloud", { status: 404 });
+			},
+		});
+
+		try {
+			const resCloud = await fetch(`http://127.0.0.1:${mediaServer.port}/maps/re2/media/test-cloud.jpg`, {
+				redirect: "manual",
+			});
+			expect(resCloud.status).toBe(308);
+			expect(resCloud.headers.get("location")).toBe("https://atlas-media.verticordia.com/v1/re2/test-cloud.jpg");
+			expect(resCloud.headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
+
+			const resLocal = await fetch(`http://127.0.0.1:${mediaServer.port}/maps/re2/media/other.jpg`, {
+				redirect: "manual",
+			});
+			expect(resLocal.status).toBe(404);
+		} finally {
+			mediaServer.stop(true);
+		}
+	});
+});
+
+describe("Cloudflare R2 and media storage pipeline", () => {
+	let testDir: string;
+
+	beforeEach(async () => {
+		testDir = await mkdtemp(path.join(os.tmpdir(), "media-test-"));
+	});
+
+	afterEach(async () => {
+		await rm(testDir, { recursive: true, force: true });
+	});
+
+	test("validateR2Env rejects missing or placeholder values and accepts valid configuration", () => {
+		// Fails with default placeholders
+		expect(() =>
+			validateR2Env({
+				env: {
+					AWS_ACCESS_KEY_ID: "replace-me",
+					AWS_SECRET_ACCESS_KEY: "replace-me",
+					AWS_DEFAULT_REGION: "us-east-1",
+					R2_ENDPOINT: "https://replace-me.r2.cloudflarestorage.com",
+					R2_BUCKET: "replace-me",
+				},
+				root: testDir,
+				loadDotEnvFile: false,
+			}),
+		).toThrow("Missing or unconfigured R2 environment variable");
+
+		// Accepts valid custom values
+		const cfg = validateR2Env({
+			env: {
+				AWS_ACCESS_KEY_ID: "valid-key-id",
+				AWS_SECRET_ACCESS_KEY: "valid-secret-key",
+				AWS_DEFAULT_REGION: "auto",
+				R2_ENDPOINT: "https://account123.r2.cloudflarestorage.com",
+				R2_BUCKET: "my-media-bucket",
+				MEDIA_URL: "https://media.example.com",
+			},
+			root: testDir,
+			loadDotEnvFile: false,
+		});
+		expect(cfg).toEqual({
+			accessKeyId: "valid-key-id",
+			secretAccessKey: "valid-secret-key",
+			region: "auto",
+			endpoint: "https://account123.r2.cloudflarestorage.com",
+			bucket: "my-media-bucket",
+			mediaUrl: "https://media.example.com",
+		});
+	});
+
+	test("mimeForMedia, publicMediaUrl, and client mediaUrls resolve expected URLs and MIME types", () => {
+		expect(mimeForMedia("photo.jpg")).toBe("image/jpeg");
+		expect(mimeForMedia("photo.jpeg")).toBe("image/jpeg");
+		expect(mimeForMedia("photo.png")).toBe("image/png");
+		expect(mimeForMedia("photo.webp")).toBe("image/webp");
+		expect(mimeForMedia("clip.mp4")).toBe("video/mp4");
+		expect(mimeForMedia("unknown.xyz")).toBe("application/octet-stream");
+
+		expect(publicMediaUrl("https://atlas-media.verticordia.com", "re2", "item 1.jpg")).toBe(
+			"https://atlas-media.verticordia.com/v1/re2/item%201.jpg",
+		);
+
+		const clientUrls = mediaUrls("shot.jpg", "re2", "./custom", "https://atlas-media.verticordia.com");
+		expect(clientUrls.primary).toBe("https://atlas-media.verticordia.com/v1/re2/shot.jpg");
+		expect(clientUrls.fallback).toBe("./custom/media/shot.jpg");
+	});
+
+	test("resolveGameSlug resolves slug or throws when missing and not inferrable", () => {
+		expect(resolveGameSlug("re2")).toBe("re2");
+		expect(resolveGameSlug(undefined, "requiem")).toBe("requiem");
+		expect(resolveGameSlug("public/maps/re2/data.json")).toBe("re2");
+		expect(resolveGameSlug("/tmp/maps/elden-ring/media")).toBe("elden-ring");
+		expect(() => resolveGameSlug(undefined)).toThrow("Game slug/id is required");
+		expect(() => resolveGameSlug("/tmp/unknown/file.json")).toThrow("Could not infer game slug/id");
+	});
+
+	test("uploadAndVerifyBuffer uploads with Cache-Control, verifies SHA-256 over public link, and retries up to 3 attempts", async () => {
+		const uploadedStore = new Map<string, Uint8Array>();
+		let putCalls = 0;
+		let getCalls = 0;
+
+		const mockServer = Bun.serve({
+			port: 0,
+			hostname: "127.0.0.1",
+			async fetch(req) {
+				const url = new URL(req.url);
+				if (req.method === "PUT") {
+					putCalls++;
+					expect(req.headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
+					expect(req.headers.get("content-type")).toBe("image/jpeg");
+					const body = new Uint8Array(await req.arrayBuffer());
+					uploadedStore.set(url.pathname, body);
+					return new Response(null, { status: 200 });
+				}
+				if (req.method === "GET") {
+					getCalls++;
+					const stored = uploadedStore.get(url.pathname);
+					if (!stored) return new Response("Not found", { status: 404 });
+					return new Response(stored, { status: 200 });
+				}
+				return new Response("Method not allowed", { status: 405 });
+			},
+		});
+
+		try {
+			const mockS3 = {
+				presign: (key: string) => `http://127.0.0.1:${mockServer.port}/${key}`,
+			};
+			const testBuf = Buffer.from("test image bytes 1234567890");
+			const rec = await uploadAndVerifyBuffer({
+				game: "testgame",
+				originalName: "test.jpg",
+				buf: testBuf,
+				s3: mockS3,
+				mediaUrl: `http://127.0.0.1:${mockServer.port}`,
+				maxTries: 3,
+				retryDelayMs: 10,
+			});
+
+			expect(rec.game).toBe("testgame");
+			expect(rec.original_name).toBe("test.jpg");
+			expect(rec.size).toBe(testBuf.length);
+			expect(rec.sha256).toBe(new Bun.CryptoHasher("sha256").update(testBuf).digest("hex"));
+			expect(putCalls).toBe(1);
+			expect(getCalls).toBe(1);
+		} finally {
+			mockServer.stop(true);
+		}
+	});
+
+	test("uploadAndVerifyBuffer throws after 3 failed attempts on hash mismatch or server failure", async () => {
+		let attempts = 0;
+		const mockFailingServer = Bun.serve({
+			port: 0,
+			hostname: "127.0.0.1",
+			async fetch(req) {
+				if (req.method === "PUT") {
+					attempts++;
+					return new Response(null, { status: 500 });
+				}
+				return new Response("Not found", { status: 404 });
+			},
+		});
+
+		try {
+			const mockS3 = {
+				presign: (key: string) => `http://127.0.0.1:${mockFailingServer.port}/${key}`,
+			};
+			const testBuf = Buffer.from("test data");
+			await expect(
+				uploadAndVerifyBuffer({
+					game: "testgame",
+					originalName: "fail.jpg",
+					buf: testBuf,
+					s3: mockS3,
+					mediaUrl: `http://127.0.0.1:${mockFailingServer.port}`,
+					maxTries: 3,
+					retryDelayMs: 5,
+				}),
+			).rejects.toThrow("Failed to upload and verify testgame/fail.jpg after 3 attempts");
+			expect(attempts).toBe(3);
+		} finally {
+			mockFailingServer.stop(true);
+		}
+	});
+
+	test("uploadMediaBatch uploads files, records in SQLite, deletes local files, and skips files already in cloud", async () => {
+		const mediaDb = openMediaDb(testDir);
+		const uploadedStore = new Map<string, Uint8Array>();
+
+		const mockServer = Bun.serve({
+			port: 0,
+			hostname: "127.0.0.1",
+			async fetch(req) {
+				const url = new URL(req.url);
+				if (req.method === "PUT") {
+					uploadedStore.set(url.pathname, new Uint8Array(await req.arrayBuffer()));
+					return new Response(null, { status: 200 });
+				}
+				if (req.method === "GET") {
+					const hit = uploadedStore.get(url.pathname);
+					return hit ? new Response(hit, { status: 200 }) : new Response("Not found", { status: 404 });
+				}
+				return new Response(null, { status: 405 });
+			},
+		});
+
+		try {
+			const mockS3 = {
+				presign: (key: string) => `http://127.0.0.1:${mockServer.port}/${key}`,
+			};
+
+			// Create 2 test files on disk in a dummy media dir
+			const gameMediaDir = path.join(testDir, "public", "maps", "mygame", "media");
+			await Bun.write(path.join(gameMediaDir, "img1.jpg"), "image-1-data");
+			await Bun.write(path.join(gameMediaDir, "img2.jpg"), "image-2-data");
+
+			const jobs = [
+				{ game: "mygame", originalName: "img1.jpg", filePath: path.join(gameMediaDir, "img1.jpg") },
+				{ game: "mygame", originalName: "img2.jpg", filePath: path.join(gameMediaDir, "img2.jpg") },
+			];
+
+			// 1. Upload first time with keepLocal: false
+			const res1 = await uploadMediaBatch({
+				jobs,
+				s3: mockS3,
+				mediaUrl: `http://127.0.0.1:${mockServer.port}`,
+				mediaDb,
+				keepLocal: false,
+				retryDelayMs: 5,
+			});
+
+			expect(res1.uploaded).toBe(2);
+			expect(res1.skippedCloud).toBe(0);
+			expect(res1.deletedLocal).toBe(2);
+			expect(mediaDb.has("mygame", "img1.jpg")).toBe(true);
+			expect(mediaDb.has("mygame", "img2.jpg")).toBe(true);
+			expect(await Bun.file(path.join(gameMediaDir, "img1.jpg")).exists()).toBe(false);
+
+			// 2. Re-running the batch skips everything because it's in the cloud
+			const res2 = await uploadMediaBatch({
+				jobs,
+				s3: mockS3,
+				mediaUrl: `http://127.0.0.1:${mockServer.port}`,
+				mediaDb,
+				keepLocal: false,
+				retryDelayMs: 5,
+			});
+			expect(res2.uploaded).toBe(0);
+			expect(res2.skippedCloud).toBe(2);
+		} finally {
+			mockServer.stop(true);
+			mediaDb.close();
+		}
 	});
 });

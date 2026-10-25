@@ -166,7 +166,7 @@ async function markerInfo(gameSlug: string, mapSlug: string, id: number): Promis
 	const loc = (data.locations || []).find((l: any) => Number(l.id) === id);
 	if (!loc) return null;
 	const cat: any = Object.values(data.categories || {}).find((c: any) => c.id === loc.category_id);
-	const shot = await firstScreenshot(g.dir, loc.media);
+	const shot = await firstScreenshot(gameSlug, g.dir, loc.media);
 	// the card shows the category's icon: the game's own icon-font glyph, on its group's colour
 	const group = (data.groups || []).find((x: any) => x.id === cat?.group_id);
 	const color = /^#?[0-9a-f]{6}$/i.test(group?.color || "") ? "#" + String(group.color).replace("#", "") : null;
@@ -186,8 +186,8 @@ async function markerInfo(gameSlug: string, mapSlug: string, id: number): Promis
 	};
 }
 
-// the first image of a marker that has been downloaded (add-game keeps media in the game's media/ folder)
-async function firstScreenshot(gameDir: string, media: any[]): Promise<string | null> {
+// the first image of a marker that has been downloaded (locally in media/ or uploaded to R2 in data/atlas.db)
+async function firstScreenshot(gameSlug: string, gameDir: string, media: any[]): Promise<string | null> {
 	for (const m of media || []) {
 		const kind = m.type || (m.mime_type || "").split("/")[0];
 		if (kind !== "image" || !m.url) continue;
@@ -200,6 +200,9 @@ async function firstScreenshot(gameDir: string, media: any[]): Promise<string | 
 		if (!name) continue;
 		const file = path.join(gameDir, "media", name);
 		if (await exists(file)) return file;
+		if (mediaUrl && api.hasMedia(gameSlug, name)) {
+			return `${mediaUrl}/v1/${encodeURIComponent(gameSlug)}/${encodeURIComponent(name)}`;
+		}
 	}
 	return null;
 }
@@ -319,8 +322,9 @@ async function gamePageHtml(
 	);
 	out = out.replace(/<link rel="icon" href="[^"]*">/, () => `<link rel="icon" href="${esc(favicon)}">`);
 	out = out.replace(/<body([^>]*)>/, (_m, attrs: string) => {
-		const cleaned = attrs.replace(/\s*data-game="[^"]*"/g, "");
-		return `<body${cleaned} data-game="${esc(g.slug)}">`;
+		const cleaned = attrs.replace(/\s*data-(?:game|media-url)="[^"]*"/g, "");
+		const mediaAttr = mediaUrl ? ` data-media-url="${esc(mediaUrl)}"` : "";
+		return `<body${cleaned} data-game="${esc(g.slug)}"${mediaAttr}>`;
 	});
 	out = withHead(out, gameBlock, fullTitle);
 	return out;
@@ -511,6 +515,10 @@ function notModified(req: Request, etag: string, mtime: Date): boolean {
 await buildClient();
 
 const siteFile = await Bun.file(path.join(REPO, "site.json")).json();
+const mediaUrl = String(process.env.MEDIA_URL || siteFile.mediaUrl || "https://atlas-media.verticordia.com").replace(
+	/\/+$/,
+	"",
+);
 const DEBUG = args.includes("--debug");
 const api = createApi({
 	debug: DEBUG,
@@ -615,6 +623,17 @@ const server = Bun.serve({
 			if (tile) {
 				const tileRes = await tiles.serve(req, tile[1], tile[2], tile[3], tile[4]);
 				if (tileRes) return tileRes;
+			}
+
+			const mediaMatch = /^\/maps\/([^/]+)\/media\/([^/]+)$/.exec(p);
+			if (mediaMatch && mediaUrl && api.hasMedia(mediaMatch[1], mediaMatch[2])) {
+				return new Response(null, {
+					status: 308,
+					headers: {
+						Location: `${mediaUrl}/v1/${encodeURIComponent(mediaMatch[1])}/${encodeURIComponent(mediaMatch[2])}`,
+						"Cache-Control": "public, max-age=31536000, immutable",
+					},
+				});
 			}
 
 			return await serveStatic(req, p, reqUrl.search);

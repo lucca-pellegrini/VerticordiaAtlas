@@ -1,2 +1,6 @@
 [tools]
+aws-cli = { version = "2.38.5", symlink_bins = "true" }
 bun = "1.4.4"
+
+[env]
+_.file = { path = ".env.r2", redact = true }

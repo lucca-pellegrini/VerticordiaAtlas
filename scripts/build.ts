@@ -76,8 +76,20 @@ export async function buildClient(opts: { quiet?: boolean } = {}): Promise<void>
 	const t0 = performance.now();
 	let builtCount = 0;
 
+	let mediaUrl = "https://atlas-media.verticordia.com";
+	const sitePath = path.join(REPO, "site.json");
+	if (await exists(sitePath)) {
+		try {
+			const site = await Bun.file(sitePath).json();
+			if (typeof site.mediaUrl === "string" && site.mediaUrl.trim()) {
+				mediaUrl = site.mediaUrl.trim().replace(/\/+$/, "");
+			}
+		} catch {}
+	}
+
 	for (const target of CLIENT_TARGETS) {
-		if (await runBundle(target)) builtCount++;
+		const define = { __MEDIA_URL__: JSON.stringify(mediaUrl), ...(target.define || {}) };
+		if (await runBundle({ ...target, define })) builtCount++;
 	}
 
 	const swVersion = await verifyAndHashPrecache();

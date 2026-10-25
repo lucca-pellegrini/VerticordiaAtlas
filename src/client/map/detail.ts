@@ -272,6 +272,12 @@ export function renderDetail(): void {
 	document.body.classList.add("detail-open");
 	body.querySelectorAll<HTMLImageElement>(".shots img").forEach((img) =>
 		img.addEventListener("error", () => {
+			const fb = img.dataset.fallback;
+			if (fb) {
+				delete img.dataset.fallback;
+				img.src = fb;
+				return;
+			}
 			img.replaceWith(
 				Object.assign(document.createElement("p"), {
 					className: "d-note",
@@ -284,8 +290,35 @@ export function renderDetail(): void {
 	updateLinks();
 }
 
+declare const __MEDIA_URL__: string | undefined;
+export const DEFAULT_MEDIA_URL =
+	typeof __MEDIA_URL__ !== "undefined" ? __MEDIA_URL__ : "https://atlas-media.verticordia.com";
+
+export function mediaUrls(
+	file: string,
+	gameSlug?: string,
+	folder?: string,
+	mediaBase?: string,
+): { primary: string; fallback: string | null } {
+	const base = (
+		mediaBase ??
+		(typeof document !== "undefined" ? document.body?.dataset?.mediaUrl : undefined) ??
+		DEFAULT_MEDIA_URL
+	).replace(/\/+$/, "");
+	const slug = gameSlug ?? state.entry?.slug ?? state.entry?.id ?? "";
+	const dir = folder ?? (state.folder || ".");
+	const localUrl = `${dir}/media/${encodeURIComponent(file)}`;
+	if (base && slug) {
+		return {
+			primary: `${base}/v1/${encodeURIComponent(slug)}/${encodeURIComponent(file)}`,
+			fallback: localUrl,
+		};
+	}
+	return { primary: localUrl, fallback: null };
+}
+
 // one piece of a marker's media on its card. YouTube videos are embedded (nothing is downloaded for them); a picture is
-// the copy add-game.mjs saved; anything else (a video page elsewhere) is a link to it.
+// requested from R2 first with a fallback to the local copy; anything else (a video page elsewhere) is a link to it.
 const YOUTUBE = /(?:youtube\.com\/watch\?(?:.*&)?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{11})/;
 export function mediaHtml(m: any, l: { title: string }): string {
 	const alt = esc(m.title || l.title);
@@ -303,7 +336,8 @@ export function mediaHtml(m: any, l: { title: string }): string {
 	if (!isImage)
 		return `<p class="d-note"><a href="${esc(m.url)}" target="_blank" rel="noopener noreferrer">${esc(m.title || "Video")}</a></p>`;
 	const file = decodeURIComponent(new URL(m.url).pathname.split("/").pop()!);
-	return `<img loading="lazy" src="${esc(state.folder + "/media/" + file)}" alt="${alt}">`;
+	const { primary, fallback } = mediaUrls(file);
+	return `<img loading="lazy" src="${esc(primary)}"${fallback ? ` data-fallback="${esc(fallback)}"` : ""} alt="${alt}">`;
 }
 
 /* ---------- right-click on the map: what is here ----------
