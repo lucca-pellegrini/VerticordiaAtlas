@@ -10,7 +10,7 @@ import path from "node:path";
 import { deriveTheme, extractVar, tilesCovering } from "../scripts/add-game.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
 import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
-import { createApi } from "../server/api.ts";
+import { createApi, secretName } from "../server/api.ts";
 import {
 	deriveLightTheme,
 	esc,
@@ -280,6 +280,8 @@ describe("server/api and server/ws integration", () => {
 		expect(cookie).toStartWith("va_session=");
 		const { user } = await confirmRes.json();
 		expect(user.provider).toBe("secret");
+		expect(user.name).toBe(secretName(secret));
+		expect(user.name).not.toBe("Secret key account");
 
 		// 3. Login with messy secret key (lowercase, spaces, lookalike O/I/L if applicable)
 		const loginRes = await fetch(`${baseUrl}/api/auth/secret/login`, {
@@ -288,6 +290,8 @@ describe("server/api and server/ws integration", () => {
 			body: JSON.stringify({ secret: secret.toLowerCase().replace(/-/g, " ") }),
 		});
 		expect(loginRes.status).toBe(200);
+		const loginJson = await loginRes.json();
+		expect(loginJson.user.name).toBe(user.name);
 
 		// 4. Connect WebSocket as client-A to listen for live sync notifications
 		const wsUrl = baseUrl.replace("http://", "ws://") + "/api/ws?c=client-A";

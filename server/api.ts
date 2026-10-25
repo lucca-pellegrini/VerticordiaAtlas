@@ -18,6 +18,8 @@ import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import type { Duplex } from "node:stream";
 
+import { adjectives, animals, colors, countries, uniqueNamesGenerator } from "unique-names-generator";
+
 import { contentKey, sendKey } from "../src/shared/sync-rules.ts";
 import type { SyncItem, SyncPushResult, UserAccount } from "../src/shared/types.ts";
 import { acceptWebSocket, type WebSocketConn } from "./ws.ts";
@@ -33,6 +35,29 @@ const KEY_PATTERN = new RegExp(`^(profile:${SEG}:${SEG}|meta:(presets|view):${SE
 const MAX_VALUE = 2_000_000,
 	MAX_ITEMS = 200;
 const B32 = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+
+// people type these by hand: case, dashes and the look-alikes (O, I, L) do not matter
+export const normalizeSecret = (s: unknown): string =>
+	String(s || "")
+		.toUpperCase()
+		.replace(/[^0-9A-Z]/g, "")
+		.replace(/O/g, "0")
+		.replace(/[IL]/g, "1");
+
+export const sha256 = (s: string): string => crypto.createHash("sha256").update(s).digest("hex");
+
+// derives a memorable, deterministic username fingerprint for secret key accounts
+export function secretName(seed: string): string {
+	const isHex = /^[0-9a-f]{64}$/i.test(seed);
+	const hash = isHex ? seed : sha256(normalizeSecret(seed) || seed);
+	const numSeed = Buffer.from(hash, "hex").readInt32BE(0);
+	return uniqueNamesGenerator({
+		dictionaries: [adjectives, colors, animals],
+		separator: " ",
+		style: "capital",
+		seed: numSeed,
+	});
+}
 
 export interface ApiOptions {
 	root: string;
@@ -111,7 +136,19 @@ export function createApi({
     );
   `);
 
-	const sha256 = (s: string): string => crypto.createHash("sha256").update(s).digest("hex");
+	// backfill display_name for secret accounts that lack one
+	const missingSecretNames = db
+		.prepare(
+			`SELECT u.id, a.secret_hash
+             FROM users u
+             JOIN secret_accounts a ON a.user_id = u.id
+             WHERE u.provider = 'secret' AND (u.display_name IS NULL OR u.display_name = '')`,
+		)
+		.all() as { id: string; secret_hash: string }[];
+	for (const m of missingSecretNames) {
+		db.prepare("UPDATE users SET display_name = ? WHERE id = ?").run(secretName(m.secret_hash), m.id);
+	}
+
 	const now = (): number => Date.now();
 
 	/* ---------- rate limit for the sign-in endpoints ---------- */
@@ -206,7 +243,10 @@ export function createApi({
 		id: String(u.id),
 		provider: u.provider as "google" | "secret",
 		email: u.email ? String(u.email) : null,
-		name: u.provider === "google" ? String(u.display_name || u.email || "Google account") : "Secret key account",
+		name:
+			u.provider === "google"
+				? String(u.display_name || u.email || "Google account")
+				: String(u.display_name || (u.secret_hash ? secretName(u.secret_hash) : secretName(u.id))),
 		...(u.created_at ? { createdAt: Number(u.created_at) } : {}),
 	});
 
@@ -310,13 +350,6 @@ export function createApi({
 		if (bits > 0) out += B32[(value << (5 - bits)) & 31];
 		return out.match(/.{1,4}/g)!.join("-");
 	}
-	// people type these by hand: case, dashes and the look-alikes (O, I, L) do not matter
-	const normalizeSecret = (s: unknown): string =>
-		String(s || "")
-			.toUpperCase()
-			.replace(/[^0-9A-Z]/g, "")
-			.replace(/O/g, "0")
-			.replace(/[IL]/g, "1");
 
 	/* ---------- sync ---------- */
 	/* what a change means for sync: contentKey (conflicts) and sendKey (whether to push) are in shared/sync-rules.ts */
@@ -628,9 +661,12 @@ export function createApi({
 				const existing = db.prepare("SELECT 1 FROM secret_accounts WHERE secret_hash = ?").get(secretHash);
 				if (existing) throw httpError(409, "this secret key is already registered");
 				const id = crypto.randomUUID();
+				const displayName = secretName(secretHash);
 				db.exec("BEGIN");
 				try {
-					db.prepare("INSERT INTO users (id, provider, created_at) VALUES (?, 'secret', ?)").run(id, now());
+					db.prepare(
+						"INSERT INTO users (id, provider, display_name, created_at) VALUES (?, 'secret', ?, ?)",
+					).run(id, displayName, now());
 					db.prepare("INSERT INTO secret_accounts (user_id, secret_hash) VALUES (?, ?)").run(id, secretHash);
 					db.exec("COMMIT");
 				} catch (e) {
@@ -760,5 +796,6 @@ export function createApi({
 		_db: db,
 		newSecret,
 		normalizeSecret,
+		secretName,
 	};
 }
