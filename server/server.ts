@@ -9,7 +9,7 @@
 //
 // Plain files are served as they are. Two routes are added:
 //   /maps/<game>/?loc=<id>&map=<map>        the game page, with that marker's own preview tags. The page itself
-//                                           opens the marker (see app.ts), so people get the same view.
+//                                           opens the marker (see map.ts), so people get the same view.
 //   /cards/share/<game>/<map>/<id>.jpg      that marker's card. Rendered the first time it is asked for, then
 //                                           cached in cache/share/ and served from there. A changed marker (or
 //                                           a changed category or game colour) gets a new card.

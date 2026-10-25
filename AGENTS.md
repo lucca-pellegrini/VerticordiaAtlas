@@ -35,7 +35,7 @@ src/
 		theme-math.ts       # HSL color conversions and light-theme palette derivation
 		escape.ts           # HTML escaping (esc) and number formatting (fmt, fmtEn)
 	client/                 # Browser TypeScript sources (bundled into public/ by scripts/build.ts)
-		app.ts              # Map viewer entrypoint: boot sequence, sync wiring, and top-level DOM events
+		map.ts              # Map viewer entrypoint: boot sequence, sync wiring, and top-level DOM events
 		home.ts             # Homepage entrypoint: game grid, fuzzy search, and "Continue" resume card
 		theme.ts            # Theme mode (light/auto/dark), game accent tinting, and navigation trail
 		account.ts          # Account pill UI, session checks, and API client wrapper

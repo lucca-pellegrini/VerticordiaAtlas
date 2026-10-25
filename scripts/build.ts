@@ -28,7 +28,7 @@ export interface BuildTarget {
 }
 
 export const CLIENT_TARGETS: BuildTarget[] = [
-	{ entry: "src/client/app.ts", outfile: "public/app.js", format: "esm" },
+	{ entry: "src/client/map.ts", outfile: "public/app.js", format: "esm" },
 	{ entry: "src/client/home.ts", outfile: "public/home.js", format: "esm" },
 	{ entry: "src/client/theme.ts", outfile: "public/theme.js", format: "esm" },
 	{ entry: "src/client/signin.ts", outfile: "public/signin/signin.js", format: "esm" },

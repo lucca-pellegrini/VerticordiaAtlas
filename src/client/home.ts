@@ -489,7 +489,7 @@ function setupSearch(list: HTMLElement): void {
 	});
 }
 
-/* ---------- the "continue" card: the last opened game, from the summary app.ts keeps in localStorage ---------- */
+/* ---------- the "continue" card: the last opened game, from the summary map.ts keeps in localStorage ---------- */
 
 const HEXCOL = /^#[0-9a-f]{3,8}$/i;
 const ICON: Record<string, string> = {
