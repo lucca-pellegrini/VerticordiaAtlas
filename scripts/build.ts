@@ -5,8 +5,6 @@
 
 // build.ts: bundles client TypeScript entrypoints in src/client/ into public/, verifies all Service Worker precache paths, and injects a content-addressed version into public/sw.js.
 
-import crypto from "node:crypto";
-import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -14,11 +12,7 @@ import { PRECACHE } from "../src/client/sw.ts";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PUBLIC = path.join(REPO, "public");
-const exists = (p: string) =>
-	access(p).then(
-		() => true,
-		() => false,
-	);
+const exists = (p: string) => Bun.file(p).exists();
 
 export interface BuildTarget {
 	entry: string;
@@ -43,7 +37,7 @@ export function resolvePrecacheFile(relPath: string): string {
 }
 
 export async function verifyAndHashPrecache(): Promise<string> {
-	const hash = crypto.createHash("sha256");
+	const hash = new Bun.CryptoHasher("sha256");
 	for (const item of PRECACHE) {
 		const diskPath = resolvePrecacheFile(item);
 		if (!(await exists(diskPath))) {
@@ -51,7 +45,7 @@ export async function verifyAndHashPrecache(): Promise<string> {
 		}
 		hash.update(item);
 		hash.update("\0");
-		hash.update(await readFile(diskPath));
+		hash.update(await Bun.file(diskPath).bytes());
 		hash.update("\0");
 	}
 	return `v40-${hash.digest("hex").slice(0, 8)}`;

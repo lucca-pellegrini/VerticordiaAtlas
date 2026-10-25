@@ -5,12 +5,10 @@
 // Used by make-cards.ts (the homepage and game cards, built ahead of time) and by server.ts (a card per shared
 // marker, rendered on first request and cached).
 
-import { execFile } from "node:child_process";
-import { access, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { promisify } from "node:util";
 
 import { esc, fmtEn as fmt } from "../src/shared/escape.ts";
 import {
@@ -33,16 +31,11 @@ import type {
 
 export { esc, hexToHsl, hslToHex, deriveLightTheme, gameThemeColor, gameFavicon };
 
-const execFileP = promisify(execFile);
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const REPO = path.resolve(HERE, ".."); // the project: site.json, data/, cache/
 export const PUBLIC = path.join(REPO, "public"); // the web root: maps/, vendor/, card.jpg
 const FONTS = path.join(HERE, "assets", "fonts");
-export const exists = (p: string): Promise<boolean> =>
-	access(p).then(
-		() => true,
-		() => false,
-	);
+export const exists = (p: string): Promise<boolean> => Bun.file(p).exists();
 const fileUrl = (p: string): string => pathToFileURL(p).href;
 
 const DEFAULT_THEME: ThemePalette = {
@@ -107,15 +100,14 @@ export async function findPoster(dir: string): Promise<string | null> {
 
 // every game folder under maps/ (with a meta.json), plus the manifest's order for the homepage
 export async function loadGames(): Promise<{ games: LoadedGame[]; shown: LoadedGame[] }> {
-	const manifest: GameManifestEntry[] =
-		JSON.parse(await readFile(path.join(PUBLIC, "maps", "index.json"), "utf8")).games || [];
+	const manifest: GameManifestEntry[] = (await Bun.file(path.join(PUBLIC, "maps", "index.json")).json()).games || [];
 	const listed = new Map<string, GameManifestEntry>(manifest.map((g) => [g.slug, g]));
 	const games: LoadedGame[] = [];
 	for (const d of await readdir(path.join(PUBLIC, "maps"), { withFileTypes: true })) {
 		if (!d.isDirectory()) continue;
 		const dir = path.join(PUBLIC, "maps", d.name);
 		if (!(await exists(path.join(dir, "meta.json")))) continue;
-		const meta: GameMeta = JSON.parse(await readFile(path.join(dir, "meta.json"), "utf8"));
+		const meta: GameMeta = await Bun.file(path.join(dir, "meta.json")).json();
 		const entry: Partial<GameManifestEntry> = listed.get(d.name) || {};
 		const title = cleanTitle(entry.title || meta.title || d.name);
 		games.push({
@@ -214,7 +206,7 @@ export function gameHtml(g: LoadedGame): string {
 // the Lucide icon's markup, read once (the library is the same file the page fetches)
 let lucide: Record<string, [string, string[]]> | null = null;
 export async function glyphInner(name: string): Promise<string | null> {
-	if (!lucide) lucide = JSON.parse(await readFile(path.join(PUBLIC, "vendor", "lucide", "icons.json"), "utf8"));
+	if (!lucide) lucide = await Bun.file(path.join(PUBLIC, "vendor", "lucide", "icons.json")).json();
 	return lucide![name]?.[0] ?? null;
 }
 // an official category's icon: the game's own icon-font glyph (add-game.ts keeps the glyph map in meta.json), in the ink
@@ -386,10 +378,7 @@ h1 { font-size: 104px; }
 export async function chromePath(): Promise<string> {
 	if (process.env.CHROME) return process.env.CHROME;
 	for (const bin of ["chromium", "chromium-browser", "google-chrome", "google-chrome-stable", "chrome"]) {
-		try {
-			await execFileP("which", [bin]);
-			return bin;
-		} catch {}
+		if (Bun.which(bin)) return bin;
 	}
 	throw new Error("No Chromium found. Install it, or set CHROME=/path/to/chromium.");
 }
@@ -400,10 +389,10 @@ export async function drawCard(chrome: string, html: string, out: string): Promi
 	try {
 		const file = path.join(tmp, "card.html"),
 			png = path.join(tmp, "card.png");
-		await writeFile(file, html);
-		await execFileP(
-			chrome,
+		await Bun.write(file, html);
+		const chromeProc = Bun.spawn(
 			[
+				chrome,
 				"--headless=new",
 				"--no-sandbox",
 				"--disable-gpu",
@@ -415,10 +404,18 @@ export async function drawCard(chrome: string, html: string, out: string): Promi
 				`--screenshot=${png}`,
 				fileUrl(file),
 			],
-			{ timeout: 90000 },
+			{ stdout: "ignore", stderr: "ignore" },
 		);
+		const chromeExit = await chromeProc.exited;
+		if (chromeExit !== 0) throw new Error(`Chromium exited with code ${chromeExit}`);
+
 		await mkdir(path.dirname(out), { recursive: true });
-		await execFileP("magick", [png, "-strip", "-quality", "88", out]);
+		const magickProc = Bun.spawn(["magick", png, "-strip", "-quality", "88", out], {
+			stdout: "ignore",
+			stderr: "ignore",
+		});
+		const magickExit = await magickProc.exited;
+		if (magickExit !== 0) throw new Error(`magick exited with code ${magickExit}`);
 	} finally {
 		await rm(tmp, { recursive: true, force: true });
 	}

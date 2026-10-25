@@ -12,8 +12,10 @@ import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
 import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
 import { createApi, secretName } from "../server/api.ts";
 import {
+	chromePath,
 	deriveLightTheme,
 	esc,
+	exists,
 	gameFavicon,
 	gameThemeColor,
 	hexToHsl,
@@ -86,6 +88,20 @@ describe("server/cards helpers", () => {
 				{ cp: "e901", tint: "#ff0000", ml: "-1em" },
 			],
 		});
+	});
+
+	test("exists and chromePath resolve binaries and filesystem paths via Bun", async () => {
+		expect(await exists("public/index.html")).toBe(true);
+		expect(await exists("public/nonexistent-file.xyz")).toBe(false);
+
+		const prevChrome = process.env.CHROME;
+		try {
+			process.env.CHROME = "mock-chrome-bin";
+			expect(await chromePath()).toBe("mock-chrome-bin");
+		} finally {
+			if (prevChrome !== undefined) process.env.CHROME = prevChrome;
+			else delete process.env.CHROME;
+		}
 	});
 });
 

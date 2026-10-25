@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-import { access, mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
-const data = JSON.parse(await readFile("./public/maps/requiem/data.json", "utf8"));
+const data = await Bun.file("./public/maps/requiem/data.json").json();
 const urls: string[] = [...new Set<string>(data.locations.flatMap((l: any) => (l.media ?? []).map((m: any) => m.url)))];
 const OUT = "./public/maps/requiem/media";
 await mkdir(OUT, { recursive: true });
@@ -14,11 +14,7 @@ let i = 0,
 	skipped = 0,
 	failed = 0,
 	bytes = 0;
-const exists = (p: string) =>
-	access(p).then(
-		() => true,
-		() => false,
-	);
+const exists = (p: string) => Bun.file(p).exists();
 
 async function worker() {
 	while (i < urls.length) {
@@ -36,7 +32,7 @@ async function worker() {
 				});
 				if (!r.ok) throw new Error(`HTTP ${r.status}`);
 				const buf = Buffer.from(await r.arrayBuffer());
-				await writeFile(file, buf);
+				await Bun.write(file, buf);
 				saved++;
 				bytes += buf.length;
 				done = true;

@@ -19,13 +19,9 @@
 // The static homepage and game cards still come from make-cards.ts. Share cards need Chromium and ImageMagick,
 // like make-cards.ts. The address in tags comes from site.json when it is set, otherwise from the request.
 
-import crypto from "node:crypto";
-import { readFileSync } from "node:fs";
 import type { Stats } from "node:fs";
-import { readdir, readFile, stat, unlink } from "node:fs/promises";
+import { readdir, stat, unlink } from "node:fs/promises";
 import path from "node:path";
-import { promisify } from "node:util";
-import zlib from "node:zlib";
 
 import { buildClient } from "../scripts/build.ts";
 import { unpackMarker } from "../src/shared/share-link.ts";
@@ -82,7 +78,7 @@ const HOST = opt("host", "127.0.0.1"),
 
 // the configured address, if there is a real one; otherwise the address the request came in on
 const configuredSite = async (): Promise<string | null> => {
-	const raw = process.env.SITE_URL || JSON.parse(await readFile(path.join(REPO, "site.json"), "utf8")).url || "";
+	const raw = process.env.SITE_URL || (await Bun.file(path.join(REPO, "site.json")).json()).url || "";
 	const site = raw.replace(/\/+$/, "");
 	return /^https?:\/\/[^/]+$/.test(site) && !site.includes("YOUR-DOMAIN") ? site : null;
 };
@@ -103,7 +99,7 @@ async function readData(file: string): Promise<any> {
 	const st = await stat(file);
 	const hit = dataCache.get(file);
 	if (hit && hit.mtime === st.mtimeMs) return hit.json;
-	const json = JSON.parse(await readFile(file, "utf8"));
+	const json = await Bun.file(file).json();
 	dataCache.set(file, { mtime: st.mtimeMs, json });
 	return json;
 }
@@ -227,8 +223,7 @@ function send(
 async function shareCard(req: Request, gameSlug: string, mapSlug: string, id: number): Promise<Response> {
 	const info = await markerInfo(gameSlug, mapSlug, id);
 	if (!info) return send(404, "no such marker");
-	const key = crypto
-		.createHash("sha1")
+	const key = new Bun.CryptoHasher("sha1")
 		.update(JSON.stringify({ ...info, v: 2 }))
 		.digest("hex")
 		.slice(0, 12);
@@ -285,7 +280,7 @@ async function mapTemplate(): Promise<string> {
 	const file = path.join(PUBLIC, "map.html");
 	const st = await stat(file);
 	if (mapTemplateCache && mapTemplateCache.mtime === st.mtimeMs) return mapTemplateCache.html;
-	const html = await readFile(file, "utf8");
+	const html = await Bun.file(file).text();
 	mapTemplateCache = { mtime: st.mtimeMs, html };
 	return html;
 }
@@ -382,7 +377,7 @@ async function sharedMarkerCard(req: Request, gameSlug: string, packed: string):
 	const d = await unpackMarker(packed);
 	const g = d && (await games()).find((x) => x.slug === gameSlug);
 	if (!d || !g) return send(404, "no such marker");
-	const key = crypto.createHash("sha1").update("tm2").update(packed).digest("hex").slice(0, 16);
+	const key = new Bun.CryptoHasher("sha1").update("tm2").update(packed).digest("hex").slice(0, 16);
 	const file = path.join(REPO, "cache", "share", `tm-${encodeURIComponent(gameSlug)}-${key}.jpg`);
 	const ready = await ensureCard(file, clientIp(req), async () => {
 		console.log(`card: shared marker in ${gameSlug} (${d.title})`);
@@ -491,12 +486,11 @@ async function serveStatic(req: Request, rel: string, search = ""): Promise<Resp
 	return new Response(Bun.file(file), { status: 200, headers });
 }
 
-const gzip = promisify(zlib.gzip);
-const gzCache = new Map<string, { mtime: number; body: Buffer }>();
-async function gzipped(file: string, st: Stats): Promise<Buffer> {
+const gzCache = new Map<string, { mtime: number; body: Uint8Array }>();
+async function gzipped(file: string, st: Stats): Promise<Uint8Array> {
 	const hit = gzCache.get(file);
 	if (hit && hit.mtime === st.mtimeMs) return hit.body;
-	const body = await gzip(await readFile(file));
+	const body = Bun.gzipSync(await Bun.file(file).arrayBuffer());
 	gzCache.set(file, { mtime: st.mtimeMs, body });
 	return body;
 }
@@ -516,7 +510,7 @@ function notModified(req: Request, etag: string, mtime: Date): boolean {
 // Ensure client TypeScript bundles are fresh before accepting requests
 await buildClient();
 
-const siteFile = JSON.parse(readFileSync(path.join(REPO, "site.json"), "utf8"));
+const siteFile = await Bun.file(path.join(REPO, "site.json")).json();
 const DEBUG = args.includes("--debug");
 const api = createApi({
 	debug: DEBUG,

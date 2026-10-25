@@ -5,7 +5,6 @@
 // tile of an older full download) -> the disk cache -> make it from the four tiles of the next zoom, cache it, serve it.
 // The cache is always asked first; a tile is only made on a miss.
 
-import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 
 import type { TilesetMeta } from "../src/shared/types.ts";
@@ -44,12 +43,11 @@ export interface FoundTile {
 	from: "stored" | "cache" | "made";
 }
 
-const exists = (p: string): Promise<boolean> =>
-	stat(p).then(
-		(s) => s.isFile(),
-		() => false,
-	);
-const readOrNull = (p: string): Promise<Buffer | null> => readFile(p).catch(() => null);
+const exists = (p: string): Promise<boolean> => Bun.file(p).exists();
+const readOrNull = async (p: string): Promise<Buffer | null> => {
+	const f = Bun.file(p);
+	return (await f.exists()) ? Buffer.from(await f.arrayBuffer()) : null;
+};
 
 export function createTileService(o: TileServiceOptions) {
 	const now = o.now ?? Date.now;
@@ -174,21 +172,21 @@ export function createTileService(o: TileServiceOptions) {
 	): Promise<Response | null> {
 		const found = await find(game, mapDir, key, rest);
 		if (!found) return null;
-		const st = await stat(found.file);
-		const etag = `W/"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`;
+		const f = Bun.file(found.file);
+		const etag = `W/"${f.size.toString(36)}-${Math.floor(f.lastModified).toString(36)}"`;
 		const headers = new Headers({
 			"Content-Type": contentType(found.ext),
 			ETag: etag,
-			"Last-Modified": st.mtime.toUTCString(),
+			"Last-Modified": new Date(f.lastModified).toUTCString(),
 			"Cache-Control": "public, max-age=3600",
 		});
 		const inm = req.headers.get("if-none-match");
 		if (inm && inm.split(",").some((t) => t.trim().replace(/^W\//, "") === etag.replace(/^W\//, ""))) {
 			return new Response(null, { status: 304, headers });
 		}
-		headers.set("Content-Length", String(st.size));
+		headers.set("Content-Length", String(f.size));
 		if (req.method === "HEAD") return new Response(null, { status: 200, headers });
-		return new Response(Bun.file(found.file), { status: 200, headers });
+		return new Response(f, { status: 200, headers });
 	}
 
 	return { find, serve };

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-import { access, mkdir, writeFile } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
 const BASE = "https://tiles.mapgenie.io/games/resident-evil-requiem/world/default-v2";
@@ -12,11 +12,7 @@ const CONCURRENCY = 4,
 	DELAY_MS = 100;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-const exists = (p: string) =>
-	access(p).then(
-		() => true,
-		() => false,
-	);
+const exists = (p: string) => Bun.file(p).exists();
 
 const jobs: [number, number, number][] = [];
 for (let z = MIN_Z; z <= MAX_Z; z++) {
@@ -51,7 +47,7 @@ async function getTile([z, x, y]: [number, number, number]) {
 			if (!r.ok) throw new Error(`HTTP ${r.status}`);
 			const buf = Buffer.from(await r.arrayBuffer());
 			await mkdir(path.dirname(file), { recursive: true });
-			await writeFile(file, buf);
+			await Bun.write(file, buf);
 			saved++;
 			bytes += buf.length;
 			return;

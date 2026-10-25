@@ -47,11 +47,10 @@
 //                        slow and big: use it for a map whose tiles have gaps at different places and zooms, e.g. Solstheim,
 //                        or any map that is not a perfect rectangle at the stored zoom)
 
-import { execFile } from "node:child_process";
-import { access, copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { parseArgs, promisify } from "node:util";
+import { parseArgs } from "node:util";
 import vm from "node:vm";
 
 import { splitTemplate } from "../server/tile-engine.ts";
@@ -60,15 +59,9 @@ import type { ThemePalette } from "../src/shared/types.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
 
-const execFileP = promisify(execFile);
-
 const UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-const exists = (p: string) =>
-	access(p).then(
-		() => true,
-		() => false,
-	);
+const exists = (p: string) => Bun.file(p).exists();
 const mb = (n: number) => (n / 1e6).toFixed(1) + " MB";
 
 /* ---------- extracting window.* values from the page HTML ---------- */
@@ -655,17 +648,19 @@ async function magick(args: string[], opts: Record<string, any> = {}): Promise<B
 	if (magickBin === undefined) {
 		magickBin = null;
 		for (const bin of ["magick", "convert"]) {
-			try {
-				await execFileP(bin, ["-version"]);
+			if (Bun.which(bin)) {
 				magickBin = bin;
 				break;
-			} catch {}
+			}
 		}
 	}
 	if (!magickBin) return null;
 	try {
-		return (await execFileP(magickBin, args, { encoding: "buffer", maxBuffer: 64 << 20, ...opts }))
-			.stdout as unknown as Buffer;
+		const proc = Bun.spawn([magickBin, ...args], { stdout: "pipe", stderr: "ignore", ...opts });
+		const out = await new Response(proc.stdout).arrayBuffer();
+		const exit = await proc.exited;
+		if (exit !== 0) return null;
+		return Buffer.from(out);
 	} catch {
 		return null;
 	}
@@ -1161,10 +1156,16 @@ async function main() {
 	if (!v["no-cards"]) {
 		const here = path.dirname(fileURLToPath(import.meta.url));
 		try {
-			await execFileP(process.execPath, [path.join(here, "make-cards.ts")], {
+			const proc = Bun.spawn([process.execPath, path.join(here, "make-cards.ts")], {
 				cwd: path.dirname(here),
-				maxBuffer: 16 << 20,
+				stdout: "inherit",
+				stderr: "pipe",
 			});
+			const exit = await proc.exited;
+			if (exit !== 0) {
+				const err = await new Response(proc.stderr).text();
+				throw new Error(err || `make-cards.ts exited with code ${exit}`);
+			}
 			console.log("Cards rebuilt (make-cards.ts).");
 		} catch (e: any) {
 			console.log(

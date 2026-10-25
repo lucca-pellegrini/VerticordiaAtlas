@@ -14,7 +14,6 @@
 // Needs Chromium (on PATH, or CHROME=/path/to/chromium) and ImageMagick (magick). The domain comes from
 // site.json (or SITE_URL): crawlers need absolute URLs. Per-marker share cards are made by the server (server/server.ts) instead.
 
-import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import {
@@ -29,7 +28,7 @@ import {
 	withHead,
 } from "../server/cards.ts";
 
-const configured = process.env.SITE_URL || JSON.parse(await readFile(path.join(REPO, "site.json"), "utf8")).url || "";
+const configured = process.env.SITE_URL || (await Bun.file(path.join(REPO, "site.json")).json()).url || "";
 const site = configured.replace(/\/+$/, "");
 if (!/^https:\/\/[^/]+/.test(site))
 	throw new Error('site.json needs an https "url" (or set SITE_URL). Crawlers need absolute URLs.');
@@ -54,7 +53,7 @@ await drawCard(chrome, homeHtml(shown), path.join(PUBLIC, "card.jpg"));
 		image: `${site}/card.jpg`,
 		alt: "Verticordia Atlas: interactive game maps that work offline",
 	});
-	await writeFile(file, withHead(await readFile(file, "utf8"), block));
+	await Bun.write(file, withHead(await Bun.file(file).text(), block));
 }
 console.log("homepage: card.jpg");
 

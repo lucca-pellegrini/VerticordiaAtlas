@@ -400,6 +400,24 @@ describe("tile service", () => {
 		expect(await readdir(path.join(cache.root, "game/world/default"))).toContain("solid-000000ff.png");
 		expect(opened).toEqual(["game/world"]);
 	});
+
+	test("serve returns HTTP 200 with headers and 304 on matching ETag", async () => {
+		const { svc } = await setup();
+		const req = new Request("http://localhost/maps/game/world/tiles/default/3/2/2.png");
+		const res = await svc.serve(req, "game", "world", "default", "3/2/2.png");
+		expect(res).not.toBeNull();
+		expect(res!.status).toBe(200);
+		expect(res!.headers.get("Content-Type")).toBe("image/png");
+		const etag = res!.headers.get("ETag");
+		expect(etag).not.toBeNull();
+
+		// Conditional request with If-None-Match
+		const req304 = new Request("http://localhost/maps/game/world/tiles/default/3/2/2.png", {
+			headers: { "If-None-Match": etag! },
+		});
+		const res304 = await svc.serve(req304, "game", "world", "default", "3/2/2.png");
+		expect(res304!.status).toBe(304);
+	});
 });
 
 describe("scripts/add-game tile download", () => {

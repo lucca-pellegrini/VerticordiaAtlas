@@ -36,7 +36,7 @@ const KEY_PATTERN = new RegExp(`^(profile:${SEG}:${SEG}|meta:(presets|view):${SE
 const MAX_VALUE = 2_000_000,
 	MAX_ITEMS = 200;
 
-export const sha256 = (s: string): string => crypto.createHash("sha256").update(s).digest("hex");
+export const sha256 = (s: string): string => new Bun.CryptoHasher("sha256").update(s).digest("hex");
 
 // derives a memorable, deterministic username fingerprint for secret key accounts
 export function secretName(seed: string): string {
