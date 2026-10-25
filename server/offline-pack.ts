@@ -4,9 +4,7 @@
 // server/offline-pack.ts: streams a complete map package (metadata, markers, icons, tiles)
 // in a single streaming binary pack (VAOP format) for offline storage.
 
-import { createReadStream } from "node:fs";
 import { readdir, readFile, stat } from "node:fs/promises";
-import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
 
 import {
@@ -149,15 +147,6 @@ export async function collectMapPackItems(
 	return items;
 }
 
-function pipeFile(file: string, res: ServerResponse): Promise<void> {
-	return new Promise((resolve, reject) => {
-		const stream = createReadStream(file);
-		stream.on("error", reject);
-		stream.on("end", resolve);
-		stream.pipe(res, { end: false });
-	});
-}
-
 export async function ensureIntermediateTiles(
 	publicDir: string,
 	cacheDir: string,
@@ -245,13 +234,12 @@ export async function ensureIntermediateTiles(
 const preparing = new Map<string, Promise<void>>();
 
 export async function streamOfflinePack(
-	req: IncomingMessage,
-	res: ServerResponse,
+	req: Request,
 	publicDir: string,
 	cacheDir: string,
 	gameSlug: string,
 	mapSlug: string,
-): Promise<boolean> {
+): Promise<Response> {
 	// the response starts once the tiles exist (the page shows "Preparing"); two requests for one map share the work
 	const key = `${gameSlug}/${mapSlug}`;
 	let work = preparing.get(key);
@@ -264,9 +252,10 @@ export async function streamOfflinePack(
 	await work;
 	const items = await collectMapPackItems(publicDir, cacheDir, gameSlug, mapSlug);
 	if (!items) {
-		res.writeHead(404, { "Content-Type": "application/json", "Cache-Control": "no-store" });
-		res.end(JSON.stringify({ error: `Map ${gameSlug}/${mapSlug} not found` }));
-		return true;
+		return new Response(JSON.stringify({ error: `Map ${gameSlug}/${mapSlug} not found` }), {
+			status: 404,
+			headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+		});
 	}
 
 	// Calculate total uncompressed payload bytes (file bytes + headers)
@@ -292,12 +281,16 @@ export async function streamOfflinePack(
 	}
 	seenInos.clear();
 
-	res.writeHead(200, {
+	const headers = {
 		"Content-Type": "application/octet-stream",
 		"Cache-Control": "no-store",
 		"X-VA-Total-Entries": String(items.length),
 		"X-VA-Total-Bytes": String(totalBytes),
-	});
+	};
+
+	if (req.method === "HEAD") {
+		return new Response(null, { status: 200, headers });
+	}
 
 	// Write 17-byte header:
 	// "VAOP" (4 bytes) | Version (1 byte) | Total Entries (4 bytes BE) | Total Bytes (8 bytes BE)
@@ -306,66 +299,73 @@ export async function streamOfflinePack(
 	hdr.writeUInt8(VAOP_VERSION, 4);
 	hdr.writeUInt32BE(items.length, 5);
 	hdr.writeBigUInt64BE(BigInt(totalBytes), 9);
-	res.write(hdr);
 
-	// Stream entries
-	for (const item of items) {
-		if (res.writableEnded || res.destroyed) break;
+	const stream = new ReadableStream<Uint8Array>({
+		async start(controller) {
+			controller.enqueue(new Uint8Array(hdr.buffer, hdr.byteOffset, hdr.byteLength));
 
-		const prevUrl = seenInos.get(item.ino);
-		if (prevUrl !== undefined) {
-			// Type 1 (Alias)
-			const targetUrlBuf = Buffer.from(item.url, "utf8");
-			const srcUrlBuf = Buffer.from(prevUrl, "utf8");
-			const mimeBuf = Buffer.from(item.contentType, "utf8");
+			// Stream entries
+			for (const item of items) {
+				const prevUrl = seenInos.get(item.ino);
+				if (prevUrl !== undefined) {
+					// Type 1 (Alias)
+					const targetUrlBuf = Buffer.from(item.url, "utf8");
+					const srcUrlBuf = Buffer.from(prevUrl, "utf8");
+					const mimeBuf = Buffer.from(item.contentType, "utf8");
 
-			const entryHdr = Buffer.alloc(1 + 2 + targetUrlBuf.length + 2 + srcUrlBuf.length + 1 + mimeBuf.length);
-			let off = 0;
-			entryHdr.writeUInt8(1, off);
-			off += 1;
-			entryHdr.writeUInt16BE(targetUrlBuf.length, off);
-			off += 2;
-			targetUrlBuf.copy(entryHdr, off);
-			off += targetUrlBuf.length;
-			entryHdr.writeUInt16BE(srcUrlBuf.length, off);
-			off += 2;
-			srcUrlBuf.copy(entryHdr, off);
-			off += srcUrlBuf.length;
-			entryHdr.writeUInt8(mimeBuf.length, off);
-			off += 1;
-			mimeBuf.copy(entryHdr, off);
+					const entryHdr = Buffer.alloc(
+						1 + 2 + targetUrlBuf.length + 2 + srcUrlBuf.length + 1 + mimeBuf.length,
+					);
+					let off = 0;
+					entryHdr.writeUInt8(1, off);
+					off += 1;
+					entryHdr.writeUInt16BE(targetUrlBuf.length, off);
+					off += 2;
+					targetUrlBuf.copy(entryHdr, off);
+					off += targetUrlBuf.length;
+					entryHdr.writeUInt16BE(srcUrlBuf.length, off);
+					off += 2;
+					srcUrlBuf.copy(entryHdr, off);
+					off += srcUrlBuf.length;
+					entryHdr.writeUInt8(mimeBuf.length, off);
+					off += 1;
+					mimeBuf.copy(entryHdr, off);
 
-			const ok = res.write(entryHdr);
-			if (!ok) await new Promise((r) => res.once("drain", r));
-		} else {
-			// Type 0 (Full file)
-			seenInos.set(item.ino, item.url);
-			const urlBuf = Buffer.from(item.url, "utf8");
-			const mimeBuf = Buffer.from(item.contentType, "utf8");
+					controller.enqueue(new Uint8Array(entryHdr.buffer, entryHdr.byteOffset, entryHdr.byteLength));
+				} else {
+					// Type 0 (Full file)
+					seenInos.set(item.ino, item.url);
+					const urlBuf = Buffer.from(item.url, "utf8");
+					const mimeBuf = Buffer.from(item.contentType, "utf8");
 
-			const entryHdr = Buffer.alloc(1 + 2 + urlBuf.length + 1 + mimeBuf.length + 4);
-			let off = 0;
-			entryHdr.writeUInt8(0, off);
-			off += 1;
-			entryHdr.writeUInt16BE(urlBuf.length, off);
-			off += 2;
-			urlBuf.copy(entryHdr, off);
-			off += urlBuf.length;
-			entryHdr.writeUInt8(mimeBuf.length, off);
-			off += 1;
-			mimeBuf.copy(entryHdr, off);
-			off += mimeBuf.length;
-			entryHdr.writeUInt32BE(item.size, off);
+					const entryHdr = Buffer.alloc(1 + 2 + urlBuf.length + 1 + mimeBuf.length + 4);
+					let off = 0;
+					entryHdr.writeUInt8(0, off);
+					off += 1;
+					entryHdr.writeUInt16BE(urlBuf.length, off);
+					off += 2;
+					urlBuf.copy(entryHdr, off);
+					off += urlBuf.length;
+					entryHdr.writeUInt8(mimeBuf.length, off);
+					off += 1;
+					mimeBuf.copy(entryHdr, off);
+					off += mimeBuf.length;
+					entryHdr.writeUInt32BE(item.size, off);
 
-			const ok = res.write(entryHdr);
-			if (!ok) await new Promise((r) => res.once("drain", r));
+					controller.enqueue(new Uint8Array(entryHdr.buffer, entryHdr.byteOffset, entryHdr.byteLength));
 
-			if (item.size > 0) {
-				await pipeFile(item.file, res);
+					if (item.size > 0) {
+						const fileStream = Bun.file(item.file).stream();
+						for await (const chunk of fileStream) {
+							controller.enqueue(chunk);
+						}
+					}
+				}
 			}
-		}
-	}
 
-	res.end();
-	return true;
+			controller.close();
+		},
+	});
+
+	return new Response(stream, { status: 200, headers });
 }

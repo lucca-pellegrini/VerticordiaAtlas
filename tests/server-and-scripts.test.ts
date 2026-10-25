@@ -11,7 +11,6 @@ import { deriveTheme, extractVar, tilesCovering } from "../scripts/add-game.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
 import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
 import { createApi, secretName } from "../server/api.ts";
-import { nodeBridge } from "../server/bridge.ts";
 import {
 	deriveLightTheme,
 	esc,
@@ -219,25 +218,18 @@ describe("server/api and server/ws integration", () => {
 	beforeEach(async () => {
 		tmpDir = await mkdtemp(path.join(os.tmpdir(), "atlas-test-"));
 		api = createApi({ root: tmpDir, googleClientId: "test-google-client-id", publicUrl: "http://127.0.0.1" });
-		const bridge = nodeBridge(async (req, res) => {
-			const url = new URL(req.url || "/", "http://127.0.0.1");
-			const handled = await api.handle(req, res, url);
-			if (handled === false) {
-				res.writeHead(404);
-				res.end();
-			}
-		});
 		server = Bun.serve({
 			port: 0,
 			hostname: "127.0.0.1",
-			fetch(req, s) {
+			async fetch(req, s) {
 				const url = new URL(req.url);
 				if (url.pathname === "/api/ws") {
 					const rejected = api.upgrade(req, s);
 					if (rejected) return rejected;
 					return;
 				}
-				return bridge(req);
+				const res = await api.handle(req, url);
+				return res || new Response(null, { status: 404 });
 			},
 			websocket: api.websocket,
 		});

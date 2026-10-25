@@ -5,9 +5,7 @@
 // tile of an older full download) -> the disk cache -> make it from the four tiles of the next zoom, cache it, serve it.
 // The cache is always asked first; a tile is only made on a miss.
 
-import { createReadStream } from "node:fs";
 import { readFile, stat } from "node:fs/promises";
-import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
 
 import type { TilesetMeta } from "../src/shared/types.ts";
@@ -168,33 +166,29 @@ export function createTileService(o: TileServiceOptions) {
 	}
 
 	async function serve(
-		req: IncomingMessage,
-		res: ServerResponse,
+		req: Request,
 		game: string,
 		mapDir: string,
 		key: string,
 		rest: string,
-	): Promise<boolean> {
+	): Promise<Response | null> {
 		const found = await find(game, mapDir, key, rest);
-		if (!found) return false;
+		if (!found) return null;
 		const st = await stat(found.file);
 		const etag = `W/"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`;
-		const headers = {
+		const headers = new Headers({
 			"Content-Type": contentType(found.ext),
 			ETag: etag,
 			"Last-Modified": st.mtime.toUTCString(),
 			"Cache-Control": "public, max-age=3600",
-		};
-		const inm = req.headers["if-none-match"];
+		});
+		const inm = req.headers.get("if-none-match");
 		if (inm && inm.split(",").some((t) => t.trim().replace(/^W\//, "") === etag.replace(/^W\//, ""))) {
-			res.writeHead(304, headers);
-			res.end();
-			return true;
+			return new Response(null, { status: 304, headers });
 		}
-		res.writeHead(200, { ...headers, "Content-Length": st.size });
-		if (req.method === "HEAD") res.end();
-		else createReadStream(found.file).pipe(res);
-		return true;
+		headers.set("Content-Length", String(st.size));
+		if (req.method === "HEAD") return new Response(null, { status: 200, headers });
+		return new Response(Bun.file(found.file), { status: 200, headers });
 	}
 
 	return { find, serve };

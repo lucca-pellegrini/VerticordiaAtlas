@@ -7,7 +7,6 @@ import os from "node:os";
 import path from "node:path";
 
 import { createApi } from "../server/api.ts";
-import { nodeBridge } from "../server/bridge.ts";
 
 interface TestWsClient {
 	ws: WebSocket;
@@ -112,25 +111,18 @@ describe("WebSocket e2e tests (/api/ws)", () => {
 	beforeEach(async () => {
 		tmpDir = await mkdtemp(path.join(os.tmpdir(), "atlas-ws-test-"));
 		api = createApi({ root: tmpDir, publicUrl: "http://127.0.0.1" });
-		const bridge = nodeBridge(async (req, res) => {
-			const url = new URL(req.url || "/", "http://127.0.0.1");
-			const handled = await api.handle(req, res, url);
-			if (handled === false) {
-				res.writeHead(404);
-				res.end();
-			}
-		});
 		server = Bun.serve({
 			port: 0,
 			hostname: "127.0.0.1",
-			fetch(req, s) {
+			async fetch(req, s) {
 				const url = new URL(req.url);
 				if (url.pathname === "/api/ws") {
 					const rejected = api.upgrade(req, s);
 					if (rejected) return rejected;
 					return;
 				}
-				return bridge(req);
+				const res = await api.handle(req, url);
+				return res || new Response(null, { status: 404 });
 			},
 			websocket: api.websocket,
 		});

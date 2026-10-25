@@ -66,7 +66,6 @@ src/
 server/
 	server.ts               # HTTP static & dynamic server (ETags, gzip, dynamic map.html & OG tags)
 	api.ts                  # SQLite WAL backend (data/atlas.db), Google OIDC, secret keys, Bun WebSockets, and /api/sync
-	bridge.ts               # Adapter bridging node:http handlers to Bun.serve
 	cards.ts                # Headless Chromium + ImageMagick social preview card renderer (1200x630 JPG)
 	tile-engine.ts          # sharp-based tile maths: stitch + downsample four tiles into one, single-colour detection and hard links
 	tile-cache.ts           # Disk cache cache/tiles/ for made tiles: in-memory recency, popularity-weighted eviction (2GB -> 1GB)

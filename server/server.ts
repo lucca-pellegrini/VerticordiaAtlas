@@ -20,10 +20,9 @@
 // like make-cards.ts. The address in tags comes from site.json when it is set, otherwise from the request.
 
 import crypto from "node:crypto";
-import { createReadStream, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import type { Stats } from "node:fs";
 import { readdir, readFile, stat, unlink } from "node:fs/promises";
-import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
 import { promisify } from "node:util";
 import zlib from "node:zlib";
@@ -31,7 +30,6 @@ import zlib from "node:zlib";
 import { buildClient } from "../scripts/build.ts";
 import { unpackMarker } from "../src/shared/share-link.ts";
 import { createApi } from "./api.ts";
-import { nodeBridge } from "./bridge.ts";
 import {
 	categoryIcon,
 	chromePath,
@@ -88,8 +86,8 @@ const configuredSite = async (): Promise<string | null> => {
 	const site = raw.replace(/\/+$/, "");
 	return /^https?:\/\/[^/]+$/.test(site) && !site.includes("YOUR-DOMAIN") ? site : null;
 };
-const siteOrigin = async (req: IncomingMessage): Promise<string> =>
-	(await configuredSite()) || `${(req.socket as any).encrypted ? "https" : "http"}://${req.headers.host}`;
+const siteOrigin = async (req: Request): Promise<string> =>
+	(await configuredSite()) || `${new URL(req.url).protocol}//${req.headers.get("host") || "localhost"}`;
 
 /* ---------- caches: the game list (short time), map data (by file date), chrome (once), renders (once) ---------- */
 
@@ -117,10 +115,8 @@ const RENDER_CONCURRENCY = 2,
 	RENDERS_PER_WINDOW = 25,
 	WINDOW_MS = 10 * 60 * 1000;
 const clients = new Map<string, { start: number; count: number }>();
-const clientIp = (req: IncomingMessage): string =>
-	String(req.headers["x-real-ip"] || req.socket.remoteAddress || "unknown")
-		.split(",")[0]
-		.trim();
+const clientIp = (req: Request): string =>
+	String(req.headers.get("x-real-ip") || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown");
 
 function allowRender(ip: string): boolean {
 	const now = Date.now();
@@ -215,25 +211,22 @@ async function firstScreenshot(gameDir: string, media: any[]): Promise<string | 
 /* ---------- routes ---------- */
 
 function send(
-	res: ServerResponse,
 	status: number,
-	body: string | Buffer,
+	body: BodyInit | null = null,
 	type = "text/plain; charset=utf-8",
 	headers: Record<string, string | number> = {},
-): void {
-	res.writeHead(status, { "Content-Type": type, ...headers });
-	res.end(body);
+): Response {
+	const h = new Headers();
+	h.set("Content-Type", type);
+	for (const [k, v] of Object.entries(headers)) {
+		h.set(k, String(v));
+	}
+	return new Response(body, { status, headers: h });
 }
 
-async function shareCard(
-	req: IncomingMessage,
-	res: ServerResponse,
-	gameSlug: string,
-	mapSlug: string,
-	id: number,
-): Promise<void> {
+async function shareCard(req: Request, gameSlug: string, mapSlug: string, id: number): Promise<Response> {
 	const info = await markerInfo(gameSlug, mapSlug, id);
-	if (!info) return send(res, 404, "no such marker");
+	if (!info) return send(404, "no such marker");
 	const key = crypto
 		.createHash("sha1")
 		.update(JSON.stringify({ ...info, v: 2 }))
@@ -246,13 +239,21 @@ async function shareCard(
 		console.log(`card: ${gameSlug}/${mapSlug}/${id} (${info.title})`);
 		return markerHtml(info);
 	});
-	if (!ready) return sendPlainCard(res, gameSlug);
-	if (ready && !(await exists(file))) return sendPlainCard(res, gameSlug);
+	if (!ready) return sendPlainCard(gameSlug);
+	if (ready && !(await exists(file))) return sendPlainCard(gameSlug);
 	for (const old of await readdir(dir).catch(() => [] as string[])) {
 		if (old.startsWith(prefix) && old !== path.basename(file)) await unlink(path.join(dir, old)).catch(() => {});
 	}
-	res.writeHead(200, { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=86400" });
-	createReadStream(file).pipe(res);
+	if (req.method === "HEAD") {
+		return new Response(null, {
+			status: 200,
+			headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=86400" },
+		});
+	}
+	return new Response(Bun.file(file), {
+		status: 200,
+		headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=86400" },
+	});
 }
 
 async function ensureCard(file: string, ip: string, htmlFor: () => Promise<string>): Promise<boolean> {
@@ -270,11 +271,13 @@ async function ensureCard(file: string, ip: string, htmlFor: () => Promise<strin
 	});
 }
 
-async function sendPlainCard(res: ServerResponse, gameSlug: string): Promise<void> {
+async function sendPlainCard(gameSlug: string): Promise<Response> {
 	const game = path.join(PUBLIC, "maps", gameSlug, "card.jpg");
 	const file = (await exists(game)) ? game : path.join(PUBLIC, "card.jpg");
-	res.writeHead(200, { "Content-Type": "image/jpeg", "Cache-Control": "no-store" });
-	createReadStream(file).pipe(res);
+	return new Response(Bun.file(file), {
+		status: 200,
+		headers: { "Content-Type": "image/jpeg", "Cache-Control": "no-store" },
+	});
 }
 
 let mapTemplateCache: { mtime: number; html: string } | null = null;
@@ -288,14 +291,14 @@ async function mapTemplate(): Promise<string> {
 }
 
 async function gamePageHtml(
-	req: IncomingMessage,
+	req: Request,
 	gameSlug: string,
 	{ block = null, pageTitle = null }: { block?: string | null; pageTitle?: string | null } = {},
 ): Promise<string | null> {
 	const g = (await games()).find((x) => x.slug === gameSlug);
 	if (!g) return null;
 	const template = await mapTemplate();
-	const isLight = /(?:^|;\s*)va_theme=light\b/.test(req.headers.cookie || "");
+	const isLight = /(?:^|;\s*)va_theme=light\b/.test(req.headers.get("cookie") || "");
 	const themeColor = gameThemeColor(g.theme, isLight);
 	const favicon = gameFavicon(g.theme, isLight);
 	const fullTitle = pageTitle ? `${pageTitle} · Verticordia Atlas` : `${g.title} · Verticordia Atlas`;
@@ -328,21 +331,15 @@ async function gamePageHtml(
 	return out;
 }
 
-async function gamePage(req: IncomingMessage, res: ServerResponse, gameSlug: string): Promise<void> {
+async function gamePage(req: Request, gameSlug: string): Promise<Response> {
 	const html = await gamePageHtml(req, gameSlug);
-	if (!html) return send(res, 404, "not found");
-	send(res, 200, html, "text/html; charset=utf-8", { "Cache-Control": "no-cache" });
+	if (!html) return send(404, "not found");
+	return send(200, html, "text/html; charset=utf-8", { "Cache-Control": "no-cache" });
 }
 
-async function sharePage(
-	req: IncomingMessage,
-	res: ServerResponse,
-	gameSlug: string,
-	mapSlug: string,
-	id: number,
-): Promise<boolean> {
+async function sharePage(req: Request, gameSlug: string, mapSlug: string, id: number): Promise<Response | null> {
 	const info = await markerInfo(gameSlug, mapSlug, id);
-	if (!info) return false;
+	if (!info) return null;
 	const origin = await siteOrigin(req);
 	const enc = encodeURIComponent;
 	const pageUrl = `${origin}/maps/${encodeURI(gameSlug)}/?loc=${id}&map=${enc(mapSlug)}`;
@@ -357,20 +354,14 @@ async function sharePage(
 		alt: `${info.title} on the ${info.gameTitle} map`,
 	});
 	const html = await gamePageHtml(req, gameSlug, { block, pageTitle: shownTitle });
-	if (!html) return false;
-	send(res, 200, html, "text/html; charset=utf-8", { "Cache-Control": "no-cache" });
-	return true;
+	if (!html) return null;
+	return send(200, html, "text/html; charset=utf-8", { "Cache-Control": "no-cache" });
 }
 
-async function sharedMarkerPage(
-	req: IncomingMessage,
-	res: ServerResponse,
-	gameSlug: string,
-	packed: string,
-): Promise<boolean> {
+async function sharedMarkerPage(req: Request, gameSlug: string, packed: string): Promise<Response | null> {
 	const d = await unpackMarker(packed);
 	const g = d && (await games()).find((x) => x.slug === gameSlug);
-	if (!d || !g) return false;
+	if (!d || !g) return null;
 	const origin = await siteOrigin(req);
 	const shownTitle = `${d.title} · ${g.title}`;
 	const description =
@@ -383,20 +374,14 @@ async function sharedMarkerPage(
 		alt: `${d.title} on the ${g.title} map`,
 	});
 	const html = await gamePageHtml(req, gameSlug, { block, pageTitle: shownTitle });
-	if (!html) return false;
-	send(res, 200, html, "text/html; charset=utf-8", { "Cache-Control": "no-cache" });
-	return true;
+	if (!html) return null;
+	return send(200, html, "text/html; charset=utf-8", { "Cache-Control": "no-cache" });
 }
 
-async function sharedMarkerCard(
-	req: IncomingMessage,
-	res: ServerResponse,
-	gameSlug: string,
-	packed: string,
-): Promise<void> {
+async function sharedMarkerCard(req: Request, gameSlug: string, packed: string): Promise<Response> {
 	const d = await unpackMarker(packed);
 	const g = d && (await games()).find((x) => x.slug === gameSlug);
-	if (!d || !g) return send(res, 404, "no such marker");
+	if (!d || !g) return send(404, "no such marker");
 	const key = crypto.createHash("sha1").update("tm2").update(packed).digest("hex").slice(0, 16);
 	const file = path.join(REPO, "cache", "share", `tm-${encodeURIComponent(gameSlug)}-${key}.jpg`);
 	const ready = await ensureCard(file, clientIp(req), async () => {
@@ -411,18 +396,31 @@ async function sharedMarkerCard(
 			icon: d.category ? await categoryIcon(d) : null,
 		});
 	});
-	if (!ready || !(await exists(file))) return sendPlainCard(res, gameSlug);
-	res.writeHead(200, { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=86400" });
-	createReadStream(file).pipe(res);
+	if (!ready || !(await exists(file))) return sendPlainCard(gameSlug);
+	if (req.method === "HEAD") {
+		return new Response(null, {
+			status: 200,
+			headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=86400" },
+		});
+	}
+	return new Response(Bun.file(file), {
+		status: 200,
+		headers: { "Content-Type": "image/jpeg", "Cache-Control": "public, max-age=86400" },
+	});
 }
 
 // sanitize the request target so scheme-relative paths ("//", "//////"), backslashes, or bad %-encoding never throw
 function parseUrl(raw: string | undefined): { url: URL; pathname: string } | null {
 	if (typeof raw !== "string") return null;
-	const trimmed = raw.replace(/^[\/\\]+/, "/");
-	if (!trimmed.startsWith("/")) return null;
 	try {
-		const url = new URL(trimmed, "http://localhost");
+		let url: URL;
+		if (raw.startsWith("http://") || raw.startsWith("https://")) {
+			url = new URL(raw);
+		} else {
+			const trimmed = raw.replace(/^[\/\\]+/, "/");
+			if (!trimmed.startsWith("/")) return null;
+			url = new URL(trimmed, "http://localhost");
+		}
 		const pathname = decodeURIComponent(url.pathname).replace(/\\/g, "/").replace(/\/+/g, "/");
 		if (/[\x00-\x1f\x7f]/.test(pathname)) return null;
 		url.pathname = encodeURI(pathname);
@@ -432,69 +430,65 @@ function parseUrl(raw: string | undefined): { url: URL; pathname: string } | nul
 	}
 }
 
-async function serveStatic(req: IncomingMessage, res: ServerResponse, rel: string, search = ""): Promise<void> {
+async function serveStatic(req: Request, rel: string, search = ""): Promise<Response> {
 	const rawParts = rel.split("/").filter(Boolean);
-	if (rawParts.includes("..")) return send(res, 403, "forbidden");
+	if (rawParts.includes("..")) return send(403, "forbidden");
 	let file = path.normalize(path.join(PUBLIC, rel));
-	if (file !== PUBLIC && !file.startsWith(PUBLIC + path.sep)) return send(res, 403, "forbidden");
+	if (file !== PUBLIC && !file.startsWith(PUBLIC + path.sep)) return send(403, "forbidden");
 	const parts = path.relative(PUBLIC, file).split(path.sep).filter(Boolean);
-	if (parts.some((p) => p.startsWith(".") || p === "cache" || p === "node_modules"))
-		return send(res, 404, "not found");
+	if (parts.some((p) => p.startsWith(".") || p === "cache" || p === "node_modules")) return send(404, "not found");
 	let st: Stats;
 	try {
 		st = await stat(file);
 	} catch {
-		return send(res, 404, "not found");
+		return send(404, "not found");
 	}
 	if (st.isDirectory()) {
 		if (!rel.endsWith("/")) {
-			res.writeHead(301, { Location: encodeURI(rel) + "/" + search });
-			res.end();
-			return;
+			return new Response(null, {
+				status: 301,
+				headers: { Location: encodeURI(rel) + "/" + search },
+			});
 		}
 		file = path.join(file, "index.html");
 		try {
 			st = await stat(file);
 		} catch {
-			return send(res, 404, "not found");
+			return send(404, "not found");
 		}
 	}
-	if (!st.isFile()) return send(res, 404, "not found");
+	if (!st.isFile()) return send(404, "not found");
 	const type = TYPES[path.extname(file).toLowerCase()];
-	if (!type) return send(res, 404, "not found");
+	if (!type) return send(404, "not found");
 	const etag = `W/"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`;
 	const lastModified = st.mtime.toUTCString();
-	const headers: Record<string, string | number> = {
+	const headers: Record<string, string> = {
 		"Content-Type": type,
 		ETag: etag,
 		"Last-Modified": lastModified,
+		"Cache-Control": TEXT.test(type) ? "no-cache" : "public, max-age=3600",
 	};
-	headers["Cache-Control"] = TEXT.test(type) ? "no-cache" : "public, max-age=3600";
 	if (notModified(req, etag, st.mtime)) {
-		res.writeHead(304, { ETag: etag, "Last-Modified": lastModified, "Cache-Control": headers["Cache-Control"] });
-		res.end();
-		return;
+		return new Response(null, {
+			status: 304,
+			headers: { ETag: etag, "Last-Modified": lastModified, "Cache-Control": headers["Cache-Control"] },
+		});
 	}
-	if (TEXT.test(type) && st.size > 1024 && /\bgzip\b/.test(String(req.headers["accept-encoding"] || ""))) {
+	if (TEXT.test(type) && st.size > 1024 && /\bgzip\b/.test(req.headers.get("accept-encoding") || "")) {
 		const body = await gzipped(file, st);
 		headers["Content-Encoding"] = "gzip";
-		headers["Content-Length"] = body.length;
+		headers["Content-Length"] = String(body.length);
 		headers.Vary = "Accept-Encoding";
-		res.writeHead(200, headers);
 		if (req.method === "HEAD") {
-			res.end();
-			return;
+			return new Response(null, { status: 200, headers });
 		}
-		res.end(body);
-		return;
+		return new Response(body, { status: 200, headers });
 	}
-	headers["Content-Length"] = st.size;
-	res.writeHead(200, headers);
+	headers["Content-Length"] = String(st.size);
 	if (req.method === "HEAD") {
-		res.end();
-		return;
+		return new Response(null, { status: 200, headers });
 	}
-	createReadStream(file).pipe(res);
+	return new Response(Bun.file(file), { status: 200, headers });
 }
 
 const gzip = promisify(zlib.gzip);
@@ -507,11 +501,11 @@ async function gzipped(file: string, st: Stats): Promise<Buffer> {
 	return body;
 }
 
-function notModified(req: IncomingMessage, etag: string, mtime: Date): boolean {
-	const inm = req.headers["if-none-match"];
+function notModified(req: Request, etag: string, mtime: Date): boolean {
+	const inm = req.headers.get("if-none-match");
 	const strip = (t: string) => t.trim().replace(/^W\//, "");
 	if (inm) return inm.trim() === "*" || inm.split(",").some((t) => strip(t) === strip(etag));
-	const ims = req.headers["if-modified-since"];
+	const ims = req.headers.get("if-modified-since");
 	if (ims) {
 		const since = Date.parse(ims);
 		return Number.isFinite(since) && Math.floor(mtime.getTime() / 1000) * 1000 <= since;
@@ -550,87 +544,88 @@ const tiles = createTileService({
 	onNewMap: (game) => api.recordGameRequest(game),
 });
 
-const httpHandler = async (req: IncomingMessage, res: ServerResponse) => {
-	try {
-		const parsed = parseUrl(req.url);
-		if (!parsed) return send(res, 400, "bad request");
-		const { url, pathname: p } = parsed;
-		const offlinePack = /^\/api\/maps\/([^/]+)\/([^/]+)\/offline-pack$/.exec(p);
-		if (offlinePack) {
-			if (req.method !== "GET" && req.method !== "HEAD") return send(res, 405, "method not allowed");
-			await streamOfflinePack(
-				req,
-				res,
-				PUBLIC,
-				path.join(REPO, "cache", "tiles"),
-				offlinePack[1],
-				offlinePack[2],
-			);
-			return;
-		}
-
-		if (p.startsWith("/api/")) {
-			const handled = await api.handle(req, res, url);
-			if (handled === false)
-				send(res, 404, '{"error":"not found"}', "application/json; charset=utf-8", {
-					"Cache-Control": "no-store",
-				});
-			return;
-		}
-		if (req.method !== "GET" && req.method !== "HEAD") return send(res, 405, "method not allowed");
-
-		const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
-		if (card) return await shareCard(req, res, card[1], card[2], Number(card[3]));
-
-		const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
-		if (tmCard) return await sharedMarkerCard(req, res, tmCard[1], url.searchParams.get("tm") || "");
-
-		const page = /^\/maps\/([^/]+)(?:\/|\/index\.html)?$/.exec(p);
-		if (page && page[1] !== "index.json" && page[1] !== "map.html") {
-			const gameList = await games();
-			const match = gameList.find((x) => x.slug === page[1]);
-			if (match) {
-				if (!p.endsWith("/") && !p.endsWith("/index.html")) {
-					res.writeHead(301, { Location: `/maps/${encodeURI(page[1])}/${url.search}` });
-					res.end();
-					return;
-				}
-				const tm = url.searchParams.get("tm");
-				if (tm && (await sharedMarkerPage(req, res, page[1], tm))) return;
-				const loc = url.searchParams.get("loc");
-				if (loc && /^\d+$/.test(loc)) {
-					const map = url.searchParams.get("map") || "";
-					if (await sharePage(req, res, page[1], map, Number(loc))) return;
-				}
-				await gamePage(req, res, page[1]);
-				return;
-			}
-		}
-
-		const tile = /^\/maps\/([^/]+)\/([^/]+)\/tiles\/([^/]+)\/(.+)$/.exec(p);
-		if (tile && (await tiles.serve(req, res, tile[1], tile[2], tile[3], tile[4]))) return;
-
-		return await serveStatic(req, res, p, url.search);
-	} catch (e) {
-		console.error(e);
-		if (!res.headersSent) send(res, 500, "server error");
-		else res.end();
-	}
-};
-
-const bridge = nodeBridge(httpHandler);
-
 const server = Bun.serve({
 	port: PORT,
 	hostname: HOST,
-	fetch(req, bunServer) {
+	async fetch(req, bunServer) {
 		const url = new URL(req.url);
 		if (url.pathname === "/api/ws") {
 			const rejected = api.upgrade(req, bunServer);
 			if (rejected) return rejected;
 			return;
 		}
-		return bridge(req);
+
+		try {
+			const parsed = parseUrl(req.url);
+			if (!parsed) return send(400, "bad request");
+			const { url: reqUrl, pathname: p } = parsed;
+			const offlinePack = /^\/api\/maps\/([^/]+)\/([^/]+)\/offline-pack$/.exec(p);
+			if (offlinePack) {
+				if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
+				return await streamOfflinePack(
+					req,
+					PUBLIC,
+					path.join(REPO, "cache", "tiles"),
+					offlinePack[1],
+					offlinePack[2],
+				);
+			}
+
+			if (p.startsWith("/api/")) {
+				const res = await api.handle(req, reqUrl);
+				if (!res) {
+					return send(404, '{"error":"not found"}', "application/json; charset=utf-8", {
+						"Cache-Control": "no-store",
+					});
+				}
+				return res;
+			}
+
+			if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
+
+			const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
+			if (card) return await shareCard(req, card[1], card[2], Number(card[3]));
+
+			const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
+			if (tmCard) return await sharedMarkerCard(req, tmCard[1], reqUrl.searchParams.get("tm") || "");
+
+			const page = /^\/maps\/([^/]+)(?:\/|\/index\.html)?$/.exec(p);
+			if (page && page[1] !== "index.json" && page[1] !== "map.html") {
+				const gameList = await games();
+				const match = gameList.find((x) => x.slug === page[1]);
+				if (match) {
+					if (!p.endsWith("/") && !p.endsWith("/index.html")) {
+						return new Response(null, {
+							status: 301,
+							headers: { Location: `/maps/${encodeURI(page[1])}/${reqUrl.search}` },
+						});
+					}
+					const tm = reqUrl.searchParams.get("tm");
+					if (tm) {
+						const res = await sharedMarkerPage(req, page[1], tm);
+						if (res) return res;
+					}
+					const loc = reqUrl.searchParams.get("loc");
+					if (loc && /^\d+$/.test(loc)) {
+						const map = reqUrl.searchParams.get("map") || "";
+						const res = await sharePage(req, page[1], map, Number(loc));
+						if (res) return res;
+					}
+					return await gamePage(req, page[1]);
+				}
+			}
+
+			const tile = /^\/maps\/([^/]+)\/([^/]+)\/tiles\/([^/]+)\/(.+)$/.exec(p);
+			if (tile) {
+				const tileRes = await tiles.serve(req, tile[1], tile[2], tile[3], tile[4]);
+				if (tileRes) return tileRes;
+			}
+
+			return await serveStatic(req, p, reqUrl.search);
+		} catch (e) {
+			console.error(e);
+			return send(500, "server error");
+		}
 	},
 	websocket: api.websocket,
 });
