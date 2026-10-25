@@ -428,4 +428,27 @@ describe("server/api and server/ws integration", () => {
 			expect(item.contentType.length).toBeGreaterThan(0);
 		}
 	});
+
+	test("bun:sqlite driver integration, db.transaction, and atomic rollback", async () => {
+		expect(api._db.constructor.name).toBe("Database");
+
+		// Test transaction commit and rollback directly on db.transaction
+		const txSuccess = api._db.transaction((tableName: string) => {
+			api._db
+				.prepare("INSERT INTO game_popularity (game, requests, last_requested) VALUES (?, 10, 1000)")
+				.run(tableName);
+		});
+		txSuccess.immediate("test-game-1");
+		expect(api.gamePopularity().get("test-game-1")).toBe(10);
+
+		// Rollback on throw
+		const txFail = api._db.transaction(() => {
+			api._db
+				.prepare("INSERT INTO game_popularity (game, requests, last_requested) VALUES (?, 20, 2000)")
+				.run("test-game-2");
+			throw new Error("aborted transaction");
+		});
+		expect(() => txFail.immediate()).toThrow("aborted transaction");
+		expect(api.gamePopularity().get("test-game-2")).toBeUndefined();
+	});
 });

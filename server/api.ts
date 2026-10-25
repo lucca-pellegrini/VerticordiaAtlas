@@ -11,10 +11,10 @@
 // Sync: each item (a profile, or a map's presets or view) is stored whole, with a server timestamp. A client sends the
 // timestamp it last saw ("base"); if the server has something newer, the client is told so and decides what to keep.
 
+import { Database } from "bun:sqlite";
 import crypto from "node:crypto";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
-import { DatabaseSync } from "node:sqlite";
 
 import type { ServerWebSocket } from "bun";
 import { adjectives, animals, colors, uniqueNamesGenerator } from "unique-names-generator";
@@ -84,7 +84,7 @@ export function createApi({
 	googleCertsUrl = process.env.GOOGLE_CERTS_URL || "https://www.googleapis.com/oauth2/v3/certs",
 }: ApiOptions) {
 	mkdirSync(path.join(root, "data"), { recursive: true });
-	const db = new DatabaseSync(path.join(root, "data", "atlas.db"));
+	const db = new Database(path.join(root, "data", "atlas.db"), { create: true });
 	db.exec(`
     PRAGMA journal_mode = WAL;
     PRAGMA foreign_keys = ON;
@@ -331,45 +331,43 @@ export function createApi({
 		}
 		return true;
 	}
-	function syncPush(userId: string, items: SyncItem[]): SyncPushResult[] {
-		const get = db.prepare("SELECT value, updated_at FROM user_data WHERE user_id = ? AND key = ?");
-		const put = db.prepare(`INSERT INTO user_data (user_id, key, value, updated_at) VALUES (?, ?, ?, ?)
+	const getSyncData = db.prepare("SELECT value, updated_at FROM user_data WHERE user_id = ? AND key = ?");
+	const putSyncData = db.prepare(`INSERT INTO user_data (user_id, key, value, updated_at) VALUES (?, ?, ?, ?)
                             ON CONFLICT (user_id, key) DO UPDATE SET value = excluded.value, updated_at = excluded.updated_at`);
+	const pushTransaction = db.transaction((userId: string, items: SyncItem[]): SyncPushResult[] => {
 		const results: SyncPushResult[] = [];
-		db.exec("BEGIN IMMEDIATE");
-		try {
-			for (const it of items) {
-				const cur = get.get(userId, it.key) as { value: string | null; updated_at: number } | undefined;
-				const base = Number.isFinite(it.base) ? Number(it.base) : 0;
-				if (cur) {
-					const curValue = cur.value === null ? null : JSON.parse(cur.value);
-					if (sendKey(it.key, curValue) === sendKey(it.key, it.value)) {
-						// nothing to store: the device is simply up to date
-						results.push({ key: it.key, status: "ok", updated_at: cur.updated_at, same: true });
-						continue;
-					}
+		for (const it of items) {
+			const cur = getSyncData.get(userId, it.key) as
+				{ value: string | null; updated_at: number } | null | undefined;
+			const base = Number.isFinite(it.base) ? Number(it.base) : 0;
+			if (cur) {
+				const curValue = cur.value === null ? null : JSON.parse(cur.value);
+				if (sendKey(it.key, curValue) === sendKey(it.key, it.value)) {
+					// nothing to store: the device is simply up to date
+					results.push({ key: it.key, status: "ok", updated_at: cur.updated_at, same: true });
+					continue;
 				}
-				if (cur && cur.updated_at > base) {
-					const curValue = cur.value === null ? null : JSON.parse(cur.value);
-					// newer on the server, but the same content: only the position differs, so the newer position simply wins
-					if (contentKey(it.key, curValue) !== contentKey(it.key, it.value)) {
-						results.push({ key: it.key, status: "conflict", value: curValue, updated_at: cur.updated_at });
-						continue;
-					}
-				}
-				// server time orders the writes; it always moves forward for a key
-				let t = now();
-				if (cur && t <= cur.updated_at) t = cur.updated_at + 1;
-				const value = it.value === null ? null : JSON.stringify(it.value);
-				put.run(userId, it.key, value, t);
-				results.push({ key: it.key, status: "ok", updated_at: t });
 			}
-			db.exec("COMMIT");
-		} catch (e) {
-			db.exec("ROLLBACK");
-			throw e;
+			if (cur && cur.updated_at > base) {
+				const curValue = cur.value === null ? null : JSON.parse(cur.value);
+				// newer on the server, but the same content: only the position differs, so the newer position simply wins
+				if (contentKey(it.key, curValue) !== contentKey(it.key, it.value)) {
+					results.push({ key: it.key, status: "conflict", value: curValue, updated_at: cur.updated_at });
+					continue;
+				}
+			}
+			// server time orders the writes; it always moves forward for a key
+			let t = now();
+			if (cur && t <= cur.updated_at) t = cur.updated_at + 1;
+			const value = it.value === null ? null : JSON.stringify(it.value);
+			putSyncData.run(userId, it.key, value, t);
+			results.push({ key: it.key, status: "ok", updated_at: t });
 		}
 		return results;
+	});
+
+	function syncPush(userId: string, items: SyncItem[]): SyncPushResult[] {
+		return pushTransaction.immediate(userId, items);
 	}
 	const syncPull = (userId: string): SyncItem[] =>
 		(
@@ -659,17 +657,13 @@ export function createApi({
 				if (existing) throw httpError(409, "this secret key is already registered");
 				const id = crypto.randomUUID();
 				const displayName = secretName(secretHash);
-				db.exec("BEGIN");
-				try {
+				const createSecretAccount = db.transaction((userId: string, name: string, hash: string) => {
 					db.prepare(
 						"INSERT INTO users (id, provider, display_name, created_at) VALUES (?, 'secret', ?, ?)",
-					).run(id, displayName, now());
-					db.prepare("INSERT INTO secret_accounts (user_id, secret_hash) VALUES (?, ?)").run(id, secretHash);
-					db.exec("COMMIT");
-				} catch (e) {
-					db.exec("ROLLBACK");
-					throw e;
-				}
+					).run(userId, name, now());
+					db.prepare("INSERT INTO secret_accounts (user_id, secret_hash) VALUES (?, ?)").run(userId, hash);
+				});
+				createSecretAccount(id, displayName, secretHash);
 				const sessionCookie = startSession(req, id);
 				const headers = new Headers();
 				headers.append("Set-Cookie", sessionCookie);
