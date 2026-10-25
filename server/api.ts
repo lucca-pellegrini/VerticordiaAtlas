@@ -16,14 +16,13 @@ import { mkdirSync } from "node:fs";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
-import type { Duplex } from "node:stream";
 
+import type { ServerWebSocket } from "bun";
 import { adjectives, animals, colors, uniqueNamesGenerator } from "unique-names-generator";
 
 import { encodeSecret, formatSecret, normalizeSecret, validateSecretKey } from "../src/shared/secret-key.ts";
 import { contentKey, sendKey } from "../src/shared/sync-rules.ts";
 import type { SyncItem, SyncPushResult, UserAccount } from "../src/shared/types.ts";
-import { acceptWebSocket, type WebSocketConn } from "./ws.ts";
 
 export { normalizeSecret, validateSecretKey };
 
@@ -72,10 +71,10 @@ interface SessionInfo {
 	expiresAt: number;
 }
 
-interface SocketEntry {
-	ws: WebSocketConn;
-	client: string;
+export interface WsData {
+	userId: string;
 	tokenHash: string;
+	client: string;
 }
 
 export function createApi({
@@ -222,14 +221,15 @@ export function createApi({
 			return v;
 		}
 	};
-	const cookies = (req: IncomingMessage): Record<string, string> =>
+	const parseCookies = (header: string): Record<string, string> =>
 		Object.fromEntries(
-			String(req.headers.cookie || "")
+			String(header || "")
 				.split(";")
 				.map((c) => c.trim().split("="))
 				.filter((p): p is [string, string] => p.length === 2)
 				.map(([k, v]) => [k, unescapeCookie(v)]),
 		);
+	const cookies = (req: IncomingMessage): Record<string, string> => parseCookies(req.headers.cookie || "");
 	const cookieHeader = (req: IncomingMessage, value: string, maxAge: number): string =>
 		`${COOKIE}=${encodeURIComponent(value)}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAge}${secure(req) ? "; Secure" : ""}`;
 
@@ -245,8 +245,7 @@ export function createApi({
 	});
 
 	/* ---------- sessions ---------- */
-	function sessionFrom(req: IncomingMessage): SessionInfo | null {
-		const token = cookies(req)[COOKIE];
+	function sessionFromToken(token: string): SessionInfo | null {
 		if (!token) return null;
 		const row = db
 			.prepare(
@@ -261,6 +260,9 @@ export function createApi({
 			return null;
 		}
 		return { token, user: publicUser(row), tokenHash: String(row.token_hash), expiresAt: Number(row.expires_at) };
+	}
+	function sessionFrom(req: IncomingMessage): SessionInfo | null {
+		return sessionFromToken(cookies(req)[COOKIE]);
 	}
 	// sliding expiry: a session close to its end is extended, and the cookie with it
 	function touch(req: IncomingMessage, res: ServerResponse, session: SessionInfo) {
@@ -397,15 +399,15 @@ export function createApi({
 	/* ---------- the routes ---------- */
 	/* ---------- live updates: a WebSocket per signed-in device, told when another device pushed ---------- */
 	const MAX_SOCKETS_PER_USER = 8;
-	const sockets = new Map<string, Set<SocketEntry>>(); // user id -> Set of { ws, client, tokenHash }
+	const sockets = new Map<string, Set<ServerWebSocket<WsData>>>(); // user id -> Set of ServerWebSocket<WsData>
 
 	function announce(userId: string, exceptClient: string) {
-		for (const c of sockets.get(userId) || [])
-			if (!exceptClient || c.client !== exceptClient) c.ws.send('{"type":"changed"}');
+		for (const ws of sockets.get(userId) || [])
+			if (!exceptClient || ws.data.client !== exceptClient) ws.send('{"type":"changed"}');
 	}
-	function dropSockets(match: (c: SocketEntry) => boolean) {
+	function dropSockets(match: (ws: ServerWebSocket<WsData>) => boolean) {
 		// sign-out: the sockets it belonged to go too
-		for (const set of sockets.values()) for (const c of [...set]) if (match(c)) c.ws.close(4401, "signed out");
+		for (const set of sockets.values()) for (const ws of [...set]) if (match(ws)) ws.close(4401, "signed out");
 	}
 	const sessionAlive = (tokenHash: string): boolean => {
 		const row = db.prepare("SELECT expires_at FROM sessions WHERE token_hash = ?").get(tokenHash) as
@@ -413,32 +415,53 @@ export function createApi({
 		return !!row && row.expires_at > now();
 	};
 
-	function upgrade(req: IncomingMessage, socket: Duplex, head: Buffer, url: URL) {
-		const refuse = (code: number, text: string) => {
-			try {
-				socket.end(`HTTP/1.1 ${code} ${text}\r\nConnection: close\r\nContent-Length: 0\r\n\r\n`);
-			} catch {
-				/* gone */
+	const heartbeatTimer = setInterval(() => {
+		for (const [userId, set] of sockets) {
+			for (const ws of [...set]) {
+				if (!sessionAlive(ws.data.tokenHash)) {
+					set.delete(ws);
+					ws.close(4401, "signed out");
+				}
 			}
-		};
-		try {
-			return upgradeChecked(req, socket, head, url, refuse);
-		} catch (e: any) {
-			dbg("upgrade: refused after an error: " + e.message);
-			refuse(400, "Bad Request");
+			if (!set.size) sockets.delete(userId);
 		}
-	}
-	function upgradeChecked(
-		req: IncomingMessage,
-		socket: Duplex,
-		head: Buffer,
-		url: URL,
-		refuse: (code: number, text: string) => void,
-	) {
-		if (url.pathname !== "/api/ws" || String(req.headers.upgrade || "").toLowerCase() !== "websocket")
-			return refuse(400, "Bad Request");
+	}, 25_000);
+	heartbeatTimer.unref();
+
+	const websocket = {
+		open(ws: ServerWebSocket<WsData>) {
+			const { userId } = ws.data;
+			const set = sockets.get(userId) || new Set<ServerWebSocket<WsData>>();
+			sockets.set(userId, set);
+			set.add(ws);
+			while (set.size > MAX_SOCKETS_PER_USER) {
+				const oldest = set.values().next().value!;
+				set.delete(oldest);
+				oldest.close(1008, "too many connections"); // the oldest goes
+			}
+			ws.send('{"type":"hello"}');
+		},
+		message() {
+			// clients have nothing to say beyond proving they are alive
+		},
+		close(ws: ServerWebSocket<WsData>) {
+			const { userId } = ws.data;
+			const set = sockets.get(userId);
+			if (set) {
+				set.delete(ws);
+				if (!set.size) sockets.delete(userId);
+			}
+		},
+	};
+
+	function upgrade(
+		req: Request,
+		server: { upgrade: (req: Request, options?: { data?: WsData }) => boolean },
+	): Response | undefined {
+		const url = new URL(req.url);
+		if (url.pathname !== "/api/ws") return new Response("Bad Request", { status: 400 });
 		// a page on another site must not be able to open this socket with the visitor's cookie
-		const origin = req.headers.origin;
+		const origin = req.headers.get("origin");
 		if (origin) {
 			let host: string | null = null;
 			try {
@@ -446,35 +469,28 @@ export function createApi({
 			} catch {
 				/* malformed */
 			}
-			const hosts = [req.headers.host, ...String(req.headers["x-forwarded-host"] || "").split(",")]
+			const hosts = [req.headers.get("host"), ...String(req.headers.get("x-forwarded-host") || "").split(",")]
 				.map((h) => String(h || "").trim())
 				.filter(Boolean);
-			if (!host || !hosts.includes(host)) return refuse(403, "Forbidden");
+			if (!host || !hosts.includes(host)) return new Response("Forbidden", { status: 403 });
 		}
-		const session = sessionFrom(req);
-		if (!session) return refuse(401, "Unauthorized");
-		const row = db.prepare("SELECT user_id FROM sessions WHERE token_hash = ?").get(session.tokenHash) as {
-			user_id: string;
-		};
+		const cookieHdr = req.headers.get("cookie") || "";
+		const token = parseCookies(cookieHdr)[COOKIE];
+		if (!token) return new Response("Unauthorized", { status: 401 });
+		const session = sessionFromToken(token);
+		if (!session) return new Response("Unauthorized", { status: 401 });
+		const row = db.prepare("SELECT user_id FROM sessions WHERE token_hash = ?").get(session.tokenHash) as
+			| {
+					user_id: string;
+			  }
+			| undefined;
+		if (!row) return new Response("Unauthorized", { status: 401 });
 		const userId = row.user_id;
-		const ws = acceptWebSocket(req, socket, head);
-		if (!ws) return refuse(400, "Bad Request");
 		const client = String(url.searchParams.get("c") || "").slice(0, 64);
-		const entry: SocketEntry = { ws, client, tokenHash: session.tokenHash };
-		const set = sockets.get(userId) || new Set<SocketEntry>();
-		sockets.set(userId, set);
-		set.add(entry);
-		while (set.size > MAX_SOCKETS_PER_USER) {
-			const oldest = set.values().next().value!;
-			set.delete(oldest);
-			oldest.ws.close(1008, "too many connections"); // the oldest goes
-		}
-		ws.onHeartbeat(() => sessionAlive(session.tokenHash));
-		ws.onClose(() => {
-			set.delete(entry);
-			if (!set.size) sockets.delete(userId);
+		const upgraded = server.upgrade(req, {
+			data: { userId, tokenHash: session.tokenHash, client },
 		});
-		ws.send('{"type":"hello"}');
+		if (!upgraded) return new Response("Bad Request", { status: 400 });
 	}
 
 	async function handle(req: IncomingMessage, res: ServerResponse, url: URL): Promise<boolean | void> {
@@ -686,7 +702,7 @@ export function createApi({
 				const session = sessionFrom(req);
 				if (session) {
 					db.prepare("DELETE FROM sessions WHERE token_hash = ?").run(session.tokenHash);
-					dropSockets((c) => c.tokenHash === session.tokenHash);
+					dropSockets((ws) => ws.data.tokenHash === session.tokenHash);
 				}
 				res.setHeader("Set-Cookie", cookieHeader(req, "", 0));
 				return json(res, 200, { ok: true });
@@ -700,7 +716,7 @@ export function createApi({
 				};
 				const userId = row.user_id;
 				db.prepare("DELETE FROM sessions WHERE user_id = ?").run(userId);
-				for (const c of [...(sockets.get(userId) || [])]) c.ws.close(4401, "signed out");
+				for (const ws of [...(sockets.get(userId) || [])]) ws.close(4401, "signed out");
 				res.setHeader("Set-Cookie", cookieHeader(req, "", 0));
 				return json(res, 200, { ok: true });
 			}
@@ -709,7 +725,7 @@ export function createApi({
 				const session = sessionFrom(req);
 				if (!session) throw httpError(401, "not signed in");
 				const userId = session.user.id;
-				for (const c of [...(sockets.get(userId) || [])]) c.ws.close(4401, "account deleted");
+				for (const ws of [...(sockets.get(userId) || [])]) ws.close(4401, "account deleted");
 				sockets.delete(userId);
 				db.prepare("DELETE FROM users WHERE id = ?").run(userId);
 				res.setHeader("Set-Cookie", cookieHeader(req, "", 0));
@@ -774,9 +790,11 @@ export function createApi({
 	return {
 		handle,
 		upgrade,
+		websocket,
 		recordGameRequest,
 		gamePopularity,
 		close: () => {
+			clearInterval(heartbeatTimer);
 			clearInterval(sweepTimer);
 			db.close();
 		},

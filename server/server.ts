@@ -23,16 +23,15 @@ import crypto from "node:crypto";
 import { createReadStream, readFileSync } from "node:fs";
 import type { Stats } from "node:fs";
 import { readdir, readFile, stat, unlink } from "node:fs/promises";
-import http from "node:http";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import path from "node:path";
-import type { Duplex } from "node:stream";
 import { promisify } from "node:util";
 import zlib from "node:zlib";
 
 import { buildClient } from "../scripts/build.ts";
 import { unpackMarker } from "../src/shared/share-link.ts";
 import { createApi } from "./api.ts";
+import { nodeBridge } from "./bridge.ts";
 import {
 	categoryIcon,
 	chromePath,
@@ -551,7 +550,7 @@ const tiles = createTileService({
 	onNewMap: (game) => api.recordGameRequest(game),
 });
 
-const server = http.createServer(async (req, res) => {
+const httpHandler = async (req: IncomingMessage, res: ServerResponse) => {
 	try {
 		const parsed = parseUrl(req.url);
 		if (!parsed) return send(res, 400, "bad request");
@@ -617,19 +616,23 @@ const server = http.createServer(async (req, res) => {
 		if (!res.headersSent) send(res, 500, "server error");
 		else res.end();
 	}
+};
+
+const bridge = nodeBridge(httpHandler);
+
+const server = Bun.serve({
+	port: PORT,
+	hostname: HOST,
+	fetch(req, bunServer) {
+		const url = new URL(req.url);
+		if (url.pathname === "/api/ws") {
+			const rejected = api.upgrade(req, bunServer);
+			if (rejected) return rejected;
+			return;
+		}
+		return bridge(req);
+	},
+	websocket: api.websocket,
 });
 
-server.on("upgrade", (req: IncomingMessage, socket: Duplex, head: Buffer) => {
-	socket.on("error", () => socket.destroy());
-	try {
-		const parsed = parseUrl(req.url);
-		if (parsed?.pathname === "/api/ws") return api.upgrade(req, socket, head, parsed.url);
-	} catch (e) {
-		console.error(e);
-	}
-	socket.destroy();
-});
-
-server.listen(PORT, HOST, () => {
-	console.log(`Verticordia Atlas on http://${HOST}:${PORT}/`);
-});
+console.log(`Verticordia Atlas on http://${HOST}:${PORT}/`);

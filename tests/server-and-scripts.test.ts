@@ -11,6 +11,7 @@ import { deriveTheme, extractVar, tilesCovering } from "../scripts/add-game.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
 import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
 import { createApi, secretName } from "../server/api.ts";
+import { nodeBridge } from "../server/bridge.ts";
 import {
 	deriveLightTheme,
 	esc,
@@ -212,13 +213,13 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 describe("server/api and server/ws integration", () => {
 	let tmpDir: string;
 	let api: ReturnType<typeof createApi>;
-	let server: http.Server;
+	let server: any;
 	let baseUrl: string;
 
 	beforeEach(async () => {
 		tmpDir = await mkdtemp(path.join(os.tmpdir(), "atlas-test-"));
 		api = createApi({ root: tmpDir, googleClientId: "test-google-client-id", publicUrl: "http://127.0.0.1" });
-		server = http.createServer(async (req, res) => {
+		const bridge = nodeBridge(async (req, res) => {
 			const url = new URL(req.url || "/", "http://127.0.0.1");
 			const handled = await api.handle(req, res, url);
 			if (handled === false) {
@@ -226,18 +227,25 @@ describe("server/api and server/ws integration", () => {
 				res.end();
 			}
 		});
-		server.on("upgrade", (req, socket, head) => {
-			const url = new URL(req.url || "/", "http://127.0.0.1");
-			api.upgrade(req, socket, head, url);
+		server = Bun.serve({
+			port: 0,
+			hostname: "127.0.0.1",
+			fetch(req, s) {
+				const url = new URL(req.url);
+				if (url.pathname === "/api/ws") {
+					const rejected = api.upgrade(req, s);
+					if (rejected) return rejected;
+					return;
+				}
+				return bridge(req);
+			},
+			websocket: api.websocket,
 		});
-		await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
-		const addr = server.address() as { port: number };
-		baseUrl = `http://127.0.0.1:${addr.port}`;
+		baseUrl = `http://127.0.0.1:${server.port}`;
 	});
 
 	afterEach(async () => {
-		server.closeAllConnections?.();
-		await new Promise<void>((resolve) => server.close(() => resolve()));
+		server.stop(true);
 		api.close();
 		await rm(tmpDir, { recursive: true, force: true });
 	});

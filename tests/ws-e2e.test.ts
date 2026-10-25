@@ -3,11 +3,11 @@
 
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import { mkdtemp, rm } from "node:fs/promises";
-import http from "node:http";
 import os from "node:os";
 import path from "node:path";
 
 import { createApi } from "../server/api.ts";
+import { nodeBridge } from "../server/bridge.ts";
 
 interface TestWsClient {
 	ws: WebSocket;
@@ -105,14 +105,14 @@ function connectWs(
 describe("WebSocket e2e tests (/api/ws)", () => {
 	let tmpDir: string;
 	let api: ReturnType<typeof createApi>;
-	let server: http.Server;
+	let server: any;
 	let baseUrl: string;
 	let wsBaseUrl: string;
 
 	beforeEach(async () => {
 		tmpDir = await mkdtemp(path.join(os.tmpdir(), "atlas-ws-test-"));
 		api = createApi({ root: tmpDir, publicUrl: "http://127.0.0.1" });
-		server = http.createServer(async (req, res) => {
+		const bridge = nodeBridge(async (req, res) => {
 			const url = new URL(req.url || "/", "http://127.0.0.1");
 			const handled = await api.handle(req, res, url);
 			if (handled === false) {
@@ -120,19 +120,26 @@ describe("WebSocket e2e tests (/api/ws)", () => {
 				res.end();
 			}
 		});
-		server.on("upgrade", (req, socket, head) => {
-			const url = new URL(req.url || "/", "http://127.0.0.1");
-			api.upgrade(req, socket, head, url);
+		server = Bun.serve({
+			port: 0,
+			hostname: "127.0.0.1",
+			fetch(req, s) {
+				const url = new URL(req.url);
+				if (url.pathname === "/api/ws") {
+					const rejected = api.upgrade(req, s);
+					if (rejected) return rejected;
+					return;
+				}
+				return bridge(req);
+			},
+			websocket: api.websocket,
 		});
-		await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
-		const addr = server.address() as { port: number };
-		baseUrl = `http://127.0.0.1:${addr.port}`;
-		wsBaseUrl = `ws://127.0.0.1:${addr.port}`;
+		baseUrl = `http://127.0.0.1:${server.port}`;
+		wsBaseUrl = `ws://127.0.0.1:${server.port}`;
 	});
 
 	afterEach(async () => {
-		server.closeAllConnections?.();
-		await new Promise<void>((resolve) => server.close(() => resolve()));
+		server.stop(true);
 		api.close();
 		await rm(tmpDir, { recursive: true, force: true });
 	});
