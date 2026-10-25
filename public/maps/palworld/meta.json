@@ -1,0 +1,249 @@
+{
+	"id": "palworld",
+	"title": "Palworld",
+	"slug": "palworld",
+	"source": "https://mapgenie.io/palworld",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"tree": [
+				{
+					"cp": "e900"
+				}
+			],
+			"treasure_map_dig_spot": [
+				{
+					"cp": "e901"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e902"
+				}
+			],
+			"syndicate_tower": [
+				{
+					"cp": "e903"
+				}
+			],
+			"supply_drop": [
+				{
+					"cp": "e904"
+				}
+			],
+			"statue_of_power": [
+				{
+					"cp": "e905"
+				}
+			],
+			"skill_fruit_tree": [
+				{
+					"cp": "e906"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e907"
+				}
+			],
+			"sealed_realm": [
+				{
+					"cp": "e908"
+				}
+			],
+			"respawn_point": [
+				{
+					"cp": "e909"
+				}
+			],
+			"predator_pal": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"pal_sphere": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"pal_merchant": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"pal": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e910"
+				}
+			],
+			"mining_site": [
+				{
+					"cp": "e911"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e912"
+				}
+			],
+			"memo": [
+				{
+					"cp": "e913"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e914"
+				}
+			],
+			"locked_chest": [
+				{
+					"cp": "e915"
+				}
+			],
+			"location": [
+				{
+					"cp": "e916"
+				}
+			],
+			"lifmunk_effigy": [
+				{
+					"cp": "e917"
+				}
+			],
+			"hexolite_quartz": [
+				{
+					"cp": "e918"
+				}
+			],
+			"fishing_spot": [
+				{
+					"cp": "e919"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"enemy_camp": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"elemental_chest": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"egg": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"dog_coin": [
+				{
+					"cp": "e920"
+				}
+			],
+			"crude_oil": [
+				{
+					"cp": "e921"
+				}
+			],
+			"collectible_1": [
+				{
+					"cp": "e922"
+				}
+			],
+			"chromite": [
+				{
+					"cp": "e923"
+				}
+			],
+			"captured_pal": [
+				{
+					"cp": "e924"
+				}
+			],
+			"bounty_npc": [
+				{
+					"cp": "e925"
+				}
+			],
+			"bounty": [
+				{
+					"cp": "e926"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e927"
+				}
+			],
+			"biome_boss": [
+				{
+					"cp": "e928"
+				}
+			],
+			"alpha_pal": [
+				{
+					"cp": "e929"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "palpagos-islands",
+			"title": "Palpagos Islands",
+			"data": "palpagos-islands/data.json",
+			"tilesets": [
+				{
+					"name": "1.0",
+					"template": "palpagos-islands/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#0d161f"
+				}
+			]
+		}
+	]
+}

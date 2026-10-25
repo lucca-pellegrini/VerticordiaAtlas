@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // add-game.ts: add (or refresh) a MapGenie game from just its link.
 //
 //   bun scripts/add-game.ts https://mapgenie.io/<game> [options]
@@ -29,7 +33,9 @@
 //                        cannot be read from the page
 //   --map-url <template> where a map lives, with {map} for its slug, e.g. https://fallout4map.com/maps/{map}. Only used
 //                        when the game page has no links to its maps
-//   --no-tiles --no-media --no-markers --no-icons
+//   --no-tiles --no-media --no-markers --no-icons --no-clean-markers
+//   --no-optimize        keep the tiles as downloaded: no overview is made, and single-colour tiles are not linked
+//                        (what prune-tiles.ts does afterwards, for any game; run it by hand later if you skip it here)
 //   --icons-only         only (re)fetch the sidebar icons of a game that was already added, and update its meta.json
 //   --no-cards           don't rebuild the social preview cards (make-cards.ts) at the end
 //   --html <file>        read the map page from a saved file instead of fetching it
@@ -37,8 +43,9 @@
 //   --tiles-base <url>   tile CDN base (default https://tiles.mapgenie.io/games)
 //   --media-base <url>   marker CDN base (default https://media.mapgenie.io/v2/assets/prod/games)
 //   --concurrency <n> --delay <ms> --max-tiles <n>
-//   --force-get-tiles <map>  fetch every tile of that map inside its bounds, not only the ones under a tile that
-//                        exists (repeatable; slow: use it for a map whose tiles have gaps, e.g. Solstheim)
+//   --force-get-tiles <map>  fetch every tile of that map at every zoom, inside its bounds, not only the highest zoom (repeatable;
+//                        slow and big: use it for a map whose tiles have gaps at different places and zooms, e.g. Solstheim,
+//                        or any map that is not a perfect rectangle at the stored zoom)
 
 import { execFile } from "node:child_process";
 import { access, copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
@@ -47,8 +54,11 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs, promisify } from "node:util";
 import vm from "node:vm";
 
+import { splitTemplate } from "../server/tile-engine.ts";
 import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
+import { cleanGameMarkers } from "./clean-markers.ts";
+import { optimizeTileset } from "./prune-tiles.ts";
 
 const execFileP = promisify(execFile);
 
@@ -244,9 +254,9 @@ function boundsFor(md: any, ts: any): { bounds: [number, number, number, number]
 	};
 }
 
-/* ---------- tiles: crawl the pyramid top-down, 404 prunes (--force-get-tiles: every tile in the bounds, no pruning) ---------- */
+/* ---------- tiles: only the highest zoom is scraped; --force-get-tiles crawls every tile of every zoom, no pruning ---------- */
 
-async function downloadTiles({
+export async function downloadTiles({
 	md,
 	ts,
 	baseCandidates,
@@ -282,8 +292,22 @@ async function downloadTiles({
 	if (!base) throw new Error(`No tile found at zoom ${minZ} under: ${baseCandidates.join(", ")}. Try --tiles-base.`);
 
 	const stats = { saved: 0, skipped: 0, missing: 0, failed: 0, bytes: 0 };
+	// Only the highest zoom is scraped (--force-get-tiles takes the whole pyramid): the overview is made from it afterwards,
+	// and the zooms in between are made by the server when they are asked for (see server/tile-service.ts).
+	const maxOnly = !opts.unpruned;
+	const hasMaxBounds = Boolean(
+		ts.bounds &&
+		!Array.isArray(ts.bounds) &&
+		ts.bounds[maxZ]?.x &&
+		ts.bounds[maxZ]?.y &&
+		Number.isFinite(ts.bounds[maxZ].x.min) &&
+		Number.isFinite(ts.bounds[maxZ].x.max) &&
+		Number.isFinite(ts.bounds[maxZ].y.min) &&
+		Number.isFinite(ts.bounds[maxZ].y.max),
+	);
+	const startZ = maxOnly && hasMaxBounds ? maxZ : minZ;
 	let cands = first;
-	for (let z = minZ; z <= maxZ; z++) {
+	for (let z = startZ; z <= maxZ; z++) {
 		const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[z] : null;
 		if (
 			bz?.x &&
@@ -293,40 +317,46 @@ async function downloadTiles({
 			Number.isFinite(bz.y.min) &&
 			Number.isFinite(bz.y.max)
 		) {
-			if (z === minZ || opts.unpruned) {
+			if (z === startZ || opts.unpruned) {
 				cands = [];
 				for (let x = bz.x.min; x <= bz.x.max; x++)
 					for (let y = bz.y.min; y <= bz.y.max; y++) cands.push([x, y]);
 			} else {
 				cands = cands.filter(([x, y]) => x >= bz.x.min && x <= bz.x.max && y >= bz.y.min && y <= bz.y.max);
 			}
-		} else if (opts.unpruned) {
-			cands = tilesCovering(bounds, z, 0);
+		} else if (z === startZ || opts.unpruned) {
+			cands = z === minZ ? first : tilesCovering(bounds, z, 0);
 		}
-		if (stats.saved + stats.skipped + cands.length > opts.maxTiles) {
+		if ((!maxOnly || z === maxZ) && stats.saved + stats.skipped + cands.length > opts.maxTiles) {
 			console.log(`  stopping before zoom ${z}: would pass --max-tiles ${opts.maxTiles}`);
 			break;
 		}
+		const isScouting = maxOnly && z < maxZ;
 		const found: [number, number][] = [];
 		await pool(cands, opts.concurrency, async ([x, y]) => {
 			const file = path.join(destDir, fill(localTail, z, x, y));
 			if (await exists(file)) {
-				stats.skipped++;
+				if (!isScouting) stats.skipped++;
 				found.push([x, y]);
 				return;
 			}
 			const r = await getBin(fill(remote(base!), z, x, y));
 			if (r.status === 200 && r.type?.startsWith("image/") && r.buf) {
-				await mkdir(path.dirname(file), { recursive: true });
-				await writeFile(file, r.buf);
-				stats.saved++;
-				stats.bytes += r.buf.length;
+				if (!isScouting) {
+					await mkdir(path.dirname(file), { recursive: true });
+					await writeFile(file, r.buf);
+					stats.saved++;
+					stats.bytes += r.buf.length;
+				}
 				found.push([x, y]);
-			} else if (r.status === 0) stats.failed++;
-			else stats.missing++;
+			} else if (r.status === 0) {
+				if (!isScouting) stats.failed++;
+			} else {
+				if (!isScouting) stats.missing++;
+			}
 			if (opts.delay) await sleep(opts.delay);
 		});
-		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)`);
+		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)${isScouting ? " (scouting)" : ""}`);
 		if (!found.length && !opts.unpruned) break;
 		if (!opts.unpruned)
 			cands = found.flatMap(([x, y]): [number, number][] => [
@@ -759,6 +789,8 @@ async function main() {
 			"no-markers": { type: "boolean", default: false },
 			"no-cards": { type: "boolean", default: false },
 			"no-icons": { type: "boolean", default: false },
+			"no-clean-markers": { type: "boolean", default: false },
+			"no-optimize": { type: "boolean", default: false },
 			"icons-only": { type: "boolean", default: false },
 			html: { type: "string" },
 			mapdata: { type: "string" },
@@ -942,6 +974,16 @@ async function main() {
 	);
 
 	// 4. per map: data + tiles
+	if (!v["no-clean-markers"]) {
+		const cleaned = cleanGameMarkers(
+			maps.map((md, idx) => ({ slug: md.map?.slug || "map", isDefault: idx === 0, data: md })),
+		);
+		if (cleaned.linksCleaned > 0) {
+			console.log(
+				`markers: cleaned ${cleaned.linksCleaned} same-map link(s) across ${cleaned.locationsChanged} marker(s)`,
+			);
+		}
+	}
 	const tilesBases: string[] = [];
 	if (v["tiles-base"]) tilesBases.push(v["tiles-base"].replace(/\/$/, ""));
 	const cdn = extractVar(html, "tilesCdnUrl", (x) => typeof x === "string");
@@ -1085,6 +1127,24 @@ async function main() {
 		info.minzoom = r.minzoom;
 		info.maxzoom = r.maxzoom;
 		if (opts.maxZoom != null) info.maxzoom = Math.min(info.maxzoom ?? 99, opts.maxZoom);
+		// the overview (lowest zoom) from the highest, single-colour tiles as links, and the colour around the map.
+		// A forced map keeps the whole pyramid it was asked for; prune-tiles.ts can thin it out later.
+		const split = splitTemplate(info.template);
+		if (!v["no-optimize"] && !v["no-tiles"] && split) {
+			const o = await optimizeTileset({
+				dir: path.join(outDir, split.base),
+				tail: split.tail,
+				minZ: info.minzoom ?? 0,
+				maxZ: info.maxzoom ?? 0,
+				prune: false,
+				background: info.background,
+				concurrency: opts.concurrency,
+			});
+			console.log(
+				`  overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
+			);
+			if (o.background && !info.background) info.background = o.background;
+		}
 		await writeMeta();
 	}
 

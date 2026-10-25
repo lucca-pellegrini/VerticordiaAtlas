@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // legal.ts: marks the section you are reading in the navigator (aria-current), for the legal pages.
 // Without JavaScript the navigator is still a plain list of links to the sections.
 const links = new Map(

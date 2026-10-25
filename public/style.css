@@ -489,6 +489,34 @@ input[type="checkbox"]:active {
 	flex: none;
 	stroke-width: 1.9;
 }
+.side-offline-btn {
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.side-offline-btn[data-busy="1"]::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	width: var(--progress, 0%);
+	background: color-mix(in srgb, var(--accent) 32%, transparent);
+	border-radius: inherit;
+	transition: width 0.16s ease-out;
+	pointer-events: none;
+	z-index: 0;
+}
+.side-offline-btn > * {
+	position: relative;
+	z-index: 1;
+}
+.side-offline-btn .spinner {
+	width: 15px;
+	height: 15px;
+}
+.side-offline-btn[aria-pressed="true"] {
+	color: var(--accent-soft);
+}
 .side-more-menu hr {
 	border: 0;
 	border-top: 1px solid var(--line);

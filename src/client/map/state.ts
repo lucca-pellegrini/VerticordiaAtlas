@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // Shared map viewer state and core UI/math helpers.
 
 import { esc } from "../../shared/escape.ts";

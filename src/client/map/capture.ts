@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // capture.ts: screenshots of the map. A tap captures the whole visible map; a drag captures a rectangle (with an
 // optional fixed shape). The image is rendered at the highest zoom the tiles allow, stepping down one level at a
 // time until it fits in MAX_SIDE device pixels. Drawings are composited on top of the map; text notes and the

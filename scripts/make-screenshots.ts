@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // make-screenshots.ts: the screenshots listed in public/manifest.webmanifest, taken from a running site in headless
 // Chromium (driven over the DevTools protocol, so no npm dependency).
 //

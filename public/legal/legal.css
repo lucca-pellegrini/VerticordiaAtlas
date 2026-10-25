@@ -10,7 +10,7 @@ body {
 	min-height: 100vh;
 	min-height: 100dvh;
 	color: var(--ink);
-	font: 400 16px/1.7 Inter;
+	font: 400 16px/1.7 "Instrument Sans";
 	-webkit-font-smoothing: antialiased;
 }
 body {
@@ -79,7 +79,7 @@ body {
 	border-radius: 999px;
 	color: var(--ink-dim);
 	text-decoration: none;
-	font: 500 14px/1 Inter;
+	font: 500 14px/1 "Instrument Sans";
 	white-space: nowrap;
 	transition:
 		color 0.2s,

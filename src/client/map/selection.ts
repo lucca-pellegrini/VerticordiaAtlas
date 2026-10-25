@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 /* ---------- map tools: hand (move the map) and selection (box, ellipse, free) ----------
    A selection lives in map coordinates (so it moves and zooms with the map) and is not saved: it is
    forgotten on reload. Counting and marking use the markers that are currently rendered inside it. */

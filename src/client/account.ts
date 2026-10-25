@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // account.ts: optional sign-in for every page. It shows the account button (on the home page, and at the bottom of a
 // map's side panel), the offline indicator (only for signed-in users), and registers the offline cache.
 // Signing in never changes what the app does; it only lets progress sync between devices (see sync.ts).
@@ -5,8 +8,8 @@
 import { esc } from "../shared/escape.ts";
 import type { UserAccount } from "../shared/types.ts";
 
-const ROOT = new URL("./", import.meta.url);
-const SIGNED_IN_KEY = "va-account";
+const ROOT = new URL(/\/(signin|account)\/[^/]*$/.test(import.meta.url) ? "../" : "./", import.meta.url);
+export const SIGNED_IN_KEY = "va-account";
 
 // the server's API. A failure to reach it is thrown with network: true, so the caller can tell "offline" from "refused"
 export async function api(method: string, path: string, body?: unknown): Promise<any> {
@@ -45,6 +48,8 @@ export const currentUser = (): UserAccount | null => user;
 
 const ICON: Record<string, string> = {
 	user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>',
+	settings:
+		'<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>',
 	out: '<path d="M15 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/>',
 	all: '<rect x="3" y="4" width="13" height="10" rx="2"/><path d="M7 20h5M9 14v6M18 9h3v11h-3"/>',
 	cloudOff: '<path d="M3 3l18 18M8.5 8.6A6 6 0 0 0 6 19h11a4 4 0 0 0 1.4-7.7A6 6 0 0 0 12 6c-.7 0-1.4.1-2 .3"/>',
@@ -52,15 +57,20 @@ const ICON: Record<string, string> = {
 const svg = (name: string, cls = "i"): string =>
 	`<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICON[name]}</svg>`;
 
-export const signinUrl = (): string =>
-	new URL("signin/", ROOT).href + "?next=" + encodeURIComponent(location.pathname + location.search);
+const currentNextParam = (): string =>
+	typeof location !== "undefined" ? "?next=" + encodeURIComponent(location.pathname + location.search) : "";
 
-function menuMarkup(u: UserAccount): string {
+export const signinUrl = (): string => new URL("signin/", ROOT).href + currentNextParam();
+
+export const accountUrl = (): string => new URL("account/", ROOT).href + currentNextParam();
+
+export function menuMarkup(u: UserAccount): string {
 	return (
 		`<div class="acct" data-acct-menu>` +
 		`<button type="button" class="acct-btn" aria-haspopup="menu" aria-expanded="false">${svg("user")}<span>My Account</span></button>` +
 		`<div class="acct-menu" role="menu" hidden>` +
 		`<p class="acct-who">Signed in as:<strong>${esc(u.email || u.name || "your account")}</strong></p>` +
+		`<a role="menuitem" class="acct-item" href="${esc(accountUrl())}">${svg("settings")}<span>Account &amp; offline data</span></a>` +
 		`<button type="button" role="menuitem" data-act="logout">${svg("out")}<span>Log out</span></button>` +
 		`<button type="button" role="menuitem" data-act="logout-all" class="danger">${svg("all")}<span>Log out from all devices</span></button>` +
 		`</div></div>`
@@ -79,7 +89,7 @@ function renderAccount(): void {
 export function legalLinks(): HTMLDivElement {
 	const wrap = document.createElement("div");
 	wrap.className = "side-footer";
-	wrap.innerHTML = `<p class="legal-links"><a href="${new URL("about/", ROOT).pathname}">About</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("terms/", ROOT).pathname}">Terms of service</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("privacy/", ROOT).pathname}">Privacy policy</a></p><p class="foot-motto" lang="la"><em>Nisi Dominus frustra</em></p>`;
+	wrap.innerHTML = `<p class="legal-links"><a href="${new URL("account/", ROOT).pathname}">Account</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("about/", ROOT).pathname}">About</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("terms/", ROOT).pathname}">Terms of service</a><span class="sep" aria-hidden="true">·</span><a href="${new URL("privacy/", ROOT).pathname}">Privacy policy</a></p><p class="foot-motto" lang="la"><em>Nisi Dominus frustra</em></p>`;
 	return wrap;
 }
 
@@ -108,14 +118,16 @@ export async function loadAccount(): Promise<UserAccount | null> {
 	return user;
 }
 
-/* ---------- the offline indicator: small, and only for signed-in users ---------- */
+/* ---------- the offline indicator: small, fixed pill at the top ---------- */
 function indicator(): HTMLDivElement {
 	if (!netBox) {
 		netBox = document.createElement("div");
 		netBox.id = "net-status";
 		netBox.className = "net-status";
 		netBox.setAttribute("role", "status");
-		netBox.title = "Your progress is saved on this device and will sync when the connection returns";
+		netBox.title = user
+			? "Your progress is saved on this device and will sync when the connection returns"
+			: "You're offline. Saved maps and cached data remain available.";
 		netBox.hidden = true;
 		netBox.innerHTML = `${svg("cloudOff")}<span>Offline</span>`;
 		document.body.appendChild(netBox);
@@ -124,8 +136,12 @@ function indicator(): HTMLDivElement {
 }
 let warnedThisSession = false;
 export function setOnlineStatus(online: boolean): void {
+	if (typeof document === "undefined") return;
 	const box = indicator();
-	box.hidden = online || !user;
+	box.hidden = online;
+	box.title = user
+		? "Your progress is saved on this device and will sync when the connection returns"
+		: "You're offline. Saved maps and cached data remain available.";
 	if (!online && user && !warnedThisSession && !sessionStorage.getItem("va-offline-warned")) {
 		warnedThisSession = true;
 		sessionStorage.setItem("va-offline-warned", "1");
@@ -133,7 +149,7 @@ export function setOnlineStatus(online: boolean): void {
 	}
 }
 export function notify(msg: string, ms = 2600): void {
-	if (toastFn) return toastFn(msg, ms);
+	if (toastFn && toastFn !== notify) return toastFn(msg, ms);
 	const t = document.getElementById("toast");
 	if (!t) return;
 	t.textContent = msg;

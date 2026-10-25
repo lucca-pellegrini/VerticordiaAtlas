@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // Offline map viewer entrypoint. Orchestrates boot, account sync, and top-level event wiring.
 
 import { esc } from "../shared/escape.ts";
@@ -453,11 +456,22 @@ function wire(): void {
 		}
 		const um = target.closest<HTMLElement>("[data-um]");
 		if (um) return state.um.detailAction(um.dataset.um, state.selected);
+		const cross = target.closest<HTMLElement>("a[data-cross-loc]");
+		if (cross) {
+			e.preventDefault();
+			toast("This marker is on another map. Map switching on link follow is planned.", 4000);
+			return;
+		}
 		const a = target.closest<HTMLElement>("a[data-loc]");
 		if (a) {
 			e.preventDefault();
 			endPreview({ restore: false });
-			return select(Number(a.dataset.loc));
+			const id = Number(a.dataset.loc);
+			if (!state.byId.has(id)) {
+				toast("This marker is on another map. Map switching on link follow is planned.", 4000);
+				return;
+			}
+			return select(id);
 		}
 		const img = target.closest<HTMLImageElement>(".shots img");
 		if (img) {
@@ -486,6 +500,12 @@ function wire(): void {
 		} else document.body.classList.remove("side-open");
 	};
 	$("#side-collapse")!.onclick = () => setSideCollapsed(!document.body.classList.contains("side-collapsed"));
+
+	addEventListener("online", () => setOnlineStatus(true));
+	addEventListener("offline", () => setOnlineStatus(false));
+	if (typeof navigator !== "undefined" && !navigator.onLine) {
+		setOnlineStatus(false);
+	}
 
 	addEventListener("pagehide", () => {
 		saveSession();

@@ -191,6 +191,10 @@ main {
 		max-width: 0;
 		opacity: 0;
 	}
+	body.searching .net-status {
+		opacity: 0;
+		pointer-events: none;
+	}
 }
 
 /* partial matches sit below the results, with the same heading style */
@@ -434,6 +438,193 @@ h1 em {
 	gap: 10px 14px;
 	margin-top: auto;
 	padding-top: 10px;
+}
+
+/* ---------- offline cards & dialog styling ---------- */
+
+.card-li[data-offline="cached"] .card {
+	filter: grayscale(0.85);
+	opacity: 0.88;
+}
+.card-li[data-offline="cached"] .card:hover {
+	filter: grayscale(0.65);
+	opacity: 0.96;
+}
+.card-li[data-offline="unavailable"] .card {
+	filter: grayscale(1);
+	opacity: 0.52;
+}
+.card-li[data-offline="unavailable"] .card:hover {
+	opacity: 0.7;
+}
+
+.card-offline-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.8rem;
+	font-weight: 500;
+	padding: 4px 10px;
+	border-radius: 999px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+	width: fit-content;
+	white-space: nowrap;
+}
+.resume-offline-tag .tag-short {
+	display: none;
+}
+@media (max-width: 640px) {
+	.resume-offline-tag .tag-full {
+		display: none;
+	}
+	.resume-offline-tag .tag-short {
+		display: inline;
+	}
+}
+.card-offline-tag[hidden] {
+	display: none;
+}
+.card-offline-tag svg {
+	width: 14px;
+	height: 14px;
+	flex: none;
+}
+.card-offline-tag.downloaded {
+	background: color-mix(in srgb, #2ec4b6 14%, transparent);
+	color: #2ec4b6;
+	border: 1px solid color-mix(in srgb, #2ec4b6 32%, transparent);
+}
+.card-offline-tag.cached {
+	background: color-mix(in srgb, #f59e0b 14%, transparent);
+	color: #f59e0b;
+	border: 1px solid color-mix(in srgb, #f59e0b 32%, transparent);
+}
+.card-offline-tag.unavailable {
+	background: color-mix(in srgb, var(--ink) 8%, transparent);
+	color: var(--ink-dim);
+	border: 1px solid var(--line-2);
+}
+
+.resume-card[data-offline="cached"] {
+	filter: grayscale(0.85);
+	opacity: 0.9;
+}
+.resume-card[data-offline="unavailable"] {
+	filter: grayscale(1);
+	opacity: 0.6;
+}
+.resume-offline-tag {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	z-index: 2;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 0.82rem;
+	font-weight: 500;
+	padding: 4px 12px;
+	border-radius: 999px;
+	white-space: nowrap;
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+	pointer-events: none;
+}
+.resume-offline-tag[hidden] {
+	display: none;
+}
+.resume-offline-tag svg {
+	width: 14px;
+	height: 14px;
+	flex: none;
+}
+.resume-offline-tag.downloaded {
+	background: color-mix(in srgb, #2ec4b6 22%, rgba(0, 0, 0, 0.7));
+	color: #2ec4b6;
+	border: 1px solid color-mix(in srgb, #2ec4b6 40%, transparent);
+}
+.resume-offline-tag.cached {
+	background: color-mix(in srgb, #f59e0b 22%, rgba(0, 0, 0, 0.7));
+	color: #f59e0b;
+	border: 1px solid color-mix(in srgb, #f59e0b 40%, transparent);
+}
+.resume-offline-tag.unavailable {
+	background: rgba(15, 20, 24, 0.85);
+	color: var(--ink-dim);
+	border: 1px solid var(--line-2);
+}
+
+/* Home confirmation dialog */
+dialog.home-dialog {
+	background: var(--panel);
+	color: var(--ink);
+	border: 1px solid var(--line-2);
+	border-radius: 20px;
+	padding: 24px;
+	width: min(440px, calc(100% - 32px));
+	box-shadow: 0 40px 90px -20px #000;
+	margin: auto;
+}
+dialog.home-dialog[open] {
+	animation: panel-in 0.22s var(--ease);
+}
+dialog.home-dialog::backdrop {
+	background: #000a;
+	backdrop-filter: blur(4px);
+}
+dialog.home-dialog h2 {
+	font: 400 24px/1.2 var(--serif);
+	margin: 0 0 10px;
+	color: var(--ink);
+}
+dialog.home-dialog p {
+	margin: 0 0 20px;
+	color: var(--ink-dim);
+	font-size: 15px;
+	line-height: 1.5;
+}
+dialog.home-dialog .dlg-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+}
+dialog.home-dialog .dlg-actions button {
+	padding: 9px 18px;
+	border-radius: 999px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	color: var(--ink);
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition:
+		filter 0.15s,
+		background-color 0.15s,
+		transform 0.15s;
+}
+dialog.home-dialog .dlg-actions button:hover {
+	background: color-mix(in srgb, var(--panel-2), #fff 8%);
+}
+dialog.home-dialog .dlg-actions button:active {
+	transform: scale(0.96);
+}
+dialog.home-dialog .dlg-actions button.primary {
+	background: var(--accent);
+	color: var(--night);
+	border-color: transparent;
+	font-weight: 600;
+}
+dialog.home-dialog .dlg-actions button.primary:hover {
+	filter: brightness(1.1);
+}
+
+html[data-theme="light"] dialog.home-dialog {
+	box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.18);
+}
+html[data-theme="light"] dialog.home-dialog::backdrop {
+	background: #0004;
 }
 .stats {
 	display: flex;
@@ -1412,4 +1603,10 @@ html[data-theme="light"] .resume-card {
 	.resume-eyebrow .live::after {
 		animation: none;
 	}
+}
+
+.resume-head-tools {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
 }

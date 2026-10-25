@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // Shared domain types across server, client, and CLI scripts.
 
 export interface ThemePalette {
@@ -125,6 +128,9 @@ export interface UserAccount {
 	provider: "google" | "secret";
 	email: string | null;
 	name: string;
+	createdAt?: number;
+	sessions?: number;
+	syncedItems?: number;
 }
 
 export interface GameStat {
@@ -153,6 +159,8 @@ export interface TilesetMeta {
 	viewMaxzoom?: number;
 	tileSize?: number;
 	bounds?: [number, number, number, number];
+	// the colour of the empty area around the map ("#rrggbb"): what fills a missing quarter when a tile is stitched
+	background?: string;
 }
 
 export interface MapMeta {

@@ -1,0 +1,104 @@
+{
+	"id": "slime-rancher-2",
+	"title": "Slime Rancher 2",
+	"slug": "slime-rancher-2",
+	"source": "https://mapgenie.io/slime-rancher-2",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"gilded_ginger": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"gordo_slime": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"map_data_node": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"plort_door": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"plort_statue": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"refinery_link": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"research_drone": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"teleporter": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"teleporter_activator": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_pod": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"vault": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "rainbow-island",
+			"title": "Rainbow Island",
+			"data": "rainbow-island/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "rainbow-island/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

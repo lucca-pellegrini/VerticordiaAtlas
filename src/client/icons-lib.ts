@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // icons-lib.ts: the icon library for marker categories (Lucide, ISC licence: vendor/lucide/). It is fetched the
 // first time a category uses an icon, then searched by name and by tags, and drawn on the map as a pin.
 

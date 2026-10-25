@@ -6,9 +6,9 @@ This file provides architectural context, conventions, and workflows for AI codi
 
 Verticordia Atlas is a local-first, offline-capable interactive game map viewer and completion tracker (`https://atlas.verticordia.com`).
 
-- **Local-First & Offline-First**: All user progress (found markers, custom markers, custom categories, freehand/shape map drawings, selection presets, per-map camera positions, and filter views) is stored locally in the browser's IndexedDB (`offline-map-viewer`, with an in-memory fallback when storage is blocked). The Service Worker (`src/client/sw.ts`) caches the application shell, game metadata, and map tiles so the app works offline after a game's map is opened.
-- **Optional Zero-Wait Sync**: Users can optionally sign in with Google (OIDC `id_token`) or an anonymous 160-bit Base32 secret key (`XXXX-XXXX-...`) to synchronize progress across devices. Sync (`src/client/sync.ts` + `server/api.ts`) runs asynchronously in the background using Web Locks (`navigator.locks`) for tab leader election, `BroadcastChannel` for cross-tab updates, and WebSockets (`/api/ws`) for instant cross-device push notifications.
-- **Vanilla TypeScript & Zero Runtime Dependencies**: Both client and server are written in strict TypeScript executed and bundled by **Bun**. Do not introduce UI frameworks (React, Vue, Svelte, etc.) or runtime npm packages. Client third-party libraries (`maplibre-gl`, `marked`, `perfect-freehand`, and `lucide/icons.json`) are vendored in `public/vendor/`, and fonts (`Inter` and `Instrument Serif`) are self-hosted in `public/fonts/`.
+- **Local-First & Offline-First**: All user progress (found markers, custom markers, custom categories, freehand/shape map drawings, selection presets, per-map camera positions, and filter views) is stored locally in the browser's IndexedDB (`offline-map-viewer`, with an in-memory fallback when storage is blocked). The Service Worker (`src/client/sw.ts`) caches the application shell, game metadata, and map tiles so the app works offline after a game's map is opened. Full map pyramids can be downloaded via "Keep offline" as a single streamed `.vaop` pack into IndexedDB blob storage (`src/client/pack-store.ts`), served directly by the Service Worker even when completely disconnected.
+- **Optional Zero-Wait Sync**: Users can optionally sign in with Google (OIDC `id_token`) or an anonymous 128-bit Base32 secret key with checksum (`XXXX-XXXX-...`) to synchronize progress across devices. Sync (`src/client/sync.ts` + `server/api.ts`) runs asynchronously in the background using Web Locks (`navigator.locks`) for tab leader election, `BroadcastChannel` for cross-tab updates, and WebSockets (`/api/ws`) for instant cross-device push notifications.
+- **Vanilla TypeScript & Zero Runtime Dependencies**: Both client and server are written in strict TypeScript executed and bundled by **Bun**. Do not introduce UI frameworks (React, Vue, Svelte, etc.) or runtime npm packages. The one exception is `sharp` (server and scripts only, never the client), used for tile stitching and downsampling in `server/tile-engine.ts`; it is loaded lazily so the server starts without it. Client third-party libraries (`maplibre-gl`, `marked`, `perfect-freehand`, and `lucide/icons.json`) are vendored in `public/vendor/`, and fonts (`Instrument Sans`, `Instrument Serif`, and `Red Hat Mono`) are self-hosted in `public/fonts/`.
 
 ---
 
@@ -39,6 +39,9 @@ src/
 		home.ts             # Homepage entrypoint: game grid, fuzzy search, and "Continue" resume card
 		theme.ts            # Theme mode (light/auto/dark), game accent tinting, and navigation trail
 		account.ts          # Account pill UI, session checks, and API client wrapper
+		account-page.ts     # Account page entrypoint (/account/): session controls, offline maps, and account deletion
+		offline.ts          # Device-local "Keep offline" coordinator, streaming .vaop pack unpacker, and repair/removal
+		pack-store.ts       # Chunked IndexedDB blob storage for offline map packs, with in-memory fallback
 		sync.ts             # Background sync engine, conflict resolution, Web Locks, and WebSocket client
 		signin.ts           # Sign-in page entrypoint (/signin/)
 		legal.ts            # Legal pages entrypoint (/about/, /terms/, /privacy/)
@@ -65,10 +68,16 @@ server/
 	api.ts                  # SQLite WAL backend (data/atlas.db), Google OIDC, secret keys, and /api/sync
 	ws.ts                   # Zero-dependency RFC 6455 WebSocket server for live sync notifications
 	cards.ts                # Headless Chromium + ImageMagick social preview card renderer (1200x630 JPG)
+	tile-engine.ts          # sharp-based tile maths: stitch + downsample four tiles into one, single-colour detection and hard links
+	tile-cache.ts           # Disk cache cache/tiles/ for made tiles: in-memory recency, popularity-weighted eviction (2GB -> 1GB)
+	tile-service.ts         # Tile requests: stored tile -> cache -> make from the next zoom, cache and serve
+	offline-pack.ts         # Streams a map's metadata and tile pyramid as a binary .vaop pack, making intermediate zooms on the fly
 	assets/fonts/           # Font files used by headless Chromium during social card generation
 scripts/
 	build.ts                # Bundles src/client/*.ts into public/ and verifies/hashes SW precache files
-	add-game.ts             # Scrapes a MapGenie game/map into public/maps/<slug>/
+	add-game.ts             # Scrapes a MapGenie game/map into public/maps/<slug>/ (only the highest zoom of tiles; --force-get-tiles <map> takes every zoom)
+	clean-markers.ts        # Rewrites intra-map MapGenie locationIds URLs in data.json to "#loc=<id>" fragments
+	prune-tiles.ts          # Links single-colour tiles, makes missing overviews, deletes intermediate zooms the server can remake (--dry-run)
 	download-tiles.ts       # Downloads map raster tiles into public/maps/<slug>/<map>/tiles/
 	download-media.ts       # Downloads marker screenshot media into public/maps/<slug>/media/
 	make-cards.ts           # Pre-renders OpenGraph card.jpg images for games
@@ -79,13 +88,15 @@ public/                     # Static web root served by server/server.ts
 	base.css                # Shared design tokens, @font-face rules, light/dark themes, and common UI
 	home.css                # Homepage styles
 	style.css               # Map viewer styles
-	fonts/                  # Self-hosted Inter and Instrument Serif .woff2 files
+	fonts/                  # Self-hosted Instrument Sans, Instrument Serif, and Red Hat Mono .woff2 files
 	vendor/                 # Vendored browser dependencies (maplibre-gl, marked, perfect-freehand, lucide)
 	maps/                   # Game manifest (maps/index.json) and per-game directories (meta.json, data.json, sprites)
 tests/
 	shared.test.ts          # Unit tests for src/shared/*
 	client-pure.test.ts     # Unit tests for client pure functions, map helpers, and sync engine
 	server-and-scripts.test.ts # Integration tests for server/api.ts, server/ws.ts, cards.ts, and scripts/build.ts
+	tiles.test.ts           # Tile engine, cache eviction, tile service, scripts/prune-tiles.ts, and add-game's tile download
+	e2e-offline.test.ts     # End-to-end Puppeteer test verifying offline map pack downloads and disconnected navigation
 ```
 
 ---
@@ -95,7 +106,7 @@ tests/
 1. **Client Bundles Are Build Artifacts**:
     - All `.js` files outside `public/vendor/*.js` are gitignored (`.gitignore`).
     - Edit TypeScript sources in `src/client/` and `src/shared/`, never the generated `.js` bundles in `public/`.
-    - `scripts/build.ts` compiles six entrypoints (`public/app.js`, `public/home.js`, `public/theme.js`, `public/signin/signin.js`, `public/legal/legal.js`, and `public/sw.js`) in ~35ms.
+    - `scripts/build.ts` compiles seven entrypoints (`public/app.js`, `public/home.js`, `public/theme.js`, `public/signin/signin.js`, `public/account/account.js`, `public/legal/legal.js`, and `public/sw.js`) in ~50ms.
     - `scripts/build.ts` also verifies that every path in `PRECACHE` (`src/client/sw.ts`) exists on disk in `public/` and injects a content-addressed SHA-256 version string (`__SW_VERSION__`) into `public/sw.js`. When adding or renaming static shell assets in `public/`, update `PRECACHE` in `src/client/sw.ts` and run `bun test`.
 
 2. **Sync Hashing & Conflict Rules (`src/shared/sync-rules.ts`)**:

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // share-link.ts: a marker the user made, packed into a link. The marker travels inside the URL (JSON, deflated,
 // then base64url), so nothing is stored on a server. Opening such a link adds the marker as a temporary one.
 // Used by the page (app, usermarkers) and by the server (server.ts, for the link's preview card).

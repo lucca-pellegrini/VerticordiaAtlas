@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // theme.ts: three-way color theme switch (light · auto · dark).
 // Default is "auto" (follows system preference). A local cookie (va_theme) is written only when the user changes it.
 
@@ -380,7 +383,7 @@ const TRAIL_KEY = "va_nav_trail";
 const TITLES_KEY = "va_game_titles";
 const ROOT_URL =
 	typeof document !== "undefined"
-		? new URL(/\/signin\/[^/]*$/.test(import.meta.url) ? "../" : "./", import.meta.url)
+		? new URL(/\/(signin|account)\/[^/]*$/.test(import.meta.url) ? "../" : "./", import.meta.url)
 		: null;
 
 export function recordGameTitle(slug: string | null | undefined, title: string | null | undefined): void {
@@ -460,7 +463,7 @@ function resolveAppUrl(pathOrUrl: string | null | undefined): string {
 }
 
 export interface PageDescription {
-	type: "home" | "about" | "terms" | "privacy" | "signin" | "map" | "page";
+	type: "home" | "about" | "terms" | "privacy" | "signin" | "account" | "map" | "page";
 	slug?: string;
 	path: string;
 	fullUrl: string;
@@ -523,6 +526,16 @@ export function describePage(
 			fullUrl: targetUrl,
 			title: "sign in",
 			buttonText: "Return to sign in",
+		};
+	}
+
+	if (normPath.startsWith("/account")) {
+		return {
+			type: "account",
+			path: "/account/",
+			fullUrl: targetUrl,
+			title: "account",
+			buttonText: "Return to account",
 		};
 	}
 
@@ -606,7 +619,7 @@ export function initNav(): void {
 				}
 			} catch {}
 		}
-		if (!trail.length && currentInfo.type === "signin") {
+		if (!trail.length && (currentInfo.type === "signin" || currentInfo.type === "account")) {
 			const rawNext = new URLSearchParams(location.search).get("next");
 			if (rawNext && /^\/(?!\/)/.test(rawNext)) {
 				const nextPath = normalizePath(rawNext);
@@ -628,7 +641,7 @@ export function initNav(): void {
 
 	let target: PageDescription | null = trail.length >= 2 ? trail[trail.length - 2] : null;
 
-	if (currentInfo.type === "signin" && (!target || target.type === "home")) {
+	if ((currentInfo.type === "signin" || currentInfo.type === "account") && (!target || target.type === "home")) {
 		const rawNext = new URLSearchParams(location.search).get("next");
 		if (rawNext && /^\/(?!\/)/.test(rawNext)) {
 			const nextPath = normalizePath(rawNext);

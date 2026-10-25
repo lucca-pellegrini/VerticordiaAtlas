@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // icons.ts: the line icons used by the map tools and the marker menus. 24x24, drawn with currentColor.
 // `clock` marks the part of an icon that is filled with the background (so it reads on top of the pin head).
 

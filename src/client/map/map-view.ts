@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 /* ---------- game loading, theme application, map switcher, and MapLibre view ---------- */
 
 import { esc } from "../../shared/escape.ts";
@@ -19,6 +22,7 @@ import {
 	resetShownCounts,
 	shownOnMap,
 	startMorph,
+	syncMapOfflineState,
 	updateSidebar,
 	userChanged,
 } from "./sidebar.ts";
@@ -136,7 +140,7 @@ export function mixColor(a: string, b: string, t: number): string {
 // meta.json (written by add-game.ts) says where a game's data, sprite and tiles are.
 export async function loadMeta(): Promise<any> {
 	const r = await fetch("./meta.json");
-	if (!r.ok) throw new Error(`meta.json: HTTP ${r.status}. Run add-game.ts for this game`);
+	if (!r.ok) throw new Error(`meta.json: HTTP ${r.status}. We cannot seem to reach the server's game data.`);
 	return r.json();
 }
 
@@ -215,6 +219,7 @@ export async function loadGame(entry: any): Promise<boolean> {
 	$("#groups")?.classList.add("enter"); // the list fades in as the panel comes up
 	document.body.classList.remove("loading-side"); // the side panel has its numbers and selectors now
 	createMap();
+	syncMapOfflineState();
 	return true;
 }
 
@@ -569,6 +574,7 @@ export async function switchMap(slug: string, { remember = true } = {}): Promise
 	endMorph({ later: true }); // the tween runs its full length from the numbers this refresh set
 	renderMapSwitch();
 	updateSidebar();
+	syncMapOfflineState();
 }
 
 // a view another device moved: glide there. It is agreed once it has landed; if the user moved the map meanwhile, that

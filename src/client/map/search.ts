@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 /* ---------- search ----------
    From two letters on, the sidebar's list gives way to the results, and the map shows only the matches (on this map;
    "All maps" lists the other maps too). Matching is shared/search.ts: the title before the description; within a

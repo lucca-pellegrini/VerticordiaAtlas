@@ -4,30 +4,9 @@
    accent, accent-soft, night, panel, panel-2 and line. */
 
 @font-face {
-	font-family: "Inter";
-	src: url("./fonts/inter-latin-400-normal.woff2") format("woff2");
-	font-weight: 400 500;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Inter";
-	src: url("./fonts/inter-latin-600-normal.woff2") format("woff2");
-	font-weight: 600;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Inter";
-	src: url("./fonts/inter-latin-700-normal.woff2") format("woff2");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Inter";
-	src: url("./fonts/inter-latin-800-normal.woff2") format("woff2");
-	font-weight: 800;
+	font-family: "Instrument Sans";
+	src: url("./fonts/instrument-sans-latin-variable.woff2") format("woff2");
+	font-weight: 400 700;
 	font-style: normal;
 	font-display: swap;
 }
@@ -35,6 +14,13 @@
 	font-family: "Instrument Serif";
 	src: url("./fonts/instrument-serif-latin-400-normal.woff2") format("woff2");
 	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: "Red Hat Mono";
+	src: url("./fonts/red-hat-mono-latin-variable.woff2") format("woff2");
+	font-weight: 400 700;
 	font-style: normal;
 	font-display: swap;
 }
@@ -64,7 +50,8 @@
 	--hover: color-mix(in srgb, #fff 6%, transparent);
 
 	--serif: "Instrument Serif";
-	--sans: Inter;
+	--sans: "Instrument Sans";
+	--mono: "Red Hat Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
 	--ease: cubic-bezier(.2, .7, .2, 1);
 	--fast: .14s;
@@ -247,7 +234,7 @@ samp {
 	border-radius: 999px;
 	cursor: pointer;
 	text-decoration: none;
-	font: 500 13.5px/1 Inter;
+	font: 500 13.5px/1 "Instrument Sans";
 	color: var(--ink-dim);
 	background: color-mix(in srgb, var(--panel) 88%, transparent);
 	border: 1px solid var(--line-2);
@@ -309,21 +296,25 @@ samp {
 	font-size: 13.5px;
 	word-break: break-all;
 }
-.acct-menu button {
+.acct-menu button,
+.acct-menu a.acct-item {
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	width: 100%;
+	box-sizing: border-box;
 	padding: 9px 11px;
 	border: 0;
 	border-radius: 9px;
 	background: none;
 	color: var(--ink);
-	font: 500 13.5px/1.2 Inter;
+	font: 500 13.5px/1.2 "Instrument Sans";
 	text-align: left;
+	text-decoration: none;
 	cursor: pointer;
 }
-.acct-menu button:hover {
+.acct-menu button:hover,
+.acct-menu a.acct-item:hover {
 	background: color-mix(in srgb, var(--accent) 16%, transparent);
 }
 .acct-menu button.danger {
@@ -465,7 +456,7 @@ samp {
 
 .net-status {
 	position: fixed;
-	top: 12px;
+	top: calc(12px + env(safe-area-inset-top, 0px));
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 70;
@@ -474,11 +465,14 @@ samp {
 	gap: 7px;
 	padding: 5px 12px;
 	border-radius: 999px;
-	font: 500 12px/1 Inter;
+	font: 500 12px/1 "Instrument Sans";
+	white-space: nowrap;
 	color: var(--ink-dim);
 	background: color-mix(in srgb, var(--panel-2) 92%, transparent);
 	border: 1px solid var(--line-2);
 	backdrop-filter: blur(8px);
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+	transition: opacity 0.2s ease;
 }
 .net-status[hidden] {
 	display: none;

@@ -606,7 +606,8 @@
 					"maxzoom": 16,
 					"viewMaxzoom": 17,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#14130f"
 				}
 			]
 		},
@@ -622,7 +623,8 @@
 					"maxzoom": 17,
 					"viewMaxzoom": 17,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#14130f"
 				}
 			]
 		}

@@ -11,7 +11,7 @@ html,
 body {
 	margin: 0;
 	color: var(--ink);
-	font: 400 16px/1.55 Inter;
+	font: 400 16px/1.55 "Instrument Sans";
 	-webkit-font-smoothing: antialiased;
 	padding-inline: env(safe-area-inset-left, 0) env(safe-area-inset-right, 0);
 }
@@ -182,17 +182,8 @@ body {
 	.signin-top-tools {
 		gap: 6px;
 	}
-	.signin-top .theme-switch-2 {
-		grid-template-columns: repeat(2, 32px);
-		height: 36px;
-	}
-	.signin-top .theme-switch {
-		grid-template-columns: repeat(3, 30px);
-		height: 36px;
-	}
 	.back {
-		width: 36px;
-		height: 36px;
+		width: 40px;
 		padding: 0;
 	}
 	.back span {
@@ -239,7 +230,7 @@ h2 {
 	border-radius: 999px;
 	background: var(--ink);
 	color: var(--night);
-	font: 600 15.5px/1 Inter;
+	font: 600 15.5px/1 "Instrument Sans";
 	text-decoration: none;
 	letter-spacing: 0.005em;
 	box-shadow:
@@ -300,7 +291,7 @@ h2 {
 	height: 36px;
 	padding: 0 18px;
 	border-radius: 999px;
-	font: 500 13.5px/1 Inter;
+	font: 500 13.5px/1 "Instrument Sans";
 	color: var(--ink-dim);
 	background: transparent;
 	border: 1px solid var(--line-2);
@@ -326,7 +317,7 @@ h2 {
 	background: none;
 	border: 0;
 	color: var(--ink-dim);
-	font: 500 14px/1 Inter;
+	font: 500 14px/1 "Instrument Sans";
 	padding: 8px 2px;
 	text-decoration: underline;
 	text-underline-offset: 4px;
@@ -355,7 +346,7 @@ h2 {
 .primary-btn {
 	padding: 11px 18px;
 	border-radius: 999px;
-	font: 500 14px/1 Inter;
+	font: 500 14px/1 "Instrument Sans";
 	cursor: pointer;
 	border: 1px solid var(--line-2);
 	background: var(--panel-2);
@@ -364,6 +355,15 @@ h2 {
 }
 .ghost:hover {
 	background: color-mix(in srgb, var(--panel-2), var(--ink) 8%);
+}
+.ghost:disabled,
+.ghost[aria-disabled="true"] {
+	opacity: 0.45;
+	cursor: default;
+}
+.ghost:disabled:hover,
+.ghost[aria-disabled="true"]:hover {
+	background: var(--panel-2);
 }
 .primary-btn {
 	background: var(--accent);
@@ -375,10 +375,93 @@ h2 {
 	opacity: 0.45;
 	cursor: default;
 }
+.secret-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.secret-box .secret {
+	flex: 1;
+	min-width: 0;
+	padding-right: 54px;
+}
+.secret-copy-btn {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: grid;
+	place-items: center;
+	width: 38px;
+	height: 38px;
+	padding: 0;
+	border-radius: 8px;
+	background: var(--panel-2);
+	border: 1px solid var(--line-2);
+	color: var(--ink-dim);
+	cursor: pointer;
+	transition:
+		background-color 0.2s,
+		border-color 0.2s,
+		color 0.2s,
+		transform 0.2s;
+}
+.secret-copy-btn svg {
+	width: 18px;
+	height: 18px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.secret-copy-btn:hover {
+	color: var(--ink);
+	background: color-mix(in srgb, var(--panel-2), var(--ink) 8%);
+	border-color: var(--ink-dim);
+}
+.secret-copy-btn:active {
+	transform: translateY(-50%) scale(0.94);
+}
+.secret-copy-btn .glyph,
+.secret-copy-btn .tick {
+	transition: opacity 0.2s ease;
+}
+.secret-copy-btn .tick {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2.4;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	opacity: 0;
+}
+.secret-copy-btn.copied {
+	background: var(--ok);
+	border-color: var(--ok);
+	color: #0b0e10;
+	animation: secret-copy-pop 0.4s var(--ease, ease);
+}
+.secret-copy-btn.copied .glyph {
+	opacity: 0;
+}
+.secret-copy-btn.copied .tick {
+	opacity: 1;
+}
+@keyframes secret-copy-pop {
+	0% {
+		transform: translateY(-50%) scale(1);
+	}
+	40% {
+		transform: translateY(-50%) scale(1.12);
+	}
+	100% {
+		transform: translateY(-50%) scale(1);
+	}
+}
 .secret {
 	display: block;
-	font: 600 17px/1.5 Inter;
-	letter-spacing: 0.08em;
+	font: 500 13.5px/1.6 var(--mono);
+	letter-spacing: 0.02em;
 	padding: 14px 16px;
 	border-radius: 12px;
 	background: var(--night);
@@ -413,9 +496,14 @@ h2 {
 	background: var(--panel-2);
 	border: 1px solid var(--line-2);
 	color: var(--ink);
-	font: 500 15px/1.2 Inter;
-	letter-spacing: 0.06em;
+	font: 500 13.5px/1.4 var(--mono);
+	letter-spacing: 0.02em;
 	outline: none;
+}
+.field input::placeholder {
+	font-family: var(--mono);
+	letter-spacing: 0.02em;
+	color: color-mix(in srgb, var(--ink-dim) 55%, transparent);
 }
 .field input:focus {
 	border-color: var(--accent-soft);

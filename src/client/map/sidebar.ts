@@ -1,15 +1,20 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 /* ---------- filtering, stats, and sidebar ---------- */
 
 import { esc } from "../../shared/escape.ts";
 import { glyphInk, iconInner, iconsReady, loadIconLibrary } from "../icons-lib.ts";
 import { svgIcon } from "../icons.ts";
+import { downloadOfflineGame, getGameOfflineManifests, removeOfflineGame } from "../offline.ts";
+import type { OfflineStatus } from "../offline.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
 import { refreshAll, refreshMap } from "./map-view.ts";
 import { renderPresets } from "./presets.ts";
 import { HEX, saveProfileNow, scheduleSave, scheduleViewSave } from "./profiles.ts";
 import { runSearch } from "./search.ts";
-import { $, fmt, state, UNTAGGED } from "./state.ts";
+import { $, fmt, state, toast, UNTAGGED } from "./state.ts";
 import { TEMP_CAT } from "./usermarkers.ts";
 
 // with a tag selected, untagged markers are shown unless "only markers with this tag" is on
@@ -607,6 +612,10 @@ export function setupTitleRow(): void {
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10.5 9-7.5 9 7.5v9a1.5 1.5 0 0 1-1.5 1.5h-5a1.5 1.5 0 0 1-1.5-1.5v-4.5h-2v4.5A1.5 1.5 0 0 1 7.5 21h-5A1.5 1.5 0 0 1 1 19.5v-9z"/></svg>` +
 		`<span>All maps</span>` +
 		`</a>` +
+		`<button id="side-offline-btn" class="side-menu-link side-offline-btn" type="button" aria-pressed="false">` +
+		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>` +
+		`<span>Keep map offline</span>` +
+		`</button>` +
 		`<hr>` +
 		`<div class="side-menu-theme">` +
 		`<span class="side-menu-label">Theme</span>` +
@@ -623,6 +632,7 @@ export function setupTitleRow(): void {
 	const moreBtn = tools.querySelector<HTMLButtonElement>("#side-more-btn")!;
 	const moreMenu = tools.querySelector<HTMLElement>("#side-more-menu")!;
 	const closeBtn = tools.querySelector<HTMLButtonElement>("#side-drawer-close")!;
+	const offlineBtn = tools.querySelector<HTMLButtonElement>("#side-offline-btn")!;
 
 	moreBtn.onclick = (e) => {
 		e.stopPropagation();
@@ -631,4 +641,101 @@ export function setupTitleRow(): void {
 		moreBtn.setAttribute("aria-expanded", String(!open));
 	};
 	closeBtn.onclick = () => document.body.classList.remove("side-open");
+	offlineBtn.onclick = () => toggleCurrentMapOffline();
+}
+
+const DL_SVG =
+	'<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>';
+const OK_SVG = '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+let mapOfflineCtrl: AbortController | null = null;
+
+const SPIN = '<span class="spinner" role="status" aria-hidden="true"></span>';
+
+function setMapOfflineButtons(mode: "off" | "on" | "busy", text?: string, spinner = false, progress = 0): void {
+	const btn = document.getElementById("side-offline-btn") as HTMLButtonElement | null;
+	if (!btn) return;
+	const many = (state.meta?.maps?.length ?? 1) > 1;
+	btn.setAttribute("aria-pressed", String(mode === "on"));
+	if (mode === "busy") {
+		btn.dataset.busy = "1";
+		btn.style.setProperty("--progress", `${Math.max(0, Math.min(100, progress))}%`);
+	} else {
+		delete btn.dataset.busy;
+		btn.style.removeProperty("--progress");
+	}
+	btn.innerHTML =
+		mode === "on"
+			? `${OK_SVG}<span>Kept offline</span>`
+			: mode === "busy"
+				? `${spinner ? SPIN : DL_SVG}<span>${esc(text || "Preparing…")}</span>`
+				: `${DL_SVG}<span>${many ? "Keep game offline" : "Keep map offline"}</span>`;
+}
+
+// the line on the button: waiting for the server to get a map ready, or the transfer of it
+function offlineStatusText(s: OfflineStatus): { text: string; spinner: boolean; progress: number } {
+	const of = s.maps > 1 ? ` ${s.map}/${s.maps}` : "";
+	if (s.phase === "preparing") return { text: `Preparing map${of}…`, spinner: true, progress: 0 };
+	const pct = s.total > 0 ? Math.min(100, Math.round((s.done / s.total) * 100)) : 0;
+	return { text: s.maps > 1 ? `Downloading ${s.map}/${s.maps}` : "Downloading…", spinner: false, progress: pct };
+}
+
+export async function toggleCurrentMapOffline(): Promise<void> {
+	const gameSlug = state.entry?.slug || state.entry?.id;
+	if (!gameSlug) return;
+	const gameTitle = state.entry?.title || state.meta?.title || gameSlug;
+
+	if (mapOfflineCtrl) {
+		mapOfflineCtrl.abort();
+		mapOfflineCtrl = null;
+		await removeOfflineGame(gameSlug);
+		setMapOfflineButtons("off");
+		toast(`Cancelled offline download for ${gameTitle}.`);
+		return;
+	}
+
+	if (await gameKeptOffline(gameSlug)) {
+		await removeOfflineGame(gameSlug);
+		setMapOfflineButtons("off");
+		toast(`Removed offline data for ${gameTitle}.`);
+		return;
+	}
+
+	const ctrl = new AbortController();
+	mapOfflineCtrl = ctrl;
+	setMapOfflineButtons("busy", "Preparing…", true);
+	try {
+		await downloadOfflineGame({
+			gameSlug,
+			gameTitle,
+			signal: ctrl.signal,
+			onStatus: (s) => {
+				const { text, spinner, progress } = offlineStatusText(s);
+				setMapOfflineButtons("busy", text, spinner, progress);
+			},
+		});
+		if (mapOfflineCtrl === ctrl) mapOfflineCtrl = null;
+		setMapOfflineButtons("on");
+		toast(`${gameTitle} is ready for offline use.`);
+	} catch {
+		if (mapOfflineCtrl === ctrl) mapOfflineCtrl = null;
+		if (!ctrl.signal.aborted) {
+			setMapOfflineButtons("off");
+			toast(`Could not download ${gameTitle} for offline use.`);
+		}
+	}
+}
+
+// every map of the game is stored whole
+async function gameKeptOffline(gameSlug: string): Promise<boolean> {
+	const have = new Set((await getGameOfflineManifests(gameSlug)).map((m) => m.map));
+	const maps: { slug: string }[] = state.meta?.maps || [];
+	return maps.length > 0 && maps.every((m) => have.has(m.slug));
+}
+
+export async function syncMapOfflineState(): Promise<void> {
+	const gameSlug = state.entry?.slug || state.entry?.id;
+	if (!gameSlug || mapOfflineCtrl) return;
+	try {
+		setMapOfflineButtons((await gameKeptOffline(gameSlug)) ? "on" : "off");
+	} catch {}
 }

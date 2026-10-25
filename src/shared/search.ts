@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // search.ts: text matching for the homepage and the map search. Words are compared by Levenshtein distance, so
 // a typo costs one edit (two for words of more than four letters). Used by home and app; sw.js precaches it.
 

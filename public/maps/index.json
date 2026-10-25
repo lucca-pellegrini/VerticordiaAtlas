@@ -1134,6 +1134,87 @@
 			],
 			"tagLabel": "Filter",
 			"defaultTag": null
+		},
+		{
+			"id": "slime-rancher-2",
+			"slug": "slime-rancher-2",
+			"title": "Slime Rancher 2",
+			"description": "Every marker on the Slime Rancher 2 map.",
+			"poster": "slime-rancher-2/poster",
+			"theme": {
+				"accent": "#2097df",
+				"accent-soft": "#86c4ea",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 285,
+					"label": "markers"
+				},
+				{
+					"value": 11,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "slime-rancher",
+			"slug": "slime-rancher",
+			"title": "Slime Rancher",
+			"description": "Every marker on the Slime Rancher map.",
+			"poster": "slime-rancher/poster",
+			"theme": {
+				"accent": "#239fdc",
+				"accent-soft": "#86c9ea",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111b1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 283,
+					"label": "markers"
+				},
+				{
+					"value": 11,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "palworld",
+			"slug": "palworld",
+			"title": "Palworld",
+			"description": "Every marker on the Palworld map.",
+			"poster": "palworld/poster",
+			"theme": {
+				"accent": "#4775b8",
+				"accent-soft": "#98b2d7",
+				"night": "#06080c",
+				"panel": "#0c1016",
+				"panel-2": "#11171f",
+				"line": "#212936"
+			},
+			"stats": [
+				{
+					"value": 11114,
+					"label": "markers"
+				},
+				{
+					"value": 42,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
 		}
 	]
 }

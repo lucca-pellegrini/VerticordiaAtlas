@@ -1,8 +1,14 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // sw.ts: the offline cache. The app works from what it holds, and asks the network only to refresh it.
 //   shell (pages, scripts, styles, fonts, icons, vendor files): served from cache at once, refreshed in the background
 //   game data (metadata, marker data, posters, cards): the same, and the refresh revalidates with the stored ETag
+//   maps kept offline: answered from their pack in IndexedDB before anything else (see pack-store.ts), never the network
 //   map tiles: cache first, kept for 30 days and at most TILE_LIMIT tiles
 //   /api/ (accounts, sync): never cached, never answered from the cache
+
+import { findInPacks, resetPackLookups } from "./pack-store.ts";
 
 declare const __SW_VERSION__: string | undefined;
 declare const self: ServiceWorkerGlobalScope;
@@ -11,7 +17,7 @@ export const VERSION = typeof __SW_VERSION__ !== "undefined" ? __SW_VERSION__ : 
 export const SHELL = `va-shell-${VERSION}`;
 export const DATA = `va-data-${VERSION}`;
 export const TILES = `va-tiles-${VERSION}`;
-export const KEEP = new Set([SHELL, DATA, TILES]);
+export const KEEP = new Set([SHELL, DATA, TILES]); // anything else is deleted on activation, the old "va-offline-tiles" too
 export const TILE_LIMIT = 2000;
 export const TILE_MAX_AGE = 30 * 24 * 3600 * 1000;
 
@@ -19,6 +25,7 @@ export const PRECACHE: readonly string[] = [
 	"",
 	"index.html",
 	"map.html",
+	"maps/index.json",
 	"about/",
 	"about/index.html",
 	"terms/",
@@ -29,6 +36,10 @@ export const PRECACHE: readonly string[] = [
 	"signin/index.html",
 	"signin/signin.js",
 	"signin/signin.css",
+	"account/",
+	"account/index.html",
+	"account/account.js",
+	"account/account.css",
 	"legal/legal.css",
 	"legal/legal.js",
 	"style.css",
@@ -38,10 +49,8 @@ export const PRECACHE: readonly string[] = [
 	"home.js",
 	"theme.js",
 	"fonts/instrument-serif-latin-400-normal.woff2",
-	"fonts/inter-latin-400-normal.woff2",
-	"fonts/inter-latin-600-normal.woff2",
-	"fonts/inter-latin-700-normal.woff2",
-	"fonts/inter-latin-800-normal.woff2",
+	"fonts/instrument-sans-latin-variable.woff2",
+	"fonts/red-hat-mono-latin-variable.woff2",
 	"vendor/maplibre-gl.js",
 	"vendor/maplibre-gl.css",
 	"vendor/marked.umd.js",
@@ -81,31 +90,62 @@ if (typeof self !== "undefined" && "registration" in self) {
 		);
 	});
 
-	// serve what we have, refresh it behind the scenes
+	async function matchInCache(cache: Cache, req: Request, path: string): Promise<Response | undefined> {
+		return (
+			(await cache.match(req)) ||
+			(await cache.match(req, { ignoreSearch: true })) ||
+			(await cache.match(path)) ||
+			(await cache.match(path, { ignoreSearch: true }))
+		);
+	}
+
+	// a file of a map kept offline: straight from its pack
+	async function fromPack(url: URL): Promise<Response | null> {
+		const hit = await findInPacks(url.pathname);
+		if (!hit) return null;
+		return new Response(hit.blob, {
+			status: 200,
+			headers: {
+				"Content-Type": hit.type || "application/octet-stream",
+				"Content-Length": String(hit.blob.size),
+			},
+		});
+	}
+
+	function broadcastOnline(online: boolean): void {
+		self.clients.matchAll().then((clients) => {
+			for (const c of clients) c.postMessage({ type: "va-online-status", online });
+		});
+	}
+
+	// serve what we have, refresh it behind the scenes. A server that is down may still answer (a proxy's 502/503): that
+	// is not an answer, so what is cached is served and an error is never kept
 	async function staleWhileRevalidate(event: FetchEvent, cacheName: string, req: Request): Promise<Response> {
 		const cache = await caches.open(cacheName);
 		let cached = await cache.match(req);
-		if (!cached && req.mode === "navigate") {
-			cached = await cache.match(req, { ignoreSearch: true });
-		}
+		if (!cached && req.mode === "navigate") cached = await cache.match(req, { ignoreSearch: true });
+		if (!cached && cacheName !== SHELL) cached = await (await caches.open(SHELL)).match(req);
 		const refresh = fetch(req, { cache: "no-cache" })
 			.then((res) => {
 				if (res.ok && res.status === 200) cache.put(req, res.clone());
+				broadcastOnline(true);
 				return res;
 			})
-			.catch(() => null);
+			.catch(() => {
+				broadcastOnline(false);
+				return null;
+			});
 		if (cached) {
 			event.waitUntil(refresh);
 			return cached;
 		}
 		const fresh = await refresh;
-		if (fresh) return fresh;
+		if (fresh && fresh.status < 500) return fresh;
 		if (req.mode === "navigate") {
-			const shell = await caches.open(SHELL);
-			const fallback = await shell.match(at("map.html"));
+			const fallback = await (await caches.open(SHELL)).match(at("map.html"));
 			if (fallback) return fallback;
 		}
-		return offline();
+		return fresh ?? offline();
 	}
 
 	// a copy remembers when it was made, so tiles can age out
@@ -128,6 +168,7 @@ if (typeof self !== "undefined" && "registration" in self) {
 		try {
 			const res = await fetch(req);
 			if (res.ok) {
+				broadcastOnline(true);
 				event.waitUntil(
 					stamped(res.clone())
 						.then((copy) => cache.put(req, copy))
@@ -136,9 +177,63 @@ if (typeof self !== "undefined" && "registration" in self) {
 				return res;
 			}
 		} catch {
+			broadcastOnline(false);
 			/* offline: below */
 		}
 		return hit || offline();
+	}
+
+	self.addEventListener("message", (event: ExtendableMessageEvent) => {
+		if (event.data?.type === "va-offline-changed") resetPackLookups();
+		if (event.data?.type === "va-check-online") {
+			event.source?.postMessage({
+				type: "va-online-status",
+				online: navigator.onLine,
+			});
+		}
+		if (event.data?.type === "va-query-cached-games") {
+			caches.open(DATA).then(async (cache) => {
+				const keys = await cache.keys();
+				const games = new Set<string>();
+				for (const req of keys) {
+					const path = new URL(req.url).pathname;
+					const m = path.match(/\/maps\/([^/]+)\/(?:meta\.json|data\.json|markers\.json|[^/]+\/data\.json)/);
+					if (m) games.add(decodeURIComponent(m[1]));
+				}
+				event.source?.postMessage({
+					type: "va-cached-games-reply",
+					games: [...games],
+				});
+			});
+		}
+		if (event.data?.type === "va-cache-posters" && Array.isArray(event.data?.urls)) {
+			const urls: string[] = event.data.urls;
+			event.waitUntil(
+				(async () => {
+					const cache = await caches.open(DATA);
+					for (const rel of urls) {
+						const req = new Request(at(rel));
+						const hit = await cache.match(req);
+						if (!hit) {
+							try {
+								const res = await fetch(req);
+								if (res.ok && res.status === 200) {
+									await cache.put(req, res);
+								}
+							} catch {}
+						}
+					}
+				})(),
+			);
+		}
+	});
+
+	// the maps folder: tiles from the cache or the network, everything else revalidated
+	function routeMaps(event: FetchEvent, req: Request, url: URL, rel: string): Promise<Response> {
+		if (/^maps\/[^/]+\/[^/]+\/tiles\//.test(rel)) return tile(event, req);
+		if (req.mode === "navigate" && /^maps\/[^/]+$/.test(rel))
+			return Promise.resolve(Response.redirect(url.href + "/", 301));
+		return staleWhileRevalidate(event, DATA, req);
 	}
 
 	self.addEventListener("fetch", (event: FetchEvent) => {
@@ -150,16 +245,9 @@ if (typeof self !== "undefined" && "registration" in self) {
 		if (url.origin !== self.location.origin) return;
 
 		const rel = url.pathname.slice(new URL(scope).pathname.length);
-		if (/^maps\/[^/]+\/[^/]+\/tiles\//.test(rel)) {
-			event.respondWith(tile(event, req));
-			return;
-		}
 		if (rel.startsWith("maps/")) {
-			if (req.mode === "navigate" && /^maps\/[^/]+$/.test(rel)) {
-				event.respondWith(Response.redirect(url.href + "/", 301));
-				return;
-			}
-			event.respondWith(staleWhileRevalidate(event, DATA, req));
+			// a file of a map kept offline comes from its pack, before anything else
+			event.respondWith(fromPack(url).then((r) => r ?? routeMaps(event, req, url, rel)));
 			return;
 		}
 		event.respondWith(staleWhileRevalidate(event, SHELL, req));

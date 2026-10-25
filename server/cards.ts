@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // cards.ts: the social preview cards and the tags that point at them.
 // Used by make-cards.ts (the homepage and game cards, built ahead of time) and by server.ts (a card per shared
 // marker, rendered on first request and cached).
@@ -136,22 +139,19 @@ export async function loadGames(): Promise<{ games: LoadedGame[]; shown: LoadedG
 /* ---------- the card markup: one page per card, drawn in headless Chromium ---------- */
 
 export function page(body: string, theme: ThemePalette, extraCss = ""): string {
-	const face = (family: string, file: string, weight: number) =>
+	const face = (family: string, file: string, weight: number | string) =>
 		`@font-face { font-family: "${family}"; src: url("${fileUrl(path.join(FONTS, file))}") format("woff2"); font-weight: ${weight}; font-style: normal; font-display: block; }`;
 	const vars = Object.entries(theme)
 		.filter(([, v]) => v !== undefined)
 		.map(([k, v]) => `--${k}: ${v};`)
 		.join(" ");
 	return `<!doctype html><html><head><meta charset="utf-8"><style>
-${face("Inter", "inter-latin-400-normal.woff2", 400)}
-${face("Inter", "inter-latin-600-normal.woff2", 600)}
-${face("Inter", "inter-latin-700-normal.woff2", 700)}
-${face("Inter", "inter-latin-800-normal.woff2", 800)}
+${face("Instrument Sans", "instrument-sans-latin-variable.woff2", "400 700")}
 ${face("Instrument Serif", "instrument-serif-latin-400-normal.woff2", 400)}
 :root { ${vars} --ink: #eef1f3; --ink-dim: #9aa6ad; }
 * { box-sizing: border-box; }
 html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: var(--night); color: var(--ink);
-  font-family: Inter; -webkit-font-smoothing: antialiased; }
+  font-family: "Instrument Sans"; -webkit-font-smoothing: antialiased; }
 .bg { position: absolute; inset: 0;
   background:
     radial-gradient(900px 560px at 14% -12%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%),
@@ -166,19 +166,19 @@ html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; backgrou
 .brand span { font: 400 34px/1 "Instrument Serif"; color: var(--ink); }
 .copy { position: absolute; left: 72px; top: 50%; transform: translateY(-50%); width: 540px; }
 .eyebrow { display: flex; width: fit-content; max-width: 100%; align-items: center; gap: 12px; margin: 0 0 26px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px;
-  background: rgb(255 255 255 / .03); font: 600 18px/1 Inter; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
+  background: rgb(255 255 255 / .03); font: 600 18px/1 "Instrument Sans"; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-dim); }
 .eyebrow::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
 .eyebrow span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 h1 { margin: 0; font: 400 104px/0.98 "Instrument Serif"; letter-spacing: -0.01em; text-wrap: balance; }
 h1.long { font-size: 84px; }
 h1.xlong { font-size: 68px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
-.lede { margin: 28px 0 0; max-width: 520px; font: 400 25px/1.42 Inter; color: var(--ink-dim);
+.lede { margin: 28px 0 0; max-width: 520px; font: 400 25px/1.42 "Instrument Sans"; color: var(--ink-dim);
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .stats { list-style: none; margin: 30px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
-.stats li { padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; font: 400 20px/1 Inter; color: var(--ink-dim); }
+.stats li { padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; font: 400 20px/1 "Instrument Sans"; color: var(--ink-dim); }
 .stats b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
 footer { position: absolute; left: 72px; bottom: 46px; width: 540px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  font: 600 18px/1 Inter; letter-spacing: .02em; color: var(--ink-dim); }
+  font: 600 18px/1 "Instrument Sans"; letter-spacing: .02em; color: var(--ink-dim); }
 .poster { position: absolute; top: 0; right: 0; bottom: 0; width: 660px; background-size: cover; background-position: 80% center;
   -webkit-mask-image: linear-gradient(to right, transparent 0, #000 62%); mask-image: linear-gradient(to right, transparent 0, #000 62%); }
 .poster::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, var(--night) 0%, transparent 55%); }
@@ -330,7 +330,7 @@ export function markerHtml({
     .cat-disc .gi { display: flex; align-items: center; font: 400 58px/1 "CardIcon"; color: var(--g); }
     .copy { top: 124px; transform: none; }
     .copy .lede { ${icon && size ? "-webkit-line-clamp: 2;" : ""} }
-    .cat-name { font: 700 30px/1.15 Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); overflow: hidden; text-overflow: ellipsis; }`;
+    .cat-name { font: 700 30px/1.15 "Instrument Sans"; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); overflow: hidden; text-overflow: ellipsis; }`;
 	return page(
 		`${posterDiv(poster)}
 ${picture}

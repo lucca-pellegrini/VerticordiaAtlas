@@ -37,6 +37,7 @@
 		</script>
 		<link rel="manifest" href="../manifest.webmanifest" />
 		<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content="Atlas" />
 		<link
@@ -100,7 +101,7 @@
 				</svg>
 				<span>Continue with Google</span>
 			</a>
-			<p class="notice" id="google-off" hidden>Google sign-in is not set up on this server yet.</p>
+			<p class="notice" id="google-off" hidden>We can't seem to reach Google for sign-in. Try again later.</p>
 			<p class="error" id="google-error" role="alert" hidden></p>
 
 			<div class="other">
@@ -123,7 +124,24 @@
 
 					<div id="secret-shown" hidden>
 						<p class="small">Your secret key. Save it now:</p>
-						<code id="secret-value" class="secret"></code>
+						<div class="secret-box">
+							<code id="secret-value" class="secret"></code>
+							<button
+								type="button"
+								class="secret-copy-btn"
+								id="secret-copy"
+								aria-label="Copy secret key to clipboard"
+								title="Copy to clipboard"
+							>
+								<svg viewBox="0 0 24 24" aria-hidden="true">
+									<g class="glyph">
+										<rect x="9" y="9" width="11" height="11" rx="2" />
+										<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+									</g>
+									<path class="tick" d="M5 12.5l4.5 4.5L19 7.5" />
+								</svg>
+							</button>
+						</div>
 						<label class="saved"
 							><input type="checkbox" id="secret-saved" /> I have saved it somewhere safe</label
 						>
@@ -138,10 +156,12 @@
 								type="text"
 								autocomplete="off"
 								spellcheck="false"
-								placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XX"
+								placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XX"
 							/>
 						</label>
-						<button type="submit" class="ghost">Sign in with the key</button>
+						<button type="submit" class="ghost" id="secret-login-btn" aria-disabled="true">
+							Sign in with the key
+						</button>
 					</form>
 					<p class="error" id="secret-error" role="alert" hidden></p>
 				</div>

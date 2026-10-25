@@ -25,7 +25,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#000000"
 				}
 			]
 		}

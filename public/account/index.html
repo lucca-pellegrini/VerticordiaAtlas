@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>Account · Verticordia Atlas</title>
+		<meta
+			name="description"
+			content="Manage your optional Verticordia Atlas sync account, active sessions, and offline maps stored in this browser."
+		/>
+		<meta name="theme-color" content="#0b0e10" />
+		<script>
+			(() => {
+				const tm = document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
+				if (tm) document.documentElement.dataset.theme = tm[1];
+				let raw = null;
+				const tn = document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);
+				if (tn) {
+					try {
+						raw = decodeURIComponent(tn[1]);
+					} catch {}
+				}
+				if (!raw) {
+					try {
+						raw = localStorage.getItem("va_tint");
+					} catch {}
+				}
+				if (raw) {
+					const [a, s] = raw.split("|");
+					if (a && /^#[0-9a-fA-F]{3,8}$/.test(a)) {
+						const st = document.documentElement.style;
+						st.setProperty("--accent", a);
+						if (s && /^#[0-9a-fA-F]{3,8}$/.test(s)) st.setProperty("--accent-soft", s);
+					}
+				}
+			})();
+		</script>
+		<link rel="manifest" href="../manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Atlas" />
+		<link
+			rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d6453b' d='M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z'/%3E%3Ccircle cx='12' cy='10' r='2.8' fill='%230b0e10'/%3E%3C/svg%3E"
+		/>
+		<link rel="stylesheet" href="../base.css" />
+		<link rel="stylesheet" href="account.css" />
+	</head>
+	<body>
+		<div class="bg" aria-hidden="true"></div>
+
+		<header class="signin-top wrap">
+			<a class="brand" href="../" aria-label="Verticordia Atlas, home">
+				<span class="mark" aria-hidden="true">
+					<svg class="pin" viewBox="0 0 24 24">
+						<path fill="currentColor" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z" />
+						<circle cx="12" cy="10" r="2.8" fill="var(--night)" />
+					</svg>
+					<svg class="heart" viewBox="0 0 24 24">
+						<path
+							fill="currentColor"
+							d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+						/>
+					</svg>
+				</span>
+				<span>Verticordia Atlas</span>
+			</a>
+			<div class="signin-top-tools">
+				<div data-theme-toggle></div>
+				<a class="back" href="../"><span>Back to the maps</span></a>
+			</div>
+		</header>
+
+		<main class="account-main">
+			<h1>Account</h1>
+			<p class="lede">
+				Your map progress is saved locally in this browser first. Signing in is optional and only synchronizes
+				your progress across devices.
+			</p>
+
+			<section class="account-panel" id="account-section" aria-labelledby="account-heading">
+				<div class="panel-head">
+					<h2 id="account-heading">Sync account</h2>
+					<span class="badge" id="account-badge">Checking…</span>
+				</div>
+				<div id="account-body">
+					<p class="small">Loading account details…</p>
+				</div>
+				<div class="btn-row" id="account-actions" hidden>
+					<button type="button" class="ghost" id="btn-logout">Log out on this device</button>
+					<button type="button" class="ghost" id="btn-logout-all">Log out from all devices</button>
+				</div>
+				<div class="btn-row" id="account-signedout-actions" hidden>
+					<a class="primary-btn" id="btn-signin" href="../signin/">Sign in to sync</a>
+				</div>
+				<p class="error" id="account-error" role="alert" hidden></p>
+			</section>
+
+			<section class="account-panel" id="offline-section" aria-labelledby="offline-heading">
+				<div class="panel-head">
+					<h2 id="offline-heading">Offline maps on this device</h2>
+					<span class="badge" id="offline-badge">0 maps</span>
+				</div>
+				<p class="small">
+					Maps marked <strong>Keep offline</strong> are downloaded into this browser so every zoom level is
+					available without a network connection. Offline maps stay on this device only.
+				</p>
+				<div id="offline-list" class="offline-list">
+					<p class="small muted">No maps are currently kept offline on this device.</p>
+				</div>
+				<div class="btn-row" id="offline-actions" hidden>
+					<button type="button" class="ghost danger-btn" id="btn-clear-offline">
+						Clear all offline data
+					</button>
+				</div>
+			</section>
+
+			<section class="account-panel danger-panel" id="danger-section" aria-labelledby="danger-heading" hidden>
+				<div class="panel-head">
+					<h2 id="danger-heading">Delete account</h2>
+				</div>
+				<p class="small">
+					Permanently delete your account, active sessions, and all synced progress stored on the server.
+					Progress already saved in this browser stays on this device unless you clear it separately.
+				</p>
+				<div class="btn-row" id="delete-initial-row">
+					<button type="button" class="ghost danger-btn" id="btn-delete-account">Delete account…</button>
+				</div>
+				<div class="confirm-box" id="delete-confirm-box" hidden>
+					<p class="small danger-text">
+						Are you sure? This permanently erases your account and server-synced progress and cannot be
+						undone.
+					</p>
+					<div class="btn-row">
+						<button type="button" class="danger-solid-btn" id="btn-delete-confirm">
+							Yes, permanently delete my account
+						</button>
+						<button type="button" class="ghost" id="btn-delete-cancel">Cancel</button>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="signin-foot wrap">
+			<p class="fine">
+				<a href="../about/">About</a><span class="sep" aria-hidden="true">·</span
+				><a href="../terms/">Terms of service</a><span class="sep" aria-hidden="true">·</span
+				><a href="../privacy/">Privacy policy</a>
+			</p>
+			<p class="foot-motto" lang="la"><em>Nisi Dominus frustra</em></p>
+		</footer>
+
+		<div id="toast" role="status" hidden></div>
+		<script type="module" src="account.js"></script>
+	</body>
+</html>

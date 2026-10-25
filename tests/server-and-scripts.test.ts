@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
 import http from "node:http";
@@ -6,7 +9,8 @@ import path from "node:path";
 
 import { deriveTheme, extractVar, tilesCovering } from "../scripts/add-game.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
-import { createApi } from "../server/api.ts";
+import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
+import { createApi, secretName } from "../server/api.ts";
 import {
 	deriveLightTheme,
 	esc,
@@ -19,6 +23,7 @@ import {
 	socialTags,
 	withHead,
 } from "../server/cards.ts";
+import { collectMapPackItems } from "../server/offline-pack.ts";
 import { PRECACHE } from "../src/client/sw.ts";
 
 describe("server/cards helpers", () => {
@@ -101,6 +106,70 @@ describe("scripts/add-game pure helpers", () => {
 		expect(theme.accent).toBe("#d6453b");
 		expect(theme.night).toMatch(/^#[0-9a-f]{6}$/);
 	});
+
+	test("clean-markers rewrites same-map links to #loc=<id> and preserves cross-map and external links", () => {
+		const ctx = {
+			mapSlug: "miraland",
+			isDefaultMap: true,
+			sameMapIds: new Set([509074, 444895, 320]),
+			otherMapIds: new Set([900001]),
+			otherMapSlugs: new Set(["firework-isles"]),
+		};
+		expect(resolveSameMapHref("https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=509074", ctx)).toBe(
+			"#loc=509074",
+		);
+		expect(resolveSameMapHref("https://rdr2map.com?locationIds=320", ctx)).toBe("#loc=320");
+		expect(
+			resolveSameMapHref("https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001", ctx),
+		).toBeNull();
+		expect(resolveSameMapHref("#loc=509074", ctx)).toBeNull();
+
+		const desc =
+			"Find [Crank](https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=444895) or travel to [Isles](https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001).";
+		const res = cleanDescription(desc, ctx);
+		expect(res.cleaned).toBe(1);
+		expect(res.text).toBe(
+			"Find [Crank](#loc=444895) or travel to [Isles](https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001).",
+		);
+
+		const maps = [
+			{
+				slug: "commonwealth",
+				isDefault: true,
+				data: {
+					locations: [
+						{
+							id: 10,
+							description:
+								"Go to [Key](https://fallout4map.com?locationIds=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
+						},
+						{ id: 11, description: "Plain text" },
+					],
+				},
+			},
+			{
+				slug: "far-harbor",
+				isDefault: false,
+				data: {
+					locations: [
+						{
+							id: 20,
+							description:
+								"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](https://fallout4map.com/far-harbor?locationIds=20).",
+						},
+					],
+				},
+			},
+		];
+		const stats = cleanGameMarkers(maps);
+		expect(stats).toEqual({ maps: 2, locationsChanged: 2, linksCleaned: 2 });
+		expect(maps[0].data.locations[0].description).toBe(
+			"Go to [Key](#loc=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
+		);
+		expect(maps[1].data.locations[0].description).toBe(
+			"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](#loc=20).",
+		);
+	});
 });
 
 describe("build, self-hosted fonts, and service worker precache", () => {
@@ -108,7 +177,7 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 		await buildClient({ quiet: true });
 		const swVersion = await verifyAndHashPrecache();
 		expect(swVersion).toMatch(/^v40-[0-9a-f]{8}$/);
-		expect(PRECACHE).toContain("fonts/inter-latin-400-normal.woff2");
+		expect(PRECACHE).toContain("fonts/instrument-sans-latin-variable.woff2");
 		expect(PRECACHE).toContain("fonts/instrument-serif-latin-400-normal.woff2");
 		expect(PRECACHE).not.toContain("perfect-freehand.mjs");
 
@@ -117,11 +186,12 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 		expect(swCode).not.toContain("fonts.googleapis.com");
 	});
 
-	test("HTML pages do not load external Google Fonts and base.css declares @font-face for Inter and Instrument Serif", async () => {
+	test("HTML pages do not load external Google Fonts and base.css declares @font-face for Instrument Sans and Instrument Serif", async () => {
 		const htmlPages = [
 			"public/index.html",
 			"public/map.html",
 			"public/signin/index.html",
+			"public/account/index.html",
 			"public/about/index.html",
 			"public/terms/index.html",
 			"public/privacy/index.html",
@@ -132,9 +202,9 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 			expect(html).not.toContain("fonts.gstatic.com");
 		}
 		const baseCss = await readFile(path.join(process.cwd(), "public", "base.css"), "utf8");
-		expect(baseCss).toContain('font-family: "Inter"');
+		expect(baseCss).toContain('font-family: "Instrument Sans"');
 		expect(baseCss).toContain('font-family: "Instrument Serif"');
-		expect(baseCss).toContain("./fonts/inter-latin-400-normal.woff2");
+		expect(baseCss).toContain("./fonts/instrument-sans-latin-variable.woff2");
 	});
 });
 
@@ -179,19 +249,39 @@ describe("server/api and server/ws integration", () => {
 		const meAnon = await fetch(`${baseUrl}/api/me`);
 		expect(await meAnon.json()).toEqual({ user: null });
 
-		// 2. Create secret key account
+		// 2. Create secret key account (unconfirmed secret is not registered yet)
 		const newRes = await fetch(`${baseUrl}/api/auth/secret/new`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: "{}",
 		});
 		expect(newRes.status).toBe(200);
-		const setCookie = newRes.headers.get("set-cookie") || "";
+		expect(newRes.headers.get("set-cookie")).toBeNull();
+		const { secret } = await newRes.json();
+		expect(typeof secret).toBe("string");
+
+		// Attempting to log in before confirmation fails
+		const unconfirmedLogin = await fetch(`${baseUrl}/api/auth/secret/login`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret }),
+		});
+		expect(unconfirmedLogin.status).toBe(401);
+
+		// Confirm secret key account
+		const confirmRes = await fetch(`${baseUrl}/api/auth/secret/confirm`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret }),
+		});
+		expect(confirmRes.status).toBe(200);
+		const setCookie = confirmRes.headers.get("set-cookie") || "";
 		const cookie = setCookie.split(";")[0];
 		expect(cookie).toStartWith("va_session=");
-		const { user, secret } = await newRes.json();
+		const { user } = await confirmRes.json();
 		expect(user.provider).toBe("secret");
-		expect(typeof secret).toBe("string");
+		expect(user.name).toBe(secretName(secret));
+		expect(user.name).not.toBe("Secret key account");
 
 		// 3. Login with messy secret key (lowercase, spaces, lookalike O/I/L if applicable)
 		const loginRes = await fetch(`${baseUrl}/api/auth/secret/login`, {
@@ -200,6 +290,17 @@ describe("server/api and server/ws integration", () => {
 			body: JSON.stringify({ secret: secret.toLowerCase().replace(/-/g, " ") }),
 		});
 		expect(loginRes.status).toBe(200);
+		const loginJson = await loginRes.json();
+		expect(loginJson.user.name).toBe(user.name);
+
+		// Typo in the secret key fails validation with 400
+		const badSecret = secret.slice(0, -1) + (secret.endsWith("A") ? "B" : "A");
+		const badLogin = await fetch(`${baseUrl}/api/auth/secret/login`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret: badSecret }),
+		});
+		expect(badLogin.status).toBe(400);
 
 		// 4. Connect WebSocket as client-A to listen for live sync notifications
 		const wsUrl = baseUrl.replace("http://", "ws://") + "/api/ws?c=client-A";
@@ -277,6 +378,53 @@ describe("server/api and server/ws integration", () => {
 		expect(conflictData.results[0].status).toBe("conflict");
 		expect(conflictData.results[0].value.found).toEqual([1, 2]);
 
-		ws.close();
+		// 8. Authenticated /api/me returns createdAt, sessions, and syncedItems
+		const meAuth = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
+		const meAuthData = await meAuth.json();
+		expect(meAuthData.user.id).toBe(user.id);
+		expect(meAuthData.user.createdAt).toBeGreaterThan(0);
+		expect(meAuthData.user.sessions).toBeGreaterThanOrEqual(1);
+		expect(meAuthData.user.syncedItems).toBe(1);
+
+		// 9. Delete account cascades user_data, sessions, and secret_accounts and closes active WebSockets
+		const wsClosed = new Promise<number>((resolve) => {
+			ws.onclose = (ev) => resolve(ev.code);
+		});
+		const delRes = await fetch(`${baseUrl}/api/auth/delete-account`, {
+			method: "POST",
+			headers: { Cookie: cookie },
+		});
+		expect(delRes.status).toBe(200);
+		expect(await delRes.json()).toEqual({ ok: true });
+		expect(await wsClosed).toBe(4401);
+
+		const meAfterDel = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
+		expect(await meAfterDel.json()).toEqual({ user: null });
+
+		const reloginAfterDel = await fetch(`${baseUrl}/api/auth/secret/login`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret }),
+		});
+		expect(reloginAfterDel.status).toBe(401);
+	});
+
+	test("collectMapPackItems gathers all metadata and tiles with root URLs and deduplication info", async () => {
+		const items = await collectMapPackItems(
+			path.join(process.cwd(), "public"),
+			path.join(process.cwd(), "cache", "tiles"),
+			"re7",
+			"baker-ranch",
+		);
+		expect(items).not.toBeNull();
+		expect(items!.length).toBeGreaterThan(10);
+		expect(items!.some((i) => i.url === "/maps/re7/meta.json")).toBe(true);
+		expect(items!.some((i) => i.url === "/maps/re7/baker-ranch/data.json")).toBe(true);
+		expect(items!.some((i) => i.url.startsWith("/maps/re7/baker-ranch/tiles/"))).toBe(true);
+		for (const item of items!) {
+			expect(item.url.startsWith("/")).toBe(true);
+			expect(item.size).toBeGreaterThanOrEqual(0);
+			expect(item.contentType.length).toBeGreaterThan(0);
+		}
 	});
 });

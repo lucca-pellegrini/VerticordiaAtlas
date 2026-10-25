@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // build.ts: bundles client TypeScript entrypoints in src/client/ into public/, verifies all Service Worker precache paths, and injects a content-addressed version into public/sw.js.
 
 import crypto from "node:crypto";
@@ -28,6 +32,7 @@ export const CLIENT_TARGETS: BuildTarget[] = [
 	{ entry: "src/client/home.ts", outfile: "public/home.js", format: "esm" },
 	{ entry: "src/client/theme.ts", outfile: "public/theme.js", format: "esm" },
 	{ entry: "src/client/signin.ts", outfile: "public/signin/signin.js", format: "esm" },
+	{ entry: "src/client/account-page.ts", outfile: "public/account/account.js", format: "esm" },
 	{ entry: "src/client/legal.ts", outfile: "public/legal/legal.js", format: "iife" },
 ];
 

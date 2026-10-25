@@ -1,0 +1,104 @@
+{
+	"id": "slime-rancher",
+	"title": "Slime Rancher",
+	"slug": "slime-rancher",
+	"source": "https://mapgenie.io/slime-rancher",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"fountain": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"gilded_ginger": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"gordo_slime": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"hobsons_note": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"map_data_node": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"oasis_bud": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"slime_gate": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"slime_statue": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"teleporter": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_pod": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"vault": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "far-far-range",
+			"title": "Far, Far Range",
+			"data": "far-far-range/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "far-far-range/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

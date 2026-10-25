@@ -37,6 +37,7 @@
 		</script>
 		<link rel="manifest" href="../manifest.webmanifest" />
 		<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+		<meta name="mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-title" content="Atlas" />
 		<link rel="icon" href="../logo.svg" type="image/svg+xml" />
@@ -91,7 +92,7 @@
 					The short version: the maps are free and work without an account. An account is optional, and only
 					lets your progress follow you between devices. Please use the site in good faith.
 				</p>
-				<p class="updated">Last updated <time datetime="2026-10-22">22 October 2026</time></p>
+				<p class="updated">Last updated <time datetime="2026-10-24">24 October 2026</time></p>
 
 				<section id="about">
 					<h2>About these terms</h2>
@@ -225,22 +226,21 @@
 						agree it is justified.
 					</p>
 					<p>
-						Our own software, design and text are ours or are used under licence. You may use the Service
-						for your own personal play and reference, but you may not sell it or present it as your own.
+						Our own software is free and open-source, licensed under the GNU Affero General Public License
+						v3 (AGPL-3.0-only). Our design, branding, and text are ours or are used under licence. Nothing
+						in these Terms limits your rights under the AGPLv3 for the Atlas software and source code. You
+						may use the Service for your own personal play and reference, but you may not misrepresent your
+						affiliation with us or present our hosted Service as your own.
 					</p>
 				</section>
 
 				<section id="third-parties">
 					<h2>Third-party services</h2>
-					<p>The Service uses some third-party services that have their own terms:</p>
+					<p>The Service uses minimal third-party services:</p>
 					<ul>
 						<li>
-							<strong>Google Identity Services</strong>, for “Sign in with Google”. Your use of it is
-							subject to Google’s terms and privacy policy.
-						</li>
-						<li>
-							<strong>Google Fonts</strong>, for the typefaces. Loading the fonts sends your IP address to
-							Google.
+							<strong>Google Identity Services</strong>, for optional “Sign in with Google”. Your use of
+							it is subject to Google’s terms and privacy policy.
 						</li>
 					</ul>
 					<p>
@@ -275,9 +275,10 @@
 						progress on the device, and it does not delete it from the server.
 					</p>
 					<p>
-						You can ask us to delete your account and the progress stored on the server by writing to us at
-						the address below. We will do so within 30 days, unless we are required by law to keep something
-						for longer. You can also stop using the Service at any time.
+						You can delete your account and all progress stored on the server directly at any time from your
+						<a href="../account/">Account page</a>. Deletion is immediate and permanent: your session,
+						account credentials, and synced profiles on the server are purged. You can also ask us to delete
+						your account by writing to us at the address below. You can stop using the Service at any time.
 					</p>
 					<p>
 						Sections that by their nature should survive the end of the agreement (for example liability,
@@ -337,6 +338,12 @@
 						text are given or linked.
 					</p>
 					<dl class="notices">
+						<dt>Verticordia Atlas</dt>
+						<dd>
+							The interactive game map viewer, tile engine, and synchronization server. Licensed under the
+							<strong>GNU Affero General Public License v3 (AGPL-3.0-only)</strong>. Source code available
+							<a href="https://git.verticordia.com/pellegrini/VerticordiaAtlas">here</a>.
+						</dd>
 						<dt>MapLibre GL JS <span>v5.24.0</span></dt>
 						<dd>
 							The map engine. Licensed under the <strong>3-Clause BSD License</strong>. Full text:
@@ -346,7 +353,7 @@
 						</dd>
 						<dt>marked <span>v18.1.1</span></dt>
 						<dd>
-							The markdown parser used for marker descriptions. Copyright (c) 2018–2026 MarkedJS;
+							The Markdown parser used for marker descriptions. Copyright (c) 2018–2026 MarkedJS;
 							copyright (c) 2011–2018 Christopher Jeffrey. Licensed under the
 							<strong>MIT License</strong>. Repository:
 							<a href="https://github.com/markedjs/marked">github.com/markedjs/marked</a>.
@@ -363,12 +370,28 @@
 							Licensed under the <strong>ISC License</strong>. Full text:
 							<a href="../vendor/lucide/LICENSE.txt">lucide/LICENSE.txt</a>.
 						</dd>
-						<dt>Inter and Instrument Serif</dt>
+						<dt>sharp <span>v0.35.5</span></dt>
 						<dd>
-							The typefaces, loaded from Google Fonts. Both are licensed under the
+							The high-performance image processing engine used on the server to stitch, downsample, and
+							assemble map tiles on demand and package offline maps. Copyright (c) 2013–2026 Lovell Fuller
+							and contributors. Licensed under the <strong>Apache License, Version 2.0</strong>.
+							Repository: <a href="https://github.com/lovell/sharp">github.com/lovell/sharp</a>.
+						</dd>
+						<dt>unique-names-generator <span>v4.7.1</span></dt>
+						<dd>
+							Generates memorable pseudonyms for secret key accounts. Copyright (c) 2018–2022 AndreaSonny.
+							Licensed under the <strong>MIT License</strong>. Repository:
+							<a href="https://github.com/andreasonny83/unique-names-generator"
+								>github.com/andreasonny83/unique-names-generator</a
+							>.
+						</dd>
+						<dt>Instrument Sans, Instrument Serif and Red Hat Mono</dt>
+						<dd>
+							The self-hosted typefaces used across the interface. All are licensed under the
 							<strong>SIL Open Font License 1.1</strong>. Details:
-							<a href="https://fonts.google.com/specimen/Inter">Inter</a> and
-							<a href="https://fonts.google.com/specimen/Instrument+Serif">Instrument Serif</a>.
+							<a href="https://fonts.google.com/specimen/Instrument+Sans">Instrument Sans</a>,
+							<a href="https://fonts.google.com/specimen/Instrument+Serif">Instrument Serif</a> and
+							<a href="https://fonts.google.com/specimen/Red+Hat+Mono">Red Hat Mono</a>.
 						</dd>
 					</dl>
 					<p>If you think a notice is missing or wrong, tell us at the address below and we will fix it.</p>

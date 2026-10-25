@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
+
 // api.ts: optional accounts and cross-device sync, under /api/. The app works without any of this: an account only
 // lets the same progress follow you to another device. Everything is in one SQLite file (data/atlas.db).
 //
@@ -15,9 +18,14 @@ import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import type { Duplex } from "node:stream";
 
+import { adjectives, animals, colors, uniqueNamesGenerator } from "unique-names-generator";
+
+import { encodeSecret, formatSecret, normalizeSecret, validateSecretKey } from "../src/shared/secret-key.ts";
 import { contentKey, sendKey } from "../src/shared/sync-rules.ts";
 import type { SyncItem, SyncPushResult, UserAccount } from "../src/shared/types.ts";
 import { acceptWebSocket, type WebSocketConn } from "./ws.ts";
+
+export { normalizeSecret, validateSecretKey };
 
 const DAY = 86400000;
 const SESSION_DAYS = 30,
@@ -29,7 +37,21 @@ const SEG = "[A-Za-z0-9._-]{1,80}";
 const KEY_PATTERN = new RegExp(`^(profile:${SEG}:${SEG}|meta:(presets|view):${SEG}(:${SEG})?)$`);
 const MAX_VALUE = 2_000_000,
 	MAX_ITEMS = 200;
-const B32 = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+
+export const sha256 = (s: string): string => crypto.createHash("sha256").update(s).digest("hex");
+
+// derives a memorable, deterministic username fingerprint for secret key accounts
+export function secretName(seed: string): string {
+	const isHex = /^[0-9a-f]{64}$/i.test(seed);
+	const hash = isHex ? seed : sha256(normalizeSecret(seed) || seed);
+	const numSeed = Buffer.from(hash, "hex").readInt32BE(0);
+	return uniqueNamesGenerator({
+		dictionaries: [adjectives, colors, animals],
+		separator: " ",
+		style: "capital",
+		seed: numSeed,
+	});
+}
 
 export interface ApiOptions {
 	root: string;
@@ -101,9 +123,26 @@ export function createApi({
       updated_at INTEGER NOT NULL,
       PRIMARY KEY (user_id, key)
     );
+    CREATE TABLE IF NOT EXISTS game_popularity (
+      game TEXT PRIMARY KEY,
+      requests INTEGER NOT NULL,
+      last_requested INTEGER NOT NULL
+    );
   `);
 
-	const sha256 = (s: string): string => crypto.createHash("sha256").update(s).digest("hex");
+	// backfill display_name for secret accounts that lack one
+	const missingSecretNames = db
+		.prepare(
+			`SELECT u.id, a.secret_hash
+             FROM users u
+             JOIN secret_accounts a ON a.user_id = u.id
+             WHERE u.provider = 'secret' AND (u.display_name IS NULL OR u.display_name = '')`,
+		)
+		.all() as { id: string; secret_hash: string }[];
+	for (const m of missingSecretNames) {
+		db.prepare("UPDATE users SET display_name = ? WHERE id = ?").run(secretName(m.secret_hash), m.id);
+	}
+
 	const now = (): number => Date.now();
 
 	/* ---------- rate limit for the sign-in endpoints ---------- */
@@ -198,7 +237,11 @@ export function createApi({
 		id: String(u.id),
 		provider: u.provider as "google" | "secret",
 		email: u.email ? String(u.email) : null,
-		name: u.provider === "google" ? String(u.display_name || u.email || "Google account") : "Secret key account",
+		name:
+			u.provider === "google"
+				? String(u.display_name || u.email || "Google account")
+				: String(u.display_name || (u.secret_hash ? secretName(u.secret_hash) : secretName(u.id))),
+		...(u.created_at ? { createdAt: Number(u.created_at) } : {}),
 	});
 
 	/* ---------- sessions ---------- */
@@ -207,7 +250,7 @@ export function createApi({
 		if (!token) return null;
 		const row = db
 			.prepare(
-				`SELECT s.token_hash, s.expires_at, u.id, u.provider, u.email, u.display_name
+				`SELECT s.token_hash, s.expires_at, u.id, u.provider, u.email, u.display_name, u.created_at
                             FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = ?`,
 			)
 			.get(sha256(token)) as any;
@@ -284,30 +327,10 @@ export function createApi({
 		return { sub: payload.sub, email: String(payload.email || ""), name: String(payload.name || "") };
 	}
 
-	/* ---------- secret keys: 128 random bits, shown once, stored as a hash ---------- */
+	/* ---------- secret keys: 128 random bits with scattered checksum, shown once, stored as a hash ---------- */
 	function newSecret(): string {
-		const bytes = crypto.randomBytes(16);
-		let bits = 0,
-			value = 0,
-			out = "";
-		for (const b of bytes) {
-			value = (value << 8) | b;
-			bits += 8;
-			while (bits >= 5) {
-				out += B32[(value >>> (bits - 5)) & 31];
-				bits -= 5;
-			}
-		}
-		if (bits > 0) out += B32[(value << (5 - bits)) & 31];
-		return out.match(/.{1,4}/g)!.join("-");
+		return formatSecret(encodeSecret(crypto.randomBytes(16)));
 	}
-	// people type these by hand: case, dashes and the look-alikes (O, I, L) do not matter
-	const normalizeSecret = (s: unknown): string =>
-		String(s || "")
-			.toUpperCase()
-			.replace(/[^0-9A-Z]/g, "")
-			.replace(/O/g, "0")
-			.replace(/[IL]/g, "1");
 
 	/* ---------- sync ---------- */
 	/* what a change means for sync: contentKey (conflicts) and sendKey (whether to push) are in shared/sync-rules.ts */
@@ -459,8 +482,21 @@ export function createApi({
 
 			if (route === "GET /api/me") {
 				const session = sessionFrom(req);
-				if (session) touch(req, res, session);
-				return json(res, 200, { user: session ? session.user : null });
+				if (!session) return json(res, 200, { user: null });
+				touch(req, res, session);
+				const sessionsRow = db
+					.prepare("SELECT COUNT(*) AS n FROM sessions WHERE user_id = ? AND expires_at > ?")
+					.get(session.user.id, now()) as { n: number } | undefined;
+				const syncedRow = db
+					.prepare("SELECT COUNT(*) AS n FROM user_data WHERE user_id = ? AND value IS NOT NULL")
+					.get(session.user.id) as { n: number } | undefined;
+				return json(res, 200, {
+					user: {
+						...session.user,
+						sessions: Number(sessionsRow?.n || 1),
+						syncedItems: Number(syncedRow?.n || 0),
+					},
+				});
 			}
 
 			if (route === "GET /api/auth/google/start") {
@@ -471,7 +507,8 @@ export function createApi({
 					});
 					res.end();
 				};
-				if (!googleClientId || !publicUrl) return back("Google sign-in is not set up on this server yet.");
+				if (!googleClientId || !publicUrl)
+					return back("We can't seem to reach Google for sign-in. Try again later.");
 				if (!allowLogin(ip)) return back("Too many attempts. Please wait a little and try again.");
 				const n = url.searchParams.get("next") || "";
 				const next = /^\/(?!\/)/.test(n) ? n : "/"; // only a path on this site
@@ -593,14 +630,26 @@ export function createApi({
 				if (!allowLogin(ip)) throw httpError(429, "too many attempts, try again later");
 				await readJson(req, 1000);
 				const secret = newSecret();
+				return json(res, 200, { secret });
+			}
+
+			if (route === "POST /api/auth/secret/confirm") {
+				if (!allowLogin(ip)) throw httpError(429, "too many attempts, try again later");
+				const body = await readJson(req, 1000);
+				const v = validateSecretKey(body.secret);
+				if (!v.valid) throw httpError(400, v.error);
+				const norm = v.normalized;
+				const secretHash = sha256(norm);
+				const existing = db.prepare("SELECT 1 FROM secret_accounts WHERE secret_hash = ?").get(secretHash);
+				if (existing) throw httpError(409, "this secret key is already registered");
 				const id = crypto.randomUUID();
+				const displayName = secretName(secretHash);
 				db.exec("BEGIN");
 				try {
-					db.prepare("INSERT INTO users (id, provider, created_at) VALUES (?, 'secret', ?)").run(id, now());
-					db.prepare("INSERT INTO secret_accounts (user_id, secret_hash) VALUES (?, ?)").run(
-						id,
-						sha256(normalizeSecret(secret)),
-					);
+					db.prepare(
+						"INSERT INTO users (id, provider, display_name, created_at) VALUES (?, 'secret', ?, ?)",
+					).run(id, displayName, now());
+					db.prepare("INSERT INTO secret_accounts (user_id, secret_hash) VALUES (?, ?)").run(id, secretHash);
 					db.exec("COMMIT");
 				} catch (e) {
 					db.exec("ROLLBACK");
@@ -608,16 +657,17 @@ export function createApi({
 				}
 				startSession(req, res, id);
 				return json(res, 200, {
+					ok: true,
 					user: publicUser(db.prepare("SELECT * FROM users WHERE id = ?").get(id)),
-					secret,
 				});
 			}
 
 			if (route === "POST /api/auth/secret/login") {
 				if (!allowLogin(ip)) throw httpError(429, "too many attempts, try again later");
 				const body = await readJson(req, 1000);
-				const norm = normalizeSecret(body.secret);
-				if (norm.length !== 26) throw httpError(401, "that key does not match an account");
+				const v = validateSecretKey(body.secret);
+				if (!v.valid) throw httpError(400, v.error);
+				const norm = v.normalized;
 				const row = db
 					.prepare(
 						`SELECT u.* FROM secret_accounts a JOIN users u ON u.id = a.user_id WHERE a.secret_hash = ?`,
@@ -647,6 +697,17 @@ export function createApi({
 				const userId = row.user_id;
 				db.prepare("DELETE FROM sessions WHERE user_id = ?").run(userId);
 				for (const c of [...(sockets.get(userId) || [])]) c.ws.close(4401, "signed out");
+				res.setHeader("Set-Cookie", cookieHeader(req, "", 0));
+				return json(res, 200, { ok: true });
+			}
+
+			if (route === "POST /api/auth/delete-account" || route === "DELETE /api/me") {
+				const session = sessionFrom(req);
+				if (!session) throw httpError(401, "not signed in");
+				const userId = session.user.id;
+				for (const c of [...(sockets.get(userId) || [])]) c.ws.close(4401, "account deleted");
+				sockets.delete(userId);
+				db.prepare("DELETE FROM users WHERE id = ?").run(userId);
 				res.setHeader("Set-Cookie", cookieHeader(req, "", 0));
 				return json(res, 200, { ok: true });
 			}
@@ -691,9 +752,26 @@ export function createApi({
 	const sweepTimer = setInterval(sweep, 60 * 60 * 1000);
 	sweepTimer.unref();
 
+	// How often a game's maps are opened, for the tile cache to decide what to keep. One write per game when one of its maps
+	// is newly requested (the caller throttles), never per tile.
+	const recordGameRequest = (game: string): void => {
+		db.prepare(
+			`INSERT INTO game_popularity (game, requests, last_requested) VALUES (?, 1, ?)
+             ON CONFLICT (game) DO UPDATE SET requests = requests + 1, last_requested = excluded.last_requested`,
+		).run(game, now());
+	};
+	const gamePopularity = (): Map<string, number> =>
+		new Map(
+			(
+				db.prepare("SELECT game, requests FROM game_popularity").all() as { game: string; requests: number }[]
+			).map((r) => [r.game, r.requests]),
+		);
+
 	return {
 		handle,
 		upgrade,
+		recordGameRequest,
+		gamePopularity,
 		close: () => {
 			clearInterval(sweepTimer);
 			db.close();
@@ -701,5 +779,6 @@ export function createApi({
 		_db: db,
 		newSecret,
 		normalizeSecret,
+		secretName,
 	};
 }
