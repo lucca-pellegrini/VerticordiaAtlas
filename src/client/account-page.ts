@@ -49,7 +49,7 @@ export function renderAccountInfoHtml(u: UserAccount): string {
 	const synced = typeof u.syncedItems === "number" ? fmt(u.syncedItems) : "0";
 	return (
 		`<div class="kv-grid">` +
-		`<div class="kv-item"><span class="kv-label">Account</span><span class="kv-val">${esc(who)}</span></div>` +
+		`<div class="kv-item kv-account"><span class="kv-label">Account</span><span class="kv-val" title="${esc(who)}">${esc(who)}</span></div>` +
 		`<div class="kv-item"><span class="kv-label">Sign-in method</span><span class="kv-val">${esc(method)}</span></div>` +
 		`<div class="kv-item"><span class="kv-label">Created</span><span class="kv-val">${esc(created)}</span></div>` +
 		`<div class="kv-item"><span class="kv-label">Active sessions</span><span class="kv-val">${esc(sessions)}</span></div>` +

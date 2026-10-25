@@ -228,7 +228,7 @@ h2 {
 
 .kv-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
 	gap: 12px;
 	margin: 2px 0;
 }
@@ -239,6 +239,10 @@ h2 {
 	border: 1px solid var(--line);
 	display: grid;
 	gap: 3px;
+	min-width: 0;
+}
+.kv-item.kv-account {
+	grid-column: 1 / -1;
 }
 .kv-label {
 	font: 600 11px/1.2 Inter;
@@ -250,6 +254,11 @@ h2 {
 	font: 500 14.5px/1.35 Inter;
 	color: var(--ink);
 	word-break: break-word;
+}
+.kv-account .kv-val {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .small {
