@@ -33,6 +33,12 @@ import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
+import {
+	_setActiveDownloadForTest,
+	DOTS_SVG,
+	downloadDiscardSummary,
+	moreBtnProgressIcon,
+} from "../src/client/map/sidebar.ts";
 import { iconScale, vivid } from "../src/client/map/state.ts";
 import {
 	createOfflineManager,
@@ -708,5 +714,74 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 		expect(entries[2].type).toBe(1);
 		expect(entries[2].url).toBe("/maps/game/c.jpg");
 		expect(entries[2].sourceUrl).toBe("/maps/game/a.jpg");
+	});
+
+	test("moreBtnProgressIcon renders animated download icon with throbber wheel or progress bar", () => {
+		// Preparing phase: throbber wheel without track
+		const prep = moreBtnProgressIcon(true, 0);
+		expect(prep).toContain('class="more-dl-svg"');
+		expect(prep).toContain('class="more-wheel-throbber"');
+		expect(prep).toContain('class="more-dl-arrow"');
+		expect(prep).toContain('class="more-dl-tray"');
+		expect(prep).not.toContain("more-wheel-track");
+		expect(prep).not.toContain("more-wheel-progress");
+
+		// Downloading phase: progress wheel with background track
+		const dl0 = moreBtnProgressIcon(false, 0);
+		expect(dl0).toContain('class="more-wheel-track"');
+		expect(dl0).toContain('class="more-wheel-progress"');
+		expect(dl0).toContain('stroke-dashoffset="62.83"');
+		expect(dl0).not.toContain("more-wheel-throbber");
+
+		const dl50 = moreBtnProgressIcon(false, 50);
+		expect(dl50).toContain('stroke-dashoffset="31.41"');
+
+		const dl100 = moreBtnProgressIcon(false, 100);
+		expect(dl100).toContain('stroke-dashoffset="0.00"');
+
+		// Default DOTS_SVG
+		expect(DOTS_SVG).toContain('class="dots"');
+	});
+
+	test("downloadDiscardSummary reports nothing while first pack is pending, and reports progress once started", () => {
+		// When no download is active
+		_setActiveDownloadForTest(null);
+		expect(downloadDiscardSummary()).toBeNull();
+
+		// When first pack is pending (started is false)
+		_setActiveDownloadForTest({
+			started: false,
+			completedBytes: 0,
+			currentDone: 0,
+			currentTotal: 0,
+			map: 1,
+			maps: 1,
+		});
+		expect(downloadDiscardSummary()).toBeNull();
+
+		// Single map: when started downloading
+		_setActiveDownloadForTest({
+			started: true,
+			completedBytes: 0,
+			currentDone: 5 * 1024 * 1024,
+			currentTotal: 10 * 1024 * 1024,
+			map: 1,
+			maps: 1,
+		});
+		expect(downloadDiscardSummary()).toBe("5.0 MB of 10.0 MB (50%)");
+
+		// Multiple maps: map 1 completed, map 2 downloading 2 MB of 8 MB
+		_setActiveDownloadForTest({
+			started: true,
+			completedBytes: 15 * 1024 * 1024,
+			currentDone: 2 * 1024 * 1024,
+			currentTotal: 8 * 1024 * 1024,
+			map: 2,
+			maps: 3,
+		});
+		expect(downloadDiscardSummary()).toBe("17.0 MB (25% of map 2/3)");
+
+		// Cleanup
+		_setActiveDownloadForTest(null);
 	});
 });

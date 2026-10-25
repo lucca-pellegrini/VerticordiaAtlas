@@ -451,6 +451,34 @@ input[type="checkbox"]:active {
 	width: 34px;
 	height: 34px;
 }
+.side-more-btn[data-busy="1"] {
+	color: var(--accent-soft);
+}
+.side-more-btn .more-dl-svg {
+	width: 20px;
+	height: 20px;
+	display: block;
+	overflow: visible;
+}
+.side-more-btn .more-wheel-throbber {
+	transform-origin: 12px 12px;
+	animation: spin 0.9s linear infinite;
+}
+.side-more-btn .more-wheel-progress {
+	transition: stroke-dashoffset 0.16s ease-out;
+}
+.side-more-btn .more-dl-arrow {
+	animation: dl-bounce 1.2s ease-in-out infinite;
+}
+@keyframes dl-bounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(1.5px);
+	}
+}
 .side-more-menu {
 	position: absolute;
 	right: 0;

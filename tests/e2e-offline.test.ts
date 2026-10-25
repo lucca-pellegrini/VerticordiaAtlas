@@ -88,7 +88,9 @@ describe("offline map download & disconnected navigation e2e", () => {
 		await page.evaluate(() => {
 			const texts: string[] = ((window as any).__btnTexts = []);
 			const progresses: string[] = ((window as any).__btnProgresses = []);
+			const moreBusyStates: boolean[] = ((window as any).__moreBusy = []);
 			const btn = document.querySelector("#side-offline-btn") as HTMLElement;
+			const moreBtn = document.querySelector("#side-more-btn") as HTMLElement;
 			new MutationObserver(() => {
 				const t = btn.textContent || "";
 				if (texts[texts.length - 1] !== t) texts.push(t);
@@ -101,6 +103,16 @@ describe("offline map download & disconnected navigation e2e", () => {
 				attributes: true,
 				attributeFilter: ["style"],
 			});
+			if (moreBtn) {
+				new MutationObserver(() => {
+					moreBusyStates.push(moreBtn.dataset.busy === "1" && !!moreBtn.querySelector(".more-dl-svg"));
+				}).observe(moreBtn, {
+					childList: true,
+					subtree: true,
+					attributes: true,
+					attributeFilter: ["data-busy"],
+				});
+			}
 		});
 		await page.click("#side-offline-btn");
 
@@ -120,6 +132,12 @@ describe("offline map download & disconnected navigation e2e", () => {
 		expect(texts.some((t) => t === "Downloading 1/4")).toBe(true);
 		expect(texts.every((t) => !t.includes("%"))).toBe(true);
 		expect(progresses.some((p) => p.endsWith("%") && p !== "0%")).toBe(true);
+
+		// The side-more-btn showed the animated download progress icon with wheel during download and reverted to dots
+		const moreBusy: boolean[] = await page.evaluate(() => (window as any).__moreBusy);
+		expect(moreBusy.some((b) => b)).toBe(true);
+		const finalMoreHasDots = await page.$eval("#side-more-btn", (el) => !!el.querySelector("svg.dots"));
+		expect(finalMoreHasDots).toBe(true);
 
 		// Assert no unhandled range errors or call stack errors occurred
 		const callStackErrors = consoleErrors.filter((e) => e.includes("Maximum call stack size"));

@@ -4,7 +4,7 @@
 // account-page.ts: the /account/ page. Shows signed-in account details, session controls, account deletion, and
 // device-local offline maps.
 
-import { esc, fmt } from "../shared/escape.ts";
+import { esc, fmt, formatBytes } from "../shared/escape.ts";
 import type { UserAccount } from "../shared/types.ts";
 import { api, notify, SIGNED_IN_KEY } from "./account.ts";
 import {
@@ -34,13 +34,7 @@ export function formatAccountDate(ts: number | undefined): string {
 	}
 }
 
-export function formatBytes(bytes: number): string {
-	if (!Number.isFinite(bytes) || bytes <= 0) return "0 B";
-	if (bytes < 1024) return `${Math.round(bytes)} B`;
-	if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-	if (bytes < 1024 * 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-	return `${(bytes / (1024 * 1024 * 1024)).toFixed(2)} GB`;
-}
+export { formatBytes };
 
 export function renderAccountInfoHtml(u: UserAccount): string {
 	const who = u.email || u.name || "Your account";

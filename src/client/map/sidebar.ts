@@ -3,7 +3,7 @@
 
 /* ---------- filtering, stats, and sidebar ---------- */
 
-import { esc } from "../../shared/escape.ts";
+import { esc, formatBytes } from "../../shared/escape.ts";
 import { glyphInk, iconInner, iconsReady, loadIconLibrary } from "../icons-lib.ts";
 import { svgIcon } from "../icons.ts";
 import { downloadOfflineGame, getGameOfflineManifests, removeOfflineGame } from "../offline.ts";
@@ -14,7 +14,7 @@ import { refreshAll, refreshMap } from "./map-view.ts";
 import { renderPresets } from "./presets.ts";
 import { HEX, saveProfileNow, scheduleSave, scheduleViewSave } from "./profiles.ts";
 import { runSearch } from "./search.ts";
-import { $, fmt, state, toast, UNTAGGED } from "./state.ts";
+import { $, askDialog, fmt, state, toast, UNTAGGED } from "./state.ts";
 import { TEMP_CAT } from "./usermarkers.ts";
 
 // with a tag selected, untagged markers are shown unless "only markers with this tag" is on
@@ -605,7 +605,7 @@ export function setupTitleRow(): void {
 	tools.innerHTML =
 		`<div class="side-more" id="side-more">` +
 		`<button id="side-more-btn" class="icon-btn side-more-btn" type="button" aria-haspopup="true" aria-expanded="false" title="Menu" aria-label="Menu">` +
-		`<svg class="dots" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></svg>` +
+		DOTS_SVG +
 		`</button>` +
 		`<div id="side-more-menu" class="menu side-more-menu" hidden>` +
 		`<a class="side-menu-link" href="../../">` +
@@ -644,14 +644,102 @@ export function setupTitleRow(): void {
 	offlineBtn.onclick = () => toggleCurrentMapOffline();
 }
 
+export const DOTS_SVG =
+	'<svg class="dots" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.9"/><circle cx="12" cy="12" r="1.9"/><circle cx="12" cy="19" r="1.9"/></svg>';
 const DL_SVG =
 	'<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>';
 const OK_SVG = '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
 let mapOfflineCtrl: AbortController | null = null;
+let prepareTimer: ReturnType<typeof setTimeout> | null = null;
+
+export interface ActiveDownloadState {
+	started: boolean;
+	completedBytes: number;
+	currentDone: number;
+	currentTotal: number;
+	map: number;
+	maps: number;
+}
+let activeDownload: ActiveDownloadState | null = null;
+
+export function _setActiveDownloadForTest(st: ActiveDownloadState | null): void {
+	activeDownload = st;
+}
+
+export function downloadDiscardSummary(): string | null {
+	if (!activeDownload || !activeDownload.started) return null;
+	const downloaded = activeDownload.completedBytes + activeDownload.currentDone;
+	const formattedBytes = formatBytes(downloaded);
+	if (activeDownload.maps > 1) {
+		const pct =
+			activeDownload.currentTotal > 0
+				? Math.round((activeDownload.currentDone / activeDownload.currentTotal) * 100)
+				: 0;
+		return `${formattedBytes} (${pct}% of map ${activeDownload.map}/${activeDownload.maps})`;
+	}
+	if (activeDownload.currentTotal > 0) {
+		const pct = Math.round((activeDownload.currentDone / activeDownload.currentTotal) * 100);
+		return `${formattedBytes} of ${formatBytes(activeDownload.currentTotal)} (${pct}%)`;
+	}
+	return formattedBytes;
+}
+
+export async function confirmNavigationLoss(): Promise<boolean> {
+	const summary = downloadDiscardSummary();
+	if (!summary) return true;
+	const ok = await askDialog({
+		title: "Interrupt download?",
+		message:
+			"A download is in place and navigating away will interrupt it. If you try to redownload, " +
+			`it will restart from scratch. Already downloaded: ${summary}, which will be discarded.`,
+		okLabel: "Leave",
+		danger: true,
+	});
+	if (ok) {
+		if (mapOfflineCtrl) {
+			mapOfflineCtrl.abort();
+			mapOfflineCtrl = null;
+		}
+		activeDownload = null;
+		return true;
+	}
+	return false;
+}
 
 const SPIN = '<span class="spinner" role="status" aria-hidden="true"></span>';
 
+export function moreBtnProgressIcon(spinner: boolean, progress: number): string {
+	const c = 62.83;
+	const pct = Math.max(0, Math.min(100, progress));
+	const offset = ((100 - pct) / 100) * c;
+	const wheel = spinner
+		? '<circle class="more-wheel-throbber" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="16 47"/>'
+		: '<circle class="more-wheel-track" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="2"/>' +
+			`<circle class="more-wheel-progress" cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${offset.toFixed(2)}" transform="rotate(-90 12 12)"/>`;
+	return (
+		'<svg class="more-dl-svg" viewBox="0 0 24 24" aria-hidden="true">' +
+		wheel +
+		'<path class="more-dl-arrow" d="M12 6.5v7.5m0 0-2.8-2.8m2.8 2.8 2.8-2.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>' +
+		'<path class="more-dl-tray" d="M8.5 16.5h7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>' +
+		"</svg>"
+	);
+}
+
 function setMapOfflineButtons(mode: "off" | "on" | "busy", text?: string, spinner = false, progress = 0): void {
+	const moreBtn = document.getElementById("side-more-btn") as HTMLButtonElement | null;
+	if (moreBtn) {
+		if (mode === "busy") {
+			moreBtn.dataset.busy = "1";
+			moreBtn.title = text || "Downloading…";
+			moreBtn.setAttribute("aria-label", text || "Downloading…");
+			moreBtn.innerHTML = moreBtnProgressIcon(spinner, progress);
+		} else {
+			delete moreBtn.dataset.busy;
+			moreBtn.title = "Menu";
+			moreBtn.setAttribute("aria-label", "Menu");
+			moreBtn.innerHTML = DOTS_SVG;
+		}
+	}
 	const btn = document.getElementById("side-offline-btn") as HTMLButtonElement | null;
 	if (!btn) return;
 	const many = (state.meta?.maps?.length ?? 1) > 1;
@@ -685,6 +773,11 @@ export async function toggleCurrentMapOffline(): Promise<void> {
 	const gameTitle = state.entry?.title || state.meta?.title || gameSlug;
 
 	if (mapOfflineCtrl) {
+		if (prepareTimer) {
+			clearTimeout(prepareTimer);
+			prepareTimer = null;
+		}
+		activeDownload = null;
 		mapOfflineCtrl.abort();
 		mapOfflineCtrl = null;
 		await removeOfflineGame(gameSlug);
@@ -702,21 +795,81 @@ export async function toggleCurrentMapOffline(): Promise<void> {
 
 	const ctrl = new AbortController();
 	mapOfflineCtrl = ctrl;
+	activeDownload = {
+		started: false,
+		completedBytes: 0,
+		currentDone: 0,
+		currentTotal: 0,
+		map: 1,
+		maps: state.meta?.maps?.length ?? 1,
+	};
 	setMapOfflineButtons("busy", "Preparing…", true);
+
+	let notifiedPrepare = false;
+	const startPrepareTimer = () => {
+		if (notifiedPrepare || prepareTimer) return;
+		prepareTimer = setTimeout(() => {
+			prepareTimer = null;
+			notifiedPrepare = true;
+			toast(
+				"The server is preparing the map pack to download. You can keep using the map, but do not " +
+					"navigate away or close the tab.",
+				8000,
+			);
+		}, 10000);
+	};
+	const clearPrepareTimer = () => {
+		if (prepareTimer) {
+			clearTimeout(prepareTimer);
+			prepareTimer = null;
+		}
+	};
+
+	startPrepareTimer();
+
 	try {
 		await downloadOfflineGame({
 			gameSlug,
 			gameTitle,
 			signal: ctrl.signal,
 			onStatus: (s) => {
+				if (s.phase === "preparing") {
+					startPrepareTimer();
+				} else {
+					clearPrepareTimer();
+				}
+				if (activeDownload) {
+					if (s.phase === "downloading") {
+						activeDownload.started = true;
+						if (s.map > activeDownload.map) {
+							activeDownload.completedBytes += activeDownload.currentTotal;
+						}
+						activeDownload.map = s.map;
+						activeDownload.maps = s.maps;
+						activeDownload.currentDone = s.done;
+						activeDownload.currentTotal = s.total;
+					} else if (s.phase === "preparing") {
+						if (s.map > activeDownload.map) {
+							activeDownload.completedBytes += activeDownload.currentTotal;
+							activeDownload.currentDone = 0;
+							activeDownload.currentTotal = 0;
+						}
+						activeDownload.map = s.map;
+						activeDownload.maps = s.maps;
+					}
+				}
 				const { text, spinner, progress } = offlineStatusText(s);
 				setMapOfflineButtons("busy", text, spinner, progress);
 			},
 		});
+		clearPrepareTimer();
+		activeDownload = null;
 		if (mapOfflineCtrl === ctrl) mapOfflineCtrl = null;
 		setMapOfflineButtons("on");
 		toast(`${gameTitle} is ready for offline use.`);
 	} catch {
+		clearPrepareTimer();
+		activeDownload = null;
 		if (mapOfflineCtrl === ctrl) mapOfflineCtrl = null;
 		if (!ctrl.signal.aborted) {
 			setMapOfflineButtons("off");
@@ -738,4 +891,44 @@ export async function syncMapOfflineState(): Promise<void> {
 	try {
 		setMapOfflineButtons((await gameKeptOffline(gameSlug)) ? "on" : "off");
 	} catch {}
+}
+
+if (typeof window !== "undefined") {
+	window.addEventListener("beforeunload", (e) => {
+		if (downloadDiscardSummary()) {
+			e.preventDefault();
+			e.returnValue = "";
+		}
+	});
+}
+
+if (typeof document !== "undefined") {
+	document.addEventListener(
+		"click",
+		async (e) => {
+			const target = e.target as HTMLElement | null;
+			const a = target?.closest?.("a");
+			if (!a || !a.href || a.target || a.hasAttribute("download")) return;
+			try {
+				const targetUrl = new URL(a.href, location.href);
+				if (
+					targetUrl.origin === location.origin &&
+					targetUrl.pathname === location.pathname &&
+					targetUrl.search === location.search
+				) {
+					return;
+				}
+			} catch {
+				return;
+			}
+			if (!downloadDiscardSummary()) return;
+			e.preventDefault();
+			e.stopPropagation();
+			const allow = await confirmNavigationLoss();
+			if (allow) {
+				location.href = a.href;
+			}
+		},
+		true,
+	);
 }

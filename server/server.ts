@@ -556,6 +556,8 @@ const server = Bun.serve({
 			const offlinePack = /^\/api\/maps\/([^/]+)\/([^/]+)\/offline-pack$/.exec(p);
 			if (offlinePack) {
 				if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
+				// Offline packs may take several minutes to prepare on a cold cache; disable request idle timeout
+				bunServer?.timeout?.(req, 0);
 				return await streamOfflinePack(
 					req,
 					PUBLIC,
