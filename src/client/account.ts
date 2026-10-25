@@ -142,9 +142,9 @@ export function setOnlineStatus(online: boolean): void {
 	box.title = user
 		? "Your progress is saved on this device and will sync when the connection returns"
 		: "You're offline. Saved maps and cached data remain available.";
-	if (!online && user && !warnedThisSession && !sessionStorage.getItem("va-offline-warned")) {
+	if (!online && user && !warnedThisSession && !sessionStorage.getItem("va_offline_warned")) {
 		warnedThisSession = true;
-		sessionStorage.setItem("va-offline-warned", "1");
+		sessionStorage.setItem("va_offline_warned", "1");
 		notify("You're offline. Your progress is safe on this device and will sync when the connection returns.", 6000);
 	}
 }
