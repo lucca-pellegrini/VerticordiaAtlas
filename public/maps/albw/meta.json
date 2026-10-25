@@ -1,8 +1,8 @@
 {
-	"id": "altbw",
+	"id": "albw",
 	"title": "The Legend of Zelda: A Link Between Worlds",
 	"slug": "zelda-a-link-between-worlds",
-	"source": "https://mapgenie.io/zelda-a-link-between-worlds/maps/hyrule-lorule",
+	"source": "https://mapgenie.io/zelda-a-link-between-worlds",
 	"poster": "poster.jpg",
 	"tagLabel": "Filter",
 	"defaultTag": null,
@@ -12,25 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "hyrule-lorule",
-			"title": "Hyrule & Lorule",
-			"data": "hyrule-lorule/data.json",
-			"tilesets": [
-				{
-					"name": "default-v2",
-					"template": "hyrule-lorule/tiles/default-v2/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 16,
-					"viewMaxzoom": 16,
-					"bounds": [-2.16722333564301, 0.0771459392441699, 0.75893285893962, 1.3456604766372],
-					"tileSize": 256,
-					"background": "#57803e"
-				}
-			]
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -165,5 +146,24 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "hyrule-lorule",
+			"title": "Hyrule & Lorule",
+			"data": "hyrule-lorule/data.json",
+			"tilesets": [
+				{
+					"name": "default-v2",
+					"template": "hyrule-lorule/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#57803e"
+				}
+			]
+		}
+	]
 }
