@@ -464,7 +464,11 @@ export function createApi({
 		const set = sockets.get(userId) || new Set<SocketEntry>();
 		sockets.set(userId, set);
 		set.add(entry);
-		while (set.size > MAX_SOCKETS_PER_USER) set.values().next().value!.ws.close(1008, "too many connections"); // the oldest goes
+		while (set.size > MAX_SOCKETS_PER_USER) {
+			const oldest = set.values().next().value!;
+			set.delete(oldest);
+			oldest.ws.close(1008, "too many connections"); // the oldest goes
+		}
 		ws.onHeartbeat(() => sessionAlive(session.tokenHash));
 		ws.onClose(() => {
 			set.delete(entry);
