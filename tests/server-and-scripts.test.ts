@@ -293,6 +293,15 @@ describe("server/api and server/ws integration", () => {
 		const loginJson = await loginRes.json();
 		expect(loginJson.user.name).toBe(user.name);
 
+		// Typo in the secret key fails validation with 400
+		const badSecret = secret.slice(0, -1) + (secret.endsWith("A") ? "B" : "A");
+		const badLogin = await fetch(`${baseUrl}/api/auth/secret/login`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret: badSecret }),
+		});
+		expect(badLogin.status).toBe(400);
+
 		// 4. Connect WebSocket as client-A to listen for live sync notifications
 		const wsUrl = baseUrl.replace("http://", "ws://") + "/api/ws?c=client-A";
 		const messages: any[] = [];

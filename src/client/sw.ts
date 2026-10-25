@@ -53,6 +53,7 @@ export const PRECACHE: readonly string[] = [
 	"fonts/inter-latin-600-normal.woff2",
 	"fonts/inter-latin-700-normal.woff2",
 	"fonts/inter-latin-800-normal.woff2",
+	"fonts/red-hat-mono-latin-variable.woff2",
 	"vendor/maplibre-gl.js",
 	"vendor/maplibre-gl.css",
 	"vendor/marked.umd.js",

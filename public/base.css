@@ -38,6 +38,13 @@
 	font-style: normal;
 	font-display: swap;
 }
+@font-face {
+	font-family: "Red Hat Mono";
+	src: url("./fonts/red-hat-mono-latin-variable.woff2") format("woff2");
+	font-weight: 400 700;
+	font-style: normal;
+	font-display: swap;
+}
 
 :root {
 	--night: #0b0e10;
@@ -65,6 +72,7 @@
 
 	--serif: "Instrument Serif";
 	--sans: Inter;
+	--mono: "Red Hat Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
 	--ease: cubic-bezier(.2, .7, .2, 1);
 	--fast: .14s;

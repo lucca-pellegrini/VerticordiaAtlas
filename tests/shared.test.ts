@@ -5,6 +5,17 @@ import { describe, expect, test } from "bun:test";
 
 import { esc, fmt, fmtEn } from "../src/shared/escape.ts";
 import { flat, fuzzyScore, levenshtein, norm, words } from "../src/shared/search.ts";
+import {
+	B32,
+	B32_MAP,
+	cleanSecretChars,
+	encodeSecret,
+	formatSecret,
+	formatSecretKey,
+	normalizeSecret,
+	SECRET_TOTAL_CHARS,
+	validateSecretKey,
+} from "../src/shared/secret-key.ts";
 import { packMarker, unpackMarker } from "../src/shared/share-link.ts";
 import { contentKey, fnv, POSITION_FIELDS, sendKey, stable, TOUCH_FIELD } from "../src/shared/sync-rules.ts";
 import { deriveLightAccentSoft, deriveLightTheme, glyphInk, hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
@@ -172,5 +183,54 @@ describe("shared/escape and shared/theme-math", () => {
 		expect(light["accent-soft"]).toBe(deriveLightAccentSoft("#d6453b"));
 		expect(glyphInk("#000000")).toBe("#ffffff");
 		expect(glyphInk("#ffffff")).toBe("#14161a");
+	});
+});
+
+describe("shared/secret-key", () => {
+	test("normalizeSecret handles case, lookalikes (O->0, I/L->1, U->V), and non-alphanumeric noise", () => {
+		expect(normalizeSecret("")).toBe("");
+		expect(normalizeSecret("oil u")).toBe("011V");
+		expect(normalizeSecret("  ABCD-EFGH\t1234\n5678_90  ")).toBe("ABCDEFGH1234567890");
+	});
+
+	test("cleanSecretChars and formatSecretKey format into 4-character groups capped at 30 characters", () => {
+		expect(cleanSecretChars("oil")).toBe("011");
+		expect(formatSecretKey("")).toBe("");
+		expect(formatSecretKey("a")).toBe("A");
+		expect(formatSecretKey("abcd")).toBe("ABCD");
+		expect(formatSecretKey("abcde")).toBe("ABCD-E");
+		expect(formatSecretKey("123456781234567812345678123456")).toBe("1234-5678-1234-5678-1234-5678-1234-56");
+		expect(formatSecretKey("123456781234567812345678123456EXTRA")).toBe("1234-5678-1234-5678-1234-5678-1234-56");
+	});
+
+	test("encodeSecret produces 30-character keys with scattered checksum catching typos", () => {
+		const bytes = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+		const raw = encodeSecret(bytes);
+		expect(raw.length).toBe(SECRET_TOTAL_CHARS);
+		const formatted = formatSecret(raw);
+		expect(formatted.split("-")).toHaveLength(8);
+		expect(formatted.split("-")[7].length).toBe(2);
+
+		const valid = validateSecretKey(formatted);
+		expect(valid.valid).toBe(true);
+
+		// Single character mutations at any position are caught
+		for (let pos = 0; pos < raw.length; pos++) {
+			const orig = raw[pos];
+			const alt = B32[(B32_MAP[orig] + 1) % 32];
+			const bad = raw.slice(0, pos) + alt + raw.slice(pos + 1);
+			const res = validateSecretKey(bad);
+			expect(res.valid).toBe(false);
+		}
+	});
+
+	test("validateSecretKey rejects invalid lengths, characters, and non-canonical encodings", () => {
+		expect(validateSecretKey("").valid).toBe(false);
+		expect(validateSecretKey("ABCD").valid).toBe(false);
+		expect(validateSecretKey("K99J-1WVA-1D50-M2DP-8F0P-W1R1-J8").valid).toBe(false);
+		expect(validateSecretKey("5SKQ-QBWX-7YT2-QYDA-0PKQ-RXFA-Y05P-SR").valid).toBe(false);
+		expect(validateSecretKey("V348-Q6DX-VWMR-EQ6W-3BPM-PC1S-P4C8-VK").valid).toBe(true);
+		expect(validateSecretKey("V348-Q6DX-VWMR-EQ67-3BPM-PC1S-P4C8-VK").valid).toBe(false);
+		expect(validateSecretKey("D6NQ-62B7-R7T2-1HXJ-8WT0-RHHD-FQ3M-67").valid).toBe(true);
 	});
 });

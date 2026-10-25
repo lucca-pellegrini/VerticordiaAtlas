@@ -18,11 +18,14 @@ import path from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import type { Duplex } from "node:stream";
 
-import { adjectives, animals, colors, countries, uniqueNamesGenerator } from "unique-names-generator";
+import { adjectives, animals, colors, uniqueNamesGenerator } from "unique-names-generator";
 
+import { encodeSecret, formatSecret, normalizeSecret, validateSecretKey } from "../src/shared/secret-key.ts";
 import { contentKey, sendKey } from "../src/shared/sync-rules.ts";
 import type { SyncItem, SyncPushResult, UserAccount } from "../src/shared/types.ts";
 import { acceptWebSocket, type WebSocketConn } from "./ws.ts";
+
+export { normalizeSecret, validateSecretKey };
 
 const DAY = 86400000;
 const SESSION_DAYS = 30,
@@ -34,15 +37,6 @@ const SEG = "[A-Za-z0-9._-]{1,80}";
 const KEY_PATTERN = new RegExp(`^(profile:${SEG}:${SEG}|meta:(presets|view):${SEG}(:${SEG})?)$`);
 const MAX_VALUE = 2_000_000,
 	MAX_ITEMS = 200;
-const B32 = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
-
-// people type these by hand: case, dashes and the look-alikes (O, I, L) do not matter
-export const normalizeSecret = (s: unknown): string =>
-	String(s || "")
-		.toUpperCase()
-		.replace(/[^0-9A-Z]/g, "")
-		.replace(/O/g, "0")
-		.replace(/[IL]/g, "1");
 
 export const sha256 = (s: string): string => crypto.createHash("sha256").update(s).digest("hex");
 
@@ -333,22 +327,9 @@ export function createApi({
 		return { sub: payload.sub, email: String(payload.email || ""), name: String(payload.name || "") };
 	}
 
-	/* ---------- secret keys: 128 random bits, shown once, stored as a hash ---------- */
+	/* ---------- secret keys: 128 random bits with scattered checksum, shown once, stored as a hash ---------- */
 	function newSecret(): string {
-		const bytes = crypto.randomBytes(16);
-		let bits = 0,
-			value = 0,
-			out = "";
-		for (const b of bytes) {
-			value = (value << 8) | b;
-			bits += 8;
-			while (bits >= 5) {
-				out += B32[(value >>> (bits - 5)) & 31];
-				bits -= 5;
-			}
-		}
-		if (bits > 0) out += B32[(value << (5 - bits)) & 31];
-		return out.match(/.{1,4}/g)!.join("-");
+		return formatSecret(encodeSecret(crypto.randomBytes(16)));
 	}
 
 	/* ---------- sync ---------- */
@@ -655,8 +636,9 @@ export function createApi({
 			if (route === "POST /api/auth/secret/confirm") {
 				if (!allowLogin(ip)) throw httpError(429, "too many attempts, try again later");
 				const body = await readJson(req, 1000);
-				const norm = normalizeSecret(body.secret);
-				if (norm.length !== 26) throw httpError(400, "invalid secret key");
+				const v = validateSecretKey(body.secret);
+				if (!v.valid) throw httpError(400, v.error);
+				const norm = v.normalized;
 				const secretHash = sha256(norm);
 				const existing = db.prepare("SELECT 1 FROM secret_accounts WHERE secret_hash = ?").get(secretHash);
 				if (existing) throw httpError(409, "this secret key is already registered");
@@ -683,8 +665,9 @@ export function createApi({
 			if (route === "POST /api/auth/secret/login") {
 				if (!allowLogin(ip)) throw httpError(429, "too many attempts, try again later");
 				const body = await readJson(req, 1000);
-				const norm = normalizeSecret(body.secret);
-				if (norm.length !== 26) throw httpError(401, "that key does not match an account");
+				const v = validateSecretKey(body.secret);
+				if (!v.valid) throw httpError(400, v.error);
+				const norm = v.normalized;
 				const row = db
 					.prepare(
 						`SELECT u.* FROM secret_accounts a JOIN users u ON u.id = a.user_id WHERE a.secret_hash = ?`,

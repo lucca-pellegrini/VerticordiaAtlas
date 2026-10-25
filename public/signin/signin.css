@@ -365,6 +365,15 @@ h2 {
 .ghost:hover {
 	background: color-mix(in srgb, var(--panel-2), var(--ink) 8%);
 }
+.ghost:disabled,
+.ghost[aria-disabled="true"] {
+	opacity: 0.45;
+	cursor: default;
+}
+.ghost:disabled:hover,
+.ghost[aria-disabled="true"]:hover {
+	background: var(--panel-2);
+}
 .primary-btn {
 	background: var(--accent);
 	border-color: var(--accent);
@@ -460,8 +469,8 @@ h2 {
 }
 .secret {
 	display: block;
-	font: 600 17px/1.5 Inter;
-	letter-spacing: 0.08em;
+	font: 500 13.5px/1.6 var(--mono);
+	letter-spacing: 0.02em;
 	padding: 14px 16px;
 	border-radius: 12px;
 	background: var(--night);
@@ -496,9 +505,14 @@ h2 {
 	background: var(--panel-2);
 	border: 1px solid var(--line-2);
 	color: var(--ink);
-	font: 500 15px/1.2 Inter;
-	letter-spacing: 0.06em;
+	font: 500 13.5px/1.4 var(--mono);
+	letter-spacing: 0.02em;
 	outline: none;
+}
+.field input::placeholder {
+	font-family: var(--mono);
+	letter-spacing: 0.02em;
+	color: color-mix(in srgb, var(--ink-dim) 55%, transparent);
 }
 .field input:focus {
 	border-color: var(--accent-soft);

@@ -45,6 +45,7 @@ import {
 	unpackVaopStream,
 } from "../src/client/offline.ts";
 import { createMemoryPackStore } from "../src/client/pack-store.ts";
+import { cleanSecretChars, formatSecretKey } from "../src/client/signin.ts";
 import { createSync } from "../src/client/sync.ts";
 import { deriveLightAccentSoft, describePage, normalizePath } from "../src/client/theme.ts";
 
@@ -153,6 +154,22 @@ describe("theme and navigation helpers", () => {
 		expect(html).toContain("alice&lt;&quot;x&quot;&gt;@example.com");
 		expect(html).toContain(">2<");
 		expect(html).toContain(">5<");
+	});
+
+	test("cleanSecretChars and formatSecretKey sanitize and format secret keys into 8 groups up to 30 characters", () => {
+		expect(cleanSecretChars("")).toBe("");
+		expect(cleanSecretChars("oil u")).toBe("011V");
+		expect(cleanSecretChars("ABCD-EFGH-1234-5678-90AB-CDEF-GH")).toBe("ABCDEFGH1234567890ABCDEFGH");
+		expect(cleanSecretChars("  abcd\tefgh\n1234 5678 90ab cdef gh  ")).toBe("ABCDEFGH1234567890ABCDEFGH");
+		expect(cleanSecretChars("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890")).toBe("ABCDEFGH1JK1MN0PQRSTVVWXYZ1234");
+
+		expect(formatSecretKey("")).toBe("");
+		expect(formatSecretKey("a")).toBe("A");
+		expect(formatSecretKey("abcd")).toBe("ABCD");
+		expect(formatSecretKey("abcde")).toBe("ABCD-E");
+		expect(formatSecretKey("abcdefgh")).toBe("ABCD-EFGH");
+		expect(formatSecretKey("abcdefghi")).toBe("ABCD-EFGH-1");
+		expect(formatSecretKey("123456781234567812345678123456")).toBe("1234-5678-1234-5678-1234-5678-1234-56");
 	});
 });
 
