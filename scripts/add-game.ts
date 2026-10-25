@@ -295,7 +295,7 @@ export async function downloadTiles({
 	// Only the highest zoom is scraped (--force-get-tiles takes the whole pyramid): the overview is made from it afterwards,
 	// and the zooms in between are made by the server when they are asked for (see server/tile-service.ts).
 	const maxOnly = !opts.unpruned;
-	const hasMaxBounds = Boolean(
+	const maxBoundsCount =
 		ts.bounds &&
 		!Array.isArray(ts.bounds) &&
 		ts.bounds[maxZ]?.x &&
@@ -303,8 +303,10 @@ export async function downloadTiles({
 		Number.isFinite(ts.bounds[maxZ].x.min) &&
 		Number.isFinite(ts.bounds[maxZ].x.max) &&
 		Number.isFinite(ts.bounds[maxZ].y.min) &&
-		Number.isFinite(ts.bounds[maxZ].y.max),
-	);
+		Number.isFinite(ts.bounds[maxZ].y.max)
+			? (ts.bounds[maxZ].x.max - ts.bounds[maxZ].x.min + 1) * (ts.bounds[maxZ].y.max - ts.bounds[maxZ].y.min + 1)
+			: Infinity;
+	const hasMaxBounds = Number.isFinite(maxBoundsCount) && maxBoundsCount <= 512;
 	const startZ = maxOnly && hasMaxBounds ? maxZ : minZ;
 	let cands = first;
 	for (let z = startZ; z <= maxZ; z++) {
