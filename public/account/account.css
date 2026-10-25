@@ -146,17 +146,8 @@ body {
 	.signin-top-tools {
 		gap: 6px;
 	}
-	.signin-top .theme-switch-2 {
-		grid-template-columns: repeat(2, 32px);
-		height: 36px;
-	}
-	.signin-top .theme-switch {
-		grid-template-columns: repeat(3, 30px);
-		height: 36px;
-	}
 	.back {
-		width: 36px;
-		height: 36px;
+		width: 40px;
 		padding: 0;
 	}
 	.back span {
