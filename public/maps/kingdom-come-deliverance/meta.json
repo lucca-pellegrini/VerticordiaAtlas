@@ -1,0 +1,504 @@
+{
+	"id": "kingdom-come-deliverance",
+	"title": "Kingdom Come: Deliverance",
+	"slug": "kingdom-come-deliverance",
+	"source": "https://mapgenie.io/kingdom-come-deliverance",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"woodland_garden": [
+				{
+					"cp": "e900"
+				}
+			],
+			"wolf_hunting_spot": [
+				{
+					"cp": "e901"
+				}
+			],
+			"weaponsmith": [
+				{
+					"cp": "e902"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e903"
+				}
+			],
+			"underground_entrance": [
+				{
+					"cp": "e904"
+				}
+			],
+			"treasure_map": [
+				{
+					"cp": "e905"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e906"
+				}
+			],
+			"trader": [
+				{
+					"cp": "e907"
+				}
+			],
+			"tavern": [
+				{
+					"cp": "e908"
+				}
+			],
+			"task": [
+				{
+					"cp": "e909"
+				}
+			],
+			"tanner": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"tailor": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"smokehouse": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"skill_teacher": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"skill_book": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"shrine": [
+				{
+					"cp": "e910"
+				}
+			],
+			"scribe": [
+				{
+					"cp": "e911"
+				}
+			],
+			"save_potion": [
+				{
+					"cp": "e912"
+				}
+			],
+			"saddler": [
+				{
+					"cp": "e913"
+				}
+			],
+			"roe_hunting_spot": [
+				{
+					"cp": "e914"
+				}
+			],
+			"recipe": [
+				{
+					"cp": "e915"
+				}
+			],
+			"rare_weapon": [
+				{
+					"cp": "e916"
+				}
+			],
+			"rare_herb": [
+				{
+					"cp": "e917"
+				}
+			],
+			"potion": [
+				{
+					"cp": "e918"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e919"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"nest": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"mural": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"mine_entrance": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"miller": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"material": [
+				{
+					"cp": "e920"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e921"
+				}
+			],
+			"lore_book": [
+				{
+					"cp": "e922"
+				}
+			],
+			"lodgings": [
+				{
+					"cp": "e923"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e924"
+				}
+			],
+			"laundry": [
+				{
+					"cp": "e925"
+				}
+			],
+			"land_plot": [
+				{
+					"cp": "e926"
+				}
+			],
+			"ladder": [
+				{
+					"cp": "e927"
+				}
+			],
+			"item": [
+				{
+					"cp": "e928"
+				}
+			],
+			"interesting_site": [
+				{
+					"cp": "e929"
+				}
+			],
+			"indulgences": [
+				{
+					"cp": "e92a"
+				}
+			],
+			"huntsman": [
+				{
+					"cp": "e92b"
+				}
+			],
+			"hunting_spot": [
+				{
+					"cp": "e92c"
+				}
+			],
+			"hotel": [
+				{
+					"cp": "e92d"
+				}
+			],
+			"horse_trader": [
+				{
+					"cp": "e92e"
+				}
+			],
+			"horse": [
+				{
+					"cp": "e92f"
+				}
+			],
+			"home": [
+				{
+					"cp": "e930"
+				}
+			],
+			"herbalist": [
+				{
+					"cp": "e931"
+				}
+			],
+			"gunsmith": [
+				{
+					"cp": "e932"
+				}
+			],
+			"grocer": [
+				{
+					"cp": "e933"
+				}
+			],
+			"grindstone": [
+				{
+					"cp": "e934"
+				}
+			],
+			"grave": [
+				{
+					"cp": "e935"
+				}
+			],
+			"food": [
+				{
+					"cp": "e936"
+				}
+			],
+			"fist_fight_arena": [
+				{
+					"cp": "e937"
+				}
+			],
+			"fishing_spot": [
+				{
+					"cp": "e938"
+				}
+			],
+			"fish_trap": [
+				{
+					"cp": "e939"
+				}
+			],
+			"fence": [
+				{
+					"cp": "e93a"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e93b"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e93c"
+				}
+			],
+			"enemy_camp": [
+				{
+					"cp": "e93d"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e93e"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e93f"
+				}
+			],
+			"drying_rack": [
+				{
+					"cp": "e940"
+				}
+			],
+			"dlc_quest": [
+				{
+					"cp": "e941"
+				}
+			],
+			"dice_table": [
+				{
+					"cp": "e942"
+				}
+			],
+			"deer_hunting_spot": [
+				{
+					"cp": "e943"
+				}
+			],
+			"cross": [
+				{
+					"cp": "e944"
+				}
+			],
+			"container": [
+				{
+					"cp": "e945"
+				}
+			],
+			"combat_arena": [
+				{
+					"cp": "e946"
+				}
+			],
+			"cobbler": [
+				{
+					"cp": "e947"
+				}
+			],
+			"coal_burner": [
+				{
+					"cp": "e948"
+				}
+			],
+			"city": [
+				{
+					"cp": "e949"
+				}
+			],
+			"church": [
+				{
+					"cp": "e94a"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e94b"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e94c"
+				}
+			],
+			"carpenter": [
+				{
+					"cp": "e94d"
+				}
+			],
+			"caravan": [
+				{
+					"cp": "e94e"
+				}
+			],
+			"camp": [
+				{
+					"cp": "e94f"
+				}
+			],
+			"butcher": [
+				{
+					"cp": "e950"
+				}
+			],
+			"bowyer": [
+				{
+					"cp": "e951"
+				}
+			],
+			"boar_hunting_spot": [
+				{
+					"cp": "e952"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e953"
+				}
+			],
+			"beehive": [
+				{
+					"cp": "e954"
+				}
+			],
+			"bed": [
+				{
+					"cp": "e955"
+				}
+			],
+			"baths": [
+				{
+					"cp": "e956"
+				}
+			],
+			"baker": [
+				{
+					"cp": "e957"
+				}
+			],
+			"armourer": [
+				{
+					"cp": "e958"
+				}
+			],
+			"archery_range": [
+				{
+					"cp": "e959"
+				}
+			],
+			"apothecary": [
+				{
+					"cp": "e95a"
+				}
+			],
+			"alchemy_bench": [
+				{
+					"cp": "e95b"
+				}
+			],
+			"accident": [
+				{
+					"cp": "e95c"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "bohemia",
+			"title": "Bohemia",
+			"data": "bohemia/data.json",
+			"tilesets": [
+				{
+					"name": "V1",
+					"template": "bohemia/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#a99e82"
+				}
+			]
+		}
+	]
+}

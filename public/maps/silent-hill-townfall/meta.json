@@ -1,0 +1,243 @@
+{
+	"id": "silent-hill-townfall",
+	"title": "SILENT HILL: Townfall",
+	"slug": "silent-hill-townfall",
+	"source": "https://mapgenie.io/silent-hill-townfall",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"alcohol": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"ammo": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"antibiotics": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"area_map": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"bottle": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"brick": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"clue": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"computer": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"crtv_signal": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"document": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"examinable": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"first_aid_kit": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"gauze": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"hiding_place": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"iv_bag": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"iv_fluid": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"lockbox_key": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"locked_container": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"phone_booth": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"phone_number": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"postcard": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"puzzle": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"radio": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"traversal": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "st-amelia",
+			"title": "St. Amelia",
+			"data": "st-amelia/data.json",
+			"tilesets": [
+				{
+					"name": "v5",
+					"template": "st-amelia/tiles/v5/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

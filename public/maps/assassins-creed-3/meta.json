@@ -1,0 +1,207 @@
+{
+	"id": "assassins-creed-3",
+	"title": "Assassin's Creed III",
+	"slug": "assassins-creed-3",
+	"source": "https://mapgenie.io/assassins-creed-3",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"easter_egg": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"almanac": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"animal": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"assassination_contract": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"benedict_arnold_mission": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"boston_brawlers": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"courier_mission": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"delivery_request": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"feather": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"frontiersmen": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"harbormaster": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"homestead_mission": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"hunting_society": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"interactive_conversation": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"liberation_mission": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"main_mission": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"manor": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"naval_mission": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"peg_leg_mission": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"peg_leg_trinket": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"privateer_contract": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"store": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"templar_fort": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "america",
+			"title": "America",
+			"data": "america/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "america/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

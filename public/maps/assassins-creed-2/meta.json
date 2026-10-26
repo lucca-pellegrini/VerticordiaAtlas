@@ -1,0 +1,153 @@
+{
+	"id": "assassins-creed-2",
+	"title": "Assassin's Creed II",
+	"slug": "assassins-creed-2",
+	"source": "https://mapgenie.io/assassins-creed-2",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"art_merchant": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"assassin_tomb": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"assassination": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"beat_up": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"codex_page": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"courier": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"doctor": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"feather": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"glyph": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"gondola_loot": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"race": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"statuette": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"tailor": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"templar_lair": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "italy",
+			"title": "Italy",
+			"data": "italy/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "italy/tiles/default-v3/{z}/{x}/{y}.png",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#fefefe"
+				}
+			]
+		}
+	]
+}

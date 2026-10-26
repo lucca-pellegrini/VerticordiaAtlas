@@ -1,0 +1,128 @@
+{
+	"id": "assassins-creed",
+	"title": "Assassin's Creed",
+	"slug": "assassins-creed",
+	"source": "https://mapgenie.io/assassins-creed",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"miscellaneous": [
+				{
+					"cp": "e900"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e901"
+				}
+			],
+			"informer_mercheant": [
+				{
+					"cp": "e902"
+				}
+			],
+			"archer_informer": [
+				{
+					"cp": "e903"
+				}
+			],
+			"assassination": [
+				{
+					"cp": "e904"
+				}
+			],
+			"bureau": [
+				{
+					"cp": "e905"
+				}
+			],
+			"eavesdropping": [
+				{
+					"cp": "e906"
+				}
+			],
+			"escort": [
+				{
+					"cp": "e907"
+				}
+			],
+			"flag_challenge": [
+				{
+					"cp": "e908"
+				}
+			],
+			"flag": [
+				{
+					"cp": "e909"
+				}
+			],
+			"free_mission": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"interrogation": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"pickpocket": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"rooftop_race": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"scholars": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"target": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"templar": [
+				{
+					"cp": "e910"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e911"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "the-holy-land",
+			"title": "The Holy Land",
+			"data": "the-holy-land/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-holy-land/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 10,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

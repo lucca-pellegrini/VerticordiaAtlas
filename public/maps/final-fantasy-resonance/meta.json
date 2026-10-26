@@ -1,0 +1,201 @@
+{
+	"id": "final-fantasy-resonance",
+	"title": "FINAL FANTASY RESONANCE",
+	"slug": "final-fantasy-resonance",
+	"source": "https://mapgenie.io/final-fantasy-resonance",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"accessory": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"accessory_shop": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"armor_shop": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"elite_enemy": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"gil": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"item_shop": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"magicite": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"main_story": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"moogle_of_light": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"quest_board": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"rest_spot": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"sanctum": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"save_point": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"sub_quest": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"tablet_shard": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"town": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"vision_crystal": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_shop": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "lapis",
+			"title": "Lapis",
+			"data": "lapis/data.json",
+			"tilesets": [
+				{
+					"name": "default-1",
+					"template": "lapis/tiles/default-1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0b0b0b"
+				}
+			]
+		}
+	]
+}

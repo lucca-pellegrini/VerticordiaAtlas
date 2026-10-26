@@ -1,0 +1,488 @@
+{
+	"id": "assassins-creed-rogue",
+	"title": "Assassin's Creed Rogue",
+	"slug": "assassins-creed-rogue",
+	"source": "https://mapgenie.io/assassins-creed-rogue",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"animus_fragment": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"arctic_fox": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"arctic_hare": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"arctic_wolf": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"armour": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"assassin_interception": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"bank": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"beaver": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"black_bear": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"black_wolf": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"blueprint": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"buried_chest": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"camera": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"canadian_lynx": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"cave_painting": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"cave_system": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"computer": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"deer": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"district": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"elevator": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"elk": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"epic_legendary_ship": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"fort": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"fox": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"gang_headquarters": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"gray_wolf": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"great_white_shark": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"harbourmaster": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"hare": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"humpback_whale": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"hunting_challenge": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"islandbay": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"james_gunn_cross": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"killer_whale": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"legendary_ship": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"main_mission": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"narwhal": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"native_pillar": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"outpost": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"polar_bear": [
+				{
+					"cp": "e930",
+					"color": "#ffffff"
+				}
+			],
+			"prosperity": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			],
+			"renovation": [
+				{
+					"cp": "e932",
+					"color": "#ffffff"
+				}
+			],
+			"river_crossing": [
+				{
+					"cp": "e933",
+					"color": "#ffffff"
+				}
+			],
+			"rowboat": [
+				{
+					"cp": "e934",
+					"color": "#ffffff"
+				}
+			],
+			"royal_convoy": [
+				{
+					"cp": "e935",
+					"color": "#ffffff"
+				}
+			],
+			"server": [
+				{
+					"cp": "e936",
+					"color": "#ffffff"
+				}
+			],
+			"settlement": [
+				{
+					"cp": "e937",
+					"color": "#ffffff"
+				}
+			],
+			"shanty": [
+				{
+					"cp": "e938",
+					"color": "#ffffff"
+				}
+			],
+			"ship_beacon": [
+				{
+					"cp": "e939",
+					"color": "#ffffff"
+				}
+			],
+			"shipwreck": [
+				{
+					"cp": "e93a",
+					"color": "#ffffff"
+				}
+			],
+			"social_chest": [
+				{
+					"cp": "e93b",
+					"color": "#ffffff"
+				}
+			],
+			"social_club_mission": [
+				{
+					"cp": "e93c",
+					"color": "#ffffff"
+				}
+			],
+			"supply_camp": [
+				{
+					"cp": "e93d",
+					"color": "#ffffff"
+				}
+			],
+			"tablet": [
+				{
+					"cp": "e93e",
+					"color": "#ffffff"
+				}
+			],
+			"tavern": [
+				{
+					"cp": "e93f",
+					"color": "#ffffff"
+				}
+			],
+			"templar_map": [
+				{
+					"cp": "e940",
+					"color": "#ffffff"
+				}
+			],
+			"ulc_chest": [
+				{
+					"cp": "e941",
+					"color": "#ffffff"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e942",
+					"color": "#ffffff"
+				}
+			],
+			"viking_grave": [
+				{
+					"cp": "e943",
+					"color": "#ffffff"
+				}
+			],
+			"viking_sword": [
+				{
+					"cp": "e944",
+					"color": "#ffffff"
+				}
+			],
+			"war_letter": [
+				{
+					"cp": "e945",
+					"color": "#ffffff"
+				}
+			],
+			"warehouse": [
+				{
+					"cp": "e946",
+					"color": "#ffffff"
+				}
+			],
+			"white_whale": [
+				{
+					"cp": "e947",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "north-america",
+			"title": "North America",
+			"data": "north-america/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "north-america/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 17,
+					"viewMaxzoom": 17,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#112b42"
+				}
+			]
+		},
+		{
+			"slug": "abstergo",
+			"title": "Abstergo",
+			"data": "abstergo/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "abstergo/tiles/default-v3/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#263437"
+				}
+			]
+		}
+	]
+}

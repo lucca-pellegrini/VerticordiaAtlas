@@ -1,0 +1,561 @@
+{
+	"id": "assassins-creed-black-flag-resynced",
+	"title": "Assassin's Creed Black Flag Resynced",
+	"slug": "assassins-creed-black-flag-resynced",
+	"source": "https://mapgenie.io/assassins-creed-black-flag-resynced",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"a_world_without_gold": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"air_barrel": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"air_pocket": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"alarm_bell": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"animus_keys": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"art_piece": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"assassin_contract": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"black_jaguar": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"brothel": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"bull_shark": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"buried_chest": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"burning_ship": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"camp": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"campfire": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"capuchin_monkey": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"city": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"codex_entry": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"cove_upgrade": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"crocodile": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"deer": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"design_plan": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"diving_bell": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"eavesdrop_objective": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"equipment_upgrade": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"fishermans_wharf": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"fort": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"great_white_shark": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"hammerhead_shark": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"harbourmaster": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"howler_monkey": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"humpback_whale": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"hutia": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"iguana": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"jaguar": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"jungle": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"kenways_fleet_mission": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"killer_whale": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"legendary_ship": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"letter": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"local_event": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"local_officer": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"manuscript": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"mayan_stela": [
+				{
+					"cp": "e930",
+					"color": "#ffffff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e932",
+					"color": "#ffffff"
+				}
+			],
+			"naval_contract": [
+				{
+					"cp": "e933",
+					"color": "#ffffff"
+				}
+			],
+			"note": [
+				{
+					"cp": "e934",
+					"color": "#ffffff"
+				}
+			],
+			"ocelot": [
+				{
+					"cp": "e935",
+					"color": "#ffffff"
+				}
+			],
+			"officer_quest": [
+				{
+					"cp": "e936",
+					"color": "#ffffff"
+				}
+			],
+			"outfit": [
+				{
+					"cp": "e937",
+					"color": "#ffffff"
+				}
+			],
+			"painting": [
+				{
+					"cp": "e938",
+					"color": "#ffffff"
+				}
+			],
+			"pet": [
+				{
+					"cp": "e939",
+					"color": "#ffffff"
+				}
+			],
+			"pistol": [
+				{
+					"cp": "e93a",
+					"color": "#ffffff"
+				}
+			],
+			"plantation": [
+				{
+					"cp": "e93b",
+					"color": "#ffffff"
+				}
+			],
+			"portrait": [
+				{
+					"cp": "e93c",
+					"color": "#ffffff"
+				}
+			],
+			"rabbit": [
+				{
+					"cp": "e93d",
+					"color": "#ffffff"
+				}
+			],
+			"red_howler_monkey": [
+				{
+					"cp": "e93e",
+					"color": "#ffffff"
+				}
+			],
+			"rift": [
+				{
+					"cp": "e93f",
+					"color": "#ffffff"
+				}
+			],
+			"rowboat": [
+				{
+					"cp": "e940",
+					"color": "#ffffff"
+				}
+			],
+			"royal_convoy": [
+				{
+					"cp": "e941",
+					"color": "#ffffff"
+				}
+			],
+			"ruins": [
+				{
+					"cp": "e942",
+					"color": "#ffffff"
+				}
+			],
+			"shanty": [
+				{
+					"cp": "e943",
+					"color": "#ffffff"
+				}
+			],
+			"ship_model": [
+				{
+					"cp": "e944",
+					"color": "#ffffff"
+				}
+			],
+			"ship_upgrade": [
+				{
+					"cp": "e945",
+					"color": "#ffffff"
+				}
+			],
+			"ship_vanity": [
+				{
+					"cp": "e946",
+					"color": "#ffffff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e947",
+					"color": "#ffffff"
+				}
+			],
+			"special_chest": [
+				{
+					"cp": "e948",
+					"color": "#ffffff"
+				}
+			],
+			"sword": [
+				{
+					"cp": "e949",
+					"color": "#ffffff"
+				}
+			],
+			"tavern": [
+				{
+					"cp": "e94a",
+					"color": "#ffffff"
+				}
+			],
+			"templar_hunt": [
+				{
+					"cp": "e94b",
+					"color": "#ffffff"
+				}
+			],
+			"templar_hunt_unused": [
+				{
+					"cp": "e94c",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_dealer": [
+				{
+					"cp": "e94d",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_map": [
+				{
+					"cp": "e94e",
+					"color": "#ffffff"
+				}
+			],
+			"trinket": [
+				{
+					"cp": "e94f",
+					"color": "#ffffff"
+				}
+			],
+			"underwater_shipwreck": [
+				{
+					"cp": "e950",
+					"color": "#ffffff"
+				}
+			],
+			"vault_entry": [
+				{
+					"cp": "e951",
+					"color": "#ffffff"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e952",
+					"color": "#ffffff"
+				}
+			],
+			"warehouse": [
+				{
+					"cp": "e953",
+					"color": "#ffffff"
+				}
+			],
+			"white_jaguar": [
+				{
+					"cp": "e954",
+					"color": "#ffffff"
+				}
+			],
+			"white_whale": [
+				{
+					"cp": "e955",
+					"color": "#ffffff"
+				}
+			],
+			"wild_pig": [
+				{
+					"cp": "e956",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "caribbean-sea",
+			"title": "Caribbean Sea",
+			"data": "caribbean-sea/data.json",
+			"tilesets": [
+				{
+					"name": "v5",
+					"template": "caribbean-sea/tiles/v5/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 17,
+					"viewMaxzoom": 17,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0b3a44"
+				}
+			]
+		}
+	]
+}

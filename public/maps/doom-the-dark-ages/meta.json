@@ -1,0 +1,129 @@
+{
+	"id": "doom-the-dark-ages",
+	"title": "DOOM: The Dark Ages",
+	"slug": "doom-the-dark-ages",
+	"source": "https://mapgenie.io/doom-the-dark-ages",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"codex_entry": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"encounter": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"gold": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"key_door": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"life_sigil": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"ruby": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"secret": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"shield_rune": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"slayer_key": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"toy": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_skin": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"wraithstone": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "world/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#020202"
+				}
+			]
+		}
+	]
+}

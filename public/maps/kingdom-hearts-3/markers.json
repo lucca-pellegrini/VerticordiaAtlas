@@ -1,0 +1,20 @@
+{
+	"moogle_shop": { "width": 33, "height": 44, "x": 0, "y": 0, "pixelRatio": 1 },
+	"save_point": { "width": 33, "height": 44, "x": 33, "y": 0, "pixelRatio": 1 },
+	"lucky_emblem": { "width": 33, "height": 44, "x": 66, "y": 0, "pixelRatio": 1 },
+	"photo_mission": { "width": 33, "height": 44, "x": 99, "y": 0, "pixelRatio": 1 },
+	"recipe": { "width": 33, "height": 44, "x": 132, "y": 0, "pixelRatio": 1 },
+	"treasure_chest": { "width": 33, "height": 44, "x": 0, "y": 44, "pixelRatio": 1 },
+	"battlegate": { "width": 33, "height": 44, "x": 33, "y": 44, "pixelRatio": 1 },
+	"classic_kingdom": { "width": 33, "height": 44, "x": 66, "y": 44, "pixelRatio": 1 },
+	"flantastic_seven": { "width": 33, "height": 44, "x": 99, "y": 44, "pixelRatio": 1 },
+	"mini_game": { "width": 33, "height": 44, "x": 132, "y": 44, "pixelRatio": 1 },
+	"boss": { "width": 33, "height": 44, "x": 0, "y": 88, "pixelRatio": 1 },
+	"data_battle": { "width": 33, "height": 44, "x": 33, "y": 88, "pixelRatio": 1 },
+	"rare_enemy": { "width": 33, "height": 44, "x": 66, "y": 88, "pixelRatio": 1 },
+	"heart_piece": { "width": 33, "height": 44, "x": 99, "y": 88, "pixelRatio": 1 },
+	"ingredient": { "width": 33, "height": 44, "x": 132, "y": 88, "pixelRatio": 1 },
+	"key_item": { "width": 33, "height": 44, "x": 0, "y": 132, "pixelRatio": 1 },
+	"easter_egg": { "width": 33, "height": 44, "x": 33, "y": 132, "pixelRatio": 1 },
+	"miscellaneous": { "width": 33, "height": 44, "x": 66, "y": 132, "pixelRatio": 1 }
+}

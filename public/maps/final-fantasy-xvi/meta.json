@@ -1,0 +1,195 @@
+{
+	"id": "final-fantasy-xvi",
+	"title": "Final Fantasy XVI",
+	"slug": "final-fantasy-xvi",
+	"source": "https://mapgenie.io/final-fantasy-xvi",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"alliant_reports": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"arete_stone": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"chronolith": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"forge": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"glimmer_pick_up": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"hunt_board": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"lore": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"memory_item": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"notorious_mark": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"obelisk": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"orchestrion": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"orchestrion_roll": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"patron_donation": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"patrons_whisper": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"reading_table": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"renown_quest": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"state_of_the_realm": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"thousand_tomes": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"wall_of_memories": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "valisthea",
+			"title": "Valisthea",
+			"data": "valisthea/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "valisthea/tiles/default-v5/{z}/{x}/{y}.jpg",
+					"minzoom": 10,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

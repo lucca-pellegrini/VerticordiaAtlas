@@ -1,0 +1,331 @@
+{
+	"id": "kingdom-hearts-3d",
+	"title": "Kingdom Hearts: Dream Drop Distance",
+	"slug": "kingdom-hearts-3d",
+	"source": "https://mapgenie.io/kingdom-hearts-3d",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"boss": [
+				{
+					"cp": "e900",
+					"color": "#ff4747"
+				}
+			],
+			"command": [
+				{
+					"cp": "e901",
+					"color": "#ffbd2e"
+				}
+			],
+			"dream_eater_recipe": [
+				{
+					"cp": "e902",
+					"color": "#ffbd2e"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"link_portal": [
+				{
+					"cp": "e905",
+					"color": "#4dff29"
+				}
+			],
+			"mini_game": [
+				{
+					"cp": "e906",
+					"color": "#4dff29"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"moogle_shop": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"save_point": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e90a",
+					"color": "#ffbd2e"
+				}
+			],
+			"world_exit": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "country-of-the-muskateers-sora",
+			"title": "Country of the Muskateers [Sora]",
+			"data": "country-of-the-muskateers-sora/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "country-of-the-muskateers-sora/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "la-cite-des-cloches-sora",
+			"title": "La Cité des Cloches [Sora]",
+			"data": "la-cite-des-cloches-sora/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "la-cite-des-cloches-sora/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "pranksters-paradise-sora",
+			"title": "Prankster's Paradise [Sora]",
+			"data": "pranksters-paradise-sora/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "pranksters-paradise-sora/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "symphony-of-sorcery-sora",
+			"title": "Symphony of Sorcery [Sora]",
+			"data": "symphony-of-sorcery-sora/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "symphony-of-sorcery-sora/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "the-grid-sora",
+			"title": "The Grid [Sora]",
+			"data": "the-grid-sora/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-grid-sora/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "the-world-that-never-was-sora",
+			"title": "The World That Never Was [Sora]",
+			"data": "the-world-that-never-was-sora/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-world-that-never-was-sora/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "traverse-town-sora",
+			"title": "Traverse Town [Sora]",
+			"data": "traverse-town-sora/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "traverse-town-sora/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "country-of-the-muskateers-riku",
+			"title": "Country of the Muskateers [Riku]",
+			"data": "country-of-the-muskateers-riku/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "country-of-the-muskateers-riku/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "la-cite-des-cloches-riku",
+			"title": "La Cité des Cloches [Riku]",
+			"data": "la-cite-des-cloches-riku/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "la-cite-des-cloches-riku/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "pranksters-paradise-riku",
+			"title": "Prankster's Paradise [Riku]",
+			"data": "pranksters-paradise-riku/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "pranksters-paradise-riku/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "symphony-of-sorcery-riku",
+			"title": "Symphony of Sorcery [Riku]",
+			"data": "symphony-of-sorcery-riku/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "symphony-of-sorcery-riku/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "the-grid-riku",
+			"title": "The Grid [Riku]",
+			"data": "the-grid-riku/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-grid-riku/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "the-world-that-never-was-riku",
+			"title": "The World That Never Was [Riku]",
+			"data": "the-world-that-never-was-riku/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-world-that-never-was-riku/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		},
+		{
+			"slug": "traverse-town-riku",
+			"title": "Traverse Town [Riku]",
+			"data": "traverse-town-riku/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "traverse-town-riku/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#414141"
+				}
+			]
+		}
+	]
+}

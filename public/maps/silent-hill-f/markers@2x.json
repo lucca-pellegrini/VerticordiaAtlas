@@ -1,0 +1,21 @@
+{
+	"area": { "width": 66, "height": 88, "x": 0, "y": 0, "pixelRatio": 2 },
+	"hokora": { "width": 66, "height": 88, "x": 66, "y": 0, "pixelRatio": 2 },
+	"point_of_interest": { "width": 66, "height": 88, "x": 132, "y": 0, "pixelRatio": 2 },
+	"document": { "width": 66, "height": 88, "x": 198, "y": 0, "pixelRatio": 2 },
+	"ema": { "width": 66, "height": 88, "x": 0, "y": 88, "pixelRatio": 2 },
+	"inventory_upgrade": { "width": 66, "height": 88, "x": 66, "y": 88, "pixelRatio": 2 },
+	"key_item": { "width": 66, "height": 88, "x": 132, "y": 88, "pixelRatio": 2 },
+	"omamori": { "width": 66, "height": 88, "x": 198, "y": 88, "pixelRatio": 2 },
+	"item": { "width": 50, "height": 50, "x": 198, "y": 264, "pixelRatio": 2 },
+	"offering": { "width": 50, "height": 50, "x": 248, "y": 264, "pixelRatio": 2 },
+	"weapon": { "width": 50, "height": 50, "x": 264, "y": 176, "pixelRatio": 2 },
+	"red_capsules": { "width": 50, "height": 50, "x": 264, "y": 88, "pixelRatio": 2 },
+	"boss": { "width": 66, "height": 88, "x": 0, "y": 176, "pixelRatio": 2 },
+	"easter_egg": { "width": 66, "height": 88, "x": 66, "y": 176, "pixelRatio": 2 },
+	"examinable": { "width": 66, "height": 88, "x": 132, "y": 176, "pixelRatio": 2 },
+	"locked_door": { "width": 66, "height": 88, "x": 198, "y": 176, "pixelRatio": 2 },
+	"miscellaneous": { "width": 66, "height": 88, "x": 0, "y": 264, "pixelRatio": 2 },
+	"puzzle": { "width": 66, "height": 88, "x": 66, "y": 264, "pixelRatio": 2 },
+	"traversal": { "width": 66, "height": 88, "x": 132, "y": 264, "pixelRatio": 2 }
+}

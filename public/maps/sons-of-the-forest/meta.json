@@ -1,0 +1,554 @@
+{
+	"id": "sons-of-the-forest",
+	"title": "Sons of The Forest",
+	"slug": "sons-of-the-forest",
+	"source": "https://mapgenie.io/sons-of-the-forest",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"wooden_barricade": [
+				{
+					"cp": "e900"
+				}
+			],
+			"wire": [
+				{
+					"cp": "e901"
+				}
+			],
+			"weapon_attachment": [
+				{
+					"cp": "e902"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e903"
+				}
+			],
+			"watch": [
+				{
+					"cp": "e904"
+				}
+			],
+			"vodka_bottle": [
+				{
+					"cp": "e905"
+				}
+			],
+			"village": [
+				{
+					"cp": "e906"
+				}
+			],
+			"video_recording": [
+				{
+					"cp": "e907"
+				}
+			],
+			"vehicle": [
+				{
+					"cp": "e908"
+				}
+			],
+			"utility_item": [
+				{
+					"cp": "e909"
+				}
+			],
+			"turtle": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"toy_part": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"tortoise": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"tarp": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"supply_case": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"suitcase": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"squirrel": [
+				{
+					"cp": "e910"
+				}
+			],
+			"spawn_point": [
+				{
+					"cp": "e911"
+				}
+			],
+			"solafite_ore": [
+				{
+					"cp": "e912"
+				}
+			],
+			"soda": [
+				{
+					"cp": "e913"
+				}
+			],
+			"snack": [
+				{
+					"cp": "e914"
+				}
+			],
+			"skull": [
+				{
+					"cp": "e915"
+				}
+			],
+			"sketch": [
+				{
+					"cp": "e916"
+				}
+			],
+			"shark": [
+				{
+					"cp": "e917"
+				}
+			],
+			"seagull": [
+				{
+					"cp": "e918"
+				}
+			],
+			"sacrifice_door": [
+				{
+					"cp": "e919"
+				}
+			],
+			"sacred_tree": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"rope": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"radio": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"raccoon": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"rabbit": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"printer": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"pond": [
+				{
+					"cp": "e920"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e921"
+				}
+			],
+			"plant": [
+				{
+					"cp": "e922"
+				}
+			],
+			"photo": [
+				{
+					"cp": "e923"
+				}
+			],
+			"passenger": [
+				{
+					"cp": "e924"
+				}
+			],
+			"oyster": [
+				{
+					"cp": "e925"
+				}
+			],
+			"old_fire_pit": [
+				{
+					"cp": "e926"
+				}
+			],
+			"offering_pedestal": [
+				{
+					"cp": "e927"
+				}
+			],
+			"mutant": [
+				{
+					"cp": "e928"
+				}
+			],
+			"mushrooms": [
+				{
+					"cp": "e929"
+				}
+			],
+			"moose": [
+				{
+					"cp": "e92a"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e92b"
+				}
+			],
+			"meds": [
+				{
+					"cp": "e92c"
+				}
+			],
+			"magazine": [
+				{
+					"cp": "e92d"
+				}
+			],
+			"lizard": [
+				{
+					"cp": "e92e"
+				}
+			],
+			"light_bulb": [
+				{
+					"cp": "e92f"
+				}
+			],
+			"laptop": [
+				{
+					"cp": "e930"
+				}
+			],
+			"keycard": [
+				{
+					"cp": "e931"
+				}
+			],
+			"hairspray": [
+				{
+					"cp": "e932"
+				}
+			],
+			"gun_part": [
+				{
+					"cp": "e933"
+				}
+			],
+			"grave": [
+				{
+					"cp": "e934"
+				}
+			],
+			"gps_locator": [
+				{
+					"cp": "e935"
+				}
+			],
+			"goose": [
+				{
+					"cp": "e936"
+				}
+			],
+			"golf_cart_battery": [
+				{
+					"cp": "e937"
+				}
+			],
+			"golf_ball": [
+				{
+					"cp": "e938"
+				}
+			],
+			"gear": [
+				{
+					"cp": "e939"
+				}
+			],
+			"fuel": [
+				{
+					"cp": "e93a"
+				}
+			],
+			"flintlock_pistol_ammo": [
+				{
+					"cp": "e93b"
+				}
+			],
+			"flare": [
+				{
+					"cp": "e93c"
+				}
+			],
+			"fishing_pond": [
+				{
+					"cp": "e93d"
+				}
+			],
+			"fish": [
+				{
+					"cp": "e93e"
+				}
+			],
+			"explosives": [
+				{
+					"cp": "e93f"
+				}
+			],
+			"exit": [
+				{
+					"cp": "e940"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e941"
+				}
+			],
+			"email_page": [
+				{
+					"cp": "e942"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e943"
+				}
+			],
+			"duct_tape": [
+				{
+					"cp": "e944"
+				}
+			],
+			"drawing": [
+				{
+					"cp": "e945"
+				}
+			],
+			"door": [
+				{
+					"cp": "e946"
+				}
+			],
+			"document": [
+				{
+					"cp": "e947"
+				}
+			],
+			"destructible_wall": [
+				{
+					"cp": "e948"
+				}
+			],
+			"deer": [
+				{
+					"cp": "e949"
+				}
+			],
+			"crossbow_bolts": [
+				{
+					"cp": "e94a"
+				}
+			],
+			"crocodile": [
+				{
+					"cp": "e94b"
+				}
+			],
+			"crate": [
+				{
+					"cp": "e94c"
+				}
+			],
+			"cooking_pot": [
+				{
+					"cp": "e94d"
+				}
+			],
+			"coins": [
+				{
+					"cp": "e94e"
+				}
+			],
+			"clothes": [
+				{
+					"cp": "e94f"
+				}
+			],
+			"cloth": [
+				{
+					"cp": "e950"
+				}
+			],
+			"climbing_wall": [
+				{
+					"cp": "e951"
+				}
+			],
+			"climbing_rope": [
+				{
+					"cp": "e952"
+				}
+			],
+			"circuit": [
+				{
+					"cp": "e953"
+				}
+			],
+			"cave_entrance": [
+				{
+					"cp": "e954"
+				}
+			],
+			"cassette_tape": [
+				{
+					"cp": "e955"
+				}
+			],
+			"cash": [
+				{
+					"cp": "e956"
+				}
+			],
+			"cannibal_camp": [
+				{
+					"cp": "e957"
+				}
+			],
+			"camcorder_tape": [
+				{
+					"cp": "e958"
+				}
+			],
+			"cache": [
+				{
+					"cp": "e959"
+				}
+			],
+			"bunker": [
+				{
+					"cp": "e95a"
+				}
+			],
+			"book": [
+				{
+					"cp": "e95b"
+				}
+			],
+			"boar": [
+				{
+					"cp": "e95c"
+				}
+			],
+			"blueprint": [
+				{
+					"cp": "e95d"
+				}
+			],
+			"bird": [
+				{
+					"cp": "e95e"
+				}
+			],
+			"bible_page": [
+				{
+					"cp": "e95f"
+				}
+			],
+			"bat": [
+				{
+					"cp": "e960"
+				}
+			],
+			"artifact_piece": [
+				{
+					"cp": "e961"
+				}
+			],
+			"arrow": [
+				{
+					"cp": "e962"
+				}
+			],
+			"arm": [
+				{
+					"cp": "e963"
+				}
+			],
+			"ammo_case": [
+				{
+					"cp": "e964"
+				}
+			],
+			"air_tank": [
+				{
+					"cp": "e965"
+				}
+			],
+			"abandoned_camp": [
+				{
+					"cp": "e966"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "world/tiles/default-v3/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#9eb5d5"
+				}
+			]
+		}
+	]
+}

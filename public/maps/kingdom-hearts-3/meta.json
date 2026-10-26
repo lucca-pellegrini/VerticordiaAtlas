@@ -1,0 +1,293 @@
+{
+	"id": "kingdom-hearts-3",
+	"title": "Kingdom Hearts III",
+	"slug": "kingdom-hearts-3",
+	"source": "https://mapgenie.io/kingdom-hearts-3",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"battlegate": [
+				{
+					"cp": "e900",
+					"color": "#1fe300"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e901",
+					"color": "#ff4013"
+				}
+			],
+			"classic_kingdom": [
+				{
+					"cp": "e902",
+					"color": "#1fe300"
+				}
+			],
+			"data_battle": [
+				{
+					"cp": "e903",
+					"color": "#ff4013"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"flantastic_seven": [
+				{
+					"cp": "e905",
+					"color": "#1fe300"
+				}
+			],
+			"heart_piece": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"ingredient": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"lucky_emblem": [
+				{
+					"cp": "e909",
+					"color": "#fec700"
+				}
+			],
+			"mini_game": [
+				{
+					"cp": "e90a",
+					"color": "#1fe300"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"moogle_shop": [
+				{
+					"cp": "e90c",
+					"color": "#4adcff"
+				}
+			],
+			"photo_mission": [
+				{
+					"cp": "e90d",
+					"color": "#fec700"
+				}
+			],
+			"rare_enemy": [
+				{
+					"cp": "e90e",
+					"color": "#ff4013"
+				}
+			],
+			"recipe": [
+				{
+					"cp": "e90f",
+					"color": "#fec700"
+				}
+			],
+			"save_point": [
+				{
+					"cp": "e910",
+					"color": "#4adcff"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e911",
+					"color": "#fec700"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "twilight-town",
+			"title": "Twilight Town",
+			"data": "twilight-town/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "twilight-town/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "kingdom-of-corona",
+			"title": "Kingdom of Corona",
+			"data": "kingdom-of-corona/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "kingdom-of-corona/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "monstropolis",
+			"title": "Monstropolis",
+			"data": "monstropolis/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "monstropolis/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "olympus",
+			"title": "Olympus",
+			"data": "olympus/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "olympus/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "the-caribbean",
+			"title": "The Caribbean",
+			"data": "the-caribbean/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-caribbean/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "toy-box",
+			"title": "Toy Box",
+			"data": "toy-box/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "toy-box/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "keyblade-graveyard",
+			"title": "Keyblade Graveyard",
+			"data": "keyblade-graveyard/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "keyblade-graveyard/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#614440"
+				}
+			]
+		},
+		{
+			"slug": "san-fransokyo",
+			"title": "San Fransokyo",
+			"data": "san-fransokyo/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "san-fransokyo/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#40279c"
+				}
+			]
+		},
+		{
+			"slug": "arendelle",
+			"title": "Arendelle",
+			"data": "arendelle/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "arendelle/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 12,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "remind",
+			"title": "Re:Mind",
+			"data": "remind/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "remind/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#614440"
+				}
+			]
+		}
+	]
+}

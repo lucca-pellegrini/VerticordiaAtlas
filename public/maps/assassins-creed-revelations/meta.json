@@ -1,0 +1,212 @@
+{
+	"id": "assassins-creed-revelations",
+	"title": "Assassin's Creed: Revelations",
+	"slug": "assassins-creed-revelations",
+	"source": "https://mapgenie.io/assassins-creed-revelations",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"animus_fragment": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"aqueduct": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"bank": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"black_market_dealer": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"bomb_crate": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"book": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"book_shop": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"closed_well": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"doctor": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"faction_building": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"ferry": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"hidden_tomb": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"horse_stable": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"master_assassin_mission": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"memoir_page": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"mercenary_assignment": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"piri_reis_mission": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"recruitment": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"sofia_memory": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"tailor": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"templar_den": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"thief_assignment": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"tunnel_entrance": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "constantinople",
+			"title": "Constantinople",
+			"data": "constantinople/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "constantinople/tiles/default-v2/{z}/{x}/{y}.png",
+					"minzoom": 10,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

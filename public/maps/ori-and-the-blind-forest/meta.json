@@ -1,0 +1,213 @@
+{
+	"id": "ori-and-the-blind-forest",
+	"title": "Ori and the Blind Forest: Definitive Edition",
+	"slug": "ori-and-the-blind-forest",
+	"source": "https://mapgenie.io/ori-and-the-blind-forest",
+	"poster": "poster.avif",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"ability_point": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"ancestral_tree": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"breakable_wall": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"element_of_light": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"energy_cell": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"energy_gate": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"energy_shard": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"keystone": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"lantern": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"lever": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"life_cell": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"life_shard": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"locked_gate": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"major_spirit_gate": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"map_stone": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"map_stone_fragment": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"minor_spirit_gate": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"quest_item": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"secret_passage": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"skill": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"spirit_light_bulb": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"spirit_light_container": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"spirit_well": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"stompable_floor": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"stompable_pillar": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"thorn_wall": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "nibel",
+			"title": "Nibel",
+			"data": "nibel/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "nibel/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

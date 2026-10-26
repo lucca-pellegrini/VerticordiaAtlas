@@ -1,0 +1,177 @@
+{
+	"id": "assassins-creed-freedom-cry",
+	"title": "Assassin's Creed Freedom Cry",
+	"slug": "assassins-creed-freedom-cry",
+	"source": "https://mapgenie.io/assassins-creed-freedom-cry",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"air_barrel": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"blunderbuss": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"coconut_beach": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"figurehead": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"great_white_shark": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"hammerhead_shark": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"harbourmaster": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"humpback_whale": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"iguana": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"killer_whale": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"machete": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"main_mission": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"maroon_store": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"plantation": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"pouch": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"rabbit": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"rowboat": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"underwater_shipwreck": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "caribbean-sea",
+			"title": "Caribbean Sea",
+			"data": "caribbean-sea/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "caribbean-sea/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#010c10"
+				}
+			]
+		}
+	]
+}

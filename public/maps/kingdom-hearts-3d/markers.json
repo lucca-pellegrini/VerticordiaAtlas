@@ -1,0 +1,14 @@
+{
+	"moogle_shop": { "width": 33, "height": 44, "x": 0, "y": 0, "pixelRatio": 1 },
+	"save_point": { "width": 33, "height": 44, "x": 33, "y": 0, "pixelRatio": 1 },
+	"world_exit": { "width": 33, "height": 44, "x": 66, "y": 0, "pixelRatio": 1 },
+	"command": { "width": 33, "height": 44, "x": 99, "y": 0, "pixelRatio": 1 },
+	"dream_eater_recipe": { "width": 33, "height": 44, "x": 0, "y": 44, "pixelRatio": 1 },
+	"treasure_chest": { "width": 33, "height": 44, "x": 33, "y": 44, "pixelRatio": 1 },
+	"link_portal": { "width": 33, "height": 44, "x": 66, "y": 44, "pixelRatio": 1 },
+	"mini_game": { "width": 33, "height": 44, "x": 99, "y": 44, "pixelRatio": 1 },
+	"boss": { "width": 33, "height": 44, "x": 0, "y": 88, "pixelRatio": 1 },
+	"easter_egg": { "width": 33, "height": 44, "x": 33, "y": 88, "pixelRatio": 1 },
+	"key_item": { "width": 33, "height": 44, "x": 66, "y": 88, "pixelRatio": 1 },
+	"miscellaneous": { "width": 33, "height": 44, "x": 99, "y": 88, "pixelRatio": 1 }
+}

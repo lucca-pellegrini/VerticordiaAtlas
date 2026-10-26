@@ -1,0 +1,153 @@
+{
+	"id": "mario-kart-world",
+	"title": "Mario Kart World",
+	"slug": "mario-kart-world",
+	"source": "https://mapgenie.io/mario-kart-world",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"area": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"character": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"costume": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"decal": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"hidden_panel": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"kart": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"p_switch": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"peach_medallion": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"race": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"service": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"stamp_stand": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"yoshi_diner": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"yoshi_food_truck": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"tilesets": [
+				{
+					"name": "Icons",
+					"template": "world/tiles/icons-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#3e7cb7"
+				}
+			]
+		}
+	]
+}

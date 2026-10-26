@@ -1,8 +1,8 @@
 {
 	"id": "re4",
-	"title": "Resident Evil 4",
+	"title": "Resident Evil 4 (Remake)",
 	"slug": "resident-evil-4-remake",
-	"source": "https://mapgenie.io/resident-evil-4-remake/maps/world",
+	"source": "https://mapgenie.io/resident-evil-4-remake",
 	"poster": "poster.jpg",
 	"tagLabel": "Filter",
 	"defaultTag": null,
@@ -12,25 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "world",
-			"title": "World",
-			"data": "world/data.json",
-			"tilesets": [
-				{
-					"name": "Village",
-					"template": "world/tiles/default-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 15,
-					"viewMaxzoom": 16,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			]
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -227,5 +208,24 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"tilesets": [
+				{
+					"name": "Village",
+					"template": "world/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
 }

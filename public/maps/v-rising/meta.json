@@ -1,0 +1,338 @@
+{
+	"id": "v-rising",
+	"title": "V Rising",
+	"slug": "v-rising",
+	"source": "https://mapgenie.io/v-rising",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"ability": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"bandit": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"bear": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"blood_rose": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"castle_plot": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"coal": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"container": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"copper_ore": [
+				{
+					"cp": "e90b",
+					"color": "#ab7b4f"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"elite_enemy": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"enemy_area": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"fire_blossom": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"fishing_spot": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"gem_stone": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"ghost_crystal": [
+				{
+					"cp": "e912",
+					"color": "#7fc3be"
+				}
+			],
+			"ghost_shroom": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"gold_chest": [
+				{
+					"cp": "e914",
+					"color": "#bf9f5a"
+				}
+			],
+			"gold_ore": [
+				{
+					"cp": "e915",
+					"color": "#c3a556"
+				}
+			],
+			"hells_clarion": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"highland_lotus": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"horse": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"iron_ore": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"mantrap": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"massive_copper_vein": [
+				{
+					"cp": "e91c",
+					"color": "#ab7b4f"
+				}
+			],
+			"massive_stone_vein": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"mine": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"minor_area": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"moose": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"other": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"other_loot": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"quartz": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"quest": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"silver_ore": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"snow_flower": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"stone_golem": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"stone_ruin": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"stronghold": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"sulphur_ore": [
+				{
+					"cp": "e92b",
+					"color": "#bdba7e"
+				}
+			],
+			"treant": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"trippy_shroom": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"undead": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"v_blood": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"waygate": [
+				{
+					"cp": "e930",
+					"color": "#64a351"
+				}
+			],
+			"wolf": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "vardoran",
+			"title": "Vardoran",
+			"data": "vardoran/data.json",
+			"tilesets": [
+				{
+					"name": "V4",
+					"template": "vardoran/tiles/default-v4/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

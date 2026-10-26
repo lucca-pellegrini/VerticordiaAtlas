@@ -1,0 +1,159 @@
+{
+	"id": "silent-hill-f",
+	"title": "Silent Hill f",
+	"slug": "silent-hill-f",
+	"source": "https://mapgenie.io/silent-hill-f",
+	"poster": "poster.jpg",
+	"tagLabel": "Difficulty",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"area": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"document": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"ema": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"examinable": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"hokora": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"inventory_upgrade": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"journal_entry": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"offering": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"omamori": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"puzzle": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"red_capsules": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"traversal": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "ebisugaoka",
+			"title": "Ebisugaoka",
+			"data": "ebisugaoka/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "ebisugaoka/tiles/default-v5/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

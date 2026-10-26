@@ -1215,6 +1215,735 @@
 			],
 			"tagLabel": "Filter",
 			"defaultTag": null
+		},
+		{
+			"id": "crimson-desert",
+			"slug": "crimson-desert",
+			"title": "Crimson Desert",
+			"description": "Every marker on the Crimson Desert map.",
+			"poster": "crimson-desert/poster",
+			"theme": {
+				"accent": "#b35b4d",
+				"accent-soft": "#d5a39c",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1311",
+				"line": "#362321"
+			},
+			"stats": [
+				{
+					"value": 11354,
+					"label": "markers"
+				},
+				{
+					"value": 117,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "the-forest",
+			"slug": "the-forest",
+			"title": "The Forest",
+			"description": "Every marker on the The Forest map.",
+			"poster": "the-forest/poster",
+			"theme": {
+				"accent": "#92b843",
+				"accent-soft": "#c2d893",
+				"night": "#0a0c06",
+				"panel": "#12160c",
+				"panel-2": "#1b1f11",
+				"line": "#2f3621"
+			},
+			"stats": [
+				{
+					"value": 1122,
+					"label": "markers"
+				},
+				{
+					"value": 67,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "sons-of-the-forest",
+			"slug": "sons-of-the-forest",
+			"title": "Sons of The Forest",
+			"description": "Every marker on the Sons of The Forest map.",
+			"poster": "sons-of-the-forest/poster",
+			"theme": {
+				"accent": "#3a6888",
+				"accent-soft": "#70a0c2",
+				"night": "#06090c",
+				"panel": "#0c1116",
+				"panel-2": "#11191f",
+				"line": "#212d36"
+			},
+			"stats": [
+				{
+					"value": 1419,
+					"label": "markers"
+				},
+				{
+					"value": 67,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "assassins-creed",
+			"slug": "assassins-creed",
+			"title": "Assassin's Creed",
+			"description": "Every marker on the Assassin's Creed map.",
+			"poster": "assassins-creed/poster",
+			"theme": {
+				"accent": "#2c80a7",
+				"accent-soft": "#6bb6d8",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111b1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 782,
+					"label": "markers"
+				},
+				{
+					"value": 24,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "assassins-creed-2",
+			"slug": "assassins-creed-2",
+			"title": "Assassin's Creed II",
+			"description": "Every marker on the Assassin's Creed II map.",
+			"poster": "assassins-creed-2/poster",
+			"theme": {
+				"accent": "#8e3c34",
+				"accent-soft": "#c8726a",
+				"night": "#0c0706",
+				"panel": "#160c0c",
+				"panel-2": "#1f1311",
+				"line": "#362221"
+			},
+			"stats": [
+				{
+					"value": 928,
+					"label": "markers"
+				},
+				{
+					"value": 19,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "assassins-creed-brotherhood",
+			"slug": "assassins-creed-brotherhood",
+			"title": "Assassin's Creed: Brotherhood",
+			"description": "Every marker on the Assassin's Creed: Brotherhood map.",
+			"poster": "assassins-creed-brotherhood/poster",
+			"theme": {
+				"accent": "#d2662a",
+				"accent-soft": "#e7a885",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362821"
+			},
+			"stats": [
+				{
+					"value": 538,
+					"label": "markers"
+				},
+				{
+					"value": 30,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "assassins-creed-revelations",
+			"slug": "assassins-creed-revelations",
+			"title": "Assassin's Creed: Revelations",
+			"description": "Every marker on the Assassin's Creed: Revelations map.",
+			"poster": "assassins-creed-revelations/poster",
+			"theme": {
+				"accent": "#ab8a49",
+				"accent-soft": "#d1bc93",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362f21"
+			},
+			"stats": [
+				{
+					"value": 861,
+					"label": "markers"
+				},
+				{
+					"value": 26,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "assassins-creed-3",
+			"slug": "assassins-creed-3",
+			"title": "Assassin's Creed III",
+			"description": "Every marker on the Assassin's Creed III map.",
+			"poster": "assassins-creed-3/poster",
+			"theme": {
+				"accent": "#4ba1b0",
+				"accent-soft": "#98cad3",
+				"night": "#060b0c",
+				"panel": "#0c1416",
+				"panel-2": "#111d1f",
+				"line": "#213336"
+			},
+			"stats": [
+				{
+					"value": 473,
+					"label": "markers"
+				},
+				{
+					"value": 23,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "assassins-creed-black-flag-resynced",
+			"slug": "assassins-creed-black-flag-resynced",
+			"title": "Assassin's Creed Black Flag Resynced",
+			"description": "Every marker on the Assassin's Creed Black Flag Resynced map.",
+			"poster": "assassins-creed-black-flag-resynced/poster",
+			"theme": {
+				"accent": "#3b8cc4",
+				"accent-soft": "#91bfde",
+				"night": "#06090c",
+				"panel": "#0c1116",
+				"panel-2": "#11191f",
+				"line": "#212d36"
+			},
+			"stats": [
+				{
+					"value": 1501,
+					"label": "markers"
+				},
+				{
+					"value": 78,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "assassins-creed-rogue",
+			"slug": "assassins-creed-rogue",
+			"title": "Assassin's Creed Rogue",
+			"description": "Every marker on the Assassin's Creed Rogue map.",
+			"poster": "assassins-creed-rogue/poster",
+			"theme": {
+				"accent": "#3c738c",
+				"accent-soft": "#75abc4",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111b1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 1429,
+					"label": "markers"
+				},
+				{
+					"value": 67,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "assassins-creed-freedom-cry",
+			"slug": "assassins-creed-freedom-cry",
+			"title": "Assassin's Creed Freedom Cry",
+			"description": "Every marker on the Assassin's Creed Freedom Cry map.",
+			"poster": "assassins-creed-freedom-cry/poster",
+			"theme": {
+				"accent": "#886a3a",
+				"accent-soft": "#c2a370",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 147,
+					"label": "markers"
+				},
+				{
+					"value": 22,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "final-fantasy-xvi",
+			"slug": "final-fantasy-xvi",
+			"title": "Final Fantasy XVI",
+			"description": "Every marker on the Final Fantasy XVI map.",
+			"poster": "final-fantasy-xvi/poster",
+			"theme": {
+				"accent": "#8e5535",
+				"accent-soft": "#c88d6b",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362821"
+			},
+			"stats": [
+				{
+					"value": 943,
+					"label": "markers"
+				},
+				{
+					"value": 26,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "final-fantasy-vii-rebirth",
+			"slug": "final-fantasy-vii-rebirth",
+			"title": "Final Fantasy VII Rebirth",
+			"description": "Every marker on the Final Fantasy VII Rebirth map.",
+			"poster": "final-fantasy-vii-rebirth/poster",
+			"theme": {
+				"accent": "#c96d36",
+				"accent-soft": "#e1ad8e",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 1949,
+					"label": "markers"
+				},
+				{
+					"value": 51,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "final-fantasy-resonance",
+			"slug": "final-fantasy-resonance",
+			"title": "FINAL FANTASY RESONANCE",
+			"description": "Every marker on the FINAL FANTASY RESONANCE map.",
+			"poster": "final-fantasy-resonance/poster",
+			"theme": {
+				"accent": "#a1322b",
+				"accent-soft": "#d66d66",
+				"night": "#0c0706",
+				"panel": "#160c0c",
+				"panel-2": "#1f1211",
+				"line": "#362221"
+			},
+			"stats": [
+				{
+					"value": 1312,
+					"label": "markers"
+				},
+				{
+					"value": 28,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "ori-and-the-blind-forest",
+			"slug": "ori-and-the-blind-forest",
+			"title": "Ori and the Blind Forest: Definitive Edition",
+			"description": "Every marker on the Ori and the Blind Forest: Definitive Edition map.",
+			"poster": "ori-and-the-blind-forest/poster",
+			"theme": {
+				"accent": "#d4442b",
+				"accent-soft": "#e79688",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1311",
+				"line": "#362421"
+			},
+			"stats": [
+				{
+					"value": 658,
+					"label": "markers"
+				},
+				{
+					"value": 29,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "kingdom-hearts-3d",
+			"slug": "kingdom-hearts-3d",
+			"title": "Kingdom Hearts: Dream Drop Distance",
+			"description": "Every marker on the Kingdom Hearts: Dream Drop Distance map.",
+			"poster": "kingdom-hearts-3d/poster",
+			"theme": {
+				"accent": "#d96c26",
+				"accent-soft": "#eaad86",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 656,
+					"label": "markers"
+				},
+				{
+					"value": 88,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "kingdom-hearts-3",
+			"slug": "kingdom-hearts-3",
+			"title": "Kingdom Hearts III",
+			"description": "Every marker on the Kingdom Hearts III map.",
+			"poster": "kingdom-hearts-3/poster",
+			"theme": {
+				"accent": "#264d9c",
+				"accent-soft": "#5b84d7",
+				"night": "#06080c",
+				"panel": "#0c0f16",
+				"panel-2": "#11161f",
+				"line": "#212836"
+			},
+			"stats": [
+				{
+					"value": 822,
+					"label": "markers"
+				},
+				{
+					"value": 82,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "kingdom-come-deliverance",
+			"slug": "kingdom-come-deliverance",
+			"title": "Kingdom Come: Deliverance",
+			"description": "Every marker on the Kingdom Come: Deliverance map.",
+			"poster": "kingdom-come-deliverance/poster",
+			"theme": {
+				"accent": "#b6561a",
+				"accent-soft": "#e3915e",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 1537,
+					"label": "markers"
+				},
+				{
+					"value": 59,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "kingdom-come-deliverance-2",
+			"slug": "kingdom-come-deliverance-2",
+			"title": "Kingdom Come: Deliverance II",
+			"description": "Every marker on the Kingdom Come: Deliverance II map.",
+			"poster": "kingdom-come-deliverance-2/poster",
+			"theme": {
+				"accent": "#b3a34d",
+				"accent-soft": "#d5cc9c",
+				"night": "#0c0b06",
+				"panel": "#16140c",
+				"panel-2": "#1f1d11",
+				"line": "#363321"
+			},
+			"stats": [
+				{
+					"value": 2488,
+					"label": "markers"
+				},
+				{
+					"value": 136,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "silent-hill-f",
+			"slug": "silent-hill-f",
+			"title": "Silent Hill f",
+			"description": "Every marker on the Silent Hill f map.",
+			"poster": "silent-hill-f/poster",
+			"theme": {
+				"accent": "#952c34",
+				"accent-soft": "#d06169",
+				"night": "#0c0607",
+				"panel": "#160c0c",
+				"panel-2": "#1f1112",
+				"line": "#362122"
+			},
+			"stats": [
+				{
+					"value": 1057,
+					"label": "markers"
+				},
+				{
+					"value": 18,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Difficulty",
+			"defaultTag": null
+		},
+		{
+			"id": "silent-hill-townfall",
+			"slug": "silent-hill-townfall",
+			"title": "SILENT HILL: Townfall",
+			"description": "Every marker on the SILENT HILL: Townfall map.",
+			"poster": "silent-hill-townfall/poster",
+			"theme": {
+				"accent": "#3a5c88",
+				"accent-soft": "#7094c2",
+				"night": "#06090c",
+				"panel": "#0c1016",
+				"panel-2": "#11171f",
+				"line": "#212a36"
+			},
+			"stats": [
+				{
+					"value": 844,
+					"label": "markers"
+				},
+				{
+					"value": 27,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "mario-kart-world",
+			"slug": "mario-kart-world",
+			"title": "Mario Kart World",
+			"description": "Every marker on the Mario Kart World map.",
+			"poster": "mario-kart-world/poster",
+			"theme": {
+				"accent": "#b16b3f",
+				"accent-soft": "#d6a88b",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 887,
+					"label": "markers"
+				},
+				{
+					"value": 9,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "bully",
+			"slug": "bully",
+			"title": "Bully",
+			"description": "Every marker on the Bully map.",
+			"poster": "bully/poster",
+			"theme": {
+				"accent": "#186daa",
+				"accent-soft": "#52a5e0",
+				"night": "#06090c",
+				"panel": "#0c1116",
+				"panel-2": "#11191f",
+				"line": "#212d36"
+			},
+			"stats": [
+				{
+					"value": 686,
+					"label": "markers"
+				},
+				{
+					"value": 35,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "stellar-blade",
+			"slug": "stellar-blade",
+			"title": "Stellar Blade",
+			"description": "Every marker on the Stellar Blade map.",
+			"poster": "stellar-blade/poster",
+			"theme": {
+				"accent": "#2c88cb",
+				"accent-soft": "#83bbe4",
+				"night": "#06090c",
+				"panel": "#0c1116",
+				"panel-2": "#11191f",
+				"line": "#212d36"
+			},
+			"stats": [
+				{
+					"value": 2325,
+					"label": "markers"
+				},
+				{
+					"value": 230,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "dragons-dogma-2",
+			"slug": "dragons-dogma-2",
+			"title": "Dragon's Dogma 2",
+			"description": "Every marker on the Dragon's Dogma 2 map.",
+			"poster": "dragons-dogma-2/poster",
+			"theme": {
+				"accent": "#905532",
+				"accent-soft": "#ca8c68",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 5545,
+					"label": "markers"
+				},
+				{
+					"value": 47,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "doom-the-dark-ages",
+			"slug": "doom-the-dark-ages",
+			"title": "DOOM: The Dark Ages",
+			"description": "Every marker on the DOOM: The Dark Ages map.",
+			"poster": "doom-the-dark-ages/poster",
+			"theme": {
+				"accent": "#905632",
+				"accent-soft": "#ca8e68",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 85,
+					"label": "markers"
+				},
+				{
+					"value": 13,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "v-rising",
+			"slug": "v-rising",
+			"title": "V Rising",
+			"description": "Every marker on the V Rising map.",
+			"poster": "v-rising/poster",
+			"theme": {
+				"accent": "#296f99",
+				"accent-soft": "#5ea8d4",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 3823,
+					"label": "markers"
+				},
+				{
+					"value": 40,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
 		}
 	]
 }

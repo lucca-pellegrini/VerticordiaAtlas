@@ -1,0 +1,249 @@
+{
+	"id": "bully",
+	"title": "Bully",
+	"slug": "bully",
+	"source": "https://mapgenie.io/bully",
+	"poster": "poster.jpeg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"arcade_game": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"barber": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"bike_race": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"bike_shop": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"boxing_match": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"bus_stop": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"carnival": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"class": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"clothing_shop": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"errand": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"fire_alarm": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"garage": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"garden_gnome": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"gg_card": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"go_kart_race": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"infirmary": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"job": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"locker": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"police_station": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"pumpkin": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"rubber_band": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"safe_house": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"side_mission": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"soda_machine": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"story_mission": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"task": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"tombstone": [
+				{
+					"cp": "e91f",
+					"color": "#fff"
+				}
+			],
+			"transistor": [
+				{
+					"cp": "e920",
+					"color": "#fff"
+				}
+			],
+			"trophy": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "bullworth",
+			"title": "Bullworth",
+			"data": "bullworth/data.json",
+			"tilesets": [
+				{
+					"name": "Summer",
+					"template": "bullworth/tiles/summer-v3/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#136712"
+				}
+			]
+		}
+	]
+}

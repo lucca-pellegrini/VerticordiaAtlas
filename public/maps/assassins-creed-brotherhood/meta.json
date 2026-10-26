@@ -1,0 +1,224 @@
+{
+	"id": "assassins-creed-brotherhood",
+	"title": "Assassin's Creed: Brotherhood",
+	"slug": "assassins-creed-brotherhood",
+	"source": "https://mapgenie.io/assassins-creed-brotherhood",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"art_merchant": [
+				{
+					"cp": "e900"
+				}
+			],
+			"assassin_tomb": [
+				{
+					"cp": "e901"
+				}
+			],
+			"assassination": [
+				{
+					"cp": "e902"
+				}
+			],
+			"beat_up": [
+				{
+					"cp": "e903"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e904"
+				}
+			],
+			"codex_page": [
+				{
+					"cp": "e905"
+				}
+			],
+			"courier": [
+				{
+					"cp": "e906"
+				}
+			],
+			"doctor": [
+				{
+					"cp": "e907"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e908"
+				}
+			],
+			"feather": [
+				{
+					"cp": "e909"
+				}
+			],
+			"glyph": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"race": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"statuette": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"tailor": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"templar_lair": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e910"
+				}
+			],
+			"aqueduct": [
+				{
+					"cp": "e911"
+				}
+			],
+			"art_merchant_quest": [
+				{
+					"cp": "e912"
+				}
+			],
+			"bank": [
+				{
+					"cp": "e913"
+				}
+			],
+			"blacksmith_shop_quest": [
+				{
+					"cp": "e914"
+				}
+			],
+			"borgia_flag": [
+				{
+					"cp": "e915"
+				}
+			],
+			"borgia_tower": [
+				{
+					"cp": "e916"
+				}
+			],
+			"copernico": [
+				{
+					"cp": "e917"
+				}
+			],
+			"courtesan_assignment": [
+				{
+					"cp": "e918"
+				}
+			],
+			"cristina_memory": [
+				{
+					"cp": "e919"
+				}
+			],
+			"faction_building": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"horse_stable": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"lair_of_romulus": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"medical_shop_quest": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"rift": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"tailor_shop_quest": [
+				{
+					"cp": "e920"
+				}
+			],
+			"templar_agent": [
+				{
+					"cp": "e921"
+				}
+			],
+			"thief_assignment": [
+				{
+					"cp": "e922"
+				}
+			],
+			"tunnel_entrance": [
+				{
+					"cp": "e923"
+				}
+			],
+			"war_machine": [
+				{
+					"cp": "e924"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "italy",
+			"title": "Italy",
+			"data": "italy/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "italy/tiles/default-v2/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#fcfcfc"
+				}
+			]
+		}
+	]
+}

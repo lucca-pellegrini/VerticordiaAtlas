@@ -1,0 +1,404 @@
+{
+	"id": "the-forest",
+	"title": "The Forest",
+	"slug": "the-forest",
+	"source": "https://mapgenie.io/the-forest",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"abandoned_camp": [
+				{
+					"cp": "e900"
+				}
+			],
+			"air_canister": [
+				{
+					"cp": "e901"
+				}
+			],
+			"arm": [
+				{
+					"cp": "e902"
+				}
+			],
+			"arrow": [
+				{
+					"cp": "e903"
+				}
+			],
+			"bat": [
+				{
+					"cp": "e904"
+				}
+			],
+			"bible_page": [
+				{
+					"cp": "e905"
+				}
+			],
+			"bird": [
+				{
+					"cp": "e906"
+				}
+			],
+			"boar": [
+				{
+					"cp": "e907"
+				}
+			],
+			"book": [
+				{
+					"cp": "e908"
+				}
+			],
+			"booze": [
+				{
+					"cp": "e909"
+				}
+			],
+			"cache": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"camcorder_tape": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"cannibal_camp": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"cash": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"cassette_tape": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"cave_entrance": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"circuit": [
+				{
+					"cp": "e910"
+				}
+			],
+			"climbing_rope": [
+				{
+					"cp": "e911"
+				}
+			],
+			"climbing_wall": [
+				{
+					"cp": "e912"
+				}
+			],
+			"cloth": [
+				{
+					"cp": "e913"
+				}
+			],
+			"coins": [
+				{
+					"cp": "e914"
+				}
+			],
+			"crocodile": [
+				{
+					"cp": "e915"
+				}
+			],
+			"crossbow_bolts": [
+				{
+					"cp": "e916"
+				}
+			],
+			"deer": [
+				{
+					"cp": "e917"
+				}
+			],
+			"destructible_wall": [
+				{
+					"cp": "e918"
+				}
+			],
+			"drawing": [
+				{
+					"cp": "e919"
+				}
+			],
+			"dynamite": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"email_page": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"exit": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"fish": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"fishing_pond": [
+				{
+					"cp": "e920"
+				}
+			],
+			"flare": [
+				{
+					"cp": "e921"
+				}
+			],
+			"flintlock_pistol_ammo": [
+				{
+					"cp": "e922"
+				}
+			],
+			"fuel": [
+				{
+					"cp": "e923"
+				}
+			],
+			"goose": [
+				{
+					"cp": "e924"
+				}
+			],
+			"gun_part": [
+				{
+					"cp": "e925"
+				}
+			],
+			"hairspray": [
+				{
+					"cp": "e926"
+				}
+			],
+			"keycard": [
+				{
+					"cp": "e927"
+				}
+			],
+			"lizard": [
+				{
+					"cp": "e928"
+				}
+			],
+			"magazine": [
+				{
+					"cp": "e929"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e92a"
+				}
+			],
+			"mutant": [
+				{
+					"cp": "e92b"
+				}
+			],
+			"offering_pedestal": [
+				{
+					"cp": "e92c"
+				}
+			],
+			"old_fire_pit": [
+				{
+					"cp": "e92d"
+				}
+			],
+			"old_pot": [
+				{
+					"cp": "e92e"
+				}
+			],
+			"oyster": [
+				{
+					"cp": "e92f"
+				}
+			],
+			"passenger": [
+				{
+					"cp": "e930"
+				}
+			],
+			"photo": [
+				{
+					"cp": "e931"
+				}
+			],
+			"pills": [
+				{
+					"cp": "e932"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e933"
+				}
+			],
+			"rabbit": [
+				{
+					"cp": "e934"
+				}
+			],
+			"raccoon": [
+				{
+					"cp": "e935"
+				}
+			],
+			"rope": [
+				{
+					"cp": "e936"
+				}
+			],
+			"sacred_tree": [
+				{
+					"cp": "e937"
+				}
+			],
+			"sacrifice_door": [
+				{
+					"cp": "e938"
+				}
+			],
+			"schematic": [
+				{
+					"cp": "e939"
+				}
+			],
+			"sea_turtle": [
+				{
+					"cp": "e93a"
+				}
+			],
+			"seagull": [
+				{
+					"cp": "e93b"
+				}
+			],
+			"shark": [
+				{
+					"cp": "e93c"
+				}
+			],
+			"sketch": [
+				{
+					"cp": "e93d"
+				}
+			],
+			"skull": [
+				{
+					"cp": "e93e"
+				}
+			],
+			"snack": [
+				{
+					"cp": "e93f"
+				}
+			],
+			"soda": [
+				{
+					"cp": "e940"
+				}
+			],
+			"squirrel": [
+				{
+					"cp": "e941"
+				}
+			],
+			"suitcase": [
+				{
+					"cp": "e942"
+				}
+			],
+			"tape": [
+				{
+					"cp": "e943"
+				}
+			],
+			"tortoise": [
+				{
+					"cp": "e944"
+				}
+			],
+			"toy_part": [
+				{
+					"cp": "e945"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e946"
+				}
+			],
+			"wooden_barricade": [
+				{
+					"cp": "e947"
+				}
+			],
+			"wristwatch": [
+				{
+					"cp": "e948"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "the-peninsula",
+			"title": "The Peninsula",
+			"data": "the-peninsula/data.json",
+			"tilesets": [
+				{
+					"name": "The Forest",
+					"template": "the-peninsula/tiles/overworld-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#031a22"
+				}
+			]
+		}
+	]
+}

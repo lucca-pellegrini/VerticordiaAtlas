@@ -1,0 +1,406 @@
+{
+	"id": "stellar-blade",
+	"title": "Stellar Blade",
+	"slug": "stellar-blade",
+	"source": "https://mapgenie.io/stellar-blade",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"adams_clothes": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"beta_core": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"body_core": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"box": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"bulletin_board": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"bulletin_board_request": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"camp": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"can": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"data_bank": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"drone_appearance": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"drone_upgrade_module": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"earrings": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"exospine": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"face_decoration": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"fish": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"gear": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"hairstyle": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"lilys_clothes": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"lost_song": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"memory_stick": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"mission_item": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"nano_suit": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"naytiba": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"omnibolt": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"passcode": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"photo_spot": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"safehouse": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"stellar_tear": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"traversal": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"tumbler_expansion_module": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"vendor": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_core": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "eidos-7",
+			"title": "Eidos 7",
+			"data": "eidos-7/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "eidos-7/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "xion-city",
+			"title": "Xion City",
+			"data": "xion-city/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "xion-city/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "wasteland",
+			"title": "Wasteland",
+			"data": "wasteland/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "wasteland/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "altess-levoire",
+			"title": "Altess Levoire",
+			"data": "altess-levoire/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "altess-levoire/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "matrix-11",
+			"title": "Matrix 11",
+			"data": "matrix-11/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "matrix-11/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "great-desert",
+			"title": "Great Desert",
+			"data": "great-desert/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "great-desert/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "abyss-levoire",
+			"title": "Abyss Levoire",
+			"data": "abyss-levoire/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "abyss-levoire/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "eidos-9",
+			"title": "Eidos 9",
+			"data": "eidos-9/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "eidos-9/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "spire-4",
+			"title": "Spire 4",
+			"data": "spire-4/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "spire-4/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

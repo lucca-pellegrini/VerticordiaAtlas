@@ -1,0 +1,393 @@
+{
+	"id": "final-fantasy-vii-rebirth",
+	"title": "Final Fantasy VII Rebirth",
+	"slug": "final-fantasy-vii-rebirth",
+	"source": "https://mapgenie.io/final-fantasy-vii-rebirth",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"zipline": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"weapons_vendor": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"vending_machine": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"tack_shop": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"summon_crystal": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"snaps": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"shinra_crate": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"sheet_music": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"scenic_spot": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"rest_spot": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"remnawave_tower": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"queens_blood_player": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"protorelic": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"play_arts_figure": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"place_of_interest": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"passage": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"odd_job": [
+				{
+					"cp": "e911",
+					"color": "#0f0"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"noticeboard": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"moogle_mischief": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"moogle_medal": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"moogle_emporium": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"materia": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"main_scenario": [
+				{
+					"cp": "e91a",
+					"color": "#0ff"
+				}
+			],
+			"maghnata_books": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"maghnata_automat": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"local_map": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"lifespring": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"items_vendor": [
+				{
+					"cp": "e91f",
+					"color": "#fff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e920",
+					"color": "#fff"
+				}
+			],
+			"gil": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"g_bike": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e923",
+					"color": "#fff"
+				}
+			],
+			"elevator": [
+				{
+					"cp": "e924",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e925",
+					"color": "#fff"
+				}
+			],
+			"dorian": [
+				{
+					"cp": "e926",
+					"color": "#fff"
+				}
+			],
+			"dig_site": [
+				{
+					"cp": "e927",
+					"color": "#fff"
+				}
+			],
+			"combat_assignment": [
+				{
+					"cp": "e928",
+					"color": "#fff"
+				}
+			],
+			"collectors_item": [
+				{
+					"cp": "e929",
+					"color": "#fff"
+				}
+			],
+			"clothing": [
+				{
+					"cp": "e92a",
+					"color": "#fff"
+				}
+			],
+			"classified_enemy": [
+				{
+					"cp": "e92b",
+					"color": "#fff"
+				}
+			],
+			"chocoboutique": [
+				{
+					"cp": "e92c",
+					"color": "#fff"
+				}
+			],
+			"chocobo_traversal": [
+				{
+					"cp": "e92d",
+					"color": "#fff"
+				}
+			],
+			"chocobo_stop": [
+				{
+					"cp": "e92e",
+					"color": "#fff"
+				}
+			],
+			"chocobo_racing": [
+				{
+					"cp": "e92f",
+					"color": "#fff"
+				}
+			],
+			"chocobo_intel": [
+				{
+					"cp": "e930",
+					"color": "#fff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e931",
+					"color": "#fff"
+				}
+			],
+			"changing_booth": [
+				{
+					"cp": "e932",
+					"color": "#fff"
+				}
+			],
+			"chadley": [
+				{
+					"cp": "e933",
+					"color": "#fff"
+				}
+			],
+			"card_collector": [
+				{
+					"cp": "e934",
+					"color": "#fff"
+				}
+			],
+			"cache_location": [
+				{
+					"cp": "e935",
+					"color": "#fff"
+				}
+			],
+			"buried_treasure": [
+				{
+					"cp": "e936",
+					"color": "#fff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e937",
+					"color": "#fff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e938",
+					"color": "#fff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e939",
+					"color": "#fff"
+				}
+			],
+			"d_brawler": [
+				{
+					"cp": "e93a",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "midgar",
+			"title": "World",
+			"data": "midgar/data.json",
+			"tilesets": [
+				{
+					"name": "V3",
+					"template": "midgar/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 17,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,339 @@
+{
+	"id": "dragons-dogma-2",
+	"title": "Dragon's Dogma 2",
+	"slug": "dragons-dogma-2",
+	"source": "https://mapgenie.io/dragons-dogma-2",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"ammunition": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"apothecary": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"armory": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"barberie": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"bordelrie": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"campsite": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"cloak": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"curative": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"door": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"facility": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"ferrystone": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"forgotten_riftstone": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"golden_beetle": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"grimoire": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"implement": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"inn": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"loot_pile": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"material": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"mortuary": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"norgan_ducat": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"oracle": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"ox_station": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"peddler": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"portcrystal": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"riddle_solution": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"riftstone": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"ring": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"seekers_token": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"settlement": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"sphynx": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"tavern": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"valuable": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"vocation_guild": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"wakestone": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"wakestone_shard": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"waypoint": [
+				{
+					"cp": "e930",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"tilesets": [
+				{
+					"name": "World",
+					"template": "world/tiles/dlc-world/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 17,
+					"viewMaxzoom": 17,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}
