@@ -28,7 +28,7 @@ import {
 	PALETTE,
 	simplify,
 } from "../src/client/map/drawing.ts";
-import { mapLimits, sameCamera, startOf } from "../src/client/map/map-view.ts";
+import { circleStyleOf, mapLimits, sameCamera, startOf } from "../src/client/map/map-view.ts";
 import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf } from "../src/client/map/search.ts";
@@ -336,6 +336,35 @@ describe("modularized map and home helpers", () => {
 		// Out-of-range zoom falls back to mapConfig
 		expect(startOf(info, data, { lng: 0.1, lat: 0.2, zoom: 22 })).toEqual({ center: [0.5, -0.5], zoom: 10 });
 		expect(sameCamera({ lng: 1, lat: 2, zoom: 10 }, { lng: 1.000001, lat: 2.000001, zoom: 10.001 })).toBe(true);
+
+		// circleStyleOf resolution
+		const circleCat = {
+			id: 10305,
+			display_type: "circle",
+			circle_color: "AC804D",
+			circle_stroke_color: "E4E0DD",
+			circle_radius: 6,
+			circle_opacity: 0.9,
+		};
+		const circleStyle = circleStyleOf(circleCat, {});
+		expect(circleStyle.isCircle).toBe(true);
+		expect(circleStyle.color).toBe("#AC804D");
+		expect(circleStyle.strokeColor).toBe("#E4E0DD");
+		expect(circleStyle.radius).toBe(6);
+		expect(circleStyle.opacity).toBe(0.9);
+
+		const defaultCircleCat = {
+			id: 10306,
+			display_type: "circle",
+		};
+		const defaultStyle = circleStyleOf(defaultCircleCat, { circleLocationsPaint: { "circle-radius": 7 } });
+		expect(defaultStyle.isCircle).toBe(true);
+		expect(defaultStyle.color).toBe("#AC804D");
+		expect(defaultStyle.strokeColor).toBe("#ffffff");
+		expect(defaultStyle.radius).toBe(7);
+
+		const markerCat = { id: 10, display_type: "marker" };
+		expect(circleStyleOf(markerCat).isCircle).toBe(false);
 	});
 });
 
