@@ -65,6 +65,7 @@ import { optimizeTileset } from "./prune-tiles.ts";
 import { createTileDashboard } from "./tile-downloader-tui.ts";
 import { promptAddGameTui } from "./tui/input-form.js";
 import { createMediaDashboard } from "./tui/media-dashboard.js";
+import { createPruneDashboard } from "./tui/prune-dashboard.js";
 import { isInteractiveTty } from "./tui/theme.js";
 import {
 	createR2Client,
@@ -466,6 +467,8 @@ export async function downloadTiles({
 			destDir,
 			noTui: opts.noTui,
 			totalExpected: seeds.length || undefined,
+			container: opts.container,
+			renderer: opts.renderer,
 		});
 
 		const visited = new Set<string>();
@@ -866,6 +869,8 @@ export async function downloadMedia(
 		keepLocal: opts.keepLocal,
 		concurrency: opts.concurrency,
 		noTui: opts.noTui,
+		container: opts.container,
+		renderer: opts.renderer,
 	});
 
 	await pool([...urls.keys()], opts.concurrency, async (url) => {
@@ -1248,6 +1253,135 @@ Options:
 			process.exit(1);
 		}
 	}
+	await runAddGamePipeline({
+		url: positionals[0],
+		out: v.out,
+		id: v.id,
+		slug: v.slug,
+		title: v.title,
+		poster: v.poster,
+		accent: v.accent,
+		tagLabel: v["tag-label"],
+		defaultTag: v["default-tag"],
+		index: v.index,
+		maxZoom: v["max-zoom"] ? +v["max-zoom"] : undefined,
+		allTilesets: v["all-tilesets"],
+		videos: v.videos,
+		noTiles: v["no-tiles"],
+		noMedia: v["no-media"],
+		uploadMedia: v["upload-media"],
+		keepLocal: v["keep-local"],
+		noMarkers: v["no-markers"],
+		noCards: v["no-cards"],
+		noIcons: v["no-icons"],
+		noCleanMarkers: v["no-clean-markers"],
+		noOptimize: v["no-optimize"],
+		iconsOnly: v["icons-only"],
+		html: v.html,
+		mapdata: v.mapdata,
+		game: v.game,
+		mapUrl: v["map-url"],
+		tilesBase: v["tiles-base"],
+		mediaBase: v["media-base"],
+		concurrency: v.concurrency ? +v.concurrency : undefined,
+		delay: v.delay ? +v.delay : undefined,
+		adaptive: v.adaptive,
+		minConcurrency: v["min-concurrency"] ? +v["min-concurrency"] : undefined,
+		maxConcurrency: v["max-concurrency"] ? +v["max-concurrency"] : undefined,
+		maxTiles: v["max-tiles"] ? +v["max-tiles"] : undefined,
+		forceGetTiles: v["force-get-tiles"],
+		noTui: v["no-tui"],
+	});
+}
+
+export interface AddGamePipelineOptions {
+	url: string;
+	out?: string;
+	id?: string;
+	slug?: string;
+	title?: string;
+	poster?: string;
+	accent?: string;
+	tagLabel?: string;
+	defaultTag?: string;
+	index?: string;
+	maxZoom?: number;
+	allTilesets?: boolean;
+	videos?: boolean;
+	noTiles?: boolean;
+	noMedia?: boolean;
+	uploadMedia?: boolean;
+	keepLocal?: boolean;
+	noMarkers?: boolean;
+	noCards?: boolean;
+	noIcons?: boolean;
+	noCleanMarkers?: boolean;
+	noOptimize?: boolean;
+	iconsOnly?: boolean;
+	html?: string;
+	mapdata?: string;
+	game?: string;
+	mapUrl?: string;
+	tilesBase?: string;
+	mediaBase?: string;
+	concurrency?: number;
+	delay?: number;
+	adaptive?: boolean;
+	minConcurrency?: number;
+	maxConcurrency?: number;
+	maxTiles?: number;
+	forceGetTiles?: string[];
+	noTui?: boolean;
+	container?: any;
+	renderer?: any;
+	onLog?: (msg: string) => void;
+	onStage?: (stage: string) => void;
+}
+
+export async function runAddGamePipeline(p: AddGamePipelineOptions) {
+	const log = (msg: string) => {
+		console.log(msg);
+		p.onLog?.(msg);
+	};
+
+	const v = {
+		out: p.out || "./public/maps",
+		id: p.id,
+		slug: p.slug,
+		title: p.title,
+		poster: p.poster,
+		accent: p.accent,
+		"tag-label": p.tagLabel,
+		"default-tag": p.defaultTag,
+		index: p.index || "./public/maps/index.json",
+		"max-zoom": p.maxZoom ? String(p.maxZoom) : undefined,
+		"all-tilesets": p.allTilesets ?? true,
+		videos: p.videos,
+		"no-tiles": p.noTiles,
+		"no-media": p.noMedia,
+		"upload-media": p.uploadMedia,
+		"keep-local": p.keepLocal,
+		"no-markers": p.noMarkers,
+		"no-cards": p.noCards,
+		"no-icons": p.noIcons,
+		"no-clean-markers": p.noCleanMarkers,
+		"no-optimize": p.noOptimize,
+		"icons-only": p.iconsOnly,
+		html: p.html,
+		mapdata: p.mapdata,
+		game: p.game,
+		"map-url": p.mapUrl,
+		"tiles-base": p.tilesBase,
+		"media-base": p.mediaBase || "https://media.mapgenie.io/v2/assets/prod/games",
+		concurrency: String(p.concurrency ?? 16),
+		delay: String(p.delay ?? 0),
+		adaptive: p.adaptive ?? true,
+		"min-concurrency": p.minConcurrency ? String(p.minConcurrency) : undefined,
+		"max-concurrency": p.maxConcurrency ? String(p.maxConcurrency) : undefined,
+		"max-tiles": String(p.maxTiles ?? 400000),
+		"force-get-tiles": p.forceGetTiles || [],
+		"no-tui": p.noTui ?? false,
+	};
 	const uploadMedia = Boolean(v["upload-media"]) && !v["no-media"];
 	const r2Cfg = uploadMedia ? validateR2Env() : null;
 	const r2Client = r2Cfg ? createR2Client(r2Cfg) : undefined;
@@ -1260,8 +1394,11 @@ Options:
 		maxTiles: +v["max-tiles"]!,
 		maxZoom: v["max-zoom"] ? +v["max-zoom"] : undefined,
 		noTui: Boolean(v["no-tui"]),
+		container: p.container,
+		renderer: p.renderer,
 	};
 	const forceTiles = new Set(v["force-get-tiles"]);
+	const positionals = [p.url];
 
 	const given = new URL(positionals[0]);
 	const givenSegs = given.pathname.split("/").filter(Boolean);
@@ -1585,6 +1722,16 @@ Options:
 		// A forced map keeps the whole pyramid it was asked for; prune-tiles.ts can thin it out later.
 		const split = splitTemplate(info.template);
 		if (!v["no-optimize"] && !v["no-tiles"] && split) {
+			p.onStage?.(`Optimizing Tiles: ${ms}`);
+			let pruneDash: any = null;
+			if (p.container && p.renderer) {
+				pruneDash = await createPruneDashboard({
+					container: p.container,
+					renderer: p.renderer,
+					totalTilesets: 1,
+				});
+				pruneDash.startTileset(title, ts.name || ms, 0);
+			}
 			const o = await optimizeTileset({
 				dir: path.join(outDir, split.base),
 				tail: split.tail,
@@ -1593,10 +1740,12 @@ Options:
 				prune: false,
 				background: info.background,
 				concurrency: opts.concurrency,
+				onProgress: pruneDash ? (ev) => pruneDash.onTileset(ev) : undefined,
 			});
-			console.log(
-				`  overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
-			);
+			if (pruneDash) {
+				await pruneDash.finish();
+			}
+			log(`  overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`);
 			if (o.background && !info.background) info.background = o.background;
 		}
 		await writeMeta();
@@ -1607,6 +1756,7 @@ Options:
 		`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ""}${youtube ? `, ${youtube} YouTube videos (embedded, not downloaded)` : ""}; ${urls.size} file(s) to fetch${v.videos ? "" : " (images only; use --videos for the rest)"}`,
 	);
 	if (!v["no-media"] && urls.size) {
+		p.onStage?.("Downloading Media Assets");
 		const mediaDb = openMediaDb();
 		try {
 			await downloadMedia(urls, path.join(outDir, "media"), {
@@ -1626,13 +1776,17 @@ Options:
 
 	// 11. social preview cards for the homepage and every game, and their tags (make-cards.ts)
 	if (!v["no-cards"]) {
+		p.onStage?.("Generating Preview Cards");
 		const here = path.dirname(fileURLToPath(import.meta.url));
 		try {
-			const proc = Bun.spawn([process.execPath, path.join(here, "make-cards.ts")], {
-				cwd: path.dirname(here),
-				stdout: "inherit",
-				stderr: "pipe",
-			});
+			const proc = Bun.spawn(
+				[process.execPath, path.join(here, "make-cards.ts"), "--only", pageSlug, "--no-tui"],
+				{
+					cwd: path.dirname(here),
+					stdout: "inherit",
+					stderr: "pipe",
+				},
+			);
 			const exit = await proc.exited;
 			if (exit !== 0) {
 				const err = await new Response(proc.stderr).text();
@@ -1649,6 +1803,7 @@ Options:
 			);
 		}
 	}
+	p.onStage?.("Completed");
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

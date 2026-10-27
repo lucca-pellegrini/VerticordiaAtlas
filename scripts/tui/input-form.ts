@@ -73,287 +73,260 @@ export async function validatePosterUrl(
 	}
 }
 
-export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | null> {
-	return new Promise(async (resolve) => {
-		const renderer = await createCliRenderer({
-			exitOnCtrlC: true,
-		});
+export interface AddGameFormView {
+	root: BoxRenderable;
+	focus(): void;
+	blur(): void;
+	handleKey(key: KeyEvent): boolean;
+	resize(boxW: number, boxH: number): void;
+	destroy(): void;
+}
 
-		let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 26, 110, 36);
+export function createAddGameFormView(opts: {
+	renderer: any;
+	width: number;
+	height: number;
+	defaultUrl?: string;
+	onSubmit: (res: AddGameFormResult) => void;
+	onCancel?: () => void;
+}): AddGameFormView {
+	const renderer = opts.renderer;
+	let boxW = opts.width;
+	let boxH = opts.height;
 
-		renderer.root.flexDirection = "column";
-		renderer.root.alignItems = "center";
-		renderer.root.justifyContent = "center";
+	const rootBox = new BoxRenderable(renderer, {
+		width: boxW,
+		height: boxH,
+		border: true,
+		borderColor: RGBA_THEME.borderFocus,
+		flexDirection: "column",
+		paddingX: 2,
+		paddingY: 1,
+		backgroundColor: THEME.bgDark,
+	});
 
-		const rootBox = new BoxRenderable(renderer, {
-			width: boxW,
-			height: boxH,
-			border: true,
-			borderColor: RGBA_THEME.borderFocus,
-			flexDirection: "column",
-			paddingX: 2,
-			paddingY: 1,
-			backgroundColor: THEME.bgDark,
-		});
+	const headerText = new TextRenderable(renderer, {
+		content: "VERTICORDIA ATLAS • ADD / SCRAPE GAME MAPS",
+		fg: THEME.borderFocus,
+	});
+	const subText = new TextRenderable(renderer, {
+		content: "Enter MapGenie game details. Tab / Shift+Tab to move, Space to toggle, Enter to submit.",
+		fg: THEME.textDim,
+	});
+	rootBox.add(headerText);
+	rootBox.add(subText);
 
-		const headerText = new TextRenderable(renderer, {
-			content: "VERTICORDIA ATLAS • ADD / SCRAPE GAME MAPS",
-			fg: THEME.borderFocus,
-		});
-		const subText = new TextRenderable(renderer, {
-			content: "Enter MapGenie game details. Tab / Shift+Tab to move, Space to toggle, Enter to submit.",
-			fg: THEME.textDim,
-		});
-		rootBox.add(headerText);
-		rootBox.add(subText);
+	// Form Fields
+	const formBox = new BoxRenderable(renderer, {
+		flexDirection: "column",
+		marginVertical: 1,
+		gap: 0,
+		flexGrow: 1,
+	});
 
-		// Form Fields
-		const formBox = new BoxRenderable(renderer, {
-			flexDirection: "column",
-			marginVertical: 1,
-			gap: 0,
-			flexGrow: 1,
-		});
+	let currentUrl = opts.defaultUrl || "";
+	let currentSlug = "";
+	let currentTitle = "";
+	let currentPoster = "";
 
-		let currentUrl = defaultUrl;
-		let currentSlug = "";
-		let currentTitle = "";
-		let currentPoster = "";
+	// 1. URL
+	const urlLabel = new TextRenderable(renderer, { content: "MapGenie URL (required):", fg: THEME.peach });
+	const inputW = Math.max(20, boxW - 8);
+	const urlInput = new InputRenderable(renderer, {
+		placeholder: "https://mapgenie.io/crimson-desert",
+		value: currentUrl,
+		width: inputW,
+		backgroundColor: THEME.surface,
+		focusedBackgroundColor: THEME.surfaceLight,
+		textColor: THEME.textBright,
+	});
+	formBox.add(urlLabel);
+	formBox.add(urlInput);
 
-		// 1. URL
-		const urlLabel = new TextRenderable(renderer, { content: "MapGenie URL (required):", fg: THEME.peach });
-		const urlInput = new InputRenderable(renderer, {
-			placeholder: "https://mapgenie.io/crimson-desert",
-			value: defaultUrl,
-			width: boxW - 8,
-			backgroundColor: THEME.surface,
-			focusedBackgroundColor: THEME.surfaceLight,
-			textColor: THEME.textBright,
-		});
-		formBox.add(urlLabel);
-		formBox.add(urlInput);
+	// 2. Slug
+	const slugLabel = new TextRenderable(renderer, {
+		content: "Custom Slug / ID (optional, derived from URL):",
+		fg: THEME.peach,
+	});
+	const slugInput = new InputRenderable(renderer, {
+		placeholder: "e.g. crimson-desert or totk",
+		width: inputW,
+		backgroundColor: THEME.surface,
+		focusedBackgroundColor: THEME.surfaceLight,
+		textColor: THEME.textBright,
+	});
+	formBox.add(slugLabel);
+	formBox.add(slugInput);
 
-		// 2. Slug
-		const slugLabel = new TextRenderable(renderer, {
-			content: "Custom Slug / ID (optional, derived from URL):",
-			fg: THEME.peach,
-		});
-		const slugInput = new InputRenderable(renderer, {
-			placeholder: "e.g. crimson-desert or totk",
-			width: boxW - 8,
-			backgroundColor: THEME.surface,
-			focusedBackgroundColor: THEME.surfaceLight,
-			textColor: THEME.textBright,
-		});
-		formBox.add(slugLabel);
-		formBox.add(slugInput);
+	// 3. Title
+	const titleLabel = new TextRenderable(renderer, {
+		content: "Custom Title (optional, scraped from page):",
+		fg: THEME.peach,
+	});
+	const titleInput = new InputRenderable(renderer, {
+		placeholder: "e.g. Crimson Desert",
+		width: inputW,
+		backgroundColor: THEME.surface,
+		focusedBackgroundColor: THEME.surfaceLight,
+		textColor: THEME.textBright,
+	});
+	formBox.add(titleLabel);
+	formBox.add(titleInput);
 
-		// 3. Title
-		const titleLabel = new TextRenderable(renderer, {
-			content: "Custom Title (optional, scraped from page):",
-			fg: THEME.peach,
-		});
-		const titleInput = new InputRenderable(renderer, {
-			placeholder: "e.g. Crimson Desert",
-			width: boxW - 8,
-			backgroundColor: THEME.surface,
-			focusedBackgroundColor: THEME.surfaceLight,
-			textColor: THEME.textBright,
-		});
-		formBox.add(titleLabel);
-		formBox.add(titleInput);
+	// 4. Poster URL
+	const posterLabel = new TextRenderable(renderer, {
+		content: "Poster Image URL (optional, validates headers & dimensions):",
+		fg: THEME.peach,
+	});
+	const posterInput = new InputRenderable(renderer, {
+		placeholder: "https://.../poster.jpg",
+		width: inputW,
+		backgroundColor: THEME.surface,
+		focusedBackgroundColor: THEME.surfaceLight,
+		textColor: THEME.textBright,
+	});
+	const posterValidationText = new TextRenderable(renderer, {
+		content: "  Optional (scrapes default from page)",
+		fg: THEME.textDim,
+	});
+	formBox.add(posterLabel);
+	formBox.add(posterInput);
+	formBox.add(posterValidationText);
 
-		// 4. Poster URL
-		const posterLabel = new TextRenderable(renderer, {
-			content: "Poster Image URL (optional, validates headers & dimensions):",
-			fg: THEME.peach,
-		});
-		const posterInput = new InputRenderable(renderer, {
-			placeholder: "https://.../poster.jpg",
-			width: boxW - 8,
-			backgroundColor: THEME.surface,
-			focusedBackgroundColor: THEME.surfaceLight,
-			textColor: THEME.textBright,
-		});
-		const posterValidationText = new TextRenderable(renderer, {
-			content: "  Optional (scrapes default from page)",
-			fg: THEME.textDim,
-		});
-		formBox.add(posterLabel);
-		formBox.add(posterInput);
-		formBox.add(posterValidationText);
+	// Checkboxes
+	const checkOptions = [
+		{ key: "downloadTiles", label: "Download map raster tiles", checked: true },
+		{ key: "allTilesets", label: "Include all tilesets (e.g. detailed, underground, factions)", checked: true },
+		{ key: "downloadMedia", label: "Download & process media assets", checked: true },
+		{ key: "uploadMedia", label: "Upload media directly to Cloudflare R2 / S3", checked: false },
+		{ key: "keepLocal", label: "Keep local media copies (when uploading to R2)", checked: false },
+		{ key: "videos", label: "Include video media items", checked: true },
+		{ key: "makeCards", label: "Pre-render OpenGraph preview cards", checked: true },
+	];
 
-		// Checkboxes
-		const checkOptions = [
-			{ key: "downloadTiles", label: "Download map raster tiles", checked: true },
-			{ key: "allTilesets", label: "Include all tilesets (e.g. detailed, underground, factions)", checked: true },
-			{ key: "downloadMedia", label: "Download & process media assets", checked: true },
-			{ key: "uploadMedia", label: "Upload media directly to Cloudflare R2 / S3", checked: false },
-			{ key: "keepLocal", label: "Keep local media copies (when uploading to R2)", checked: false },
-			{ key: "videos", label: "Include video media items", checked: true },
-			{ key: "makeCards", label: "Pre-render OpenGraph preview cards", checked: true },
-		];
+	const checkRenderables: TextRenderable[] = [];
+	for (const opt of checkOptions) {
+		const text = new TextRenderable(renderer, {
+			content: `  [${opt.checked ? "X" : " "}] ${opt.label}`,
+			fg: THEME.text,
+		});
+		checkRenderables.push(text);
+		formBox.add(text);
+	}
 
-		const checkRenderables: TextRenderable[] = [];
-		for (const opt of checkOptions) {
-			const text = new TextRenderable(renderer, {
-				content: `  [${opt.checked ? "X" : " "}] ${opt.label}`,
-				fg: THEME.text,
-			});
-			checkRenderables.push(text);
-			formBox.add(text);
+	rootBox.add(formBox);
+
+	// Footer buttons / hint
+	const footerHint = new TextRenderable(renderer, {
+		content: " [Enter] Start Scrape & Import     [Esc] Cancel / Back",
+		fg: THEME.teal,
+	});
+	rootBox.add(footerHint);
+
+	let focusIdx = 0;
+	const inputs = [urlInput, slugInput, titleInput, posterInput];
+	let isClosed = false;
+
+	function updateFocus() {
+		if (isClosed) return;
+		for (let i = 0; i < inputs.length; i++) {
+			if (i === focusIdx) {
+				inputs[i].focus();
+			} else {
+				inputs[i].blur();
+			}
 		}
 
-		rootBox.add(formBox);
-
-		// Footer buttons / hint
-		const footerHint = new TextRenderable(renderer, {
-			content: " [Enter] Start Scrape & Import     [Esc] Cancel",
-			fg: THEME.teal,
-		});
-		rootBox.add(footerHint);
-
-		renderer.root.add(rootBox);
-
-		// Focus handling
-		// Focusable items: 0: url, 1: slug, 2: title, 3: poster, 4..8: checkboxes
-		let focusIdx = 0;
-		const inputs = [urlInput, slugInput, titleInput, posterInput];
-
-		let isClosed = false;
-
-		function updateFocus() {
-			if (isClosed) return;
-			for (let i = 0; i < inputs.length; i++) {
-				if (i === focusIdx) {
-					inputs[i].focus();
-				} else {
-					inputs[i].blur();
-				}
-			}
-
-			for (let i = 0; i < checkOptions.length; i++) {
-				const isFoc = focusIdx === inputs.length + i;
-				const chk = checkOptions[i].checked ? "X" : " ";
-				const prefix = isFoc ? "▶ [" : "  [";
-				checkRenderables[i].content = `${prefix}${chk}] ${checkOptions[i].label}`;
-				checkRenderables[i].fg = isFoc ? THEME.green : THEME.text;
-			}
-			renderer.requestRender();
+		for (let i = 0; i < checkOptions.length; i++) {
+			const isFoc = focusIdx === inputs.length + i;
+			const chk = checkOptions[i].checked ? "X" : " ";
+			const prefix = isFoc ? "▶ [" : "  [";
+			checkRenderables[i].content = `${prefix}${chk}] ${checkOptions[i].label}`;
+			checkRenderables[i].fg = isFoc ? THEME.green : THEME.text;
 		}
-
-		urlInput.focus();
 		renderer.requestRender();
+	}
 
-		// Realtime poster validation debouncer
-		let validateTimer: any = null;
-		const handlePosterInput = (val: string) => {
-			if (isClosed) return;
-			currentPoster = val;
-			clearTimeout(validateTimer);
-			const trimmed = val.trim();
-			if (!trimmed) {
-				posterValidationText.content = "  Optional (scrapes default from page)";
-				posterValidationText.fg = THEME.textDim;
-				renderer.requestRender();
-				return;
-			}
-			posterValidationText.content = "  Validating poster image...";
-			posterValidationText.fg = THEME.yellow;
+	let validateTimer: any = null;
+	const handlePosterInput = (val: string) => {
+		if (isClosed) return;
+		currentPoster = val;
+		clearTimeout(validateTimer);
+		const trimmed = val.trim();
+		if (!trimmed) {
+			posterValidationText.content = "  Optional (scrapes default from page)";
+			posterValidationText.fg = THEME.textDim;
 			renderer.requestRender();
-			validateTimer = setTimeout(async () => {
-				if (isClosed) return;
-				const r = await validatePosterUrl(trimmed);
-				if (isClosed) return;
-				posterValidationText.content = `  ${r.message}`;
-				posterValidationText.fg = r.ok ? THEME.green : THEME.red;
-				renderer.requestRender();
-			}, 400);
-		};
-
-		posterInput.on(InputRenderableEvents.INPUT, handlePosterInput);
-		posterInput.on(InputRenderableEvents.CHANGE, handlePosterInput);
-
-		// URL updates & auto-derive slug
-		const handleUrlInput = (val: string) => {
-			if (isClosed) return;
-			currentUrl = val;
-			if (!currentSlug.trim() && val.trim()) {
-				try {
-					const u = new URL(val.trim());
-					const seg = u.pathname.replace(/\/+$/, "").split("/").pop();
-					if (seg) {
-						slugInput.placeholder = `derived: ${seg}`;
-					}
-				} catch {}
-			}
-		};
-		urlInput.on(InputRenderableEvents.INPUT, handleUrlInput);
-		urlInput.on(InputRenderableEvents.CHANGE, handleUrlInput);
-
-		slugInput.on(InputRenderableEvents.INPUT, (val) => {
-			if (isClosed) return;
-			currentSlug = val;
-		});
-		slugInput.on(InputRenderableEvents.CHANGE, (val) => {
-			if (isClosed) return;
-			currentSlug = val;
-		});
-
-		titleInput.on(InputRenderableEvents.INPUT, (val) => {
-			if (isClosed) return;
-			currentTitle = val;
-		});
-		titleInput.on(InputRenderableEvents.CHANGE, (val) => {
-			if (isClosed) return;
-			currentTitle = val;
-		});
-
-		function cleanup(res: AddGameFormResult | null) {
-			if (isClosed) return;
-			isClosed = true;
-			clearTimeout(validateTimer);
-			renderer.off("resize", handleResize);
-			process.stdout.off("resize", onStdoutResize);
-			try {
-				urlInput.removeAllListeners();
-				slugInput.removeAllListeners();
-				titleInput.removeAllListeners();
-				posterInput.removeAllListeners();
-				renderer.keyInput.removeAllListeners();
-			} catch {}
-			try {
-				renderer.destroy();
-			} catch {}
-			clearTimeout(validateTimer);
-			resolve(res);
+			return;
 		}
-
-		function handleResize(termW: number, termH: number) {
+		posterValidationText.content = "  Validating poster image...";
+		posterValidationText.fg = THEME.yellow;
+		renderer.requestRender();
+		validateTimer = setTimeout(async () => {
 			if (isClosed) return;
-			const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 110, 36);
-			boxW = next.boxW;
-			boxH = next.boxH;
-			rootBox.width = boxW;
-			rootBox.height = boxH;
-			const inputW = Math.max(20, boxW - 8);
-			urlInput.width = inputW;
-			slugInput.width = inputW;
-			titleInput.width = inputW;
-			posterInput.width = inputW;
+			const r = await validatePosterUrl(trimmed);
+			if (isClosed) return;
+			posterValidationText.content = `  ${r.message}`;
+			posterValidationText.fg = r.ok ? THEME.green : THEME.red;
 			renderer.requestRender();
+		}, 400);
+	};
+
+	posterInput.on(InputRenderableEvents.INPUT, handlePosterInput);
+	posterInput.on(InputRenderableEvents.CHANGE, handlePosterInput);
+
+	const handleUrlInput = (val: string) => {
+		if (isClosed) return;
+		currentUrl = val;
+		if (!currentSlug.trim() && val.trim()) {
+			try {
+				const u = new URL(val.trim());
+				const seg = u.pathname.replace(/\/+$/, "").split("/").pop();
+				if (seg) {
+					slugInput.placeholder = `derived: ${seg}`;
+				}
+			} catch {}
 		}
+	};
+	urlInput.on(InputRenderableEvents.INPUT, handleUrlInput);
+	urlInput.on(InputRenderableEvents.CHANGE, handleUrlInput);
 
-		renderer.on("resize", handleResize);
-		const onStdoutResize = () => handleResize(renderer.width, renderer.height);
-		process.stdout.on("resize", onStdoutResize);
+	slugInput.on(InputRenderableEvents.INPUT, (val) => {
+		if (isClosed) return;
+		currentSlug = val;
+	});
+	slugInput.on(InputRenderableEvents.CHANGE, (val) => {
+		if (isClosed) return;
+		currentSlug = val;
+	});
 
-		renderer.keyInput.on("keypress", (key: KeyEvent) => {
-			if (isClosed) return;
+	titleInput.on(InputRenderableEvents.INPUT, (val) => {
+		if (isClosed) return;
+		currentTitle = val;
+	});
+	titleInput.on(InputRenderableEvents.CHANGE, (val) => {
+		if (isClosed) return;
+		currentTitle = val;
+	});
 
-			if (key.name === "escape" || (key.ctrl && key.name === "c")) {
-				cleanup(null);
-				return;
+	updateFocus();
+
+	return {
+		root: rootBox,
+		focus() {
+			updateFocus();
+		},
+		blur() {
+			for (const input of inputs) {
+				input.blur();
+			}
+		},
+		handleKey(key: KeyEvent): boolean {
+			if (isClosed) return false;
+
+			if (key.name === "escape") {
+				opts.onCancel?.();
+				return true;
 			}
 
 			if (key.name === "tab") {
@@ -365,21 +338,21 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 				}
 				updateFocus();
 				key.preventDefault();
-				return;
+				return true;
 			}
 
 			if (key.name === "down") {
 				focusIdx = (focusIdx + 1) % (inputs.length + checkOptions.length);
 				updateFocus();
 				key.preventDefault();
-				return;
+				return true;
 			}
 
 			if (key.name === "up") {
 				focusIdx = (focusIdx - 1 + inputs.length + checkOptions.length) % (inputs.length + checkOptions.length);
 				updateFocus();
 				key.preventDefault();
-				return;
+				return true;
 			}
 
 			if (key.name === "space" && focusIdx >= inputs.length) {
@@ -387,7 +360,7 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 				checkOptions[chkIdx].checked = !checkOptions[chkIdx].checked;
 				updateFocus();
 				key.preventDefault();
-				return;
+				return true;
 			}
 
 			if (key.name === "return") {
@@ -401,7 +374,7 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 					urlLabel.fg = THEME.red;
 					focusIdx = 0;
 					updateFocus();
-					return;
+					return true;
 				}
 
 				let enteredSlug = currentSlug.trim();
@@ -437,8 +410,96 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 					videos: optMap.get("videos") ?? true,
 					makeCards: optMap.get("makeCards") ?? true,
 				};
-				cleanup(result);
+				opts.onSubmit(result);
+				return true;
 			}
+
+			return false;
+		},
+		resize(w: number, h: number) {
+			if (isClosed) return;
+			boxW = w;
+			boxH = h;
+			rootBox.width = boxW;
+			rootBox.height = boxH;
+			const newW = Math.max(20, boxW - 8);
+			urlInput.width = newW;
+			slugInput.width = newW;
+			titleInput.width = newW;
+			posterInput.width = newW;
+			renderer.requestRender();
+		},
+		destroy() {
+			if (isClosed) return;
+			isClosed = true;
+			clearTimeout(validateTimer);
+			try {
+				urlInput.removeAllListeners();
+				slugInput.removeAllListeners();
+				titleInput.removeAllListeners();
+				posterInput.removeAllListeners();
+			} catch {}
+		},
+	};
+}
+
+export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | null> {
+	return new Promise(async (resolve) => {
+		const renderer = await createCliRenderer({
+			exitOnCtrlC: true,
+		});
+
+		let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 26, 110, 36);
+
+		renderer.root.flexDirection = "column";
+		renderer.root.alignItems = "center";
+		renderer.root.justifyContent = "center";
+
+		let isCleanedUp = false;
+		const cleanup = (res: AddGameFormResult | null) => {
+			if (isCleanedUp) return;
+			isCleanedUp = true;
+			renderer.off("resize", handleResize);
+			process.stdout.off("resize", onStdoutResize);
+			formView.destroy();
+			try {
+				renderer.keyInput.removeAllListeners();
+				renderer.destroy();
+			} catch {}
+			resolve(res);
+		};
+
+		const formView = createAddGameFormView({
+			renderer,
+			width: boxW,
+			height: boxH,
+			defaultUrl,
+			onSubmit: (res) => cleanup(res),
+			onCancel: () => cleanup(null),
+		});
+
+		renderer.root.add(formView.root);
+		renderer.requestRender();
+
+		function handleResize(termW: number, termH: number) {
+			if (isCleanedUp) return;
+			const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 110, 36);
+			boxW = next.boxW;
+			boxH = next.boxH;
+			formView.resize(boxW, boxH);
+		}
+
+		renderer.on("resize", handleResize);
+		const onStdoutResize = () => handleResize(renderer.width, renderer.height);
+		process.stdout.on("resize", onStdoutResize);
+
+		renderer.keyInput.on("keypress", (key: KeyEvent) => {
+			if (isCleanedUp) return;
+			if (key.ctrl && key.name === "c") {
+				cleanup(null);
+				return;
+			}
+			formView.handleKey(key);
 		});
 	});
 }

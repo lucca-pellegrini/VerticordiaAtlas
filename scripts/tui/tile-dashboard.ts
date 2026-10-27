@@ -27,6 +27,8 @@ export interface DashboardOptions {
 	totalExpected?: number;
 	bounds?: { xMin: number; xMax: number; yMin: number; yMax: number };
 	concurrency?: number;
+	container?: BoxRenderable;
+	renderer?: any;
 }
 
 export interface TileDashboard {
@@ -253,11 +255,18 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		};
 	}
 
-	const renderer = await createCliRenderer({
-		exitOnCtrlC: true,
-	});
+	const renderer =
+		opts.renderer ||
+		(await createCliRenderer({
+			exitOnCtrlC: true,
+		}));
 
-	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 128, 38);
+	let { boxW, boxH } = computeResponsiveBox(
+		opts.container ? opts.container.width || 80 : renderer.width || 80,
+		opts.container ? opts.container.height || 24 : renderer.height || 24,
+		128,
+		38,
+	);
 
 	renderer.root.flexDirection = "column";
 	renderer.root.alignItems = "center";
@@ -345,7 +354,11 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	});
 	rootBox.add(progressBar);
 
-	renderer.root.add(rootBox);
+	if (opts.container) {
+		opts.container.add(rootBox);
+	} else {
+		renderer.root.add(rootBox);
+	}
 	renderer.requestRender();
 
 	const FRAME_INTERVAL_MS = 16; // ~60 fps
@@ -549,8 +562,13 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			}
 			const oldest = samples[0];
 			const sampleDt = Math.max(0.1, (now - oldest.time) / 1000);
-			currentRateTiles = Math.max(0, (totalDone - oldest.tiles) / sampleDt);
-			currentRateBytes = Math.max(0, (totalBytes - oldest.bytes) / sampleDt);
+			const deltaTiles = totalDone - oldest.tiles;
+			const deltaBytes = totalBytes - oldest.bytes;
+			// Voids do not count for download rates: preserve active rate from real tiles
+			if (deltaTiles > 0) {
+				currentRateTiles = Math.max(0, deltaTiles / sampleDt);
+				currentRateBytes = Math.max(0, deltaBytes / sampleDt);
+			}
 		}
 
 		rateText.content = `Rate:        ${currentRateTiles.toFixed(1)} tiles/s (${fmtBytes(currentRateBytes)}/s)`;
@@ -735,11 +753,18 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			if (!isDestroyed) {
 				isDestroyed = true;
 				clearTimeout(renderTimer);
-				renderer.off("resize", handleResize);
-				process.stdout.off("resize", onStdoutResize);
-				try {
-					renderer.destroy();
-				} catch {}
+				if (!opts.renderer) {
+					renderer.off("resize", handleResize);
+					process.stdout.off("resize", onStdoutResize);
+					try {
+						renderer.destroy();
+					} catch {}
+				} else if (opts.container) {
+					try {
+						opts.container.remove(rootBox);
+						renderer.requestRender();
+					} catch {}
+				}
 			}
 			const elapsed = (Date.now() - startTime) / 1000;
 			const totalDone = saved + skipped;
@@ -752,11 +777,18 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			if (!isDestroyed) {
 				isDestroyed = true;
 				clearTimeout(renderTimer);
-				renderer.off("resize", handleResize);
-				process.stdout.off("resize", onStdoutResize);
-				try {
-					renderer.destroy();
-				} catch {}
+				if (!opts.renderer) {
+					renderer.off("resize", handleResize);
+					process.stdout.off("resize", onStdoutResize);
+					try {
+						renderer.destroy();
+					} catch {}
+				} else if (opts.container) {
+					try {
+						opts.container.remove(rootBox);
+						renderer.requestRender();
+					} catch {}
+				}
 			}
 		},
 		getStats() {

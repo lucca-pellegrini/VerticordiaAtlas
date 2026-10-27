@@ -19,6 +19,8 @@ export interface CardsDashboardOptions {
 	chromeBin: string;
 	siteUrl: string;
 	noTui?: boolean;
+	container?: BoxRenderable;
+	renderer?: any;
 }
 
 export interface CardItemMeta {
@@ -97,11 +99,18 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 		};
 	}
 
-	const renderer = await createCliRenderer({
-		exitOnCtrlC: true,
-	});
+	const renderer =
+		opts.renderer ||
+		(await createCliRenderer({
+			exitOnCtrlC: true,
+		}));
 
-	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 250, 120);
+	let { boxW, boxH } = computeResponsiveBox(
+		opts.container ? opts.container.width || 80 : renderer.width || 80,
+		opts.container ? opts.container.height || 24 : renderer.height || 24,
+		250,
+		120,
+	);
 
 	renderer.root.flexDirection = "column";
 	renderer.root.alignItems = "center";
@@ -210,7 +219,11 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 	});
 	rootBox.add(footerBar);
 
-	renderer.root.add(rootBox);
+	if (opts.container) {
+		opts.container.add(rootBox);
+	} else {
+		renderer.root.add(rootBox);
+	}
 	renderer.requestRender();
 
 	let lastRender = 0;
@@ -384,11 +397,18 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
 				isDestroyed = true;
-				renderer.off("resize", handleResize);
-				process.stdout.off("resize", onStdoutResize);
-				try {
-					renderer.destroy();
-				} catch {}
+				if (!opts.renderer) {
+					renderer.off("resize", handleResize);
+					process.stdout.off("resize", onStdoutResize);
+					try {
+						renderer.destroy();
+					} catch {}
+				} else if (opts.container) {
+					try {
+						opts.container.remove(rootBox);
+						renderer.requestRender();
+					} catch {}
+				}
 			}
 			const elapsed = (Date.now() - startTime) / 1000;
 			const rate = elapsed > 0 ? (completed / elapsed).toFixed(1) : "0.0";
@@ -399,11 +419,18 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 		destroy() {
 			if (!isDestroyed) {
 				isDestroyed = true;
-				renderer.off("resize", handleResize);
-				process.stdout.off("resize", onStdoutResize);
-				try {
-					renderer.destroy();
-				} catch {}
+				if (!opts.renderer) {
+					renderer.off("resize", handleResize);
+					process.stdout.off("resize", onStdoutResize);
+					try {
+						renderer.destroy();
+					} catch {}
+				} else if (opts.container) {
+					try {
+						opts.container.remove(rootBox);
+						renderer.requestRender();
+					} catch {}
+				}
 			}
 		},
 	};

@@ -4,14 +4,19 @@
 import { describe, expect, test } from "bun:test";
 import http from "node:http";
 
+import { createTestRenderer } from "@opentui/core/testing";
+
 import {
 	AdaptiveRateController,
 	computeResponsiveBox,
+	createAddGameFormView,
 	createCardsDashboard,
+	createGamesCatalogView,
 	createMediaDashboard,
 	createPruneDashboard,
 	createScreenshotDashboard,
 	createServerDashboard,
+	createServerJobView,
 	createTileDashboard,
 	densityGlyph,
 	fmtBytes,
@@ -203,7 +208,15 @@ describe("TUI ecosystem components & helpers", () => {
 		expect(controller.delayMs).toBeGreaterThan(0);
 		expect(controller.getSnapshot().state).toBe("backed-off");
 
-		// 4. Fixed controller when disabled respects static parameters
+		// 4. Perimeter voids (404 / 410) do not count towards rates and do not throttle workers down
+		const concBeforeVoids = controller.concurrency;
+		for (let i = 0; i < 30; i++) {
+			const changed = controller.recordResult(404, 500); // even with high latency, 404 is a void
+			expect(changed).toBe(false);
+		}
+		expect(controller.concurrency).toBe(concBeforeVoids);
+
+		// 5. Fixed controller when disabled respects static parameters
 		const staticCtrl = new AdaptiveRateController({
 			enabled: false,
 			initialConcurrency: 12,
@@ -318,6 +331,123 @@ describe("TUI ecosystem components & helpers", () => {
 		dashboard.setWsCount(4);
 
 		dashboard.destroy();
+	});
+
+	test("server-dashboard multi-tab interactive UI boots, renders tabs, and navigates", async () => {
+		const testEnv = await createTestRenderer({ width: 120, height: 35 });
+		const dashboard = await createServerDashboard({
+			host: "127.0.0.1",
+			port: 8080,
+			renderer: testEnv.renderer,
+		});
+
+		dashboard.onRequest({ method: "GET", path: "/maps/requiem", status: 200, durationMs: 4.5 });
+		dashboard.onTile({ action: "stored", path: "/maps/requiem/tiles/default/10/1/1.jpg" });
+		dashboard.setWsCount(3);
+
+		// Switch to tab 2 (Catalog) via Alt+2, then tab 3 (Add Game) via Alt+3, then tab 1 (Monitor) via Alt+1
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "2",
+			alt: true,
+			ctrl: false,
+			meta: false,
+			shift: false,
+		} as any);
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "3",
+			alt: true,
+			ctrl: false,
+			meta: false,
+			shift: false,
+		} as any);
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "1",
+			alt: true,
+			ctrl: false,
+			meta: false,
+			shift: false,
+		} as any);
+
+		dashboard.destroy();
+		testEnv.dispose();
+	});
+
+	test("games-catalog-view loads catalog, navigates 4-card grid, and supports reordering", async () => {
+		const testEnv = await createTestRenderer({ width: 100, height: 30 });
+		const renderer = testEnv.renderer;
+
+		const tmpDir = `/tmp/atlas-catalog-test-${Date.now()}`;
+		await Bun.write(
+			`${tmpDir}/index.json`,
+			JSON.stringify(
+				{
+					games: [
+						{ slug: "game-a", title: "Game A", description: "Desc A" },
+						{ slug: "game-b", title: "Game B", description: "Desc B" },
+						{ slug: "game-c", title: "Game C", description: "Desc C" },
+						{ slug: "game-d", title: "Game D", description: "Desc D" },
+						{ slug: "game-e", title: "Game E", description: "Desc E" },
+					],
+				},
+				null,
+				2,
+			),
+		);
+
+		const catalog = await createGamesCatalogView({
+			renderer,
+			width: 100,
+			height: 30,
+			indexPath: `${tmpDir}/index.json`,
+			mapsDir: tmpDir,
+		});
+
+		// Check navigation keys
+		expect(catalog.handleKey({ name: "right" } as any)).toBe(true);
+		expect(catalog.handleKey({ name: "down" } as any)).toBe(true);
+		expect(catalog.handleKey({ name: "up" } as any)).toBe(true);
+		expect(catalog.handleKey({ name: "left" } as any)).toBe(true);
+
+		// Reorder: swap game-a with game-b using "]"
+		expect(catalog.handleKey({ name: "]" } as any)).toBe(true);
+		const updatedRaw = await Bun.file(`${tmpDir}/index.json`).text();
+		const updated = JSON.parse(updatedRaw);
+		expect(updated.games[0].slug).toBe("game-b");
+		expect(updated.games[1].slug).toBe("game-a");
+
+		catalog.destroy();
+		testEnv.dispose();
+	});
+
+	test("server-job-view streams logs, tracks stages and status transitions", async () => {
+		const testEnv = await createTestRenderer({ width: 100, height: 30 });
+		const renderer = testEnv.renderer;
+
+		let completed = false;
+		const jobView = createServerJobView({
+			renderer,
+			width: 100,
+			height: 30,
+			jobId: "job-1",
+			jobType: "scrape",
+			title: "Crimson Desert",
+			slug: "crimson-desert",
+			onCompleted: () => {
+				completed = true;
+			},
+		});
+
+		expect(jobView.status).toBe("running");
+		jobView.setStage("Downloading Tiles");
+		jobView.addLog("Tile 100/500 saved");
+		jobView.addLog("Tile 200/500 saved");
+		jobView.finish(true, "All tiles & media downloaded");
+
+		expect(jobView.status).toBe("completed");
+		expect(completed).toBe(true);
+
+		jobView.destroy();
+		testEnv.dispose();
 	});
 
 	test("cards-dashboard tracks multi-step card rendering progress", async () => {

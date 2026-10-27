@@ -60,13 +60,19 @@ export class AdaptiveRateController {
 
 	/**
 	 * Record the HTTP status and round-trip duration of a tile network request.
+	 * Perimeter voids (404, 410, or isVoid=true) do not count towards rates and never throttle workers.
 	 * Returns true if concurrency or delayMs was modified as a result.
 	 */
-	recordResult(status: number, latencyMs?: number): boolean {
+	recordResult(status: number, latencyMs?: number, isVoid = false): boolean {
 		if (!this.enabled) return false;
 
-		// 200 (image found) and 404 (perimeter void) are normal expected responses from CDN
-		const isUnexpectedError = status !== 200 && status !== 404 && status !== 403 && status !== 410;
+		// Voids do not count for rates and must never throttle workers down
+		if (isVoid || status === 404 || status === 410) {
+			return false;
+		}
+
+		// 200 (image found) is normal expected response from CDN
+		const isUnexpectedError = status !== 200 && status !== 403;
 
 		if (isUnexpectedError) {
 			this.recentErrors++;

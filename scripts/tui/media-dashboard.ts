@@ -21,6 +21,8 @@ export interface MediaDashboardOptions {
 	keepLocal?: boolean;
 	concurrency?: number;
 	noTui?: boolean;
+	container?: BoxRenderable;
+	renderer?: any;
 }
 
 export interface MediaItemEvent {
@@ -108,11 +110,18 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 		};
 	}
 
-	const renderer = await createCliRenderer({
-		exitOnCtrlC: true,
-	});
+	const renderer =
+		opts.renderer ||
+		(await createCliRenderer({
+			exitOnCtrlC: true,
+		}));
 
-	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 128, 38);
+	let { boxW, boxH } = computeResponsiveBox(
+		opts.container ? opts.container.width || 80 : renderer.width || 80,
+		opts.container ? opts.container.height || 24 : renderer.height || 24,
+		128,
+		38,
+	);
 
 	renderer.root.flexDirection = "column";
 	renderer.root.alignItems = "center";
@@ -226,7 +235,11 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 	});
 	rootBox.add(progressBar);
 
-	renderer.root.add(rootBox);
+	if (opts.container) {
+		opts.container.add(rootBox);
+	} else {
+		renderer.root.add(rootBox);
+	}
 	renderer.requestRender();
 
 	let lastRender = Date.now();
@@ -339,11 +352,18 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
 				isDestroyed = true;
-				renderer.off("resize", handleResize);
-				process.stdout.off("resize", onStdoutResize);
-				try {
-					renderer.destroy();
-				} catch {}
+				if (!opts.renderer) {
+					renderer.off("resize", handleResize);
+					process.stdout.off("resize", onStdoutResize);
+					try {
+						renderer.destroy();
+					} catch {}
+				} else if (opts.container) {
+					try {
+						opts.container.remove(rootBox);
+						renderer.requestRender();
+					} catch {}
+				}
 			}
 			const elapsed = (Date.now() - startTime) / 1000;
 			const done = saved + uploaded + skipped + skippedCloud;
@@ -355,11 +375,18 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 		destroy() {
 			if (!isDestroyed) {
 				isDestroyed = true;
-				renderer.off("resize", handleResize);
-				process.stdout.off("resize", onStdoutResize);
-				try {
-					renderer.destroy();
-				} catch {}
+				if (!opts.renderer) {
+					renderer.off("resize", handleResize);
+					process.stdout.off("resize", onStdoutResize);
+					try {
+						renderer.destroy();
+					} catch {}
+				} else if (opts.container) {
+					try {
+						opts.container.remove(rootBox);
+						renderer.requestRender();
+					} catch {}
+				}
 			}
 		},
 		getStats() {
