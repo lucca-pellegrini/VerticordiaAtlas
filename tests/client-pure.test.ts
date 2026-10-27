@@ -28,7 +28,14 @@ import {
 	PALETTE,
 	simplify,
 } from "../src/client/map/drawing.ts";
-import { circleStyleOf, mapLimits, resolveTilesets, sameCamera, startOf } from "../src/client/map/map-view.ts";
+import {
+	buildRegionFeatures,
+	circleStyleOf,
+	mapLimits,
+	resolveTilesets,
+	sameCamera,
+	startOf,
+} from "../src/client/map/map-view.ts";
 import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf } from "../src/client/map/search.ts";
@@ -397,6 +404,50 @@ describe("modularized map and home helpers", () => {
 		expect(limAtlas.ts.name).toBe("Atlas");
 		const limSat = mapLimits(testInfo, testData, "Satellite");
 		expect(limSat.ts.name).toBe("Satellite");
+
+		// buildRegionFeatures
+		const testRegions = [
+			{
+				id: 100,
+				title: "Surface",
+				parent_region_id: null,
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "Polygon",
+							coordinates: [
+								[
+									[0, 0],
+									[10, 0],
+									[10, 10],
+									[0, 10],
+									[0, 0],
+								],
+							],
+						},
+					},
+				],
+			},
+			{
+				id: 101,
+				title: "Akkala",
+				parent_region_id: 100,
+				center_x: 5,
+				center_y: 5,
+				features: [],
+			},
+		];
+		const rf = buildRegionFeatures(testRegions, true);
+		expect(rf.borders.features.length).toBe(1);
+		expect(rf.borders.features[0].properties.isRoot).toBe(1);
+		expect(rf.labels.features.length).toBe(2);
+		expect(rf.labels.features.find((f: any) => f.properties.title === "Akkala")?.geometry.coordinates).toEqual([
+			5, 5,
+		]);
+
+		const rfHidden = buildRegionFeatures(testRegions, false);
+		expect(rfHidden.borders.features.length).toBe(0);
 	});
 });
 

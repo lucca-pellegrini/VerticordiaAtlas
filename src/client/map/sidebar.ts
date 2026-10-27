@@ -10,7 +10,7 @@ import { downloadOfflineGame, getGameOfflineManifests, removeOfflineGame } from 
 import type { OfflineStatus } from "../offline.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
-import { refreshAll, refreshMap, resolveTilesets, switchTileset } from "./map-view.ts";
+import { refreshAll, refreshMap, refreshRegions, resolveTilesets, switchTileset } from "./map-view.ts";
 import { renderPresets } from "./presets.ts";
 import { HEX, saveProfileNow, scheduleSave, scheduleViewSave } from "./profiles.ts";
 import { runSearch } from "./search.ts";
@@ -616,6 +616,10 @@ export function setupTitleRow(): void {
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>` +
 		`<span>Keep map offline</span>` +
 		`</button>` +
+		`<button id="side-regions-btn" class="side-menu-link side-regions-btn" type="button" aria-pressed="true" hidden>` +
+		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>` +
+		`<span>Region borders</span>` +
+		`</button>` +
 		`<div id="side-tileset-section" class="side-menu-tileset" hidden>` +
 		`<span class="side-menu-label">Layer / Tile Set</span>` +
 		`<select id="side-tileset-select" class="side-tileset-select" aria-label="Tile Set"></select>` +
@@ -646,6 +650,18 @@ export function setupTitleRow(): void {
 	};
 	closeBtn.onclick = () => document.body.classList.remove("side-open");
 	offlineBtn.onclick = () => toggleCurrentMapOffline();
+
+	const regionsBtn = tools.querySelector<HTMLButtonElement>("#side-regions-btn");
+	if (regionsBtn) {
+		const hasRegions = (state.regions || []).length > 0;
+		regionsBtn.hidden = !hasRegions;
+		regionsBtn.setAttribute("aria-pressed", String(state.showRegions));
+		regionsBtn.onclick = () => {
+			state.showRegions = !state.showRegions;
+			regionsBtn.setAttribute("aria-pressed", String(state.showRegions));
+			refreshRegions();
+		};
+	}
 
 	const tilesetSection = tools.querySelector<HTMLElement>("#side-tileset-section");
 	const tilesetSelect = tools.querySelector<HTMLSelectElement>("#side-tileset-select");
