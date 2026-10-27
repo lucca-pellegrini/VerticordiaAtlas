@@ -433,6 +433,29 @@ export function mapLimits(info: any, data: any) {
 	return { ts, box, minZoom: ts.minzoom ?? 0, maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18, maxBounds };
 }
 
+// circle marker style resolution from category and mapStyle configuration
+export interface CircleStyle {
+	isCircle: boolean;
+	color: string;
+	strokeColor: string;
+	radius: number;
+	opacity: number;
+}
+
+export function circleStyleOf(cat: any, mapStyle?: any): CircleStyle {
+	if (!cat || cat.display_type !== "circle") {
+		return { isCircle: false, color: "#ffffff", strokeColor: "#ffffff", radius: 4, opacity: 1 };
+	}
+	const paint = mapStyle?.circleLocationsPaint || {};
+	const rawCol = cat.circle_color || "AC804D";
+	const color = rawCol.startsWith("#") ? rawCol : `#${rawCol}`;
+	const rawStroke = cat.circle_stroke_color;
+	const strokeColor = rawStroke ? (rawStroke.startsWith("#") ? rawStroke : `#${rawStroke}`) : "#ffffff";
+	const radius = typeof cat.circle_radius === "number" ? cat.circle_radius : (paint["circle-radius"] ?? 5);
+	const opacity = typeof cat.circle_opacity === "number" ? cat.circle_opacity : 1;
+	return { isCircle: true, color, strokeColor, radius, opacity };
+}
+
 // where a map opens: the saved camera for it, else the game's start position
 export function startOf(
 	info: any,
@@ -757,6 +780,31 @@ export function createMap(): void {
 			},
 		});
 
+		map.addSource("locs-circles", { type: "geojson", data: emptyFC });
+		map.addLayer({
+			id: "locs-circles",
+			type: "circle",
+			source: "locs-circles",
+			paint: {
+				"circle-color": ["get", "color"],
+				"circle-stroke-color": ["get", "strokeColor"],
+				"circle-stroke-width": ["case", ["==", ["get", "f"], 1], 0.75, 1.5],
+				"circle-radius": [
+					"interpolate",
+					["linear"],
+					["zoom"],
+					8,
+					["max", 2, ["*", ["get", "radius"], 0.6]],
+					12,
+					["get", "radius"],
+					16,
+					["*", ["get", "radius"], 1.5],
+				],
+				"circle-opacity": ["case", ["==", ["get", "f"], 1], 0.35, ["get", "opacity"]],
+				"circle-stroke-opacity": ["case", ["==", ["get", "f"], 1], 0.35, 0.9],
+			},
+		});
+
 		map.addSource("locs", { type: "geojson", data: emptyFC });
 		map.addLayer({
 			id: "locs",
@@ -888,6 +936,25 @@ export function createMap(): void {
 		tip.remove();
 		setHover(null);
 	});
+
+	map.on("mousemove", "locs-circles", (ev: any) => {
+		const f = ev.features && ev.features[0];
+		const l = f && state.byId.get(Number(f.properties.id));
+		setHover(l || null);
+		if (state.tool !== "pan") return;
+		if (!f) return;
+		if (!l) return;
+		map.getCanvas().style.cursor = "pointer";
+		tip.setLngLat([l.lng, l.lat])
+			.setOffset([0, -10])
+			.setText(l.title + (state.found.has(l.id) ? " (found)" : ""))
+			.addTo(map);
+	});
+	map.on("mouseleave", "locs-circles", () => {
+		map.getCanvas().style.cursor = "";
+		tip.remove();
+		setHover(null);
+	});
 	map.on("move", updateLinkHeads);
 	map.on("movestart", closeCtx);
 	map.on("contextmenu", (ev: any) => {
@@ -929,7 +996,7 @@ export function createMap(): void {
 	map.on("click", (ev: any) => {
 		if (state.tool !== "pan") return; // markers cannot be clicked while selecting or drawing
 		document.body.classList.remove("side-open");
-		const hits = map.queryRenderedFeatures(ev.point, { layers: ["locs"] });
+		const hits = map.queryRenderedFeatures(ev.point, { layers: ["locs", "locs-circles"] });
 		if (hits.length) select(Number(hits[0].properties.id), { fly: false });
 		else closeDetail();
 	});
@@ -973,7 +1040,10 @@ export function refreshMap(): void {
 	if (!state.mapReady) return;
 	const sel = state.selected,
 		rel = sel != null ? relatedOf(sel) : new Set<number>();
-	const feats: any[] = [];
+	const symbolFeats: any[] = [];
+	const circleFeats: any[] = [];
+	const mapStyle = state.data?.styles?.mapStyle;
+
 	for (const l of state.locs) {
 		// the card's marker and the markers it links to are always drawn: a filter (hidden category, hide found, a search)
 		// must not hide what the card is about
@@ -982,15 +1052,35 @@ export function refreshMap(): void {
 			if (!shownOnMap(l)) continue;
 			if (state.search.ids && !state.search.ids.has(l.id)) continue; // while searching: the matches only
 		}
-		const icon = mapIcon(l.icon);
+		const cat = state.cats?.get(l.cat);
+		const cStyle = circleStyleOf(cat, mapStyle);
 		const f = state.found.has(l.id) ? 1 : 0;
-		feats.push({
-			type: "Feature",
-			geometry: { type: "Point", coordinates: [l.lng, l.lat] },
-			properties: { id: l.id, icon, f, z: f ? 0 : 1 },
-		});
+
+		if (cStyle.isCircle) {
+			circleFeats.push({
+				type: "Feature",
+				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
+				properties: {
+					id: l.id,
+					color: cStyle.color,
+					strokeColor: cStyle.strokeColor,
+					radius: cStyle.radius,
+					opacity: cStyle.opacity,
+					f,
+				},
+			});
+		} else {
+			const icon = mapIcon(l.icon);
+			symbolFeats.push({
+				type: "Feature",
+				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
+				properties: { id: l.id, icon, f, z: f ? 0 : 1 },
+			});
+		}
 	}
-	state.map.getSource("locs").setData({ type: "FeatureCollection", features: feats });
+	state.map.getSource("locs").setData({ type: "FeatureCollection", features: symbolFeats });
+	const circleSrc = state.map.getSource("locs-circles");
+	if (circleSrc) circleSrc.setData({ type: "FeatureCollection", features: circleFeats });
 	syncRelatedRings(rel);
 }
 
