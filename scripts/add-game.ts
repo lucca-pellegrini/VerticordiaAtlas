@@ -49,17 +49,19 @@
 //                        slow and big: use it for a map whose tiles have gaps at different places and zooms, e.g. Solstheim,
 //                        or any map that is not a perfect rectangle at the stored zoom)
 
-import { copyFile, mkdir, readdir, readFile, unlink, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, stat, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 import vm from "node:vm";
 
 import { splitTemplate } from "../server/tile-engine.ts";
+import { fmt } from "../src/shared/escape.ts";
 import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
+import { createTileDashboard } from "./tile-downloader-tui.ts";
 import {
 	createR2Client,
 	type MediaDatabase,
@@ -71,6 +73,14 @@ import {
 const UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const exists = (p: string) => Bun.file(p).exists();
+const dirExists = async (p: string) => {
+	try {
+		const s = await stat(p);
+		return s.isDirectory();
+	} catch {
+		return false;
+	}
+};
 const mb = (n: number) => (n / 1e6).toFixed(1) + " MB";
 
 /* ---------- extracting window.* values from the page HTML ---------- */
@@ -258,6 +268,96 @@ export function boundsFor(md: any, ts: any): { bounds: [number, number, number, 
 
 /* ---------- tiles: only the highest zoom is scraped; --force-get-tiles crawls every tile of every zoom, no pruning ---------- */
 
+export async function findSiblingTiles(
+	destDir: string,
+	localTail: string,
+	maxZ: number,
+	sourceDir?: string,
+): Promise<[number, number][]> {
+	const searchDirs = [destDir];
+	if (sourceDir && sourceDir !== destDir) searchDirs.push(sourceDir);
+
+	const seeds: [number, number][] = [];
+	const seen = new Set<string>();
+
+	for (const root of searchDirs) {
+		const parts = localTail.split("/").filter(Boolean);
+		const tilesIdx = parts.indexOf("tiles");
+		if (tilesIdx < 0) continue;
+		const mapTilesDir = path.join(root, ...parts.slice(0, tilesIdx + 1));
+		if (!(await dirExists(mapTilesDir))) continue;
+
+		const curTilesetDirName = parts[tilesIdx + 1];
+		const entries = await readdir(mapTilesDir, { withFileTypes: true }).catch(() => []);
+		for (const ent of entries) {
+			if (!ent.isDirectory() || ent.name === curTilesetDirName) continue;
+			const siblingMaxZ = path.join(mapTilesDir, ent.name, String(maxZ));
+			if (!(await dirExists(siblingMaxZ))) continue;
+
+			const xDirs = await readdir(siblingMaxZ, { withFileTypes: true }).catch(() => []);
+			for (const xEnt of xDirs) {
+				if (!xEnt.isDirectory()) continue;
+				const x = parseInt(xEnt.name, 10);
+				if (!Number.isFinite(x)) continue;
+				const yFiles = await readdir(path.join(siblingMaxZ, xEnt.name)).catch(() => []);
+				for (const yFile of yFiles) {
+					const y = parseInt(yFile, 10);
+					if (Number.isFinite(y)) {
+						const key = `${x},${y}`;
+						if (!seen.has(key)) {
+							seen.add(key);
+							seeds.push([x, y]);
+						}
+					}
+				}
+			}
+		}
+	}
+	return seeds;
+}
+
+export async function diveForSeed(
+	firstTiles: [number, number][],
+	minZ: number,
+	maxZ: number,
+	remoteFn: (z: number, x: number, y: number) => string,
+): Promise<[number, number] | null> {
+	let curX = -1,
+		curY = -1;
+	for (const [x, y] of firstTiles) {
+		const r = await getBin(remoteFn(minZ, x, y), 1);
+		if (r.status === 200 && r.type?.startsWith("image/")) {
+			curX = x;
+			curY = y;
+			break;
+		}
+	}
+	if (curX < 0) return null;
+	for (let z = minZ + 1; z <= maxZ; z++) {
+		const children: [number, number][] = [
+			[2 * curX, 2 * curY],
+			[2 * curX + 1, 2 * curY],
+			[2 * curX, 2 * curY + 1],
+			[2 * curX + 1, 2 * curY + 1],
+		];
+		let foundChild = false;
+		for (const [cx, cy] of children) {
+			const r = await getBin(remoteFn(z, cx, cy), 1);
+			if (r.status === 200 && r.type?.startsWith("image/")) {
+				curX = cx;
+				curY = cy;
+				foundChild = true;
+				break;
+			}
+		}
+		if (!foundChild) {
+			curX = 2 * curX;
+			curY = 2 * curY;
+		}
+	}
+	return [curX, curY];
+}
+
 export async function downloadTiles({
 	md,
 	ts,
@@ -294,24 +394,179 @@ export async function downloadTiles({
 	if (!base) throw new Error(`No tile found at zoom ${minZ} under: ${baseCandidates.join(", ")}. Try --tiles-base.`);
 
 	const stats = { saved: 0, skipped: 0, missing: 0, failed: 0, bytes: 0 };
-	// Only the highest zoom is scraped (--force-get-tiles takes the whole pyramid): the overview is made from it afterwards,
-	// and the zooms in between are made by the server when they are asked for (see server/tile-service.ts).
 	const maxOnly = !opts.unpruned;
-	const maxBoundsCount =
-		ts.bounds &&
-		!Array.isArray(ts.bounds) &&
-		ts.bounds[maxZ]?.x &&
-		ts.bounds[maxZ]?.y &&
-		Number.isFinite(ts.bounds[maxZ].x.min) &&
-		Number.isFinite(ts.bounds[maxZ].x.max) &&
-		Number.isFinite(ts.bounds[maxZ].y.min) &&
-		Number.isFinite(ts.bounds[maxZ].y.max)
-			? (ts.bounds[maxZ].x.max - ts.bounds[maxZ].x.min + 1) * (ts.bounds[maxZ].y.max - ts.bounds[maxZ].y.min + 1)
-			: Infinity;
-	const hasMaxBounds = Number.isFinite(maxBoundsCount) && maxBoundsCount <= 512;
-	const startZ = maxOnly && hasMaxBounds ? maxZ : minZ;
+
+	if (maxOnly) {
+		const seeds: [number, number][] = [];
+
+		// 1. Sibling tileset on disk
+		const siblingSeeds = await findSiblingTiles(destDir, localTail, maxZ, opts.sourceDir);
+		if (siblingSeeds.length) {
+			console.log(`  seeding from ${fmt(siblingSeeds.length)} existing tiles on disk for map`);
+			seeds.push(...siblingSeeds);
+		}
+
+		// 2. Explicit bounds in ts.bounds[maxZ]
+		const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[maxZ] : null;
+		if (
+			bz?.x &&
+			bz?.y &&
+			Number.isFinite(bz.x.min) &&
+			Number.isFinite(bz.x.max) &&
+			Number.isFinite(bz.y.min) &&
+			Number.isFinite(bz.y.max)
+		) {
+			for (let x = bz.x.min; x <= bz.x.max; x++) {
+				for (let y = bz.y.min; y <= bz.y.max; y++) {
+					seeds.push([x, y]);
+				}
+			}
+		}
+
+		// 3. Markers in md.locations
+		if (Array.isArray(md.locations) && md.locations.length > 0) {
+			const maxCoord = 2 ** maxZ;
+			for (const loc of md.locations) {
+				const lat = parseFloat(loc.latitude);
+				const lng = parseFloat(loc.longitude);
+				if (Number.isFinite(lat) && Number.isFinite(lng)) {
+					const x = Math.floor(lon2x(lng, maxCoord));
+					const y = Math.floor(lat2y(lat, maxCoord));
+					if (x >= 0 && x < maxCoord && y >= 0 && y < maxCoord) {
+						seeds.push([x, y]);
+					}
+				}
+			}
+		}
+
+		// 4. Single dive if seeds still empty
+		if (!seeds.length) {
+			const d = await diveForSeed(first, minZ, maxZ, (z, x, y) => fill(remote(base!), z, x, y));
+			if (d) seeds.push(d);
+		}
+
+		const dashboard = await createTileDashboard({
+			gameTitle: opts.gameTitle || md.map?.title || "Game Map",
+			gameSlug: opts.gameSlug || "map",
+			mapSlug: opts.mapSlug || md.map?.slug || "map",
+			tilesetName: opts.tilesetName || ts.name || "Default",
+			zoom: maxZ,
+			pattern: ts.pattern,
+			destDir,
+			noTui: opts.noTui,
+			totalExpected: seeds.length || undefined,
+		});
+
+		const visited = new Set<string>();
+		const queue: [number, number][] = [];
+
+		let minX = Infinity,
+			maxX = -Infinity,
+			minY = Infinity,
+			maxY = -Infinity;
+		for (const [x, y] of seeds) {
+			const key = `${x},${y}`;
+			if (!visited.has(key)) {
+				visited.add(key);
+				queue.push([x, y]);
+				if (x < minX) minX = x;
+				if (x > maxX) maxX = x;
+				if (y < minY) minY = y;
+				if (y > maxY) maxY = y;
+			}
+		}
+
+		if (Number.isFinite(minX) && Number.isFinite(maxX)) {
+			dashboard.updateBounds(minX, maxX, minY, maxY, queue.length);
+		}
+
+		const concurrency = opts.concurrency || 16;
+		const maxCoord = 2 ** maxZ;
+		let queueIndex = 0;
+		let activeWorkers = 0;
+		let isAborted = false;
+
+		await new Promise<void>((resolve) => {
+			function pump() {
+				if (isAborted) return;
+				while (activeWorkers < concurrency && queueIndex < queue.length) {
+					if (stats.saved + stats.skipped >= opts.maxTiles) {
+						isAborted = true;
+						console.log(`  stopping: reached --max-tiles ${opts.maxTiles}`);
+						break;
+					}
+					const [x, y] = queue[queueIndex++];
+					activeWorkers++;
+					processTile(x, y)
+						.catch(() => {})
+						.finally(() => {
+							activeWorkers--;
+							if (queueIndex >= queue.length && activeWorkers === 0) {
+								resolve();
+							} else {
+								pump();
+							}
+						});
+				}
+				if (queueIndex >= queue.length && activeWorkers === 0) {
+					resolve();
+				}
+			}
+
+			async function processTile(x: number, y: number) {
+				const file = path.join(destDir, fill(localTail, maxZ, x, y));
+				if (await exists(file)) {
+					stats.skipped++;
+					dashboard.onTile(x, y, "skipped");
+					expand(x, y);
+					return;
+				}
+				const r = await getBin(fill(remote(base!), maxZ, x, y));
+				if (r.status === 200 && r.type?.startsWith("image/") && r.buf) {
+					await mkdir(path.dirname(file), { recursive: true });
+					await writeFile(file, r.buf);
+					stats.saved++;
+					stats.bytes += r.buf.length;
+					dashboard.onTile(x, y, "saved", r.buf.length);
+					expand(x, y);
+				} else if (r.status === 0) {
+					stats.failed++;
+					dashboard.onTile(x, y, "failed");
+				} else {
+					stats.missing++;
+					dashboard.onTile(x, y, "missing");
+				}
+				if (opts.delay) await sleep(opts.delay);
+			}
+
+			function expand(x: number, y: number) {
+				const neighbors: [number, number][] = [
+					[x + 1, y],
+					[x - 1, y],
+					[x, y + 1],
+					[x, y - 1],
+				];
+				for (const [nx, ny] of neighbors) {
+					if (nx >= 0 && nx < maxCoord && ny >= 0 && ny < maxCoord) {
+						const nkey = `${nx},${ny}`;
+						if (!visited.has(nkey)) {
+							visited.add(nkey);
+							queue.push([nx, ny]);
+						}
+					}
+				}
+			}
+
+			pump();
+		});
+
+		await dashboard.finish();
+		return { minzoom: minZ, maxzoom: maxZ, bounds, stats };
+	}
+
+	// opts.unpruned: --force-get-tiles takes every zoom
 	let cands = first;
-	for (let z = startZ; z <= maxZ; z++) {
+	for (let z = minZ; z <= maxZ; z++) {
 		const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[z] : null;
 		if (
 			bz?.x &&
@@ -321,54 +576,41 @@ export async function downloadTiles({
 			Number.isFinite(bz.y.min) &&
 			Number.isFinite(bz.y.max)
 		) {
-			if (z === startZ || opts.unpruned) {
-				cands = [];
-				for (let x = bz.x.min; x <= bz.x.max; x++)
-					for (let y = bz.y.min; y <= bz.y.max; y++) cands.push([x, y]);
-			} else {
-				cands = cands.filter(([x, y]) => x >= bz.x.min && x <= bz.x.max && y >= bz.y.min && y <= bz.y.max);
+			cands = [];
+			for (let x = bz.x.min; x <= bz.x.max; x++) {
+				for (let y = bz.y.min; y <= bz.y.max; y++) cands.push([x, y]);
 			}
-		} else if (z === startZ || opts.unpruned) {
+		} else {
 			cands = z === minZ ? first : tilesCovering(bounds, z, 0);
 		}
-		if ((!maxOnly || z === maxZ) && stats.saved + stats.skipped + cands.length > opts.maxTiles) {
+		if (stats.saved + stats.skipped + cands.length > opts.maxTiles) {
 			console.log(`  stopping before zoom ${z}: would pass --max-tiles ${opts.maxTiles}`);
 			break;
 		}
-		const isScouting = maxOnly && z < maxZ;
 		const found: [number, number][] = [];
 		await pool(cands, opts.concurrency, async ([x, y]) => {
 			const file = path.join(destDir, fill(localTail, z, x, y));
 			if (await exists(file)) {
-				if (!isScouting) stats.skipped++;
+				stats.skipped++;
 				found.push([x, y]);
 				return;
 			}
 			const r = await getBin(fill(remote(base!), z, x, y));
 			if (r.status === 200 && r.type?.startsWith("image/") && r.buf) {
-				if (!isScouting) {
-					await mkdir(path.dirname(file), { recursive: true });
-					await writeFile(file, r.buf);
-					stats.saved++;
-					stats.bytes += r.buf.length;
-				}
+				await mkdir(path.dirname(file), { recursive: true });
+				await writeFile(file, r.buf);
+				stats.saved++;
+				stats.bytes += r.buf.length;
 				found.push([x, y]);
 			} else if (r.status === 0) {
-				if (!isScouting) stats.failed++;
+				stats.failed++;
 			} else {
-				if (!isScouting) stats.missing++;
+				stats.missing++;
 			}
 			if (opts.delay) await sleep(opts.delay);
 		});
-		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)${isScouting ? " (scouting)" : ""}`);
-		if (!found.length && !opts.unpruned) break;
-		if (!opts.unpruned)
-			cands = found.flatMap(([x, y]): [number, number][] => [
-				[2 * x, 2 * y],
-				[2 * x + 1, 2 * y],
-				[2 * x, 2 * y + 1],
-				[2 * x + 1, 2 * y + 1],
-			]);
+		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)`);
+		if (!found.length) break;
 	}
 	console.log(
 		`  tiles: saved ${stats.saved}, already had ${stats.skipped}, missing ${stats.missing}, failed ${stats.failed}, ${mb(stats.bytes)}`,
@@ -876,6 +1118,7 @@ async function main() {
 			delay: { type: "string", default: "100" },
 			"max-tiles": { type: "string", default: "400000" },
 			"force-get-tiles": { type: "string", multiple: true, default: [] },
+			"no-tui": { type: "boolean", default: false },
 		},
 	});
 	if (!positionals[0]) {
@@ -890,6 +1133,7 @@ async function main() {
 		delay: +v.delay!,
 		maxTiles: +v["max-tiles"]!,
 		maxZoom: v["max-zoom"] ? +v["max-zoom"] : undefined,
+		noTui: Boolean(v["no-tui"]),
 	};
 	const forceTiles = new Set(v["force-get-tiles"]);
 
@@ -1199,7 +1443,14 @@ async function main() {
 			baseCandidates: tilesBases,
 			destDir: dir,
 			localTail,
-			opts: { ...opts, unpruned: forceTiles.has(ms) },
+			opts: {
+				...opts,
+				unpruned: forceTiles.has(ms),
+				gameTitle: title,
+				gameSlug: slug,
+				mapSlug: ms,
+				tilesetName: ts.name,
+			},
 		});
 		info.minzoom = r.minzoom;
 		info.maxzoom = r.maxzoom;

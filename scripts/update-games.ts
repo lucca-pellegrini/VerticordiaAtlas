@@ -184,7 +184,15 @@ export async function downloadOneTileset(
 		baseCandidates: tilesBases,
 		destDir,
 		localTail,
-		opts: { ...opts, unpruned: false },
+		opts: {
+			...opts,
+			unpruned: false,
+			gameTitle: game.meta.title,
+			gameSlug: game.folder,
+			mapSlug: item.mapSlug,
+			tilesetName: item.ts.name,
+			sourceDir: game.gameDir,
+		},
 	});
 
 	const info: any = {
@@ -255,6 +263,7 @@ async function main() {
 			"max-zoom": { type: "string" },
 			"maps-dir": { type: "string", default: path.join(REPO, "public", "maps") },
 			"cache-dir": { type: "string", default: path.join(REPO, "cache", "updates") },
+			"no-tui": { type: "boolean", default: false },
 		},
 	});
 
@@ -274,6 +283,7 @@ async function main() {
 		delay: +v.delay!,
 		maxTiles: +v["max-tiles"]!,
 		maxZoom: v["max-zoom"] ? +v["max-zoom"] : undefined,
+		noTui: Boolean(v["no-tui"]),
 	};
 
 	console.log(`\n=== Verticordia Atlas Game Updater ===`);

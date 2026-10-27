@@ -12,6 +12,7 @@
 		"unique-names-generator": "^4.7.1"
 	},
 	"devDependencies": {
+		"@opentui/core": "^0.7.0",
 		"puppeteer": "^25.16.0"
 	},
 	"license": "AGPL-3.0-only"
