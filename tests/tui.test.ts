@@ -5,6 +5,7 @@ import { describe, expect, test } from "bun:test";
 import http from "node:http";
 
 import {
+	AdaptiveRateController,
 	computeResponsiveBox,
 	createCardsDashboard,
 	createMediaDashboard,
@@ -158,6 +159,60 @@ describe("TUI ecosystem components & helpers", () => {
 		expect(st.estimatedTotal).toBe(121);
 
 		await dashboard.finish();
+	});
+
+	test("AdaptiveRateController dynamically scales concurrency and delay based on latency and HTTP status", async () => {
+		const controller = new AdaptiveRateController({
+			initialConcurrency: 8,
+			minConcurrency: 4,
+			maxConcurrency: 32,
+			initialDelayMs: 40,
+			minDelayMs: 0,
+			maxDelayMs: 200,
+		});
+
+		expect(controller.concurrency).toBe(8);
+		expect(controller.delayMs).toBe(40);
+
+		// 1. Healthy fast responses with low latency (30-40ms):
+		// First drains delayMs down to 0, then gradually ramps concurrency up
+		for (let i = 0; i < 40; i++) {
+			controller.recordResult(200, 35);
+			await new Promise((r) => setTimeout(r, 12));
+		}
+		expect(controller.delayMs).toBe(0);
+		expect(controller.concurrency).toBeGreaterThan(8);
+
+		const peakC = controller.concurrency;
+
+		// 2. Latency starts increasing significantly (e.g. 180ms vs baseline 35ms):
+		// Controller stops increasing rate (state: holding)
+		for (let i = 0; i < 20; i++) {
+			controller.recordResult(200, 180);
+			await new Promise((r) => setTimeout(r, 12));
+		}
+		const snapHold = controller.getSnapshot();
+		expect(snapHold.state === "holding" || snapHold.state === "throttling").toBe(true);
+		expect(controller.concurrency).toBeLessThanOrEqual(peakC);
+
+		// 3. Severe congestion / unexpected HTTP 429 rate limit error:
+		// Controller immediately backs off: drops concurrency and increases delay
+		const backedOff = controller.recordResult(429, 250);
+		expect(backedOff).toBe(true);
+		expect(controller.concurrency).toBeLessThan(peakC);
+		expect(controller.delayMs).toBeGreaterThan(0);
+		expect(controller.getSnapshot().state).toBe("backed-off");
+
+		// 4. Fixed controller when disabled respects static parameters
+		const staticCtrl = new AdaptiveRateController({
+			enabled: false,
+			initialConcurrency: 12,
+			initialDelayMs: 50,
+		});
+		staticCtrl.recordResult(500, 999);
+		staticCtrl.recordResult(200, 20);
+		expect(staticCtrl.concurrency).toBe(12);
+		expect(staticCtrl.delayMs).toBe(50);
 	});
 
 	test("media-dashboard tracks download, upload, cache, and cloud verification", async () => {

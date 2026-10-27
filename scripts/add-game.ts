@@ -59,6 +59,7 @@ import { splitTemplate } from "../server/tile-engine.ts";
 import { fmt } from "../src/shared/escape.ts";
 import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
+import { AdaptiveRateController } from "./adaptive-rate.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
 import { createTileDashboard } from "./tile-downloader-tui.ts";
@@ -167,9 +168,10 @@ async function getBin(
 	url: string,
 	tries = 3,
 	referer = "https://mapgenie.io/",
-): Promise<{ status: number; buf?: Buffer; type?: string; error?: string }> {
+): Promise<{ status: number; buf?: Buffer; type?: string; error?: string; latencyMs: number }> {
 	let last: unknown;
 	for (let a = 1; a <= tries; a++) {
+		const t0 = Date.now();
 		try {
 			const r = await fetch(url, {
 				headers: {
@@ -178,15 +180,21 @@ async function getBin(
 					Origin: new URL(referer).origin,
 				},
 			});
-			if ([403, 404, 410].includes(r.status)) return { status: r.status };
+			const latencyMs = Date.now() - t0;
+			if ([403, 404, 410].includes(r.status)) return { status: r.status, latencyMs };
 			if (!r.ok) throw new Error("HTTP " + r.status);
-			return { status: 200, buf: Buffer.from(await r.arrayBuffer()), type: r.headers.get("content-type") || "" };
+			return {
+				status: 200,
+				buf: Buffer.from(await r.arrayBuffer()),
+				type: r.headers.get("content-type") || "",
+				latencyMs,
+			};
 		} catch (e) {
 			last = e;
 			await sleep(500 * a);
 		}
 	}
-	return { status: 0, error: String(last) };
+	return { status: 0, error: String(last), latencyMs: 0 };
 }
 
 async function pool<T>(items: T[], n: number, fn: (item: T) => Promise<void>) {
@@ -483,7 +491,18 @@ export async function downloadTiles({
 			dashboard.updateBounds(minX, maxX, minY, maxY, queue.length);
 		}
 
-		const concurrency = opts.concurrency || 16;
+		const controller = new AdaptiveRateController({
+			enabled: opts.adaptive !== false,
+			minConcurrency: opts.minConcurrency || 4,
+			maxConcurrency: opts.maxConcurrency || 64,
+			initialConcurrency: opts.concurrency || 16,
+			minDelayMs: 0,
+			maxDelayMs: 250,
+			initialDelayMs: opts.delay || 0,
+		});
+
+		dashboard.setWorkerStats?.(controller.concurrency, controller.delayMs);
+
 		const maxCoord = 2 ** maxZ;
 		let queueIndex = 0;
 		let activeWorkers = 0;
@@ -492,7 +511,7 @@ export async function downloadTiles({
 		await new Promise<void>((resolve) => {
 			function pump() {
 				if (isAborted) return;
-				while (activeWorkers < concurrency && queueIndex < queue.length) {
+				while (activeWorkers < controller.concurrency && queueIndex < queue.length) {
 					if (stats.saved + stats.skipped >= opts.maxTiles) {
 						isAborted = true;
 						console.log(`  stopping: reached --max-tiles ${opts.maxTiles}`);
@@ -539,7 +558,14 @@ export async function downloadTiles({
 					stats.missing++;
 					dashboard.onTile(x, y, "missing");
 				}
-				if (opts.delay) await sleep(opts.delay);
+
+				const rateChanged = controller.recordResult(r.status, r.latencyMs);
+				if (rateChanged) {
+					dashboard.setWorkerStats?.(controller.concurrency, controller.delayMs);
+					pump();
+				}
+
+				if (controller.delayMs > 0) await sleep(controller.delayMs);
 			}
 
 			function expand(x: number, y: number) {
@@ -568,6 +594,16 @@ export async function downloadTiles({
 	}
 
 	// opts.unpruned: --force-get-tiles takes every zoom
+	const unprunedController = new AdaptiveRateController({
+		enabled: opts.adaptive !== false,
+		minConcurrency: opts.minConcurrency || 4,
+		maxConcurrency: opts.maxConcurrency || 64,
+		initialConcurrency: opts.concurrency || 16,
+		minDelayMs: 0,
+		maxDelayMs: 250,
+		initialDelayMs: opts.delay || 0,
+	});
+
 	let cands = first;
 	for (let z = minZ; z <= maxZ; z++) {
 		const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[z] : null;
@@ -591,7 +627,7 @@ export async function downloadTiles({
 			break;
 		}
 		const found: [number, number][] = [];
-		await pool(cands, opts.concurrency, async ([x, y]) => {
+		await pool(cands, unprunedController.concurrency, async ([x, y]) => {
 			const file = path.join(destDir, fill(localTail, z, x, y));
 			if (await exists(file)) {
 				stats.skipped++;
@@ -610,7 +646,8 @@ export async function downloadTiles({
 			} else {
 				stats.missing++;
 			}
-			if (opts.delay) await sleep(opts.delay);
+			unprunedController.recordResult(r.status, r.latencyMs);
+			if (unprunedController.delayMs > 0) await sleep(unprunedController.delayMs);
 		});
 		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)`);
 		if (!found.length) break;
@@ -1139,8 +1176,11 @@ async function main() {
 			"map-url": { type: "string" },
 			"tiles-base": { type: "string" },
 			"media-base": { type: "string", default: "https://media.mapgenie.io/v2/assets/prod/games" },
-			concurrency: { type: "string", default: "4" },
-			delay: { type: "string", default: "100" },
+			concurrency: { type: "string", default: "16" },
+			delay: { type: "string", default: "0" },
+			adaptive: { type: "boolean", default: true },
+			"min-concurrency": { type: "string", default: "4" },
+			"max-concurrency": { type: "string", default: "64" },
 			"max-tiles": { type: "string", default: "400000" },
 			"force-get-tiles": { type: "string", multiple: true, default: [] },
 			"no-tui": { type: "boolean", default: false },
@@ -1169,8 +1209,11 @@ Options:
   --no-optimize            Skip solid-tile deduplication and linking
   --max-zoom <z>           Override max zoom level to download
   --max-tiles <n>          Maximum tiles safety ceiling (default: 400000)
-  --concurrency <n>        Parallel download concurrency (default: 4)
-  --delay <ms>             Delay between requests in milliseconds (default: 100)
+  --concurrency <n>        Initial worker concurrency (default: 16)
+  --delay <ms>             Initial delay between tile requests (default: 0)
+  --no-adaptive            Disable adaptive speed and concurrency scaling
+  --min-concurrency <n>    Minimum adaptive concurrency (default: 4)
+  --max-concurrency <n>    Maximum adaptive concurrency (default: 64)
   --no-tui                 Disable the interactive terminal UI
   --help, -h               Show this help message
 `);
@@ -1211,6 +1254,9 @@ Options:
 	const opts = {
 		concurrency: +v.concurrency!,
 		delay: +v.delay!,
+		adaptive: v.adaptive !== false,
+		minConcurrency: v["min-concurrency"] ? +v["min-concurrency"] : undefined,
+		maxConcurrency: v["max-concurrency"] ? +v["max-concurrency"] : undefined,
 		maxTiles: +v["max-tiles"]!,
 		maxZoom: v["max-zoom"] ? +v["max-zoom"] : undefined,
 		noTui: Boolean(v["no-tui"]),

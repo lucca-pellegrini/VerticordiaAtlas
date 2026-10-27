@@ -4,15 +4,22 @@
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
 
+import { AdaptiveRateController } from "./adaptive-rate.ts";
+
 const BASE = "https://tiles.mapgenie.io/games/resident-evil-requiem/world/default-v2";
 const OUT = "./public/maps/requiem/tiles";
 const MIN_Z = 8,
 	MAX_Z = Number(process.argv[2] ?? 14);
-const CONCURRENCY = 4,
-	DELAY_MS = 100;
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const exists = (p: string) => Bun.file(p).exists();
+
+const controller = new AdaptiveRateController({
+	initialConcurrency: 16,
+	minConcurrency: 4,
+	maxConcurrency: 64,
+	initialDelayMs: 0,
+});
 
 const jobs: [number, number, number][] = [];
 for (let z = MIN_Z; z <= MAX_Z; z++) {
@@ -29,20 +36,22 @@ let i = 0,
 	failed = 0,
 	bytes = 0;
 
-async function getTile([z, x, y]: [number, number, number]) {
+async function getTile([z, x, y]: [number, number, number]): Promise<{ status: number; latencyMs: number }> {
 	const file = path.join(OUT, String(z), String(x), `${y}.jpg`);
 	if (await exists(file)) {
 		skipped++;
-		return;
+		return { status: 200, latencyMs: 0 };
 	}
 	for (let attempt = 1; attempt <= 3; attempt++) {
+		const t0 = Date.now();
 		try {
 			const r = await fetch(`${BASE}/${z}/${x}/${y}.jpg`, {
 				headers: { Referer: "https://mapgenie.io/", "User-Agent": "Mozilla/5.0" },
 			});
+			const latencyMs = Date.now() - t0;
 			if (r.status === 404) {
 				missing++;
-				return;
+				return { status: 404, latencyMs };
 			}
 			if (!r.ok) throw new Error(`HTTP ${r.status}`);
 			const buf = Buffer.from(await r.arrayBuffer());
@@ -50,27 +59,53 @@ async function getTile([z, x, y]: [number, number, number]) {
 			await Bun.write(file, buf);
 			saved++;
 			bytes += buf.length;
-			return;
+			return { status: 200, latencyMs };
 		} catch {
 			await sleep(500 * attempt);
 		}
 	}
 	failed++;
+	return { status: 0, latencyMs: 0 };
 }
 
-async function worker() {
-	while (i < jobs.length) {
-		await getTile(jobs[i++]);
-		processed++;
-		if (processed % 200 === 0)
-			console.log(
-				`${processed}/${jobs.length}  saved ${saved}  skipped ${skipped}  missing ${missing}  failed ${failed}  ${(bytes / 1e6).toFixed(1)} MB`,
-			);
-		await sleep(DELAY_MS);
+let activeWorkers = 0;
+await new Promise<void>((resolve) => {
+	function pump() {
+		while (activeWorkers < controller.concurrency && i < jobs.length) {
+			const job = jobs[i++];
+			activeWorkers++;
+			getTile(job)
+				.then((res) => {
+					processed++;
+					if (res.latencyMs > 0) {
+						controller.recordResult(res.status, res.latencyMs);
+					}
+					if (processed % 200 === 0) {
+						console.log(
+							`${processed}/${jobs.length}  saved ${saved}  skipped ${skipped}  missing ${missing}  failed ${failed}  ${(bytes / 1e6).toFixed(1)} MB [workers: ${controller.concurrency}, delay: ${controller.delayMs}ms]`,
+						);
+					}
+				})
+				.catch(() => {})
+				.finally(() => {
+					activeWorkers--;
+					if (i >= jobs.length && activeWorkers === 0) {
+						resolve();
+					} else {
+						if (controller.delayMs > 0) {
+							setTimeout(pump, controller.delayMs);
+						} else {
+							pump();
+						}
+					}
+				});
+		}
+		if (i >= jobs.length && activeWorkers === 0) {
+			resolve();
+		}
 	}
-}
-
-await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+	pump();
+});
 console.log(
 	`Done. saved ${saved}, skipped ${skipped}, missing ${missing}, failed ${failed}, ${(bytes / 1e6).toFixed(1)} MB`,
 );

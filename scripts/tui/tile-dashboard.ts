@@ -32,6 +32,7 @@ export interface DashboardOptions {
 export interface TileDashboard {
 	updateBounds(xMin: number, xMax: number, yMin: number, yMax: number, totalExpected?: number): void;
 	onTile(x: number, y: number, status: "saved" | "skipped" | "missing" | "failed", bytes?: number): void;
+	setWorkerStats?(concurrency: number, delayMs?: number): void;
 	finish(): Promise<void>;
 	destroy(): void;
 	getStats(): {
@@ -42,6 +43,11 @@ export interface TileDashboard {
 		bytes: number;
 		elapsedSeconds: number;
 		tilesPerSecond: number;
+		estimatedTotal?: number;
+		hasFourEdges?: boolean;
+		progressMode?: "exact" | "estimated" | "unknown";
+		currentConcurrency?: number;
+		currentDelayMs?: number;
 	};
 }
 
@@ -71,6 +77,9 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	let xMax = opts.bounds?.xMax ?? -Infinity;
 	let yMin = opts.bounds?.yMin ?? Infinity;
 	let yMax = opts.bounds?.yMax ?? -Infinity;
+
+	let currentConcurrency = opts.concurrency || 16;
+	let currentDelayMs = 0;
 
 	let validMinX = opts.bounds?.xMin ?? Infinity;
 	let validMaxX = opts.bounds?.xMax ?? -Infinity;
@@ -208,6 +217,10 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 					);
 				}
 			},
+			setWorkerStats(concurrency: number, delayMs = 0) {
+				currentConcurrency = concurrency;
+				currentDelayMs = delayMs;
+			},
 			async finish() {
 				const elapsed = (Date.now() - startTime) / 1000;
 				const totalDone = saved + skipped;
@@ -233,6 +246,8 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 					estimatedTotal: st.estimatedTotal,
 					hasFourEdges: st.hasFourEdges,
 					progressMode: st.mode,
+					currentConcurrency,
+					currentDelayMs,
 				};
 			},
 		};
@@ -499,9 +514,9 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		countsText2.content = `Perimeter:   ${fmt(missing).padEnd(8)} Failed: ${fmt(failed)}`;
 
 		const avgSize = saved > 0 ? fmtBytes(totalBytes / saved) : "--";
-		const conc = opts.concurrency || 8;
+		const concStr = currentDelayMs > 0 ? `${currentConcurrency} (${currentDelayMs}ms)` : `${currentConcurrency}`;
 		const edgeInfo = st.hasFourEdges ? "4/4 (inferred)" : `${st.edgeCount}/4`;
-		extraStatsText.content = `Concurrency: ${conc} workers   Edges: ${edgeInfo}   Avg: ${avgSize}`;
+		extraStatsText.content = `Concurrency: ${concStr.padEnd(8)} Edges: ${edgeInfo}   Avg: ${avgSize}`;
 
 		const hitRatio = totalDone > 0 ? ((skipped / totalDone) * 100).toFixed(1) : "0.0";
 		cacheHitText.content = `Cache hit:   ${hitRatio}%      Total data: ${fmtBytes(totalBytes)}`;
@@ -710,6 +725,10 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 
 			scheduleRender(false);
 		},
+		setWorkerStats(concurrency: number, delayMs = 0) {
+			currentConcurrency = concurrency;
+			currentDelayMs = delayMs;
+		},
 		async finish() {
 			scheduleRender(true);
 			await new Promise((r) => setTimeout(r, 120));
@@ -756,6 +775,8 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 				estimatedTotal: st.estimatedTotal,
 				hasFourEdges: st.hasFourEdges,
 				progressMode: st.mode,
+				currentConcurrency,
+				currentDelayMs,
 			};
 		},
 	};
