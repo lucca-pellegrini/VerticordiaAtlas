@@ -29,6 +29,7 @@ import {
 	simplify,
 } from "../src/client/map/drawing.ts";
 import {
+	buildLocationGeometryFeatures,
 	buildRegionFeatures,
 	circleStyleOf,
 	mapLimits,
@@ -448,6 +449,67 @@ describe("modularized map and home helpers", () => {
 
 		const rfHidden = buildRegionFeatures(testRegions, false);
 		expect(rfHidden.borders.features.length).toBe(0);
+
+		// buildLocationGeometryFeatures
+		const testLocsWithGeom = [
+			{
+				id: 559101,
+				cat: 15306,
+				title: "Red Zone",
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "Polygon",
+							coordinates: [
+								[
+									[0, 0],
+									[1, 0],
+									[1, 1],
+									[0, 1],
+									[0, 0],
+								],
+							],
+						},
+					},
+				],
+			},
+			{
+				id: 278139,
+				cat: 9031,
+				title: "Farosh Patrol",
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "LineString",
+							coordinates: [
+								[0, 0],
+								[1, 1],
+							],
+						},
+					},
+				],
+			},
+		];
+		const testStyles = {
+			polygonStyles: {
+				"15306": { "fill-color": "#9E0811", "fill-opacity": 0.5 },
+			},
+			lineStyles: {
+				"9031": { "line-color": "#239FBD", "line-width": 4 },
+			},
+		};
+		const testCats = new Map<number, any>([
+			[15306, { id: 15306, title: "Red Zone" }],
+			[9031, { id: 9031, title: "Dragon" }],
+		]);
+		const geoms = buildLocationGeometryFeatures(testLocsWithGeom, testStyles, testCats);
+		expect(geoms.fills.features.length).toBe(1);
+		expect(geoms.fills.features[0].properties.fillColor).toBe("#9E0811");
+		expect(geoms.fills.features[0].properties.fillOpacity).toBe(0.5);
+		expect(geoms.lines.features.length).toBe(2); // polygon outline + line string
+		expect(geoms.lines.features.find((f: any) => f.properties.id === 278139)?.properties.lineColor).toBe("#239FBD");
 	});
 });
 
