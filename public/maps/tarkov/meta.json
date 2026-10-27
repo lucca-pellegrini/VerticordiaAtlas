@@ -308,6 +308,16 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256,
 					"background": "#0e0e0e"
+				},
+				{
+					"name": "0.14",
+					"template": "factory/tiles/default-v2/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0e0e0e"
 				}
 			]
 		},

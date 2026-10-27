@@ -1944,6 +1944,114 @@
 			],
 			"tagLabel": "Filter",
 			"defaultTag": null
+		},
+		{
+			"id": "mafia",
+			"slug": "mafia",
+			"title": "Mafia: Definitive Edition",
+			"description": "Every marker on the Mafia: Definitive Edition map.",
+			"poster": "mafia/poster",
+			"theme": {
+				"accent": "#df6820",
+				"accent-soft": "#eaab86",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 377,
+					"label": "markers"
+				},
+				{
+					"value": 19,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "mafia-2",
+			"slug": "mafia-2",
+			"title": "Mafia II",
+			"description": "Every marker on the Mafia II map.",
+			"poster": "mafia-2/poster",
+			"theme": {
+				"accent": "#c88837",
+				"accent-soft": "#e0bc8f",
+				"night": "#0c0906",
+				"panel": "#16110c",
+				"panel-2": "#1f1911",
+				"line": "#362d21"
+			},
+			"stats": [
+				{
+					"value": 445,
+					"label": "markers"
+				},
+				{
+					"value": 19,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "mafia-3",
+			"slug": "mafia-3",
+			"title": "Mafia III",
+			"description": "Every marker on the Mafia III map.",
+			"poster": "mafia-3/poster",
+			"theme": {
+				"accent": "#bf7540",
+				"accent-soft": "#dbb294",
+				"night": "#0c0806",
+				"panel": "#16100c",
+				"panel-2": "#1f1711",
+				"line": "#362a21"
+			},
+			"stats": [
+				{
+					"value": 589,
+					"label": "markers"
+				},
+				{
+					"value": 33,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "mafia-the-old-country",
+			"slug": "mafia-the-old-country",
+			"title": "Mafia: The Old Country",
+			"description": "Every marker on the Mafia: The Old Country map.",
+			"poster": "mafia-the-old-country/poster",
+			"theme": {
+				"accent": "#a0522b",
+				"accent-soft": "#d68b65",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362821"
+			},
+			"stats": [
+				{
+					"value": 473,
+					"label": "markers"
+				},
+				{
+					"value": 21,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
 		}
 	]
 }

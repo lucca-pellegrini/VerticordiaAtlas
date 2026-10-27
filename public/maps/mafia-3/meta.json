@@ -1,0 +1,288 @@
+{
+	"id": "mafia-3",
+	"title": "Mafia III",
+	"slug": "mafia-3",
+	"source": "https://mapgenie.io/mafia-3",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"money": [
+				{
+					"cp": "e900"
+				}
+			],
+			"vehicle": [
+				{
+					"cp": "e901"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e902"
+				}
+			],
+			"garage": [
+				{
+					"cp": "e903"
+				}
+			],
+			"junction_box": [
+				{
+					"cp": "e904"
+				}
+			],
+			"race": [
+				{
+					"cp": "e905"
+				}
+			],
+			"racket": [
+				{
+					"cp": "e906"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e907"
+				}
+			],
+			"assassination": [
+				{
+					"cp": "e908"
+				}
+			],
+			"bar": [
+				{
+					"cp": "e909"
+				}
+			],
+			"character": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"church": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"communist_poster": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"dock": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"flower_shop": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"gas_station": [
+				{
+					"cp": "e910"
+				}
+			],
+			"grocery_store": [
+				{
+					"cp": "e911"
+				}
+			],
+			"hot_rod_magazine": [
+				{
+					"cp": "e912"
+				}
+			],
+			"laundry": [
+				{
+					"cp": "e913"
+				}
+			],
+			"liquor_store": [
+				{
+					"cp": "e914"
+				}
+			],
+			"meds": [
+				{
+					"cp": "e915"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e916"
+				}
+			],
+			"money1": [
+				{
+					"cp": "e917"
+				}
+			],
+			"music_album": [
+				{
+					"cp": "e918"
+				}
+			],
+			"nightclub": [
+				{
+					"cp": "e919"
+				}
+			],
+			"parking": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"pawn_shop": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"playboy_magazine": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"repent_magazine": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"restaurant": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"safe_house": [
+				{
+					"cp": "e920"
+				}
+			],
+			"side_mission": [
+				{
+					"cp": "e921"
+				}
+			],
+			"story_mission": [
+				{
+					"cp": "e922"
+				}
+			],
+			"strip_club": [
+				{
+					"cp": "e923"
+				}
+			],
+			"vargas_painting": [
+				{
+					"cp": "e924"
+				}
+			],
+			"voodoo_shop": [
+				{
+					"cp": "e925"
+				}
+			],
+			"police_station": [
+				{
+					"cp": "e926"
+				}
+			],
+			"local_parking": [
+				{
+					"cp": "e927"
+				}
+			],
+			"wardrobe": [
+				{
+					"cp": "e928"
+				}
+			],
+			"airport": [
+				{
+					"cp": "e929"
+				}
+			],
+			"museum": [
+				{
+					"cp": "e92a"
+				}
+			],
+			"hospital": [
+				{
+					"cp": "e92b"
+				}
+			],
+			"motel": [
+				{
+					"cp": "e92c"
+				}
+			],
+			"school": [
+				{
+					"cp": "e92d"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "new-bordeaux",
+			"title": "New Bordeaux",
+			"data": "new-bordeaux/data.json",
+			"tilesets": [
+				{
+					"name": "Game",
+					"template": "new-bordeaux/tiles/game-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				},
+				{
+					"name": "Satellite",
+					"template": "new-bordeaux/tiles/sat-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				},
+				{
+					"name": "Atlas",
+					"template": "new-bordeaux/tiles/atlas-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

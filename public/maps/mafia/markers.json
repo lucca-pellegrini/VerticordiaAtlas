@@ -1,0 +1,19 @@
+{
+	"gas_station": { "width": 33, "height": 44, "x": 0, "y": 0, "pixelRatio": 1 },
+	"point_of_interest": { "width": 33, "height": 44, "x": 33, "y": 0, "pixelRatio": 1 },
+	"pulp": { "width": 33, "height": 44, "x": 66, "y": 0, "pixelRatio": 1 },
+	"cigarette_card": { "width": 33, "height": 44, "x": 99, "y": 0, "pixelRatio": 1 },
+	"comic": { "width": 33, "height": 44, "x": 0, "y": 44, "pixelRatio": 1 },
+	"hidden_car": { "width": 33, "height": 44, "x": 33, "y": 44, "pixelRatio": 1 },
+	"mystery_fox": { "width": 33, "height": 44, "x": 66, "y": 44, "pixelRatio": 1 },
+	"outfit": { "width": 33, "height": 44, "x": 99, "y": 44, "pixelRatio": 1 },
+	"post_card": { "width": 33, "height": 44, "x": 0, "y": 88, "pixelRatio": 1 },
+	"wanted_poster": { "width": 33, "height": 44, "x": 33, "y": 88, "pixelRatio": 1 },
+	"character": { "width": 33, "height": 44, "x": 66, "y": 88, "pixelRatio": 1 },
+	"easter_egg": { "width": 33, "height": 44, "x": 99, "y": 88, "pixelRatio": 1 },
+	"meds": { "width": 33, "height": 44, "x": 0, "y": 132, "pixelRatio": 1 },
+	"miscellaneous": { "width": 33, "height": 44, "x": 33, "y": 132, "pixelRatio": 1 },
+	"note": { "width": 33, "height": 44, "x": 66, "y": 132, "pixelRatio": 1 },
+	"side_mission": { "width": 33, "height": 44, "x": 99, "y": 132, "pixelRatio": 1 },
+	"story_mission": { "width": 33, "height": 44, "x": 0, "y": 176, "pixelRatio": 1 }
+}

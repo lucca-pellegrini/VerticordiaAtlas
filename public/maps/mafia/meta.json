@@ -1,0 +1,129 @@
+{
+	"id": "mafia",
+	"title": "Mafia: Definitive Edition",
+	"slug": "mafia",
+	"source": "https://mapgenie.io/mafia",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"outfit": [
+				{
+					"cp": "e900"
+				}
+			],
+			"stunt_jump": [
+				{
+					"cp": "e901"
+				}
+			],
+			"wanted_poster": [
+				{
+					"cp": "e902"
+				}
+			],
+			"character": [
+				{
+					"cp": "e903"
+				}
+			],
+			"comic": [
+				{
+					"cp": "e904"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e905"
+				}
+			],
+			"hidden_car": [
+				{
+					"cp": "e906"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e907"
+				}
+			],
+			"mystery_fox": [
+				{
+					"cp": "e908"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e909"
+				}
+			],
+			"post_card": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"pulp": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"story_mission": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"cigarette_card": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"gas_station": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"note": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"meds": [
+				{
+					"cp": "e910"
+				}
+			],
+			"side_mission": [
+				{
+					"cp": "e911"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "lost-heaven",
+			"title": "Lost Heaven",
+			"data": "lost-heaven/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "lost-heaven/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#20302d"
+				}
+			]
+		}
+	]
+}

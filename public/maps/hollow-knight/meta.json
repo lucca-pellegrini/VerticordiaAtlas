@@ -27,6 +27,16 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256,
 					"background": "#000000"
+				},
+				{
+					"name": "Clean",
+					"template": "hallownest/tiles/clean-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
 				}
 			]
 		}
