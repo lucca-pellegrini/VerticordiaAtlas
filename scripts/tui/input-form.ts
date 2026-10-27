@@ -119,6 +119,11 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 			flexGrow: 1,
 		});
 
+		let currentUrl = defaultUrl;
+		let currentSlug = "";
+		let currentTitle = "";
+		let currentPoster = "";
+
 		// 1. URL
 		const urlLabel = new TextRenderable(renderer, { content: "MapGenie URL (required):", fg: THEME.peach });
 		const urlInput = new InputRenderable(renderer, {
@@ -217,7 +222,10 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 		let focusIdx = 0;
 		const inputs = [urlInput, slugInput, titleInput, posterInput];
 
+		let isClosed = false;
+
 		function updateFocus() {
+			if (isClosed) return;
 			for (let i = 0; i < inputs.length; i++) {
 				if (i === focusIdx) {
 					inputs[i].focus();
@@ -241,22 +249,38 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 
 		// Realtime poster validation debouncer
 		let validateTimer: any = null;
-		posterInput.on(InputRenderableEvents.CHANGE, (val) => {
+		const handlePosterInput = (val: string) => {
+			if (isClosed) return;
+			currentPoster = val;
 			clearTimeout(validateTimer);
+			const trimmed = val.trim();
+			if (!trimmed) {
+				posterValidationText.content = "  Optional (scrapes default from page)";
+				posterValidationText.fg = THEME.textDim;
+				renderer.requestRender();
+				return;
+			}
 			posterValidationText.content = "  Validating poster image...";
 			posterValidationText.fg = THEME.yellow;
 			renderer.requestRender();
 			validateTimer = setTimeout(async () => {
-				const r = await validatePosterUrl(posterInput.value);
+				if (isClosed) return;
+				const r = await validatePosterUrl(trimmed);
+				if (isClosed) return;
 				posterValidationText.content = `  ${r.message}`;
 				posterValidationText.fg = r.ok ? THEME.green : THEME.red;
 				renderer.requestRender();
 			}, 400);
-		});
+		};
 
-		// Auto-derive slug from URL if slug is empty
-		urlInput.on(InputRenderableEvents.CHANGE, (val) => {
-			if (!slugInput.value.trim() && val.trim()) {
+		posterInput.on(InputRenderableEvents.INPUT, handlePosterInput);
+		posterInput.on(InputRenderableEvents.CHANGE, handlePosterInput);
+
+		// URL updates & auto-derive slug
+		const handleUrlInput = (val: string) => {
+			if (isClosed) return;
+			currentUrl = val;
+			if (!currentSlug.trim() && val.trim()) {
 				try {
 					const u = new URL(val.trim());
 					const seg = u.pathname.replace(/\/+$/, "").split("/").pop();
@@ -265,20 +289,49 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 					}
 				} catch {}
 			}
+		};
+		urlInput.on(InputRenderableEvents.INPUT, handleUrlInput);
+		urlInput.on(InputRenderableEvents.CHANGE, handleUrlInput);
+
+		slugInput.on(InputRenderableEvents.INPUT, (val) => {
+			if (isClosed) return;
+			currentSlug = val;
+		});
+		slugInput.on(InputRenderableEvents.CHANGE, (val) => {
+			if (isClosed) return;
+			currentSlug = val;
 		});
 
-		let isClosed = false;
+		titleInput.on(InputRenderableEvents.INPUT, (val) => {
+			if (isClosed) return;
+			currentTitle = val;
+		});
+		titleInput.on(InputRenderableEvents.CHANGE, (val) => {
+			if (isClosed) return;
+			currentTitle = val;
+		});
+
 		function cleanup(res: AddGameFormResult | null) {
 			if (isClosed) return;
 			isClosed = true;
 			clearTimeout(validateTimer);
 			try {
+				urlInput.removeAllListeners();
+				slugInput.removeAllListeners();
+				titleInput.removeAllListeners();
+				posterInput.removeAllListeners();
+				renderer.keyInput.removeAllListeners();
+			} catch {}
+			try {
 				renderer.destroy();
 			} catch {}
+			clearTimeout(validateTimer);
 			resolve(res);
 		}
 
 		renderer.keyInput.on("keypress", (key: KeyEvent) => {
+			if (isClosed) return;
+
 			if (key.name === "escape" || (key.ctrl && key.name === "c")) {
 				cleanup(null);
 				return;
@@ -296,14 +349,14 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 				return;
 			}
 
-			if (key.name === "down" && focusIdx >= inputs.length) {
+			if (key.name === "down") {
 				focusIdx = (focusIdx + 1) % (inputs.length + checkOptions.length);
 				updateFocus();
 				key.preventDefault();
 				return;
 			}
 
-			if (key.name === "up" && focusIdx >= inputs.length) {
+			if (key.name === "up") {
 				focusIdx = (focusIdx - 1 + inputs.length + checkOptions.length) % (inputs.length + checkOptions.length);
 				updateFocus();
 				key.preventDefault();
@@ -319,7 +372,11 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 			}
 
 			if (key.name === "return") {
-				const enteredUrl = urlInput.value.trim();
+				let enteredUrl = currentUrl.trim();
+				try {
+					if (!enteredUrl) enteredUrl = urlInput.value.trim();
+				} catch {}
+
 				if (!enteredUrl) {
 					urlLabel.content = "MapGenie URL (REQUIRED - please type or paste a valid URL):";
 					urlLabel.fg = THEME.red;
@@ -328,11 +385,26 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 					return;
 				}
 
+				let enteredSlug = currentSlug.trim();
+				try {
+					if (!enteredSlug) enteredSlug = slugInput.value.trim();
+				} catch {}
+
+				let enteredTitle = currentTitle.trim();
+				try {
+					if (!enteredTitle) enteredTitle = titleInput.value.trim();
+				} catch {}
+
+				let enteredPoster = currentPoster.trim();
+				try {
+					if (!enteredPoster) enteredPoster = posterInput.value.trim();
+				} catch {}
+
 				const result: AddGameFormResult = {
 					url: enteredUrl,
-					slug: slugInput.value.trim() || undefined,
-					title: titleInput.value.trim() || undefined,
-					posterUrl: posterInput.value.trim() || undefined,
+					slug: enteredSlug || undefined,
+					title: enteredTitle || undefined,
+					posterUrl: enteredPoster || undefined,
 					allTilesets: checkOptions[0].checked,
 					downloadMedia: checkOptions[1].checked,
 					videos: checkOptions[2].checked,

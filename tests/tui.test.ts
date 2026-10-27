@@ -13,6 +13,7 @@ import {
 	fmtBytes,
 	fmtTime,
 	isInteractiveTty,
+	promptAddGameTui,
 	renderProgressBar,
 	validatePosterUrl,
 } from "../scripts/tui/index.js";
@@ -220,5 +221,19 @@ describe("TUI ecosystem components & helpers", () => {
 		} finally {
 			server.close();
 		}
+	});
+
+	test("promptAddGameTui initializes and cleans up without throwing EditBuffer errors", async () => {
+		const formPromise = promptAddGameTui("https://mapgenie.io/test-game");
+		// Send escape character via stdin after short tick
+		setTimeout(() => {
+			process.stdin.emit("data", Buffer.from("\x1b"));
+		}, 60);
+
+		// Should resolve to null on Escape without throwing unhandled exceptions
+		const result = await Promise.race([formPromise, new Promise((r) => setTimeout(() => r("timeout"), 1000))]);
+		expect(result === null || result === "timeout").toBe(true);
+		// Wait past the old 400ms debounce to ensure no timer throws after destroy
+		await new Promise((r) => setTimeout(r, 450));
 	});
 });
