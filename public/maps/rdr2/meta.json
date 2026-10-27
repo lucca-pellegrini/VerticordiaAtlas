@@ -801,6 +801,15 @@
 					"viewMaxzoom": 8,
 					"bounds": [-180, -66.51326044311186, 180, 85.05112877980659],
 					"tileSize": 256
+				},
+				{
+					"name": "Detailed",
+					"template": "rdr2/tiles/atlas-dark-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 2,
+					"maxzoom": 7,
+					"viewMaxzoom": 8,
+					"bounds": [-180, -66.51326044311186, 180, 85.05112877980659],
+					"tileSize": 256
 				}
 			]
 		}

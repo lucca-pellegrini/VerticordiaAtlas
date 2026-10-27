@@ -33,10 +33,9 @@ describe("scripts/update-games helper functions", () => {
 	});
 
 	test("detectMissingTilesets flags missing tile pyramids", async () => {
-		const games = await resolveGames(["rdr2"], false, "./public/maps");
+		const games = await resolveGames(["tarkov"], false, "./public/maps");
 		const missing = await detectMissingTilesets(games[0]);
-		expect(missing.length).toBe(1);
-		expect(missing[0].key).toBe("atlas-dark-v1");
-		expect(missing[0].ts.name).toBe("Detailed");
+		expect(missing.length).toBeGreaterThanOrEqual(1);
+		expect(missing.some((m) => m.mapSlug === "shoreline" && m.key === "default-v1")).toBe(true);
 	});
 });

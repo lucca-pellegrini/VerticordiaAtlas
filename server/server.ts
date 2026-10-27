@@ -24,6 +24,7 @@ import { readdir, stat, unlink } from "node:fs/promises";
 import path from "node:path";
 
 import { buildClient } from "../scripts/build.ts";
+import { createServerDashboard } from "../scripts/tui/server-dashboard.ts";
 import { unpackMarker } from "../src/shared/share-link.ts";
 import { createApi } from "./api.ts";
 import {
@@ -546,52 +547,118 @@ const tiles = createTileService({
 	onNewMap: (game) => api.recordGameRequest(game),
 });
 
+const dashboard = await createServerDashboard({
+	host: HOST,
+	port: PORT,
+	noTui: Boolean(args.includes("--no-tui")),
+});
+
 const server = Bun.serve({
 	port: PORT,
 	hostname: HOST,
 	async fetch(req, bunServer) {
+		const reqStart = Date.now();
 		const url = new URL(req.url);
 		if (url.pathname === "/api/ws") {
 			const rejected = api.upgrade(req, bunServer);
 			if (rejected) return rejected;
+			dashboard.setWsCount(api.wsCount());
 			return;
 		}
 
 		try {
 			const parsed = parseUrl(req.url);
-			if (!parsed) return send(400, "bad request");
+			if (!parsed) {
+				const r = send(400, "bad request");
+				dashboard.onRequest({
+					method: req.method,
+					path: url.pathname,
+					status: 400,
+					durationMs: Date.now() - reqStart,
+				});
+				return r;
+			}
 			const { url: reqUrl, pathname: p } = parsed;
 			const offlinePack = /^\/api\/maps\/([^/]+)\/([^/]+)\/offline-pack$/.exec(p);
 			if (offlinePack) {
 				if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
 				// Offline packs may take several minutes to prepare on a cold cache; disable request idle timeout
 				bunServer?.timeout?.(req, 0);
-				return await streamOfflinePack(
+				const r = await streamOfflinePack(
 					req,
 					PUBLIC,
 					path.join(REPO, "cache", "tiles"),
 					offlinePack[1],
 					offlinePack[2],
 				);
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status: r.status,
+					durationMs: Date.now() - reqStart,
+				});
+				return r;
 			}
 
 			if (p.startsWith("/api/")) {
 				const res = await api.handle(req, reqUrl);
 				if (!res) {
+					dashboard.onRequest({
+						method: req.method,
+						path: p,
+						status: 404,
+						durationMs: Date.now() - reqStart,
+					});
 					return send(404, '{"error":"not found"}', "application/json; charset=utf-8", {
 						"Cache-Control": "no-store",
 					});
 				}
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status: res.status,
+					durationMs: Date.now() - reqStart,
+				});
 				return res;
 			}
 
 			if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
 
 			const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
-			if (card) return await shareCard(req, card[1], card[2], Number(card[3]));
+			if (card) {
+				const r = await shareCard(req, card[1], card[2], Number(card[3]));
+				dashboard.onCard({
+					type: "share",
+					key: `${card[1]}/${card[2]}/${card[3]}`,
+					durationMs: Date.now() - reqStart,
+					cached: r.status === 200,
+				});
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status: r.status,
+					durationMs: Date.now() - reqStart,
+				});
+				return r;
+			}
 
 			const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
-			if (tmCard) return await sharedMarkerCard(req, tmCard[1], reqUrl.searchParams.get("tm") || "");
+			if (tmCard) {
+				const r = await sharedMarkerCard(req, tmCard[1], reqUrl.searchParams.get("tm") || "");
+				dashboard.onCard({
+					type: "tm",
+					key: tmCard[1],
+					durationMs: Date.now() - reqStart,
+					cached: r.status === 200,
+				});
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status: r.status,
+					durationMs: Date.now() - reqStart,
+				});
+				return r;
+			}
 
 			const page = /^\/maps\/([^/]+)(?:\/|\/index\.html)?$/.exec(p);
 			if (page && page[1] !== "index.json" && page[1] !== "map.html") {
@@ -607,38 +674,80 @@ const server = Bun.serve({
 					const tm = reqUrl.searchParams.get("tm");
 					if (tm) {
 						const res = await sharedMarkerPage(req, page[1], tm);
-						if (res) return res;
+						if (res) {
+							dashboard.onRequest({
+								method: req.method,
+								path: p,
+								status: res.status,
+								durationMs: Date.now() - reqStart,
+							});
+							return res;
+						}
 					}
 					const loc = reqUrl.searchParams.get("loc");
 					if (loc && /^\d+$/.test(loc)) {
 						const map = reqUrl.searchParams.get("map") || "";
 						const res = await sharePage(req, page[1], map, Number(loc));
-						if (res) return res;
+						if (res) {
+							dashboard.onRequest({
+								method: req.method,
+								path: p,
+								status: res.status,
+								durationMs: Date.now() - reqStart,
+							});
+							return res;
+						}
 					}
-					return await gamePage(req, page[1]);
+					const r = await gamePage(req, page[1]);
+					dashboard.onRequest({
+						method: req.method,
+						path: p,
+						status: r.status,
+						durationMs: Date.now() - reqStart,
+					});
+					return r;
 				}
 			}
 
 			const tile = /^\/maps\/([^/]+)\/([^/]+)\/tiles\/([^/]+)\/(.+)$/.exec(p);
 			if (tile) {
 				const tileRes = await tiles.serve(req, tile[1], tile[2], tile[3], tile[4]);
-				if (tileRes) return tileRes;
+				if (tileRes) {
+					dashboard.onTile({ action: tileRes.status === 304 ? "cached" : "stored", path: p });
+					dashboard.onRequest({
+						method: req.method,
+						path: p,
+						status: tileRes.status,
+						durationMs: Date.now() - reqStart,
+					});
+					return tileRes;
+				}
 			}
 
 			const mediaMatch = /^\/maps\/([^/]+)\/media\/([^/]+)$/.exec(p);
 			if (mediaMatch && mediaUrl && api.hasMedia(mediaMatch[1], mediaMatch[2])) {
-				return new Response(null, {
+				const r = new Response(null, {
 					status: 308,
 					headers: {
 						Location: `${mediaUrl}/v1/${encodeURIComponent(mediaMatch[1])}/${encodeURIComponent(mediaMatch[2])}`,
 						"Cache-Control": "public, max-age=31536000, immutable",
 					},
 				});
+				dashboard.onRequest({ method: req.method, path: p, status: 308, durationMs: Date.now() - reqStart });
+				return r;
 			}
 
-			return await serveStatic(req, p, reqUrl.search);
+			const r = await serveStatic(req, p, reqUrl.search);
+			dashboard.onRequest({ method: req.method, path: p, status: r.status, durationMs: Date.now() - reqStart });
+			return r;
 		} catch (e) {
 			console.error(e);
+			dashboard.onRequest({
+				method: req.method,
+				path: url.pathname,
+				status: 500,
+				durationMs: Date.now() - reqStart,
+			});
 			return send(500, "server error");
 		}
 	},

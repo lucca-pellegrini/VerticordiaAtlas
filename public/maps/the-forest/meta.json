@@ -397,6 +397,16 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256,
 					"background": "#031a22"
+				},
+				{
+					"name": "Caves",
+					"template": "the-peninsula/tiles/caves-v4/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#00080a"
 				}
 			]
 		}

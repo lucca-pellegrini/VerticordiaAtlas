@@ -62,6 +62,9 @@ import type { ThemePalette } from "../src/shared/types.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
 import { createTileDashboard } from "./tile-downloader-tui.ts";
+import { promptAddGameTui } from "./tui/input-form.js";
+import { createMediaDashboard } from "./tui/media-dashboard.js";
+import { isInteractiveTty } from "./tui/theme.js";
 import {
 	createR2Client,
 	type MediaDatabase,
@@ -809,6 +812,7 @@ export async function downloadMedia(
 		mediaUrl?: string;
 		getBinImpl?: typeof getBin;
 		fetchImpl?: typeof fetch;
+		noTui?: boolean;
 	},
 ) {
 	const writeLocal = !opts.uploadMedia || Boolean(opts.keepLocal);
@@ -818,6 +822,15 @@ export async function downloadMedia(
 	const cloudSet = opts.game && opts.mediaDb ? opts.mediaDb.uploadedSet(opts.game) : new Set<string>();
 	const fetchBin = opts.getBinImpl || getBin;
 
+	const dashboard = await createMediaDashboard({
+		game: opts.game || "atlas",
+		totalExpected: urls.size,
+		uploadMedia: opts.uploadMedia,
+		keepLocal: opts.keepLocal,
+		concurrency: opts.concurrency,
+		noTui: opts.noTui,
+	});
+
 	await pool([...urls.keys()], opts.concurrency, async (url) => {
 		const name = decodeURIComponent(new URL(url).pathname.split("/").pop()!);
 		if (names.has(name) && names.get(name) !== url) console.log("  ! file name collision:", name);
@@ -826,12 +839,14 @@ export async function downloadMedia(
 		// Silently ignore any media already marked as uploaded to R2/S3 in the SQLite media table
 		if (cloudSet.has(name) || (opts.game && opts.mediaDb?.has(opts.game, name))) {
 			st.skippedCloud++;
+			dashboard.onItem({ name, url, status: "skippedCloud" });
 			return;
 		}
 
 		const file = path.join(dir, name);
 		if (!opts.uploadMedia && (await exists(file))) {
 			st.skipped++;
+			dashboard.onItem({ name, url, status: "cached" });
 			return;
 		}
 
@@ -845,7 +860,7 @@ export async function downloadMedia(
 				buf = r.buf;
 			} else {
 				st.failed++;
-				console.log("  failed", url, r.status || r.error);
+				dashboard.onItem({ name, url, status: "failed", error: String(r.status || r.error) });
 				if (opts.delay) await sleep(opts.delay);
 				return;
 			}
@@ -867,6 +882,7 @@ export async function downloadMedia(
 			cloudSet.add(name);
 			st.uploaded++;
 			st.bytes += buf.length;
+			dashboard.onItem({ name, url, size: buf.length, status: "uploaded", verifiedUrl: rec.verifiedUrl });
 			if (opts.keepLocal) {
 				if (!(await exists(file))) {
 					await writeFile(file, buf);
@@ -879,13 +895,19 @@ export async function downloadMedia(
 			await writeFile(file, buf);
 			st.saved++;
 			st.bytes += buf.length;
+			dashboard.onItem({ name, url, size: buf.length, status: "downloaded" });
 		}
 
 		if (opts.delay) await sleep(opts.delay);
 	});
-	console.log(
-		`  media: saved ${st.saved}${opts.uploadMedia ? `, uploaded ${st.uploaded}` : ""}, already had ${st.skipped}, skipped ${st.skippedCloud} (in cloud), failed ${st.failed}, ${mb(st.bytes)}`,
-	);
+	await dashboard.finish();
+	const stats = dashboard.getStats();
+	st.saved = stats.saved;
+	st.uploaded = stats.uploaded;
+	st.skipped = stats.skipped;
+	st.skippedCloud = stats.skippedCloud;
+	st.failed = stats.failed;
+	st.bytes = stats.bytes;
 	return st;
 }
 
@@ -1096,7 +1118,8 @@ async function main() {
 			"default-tag": { type: "string" },
 			index: { type: "string", default: "./public/maps/index.json" },
 			"max-zoom": { type: "string" },
-			"all-tilesets": { type: "boolean", default: false },
+			"all-tilesets": { type: "boolean", default: true },
+			interactive: { type: "boolean", short: "i", default: false },
 			videos: { type: "boolean", default: false },
 			"no-tiles": { type: "boolean", default: false },
 			"no-media": { type: "boolean", default: false },
@@ -1121,9 +1144,28 @@ async function main() {
 			"no-tui": { type: "boolean", default: false },
 		},
 	});
-	if (!positionals[0]) {
-		console.error("Usage: bun scripts/add-game.ts https://mapgenie.io/<game> [options]");
-		process.exit(1);
+	if (!positionals[0] || v.interactive) {
+		if (isInteractiveTty(v["no-tui"])) {
+			const res = await promptAddGameTui(positionals[0] || "");
+			if (!res) {
+				process.exit(0);
+			}
+			positionals[0] = res.url;
+			if (res.slug) {
+				v.id = res.slug;
+				v.slug = res.slug;
+			}
+			if (res.title) v.title = res.title;
+			if (res.posterUrl) v.poster = res.posterUrl;
+			v["all-tilesets"] = res.allTilesets;
+			v["no-media"] = !res.downloadMedia;
+			v.videos = res.videos;
+			v["keep-local"] = res.keepLocal;
+			v["no-cards"] = !res.makeCards;
+		} else if (!positionals[0]) {
+			console.error("Usage: bun scripts/add-game.ts https://mapgenie.io/<game> [options]");
+			process.exit(1);
+		}
 	}
 	const uploadMedia = Boolean(v["upload-media"]) && !v["no-media"];
 	const r2Cfg = uploadMedia ? validateR2Env() : null;

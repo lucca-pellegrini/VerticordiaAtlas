@@ -35,6 +35,7 @@ import {
 } from "../server/tile-engine.ts";
 import type { TileFile, TileTail } from "../server/tile-engine.ts";
 import type { GameMeta } from "../src/shared/types.ts";
+import { createPruneDashboard, type PruneTilesetEvent } from "./tui/prune-dashboard.js";
 
 export { listTiles };
 export type { TileFile };
@@ -96,6 +97,7 @@ export async function optimizeTileset(o: {
 	dryRun?: boolean;
 	background?: string | null;
 	concurrency?: number;
+	onProgress?: (ev: PruneTilesetEvent) => void;
 }): Promise<OptimizeResult> {
 	const { dir, tail, minZ, maxZ } = o;
 	const conc = o.concurrency ?? 8;
@@ -133,6 +135,12 @@ export async function optimizeTileset(o: {
 	});
 	const top = [...colours.entries()].filter(([k]) => k.endsWith("ff")).sort((a, b) => b[1] - a[1])[0];
 	r.background = top ? "#" + top[0].slice(0, 6) : null;
+	o.onProgress?.({
+		phase: "solid",
+		solid: r.solid,
+		solidFreed: r.solidFreed,
+		topColors: [...colours.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4),
+	});
 
 	// 2. the overview, from the highest zoom
 	const have = new Set(tiles.map((t) => `${t.z}/${t.x}/${t.y}`));
@@ -154,6 +162,7 @@ export async function optimizeTileset(o: {
 			});
 			if (!raw) return;
 			r.overview++;
+			o.onProgress?.({ phase: "overview", overview: r.overview });
 			if (o.dryRun) return;
 			const sk = solidKey(raw);
 			await placeTile(
@@ -174,6 +183,7 @@ export async function optimizeTileset(o: {
 			const st = await stat(t.file);
 			r.pruned++;
 			if (st.nlink === 1) r.prunedBytes += st.size;
+			o.onProgress?.({ phase: "prune", pruned: r.pruned, prunedBytes: r.prunedBytes });
 			if (o.dryRun) return;
 			await unlink(t.file);
 			parents.add(path.dirname(t.file));
@@ -194,6 +204,7 @@ async function main() {
 			out: { type: "string", default: path.join(REPO, "public", "maps") },
 			"dry-run": { type: "boolean", default: false },
 			"no-prune": { type: "boolean", default: false },
+			"no-tui": { type: "boolean", default: false },
 			concurrency: { type: "string", default: "8" },
 		},
 	});
@@ -201,48 +212,58 @@ async function main() {
 	const games = positionals.length
 		? positionals
 		: (await readdir(root, { withFileTypes: true })).filter((d) => d.isDirectory()).map((d) => d.name);
-	const total = { solidFreed: 0, prunedBytes: 0, pruned: 0, overview: 0, solid: 0 };
+
+	// Pre-count tilesets for accurate progress tracking
+	const tasks: { game: string; metaFile: string; meta: GameMeta; map: any; ts: any; dir: string; split: any }[] = [];
 	for (const game of games) {
 		const metaFile = path.join(root, game, "meta.json");
-		let meta: GameMeta;
 		try {
-			meta = JSON.parse(await readFile(metaFile, "utf8"));
-		} catch {
-			continue;
-		}
-		let changed = false;
-		for (const map of meta.maps || []) {
-			for (const ts of map.tilesets || []) {
-				const split = splitTemplate(ts.template);
-				if (!split) continue;
-				const dir = path.join(root, game, split.base);
-				const r = await optimizeTileset({
-					dir,
-					tail: split.tail,
-					minZ: ts.minzoom ?? 0,
-					maxZ: ts.maxzoom ?? 0,
-					prune: !v["no-prune"],
-					dryRun: v["dry-run"],
-					background: ts.background,
-					concurrency: +v.concurrency!,
-				});
-				if (!r.tiles) continue;
-				console.log(
-					`${game}/${map.slug}: ${r.tiles} tiles, ${r.solid} single-colour (-${mb(r.solidFreed)}), overview +${r.overview}, ${r.pruned} intermediate ${v["dry-run"] ? "to delete" : "deleted"} (-${mb(r.prunedBytes)})`,
-				);
-				for (const k of Object.keys(total) as (keyof typeof total)[])
-					total[k] += k === "solidFreed" ? r.solidFreed : k === "prunedBytes" ? r.prunedBytes : (r as any)[k];
-				if (r.background && !ts.background && !v["dry-run"]) {
-					ts.background = r.background;
-					changed = true;
+			const meta: GameMeta = JSON.parse(await readFile(metaFile, "utf8"));
+			for (const map of meta.maps || []) {
+				for (const ts of map.tilesets || []) {
+					const split = splitTemplate(ts.template);
+					if (split) {
+						tasks.push({ game, metaFile, meta, map, ts, dir: path.join(root, game, split.base), split });
+					}
 				}
 			}
-		}
-		if (changed) await writeFile(metaFile, JSON.stringify(meta, null, 2) + "\n");
+		} catch {}
 	}
-	console.log(
-		`\n${v["dry-run"] ? "Would free" : "Freed"} ${mb(total.solidFreed + total.prunedBytes)} (single-colour ${mb(total.solidFreed)}, intermediate zooms ${mb(total.prunedBytes)}); ${total.overview} overview tile(s) made.`,
-	);
+
+	const dashboard = await createPruneDashboard({
+		totalTilesets: tasks.length,
+		dryRun: v["dry-run"],
+		noTui: v["no-tui"],
+	});
+
+	const changedMetaFiles = new Map<string, GameMeta>();
+	for (const t of tasks) {
+		dashboard.startTileset(t.game, t.ts.name || t.map.slug, 0);
+		const r = await optimizeTileset({
+			dir: t.dir,
+			tail: t.split.tail,
+			minZ: t.ts.minzoom ?? 0,
+			maxZ: t.ts.maxzoom ?? 0,
+			prune: !v["no-prune"],
+			dryRun: v["dry-run"],
+			background: t.ts.background,
+			concurrency: +v.concurrency!,
+			onProgress: (ev) => dashboard.onProgress(ev),
+		});
+
+		dashboard.finishTileset(r);
+
+		if (r.background && !t.ts.background && !v["dry-run"]) {
+			t.ts.background = r.background;
+			changedMetaFiles.set(t.metaFile, t.meta);
+		}
+	}
+
+	for (const [file, meta] of changedMetaFiles.entries()) {
+		await writeFile(file, JSON.stringify(meta, null, 2) + "\n");
+	}
+
+	await dashboard.finish();
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
