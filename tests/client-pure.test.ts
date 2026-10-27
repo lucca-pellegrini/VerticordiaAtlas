@@ -28,7 +28,7 @@ import {
 	PALETTE,
 	simplify,
 } from "../src/client/map/drawing.ts";
-import { circleStyleOf, mapLimits, sameCamera, startOf } from "../src/client/map/map-view.ts";
+import { circleStyleOf, mapLimits, resolveTilesets, sameCamera, startOf } from "../src/client/map/map-view.ts";
 import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf } from "../src/client/map/search.ts";
@@ -365,6 +365,38 @@ describe("modularized map and home helpers", () => {
 
 		const markerCat = { id: 10, display_type: "marker" };
 		expect(circleStyleOf(markerCat).isCircle).toBe(false);
+
+		// resolveTilesets and mapLimits tileset switching
+		const testInfo = {
+			slug: "san-andreas",
+			tilesets: [
+				{
+					name: "Atlas",
+					template: "san-andreas/tiles/atlas-v1/{z}/{x}/{y}.png",
+					minzoom: 9,
+					maxzoom: 14,
+					bounds: [-1.5, -0.1, 0.1, 1.5],
+				},
+			],
+		};
+		const testData = {
+			mapConfig: {
+				tile_sets: [
+					{ id: 1, name: "Atlas", pattern: "atlas-v1/{z}/{x}/{y}.png", min_zoom: 9, max_zoom: 14 },
+					{ id: 2, name: "Satellite", pattern: "satellite-v1/{z}/{x}/{y}.jpg", min_zoom: 9, max_zoom: 15 },
+				],
+			},
+		};
+		const resolvedSets = resolveTilesets(testInfo, testData);
+		expect(resolvedSets.length).toBe(2);
+		expect(resolvedSets[0].name).toBe("Atlas");
+		expect(resolvedSets[1].name).toBe("Satellite");
+		expect(resolvedSets[1].template).toContain("satellite");
+
+		const limAtlas = mapLimits(testInfo, testData, 0);
+		expect(limAtlas.ts.name).toBe("Atlas");
+		const limSat = mapLimits(testInfo, testData, "Satellite");
+		expect(limSat.ts.name).toBe("Satellite");
 	});
 });
 

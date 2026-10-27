@@ -89,6 +89,7 @@ export const state: Record<string, any> = {
 	},
 	presets: [],
 	presetId: null,
+	activeTileset: null as string | null,
 	baseline: null, // baseline: the view before the first preset was picked
 	trail: [],
 	session: uid(), // navigation stack of opened markers (last = current); session ties history entries to it
