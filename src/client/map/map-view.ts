@@ -415,9 +415,54 @@ export function layoutMapSwitch(): void {
 	moveThumb(state.mapInfo?.slug);
 }
 
+// resolve all tilesets for a map, combining meta.json and data.json mapConfig.tile_sets
+export function resolveTilesets(info: any, data: any): any[] {
+	const metaSets: any[] = info?.tilesets || [];
+	const cfgSets: any[] = data?.mapConfig?.tile_sets || [];
+	if (!cfgSets.length || metaSets.length >= cfgSets.length) {
+		return metaSets.length ? metaSets : [{ name: "Default", template: "", minzoom: 0, maxzoom: 18 }];
+	}
+	// Synthesize any missing tile sets from data.json mapConfig so the user can switch between them
+	const ms = info?.slug || "map";
+	const baseTs = metaSets[0] || {};
+	const out: any[] = [...metaSets];
+	for (const ts of cfgSets) {
+		if (out.some((o) => o.name === ts.name)) continue;
+		const pattern = ts.pattern || "";
+		let key = (ts.path || "").split("/").filter(Boolean).pop();
+		if (!key && pattern.includes("{")) {
+			const prefix = pattern.slice(0, pattern.indexOf("{")).replace(/\/+$/, "");
+			key = prefix.split("/").filter(Boolean).pop();
+		}
+		if (!key) key = `ts${ts.id}`;
+		const tail = pattern.includes("{")
+			? pattern.slice(pattern.indexOf("{"))
+			: "{z}/{x}/{y}." + (ts.extension || "png");
+		const localTail = `tiles/${key}/${tail}`;
+		out.push({
+			name: ts.name,
+			template: `${ms}/${localTail}`,
+			minzoom: ts.min_zoom ?? baseTs.minzoom ?? 0,
+			maxzoom: ts.tiles_max_zoom ?? ts.max_zoom ?? baseTs.maxzoom ?? 18,
+			viewMaxzoom: ts.max_zoom ?? baseTs.viewMaxzoom ?? 18,
+			bounds: baseTs.bounds || [-180, -85, 180, 85],
+			tileSize: 256,
+		});
+	}
+	return out;
+}
+
 // the bounds, zoom limits and tile set of a map
-export function mapLimits(info: any, data: any) {
-	const ts = info.tilesets[0]; // { template, minzoom, maxzoom (stored tiles), viewMaxzoom, bounds }
+export function mapLimits(info: any, data: any, tilesetIndexOrName?: number | string | null) {
+	const sets = resolveTilesets(info, data);
+	let ts = sets[0];
+	if (typeof tilesetIndexOrName === "number" && sets[tilesetIndexOrName]) {
+		ts = sets[tilesetIndexOrName];
+	} else if (typeof tilesetIndexOrName === "string") {
+		ts = sets.find((s) => s.name === tilesetIndexOrName) || sets[0];
+	} else if (state.activeTileset) {
+		ts = sets.find((s) => s.name === state.activeTileset) || sets[0];
+	}
 	const box = ts.bounds || data.styles?.mapStyle?.bounds || [-180, -85, 180, 85];
 	const [w, s, e, n] = box,
 		pad = 0.25;
@@ -490,6 +535,18 @@ export function setBaseTiles(map: any): void {
 		{ id: "base", type: "raster", source: "base", paint: { "raster-fade-duration": 900 } },
 		map.getLayer("sel") ? "sel" : undefined,
 	);
+}
+
+export function switchTileset(name: string): void {
+	if (!state.mapReady || !state.map) return;
+	state.activeTileset = name;
+	setBaseTiles(state.map);
+	syncTilesetMenu();
+}
+
+export function syncTilesetMenu(): void {
+	const select = document.getElementById("side-tileset-select") as HTMLSelectElement | null;
+	if (select && state.activeTileset) select.value = state.activeTileset;
 }
 
 // the camera of the open map goes into the profile (with which map it is), so a visit resumes where it was
