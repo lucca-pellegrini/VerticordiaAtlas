@@ -38,6 +38,7 @@ import {
 	startOf,
 } from "../src/client/map/map-view.ts";
 import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
+import { parseDemoPresets } from "../src/client/map/presets.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
@@ -510,6 +511,22 @@ describe("modularized map and home helpers", () => {
 		expect(geoms.fills.features[0].properties.fillOpacity).toBe(0.5);
 		expect(geoms.lines.features.length).toBe(2); // polygon outline + line string
 		expect(geoms.lines.features.find((f: any) => f.properties.id === 278139)?.properties.lineColor).toBe("#239FBD");
+
+		// parseDemoPresets
+		const demoAllCatIds = [8988, 9049, 8979, 8980, 8981, 9071, 100, 200];
+		const rawDemoPresets = [
+			{
+				id: 169706,
+				title: "Fast Travel",
+				categories: [8988, 9049, 8979, 8980, 8981, 9071],
+				is_demo_preset: true,
+			},
+		];
+		const demoRes = parseDemoPresets(rawDemoPresets, demoAllCatIds);
+		expect(demoRes.length).toBe(1);
+		expect(demoRes[0].name).toBe("Fast Travel");
+		expect(demoRes[0].id).toBe("demo-169706");
+		expect(demoRes[0].hidden.sort()).toEqual([100, 200]);
 	});
 });
 
