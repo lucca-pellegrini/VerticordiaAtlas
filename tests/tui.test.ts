@@ -215,8 +215,10 @@ describe("TUI ecosystem components & helpers", () => {
 		dashboard.onRequest({ method: "GET", path: "/api/missing", status: 404, durationMs: 1.1 });
 		dashboard.onCard({ type: "share", key: "totk/hyrule/100", durationMs: 45.0, cached: false });
 		dashboard.onTile({ action: "stored", path: "/maps/totk/tiles/default/10/1/1.jpg" });
-		dashboard.onTile({ action: "derived", path: "/maps/totk/tiles/default/9/0/0.jpg" });
+		dashboard.onTile({ action: "derived", path: "/maps/totk/tiles/default/9/0/0.jpg", durationMs: 12.0 });
+		dashboard.onTile({ action: "miss", path: "/maps/totk/tiles/default/99/0/0.jpg", durationMs: 1.5 });
 		dashboard.onSync("broadcast", "user 123 synced profile");
+		dashboard.onApi("GET me", "-> 200 (1.2ms)");
 		dashboard.setWsCount(4);
 
 		dashboard.destroy();

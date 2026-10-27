@@ -29,6 +29,7 @@ export interface CardRenderEvent {
 export interface TileEvent {
 	action: "stored" | "cached" | "derived" | "miss";
 	path: string;
+	durationMs?: number;
 }
 
 export interface ServerDashboard {
@@ -36,6 +37,7 @@ export interface ServerDashboard {
 	onCard(ev: CardRenderEvent): void;
 	onTile(ev: TileEvent): void;
 	onSync(action: string, detail: string): void;
+	onApi(action: string, detail: string): void;
 	setWsCount(count: number): void;
 	destroy(): void;
 }
@@ -53,6 +55,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	const recentRequests: HttpRequestEvent[] = [];
 	const recentCards: CardRenderEvent[] = [];
 	const recentSyncs: { time: number; action: string; detail: string }[] = [];
+	const recentTiles: TileEvent[] = [];
 
 	const isInteractive = isInteractiveTty(opts.noTui);
 
@@ -82,6 +85,11 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 					console.log(`[SYNC] ${action}: ${detail}`);
 				}
 			},
+			onApi(action, detail) {
+				if (process.env.DEBUG) {
+					console.log(`[API] ${action}: ${detail}`);
+				}
+			},
 			setWsCount(count) {
 				wsCount = count;
 			},
@@ -93,7 +101,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		exitOnCtrlC: true,
 	});
 
-	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 136, 42);
+	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 250, 120);
 
 	renderer.root.flexDirection = "column";
 	renderer.root.alignItems = "center";
@@ -143,14 +151,6 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	});
 	httpPane.add(new TextRenderable(renderer, { content: "LIVE HTTP REQUESTS", fg: THEME.peach }));
 
-	const maxHttpLines = Math.max(3, Math.floor((boxH - 12) / 2));
-	const httpLines: TextRenderable[] = [];
-	for (let i = 0; i < maxHttpLines; i++) {
-		const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim });
-		httpLines.push(line);
-		httpPane.add(line);
-	}
-
 	// Pane 2: Card Rendering
 	const cardPane = new BoxRenderable(renderer, {
 		flexGrow: 1,
@@ -161,14 +161,6 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		paddingY: 0,
 	});
 	cardPane.add(new TextRenderable(renderer, { content: "SOCIAL CARDS (HEADLESS CHROMIUM)", fg: THEME.teal }));
-
-	const maxCardLines = maxHttpLines;
-	const cardLines: TextRenderable[] = [];
-	for (let i = 0; i < maxCardLines; i++) {
-		const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim });
-		cardLines.push(line);
-		cardPane.add(line);
-	}
 
 	topRow.add(httpPane);
 	topRow.add(cardPane);
@@ -192,14 +184,6 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	});
 	syncPane.add(new TextRenderable(renderer, { content: "API & SYNC HUB (WEBSOCKET / SQLite)", fg: THEME.mauve }));
 
-	const maxSyncLines = maxHttpLines;
-	const syncLines: TextRenderable[] = [];
-	for (let i = 0; i < maxSyncLines; i++) {
-		const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim });
-		syncLines.push(line);
-		syncPane.add(line);
-	}
-
 	// Pane 4: Tile Engine & Cache
 	const tilePane = new BoxRenderable(renderer, {
 		flexGrow: 1,
@@ -210,21 +194,41 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		paddingY: 0,
 	});
 	tilePane.add(new TextRenderable(renderer, { content: "TILE ENGINE & CACHE", fg: THEME.green }));
-
-	const tileStats1 = new TextRenderable(renderer, { content: "Total served: 0", fg: THEME.text });
-	const tileStats2 = new TextRenderable(renderer, {
-		content: "Stored: 0  · Cached: 0  · Derived: 0",
-		fg: THEME.textDim,
+	const tileStats1 = new TextRenderable(renderer, {
+		content: "Total: 0 · Stored: 0 · Cache: 0 · Stitched: 0 (0.0%)",
+		fg: THEME.text,
 	});
-	const tileStats3 = new TextRenderable(renderer, { content: "Cache hit: 0.0%", fg: THEME.green });
-
 	tilePane.add(tileStats1);
-	tilePane.add(tileStats2);
-	tilePane.add(tileStats3);
 
 	btmRow.add(syncPane);
 	btmRow.add(tilePane);
 	rootBox.add(btmRow);
+
+	// Dynamic lines pool helper
+	function updatePaneLines(pane: BoxRenderable, lines: TextRenderable[], targetCount: number) {
+		while (lines.length < targetCount) {
+			const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim });
+			lines.push(line);
+			pane.add(line);
+		}
+		while (lines.length > targetCount) {
+			const line = lines.pop()!;
+			pane.remove(line);
+		}
+	}
+
+	let maxEventLines = Math.max(3, Math.floor((boxH - 12) / 2));
+	let maxTileLines = Math.max(2, maxEventLines - 1);
+
+	const httpLines: TextRenderable[] = [];
+	const cardLines: TextRenderable[] = [];
+	const syncLines: TextRenderable[] = [];
+	const tileLines: TextRenderable[] = [];
+
+	updatePaneLines(httpPane, httpLines, maxEventLines);
+	updatePaneLines(cardPane, cardLines, maxEventLines);
+	updatePaneLines(syncPane, syncLines, maxEventLines);
+	updatePaneLines(tilePane, tileLines, maxTileLines);
 
 	// Footer bar
 	const footerBar = new TextRenderable(renderer, {
@@ -248,16 +252,18 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		const elapsed = (now - startTime) / 1000;
 		subText.content = `Listening on http://${opts.host}:${opts.port}/ | Uptime: ${fmtTime(elapsed)} | WebSockets: ${wsCount} active`;
 
+		const maxPathLen = Math.max(24, Math.floor(boxW * 0.45) - 18);
+
 		// HTTP lines
-		const displayHttp = recentRequests.slice(-maxHttpLines);
-		for (let i = 0; i < maxHttpLines; i++) {
+		const displayHttp = recentRequests.slice(-httpLines.length);
+		for (let i = 0; i < httpLines.length; i++) {
 			const item = displayHttp[displayHttp.length - 1 - i];
 			if (item) {
 				let col = THEME.green;
 				if (item.status >= 500) col = THEME.red;
 				else if (item.status >= 400) col = THEME.yellow;
 				else if (item.status >= 300) col = THEME.blue;
-				const p = item.path.length > 34 ? item.path.slice(0, 33) + "…" : item.path;
+				const p = item.path.length > maxPathLen ? item.path.slice(0, maxPathLen - 1) + "…" : item.path;
 				httpLines[i].content = `[${item.method} ${item.status}] ${p} (${item.durationMs.toFixed(0)}ms)`;
 				httpLines[i].fg = col;
 			} else {
@@ -267,13 +273,14 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		}
 
 		// Card lines
-		const displayCards = recentCards.slice(-maxCardLines);
-		for (let i = 0; i < maxCardLines; i++) {
+		const displayCards = recentCards.slice(-cardLines.length);
+		for (let i = 0; i < cardLines.length; i++) {
 			const item = displayCards[displayCards.length - 1 - i];
 			if (item) {
 				const tag = item.cached ? "[CACHE]" : "[RENDER]";
 				const col = item.cached ? THEME.teal : THEME.peach;
-				cardLines[i].content = `${tag} ${item.type}: ${item.key} (${item.durationMs.toFixed(0)}ms)`;
+				const k = item.key.length > maxPathLen ? item.key.slice(0, maxPathLen - 1) + "…" : item.key;
+				cardLines[i].content = `${tag} ${item.type}: ${k} (${item.durationMs.toFixed(0)}ms)`;
 				cardLines[i].fg = col;
 			} else {
 				cardLines[i].content = "  ·";
@@ -282,11 +289,12 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		}
 
 		// Sync lines
-		const displaySyncs = recentSyncs.slice(-maxSyncLines);
-		for (let i = 0; i < maxSyncLines; i++) {
+		const displaySyncs = recentSyncs.slice(-syncLines.length);
+		for (let i = 0; i < syncLines.length; i++) {
 			const item = displaySyncs[displaySyncs.length - 1 - i];
 			if (item) {
-				syncLines[i].content = `[${item.action}] ${item.detail}`;
+				const det = item.detail.length > maxPathLen ? item.detail.slice(0, maxPathLen - 1) + "…" : item.detail;
+				syncLines[i].content = `[${item.action}] ${det}`;
 				syncLines[i].fg = THEME.mauve;
 			} else {
 				syncLines[i].content = "  ·";
@@ -294,11 +302,35 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			}
 		}
 
-		// Tile stats
-		tileStats1.content = `Total tile requests: ${fmt(totalTiles)}`;
-		tileStats2.content = `Stored: ${fmt(storedTiles)} · Cache: ${fmt(cachedTiles)} · Stitched: ${fmt(derivedTiles)}`;
+		// Tile lines & stats
+		const displayTiles = recentTiles.slice(-tileLines.length);
+		for (let i = 0; i < tileLines.length; i++) {
+			const item = displayTiles[displayTiles.length - 1 - i];
+			if (item) {
+				let tag = "[STORED]";
+				let col = THEME.green;
+				if (item.action === "cached") {
+					tag = "[CACHE]";
+					col = THEME.teal;
+				} else if (item.action === "derived") {
+					tag = "[STITCH]";
+					col = THEME.peach;
+				} else if (item.action === "miss") {
+					tag = "[MISS]";
+					col = THEME.red;
+				}
+				const dur = item.durationMs != null ? ` (${item.durationMs.toFixed(0)}ms)` : "";
+				const p = item.path.length > maxPathLen ? item.path.slice(0, maxPathLen - 1) + "…" : item.path;
+				tileLines[i].content = `${tag.padEnd(8)} ${p}${dur}`;
+				tileLines[i].fg = col;
+			} else {
+				tileLines[i].content = "  ·";
+				tileLines[i].fg = THEME.textDim;
+			}
+		}
+
 		const hitRatio = totalTiles > 0 ? (((storedTiles + cachedTiles) / totalTiles) * 100).toFixed(1) : "0.0";
-		tileStats3.content = `Cache/Stored efficiency: ${hitRatio}%`;
+		tileStats1.content = `Total: ${fmt(totalTiles)} · Stored: ${fmt(storedTiles)} · Cache: ${fmt(cachedTiles)} · Stitched: ${fmt(derivedTiles)} (${hitRatio}%)`;
 
 		// Footer stats
 		const memMb = (process.memoryUsage().rss / (1024 * 1024)).toFixed(1);
@@ -309,7 +341,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 	function handleResize(termW: number, termH: number) {
 		if (isDestroyed) return;
-		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 136, 42);
+		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 250, 120);
 		boxW = next.boxW;
 		boxH = next.boxH;
 		leftW = Math.floor(boxW * 0.52);
@@ -317,6 +349,14 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		rootBox.height = boxH;
 		httpPane.width = leftW;
 		syncPane.width = leftW;
+
+		maxEventLines = Math.max(3, Math.floor((boxH - 12) / 2));
+		maxTileLines = Math.max(2, maxEventLines - 1);
+		updatePaneLines(httpPane, httpLines, maxEventLines);
+		updatePaneLines(cardPane, cardLines, maxEventLines);
+		updatePaneLines(syncPane, syncLines, maxEventLines);
+		updatePaneLines(tilePane, tileLines, maxTileLines);
+
 		renderUi(true);
 	}
 
@@ -333,13 +373,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		onRequest(ev) {
 			totalRequests++;
 			recentRequests.push(ev);
-			if (recentRequests.length > 40) recentRequests.shift();
+			if (recentRequests.length > 50) recentRequests.shift();
 			renderUi(false);
 		},
 		onCard(ev) {
 			totalCards++;
 			recentCards.push(ev);
-			if (recentCards.length > 40) recentCards.shift();
+			if (recentCards.length > 50) recentCards.shift();
 			renderUi(false);
 		},
 		onTile(ev) {
@@ -347,11 +387,18 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			if (ev.action === "stored") storedTiles++;
 			else if (ev.action === "cached") cachedTiles++;
 			else if (ev.action === "derived") derivedTiles++;
+			recentTiles.push(ev);
+			if (recentTiles.length > 50) recentTiles.shift();
 			renderUi(false);
 		},
 		onSync(action, detail) {
 			recentSyncs.push({ time: Date.now(), action, detail });
-			if (recentSyncs.length > 40) recentSyncs.shift();
+			if (recentSyncs.length > 50) recentSyncs.shift();
+			renderUi(false);
+		},
+		onApi(action, detail) {
+			recentSyncs.push({ time: Date.now(), action, detail });
+			if (recentSyncs.length > 50) recentSyncs.shift();
 			renderUi(false);
 		},
 		setWsCount(count) {

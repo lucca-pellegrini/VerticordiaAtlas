@@ -521,11 +521,19 @@ const mediaUrl = String(process.env.MEDIA_URL || siteFile.mediaUrl || "https://a
 	"",
 );
 const DEBUG = args.includes("--debug");
+
+const dashboard = await createServerDashboard({
+	host: HOST,
+	port: PORT,
+	noTui: Boolean(args.includes("--no-tui")),
+});
+
 const api = createApi({
 	debug: DEBUG,
 	root: REPO,
 	googleClientId: process.env.GOOGLE_CLIENT_ID || siteFile.googleClientId || null,
 	publicUrl: (process.env.PUBLIC_URL || siteFile.url || "").replace(/\/+$/, "") || null,
+	onEvent: (action, detail) => dashboard.onApi(action, detail),
 });
 
 // the tile cache: made tiles (the zooms between the stored ones) are kept on disk. Limits: --tile-cache-max / TILE_CACHE_MAX
@@ -547,12 +555,6 @@ const tiles = createTileService({
 	onNewMap: (game) => api.recordGameRequest(game),
 });
 
-const dashboard = await createServerDashboard({
-	host: HOST,
-	port: PORT,
-	noTui: Boolean(args.includes("--no-tui")),
-});
-
 const server = Bun.serve({
 	port: PORT,
 	hostname: HOST,
@@ -561,7 +563,10 @@ const server = Bun.serve({
 		const url = new URL(req.url);
 		if (url.pathname === "/api/ws") {
 			const rejected = api.upgrade(req, bunServer);
-			if (rejected) return rejected;
+			if (rejected) {
+				dashboard.onApi("ws:reject", `${rejected.status} (${url.searchParams.get("c") || "tab"})`);
+				return rejected;
+			}
 			dashboard.setWsCount(api.wsCount());
 			return;
 		}
@@ -591,34 +596,34 @@ const server = Bun.serve({
 					offlinePack[1],
 					offlinePack[2],
 				);
+				const dur = Date.now() - reqStart;
 				dashboard.onRequest({
 					method: req.method,
 					path: p,
 					status: r.status,
-					durationMs: Date.now() - reqStart,
+					durationMs: dur,
 				});
+				dashboard.onApi(`pack:${offlinePack[1]}/${offlinePack[2]}`, `-> ${r.status} (${dur.toFixed(0)}ms)`);
 				return r;
 			}
 
 			if (p.startsWith("/api/")) {
 				const res = await api.handle(req, reqUrl);
+				const status = res ? res.status : 404;
+				const duration = Date.now() - reqStart;
+				const action = `${req.method} ${p.replace(/^\/api\//, "")}`;
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status,
+					durationMs: duration,
+				});
+				dashboard.onApi(action, `-> ${status} (${duration.toFixed(0)}ms)`);
 				if (!res) {
-					dashboard.onRequest({
-						method: req.method,
-						path: p,
-						status: 404,
-						durationMs: Date.now() - reqStart,
-					});
 					return send(404, '{"error":"not found"}', "application/json; charset=utf-8", {
 						"Cache-Control": "no-store",
 					});
 				}
-				dashboard.onRequest({
-					method: req.method,
-					path: p,
-					status: res.status,
-					durationMs: Date.now() - reqStart,
-				});
 				return res;
 			}
 
@@ -712,15 +717,28 @@ const server = Bun.serve({
 			const tile = /^\/maps\/([^/]+)\/([^/]+)\/tiles\/([^/]+)\/(.+)$/.exec(p);
 			if (tile) {
 				const tileRes = await tiles.serve(req, tile[1], tile[2], tile[3], tile[4]);
+				const dur = Date.now() - reqStart;
+				const displayPath = `${tile[2]}/${tile[3]}/${tile[4]}`;
 				if (tileRes) {
-					dashboard.onTile({ action: tileRes.status === 304 ? "cached" : "stored", path: p });
+					const from = tileRes.headers.get("x-tile-from");
+					const action =
+						tileRes.status === 304
+							? "cached"
+							: from === "made"
+								? "derived"
+								: from === "cache"
+									? "cached"
+									: "stored";
+					dashboard.onTile({ action, path: displayPath, durationMs: dur });
 					dashboard.onRequest({
 						method: req.method,
 						path: p,
 						status: tileRes.status,
-						durationMs: Date.now() - reqStart,
+						durationMs: dur,
 					});
 					return tileRes;
+				} else {
+					dashboard.onTile({ action: "miss", path: displayPath, durationMs: dur });
 				}
 			}
 
@@ -751,7 +769,24 @@ const server = Bun.serve({
 			return send(500, "server error");
 		}
 	},
-	websocket: api.websocket,
+	websocket: {
+		open(ws) {
+			api.websocket.open(ws);
+			dashboard.setWsCount(api.wsCount());
+			const u = (ws.data as any)?.userId?.slice(0, 8) || "anon";
+			const c = (ws.data as any)?.client || "tab";
+			dashboard.onApi("ws:open", `user ${u}... (${c})`);
+		},
+		message(ws, msg) {
+			api.websocket.message(ws, msg);
+		},
+		close(ws, code, reason) {
+			api.websocket.close(ws);
+			dashboard.setWsCount(api.wsCount());
+			const u = (ws.data as any)?.userId?.slice(0, 8) || "anon";
+			dashboard.onApi("ws:close", `user ${u}... (code: ${code})`);
+		},
+	},
 });
 
 console.log(`Verticordia Atlas on http://${HOST}:${PORT}/`);

@@ -59,6 +59,7 @@ export interface ApiOptions {
 	publicUrl?: string | null;
 	googleCertsUrl?: string;
 	allowedEmails?: string[] | null;
+	onEvent?: (action: string, detail: string) => void;
 }
 
 interface HttpError extends Error {
@@ -85,6 +86,7 @@ export function createApi({
 	publicUrl = null,
 	googleCertsUrl = process.env.GOOGLE_CERTS_URL || "https://www.googleapis.com/oauth2/v3/certs",
 	allowedEmails = null,
+	onEvent,
 }: ApiOptions) {
 	mkdirSync(path.join(root, "data"), { recursive: true });
 	const db = new Database(path.join(root, "data", "atlas.db"), { create: true });
@@ -386,7 +388,9 @@ export function createApi({
 	});
 
 	function syncPush(userId: string, items: SyncItem[]): SyncPushResult[] {
-		return pushTransaction.immediate(userId, items);
+		const res = pushTransaction.immediate(userId, items);
+		onEvent?.("sync:push", `user ${userId.slice(0, 8)}... (${items.length} items)`);
+		return res;
 	}
 	const syncPull = (userId: string): SyncItem[] =>
 		(
@@ -403,8 +407,16 @@ export function createApi({
 	const sockets = new Map<string, Set<ServerWebSocket<WsData>>>(); // user id -> Set of ServerWebSocket<WsData>
 
 	function announce(userId: string, exceptClient: string) {
-		for (const ws of sockets.get(userId) || [])
-			if (!exceptClient || ws.data.client !== exceptClient) ws.send('{"type":"changed"}');
+		let count = 0;
+		for (const ws of sockets.get(userId) || []) {
+			if (!exceptClient || ws.data.client !== exceptClient) {
+				ws.send('{"type":"changed"}');
+				count++;
+			}
+		}
+		if (count > 0) {
+			onEvent?.("ws:broadcast", `user ${userId.slice(0, 8)}... (${count} tabs)`);
+		}
 	}
 	function dropSockets(match: (ws: ServerWebSocket<WsData>) => boolean) {
 		// sign-out: the sockets it belonged to go too
