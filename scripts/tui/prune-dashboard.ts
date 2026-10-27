@@ -4,7 +4,15 @@
 import { BoxRenderable, createCliRenderer, TextRenderable } from "@opentui/core";
 
 import { fmt } from "../../src/shared/escape.js";
-import { fmtBytes, fmtTime, isInteractiveTty, renderProgressBar, RGBA_THEME, THEME } from "./theme.js";
+import {
+	computeResponsiveBox,
+	fmtBytes,
+	fmtTime,
+	isInteractiveTty,
+	renderProgressBar,
+	RGBA_THEME,
+	THEME,
+} from "./theme.js";
 
 export interface PruneDashboardOptions {
 	totalTilesets: number;
@@ -123,17 +131,11 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 		exitOnCtrlC: true,
 	});
 
-	const termW = Math.max(70, renderer.width || 80);
-	const termH = Math.max(22, renderer.height || 24);
+	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 128, 38);
 
 	renderer.root.flexDirection = "column";
 	renderer.root.alignItems = "center";
 	renderer.root.justifyContent = "center";
-	renderer.root.width = renderer.width;
-	renderer.root.height = renderer.height;
-
-	const boxW = Math.max(80, Math.min(termW - 4, 128));
-	const boxH = Math.max(22, Math.min(termH - 2, 38));
 
 	const rootBox = new BoxRenderable(renderer, {
 		width: boxW,
@@ -283,11 +285,26 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 		const elapsed = (now - startTime) / 1000;
 		timeText.content = `Elapsed:     ${fmtTime(elapsed)}`;
 
-		const barWidth = Math.max(20, boxW - 24);
+		const barWidth = Math.max(10, boxW - 24);
 		progressBar.content = `${renderProgressBar(pct, barWidth)} ${pct.toFixed(1)}% (freed ${fmtBytes(netFreed)})`;
 
 		renderer.requestRender();
 	}
+
+	function handleResize(termW: number, termH: number) {
+		if (isDestroyed) return;
+		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 128, 38);
+		boxW = next.boxW;
+		boxH = next.boxH;
+		rootBox.width = boxW;
+		rootBox.height = boxH;
+		leftPanel.width = Math.floor(boxW * 0.52);
+		renderUi(true);
+	}
+
+	renderer.on("resize", handleResize);
+	const onStdoutResize = () => handleResize(renderer.width, renderer.height);
+	process.stdout.on("resize", onStdoutResize);
 
 	return {
 		startTileset(gameSlug, tilesetName, count) {
@@ -328,6 +345,8 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
 				isDestroyed = true;
+				renderer.off("resize", handleResize);
+				process.stdout.off("resize", onStdoutResize);
 				try {
 					renderer.destroy();
 				} catch {}
@@ -341,6 +360,8 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 		destroy() {
 			if (!isDestroyed) {
 				isDestroyed = true;
+				renderer.off("resize", handleResize);
+				process.stdout.off("resize", onStdoutResize);
 				try {
 					renderer.destroy();
 				} catch {}

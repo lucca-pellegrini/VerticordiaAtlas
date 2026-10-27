@@ -2052,6 +2052,33 @@
 			],
 			"tagLabel": "Filter",
 			"defaultTag": null
+		},
+		{
+			"id": "gta-5",
+			"slug": "gta-5",
+			"title": "Grand Theft Auto 5",
+			"description": "Every marker on the Grand Theft Auto 5 map.",
+			"poster": "gta-5/poster",
+			"theme": {
+				"accent": "#a25a32",
+				"accent-soft": "#d39471",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362821"
+			},
+			"stats": [
+				{
+					"value": 2298,
+					"label": "markers"
+				},
+				{
+					"value": 74,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
 		}
 	]
 }

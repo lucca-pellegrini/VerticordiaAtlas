@@ -80,3 +80,14 @@ export function isInteractiveTty(noTuiFlag?: boolean): boolean {
 		process.stdout.isTTY && !noTuiFlag && !process.env.CI && !process.argv.some((arg) => arg.includes("test")),
 	);
 }
+
+export function computeResponsiveBox(
+	termW: number,
+	termH: number,
+	maxBoxW = 128,
+	maxBoxH = 38,
+): { boxW: number; boxH: number } {
+	const boxW = Math.max(36, Math.min(termW - 2, maxBoxW));
+	const boxH = Math.max(14, Math.min(termH - 2, maxBoxH));
+	return { boxW, boxH };
+}

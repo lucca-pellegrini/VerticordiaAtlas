@@ -5,6 +5,7 @@ import { describe, expect, test } from "bun:test";
 import http from "node:http";
 
 import {
+	computeResponsiveBox,
 	createMediaDashboard,
 	createPruneDashboard,
 	createServerDashboard,
@@ -37,6 +38,23 @@ describe("TUI ecosystem components & helpers", () => {
 
 		const bar = renderProgressBar(50, 10);
 		expect(bar).toBe("[█████░░░░░]");
+	});
+
+	test("computeResponsiveBox computes bounded dimensions for any terminal size", () => {
+		// Small terminal (e.g. 50x20)
+		const small = computeResponsiveBox(50, 20, 128, 38);
+		expect(small.boxW).toBe(48); // 50 - 2
+		expect(small.boxH).toBe(18); // 20 - 2
+
+		// Tiny terminal (< min limits)
+		const tiny = computeResponsiveBox(30, 10, 128, 38);
+		expect(tiny.boxW).toBe(36); // clamped to min 36
+		expect(tiny.boxH).toBe(14); // clamped to min 14
+
+		// Large terminal (e.g. 200x60)
+		const large = computeResponsiveBox(200, 60, 128, 38);
+		expect(large.boxW).toBe(128); // capped at max 128
+		expect(large.boxH).toBe(38); // capped at max 38
 	});
 
 	test("isInteractiveTty respects noTui flag and test execution", () => {

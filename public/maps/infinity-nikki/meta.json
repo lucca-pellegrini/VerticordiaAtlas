@@ -327,6 +327,16 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256,
 					"background": "#cdc6aa"
+				},
+				{
+					"name": "1F",
+					"template": "miraland/tiles/1F-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 18,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#cdc6aa"
 				}
 			]
 		},

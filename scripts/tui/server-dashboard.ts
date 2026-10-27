@@ -4,7 +4,7 @@
 import { BoxRenderable, createCliRenderer, TextRenderable } from "@opentui/core";
 
 import { fmt } from "../../src/shared/escape.js";
-import { fmtBytes, fmtTime, isInteractiveTty, RGBA_THEME, THEME } from "./theme.js";
+import { computeResponsiveBox, fmtBytes, fmtTime, isInteractiveTty, RGBA_THEME, THEME } from "./theme.js";
 
 export interface ServerDashboardOptions {
 	host: string;
@@ -93,17 +93,11 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		exitOnCtrlC: true,
 	});
 
-	const termW = Math.max(70, renderer.width || 80);
-	const termH = Math.max(22, renderer.height || 24);
+	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 136, 42);
 
 	renderer.root.flexDirection = "column";
 	renderer.root.alignItems = "center";
 	renderer.root.justifyContent = "center";
-	renderer.root.width = renderer.width;
-	renderer.root.height = renderer.height;
-
-	const boxW = Math.max(80, Math.min(termW - 4, 136));
-	const boxH = Math.max(22, Math.min(termH - 2, 42));
 
 	const rootBox = new BoxRenderable(renderer, {
 		width: boxW,
@@ -136,7 +130,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		marginVertical: 1,
 	});
 
-	const leftW = Math.floor(boxW * 0.52);
+	let leftW = Math.floor(boxW * 0.52);
 
 	// Pane 1: HTTP Requests
 	const httpPane = new BoxRenderable(renderer, {
@@ -313,6 +307,23 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		renderer.requestRender();
 	}
 
+	function handleResize(termW: number, termH: number) {
+		if (isDestroyed) return;
+		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 136, 42);
+		boxW = next.boxW;
+		boxH = next.boxH;
+		leftW = Math.floor(boxW * 0.52);
+		rootBox.width = boxW;
+		rootBox.height = boxH;
+		httpPane.width = leftW;
+		syncPane.width = leftW;
+		renderUi(true);
+	}
+
+	renderer.on("resize", handleResize);
+	const onStdoutResize = () => handleResize(renderer.width, renderer.height);
+	process.stdout.on("resize", onStdoutResize);
+
 	// Auto-render ticker every 1s for uptime & memory
 	const ticker = setInterval(() => {
 		renderUi(true);
@@ -351,6 +362,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			clearInterval(ticker);
 			if (!isDestroyed) {
 				isDestroyed = true;
+				renderer.off("resize", handleResize);
+				process.stdout.off("resize", onStdoutResize);
 				try {
 					renderer.destroy();
 				} catch {}

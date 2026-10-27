@@ -10,7 +10,7 @@ import {
 	TextRenderable,
 } from "@opentui/core";
 
-import { RGBA_THEME, THEME } from "./theme.js";
+import { computeResponsiveBox, RGBA_THEME, THEME } from "./theme.js";
 
 export interface AddGameFormResult {
 	url: string;
@@ -77,17 +77,11 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 			exitOnCtrlC: true,
 		});
 
-		const termW = Math.max(70, renderer.width || 80);
-		const termH = Math.max(24, renderer.height || 26);
+		let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 26, 110, 36);
 
 		renderer.root.flexDirection = "column";
 		renderer.root.alignItems = "center";
 		renderer.root.justifyContent = "center";
-		renderer.root.width = renderer.width;
-		renderer.root.height = renderer.height;
-
-		const boxW = Math.max(76, Math.min(termW - 4, 110));
-		const boxH = Math.max(24, Math.min(termH - 2, 34));
 
 		const rootBox = new BoxRenderable(renderer, {
 			width: boxW,
@@ -315,6 +309,8 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 			if (isClosed) return;
 			isClosed = true;
 			clearTimeout(validateTimer);
+			renderer.off("resize", handleResize);
+			process.stdout.off("resize", onStdoutResize);
 			try {
 				urlInput.removeAllListeners();
 				slugInput.removeAllListeners();
@@ -328,6 +324,25 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 			clearTimeout(validateTimer);
 			resolve(res);
 		}
+
+		function handleResize(termW: number, termH: number) {
+			if (isClosed) return;
+			const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 110, 36);
+			boxW = next.boxW;
+			boxH = next.boxH;
+			rootBox.width = boxW;
+			rootBox.height = boxH;
+			const inputW = Math.max(20, boxW - 8);
+			urlInput.width = inputW;
+			slugInput.width = inputW;
+			titleInput.width = inputW;
+			posterInput.width = inputW;
+			renderer.requestRender();
+		}
+
+		renderer.on("resize", handleResize);
+		const onStdoutResize = () => handleResize(renderer.width, renderer.height);
+		process.stdout.on("resize", onStdoutResize);
 
 		renderer.keyInput.on("keypress", (key: KeyEvent) => {
 			if (isClosed) return;
