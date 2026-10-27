@@ -6,7 +6,7 @@
 // make-screenshots.ts: the screenshots listed in public/manifest.webmanifest, taken from a running site in headless
 // Chromium (driven over the DevTools protocol, so no npm dependency).
 //
-//   bun scripts/make-screenshots.ts [--base http://127.0.0.1:8072] [--out public/screenshots] [--only wide-3,narrow-1]
+//   bun scripts/make-screenshots.ts [--base http://127.0.0.1:8072] [--out public/screenshots] [--only wide-3,narrow-1] [--no-tui]
 //
 // Chrome wants every screenshot of one form factor to have the same aspect ratio, between 320 and 3840 px, with the long
 // side at most 2.3 times the short side. So there are two sets: "wide" (16:9, desktop) and "narrow" (9:16, phones).
@@ -16,6 +16,9 @@
 
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
+import { parseArgs } from "node:util";
+
+import { createScreenshotDashboard, type ScreenshotDashboard } from "./tui/screenshot-dashboard.ts";
 
 type Form = "wide" | "narrow";
 type Shot = {
@@ -106,28 +109,23 @@ const SHOTS: Shot[] = [
 		settle: sc.settle,
 		// a phone shows the sidebar as a panel over the map: open it first, then the same action as the wide scene
 		prepare:
-			sc.name === "search"
+			sc.prepare && sc.typeText
 				? OPEN_SEARCH
-				: sc.name === "list"
-					? `document.getElementById('side-toggle').click(); ${sc.prepare}`
-					: sc.prepare,
+				: sc.prepare
+					? `(() => { document.getElementById('side-toggle').click(); setTimeout(() => { ${sc.prepare} }, 300); })()`
+					: undefined,
 		typeText: sc.typeText,
 		caption: sc.caption,
 	})),
 ];
 
-/* ---------- Chromium over the DevTools protocol ---------- */
-
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-function arg(name: string, fallback: string): string {
-	const i = Bun.argv.indexOf(`--${name}`);
-	return i >= 0 && Bun.argv[i + 1] ? Bun.argv[i + 1] : fallback;
-}
-
-async function launch(port: number) {
+async function launch(port: number, dashboard: ScreenshotDashboard) {
 	const bin = process.env.CHROME || "chromium";
 	const profile = `${process.env.TMPDIR || "/tmp"}/atlas-shots-${process.pid}`;
+	dashboard.onStep(`Launching headless Chromium process: ${bin}`, "CHROME");
+	dashboard.onStep(`Allocated remote debugging port :${port}`, "CHROME");
 	const proc = Bun.spawn(
 		[
 			bin,
@@ -154,8 +152,11 @@ async function launch(port: number) {
 		if (!target) await sleep(150);
 	}
 	if (!target) throw new Error(`Chromium did not start (${bin})`);
+	dashboard.onStep("Connecting to DevTools Protocol WebSocket", "CDP");
 	const ws = new WebSocket(target.webSocketDebuggerUrl);
 	await new Promise((r) => ws.addEventListener("open", r));
+	dashboard.onStep("DevTools WebSocket handshake established", "CDP");
+
 	let id = 0;
 	const pending = new Map<number, (m: any) => void>();
 	ws.addEventListener("message", (ev) => {
@@ -198,112 +199,199 @@ async function waitFor(cdp: Cdp, expression: string, what: string, ms = 40000) {
 	throw new Error(`timed out waiting for: ${what}`);
 }
 
-async function shoot(cdp: Cdp, shot: Shot, base: string, out: string) {
+async function shoot(cdp: Cdp, shot: Shot, base: string, out: string, dashboard: ScreenshotDashboard) {
+	const t0 = Date.now();
+	dashboard.startShot(shot);
+
 	const v = VIEWPORT[shot.form];
+	dashboard.onShotStep(`Setting ${shot.form} viewport: ${v.width}×${v.height} @ ${v.scale}x`);
 	await cdp.send("Emulation.setDeviceMetricsOverride", {
 		width: v.width,
 		height: v.height,
 		deviceScaleFactor: v.scale,
 		mobile: v.mobile,
 	});
-	await cdp.send("Emulation.setTouchEmulationEnabled", { enabled: v.mobile, maxTouchPoints: v.mobile ? 5 : 1 });
-	await cdp.send("Page.navigate", { url: new URL(shot.path, base).href });
+
+	if (v.mobile) {
+		dashboard.onShotStep("Enabling mobile touch emulation (5 touchpoints)");
+		await cdp.send("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 });
+	}
+
+	const navUrl = new URL(shot.path, base).href;
+	dashboard.onShotStep(`Navigating to ${navUrl}`);
+	await cdp.send("Page.navigate", { url: navUrl });
+
+	dashboard.onShotStep("Waiting for document.readyState === 'complete'");
 	await waitFor(cdp, 'document.readyState === "complete"', "the page to load");
-	if (shot.settle) await waitFor(cdp, shot.settle, `${shot.name}: its content`);
-	// a grace period after the map reports ready: tiles fade in over 1.6 s, the marker layer a little after, and a throbber
-	// caught mid-fade is a bad screenshot
+
+	if (shot.settle) {
+		dashboard.onShotStep("Evaluating content settle condition");
+		await waitFor(cdp, shot.settle, `${shot.name}: its content`);
+	}
+
+	dashboard.onShotStep("Grace period (6.0s) for tile rasterization & layer fade-in");
 	await sleep(6000);
+
 	if (shot.prepare) {
+		dashboard.onShotStep("Executing scene prepare script");
 		await cdp.evaluate(shot.prepare);
 		await sleep(900);
 	}
+
 	if (shot.typeText) {
+		dashboard.onShotStep(`Dispatching keyboard input: "${shot.typeText}"`);
 		await cdp.send("Input.insertText", { text: shot.typeText });
 		await sleep(900);
 	}
+
+	dashboard.onShotStep("Triggering Page.captureScreenshot (JPEG, q=90)");
 	const { data } = await cdp.send("Page.captureScreenshot", {
 		format: "jpeg",
 		quality: 90,
 		captureBeyondViewport: false,
 	});
-	await Bun.write(path.join(out, `${shot.name}.jpg`), Buffer.from(data, "base64"));
-	console.log(`  ${shot.name}.jpg  ${shot.caption ?? ""}`);
+
+	const filePath = path.join(out, `${shot.name}.jpg`);
+	dashboard.onShotStep(`Writing screenshot image -> ${shot.name}.jpg`);
+	const buf = Buffer.from(data, "base64");
+	await Bun.write(filePath, buf);
+
+	dashboard.finishShot(shot, buf.length, Date.now() - t0);
 }
 
 /* ---------- main ---------- */
 
-const baseArg = arg("base", "http://127.0.0.1:8072");
-const out = arg("out", "public/screenshots");
-const only = arg("only", "").split(",").filter(Boolean);
+const { values: v } = parseArgs({
+	options: {
+		base: { type: "string", default: "http://127.0.0.1:8072" },
+		out: { type: "string", default: "public/screenshots" },
+		only: { type: "string" },
+		"no-tui": { type: "boolean", default: false },
+		help: { type: "boolean", short: "h", default: false },
+	},
+});
+
+if (v.help) {
+	console.log(`
+Usage: bun scripts/make-screenshots.ts [options]
+
+Options:
+  --base <url>     Base URL of the running site (default: http://127.0.0.1:8072)
+  --out <dir>      Output directory for screenshots (default: public/screenshots)
+  --only <names>   Comma-separated list of screenshot names or prefixes (e.g. wide-1,narrow)
+  --no-tui         Disable the interactive terminal UI
+  --help, -h       Show this help message
+`);
+	process.exit(0);
+}
+
+const baseArg = v.base!;
+const out = v.out!;
+const only = v.only
+	? v.only
+			.split(",")
+			.map((s) => s.trim())
+			.filter(Boolean)
+	: [];
 const shots = SHOTS.filter((s) => !only.length || only.some((o) => s.name.startsWith(o)));
 await mkdir(out, { recursive: true });
+
+const dashboard = await createScreenshotDashboard({
+	totalShots: shots.length,
+	base: baseArg,
+	outDir: out,
+	noTui: Boolean(v["no-tui"]),
+});
 
 let base = baseArg;
 let serverProc: ReturnType<typeof Bun.spawn> | null = null;
 
-// If no server is already running at base, spawn our own server
-let serverReachable = false;
 try {
-	const res = await fetch(base);
-	if (res.ok || res.status < 500) serverReachable = true;
-} catch {}
+	// 1. Verify site server connectivity
+	dashboard.onStep(`Checking site server reachability at ${base}`, "SERVER");
+	let serverReachable = false;
+	try {
+		const res = await fetch(base);
+		if (res.ok || res.status < 500) serverReachable = true;
+	} catch {}
 
-if (!serverReachable) {
-	const parsedUrl = new URL(base);
-	const serverPort = parsedUrl.port || "8072";
-	const tsServer = path.join(import.meta.dir, "../server/server.ts");
-	const mjsServer = path.join(import.meta.dir, "../server/server.mjs");
-	const serverScript = (await Bun.file(tsServer).exists()) ? tsServer : mjsServer;
-	serverProc = Bun.spawn(["bun", serverScript, "--port", serverPort], {
-		stdout: "ignore",
-		stderr: "inherit",
-	});
-	const cleanup = () => {
+	if (!serverReachable) {
+		const parsedUrl = new URL(base);
+		const serverPort = parsedUrl.port || "8072";
+		dashboard.onStep(
+			`Server not detected on ${base}; spawning local test instance on port ${serverPort}`,
+			"SERVER",
+		);
+		const tsServer = path.join(import.meta.dir, "../server/server.ts");
+		const mjsServer = path.join(import.meta.dir, "../server/server.mjs");
+		const serverScript = (await Bun.file(tsServer).exists()) ? tsServer : mjsServer;
+		serverProc = Bun.spawn(["bun", serverScript, "--port", serverPort, "--no-tui"], {
+			stdout: "ignore",
+			stderr: "inherit",
+		});
+		const cleanup = () => {
+			try {
+				serverProc?.kill();
+			} catch {}
+		};
+		process.on("SIGINT", () => {
+			cleanup();
+			dashboard.destroy();
+			process.exit(1);
+		});
+		process.on("SIGTERM", () => {
+			cleanup();
+			dashboard.destroy();
+			process.exit(1);
+		});
+
+		let up = false;
+		for (let i = 0; i < 50; i++) {
+			try {
+				const res = await fetch(`${base}/`);
+				if (res.ok || res.status < 500) {
+					up = true;
+					break;
+				}
+			} catch {}
+			await sleep(100);
+		}
+		if (!up) {
+			try {
+				serverProc.kill();
+			} catch {}
+			throw new Error(`Server failed to start on ${base}`);
+		}
+		dashboard.onStep(`Local test server spawned successfully on ${base}`, "SERVER");
+	} else {
+		dashboard.onStep(`Existing server detected and responsive on ${base}`, "SERVER");
+	}
+
+	// 2. Launch Chromium and attach DevTools
+	const port = 9400 + Math.floor(Math.random() * 500);
+	const cdp = await launch(port, dashboard);
+	try {
+		dashboard.onStep("Enabling CDP Page and Runtime domains", "CDP");
+		await cdp.send("Page.enable");
+		await cdp.send("Runtime.enable");
+
+		for (const shot of shots) {
+			await shoot(cdp, shot, base, out, dashboard);
+		}
+
+		await dashboard.finish();
+	} finally {
+		dashboard.onStep("Closing CDP DevTools session", "CDP");
+		cdp.close();
 		try {
 			serverProc?.kill();
 		} catch {}
-	};
-	process.on("SIGINT", () => {
-		cleanup();
-		process.exit(1);
-	});
-	process.on("SIGTERM", () => {
-		cleanup();
-		process.exit(1);
-	});
-
-	let up = false;
-	for (let i = 0; i < 50; i++) {
-		try {
-			const res = await fetch(`${base}/`);
-			if (res.ok || res.status < 500) {
-				up = true;
-				break;
-			}
-		} catch {}
-		await sleep(100);
 	}
-	if (!up) {
-		try {
-			serverProc.kill();
-		} catch {}
-		throw new Error(`Server failed to start on ${base}`);
-	}
-}
-
-const port = 9400 + Math.floor(Math.random() * 500);
-const cdp = await launch(port);
-try {
-	await cdp.send("Page.enable");
-	await cdp.send("Runtime.enable");
-	for (const shot of shots) {
-		console.log(`${shot.name}: ${shot.path}`);
-		await shoot(cdp, shot, base, out);
-	}
-	console.log(`\n${shots.length} screenshot(s) in ${out}`);
-} finally {
-	cdp.close();
+} catch (err: any) {
+	dashboard.destroy();
 	try {
 		serverProc?.kill();
 	} catch {}
+	console.error(`\nERROR: ${err.message || err}`);
+	process.exit(1);
 }

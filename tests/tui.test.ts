@@ -6,8 +6,10 @@ import http from "node:http";
 
 import {
 	computeResponsiveBox,
+	createCardsDashboard,
 	createMediaDashboard,
 	createPruneDashboard,
+	createScreenshotDashboard,
 	createServerDashboard,
 	createTileDashboard,
 	densityGlyph,
@@ -222,6 +224,83 @@ describe("TUI ecosystem components & helpers", () => {
 		dashboard.setWsCount(4);
 
 		dashboard.destroy();
+	});
+
+	test("cards-dashboard tracks multi-step card rendering progress", async () => {
+		const dashboard = await createCardsDashboard({
+			totalCards: 2,
+			chromeBin: "chromium",
+			siteUrl: "https://atlas.verticordia.com",
+			noTui: true,
+		});
+
+		dashboard.onStep("Validated site configuration", "CONFIG");
+		dashboard.startCard({
+			slug: "homepage",
+			title: "Atlas Homepage",
+			outPath: "public/card.jpg",
+			poster: true,
+		});
+		dashboard.onCardStep("Compiling HTML markup");
+		dashboard.finishCard(
+			{ slug: "homepage", title: "Atlas Homepage", outPath: "public/card.jpg", poster: true },
+			160000,
+			220,
+		);
+
+		dashboard.startCard({
+			slug: "totk",
+			title: "Tears of the Kingdom",
+			outPath: "public/maps/totk/card.jpg",
+			poster: true,
+		});
+		dashboard.onCardStep("Spawning headless Chromium");
+		dashboard.finishCard(
+			{ slug: "totk", title: "Tears of the Kingdom", outPath: "public/maps/totk/card.jpg", poster: true },
+			145000,
+			190,
+		);
+
+		await dashboard.finish();
+	});
+
+	test("screenshot-dashboard tracks CDP emulation, navigation and capture steps", async () => {
+		const dashboard = await createScreenshotDashboard({
+			totalShots: 2,
+			base: "http://127.0.0.1:8072",
+			outDir: "public/screenshots",
+			noTui: true,
+		});
+
+		dashboard.onStep("Server health check succeeded", "SERVER");
+		dashboard.startShot({
+			name: "wide-1-games",
+			form: "wide",
+			path: "/",
+			caption: "Homepage games grid",
+		});
+		dashboard.onShotStep("Configuring 1600x900 viewport");
+		dashboard.onShotStep("Page.navigate to /");
+		dashboard.finishShot(
+			{ name: "wide-1-games", form: "wide", path: "/", caption: "Homepage games grid" },
+			420000,
+			6200,
+		);
+
+		dashboard.startShot({
+			name: "narrow-1-games",
+			form: "narrow",
+			path: "/",
+			caption: "Mobile homepage games grid",
+		});
+		dashboard.onShotStep("Enabling touch emulation");
+		dashboard.finishShot(
+			{ name: "narrow-1-games", form: "narrow", path: "/", caption: "Mobile homepage games grid" },
+			310000,
+			5900,
+		);
+
+		await dashboard.finish();
 	});
 
 	test("validatePosterUrl verifies mime types and image sizes", async () => {

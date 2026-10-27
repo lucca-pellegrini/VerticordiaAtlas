@@ -385,12 +385,20 @@ export async function chromePath(): Promise<string> {
 }
 
 // draws html as a 1200x630 JPG at `out`
-export async function drawCard(chrome: string, html: string, out: string): Promise<void> {
+export async function drawCard(
+	chrome: string,
+	html: string,
+	out: string,
+	onStep?: (step: string) => void,
+): Promise<void> {
+	onStep?.("Creating temporary sandbox directory");
 	const tmp = await mkdtemp(path.join(os.tmpdir(), "card-"));
 	try {
 		const file = path.join(tmp, "card.html"),
 			png = path.join(tmp, "card.png");
+		onStep?.(`Writing HTML template markup (${Math.round(Buffer.byteLength(html) / 1024)} KB)`);
 		await Bun.write(file, html);
+		onStep?.("Spawning headless Chromium rasterizer (1200×630 @ 1.0x)");
 		const chromeProc = Bun.spawn(
 			[
 				chrome,
@@ -410,6 +418,7 @@ export async function drawCard(chrome: string, html: string, out: string): Promi
 		const chromeExit = await chromeProc.exited;
 		if (chromeExit !== 0) throw new Error(`Chromium exited with code ${chromeExit}`);
 
+		onStep?.("Encoding progressive JPEG via ImageMagick (-quality 88)");
 		await mkdir(path.dirname(out), { recursive: true });
 		const magickProc = Bun.spawn(["magick", png, "-strip", "-quality", "88", out], {
 			stdout: "ignore",
@@ -417,7 +426,9 @@ export async function drawCard(chrome: string, html: string, out: string): Promi
 		});
 		const magickExit = await magickProc.exited;
 		if (magickExit !== 0) throw new Error(`magick exited with code ${magickExit}`);
+		onStep?.(`Written output image -> ${path.basename(out)}`);
 	} finally {
+		onStep?.("Cleaning temporary render files");
 		await rm(tmp, { recursive: true, force: true });
 	}
 }
