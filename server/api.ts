@@ -870,6 +870,11 @@ export function createApi({
 		hasMedia,
 		getMedia,
 		recordMedia,
+		wsCount: (): number => {
+			let count = 0;
+			for (const set of sockets.values()) count += set.size;
+			return count;
+		},
 		close: () => {
 			clearInterval(heartbeatTimer);
 			clearInterval(sweepTimer);
