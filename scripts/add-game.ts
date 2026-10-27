@@ -217,7 +217,7 @@ export function tilesCovering(
 const fill = (tpl: string, z: number, x: number, y: number) =>
 	tpl.replace("{z}", String(z)).replace("{x}", String(x)).replace("{y}", String(y));
 
-function boundsFor(md: any, ts: any): { bounds: [number, number, number, number]; guessed: boolean } {
+export function boundsFor(md: any, ts: any): { bounds: [number, number, number, number]; guessed: boolean } {
 	// tile-index bounds per zoom level: { "8": { x: { min, max }, y: { min, max } }, ... }
 	if (ts.bounds && typeof ts.bounds === "object" && !Array.isArray(ts.bounds)) {
 		const zs = Object.keys(ts.bounds)
