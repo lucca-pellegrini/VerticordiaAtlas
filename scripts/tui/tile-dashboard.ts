@@ -72,6 +72,77 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	let yMin = opts.bounds?.yMin ?? Infinity;
 	let yMax = opts.bounds?.yMax ?? -Infinity;
 
+	let validMinX = opts.bounds?.xMin ?? Infinity;
+	let validMaxX = opts.bounds?.xMax ?? -Infinity;
+	let validMinY = opts.bounds?.yMin ?? Infinity;
+	let validMaxY = opts.bounds?.yMax ?? -Infinity;
+	let voidMinX = Infinity;
+	let voidMaxX = -Infinity;
+	let voidMinY = Infinity;
+	let voidMaxY = -Infinity;
+	let validCount = 0;
+
+	function computeProgressState(totalDone: number) {
+		const hasExplicitBounds =
+			opts.bounds != null &&
+			Number.isFinite(opts.bounds.xMin) &&
+			Number.isFinite(opts.bounds.xMax) &&
+			Number.isFinite(opts.bounds.yMin) &&
+			Number.isFinite(opts.bounds.yMax);
+
+		const hasLeft = hasExplicitBounds || (validCount > 0 && Number.isFinite(voidMinX) && voidMinX <= validMinX);
+		const hasRight = hasExplicitBounds || (validCount > 0 && Number.isFinite(voidMaxX) && voidMaxX >= validMaxX);
+		const hasTop = hasExplicitBounds || (validCount > 0 && Number.isFinite(voidMinY) && voidMinY <= validMinY);
+		const hasBottom = hasExplicitBounds || (validCount > 0 && Number.isFinite(voidMaxY) && voidMaxY >= validMaxY);
+
+		const hasFourEdges = hasLeft && hasRight && hasTop && hasBottom;
+		const edgeCount = (hasLeft ? 1 : 0) + (hasRight ? 1 : 0) + (hasTop ? 1 : 0) + (hasBottom ? 1 : 0);
+
+		let estimatedTotal = 0;
+		if (hasFourEdges) {
+			const rMinX = Number.isFinite(validMinX) ? validMinX : opts.bounds!.xMin;
+			const rMaxX = Number.isFinite(validMaxX) ? validMaxX : opts.bounds!.xMax;
+			const rMinY = Number.isFinite(validMinY) ? validMinY : opts.bounds!.yMin;
+			const rMaxY = Number.isFinite(validMaxY) ? validMaxY : opts.bounds!.yMax;
+			const w = Math.max(1, rMaxX - rMinX + 1);
+			const h = Math.max(1, rMaxY - rMinY + 1);
+			estimatedTotal = Math.max(totalDone, w * h);
+		}
+
+		if (totalExpected > 0 && totalDone < totalExpected && (!hasFourEdges || estimatedTotal <= totalExpected)) {
+			const pct = (totalDone / totalExpected) * 100;
+			return {
+				mode: "exact" as const,
+				total: totalExpected,
+				pct: Math.min(100, Math.max(0, pct)),
+				hasFourEdges,
+				edgeCount,
+				estimatedTotal,
+			};
+		}
+
+		if (hasFourEdges && estimatedTotal > 0) {
+			const pct = (totalDone / estimatedTotal) * 100;
+			return {
+				mode: "estimated" as const,
+				total: estimatedTotal,
+				pct: Math.min(100, Math.max(0, pct)),
+				hasFourEdges,
+				edgeCount,
+				estimatedTotal,
+			};
+		}
+
+		return {
+			mode: "unknown" as const,
+			total: -1,
+			pct: -1,
+			hasFourEdges,
+			edgeCount,
+			estimatedTotal,
+		};
+	}
+
 	const tiles: TileRecord[] = [];
 	let recentFlashes: TileFlash[] = [];
 	const samples: { time: number; tiles: number; bytes: number }[] = [];
@@ -86,18 +157,41 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 				xMax = Math.max(xMax, maxX);
 				yMin = Math.min(yMin, minY);
 				yMax = Math.max(yMax, maxY);
+				if (minX < validMinX) validMinX = minX;
+				if (maxX > validMaxX) validMaxX = maxX;
+				if (minY < validMinY) validMinY = minY;
+				if (maxY > validMaxY) validMaxY = maxY;
+				if (expected != null) validCount += expected;
 				if (expected != null && expected > totalExpected) totalExpected = expected;
 			},
-			onTile(_x, _y, status, bytes = 0) {
+			onTile(x, y, status, bytes = 0) {
 				if (status === "saved") {
 					saved++;
 					totalBytes += bytes;
+					if (x < validMinX) validMinX = x;
+					if (x > validMaxX) validMaxX = x;
+					if (y < validMinY) validMinY = y;
+					if (y > validMaxY) validMaxY = y;
+					validCount++;
 				} else if (status === "skipped") {
 					skipped++;
+					if (x < validMinX) validMinX = x;
+					if (x > validMaxX) validMaxX = x;
+					if (y < validMinY) validMinY = y;
+					if (y > validMaxY) validMaxY = y;
+					validCount++;
 				} else if (status === "missing") {
 					missing++;
+					if (x < voidMinX) voidMinX = x;
+					if (x > voidMaxX) voidMaxX = x;
+					if (y < voidMinY) voidMinY = y;
+					if (y > voidMaxY) voidMaxY = y;
 				} else if (status === "failed") {
 					failed++;
+					if (x < voidMinX) voidMinX = x;
+					if (x > voidMaxX) voidMaxX = x;
+					if (y < voidMinY) voidMinY = y;
+					if (y > voidMaxY) voidMaxY = y;
 				}
 				const now = Date.now();
 				if (now - lastLogTime >= 1500) {
@@ -105,9 +199,12 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 					const elapsed = (now - startTime) / 1000;
 					const totalDone = saved + skipped;
 					const rate = elapsed > 0 ? (totalDone / elapsed).toFixed(1) : "0.0";
-					const pct = totalExpected > 0 ? ` (${((totalDone / totalExpected) * 100).toFixed(1)}%)` : "";
+					const st = computeProgressState(totalDone);
+					let pctStr = " (total unknown)";
+					if (st.mode === "exact") pctStr = ` (${st.pct.toFixed(1)}%)`;
+					else if (st.mode === "estimated") pctStr = ` (~${fmt(st.total)} est. - est. ${st.pct.toFixed(1)}%)`;
 					console.log(
-						`  zoom ${opts.zoom}: ${fmt(saved)} saved, ${fmt(skipped)} cached, ${fmt(missing)} perimeter${pct} [${rate} t/s, ${fmtBytes(totalBytes)}]`,
+						`  zoom ${opts.zoom}: ${fmt(saved)} saved, ${fmt(skipped)} cached, ${fmt(missing)} perimeter${pctStr} [${rate} t/s, ${fmtBytes(totalBytes)}]`,
 					);
 				}
 			},
@@ -122,8 +219,21 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			destroy() {},
 			getStats() {
 				const elapsedSeconds = (Date.now() - startTime) / 1000;
-				const tilesPerSecond = elapsedSeconds > 0 ? (saved + skipped) / elapsedSeconds : 0;
-				return { saved, skipped, missing, failed, bytes: totalBytes, elapsedSeconds, tilesPerSecond };
+				const totalDone = saved + skipped;
+				const tilesPerSecond = elapsedSeconds > 0 ? totalDone / elapsedSeconds : 0;
+				const st = computeProgressState(totalDone);
+				return {
+					saved,
+					skipped,
+					missing,
+					failed,
+					bytes: totalBytes,
+					elapsedSeconds,
+					tilesPerSecond,
+					estimatedTotal: st.estimatedTotal,
+					hasFourEdges: st.hasFourEdges,
+					progressMode: st.mode,
+				};
 			},
 		};
 	}
@@ -229,6 +339,8 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 
 	let lastRender = 0;
 	let lastStatsUpdate = 0;
+	let currentRateTiles = 0;
+	let currentRateBytes = 0;
 	let renderTimer: any = null;
 	let isDestroyed = false;
 
@@ -369,23 +481,49 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		lastRender = now;
 
 		const totalDone = saved + skipped;
-		const totalAll = Math.max(totalDone, totalExpected);
-		const pct = totalAll > 0 ? Math.min(100, (totalDone / totalAll) * 100) : 0;
+		const st = computeProgressState(totalDone);
 
 		// 1. Snappy 60+ fps updates: counters, progress bar, minimap
-		progressText.content = `Progress:    ${fmt(totalDone)} / ${fmt(totalAll)} tiles (${pct.toFixed(1)}%)`;
+		if (st.mode === "exact") {
+			progressText.content = `Progress:    ${fmt(totalDone)} / ${fmt(st.total)} tiles (${st.pct.toFixed(1)}%)`;
+			progressText.fg = THEME.peach;
+		} else if (st.mode === "estimated") {
+			progressText.content = `Progress:    ${fmt(totalDone)} / ~${fmt(st.total)} tiles (est. ${st.pct.toFixed(1)}%)`;
+			progressText.fg = THEME.yellow;
+		} else {
+			progressText.content = `Progress:    ${fmt(totalDone)} downloaded, total unknown`;
+			progressText.fg = THEME.peach;
+		}
+
 		countsText1.content = `Saved:       ${fmt(saved).padEnd(8)} Cached: ${fmt(skipped)}`;
 		countsText2.content = `Perimeter:   ${fmt(missing).padEnd(8)} Failed: ${fmt(failed)}`;
 
 		const avgSize = saved > 0 ? fmtBytes(totalBytes / saved) : "--";
 		const conc = opts.concurrency || 8;
-		extraStatsText.content = `Concurrency: ${conc} workers   Avg tile: ${avgSize}`;
+		const edgeInfo = st.hasFourEdges ? "4/4 (inferred)" : `${st.edgeCount}/4`;
+		extraStatsText.content = `Concurrency: ${conc} workers   Edges: ${edgeInfo}   Avg: ${avgSize}`;
 
 		const hitRatio = totalDone > 0 ? ((skipped / totalDone) * 100).toFixed(1) : "0.0";
 		cacheHitText.content = `Cache hit:   ${hitRatio}%      Total data: ${fmtBytes(totalBytes)}`;
 
-		const barWidth = Math.max(10, boxW - 24);
-		progressBar.content = `${renderProgressBar(pct, barWidth)} ${pct.toFixed(1)}% (${fmtBytes(totalBytes)})`;
+		const availW = Math.max(16, boxW - 4);
+		if (st.mode === "exact") {
+			const suffix = ` ${st.pct.toFixed(1)}% (${fmtBytes(totalBytes)})`;
+			const barWidth = Math.max(6, availW - suffix.length - 2);
+			progressBar.content = `${renderProgressBar(st.pct, barWidth)}${suffix}`;
+			progressBar.fg = THEME.green;
+		} else if (st.mode === "estimated") {
+			const suffix = ` ~${st.pct.toFixed(1)}% (${fmtBytes(totalBytes)})`;
+			const barWidth = Math.max(6, availW - suffix.length - 2);
+			progressBar.content = `${renderProgressBar(st.pct, barWidth, "▓", "░")}${suffix}`;
+			progressBar.fg = THEME.yellow;
+		} else {
+			const suffix = ` total unknown (${fmtBytes(totalBytes)})`;
+			const barWidth = Math.max(6, availW - suffix.length - 2);
+			const dashes = "-".repeat(barWidth);
+			progressBar.content = `[${dashes}]${suffix}`;
+			progressBar.fg = THEME.textDim;
+		}
 
 		// 2. Smoothed rate and ETA updates: calculated every 500ms
 		if (force || now - lastStatsUpdate >= STATS_INTERVAL_MS) {
@@ -396,13 +534,21 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			}
 			const oldest = samples[0];
 			const sampleDt = Math.max(0.1, (now - oldest.time) / 1000);
-			const rateTiles = Math.max(0, (totalDone - oldest.tiles) / sampleDt);
-			const rateBytes = Math.max(0, (totalBytes - oldest.bytes) / sampleDt);
+			currentRateTiles = Math.max(0, (totalDone - oldest.tiles) / sampleDt);
+			currentRateBytes = Math.max(0, (totalBytes - oldest.bytes) / sampleDt);
+		}
 
-			const elapsed = (now - startTime) / 1000;
-			const eta = rateTiles > 0 && totalAll > totalDone ? (totalAll - totalDone) / rateTiles : -1;
+		rateText.content = `Rate:        ${currentRateTiles.toFixed(1)} tiles/s (${fmtBytes(currentRateBytes)}/s)`;
 
-			rateText.content = `Rate:        ${rateTiles.toFixed(1)} tiles/s (${fmtBytes(rateBytes)}/s)`;
+		const elapsed = (now - startTime) / 1000;
+		if (st.mode === "unknown") {
+			timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: unknown`;
+		} else if (st.mode === "estimated") {
+			const eta = currentRateTiles > 0 && st.total > totalDone ? (st.total - totalDone) / currentRateTiles : -1;
+			const etaStr = eta >= 0 ? `~${fmtTime(eta)} (est.)` : "unknown";
+			timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: ${etaStr}`;
+		} else {
+			const eta = currentRateTiles > 0 && st.total > totalDone ? (st.total - totalDone) / currentRateTiles : -1;
 			timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: ${fmtTime(eta)}`;
 		}
 
@@ -474,6 +620,11 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 				yMax = maxY;
 				changed = true;
 			}
+			if (minX < validMinX) validMinX = minX;
+			if (maxX > validMaxX) validMaxX = maxX;
+			if (minY < validMinY) validMinY = minY;
+			if (maxY > validMaxY) validMaxY = maxY;
+			if (expected != null) validCount += expected;
 			if (expected != null && expected > totalExpected) totalExpected = expected;
 			if (changed) bucketsDirty = true;
 			scheduleRender(false);
@@ -484,15 +635,33 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 				saved++;
 				totalBytes += bytes;
 				stNum = 0;
+				if (x < validMinX) validMinX = x;
+				if (x > validMaxX) validMaxX = x;
+				if (y < validMinY) validMinY = y;
+				if (y > validMaxY) validMaxY = y;
+				validCount++;
 			} else if (status === "skipped") {
 				skipped++;
 				stNum = 1;
+				if (x < validMinX) validMinX = x;
+				if (x > validMaxX) validMaxX = x;
+				if (y < validMinY) validMinY = y;
+				if (y > validMaxY) validMaxY = y;
+				validCount++;
 			} else if (status === "missing") {
 				missing++;
 				stNum = 2;
+				if (x < voidMinX) voidMinX = x;
+				if (x > voidMaxX) voidMaxX = x;
+				if (y < voidMinY) voidMinY = y;
+				if (y > voidMaxY) voidMaxY = y;
 			} else if (status === "failed") {
 				failed++;
 				stNum = 3;
+				if (x < voidMinX) voidMinX = x;
+				if (x > voidMaxX) voidMaxX = x;
+				if (y < voidMinY) voidMinY = y;
+				if (y > voidMaxY) voidMaxY = y;
 			}
 
 			let boundsChanged = false;
@@ -573,8 +742,21 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		},
 		getStats() {
 			const elapsedSeconds = (Date.now() - startTime) / 1000;
-			const tilesPerSecond = elapsedSeconds > 0 ? (saved + skipped) / elapsedSeconds : 0;
-			return { saved, skipped, missing, failed, bytes: totalBytes, elapsedSeconds, tilesPerSecond };
+			const totalDone = saved + skipped;
+			const tilesPerSecond = elapsedSeconds > 0 ? totalDone / elapsedSeconds : 0;
+			const st = computeProgressState(totalDone);
+			return {
+				saved,
+				skipped,
+				missing,
+				failed,
+				bytes: totalBytes,
+				elapsedSeconds,
+				tilesPerSecond,
+				estimatedTotal: st.estimatedTotal,
+				hasFourEdges: st.hasFourEdges,
+				progressMode: st.mode,
+			};
 		},
 	};
 }

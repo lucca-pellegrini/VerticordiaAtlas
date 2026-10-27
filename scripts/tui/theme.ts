@@ -76,11 +76,11 @@ export function fmtBytes(bytes: number): string {
 	return `${(bytes / (1024 * 1024 * 1024)).toFixed(2)} GB`;
 }
 
-export function renderProgressBar(pct: number, width: number): string {
+export function renderProgressBar(pct: number, width: number, fillChar = "█", emptyChar = "░"): string {
 	const clamped = Math.max(0, Math.min(100, pct));
-	const filled = Math.min(width, Math.floor((clamped / 100) * width));
+	const filled = Math.max(0, Math.min(width, Math.floor((clamped / 100) * width)));
 	const empty = Math.max(0, width - filled);
-	return `[${"█".repeat(filled)}${"░".repeat(empty)}]`;
+	return `[${fillChar.repeat(filled)}${emptyChar.repeat(empty)}]`;
 }
 
 export function isInteractiveTty(noTuiFlag?: boolean): boolean {

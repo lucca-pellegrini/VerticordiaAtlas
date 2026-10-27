@@ -121,6 +121,45 @@ describe("TUI ecosystem components & helpers", () => {
 		await dashboard.finish();
 	});
 
+	test("tile-dashboard infers border rectangle and transitions from unknown to estimated progress", async () => {
+		const dashboard = await createTileDashboard({
+			gameTitle: "Test Map",
+			gameSlug: "test-map",
+			mapSlug: "test",
+			tilesetName: "Default",
+			zoom: 10,
+			pattern: "{z}/{x}/{y}.jpg",
+			destDir: "/tmp",
+			noTui: true,
+			totalExpected: 0, // total unknown
+		});
+
+		// 1. Download tiles with no edges discovered yet
+		dashboard.onTile(100, 200, "saved", 1024);
+		dashboard.onTile(110, 210, "saved", 1024);
+		let st = dashboard.getStats() as any;
+		expect(st.progressMode).toBe("unknown");
+		expect(st.hasFourEdges).toBe(false);
+
+		// 2. Discover only top and right borders (not all 4)
+		dashboard.onTile(100, 199, "missing"); // Top border
+		dashboard.onTile(111, 205, "missing"); // Right border
+		st = dashboard.getStats() as any;
+		expect(st.progressMode).toBe("unknown");
+		expect(st.hasFourEdges).toBe(false);
+
+		// 3. Discover remaining left and bottom borders (all 4 found!)
+		dashboard.onTile(99, 205, "missing"); // Left border
+		dashboard.onTile(105, 211, "missing"); // Bottom border
+		st = dashboard.getStats() as any;
+		expect(st.hasFourEdges).toBe(true);
+		expect(st.progressMode).toBe("estimated");
+		// Valid X span: 100..110 (11 tiles), Y span: 200..210 (11 tiles) => 11 * 11 = 121
+		expect(st.estimatedTotal).toBe(121);
+
+		await dashboard.finish();
+	});
+
 	test("media-dashboard tracks download, upload, cache, and cloud verification", async () => {
 		const dashboard = await createMediaDashboard({
 			game: "zelda-totk",
