@@ -51,6 +51,13 @@ interface TileRecord {
 	status: number; // 0=saved, 1=skipped, 2=missing, 3=failed
 }
 
+interface TileFlash {
+	x: number;
+	y: number;
+	status: number;
+	time: number;
+}
+
 export async function createTileDashboard(opts: DashboardOptions): Promise<TileDashboard> {
 	const startTime = Date.now();
 	let saved = 0;
@@ -66,6 +73,8 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	let yMax = opts.bounds?.yMax ?? -Infinity;
 
 	const tiles: TileRecord[] = [];
+	let recentFlashes: TileFlash[] = [];
+	let flashClearTimer: any = null;
 	const samples: { time: number; tiles: number; bytes: number }[] = [];
 	let lastLogTime = Date.now();
 
@@ -189,7 +198,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		fg: THEME.mauve,
 	});
 	const legendText = new TextRenderable(renderer, {
-		content: "░ ▒ ▓ █ Density   Green: Saved   Blue: Cached   Red: Void",
+		content: "░ ▒ ▓ █ Density   Flicker: ■ Blue (download) / × Red (void)",
 		fg: THEME.textDim,
 	});
 
@@ -280,6 +289,30 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			}
 		}
 
+		// Active flicker overlay for tiles downloaded or scouted recently
+		const now = Date.now();
+		recentFlashes = recentFlashes.filter((f) => now - f.time < 50);
+		const cellFlashes = new Map<number, number>();
+		for (let i = 0; i < recentFlashes.length; i++) {
+			const f = recentFlashes[i];
+			const c = Math.floor(((f.x - vMinX) / vSpanX) * fbW);
+			const r = Math.floor(((f.y - vMinY) / vSpanY) * (fbH - 2)) + 1;
+			if (c >= 0 && c < fbW && r >= 1 && r < fbH - 1) {
+				cellFlashes.set(r * fbW + c, f.status);
+			}
+		}
+
+		for (const [idx, status] of cellFlashes.entries()) {
+			const c = idx % fbW;
+			const r = Math.floor(idx / fbW);
+			const isVoid = status === 2 || status === 3;
+			if (isVoid) {
+				fb.frameBuffer.setCell(c, r, "×", RGBA_THEME.flashRed, RGBA_THEME.flashRedBg);
+			} else {
+				fb.frameBuffer.setCell(c, r, "■", RGBA_THEME.flashBlue, RGBA_THEME.flashBlueBg);
+			}
+		}
+
 		const scaleX = (vSpanX / fbW).toFixed(1);
 		const scaleY = (vSpanY / (fbH - 2)).toFixed(1);
 		const boundsLabel = `[${xMin}..${xMax}] × [${yMin}..${yMax}] (scale: ~${scaleX}×${scaleY})`;
@@ -327,6 +360,13 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 
 		redrawMinimap();
 		renderer.requestRender();
+
+		clearTimeout(flashClearTimer);
+		if (recentFlashes.length > 0) {
+			flashClearTimer = setTimeout(() => {
+				if (!isDestroyed) renderUi(true);
+			}, 130);
+		}
 	}
 
 	function handleResize(termW: number, termH: number) {
@@ -381,6 +421,8 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			if (y > yMax) yMax = y;
 
 			tiles.push({ x, y, status: stNum });
+			recentFlashes.push({ x, y, status: stNum, time: Date.now() });
+			if (recentFlashes.length > 250) recentFlashes.shift();
 
 			renderUi(false);
 		},
@@ -389,6 +431,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
 				isDestroyed = true;
+				clearTimeout(flashClearTimer);
 				renderer.off("resize", handleResize);
 				process.stdout.off("resize", onStdoutResize);
 				try {
@@ -405,6 +448,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		destroy() {
 			if (!isDestroyed) {
 				isDestroyed = true;
+				clearTimeout(flashClearTimer);
 				renderer.off("resize", handleResize);
 				process.stdout.off("resize", onStdoutResize);
 				try {
