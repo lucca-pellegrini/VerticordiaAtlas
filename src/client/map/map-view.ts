@@ -274,6 +274,7 @@ export async function prepareMap(info: any): Promise<void> {
 			tags: l.tags || [],
 			media: l.media || [],
 			icon: catById.get(l.category_id)?.icon,
+			features: l.features || null,
 		}))
 		.filter((l: any) => Number.isFinite(l.lat) && Number.isFinite(l.lng));
 	state.officialLocs = state.locs;
@@ -595,6 +596,72 @@ export function refreshRegions(): void {
 	if (borderSrc) borderSrc.setData(borders);
 	const labelSrc = state.map.getSource("region-labels");
 	if (labelSrc) labelSrc.setData(labels);
+}
+
+// build GeoJSON features for location geometries (polygons and lines)
+export function buildLocationGeometryFeatures(
+	locs: any[],
+	styles: any,
+	cats: Map<number, any>,
+): { fills: any; lines: any } {
+	const fillFeats: any[] = [];
+	const lineFeats: any[] = [];
+	const polyStyles = styles?.polygonStyles || {};
+	const lineStyles = styles?.lineStyles || {};
+
+	for (const l of locs) {
+		if (!l.features || !l.features.length) continue;
+		const cat = cats?.get(l.cat);
+		const pStyle = polyStyles[String(l.cat)] || {};
+		const lStyle = lineStyles[String(l.cat)] || {};
+
+		const fillColor = pStyle["fill-color"] || (cat?.icon_color ? `#${cat.icon_color}` : "#9E0811");
+		const fillOpacity = typeof pStyle["fill-opacity"] === "number" ? pStyle["fill-opacity"] : 0.4;
+		const lineColor = lStyle["line-color"] || pStyle["line-color"] || fillColor;
+		const lineWidth = typeof lStyle["line-width"] === "number" ? lStyle["line-width"] : (pStyle["line-width"] ?? 3);
+		const lineOpacity = typeof lStyle["line-opacity"] === "number" ? lStyle["line-opacity"] : 0.8;
+
+		for (const feat of l.features) {
+			const geomType = feat.geometry?.type;
+			if (geomType === "Polygon" || geomType === "MultiPolygon") {
+				fillFeats.push({
+					type: "Feature",
+					geometry: feat.geometry,
+					properties: {
+						id: l.id,
+						fillColor,
+						fillOpacity,
+					},
+				});
+				lineFeats.push({
+					type: "Feature",
+					geometry: feat.geometry,
+					properties: {
+						id: l.id,
+						lineColor,
+						lineWidth,
+						lineOpacity,
+					},
+				});
+			} else if (geomType === "LineString" || geomType === "MultiLineString") {
+				lineFeats.push({
+					type: "Feature",
+					geometry: feat.geometry,
+					properties: {
+						id: l.id,
+						lineColor,
+						lineWidth,
+						lineOpacity,
+					},
+				});
+			}
+		}
+	}
+
+	return {
+		fills: { type: "FeatureCollection", features: fillFeats },
+		lines: { type: "FeatureCollection", features: lineFeats },
+	};
 }
 export interface CircleStyle {
 	isCircle: boolean;
@@ -956,6 +1023,37 @@ export function createMap(): void {
 
 		initRegionLayers(map);
 
+		// location feature polygons & lines (e.g. Red Zones, hazard perimeters, patrol lines)
+		map.addSource("loc-fills", { type: "geojson", data: emptyFC });
+		map.addLayer(
+			{
+				id: "loc-fills",
+				type: "fill",
+				source: "loc-fills",
+				paint: {
+					"fill-color": ["get", "fillColor"],
+					"fill-opacity": ["get", "fillOpacity"],
+				},
+			},
+			map.getLayer("locs-circles") ? "locs-circles" : undefined,
+		);
+
+		map.addSource("loc-lines", { type: "geojson", data: emptyFC });
+		map.addLayer(
+			{
+				id: "loc-lines",
+				type: "line",
+				source: "loc-lines",
+				layout: { "line-cap": "round", "line-join": "round" },
+				paint: {
+					"line-color": ["get", "lineColor"],
+					"line-width": ["get", "lineWidth"],
+					"line-opacity": ["get", "lineOpacity"],
+				},
+			},
+			map.getLayer("locs-circles") ? "locs-circles" : undefined,
+		);
+
 		map.addSource("locs-circles", { type: "geojson", data: emptyFC });
 		map.addLayer({
 			id: "locs-circles",
@@ -1258,6 +1356,21 @@ export function refreshMap(): void {
 	state.map.getSource("locs").setData({ type: "FeatureCollection", features: symbolFeats });
 	const circleSrc = state.map.getSource("locs-circles");
 	if (circleSrc) circleSrc.setData({ type: "FeatureCollection", features: circleFeats });
+
+	// synchronize location feature polygons & lines
+	const visibleGeomLocs = state.locs.filter((l: any) => {
+		const pinned = l.id === sel || rel.has(l.id);
+		if (pinned) return true;
+		if (!shownOnMap(l)) return false;
+		if (state.search.ids && !state.search.ids.has(l.id)) return false;
+		return true;
+	});
+	const geoms = buildLocationGeometryFeatures(visibleGeomLocs, state.data?.styles, state.cats);
+	const fillSrc = state.map.getSource("loc-fills");
+	if (fillSrc) fillSrc.setData(geoms.fills);
+	const lineSrc = state.map.getSource("loc-lines");
+	if (lineSrc) lineSrc.setData(geoms.lines);
+
 	syncRelatedRings(rel);
 }
 
