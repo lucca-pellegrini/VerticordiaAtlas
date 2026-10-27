@@ -37,6 +37,24 @@ export async function migratePresets(): Promise<void> {
 	await setMeta(flag, true);
 }
 
+export function parseDemoPresets(rawPresets: any[], allCategoryIds: number[]): any[] {
+	if (!Array.isArray(rawPresets) || !rawPresets.length) return [];
+	const allSet = new Set(allCategoryIds);
+	const out: any[] = [];
+	for (const p of rawPresets) {
+		if (!p.title || !Array.isArray(p.categories)) continue;
+		const visible = new Set(p.categories.map(Number));
+		const hidden = [...allSet].filter((id) => !visible.has(id));
+		out.push({
+			id: `demo-${p.id || p.title.toLowerCase().replace(/\s+/g, "-")}`,
+			name: p.title,
+			hidden,
+			isDemo: true,
+		});
+	}
+	return out;
+}
+
 export async function loadMapState(): Promise<void> {
 	const map = state.mapInfo.slug;
 	// the view lives in the profile (so it follows the profile to other devices); meta is only read for profiles saved before that
@@ -55,6 +73,14 @@ export async function loadMapState(): Promise<void> {
 	if (state.tags.length && tagSelectEl) tagSelectEl.value = state.tag == null ? "" : String(state.tag);
 	syncTagStrict();
 	state.presets = (await getMeta(presetsKey())) || [];
+	// If no presets have been configured yet for this game, adopt any default demo presets provided in data.json
+	if (!state.presets.length && state.data?.presets && state.cats) {
+		const demoPresets = parseDemoPresets(state.data.presets, [...state.cats.keys()]);
+		if (demoPresets.length) {
+			state.presets = demoPresets;
+			void setMeta(presetsKey(), state.presets);
+		}
+	}
 	state.presetId = state.presets.some((p: any) => p.id === v.presetId) ? v.presetId : null;
 	state.baseline = state.presetId && Array.isArray(v.baseline) ? v.baseline : null;
 	renderPresets();

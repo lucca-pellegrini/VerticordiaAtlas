@@ -246,10 +246,17 @@ export function renderDetail(): void {
 		? `<div class="d-backrefs"><h3>Referenced by</h3><ul>${refs.map((r) => `<li><a href="#loc=${r.id}" data-loc="${r.id}">${esc(r.title)}</a></li>`).join("")}</ul></div>`
 		: "";
 
+	const reg = l.region ? state.regionById?.get(l.region) : null;
+	const parentReg = reg?.parent_region_id ? state.regionById?.get(reg.parent_region_id) : null;
+	const regBreadcrumb = reg
+		? `<div class="d-region"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:-1px;margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${esc(reg.title)}${parentReg ? ` <span style="opacity:0.65">· ${esc(parentReg.title)}</span>` : ""}</div>`
+		: "";
+
 	const body = $<DetailBodyElement>("#detail-body")!;
 	body.innerHTML =
 		`<div class="d-cat" style="--c:${l.user && cat?.icon ? "#" + cat.icon.slice(3).replace("-t", "") : g ? g.col : "#888"}"><i></i>${esc(cat?.title || "")}</div>` +
 		`<h2 class="d-title">${esc(l.title)}</h2>` +
+		regBreadcrumb +
 		(l.user ? state.um.detailHtml(l) : "") +
 		`<div class="d-actions">${ok ? `<button class="found-btn${isFound ? " on" : ""}" type="button" aria-pressed="${isFound}">${isFound ? "Found. Tap to undo" : "Mark as found"}</button>` : ""}` +
 		'<button class="share-btn" type="button" aria-label="Share this marker" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="glyph"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.4 10.8l7.2-4.4M8.4 13.2l7.2 4.4"/></g><path class="tick" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>' +
@@ -465,12 +472,15 @@ function markerAt(pt: { x: number; y: number }): any {
 	const k = iconScale(state.map.getZoom());
 	let best: any = null,
 		bestD = Infinity;
-	for (const f of state.map.queryRenderedFeatures(pt, { layers: ["locs"] })) {
+	for (const f of state.map.queryRenderedFeatures(pt, { layers: ["locs", "locs-circles"] })) {
 		const l = state.byId.get(Number(f.properties.id));
 		if (!l) continue;
 		const p = state.map.project([l.lng, l.lat]);
-		const d = Math.hypot(pt.x - p.x, pt.y - (p.y - 22 * k)); // the icon sits above its point; 22px is about half of it
-		if (d <= 26 * k && d < bestD) {
+		// Circle markers sit centered at their point; pin icons sit above their point (22px is about half)
+		const isCircle = f.layer?.id === "locs-circles";
+		const d = isCircle ? Math.hypot(pt.x - p.x, pt.y - p.y) : Math.hypot(pt.x - p.x, pt.y - (p.y - 22 * k));
+		const hitRadius = isCircle ? 14 : 26 * k;
+		if (d <= hitRadius && d < bestD) {
 			best = l;
 			bestD = d;
 		}

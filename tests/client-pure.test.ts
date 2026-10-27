@@ -28,8 +28,17 @@ import {
 	PALETTE,
 	simplify,
 } from "../src/client/map/drawing.ts";
-import { mapLimits, sameCamera, startOf } from "../src/client/map/map-view.ts";
+import {
+	buildLocationGeometryFeatures,
+	buildRegionFeatures,
+	circleStyleOf,
+	mapLimits,
+	resolveTilesets,
+	sameCamera,
+	startOf,
+} from "../src/client/map/map-view.ts";
 import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
+import { parseDemoPresets } from "../src/client/map/presets.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
@@ -343,6 +352,188 @@ describe("modularized map and home helpers", () => {
 		// Out-of-range zoom falls back to mapConfig
 		expect(startOf(info, data, { lng: 0.1, lat: 0.2, zoom: 22 })).toEqual({ center: [0.5, -0.5], zoom: 10 });
 		expect(sameCamera({ lng: 1, lat: 2, zoom: 10 }, { lng: 1.000001, lat: 2.000001, zoom: 10.001 })).toBe(true);
+
+		// circleStyleOf resolution
+		const circleCat = {
+			id: 10305,
+			display_type: "circle",
+			circle_color: "AC804D",
+			circle_stroke_color: "E4E0DD",
+			circle_radius: 6,
+			circle_opacity: 0.9,
+		};
+		const circleStyle = circleStyleOf(circleCat, {});
+		expect(circleStyle.isCircle).toBe(true);
+		expect(circleStyle.color).toBe("#AC804D");
+		expect(circleStyle.strokeColor).toBe("#E4E0DD");
+		expect(circleStyle.radius).toBe(6);
+		expect(circleStyle.opacity).toBe(0.9);
+
+		const defaultCircleCat = {
+			id: 10306,
+			display_type: "circle",
+		};
+		const defaultStyle = circleStyleOf(defaultCircleCat, { circleLocationsPaint: { "circle-radius": 7 } });
+		expect(defaultStyle.isCircle).toBe(true);
+		expect(defaultStyle.color).toBe("#AC804D");
+		expect(defaultStyle.strokeColor).toBe("#ffffff");
+		expect(defaultStyle.radius).toBe(7);
+
+		const markerCat = { id: 10, display_type: "marker" };
+		expect(circleStyleOf(markerCat).isCircle).toBe(false);
+
+		// resolveTilesets and mapLimits tileset switching
+		const testInfo = {
+			slug: "san-andreas",
+			tilesets: [
+				{
+					name: "Atlas",
+					template: "san-andreas/tiles/atlas-v1/{z}/{x}/{y}.png",
+					minzoom: 9,
+					maxzoom: 14,
+					bounds: [-1.5, -0.1, 0.1, 1.5],
+				},
+			],
+		};
+		const testData = {
+			mapConfig: {
+				tile_sets: [
+					{ id: 1, name: "Atlas", pattern: "atlas-v1/{z}/{x}/{y}.png", min_zoom: 9, max_zoom: 14 },
+					{ id: 2, name: "Satellite", pattern: "satellite-v1/{z}/{x}/{y}.jpg", min_zoom: 9, max_zoom: 15 },
+				],
+			},
+		};
+		const resolvedSets = resolveTilesets(testInfo, testData);
+		expect(resolvedSets.length).toBe(2);
+		expect(resolvedSets[0].name).toBe("Atlas");
+		expect(resolvedSets[1].name).toBe("Satellite");
+		expect(resolvedSets[1].template).toContain("satellite");
+
+		const limAtlas = mapLimits(testInfo, testData, 0);
+		expect(limAtlas.ts.name).toBe("Atlas");
+		const limSat = mapLimits(testInfo, testData, "Satellite");
+		expect(limSat.ts.name).toBe("Satellite");
+
+		// buildRegionFeatures
+		const testRegions = [
+			{
+				id: 100,
+				title: "Surface",
+				parent_region_id: null,
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "Polygon",
+							coordinates: [
+								[
+									[0, 0],
+									[10, 0],
+									[10, 10],
+									[0, 10],
+									[0, 0],
+								],
+							],
+						},
+					},
+				],
+			},
+			{
+				id: 101,
+				title: "Akkala",
+				parent_region_id: 100,
+				center_x: 5,
+				center_y: 5,
+				features: [],
+			},
+		];
+		const rf = buildRegionFeatures(testRegions, true);
+		expect(rf.borders.features.length).toBe(1);
+		expect(rf.borders.features[0].properties.isRoot).toBe(1);
+		expect(rf.labels.features.length).toBe(2);
+		expect(rf.labels.features.find((f: any) => f.properties.title === "Akkala")?.geometry.coordinates).toEqual([
+			5, 5,
+		]);
+
+		const rfHidden = buildRegionFeatures(testRegions, false);
+		expect(rfHidden.borders.features.length).toBe(0);
+
+		// buildLocationGeometryFeatures
+		const testLocsWithGeom = [
+			{
+				id: 559101,
+				cat: 15306,
+				title: "Red Zone",
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "Polygon",
+							coordinates: [
+								[
+									[0, 0],
+									[1, 0],
+									[1, 1],
+									[0, 1],
+									[0, 0],
+								],
+							],
+						},
+					},
+				],
+			},
+			{
+				id: 278139,
+				cat: 9031,
+				title: "Farosh Patrol",
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "LineString",
+							coordinates: [
+								[0, 0],
+								[1, 1],
+							],
+						},
+					},
+				],
+			},
+		];
+		const testStyles = {
+			polygonStyles: {
+				"15306": { "fill-color": "#9E0811", "fill-opacity": 0.5 },
+			},
+			lineStyles: {
+				"9031": { "line-color": "#239FBD", "line-width": 4 },
+			},
+		};
+		const testCats = new Map<number, any>([
+			[15306, { id: 15306, title: "Red Zone" }],
+			[9031, { id: 9031, title: "Dragon" }],
+		]);
+		const geoms = buildLocationGeometryFeatures(testLocsWithGeom, testStyles, testCats);
+		expect(geoms.fills.features.length).toBe(1);
+		expect(geoms.fills.features[0].properties.fillColor).toBe("#9E0811");
+		expect(geoms.fills.features[0].properties.fillOpacity).toBe(0.5);
+		expect(geoms.lines.features.length).toBe(2); // polygon outline + line string
+		expect(geoms.lines.features.find((f: any) => f.properties.id === 278139)?.properties.lineColor).toBe("#239FBD");
+
+		// parseDemoPresets
+		const demoAllCatIds = [8988, 9049, 8979, 8980, 8981, 9071, 100, 200];
+		const rawDemoPresets = [
+			{
+				id: 169706,
+				title: "Fast Travel",
+				categories: [8988, 9049, 8979, 8980, 8981, 9071],
+				is_demo_preset: true,
+			},
+		];
+		const demoRes = parseDemoPresets(rawDemoPresets, demoAllCatIds);
+		expect(demoRes.length).toBe(1);
+		expect(demoRes[0].name).toBe("Fast Travel");
+		expect(demoRes[0].id).toBe("demo-169706");
+		expect(demoRes[0].hidden.sort()).toEqual([100, 200]);
 	});
 });
 

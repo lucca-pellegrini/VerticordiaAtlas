@@ -258,10 +258,15 @@ export async function prepareMap(info: any): Promise<void> {
 	state.groupOfCat = groupOfCat;
 
 	// locations
+	const regById = new Map<number, any>((data.regions || []).map((r: any) => [r.id, r]));
+	state.regions = data.regions || [];
+	state.regionById = regById;
+
 	state.locs = data.locations
 		.map((l: any) => ({
 			id: l.id,
 			cat: l.category_id,
+			region: l.region_id,
 			title: l.title || "",
 			desc: l.description || "",
 			lat: parseFloat(l.latitude),
@@ -269,6 +274,7 @@ export async function prepareMap(info: any): Promise<void> {
 			tags: l.tags || [],
 			media: l.media || [],
 			icon: catById.get(l.category_id)?.icon,
+			features: l.features || null,
 		}))
 		.filter((l: any) => Number.isFinite(l.lat) && Number.isFinite(l.lng));
 	state.officialLocs = state.locs;
@@ -415,9 +421,54 @@ export function layoutMapSwitch(): void {
 	moveThumb(state.mapInfo?.slug);
 }
 
+// resolve all tilesets for a map, combining meta.json and data.json mapConfig.tile_sets
+export function resolveTilesets(info: any, data: any): any[] {
+	const metaSets: any[] = info?.tilesets || [];
+	const cfgSets: any[] = data?.mapConfig?.tile_sets || [];
+	if (!cfgSets.length || metaSets.length >= cfgSets.length) {
+		return metaSets.length ? metaSets : [{ name: "Default", template: "", minzoom: 0, maxzoom: 18 }];
+	}
+	// Synthesize any missing tile sets from data.json mapConfig so the user can switch between them
+	const ms = info?.slug || "map";
+	const baseTs = metaSets[0] || {};
+	const out: any[] = [...metaSets];
+	for (const ts of cfgSets) {
+		if (out.some((o) => o.name === ts.name)) continue;
+		const pattern = ts.pattern || "";
+		let key = (ts.path || "").split("/").filter(Boolean).pop();
+		if (!key && pattern.includes("{")) {
+			const prefix = pattern.slice(0, pattern.indexOf("{")).replace(/\/+$/, "");
+			key = prefix.split("/").filter(Boolean).pop();
+		}
+		if (!key) key = `ts${ts.id}`;
+		const tail = pattern.includes("{")
+			? pattern.slice(pattern.indexOf("{"))
+			: "{z}/{x}/{y}." + (ts.extension || "png");
+		const localTail = `tiles/${key}/${tail}`;
+		out.push({
+			name: ts.name,
+			template: `${ms}/${localTail}`,
+			minzoom: ts.min_zoom ?? baseTs.minzoom ?? 0,
+			maxzoom: ts.tiles_max_zoom ?? ts.max_zoom ?? baseTs.maxzoom ?? 18,
+			viewMaxzoom: ts.max_zoom ?? baseTs.viewMaxzoom ?? 18,
+			bounds: baseTs.bounds || [-180, -85, 180, 85],
+			tileSize: 256,
+		});
+	}
+	return out;
+}
+
 // the bounds, zoom limits and tile set of a map
-export function mapLimits(info: any, data: any) {
-	const ts = info.tilesets[0]; // { template, minzoom, maxzoom (stored tiles), viewMaxzoom, bounds }
+export function mapLimits(info: any, data: any, tilesetIndexOrName?: number | string | null) {
+	const sets = resolveTilesets(info, data);
+	let ts = sets[0];
+	if (typeof tilesetIndexOrName === "number" && sets[tilesetIndexOrName]) {
+		ts = sets[tilesetIndexOrName];
+	} else if (typeof tilesetIndexOrName === "string") {
+		ts = sets.find((s) => s.name === tilesetIndexOrName) || sets[0];
+	} else if (state.activeTileset) {
+		ts = sets.find((s) => s.name === state.activeTileset) || sets[0];
+	}
 	const box = ts.bounds || data.styles?.mapStyle?.bounds || [-180, -85, 180, 85];
 	const [w, s, e, n] = box,
 		pad = 0.25;
@@ -431,6 +482,207 @@ export function mapLimits(info: any, data: any) {
 				[Math.min(180, e + pad), Math.min(85.05, n + pad)],
 			];
 	return { ts, box, minZoom: ts.minzoom ?? 0, maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18, maxBounds };
+}
+
+// region geometry and label features builder
+export function buildRegionFeatures(regions: any[], show = true): { borders: any; labels: any } {
+	if (!show || !regions || !regions.length) {
+		return { borders: emptyFC, labels: emptyFC };
+	}
+	const borderFeats: any[] = [];
+	const labelFeats: any[] = [];
+
+	for (const r of regions) {
+		const isRoot = !r.parent_region_id;
+		// Borders
+		for (const f of r.features || []) {
+			if (f.geometry) {
+				borderFeats.push({
+					type: "Feature",
+					geometry: f.geometry,
+					properties: {
+						id: r.id,
+						isRoot: isRoot ? 1 : 0,
+					},
+				});
+			}
+		}
+
+		// Centroid for label
+		let cx = typeof r.center_x === "number" ? r.center_x : r.center_x ? parseFloat(r.center_x) : null;
+		let cy = typeof r.center_y === "number" ? r.center_y : r.center_y ? parseFloat(r.center_y) : null;
+		if (
+			(cx == null || cy == null || !Number.isFinite(cx) || !Number.isFinite(cy)) &&
+			r.features?.[0]?.geometry?.coordinates
+		) {
+			const coords = r.features[0].geometry.coordinates;
+			const ring = Array.isArray(coords[0][0]) ? coords[0] : coords;
+			if (ring && ring.length) {
+				const xs = ring.map((p: any) => p[0]).filter(Number.isFinite);
+				const ys = ring.map((p: any) => p[1]).filter(Number.isFinite);
+				if (xs.length && ys.length) {
+					cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+					cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+				}
+			}
+		}
+
+		if (cx != null && cy != null && Number.isFinite(cx) && Number.isFinite(cy)) {
+			labelFeats.push({
+				type: "Feature",
+				geometry: { type: "Point", coordinates: [cx, cy] },
+				properties: {
+					id: r.id,
+					title: r.title || "",
+					isRoot: isRoot ? 1 : 0,
+				},
+			});
+		}
+	}
+
+	return {
+		borders: { type: "FeatureCollection", features: borderFeats },
+		labels: { type: "FeatureCollection", features: labelFeats },
+	};
+}
+
+// region layers setup
+export function initRegionLayers(map: any): void {
+	if (map.getSource("region-borders")) return;
+	map.addSource("region-borders", { type: "geojson", data: emptyFC });
+	map.addLayer(
+		{
+			id: "region-borders",
+			type: "line",
+			source: "region-borders",
+			paint: {
+				"line-color": themeVar("ink"),
+				"line-width": ["case", ["==", ["get", "isRoot"], 1], 1.5, 1],
+				"line-opacity": ["case", ["==", ["get", "isRoot"], 1], 0.35, 0.22],
+				"line-dasharray": [3, 2],
+			},
+		},
+		map.getLayer("locs-circles") ? "locs-circles" : undefined,
+	);
+
+	map.addSource("region-labels", { type: "geojson", data: emptyFC });
+	map.addLayer(
+		{
+			id: "region-labels",
+			type: "symbol",
+			source: "region-labels",
+			layout: {
+				"text-field": ["get", "title"],
+				"text-size": ["interpolate", ["linear"], ["zoom"], 8, 11, 12, 16, 15, 20],
+				"text-letter-spacing": 0.08,
+				"text-max-width": 12,
+				"text-allow-overlap": false,
+			},
+			paint: {
+				"text-color": themeVar("ink"),
+				"text-opacity": ["case", ["==", ["get", "isRoot"], 1], 0.65, 0.45],
+				"text-halo-color": themeVar("bg"),
+				"text-halo-width": 1.5,
+			},
+		},
+		map.getLayer("locs-circles") ? "locs-circles" : undefined,
+	);
+}
+
+export function refreshRegions(): void {
+	if (!state.mapReady || !state.map) return;
+	const { borders, labels } = buildRegionFeatures(state.regions, state.showRegions);
+	const borderSrc = state.map.getSource("region-borders");
+	if (borderSrc) borderSrc.setData(borders);
+	const labelSrc = state.map.getSource("region-labels");
+	if (labelSrc) labelSrc.setData(labels);
+}
+
+// build GeoJSON features for location geometries (polygons and lines)
+export function buildLocationGeometryFeatures(
+	locs: any[],
+	styles: any,
+	cats: Map<number, any>,
+): { fills: any; lines: any } {
+	const fillFeats: any[] = [];
+	const lineFeats: any[] = [];
+	const polyStyles = styles?.polygonStyles || {};
+	const lineStyles = styles?.lineStyles || {};
+
+	for (const l of locs) {
+		if (!l.features || !l.features.length) continue;
+		const cat = cats?.get(l.cat);
+		const pStyle = polyStyles[String(l.cat)] || {};
+		const lStyle = lineStyles[String(l.cat)] || {};
+
+		const fillColor = pStyle["fill-color"] || (cat?.icon_color ? `#${cat.icon_color}` : "#9E0811");
+		const fillOpacity = typeof pStyle["fill-opacity"] === "number" ? pStyle["fill-opacity"] : 0.4;
+		const lineColor = lStyle["line-color"] || pStyle["line-color"] || fillColor;
+		const lineWidth = typeof lStyle["line-width"] === "number" ? lStyle["line-width"] : (pStyle["line-width"] ?? 3);
+		const lineOpacity = typeof lStyle["line-opacity"] === "number" ? lStyle["line-opacity"] : 0.8;
+
+		for (const feat of l.features) {
+			const geomType = feat.geometry?.type;
+			if (geomType === "Polygon" || geomType === "MultiPolygon") {
+				fillFeats.push({
+					type: "Feature",
+					geometry: feat.geometry,
+					properties: {
+						id: l.id,
+						fillColor,
+						fillOpacity,
+					},
+				});
+				lineFeats.push({
+					type: "Feature",
+					geometry: feat.geometry,
+					properties: {
+						id: l.id,
+						lineColor,
+						lineWidth,
+						lineOpacity,
+					},
+				});
+			} else if (geomType === "LineString" || geomType === "MultiLineString") {
+				lineFeats.push({
+					type: "Feature",
+					geometry: feat.geometry,
+					properties: {
+						id: l.id,
+						lineColor,
+						lineWidth,
+						lineOpacity,
+					},
+				});
+			}
+		}
+	}
+
+	return {
+		fills: { type: "FeatureCollection", features: fillFeats },
+		lines: { type: "FeatureCollection", features: lineFeats },
+	};
+}
+export interface CircleStyle {
+	isCircle: boolean;
+	color: string;
+	strokeColor: string;
+	radius: number;
+	opacity: number;
+}
+
+export function circleStyleOf(cat: any, mapStyle?: any): CircleStyle {
+	if (!cat || cat.display_type !== "circle") {
+		return { isCircle: false, color: "#ffffff", strokeColor: "#ffffff", radius: 4, opacity: 1 };
+	}
+	const paint = mapStyle?.circleLocationsPaint || {};
+	const rawCol = cat.circle_color || "AC804D";
+	const color = rawCol.startsWith("#") ? rawCol : `#${rawCol}`;
+	const rawStroke = cat.circle_stroke_color;
+	const strokeColor = rawStroke ? (rawStroke.startsWith("#") ? rawStroke : `#${rawStroke}`) : "#ffffff";
+	const radius = typeof cat.circle_radius === "number" ? cat.circle_radius : (paint["circle-radius"] ?? 5);
+	const opacity = typeof cat.circle_opacity === "number" ? cat.circle_opacity : 1;
+	return { isCircle: true, color, strokeColor, radius, opacity };
 }
 
 // where a map opens: the saved camera for it, else the game's start position
@@ -467,6 +719,18 @@ export function setBaseTiles(map: any): void {
 		{ id: "base", type: "raster", source: "base", paint: { "raster-fade-duration": 900 } },
 		map.getLayer("sel") ? "sel" : undefined,
 	);
+}
+
+export function switchTileset(name: string): void {
+	if (!state.mapReady || !state.map) return;
+	state.activeTileset = name;
+	setBaseTiles(state.map);
+	syncTilesetMenu();
+}
+
+export function syncTilesetMenu(): void {
+	const select = document.getElementById("side-tileset-select") as HTMLSelectElement | null;
+	if (select && state.activeTileset) select.value = state.activeTileset;
 }
 
 // the camera of the open map goes into the profile (with which map it is), so a visit resumes where it was
@@ -757,6 +1021,64 @@ export function createMap(): void {
 			},
 		});
 
+		initRegionLayers(map);
+
+		// location feature polygons & lines (e.g. Red Zones, hazard perimeters, patrol lines)
+		map.addSource("loc-fills", { type: "geojson", data: emptyFC });
+		map.addLayer(
+			{
+				id: "loc-fills",
+				type: "fill",
+				source: "loc-fills",
+				paint: {
+					"fill-color": ["get", "fillColor"],
+					"fill-opacity": ["get", "fillOpacity"],
+				},
+			},
+			map.getLayer("locs-circles") ? "locs-circles" : undefined,
+		);
+
+		map.addSource("loc-lines", { type: "geojson", data: emptyFC });
+		map.addLayer(
+			{
+				id: "loc-lines",
+				type: "line",
+				source: "loc-lines",
+				layout: { "line-cap": "round", "line-join": "round" },
+				paint: {
+					"line-color": ["get", "lineColor"],
+					"line-width": ["get", "lineWidth"],
+					"line-opacity": ["get", "lineOpacity"],
+				},
+			},
+			map.getLayer("locs-circles") ? "locs-circles" : undefined,
+		);
+
+		map.addSource("locs-circles", { type: "geojson", data: emptyFC });
+		map.addLayer({
+			id: "locs-circles",
+			type: "circle",
+			source: "locs-circles",
+			paint: {
+				"circle-color": ["get", "color"],
+				"circle-stroke-color": ["get", "strokeColor"],
+				"circle-stroke-width": ["case", ["==", ["get", "f"], 1], 0.75, 1.5],
+				"circle-radius": [
+					"interpolate",
+					["linear"],
+					["zoom"],
+					8,
+					["max", 2, ["*", ["get", "radius"], 0.6]],
+					12,
+					["get", "radius"],
+					16,
+					["*", ["get", "radius"], 1.5],
+				],
+				"circle-opacity": ["case", ["==", ["get", "f"], 1], 0.35, ["get", "opacity"]],
+				"circle-stroke-opacity": ["case", ["==", ["get", "f"], 1], 0.35, 0.9],
+			},
+		});
+
 		map.addSource("locs", { type: "geojson", data: emptyFC });
 		map.addLayer({
 			id: "locs",
@@ -832,6 +1154,7 @@ export function createMap(): void {
 		revealWhenSettled(map);
 		updateSidebar();
 		refreshMap();
+		refreshRegions();
 		state.drawing?.render(); // the profile's drawings appear with the map, not on the first move
 		// a shared link carries ?loc=<id>; the hash (#loc=<id>) is what the app writes while browsing
 		const q = new URLSearchParams(location.search).get("loc");
@@ -888,6 +1211,25 @@ export function createMap(): void {
 		tip.remove();
 		setHover(null);
 	});
+
+	map.on("mousemove", "locs-circles", (ev: any) => {
+		const f = ev.features && ev.features[0];
+		const l = f && state.byId.get(Number(f.properties.id));
+		setHover(l || null);
+		if (state.tool !== "pan") return;
+		if (!f) return;
+		if (!l) return;
+		map.getCanvas().style.cursor = "pointer";
+		tip.setLngLat([l.lng, l.lat])
+			.setOffset([0, -10])
+			.setText(l.title + (state.found.has(l.id) ? " (found)" : ""))
+			.addTo(map);
+	});
+	map.on("mouseleave", "locs-circles", () => {
+		map.getCanvas().style.cursor = "";
+		tip.remove();
+		setHover(null);
+	});
 	map.on("move", updateLinkHeads);
 	map.on("movestart", closeCtx);
 	map.on("contextmenu", (ev: any) => {
@@ -929,7 +1271,7 @@ export function createMap(): void {
 	map.on("click", (ev: any) => {
 		if (state.tool !== "pan") return; // markers cannot be clicked while selecting or drawing
 		document.body.classList.remove("side-open");
-		const hits = map.queryRenderedFeatures(ev.point, { layers: ["locs"] });
+		const hits = map.queryRenderedFeatures(ev.point, { layers: ["locs", "locs-circles"] });
 		if (hits.length) select(Number(hits[0].properties.id), { fly: false });
 		else closeDetail();
 	});
@@ -973,7 +1315,10 @@ export function refreshMap(): void {
 	if (!state.mapReady) return;
 	const sel = state.selected,
 		rel = sel != null ? relatedOf(sel) : new Set<number>();
-	const feats: any[] = [];
+	const symbolFeats: any[] = [];
+	const circleFeats: any[] = [];
+	const mapStyle = state.data?.styles?.mapStyle;
+
 	for (const l of state.locs) {
 		// the card's marker and the markers it links to are always drawn: a filter (hidden category, hide found, a search)
 		// must not hide what the card is about
@@ -982,15 +1327,50 @@ export function refreshMap(): void {
 			if (!shownOnMap(l)) continue;
 			if (state.search.ids && !state.search.ids.has(l.id)) continue; // while searching: the matches only
 		}
-		const icon = mapIcon(l.icon);
+		const cat = state.cats?.get(l.cat);
+		const cStyle = circleStyleOf(cat, mapStyle);
 		const f = state.found.has(l.id) ? 1 : 0;
-		feats.push({
-			type: "Feature",
-			geometry: { type: "Point", coordinates: [l.lng, l.lat] },
-			properties: { id: l.id, icon, f, z: f ? 0 : 1 },
-		});
+
+		if (cStyle.isCircle) {
+			circleFeats.push({
+				type: "Feature",
+				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
+				properties: {
+					id: l.id,
+					color: cStyle.color,
+					strokeColor: cStyle.strokeColor,
+					radius: cStyle.radius,
+					opacity: cStyle.opacity,
+					f,
+				},
+			});
+		} else {
+			const icon = mapIcon(l.icon);
+			symbolFeats.push({
+				type: "Feature",
+				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
+				properties: { id: l.id, icon, f, z: f ? 0 : 1 },
+			});
+		}
 	}
-	state.map.getSource("locs").setData({ type: "FeatureCollection", features: feats });
+	state.map.getSource("locs").setData({ type: "FeatureCollection", features: symbolFeats });
+	const circleSrc = state.map.getSource("locs-circles");
+	if (circleSrc) circleSrc.setData({ type: "FeatureCollection", features: circleFeats });
+
+	// synchronize location feature polygons & lines
+	const visibleGeomLocs = state.locs.filter((l: any) => {
+		const pinned = l.id === sel || rel.has(l.id);
+		if (pinned) return true;
+		if (!shownOnMap(l)) return false;
+		if (state.search.ids && !state.search.ids.has(l.id)) return false;
+		return true;
+	});
+	const geoms = buildLocationGeometryFeatures(visibleGeomLocs, state.data?.styles, state.cats);
+	const fillSrc = state.map.getSource("loc-fills");
+	if (fillSrc) fillSrc.setData(geoms.fills);
+	const lineSrc = state.map.getSource("loc-lines");
+	if (lineSrc) lineSrc.setData(geoms.lines);
+
 	syncRelatedRings(rel);
 }
 
