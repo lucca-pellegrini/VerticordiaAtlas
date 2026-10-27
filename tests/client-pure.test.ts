@@ -47,8 +47,9 @@ import {
 	DOTS_SVG,
 	downloadDiscardSummary,
 	moreBtnProgressIcon,
+	renderTilesetMenu,
 } from "../src/client/map/sidebar.ts";
-import { iconScale, vivid } from "../src/client/map/state.ts";
+import { iconScale, state, vivid } from "../src/client/map/state.ts";
 import {
 	createOfflineManager,
 	fnvBytes,
@@ -413,6 +414,18 @@ describe("modularized map and home helpers", () => {
 		expect(limAtlas.ts.name).toBe("Atlas");
 		const limSat = mapLimits(testInfo, testData, "Satellite");
 		expect(limSat.ts.name).toBe("Satellite");
+
+		// renderTilesetMenu
+		const section = { hidden: true } as any;
+		const select = { innerHTML: "", value: "", onchange: null } as any;
+		state.mapInfo = testInfo;
+		state.data = testData;
+		state.activeTileset = "Satellite";
+		renderTilesetMenu(section, select);
+		expect(section.hidden).toBe(false);
+		expect(select.innerHTML).toContain("Atlas");
+		expect(select.innerHTML).toContain("Satellite");
+		expect(select.value).toBe("Satellite");
 
 		// buildRegionFeatures
 		const testRegions = [

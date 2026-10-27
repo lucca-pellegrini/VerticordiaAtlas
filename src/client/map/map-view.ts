@@ -728,9 +728,94 @@ export function switchTileset(name: string): void {
 	syncTilesetMenu();
 }
 
+export function updateTilesetControl(): void {
+	if (typeof document === "undefined") return;
+	const grp = document.getElementById("tool-tileset-group");
+	const menu = document.getElementById("tool-tileset-menu");
+	const btn = document.getElementById("tool-tileset-btn");
+	if (!grp || !menu) return;
+
+	const sets = resolveTilesets(state.mapInfo, state.data);
+	if (!sets || sets.length <= 1) {
+		grp.hidden = true;
+		menu.hidden = true;
+		return;
+	}
+
+	grp.hidden = false;
+	const cur = state.activeTileset || sets[0]?.name;
+	if (btn) btn.title = `Tile set: ${cur}`;
+
+	menu.innerHTML = sets
+		.map(
+			(ts) =>
+				`<button type="button" data-ts="${esc(ts.name)}" class="${ts.name === cur ? "active" : ""}">${esc(ts.name)}</button>`,
+		)
+		.join("");
+
+	menu.querySelectorAll<HTMLButtonElement>("button[data-ts]").forEach((b) => {
+		b.onclick = (e) => {
+			e.stopPropagation();
+			const tsName = b.dataset.ts;
+			if (tsName) {
+				switchTileset(tsName);
+				menu.hidden = true;
+				btn?.setAttribute("aria-expanded", "false");
+			}
+		};
+	});
+}
+
+export function setupTilesetControl(map: any): void {
+	if (typeof document === "undefined") return;
+	map.addControl(
+		{
+			onAdd() {
+				const c = document.createElement("div");
+				c.className = "maplibregl-ctrl maplibregl-ctrl-group tool-ctrl tileset-ctrl";
+				c.id = "tool-tileset-group";
+				c.innerHTML =
+					`<button type="button" id="tool-tileset-btn" title="Change tile set / map layer" aria-label="Change tile set" aria-haspopup="true">` +
+					`<svg viewBox="0 0 24 24" aria-hidden="true">` +
+					`<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>` +
+					`<polyline points="2 17 12 22 22 17"></polyline>` +
+					`<polyline points="2 12 12 17 22 12"></polyline>` +
+					`</svg></button>` +
+					`<div id="tool-tileset-menu" class="menu tileset-menu" hidden></div>`;
+				const btn = c.querySelector<HTMLButtonElement>("#tool-tileset-btn");
+				const menu = c.querySelector<HTMLElement>("#tool-tileset-menu");
+				if (btn && menu) {
+					btn.onclick = (e) => {
+						e.stopPropagation();
+						const open = !menu.hidden;
+						menu.hidden = open;
+						btn.setAttribute("aria-expanded", String(!open));
+						if (!open) updateTilesetControl();
+					};
+				}
+				setTimeout(updateTilesetControl, 0);
+				return c;
+			},
+			onRemove() {},
+		},
+		"top-right",
+	);
+
+	document.addEventListener("click", (e) => {
+		const menu = document.getElementById("tool-tileset-menu");
+		const grp = document.getElementById("tool-tileset-group");
+		if (menu && !menu.hidden && !grp?.contains(e.target as Node)) {
+			menu.hidden = true;
+			grp?.querySelector("#tool-tileset-btn")?.setAttribute("aria-expanded", "false");
+		}
+	});
+}
+
 export function syncTilesetMenu(): void {
+	if (typeof document === "undefined") return;
 	const select = document.getElementById("side-tileset-select") as HTMLSelectElement | null;
 	if (select && state.activeTileset) select.value = state.activeTileset;
+	updateTilesetControl();
 }
 
 // the camera of the open map goes into the profile (with which map it is), so a visit resumes where it was
@@ -901,6 +986,7 @@ export function createMap(): void {
 	});
 	map.touchZoomRotate.disableRotation();
 	map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-left");
+	setupTilesetControl(map);
 	const tools = setupSelection(map);
 	state.setTool = (t: string) => tools.setTool(t); // the switch puts the hand back on (see switchMap)
 	state.drawing = setupDrawing({
