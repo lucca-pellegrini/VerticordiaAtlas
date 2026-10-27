@@ -258,10 +258,15 @@ export async function prepareMap(info: any): Promise<void> {
 	state.groupOfCat = groupOfCat;
 
 	// locations
+	const regById = new Map<number, any>((data.regions || []).map((r: any) => [r.id, r]));
+	state.regions = data.regions || [];
+	state.regionById = regById;
+
 	state.locs = data.locations
 		.map((l: any) => ({
 			id: l.id,
 			cat: l.category_id,
+			region: l.region_id,
 			title: l.title || "",
 			desc: l.description || "",
 			lat: parseFloat(l.latitude),
@@ -478,7 +483,119 @@ export function mapLimits(info: any, data: any, tilesetIndexOrName?: number | st
 	return { ts, box, minZoom: ts.minzoom ?? 0, maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18, maxBounds };
 }
 
-// circle marker style resolution from category and mapStyle configuration
+// region geometry and label features builder
+export function buildRegionFeatures(regions: any[], show = true): { borders: any; labels: any } {
+	if (!show || !regions || !regions.length) {
+		return { borders: emptyFC, labels: emptyFC };
+	}
+	const borderFeats: any[] = [];
+	const labelFeats: any[] = [];
+
+	for (const r of regions) {
+		const isRoot = !r.parent_region_id;
+		// Borders
+		for (const f of r.features || []) {
+			if (f.geometry) {
+				borderFeats.push({
+					type: "Feature",
+					geometry: f.geometry,
+					properties: {
+						id: r.id,
+						isRoot: isRoot ? 1 : 0,
+					},
+				});
+			}
+		}
+
+		// Centroid for label
+		let cx = typeof r.center_x === "number" ? r.center_x : r.center_x ? parseFloat(r.center_x) : null;
+		let cy = typeof r.center_y === "number" ? r.center_y : r.center_y ? parseFloat(r.center_y) : null;
+		if (
+			(cx == null || cy == null || !Number.isFinite(cx) || !Number.isFinite(cy)) &&
+			r.features?.[0]?.geometry?.coordinates
+		) {
+			const coords = r.features[0].geometry.coordinates;
+			const ring = Array.isArray(coords[0][0]) ? coords[0] : coords;
+			if (ring && ring.length) {
+				const xs = ring.map((p: any) => p[0]).filter(Number.isFinite);
+				const ys = ring.map((p: any) => p[1]).filter(Number.isFinite);
+				if (xs.length && ys.length) {
+					cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+					cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+				}
+			}
+		}
+
+		if (cx != null && cy != null && Number.isFinite(cx) && Number.isFinite(cy)) {
+			labelFeats.push({
+				type: "Feature",
+				geometry: { type: "Point", coordinates: [cx, cy] },
+				properties: {
+					id: r.id,
+					title: r.title || "",
+					isRoot: isRoot ? 1 : 0,
+				},
+			});
+		}
+	}
+
+	return {
+		borders: { type: "FeatureCollection", features: borderFeats },
+		labels: { type: "FeatureCollection", features: labelFeats },
+	};
+}
+
+// region layers setup
+export function initRegionLayers(map: any): void {
+	if (map.getSource("region-borders")) return;
+	map.addSource("region-borders", { type: "geojson", data: emptyFC });
+	map.addLayer(
+		{
+			id: "region-borders",
+			type: "line",
+			source: "region-borders",
+			paint: {
+				"line-color": themeVar("ink"),
+				"line-width": ["case", ["==", ["get", "isRoot"], 1], 1.5, 1],
+				"line-opacity": ["case", ["==", ["get", "isRoot"], 1], 0.35, 0.22],
+				"line-dasharray": [3, 2],
+			},
+		},
+		map.getLayer("locs-circles") ? "locs-circles" : undefined,
+	);
+
+	map.addSource("region-labels", { type: "geojson", data: emptyFC });
+	map.addLayer(
+		{
+			id: "region-labels",
+			type: "symbol",
+			source: "region-labels",
+			layout: {
+				"text-field": ["get", "title"],
+				"text-size": ["interpolate", ["linear"], ["zoom"], 8, 11, 12, 16, 15, 20],
+				"text-letter-spacing": 0.08,
+				"text-max-width": 12,
+				"text-allow-overlap": false,
+			},
+			paint: {
+				"text-color": themeVar("ink"),
+				"text-opacity": ["case", ["==", ["get", "isRoot"], 1], 0.65, 0.45],
+				"text-halo-color": themeVar("bg"),
+				"text-halo-width": 1.5,
+			},
+		},
+		map.getLayer("locs-circles") ? "locs-circles" : undefined,
+	);
+}
+
+export function refreshRegions(): void {
+	if (!state.mapReady || !state.map) return;
+	const { borders, labels } = buildRegionFeatures(state.regions, state.showRegions);
+	const borderSrc = state.map.getSource("region-borders");
+	if (borderSrc) borderSrc.setData(borders);
+	const labelSrc = state.map.getSource("region-labels");
+	if (labelSrc) labelSrc.setData(labels);
+}
 export interface CircleStyle {
 	isCircle: boolean;
 	color: string;
@@ -837,6 +954,8 @@ export function createMap(): void {
 			},
 		});
 
+		initRegionLayers(map);
+
 		map.addSource("locs-circles", { type: "geojson", data: emptyFC });
 		map.addLayer({
 			id: "locs-circles",
@@ -937,6 +1056,7 @@ export function createMap(): void {
 		revealWhenSettled(map);
 		updateSidebar();
 		refreshMap();
+		refreshRegions();
 		state.drawing?.render(); // the profile's drawings appear with the map, not on the first move
 		// a shared link carries ?loc=<id>; the hash (#loc=<id>) is what the app writes while browsing
 		const q = new URLSearchParams(location.search).get("loc");
