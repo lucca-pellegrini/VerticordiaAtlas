@@ -40,6 +40,7 @@ import { parseArgs } from "node:util";
 import { splitTemplate } from "../server/tile-engine.ts";
 import { boundsFor, collectMedia, downloadMedia, downloadTiles } from "./add-game.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
+import { createR2Client, openMediaDb, validateR2Env } from "./upload-media.ts";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const exists = async (p: string) => {
@@ -253,7 +254,11 @@ async function main() {
 			all: { type: "boolean", default: false },
 			"missing-tilesets": { type: "boolean", default: false },
 			"redownload-tiles": { type: "boolean", default: false },
+			"no-tiles": { type: "boolean", default: false },
+			"skip-tiles": { type: "boolean", default: false },
 			media: { type: "boolean", default: false },
+			"upload-media": { type: "boolean", default: false },
+			"keep-local": { type: "boolean", default: false },
 			videos: { type: "boolean", default: false },
 			"data-only": { type: "boolean", default: false },
 			"dry-run": { type: "boolean", default: false },
@@ -264,8 +269,38 @@ async function main() {
 			"maps-dir": { type: "string", default: path.join(REPO, "public", "maps") },
 			"cache-dir": { type: "string", default: path.join(REPO, "cache", "updates") },
 			"no-tui": { type: "boolean", default: false },
+			help: { type: "boolean", short: "h", default: false },
 		},
 	});
+
+	if (v.help) {
+		console.log(`
+Usage: bun scripts/update-games.ts [slug...] [options]
+
+Options:
+  --all                Process all games found in maps directory
+  --missing-tilesets   Scan and download missing tilesets for games
+  --redownload-tiles   Atomic full redownload of all tilesets into staging dir
+  --no-tiles           Disable downloading map tiles
+  --skip-tiles         Alias for --no-tiles
+  --media              Scan and download missing media files
+  --upload-media       Stream & upload media directly to Cloudflare R2 / S3
+  --keep-local         When uploading to R2, also keep local copies on disk
+  --videos             Include video media files
+  --data-only          Update data and marker links only (skips tiles)
+  --dry-run            Simulate operations without writing changes
+  --concurrency <n>    Parallel download concurrency (default: 4)
+  --delay <ms>         Rate-limiting delay between requests in ms (default: 50)
+  --max-tiles <n>      Tile download limit safety cap (default: 400000)
+  --no-tui             Disable terminal UI dashboard
+  --help, -h           Show this help message
+`);
+		process.exit(0);
+	}
+
+	if (v["skip-tiles"] || v["data-only"]) {
+		v["no-tiles"] = true;
+	}
 
 	const mapsDir = path.resolve(v["maps-dir"]!);
 	const cacheDir = path.resolve(v["cache-dir"]!);
@@ -277,7 +312,9 @@ async function main() {
 	}
 
 	const dryRun = v["dry-run"];
-	const checkMissing = v["missing-tilesets"] || (!v["redownload-tiles"] && !v.media && !v["data-only"]);
+	const checkMissing =
+		!v["no-tiles"] &&
+		(v["missing-tilesets"] || (!v["redownload-tiles"] && !v.media && !v["upload-media"] && !v["data-only"]));
 	const opts = {
 		concurrency: +v.concurrency!,
 		delay: +v.delay!,
@@ -318,7 +355,7 @@ async function main() {
 		}
 
 		// 2. Atomic redownload of all tiles
-		if (v["redownload-tiles"]) {
+		if (v["redownload-tiles"] && !v["no-tiles"]) {
 			console.log(`  Performing ATOMIC REDOWNLOAD of all tilesets...`);
 			const stagingGameDir = path.join(cacheDir, game.folder);
 			if (dryRun) {
@@ -380,7 +417,7 @@ async function main() {
 		}
 
 		// 3. Media & videos
-		if (v.media || v.videos) {
+		if (v.media || v.videos || v["upload-media"]) {
 			const mediaDir = path.join(game.gameDir, "media");
 			const existingMedia = new Set((await exists(mediaDir)) ? await readdir(mediaDir) : []);
 			const mapsData: any[] = [];
@@ -391,22 +428,44 @@ async function main() {
 				}
 			}
 			const { urls, kinds } = collectMedia(mapsData, Boolean(v.videos));
+			const uploadMedia = Boolean(v["upload-media"]);
+			const r2Cfg = uploadMedia ? validateR2Env() : null;
+			const r2Client = r2Cfg ? createR2Client(r2Cfg) : undefined;
+			const mediaDb = uploadMedia ? openMediaDb() : undefined;
+			const cloudSet = game.meta.id && mediaDb ? mediaDb.uploadedSet(game.meta.id) : new Set<string>();
+
 			const toFetch = new Map<string, string>();
 			for (const [url, kind] of urls) {
 				const fileName = path.basename(new URL(url).pathname);
-				if (!existingMedia.has(fileName)) toFetch.set(url, kind);
+				if (uploadMedia) {
+					if (!cloudSet.has(fileName) && !mediaDb?.has(game.meta.id || game.folder, fileName)) {
+						toFetch.set(url, kind);
+					}
+				} else if (!existingMedia.has(fileName)) {
+					toFetch.set(url, kind);
+				}
 			}
 
 			console.log(
-				`  Media total: ${urls.size} files (${JSON.stringify(kinds)}), missing on disk: ${toFetch.size}`,
+				`  Media total: ${urls.size} files (${JSON.stringify(kinds)}), missing on ${uploadMedia ? "cloud/disk" : "disk"}: ${toFetch.size}`,
 			);
 			if (toFetch.size && !dryRun) {
 				await mkdir(mediaDir, { recursive: true });
-				const st = await downloadMedia(toFetch, mediaDir, {
-					concurrency: opts.concurrency,
-					delay: opts.delay,
-				});
-				console.log(`  ✓ Media updated: saved ${st.saved}, skipped ${st.skipped}, failed ${st.failed}`);
+				try {
+					const st = await downloadMedia(toFetch, mediaDir, {
+						concurrency: opts.concurrency,
+						delay: opts.delay,
+						game: game.meta.id || game.folder,
+						mediaDb,
+						uploadMedia,
+						keepLocal: Boolean(v["keep-local"]),
+						s3: r2Client,
+						mediaUrl: r2Cfg?.mediaUrl,
+					});
+					console.log(`  ✓ Media updated: saved ${st.saved}, skipped ${st.skipped}, failed ${st.failed}`);
+				} finally {
+					mediaDb?.close();
+				}
 			}
 		}
 	}

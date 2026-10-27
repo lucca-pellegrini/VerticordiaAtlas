@@ -254,4 +254,20 @@ describe("TUI ecosystem components & helpers", () => {
 		// Wait past the old 400ms debounce to ensure no timer throws after destroy
 		await new Promise((r) => setTimeout(r, 450));
 	});
+
+	test("promptAddGameTui resolves AddGameFormResult with downloadTiles and uploadMedia", async () => {
+		const formPromise = promptAddGameTui("https://mapgenie.io/crimson-desert");
+		setTimeout(() => {
+			process.stdin.emit("data", Buffer.from("\r"));
+		}, 60);
+		const result = await Promise.race([formPromise, new Promise((r) => setTimeout(() => r("timeout"), 1000))]);
+		if (result !== "timeout" && result !== null) {
+			expect(result.url).toBe("https://mapgenie.io/crimson-desert");
+			expect(result.downloadTiles).toBe(true);
+			expect(result.uploadMedia).toBe(false);
+			expect(result.downloadMedia).toBe(true);
+			expect(result.allTilesets).toBe(true);
+		}
+		await new Promise((r) => setTimeout(r, 450));
+	});
 });

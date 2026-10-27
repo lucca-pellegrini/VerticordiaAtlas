@@ -1122,6 +1122,8 @@ async function main() {
 			interactive: { type: "boolean", short: "i", default: false },
 			videos: { type: "boolean", default: false },
 			"no-tiles": { type: "boolean", default: false },
+			"skip-tiles": { type: "boolean", default: false },
+			"disable-tiles": { type: "boolean", default: false },
 			"no-media": { type: "boolean", default: false },
 			"upload-media": { type: "boolean", default: false },
 			"keep-local": { type: "boolean", default: false },
@@ -1142,8 +1144,42 @@ async function main() {
 			"max-tiles": { type: "string", default: "400000" },
 			"force-get-tiles": { type: "string", multiple: true, default: [] },
 			"no-tui": { type: "boolean", default: false },
+			help: { type: "boolean", short: "h", default: false },
 		},
 	});
+
+	if (v.help) {
+		console.log(`
+Usage: bun scripts/add-game.ts <mapgenie-url> [options]
+
+Options:
+  --interactive, -i        Open interactive TUI configuration form
+  --no-tiles               Disable downloading map raster tiles
+  --skip-tiles             Alias for --no-tiles
+  --disable-tiles          Alias for --no-tiles
+  --all-tilesets           Download all tilesets (default: true)
+  --no-media               Disable downloading marker media
+  --upload-media           Stream & upload media directly to Cloudflare R2 / S3
+  --keep-local             When used with --upload-media, also keep local files on disk
+  --videos                 Download video media items in addition to images
+  --no-cards               Skip pre-rendering OpenGraph preview cards
+  --no-markers             Skip scraping/writing marker points
+  --no-icons               Skip fetching marker category icons
+  --no-clean-markers       Skip rewriting intra-map marker links
+  --no-optimize            Skip solid-tile deduplication and linking
+  --max-zoom <z>           Override max zoom level to download
+  --max-tiles <n>          Maximum tiles safety ceiling (default: 400000)
+  --concurrency <n>        Parallel download concurrency (default: 4)
+  --delay <ms>             Delay between requests in milliseconds (default: 100)
+  --no-tui                 Disable the interactive terminal UI
+  --help, -h               Show this help message
+`);
+		process.exit(0);
+	}
+
+	if (v["skip-tiles"] || v["disable-tiles"]) {
+		v["no-tiles"] = true;
+	}
 	if (!positionals[0] || v.interactive) {
 		if (isInteractiveTty(v["no-tui"])) {
 			const res = await promptAddGameTui(positionals[0] || "");
@@ -1157,8 +1193,10 @@ async function main() {
 			}
 			if (res.title) v.title = res.title;
 			if (res.posterUrl) v.poster = res.posterUrl;
+			v["no-tiles"] = !res.downloadTiles;
 			v["all-tilesets"] = res.allTilesets;
 			v["no-media"] = !res.downloadMedia;
+			v["upload-media"] = res.uploadMedia;
 			v.videos = res.videos;
 			v["keep-local"] = res.keepLocal;
 			v["no-cards"] = !res.makeCards;

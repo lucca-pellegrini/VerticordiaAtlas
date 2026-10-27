@@ -17,10 +17,12 @@ export interface AddGameFormResult {
 	slug?: string;
 	title?: string;
 	posterUrl?: string;
+	downloadTiles: boolean;
 	allTilesets: boolean;
 	downloadMedia: boolean;
-	videos: boolean;
+	uploadMedia: boolean;
 	keepLocal: boolean;
+	videos: boolean;
 	makeCards: boolean;
 }
 
@@ -183,10 +185,12 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 
 		// Checkboxes
 		const checkOptions = [
+			{ key: "downloadTiles", label: "Download map raster tiles", checked: true },
 			{ key: "allTilesets", label: "Include all tilesets (e.g. detailed, underground, factions)", checked: true },
 			{ key: "downloadMedia", label: "Download & process media assets", checked: true },
-			{ key: "videos", label: "Include video media items", checked: true },
+			{ key: "uploadMedia", label: "Upload media directly to Cloudflare R2 / S3", checked: false },
 			{ key: "keepLocal", label: "Keep local media copies (when uploading to R2)", checked: false },
+			{ key: "videos", label: "Include video media items", checked: true },
 			{ key: "makeCards", label: "Pre-render OpenGraph preview cards", checked: true },
 		];
 
@@ -415,16 +419,23 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 					if (!enteredPoster) enteredPoster = posterInput.value.trim();
 				} catch {}
 
+				const optMap = new Map<string, boolean>();
+				for (const opt of checkOptions) {
+					optMap.set(opt.key, opt.checked);
+				}
+
 				const result: AddGameFormResult = {
 					url: enteredUrl,
 					slug: enteredSlug || undefined,
 					title: enteredTitle || undefined,
 					posterUrl: enteredPoster || undefined,
-					allTilesets: checkOptions[0].checked,
-					downloadMedia: checkOptions[1].checked,
-					videos: checkOptions[2].checked,
-					keepLocal: checkOptions[3].checked,
-					makeCards: checkOptions[4].checked,
+					downloadTiles: optMap.get("downloadTiles") ?? true,
+					allTilesets: optMap.get("allTilesets") ?? true,
+					downloadMedia: optMap.get("downloadMedia") ?? true,
+					uploadMedia: optMap.get("uploadMedia") ?? false,
+					keepLocal: optMap.get("keepLocal") ?? false,
+					videos: optMap.get("videos") ?? true,
+					makeCards: optMap.get("makeCards") ?? true,
 				};
 				cleanup(result);
 			}
