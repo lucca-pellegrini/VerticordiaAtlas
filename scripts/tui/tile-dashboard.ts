@@ -197,7 +197,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		fg: THEME.mauve,
 	});
 	const legendText = new TextRenderable(renderer, {
-		content: "░ ▒ ▓ █ Density   Flicker: ■ Blue (download) / × Red (void)",
+		content: "░ ▒ ▓ █ Red: Void/Border   Green: Saved   Blue: Cached",
 		fg: THEME.textDim,
 	});
 
@@ -325,10 +325,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 					const s = bucketSaved[idx];
 					const k = bucketSkipped[idx];
 					const b = bucketBorder[idx];
-					let col = RGBA_THEME.green;
-					if (s >= k && s >= b) col = RGBA_THEME.green;
-					else if (k >= b) col = RGBA_THEME.blue;
-					else col = RGBA_THEME.red;
+					const col = b > 0 ? RGBA_THEME.red : k > s ? RGBA_THEME.blue : RGBA_THEME.green;
 					fb.frameBuffer.setCell(c, r, glyph, col, RGBA_THEME.bgDark);
 				}
 			}
