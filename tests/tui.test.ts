@@ -94,6 +94,31 @@ describe("TUI ecosystem components & helpers", () => {
 		await dashboard.finish();
 	});
 
+	test("tile-dashboard handles rapid bursts of tiles with incremental bounds and stats", async () => {
+		const dashboard = await createTileDashboard({
+			gameTitle: "Crimson Desert",
+			gameSlug: "crimson-desert",
+			mapSlug: "pywel",
+			tilesetName: "World Map",
+			zoom: 17,
+			pattern: "{z}/{x}/{y}.jpg",
+			destDir: "/tmp",
+			noTui: true,
+			totalExpected: 1000,
+			bounds: { xMin: 65000, xMax: 65100, yMin: 65000, yMax: 65100 },
+		});
+
+		for (let i = 0; i < 500; i++) {
+			dashboard.onTile(65000 + (i % 100), 65000 + Math.floor(i / 100), i % 5 === 0 ? "skipped" : "saved", 2048);
+		}
+
+		const st = dashboard.getStats();
+		expect(st.saved).toBe(400);
+		expect(st.skipped).toBe(100);
+		expect(st.bytes).toBe(400 * 2048);
+		await dashboard.finish();
+	});
+
 	test("media-dashboard tracks download, upload, cache, and cloud verification", async () => {
 		const dashboard = await createMediaDashboard({
 			game: "zelda-totk",

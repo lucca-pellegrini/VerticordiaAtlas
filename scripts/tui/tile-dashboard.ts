@@ -74,7 +74,6 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 
 	const tiles: TileRecord[] = [];
 	let recentFlashes: TileFlash[] = [];
-	let flashClearTimer: any = null;
 	const samples: { time: number; tiles: number; bytes: number }[] = [];
 	let lastLogTime = Date.now();
 
@@ -224,8 +223,65 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	renderer.root.add(rootBox);
 	renderer.requestRender();
 
-	let lastRender = Date.now();
+	const FRAME_INTERVAL_MS = 16; // ~60 fps
+	const STATS_INTERVAL_MS = 500; // Rate & ETA numbers update every 500ms
+	const FLASH_DURATION_MS = 160; // Active flicker persists ~10 frames at 60 fps
+
+	let lastRender = 0;
+	let lastStatsUpdate = 0;
+	let renderTimer: any = null;
 	let isDestroyed = false;
+
+	let cachedVMinX = 0;
+	let cachedVSpanX = 1;
+	let cachedVMinY = 0;
+	let cachedVSpanY = 1;
+	let cachedFbW = 0;
+	let cachedFbH = 0;
+	let bucketCount = new Int32Array(0);
+	let bucketSaved = new Int32Array(0);
+	let bucketSkipped = new Int32Array(0);
+	let bucketBorder = new Int32Array(0);
+	let maxDensity = 1;
+	let bucketsDirty = true;
+
+	function rebuildBuckets(vMinX: number, vSpanX: number, vMinY: number, vSpanY: number) {
+		cachedVMinX = vMinX;
+		cachedVSpanX = vSpanX;
+		cachedVMinY = vMinY;
+		cachedVSpanY = vSpanY;
+		cachedFbW = fbW;
+		cachedFbH = fbH;
+
+		const size = fbW * fbH;
+		if (bucketCount.length !== size) {
+			bucketCount = new Int32Array(size);
+			bucketSaved = new Int32Array(size);
+			bucketSkipped = new Int32Array(size);
+			bucketBorder = new Int32Array(size);
+		} else {
+			bucketCount.fill(0);
+			bucketSaved.fill(0);
+			bucketSkipped.fill(0);
+			bucketBorder.fill(0);
+		}
+
+		maxDensity = 1;
+		for (let i = 0; i < tiles.length; i++) {
+			const t = tiles[i];
+			const c = Math.floor(((t.x - vMinX) / vSpanX) * fbW);
+			const r = Math.floor(((t.y - vMinY) / vSpanY) * (fbH - 2)) + 1;
+			if (c >= 0 && c < fbW && r >= 1 && r < fbH - 1) {
+				const idx = r * fbW + c;
+				const cnt = ++bucketCount[idx];
+				if (t.status === 0) bucketSaved[idx]++;
+				else if (t.status === 1) bucketSkipped[idx]++;
+				else bucketBorder[idx]++;
+				if (cnt > maxDensity) maxDensity = cnt;
+			}
+		}
+		bucketsDirty = false;
+	}
 
 	function redrawMinimap() {
 		fb.frameBuffer.fillRect(0, 0, fbW, fbH, RGBA_THEME.bgDark);
@@ -247,27 +303,16 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		const vSpanX = Math.max(1, vMaxX - vMinX + 1);
 		const vSpanY = Math.max(1, vMaxY - vMinY + 1);
 
-		const bucketCount = new Int32Array(fbW * fbH);
-		const bucketSaved = new Int32Array(fbW * fbH);
-		const bucketSkipped = new Int32Array(fbW * fbH);
-		const bucketBorder = new Int32Array(fbW * fbH);
-
-		for (let i = 0; i < tiles.length; i++) {
-			const t = tiles[i];
-			const c = Math.floor(((t.x - vMinX) / vSpanX) * fbW);
-			const r = Math.floor(((t.y - vMinY) / vSpanY) * (fbH - 2)) + 1;
-			if (c >= 0 && c < fbW && r >= 1 && r < fbH - 1) {
-				const idx = r * fbW + c;
-				bucketCount[idx]++;
-				if (t.status === 0) bucketSaved[idx]++;
-				else if (t.status === 1) bucketSkipped[idx]++;
-				else bucketBorder[idx]++;
-			}
-		}
-
-		let maxDensity = 1;
-		for (let i = 0; i < bucketCount.length; i++) {
-			if (bucketCount[i] > maxDensity) maxDensity = bucketCount[i];
+		if (
+			bucketsDirty ||
+			vMinX !== cachedVMinX ||
+			vSpanX !== cachedVSpanX ||
+			vMinY !== cachedVMinY ||
+			vSpanY !== cachedVSpanY ||
+			fbW !== cachedFbW ||
+			fbH !== cachedFbH
+		) {
+			rebuildBuckets(vMinX, vSpanX, vMinY, vSpanY);
 		}
 
 		for (let r = 1; r < fbH - 1; r++) {
@@ -291,7 +336,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 
 		// Active flicker overlay for tiles downloaded or scouted recently
 		const now = Date.now();
-		recentFlashes = recentFlashes.filter((f) => now - f.time < 50);
+		recentFlashes = recentFlashes.filter((f) => now - f.time < FLASH_DURATION_MS);
 		const cellFlashes = new Map<number, number>();
 		for (let i = 0; i < recentFlashes.length; i++) {
 			const f = recentFlashes[i];
@@ -324,27 +369,14 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	function renderUi(force = false) {
 		if (isDestroyed) return;
 		const now = Date.now();
-		if (!force && now - lastRender < 80) return;
 		lastRender = now;
 
-		samples.push({ time: now, tiles: saved + skipped, bytes: totalBytes });
-		while (samples.length > 1 && now - samples[0].time > 3000) {
-			samples.shift();
-		}
-		const oldest = samples[0];
-		const sampleDt = Math.max(0.1, (now - oldest.time) / 1000);
-		const rateTiles = Math.max(0, (saved + skipped - oldest.tiles) / sampleDt);
-		const rateBytes = Math.max(0, (totalBytes - oldest.bytes) / sampleDt);
-
-		const elapsed = (now - startTime) / 1000;
 		const totalDone = saved + skipped;
 		const totalAll = Math.max(totalDone, totalExpected);
 		const pct = totalAll > 0 ? Math.min(100, (totalDone / totalAll) * 100) : 0;
-		const eta = rateTiles > 0 && totalAll > totalDone ? (totalAll - totalDone) / rateTiles : -1;
 
+		// 1. Snappy 60+ fps updates: counters, progress bar, minimap
 		progressText.content = `Progress:    ${fmt(totalDone)} / ${fmt(totalAll)} tiles (${pct.toFixed(1)}%)`;
-		rateText.content = `Rate:        ${rateTiles.toFixed(1)} tiles/s (${fmtBytes(rateBytes)}/s)`;
-		timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: ${fmtTime(eta)}`;
 		countsText1.content = `Saved:       ${fmt(saved).padEnd(8)} Cached: ${fmt(skipped)}`;
 		countsText2.content = `Perimeter:   ${fmt(missing).padEnd(8)} Failed: ${fmt(failed)}`;
 
@@ -358,14 +390,50 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		const barWidth = Math.max(10, boxW - 24);
 		progressBar.content = `${renderProgressBar(pct, barWidth)} ${pct.toFixed(1)}% (${fmtBytes(totalBytes)})`;
 
+		// 2. Smoothed rate and ETA updates: calculated every 500ms
+		if (force || now - lastStatsUpdate >= STATS_INTERVAL_MS) {
+			lastStatsUpdate = now;
+			samples.push({ time: now, tiles: totalDone, bytes: totalBytes });
+			while (samples.length > 1 && now - samples[0].time > 3000) {
+				samples.shift();
+			}
+			const oldest = samples[0];
+			const sampleDt = Math.max(0.1, (now - oldest.time) / 1000);
+			const rateTiles = Math.max(0, (totalDone - oldest.tiles) / sampleDt);
+			const rateBytes = Math.max(0, (totalBytes - oldest.bytes) / sampleDt);
+
+			const elapsed = (now - startTime) / 1000;
+			const eta = rateTiles > 0 && totalAll > totalDone ? (totalAll - totalDone) / rateTiles : -1;
+
+			rateText.content = `Rate:        ${rateTiles.toFixed(1)} tiles/s (${fmtBytes(rateBytes)}/s)`;
+			timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: ${fmtTime(eta)}`;
+		}
+
 		redrawMinimap();
 		renderer.requestRender();
 
-		clearTimeout(flashClearTimer);
-		if (recentFlashes.length > 0) {
-			flashClearTimer = setTimeout(() => {
-				if (!isDestroyed) renderUi(true);
-			}, 130);
+		// If active flashes remain, ensure the next animation frame is scheduled
+		if (recentFlashes.length > 0 && !renderTimer) {
+			renderTimer = setTimeout(() => {
+				renderTimer = null;
+				if (!isDestroyed) renderUi(false);
+			}, FRAME_INTERVAL_MS);
+		}
+	}
+
+	function scheduleRender(force = false) {
+		if (isDestroyed) return;
+		const now = Date.now();
+		const elapsed = now - lastRender;
+		if (force || elapsed >= FRAME_INTERVAL_MS) {
+			clearTimeout(renderTimer);
+			renderTimer = null;
+			renderUi(force);
+		} else if (!renderTimer) {
+			renderTimer = setTimeout(() => {
+				renderTimer = null;
+				if (!isDestroyed) renderUi(false);
+			}, FRAME_INTERVAL_MS - elapsed);
 		}
 	}
 
@@ -382,7 +450,8 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		fb.width = fbW;
 		fb.height = fbH;
 
-		renderUi(true);
+		bucketsDirty = true;
+		scheduleRender(true);
 	}
 
 	renderer.on("resize", handleResize);
@@ -391,12 +460,26 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 
 	return {
 		updateBounds(minX, maxX, minY, maxY, expected) {
-			xMin = Math.min(xMin, minX);
-			xMax = Math.max(xMax, maxX);
-			yMin = Math.min(yMin, minY);
-			yMax = Math.max(yMax, maxY);
+			let changed = false;
+			if (minX < xMin) {
+				xMin = minX;
+				changed = true;
+			}
+			if (maxX > xMax) {
+				xMax = maxX;
+				changed = true;
+			}
+			if (minY < yMin) {
+				yMin = minY;
+				changed = true;
+			}
+			if (maxY > yMax) {
+				yMax = maxY;
+				changed = true;
+			}
 			if (expected != null && expected > totalExpected) totalExpected = expected;
-			renderUi(false);
+			if (changed) bucketsDirty = true;
+			scheduleRender(false);
 		},
 		onTile(x, y, status, bytes = 0) {
 			let stNum = 0;
@@ -415,23 +498,58 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 				stNum = 3;
 			}
 
-			if (x < xMin) xMin = x;
-			if (x > xMax) xMax = x;
-			if (y < yMin) yMin = y;
-			if (y > yMax) yMax = y;
+			let boundsChanged = false;
+			if (x < xMin) {
+				xMin = x;
+				boundsChanged = true;
+			}
+			if (x > xMax) {
+				xMax = x;
+				boundsChanged = true;
+			}
+			if (y < yMin) {
+				yMin = y;
+				boundsChanged = true;
+			}
+			if (y > yMax) {
+				yMax = y;
+				boundsChanged = true;
+			}
 
 			tiles.push({ x, y, status: stNum });
 			recentFlashes.push({ x, y, status: stNum, time: Date.now() });
-			if (recentFlashes.length > 250) recentFlashes.shift();
+			if (recentFlashes.length > 300) recentFlashes.shift();
 
-			renderUi(false);
+			if (boundsChanged) {
+				bucketsDirty = true;
+			} else if (
+				!bucketsDirty &&
+				cachedFbW === fbW &&
+				cachedFbH === fbH &&
+				cachedVSpanX > 0 &&
+				cachedVSpanY > 0
+			) {
+				// Fast incremental bucket update in O(1)
+				const c = Math.floor(((x - cachedVMinX) / cachedVSpanX) * fbW);
+				const r = Math.floor(((y - cachedVMinY) / cachedVSpanY) * (fbH - 2)) + 1;
+				if (c >= 0 && c < fbW && r >= 1 && r < fbH - 1) {
+					const idx = r * fbW + c;
+					const cnt = ++bucketCount[idx];
+					if (stNum === 0) bucketSaved[idx]++;
+					else if (stNum === 1) bucketSkipped[idx]++;
+					else bucketBorder[idx]++;
+					if (cnt > maxDensity) maxDensity = cnt;
+				}
+			}
+
+			scheduleRender(false);
 		},
 		async finish() {
-			renderUi(true);
+			scheduleRender(true);
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
 				isDestroyed = true;
-				clearTimeout(flashClearTimer);
+				clearTimeout(renderTimer);
 				renderer.off("resize", handleResize);
 				process.stdout.off("resize", onStdoutResize);
 				try {
@@ -448,7 +566,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		destroy() {
 			if (!isDestroyed) {
 				isDestroyed = true;
-				clearTimeout(flashClearTimer);
+				clearTimeout(renderTimer);
 				renderer.off("resize", handleResize);
 				process.stdout.off("resize", onStdoutResize);
 				try {
