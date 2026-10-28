@@ -592,7 +592,11 @@ export async function downloadTiles({
 			pump();
 		});
 
-		await dashboard.finish();
+		try {
+			await dashboard.finish();
+		} finally {
+			dashboard.destroy();
+		}
 		return { minzoom: minZ, maxzoom: maxZ, bounds, stats };
 	}
 
@@ -873,76 +877,80 @@ export async function downloadMedia(
 		renderer: opts.renderer,
 	});
 
-	await pool([...urls.keys()], opts.concurrency, async (url) => {
-		const name = decodeURIComponent(new URL(url).pathname.split("/").pop()!);
-		if (names.has(name) && names.get(name) !== url) console.log("  ! file name collision:", name);
-		names.set(name, url);
+	try {
+		await pool([...urls.keys()], opts.concurrency, async (url) => {
+			const name = decodeURIComponent(new URL(url).pathname.split("/").pop()!);
+			if (names.has(name) && names.get(name) !== url) console.log("  ! file name collision:", name);
+			names.set(name, url);
 
-		// Silently ignore any media already marked as uploaded to R2/S3 in the SQLite media table
-		if (cloudSet.has(name) || (opts.game && opts.mediaDb?.has(opts.game, name))) {
-			st.skippedCloud++;
-			dashboard.onItem({ name, url, status: "skippedCloud" });
-			return;
-		}
-
-		const file = path.join(dir, name);
-		if (!opts.uploadMedia && (await exists(file))) {
-			st.skipped++;
-			dashboard.onItem({ name, url, status: "cached" });
-			return;
-		}
-
-		// If uploading to R2 and the file is already on disk, upload the local copy instead of re-fetching MapGenie
-		let buf: Buffer | undefined;
-		if (opts.uploadMedia && (await exists(file))) {
-			buf = Buffer.from(await Bun.file(file).arrayBuffer());
-		} else {
-			const r = await fetchBin(url);
-			if (r.status === 200 && r.buf) {
-				buf = r.buf;
-			} else {
-				st.failed++;
-				dashboard.onItem({ name, url, status: "failed", error: String(r.status || r.error) });
-				if (opts.delay) await sleep(opts.delay);
+			// Silently ignore any media already marked as uploaded to R2/S3 in the SQLite media table
+			if (cloudSet.has(name) || (opts.game && opts.mediaDb?.has(opts.game, name))) {
+				st.skippedCloud++;
+				dashboard.onItem({ name, url, status: "skippedCloud" });
 				return;
 			}
-		}
 
-		if (opts.uploadMedia) {
-			if (!opts.game || !opts.s3 || !opts.mediaUrl || !opts.mediaDb) {
-				throw new Error("uploadMedia requires game, s3, mediaUrl, and mediaDb");
+			const file = path.join(dir, name);
+			if (!opts.uploadMedia && (await exists(file))) {
+				st.skipped++;
+				dashboard.onItem({ name, url, status: "cached" });
+				return;
 			}
-			const rec = await uploadAndVerifyBuffer({
-				game: opts.game,
-				originalName: name,
-				buf,
-				s3: opts.s3,
-				mediaUrl: opts.mediaUrl,
-				fetchImpl: opts.fetchImpl,
-			});
-			opts.mediaDb.record(rec);
-			cloudSet.add(name);
-			st.uploaded++;
-			st.bytes += buf.length;
-			dashboard.onItem({ name, url, size: buf.length, status: "uploaded", verifiedUrl: rec.verifiedUrl });
-			if (opts.keepLocal) {
-				if (!(await exists(file))) {
-					await writeFile(file, buf);
-					st.saved++;
+
+			// If uploading to R2 and the file is already on disk, upload the local copy instead of re-fetching MapGenie
+			let buf: Buffer | undefined;
+			if (opts.uploadMedia && (await exists(file))) {
+				buf = Buffer.from(await Bun.file(file).arrayBuffer());
+			} else {
+				const r = await fetchBin(url);
+				if (r.status === 200 && r.buf) {
+					buf = r.buf;
+				} else {
+					st.failed++;
+					dashboard.onItem({ name, url, status: "failed", error: String(r.status || r.error) });
+					if (opts.delay) await sleep(opts.delay);
+					return;
 				}
-			} else if (await exists(file)) {
-				await unlink(file).catch(() => {});
 			}
-		} else {
-			await writeFile(file, buf);
-			st.saved++;
-			st.bytes += buf.length;
-			dashboard.onItem({ name, url, size: buf.length, status: "downloaded" });
-		}
 
-		if (opts.delay) await sleep(opts.delay);
-	});
-	await dashboard.finish();
+			if (opts.uploadMedia) {
+				if (!opts.game || !opts.s3 || !opts.mediaUrl || !opts.mediaDb) {
+					throw new Error("uploadMedia requires game, s3, mediaUrl, and mediaDb");
+				}
+				const rec = await uploadAndVerifyBuffer({
+					game: opts.game,
+					originalName: name,
+					buf,
+					s3: opts.s3,
+					mediaUrl: opts.mediaUrl,
+					fetchImpl: opts.fetchImpl,
+				});
+				opts.mediaDb.record(rec);
+				cloudSet.add(name);
+				st.uploaded++;
+				st.bytes += buf.length;
+				dashboard.onItem({ name, url, size: buf.length, status: "uploaded", verifiedUrl: rec.verifiedUrl });
+				if (opts.keepLocal) {
+					if (!(await exists(file))) {
+						await writeFile(file, buf);
+						st.saved++;
+					}
+				} else if (await exists(file)) {
+					await unlink(file).catch(() => {});
+				}
+			} else {
+				await writeFile(file, buf);
+				st.saved++;
+				st.bytes += buf.length;
+				dashboard.onItem({ name, url, size: buf.length, status: "downloaded" });
+			}
+
+			if (opts.delay) await sleep(opts.delay);
+		});
+		await dashboard.finish();
+	} finally {
+		dashboard.destroy();
+	}
 	const stats = dashboard.getStats();
 	st.saved = stats.saved;
 	st.uploaded = stats.uploaded;
@@ -1339,11 +1347,31 @@ export interface AddGamePipelineOptions {
 }
 
 export async function runAddGamePipeline(p: AddGamePipelineOptions) {
+	const origLog = console.log;
+	const origErr = console.error;
+	if (p.onLog || p.renderer) {
+		console.log = (...args: any[]) => p.onLog?.(args.map(String).join(" "));
+		console.error = (...args: any[]) => p.onLog?.(`[ERROR] ${args.map(String).join(" ")}`);
+	}
 	const log = (msg: string) => {
-		console.log(msg);
-		p.onLog?.(msg);
+		if (p.onLog) {
+			p.onLog(msg);
+		} else {
+			console.log(msg);
+		}
 	};
 
+	try {
+		await executeAddGamePipeline(p, log);
+	} finally {
+		if (p.onLog || p.renderer) {
+			console.log = origLog;
+			console.error = origErr;
+		}
+	}
+}
+
+async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: string) => void) {
 	const v = {
 		out: p.out || "./public/maps",
 		id: p.id,
@@ -1690,7 +1718,7 @@ export async function runAddGamePipeline(p: AddGamePipelineOptions) {
 	const at = index.games.findIndex((g) => g.slug === pageSlug);
 	if (at >= 0) index.games[at] = entry;
 	else index.games.push(entry);
-	await writeFile(v.index!, JSON.stringify(index, null, 2) + "\n");
+	await writeFile(v.index!, JSON.stringify(index, null, "\t") + "\n");
 	console.log(
 		`\nWrote ${path.join(outDir, "meta.json")} and updated ${v.index}; the game is now listed, fetching tiles and media`,
 	);
@@ -1732,21 +1760,28 @@ export async function runAddGamePipeline(p: AddGamePipelineOptions) {
 				});
 				pruneDash.startTileset(title, ts.name || ms, 0);
 			}
-			const o = await optimizeTileset({
-				dir: path.join(outDir, split.base),
-				tail: split.tail,
-				minZ: info.minzoom ?? 0,
-				maxZ: info.maxzoom ?? 0,
-				prune: false,
-				background: info.background,
-				concurrency: opts.concurrency,
-				onProgress: pruneDash ? (ev) => pruneDash.onTileset(ev) : undefined,
-			});
-			if (pruneDash) {
-				await pruneDash.finish();
+			try {
+				const o = await optimizeTileset({
+					dir: path.join(outDir, split.base),
+					tail: split.tail,
+					minZ: info.minzoom ?? 0,
+					maxZ: info.maxzoom ?? 0,
+					prune: false,
+					background: info.background,
+					concurrency: opts.concurrency,
+					onProgress: pruneDash ? (ev) => pruneDash.onProgress(ev) : undefined,
+				});
+				if (pruneDash) {
+					pruneDash.finishTileset(o);
+					await pruneDash.finish();
+				}
+				log(
+					`  overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
+				);
+				if (o.background && !info.background) info.background = o.background;
+			} finally {
+				if (pruneDash) pruneDash.destroy();
 			}
-			log(`  overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`);
-			if (o.background && !info.background) info.background = o.background;
 		}
 		await writeMeta();
 	}
@@ -1783,10 +1818,26 @@ export async function runAddGamePipeline(p: AddGamePipelineOptions) {
 				[process.execPath, path.join(here, "make-cards.ts"), "--only", pageSlug, "--no-tui"],
 				{
 					cwd: path.dirname(here),
-					stdout: "inherit",
+					stdout: p.onLog ? "pipe" : "inherit",
 					stderr: "pipe",
 				},
 			);
+			if (p.onLog && proc.stdout) {
+				const reader = proc.stdout.getReader();
+				const decoder = new TextDecoder();
+				(async () => {
+					let buf = "";
+					while (true) {
+						const { done, value } = await reader.read();
+						if (done) break;
+						buf += decoder.decode(value, { stream: true });
+						const lines = buf.split("\n");
+						buf = lines.pop() || "";
+						for (const l of lines) if (l.trim()) p.onLog?.(l);
+					}
+					if (buf.trim()) p.onLog?.(buf);
+				})().catch(() => {});
+			}
 			const exit = await proc.exited;
 			if (exit !== 0) {
 				const err = await new Response(proc.stderr).text();

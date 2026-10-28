@@ -201,6 +201,7 @@ async function main() {
 	const { values: v, positionals } = parseArgs({
 		allowPositionals: true,
 		options: {
+			game: { type: "string" },
 			out: { type: "string", default: path.join(REPO, "public", "maps") },
 			"dry-run": { type: "boolean", default: false },
 			"no-prune": { type: "boolean", default: false },
@@ -209,9 +210,11 @@ async function main() {
 		},
 	});
 	const root = v.out!;
-	const games = positionals.length
-		? positionals
-		: (await readdir(root, { withFileTypes: true })).filter((d) => d.isDirectory()).map((d) => d.name);
+	const games = v.game
+		? [v.game]
+		: positionals.length
+			? positionals
+			: (await readdir(root, { withFileTypes: true })).filter((d) => d.isDirectory()).map((d) => d.name);
 
 	// Pre-count tilesets for accurate progress tracking
 	const tasks: { game: string; metaFile: string; meta: GameMeta; map: any; ts: any; dir: string; split: any }[] = [];

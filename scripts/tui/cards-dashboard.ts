@@ -412,9 +412,11 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 			}
 			const elapsed = (Date.now() - startTime) / 1000;
 			const rate = elapsed > 0 ? (completed / elapsed).toFixed(1) : "0.0";
-			console.log(
-				`\n✓ Finished ${completed}/${opts.totalCards} cards (${fmtBytes(totalBytes)}) in ${elapsed.toFixed(1)}s (${rate} cards/s)\n`,
-			);
+			if (!opts.renderer && !opts.container) {
+				console.log(
+					`\n✓ Finished ${completed}/${opts.totalCards} cards (${fmtBytes(totalBytes)}) in ${elapsed.toFixed(1)}s (${rate} cards/s)\n`,
+				);
+			}
 		},
 		destroy() {
 			if (!isDestroyed) {

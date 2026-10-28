@@ -1,6 +1,6 @@
 {
 	"id": "gta-5",
-	"title": "Grand Theft Auto 5",
+	"title": "Grand Theft Auto V",
 	"slug": "gta5",
 	"source": "https://gta-5-map.com/",
 	"poster": "poster.jpg",
@@ -132,5 +132,9 @@
 				}
 			]
 		}
-	]
+	],
+	"description": "Every marker on the Grand Theft Auto 5 map.",
+	"theme": {
+		"accent": "#a25a32"
+	}
 }

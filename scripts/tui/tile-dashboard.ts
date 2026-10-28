@@ -769,9 +769,11 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			const elapsed = (Date.now() - startTime) / 1000;
 			const totalDone = saved + skipped;
 			const rate = elapsed > 0 ? (totalDone / elapsed).toFixed(1) : "0.0";
-			console.log(
-				`  tiles: saved ${fmt(saved)}, already had ${fmt(skipped)}, missing ${fmt(missing)}, failed ${fmt(failed)}, ${fmtBytes(totalBytes)} in ${elapsed.toFixed(1)}s (${rate} tiles/s)`,
-			);
+			if (!opts.renderer && !opts.container) {
+				console.log(
+					`  tiles: saved ${fmt(saved)}, already had ${fmt(skipped)}, missing ${fmt(missing)}, failed ${fmt(failed)}, ${fmtBytes(totalBytes)} in ${elapsed.toFixed(1)}s (${rate} tiles/s)`,
+				);
+			}
 		},
 		destroy() {
 			if (!isDestroyed) {

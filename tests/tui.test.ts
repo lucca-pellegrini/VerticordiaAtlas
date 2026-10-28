@@ -4,6 +4,7 @@
 import { describe, expect, test } from "bun:test";
 import http from "node:http";
 
+import { BoxRenderable } from "@opentui/core";
 import { createTestRenderer } from "@opentui/core/testing";
 
 import {
@@ -415,6 +416,18 @@ describe("TUI ecosystem components & helpers", () => {
 		expect(updated.games[0].slug).toBe("game-b");
 		expect(updated.games[1].slug).toBe("game-a");
 
+		// Real-time external index.json updates
+		const externalGames = {
+			games: [
+				{ slug: "game-b", title: "Game B", description: "Desc B" },
+				{ slug: "game-a", title: "Game A", description: "Desc A" },
+				{ slug: "game-new", title: "Game New", description: "Desc New" },
+			],
+		};
+		await Bun.write(`${tmpDir}/index.json`, JSON.stringify(externalGames, null, "\t"));
+		await new Promise((r) => setTimeout(r, 250));
+		catalog.focus();
+
 		catalog.destroy();
 		testEnv.dispose();
 	});
@@ -447,6 +460,39 @@ describe("TUI ecosystem components & helpers", () => {
 		expect(completed).toBe(true);
 
 		jobView.destroy();
+		testEnv.dispose();
+	});
+
+	test("prune-dashboard mounts inside container, handles onProgress and finishes cleanly", async () => {
+		const testEnv = await createTestRenderer({ width: 100, height: 30 });
+		const container = new BoxRenderable(testEnv.renderer, { width: 98, height: 16 });
+		testEnv.renderer.root.add(container);
+
+		const pruneDash = await createPruneDashboard({
+			container,
+			renderer: testEnv.renderer,
+			totalTilesets: 1,
+		});
+
+		pruneDash.startTileset("GTA IV", "default", 500);
+		pruneDash.onProgress({ phase: "solid", solid: 25, solidFreed: 102400 });
+		pruneDash.onProgress({ phase: "overview", overview: 1 });
+		pruneDash.finishTileset({
+			tiles: 500,
+			solid: 25,
+			solidFreed: 102400,
+			overview: 1,
+			pruned: 100,
+			prunedBytes: 409600,
+			background: "#000000",
+		});
+
+		const totals = pruneDash.getTotals();
+		expect(totals.totalSolid).toBe(25);
+		expect(totals.tilesetsProcessed).toBe(1);
+
+		await pruneDash.finish();
+		pruneDash.destroy();
 		testEnv.dispose();
 	});
 

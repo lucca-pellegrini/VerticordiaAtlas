@@ -100,16 +100,17 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	rootBox.add(headerBox);
 
 	// Dedicated Container for Embedded Stage TUIs (Tile, Media, Prune, Cards)
+	const logBoxH = Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
+	const stageH = Math.max(8, boxH - 4 - logBoxH - 1);
 	const stageContainer = new BoxRenderable(renderer, {
 		width: boxW - 2,
-		flexGrow: 1,
+		height: stageH,
 		flexDirection: "column",
 		marginVertical: 0,
 	});
 	rootBox.add(stageContainer);
 
 	// Streaming Log Pane
-	const logBoxH = Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
 	const logBox = new BoxRenderable(renderer, {
 		width: boxW - 2,
 		height: logBoxH,
@@ -133,13 +134,6 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		logBox.add(line);
 	}
 	rootBox.add(logBox);
-
-	// Bottom action hint
-	const footerHint = new TextRenderable(renderer, {
-		content: "[Tab] Switch Tab (runs in background)   [N] New Scrape Tab",
-		fg: THEME.textDim,
-	});
-	rootBox.add(footerHint);
 
 	function updateLogDisplay() {
 		const display = logs.slice(-logLinesPool.length);
@@ -201,13 +195,11 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 				statusBadge.content = " [COMPLETED] ";
 				statusBadge.fg = THEME.green;
 				stageText.content = `Stage: Finished ✓ ${message || ""}`;
-				footerHint.content = "[W] Close Tab   [1] Live Monitor   [2] Games Catalog   [N] New Scrape Tab";
 				opts.onCompleted?.();
 			} else {
 				statusBadge.content = " [FAILED] ";
 				statusBadge.fg = THEME.red;
 				stageText.content = `Stage: Error ✗ ${message || ""}`;
-				footerHint.content = "[W] Close Tab   [1] Live Monitor   [2] Games Catalog   [N] New Scrape Tab";
 			}
 			renderer.requestRender();
 		},
@@ -226,8 +218,11 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 			headerBox.width = boxW - 2;
 			titleRow.width = boxW - 4;
 			subRow.width = boxW - 4;
-			stageContainer.width = boxW - 2;
+			const nextLogBoxH = Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
 			logBox.width = boxW - 2;
+			logBox.height = nextLogBoxH;
+			stageContainer.width = boxW - 2;
+			stageContainer.height = Math.max(8, boxH - 4 - nextLogBoxH - 1);
 			updateLogDisplay();
 		},
 		destroy() {

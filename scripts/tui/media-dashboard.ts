@@ -368,9 +368,11 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 			const elapsed = (Date.now() - startTime) / 1000;
 			const done = saved + uploaded + skipped + skippedCloud;
 			const rate = elapsed > 0 ? (done / elapsed).toFixed(1) : "0.0";
-			console.log(
-				`  media: saved ${fmt(saved)}${opts.uploadMedia ? `, uploaded ${fmt(uploaded)}` : ""}, already had ${fmt(skipped)}, skipped ${fmt(skippedCloud)} (in cloud), failed ${fmt(failed)}, ${fmtBytes(totalBytes)} in ${elapsed.toFixed(1)}s (${rate} items/s)`,
-			);
+			if (!opts.renderer && !opts.container) {
+				console.log(
+					`  media: saved ${fmt(saved)}${opts.uploadMedia ? `, uploaded ${fmt(uploaded)}` : ""}, already had ${fmt(skipped)}, skipped ${fmt(skippedCloud)} (in cloud), failed ${fmt(failed)}, ${fmtBytes(totalBytes)} in ${elapsed.toFixed(1)}s (${rate} items/s)`,
+				);
+			}
 		},
 		destroy() {
 			if (!isDestroyed) {

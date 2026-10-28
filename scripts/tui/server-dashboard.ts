@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import { BoxRenderable, createCliRenderer, type KeyEvent, TextRenderable } from "@opentui/core";
 
@@ -427,6 +428,31 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			});
 	}
 
+	async function streamProcessOutput(proc: any, onLine: (line: string, isErr: boolean) => void): Promise<number> {
+		async function pump(stream: any, isErr: boolean) {
+			if (!stream) return;
+			const reader = stream.getReader();
+			const decoder = new TextDecoder();
+			let buffer = "";
+			try {
+				while (true) {
+					const { done, value } = await reader.read();
+					if (done) break;
+					buffer += decoder.decode(value, { stream: true });
+					const lines = buffer.split("\n");
+					buffer = lines.pop() || "";
+					for (const line of lines) {
+						if (line.trim()) onLine(line, isErr);
+					}
+				}
+				if (buffer.trim()) onLine(buffer, isErr);
+			} catch {}
+		}
+
+		await Promise.all([pump(proc.stdout, false), pump(proc.stderr, true)]);
+		return await proc.exited;
+	}
+
 	function startPruneJob(game: CatalogGame) {
 		const newTab: TabItem = {
 			id: `prune_${Date.now()}`,
@@ -459,32 +485,21 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		(async () => {
 			jobView.setStage("Optimizing & Linking Tiles");
 			try {
-				const here = path.dirname(import.meta.url).replace(/^file:\/\//, "");
+				const here = path.dirname(fileURLToPath(import.meta.url));
 				const proc = Bun.spawn(
-					[
-						process.execPath,
-						path.join(path.dirname(here), "prune-tiles.ts"),
-						"--game",
-						game.slug,
-						"--no-tui",
-					],
+					[process.execPath, path.join(path.dirname(here), "prune-tiles.ts"), game.slug, "--no-tui"],
 					{
+						cwd: path.dirname(path.dirname(here)),
 						stdout: "pipe",
 						stderr: "pipe",
 					},
 				);
-				const reader = proc.stdout.getReader();
-				const decoder = new TextDecoder();
-				while (true) {
-					const { done, value } = await reader.read();
-					if (done) break;
-					const chunk = decoder.decode(value);
-					for (const line of chunk.split("\n")) {
-						if (line.trim()) jobView.addLog(line);
-					}
-				}
-				const exit = await proc.exited;
-				jobView.finish(exit === 0);
+				const exit = await streamProcessOutput(proc, (line, isErr) => {
+					jobView.addLog(isErr ? `[stderr] ${line}` : line);
+				});
+				const success = exit === 0;
+				jobView.finish(success, success ? "Pruning completed" : `Exited with code ${exit}`);
+				if (success) catalogView.reload();
 			} catch (e: any) {
 				jobView.finish(false, e.message);
 			}
@@ -522,26 +537,21 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		(async () => {
 			jobView.setStage("Rendering OpenGraph Cards");
 			try {
-				const here = path.dirname(import.meta.url).replace(/^file:\/\//, "");
+				const here = path.dirname(fileURLToPath(import.meta.url));
 				const proc = Bun.spawn(
 					[process.execPath, path.join(path.dirname(here), "make-cards.ts"), "--only", game.slug, "--no-tui"],
 					{
+						cwd: path.dirname(path.dirname(here)),
 						stdout: "pipe",
 						stderr: "pipe",
 					},
 				);
-				const reader = proc.stdout.getReader();
-				const decoder = new TextDecoder();
-				while (true) {
-					const { done, value } = await reader.read();
-					if (done) break;
-					const chunk = decoder.decode(value);
-					for (const line of chunk.split("\n")) {
-						if (line.trim()) jobView.addLog(line);
-					}
-				}
-				const exit = await proc.exited;
-				jobView.finish(exit === 0);
+				const exit = await streamProcessOutput(proc, (line, isErr) => {
+					jobView.addLog(isErr ? `[stderr] ${line}` : line);
+				});
+				const success = exit === 0;
+				jobView.finish(success, success ? "Cards rendered" : `Exited with code ${exit}`);
+				if (success) catalogView.reload();
 			} catch (e: any) {
 				jobView.finish(false, e.message);
 			}

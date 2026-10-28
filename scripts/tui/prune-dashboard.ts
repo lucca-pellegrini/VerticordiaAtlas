@@ -137,9 +137,9 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 
 	let { boxW, boxH } = computeResponsiveBox(
 		opts.container ? opts.container.width || 80 : renderer.width || 80,
-		opts.container ? opts.container.height || 24 : renderer.height || 24,
+		opts.container ? opts.container.height || 16 : renderer.height || 24,
 		128,
-		38,
+		opts.container ? 16 : 38,
 	);
 
 	renderer.root.flexDirection = "column";
@@ -306,7 +306,10 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 
 	function handleResize(termW: number, termH: number) {
 		if (isDestroyed) return;
-		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 128, 38);
+		const targetW = opts.container ? opts.container.width || termW : termW || renderer.width;
+		const targetH = opts.container ? opts.container.height || termH : termH || renderer.height;
+		const maxH = opts.container ? 16 : 38;
+		const next = computeResponsiveBox(targetW, targetH, 128, maxH);
 		boxW = next.boxW;
 		boxH = next.boxH;
 		rootBox.width = boxW;
@@ -373,9 +376,11 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 			}
 			const elapsed = (Date.now() - startTime) / 1000;
 			const totalFreed = totalSolidFreed + totalPrunedBytes;
-			console.log(
-				`  pruning complete: ${fmt(tilesetsProcessed)} tilesets, ${fmt(totalSolid)} solid linked (${fmtBytes(totalSolidFreed)}), ${fmt(totalPruned)} intermediate pruned (${fmtBytes(totalPrunedBytes)}), total freed: ${fmtBytes(totalFreed)} in ${elapsed.toFixed(1)}s`,
-			);
+			if (!opts.renderer && !opts.container) {
+				console.log(
+					`  pruning complete: ${fmt(tilesetsProcessed)} tilesets, ${fmt(totalSolid)} solid linked (${fmtBytes(totalSolidFreed)}), ${fmt(totalPruned)} intermediate pruned (${fmtBytes(totalPrunedBytes)}), total freed: ${fmtBytes(totalFreed)} in ${elapsed.toFixed(1)}s`,
+				);
+			}
 		},
 		destroy() {
 			if (!isDestroyed) {

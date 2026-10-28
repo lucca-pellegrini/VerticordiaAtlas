@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
+import { type FSWatcher, watch } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -241,7 +242,10 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		}
 	}
 
+	let isSelfWriting = false;
+
 	function applySearchFilter() {
+		const currentSelectedSlug = displayedGames[selectedIdx]?.slug;
 		if (!searchQuery.trim()) {
 			displayedGames = [...allGames];
 		} else {
@@ -249,6 +253,12 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			displayedGames = allGames.filter(
 				(g) => g.title.toLowerCase().includes(q) || g.slug.toLowerCase().includes(q),
 			);
+		}
+		if (currentSelectedSlug) {
+			const foundIdx = displayedGames.findIndex((g) => g.slug === currentSelectedSlug);
+			if (foundIdx >= 0) {
+				selectedIdx = foundIdx;
+			}
 		}
 		if (selectedIdx >= displayedGames.length) {
 			selectedIdx = Math.max(0, displayedGames.length - 1);
@@ -258,10 +268,15 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 
 	async function saveIndexData() {
 		try {
+			isSelfWriting = true;
 			const data = { games: allGames };
 			await writeFile(indexPath, JSON.stringify(data, null, "\t") + "\n", "utf8");
 		} catch (e: any) {
 			showToast(`Error saving index.json: ${e.message}`);
+		} finally {
+			setTimeout(() => {
+				isSelfWriting = false;
+			}, 300);
 		}
 	}
 
@@ -562,6 +577,36 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		showToast(`✓ Reordered: "${game.title}" moved to #${selectedIdx + 1}`);
 	}
 
+	let fsWatcher: FSWatcher | null = null;
+	let reloadDebounce: any = null;
+	let isDestroyed = false;
+
+	function triggerAutoReload() {
+		if (isSelfWriting || isDestroyed || modalState !== null) return;
+		clearTimeout(reloadDebounce);
+		reloadDebounce = setTimeout(async () => {
+			if (isSelfWriting || isDestroyed || modalState !== null) return;
+			await loadIndexData();
+			renderer.requestRender();
+		}, 150);
+	}
+
+	try {
+		const dir = path.dirname(path.resolve(indexPath));
+		const base = path.basename(indexPath);
+		fsWatcher = watch(dir, (event, filename) => {
+			if (!filename || filename === base) {
+				triggerAutoReload();
+			}
+		});
+	} catch {
+		try {
+			fsWatcher = watch(indexPath, () => {
+				triggerAutoReload();
+			});
+		} catch {}
+	}
+
 	await loadIndexData();
 
 	return {
@@ -573,7 +618,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			return modalState !== null;
 		},
 		focus() {
-			renderGrid();
+			loadIndexData().catch(() => {});
 		},
 		blur() {
 			if (modalState) closeModal();
@@ -732,7 +777,15 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			renderGrid();
 		},
 		destroy() {
+			isDestroyed = true;
 			clearTimeout(toastTimer);
+			clearTimeout(reloadDebounce);
+			if (fsWatcher) {
+				try {
+					fsWatcher.close();
+				} catch {}
+				fsWatcher = null;
+			}
 			try {
 				for (const input of editInputs) input.removeAllListeners();
 				searchInput.removeAllListeners();
