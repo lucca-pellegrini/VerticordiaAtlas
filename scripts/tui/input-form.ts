@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
+import { stat } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+
 import {
 	BoxRenderable,
 	createCliRenderer,
@@ -26,50 +30,100 @@ export interface AddGameFormResult {
 	makeCards: boolean;
 }
 
+export function expandHome(filePath: string): string {
+	if (filePath.startsWith("~/") || filePath === "~") {
+		return path.join(os.homedir(), filePath.slice(1));
+	}
+	return filePath;
+}
+
 export async function validatePosterUrl(
-	urlStr: string,
+	urlOrPath: string,
 ): Promise<{ ok: boolean; message: string; width?: number; height?: number }> {
-	const trimmed = urlStr.trim();
+	const trimmed = urlOrPath.trim();
 	if (!trimmed) {
 		return { ok: true, message: "Optional (scrapes default from page)" };
 	}
+
+	// Web URL validation
+	if (/^https?:\/\//i.test(trimmed)) {
+		try {
+			const u = new URL(trimmed);
+			const res = await fetch(u.href, {
+				method: "GET",
+				headers: { Range: "bytes=0-32767" },
+			});
+			if (!res.ok && res.status !== 206) {
+				return { ok: false, message: `HTTP ${res.status}: ${res.statusText}` };
+			}
+			const ctype = res.headers.get("content-type") || "";
+			if (!ctype.startsWith("image/")) {
+				return { ok: false, message: `Not an image (${ctype || "unknown"})` };
+			}
+			const buf = Buffer.from(await res.arrayBuffer());
+			try {
+				const sharp = (await import("sharp")).default;
+				const meta = await sharp(buf).metadata();
+				if (meta.width && meta.height) {
+					if (meta.width < 400 || meta.height < 400) {
+						return { ok: false, message: `Image too small: ${meta.width}×${meta.height} (min 400×400)` };
+					}
+					return {
+						ok: true,
+						message: `✓ Valid ${meta.format?.toUpperCase()} (${meta.width}×${meta.height})`,
+						width: meta.width,
+						height: meta.height,
+					};
+				}
+			} catch {
+				return { ok: true, message: `✓ Valid image header (${ctype.split(";")[0]})` };
+			}
+			return { ok: true, message: `✓ Valid image header (${ctype.split(";")[0]})` };
+		} catch (e: any) {
+			return { ok: false, message: `Error: ${e.message || "Failed to reach host"}` };
+		}
+	}
+
+	// Reject other protocols like ftp://
+	if (/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(trimmed) && !trimmed.startsWith("file://")) {
+		return { ok: false, message: "URL must start with http:// or https://" };
+	}
+
+	// Local file path validation
 	try {
-		const u = new URL(trimmed);
-		if (!u.protocol.startsWith("http")) {
-			return { ok: false, message: "URL must start with http:// or https://" };
+		const rawPath = trimmed.replace(/^file:\/\//, "");
+		const resolvedPath = path.resolve(expandHome(rawPath));
+		const fileStat = await stat(resolvedPath).catch(() => null);
+		if (!fileStat) {
+			return { ok: false, message: "File not found" };
 		}
-		const res = await fetch(u.href, {
-			method: "GET",
-			headers: { Range: "bytes=0-32767" },
-		});
-		if (!res.ok && res.status !== 206) {
-			return { ok: false, message: `HTTP ${res.status}: ${res.statusText}` };
+		if (fileStat.isDirectory()) {
+			return { ok: false, message: "Path is a directory, not an image file" };
 		}
-		const ctype = res.headers.get("content-type") || "";
-		if (!ctype.startsWith("image/")) {
-			return { ok: false, message: `Not an image (${ctype || "unknown"})` };
-		}
-		const buf = Buffer.from(await res.arrayBuffer());
+
 		try {
 			const sharp = (await import("sharp")).default;
-			const meta = await sharp(buf).metadata();
+			const meta = await sharp(resolvedPath).metadata();
+			if (!meta.format) {
+				return { ok: false, message: "Not an image file" };
+			}
 			if (meta.width && meta.height) {
 				if (meta.width < 400 || meta.height < 400) {
 					return { ok: false, message: `Image too small: ${meta.width}×${meta.height} (min 400×400)` };
 				}
 				return {
 					ok: true,
-					message: `✓ Valid ${meta.format?.toUpperCase()} (${meta.width}×${meta.height})`,
+					message: `✓ Valid local ${meta.format.toUpperCase()} (${meta.width}×${meta.height})`,
 					width: meta.width,
 					height: meta.height,
 				};
 			}
-		} catch {
-			return { ok: true, message: `✓ Valid image header (${ctype.split(";")[0]})` };
+			return { ok: true, message: `✓ Valid local image (${meta.format.toUpperCase()})` };
+		} catch (e: any) {
+			return { ok: false, message: `Not a readable image: ${e.message}` };
 		}
-		return { ok: true, message: `✓ Valid image header (${ctype.split(";")[0]})` };
 	} catch (e: any) {
-		return { ok: false, message: `Error: ${e.message || "Failed to reach host"}` };
+		return { ok: false, message: `Error: ${e.message || "Invalid path"}` };
 	}
 }
 
@@ -173,13 +227,13 @@ export function createAddGameFormView(opts: {
 	formBox.add(titleLabel);
 	formBox.add(titleInput);
 
-	// 4. Poster URL
+	// 4. Poster URL or File Path
 	const posterLabel = new TextRenderable(renderer, {
-		content: "Poster Image URL (optional, validates headers & dimensions):",
+		content: "Poster Image URL or File Path (optional, validates dimensions):",
 		fg: THEME.peach,
 	});
 	const posterInput = new InputRenderable(renderer, {
-		placeholder: "https://.../poster.jpg",
+		placeholder: "https://.../poster.jpg or ~/Downloads/poster.png",
 		width: inputW,
 		backgroundColor: THEME.surface,
 		focusedBackgroundColor: THEME.surfaceLight,

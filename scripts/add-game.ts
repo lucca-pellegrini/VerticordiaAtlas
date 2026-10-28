@@ -50,10 +50,18 @@
 //                        or any map that is not a perfect rectangle at the stored zoom)
 
 import { copyFile, mkdir, readdir, readFile, stat, unlink, writeFile } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 import vm from "node:vm";
+
+export function expandHome(filePath: string): string {
+	if (filePath.startsWith("~/") || filePath === "~") {
+		return path.join(os.homedir(), filePath.slice(1));
+	}
+	return filePath;
+}
 
 import { splitTemplate } from "../server/tile-engine.ts";
 import { fmt } from "../src/shared/escape.ts";
@@ -1649,9 +1657,9 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 				await writeFile(path.join(outDir, poster), r.buf);
 			}
 		} else if (posterSrc) {
-			poster = "poster" + path.extname(posterSrc).toLowerCase();
-			if (path.resolve(posterSrc) !== path.resolve(outDir, poster))
-				await copyFile(posterSrc, path.join(outDir, poster));
+			const resolvedSrc = path.resolve(expandHome(posterSrc.replace(/^file:\/\//, "")));
+			poster = "poster" + path.extname(resolvedSrc).toLowerCase();
+			if (resolvedSrc !== path.resolve(outDir, poster)) await copyFile(resolvedSrc, path.join(outDir, poster));
 		} else if (existingPoster) poster = existingPoster;
 	} catch (e: any) {
 		console.log("  ! poster failed:", e.message);

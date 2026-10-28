@@ -20,6 +20,7 @@ import {
 	createServerJobView,
 	createTileDashboard,
 	densityGlyph,
+	expandHome,
 	fmtBytes,
 	fmtTime,
 	isInteractiveTty,
@@ -612,6 +613,41 @@ describe("TUI ecosystem components & helpers", () => {
 			const notFound = await validatePosterUrl(`http://127.0.0.1:${port}/404.jpg`);
 			expect(notFound.ok).toBe(false);
 			expect(notFound.message).toContain("404");
+
+			// Local file path validation
+			const tmpText = `/tmp/test-not-img-${Date.now()}.txt`;
+			await Bun.write(tmpText, "Hello world not an image");
+			const notImgLocal = await validatePosterUrl(tmpText);
+			expect(notImgLocal.ok).toBe(false);
+
+			const missingLocal = await validatePosterUrl(`/tmp/missing-file-${Date.now()}.png`);
+			expect(missingLocal.ok).toBe(false);
+			expect(missingLocal.message).toBe("File not found");
+
+			const dirLocal = await validatePosterUrl("/tmp");
+			expect(dirLocal.ok).toBe(false);
+			expect(dirLocal.message).toContain("directory");
+
+			// Valid local image (min 400x400)
+			const tmpImg = `/tmp/test-valid-${Date.now()}.png`;
+			const sharp = (await import("sharp")).default;
+			await sharp({
+				create: {
+					width: 400,
+					height: 400,
+					channels: 3,
+					background: { r: 255, g: 0, b: 0 },
+				},
+			})
+				.png()
+				.toFile(tmpImg);
+			const validLocal = await validatePosterUrl(tmpImg);
+			expect(validLocal.ok).toBe(true);
+			expect(validLocal.message).toContain("Valid local PNG");
+
+			// Tilde expansion helper
+			expect(expandHome("~/test.png")).not.toContain("~");
+			expect(expandHome("/absolute/path.png")).toBe("/absolute/path.png");
 		} finally {
 			server.close();
 		}
