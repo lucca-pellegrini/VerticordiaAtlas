@@ -418,6 +418,52 @@ describe("TUI ecosystem components & helpers", () => {
 		testEnv.dispose();
 	});
 
+	test("server-dashboard tab bar styling and Add Game tab input isolation", async () => {
+		const testEnv = await createTestRenderer({ width: 120, height: 35 });
+		const dashboard = await createServerDashboard({
+			host: "127.0.0.1",
+			port: 8080,
+			renderer: testEnv.renderer,
+		});
+
+		await testEnv.renderOnce();
+		const frame = testEnv.captureCharFrame();
+		// Tab bar should render modern tab styling with active indicator
+		expect(frame).toContain("▌ 1  Live Monitor");
+		expect(frame).toContain("2  Games Catalog");
+		expect(frame).toContain("3  Add Game");
+		expect(frame).toContain("+ [N]");
+
+		// Type random characters while in Live Monitor (tab 1)
+		testEnv.renderer.keyInput.emit("keypress", { name: "x", sequence: "x" } as any);
+		testEnv.renderer.keyInput.emit("keypress", { name: "y", sequence: "y" } as any);
+		testEnv.renderer.keyInput.emit("keypress", { name: "z", sequence: "z" } as any);
+
+		// Switch to tab 3 (Add Game)
+		testEnv.renderer.keyInput.emit("keypress", { name: "3", alt: true } as any);
+		await testEnv.renderOnce();
+		const frameTab3 = testEnv.captureCharFrame();
+		// URL field should NOT contain 'xyz'
+		expect(frameTab3).not.toContain("xyz");
+
+		// Switch back to tab 1 (Monitor)
+		testEnv.renderer.keyInput.emit("keypress", { name: "1", alt: true } as any);
+		await testEnv.renderOnce();
+
+		// Press 'n' to open a new tab
+		testEnv.renderer.keyInput.emit("keypress", { name: "n", sequence: "n" } as any);
+		// Allow queued microtask to switch to the new tab
+		await new Promise((r) => setTimeout(r, 50));
+		await testEnv.renderOnce();
+		const frameNewTab = testEnv.captureCharFrame();
+		// The newly opened tab should be Add Game #2 and should NOT have 'n' typed in its URL field
+		expect(frameNewTab).toContain("Add Game #2");
+		expect(frameNewTab).not.toContain("nhttps://");
+
+		dashboard.destroy();
+		testEnv.dispose();
+	});
+
 	test("games-catalog-view loads catalog, navigates 4-card grid, and supports reordering", async () => {
 		const testEnv = await createTestRenderer({ width: 100, height: 30 });
 		const renderer = testEnv.renderer;

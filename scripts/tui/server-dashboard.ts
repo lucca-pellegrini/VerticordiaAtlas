@@ -172,10 +172,33 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	// Tabs Bar Row
 	const tabPillsRow = new BoxRenderable(renderer, {
 		flexDirection: "row",
-		gap: 1,
+		justifyContent: "space-between",
+		alignItems: "center",
 		width: boxW - 2,
+		height: 1,
+		backgroundColor: THEME.surface,
 		marginVertical: 0,
 	});
+	const tabPillsList = new BoxRenderable(renderer, {
+		flexDirection: "row",
+		gap: 1,
+		marginVertical: 0,
+	});
+	tabPillsRow.add(tabPillsList);
+
+	const tabNewBtn = new TextRenderable(renderer, {
+		content: "+ [N]",
+		fg: THEME.teal,
+		bg: THEME.surface,
+	});
+
+	const tabHintText = new TextRenderable(renderer, {
+		content: "Alt+1..9 / Tab ⇄  [W] Close ",
+		fg: THEME.textDim,
+		bg: THEME.surface,
+	});
+	tabPillsRow.add(tabHintText);
+
 	headerBox.add(tabPillsRow);
 	rootBox.add(headerBox);
 
@@ -680,34 +703,58 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	const tabPillTexts: TextRenderable[] = [];
 
 	function updateTabBar() {
+		if (tabNewBtn.parent) {
+			tabPillsList.remove(tabNewBtn);
+		}
+
 		while (tabPillTexts.length < tabs.length) {
-			const pill = new TextRenderable(renderer, { content: "", fg: THEME.textDim });
+			const pill = new TextRenderable(renderer, { content: "", fg: THEME.textDim, bg: THEME.surface });
 			tabPillTexts.push(pill);
-			tabPillsRow.add(pill);
+			tabPillsList.add(pill);
 		}
 		while (tabPillTexts.length > tabs.length) {
 			const pill = tabPillTexts.pop()!;
-			tabPillsRow.remove(pill);
+			tabPillsList.remove(pill);
 		}
 
 		for (let i = 0; i < tabs.length; i++) {
 			const t = tabs[i];
 			const isAct = i === activeTabIdx;
 			const badge = t.statusBadge ? ` ${t.statusBadge}` : "";
-			const label = `[${i + 1}: ${t.label}${badge}]`;
-			tabPillTexts[i].content = label;
+			const canClose =
+				(i >= 2 && t.type === "form" && tabs.length > 3) ||
+				(t.type === "job" && (t.view as ServerJobView)?.status !== "running");
+			const closeMark = canClose ? " ×" : "";
+
 			if (isAct) {
+				tabPillTexts[i].content = ` ▌ ${i + 1}  ${t.label}${badge}${closeMark} `;
 				tabPillTexts[i].fg = THEME.peach;
+				tabPillTexts[i].bg = THEME.surfaceLight;
 			} else if (t.statusBadge?.includes("RUNNING")) {
+				tabPillTexts[i].content = ` ◌ ${i + 1}  ${t.label} (RUNNING)${closeMark} `;
 				tabPillTexts[i].fg = THEME.yellow;
+				tabPillTexts[i].bg = THEME.surface;
 			} else if (t.statusBadge?.includes("✓")) {
+				tabPillTexts[i].content = ` ✓ ${i + 1}  ${t.label}${closeMark} `;
 				tabPillTexts[i].fg = THEME.green;
+				tabPillTexts[i].bg = THEME.surface;
 			} else if (t.statusBadge?.includes("✗")) {
+				tabPillTexts[i].content = ` ✗ ${i + 1}  ${t.label}${closeMark} `;
 				tabPillTexts[i].fg = THEME.red;
+				tabPillTexts[i].bg = THEME.surface;
 			} else {
+				tabPillTexts[i].content = `   ${i + 1}  ${t.label}${closeMark} `;
 				tabPillTexts[i].fg = THEME.textDim;
+				tabPillTexts[i].bg = THEME.surface;
 			}
 		}
+
+		tabPillsList.add(tabNewBtn);
+
+		if (tabHintText) {
+			tabHintText.content = boxW >= 95 ? "Alt+1..9 / Tab ⇄  [W] Close " : boxW >= 75 ? "Alt+1..9 ⇄ " : "";
+		}
+
 		renderer.requestRender();
 	}
 
@@ -715,8 +762,11 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 	function switchTab(index: number) {
 		if (index < 0 || index >= tabs.length) return;
-		const prev = tabs[activeTabIdx];
-		if (prev?.view?.blur) prev.view.blur();
+		for (let i = 0; i < tabs.length; i++) {
+			if (i !== index && tabs[i].view?.blur) {
+				tabs[i].view.blur();
+			}
+		}
 
 		if (currentMountedRoot && currentMountedRoot.parent) {
 			currentMountedRoot.parent.remove(currentMountedRoot);
@@ -892,6 +942,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			}
 		}
 
+		if (tabHintText) {
+			tabHintText.content = boxW >= 95 ? "Alt+1..9 / Tab ⇄  [W] Close " : boxW >= 75 ? "Alt+1..9 ⇄ " : "";
+		}
+
 		renderUi(true);
 	}
 
@@ -940,7 +994,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		const isCatalogModal = curTab.type === "catalog" && (curTab.view as GamesCatalogView)?.isModalOpen();
 
 		if (!isCatalogModal && (key.name === "n" || key.name === "N") && curTab.type !== "form") {
-			openNewAddGameTab();
+			key.preventDefault?.();
+			queueMicrotask(() => {
+				openNewAddGameTab();
+			});
 			return;
 		}
 
@@ -950,6 +1007,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			activeTabIdx >= 2 &&
 			!isCatalogModal
 		) {
+			key.preventDefault?.();
 			if (curTab.type === "job") {
 				const jv = curTab.view as ServerJobView;
 				if (jv.status !== "running") {
@@ -966,6 +1024,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		if (!isCatalogModal && curTab.type !== "form" && key.name >= "1" && key.name <= "9") {
 			const targetIdx = parseInt(key.name, 10) - 1;
 			if (targetIdx < tabs.length) {
+				key.preventDefault?.();
 				switchTab(targetIdx);
 				return;
 			}
@@ -977,6 +1036,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			(curTab.type === "monitor" ||
 				(curTab.type === "job" && (curTab.view as ServerJobView)?.status !== "running"))
 		) {
+			key.preventDefault?.();
 			if (key.shift) {
 				switchTab((activeTabIdx - 1 + tabs.length) % tabs.length);
 			} else {

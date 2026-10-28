@@ -288,6 +288,7 @@ export function createAddGameFormView(opts: {
 	});
 	windowBox.add(footerHint);
 
+	let isViewFocused = false;
 	let focusIdx = 0;
 	const inputs = [urlInput, slugInput, titleInput, posterInput];
 	let isClosed = false;
@@ -295,7 +296,7 @@ export function createAddGameFormView(opts: {
 	function updateFocus() {
 		if (isClosed) return;
 		for (let i = 0; i < inputs.length; i++) {
-			if (i === focusIdx) {
+			if (isViewFocused && i === focusIdx) {
 				inputs[i].focus();
 			} else {
 				inputs[i].blur();
@@ -303,7 +304,7 @@ export function createAddGameFormView(opts: {
 		}
 
 		for (let i = 0; i < checkOptions.length; i++) {
-			const isFoc = focusIdx === inputs.length + i;
+			const isFoc = isViewFocused && focusIdx === inputs.length + i;
 			const chk = checkOptions[i].checked ? "X" : " ";
 			const prefix = isFoc ? "▶ [" : "  [";
 			checkRenderables[i].content = `${prefix}${chk}] ${checkOptions[i].label}`;
@@ -379,15 +380,18 @@ export function createAddGameFormView(opts: {
 	return {
 		root: outerBox,
 		focus() {
+			isViewFocused = true;
 			updateFocus();
 		},
 		blur() {
+			isViewFocused = false;
 			for (const input of inputs) {
 				input.blur();
 			}
+			updateFocus();
 		},
 		handleKey(key: KeyEvent): boolean {
-			if (isClosed) return false;
+			if (isClosed || !isViewFocused) return false;
 
 			if (key.name === "escape") {
 				opts.onCancel?.();
@@ -502,8 +506,13 @@ export function createAddGameFormView(opts: {
 		destroy() {
 			if (isClosed) return;
 			isClosed = true;
+			isViewFocused = false;
 			clearTimeout(validateTimer);
 			try {
+				urlInput.blur();
+				slugInput.blur();
+				titleInput.blur();
+				posterInput.blur();
 				urlInput.removeAllListeners();
 				slugInput.removeAllListeners();
 				titleInput.removeAllListeners();
@@ -550,6 +559,7 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 		});
 
 		renderer.root.add(formView.root);
+		formView.focus();
 		renderer.requestRender();
 
 		function handleResize(termW: number, termH: number) {
