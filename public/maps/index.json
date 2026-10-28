@@ -2105,33 +2105,6 @@
 			"tagLabel": "Filter"
 		},
 		{
-			"id": "grand-theft-auto-3",
-			"slug": "gta-3",
-			"title": "Grand Theft Auto III",
-			"description": "Every marker on the Grand Theft Auto III map.",
-			"poster": "gta-3/poster",
-			"theme": {
-				"accent": "#ab1841",
-				"accent-soft": "#e1537a",
-				"night": "#0c0608",
-				"panel": "#160c0e",
-				"panel-2": "#1f1115",
-				"line": "#362127"
-			},
-			"stats": [
-				{
-					"value": 728,
-					"label": "markers"
-				},
-				{
-					"value": 32,
-					"label": "categories"
-				}
-			],
-			"tagLabel": "Filter",
-			"defaultTag": null
-		},
-		{
 			"id": "grand-theft-auto-vice-city",
 			"slug": "grand-theft-auto-vice-city",
 			"title": "Grand Theft Auto: Vice City",
@@ -2152,6 +2125,33 @@
 				},
 				{
 					"value": 38,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "grand-theft-auto-3",
+			"slug": "gta-3",
+			"title": "Grand Theft Auto III",
+			"description": "Every marker on the Grand Theft Auto III map.",
+			"poster": "gta-3/poster",
+			"theme": {
+				"accent": "#1877aa",
+				"accent-soft": "#52afe0",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 728,
+					"label": "markers"
+				},
+				{
+					"value": 32,
 					"label": "categories"
 				}
 			],

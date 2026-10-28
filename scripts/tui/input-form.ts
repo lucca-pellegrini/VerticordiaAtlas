@@ -148,9 +148,19 @@ export function createAddGameFormView(opts: {
 	let boxW = opts.width;
 	let boxH = opts.height;
 
-	const rootBox = new BoxRenderable(renderer, {
+	const outerBox = new BoxRenderable(renderer, {
 		width: boxW,
 		height: boxH,
+		flexDirection: "column",
+		alignItems: "center",
+		justifyContent: "center",
+	});
+
+	let { boxW: winW, boxH: winH } = computeResponsiveBox(boxW, boxH, 100, 27);
+
+	const windowBox = new BoxRenderable(renderer, {
+		width: winW,
+		height: winH,
 		border: true,
 		borderColor: RGBA_THEME.borderFocus,
 		flexDirection: "column",
@@ -158,6 +168,7 @@ export function createAddGameFormView(opts: {
 		paddingY: 1,
 		backgroundColor: THEME.bgDark,
 	});
+	outerBox.add(windowBox);
 
 	const headerText = new TextRenderable(renderer, {
 		content: "VERTICORDIA ATLAS • ADD / SCRAPE GAME MAPS",
@@ -167,8 +178,8 @@ export function createAddGameFormView(opts: {
 		content: "Enter MapGenie game details. Tab / Shift+Tab to move, Space to toggle, Enter to submit.",
 		fg: THEME.textDim,
 	});
-	rootBox.add(headerText);
-	rootBox.add(subText);
+	windowBox.add(headerText);
+	windowBox.add(subText);
 
 	// Form Fields
 	const formBox = new BoxRenderable(renderer, {
@@ -185,7 +196,7 @@ export function createAddGameFormView(opts: {
 
 	// 1. URL
 	const urlLabel = new TextRenderable(renderer, { content: "MapGenie URL (required):", fg: THEME.peach });
-	const inputW = Math.max(20, boxW - 8);
+	const inputW = Math.max(20, winW - 8);
 	const urlInput = new InputRenderable(renderer, {
 		placeholder: "https://mapgenie.io/crimson-desert",
 		value: currentUrl,
@@ -268,14 +279,14 @@ export function createAddGameFormView(opts: {
 		formBox.add(text);
 	}
 
-	rootBox.add(formBox);
+	windowBox.add(formBox);
 
 	// Footer buttons / hint
 	const footerHint = new TextRenderable(renderer, {
 		content: " [Enter] Start Scrape & Import     [Esc] Cancel / Back",
 		fg: THEME.teal,
 	});
-	rootBox.add(footerHint);
+	windowBox.add(footerHint);
 
 	let focusIdx = 0;
 	const inputs = [urlInput, slugInput, titleInput, posterInput];
@@ -366,7 +377,7 @@ export function createAddGameFormView(opts: {
 	updateFocus();
 
 	return {
-		root: rootBox,
+		root: outerBox,
 		focus() {
 			updateFocus();
 		},
@@ -474,9 +485,14 @@ export function createAddGameFormView(opts: {
 			if (isClosed) return;
 			boxW = w;
 			boxH = h;
-			rootBox.width = boxW;
-			rootBox.height = boxH;
-			const newW = Math.max(20, boxW - 8);
+			outerBox.width = boxW;
+			outerBox.height = boxH;
+			const next = computeResponsiveBox(boxW, boxH, 100, 27);
+			winW = next.boxW;
+			winH = next.boxH;
+			windowBox.width = winW;
+			windowBox.height = winH;
+			const newW = Math.max(20, winW - 8);
 			urlInput.width = newW;
 			slugInput.width = newW;
 			titleInput.width = newW;
@@ -503,7 +519,8 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 			exitOnCtrlC: true,
 		});
 
-		let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 26, 110, 36);
+		let boxW = renderer.width || 80;
+		let boxH = renderer.height || 26;
 
 		renderer.root.flexDirection = "column";
 		renderer.root.alignItems = "center";
@@ -537,9 +554,8 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 
 		function handleResize(termW: number, termH: number) {
 			if (isCleanedUp) return;
-			const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 110, 36);
-			boxW = next.boxW;
-			boxH = next.boxH;
+			boxW = termW || renderer.width;
+			boxH = termH || renderer.height;
 			formView.resize(boxW, boxH);
 		}
 
