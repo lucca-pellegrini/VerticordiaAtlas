@@ -5,9 +5,11 @@ import { BoxRenderable, createCliRenderer, TextRenderable } from "@opentui/core"
 
 import { fmt } from "../../src/shared/escape.js";
 import {
+	clearAndRedrawTerminal,
 	computeResponsiveBox,
 	fmtBytes,
 	fmtTime,
+	isCtrlL,
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
@@ -232,11 +234,13 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 
 		const elapsed = (now - startTime) / 1000;
 		const pct = opts.totalShots > 0 ? (completed / opts.totalShots) * 100 : 0;
-		const barW = Math.max(10, boxW - 28);
+		const suffix = ` ${pct.toFixed(1)}% (${completed}/${opts.totalShots} shots)`;
+		const innerW = boxW - 4;
+		const barW = Math.max(6, innerW - suffix.length - 2);
 		const rate = elapsed > 0 ? completed / elapsed : 0;
 		const remainingSec = rate > 0 && opts.totalShots > completed ? (opts.totalShots - completed) / rate : -1;
 
-		progressBar.content = `${renderProgressBar(pct, barW)} ${pct.toFixed(1)}% (${completed}/${opts.totalShots} shots)`;
+		progressBar.content = `${renderProgressBar(pct, barW)}${suffix}`;
 
 		if (currentShot) {
 			const formLabel =
@@ -313,6 +317,19 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 	const onStdoutResize = () => handleResize(renderer.width, renderer.height);
 	process.stdout.on("resize", onStdoutResize);
 
+	const onKeypress = (key: any) => {
+		if (isDestroyed) return;
+		if (isCtrlL(key)) {
+			clearAndRedrawTerminal(renderer);
+			handleResize(renderer.width, renderer.height);
+			renderUi(true);
+			key.preventDefault?.();
+		}
+	};
+	if (renderer.keyInput) {
+		renderer.keyInput.on("keypress", onKeypress);
+	}
+
 	return {
 		onStep(message, tag = "STEP") {
 			let color = THEME.mauve;
@@ -387,6 +404,11 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 				isDestroyed = true;
 				renderer.off("resize", handleResize);
 				process.stdout.off("resize", onStdoutResize);
+				if (renderer.keyInput) {
+					try {
+						renderer.keyInput.off("keypress", onKeypress);
+					} catch {}
+				}
 				try {
 					renderer.destroy();
 				} catch {}
@@ -401,6 +423,11 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 				isDestroyed = true;
 				renderer.off("resize", handleResize);
 				process.stdout.off("resize", onStdoutResize);
+				if (renderer.keyInput) {
+					try {
+						renderer.keyInput.off("keypress", onKeypress);
+					} catch {}
+				}
 				try {
 					renderer.destroy();
 				} catch {}

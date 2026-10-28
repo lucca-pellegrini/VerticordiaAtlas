@@ -9,6 +9,7 @@ import { createTestRenderer } from "@opentui/core/testing";
 
 import {
 	AdaptiveRateController,
+	clearAndRedrawTerminal,
 	computeResponsiveBox,
 	createAddGameFormView,
 	createCardsDashboard,
@@ -23,6 +24,7 @@ import {
 	expandHome,
 	fmtBytes,
 	fmtTime,
+	isCtrlL,
 	isInteractiveTty,
 	promptAddGameTui,
 	renderProgressBar,
@@ -48,6 +50,28 @@ describe("TUI ecosystem components & helpers", () => {
 
 		const bar = renderProgressBar(50, 10);
 		expect(bar).toBe("[█████░░░░░]");
+
+		// Keybind detection for Ctrl-L redraw
+		expect(isCtrlL({ ctrl: true, name: "l" })).toBe(true);
+		expect(isCtrlL({ ctrl: true, name: "L" })).toBe(true);
+		expect(isCtrlL({ raw: "\x0c" })).toBe(true);
+		expect(isCtrlL({ sequence: "\x0c" })).toBe(true);
+		expect(isCtrlL({ ctrl: false, name: "l" })).toBe(false);
+		expect(isCtrlL({ ctrl: true, name: "c" })).toBe(false);
+		expect(isCtrlL(null)).toBe(false);
+
+		// clearAndRedrawTerminal handles null and mocks safely
+		const mockRenderer = {
+			forceFullRepaintRequested: false,
+			requestRenderCalled: false,
+			requestRender() {
+				this.requestRenderCalled = true;
+			},
+		};
+		clearAndRedrawTerminal(mockRenderer as any);
+		expect(mockRenderer.forceFullRepaintRequested).toBe(true);
+		expect(mockRenderer.requestRenderCalled).toBe(true);
+		clearAndRedrawTerminal(undefined);
 	});
 
 	test("computeResponsiveBox computes bounded dimensions for any terminal size", () => {
@@ -192,10 +216,10 @@ describe("TUI ecosystem components & helpers", () => {
 
 		const peakC = controller.concurrency;
 
-		// 2. Latency starts increasing significantly (e.g. 180ms vs baseline 35ms):
+		// 2. Latency starts increasing significantly (e.g. 280ms vs baseline 35ms):
 		// Controller stops increasing rate (state: holding)
 		for (let i = 0; i < 20; i++) {
-			controller.recordResult(200, 180);
+			controller.recordResult(200, 280);
 			await new Promise((r) => setTimeout(r, 12));
 		}
 		const snapHold = controller.getSnapshot();
@@ -228,6 +252,26 @@ describe("TUI ecosystem components & helpers", () => {
 		staticCtrl.recordResult(200, 20);
 		expect(staticCtrl.concurrency).toBe(12);
 		expect(staticCtrl.delayMs).toBe(50);
+
+		// 6. Controller stuck at minimum concurrency with high delay risks probing when zero errors occur
+		const stuckCtrl = new AdaptiveRateController({
+			initialConcurrency: 4,
+			minConcurrency: 4,
+			maxConcurrency: 32,
+			initialDelayMs: 200,
+			minDelayMs: 0,
+			maxDelayMs: 250,
+			rampIntervalMs: 20,
+			probeIntervalMs: 40,
+		});
+		expect(stuckCtrl.concurrency).toBe(4);
+		expect(stuckCtrl.delayMs).toBe(200);
+
+		for (let i = 0; i < 15; i++) {
+			stuckCtrl.recordResult(200, 75);
+			await new Promise((r) => setTimeout(r, 10));
+		}
+		expect(stuckCtrl.delayMs).toBeLessThan(200);
 	});
 
 	test("media-dashboard tracks download, upload, cache, and cloud verification", async () => {
@@ -412,6 +456,7 @@ describe("TUI ecosystem components & helpers", () => {
 
 		// Reorder: swap game-a with game-b using "]"
 		expect(catalog.handleKey({ name: "]" } as any)).toBe(true);
+		await new Promise((r) => setTimeout(r, 60));
 		const updatedRaw = await Bun.file(`${tmpDir}/index.json`).text();
 		const updated = JSON.parse(updatedRaw);
 		expect(updated.games[0].slug).toBe("game-b");

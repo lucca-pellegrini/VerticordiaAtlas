@@ -5,9 +5,11 @@ import { BoxRenderable, createCliRenderer, TextRenderable } from "@opentui/core"
 
 import { fmt } from "../../src/shared/escape.js";
 import {
+	clearAndRedrawTerminal,
 	computeResponsiveBox,
 	fmtBytes,
 	fmtTime,
+	isCtrlL,
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
@@ -255,10 +257,12 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 
 		const elapsed = (now - startTime) / 1000;
 		const pct = opts.totalCards > 0 ? (completed / opts.totalCards) * 100 : 0;
-		const barW = Math.max(10, boxW - 28);
+		const suffix = ` ${pct.toFixed(1)}% (${completed}/${opts.totalCards} cards)`;
+		const innerW = boxW - 4;
+		const barW = Math.max(6, innerW - suffix.length - 2);
 		const rate = elapsed > 0 ? (completed / elapsed).toFixed(1) : "0.0";
 
-		progressBar.content = `${renderProgressBar(pct, barW)} ${pct.toFixed(1)}% (${completed}/${opts.totalCards} cards)`;
+		progressBar.content = `${renderProgressBar(pct, barW)}${suffix}`;
 
 		if (currentCard) {
 			curTitleText.content = `Card:   [${currentCard.slug}] ${currentCard.title}`;
@@ -333,6 +337,19 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 	const onStdoutResize = () => handleResize(renderer.width, renderer.height);
 	process.stdout.on("resize", onStdoutResize);
 
+	const onKeypress = (key: any) => {
+		if (isDestroyed) return;
+		if (isCtrlL(key)) {
+			clearAndRedrawTerminal(renderer);
+			handleResize(renderer.width, renderer.height);
+			renderUi(true);
+			key.preventDefault?.();
+		}
+	};
+	if (!opts.renderer && !opts.container && renderer.keyInput) {
+		renderer.keyInput.on("keypress", onKeypress);
+	}
+
 	return {
 		onStep(message, tag = "STEP") {
 			let color = THEME.mauve;
@@ -406,6 +423,11 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 				if (!opts.renderer) {
 					renderer.off("resize", handleResize);
 					process.stdout.off("resize", onStdoutResize);
+					if (renderer.keyInput) {
+						try {
+							renderer.keyInput.off("keypress", onKeypress);
+						} catch {}
+					}
 					try {
 						renderer.destroy();
 					} catch {}
@@ -430,6 +452,11 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 				if (!opts.renderer) {
 					renderer.off("resize", handleResize);
 					process.stdout.off("resize", onStdoutResize);
+					if (renderer.keyInput) {
+						try {
+							renderer.keyInput.off("keypress", onKeypress);
+						} catch {}
+					}
 					try {
 						renderer.destroy();
 					} catch {}

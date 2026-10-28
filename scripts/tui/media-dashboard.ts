@@ -5,9 +5,11 @@ import { BoxRenderable, createCliRenderer, TextRenderable } from "@opentui/core"
 
 import { fmt } from "../../src/shared/escape.js";
 import {
+	clearAndRedrawTerminal,
 	computeResponsiveBox,
 	fmtBytes,
 	fmtTime,
+	isCtrlL,
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
@@ -279,8 +281,10 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 		cloudStatsText.content = `Cloud R2:    ${fmt(uploaded)} uploaded · ${fmt(skippedCloud)} existing`;
 		statusSummaryText.content = `Failures:    ${fmt(failed)}   Data: ${fmtBytes(totalBytes)}`;
 
-		const barWidth = Math.max(10, boxW - 24);
-		progressBar.content = `${renderProgressBar(pct, barWidth)} ${pct.toFixed(1)}% (${fmtBytes(totalBytes)})`;
+		const suffix = ` ${pct.toFixed(1)}% (${fmtBytes(totalBytes)})`;
+		const innerW = boxW - 4;
+		const barWidth = Math.max(6, innerW - suffix.length - 2);
+		progressBar.content = `${renderProgressBar(pct, barWidth)}${suffix}`;
 
 		// Update recent lines
 		const displayList = recentTransfers.slice(-maxLogLines);
@@ -331,6 +335,19 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 	const onStdoutResize = () => handleResize(renderer.width, renderer.height);
 	process.stdout.on("resize", onStdoutResize);
 
+	const onKeypress = (key: any) => {
+		if (isDestroyed) return;
+		if (isCtrlL(key)) {
+			clearAndRedrawTerminal(renderer);
+			handleResize(renderer.width, renderer.height);
+			renderUi(true);
+			key.preventDefault?.();
+		}
+	};
+	if (!opts.renderer && !opts.container && renderer.keyInput) {
+		renderer.keyInput.on("keypress", onKeypress);
+	}
+
 	return {
 		onItem(ev) {
 			if (ev.status === "downloaded") {
@@ -361,6 +378,11 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 				if (!opts.renderer) {
 					renderer.off("resize", handleResize);
 					process.stdout.off("resize", onStdoutResize);
+					if (renderer.keyInput) {
+						try {
+							renderer.keyInput.off("keypress", onKeypress);
+						} catch {}
+					}
 					try {
 						renderer.destroy();
 					} catch {}
@@ -386,6 +408,11 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 				if (!opts.renderer) {
 					renderer.off("resize", handleResize);
 					process.stdout.off("resize", onStdoutResize);
+					if (renderer.keyInput) {
+						try {
+							renderer.keyInput.off("keypress", onKeypress);
+						} catch {}
+					}
 					try {
 						renderer.destroy();
 					} catch {}

@@ -11,7 +11,15 @@ import { runAddGamePipeline } from "../add-game.js";
 import { CatalogGame, createGamesCatalogView, GamesCatalogView } from "./games-catalog.js";
 import { AddGameFormResult, AddGameFormView, createAddGameFormView } from "./input-form.js";
 import { createServerJobView, ServerJobView } from "./server-job.js";
-import { computeResponsiveBox, fmtTime, isInteractiveTty, RGBA_THEME, THEME } from "./theme.js";
+import {
+	clearAndRedrawTerminal,
+	computeResponsiveBox,
+	fmtTime,
+	isCtrlL,
+	isInteractiveTty,
+	RGBA_THEME,
+	THEME,
+} from "./theme.js";
 
 export interface ServerDashboardOptions {
 	host: string;
@@ -832,6 +840,15 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	// Keybind handlers
 	renderer.keyInput.on("keypress", (key: KeyEvent) => {
 		if (isDestroyed) return;
+
+		// Ctrl-L clears entire terminal screen and redraws all components
+		if (isCtrlL(key)) {
+			clearAndRedrawTerminal(renderer);
+			handleResize(renderer.width, renderer.height);
+			renderUi(true);
+			key.preventDefault?.();
+			return;
+		}
 
 		// Alt+1 .. Alt+9 (or Meta+1 .. Meta+9) ALWAYS switches tabs, regardless of focus or active modal!
 		const isAltOrMetaNum =

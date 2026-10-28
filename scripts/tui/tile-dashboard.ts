@@ -5,10 +5,12 @@ import { BoxRenderable, createCliRenderer, FrameBufferRenderable, TextRenderable
 
 import { fmt } from "../../src/shared/escape.js";
 import {
+	clearAndRedrawTerminal,
 	computeResponsiveBox,
 	densityGlyph,
 	fmtBytes,
 	fmtTime,
+	isCtrlL,
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
@@ -640,6 +642,19 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	const onStdoutResize = () => handleResize(renderer.width, renderer.height);
 	process.stdout.on("resize", onStdoutResize);
 
+	const onKeypress = (key: any) => {
+		if (isDestroyed) return;
+		if (isCtrlL(key)) {
+			clearAndRedrawTerminal(renderer);
+			handleResize(renderer.width, renderer.height);
+			scheduleRender(true);
+			key.preventDefault?.();
+		}
+	};
+	if (!opts.renderer && !opts.container && renderer.keyInput) {
+		renderer.keyInput.on("keypress", onKeypress);
+	}
+
 	return {
 		updateBounds(minX, maxX, minY, maxY, expected) {
 			let changed = false;
@@ -762,6 +777,11 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 				if (!opts.renderer) {
 					renderer.off("resize", handleResize);
 					process.stdout.off("resize", onStdoutResize);
+					if (renderer.keyInput) {
+						try {
+							renderer.keyInput.off("keypress", onKeypress);
+						} catch {}
+					}
 					try {
 						renderer.destroy();
 					} catch {}
@@ -788,6 +808,11 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 				if (!opts.renderer) {
 					renderer.off("resize", handleResize);
 					process.stdout.off("resize", onStdoutResize);
+					if (renderer.keyInput) {
+						try {
+							renderer.keyInput.off("keypress", onKeypress);
+						} catch {}
+					}
 					try {
 						renderer.destroy();
 					} catch {}

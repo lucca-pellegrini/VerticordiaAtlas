@@ -99,3 +99,24 @@ export function computeResponsiveBox(
 	const boxH = Math.max(14, Math.min(termH - 2, maxBoxH));
 	return { boxW, boxH };
 }
+
+export function isCtrlL(key: any): boolean {
+	if (!key) return false;
+	return Boolean(
+		(key.ctrl && (key.name === "l" || key.name === "L")) || key.raw === "\x0c" || key.sequence === "\x0c",
+	);
+}
+
+export function clearAndRedrawTerminal(renderer?: any): void {
+	try {
+		process.stdout.write("\x1b[2J\x1b[3J\x1b[H");
+	} catch {}
+	if (renderer) {
+		try {
+			if ("forceFullRepaintRequested" in renderer) {
+				renderer.forceFullRepaintRequested = true;
+			}
+			renderer.requestRender?.();
+		} catch {}
+	}
+}

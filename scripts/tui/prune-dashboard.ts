@@ -5,9 +5,11 @@ import { BoxRenderable, createCliRenderer, TextRenderable } from "@opentui/core"
 
 import { fmt } from "../../src/shared/escape.js";
 import {
+	clearAndRedrawTerminal,
 	computeResponsiveBox,
 	fmtBytes,
 	fmtTime,
+	isCtrlL,
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
@@ -304,8 +306,10 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 		const elapsed = (now - startTime) / 1000;
 		timeText.content = `Elapsed:     ${fmtTime(elapsed)}`;
 
-		const barWidth = Math.max(10, boxW - 24);
-		progressBar.content = `${renderProgressBar(pct, barWidth)} ${pct.toFixed(1)}% (freed ${fmtBytes(netFreed)})`;
+		const suffix = ` ${pct.toFixed(1)}% (freed ${fmtBytes(netFreed)})`;
+		const innerW = boxW - 4;
+		const barWidth = Math.max(6, innerW - suffix.length - 2);
+		progressBar.content = `${renderProgressBar(pct, barWidth)}${suffix}`;
 
 		renderer.requestRender();
 	}
@@ -327,6 +331,19 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 	renderer.on("resize", handleResize);
 	const onStdoutResize = () => handleResize(renderer.width, renderer.height);
 	process.stdout.on("resize", onStdoutResize);
+
+	const onKeypress = (key: any) => {
+		if (isDestroyed) return;
+		if (isCtrlL(key)) {
+			clearAndRedrawTerminal(renderer);
+			handleResize(renderer.width, renderer.height);
+			renderUi(true);
+			key.preventDefault?.();
+		}
+	};
+	if (!opts.renderer && !opts.container && renderer.keyInput) {
+		renderer.keyInput.on("keypress", onKeypress);
+	}
 
 	return {
 		startTileset(gameSlug, tilesetName, count) {
@@ -370,6 +387,11 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 				if (!opts.renderer) {
 					renderer.off("resize", handleResize);
 					process.stdout.off("resize", onStdoutResize);
+					if (renderer.keyInput) {
+						try {
+							renderer.keyInput.off("keypress", onKeypress);
+						} catch {}
+					}
 					try {
 						renderer.destroy();
 					} catch {}
@@ -394,6 +416,11 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 				if (!opts.renderer) {
 					renderer.off("resize", handleResize);
 					process.stdout.off("resize", onStdoutResize);
+					if (renderer.keyInput) {
+						try {
+							renderer.keyInput.off("keypress", onKeypress);
+						} catch {}
+					}
 					try {
 						renderer.destroy();
 					} catch {}

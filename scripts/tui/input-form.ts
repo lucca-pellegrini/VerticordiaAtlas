@@ -14,7 +14,7 @@ import {
 	TextRenderable,
 } from "@opentui/core";
 
-import { computeResponsiveBox, RGBA_THEME, THEME } from "./theme.js";
+import { clearAndRedrawTerminal, computeResponsiveBox, isCtrlL, RGBA_THEME, THEME } from "./theme.js";
 
 export interface AddGameFormResult {
 	url: string;
@@ -567,6 +567,12 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 			if (isCleanedUp) return;
 			if (key.ctrl && key.name === "c") {
 				cleanup(null);
+				return;
+			}
+			if (isCtrlL(key)) {
+				clearAndRedrawTerminal(renderer);
+				handleResize(renderer.width, renderer.height);
+				key.preventDefault?.();
 				return;
 			}
 			formView.handleKey(key);
