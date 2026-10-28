@@ -8,6 +8,7 @@ import { BoxRenderable, createCliRenderer, type KeyEvent, TextRenderable } from 
 
 import { fmt } from "../../src/shared/escape.js";
 import { runAddGamePipeline } from "../add-game.js";
+import { resolveGames, updateGame } from "../update-games.js";
 import { CatalogGame, createGamesCatalogView, GamesCatalogView } from "./games-catalog.js";
 import { AddGameFormResult, AddGameFormView, createAddGameFormView } from "./input-form.js";
 import { createServerJobView, ServerJobView } from "./server-job.js";
@@ -583,6 +584,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			slug: game.slug,
 			onCompleted() {
 				newTab.statusBadge = "(✓)";
+				catalogView.reload();
 				updateTabBar();
 			},
 			onCloseTab() {
@@ -594,31 +596,28 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		switchTab(tabs.length - 1);
 
 		(async () => {
-			jobView.setStage(overwriteTiles ? "Updating & Overwriting Tiles" : "Updating Markers & Metadata");
+			jobView.setStage(overwriteTiles ? "Updating & Overwriting Tiles" : "Updating Markers, Tiles & Media");
 			try {
-				const here = path.dirname(fileURLToPath(import.meta.url));
-				const args = [
-					process.execPath,
-					path.join(path.dirname(here), "update-games.ts"),
-					game.slug,
-					"--no-tui",
-				];
-				if (overwriteTiles) {
-					args.push("--redownload-tiles");
-				}
-				const proc = Bun.spawn(args, {
-					cwd: path.dirname(path.dirname(here)),
-					stdout: "pipe",
-					stderr: "pipe",
+				const mapsDir = path.resolve(
+					path.dirname(fileURLToPath(import.meta.url)),
+					"..",
+					"..",
+					"public",
+					"maps",
+				);
+				const games = await resolveGames([game.slug], false, mapsDir);
+				if (!games.length) throw new Error(`Game not found: ${game.slug}`);
+				await updateGame(games[0], {
+					redownloadTiles: overwriteTiles,
+					container: jobView.stageContainer,
+					renderer,
+					onLog: (line) => jobView.addLog(line),
+					onStage: (stage) => jobView.setStage(stage),
 				});
-				const exit = await streamProcessOutput(proc, (line, isErr) => {
-					jobView.addLog(isErr ? `[stderr] ${line}` : line);
-				});
-				const success = exit === 0;
-				jobView.finish(success, success ? "Update completed" : `Exited with code ${exit}`);
-				if (success) catalogView.reload();
-			} catch (e: any) {
-				jobView.finish(false, e.message);
+				jobView.finish(true);
+				catalogView.reload();
+			} catch (err: any) {
+				jobView.finish(false, err.message);
 				newTab.statusBadge = "(✗)";
 				updateTabBar();
 			}

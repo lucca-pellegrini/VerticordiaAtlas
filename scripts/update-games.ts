@@ -308,7 +308,7 @@ Options:
 
 	const redownloadTiles = v["redownload-tiles"] || v["overwrite-tiles"];
 	const noTiles = v["no-tiles"] || v["skip-tiles"] || v["data-only"];
-	const noMedia = v["no-media"] || v["data-only"] || (!v.media && !v["upload-media"]);
+	const noMedia = v["no-media"] || v["data-only"];
 
 	const mapsDir = path.resolve(v["maps-dir"]!);
 	const cacheDir = path.resolve(v["cache-dir"]!);

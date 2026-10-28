@@ -307,8 +307,8 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 		timeText.content = `Elapsed:     ${fmtTime(elapsed)}`;
 
 		const suffix = ` ${pct.toFixed(1)}% (freed ${fmtBytes(netFreed)})`;
-		const innerW = boxW - 4;
-		const barWidth = Math.max(6, innerW - suffix.length - 2);
+		const availW = Math.max(16, boxW - 6);
+		const barWidth = Math.max(4, availW - suffix.length - 2);
 		progressBar.content = `${renderProgressBar(pct, barWidth)}${suffix}`;
 
 		renderer.requestRender();
