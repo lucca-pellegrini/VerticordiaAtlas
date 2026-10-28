@@ -356,6 +356,9 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		renderer,
 		width: boxW - 2,
 		height: boxH - 5,
+		onUpdate(game: CatalogGame, overwriteTiles: boolean) {
+			startUpdateJob(game, overwriteTiles);
+		},
 		onPrune(game: CatalogGame) {
 			startPruneJob(game);
 		},
@@ -558,6 +561,66 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				if (success) catalogView.reload();
 			} catch (e: any) {
 				jobView.finish(false, e.message);
+			}
+		})();
+	}
+
+	function startUpdateJob(game: CatalogGame, overwriteTiles: boolean) {
+		const newTab: TabItem = {
+			id: `update_${Date.now()}`,
+			label: `Update: ${game.slug}`,
+			type: "job",
+			jobSlug: game.slug,
+			statusBadge: "(RUNNING)",
+		};
+		const jobView = createServerJobView({
+			renderer,
+			width: boxW - 2,
+			height: boxH - 5,
+			jobId: newTab.id,
+			jobType: "scrape",
+			title: game.title,
+			slug: game.slug,
+			onCompleted() {
+				newTab.statusBadge = "(✓)";
+				updateTabBar();
+			},
+			onCloseTab() {
+				closeTab(tabs.indexOf(newTab));
+			},
+		});
+		newTab.view = jobView;
+		tabs.push(newTab);
+		switchTab(tabs.length - 1);
+
+		(async () => {
+			jobView.setStage(overwriteTiles ? "Updating & Overwriting Tiles" : "Updating Markers & Metadata");
+			try {
+				const here = path.dirname(fileURLToPath(import.meta.url));
+				const args = [
+					process.execPath,
+					path.join(path.dirname(here), "update-games.ts"),
+					game.slug,
+					"--no-tui",
+				];
+				if (overwriteTiles) {
+					args.push("--redownload-tiles");
+				}
+				const proc = Bun.spawn(args, {
+					cwd: path.dirname(path.dirname(here)),
+					stdout: "pipe",
+					stderr: "pipe",
+				});
+				const exit = await streamProcessOutput(proc, (line, isErr) => {
+					jobView.addLog(isErr ? `[stderr] ${line}` : line);
+				});
+				const success = exit === 0;
+				jobView.finish(success, success ? "Update completed" : `Exited with code ${exit}`);
+				if (success) catalogView.reload();
+			} catch (e: any) {
+				jobView.finish(false, e.message);
+				newTab.statusBadge = "(✗)";
+				updateTabBar();
 			}
 		})();
 	}
@@ -781,7 +844,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			if (cat?.isModalOpen()) {
 				hints = `[Tab/Shift+Tab] Move   [Enter] Confirm/Save   [Esc] Cancel   [Alt+1-${tabs.length}] Tab`;
 			} else {
-				hints = `[←↑→↓] Select   [E/Enter] Edit   [[ / ]] Reorder   [D] Delete   [P] Prune   [C] Cards   [/] Search   [N] New Scrape   [Alt+1-${tabs.length}] Tab`;
+				hints = `[←↑→↓] Select   [U] Update   [P] Prune   [C] Cards   [E/Enter] Edit   [[ / ]] Reorder   [D] Delete   [/] Search   [Alt+1-${tabs.length}] Tab`;
 			}
 		} else if (cur.type === "form") {
 			hints = `[Tab/Shift+Tab] Move   [Space] Toggle   [Enter] Start Scrape   [N] New Tab   [Esc] Back   [Alt+1-${tabs.length}] Tab`;

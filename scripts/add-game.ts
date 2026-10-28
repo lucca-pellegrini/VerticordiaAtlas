@@ -49,7 +49,7 @@
 //                        slow and big: use it for a map whose tiles have gaps at different places and zooms, e.g. Solstheim,
 //                        or any map that is not a perfect rectangle at the stored zoom)
 
-import { copyFile, mkdir, readdir, readFile, stat, unlink, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, rename, rm, stat, unlink, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -1203,6 +1203,8 @@ async function main() {
 			"min-concurrency": { type: "string", default: "4" },
 			"max-concurrency": { type: "string", default: "64" },
 			"max-tiles": { type: "string", default: "400000" },
+			"redownload-tiles": { type: "boolean", default: false },
+			"cache-dir": { type: "string", default: "./cache/updates" },
 			"force-get-tiles": { type: "string", multiple: true, default: [] },
 			"no-tui": { type: "boolean", default: false },
 			help: { type: "boolean", short: "h", default: false },
@@ -1293,6 +1295,8 @@ Options:
 		noCleanMarkers: v["no-clean-markers"],
 		noOptimize: v["no-optimize"],
 		iconsOnly: v["icons-only"],
+		redownloadTiles: v["redownload-tiles"],
+		cacheDir: v["cache-dir"],
 		html: v.html,
 		mapdata: v.mapdata,
 		game: v.game,
@@ -1334,6 +1338,8 @@ export interface AddGamePipelineOptions {
 	noCleanMarkers?: boolean;
 	noOptimize?: boolean;
 	iconsOnly?: boolean;
+	redownloadTiles?: boolean;
+	cacheDir?: string;
 	html?: string;
 	mapdata?: string;
 	game?: string;
@@ -1732,15 +1738,22 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 	);
 
 	// 10. tiles, then media
+	const stagingBase = path.resolve(p.cacheDir || "./cache/updates", pageSlug);
+	if (p.redownloadTiles && !v["no-tiles"] && tileJobs.length > 0) {
+		await rm(stagingBase, { recursive: true, force: true });
+		await mkdir(stagingBase, { recursive: true });
+	}
+
 	for (const m of forceTiles)
 		if (!maps.some((md) => md.map?.slug === m)) console.log(`! --force-get-tiles: no map "${m}" in this game`);
 	for (const { md, ts, ms, dir, localTail, info } of tileJobs) {
-		console.log(`\nTiles for ${ms} / ${ts.name}`);
+		const targetDir = p.redownloadTiles ? path.join(stagingBase, ms) : dir;
+		console.log(`\nTiles for ${ms} / ${ts.name}${p.redownloadTiles ? " (atomic staging)" : ""}`);
 		const r = await downloadTiles({
 			md,
 			ts,
 			baseCandidates: tilesBases,
-			destDir: dir,
+			destDir: targetDir,
 			localTail,
 			opts: {
 				...opts,
@@ -1769,8 +1782,9 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 				pruneDash.startTileset(title, ts.name || ms, 0);
 			}
 			try {
+				const optDir = p.redownloadTiles ? path.join(stagingBase, split.base) : path.join(outDir, split.base);
 				const o = await optimizeTileset({
-					dir: path.join(outDir, split.base),
+					dir: optDir,
 					tail: split.tail,
 					minZ: info.minzoom ?? 0,
 					maxZ: info.maxzoom ?? 0,
@@ -1792,6 +1806,23 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 			}
 		}
 		await writeMeta();
+	}
+
+	if (p.redownloadTiles && !v["no-tiles"] && tileJobs.length > 0) {
+		p.onStage?.("Swapping Staged Tiles");
+		log(`  Swapping staged tiles into ${outDir}...`);
+		for (const md of maps) {
+			const ms = md.map?.slug || "map";
+			const stagedTilesDir = path.join(stagingBase, ms, "tiles");
+			const targetTilesDir = path.join(outDir, ms, "tiles");
+			if (await exists(stagedTilesDir)) {
+				await rm(targetTilesDir, { recursive: true, force: true });
+				await mkdir(path.dirname(targetTilesDir), { recursive: true });
+				await rename(stagedTilesDir, targetTilesDir);
+			}
+		}
+		await rm(stagingBase, { recursive: true, force: true });
+		log(`  ✓ Atomic tile update complete for ${pageSlug}`);
 	}
 
 	const { urls, kinds, embedded, youtube } = collectMedia(maps, Boolean(v.videos));

@@ -3,44 +3,49 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-// update-games.ts: Smart game repair and update utility.
+// update-games.ts: Smart game updater and repair utility.
 //
-// Updates game markers and metadata from MapGenie, downloads missing tilesets using known bounds,
-// fetches missing media and videos, or performs full atomic tile pyramid redownloads through a staging directory.
+// A thin wrapper around add-game that re-runs the scrape and download pipeline using
+// the game's existing metadata (slug, title, id, source, poster, description), with
+// an option to force-overwrite all tiles atomically via cache staging.
 //
 // Usage:
 //   bun scripts/update-games.ts [slug...] [options]
 //
 // Examples:
-//   bun scripts/update-games.ts rdr2 --missing-tilesets
-//   bun scripts/update-games.ts totk --media --videos
-//   bun scripts/update-games.ts --missing-tilesets --dry-run
+//   bun scripts/update-games.ts rdr2
 //   bun scripts/update-games.ts rdr2 --redownload-tiles
-//   bun scripts/update-games.ts --all --missing-tilesets
+//   bun scripts/update-games.ts --all
+//   bun scripts/update-games.ts totk --media --videos
 //
 // Options:
 //   --all                Process all games found in public/maps/
-//   --missing-tilesets   Scan and download any tilesets missing from disk
-//   --redownload-tiles   Fully redownload all tiles for specified games (atomic via cache/updates/)
+//   --redownload-tiles   Atomic full redownload of all tilesets into cache staging dir before swap
+//   --overwrite-tiles    Alias for --redownload-tiles
+//   --no-tiles           Disable downloading map tiles
+//   --skip-tiles         Alias for --no-tiles
 //   --media              Download missing media (images) to public/maps/<slug>/media/
-//   --videos             Include video media (IGN/YouTube/mp4) when downloading media
-//   --data-only          Refresh and clean markers/categories from source without touching tiles or poster
-//   --dry-run            Scan and print update plan without downloading or mutating files
-//   --concurrency <n>    Parallel network requests (default: 4)
-//   --delay <ms>         Rate-limiting delay between requests (default: 50)
+//   --no-media           Skip downloading media files
+//   --upload-media       Stream & upload media directly to Cloudflare R2 / S3
+//   --keep-local         When uploading to R2, also keep local copies on disk
+//   --videos             Include video media (IGN/YouTube/mp4)
+//   --cards              Re-render OpenGraph preview cards (default: skip)
+//   --data-only          Update data and marker links only (skips tiles and media)
+//   --dry-run            Simulate operations without writing changes
+//   --concurrency <n>    Parallel network requests (default: 16)
+//   --delay <ms>         Rate-limiting delay between requests (default: 0)
 //   --max-tiles <n>      Tile limit safety cap (default: 400000)
 //   --maps-dir <dir>     Root directory for games (default: ./public/maps)
 //   --cache-dir <dir>    Staging root for atomic downloads (default: ./cache/updates)
+//   --no-tui             Disable terminal UI dashboard
+//   --help, -h           Show this help message
 
-import { cp, mkdir, readdir, readFile, rename, rm, stat, writeFile } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 
-import { splitTemplate } from "../server/tile-engine.ts";
-import { boundsFor, collectMedia, downloadMedia, downloadTiles } from "./add-game.ts";
-import { optimizeTileset } from "./prune-tiles.ts";
-import { createR2Client, openMediaDb, validateR2Env } from "./upload-media.ts";
+import { runAddGamePipeline } from "./add-game.ts";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const exists = async (p: string) => {
@@ -51,7 +56,6 @@ const exists = async (p: string) => {
 		return false;
 	}
 };
-const mb = (n: number) => (n / 1e6).toFixed(1) + " MB";
 
 export interface GameInfo {
 	folder: string;
@@ -67,6 +71,28 @@ export interface MissingTilesetItem {
 	key: string;
 	localTail: string;
 	destDir: string;
+}
+
+export interface UpdateGameOptions {
+	redownloadTiles?: boolean;
+	noTiles?: boolean;
+	noMedia?: boolean;
+	uploadMedia?: boolean;
+	keepLocal?: boolean;
+	videos?: boolean;
+	noCards?: boolean;
+	concurrency?: number;
+	delay?: number;
+	maxTiles?: number;
+	maxZoom?: number;
+	mapsDir?: string;
+	cacheDir?: string;
+	noTui?: boolean;
+	dryRun?: boolean;
+	renderer?: any;
+	container?: any;
+	onLog?: (msg: string) => void;
+	onStage?: (stage: string) => void;
 }
 
 export function tilesetKey(ts: any): string {
@@ -163,88 +189,64 @@ export async function detectMissingTilesets(game: GameInfo): Promise<MissingTile
 	return missing;
 }
 
-export async function downloadOneTileset(
-	item: MissingTilesetItem,
-	game: GameInfo,
-	opts: {
-		concurrency: number;
-		delay: number;
-		maxTiles: number;
-		maxZoom?: number;
-		stagingDir?: string;
-	},
-): Promise<any> {
-	const tilesBases = ["https://tiles.mapgenie.io/games", "https://cdn.mapgenie.io/games"];
-	const destDir = opts.stagingDir || item.destDir;
-	const localTail = item.localTail;
+/**
+ * Re-runs the scrape and download pipeline for a game with its existing configuration.
+ * Preserves the original slug, title, id, poster, and description.
+ * If redownloadTiles is true, downloads tiles into cache staging and atomically swaps them.
+ */
+export async function updateGame(game: GameInfo, options: UpdateGameOptions = {}): Promise<void> {
+	const meta = game.meta;
+	const sourceUrl =
+		meta.source || (meta.slug ? `https://mapgenie.io/${meta.slug}` : `https://mapgenie.io/${game.folder}`);
+	const id = meta.id || game.folder;
+	const slug = game.folder;
+	const title = meta.title || game.indexEntry?.title || game.folder;
+	const accent = game.indexEntry?.theme?.accent;
+	const tagLabel = meta.tagLabel || game.indexEntry?.tagLabel;
+	const defaultTag = meta.defaultTag || game.indexEntry?.defaultTag;
+	const allTilesets = meta.maps?.some((m: any) => (m.tilesets?.length || 0) > 1) ?? true;
 
-	console.log(`\n  Downloading tileset: ${item.mapSlug} / ${item.ts.name} (into ${item.key})`);
-	const r = await downloadTiles({
-		md: item.data,
-		ts: item.ts,
-		baseCandidates: tilesBases,
-		destDir,
-		localTail,
-		opts: {
-			...opts,
-			unpruned: false,
-			gameTitle: game.meta.title,
-			gameSlug: game.folder,
-			mapSlug: item.mapSlug,
-			tilesetName: item.ts.name,
-			sourceDir: game.gameDir,
-		},
+	if (options.dryRun) {
+		console.log(`[dry-run] Update plan for ${title} (${slug}):`);
+		console.log(`  Source: ${sourceUrl}`);
+		console.log(
+			`  Tiles:  ${options.noTiles ? "skipped" : options.redownloadTiles ? "atomic redownload (via cache staging)" : "incremental update"}`,
+		);
+		console.log(
+			`  Media:  ${options.noMedia ? "skipped" : options.uploadMedia ? "upload to cloud" : "download missing"}`,
+		);
+		return;
+	}
+
+	await runAddGamePipeline({
+		url: sourceUrl,
+		out: options.mapsDir || path.dirname(game.gameDir),
+		id,
+		slug,
+		title,
+		poster: undefined, // Preserves the existing poster files on disk
+		accent,
+		tagLabel,
+		defaultTag,
+		allTilesets,
+		redownloadTiles: Boolean(options.redownloadTiles),
+		cacheDir: options.cacheDir || path.join(REPO, "cache", "updates"),
+		noTiles: options.noTiles,
+		noMedia: options.noMedia,
+		uploadMedia: options.uploadMedia,
+		keepLocal: options.keepLocal,
+		videos: options.videos,
+		noCards: options.noCards ?? true,
+		concurrency: options.concurrency,
+		delay: options.delay,
+		maxTiles: options.maxTiles,
+		maxZoom: options.maxZoom,
+		noTui: options.noTui,
+		container: options.container,
+		renderer: options.renderer,
+		onLog: options.onLog,
+		onStage: options.onStage,
 	});
-
-	const info: any = {
-		name: item.ts.name,
-		template: `${item.mapSlug}/${localTail}`,
-		minzoom: r.minzoom,
-		maxzoom: opts.maxZoom != null ? Math.min(r.maxzoom ?? 99, opts.maxZoom) : r.maxzoom,
-		viewMaxzoom: item.ts.max_zoom,
-		bounds: boundsFor(item.data, item.ts).bounds,
-		tileSize: 256,
-	};
-
-	const split = splitTemplate(info.template);
-	if (split) {
-		const optimizeDir = opts.stagingDir
-			? path.join(opts.stagingDir, item.mapSlug, "tiles", item.key)
-			: path.join(game.gameDir, item.mapSlug, "tiles", item.key);
-		if (await exists(optimizeDir)) {
-			const o = await optimizeTileset({
-				dir: optimizeDir,
-				tail: split.tail,
-				minZ: info.minzoom ?? 0,
-				maxZ: info.maxzoom ?? 0,
-				prune: false,
-				background: info.background,
-				concurrency: opts.concurrency,
-			});
-			console.log(
-				`    overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
-			);
-			if (o.background) info.background = o.background;
-		}
-	}
-
-	return info;
-}
-
-export async function updateGameMetaTilesets(game: GameInfo, newTilesetInfo: any, mapSlug: string): Promise<void> {
-	const metaPath = path.join(game.gameDir, "meta.json");
-	const meta = JSON.parse(await readFile(metaPath, "utf8"));
-	const targetMap = (meta.maps || []).find((m: any) => m.slug === mapSlug);
-	if (!targetMap) return;
-	if (!targetMap.tilesets) targetMap.tilesets = [];
-	const existingIdx = targetMap.tilesets.findIndex((ts: any) => ts.name === newTilesetInfo.name);
-	if (existingIdx >= 0) {
-		targetMap.tilesets[existingIdx] = newTilesetInfo;
-	} else {
-		targetMap.tilesets.push(newTilesetInfo);
-	}
-	await writeFile(metaPath, JSON.stringify(meta, null, 2) + "\n");
-	game.meta = meta;
 }
 
 async function main() {
@@ -252,18 +254,20 @@ async function main() {
 		allowPositionals: true,
 		options: {
 			all: { type: "boolean", default: false },
-			"missing-tilesets": { type: "boolean", default: false },
 			"redownload-tiles": { type: "boolean", default: false },
+			"overwrite-tiles": { type: "boolean", default: false },
 			"no-tiles": { type: "boolean", default: false },
 			"skip-tiles": { type: "boolean", default: false },
 			media: { type: "boolean", default: false },
+			"no-media": { type: "boolean", default: false },
 			"upload-media": { type: "boolean", default: false },
 			"keep-local": { type: "boolean", default: false },
 			videos: { type: "boolean", default: false },
+			cards: { type: "boolean", default: false },
 			"data-only": { type: "boolean", default: false },
 			"dry-run": { type: "boolean", default: false },
-			concurrency: { type: "string", default: "4" },
-			delay: { type: "string", default: "50" },
+			concurrency: { type: "string", default: "16" },
+			delay: { type: "string", default: "0" },
 			"max-tiles": { type: "string", default: "400000" },
 			"max-zoom": { type: "string" },
 			"maps-dir": { type: "string", default: path.join(REPO, "public", "maps") },
@@ -279,198 +283,78 @@ Usage: bun scripts/update-games.ts [slug...] [options]
 
 Options:
   --all                Process all games found in maps directory
-  --missing-tilesets   Scan and download missing tilesets for games
-  --redownload-tiles   Atomic full redownload of all tilesets into staging dir
+  --redownload-tiles   Atomic full redownload of all tilesets into cache staging dir before swap
+  --overwrite-tiles    Alias for --redownload-tiles
   --no-tiles           Disable downloading map tiles
   --skip-tiles         Alias for --no-tiles
-  --media              Scan and download missing media files
+  --media              Download missing media files
+  --no-media           Disable downloading media files
   --upload-media       Stream & upload media directly to Cloudflare R2 / S3
   --keep-local         When uploading to R2, also keep local copies on disk
   --videos             Include video media files
-  --data-only          Update data and marker links only (skips tiles)
+  --cards              Re-render OpenGraph preview cards (default: skip)
+  --data-only          Update data and marker links only (skips tiles and media)
   --dry-run            Simulate operations without writing changes
-  --concurrency <n>    Parallel download concurrency (default: 4)
-  --delay <ms>         Rate-limiting delay between requests in ms (default: 50)
+  --concurrency <n>    Parallel download concurrency (default: 16)
+  --delay <ms>         Rate-limiting delay between requests in ms (default: 0)
   --max-tiles <n>      Tile download limit safety cap (default: 400000)
+  --maps-dir <dir>     Root directory for games (default: ./public/maps)
+  --cache-dir <dir>    Staging root for atomic downloads (default: ./cache/updates)
   --no-tui             Disable terminal UI dashboard
   --help, -h           Show this help message
 `);
 		process.exit(0);
 	}
 
-	if (v["skip-tiles"] || v["data-only"]) {
-		v["no-tiles"] = true;
-	}
+	const redownloadTiles = v["redownload-tiles"] || v["overwrite-tiles"];
+	const noTiles = v["no-tiles"] || v["skip-tiles"] || v["data-only"];
+	const noMedia = v["no-media"] || v["data-only"] || (!v.media && !v["upload-media"]);
 
 	const mapsDir = path.resolve(v["maps-dir"]!);
 	const cacheDir = path.resolve(v["cache-dir"]!);
-	const games = await resolveGames(positionals, v.all || (!positionals.length && v["missing-tilesets"]), mapsDir);
+	const games = await resolveGames(positionals, v.all || !positionals.length, mapsDir);
 
 	if (!games.length) {
-		console.log("No games found to process. Provide game slug(s) or use --all / --missing-tilesets.");
+		console.log("No games found to process. Provide game slug(s) or use --all.");
 		return;
 	}
 
 	const dryRun = v["dry-run"];
-	const checkMissing =
-		!v["no-tiles"] &&
-		(v["missing-tilesets"] || (!v["redownload-tiles"] && !v.media && !v["upload-media"] && !v["data-only"]));
-	const opts = {
+	const updateOpts: UpdateGameOptions = {
+		redownloadTiles,
+		noTiles,
+		noMedia,
+		uploadMedia: v["upload-media"],
+		keepLocal: v["keep-local"],
+		videos: v.videos,
+		noCards: !v.cards,
 		concurrency: +v.concurrency!,
 		delay: +v.delay!,
 		maxTiles: +v["max-tiles"]!,
 		maxZoom: v["max-zoom"] ? +v["max-zoom"] : undefined,
+		mapsDir,
+		cacheDir,
 		noTui: Boolean(v["no-tui"]),
+		dryRun,
 	};
 
 	console.log(`\n=== Verticordia Atlas Game Updater ===`);
 	console.log(`Games found: ${games.length} (${games.map((g) => g.folder).join(", ")})`);
+	if (redownloadTiles) console.log("Mode: ATOMIC TILE OVERWRITE (staging via cache)");
 	if (dryRun) console.log("Mode: DRY-RUN (no files will be written)");
 
 	for (const game of games) {
 		console.log(`\n------------------------------------------------------------`);
-		console.log(`Game: ${game.meta.title || game.folder} [${game.folder}]`);
-		console.log(`  Source: ${game.meta.source || "unknown"}`);
-
-		// 1. Missing tilesets
-		if (checkMissing || v["missing-tilesets"]) {
-			const missingSets = await detectMissingTilesets(game);
-			if (missingSets.length) {
-				console.log(`  Missing tilesets on disk (${missingSets.length}):`);
-				for (const m of missingSets) {
-					console.log(`    - [${m.mapSlug}] ${m.ts.name} -> tiles/${m.key}`);
-					if (!dryRun) {
-						try {
-							const info = await downloadOneTileset(m, game, opts);
-							await updateGameMetaTilesets(game, info, m.mapSlug);
-							console.log(`    ✓ Updated meta.json for ${m.mapSlug} with ${m.ts.name}`);
-						} catch (e: any) {
-							console.log(`    ✗ Failed downloading ${m.ts.name}: ${e.message}`);
-						}
-					}
-				}
-			} else {
-				console.log(`  Tilesets: all configured tile sets exist on disk.`);
-			}
-		}
-
-		// 2. Atomic redownload of all tiles
-		if (v["redownload-tiles"] && !v["no-tiles"]) {
-			console.log(`  Performing ATOMIC REDOWNLOAD of all tilesets...`);
-			const stagingGameDir = path.join(cacheDir, game.folder);
-			if (dryRun) {
-				console.log(`    [dry-run] would stage tiles in ${stagingGameDir} before swapping.`);
-			} else {
-				await rm(stagingGameDir, { recursive: true, force: true });
-				await mkdir(stagingGameDir, { recursive: true });
-
-				let allSucceeded = true;
-				for (const m of game.meta.maps || []) {
-					const dataPath = path.join(game.gameDir, m.slug, "data.json");
-					if (!(await exists(dataPath))) continue;
-					const data = JSON.parse(await readFile(dataPath, "utf8"));
-					const tileSets = data.mapConfig?.tile_sets || [];
-
-					for (const ts of tileSets) {
-						const key = tilesetKey(ts);
-						const tail = tilesetTail(ts);
-						const item: MissingTilesetItem = {
-							mapSlug: m.slug,
-							data,
-							ts,
-							key,
-							localTail: `tiles/${key}/${tail}`,
-							destDir: path.join(stagingGameDir, m.slug),
-						};
-						try {
-							const info = await downloadOneTileset(item, game, {
-								...opts,
-								stagingDir: stagingGameDir,
-							});
-							await updateGameMetaTilesets(game, info, m.slug);
-						} catch (e: any) {
-							allSucceeded = false;
-							console.log(`    ✗ Error downloading ${ts.name}: ${e.message}`);
-							break;
-						}
-					}
-					if (!allSucceeded) break;
-				}
-
-				if (allSucceeded) {
-					console.log(`  Swapping staged tiles into ${game.gameDir}...`);
-					for (const m of game.meta.maps || []) {
-						const stagedTilesDir = path.join(stagingGameDir, m.slug, "tiles");
-						const targetTilesDir = path.join(game.gameDir, m.slug, "tiles");
-						if (await exists(stagedTilesDir)) {
-							await rm(targetTilesDir, { recursive: true, force: true });
-							await mkdir(path.dirname(targetTilesDir), { recursive: true });
-							await rename(stagedTilesDir, targetTilesDir);
-						}
-					}
-					await rm(stagingGameDir, { recursive: true, force: true });
-					console.log(`  ✓ Atomic tile redownload complete.`);
-				} else {
-					console.log(`  ✗ Atomic update aborted due to errors. Staging preserved at ${stagingGameDir}.`);
-				}
-			}
-		}
-
-		// 3. Media & videos
-		if (v.media || v.videos || v["upload-media"]) {
-			const mediaDir = path.join(game.gameDir, "media");
-			const existingMedia = new Set((await exists(mediaDir)) ? await readdir(mediaDir) : []);
-			const mapsData: any[] = [];
-			for (const m of game.meta.maps || []) {
-				const df = path.join(game.gameDir, m.data || `${m.slug}/data.json`);
-				if (await exists(df)) {
-					mapsData.push(JSON.parse(await readFile(df, "utf8")));
-				}
-			}
-			const { urls, kinds } = collectMedia(mapsData, Boolean(v.videos));
-			const uploadMedia = Boolean(v["upload-media"]);
-			const r2Cfg = uploadMedia ? validateR2Env() : null;
-			const r2Client = r2Cfg ? createR2Client(r2Cfg) : undefined;
-			const mediaDb = uploadMedia ? openMediaDb() : undefined;
-			const cloudSet = game.meta.id && mediaDb ? mediaDb.uploadedSet(game.meta.id) : new Set<string>();
-
-			const toFetch = new Map<string, string>();
-			for (const [url, kind] of urls) {
-				const fileName = path.basename(new URL(url).pathname);
-				if (uploadMedia) {
-					if (!cloudSet.has(fileName) && !mediaDb?.has(game.meta.id || game.folder, fileName)) {
-						toFetch.set(url, kind);
-					}
-				} else if (!existingMedia.has(fileName)) {
-					toFetch.set(url, kind);
-				}
-			}
-
-			console.log(
-				`  Media total: ${urls.size} files (${JSON.stringify(kinds)}), missing on ${uploadMedia ? "cloud/disk" : "disk"}: ${toFetch.size}`,
-			);
-			if (toFetch.size && !dryRun) {
-				await mkdir(mediaDir, { recursive: true });
-				try {
-					const st = await downloadMedia(toFetch, mediaDir, {
-						concurrency: opts.concurrency,
-						delay: opts.delay,
-						game: game.meta.id || game.folder,
-						mediaDb,
-						uploadMedia,
-						keepLocal: Boolean(v["keep-local"]),
-						s3: r2Client,
-						mediaUrl: r2Cfg?.mediaUrl,
-					});
-					console.log(`  ✓ Media updated: saved ${st.saved}, skipped ${st.skipped}, failed ${st.failed}`);
-				} finally {
-					mediaDb?.close();
-				}
-			}
+		console.log(`Updating ${game.meta.title || game.folder} [${game.folder}]...`);
+		try {
+			await updateGame(game, updateOpts);
+			console.log(`✓ Completed update for ${game.folder}`);
+		} catch (e: any) {
+			console.error(`✗ Error updating ${game.folder}: ${e.message}`);
 		}
 	}
 
-	console.log(`\n=== Update check finished ===\n`);
+	console.log(`\n=== Update finished ===\n`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

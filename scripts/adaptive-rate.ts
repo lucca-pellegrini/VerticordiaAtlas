@@ -10,7 +10,7 @@ export interface AdaptiveRateOptions {
 	maxDelayMs?: number;
 	initialDelayMs?: number;
 	rampIntervalMs?: number;
-	probeIntervalMs?: number;
+	settleIntervalMs?: number;
 }
 
 export interface AdaptiveSnapshot {
@@ -20,6 +20,7 @@ export interface AdaptiveSnapshot {
 	p90LatencyMs: number;
 	baselineLatencyMs: number;
 	recentErrors: number;
+	currentThroughput: number;
 	state: "ramping" | "holding" | "throttling" | "backed-off";
 }
 
@@ -27,6 +28,12 @@ export interface AdaptiveSnapshot {
  * Adaptive AIMD-style concurrency and cooldown rate controller for tile downloads.
  * Dynamically maximizes requests-per-second against CDN edges while avoiding
  * queue congestion, latency spikes, and 429 / 5xx rate-limit errors.
+ *
+ * Rules:
+ * 1. Only back off / throttle down if requests return rate-limit / server errors (429, 5xx),
+ *    OR if latency increases by a lot (> 600ms / 3.5x baseline) AND throughput does NOT improve.
+ * 2. Never bounce or throttle down during the settling period after a rate change.
+ * 3. Hold steady without reducing concurrency when latency is moderately elevated.
  */
 export class AdaptiveRateController {
 	concurrency: number;
@@ -37,18 +44,19 @@ export class AdaptiveRateController {
 	readonly minDelayMs: number;
 	readonly maxDelayMs: number;
 	readonly rampIntervalMs: number;
-	readonly probeIntervalMs: number;
+	readonly settleIntervalMs: number;
 	readonly enabled: boolean;
 
 	private baselineLatencyMs = Infinity;
 	private recentLatencies: number[] = [];
+	private completionTimes: number[] = [];
 	private recentErrors = 0;
 	private recentSuccesses = 0;
-	private consecutiveSuccesses = 0;
 	private lastAdjustTime = Date.now();
 	private lastBackoffTime = 0;
-	private lastRampTime = 0;
-	private lastErrorTime = 0;
+	private lastRateChangeTime = Date.now();
+	private prevStepThroughput = 0;
+	private currentThroughput = 0;
 	private currentState: "ramping" | "holding" | "throttling" | "backed-off" = "ramping";
 
 	constructor(opts: AdaptiveRateOptions = {}) {
@@ -60,7 +68,7 @@ export class AdaptiveRateController {
 
 		const isTest = typeof process !== "undefined" && process.argv?.some((a) => a.includes("test"));
 		this.rampIntervalMs = opts.rampIntervalMs ?? (isTest ? 20 : 2000);
-		this.probeIntervalMs = opts.probeIntervalMs ?? (isTest ? 50 : 2500);
+		this.settleIntervalMs = opts.settleIntervalMs ?? (isTest ? 20 : 2000);
 
 		const initC = opts.initialConcurrency ?? 16;
 		this.concurrency = Math.min(this.maxConcurrency, Math.max(this.minConcurrency, initC));
@@ -82,18 +90,27 @@ export class AdaptiveRateController {
 			return false;
 		}
 
+		const now = Date.now();
+
+		// Record completion timestamp to calculate real throughput (req/s)
+		this.completionTimes.push(now);
+		while (this.completionTimes.length > 0 && now - this.completionTimes[0] > 3000) {
+			this.completionTimes.shift();
+		}
+		if (this.completionTimes.length >= 2) {
+			const dt = (now - this.completionTimes[0]) / 1000;
+			this.currentThroughput = dt > 0.1 ? this.completionTimes.length / dt : 0;
+		}
+
 		// 200 (image found) is normal expected response from CDN
 		const isUnexpectedError = status !== 200 && status !== 403;
 
 		if (isUnexpectedError) {
 			this.recentErrors++;
-			this.consecutiveSuccesses = 0;
-			const now = Date.now();
-			this.lastErrorTime = now;
 			// Fast backoff on unexpected error (e.g. 429 Too Many Requests, 5xx server error, or connection drop)
 			if (now - this.lastBackoffTime > 800) {
 				this.lastBackoffTime = now;
-				this.lastRampTime = now;
+				this.lastRateChangeTime = now;
 				this.currentState = "backed-off";
 				const prevC = this.concurrency;
 				const prevD = this.delayMs;
@@ -107,7 +124,6 @@ export class AdaptiveRateController {
 		}
 
 		this.recentSuccesses++;
-		this.consecutiveSuccesses++;
 		if (typeof latencyMs === "number" && latencyMs > 0) {
 			this.recentLatencies.push(latencyMs);
 			if (this.recentLatencies.length > 50) this.recentLatencies.shift();
@@ -116,8 +132,7 @@ export class AdaptiveRateController {
 			}
 		}
 
-		const now = Date.now();
-		// Re-evaluate window every 200ms or when enough samples have accumulated
+		// Re-evaluate window periodically
 		if (
 			(now - this.lastAdjustTime >= 150 && this.recentLatencies.length >= 4) ||
 			this.recentLatencies.length >= 15
@@ -148,51 +163,43 @@ export class AdaptiveRateController {
 
 		const base = Math.max(40, this.baselineLatencyMs);
 
-		// Congestion detection:
-		// Queue bloat / congestion adds significant absolute delay over baseline RTT.
-		// Normal internet latency (50-150ms) with minor jitter must never be falsely flagged as congested.
-		const isSeverelyCongested = (avg > base * 2.5 + 80 && avg > 200) || p90 > Math.max(450, base * 3.2);
+		// Rule 1: Latency increased by A LOT
+		// True severe queue bloat occurs when latency balloons into multiple hundreds of ms (> 600ms average or > 1000ms tail)
+		const latencyIncreasedByALot =
+			(avg > Math.max(500, base * 3.5) && p90 > Math.max(800, base * 4.0)) || p50 > 750;
 
-		const isLatencyClimbing = p90 > base * 2.0 + 40 || avg > base * 1.8 + 30 || p50 > 350;
+		// Moderate latency elevation (e.g. 200-450ms): pause rate increases but DO NOT throttle down
+		const isLatencyClimbing = p90 > base * 2.2 + 60 || avg > base * 1.8 + 40 || p50 > 300;
 
-		// Active probing when stuck at minimum:
-		// If stuck at min concurrency or high delay for >= probeIntervalMs with ZERO errors
-		// and steady 200 OKs, risk an upward probe rather than starving throughput indefinitely.
-		const isStuckAtMin =
-			(this.concurrency <= this.minConcurrency + 1 || this.delayMs >= Math.floor(this.maxDelayMs * 0.5)) &&
-			(this.currentState === "holding" ||
-				this.currentState === "throttling" ||
-				this.currentState === "backed-off");
+		// Has throughput / speed improved compared to the previous step?
+		const speedGotBetter = this.currentThroughput > this.prevStepThroughput * 1.08;
 
-		const canRiskProbe =
-			isStuckAtMin &&
-			now - this.lastErrorTime >= this.probeIntervalMs &&
-			this.consecutiveSuccesses >= 4 &&
-			this.recentErrors === 0 &&
-			p50 < 800;
+		// Allow newly adjusted rate time to settle before measuring whether speed improved
+		const hasHadTimeToSettle = now - this.lastRateChangeTime >= this.settleIntervalMs;
 
-		if (isSeverelyCongested && !canRiskProbe) {
-			// Throttle down: ease back concurrency and insert cooldown
+		// WE ONLY GO BACK DOWN IF:
+		// 1) Latency increased by A LOT
+		// 2) AND speed did NOT get better
+		// 3) AND it has had time to settle
+		if (latencyIncreasedByALot && !speedGotBetter && hasHadTimeToSettle) {
 			this.currentState = "throttling";
 			this.concurrency = Math.max(this.minConcurrency, this.concurrency - 2);
 			this.delayMs = Math.min(this.maxDelayMs, this.delayMs + 10);
-		} else if (isLatencyClimbing && !canRiskProbe) {
-			// Hold steady: do not increase rate while latency is climbing
+			this.lastRateChangeTime = now;
+			this.prevStepThroughput = this.currentThroughput;
+		} else if (isLatencyClimbing && !speedGotBetter) {
+			// Hold steady: do not increase rate while latency is elevated, but DO NOT drop down!
 			this.currentState = "holding";
 		} else {
-			// Ramping or active probe: pace upward rate increases so each step takes a couple seconds
+			// Healthy responses or speed is improving: ramp up!
 			this.currentState = "ramping";
 
-			if (canRiskProbe) {
-				// Adapt baseline towards current median so subsequent requests are evaluated fairly
-				this.baselineLatencyMs = Math.min(p50, Math.max(this.baselineLatencyMs, p50 * 0.8));
-			}
+			// Only take an upward step every rampIntervalMs (takes a couple seconds between each step)
+			if (now - this.lastRateChangeTime >= this.rampIntervalMs) {
+				this.lastRateChangeTime = now;
+				this.prevStepThroughput = this.currentThroughput;
 
-			// Pacing: require at least rampIntervalMs (default 2s) between each upward step
-			if (now - this.lastRampTime >= this.rampIntervalMs) {
-				this.lastRampTime = now;
-
-				// 1. First, drain cooldown delay in measured chunks
+				// 1. First, drain delay cooldown
 				if (this.delayMs > 0) {
 					this.delayMs = Math.max(this.minDelayMs, this.delayMs - 50);
 				} else if (this.concurrency < this.maxConcurrency) {
@@ -225,6 +232,7 @@ export class AdaptiveRateController {
 			p90LatencyMs: Math.round(p90),
 			baselineLatencyMs: Number.isFinite(this.baselineLatencyMs) ? Math.round(this.baselineLatencyMs) : 0,
 			recentErrors: this.recentErrors,
+			currentThroughput: Math.round(this.currentThroughput * 10) / 10,
 			state: this.currentState,
 		};
 	}

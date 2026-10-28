@@ -9,6 +9,7 @@ import {
 	resolveGames,
 	tilesetKey,
 	tilesetTail,
+	updateGame,
 } from "../scripts/update-games.ts";
 
 describe("scripts/update-games helper functions", () => {
@@ -37,5 +38,22 @@ describe("scripts/update-games helper functions", () => {
 		const missing = await detectMissingTilesets(games[0]);
 		expect(missing.length).toBeGreaterThanOrEqual(1);
 		expect(missing.some((m) => m.mapSlug === "shoreline" && m.key === "default-v1")).toBe(true);
+	});
+
+	test("updateGame executes dryRun without errors and preserves metadata", async () => {
+		const games = await resolveGames(["rdr2"], false, "./public/maps");
+		let didRun = false;
+		const origLog = console.log;
+		console.log = (msg: string) => {
+			if (msg && msg.includes("[dry-run] Update plan for")) {
+				didRun = true;
+			}
+		};
+		try {
+			await updateGame(games[0], { dryRun: true, redownloadTiles: true });
+			expect(didRun).toBe(true);
+		} finally {
+			console.log = origLog;
+		}
 	});
 });

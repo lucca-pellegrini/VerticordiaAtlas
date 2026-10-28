@@ -36,6 +36,7 @@ export interface GamesCatalogOptions {
 	height: number;
 	indexPath?: string;
 	mapsDir?: string;
+	onUpdate?: (game: CatalogGame, overwriteTiles: boolean) => void;
 	onPrune?: (game: CatalogGame) => void;
 	onCards?: (game: CatalogGame) => void;
 	onNewScrape?: () => void;
@@ -69,7 +70,8 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 	let toastTimer: any = null;
 
 	// Modal states: null | "edit" | "delete" | "search"
-	let modalState: "edit" | "delete" | "search" | null = null;
+	let modalState: "edit" | "delete" | "search" | "update" | null = null;
+	let updateOverwriteTiles = false;
 	let searchQuery = "";
 
 	const rootBox = new BoxRenderable(renderer, {
@@ -497,6 +499,29 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		showToast(`✓ Saved changes to "${game.title}"`);
 	}
 
+	function openUpdateModal() {
+		const game = displayedGames[selectedIdx];
+		if (!game) return;
+		modalState = "update";
+		updateOverwriteTiles = false;
+		editBox.visible = false;
+		deleteMsg.visible = true;
+		searchBox.visible = false;
+		modalTitle.content = "UPDATE GAME FROM MAPGENIE";
+		renderUpdateModalText(game);
+		if (!modalOverlay.parent) rootBox.add(modalOverlay);
+		renderer.requestRender();
+	}
+
+	function renderUpdateModalText(game: CatalogGame) {
+		const check = updateOverwriteTiles ? "[X]" : "[ ]";
+		deleteMsg.content =
+			`Re-run add-game on "${game.title}" (${game.slug}) to refresh markers & metadata.\n\n` +
+			`  ${check} Force overwrite all tiles (atomic staging via cache)\n\n` +
+			`Preserves original slug, title, id, description, and poster.`;
+		modalHint.content = " [Space] Toggle Overwrite Tiles   [Enter] Start Update   [Esc] Cancel";
+	}
+
 	function openDeleteModal() {
 		const game = displayedGames[selectedIdx];
 		if (!game) return;
@@ -659,6 +684,29 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 				return true;
 			}
 
+			if (modalState === "update") {
+				if (key.name === "escape") {
+					closeModal();
+					return true;
+				}
+				if (key.name === "space") {
+					updateOverwriteTiles = !updateOverwriteTiles;
+					const game = displayedGames[selectedIdx];
+					if (game) renderUpdateModalText(game);
+					renderer.requestRender();
+					return true;
+				}
+				if (key.name === "return") {
+					const game = displayedGames[selectedIdx];
+					closeModal();
+					if (game && opts.onUpdate) {
+						opts.onUpdate(game, updateOverwriteTiles);
+					}
+					return true;
+				}
+				return true;
+			}
+
 			if (modalState === "search") {
 				if (key.name === "escape") {
 					searchQuery = "";
@@ -749,6 +797,10 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			}
 
 			// Actions
+			if (key.name === "u" || key.name === "U") {
+				openUpdateModal();
+				return true;
+			}
 			if (key.name === "p" || key.name === "P") {
 				const g = displayedGames[selectedIdx];
 				if (g && opts.onPrune) opts.onPrune(g);
