@@ -295,6 +295,54 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		{ id: "add_game", label: "Add Game", type: "form" },
 	];
 
+	const origLog = console.log;
+	const origInfo = console.info;
+	const origWarn = console.warn;
+	const origError = console.error;
+
+	function logApi(action: string, detail: string) {
+		recentSyncs.push({ time: Date.now(), action, detail });
+		if (recentSyncs.length > 50) recentSyncs.shift();
+		renderUi(false);
+	}
+
+	console.log = (...args: any[]) => {
+		const msg = args.map(String).join(" ");
+		const cur = tabs[activeTabIdx];
+		if (cur?.type === "job" && (cur.view as any)?.addLog) {
+			(cur.view as any).addLog(msg);
+		} else {
+			logApi("log", msg);
+		}
+	};
+	console.info = (...args: any[]) => {
+		const msg = args.map(String).join(" ");
+		const cur = tabs[activeTabIdx];
+		if (cur?.type === "job" && (cur.view as any)?.addLog) {
+			(cur.view as any).addLog(msg);
+		} else {
+			logApi("info", msg);
+		}
+	};
+	console.warn = (...args: any[]) => {
+		const msg = args.map(String).join(" ");
+		const cur = tabs[activeTabIdx];
+		if (cur?.type === "job" && (cur.view as any)?.addLog) {
+			(cur.view as any).addLog(`[WARN] ${msg}`);
+		} else {
+			logApi("warn", msg);
+		}
+	};
+	console.error = (...args: any[]) => {
+		const msg = args.map(String).join(" ");
+		const cur = tabs[activeTabIdx];
+		if (cur?.type === "job" && (cur.view as any)?.addLog) {
+			(cur.view as any).addLog(`[ERROR] ${msg}`);
+		} else {
+			logApi("error", msg);
+		}
+	};
+
 	// Create Games Catalog View
 	const catalogView: GamesCatalogView = await createGamesCatalogView({
 		renderer,
@@ -906,9 +954,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			renderUi(false);
 		},
 		onApi(action, detail) {
-			recentSyncs.push({ time: Date.now(), action, detail });
-			if (recentSyncs.length > 50) recentSyncs.shift();
-			renderUi(false);
+			logApi(action, detail);
 		},
 		setWsCount(count) {
 			wsCount = count;
@@ -916,6 +962,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		},
 		destroy() {
 			clearInterval(ticker);
+			console.log = origLog;
+			console.info = origInfo;
+			console.warn = origWarn;
+			console.error = origError;
 			if (!isDestroyed) {
 				isDestroyed = true;
 				renderer.off("resize", handleResize);

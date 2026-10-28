@@ -106,6 +106,8 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		width: boxW - 2,
 		height: stageH,
 		flexDirection: "column",
+		alignItems: "center",
+		justifyContent: "center",
 		marginVertical: 0,
 	});
 	rootBox.add(stageContainer);

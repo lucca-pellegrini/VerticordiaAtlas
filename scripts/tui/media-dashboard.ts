@@ -127,6 +127,12 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 	renderer.root.alignItems = "center";
 	renderer.root.justifyContent = "center";
 
+	if (opts.container) {
+		opts.container.flexDirection = "column";
+		opts.container.alignItems = "center";
+		opts.container.justifyContent = "center";
+	}
+
 	const rootBox = new BoxRenderable(renderer, {
 		width: boxW,
 		height: boxH,
