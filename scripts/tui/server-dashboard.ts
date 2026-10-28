@@ -187,13 +187,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	tabPillsRow.add(tabPillsList);
 
 	const tabNewBtn = new TextRenderable(renderer, {
-		content: "+ [N]",
+		content: "+ [C-n]",
 		fg: THEME.teal,
 		bg: THEME.surface,
 	});
 
 	const tabHintText = new TextRenderable(renderer, {
-		content: "Alt+1..9 / Tab ⇄  [W] Close ",
+		content: "C-1..0 / Alt-j/k ⇄  [C-w] Close ",
 		fg: THEME.textDim,
 		bg: THEME.surface,
 	});
@@ -324,7 +324,6 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	const tabs: TabItem[] = [
 		{ id: "monitor", label: "Live Monitor", type: "monitor" },
 		{ id: "catalog", label: "Games Catalog", type: "catalog" },
-		{ id: "add_game", label: "Add Game", type: "form" },
 	];
 
 	const origLog = console.log;
@@ -408,25 +407,19 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				startScrapeJobForTab(tab, result);
 			},
 			onCancel() {
-				// If extra tab, close it; else unfocus
-				if (tabs.length > 3 && tabs.indexOf(tab) > 2) {
-					closeTab(tabs.indexOf(tab));
-				} else {
-					formView.blur();
-				}
+				closeTab(tabs.indexOf(tab));
 			},
 		});
 		tab.view = formView;
 		return formView;
 	}
 
-	createFormForTab(tabs[2]);
-
 	function openNewAddGameTab() {
-		const count = tabs.filter((t) => t.type === "form").length + 1;
+		const formCount = tabs.filter((t) => t.type === "form").length;
+		const label = formCount === 0 ? "Add Game" : `Add Game #${formCount + 1}`;
 		const newTab: TabItem = {
 			id: `add_${Date.now()}`,
-			label: `Add Game #${count}`,
+			label,
 			type: "form",
 		};
 		createFormForTab(newTab);
@@ -722,8 +715,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			const isAct = i === activeTabIdx;
 			const badge = t.statusBadge ? ` ${t.statusBadge}` : "";
 			const canClose =
-				(i >= 2 && t.type === "form" && tabs.length > 3) ||
-				(t.type === "job" && (t.view as ServerJobView)?.status !== "running");
+				(i >= 2 && t.type === "form") || (t.type === "job" && (t.view as ServerJobView)?.status !== "running");
 			const closeMark = canClose ? " ×" : "";
 
 			if (isAct) {
@@ -752,7 +744,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		tabPillsList.add(tabNewBtn);
 
 		if (tabHintText) {
-			tabHintText.content = boxW >= 95 ? "Alt+1..9 / Tab ⇄  [W] Close " : boxW >= 75 ? "Alt+1..9 ⇄ " : "";
+			tabHintText.content =
+				boxW >= 105 ? "C-1..0 / Alt-j/k ⇄  [C-w] Close " : boxW >= 80 ? "C-1..0 / Alt-j/k ⇄ " : "";
 		}
 
 		renderer.requestRender();
@@ -885,24 +878,26 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		const memMb = (process.memoryUsage().rss / (1024 * 1024)).toFixed(1);
 		const cur = tabs[activeTabIdx];
 		let hints = "";
+		const tabMax = Math.min(10, tabs.length);
+		const tabHint = `[C-1..${tabMax === 10 ? "0" : tabMax}] Tabs   [Alt-j/k] Next/Prev`;
 
 		if (cur.type === "monitor") {
-			hints = `[Alt+1-${tabs.length}] Switch Tab   [Tab] Next Tab   [N] New Scrape Tab   [^C] Quit Server`;
+			hints = `${tabHint}   [C-n] New Scrape   [^C] Quit Server`;
 		} else if (cur.type === "catalog") {
 			const cat = cur.view as GamesCatalogView;
 			if (cat?.isModalOpen()) {
-				hints = `[Tab/Shift+Tab] Move   [Enter] Confirm/Save   [Esc] Cancel   [Alt+1-${tabs.length}] Tab`;
+				hints = `[Tab/Shift+Tab] Move   [Enter] Confirm/Save   [Esc] Cancel   ${tabHint}`;
 			} else {
-				hints = `[←↑→↓] Select   [U] Update   [P] Prune   [C] Cards   [E/Enter] Edit   [[ / ]] Reorder   [D] Delete   [/] Search   [Alt+1-${tabs.length}] Tab`;
+				hints = `[←↑→↓] Select   [U] Update   [P] Prune   [C] Cards   [E/Enter] Edit   [[ / ]] Reorder   [D] Delete   [/] Search   [C-n] New   ${tabHint}`;
 			}
 		} else if (cur.type === "form") {
-			hints = `[Tab/Shift+Tab] Move   [Space] Toggle   [Enter] Start Scrape   [N] New Tab   [Esc] Back   [Alt+1-${tabs.length}] Tab`;
+			hints = `[Tab/Shift+Tab] Field   [Space] Toggle   [Enter] Start Scrape   [Esc/C-w] Close Tab   ${tabHint}`;
 		} else if (cur.type === "job") {
 			const jv = cur.view as ServerJobView;
 			if (jv?.status === "running") {
-				hints = `[Alt+1-${tabs.length}] Switch Tab (runs in background)   [N] New Scrape Tab`;
+				hints = `${tabHint} (runs in background)   [C-n] New Scrape`;
 			} else {
-				hints = `[W] Close Tab   [Alt+1] Monitor   [Alt+2] Catalog   [N] New Scrape Tab`;
+				hints = `[C-w] Close Tab   [C-1] Monitor   [C-2] Catalog   [C-n] New Scrape   ${tabHint}`;
 			}
 		}
 
@@ -943,7 +938,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		}
 
 		if (tabHintText) {
-			tabHintText.content = boxW >= 95 ? "Alt+1..9 / Tab ⇄  [W] Close " : boxW >= 75 ? "Alt+1..9 ⇄ " : "";
+			tabHintText.content =
+				boxW >= 105 ? "C-1..0 / Alt-j/k ⇄  [C-w] Close " : boxW >= 80 ? "C-1..0 / Alt-j/k ⇄ " : "";
 		}
 
 		renderUi(true);
@@ -966,34 +962,26 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			return;
 		}
 
-		// Alt+1 .. Alt+9 (or Meta+1 .. Meta+9) ALWAYS switches tabs, regardless of focus or active modal!
-		const isAltOrMetaNum =
-			((key.alt || key.meta) && key.name >= "1" && key.name <= "9") || (key.raw && /^\x1b[1-9]$/.test(key.raw));
-		if (isAltOrMetaNum) {
-			const char = key.raw && /^\x1b[1-9]$/.test(key.raw) ? key.raw[1] : key.name;
-			const targetIdx = parseInt(char, 10) - 1;
-			if (targetIdx >= 0 && targetIdx < tabs.length) {
-				switchTab(targetIdx);
-				key.preventDefault?.();
+		// Ctrl-W closes active closeable tab (job or form tab)
+		const isCtrlW = (key.ctrl && (key.name === "w" || key.name === "W")) || key.raw === "\x17";
+		if (isCtrlW && activeTabIdx >= 2) {
+			key.preventDefault?.();
+			const curTab = tabs[activeTabIdx];
+			if (curTab.type === "job") {
+				const jv = curTab.view as ServerJobView;
+				if (jv.status !== "running") {
+					closeTab(activeTabIdx);
+					return;
+				}
+			} else if (curTab.type === "form") {
+				closeTab(activeTabIdx);
 				return;
 			}
 		}
 
-		// Global Function Keys F1..F9 to switch tabs directly
-		if (key.name?.startsWith("f") && key.name.length >= 2) {
-			const fNum = parseInt(key.name.slice(1), 10);
-			if (!isNaN(fNum) && fNum >= 1 && fNum <= tabs.length) {
-				switchTab(fNum - 1);
-				key.preventDefault?.();
-				return;
-			}
-		}
-
-		// New Scrape shortcut (when not editing an input)
-		const curTab = tabs[activeTabIdx];
-		const isCatalogModal = curTab.type === "catalog" && (curTab.view as GamesCatalogView)?.isModalOpen();
-
-		if (!isCatalogModal && (key.name === "n" || key.name === "N") && curTab.type !== "form") {
+		// Ctrl-N opens new scrape tab
+		const isCtrlN = (key.ctrl && (key.name === "n" || key.name === "N")) || key.raw === "\x0e";
+		if (isCtrlN) {
 			key.preventDefault?.();
 			queueMicrotask(() => {
 				openNewAddGameTab();
@@ -1001,52 +989,59 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			return;
 		}
 
-		// Close Tab shortcut
-		if (
-			(key.name === "w" || key.name === "W" || (key.ctrl && key.name === "w")) &&
-			activeTabIdx >= 2 &&
-			!isCatalogModal
-		) {
-			key.preventDefault?.();
-			if (curTab.type === "job") {
-				const jv = curTab.view as ServerJobView;
-				if (jv.status !== "running") {
-					closeTab(activeTabIdx);
-					return;
-				}
-			} else if (curTab.type === "form" && tabs.length > 3) {
-				closeTab(activeTabIdx);
-				return;
+		// C-1..C-0, Alt+1..Alt+0, or Meta+1..Meta+0 to switch directly to tabs 1 through 10
+		const isCtrlOrAltOrMeta = Boolean(key.ctrl || key.alt || key.meta || (key.raw && /^\x1b[0-9]$/.test(key.raw)));
+		if (isCtrlOrAltOrMeta) {
+			let digit = key.name;
+			if (key.raw && /^\x1b[0-9]$/.test(key.raw)) {
+				digit = key.raw[1];
 			}
-		}
-
-		// Tab switching via Number keys (when in monitor, catalog without modal, or completed job)
-		if (!isCatalogModal && curTab.type !== "form" && key.name >= "1" && key.name <= "9") {
-			const targetIdx = parseInt(key.name, 10) - 1;
-			if (targetIdx < tabs.length) {
-				key.preventDefault?.();
+			let targetIdx: number | null = null;
+			if (digit >= "1" && digit <= "9") {
+				targetIdx = parseInt(digit, 10) - 1;
+			} else if (digit === "0") {
+				targetIdx = 9; // 10th tab
+			}
+			if (targetIdx !== null && targetIdx < tabs.length) {
 				switchTab(targetIdx);
+				key.preventDefault?.();
 				return;
 			}
 		}
 
-		// Tab cycling via Tab key
-		if (
-			key.name === "tab" &&
-			(curTab.type === "monitor" ||
-				(curTab.type === "job" && (curTab.view as ServerJobView)?.status !== "running"))
-		) {
-			key.preventDefault?.();
-			if (key.shift) {
-				switchTab((activeTabIdx - 1 + tabs.length) % tabs.length);
-			} else {
-				switchTab((activeTabIdx + 1) % tabs.length);
+		// Global Function Keys F1..F10 to switch tabs directly
+		if (key.name?.startsWith("f") && key.name.length >= 2) {
+			const fNum = parseInt(key.name.slice(1), 10);
+			if (!isNaN(fNum) && fNum >= 1 && fNum <= Math.min(tabs.length, 12)) {
+				switchTab(fNum - 1);
+				key.preventDefault?.();
+				return;
 			}
+		}
+
+		// Alt-k, Alt-Up for previous tab
+		const isPrevTab =
+			((key.alt || key.meta) && (key.name === "k" || key.name === "K" || key.name === "up")) ||
+			key.raw === "\x1bk";
+		if (isPrevTab) {
+			key.preventDefault?.();
+			switchTab((activeTabIdx - 1 + tabs.length) % tabs.length);
 			return;
 		}
 
-		// Forward keys to active tab view
-		if (curTab.view?.handleKey) {
+		// Alt-j, Alt-Down for next tab
+		const isNextTab =
+			((key.alt || key.meta) && (key.name === "j" || key.name === "J" || key.name === "down")) ||
+			key.raw === "\x1bj";
+		if (isNextTab) {
+			key.preventDefault?.();
+			switchTab((activeTabIdx + 1) % tabs.length);
+			return;
+		}
+
+		// Forward keys to active tab view (tab-specific bindings)
+		const curTab = tabs[activeTabIdx];
+		if (curTab?.view?.handleKey) {
 			const handled = curTab.view.handleKey(key);
 			if (handled) {
 				renderUi(true);

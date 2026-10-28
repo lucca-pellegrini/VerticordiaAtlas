@@ -391,7 +391,7 @@ describe("TUI ecosystem components & helpers", () => {
 		dashboard.onTile({ action: "stored", path: "/maps/requiem/tiles/default/10/1/1.jpg" });
 		dashboard.setWsCount(3);
 
-		// Switch to tab 2 (Catalog) via Alt+2, then tab 3 (Add Game) via Alt+3, then tab 1 (Monitor) via Alt+1
+		// Switch to tab 2 (Catalog) via Alt+2
 		testEnv.renderer.keyInput.emit("keypress", {
 			name: "2",
 			alt: true,
@@ -399,26 +399,38 @@ describe("TUI ecosystem components & helpers", () => {
 			meta: false,
 			shift: false,
 		} as any);
+
+		// Open new Add Game tab via Ctrl+n
 		testEnv.renderer.keyInput.emit("keypress", {
-			name: "3",
-			alt: true,
-			ctrl: false,
+			name: "n",
+			ctrl: true,
+			alt: false,
 			meta: false,
 			shift: false,
 		} as any);
+		await new Promise((r) => setTimeout(r, 50));
+
+		// Navigate with Alt-k (previous tab) and Alt-j (next tab)
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "k",
+			alt: true,
+		} as any);
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "j",
+			alt: true,
+		} as any);
+
+		// Switch to tab 1 (Monitor) via Ctrl+1
 		testEnv.renderer.keyInput.emit("keypress", {
 			name: "1",
-			alt: true,
-			ctrl: false,
-			meta: false,
-			shift: false,
+			ctrl: true,
 		} as any);
 
 		dashboard.destroy();
 		testEnv.dispose();
 	});
 
-	test("server-dashboard tab bar styling and Add Game tab input isolation", async () => {
+	test("server-dashboard tab bar styling, Add Game tab input isolation, and Esc/C-w closing", async () => {
 		const testEnv = await createTestRenderer({ width: 120, height: 35 });
 		const dashboard = await createServerDashboard({
 			host: "127.0.0.1",
@@ -428,37 +440,53 @@ describe("TUI ecosystem components & helpers", () => {
 
 		await testEnv.renderOnce();
 		const frame = testEnv.captureCharFrame();
-		// Tab bar should render modern tab styling with active indicator
+		// Tab bar should boot with only Monitor and Catalog, no initial Add Game tab
 		expect(frame).toContain("▌ 1  Live Monitor");
 		expect(frame).toContain("2  Games Catalog");
-		expect(frame).toContain("3  Add Game");
-		expect(frame).toContain("+ [N]");
+		expect(frame).not.toContain("3  Add Game");
+		expect(frame).toContain("+ [C-n]");
 
 		// Type random characters while in Live Monitor (tab 1)
 		testEnv.renderer.keyInput.emit("keypress", { name: "x", sequence: "x" } as any);
 		testEnv.renderer.keyInput.emit("keypress", { name: "y", sequence: "y" } as any);
 		testEnv.renderer.keyInput.emit("keypress", { name: "z", sequence: "z" } as any);
 
-		// Switch to tab 3 (Add Game)
-		testEnv.renderer.keyInput.emit("keypress", { name: "3", alt: true } as any);
-		await testEnv.renderOnce();
-		const frameTab3 = testEnv.captureCharFrame();
-		// URL field should NOT contain 'xyz'
-		expect(frameTab3).not.toContain("xyz");
-
-		// Switch back to tab 1 (Monitor)
-		testEnv.renderer.keyInput.emit("keypress", { name: "1", alt: true } as any);
-		await testEnv.renderOnce();
-
-		// Press 'n' to open a new tab
-		testEnv.renderer.keyInput.emit("keypress", { name: "n", sequence: "n" } as any);
-		// Allow queued microtask to switch to the new tab
+		// Press Ctrl-n to open Add Game tab
+		testEnv.renderer.keyInput.emit("keypress", { name: "n", ctrl: true } as any);
 		await new Promise((r) => setTimeout(r, 50));
 		await testEnv.renderOnce();
-		const frameNewTab = testEnv.captureCharFrame();
-		// The newly opened tab should be Add Game #2 and should NOT have 'n' typed in its URL field
-		expect(frameNewTab).toContain("Add Game #2");
-		expect(frameNewTab).not.toContain("nhttps://");
+
+		const frameTab3 = testEnv.captureCharFrame();
+		expect(frameTab3).toContain("Add Game");
+		expect(frameTab3).not.toContain("xyz");
+		expect(frameTab3).not.toContain("nhttps://");
+
+		// Type text containing 'w' in the URL field (must NOT close tab)
+		testEnv.renderer.keyInput.emit("keypress", { name: "w", sequence: "w" } as any);
+		testEnv.renderer.keyInput.emit("keypress", { name: "w", sequence: "w" } as any);
+		testEnv.renderer.keyInput.emit("keypress", { name: "w", sequence: "w" } as any);
+		await testEnv.renderOnce();
+
+		const frameWithW = testEnv.captureCharFrame();
+		expect(frameWithW).toContain("Add Game");
+		expect(frameWithW).toContain("www");
+
+		// Press Esc on Add Game tab: should close it
+		testEnv.renderer.keyInput.emit("keypress", { name: "escape" } as any);
+		await testEnv.renderOnce();
+
+		const frameAfterEsc = testEnv.captureCharFrame();
+		expect(frameAfterEsc).not.toContain("3  Add Game");
+
+		// Press Ctrl-n again, then close via Ctrl-w
+		testEnv.renderer.keyInput.emit("keypress", { name: "n", ctrl: true } as any);
+		await new Promise((r) => setTimeout(r, 50));
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("Add Game");
+
+		testEnv.renderer.keyInput.emit("keypress", { name: "w", ctrl: true } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).not.toContain("3  Add Game");
 
 		dashboard.destroy();
 		testEnv.dispose();
