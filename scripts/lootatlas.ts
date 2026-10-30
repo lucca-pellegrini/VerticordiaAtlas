@@ -221,6 +221,81 @@ export async function fetchLootAtlasPins(strategyId: string): Promise<LootAtlasP
 	return await apiGet<LootAtlasPin[]>(`strategies/${strategyId}/pins`);
 }
 
+export async function detectLootAtlasMaxZoom(
+	bucketPath: string,
+	declaredMaxZoom: number,
+	locations: { latitude: string; longitude: string }[],
+	centerLat = 0,
+	centerLng = 0,
+): Promise<{ maxZoom: number; minZoom: number }> {
+	const base = bucketPath.replace(/^http:\/\//, "https://");
+	const startZ = Math.min(Math.max(declaredMaxZoom, 0), 16);
+
+	// Check minZoom (usually 0, but some games start at zoom 1)
+	let minZoom = 0;
+	try {
+		const res0 = await fetch(`${base}/0/0/0?format=webp`, { headers: { "User-Agent": UA } });
+		const len0 = Number(res0.headers.get("content-length")) || 0;
+		const type0 = res0.headers.get("content-type") || "";
+		if (!res0.ok || len0 < 100 || type0.includes("png")) {
+			minZoom = 1;
+		}
+	} catch {
+		minZoom = 0;
+	}
+
+	for (let z = startZ; z >= minZoom; z--) {
+		const maxCoord = 1 << z;
+		const candidates: [number, number][] = [];
+
+		// Center coordinate
+		const midX = Math.max(0, Math.min(maxCoord - 1, Math.floor(((centerLng + 180) / 360) * maxCoord)));
+		const latRad = (Math.max(-85, Math.min(85, centerLat)) * Math.PI) / 180;
+		const midY = Math.max(
+			0,
+			Math.min(
+				maxCoord - 1,
+				Math.floor(((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * maxCoord),
+			),
+		);
+		candidates.push([midX, midY]);
+
+		// Sample up to 8 locations
+		for (let i = 0; i < Math.min(locations.length, 8); i++) {
+			const lat = parseFloat(locations[i].latitude);
+			const lng = parseFloat(locations[i].longitude);
+			if (Number.isFinite(lat) && Number.isFinite(lng)) {
+				const x = Math.max(0, Math.min(maxCoord - 1, Math.floor(((lng + 180) / 360) * maxCoord)));
+				const lRad = (Math.max(-85, Math.min(85, lat)) * Math.PI) / 180;
+				const y = Math.max(
+					0,
+					Math.min(
+						maxCoord - 1,
+						Math.floor(((1 - Math.log(Math.tan(lRad) + 1 / Math.cos(lRad)) / Math.PI) / 2) * maxCoord),
+					),
+				);
+				candidates.push([x, y]);
+			}
+		}
+
+		for (const [x, y] of candidates) {
+			try {
+				const res = await fetch(`${base}/${z}/${y}/${x}?format=webp`, {
+					headers: { "User-Agent": UA },
+				});
+				const len = Number(res.headers.get("content-length")) || 0;
+				const type = res.headers.get("content-type") || "";
+				// Non-existent tiles return 68-byte 1x1 PNG fallback
+				if (res.ok && len >= 100 && !type.includes("json") && !type.includes("png")) {
+					return { maxZoom: z, minZoom };
+				}
+			} catch {}
+		}
+	}
+
+	return { maxZoom: Math.max(minZoom, declaredMaxZoom - 1), minZoom };
+}
+
 export function convertPolygonsToRegions(polygons: LootAtlasStrategy["polygons"], mapId: number): any[] {
 	if (!polygons || !polygons.length) return [];
 	return polygons.map((poly, idx) => {
@@ -539,25 +614,74 @@ export async function executeLootAtlasPipeline(
 		};
 		const bucketRel = level.bucketPath.replace(/^https?:\/\/[^/]+\//, "");
 
+		const { maxZoom: actualMaxZoom, minZoom } = !p.noTiles
+			? await detectLootAtlasMaxZoom(
+					level.bucketPath,
+					level.maxZoom ?? 4,
+					locations,
+					m.centerLat ?? 0,
+					m.centerLng ?? 0,
+				)
+			: { maxZoom: level.maxZoom ?? 4, minZoom: 0 };
+
+		log(`  ${m.name}: max tile zoom detected as ${actualMaxZoom} (declared ${level.maxZoom ?? 4})`);
+
 		const tilePattern = `${bucketRel}/{z}/{y}/{x}?format=webp`;
 		const localTail = `tiles/default/{z}/{y}/{x}.webp`;
 
-		const tileBoundsObj =
-			level.minX != null && level.maxX != null
-				? {
-						[level.maxZoom]: {
-							x: { min: level.minX, max: level.maxX },
-							y: { min: level.minY, max: level.maxY },
-						},
+		const tileBoundsObj: Record<string, { x: { min: number; max: number }; y: { min: number; max: number } }> = {};
+		for (let z = minZoom; z <= actualMaxZoom; z++) {
+			const maxCoord = 1 << z;
+			if (
+				level.minX != null &&
+				level.maxX != null &&
+				level.minY != null &&
+				level.maxY != null &&
+				z === actualMaxZoom
+			) {
+				tileBoundsObj[z] = {
+					x: { min: level.minX, max: level.maxX },
+					y: { min: level.minY, max: level.maxY },
+				};
+			} else if (z <= 4) {
+				tileBoundsObj[z] = {
+					x: { min: 0, max: maxCoord - 1 },
+					y: { min: 0, max: maxCoord - 1 },
+				};
+			} else if (locations.length > 0) {
+				let minX = maxCoord,
+					maxX = 0,
+					minY = maxCoord,
+					maxY = 0;
+				for (const loc of locations) {
+					const lat = parseFloat(loc.latitude);
+					const lng = parseFloat(loc.longitude);
+					if (Number.isFinite(lat) && Number.isFinite(lng)) {
+						const x = Math.floor(((lng + 180) / 360) * maxCoord);
+						const latRad = (Math.max(-85, Math.min(85, lat)) * Math.PI) / 180;
+						const y = Math.floor(
+							((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * maxCoord,
+						);
+						if (x < minX) minX = x;
+						if (x > maxX) maxX = x;
+						if (y < minY) minY = y;
+						if (y > maxY) maxY = y;
 					}
-				: level.maxZoom <= 4
-					? {
-							[level.maxZoom]: {
-								x: { min: 0, max: (1 << level.maxZoom) - 1 },
-								y: { min: 0, max: (1 << level.maxZoom) - 1 },
-							},
-						}
-					: null;
+				}
+				const pad = 2;
+				tileBoundsObj[z] = {
+					x: { min: Math.max(0, minX - pad), max: Math.min(maxCoord - 1, maxX + pad) },
+					y: { min: Math.max(0, minY - pad), max: Math.min(maxCoord - 1, maxY + pad) },
+				};
+			} else {
+				tileBoundsObj[z] = {
+					x: { min: 0, max: maxCoord - 1 },
+					y: { min: 0, max: maxCoord - 1 },
+				};
+			}
+		}
+
+		const effectiveMaxZoom = p.maxZoom != null ? Math.min(actualMaxZoom, p.maxZoom) : actualMaxZoom;
 
 		const tileSet = {
 			id: mapId * 10 + 1,
@@ -566,9 +690,9 @@ export async function executeLootAtlasPipeline(
 			path: `${slug}/${ms}/tiles/default`,
 			extension: "webp",
 			pattern: tilePattern,
-			min_zoom: 0,
-			max_zoom: level.maxZoom,
-			tiles_max_zoom: level.maxZoom,
+			min_zoom: minZoom,
+			max_zoom: effectiveMaxZoom,
+			tiles_max_zoom: effectiveMaxZoom,
 			order: 0,
 			bounds: tileBoundsObj,
 		};
@@ -611,9 +735,9 @@ export async function executeLootAtlasPipeline(
 				{
 					name: "Default",
 					template: `${ms}/${localTail}`,
-					minzoom: 0,
-					maxzoom: p.maxZoom != null ? Math.min(level.maxZoom, p.maxZoom) : level.maxZoom,
-					viewMaxzoom: level.maxZoom,
+					minzoom: minZoom,
+					maxzoom: effectiveMaxZoom,
+					viewMaxzoom: Math.max(actualMaxZoom, level.maxZoom ?? actualMaxZoom),
 					bounds: [-180, -85.051129, 180, 85.051129],
 					tileSize: 256,
 					background: m.mapBackgroundColor || "#000000",

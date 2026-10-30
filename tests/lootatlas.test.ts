@@ -8,6 +8,7 @@ import path from "node:path";
 
 import {
 	convertPolygonsToRegions,
+	detectLootAtlasMaxZoom,
 	generateLootAtlasSpriteSheet,
 	isLootAtlas,
 	parseLootAtlasSlug,
@@ -114,6 +115,52 @@ describe("scripts/lootatlas helpers", () => {
 			expect(defs2x["campfire"].pixelRatio).toBe(2);
 		} finally {
 			await rm(tmpDir, { recursive: true, force: true });
+		}
+	});
+
+	test("detectLootAtlasMaxZoom detects true zoom and skips 1x1 blank fallbacks", async () => {
+		// Mock fetch to simulate Loot Atlas:
+		// declared maxZoom: 4, but zoom 4 and 3 return 68-byte 1x1 PNG fallback.
+		// zoom 2 returns valid 500-byte WebP.
+		const originalFetch = globalThis.fetch;
+		try {
+			globalThis.fetch = (async (url: string | URL | Request) => {
+				const urlStr = String(url);
+				const parts = urlStr.split("?")[0].split("/");
+				const z = Number(parts[parts.length - 3]);
+				if (z > 2) {
+					return new Response(new Uint8Array(68), {
+						status: 200,
+						headers: {
+							"Content-Type": "image/png",
+							"Content-Length": "68",
+						},
+					});
+				}
+				return new Response(new Uint8Array(500), {
+					status: 200,
+					headers: {
+						"Content-Type": "image/webp",
+						"Content-Length": "500",
+					},
+				});
+			}) as any;
+
+			const locations = [
+				{ latitude: "10.0", longitude: "20.0" },
+				{ latitude: "-10.0", longitude: "-20.0" },
+			];
+			const res = await detectLootAtlasMaxZoom(
+				"https://tiles.lootatlas.com/tiles/games/mock-game/maps/mock-map/level1",
+				4,
+				locations,
+				0,
+				0,
+			);
+			expect(res.maxZoom).toBe(2);
+			expect(res.minZoom).toBe(0);
+		} finally {
+			globalThis.fetch = originalFetch;
 		}
 	});
 });
