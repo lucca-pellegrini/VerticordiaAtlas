@@ -69,6 +69,7 @@ import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
 import { AdaptiveRateController } from "./adaptive-rate.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
+import { executeLootAtlasPipeline, isLootAtlas } from "./lootatlas.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
 import { createTileDashboard } from "./tile-downloader-tui.ts";
 import { promptAddGameTui } from "./tui/input-form.js";
@@ -1063,7 +1064,7 @@ async function magick(args: string[], opts: Record<string, any> = {}): Promise<B
 	}
 }
 
-async function posterVariants(file: string, dir: string, force: boolean): Promise<boolean> {
+export async function posterVariants(file: string, dir: string, force: boolean): Promise<boolean> {
 	for (const w of [600, 1200]) {
 		const out = path.join(dir, `poster-${w}.webp`);
 		if (!force && (await exists(out))) continue;
@@ -1213,7 +1214,7 @@ async function main() {
 
 	if (v.help) {
 		console.log(`
-Usage: bun scripts/add-game.ts <mapgenie-url> [options]
+Usage: bun scripts/add-game.ts <game-url> [options] (MapGenie or Loot Atlas)
 
 Options:
   --interactive, -i        Open interactive TUI configuration form
@@ -1267,7 +1268,7 @@ Options:
 			v["keep-local"] = res.keepLocal;
 			v["no-cards"] = !res.makeCards;
 		} else if (!positionals[0]) {
-			console.error("Usage: bun scripts/add-game.ts https://mapgenie.io/<game> [options]");
+			console.error("Usage: bun scripts/add-game.ts <game-url> [options]");
 			process.exit(1);
 		}
 	}
@@ -1386,6 +1387,9 @@ export async function runAddGamePipeline(p: AddGamePipelineOptions) {
 }
 
 async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: string) => void) {
+	if (isLootAtlas(p.url)) {
+		return await executeLootAtlasPipeline(p, log);
+	}
 	const v = {
 		out: p.out || "./public/maps",
 		id: p.id,
