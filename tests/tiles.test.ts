@@ -507,6 +507,37 @@ describe("scripts/add-game tile download", () => {
 			c.server.close();
 		}
 	});
+
+	test("HTTP 200 with 68-byte 1x1 blank fallback is treated as missing and not saved", async () => {
+		const asked: string[] = [];
+		const blank68 = Buffer.from(
+			"89504e470d0a1a0a0000000d4948445200000001000000010804000000b51c0c020000000b4944415478da6364600000000600023081d02f0000000049454e44ae426082",
+			"hex",
+		);
+		const realTile = await solid(10, 20, 30);
+		const server = http.createServer((req, res) => {
+			asked.push(req.url!);
+			const m = /^\/tiles\/(\d+)\/(\d+)\/(\d+)\.png$/.exec(req.url!);
+			// 3/0/0 returns the 68-byte 1x1 blank with status 200 (like Loot Atlas)
+			if (m && m[1] === "3" && m[2] === "0" && m[3] === "0") {
+				res.writeHead(200, { "Content-Type": "image/png" });
+				return res.end(blank68);
+			}
+			res.writeHead(200, { "Content-Type": "image/png" });
+			res.end(realTile);
+		});
+		await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
+		const base = `http://127.0.0.1:${(server.address() as any).port}/tiles`;
+		try {
+			const r = await download({ base }, path.join(tmp, "d"), false);
+			expect(r.stats.saved).toBe(63);
+			expect(r.stats.missing).toBe(1);
+			const existsBlank = await stat(path.join(tmp, "d/tiles/set/3/0/0.png")).catch(() => null);
+			expect(existsBlank).toBeNull();
+		} finally {
+			server.close();
+		}
+	});
 });
 
 describe("game popularity", () => {

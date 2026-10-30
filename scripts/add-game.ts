@@ -193,9 +193,16 @@ async function getBin(
 			const latencyMs = Date.now() - t0;
 			if ([403, 404, 410].includes(r.status)) return { status: r.status, latencyMs };
 			if (!r.ok) throw new Error("HTTP " + r.status);
+			const buf = Buffer.from(await r.arrayBuffer());
+			// Detect blank/missing fallback tiles returned with HTTP 200 (Loot Atlas returns a 68-byte 1x1 PNG when a tile does not exist).
+			const isBlankFallback =
+				buf.length === 68 && buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47;
+			if (isBlankFallback) {
+				return { status: 404, latencyMs };
+			}
 			return {
 				status: 200,
-				buf: Buffer.from(await r.arrayBuffer()),
+				buf,
 				type: r.headers.get("content-type") || "",
 				latencyMs,
 			};
