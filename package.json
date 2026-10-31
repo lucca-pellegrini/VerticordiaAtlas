@@ -6,12 +6,17 @@
 		"test": "bun test"
 	},
 	"dependencies": {
+		"@aws-sdk/client-ses": "^3.1161.0",
+		"@aws-sdk/client-sesv2": "^3.1161.0",
 		"@types/bun": "^1.4.3",
+		"confusables": "^1.1.1",
 		"jose": "^6.2.13",
 		"sharp": "^0.35.5",
+		"unicode-case-folding": "^1.1.2",
 		"unique-names-generator": "^4.7.1"
 	},
 	"devDependencies": {
+		"@opentui/core": "^0.7.0",
 		"puppeteer": "^25.16.0"
 	},
 	"license": "AGPL-3.0-only"

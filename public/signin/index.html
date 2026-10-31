@@ -73,38 +73,253 @@
 		</header>
 
 		<main class="signin">
-			<h1>Sign in to sync</h1>
-			<p class="lede">
+			<h1 id="signin-heading">Sign in to sync</h1>
+			<p class="lede" id="signin-lede">
 				Signing in is <strong>entirely optional</strong>: it adds no features, it only lets the same progress
 				follow you to another device. Everything works offline, and your progress stays on this device either
 				way.
 			</p>
 
-			<a id="google-btn" class="google-btn" href="../api/auth/google/start" hidden>
-				<svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true">
-					<path
-						fill="#EA4335"
-						d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
-					/>
-					<path
-						fill="#4285F4"
-						d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
-					/>
-					<path
-						fill="#FBBC05"
-						d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
-					/>
-					<path
-						fill="#34A853"
-						d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
-					/>
-				</svg>
-				<span>Continue with Google</span>
-			</a>
-			<p class="notice" id="google-off" hidden>We can't seem to reach Google for sign-in. Try again later.</p>
-			<p class="error" id="google-error" role="alert" hidden></p>
+			<div id="primary-auth-block">
+				<a id="google-btn" class="google-btn" href="../api/auth/google/start" hidden>
+					<svg class="g-logo" viewBox="0 0 48 48" aria-hidden="true">
+						<path
+							fill="#EA4335"
+							d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+						/>
+						<path
+							fill="#4285F4"
+							d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"
+						/>
+						<path
+							fill="#FBBC05"
+							d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"
+						/>
+						<path
+							fill="#34A853"
+							d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+						/>
+					</svg>
+					<span>Continue with Google</span>
+				</a>
+				<p class="notice" id="google-off" hidden>We can't seem to reach Google for sign-in. Try again later.</p>
+				<p class="error" id="google-error" role="alert" hidden></p>
 
-			<div class="other">
+				<div class="auth-divider" aria-hidden="true"><span>or use email &amp; password</span></div>
+			</div>
+
+			<div class="auth-card" id="auth-card">
+				<!-- 1. Email / Username + Password Sign-In -->
+				<div id="view-login" class="auth-view">
+					<form id="email-login-form" class="auth-form">
+						<label class="field">
+							<span>Email or username</span>
+							<input
+								id="login-identifier"
+								class="text-input"
+								type="text"
+								autocomplete="username"
+								spellcheck="false"
+								placeholder="you@example.com or username"
+								required
+							/>
+						</label>
+						<label class="field">
+							<span class="field-row">
+								<span>Password</span>
+								<button type="button" class="inline-link" id="btn-goto-forgot">Forgot password?</button>
+							</span>
+							<input
+								id="login-password"
+								class="text-input"
+								type="password"
+								autocomplete="current-password"
+								placeholder="••••••••"
+								required
+							/>
+						</label>
+						<p class="error" id="login-error" role="alert" hidden></p>
+						<div class="form-actions">
+							<button type="submit" class="primary-btn full-btn" id="login-submit-btn">Sign in</button>
+						</div>
+					</form>
+					<p class="auth-switch">
+						New here?
+						<button type="button" class="inline-link" id="btn-goto-register">Create an account</button>
+					</p>
+				</div>
+
+				<!-- 2. Create Account -->
+				<div id="view-register" class="auth-view" hidden>
+					<h2>Create an account</h2>
+					<p class="small">
+						Choose a unique username and enter your email address. We will send you a confirmation link
+						before your first sign-in.
+					</p>
+					<form id="register-form" class="auth-form">
+						<label class="field">
+							<span>Username <small>(unique, 2–20 chars, no spaces)</small></span>
+							<input
+								id="reg-username"
+								class="text-input"
+								type="text"
+								maxlength="20"
+								autocomplete="username"
+								spellcheck="false"
+								placeholder="e.g. Tarnished_One"
+								required
+							/>
+						</label>
+						<label class="field">
+							<span>Display name <small>(optional, spaces &amp; punctuation allowed)</small></span>
+							<input
+								id="reg-display-name"
+								class="text-input"
+								type="text"
+								maxlength="40"
+								autocomplete="name"
+								placeholder="How your name is shown"
+							/>
+						</label>
+						<label class="field">
+							<span>Email address</span>
+							<input
+								id="reg-email"
+								class="text-input"
+								type="email"
+								autocomplete="email"
+								placeholder="you@example.com"
+								required
+							/>
+						</label>
+						<label class="field">
+							<span>Password <small>(at least 8 characters)</small></span>
+							<input
+								id="reg-password"
+								class="text-input"
+								type="password"
+								minlength="8"
+								autocomplete="new-password"
+								placeholder="••••••••"
+								required
+							/>
+						</label>
+						<p class="error" id="register-error" role="alert" hidden></p>
+						<div class="form-actions">
+							<button type="submit" class="primary-btn full-btn" id="register-submit-btn">
+								Create account
+							</button>
+						</div>
+					</form>
+					<p class="auth-switch">
+						Already have an account?
+						<button type="button" class="inline-link" id="btn-back-login-1">Sign in</button>
+					</p>
+				</div>
+
+				<!-- 3. Verification Pending -->
+				<div id="view-verify-pending" class="auth-view" hidden>
+					<h2>Check your email</h2>
+					<p class="small" id="verify-pending-msg">
+						We sent a verification link to your email address. Click the link in that message to activate
+						your account.
+					</p>
+					<p class="error" id="verify-pending-error" role="alert" hidden></p>
+					<p class="ok-msg" id="verify-pending-ok" role="status" hidden></p>
+					<div class="btn-row">
+						<button type="button" class="ghost" id="btn-resend-verify">Resend verification email</button>
+						<button type="button" class="inline-link" id="btn-back-login-2">Back to sign in</button>
+					</div>
+				</div>
+
+				<!-- 4. Verification Link Result (?verify=<token>) -->
+				<div id="view-verify-result" class="auth-view" hidden>
+					<h2 id="verify-result-heading">Verifying your email…</h2>
+					<p class="small" id="verify-result-msg">Please wait while we confirm your verification link.</p>
+					<p class="error" id="verify-result-error" role="alert" hidden></p>
+					<div class="form-actions">
+						<button type="button" class="primary-btn" id="btn-verify-continue" hidden>
+							Continue to sign in
+						</button>
+					</div>
+				</div>
+
+				<!-- 5. Forgot Password -->
+				<div id="view-forgot" class="auth-view" hidden>
+					<h2>Reset your password</h2>
+					<p class="small">
+						Enter the email address associated with your account and we will send you a link to choose a new
+						password (valid for 20 minutes).
+					</p>
+					<form id="forgot-form" class="auth-form">
+						<label class="field">
+							<span>Email address</span>
+							<input
+								id="forgot-email"
+								class="text-input"
+								type="email"
+								autocomplete="email"
+								placeholder="you@example.com"
+								required
+							/>
+						</label>
+						<p class="error" id="forgot-error" role="alert" hidden></p>
+						<p class="ok-msg" id="forgot-ok" role="status" hidden></p>
+						<div class="form-actions">
+							<button type="submit" class="primary-btn full-btn" id="forgot-submit-btn">
+								Send reset instructions
+							</button>
+						</div>
+					</form>
+					<p class="auth-switch">
+						<button type="button" class="inline-link" id="btn-back-login-3">Back to sign in</button>
+					</p>
+				</div>
+
+				<!-- 6. Complete Password Reset (?reset=<token>) -->
+				<div id="view-reset" class="auth-view" hidden>
+					<h2>Choose a new password</h2>
+					<p class="small">Enter a new password of at least 8 characters for your account.</p>
+					<form id="reset-form" class="auth-form">
+						<label class="field">
+							<span>New password</span>
+							<input
+								id="reset-password"
+								class="text-input"
+								type="password"
+								minlength="8"
+								autocomplete="new-password"
+								placeholder="••••••••"
+								required
+							/>
+						</label>
+						<label class="field">
+							<span>Confirm new password</span>
+							<input
+								id="reset-password-confirm"
+								class="text-input"
+								type="password"
+								minlength="8"
+								autocomplete="new-password"
+								placeholder="••••••••"
+								required
+							/>
+						</label>
+						<p class="error" id="reset-error" role="alert" hidden></p>
+						<p class="ok-msg" id="reset-ok" role="status" hidden></p>
+						<div class="form-actions">
+							<button type="submit" class="primary-btn full-btn" id="reset-submit-btn">
+								Save new password
+							</button>
+						</div>
+					</form>
+					<p class="auth-switch">
+						<button type="button" class="inline-link" id="btn-back-login-4">Back to sign in</button>
+					</p>
+				</div>
+			</div>
+
+			<div class="other" id="secret-section">
 				<button
 					type="button"
 					class="secret-toggle"
@@ -116,8 +331,9 @@
 				</button>
 				<div id="secret-panel" hidden>
 					<p class="small">
-						A secret key is a long random code. It replaces Google: keep it somewhere safe, because it is
-						the only way back into this account. It is shown once.
+						A secret key is a long random code for anonymous sign-in. Keep it somewhere safe, because
+						without a linked email or Google account it is the only way back into your account. It is shown
+						once.
 					</p>
 
 					<button type="button" class="ghost" id="secret-new">Create a new secret key</button>

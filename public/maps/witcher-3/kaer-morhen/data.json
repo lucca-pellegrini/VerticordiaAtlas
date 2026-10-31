@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "witcher-3",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -34,6 +34,12 @@
 			"order": 10,
 			"color": "636373",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -271,6 +277,12 @@
 			"order": 10,
 			"color": "6591C7",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -368,6 +380,12 @@
 			"order": 10,
 			"color": "C49E06",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -465,6 +483,12 @@
 			"order": 10,
 			"color": "B3473B",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -562,6 +586,12 @@
 			"order": 10,
 			"color": "A17142",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1152,6 +1182,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 22351,
@@ -2478,13 +2509,30 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 302, "game_id": 13, "title": "Hearts of Stone (DLC)", "icon": null, "color": null, "icon_color": null },
-		{ "id": 303, "game_id": 13, "title": "Blood and Wine (DLC)", "icon": null, "color": null, "icon_color": null }
+		{
+			"id": 302,
+			"game_id": 13,
+			"order": 0,
+			"title": "Hearts of Stone (DLC)",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 303,
+			"game_id": 13,
+			"order": 0,
+			"title": "Blood and Wine (DLC)",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	],
 	"tagsById": {
 		"302": {
 			"id": 302,
 			"game_id": 13,
+			"order": 0,
 			"title": "Hearts of Stone (DLC)",
 			"icon": null,
 			"color": null,
@@ -2493,6 +2541,7 @@
 		"303": {
 			"id": 303,
 			"game_id": 13,
+			"order": 0,
 			"title": "Blood and Wine (DLC)",
 			"icon": null,
 			"color": null,
@@ -2507,7 +2556,7 @@
 		"mapStyle": {
 			"bounds": [-168.75, 83.83, -167.5, 83.98],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

@@ -179,6 +179,7 @@ export function createTileService(o: TileServiceOptions) {
 			ETag: etag,
 			"Last-Modified": new Date(f.lastModified).toUTCString(),
 			"Cache-Control": "public, max-age=3600",
+			"X-Tile-From": found.from,
 		});
 		const inm = req.headers.get("if-none-match");
 		if (inm && inm.split(",").some((t) => t.trim().replace(/^W\//, "") === etag.replace(/^W\//, ""))) {

@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "resident-evil-4-remake",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -7045,40 +7045,216 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 37, "game_id": 147, "title": "Chapter 1", "icon": null, "color": null, "icon_color": null },
-		{ "id": 38, "game_id": 147, "title": "Chapter 2", "icon": null, "color": null, "icon_color": null },
-		{ "id": 39, "game_id": 147, "title": "Chapter 3", "icon": null, "color": null, "icon_color": null },
-		{ "id": 40, "game_id": 147, "title": "Chapter 4", "icon": null, "color": null, "icon_color": null },
-		{ "id": 41, "game_id": 147, "title": "Chapter 5", "icon": null, "color": null, "icon_color": null },
-		{ "id": 42, "game_id": 147, "title": "Chapter 6", "icon": null, "color": null, "icon_color": null },
-		{ "id": 43, "game_id": 147, "title": "Chapter 7", "icon": null, "color": null, "icon_color": null },
-		{ "id": 44, "game_id": 147, "title": "Chapter 8", "icon": null, "color": null, "icon_color": null },
-		{ "id": 45, "game_id": 147, "title": "Chapter 9", "icon": null, "color": null, "icon_color": null },
-		{ "id": 46, "game_id": 147, "title": "Chapter 10", "icon": null, "color": null, "icon_color": null },
-		{ "id": 47, "game_id": 147, "title": "Chapter 11", "icon": null, "color": null, "icon_color": null },
-		{ "id": 48, "game_id": 147, "title": "Chapter 12", "icon": null, "color": null, "icon_color": null },
-		{ "id": 49, "game_id": 147, "title": "Chapter 13", "icon": null, "color": null, "icon_color": null },
-		{ "id": 50, "game_id": 147, "title": "Chapter 14", "icon": null, "color": null, "icon_color": null },
-		{ "id": 51, "game_id": 147, "title": "Chapter 15", "icon": null, "color": null, "icon_color": null },
-		{ "id": 52, "game_id": 147, "title": "Chapter 16", "icon": null, "color": null, "icon_color": null }
+		{ "id": 37, "game_id": 147, "order": 0, "title": "Chapter 1", "icon": null, "color": null, "icon_color": null },
+		{ "id": 38, "game_id": 147, "order": 0, "title": "Chapter 2", "icon": null, "color": null, "icon_color": null },
+		{ "id": 39, "game_id": 147, "order": 0, "title": "Chapter 3", "icon": null, "color": null, "icon_color": null },
+		{ "id": 40, "game_id": 147, "order": 0, "title": "Chapter 4", "icon": null, "color": null, "icon_color": null },
+		{ "id": 41, "game_id": 147, "order": 0, "title": "Chapter 5", "icon": null, "color": null, "icon_color": null },
+		{ "id": 42, "game_id": 147, "order": 0, "title": "Chapter 6", "icon": null, "color": null, "icon_color": null },
+		{ "id": 43, "game_id": 147, "order": 0, "title": "Chapter 7", "icon": null, "color": null, "icon_color": null },
+		{ "id": 44, "game_id": 147, "order": 0, "title": "Chapter 8", "icon": null, "color": null, "icon_color": null },
+		{ "id": 45, "game_id": 147, "order": 0, "title": "Chapter 9", "icon": null, "color": null, "icon_color": null },
+		{
+			"id": 46,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 10",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 47,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 11",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 48,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 12",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 49,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 13",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 50,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 14",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 51,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 15",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{ "id": 52, "game_id": 147, "order": 0, "title": "Chapter 16", "icon": null, "color": null, "icon_color": null }
 	],
 	"tagsById": {
-		"37": { "id": 37, "game_id": 147, "title": "Chapter 1", "icon": null, "color": null, "icon_color": null },
-		"38": { "id": 38, "game_id": 147, "title": "Chapter 2", "icon": null, "color": null, "icon_color": null },
-		"39": { "id": 39, "game_id": 147, "title": "Chapter 3", "icon": null, "color": null, "icon_color": null },
-		"40": { "id": 40, "game_id": 147, "title": "Chapter 4", "icon": null, "color": null, "icon_color": null },
-		"41": { "id": 41, "game_id": 147, "title": "Chapter 5", "icon": null, "color": null, "icon_color": null },
-		"42": { "id": 42, "game_id": 147, "title": "Chapter 6", "icon": null, "color": null, "icon_color": null },
-		"43": { "id": 43, "game_id": 147, "title": "Chapter 7", "icon": null, "color": null, "icon_color": null },
-		"44": { "id": 44, "game_id": 147, "title": "Chapter 8", "icon": null, "color": null, "icon_color": null },
-		"45": { "id": 45, "game_id": 147, "title": "Chapter 9", "icon": null, "color": null, "icon_color": null },
-		"46": { "id": 46, "game_id": 147, "title": "Chapter 10", "icon": null, "color": null, "icon_color": null },
-		"47": { "id": 47, "game_id": 147, "title": "Chapter 11", "icon": null, "color": null, "icon_color": null },
-		"48": { "id": 48, "game_id": 147, "title": "Chapter 12", "icon": null, "color": null, "icon_color": null },
-		"49": { "id": 49, "game_id": 147, "title": "Chapter 13", "icon": null, "color": null, "icon_color": null },
-		"50": { "id": 50, "game_id": 147, "title": "Chapter 14", "icon": null, "color": null, "icon_color": null },
-		"51": { "id": 51, "game_id": 147, "title": "Chapter 15", "icon": null, "color": null, "icon_color": null },
-		"52": { "id": 52, "game_id": 147, "title": "Chapter 16", "icon": null, "color": null, "icon_color": null }
+		"37": {
+			"id": 37,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 1",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"38": {
+			"id": 38,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 2",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"39": {
+			"id": 39,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 3",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"40": {
+			"id": 40,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 4",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"41": {
+			"id": 41,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 5",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"42": {
+			"id": 42,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 6",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"43": {
+			"id": 43,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 7",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"44": {
+			"id": 44,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 8",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"45": {
+			"id": 45,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 9",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"46": {
+			"id": 46,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 10",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"47": {
+			"id": 47,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 11",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"48": {
+			"id": 48,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 12",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"49": {
+			"id": 49,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 13",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"50": {
+			"id": 50,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 14",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"51": {
+			"id": 51,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 15",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"52": {
+			"id": 52,
+			"game_id": 147,
+			"order": 0,
+			"title": "Chapter 16",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -7088,7 +7264,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

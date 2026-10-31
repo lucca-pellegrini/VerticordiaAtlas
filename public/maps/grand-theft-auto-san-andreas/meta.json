@@ -542,6 +542,16 @@
 					"bounds": [-1.52839561950461, -0.11571171644785005, 0.10485718971417995, 1.5230997953681902],
 					"tileSize": 256,
 					"background": "#4abacf"
+				},
+				{
+					"name": "Satellite",
+					"template": "san-andreas/tiles/satellite-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#31454c"
 				}
 			]
 		}

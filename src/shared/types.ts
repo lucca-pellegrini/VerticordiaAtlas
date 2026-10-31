@@ -123,11 +123,29 @@ export interface SyncPushResult {
 	value?: any;
 }
 
+export interface UserEmailEntry {
+	id: string;
+	email: string;
+	verified: boolean;
+	isPrimary: boolean;
+	createdAt: number;
+}
+
+export interface UserAuthMethods {
+	google: boolean;
+	password: boolean;
+	secretKey: boolean;
+}
+
 export interface UserAccount {
 	id: string;
-	provider: "google" | "secret";
+	provider: "google" | "secret" | "password";
 	email: string | null;
 	name: string;
+	username?: string | null;
+	displayName?: string;
+	emails?: UserEmailEntry[];
+	methods?: UserAuthMethods;
 	createdAt?: number;
 	sessions?: number;
 	syncedItems?: number;

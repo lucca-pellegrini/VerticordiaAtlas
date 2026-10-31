@@ -521,12 +521,12 @@
 			"description": "Palaces, Magic Containers, Heart Containers, spells, and hidden caves across Hyrule.",
 			"poster": "the-adventure-of-link/poster",
 			"theme": {
-				"accent": "#209bdf",
-				"accent-soft": "#86c6ea",
-				"night": "#060a0c",
-				"panel": "#0c1216",
-				"panel-2": "#111a1f",
-				"line": "#212e36"
+				"accent": "#906d31",
+				"accent-soft": "#cba666",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
 			},
 			"stats": [
 				{
@@ -1939,6 +1939,897 @@
 				},
 				{
 					"value": 40,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "mafia-the-old-country",
+			"slug": "mafia-the-old-country",
+			"title": "Mafia: The Old Country",
+			"description": "Every marker on the Mafia: The Old Country map.",
+			"poster": "mafia-the-old-country/poster",
+			"theme": {
+				"accent": "#a0522b",
+				"accent-soft": "#d68b65",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362821"
+			},
+			"stats": [
+				{
+					"value": 473,
+					"label": "markers"
+				},
+				{
+					"value": 21,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "mafia-3",
+			"slug": "mafia-3",
+			"title": "Mafia III",
+			"description": "Every marker on the Mafia III map.",
+			"poster": "mafia-3/poster",
+			"theme": {
+				"accent": "#bf7540",
+				"accent-soft": "#dbb294",
+				"night": "#0c0806",
+				"panel": "#16100c",
+				"panel-2": "#1f1711",
+				"line": "#362a21"
+			},
+			"stats": [
+				{
+					"value": 589,
+					"label": "markers"
+				},
+				{
+					"value": 33,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "mafia-2",
+			"slug": "mafia-2",
+			"title": "Mafia II",
+			"description": "Every marker on the Mafia II map.",
+			"poster": "mafia-2/poster",
+			"theme": {
+				"accent": "#c88837",
+				"accent-soft": "#e0bc8f",
+				"night": "#0c0906",
+				"panel": "#16110c",
+				"panel-2": "#1f1911",
+				"line": "#362d21"
+			},
+			"stats": [
+				{
+					"value": 445,
+					"label": "markers"
+				},
+				{
+					"value": 19,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "mafia",
+			"slug": "mafia",
+			"title": "Mafia: Definitive Edition",
+			"description": "Every marker on the Mafia: Definitive Edition map.",
+			"poster": "mafia/poster",
+			"theme": {
+				"accent": "#df6820",
+				"accent-soft": "#eaab86",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 377,
+					"label": "markers"
+				},
+				{
+					"value": 19,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "gta-5",
+			"slug": "gta-5",
+			"title": "Grand Theft Auto V",
+			"description": "Every marker on the Grand Theft Auto 5 map.",
+			"poster": "gta-5/poster",
+			"theme": {
+				"accent": "#a25a32",
+				"accent-soft": "#d39471",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362821"
+			},
+			"stats": [
+				{
+					"value": 2298,
+					"label": "markers"
+				},
+				{
+					"value": 74,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "grand-theft-auto-4",
+			"slug": "gta-4",
+			"title": "Grand Theft Auto IV",
+			"description": "Every marker on the GTA 4 map.",
+			"poster": "gta-4/poster",
+			"theme": {
+				"accent": "#b48f4b",
+				"accent-soft": "#d5c09a",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362f21"
+			},
+			"stats": [
+				{
+					"value": 1315,
+					"label": "markers"
+				},
+				{
+					"value": 63,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "grand-theft-auto-vice-city",
+			"slug": "grand-theft-auto-vice-city",
+			"title": "Grand Theft Auto: Vice City",
+			"description": "Every marker on the Grand Theft Auto: Vice City map.",
+			"poster": "grand-theft-auto-vice-city/poster",
+			"theme": {
+				"accent": "#a6301c",
+				"accent-soft": "#e06652",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1311",
+				"line": "#362421"
+			},
+			"stats": [
+				{
+					"value": 702,
+					"label": "markers"
+				},
+				{
+					"value": 38,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "grand-theft-auto-3",
+			"slug": "gta-3",
+			"title": "Grand Theft Auto III",
+			"description": "Every marker on the Grand Theft Auto III map.",
+			"poster": "gta-3/poster",
+			"theme": {
+				"accent": "#1877aa",
+				"accent-soft": "#52afe0",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 728,
+					"label": "markers"
+				},
+				{
+					"value": 32,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "dying-light-the-beast",
+			"slug": "dying-light-the-beast",
+			"title": "Dying Light: The Beast",
+			"description": "Every marker on the Dying Light: The Beast map.",
+			"poster": "dying-light-the-beast/poster",
+			"theme": {
+				"accent": "#88693a",
+				"accent-soft": "#c2a270",
+				"night": "#0c0906",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 422,
+					"label": "markers"
+				},
+				{
+					"value": 32,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "dying-light-2",
+			"slug": "dying-light-2",
+			"title": "Dying Light 2",
+			"description": "Every marker on the Dying Light 2 map.",
+			"poster": "dying-light-2/poster",
+			"theme": {
+				"accent": "#ba8b45",
+				"accent-soft": "#d8be97",
+				"night": "#0c0906",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362d21"
+			},
+			"stats": [
+				{
+					"value": 1249,
+					"label": "markers"
+				},
+				{
+					"value": 45,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "dying-light",
+			"slug": "dying-light",
+			"title": "Dying Light",
+			"description": "Every marker on the Dying Light map.",
+			"poster": "dying-light/poster",
+			"theme": {
+				"accent": "#b99246",
+				"accent-soft": "#d8c297",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362f21"
+			},
+			"stats": [
+				{
+					"value": 1869,
+					"label": "markers"
+				},
+				{
+					"value": 113,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "batman-arkham-asylum",
+			"slug": "batman-arkham-asylum",
+			"title": "Batman: Arkham Asylum",
+			"description": "Every marker on the Batman: Arkham Asylum map.",
+			"poster": "batman-arkham-asylum/poster",
+			"theme": {
+				"accent": "#37808b",
+				"accent-soft": "#6dbac5",
+				"night": "#060b0c",
+				"panel": "#0c1416",
+				"panel-2": "#111d1f",
+				"line": "#213336"
+			},
+			"stats": [
+				{
+					"value": 422,
+					"label": "markers"
+				},
+				{
+					"value": 13,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "death-stranding-2",
+			"slug": "death-stranding-2",
+			"title": "Death Stranding 2",
+			"description": "Every marker on the Death Stranding 2 map.",
+			"poster": "death-stranding-2/poster",
+			"theme": {
+				"accent": "#96382c",
+				"accent-soft": "#d16e61",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1311",
+				"line": "#362321"
+			},
+			"stats": [
+				{
+					"value": 336,
+					"label": "markers"
+				},
+				{
+					"value": 26,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "death-stranding",
+			"slug": "death-stranding",
+			"title": "Death Stranding",
+			"description": "Every marker on the Death Stranding map.",
+			"poster": "death-stranding/poster",
+			"theme": {
+				"accent": "#3a6b88",
+				"accent-soft": "#70a4c2",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 171,
+					"label": "markers"
+				},
+				{
+					"value": 8,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "euro-truck-simulator-2",
+			"slug": "euro-truck-simulator-2",
+			"title": "Euro Truck Simulator 2",
+			"description": "Every marker on the Euro Truck Simulator 2 map.",
+			"poster": "euro-truck-simulator-2/poster",
+			"theme": {
+				"accent": "#cb9034",
+				"accent-soft": "#e2c18d",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 5866,
+					"label": "markers"
+				},
+				{
+					"value": 17,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "american-truck-simulator",
+			"slug": "american-truck-simulator",
+			"title": "American Truck Simulator",
+			"description": "Every marker on the American Truck Simulator map.",
+			"poster": "american-truck-simulator/poster",
+			"theme": {
+				"accent": "#cbb334",
+				"accent-soft": "#e2d48d",
+				"night": "#0c0b06",
+				"panel": "#16140c",
+				"panel-2": "#1f1d11",
+				"line": "#363321"
+			},
+			"stats": [
+				{
+					"value": 4013,
+					"label": "markers"
+				},
+				{
+					"value": 16,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "dragon-quest-vii",
+			"slug": "dragon-quest-vii",
+			"title": "Dragon Quest VII: Reimagined",
+			"description": "Every marker on the Dragon Quest VII: Reimagined map.",
+			"poster": "dragon-quest-vii/poster",
+			"theme": {
+				"accent": "#388ec7",
+				"accent-soft": "#90c0e0",
+				"night": "#06090c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 3656,
+					"label": "markers"
+				},
+				{
+					"value": 71,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "dragon-quest-1-and-2-remake",
+			"slug": "dragon-quest-1-and-2-remake",
+			"title": "Dragon Quest I & II HD-2D Remake",
+			"description": "Every marker on the Dragon Quest I & II HD-2D Remake map.",
+			"poster": "dragon-quest-1-and-2-remake/poster",
+			"theme": {
+				"accent": "#ba7245",
+				"accent-soft": "#d8b097",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 820,
+					"label": "markers"
+				},
+				{
+					"value": 27,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "diablo-4",
+			"slug": "diablo-4",
+			"title": "Diablo IV",
+			"description": "Every marker on the Diablo IV map.",
+			"poster": "diablo-4/poster",
+			"theme": {
+				"accent": "#a13421",
+				"accent-soft": "#dc6a56",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1311",
+				"line": "#362421"
+			},
+			"stats": [
+				{
+					"value": 4472,
+					"label": "markers"
+				},
+				{
+					"value": 50,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "diablo-immortal",
+			"slug": "diablo-immortal",
+			"title": "Diablo Immortal",
+			"description": "Every marker on the Diablo Immortal map.",
+			"poster": "diablo-immortal/poster",
+			"theme": {
+				"accent": "#8c5a3c",
+				"accent-soft": "#c49275",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 2171,
+					"label": "markers"
+				},
+				{
+					"value": 223,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "like-a-dragon-infinite-wealth",
+			"slug": "like-a-dragon-infinite-wealth",
+			"title": "Like a Dragon: Infinite Wealth",
+			"description": "Every marker on the Like a Dragon: Infinite Wealth map.",
+			"poster": "like-a-dragon-infinite-wealth/poster",
+			"theme": {
+				"accent": "#aa7818",
+				"accent-soft": "#e0b052",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362f21"
+			},
+			"stats": [
+				{
+					"value": 2693,
+					"label": "markers"
+				},
+				{
+					"value": 118,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "yakuza-kiwami",
+			"slug": "yakuza-kiwami",
+			"title": "Yakuza Kiwami",
+			"description": "Every marker on the Yakuza Kiwami map.",
+			"poster": "yakuza-kiwami/poster",
+			"theme": {
+				"accent": "#b72828",
+				"accent-soft": "#e07070",
+				"night": "#0c0606",
+				"panel": "#160c0c",
+				"panel-2": "#1f1111",
+				"line": "#362121"
+			},
+			"stats": [
+				{
+					"value": 256,
+					"label": "markers"
+				},
+				{
+					"value": 18,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "yakuza-0",
+			"slug": "yakuza-0",
+			"title": "Yakuza 0",
+			"description": "Every marker on the Yakuza 0 map.",
+			"poster": "yakuza-0/poster",
+			"theme": {
+				"accent": "#b77c1d",
+				"accent-soft": "#e3b161",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 433,
+					"label": "markers"
+				},
+				{
+					"value": 45,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "big-walk",
+			"slug": "big-walk",
+			"title": "Big Walk",
+			"description": "Every marker on the Big Walk map.",
+			"poster": "big-walk/poster",
+			"theme": {
+				"accent": "#ad824a",
+				"accent-soft": "#d2b895",
+				"night": "#0c0906",
+				"panel": "#16110c",
+				"panel-2": "#1f1911",
+				"line": "#362d21"
+			},
+			"stats": [
+				{
+					"value": 230,
+					"label": "markers"
+				},
+				{
+					"value": 28,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "world-of-warcraft-forever",
+			"slug": "world-of-warcraft-forever",
+			"title": "World of Warcraft: Forever",
+			"description": "Every marker on the World of Warcraft: Forever map.",
+			"poster": "world-of-warcraft-forever/poster",
+			"theme": {
+				"accent": "#188baa",
+				"accent-soft": "#52c2e0",
+				"night": "#060a0c",
+				"panel": "#0c1316",
+				"panel-2": "#111c1f",
+				"line": "#213236"
+			},
+			"stats": [
+				{
+					"value": 4866,
+					"label": "markers"
+				},
+				{
+					"value": 22,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "world-of-warcraft",
+			"slug": "world-of-warcraft",
+			"title": "World of Warcraft",
+			"description": "Every marker on the World of Warcraft map.",
+			"poster": "world-of-warcraft/poster",
+			"theme": {
+				"accent": "#915531",
+				"accent-soft": "#cc8c67",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 284657,
+					"label": "markers"
+				},
+				{
+					"value": 785,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "pokemon-red-blue-yellow",
+			"slug": "pokemon-red-blue-yellow",
+			"title": "Pokémon Red/Blue/Yellow",
+			"description": "Every marker on the Pokémon Red/Blue/Yellow map.",
+			"poster": "pokemon-red-blue-yellow/poster",
+			"theme": {
+				"accent": "#dfd420",
+				"accent-soft": "#eae486",
+				"night": "#0c0b06",
+				"panel": "#16150c",
+				"panel-2": "#1f1e11",
+				"line": "#363521"
+			},
+			"stats": [
+				{
+					"value": 2313,
+					"label": "markers"
+				},
+				{
+					"value": 34,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "pokemon-firered-leafgreen",
+			"slug": "pokemon-firered-leafgreen",
+			"title": "Pokémon FireRed/LeafGreen",
+			"description": "Every marker on the Pokémon FireRed/LeafGreen map.",
+			"poster": "pokemon-firered-leafgreen/poster",
+			"theme": {
+				"accent": "#dfc920",
+				"accent-soft": "#eade86",
+				"night": "#0c0b06",
+				"panel": "#16140c",
+				"panel-2": "#1f1d11",
+				"line": "#363421"
+			},
+			"stats": [
+				{
+					"value": 1976,
+					"label": "markers"
+				},
+				{
+					"value": 22,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "pokemon-scarlet-violet",
+			"slug": "pokemon-scarlet-violet",
+			"title": "Pokémon Scarlet and Violet",
+			"description": "Every marker on the Pokémon Scarlet and Violet map.",
+			"poster": "pokemon-scarlet-violet/poster",
+			"theme": {
+				"accent": "#b12638",
+				"accent-soft": "#df6978",
+				"night": "#0c0607",
+				"panel": "#160c0d",
+				"panel-2": "#1f1113",
+				"line": "#362123"
+			},
+			"stats": [
+				{
+					"value": 5550,
+					"label": "markers"
+				},
+				{
+					"value": 61,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "pokemon-legends-arceus",
+			"slug": "pokemon-legends-arceus",
+			"title": "Pokémon Legends: Arceus",
+			"description": "Every marker on the Pokémon Legends: Arceus map.",
+			"poster": "pokemon-legends-arceus/poster",
+			"theme": {
+				"accent": "#2f789d",
+				"accent-soft": "#6aafd2",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 2525,
+					"label": "markers"
+				},
+				{
+					"value": 121,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "pokemon-legends-z-a",
+			"slug": "pokemon-legends-z-a",
+			"title": "Pokémon Legends: Z-A",
+			"description": "Every marker on the Pokémon Legends: Z-A map.",
+			"poster": "pokemon-legends-z-a/poster",
+			"theme": {
+				"accent": "#2d7295",
+				"accent-soft": "#62abd0",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212f36"
+			},
+			"stats": [
+				{
+					"value": 1979,
+					"label": "markers"
+				},
+				{
+					"value": 24,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "pokopia",
+			"slug": "pokopia",
+			"title": "Pokémon Pokopia",
+			"description": "Every marker on the Pokémon Pokopia map.",
+			"poster": "pokopia/poster",
+			"theme": {
+				"accent": "#b2cf30",
+				"accent-soft": "#d4e48b",
+				"night": "#0b0c06",
+				"panel": "#14160c",
+				"panel-2": "#1d1f11",
+				"line": "#323621"
+			},
+			"stats": [
+				{
+					"value": 2531,
+					"label": "markers"
+				},
+				{
+					"value": 37,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "the-witness",
+			"slug": "the-witness",
+			"title": "The Witness",
+			"description": "You wake up, alone, on a strange island full of puzzles that will challenge and surprise you.",
+			"poster": "the-witness/poster",
+			"theme": {
+				"accent": "#437b9c",
+				"accent-soft": "#85b1ca",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 158,
+					"label": "markers"
+				},
+				{
+					"value": 9,
 					"label": "categories"
 				}
 			],

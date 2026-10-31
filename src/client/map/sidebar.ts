@@ -10,7 +10,14 @@ import { downloadOfflineGame, getGameOfflineManifests, removeOfflineGame } from 
 import type { OfflineStatus } from "../offline.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
-import { refreshAll, refreshMap, refreshRegions, resolveTilesets, switchTileset } from "./map-view.ts";
+import {
+	refreshAll,
+	refreshMap,
+	refreshRegions,
+	resolveTilesets,
+	switchTileset,
+	updateTilesetControl,
+} from "./map-view.ts";
 import { renderPresets } from "./presets.ts";
 import { HEX, saveProfileNow, scheduleSave, scheduleViewSave } from "./profiles.ts";
 import { runSearch } from "./search.ts";
@@ -414,6 +421,9 @@ export function updateSidebar(): void {
 		found += gf;
 	}
 	showCounts(found, total);
+	renderTilesetMenu();
+	updateSidebarRegionsBtn();
+	updateTilesetControl();
 	saveSessionSoon();
 }
 
@@ -647,6 +657,10 @@ export function setupTitleRow(): void {
 		const open = !moreMenu.hidden;
 		moreMenu.hidden = open;
 		moreBtn.setAttribute("aria-expanded", String(!open));
+		if (!open) {
+			renderTilesetMenu();
+			updateSidebarRegionsBtn();
+		}
 	};
 	closeBtn.onclick = () => document.body.classList.remove("side-open");
 	offlineBtn.onclick = () => toggleCurrentMapOffline();
@@ -670,9 +684,23 @@ export function setupTitleRow(): void {
 	}
 }
 
+export function updateSidebarRegionsBtn(): void {
+	if (typeof document === "undefined") return;
+	const regionsBtn = document.querySelector<HTMLButtonElement>("#side-regions-btn");
+	if (regionsBtn) {
+		const hasRegions = (state.regions || []).length > 0;
+		regionsBtn.hidden = !hasRegions;
+		regionsBtn.setAttribute("aria-pressed", String(state.showRegions));
+	}
+}
+
 export function renderTilesetMenu(
-	section: HTMLElement = document.getElementById("side-tileset-section")!,
-	select: HTMLSelectElement = document.getElementById("side-tileset-select") as HTMLSelectElement,
+	section: HTMLElement | null = typeof document !== "undefined"
+		? document.getElementById("side-tileset-section")
+		: null,
+	select: HTMLSelectElement | null = typeof document !== "undefined"
+		? (document.getElementById("side-tileset-select") as HTMLSelectElement)
+		: null,
 ): void {
 	if (!section || !select) return;
 	const sets = resolveTilesets(state.mapInfo, state.data);

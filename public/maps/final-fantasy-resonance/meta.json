@@ -1,6 +1,6 @@
 {
 	"id": "final-fantasy-resonance",
-	"title": "FINAL FANTASY RESONANCE",
+	"title": "Final Fantasy Resonance",
 	"slug": "final-fantasy-resonance",
 	"source": "https://mapgenie.io/final-fantasy-resonance",
 	"poster": "poster.jpg",
@@ -197,5 +197,9 @@
 				}
 			]
 		}
-	]
+	],
+	"description": "Every marker on the FINAL FANTASY RESONANCE map.",
+	"theme": {
+		"accent": "#a1322b"
+	}
 }

@@ -49,17 +49,33 @@
 //                        slow and big: use it for a map whose tiles have gaps at different places and zooms, e.g. Solstheim,
 //                        or any map that is not a perfect rectangle at the stored zoom)
 
-import { copyFile, mkdir, readdir, readFile, unlink, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, readFile, rename, rm, stat, unlink, writeFile } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 import vm from "node:vm";
 
+export function expandHome(filePath: string): string {
+	if (filePath.startsWith("~/") || filePath === "~") {
+		return path.join(os.homedir(), filePath.slice(1));
+	}
+	return filePath;
+}
+
 import { splitTemplate } from "../server/tile-engine.ts";
+import { fmt } from "../src/shared/escape.ts";
 import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
+import { AdaptiveRateController } from "./adaptive-rate.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
+import { executeLootAtlasPipeline, isLootAtlas } from "./lootatlas.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
+import { createTileDashboard } from "./tile-downloader-tui.ts";
+import { promptAddGameTui } from "./tui/input-form.js";
+import { createMediaDashboard } from "./tui/media-dashboard.js";
+import { createPruneDashboard } from "./tui/prune-dashboard.js";
+import { isInteractiveTty } from "./tui/theme.js";
 import {
 	createR2Client,
 	type MediaDatabase,
@@ -71,6 +87,14 @@ import {
 const UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36";
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const exists = (p: string) => Bun.file(p).exists();
+const dirExists = async (p: string) => {
+	try {
+		const s = await stat(p);
+		return s.isDirectory();
+	} catch {
+		return false;
+	}
+};
 const mb = (n: number) => (n / 1e6).toFixed(1) + " MB";
 
 /* ---------- extracting window.* values from the page HTML ---------- */
@@ -154,9 +178,10 @@ async function getBin(
 	url: string,
 	tries = 3,
 	referer = "https://mapgenie.io/",
-): Promise<{ status: number; buf?: Buffer; type?: string; error?: string }> {
+): Promise<{ status: number; buf?: Buffer; type?: string; error?: string; latencyMs: number }> {
 	let last: unknown;
 	for (let a = 1; a <= tries; a++) {
+		const t0 = Date.now();
 		try {
 			const r = await fetch(url, {
 				headers: {
@@ -165,15 +190,28 @@ async function getBin(
 					Origin: new URL(referer).origin,
 				},
 			});
-			if ([403, 404, 410].includes(r.status)) return { status: r.status };
+			const latencyMs = Date.now() - t0;
+			if ([403, 404, 410].includes(r.status)) return { status: r.status, latencyMs };
 			if (!r.ok) throw new Error("HTTP " + r.status);
-			return { status: 200, buf: Buffer.from(await r.arrayBuffer()), type: r.headers.get("content-type") || "" };
+			const buf = Buffer.from(await r.arrayBuffer());
+			// Detect blank/missing fallback tiles returned with HTTP 200 (Loot Atlas returns a 68-byte 1x1 PNG when a tile does not exist).
+			const isBlankFallback =
+				buf.length === 68 && buf[0] === 0x89 && buf[1] === 0x50 && buf[2] === 0x4e && buf[3] === 0x47;
+			if (isBlankFallback) {
+				return { status: 404, latencyMs };
+			}
+			return {
+				status: 200,
+				buf,
+				type: r.headers.get("content-type") || "",
+				latencyMs,
+			};
 		} catch (e) {
 			last = e;
 			await sleep(500 * a);
 		}
 	}
-	return { status: 0, error: String(last) };
+	return { status: 0, error: String(last), latencyMs: 0 };
 }
 
 async function pool<T>(items: T[], n: number, fn: (item: T) => Promise<void>) {
@@ -217,7 +255,7 @@ export function tilesCovering(
 const fill = (tpl: string, z: number, x: number, y: number) =>
 	tpl.replace("{z}", String(z)).replace("{x}", String(x)).replace("{y}", String(y));
 
-function boundsFor(md: any, ts: any): { bounds: [number, number, number, number]; guessed: boolean } {
+export function boundsFor(md: any, ts: any): { bounds: [number, number, number, number]; guessed: boolean } {
 	// tile-index bounds per zoom level: { "8": { x: { min, max }, y: { min, max } }, ... }
 	if (ts.bounds && typeof ts.bounds === "object" && !Array.isArray(ts.bounds)) {
 		const zs = Object.keys(ts.bounds)
@@ -258,6 +296,96 @@ function boundsFor(md: any, ts: any): { bounds: [number, number, number, number]
 
 /* ---------- tiles: only the highest zoom is scraped; --force-get-tiles crawls every tile of every zoom, no pruning ---------- */
 
+export async function findSiblingTiles(
+	destDir: string,
+	localTail: string,
+	maxZ: number,
+	sourceDir?: string,
+): Promise<[number, number][]> {
+	const searchDirs = [destDir];
+	if (sourceDir && sourceDir !== destDir) searchDirs.push(sourceDir);
+
+	const seeds: [number, number][] = [];
+	const seen = new Set<string>();
+
+	for (const root of searchDirs) {
+		const parts = localTail.split("/").filter(Boolean);
+		const tilesIdx = parts.indexOf("tiles");
+		if (tilesIdx < 0) continue;
+		const mapTilesDir = path.join(root, ...parts.slice(0, tilesIdx + 1));
+		if (!(await dirExists(mapTilesDir))) continue;
+
+		const curTilesetDirName = parts[tilesIdx + 1];
+		const entries = await readdir(mapTilesDir, { withFileTypes: true }).catch(() => []);
+		for (const ent of entries) {
+			if (!ent.isDirectory() || ent.name === curTilesetDirName) continue;
+			const siblingMaxZ = path.join(mapTilesDir, ent.name, String(maxZ));
+			if (!(await dirExists(siblingMaxZ))) continue;
+
+			const xDirs = await readdir(siblingMaxZ, { withFileTypes: true }).catch(() => []);
+			for (const xEnt of xDirs) {
+				if (!xEnt.isDirectory()) continue;
+				const x = parseInt(xEnt.name, 10);
+				if (!Number.isFinite(x)) continue;
+				const yFiles = await readdir(path.join(siblingMaxZ, xEnt.name)).catch(() => []);
+				for (const yFile of yFiles) {
+					const y = parseInt(yFile, 10);
+					if (Number.isFinite(y)) {
+						const key = `${x},${y}`;
+						if (!seen.has(key)) {
+							seen.add(key);
+							seeds.push([x, y]);
+						}
+					}
+				}
+			}
+		}
+	}
+	return seeds;
+}
+
+export async function diveForSeed(
+	firstTiles: [number, number][],
+	minZ: number,
+	maxZ: number,
+	remoteFn: (z: number, x: number, y: number) => string,
+): Promise<[number, number] | null> {
+	let curX = -1,
+		curY = -1;
+	for (const [x, y] of firstTiles) {
+		const r = await getBin(remoteFn(minZ, x, y), 1);
+		if (r.status === 200 && r.type?.startsWith("image/")) {
+			curX = x;
+			curY = y;
+			break;
+		}
+	}
+	if (curX < 0) return null;
+	for (let z = minZ + 1; z <= maxZ; z++) {
+		const children: [number, number][] = [
+			[2 * curX, 2 * curY],
+			[2 * curX + 1, 2 * curY],
+			[2 * curX, 2 * curY + 1],
+			[2 * curX + 1, 2 * curY + 1],
+		];
+		let foundChild = false;
+		for (const [cx, cy] of children) {
+			const r = await getBin(remoteFn(z, cx, cy), 1);
+			if (r.status === 200 && r.type?.startsWith("image/")) {
+				curX = cx;
+				curY = cy;
+				foundChild = true;
+				break;
+			}
+		}
+		if (!foundChild) {
+			curX = 2 * curX;
+			curY = 2 * curY;
+		}
+	}
+	return [curX, curY];
+}
+
 export async function downloadTiles({
 	md,
 	ts,
@@ -294,24 +422,213 @@ export async function downloadTiles({
 	if (!base) throw new Error(`No tile found at zoom ${minZ} under: ${baseCandidates.join(", ")}. Try --tiles-base.`);
 
 	const stats = { saved: 0, skipped: 0, missing: 0, failed: 0, bytes: 0 };
-	// Only the highest zoom is scraped (--force-get-tiles takes the whole pyramid): the overview is made from it afterwards,
-	// and the zooms in between are made by the server when they are asked for (see server/tile-service.ts).
 	const maxOnly = !opts.unpruned;
-	const maxBoundsCount =
-		ts.bounds &&
-		!Array.isArray(ts.bounds) &&
-		ts.bounds[maxZ]?.x &&
-		ts.bounds[maxZ]?.y &&
-		Number.isFinite(ts.bounds[maxZ].x.min) &&
-		Number.isFinite(ts.bounds[maxZ].x.max) &&
-		Number.isFinite(ts.bounds[maxZ].y.min) &&
-		Number.isFinite(ts.bounds[maxZ].y.max)
-			? (ts.bounds[maxZ].x.max - ts.bounds[maxZ].x.min + 1) * (ts.bounds[maxZ].y.max - ts.bounds[maxZ].y.min + 1)
-			: Infinity;
-	const hasMaxBounds = Number.isFinite(maxBoundsCount) && maxBoundsCount <= 512;
-	const startZ = maxOnly && hasMaxBounds ? maxZ : minZ;
+
+	if (maxOnly) {
+		const seeds: [number, number][] = [];
+
+		// 1. Sibling tileset on disk
+		const siblingSeeds = await findSiblingTiles(destDir, localTail, maxZ, opts.sourceDir);
+		if (siblingSeeds.length) {
+			console.log(`  seeding from ${fmt(siblingSeeds.length)} existing tiles on disk for map`);
+			seeds.push(...siblingSeeds);
+		}
+
+		// 2. Explicit bounds in ts.bounds[maxZ]
+		const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[maxZ] : null;
+		if (
+			bz?.x &&
+			bz?.y &&
+			Number.isFinite(bz.x.min) &&
+			Number.isFinite(bz.x.max) &&
+			Number.isFinite(bz.y.min) &&
+			Number.isFinite(bz.y.max)
+		) {
+			for (let x = bz.x.min; x <= bz.x.max; x++) {
+				for (let y = bz.y.min; y <= bz.y.max; y++) {
+					seeds.push([x, y]);
+				}
+			}
+		}
+
+		// 3. Markers in md.locations
+		if (Array.isArray(md.locations) && md.locations.length > 0) {
+			const maxCoord = 2 ** maxZ;
+			for (const loc of md.locations) {
+				const lat = parseFloat(loc.latitude);
+				const lng = parseFloat(loc.longitude);
+				if (Number.isFinite(lat) && Number.isFinite(lng)) {
+					const x = Math.floor(lon2x(lng, maxCoord));
+					const y = Math.floor(lat2y(lat, maxCoord));
+					if (x >= 0 && x < maxCoord && y >= 0 && y < maxCoord) {
+						seeds.push([x, y]);
+					}
+				}
+			}
+		}
+
+		// 4. Single dive if seeds still empty
+		if (!seeds.length) {
+			const d = await diveForSeed(first, minZ, maxZ, (z, x, y) => fill(remote(base!), z, x, y));
+			if (d) seeds.push(d);
+		}
+
+		const dashboard = await createTileDashboard({
+			gameTitle: opts.gameTitle || md.map?.title || "Game Map",
+			gameSlug: opts.gameSlug || "map",
+			mapSlug: opts.mapSlug || md.map?.slug || "map",
+			tilesetName: opts.tilesetName || ts.name || "Default",
+			zoom: maxZ,
+			pattern: ts.pattern,
+			destDir,
+			noTui: opts.noTui,
+			totalExpected: seeds.length || undefined,
+			container: opts.container,
+			renderer: opts.renderer,
+		});
+
+		const visited = new Set<string>();
+		const queue: [number, number][] = [];
+
+		let minX = Infinity,
+			maxX = -Infinity,
+			minY = Infinity,
+			maxY = -Infinity;
+		for (const [x, y] of seeds) {
+			const key = `${x},${y}`;
+			if (!visited.has(key)) {
+				visited.add(key);
+				queue.push([x, y]);
+				if (x < minX) minX = x;
+				if (x > maxX) maxX = x;
+				if (y < minY) minY = y;
+				if (y > maxY) maxY = y;
+			}
+		}
+
+		if (Number.isFinite(minX) && Number.isFinite(maxX)) {
+			dashboard.updateBounds(minX, maxX, minY, maxY, queue.length);
+		}
+
+		const controller = new AdaptiveRateController({
+			enabled: opts.adaptive !== false,
+			minConcurrency: opts.minConcurrency || 4,
+			maxConcurrency: opts.maxConcurrency || 64,
+			initialConcurrency: opts.concurrency || 16,
+			minDelayMs: 0,
+			maxDelayMs: 250,
+			initialDelayMs: opts.delay || 0,
+		});
+
+		dashboard.setWorkerStats?.(controller.concurrency, controller.delayMs);
+
+		const maxCoord = 2 ** maxZ;
+		let queueIndex = 0;
+		let activeWorkers = 0;
+		let isAborted = false;
+
+		await new Promise<void>((resolve) => {
+			function pump() {
+				if (isAborted) return;
+				while (activeWorkers < controller.concurrency && queueIndex < queue.length) {
+					if (stats.saved + stats.skipped >= opts.maxTiles) {
+						isAborted = true;
+						console.log(`  stopping: reached --max-tiles ${opts.maxTiles}`);
+						break;
+					}
+					const [x, y] = queue[queueIndex++];
+					activeWorkers++;
+					processTile(x, y)
+						.catch(() => {})
+						.finally(() => {
+							activeWorkers--;
+							if (queueIndex >= queue.length && activeWorkers === 0) {
+								resolve();
+							} else {
+								pump();
+							}
+						});
+				}
+				if (queueIndex >= queue.length && activeWorkers === 0) {
+					resolve();
+				}
+			}
+
+			async function processTile(x: number, y: number) {
+				const file = path.join(destDir, fill(localTail, maxZ, x, y));
+				if (await exists(file)) {
+					stats.skipped++;
+					dashboard.onTile(x, y, "skipped");
+					expand(x, y);
+					return;
+				}
+				const r = await getBin(fill(remote(base!), maxZ, x, y));
+				if (r.status === 200 && r.type?.startsWith("image/") && r.buf) {
+					await mkdir(path.dirname(file), { recursive: true });
+					await writeFile(file, r.buf);
+					stats.saved++;
+					stats.bytes += r.buf.length;
+					dashboard.onTile(x, y, "saved", r.buf.length);
+					expand(x, y);
+				} else if (r.status === 0) {
+					stats.failed++;
+					dashboard.onTile(x, y, "failed");
+				} else {
+					stats.missing++;
+					dashboard.onTile(x, y, "missing");
+				}
+
+				const rateChanged = controller.recordResult(r.status, r.latencyMs);
+				if (rateChanged) {
+					dashboard.setWorkerStats?.(controller.concurrency, controller.delayMs);
+					pump();
+				}
+
+				if (controller.delayMs > 0) await sleep(controller.delayMs);
+			}
+
+			function expand(x: number, y: number) {
+				const neighbors: [number, number][] = [
+					[x + 1, y],
+					[x - 1, y],
+					[x, y + 1],
+					[x, y - 1],
+				];
+				for (const [nx, ny] of neighbors) {
+					if (nx >= 0 && nx < maxCoord && ny >= 0 && ny < maxCoord) {
+						const nkey = `${nx},${ny}`;
+						if (!visited.has(nkey)) {
+							visited.add(nkey);
+							queue.push([nx, ny]);
+						}
+					}
+				}
+			}
+
+			pump();
+		});
+
+		try {
+			await dashboard.finish();
+		} finally {
+			dashboard.destroy();
+		}
+		return { minzoom: minZ, maxzoom: maxZ, bounds, stats };
+	}
+
+	// opts.unpruned: --force-get-tiles takes every zoom
+	const unprunedController = new AdaptiveRateController({
+		enabled: opts.adaptive !== false,
+		minConcurrency: opts.minConcurrency || 4,
+		maxConcurrency: opts.maxConcurrency || 64,
+		initialConcurrency: opts.concurrency || 16,
+		minDelayMs: 0,
+		maxDelayMs: 250,
+		initialDelayMs: opts.delay || 0,
+	});
+
 	let cands = first;
-	for (let z = startZ; z <= maxZ; z++) {
+	for (let z = minZ; z <= maxZ; z++) {
 		const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[z] : null;
 		if (
 			bz?.x &&
@@ -321,54 +638,42 @@ export async function downloadTiles({
 			Number.isFinite(bz.y.min) &&
 			Number.isFinite(bz.y.max)
 		) {
-			if (z === startZ || opts.unpruned) {
-				cands = [];
-				for (let x = bz.x.min; x <= bz.x.max; x++)
-					for (let y = bz.y.min; y <= bz.y.max; y++) cands.push([x, y]);
-			} else {
-				cands = cands.filter(([x, y]) => x >= bz.x.min && x <= bz.x.max && y >= bz.y.min && y <= bz.y.max);
+			cands = [];
+			for (let x = bz.x.min; x <= bz.x.max; x++) {
+				for (let y = bz.y.min; y <= bz.y.max; y++) cands.push([x, y]);
 			}
-		} else if (z === startZ || opts.unpruned) {
+		} else {
 			cands = z === minZ ? first : tilesCovering(bounds, z, 0);
 		}
-		if ((!maxOnly || z === maxZ) && stats.saved + stats.skipped + cands.length > opts.maxTiles) {
+		if (stats.saved + stats.skipped + cands.length > opts.maxTiles) {
 			console.log(`  stopping before zoom ${z}: would pass --max-tiles ${opts.maxTiles}`);
 			break;
 		}
-		const isScouting = maxOnly && z < maxZ;
 		const found: [number, number][] = [];
-		await pool(cands, opts.concurrency, async ([x, y]) => {
+		await pool(cands, unprunedController.concurrency, async ([x, y]) => {
 			const file = path.join(destDir, fill(localTail, z, x, y));
 			if (await exists(file)) {
-				if (!isScouting) stats.skipped++;
+				stats.skipped++;
 				found.push([x, y]);
 				return;
 			}
 			const r = await getBin(fill(remote(base!), z, x, y));
 			if (r.status === 200 && r.type?.startsWith("image/") && r.buf) {
-				if (!isScouting) {
-					await mkdir(path.dirname(file), { recursive: true });
-					await writeFile(file, r.buf);
-					stats.saved++;
-					stats.bytes += r.buf.length;
-				}
+				await mkdir(path.dirname(file), { recursive: true });
+				await writeFile(file, r.buf);
+				stats.saved++;
+				stats.bytes += r.buf.length;
 				found.push([x, y]);
 			} else if (r.status === 0) {
-				if (!isScouting) stats.failed++;
+				stats.failed++;
 			} else {
-				if (!isScouting) stats.missing++;
+				stats.missing++;
 			}
-			if (opts.delay) await sleep(opts.delay);
+			unprunedController.recordResult(r.status, r.latencyMs);
+			if (unprunedController.delayMs > 0) await sleep(unprunedController.delayMs);
 		});
-		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)${isScouting ? " (scouting)" : ""}`);
-		if (!found.length && !opts.unpruned) break;
-		if (!opts.unpruned)
-			cands = found.flatMap(([x, y]): [number, number][] => [
-				[2 * x, 2 * y],
-				[2 * x + 1, 2 * y],
-				[2 * x, 2 * y + 1],
-				[2 * x + 1, 2 * y + 1],
-			]);
+		console.log(`  zoom ${z}: ${found.length} tiles (${cands.length} tried)`);
+		if (!found.length) break;
 	}
 	console.log(
 		`  tiles: saved ${stats.saved}, already had ${stats.skipped}, missing ${stats.missing}, failed ${stats.failed}, ${mb(stats.bytes)}`,
@@ -567,6 +872,7 @@ export async function downloadMedia(
 		mediaUrl?: string;
 		getBinImpl?: typeof getBin;
 		fetchImpl?: typeof fetch;
+		noTui?: boolean;
 	},
 ) {
 	const writeLocal = !opts.uploadMedia || Boolean(opts.keepLocal);
@@ -576,74 +882,98 @@ export async function downloadMedia(
 	const cloudSet = opts.game && opts.mediaDb ? opts.mediaDb.uploadedSet(opts.game) : new Set<string>();
 	const fetchBin = opts.getBinImpl || getBin;
 
-	await pool([...urls.keys()], opts.concurrency, async (url) => {
-		const name = decodeURIComponent(new URL(url).pathname.split("/").pop()!);
-		if (names.has(name) && names.get(name) !== url) console.log("  ! file name collision:", name);
-		names.set(name, url);
+	const dashboard = await createMediaDashboard({
+		game: opts.game || "atlas",
+		totalExpected: urls.size,
+		uploadMedia: opts.uploadMedia,
+		keepLocal: opts.keepLocal,
+		concurrency: opts.concurrency,
+		noTui: opts.noTui,
+		container: opts.container,
+		renderer: opts.renderer,
+	});
 
-		// Silently ignore any media already marked as uploaded to R2/S3 in the SQLite media table
-		if (cloudSet.has(name) || (opts.game && opts.mediaDb?.has(opts.game, name))) {
-			st.skippedCloud++;
-			return;
-		}
+	try {
+		await pool([...urls.keys()], opts.concurrency, async (url) => {
+			const name = decodeURIComponent(new URL(url).pathname.split("/").pop()!);
+			if (names.has(name) && names.get(name) !== url) console.log("  ! file name collision:", name);
+			names.set(name, url);
 
-		const file = path.join(dir, name);
-		if (!opts.uploadMedia && (await exists(file))) {
-			st.skipped++;
-			return;
-		}
-
-		// If uploading to R2 and the file is already on disk, upload the local copy instead of re-fetching MapGenie
-		let buf: Buffer | undefined;
-		if (opts.uploadMedia && (await exists(file))) {
-			buf = Buffer.from(await Bun.file(file).arrayBuffer());
-		} else {
-			const r = await fetchBin(url);
-			if (r.status === 200 && r.buf) {
-				buf = r.buf;
-			} else {
-				st.failed++;
-				console.log("  failed", url, r.status || r.error);
-				if (opts.delay) await sleep(opts.delay);
+			// Silently ignore any media already marked as uploaded to R2/S3 in the SQLite media table
+			if (cloudSet.has(name) || (opts.game && opts.mediaDb?.has(opts.game, name))) {
+				st.skippedCloud++;
+				dashboard.onItem({ name, url, status: "skippedCloud" });
 				return;
 			}
-		}
 
-		if (opts.uploadMedia) {
-			if (!opts.game || !opts.s3 || !opts.mediaUrl || !opts.mediaDb) {
-				throw new Error("uploadMedia requires game, s3, mediaUrl, and mediaDb");
+			const file = path.join(dir, name);
+			if (!opts.uploadMedia && (await exists(file))) {
+				st.skipped++;
+				dashboard.onItem({ name, url, status: "cached" });
+				return;
 			}
-			const rec = await uploadAndVerifyBuffer({
-				game: opts.game,
-				originalName: name,
-				buf,
-				s3: opts.s3,
-				mediaUrl: opts.mediaUrl,
-				fetchImpl: opts.fetchImpl,
-			});
-			opts.mediaDb.record(rec);
-			cloudSet.add(name);
-			st.uploaded++;
-			st.bytes += buf.length;
-			if (opts.keepLocal) {
-				if (!(await exists(file))) {
-					await writeFile(file, buf);
-					st.saved++;
+
+			// If uploading to R2 and the file is already on disk, upload the local copy instead of re-fetching MapGenie
+			let buf: Buffer | undefined;
+			if (opts.uploadMedia && (await exists(file))) {
+				buf = Buffer.from(await Bun.file(file).arrayBuffer());
+			} else {
+				const r = await fetchBin(url);
+				if (r.status === 200 && r.buf) {
+					buf = r.buf;
+				} else {
+					st.failed++;
+					dashboard.onItem({ name, url, status: "failed", error: String(r.status || r.error) });
+					if (opts.delay) await sleep(opts.delay);
+					return;
 				}
-			} else if (await exists(file)) {
-				await unlink(file).catch(() => {});
 			}
-		} else {
-			await writeFile(file, buf);
-			st.saved++;
-			st.bytes += buf.length;
-		}
 
-		if (opts.delay) await sleep(opts.delay);
-	});
-	console.log(
-		`  media: saved ${st.saved}${opts.uploadMedia ? `, uploaded ${st.uploaded}` : ""}, already had ${st.skipped}, skipped ${st.skippedCloud} (in cloud), failed ${st.failed}, ${mb(st.bytes)}`,
-	);
+			if (opts.uploadMedia) {
+				if (!opts.game || !opts.s3 || !opts.mediaUrl || !opts.mediaDb) {
+					throw new Error("uploadMedia requires game, s3, mediaUrl, and mediaDb");
+				}
+				const rec = await uploadAndVerifyBuffer({
+					game: opts.game,
+					originalName: name,
+					buf,
+					s3: opts.s3,
+					mediaUrl: opts.mediaUrl,
+					fetchImpl: opts.fetchImpl,
+				});
+				opts.mediaDb.record(rec);
+				cloudSet.add(name);
+				st.uploaded++;
+				st.bytes += buf.length;
+				dashboard.onItem({ name, url, size: buf.length, status: "uploaded", verifiedUrl: rec.verifiedUrl });
+				if (opts.keepLocal) {
+					if (!(await exists(file))) {
+						await writeFile(file, buf);
+						st.saved++;
+					}
+				} else if (await exists(file)) {
+					await unlink(file).catch(() => {});
+				}
+			} else {
+				await writeFile(file, buf);
+				st.saved++;
+				st.bytes += buf.length;
+				dashboard.onItem({ name, url, size: buf.length, status: "downloaded" });
+			}
+
+			if (opts.delay) await sleep(opts.delay);
+		});
+		await dashboard.finish();
+	} finally {
+		dashboard.destroy();
+	}
+	const stats = dashboard.getStats();
+	st.saved = stats.saved;
+	st.uploaded = stats.uploaded;
+	st.skipped = stats.skipped;
+	st.skippedCloud = stats.skippedCloud;
+	st.failed = stats.failed;
+	st.bytes = stats.bytes;
 	return st;
 }
 
@@ -741,7 +1071,7 @@ async function magick(args: string[], opts: Record<string, any> = {}): Promise<B
 	}
 }
 
-async function posterVariants(file: string, dir: string, force: boolean): Promise<boolean> {
+export async function posterVariants(file: string, dir: string, force: boolean): Promise<boolean> {
 	for (const w of [600, 1200]) {
 		const out = path.join(dir, `poster-${w}.webp`);
 		if (!force && (await exists(out))) continue;
@@ -854,9 +1184,12 @@ async function main() {
 			"default-tag": { type: "string" },
 			index: { type: "string", default: "./public/maps/index.json" },
 			"max-zoom": { type: "string" },
-			"all-tilesets": { type: "boolean", default: false },
+			"all-tilesets": { type: "boolean", default: true },
+			interactive: { type: "boolean", short: "i", default: false },
 			videos: { type: "boolean", default: false },
 			"no-tiles": { type: "boolean", default: false },
+			"skip-tiles": { type: "boolean", default: false },
+			"disable-tiles": { type: "boolean", default: false },
 			"no-media": { type: "boolean", default: false },
 			"upload-media": { type: "boolean", default: false },
 			"keep-local": { type: "boolean", default: false },
@@ -872,26 +1205,253 @@ async function main() {
 			"map-url": { type: "string" },
 			"tiles-base": { type: "string" },
 			"media-base": { type: "string", default: "https://media.mapgenie.io/v2/assets/prod/games" },
-			concurrency: { type: "string", default: "4" },
-			delay: { type: "string", default: "100" },
+			concurrency: { type: "string", default: "16" },
+			delay: { type: "string", default: "0" },
+			adaptive: { type: "boolean", default: true },
+			"min-concurrency": { type: "string", default: "4" },
+			"max-concurrency": { type: "string", default: "64" },
 			"max-tiles": { type: "string", default: "400000" },
+			"redownload-tiles": { type: "boolean", default: false },
+			"cache-dir": { type: "string", default: "./cache/updates" },
 			"force-get-tiles": { type: "string", multiple: true, default: [] },
+			"no-tui": { type: "boolean", default: false },
+			help: { type: "boolean", short: "h", default: false },
 		},
 	});
-	if (!positionals[0]) {
-		console.error("Usage: bun scripts/add-game.ts https://mapgenie.io/<game> [options]");
-		process.exit(1);
+
+	if (v.help) {
+		console.log(`
+Usage: bun scripts/add-game.ts <game-url> [options] (MapGenie or Loot Atlas)
+
+Options:
+  --interactive, -i        Open interactive TUI configuration form
+  --no-tiles               Disable downloading map raster tiles
+  --skip-tiles             Alias for --no-tiles
+  --disable-tiles          Alias for --no-tiles
+  --all-tilesets           Download all tilesets (default: true)
+  --no-media               Disable downloading marker media
+  --upload-media           Stream & upload media directly to Cloudflare R2 / S3
+  --keep-local             When used with --upload-media, also keep local files on disk
+  --videos                 Download video media items in addition to images
+  --no-cards               Skip pre-rendering OpenGraph preview cards
+  --no-markers             Skip scraping/writing marker points
+  --no-icons               Skip fetching marker category icons
+  --no-clean-markers       Skip rewriting intra-map marker links
+  --no-optimize            Skip solid-tile deduplication and linking
+  --max-zoom <z>           Override max zoom level to download
+  --max-tiles <n>          Maximum tiles safety ceiling (default: 400000)
+  --concurrency <n>        Initial worker concurrency (default: 16)
+  --delay <ms>             Initial delay between tile requests (default: 0)
+  --no-adaptive            Disable adaptive speed and concurrency scaling
+  --min-concurrency <n>    Minimum adaptive concurrency (default: 4)
+  --max-concurrency <n>    Maximum adaptive concurrency (default: 64)
+  --no-tui                 Disable the interactive terminal UI
+  --help, -h               Show this help message
+`);
+		process.exit(0);
 	}
+
+	if (v["skip-tiles"] || v["disable-tiles"]) {
+		v["no-tiles"] = true;
+	}
+	if (!positionals[0] || v.interactive) {
+		if (isInteractiveTty(v["no-tui"])) {
+			const res = await promptAddGameTui(positionals[0] || "");
+			if (!res) {
+				process.exit(0);
+			}
+			positionals[0] = res.url;
+			if (res.slug) {
+				v.id = res.slug;
+				v.slug = res.slug;
+			}
+			if (res.title) v.title = res.title;
+			if (res.posterUrl) v.poster = res.posterUrl;
+			v["no-tiles"] = !res.downloadTiles;
+			v["all-tilesets"] = res.allTilesets;
+			v["no-media"] = !res.downloadMedia;
+			v["upload-media"] = res.uploadMedia;
+			v.videos = res.videos;
+			v["keep-local"] = res.keepLocal;
+			v["no-cards"] = !res.makeCards;
+		} else if (!positionals[0]) {
+			console.error("Usage: bun scripts/add-game.ts <game-url> [options]");
+			process.exit(1);
+		}
+	}
+	await runAddGamePipeline({
+		url: positionals[0],
+		out: v.out,
+		id: v.id,
+		slug: v.slug,
+		title: v.title,
+		poster: v.poster,
+		accent: v.accent,
+		tagLabel: v["tag-label"],
+		defaultTag: v["default-tag"],
+		index: v.index,
+		maxZoom: v["max-zoom"] ? +v["max-zoom"] : undefined,
+		allTilesets: v["all-tilesets"],
+		videos: v.videos,
+		noTiles: v["no-tiles"],
+		noMedia: v["no-media"],
+		uploadMedia: v["upload-media"],
+		keepLocal: v["keep-local"],
+		noMarkers: v["no-markers"],
+		noCards: v["no-cards"],
+		noIcons: v["no-icons"],
+		noCleanMarkers: v["no-clean-markers"],
+		noOptimize: v["no-optimize"],
+		iconsOnly: v["icons-only"],
+		redownloadTiles: v["redownload-tiles"],
+		cacheDir: v["cache-dir"],
+		html: v.html,
+		mapdata: v.mapdata,
+		game: v.game,
+		mapUrl: v["map-url"],
+		tilesBase: v["tiles-base"],
+		mediaBase: v["media-base"],
+		concurrency: v.concurrency ? +v.concurrency : undefined,
+		delay: v.delay ? +v.delay : undefined,
+		adaptive: v.adaptive,
+		minConcurrency: v["min-concurrency"] ? +v["min-concurrency"] : undefined,
+		maxConcurrency: v["max-concurrency"] ? +v["max-concurrency"] : undefined,
+		maxTiles: v["max-tiles"] ? +v["max-tiles"] : undefined,
+		forceGetTiles: v["force-get-tiles"],
+		noTui: v["no-tui"],
+	});
+}
+
+export interface AddGamePipelineOptions {
+	url: string;
+	out?: string;
+	id?: string;
+	slug?: string;
+	title?: string;
+	poster?: string;
+	accent?: string;
+	tagLabel?: string;
+	defaultTag?: string;
+	index?: string;
+	maxZoom?: number;
+	allTilesets?: boolean;
+	videos?: boolean;
+	noTiles?: boolean;
+	noMedia?: boolean;
+	uploadMedia?: boolean;
+	keepLocal?: boolean;
+	noMarkers?: boolean;
+	noCards?: boolean;
+	noIcons?: boolean;
+	noCleanMarkers?: boolean;
+	noOptimize?: boolean;
+	iconsOnly?: boolean;
+	redownloadTiles?: boolean;
+	cacheDir?: string;
+	html?: string;
+	mapdata?: string;
+	game?: string;
+	mapUrl?: string;
+	tilesBase?: string;
+	mediaBase?: string;
+	concurrency?: number;
+	delay?: number;
+	adaptive?: boolean;
+	minConcurrency?: number;
+	maxConcurrency?: number;
+	maxTiles?: number;
+	forceGetTiles?: string[];
+	noTui?: boolean;
+	container?: any;
+	renderer?: any;
+	onLog?: (msg: string) => void;
+	onStage?: (stage: string) => void;
+}
+
+export async function runAddGamePipeline(p: AddGamePipelineOptions) {
+	const origLog = console.log;
+	const origErr = console.error;
+	if (p.onLog || p.renderer) {
+		console.log = (...args: any[]) => p.onLog?.(args.map(String).join(" "));
+		console.error = (...args: any[]) => p.onLog?.(`[ERROR] ${args.map(String).join(" ")}`);
+	}
+	const log = (msg: string) => {
+		if (p.onLog) {
+			p.onLog(msg);
+		} else {
+			console.log(msg);
+		}
+	};
+
+	try {
+		await executeAddGamePipeline(p, log);
+	} finally {
+		if (p.onLog || p.renderer) {
+			console.log = origLog;
+			console.error = origErr;
+		}
+	}
+}
+
+async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: string) => void) {
+	if (isLootAtlas(p.url)) {
+		return await executeLootAtlasPipeline(p, log);
+	}
+	const v = {
+		out: p.out || "./public/maps",
+		id: p.id,
+		slug: p.slug,
+		title: p.title,
+		poster: p.poster,
+		accent: p.accent,
+		"tag-label": p.tagLabel,
+		"default-tag": p.defaultTag,
+		index: p.index || "./public/maps/index.json",
+		"max-zoom": p.maxZoom ? String(p.maxZoom) : undefined,
+		"all-tilesets": p.allTilesets ?? true,
+		videos: p.videos,
+		"no-tiles": p.noTiles,
+		"no-media": p.noMedia,
+		"upload-media": p.uploadMedia,
+		"keep-local": p.keepLocal,
+		"no-markers": p.noMarkers,
+		"no-cards": p.noCards,
+		"no-icons": p.noIcons,
+		"no-clean-markers": p.noCleanMarkers,
+		"no-optimize": p.noOptimize,
+		"icons-only": p.iconsOnly,
+		html: p.html,
+		mapdata: p.mapdata,
+		game: p.game,
+		"map-url": p.mapUrl,
+		"tiles-base": p.tilesBase,
+		"media-base": p.mediaBase || "https://media.mapgenie.io/v2/assets/prod/games",
+		concurrency: String(p.concurrency ?? 16),
+		delay: String(p.delay ?? 0),
+		adaptive: p.adaptive ?? true,
+		"min-concurrency": p.minConcurrency ? String(p.minConcurrency) : undefined,
+		"max-concurrency": p.maxConcurrency ? String(p.maxConcurrency) : undefined,
+		"max-tiles": String(p.maxTiles ?? 400000),
+		"force-get-tiles": p.forceGetTiles || [],
+		"no-tui": p.noTui ?? false,
+	};
 	const uploadMedia = Boolean(v["upload-media"]) && !v["no-media"];
 	const r2Cfg = uploadMedia ? validateR2Env() : null;
 	const r2Client = r2Cfg ? createR2Client(r2Cfg) : undefined;
 	const opts = {
 		concurrency: +v.concurrency!,
 		delay: +v.delay!,
+		adaptive: v.adaptive !== false,
+		minConcurrency: v["min-concurrency"] ? +v["min-concurrency"] : undefined,
+		maxConcurrency: v["max-concurrency"] ? +v["max-concurrency"] : undefined,
 		maxTiles: +v["max-tiles"]!,
 		maxZoom: v["max-zoom"] ? +v["max-zoom"] : undefined,
+		noTui: Boolean(v["no-tui"]),
+		container: p.container,
+		renderer: p.renderer,
 	};
 	const forceTiles = new Set(v["force-get-tiles"]);
+	const positionals = [p.url];
 
 	const given = new URL(positionals[0]);
 	const givenSegs = given.pathname.split("/").filter(Boolean);
@@ -1114,9 +1674,9 @@ async function main() {
 				await writeFile(path.join(outDir, poster), r.buf);
 			}
 		} else if (posterSrc) {
-			poster = "poster" + path.extname(posterSrc).toLowerCase();
-			if (path.resolve(posterSrc) !== path.resolve(outDir, poster))
-				await copyFile(posterSrc, path.join(outDir, poster));
+			const resolvedSrc = path.resolve(expandHome(posterSrc.replace(/^file:\/\//, "")));
+			poster = "poster" + path.extname(resolvedSrc).toLowerCase();
+			if (resolvedSrc !== path.resolve(outDir, poster)) await copyFile(resolvedSrc, path.join(outDir, poster));
 		} else if (existingPoster) poster = existingPoster;
 	} catch (e: any) {
 		console.log("  ! poster failed:", e.message);
@@ -1183,23 +1743,37 @@ async function main() {
 	const at = index.games.findIndex((g) => g.slug === pageSlug);
 	if (at >= 0) index.games[at] = entry;
 	else index.games.push(entry);
-	await writeFile(v.index!, JSON.stringify(index, null, 2) + "\n");
+	await writeFile(v.index!, JSON.stringify(index, null, "\t") + "\n");
 	console.log(
 		`\nWrote ${path.join(outDir, "meta.json")} and updated ${v.index}; the game is now listed, fetching tiles and media`,
 	);
 
 	// 10. tiles, then media
+	const stagingBase = path.resolve(p.cacheDir || "./cache/updates", pageSlug);
+	if (p.redownloadTiles && !v["no-tiles"] && tileJobs.length > 0) {
+		await rm(stagingBase, { recursive: true, force: true });
+		await mkdir(stagingBase, { recursive: true });
+	}
+
 	for (const m of forceTiles)
 		if (!maps.some((md) => md.map?.slug === m)) console.log(`! --force-get-tiles: no map "${m}" in this game`);
 	for (const { md, ts, ms, dir, localTail, info } of tileJobs) {
-		console.log(`\nTiles for ${ms} / ${ts.name}`);
+		const targetDir = p.redownloadTiles ? path.join(stagingBase, ms) : dir;
+		console.log(`\nTiles for ${ms} / ${ts.name}${p.redownloadTiles ? " (atomic staging)" : ""}`);
 		const r = await downloadTiles({
 			md,
 			ts,
 			baseCandidates: tilesBases,
-			destDir: dir,
+			destDir: targetDir,
 			localTail,
-			opts: { ...opts, unpruned: forceTiles.has(ms) },
+			opts: {
+				...opts,
+				unpruned: forceTiles.has(ms),
+				gameTitle: title,
+				gameSlug: slug,
+				mapSlug: ms,
+				tilesetName: ts.name,
+			},
 		});
 		info.minzoom = r.minzoom;
 		info.maxzoom = r.maxzoom;
@@ -1208,21 +1782,58 @@ async function main() {
 		// A forced map keeps the whole pyramid it was asked for; prune-tiles.ts can thin it out later.
 		const split = splitTemplate(info.template);
 		if (!v["no-optimize"] && !v["no-tiles"] && split) {
-			const o = await optimizeTileset({
-				dir: path.join(outDir, split.base),
-				tail: split.tail,
-				minZ: info.minzoom ?? 0,
-				maxZ: info.maxzoom ?? 0,
-				prune: false,
-				background: info.background,
-				concurrency: opts.concurrency,
-			});
-			console.log(
-				`  overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
-			);
-			if (o.background && !info.background) info.background = o.background;
+			p.onStage?.(`Optimizing Tiles: ${ms}`);
+			let pruneDash: any = null;
+			if (p.container && p.renderer) {
+				pruneDash = await createPruneDashboard({
+					container: p.container,
+					renderer: p.renderer,
+					totalTilesets: 1,
+				});
+				pruneDash.startTileset(title, ts.name || ms, 0);
+			}
+			try {
+				const optDir = p.redownloadTiles ? path.join(stagingBase, split.base) : path.join(outDir, split.base);
+				const o = await optimizeTileset({
+					dir: optDir,
+					tail: split.tail,
+					minZ: info.minzoom ?? 0,
+					maxZ: info.maxzoom ?? 0,
+					prune: false,
+					background: info.background,
+					concurrency: opts.concurrency,
+					onProgress: pruneDash ? (ev) => pruneDash.onProgress(ev) : undefined,
+				});
+				if (pruneDash) {
+					pruneDash.finishTileset(o);
+					await pruneDash.finish();
+				}
+				log(
+					`  overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
+				);
+				if (o.background && !info.background) info.background = o.background;
+			} finally {
+				if (pruneDash) pruneDash.destroy();
+			}
 		}
 		await writeMeta();
+	}
+
+	if (p.redownloadTiles && !v["no-tiles"] && tileJobs.length > 0) {
+		p.onStage?.("Swapping Staged Tiles");
+		log(`  Swapping staged tiles into ${outDir}...`);
+		for (const md of maps) {
+			const ms = md.map?.slug || "map";
+			const stagedTilesDir = path.join(stagingBase, ms, "tiles");
+			const targetTilesDir = path.join(outDir, ms, "tiles");
+			if (await exists(stagedTilesDir)) {
+				await rm(targetTilesDir, { recursive: true, force: true });
+				await mkdir(path.dirname(targetTilesDir), { recursive: true });
+				await rename(stagedTilesDir, targetTilesDir);
+			}
+		}
+		await rm(stagingBase, { recursive: true, force: true });
+		log(`  ✓ Atomic tile update complete for ${pageSlug}`);
 	}
 
 	const { urls, kinds, embedded, youtube } = collectMedia(maps, Boolean(v.videos));
@@ -1230,6 +1841,7 @@ async function main() {
 		`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ""}${youtube ? `, ${youtube} YouTube videos (embedded, not downloaded)` : ""}; ${urls.size} file(s) to fetch${v.videos ? "" : " (images only; use --videos for the rest)"}`,
 	);
 	if (!v["no-media"] && urls.size) {
+		p.onStage?.("Downloading Media Assets");
 		const mediaDb = openMediaDb();
 		try {
 			await downloadMedia(urls, path.join(outDir, "media"), {
@@ -1249,13 +1861,33 @@ async function main() {
 
 	// 11. social preview cards for the homepage and every game, and their tags (make-cards.ts)
 	if (!v["no-cards"]) {
+		p.onStage?.("Generating Preview Cards");
 		const here = path.dirname(fileURLToPath(import.meta.url));
 		try {
-			const proc = Bun.spawn([process.execPath, path.join(here, "make-cards.ts")], {
-				cwd: path.dirname(here),
-				stdout: "inherit",
-				stderr: "pipe",
-			});
+			const proc = Bun.spawn(
+				[process.execPath, path.join(here, "make-cards.ts"), "--only", pageSlug, "--no-tui"],
+				{
+					cwd: path.dirname(here),
+					stdout: p.onLog ? "pipe" : "inherit",
+					stderr: "pipe",
+				},
+			);
+			if (p.onLog && proc.stdout) {
+				const reader = proc.stdout.getReader();
+				const decoder = new TextDecoder();
+				(async () => {
+					let buf = "";
+					while (true) {
+						const { done, value } = await reader.read();
+						if (done) break;
+						buf += decoder.decode(value, { stream: true });
+						const lines = buf.split("\n");
+						buf = lines.pop() || "";
+						for (const l of lines) if (l.trim()) p.onLog?.(l);
+					}
+					if (buf.trim()) p.onLog?.(buf);
+				})().catch(() => {});
+			}
 			const exit = await proc.exited;
 			if (exit !== 0) {
 				const err = await new Response(proc.stderr).text();
@@ -1272,6 +1904,7 @@ async function main() {
 			);
 		}
 	}
+	p.onStage?.("Completed");
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

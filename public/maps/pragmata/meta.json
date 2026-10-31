@@ -12,24 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "the-cradle",
-			"title": "The Cradle",
-			"data": "the-cradle/data.json",
-			"tilesets": [
-				{
-					"name": "Full",
-					"template": "the-cradle/tiles/white-v2/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 15,
-					"viewMaxzoom": 17,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
-				}
-			]
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -280,5 +262,23 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "the-cradle",
+			"title": "The Cradle",
+			"data": "the-cradle/data.json",
+			"tilesets": [
+				{
+					"name": "Full",
+					"template": "the-cradle/tiles/white-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

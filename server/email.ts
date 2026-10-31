@@ -1,0 +1,120 @@
+import fs from "node:fs";
+import path from "node:path";
+
+import { SendEmailCommand, SESv2Client } from "@aws-sdk/client-sesv2";
+
+import type { EmailContent } from "./email-templates.ts";
+
+export interface EmailMessage extends EmailContent {
+	to: string;
+}
+
+export interface EmailSender {
+	send(msg: EmailMessage): Promise<{ messageId?: string }>;
+}
+
+export interface SesConfig {
+	region?: string;
+	accessKeyId?: string;
+	secretAccessKey?: string;
+	fromEmail?: string;
+	fromName?: string;
+	configurationSet?: string;
+	endpoint?: string;
+}
+
+function parseDotEnvFile(filePath: string): Record<string, string> {
+	const out: Record<string, string> = {};
+	try {
+		if (!fs.existsSync(filePath)) return out;
+		const text = fs.readFileSync(filePath, "utf8");
+		for (const rawLine of text.split(/\r?\n/)) {
+			const line = rawLine.trim();
+			if (!line || line.startsWith("#")) continue;
+			const eq = line.indexOf("=");
+			if (eq < 1) continue;
+			const key = line.slice(0, eq).trim();
+			let val = line.slice(eq + 1).trim();
+			if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+				val = val.slice(1, -1);
+			}
+			out[key] = val;
+		}
+	} catch {
+		/* ignore unreadable optional env file */
+	}
+	return out;
+}
+
+export function loadSesConfigFromEnv(rootDir = process.cwd()): SesConfig {
+	const dotEnvSes = parseDotEnvFile(path.join(rootDir, ".env.ses"));
+	const pick = (key: string): string | undefined => {
+		const v = process.env[key] ?? dotEnvSes[key];
+		return v && v.trim() ? v.trim() : undefined;
+	};
+	return {
+		region: pick("SES_REGION"),
+		accessKeyId: pick("SES_ACCESS_KEY_ID"),
+		secretAccessKey: pick("SES_SECRET_ACCESS_KEY"),
+		fromEmail: pick("SES_FROM_EMAIL"),
+		fromName: pick("SES_FROM_NAME") || "Verticordia Atlas",
+		configurationSet: pick("SES_CONFIGURATION_SET"),
+		endpoint: pick("SES_ENDPOINT"),
+	};
+}
+
+export function createSesEmailSender(cfg: SesConfig = loadSesConfigFromEnv()): EmailSender {
+	let client: SESv2Client | null = null;
+
+	function getClient(): SESv2Client {
+		if (client) return client;
+		if (!cfg.region || !cfg.accessKeyId || !cfg.secretAccessKey || !cfg.fromEmail) {
+			throw new Error(
+				"Amazon SES is not configured (missing SES_REGION, SES_ACCESS_KEY_ID, SES_SECRET_ACCESS_KEY, or SES_FROM_EMAIL).",
+			);
+		}
+		client = new SESv2Client({
+			region: cfg.region,
+			...(cfg.endpoint ? { endpoint: cfg.endpoint } : {}),
+			credentials: {
+				accessKeyId: cfg.accessKeyId,
+				secretAccessKey: cfg.secretAccessKey,
+			},
+		});
+		return client;
+	}
+
+	return {
+		async send(msg: EmailMessage): Promise<{ messageId?: string }> {
+			const ses = getClient();
+			const fromAddress = cfg.fromName ? `${cfg.fromName} <${cfg.fromEmail}>` : cfg.fromEmail!;
+			const cmd = new SendEmailCommand({
+				FromEmailAddress: fromAddress,
+				Destination: {
+					ToAddresses: [msg.to],
+				},
+				Content: {
+					Simple: {
+						Subject: {
+							Data: msg.subject,
+							Charset: "UTF-8",
+						},
+						Body: {
+							Text: {
+								Data: msg.text,
+								Charset: "UTF-8",
+							},
+							Html: {
+								Data: msg.html,
+								Charset: "UTF-8",
+							},
+						},
+					},
+				},
+				...(cfg.configurationSet ? { ConfigurationSetName: cfg.configurationSet } : {}),
+			});
+			const res = await ses.send(cmd);
+			return { messageId: res.MessageId };
+		},
+	};
+}

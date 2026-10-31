@@ -1,0 +1,229 @@
+{
+	"id": "mafia-the-old-country",
+	"title": "Mafia: The Old Country",
+	"slug": "mafia-the-old-country",
+	"source": "https://mapgenie.io/mafia-the-old-country",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"assassination_challenge": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"charm": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"circuit_race": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"garage": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"horse_race": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"log": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"mystery_fox": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"newspaper": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"note": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"photograph": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"refueling_station": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"road_sprint": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"safe": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"saints_card": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"stable": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"standoff_challenge": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"store": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"stunt_jump": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"sulphur_truck": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"time_trial": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"trinacria": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"wanted_poster": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"wardrobe": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_locker": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "sicili",
+			"title": "Sicili",
+			"data": "sicili/data.json",
+			"tilesets": [
+				{
+					"name": "Buildings",
+					"template": "sicili/tiles/buildings-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				},
+				{
+					"name": "No Buildings",
+					"template": "sicili/tiles/staellite-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

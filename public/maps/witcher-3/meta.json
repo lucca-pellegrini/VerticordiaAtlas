@@ -510,29 +510,29 @@
 					"ml": "-1em"
 				}
 			],
-			"quest_item": [
+			"quest_blood_and_wine": [
 				{
 					"cp": "e95a",
 					"color": "#343444"
 				},
 				{
 					"cp": "e95b",
-					"color": "#ffffff",
+					"color": "#fb712f",
 					"ml": "-1em"
 				}
 			],
-			"recipe": [
+			"quest_hearts_of_stone": [
 				{
 					"cp": "e95c",
 					"color": "#343444"
 				},
 				{
 					"cp": "e95d",
-					"color": "#ffffff",
+					"color": "#55aae3",
 					"ml": "-1em"
 				}
 			],
-			"relic_item": [
+			"quest_item": [
 				{
 					"cp": "e95e",
 					"color": "#343444"
@@ -543,7 +543,7 @@
 					"ml": "-1em"
 				}
 			],
-			"runewright": [
+			"recipe": [
 				{
 					"cp": "e960",
 					"color": "#343444"
@@ -554,7 +554,7 @@
 					"ml": "-1em"
 				}
 			],
-			"secondary_quest": [
+			"relic_item": [
 				{
 					"cp": "e962",
 					"color": "#343444"
@@ -565,7 +565,7 @@
 					"ml": "-1em"
 				}
 			],
-			"shopkeeper": [
+			"runewright": [
 				{
 					"cp": "e964",
 					"color": "#343444"
@@ -576,7 +576,7 @@
 					"ml": "-1em"
 				}
 			],
-			"signal_fire": [
+			"secondary_quest": [
 				{
 					"cp": "e966",
 					"color": "#343444"
@@ -587,18 +587,18 @@
 					"ml": "-1em"
 				}
 			],
-			"signpost": [
+			"shopkeeper": [
 				{
 					"cp": "e968",
 					"color": "#343444"
 				},
 				{
 					"cp": "e969",
-					"color": "#89d889",
+					"color": "#ffffff",
 					"ml": "-1em"
 				}
 			],
-			"smugglers_cache": [
+			"signal_fire": [
 				{
 					"cp": "e96a",
 					"color": "#343444"
@@ -609,29 +609,29 @@
 					"ml": "-1em"
 				}
 			],
-			"spoils_of_war": [
+			"signpost": [
 				{
 					"cp": "e96c",
 					"color": "#343444"
 				},
 				{
 					"cp": "e96d",
-					"color": "#ffffff",
+					"color": "#89d889",
 					"ml": "-1em"
 				}
 			],
-			"stash": [
+			"smugglers_cache": [
 				{
 					"cp": "e96e",
 					"color": "#343444"
 				},
 				{
 					"cp": "e96f",
-					"color": "#89d889",
+					"color": "#ffffff",
 					"ml": "-1em"
 				}
 			],
-			"treasure_chest": [
+			"spoils_of_war": [
 				{
 					"cp": "e970",
 					"color": "#343444"
@@ -642,18 +642,18 @@
 					"ml": "-1em"
 				}
 			],
-			"vineyard_infestation": [
+			"stash": [
 				{
 					"cp": "e972",
 					"color": "#343444"
 				},
 				{
 					"cp": "e973",
-					"color": "#ffffff",
+					"color": "#89d889",
 					"ml": "-1em"
 				}
 			],
-			"vinters_contract": [
+			"treasure_chest": [
 				{
 					"cp": "e974",
 					"color": "#343444"
@@ -664,13 +664,35 @@
 					"ml": "-1em"
 				}
 			],
-			"witcher_gear": [
+			"vineyard_infestation": [
 				{
 					"cp": "e976",
 					"color": "#343444"
 				},
 				{
 					"cp": "e977",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"vinters_contract": [
+				{
+					"cp": "e978",
+					"color": "#343444"
+				},
+				{
+					"cp": "e979",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"witcher_gear": [
+				{
+					"cp": "e97a",
+					"color": "#343444"
+				},
+				{
+					"cp": "e97b",
 					"color": "#ffffff",
 					"ml": "-1em"
 				}

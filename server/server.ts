@@ -24,6 +24,7 @@ import { readdir, stat, unlink } from "node:fs/promises";
 import path from "node:path";
 
 import { buildClient } from "../scripts/build.ts";
+import { createServerDashboard } from "../scripts/tui/server-dashboard.ts";
 import { unpackMarker } from "../src/shared/share-link.ts";
 import { createApi } from "./api.ts";
 import {
@@ -520,11 +521,20 @@ const mediaUrl = String(process.env.MEDIA_URL || siteFile.mediaUrl || "https://a
 	"",
 );
 const DEBUG = args.includes("--debug");
+
+const dashboard = await createServerDashboard({
+	host: HOST,
+	port: PORT,
+	noTui: Boolean(args.includes("--no-tui")),
+});
+
 const api = createApi({
 	debug: DEBUG,
 	root: REPO,
 	googleClientId: process.env.GOOGLE_CLIENT_ID || siteFile.googleClientId || null,
 	publicUrl: (process.env.PUBLIC_URL || siteFile.url || "").replace(/\/+$/, "") || null,
+	argon2: siteFile.argon2,
+	onEvent: (action, detail) => dashboard.onApi(action, detail),
 });
 
 // the tile cache: made tiles (the zooms between the stored ones) are kept on disk. Limits: --tile-cache-max / TILE_CACHE_MAX
@@ -550,33 +560,66 @@ const server = Bun.serve({
 	port: PORT,
 	hostname: HOST,
 	async fetch(req, bunServer) {
+		const reqStart = Date.now();
 		const url = new URL(req.url);
 		if (url.pathname === "/api/ws") {
 			const rejected = api.upgrade(req, bunServer);
-			if (rejected) return rejected;
+			if (rejected) {
+				dashboard.onApi("ws:reject", `${rejected.status} (${url.searchParams.get("c") || "tab"})`);
+				return rejected;
+			}
+			dashboard.setWsCount(api.wsCount());
 			return;
 		}
 
 		try {
 			const parsed = parseUrl(req.url);
-			if (!parsed) return send(400, "bad request");
+			if (!parsed) {
+				const r = send(400, "bad request");
+				dashboard.onRequest({
+					method: req.method,
+					path: url.pathname,
+					status: 400,
+					durationMs: Date.now() - reqStart,
+				});
+				return r;
+			}
 			const { url: reqUrl, pathname: p } = parsed;
 			const offlinePack = /^\/api\/maps\/([^/]+)\/([^/]+)\/offline-pack$/.exec(p);
 			if (offlinePack) {
 				if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
 				// Offline packs may take several minutes to prepare on a cold cache; disable request idle timeout
 				bunServer?.timeout?.(req, 0);
-				return await streamOfflinePack(
+				const r = await streamOfflinePack(
 					req,
 					PUBLIC,
 					path.join(REPO, "cache", "tiles"),
 					offlinePack[1],
 					offlinePack[2],
 				);
+				const dur = Date.now() - reqStart;
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status: r.status,
+					durationMs: dur,
+				});
+				dashboard.onApi(`pack:${offlinePack[1]}/${offlinePack[2]}`, `-> ${r.status} (${dur.toFixed(0)}ms)`);
+				return r;
 			}
 
 			if (p.startsWith("/api/")) {
 				const res = await api.handle(req, reqUrl);
+				const status = res ? res.status : 404;
+				const duration = Date.now() - reqStart;
+				const action = `${req.method} ${p.replace(/^\/api\//, "")}`;
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status,
+					durationMs: duration,
+				});
+				dashboard.onApi(action, `-> ${status} (${duration.toFixed(0)}ms)`);
 				if (!res) {
 					return send(404, '{"error":"not found"}', "application/json; charset=utf-8", {
 						"Cache-Control": "no-store",
@@ -588,10 +631,40 @@ const server = Bun.serve({
 			if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
 
 			const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
-			if (card) return await shareCard(req, card[1], card[2], Number(card[3]));
+			if (card) {
+				const r = await shareCard(req, card[1], card[2], Number(card[3]));
+				dashboard.onCard({
+					type: "share",
+					key: `${card[1]}/${card[2]}/${card[3]}`,
+					durationMs: Date.now() - reqStart,
+					cached: r.status === 200,
+				});
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status: r.status,
+					durationMs: Date.now() - reqStart,
+				});
+				return r;
+			}
 
 			const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
-			if (tmCard) return await sharedMarkerCard(req, tmCard[1], reqUrl.searchParams.get("tm") || "");
+			if (tmCard) {
+				const r = await sharedMarkerCard(req, tmCard[1], reqUrl.searchParams.get("tm") || "");
+				dashboard.onCard({
+					type: "tm",
+					key: tmCard[1],
+					durationMs: Date.now() - reqStart,
+					cached: r.status === 200,
+				});
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status: r.status,
+					durationMs: Date.now() - reqStart,
+				});
+				return r;
+			}
 
 			const page = /^\/maps\/([^/]+)(?:\/|\/index\.html)?$/.exec(p);
 			if (page && page[1] !== "index.json" && page[1] !== "map.html") {
@@ -607,42 +680,114 @@ const server = Bun.serve({
 					const tm = reqUrl.searchParams.get("tm");
 					if (tm) {
 						const res = await sharedMarkerPage(req, page[1], tm);
-						if (res) return res;
+						if (res) {
+							dashboard.onRequest({
+								method: req.method,
+								path: p,
+								status: res.status,
+								durationMs: Date.now() - reqStart,
+							});
+							return res;
+						}
 					}
 					const loc = reqUrl.searchParams.get("loc");
 					if (loc && /^\d+$/.test(loc)) {
 						const map = reqUrl.searchParams.get("map") || "";
 						const res = await sharePage(req, page[1], map, Number(loc));
-						if (res) return res;
+						if (res) {
+							dashboard.onRequest({
+								method: req.method,
+								path: p,
+								status: res.status,
+								durationMs: Date.now() - reqStart,
+							});
+							return res;
+						}
 					}
-					return await gamePage(req, page[1]);
+					const r = await gamePage(req, page[1]);
+					dashboard.onRequest({
+						method: req.method,
+						path: p,
+						status: r.status,
+						durationMs: Date.now() - reqStart,
+					});
+					return r;
 				}
 			}
 
 			const tile = /^\/maps\/([^/]+)\/([^/]+)\/tiles\/([^/]+)\/(.+)$/.exec(p);
 			if (tile) {
 				const tileRes = await tiles.serve(req, tile[1], tile[2], tile[3], tile[4]);
-				if (tileRes) return tileRes;
+				const dur = Date.now() - reqStart;
+				const displayPath = `${tile[2]}/${tile[3]}/${tile[4]}`;
+				if (tileRes) {
+					const from = tileRes.headers.get("x-tile-from");
+					const action =
+						tileRes.status === 304
+							? "cached"
+							: from === "made"
+								? "derived"
+								: from === "cache"
+									? "cached"
+									: "stored";
+					dashboard.onTile({ action, path: displayPath, durationMs: dur });
+					dashboard.onRequest({
+						method: req.method,
+						path: p,
+						status: tileRes.status,
+						durationMs: dur,
+					});
+					return tileRes;
+				} else {
+					dashboard.onTile({ action: "miss", path: displayPath, durationMs: dur });
+				}
 			}
 
 			const mediaMatch = /^\/maps\/([^/]+)\/media\/([^/]+)$/.exec(p);
 			if (mediaMatch && mediaUrl && api.hasMedia(mediaMatch[1], mediaMatch[2])) {
-				return new Response(null, {
+				const r = new Response(null, {
 					status: 308,
 					headers: {
 						Location: `${mediaUrl}/v1/${encodeURIComponent(mediaMatch[1])}/${encodeURIComponent(mediaMatch[2])}`,
 						"Cache-Control": "public, max-age=31536000, immutable",
 					},
 				});
+				dashboard.onRequest({ method: req.method, path: p, status: 308, durationMs: Date.now() - reqStart });
+				return r;
 			}
 
-			return await serveStatic(req, p, reqUrl.search);
+			const r = await serveStatic(req, p, reqUrl.search);
+			dashboard.onRequest({ method: req.method, path: p, status: r.status, durationMs: Date.now() - reqStart });
+			return r;
 		} catch (e) {
 			console.error(e);
+			dashboard.onRequest({
+				method: req.method,
+				path: url.pathname,
+				status: 500,
+				durationMs: Date.now() - reqStart,
+			});
 			return send(500, "server error");
 		}
 	},
-	websocket: api.websocket,
+	websocket: {
+		open(ws) {
+			api.websocket.open(ws);
+			dashboard.setWsCount(api.wsCount());
+			const u = (ws.data as any)?.userId?.slice(0, 8) || "anon";
+			const c = (ws.data as any)?.client || "tab";
+			dashboard.onApi("ws:open", `user ${u}... (${c})`);
+		},
+		message(ws, msg) {
+			api.websocket.message(ws, msg);
+		},
+		close(ws, code, reason) {
+			api.websocket.close(ws);
+			dashboard.setWsCount(api.wsCount());
+			const u = (ws.data as any)?.userId?.slice(0, 8) || "anon";
+			dashboard.onApi("ws:close", `user ${u}... (code: ${code})`);
+		},
+	},
 });
 
 console.log(`Verticordia Atlas on http://${HOST}:${PORT}/`);

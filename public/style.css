@@ -1704,6 +1704,35 @@ dialog input[type="text"] {
 	color: var(--accent-soft);
 	background: var(--tint);
 }
+.tileset-ctrl {
+	position: relative;
+}
+.tileset-ctrl[hidden] {
+	display: none !important;
+}
+.tileset-ctrl .tileset-menu {
+	position: absolute;
+	right: 100%;
+	top: 0;
+	margin-top: 0;
+	margin-right: 8px;
+	min-width: 130px;
+	z-index: 30;
+}
+.tileset-ctrl .tileset-menu button {
+	display: block;
+	width: 100%;
+	padding: 8px 12px;
+	text-align: left;
+	font-size: 13px;
+	white-space: nowrap;
+	border-radius: 8px;
+}
+.tileset-ctrl .tileset-menu button.active {
+	color: var(--accent);
+	font-weight: 600;
+	background: var(--tint);
+}
 /* the notch in the lower right corner marks a tool with a flyout: right-click or hold for its options */
 .tool-ctrl .notched::after {
 	content: "";
