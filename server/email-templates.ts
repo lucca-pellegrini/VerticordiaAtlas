@@ -58,22 +58,46 @@ function renderHtmlShell(opts: {
 	ctaUrl?: string;
 	footerNote: string;
 }): string {
+	let hostLabel = "atlas.verticordia.com";
+	let homeUrl = "https://atlas.verticordia.com:11680";
+	if (opts.ctaUrl) {
+		try {
+			const u = new URL(opts.ctaUrl);
+			hostLabel = u.host;
+			homeUrl = u.origin;
+		} catch {
+			/* fallback to default */
+		}
+	}
+
 	const ctaBlock =
 		opts.ctaLabel && opts.ctaUrl
 			? `<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: 28px 0 24px 0;">
 				<tr>
-					<td style="border-radius: 8px; background: #e2a84b;">
-						<a href="${esc(opts.ctaUrl)}" target="_blank" rel="noopener noreferrer"
-							style="display: inline-block; padding: 13px 26px; font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px; font-weight: 600; color: #14120e; text-decoration: none; border-radius: 8px;">
+					<td align="center" style="border-radius: 8px; background-color: #d6453b;">
+						<!--[if mso]>
+						<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${esc(opts.ctaUrl)}" style="height:46px;v-text-anchor:middle;width:240px;" arcsize="18%" fillcolor="#d6453b" stroke="f">
+							<w:anchorlock/>
+							<center style="color:#ffffff;font-family:'Instrument Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:15px;font-weight:600;">
+								${esc(opts.ctaLabel)}
+							</center>
+						</v:roundrect>
+						<![endif]-->
+						<!--[if !mso]><!-- -->
+						<a href="${esc(opts.ctaUrl)}" target="_blank" rel="noopener noreferrer" class="email-btn"
+							style="display: inline-block; padding: 13px 28px; font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 15px; font-weight: 600; color: #ffffff !important; text-decoration: none; border-radius: 8px; background-color: #d6453b; letter-spacing: 0.01em;">
 							${esc(opts.ctaLabel)}
 						</a>
+						<!--<![endif]-->
 					</td>
 				</tr>
 			</table>
-			<p style="margin: 0 0 20px 0; font-size: 12px; line-height: 1.6; color: #8c8478;">
-				If the button above does not work, copy and paste this link into your browser:<br>
-				<a href="${esc(opts.ctaUrl)}" style="color: #e2a84b; font-family: 'Red Hat Mono', ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; text-decoration: underline;">${esc(opts.ctaUrl)}</a>
-			</p>`
+			<p class="email-dim" style="margin: 0 0 8px 0; font-size: 12px; line-height: 1.6; color: #9aa6ad;">
+				If the button above does not work, copy and paste this link into your browser:
+			</p>
+			<div class="email-code-box" style="padding: 12px 14px; background-color: #181e22; border: 1px solid #252d33; border-radius: 6px; font-family: 'Red Hat Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12px; line-height: 1.5; color: #f0877d; word-break: break-all;">
+				<a href="${esc(opts.ctaUrl)}" class="email-fallback-link" style="color: #f0877d; text-decoration: none; word-break: break-all;">${esc(opts.ctaUrl)}</a>
+			</div>`
 			: "";
 
 	return `<!DOCTYPE html>
@@ -81,36 +105,173 @@ function renderHtmlShell(opts: {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="dark">
-<meta name="supported-color-schemes" content="dark">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
 <title>${esc(opts.heading)}</title>
+<style>
+	:root {
+		color-scheme: light dark;
+		supported-color-schemes: light dark;
+	}
+	@media (prefers-color-scheme: light) {
+		body, .email-bg {
+			background-color: #f6f4f0 !important;
+			color: #14171a !important;
+		}
+		.email-card {
+			background-color: #ffffff !important;
+			border-color: #e4dfd7 !important;
+			box-shadow: 0 8px 30px rgba(20, 23, 26, 0.06) !important;
+		}
+		.email-header {
+			border-bottom-color: #e4dfd7 !important;
+		}
+		.email-wordmark {
+			color: #14171a !important;
+		}
+		.email-title {
+			color: #14171a !important;
+		}
+		.email-greeting {
+			color: #14171a !important;
+		}
+		.email-body, .email-body p, .email-body div, .email-body span {
+			color: #3b4349 !important;
+		}
+		.email-strong, strong, b, .email-body strong, .email-subtext strong {
+			color: #14171a !important;
+		}
+		.email-subtext, .email-subtext p, .email-subtext span {
+			color: #5a636a !important;
+		}
+		.email-dim {
+			color: #6d7880 !important;
+		}
+		.email-code-box {
+			background-color: #fcfbf9 !important;
+			border-color: #e4dfd7 !important;
+			color: #bf342b !important;
+		}
+		.email-fallback-link {
+			color: #bf342b !important;
+		}
+		.email-divider {
+			border-top-color: #e4dfd7 !important;
+		}
+		.email-footer-site {
+			color: #5a636a !important;
+		}
+	}
+	@media (prefers-color-scheme: dark) {
+		body, .email-bg {
+			background-color: #0b0e10 !important;
+			color: #eef1f3 !important;
+		}
+		.email-card {
+			background-color: #12161a !important;
+			border-color: #252d33 !important;
+			box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55) !important;
+		}
+		.email-header {
+			border-bottom-color: #252d33 !important;
+		}
+		.email-wordmark {
+			color: #ffffff !important;
+		}
+		.email-title {
+			color: #f6f2ea !important;
+		}
+		.email-greeting {
+			color: #eef1f3 !important;
+		}
+		.email-body, .email-body p, .email-body div, .email-body span {
+			color: #d2d9de !important;
+		}
+		.email-strong, strong, b, .email-body strong, .email-subtext strong {
+			color: #ffffff !important;
+		}
+		.email-subtext, .email-subtext p, .email-subtext span {
+			color: #9aa6ad !important;
+		}
+		.email-dim {
+			color: #839098 !important;
+		}
+		.email-code-box {
+			background-color: #181e22 !important;
+			border-color: #252d33 !important;
+			color: #f0877d !important;
+		}
+		.email-fallback-link {
+			color: #f0877d !important;
+		}
+		.email-divider {
+			border-top-color: #252d33 !important;
+		}
+		.email-footer-site {
+			color: #9aa6ad !important;
+		}
+	}
+</style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #12110f; color: #ede8df; font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased;">
+<body class="email-bg" style="margin: 0; padding: 0; background-color: #0b0e10; color: #eef1f3; font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
 <div style="display: none; max-height: 0; overflow: hidden; opacity: 0;">${esc(opts.preheader)}</div>
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #12110f; padding: 36px 16px;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" class="email-bg" style="background-color: #0b0e10; padding: 36px 16px;">
 	<tr>
 		<td align="center">
-			<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width: 540px; background-color: #1b1916; border: 1px solid #2e2a24; border-radius: 14px; overflow: hidden; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);">
+			<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" class="email-card" style="max-width: 540px; background-color: #12161a; border: 1px solid #252d33; border-radius: 14px; overflow: hidden; box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);">
+				<!-- Header with brand icon and wordmark -->
 				<tr>
-					<td style="padding: 28px 32px 18px 32px; border-bottom: 1px solid #27231e;">
-						<div style="font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-size: 22px; letter-spacing: 0.01em; color: #e2a84b;">
-							Verticordia Atlas
-						</div>
+					<td class="email-header" style="padding: 24px 32px; border-bottom: 1px solid #252d33;">
+						<table role="presentation" cellspacing="0" cellpadding="0" border="0">
+							<tr>
+								<td style="vertical-align: middle; padding-right: 12px;">
+									<table role="presentation" cellspacing="0" cellpadding="0" border="0" style="width: 32px; height: 32px; border-radius: 9px; background-color: #d6453b; text-align: center;">
+										<tr>
+											<td align="center" valign="middle" style="width: 32px; height: 32px; text-align: center;">
+												<!--[if mso]>
+												<span style="color: #ffffff; font-size: 16px; font-weight: bold;">&#9679;</span>
+												<![endif]-->
+												<!--[if !mso]><!-- -->
+												<svg width="18" height="18" viewBox="0 0 24 24" style="vertical-align: middle; display: inline-block;" aria-hidden="true">
+													<path fill="#ffffff" d="M12 22s-7.5-6.4-7.5-12a7.5 7.5 0 0115 0c0 5.6-7.5 12-7.5 12z"/>
+													<circle cx="12" cy="10" r="2.8" fill="#d6453b"/>
+												</svg>
+												<!--<![endif]-->
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="vertical-align: middle;">
+									<a href="${esc(homeUrl)}" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+										<span class="email-wordmark" style="font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-size: 23px; font-weight: 400; letter-spacing: 0.01em; color: #ffffff;">
+											Verticordia Atlas
+										</span>
+									</a>
+								</td>
+							</tr>
+						</table>
 					</td>
 				</tr>
+				<!-- Body content -->
 				<tr>
-					<td style="padding: 28px 32px 32px 32px; font-size: 15px; line-height: 1.65; color: #ede8df;">
-						<h1 style="margin: 0 0 16px 0; font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-size: 26px; font-weight: 400; color: #f6f2ea;">
+					<td style="padding: 30px 32px 34px 32px; font-size: 15px; line-height: 1.65; color: #eef1f3;">
+						<h1 class="email-title" style="margin: 0 0 16px 0; font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-size: 26px; font-weight: 400; line-height: 1.3; color: #f6f2ea;">
 							${esc(opts.heading)}
 						</h1>
-						<p style="margin: 0 0 16px 0; color: #d8d1c5;">
+						<p class="email-greeting" style="margin: 0 0 16px 0; font-size: 15px; font-weight: 500; color: #eef1f3;">
 							${esc(opts.greeting)}
 						</p>
-						${opts.bodyHtml}
+						<div class="email-body" style="font-size: 15px; line-height: 1.65; color: #d2d9de;">
+							${opts.bodyHtml}
+						</div>
 						${ctaBlock}
-						<hr style="border: 0; border-top: 1px solid #27231e; margin: 24px 0 16px 0;">
-						<p style="margin: 0; font-size: 12px; line-height: 1.6; color: #8c8478;">
+						<hr class="email-divider" style="border: 0; border-top: 1px solid #252d33; margin: 26px 0 18px 0;">
+						<p class="email-dim" style="margin: 0 0 8px 0; font-size: 12px; line-height: 1.6; color: #9aa6ad;">
 							${esc(opts.footerNote)}
+						</p>
+						<p class="email-dim" style="margin: 8px 0 0 0; font-size: 11px; line-height: 1.5; color: #6b7780;">
+							Sent by <strong>Verticordia Atlas</strong> · Interactive game maps and completion tracker<br>
+							<a href="${esc(homeUrl)}" class="email-footer-site" style="color: #9aa6ad; text-decoration: underline;">${esc(hostLabel)}</a>
 						</p>
 					</td>
 				</tr>
@@ -156,10 +317,10 @@ export function renderVerifyEmailTemplate(params: {
 		preheader: `Confirm your email address for Verticordia Atlas (valid for ${hours} hours).`,
 		heading: "Confirm your email address",
 		greeting: `Hello ${name}${handleNote},`,
-		bodyHtml: `<p style="margin: 0 0 14px 0; color: #d8d1c5;">
+		bodyHtml: `<p style="margin: 0 0 14px 0;">
 			Welcome to <strong>Verticordia Atlas</strong>. Please verify your email address to finish setting up your account and enable cross-device map synchronization.
 		</p>
-		<p style="margin: 0; color: #b5ad9f; font-size: 14px;">
+		<p class="email-subtext" style="margin: 0; font-size: 14px; color: #9aa6ad;">
 			This verification link is valid for <strong>${hours} hours</strong> and can only be used once.
 		</p>`,
 		ctaLabel: "Verify email address",
@@ -203,10 +364,10 @@ export function renderResetPasswordTemplate(params: {
 		preheader: `Reset your Verticordia Atlas password (link expires in ${minutes} minutes).`,
 		heading: "Reset your password",
 		greeting: `Hello ${name},`,
-		bodyHtml: `<p style="margin: 0 0 14px 0; color: #d8d1c5;">
+		bodyHtml: `<p style="margin: 0 0 14px 0;">
 			We received a request to reset the password for your Verticordia Atlas account. Click the button below to choose a new password.
 		</p>
-		<p style="margin: 0; color: #b5ad9f; font-size: 14px;">
+		<p class="email-subtext" style="margin: 0; font-size: 14px; color: #9aa6ad;">
 			For your security, this link expires in <strong>${minutes} minutes</strong> and can only be used once.
 		</p>`,
 		ctaLabel: "Choose a new password",
@@ -251,10 +412,10 @@ export function renderChangeEmailTemplate(params: {
 		preheader: `Confirm ${params.newEmail} for your Verticordia Atlas account.`,
 		heading: "Confirm your email address",
 		greeting: `Hello ${name},`,
-		bodyHtml: `<p style="margin: 0 0 14px 0; color: #d8d1c5;">
-			You requested to add and verify <strong style="color: #f6f2ea;">${esc(params.newEmail)}</strong> on your Verticordia Atlas account.
+		bodyHtml: `<p style="margin: 0 0 14px 0;">
+			You requested to add and verify <strong>${esc(params.newEmail)}</strong> on your Verticordia Atlas account.
 		</p>
-		<p style="margin: 0; color: #b5ad9f; font-size: 14px;">
+		<p class="email-subtext" style="margin: 0; font-size: 14px; color: #9aa6ad;">
 			This confirmation link expires in <strong>${hours} hours</strong> and can only be used once.
 		</p>`,
 		ctaLabel: "Confirm email address",
@@ -302,11 +463,11 @@ export function renderSecurityNotificationTemplate(params: {
 		preheader: `Security notice for your Verticordia Atlas account: ${params.eventTitle}`,
 		heading: params.eventTitle,
 		greeting: `Hello ${name},`,
-		bodyHtml: `<p style="margin: 0 0 14px 0; color: #d8d1c5;">
+		bodyHtml: `<p style="margin: 0 0 14px 0;">
 			${esc(params.eventDescription)}
 		</p>
-		<p style="margin: 0 0 8px 0; font-size: 13px; color: #9e9689; font-family: 'Red Hat Mono', ui-monospace, SFMono-Regular, Menlo, monospace;">
-			Time (UTC): ${esc(when)}
+		<p class="email-subtext" style="margin: 0 0 8px 0; font-size: 13px; color: #9aa6ad; font-family: 'Red Hat Mono', ui-monospace, SFMono-Regular, Menlo, monospace;">
+			Time (UTC): <strong>${esc(when)}</strong>
 		</p>`,
 		ctaLabel: params.accountUrl ? "Manage account security" : undefined,
 		ctaUrl: params.accountUrl,
