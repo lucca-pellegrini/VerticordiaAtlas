@@ -554,16 +554,19 @@ describe("Google OAuth and session cookie flows", () => {
 			exp: Math.floor(Date.now() / 1000) + 3600,
 		});
 
+		// 1. Cross-site form_post where browser omits SameSite=Lax session cookie
 		const cbRes = await fetch(`${baseUrl}/api/auth/google/callback`, {
 			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded", Cookie: cookie },
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
 			body: new URLSearchParams({ state, id_token: token }).toString(),
 			redirect: "manual",
 		});
 		expect(cbRes.status).toBe(303);
 		expect(cbRes.headers.get("location")).toBe("/account/");
+		const newSessionCookie = (cbRes.headers.get("set-cookie") || "").split(";")[0];
+		expect(newSessionCookie).toStartWith("va_session=");
 
-		const meRes = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
+		const meRes = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: newSessionCookie } });
 		const { user } = await meRes.json();
 		expect(user.methods).toEqual({ google: true, password: false, secretKey: true });
 		expect(user.email).toBe("linked@example.com");
@@ -571,7 +574,7 @@ describe("Google OAuth and session cookie flows", () => {
 		// Unlinking Google leaves secretKey as the sole login method -> requires confirmSecretKey
 		const unlinkNoConfirm = await fetch(`${baseUrl}/api/account/credentials/revoke`, {
 			method: "POST",
-			headers: { "Content-Type": "application/json", Cookie: cookie },
+			headers: { "Content-Type": "application/json", Cookie: newSessionCookie },
 			body: JSON.stringify({ type: "google" }),
 		});
 		expect(unlinkNoConfirm.status).toBe(400);
@@ -579,10 +582,44 @@ describe("Google OAuth and session cookie flows", () => {
 
 		const unlinkOk = await fetch(`${baseUrl}/api/account/credentials/revoke`, {
 			method: "POST",
-			headers: { "Content-Type": "application/json", Cookie: cookie },
+			headers: { "Content-Type": "application/json", Cookie: newSessionCookie },
 			body: JSON.stringify({ type: "google", confirmSecretKey: secret }),
 		});
 		expect(unlinkOk.status).toBe(200);
+
+		// Re-linking Google account after unlinking succeeds
+		const startRes2 = await fetch(`${baseUrl}/api/auth/google/start?link=1&next=/account/`, {
+			headers: { Cookie: newSessionCookie },
+			redirect: "manual",
+		});
+		const locUrl2 = new URL(startRes2.headers.get("location")!);
+		const state2 = locUrl2.searchParams.get("state")!;
+		const nonce2 = locUrl2.searchParams.get("nonce")!;
+		const token2 = await makeIdToken({
+			iss: "https://accounts.google.com",
+			aud: "test-google-client",
+			sub: "google-sub-linked-999",
+			email: "linked@example.com",
+			name: "Linked User",
+			email_verified: true,
+			nonce: nonce2,
+			exp: Math.floor(Date.now() / 1000) + 3600,
+		});
+
+		const cbRes2 = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: new URLSearchParams({ state: state2, id_token: token2 }).toString(),
+			redirect: "manual",
+		});
+		expect(cbRes2.status).toBe(303);
+		expect(cbRes2.headers.get("location")).toBe("/account/");
+
+		const meRes2 = await fetch(`${baseUrl}/api/me`, {
+			headers: { Cookie: (cbRes2.headers.get("set-cookie") || "").split(";")[0] },
+		});
+		const user2 = (await meRes2.json()).user;
+		expect(user2.methods).toEqual({ google: true, password: false, secretKey: true });
 		expect((await unlinkOk.json()).user.methods).toEqual({ google: false, password: false, secretKey: true });
 	});
 });

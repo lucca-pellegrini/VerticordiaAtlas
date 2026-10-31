@@ -1340,7 +1340,13 @@ export function createApi({
 				// Mode 1: Linking Google to an existing signed-in account
 				if (row.link_user_id) {
 					const activeSession = sessionFrom(req);
-					if (!activeSession || activeSession.user.id !== row.link_user_id) {
+					if (activeSession && activeSession.user.id !== row.link_user_id) {
+						return back("This Google link was initiated for a different account. Please try again.");
+					}
+					const hasActiveSession = db
+						.prepare("SELECT 1 FROM sessions WHERE user_id = ? AND expires_at > ?")
+						.get(row.link_user_id, t);
+					if (!hasActiveSession) {
 						return back("Your session expired before linking completed. Please sign in and try again.");
 					}
 					if (existingIdentity && existingIdentity.user_id !== row.link_user_id) {
@@ -1404,10 +1410,12 @@ export function createApi({
 						req,
 					);
 
+					const sessionCookie = startSession(req, row.link_user_id);
 					const headers = new Headers({
 						Location: row.next,
 						"Cache-Control": "no-store",
 					});
+					headers.append("Set-Cookie", sessionCookie);
 					headers.append("Set-Cookie", oauthCookie(req, "", 0));
 					return new Response(null, { status: 303, headers });
 				}
