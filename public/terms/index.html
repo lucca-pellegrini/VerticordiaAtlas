@@ -95,7 +95,7 @@
 					The short version: the maps are free and work without an account. An account is optional, and only
 					lets your progress follow you between devices. Please use the site in good faith.
 				</p>
-				<p class="updated">Last updated <time datetime="2026-10-25">25 October 2026</time></p>
+				<p class="updated">Last updated <time datetime="2026-10-31">31 October 2026</time></p>
 
 				<section id="about">
 					<h2>About these terms</h2>
@@ -122,8 +122,14 @@
 						step across devices.
 					</p>
 					<h3>Signing in</h3>
-					<p>You can sign in in one of two ways:</p>
+					<p>You can sign in using any of the following methods:</p>
 					<ul>
+						<li>
+							<strong>With an email address, username and password.</strong> You choose a unique username
+							and a password. Passwords are stored only as salted one-way hashes (Argon2id). If you
+							register or attach an email address, we verify it by email before it can be used for
+							password recovery or security alerts.
+						</li>
 						<li>
 							<strong>With Google.</strong> We rely on Google to confirm who you are. We receive a signed
 							token from Google that contains your Google account identifier, your e-mail address and your
@@ -135,10 +141,15 @@
 							the account, so you must keep it safe.
 						</li>
 					</ul>
+					<p>
+						You can attach multiple sign-in methods to the same account and remove any method as long as at
+						least one way to sign in remains.
+					</p>
 					<div class="callout">
 						<strong>A lost secret key cannot be recovered.</strong><br />We never see the key itself, so we
-						cannot reset it or send it back to you. If you lose it and have no other way in, the account and
-						its synced progress cannot be restored. The progress stays on the devices that still hold it.
+						cannot reset it or send it back to you. If you lose it and have no other sign-in method linked
+						to the account (such as a verified email or Google account), the account and its synced progress
+						cannot be restored. The progress stays on the devices that still hold it.
 					</div>
 					<h3>Responsibility for your account</h3>
 					<p>
@@ -196,8 +207,8 @@
 					<ul>
 						<li>
 							attempt to break, overload or probe the Service, its servers or its security, or to get
-							around the limits we set (for example on sign-in attempts or on the generation of preview
-							images);
+							around the limits we set (for example on sign-in attempts, email verification requests, or
+							on the generation of preview images);
 						</li>
 						<li>
 							use automated tools to download the maps or the account service in bulk, or to scrape them
@@ -248,6 +259,10 @@
 						<li>
 							<strong>Cloudflare R2</strong>, for hosting and delivering marker screenshot media and
 							images over Cloudflare's content network.
+						</li>
+						<li>
+							<strong>Amazon Web Services (Amazon SES)</strong>, for delivering account verification,
+							password reset, and security notification emails.
 						</li>
 					</ul>
 					<p>
@@ -397,6 +412,27 @@
 							Licensed under the <strong>MIT License</strong>. Repository:
 							<a href="https://github.com/andreasonny83/unique-names-generator"
 								>github.com/andreasonny83/unique-names-generator</a
+							>.
+						</dd>
+						<dt>AWS SDK for JavaScript (SESv2) <span>v3.1161.0</span></dt>
+						<dd>
+							The client for Amazon Simple Email Service (SES) used on the server for transactional email
+							delivery. Copyright Amazon.com, Inc. or its affiliates. Licensed under the
+							<strong>Apache License, Version 2.0</strong>. Repository:
+							<a href="https://github.com/aws/aws-sdk-js-v3">github.com/aws/aws-sdk-js-v3</a>.
+						</dd>
+						<dt>confusables <span>v1.1.1</span></dt>
+						<dd>
+							Unicode confusable character detection for account usernames. Copyright (c) 2019 gc.
+							Licensed under the <strong>MIT License</strong>. Repository:
+							<a href="https://github.com/gc/confusables">github.com/gc/confusables</a>.
+						</dd>
+						<dt>unicode-case-folding <span>v1.1.2</span></dt>
+						<dd>
+							Unicode case folding utilities for canonical username lookups. Copyright (c) 2025–Present
+							Aviv Keller. Licensed under the <strong>MIT License</strong>. Repository:
+							<a href="https://github.com/avivkeller/unicode-case-folding"
+								>github.com/avivkeller/unicode-case-folding</a
 							>.
 						</dd>
 						<dt>Instrument Sans, Instrument Serif and Red Hat Mono</dt>

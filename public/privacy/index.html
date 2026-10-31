@@ -95,7 +95,7 @@
 					keep the progress you choose to sync and the minimum needed to recognise your account. We do not run
 					analytics, advertising or tracking.
 				</p>
-				<p class="updated">Last updated <time datetime="2026-10-25">25 October 2026</time></p>
+				<p class="updated">Last updated <time datetime="2026-10-31">31 October 2026</time></p>
 
 				<section id="controller">
 					<h2>Who is responsible</h2>
@@ -113,6 +113,22 @@
 				<section id="collect">
 					<h2>What we collect</h2>
 					<p>We only collect what the Service needs to work. In summary:</p>
+					<h3>If you register or sign in with an email and password</h3>
+					<ul>
+						<li>your unique username and your display name;</li>
+						<li>
+							your e-mail address, which we verify by sending a verification link, and timestamps of when
+							it was added and verified;
+						</li>
+						<li>
+							a salted, one-way cryptographic hash of your password (using Argon2id). We never receive or
+							store your password in plain text;
+						</li>
+						<li>
+							temporary email verification and password reset tokens, stored only as one-way fingerprints
+							with their expiration times and consumption status.
+						</li>
+					</ul>
 					<h3>If you sign in with Google</h3>
 					<ul>
 						<li>
@@ -133,7 +149,10 @@
 							the key itself.
 						</li>
 					</ul>
-					<p>A secret-key account has no e-mail address, name or other identity attached to it.</p>
+					<p>
+						An initial secret-key account has no e-mail address, name or other identity attached to it
+						unless you subsequently choose to add a display name, username, or verified email.
+					</p>
 					<h3>If you are signed in</h3>
 					<ul>
 						<li>
@@ -195,6 +214,10 @@
 							keeping your session open for up to 30 days of use.
 						</li>
 						<li>
+							<strong>To send account and security notices.</strong> Delivering email verification links,
+							password reset instructions, and security alerts when credentials change.
+						</li>
+						<li>
 							<strong>To keep the Service secure.</strong> Detecting abuse, limiting repeated attempts and
 							protecting the servers.
 						</li>
@@ -220,7 +243,7 @@
 						</li>
 						<li>
 							<strong>Performance of the contract</strong> (LGPD Art. 7, V; GDPR Art. 6(1)(b)) for
-							providing the sync you asked for.
+							providing the sync you asked for and managing your account credentials and password resets.
 						</li>
 						<li>
 							<strong>Legitimate interests</strong> (LGPD Art. 7, IX; GDPR Art. 6(1)(f)) for keeping the
@@ -282,6 +305,11 @@
 							(Cloudflare R2) and global edge delivery for marker screenshot media. Your browser fetches
 							marker media directly from Cloudflare's network.
 						</li>
+						<li>
+							<strong>Amazon Web Services</strong> (Amazon Web Services, Inc., USA), which provides Amazon
+							Simple Email Service (Amazon SES) to deliver transactional account verification, password
+							reset, and security notification emails.
+						</li>
 					</ul>
 					<p>
 						We may disclose data if the law requires it, for example in response to a valid court order, and
@@ -294,11 +322,16 @@
 					<ul>
 						<li>
 							<strong>Account and synced progress:</strong> for as long as the account exists. Deleting
-							the account removes its synced data from the server.
+							the account removes its credentials and synced data from the server.
 						</li>
 						<li>
 							<strong>Session records:</strong> until they expire (30 days after last use) or you log out,
 							whichever comes first. Expired records are removed periodically, or when they are next used.
+						</li>
+						<li>
+							<strong>Account tokens (verification and password reset):</strong> until used or expired (up
+							to 6 hours for verification links, 20 minutes for password reset links). Expired tokens are
+							purged periodically.
 						</li>
 						<li><strong>Request logs and IP addresses:</strong> one year, then deleted.</li>
 						<li>
@@ -368,12 +401,13 @@
 					<h2>Where it is processed</h2>
 					<p>
 						Our server and its database are located in the United States, so your data is transferred to and
-						processed there. Public marker media is delivered via Cloudflare’s global edge network. Under
-						the LGPD (Article 33), we make such transfers on the basis of the safeguards the law allows,
-						including standard contractual clauses and, where applicable, an adequacy decision. If you sign
-						in with Google, Google processes data in the places described in its own policies, which may
-						include countries outside your own. Where data leaves the EEA or UK, we rely on the safeguards
-						those providers offer, such as standard contractual clauses.
+						processed there. Public marker media is delivered via Cloudflare’s global edge network, and
+						transactional account emails are sent through Amazon Web Services (Amazon SES) in the United
+						States. Under the LGPD (Article 33), we make such transfers on the basis of the safeguards the
+						law allows, including standard contractual clauses and, where applicable, an adequacy decision.
+						If you sign in with Google, Google processes data in the places described in its own policies,
+						which may include countries outside your own. Where data leaves the EEA or UK, we rely on the
+						safeguards those providers offer, such as standard contractual clauses.
 					</p>
 				</section>
 
