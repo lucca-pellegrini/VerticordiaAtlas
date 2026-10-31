@@ -1,0 +1,450 @@
+{
+	"id": "dying-light",
+	"title": "Dying Light",
+	"slug": "dying-light",
+	"source": "https://mapgenie.io/dying-light",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"event_target": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"toxic_lichen": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"trap": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"underwater_algae": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"agility_challenge": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"altar": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"battle_journal": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"blueprint": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"bobblehead": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"bolter_barrel": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"bolter": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"bounty_board": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"buggy_spawn": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"carnage_challenge": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"charm": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"enemy_outpost": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"flag": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"freak": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"gas_station": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"horizon_challenge": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"hunting_tower": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"loot_cache": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"loot": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"lost_note": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"mask": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"military_outpost": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"money": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"night_hunters": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"missing_person": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e920"
+				}
+			],
+			"outfit": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"outpost": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			],
+			"paint_job": [
+				{
+					"cp": "e923",
+					"color": "#fff"
+				}
+			],
+			"parkour_challenge": [
+				{
+					"cp": "e924",
+					"color": "#fff"
+				}
+			],
+			"player_stash": [
+				{
+					"cp": "e925",
+					"color": "#fff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e926",
+					"color": "#fff"
+				}
+			],
+			"police_van": [
+				{
+					"cp": "e927",
+					"color": "#fff"
+				}
+			],
+			"power_challenge": [
+				{
+					"cp": "e928",
+					"color": "#fff"
+				}
+			],
+			"protect": [
+				{
+					"cp": "e929",
+					"color": "#fff"
+				}
+			],
+			"quarantine_zone": [
+				{
+					"cp": "e92a",
+					"color": "#fff"
+				}
+			],
+			"quartermaster": [
+				{
+					"cp": "e92b",
+					"color": "#fff"
+				}
+			],
+			"race_challenge": [
+				{
+					"cp": "e92c",
+					"color": "#fff"
+				}
+			],
+			"radioactive_area": [
+				{
+					"cp": "e92d",
+					"color": "#fff"
+				}
+			],
+			"shrooms": [
+				{
+					"cp": "e92e",
+					"color": "#fff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e92f",
+					"color": "#fff"
+				}
+			],
+			"slammer_challenge": [
+				{
+					"cp": "e930",
+					"color": "#fff"
+				}
+			],
+			"store": [
+				{
+					"cp": "e931",
+					"color": "#fff"
+				}
+			],
+			"survivor": [
+				{
+					"cp": "e932",
+					"color": "#fff"
+				}
+			],
+			"unknown_stone": [
+				{
+					"cp": "e933",
+					"color": "#fff"
+				}
+			],
+			"voicemail": [
+				{
+					"cp": "e934",
+					"color": "#fff"
+				}
+			],
+			"volatile_nest": [
+				{
+					"cp": "e935",
+					"color": "#fff"
+				}
+			],
+			"zombie_statue": [
+				{
+					"cp": "e936",
+					"color": "#fff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e937"
+				}
+			],
+			"ambulance": [
+				{
+					"cp": "e938"
+				}
+			],
+			"safe_zone": [
+				{
+					"cp": "e939"
+				}
+			],
+			"racing_trophy": [
+				{
+					"cp": "e93a"
+				}
+			],
+			"rest": [
+				{
+					"cp": "e93b"
+				}
+			],
+			"common_herbs": [
+				{
+					"cp": "e93c"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e93d"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "slums",
+			"title": "The Slums",
+			"data": "slums/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "slums/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 10,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "old-town",
+			"title": "Old Town",
+			"data": "old-town/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "old-town/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 10,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "antenna",
+			"title": "Antenna",
+			"data": "antenna/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "antenna/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 10,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "countryside",
+			"title": "The Countryside",
+			"data": "countryside/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "countryside/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0d0d0d"
+				}
+			]
+		}
+	]
+}

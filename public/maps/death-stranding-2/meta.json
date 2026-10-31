@@ -1,0 +1,212 @@
+{
+	"id": "death-stranding-2",
+	"title": "Death Stranding 2",
+	"slug": "death-stranding-2",
+	"source": "https://mapgenie.io/death-stranding-2",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"aid_request": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"apac_facility": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"auto_paver": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"bt_territory": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"chiral_crystals": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"enemy_territory": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"hot_spring": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"magellan_dock": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"main_order": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"memory_chip": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"mine": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"mule_postbox": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"photo_spot": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"prepper_shelter": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"song": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"standard_order": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"sub_order": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"tracklayer": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"warning": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "mexico",
+			"title": "Mexico",
+			"data": "mexico/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "mexico/tiles/joaienbea-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#010207"
+				}
+			]
+		},
+		{
+			"slug": "australia",
+			"title": "Australia",
+			"data": "australia/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "australia/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

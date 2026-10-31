@@ -1,0 +1,35 @@
+{
+	"id": "the-witness",
+	"title": "The Witness",
+	"slug": "the-witness",
+	"source": "https://app.lootatlas.com/games/the-witness",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": null,
+	"maps": [
+		{
+			"slug": "aerial-map",
+			"title": "Aerial Map",
+			"data": "aerial-map/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "aerial-map/tiles/default/{z}/{y}/{x}.webp",
+					"minzoom": 0,
+					"maxzoom": 7,
+					"viewMaxzoom": 8,
+					"bounds": [-180, -85.051129, 180, 85.051129],
+					"tileSize": 256,
+					"background": "#154b67"
+				}
+			]
+		}
+	]
+}

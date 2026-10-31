@@ -1,0 +1,183 @@
+{
+	"id": "luigis-mansion",
+	"title": "Luigi's Mansion",
+	"slug": "luigis-mansion",
+	"source": "https://mapgenie.io/luigis-mansion/maps/luigis-mansion",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"area": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"big_heart": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"blue_ghost": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"boo": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"cracked_wall": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"elemental_medal": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"fire_source": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"gem": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"golden_mouse": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"golden_spider": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"ice_source": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"marios_lost_item": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"mirror": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"portrait_ghost": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"save_point": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"speedy_spirit": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"telephone": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"water_source": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "luigis-mansion",
+			"title": "Luigi's Mansion",
+			"data": "luigis-mansion/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "luigis-mansion/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,495 @@
+{
+	"id": "diablo-4",
+	"title": "Diablo IV",
+	"slug": "diablo-4",
+	"source": "https://mapgenie.io/diablo-4?_gl=1*5dmr8d*_up*MQ..*_ga*MTUwNTE0NjMyNy4xNzkzMzk0Nzgz*_ga_ZZRVRWZWGJ*czE3OTMzOTQ3ODEkbzEkZzAkdDE3OTMzOTQ3ODEkajYwJGwwJGgw",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"zone_event": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"world_tier_statue": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"world_boss": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"whisper_of_the_dead": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"weathered_shrine": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"weapon_vendor": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"waypoint": [
+				{
+					"cp": "e906",
+					"color": "#86efff"
+				}
+			],
+			"wardrobe": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"vampiric_power": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"untracked_area": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"unsavory_oddities": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"unique_item": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"unique_elite": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"unconventional_steed_armor": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"tree_of_whispers": [
+				{
+					"cp": "e90e"
+				},
+				{
+					"cp": "e90f",
+					"ml": "-1em"
+				}
+			],
+			"treasure_goblin": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"town": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"tenet_of_akarat": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"stronghold": [
+				{
+					"cp": "e913",
+					"color": "#ff4141"
+				}
+			],
+			"story_dungeon": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"stash": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"stable": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"shrine": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"shortcut": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"season_vendor": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"season_quest": [
+				{
+					"cp": "e91b",
+					"color": "#229773"
+				}
+			],
+			"rings_amulets": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"quest_objective": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"purveyor_of_curiosities": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"priority_quest": [
+				{
+					"cp": "e91f",
+					"color": "#fff"
+				}
+			],
+			"portal": [
+				{
+					"cp": "e920",
+					"color": "#fff"
+				}
+			],
+			"plant": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"ore": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			],
+			"odds_and_ends": [
+				{
+					"cp": "e923",
+					"color": "#fff"
+				}
+			],
+			"occultist": [
+				{
+					"cp": "e924",
+					"color": "#fff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e925",
+					"color": "#fff"
+				}
+			],
+			"mystery_chest": [
+				{
+					"cp": "e926",
+					"color": "#ff4141"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e927",
+					"color": "#fff"
+				}
+			],
+			"malignant_tunnel": [
+				{
+					"cp": "e928"
+				},
+				{
+					"cp": "e929",
+					"ml": "-1em"
+				}
+			],
+			"malignant_heart_alt": [
+				{
+					"cp": "e92a",
+					"color": "#fff"
+				}
+			],
+			"malignant_heart": [
+				{
+					"cp": "e92b",
+					"color": "#fff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e92c",
+					"color": "#fff"
+				}
+			],
+			"lore": [
+				{
+					"cp": "e92d",
+					"color": "#fff"
+				}
+			],
+			"living_steel_chest": [
+				{
+					"cp": "e92e",
+					"color": "#0f4333"
+				}
+			],
+			"legendary_elite": [
+				{
+					"cp": "e92f",
+					"color": "#fff"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e930",
+					"color": "#fff"
+				}
+			],
+			"lair": [
+				{
+					"cp": "e931",
+					"color": "#fff"
+				}
+			],
+			"jeweler": [
+				{
+					"cp": "e932",
+					"color": "#fff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e933",
+					"color": "#fff"
+				}
+			],
+			"interactable": [
+				{
+					"cp": "e934",
+					"color": "#fff"
+				}
+			],
+			"helltide_chest": [
+				{
+					"cp": "e935",
+					"color": "#fff"
+				}
+			],
+			"helltide_area": [
+				{
+					"cp": "e936",
+					"color": "#fff"
+				}
+			],
+			"healer": [
+				{
+					"cp": "e937",
+					"color": "#fff"
+				}
+			],
+			"event": [
+				{
+					"cp": "e938",
+					"color": "#daaf60"
+				}
+			],
+			"emote_statue": [
+				{
+					"cp": "e939",
+					"color": "#fff"
+				}
+			],
+			"elite": [
+				{
+					"cp": "e93a",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e93b",
+					"color": "#fff"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e93c",
+					"color": "#fff"
+				}
+			],
+			"cursed_scroll": [
+				{
+					"cp": "e93d",
+					"color": "#fff"
+				}
+			],
+			"chronicle_of_creation": [
+				{
+					"cp": "e93e",
+					"color": "#fff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e93f",
+					"color": "#fff"
+				}
+			],
+			"cellar": [
+				{
+					"cp": "e940",
+					"color": "#fff"
+				}
+			],
+			"bounty_board": [
+				{
+					"cp": "e941",
+					"color": "#fff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e942",
+					"color": "#fff"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e943",
+					"color": "#fff"
+				}
+			],
+			"aspect": [
+				{
+					"cp": "e944",
+					"color": "#fff"
+				}
+			],
+			"armor_vendor": [
+				{
+					"cp": "e945",
+					"color": "#fff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e946",
+					"color": "#fff"
+				}
+			],
+			"altar_of_lilith": [
+				{
+					"cp": "e947",
+					"color": "#fff"
+				}
+			],
+			"altar_of_extraction": [
+				{
+					"cp": "e948",
+					"color": "#fff"
+				}
+			],
+			"altar_of_cleansing": [
+				{
+					"cp": "e949",
+					"color": "#fff"
+				}
+			],
+			"alchemist": [
+				{
+					"cp": "e94a",
+					"color": "#fff"
+				}
+			],
+			"active_helltide": [
+				{
+					"cp": "e94b",
+					"color": "#f00"
+				}
+			],
+			"untitled": [
+				{
+					"cp": "e94c",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "sanctuary",
+			"title": "Sanctuary",
+			"data": "sanctuary/data.json",
+			"tilesets": [
+				{
+					"name": "V5",
+					"template": "sanctuary/tiles/default-v5/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#9b8f77"
+				}
+			]
+		}
+	]
+}

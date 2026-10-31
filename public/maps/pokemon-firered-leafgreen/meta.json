@@ -1,0 +1,181 @@
+{
+	"id": "pokemon-firered-leafgreen",
+	"title": "Pokémon FireRed/LeafGreen",
+	"slug": "pokemon-firered-leafgreen",
+	"source": "https://mapgenie.io/pokemon-firered-leafgreen",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"area": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"berry": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"elite_four": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"gym_leader": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"hm": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"movable_boulder": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"move_tutor": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"notable_npc": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"poke_ball": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"pokemon_center": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"small_plant": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"smashable_rock": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"tm": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"trader": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"trainer": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"waterfall": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "kanto",
+			"title": "Kanto",
+			"data": "kanto/data.json",
+			"tilesets": [
+				{
+					"name": "FireRed",
+					"template": "kanto/tiles/firered-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#ebbaab"
+				},
+				{
+					"name": "LeafGreen",
+					"template": "kanto/tiles/leafgreen-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#a3cec7"
+				}
+			]
+		}
+	]
+}

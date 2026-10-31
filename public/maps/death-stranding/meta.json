@@ -1,0 +1,99 @@
+{
+	"id": "death-stranding",
+	"title": "Death Stranding",
+	"slug": "death-stranding",
+	"source": "https://mapgenie.io/death-stranding",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"auto_paver": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"bt_territory": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"hot_spring": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"memory_chip": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"misc": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"mule_territory": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"prepper_shelter": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"uca_facility": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "world/tiles/default/{z}/{x}/{y}.png",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

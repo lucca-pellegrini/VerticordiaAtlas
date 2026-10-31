@@ -1,0 +1,555 @@
+{
+	"id": "like-a-dragon-infinite-wealth",
+	"title": "Like a Dragon: Infinite Wealth",
+	"slug": "like-a-dragon-infinite-wealth",
+	"source": "https://mapgenie.io/like-a-dragon-infinite-wealth",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"wood": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"walk_talk": [
+				{
+					"cp": "e902",
+					"color": "#f079d3"
+				}
+			],
+			"underground_access": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"trolley_stop": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"trainer": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"taxi": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"table_talk": [
+				{
+					"cp": "e907",
+					"color": "#f0a100"
+				}
+			],
+			"suji_spot": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"street_surfer": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"stone": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"spearfishing": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"snack_store": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"skill_item": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"silver_safe": [
+				{
+					"cp": "e90e"
+				},
+				{
+					"cp": "e90f",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e910",
+					"ml": "-1em"
+				}
+			],
+			"silver_briefcase": [
+				{
+					"cp": "e911"
+				},
+				{
+					"cp": "e912",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e913",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e914",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e915",
+					"ml": "-1em"
+				}
+			],
+			"safehouse": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"restaurant": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"raid": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"photo_rally": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"party_chat": [
+				{
+					"cp": "e91b",
+					"color": "#7de576"
+				}
+			],
+			"part_time_hero": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"oka_charger": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e91f",
+					"color": "#fff"
+				}
+			],
+			"memoirs_of_a_dragon": [
+				{
+					"cp": "e920",
+					"color": "#fff"
+				}
+			],
+			"legs": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"ladder": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			],
+			"junk": [
+				{
+					"cp": "e923",
+					"color": "#fff"
+				}
+			],
+			"julies_gearworks": [
+				{
+					"cp": "e924",
+					"color": "#fff"
+				}
+			],
+			"juicery": [
+				{
+					"cp": "e925",
+					"color": "#fff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e926",
+					"color": "#fff"
+				}
+			],
+			"insect": [
+				{
+					"cp": "e927",
+					"color": "#fff"
+				}
+			],
+			"honk_honk": [
+				{
+					"cp": "e928",
+					"color": "#fff"
+				}
+			],
+			"head": [
+				{
+					"cp": "e929",
+					"color": "#fff"
+				}
+			],
+			"gym": [
+				{
+					"cp": "e92a",
+					"color": "#fff"
+				}
+			],
+			"guest": [
+				{
+					"cp": "e92b",
+					"color": "#fff"
+				}
+			],
+			"gold_safe": [
+				{
+					"cp": "e92c"
+				},
+				{
+					"cp": "e92d",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e92e",
+					"ml": "-1em"
+				}
+			],
+			"gold_briefcase": [
+				{
+					"cp": "e92f"
+				},
+				{
+					"cp": "e930",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e931",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e932",
+					"ml": "-1em"
+				},
+				{
+					"cp": "e933",
+					"ml": "-1em"
+				}
+			],
+			"gifts": [
+				{
+					"cp": "e934",
+					"color": "#fff"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e935",
+					"color": "#fff"
+				}
+			],
+			"gear_store": [
+				{
+					"cp": "e936",
+					"color": "#fff"
+				}
+			],
+			"gacha": [
+				{
+					"cp": "e937",
+					"color": "#fff"
+				}
+			],
+			"friend": [
+				{
+					"cp": "e938",
+					"color": "#fff"
+				}
+			],
+			"fortune": [
+				{
+					"cp": "e939",
+					"color": "#fff"
+				}
+			],
+			"fishing_spot": [
+				{
+					"cp": "e93a",
+					"color": "#fff"
+				}
+			],
+			"exchange": [
+				{
+					"cp": "e93b",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e93c",
+					"color": "#fff"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e93d",
+					"color": "#fff"
+				}
+			],
+			"collectable": [
+				{
+					"cp": "e93e",
+					"color": "#fff"
+				}
+			],
+			"chapter_9": [
+				{
+					"cp": "e93f",
+					"color": "#fff"
+				}
+			],
+			"chapter_8": [
+				{
+					"cp": "e940",
+					"color": "#fff"
+				}
+			],
+			"chapter_7": [
+				{
+					"cp": "e941",
+					"color": "#fff"
+				}
+			],
+			"chapter_6": [
+				{
+					"cp": "e942",
+					"color": "#fff"
+				}
+			],
+			"chapter_5": [
+				{
+					"cp": "e943",
+					"color": "#fff"
+				}
+			],
+			"chapter_4": [
+				{
+					"cp": "e944",
+					"color": "#fff"
+				}
+			],
+			"chapter_3": [
+				{
+					"cp": "e945",
+					"color": "#fff"
+				}
+			],
+			"chapter_2": [
+				{
+					"cp": "e946",
+					"color": "#fff"
+				}
+			],
+			"chapter_14": [
+				{
+					"cp": "e947",
+					"color": "#fff"
+				}
+			],
+			"chapter_13": [
+				{
+					"cp": "e948",
+					"color": "#fff"
+				}
+			],
+			"chapter_12": [
+				{
+					"cp": "e949",
+					"color": "#fff"
+				}
+			],
+			"chapter_11": [
+				{
+					"cp": "e94a",
+					"color": "#fff"
+				}
+			],
+			"chapter_10": [
+				{
+					"cp": "e94b",
+					"color": "#fff"
+				}
+			],
+			"chapter_1": [
+				{
+					"cp": "e94c",
+					"color": "#fff"
+				}
+			],
+			"cd": [
+				{
+					"cp": "e94d",
+					"color": "#fff"
+				}
+			],
+			"cash_machine": [
+				{
+					"cp": "e94e",
+					"color": "#fff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e94f",
+					"color": "#fff"
+				}
+			],
+			"body": [
+				{
+					"cp": "e950",
+					"color": "#fff"
+				}
+			],
+			"blueprint": [
+				{
+					"cp": "e951",
+					"color": "#fff"
+				}
+			],
+			"alo_happy": [
+				{
+					"cp": "e952",
+					"color": "#fff"
+				}
+			],
+			"agricultural_produce": [
+				{
+					"cp": "e953",
+					"color": "#fff"
+				}
+			],
+			"accessories": [
+				{
+					"cp": "e954",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "isezaki-ijincho",
+			"title": "Isezaki Ijincho",
+			"data": "isezaki-ijincho/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "isezaki-ijincho/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#110c10"
+				}
+			]
+		},
+		{
+			"slug": "honolulu",
+			"title": "Honolulu",
+			"data": "honolulu/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "honolulu/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#110c10"
+				}
+			]
+		},
+		{
+			"slug": "kamurocho",
+			"title": "Kamurocho",
+			"data": "kamurocho/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "kamurocho/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#110c10"
+				}
+			]
+		}
+	]
+}

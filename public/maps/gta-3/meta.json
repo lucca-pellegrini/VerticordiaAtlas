@@ -1,0 +1,234 @@
+{
+	"id": "grand-theft-auto-3",
+	"title": "Grand Theft Auto III",
+	"slug": "grand-theft-auto-3",
+	"source": "https://mapgenie.io/grand-theft-auto-3",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"vigilante": [
+				{
+					"cp": "e900"
+				}
+			],
+			"adrenaline": [
+				{
+					"cp": "e901"
+				}
+			],
+			"airport": [
+				{
+					"cp": "e902"
+				}
+			],
+			"ammu_nation": [
+				{
+					"cp": "e903"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e904"
+				}
+			],
+			"bomb_shop": [
+				{
+					"cp": "e905"
+				}
+			],
+			"bribe": [
+				{
+					"cp": "e906"
+				}
+			],
+			"car_crusher": [
+				{
+					"cp": "e907"
+				}
+			],
+			"clothing": [
+				{
+					"cp": "e908"
+				}
+			],
+			"district": [
+				{
+					"cp": "e909"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"fire_station": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"firefighter_mission": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"garage": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"health": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"hidden_package": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"hospital": [
+				{
+					"cp": "e910"
+				}
+			],
+			"import_export": [
+				{
+					"cp": "e911"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e912"
+				}
+			],
+			"mission": [
+				{
+					"cp": "e913"
+				}
+			],
+			"off_road_mission": [
+				{
+					"cp": "e914"
+				}
+			],
+			"paramedic_mission": [
+				{
+					"cp": "e915"
+				}
+			],
+			"pay_n_spray": [
+				{
+					"cp": "e916"
+				}
+			],
+			"phone_mission": [
+				{
+					"cp": "e917"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e918"
+				}
+			],
+			"police_station": [
+				{
+					"cp": "e919"
+				}
+			],
+			"pool": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"rampage": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"rc_toyz": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"safe_house": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"stunt_jump": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"taxi_driver_mission": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"train_station": [
+				{
+					"cp": "e920"
+				}
+			],
+			"vehicle_spawn": [
+				{
+					"cp": "e921"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e922"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "liberty-city",
+			"title": "Liberty City",
+			"data": "liberty-city/data.json",
+			"tilesets": [
+				{
+					"name": "Atlas",
+					"template": "liberty-city/tiles/atlas-v2/{z}/{x}/{y}.png",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#c0e0e8"
+				},
+				{
+					"name": "Classic",
+					"template": "liberty-city/tiles/classic-v1/{z}/{x}/{y}.png",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				},
+				{
+					"name": "Radar",
+					"template": "liberty-city/tiles/radar-v2/{z}/{x}/{y}.png",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#5d7c8e"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,141 @@
+{
+	"id": "luigis-mansion-3",
+	"title": "Luigi's Mansion 3",
+	"slug": "luigis-mansion-3",
+	"source": "https://mapgenie.io/luigis-mansion-3",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"boo": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"elevator_button": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"gem": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"golden_mouse": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"golden_spider": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"gooigi_grate": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"hidden_object": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"portal": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"portrait": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"super_suction_outlet": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "the-last-resort",
+			"title": "The Last Resort",
+			"data": "the-last-resort/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "the-last-resort/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

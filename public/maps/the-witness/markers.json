@@ -1,0 +1,65 @@
+{
+	"puzzles": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"introduction-puzzles": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"path-line-rules": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"color-rules": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"shape-symbol-rules": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"environmental-rules": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"multi-rule": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"boat": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"sound-rule": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 88,
+		"pixelRatio": 1
+	}
+}

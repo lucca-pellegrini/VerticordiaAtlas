@@ -1,0 +1,279 @@
+{
+	"id": "pokopia",
+	"title": "Pokémon Pokopia",
+	"slug": "pokopia",
+	"source": "https://mapgenie.io/pokopia",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"area_gate": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"blocks": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"buildings": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"diary_entry": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"food": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"fossil": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"furniture": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"habitat": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"habitat_basin": [
+				{
+					"cp": "e908",
+					"color": "#0070dd"
+				}
+			],
+			"habitat_event": [
+				{
+					"cp": "e909",
+					"color": "#ff8000"
+				}
+			],
+			"highlight_reel": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"key_items": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"kits": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"letters": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"lost_relic_l": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"lost_relic_s": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"magazine": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"materials": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"misc": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"nature": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"newspapers": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"notes": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"other": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"outdoor": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"papers": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"pc": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"photos": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"pokemon_basin": [
+				{
+					"cp": "e91d",
+					"color": "#0070dd"
+				}
+			],
+			"pokemon_center": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"pokemon_common": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"pokemon_event": [
+				{
+					"cp": "e920",
+					"color": "#ff8000"
+				}
+			],
+			"pokemon_trace": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"pokemon_very_rare": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"recipe": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_map": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"utilities": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"workbench": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "kanto",
+			"title": "Kanto",
+			"data": "kanto/data.json",
+			"tilesets": [
+				{
+					"name": "v5",
+					"template": "kanto/tiles/v5/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#ffffff"
+				}
+			]
+		}
+	]
+}

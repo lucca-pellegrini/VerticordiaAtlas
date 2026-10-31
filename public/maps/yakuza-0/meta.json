@@ -1,0 +1,260 @@
+{
+	"id": "yakuza-0",
+	"title": "Yakuza 0",
+	"slug": "yakuza-0",
+	"source": "https://mapgenie.io/yakuza-0",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"chapter_10": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_2": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_3": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_4": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_5": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_6": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_7": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_8": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"club_jupiter": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"club_mars": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"club_mercury": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"club_moon": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"club_venus": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"dream_machine": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"electronics_king": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"endgame": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"fishing_spot": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"gambling_king": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"gear_store": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"hostess": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"leisure_king": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"media_king": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"mr_shakedown": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"pleasure_king": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"restaurant": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"snack_store": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"taxi": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"telephone": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"telephone_card": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "kamurocho",
+			"title": "Kamurocho",
+			"data": "kamurocho/data.json",
+			"tilesets": [
+				{
+					"name": "kamurocho",
+					"template": "kamurocho/tiles/kamurocho/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "sotenbori",
+			"title": "Sotenbori",
+			"data": "sotenbori/data.json",
+			"tilesets": [
+				{
+					"name": "sotenbori",
+					"template": "sotenbori/tiles/sotenbori/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

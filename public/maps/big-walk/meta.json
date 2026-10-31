@@ -1,0 +1,213 @@
+{
+	"id": "big-walk",
+	"title": "Big Walk",
+	"slug": "big-walk",
+	"source": "https://mapgenie.io/big-walk/maps/island",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"backpack": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"binoculars": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"clock": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"compass": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"coordinate_displayer": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"double_blob_holder": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"firework_launcher": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"flare_gun": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"flashlight": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"hip_pack": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"key_cutter": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"key_holder": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"laser_pointer": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"lift_station": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"map": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"megaphone": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"music_player": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"puzzle": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"radio_station": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"radio_transmitter": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"scanner": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"tower": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"train_station": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"walkie_talkie": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"whiteboard": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "island",
+			"title": "Island",
+			"data": "island/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "island/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#316685"
+				}
+			]
+		}
+	]
+}

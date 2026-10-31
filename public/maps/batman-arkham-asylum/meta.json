@@ -1,0 +1,123 @@
+{
+	"id": "batman-arkham-asylum",
+	"title": "Batman: Arkham Asylum",
+	"slug": "batman-arkham-asylum",
+	"source": "https://mapgenie.io/batman-arkham-asylum",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"achievement": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"chronicle": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"gadget": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"interview_tape": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"joker_teeth": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"riddle": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"riddler_trophy": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"secrets_map": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "arkham-asylum",
+			"title": "Arkham Asylum",
+			"data": "arkham-asylum/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "arkham-asylum/tiles/default-v2/{z}/{x}/{y}.png",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,327 @@
+{
+	"id": "gothic",
+	"title": "Gothic 1 Remake",
+	"slug": "gothic-1-remake",
+	"source": "https://mapgenie.io/gothic-1-remake",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"alchemy_table": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"amulet": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"anvil": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"area_map": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"armorer": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"arrow": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"belt": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"camp": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"cauldron": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"climbable_wall": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"cooking_station": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"document": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"forging_station": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"healing": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"herb": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"inscription_station": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"magic_scroll": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"material": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"new_camp_quest": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"old_camp_quest": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"ore_nugget": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"pan": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"potion": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"quest_item": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"recipe": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"ring": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"rune": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"shadowbeast": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"swamp_camp_quest": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"teacher": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"the_colony_quest": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"trader": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"water_tub": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"whetstone": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"workbench": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "valley-of-mines",
+			"title": "Valley of Mines",
+			"data": "valley-of-mines/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "valley-of-mines/tiles/stamos-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

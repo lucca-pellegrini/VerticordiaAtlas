@@ -1,0 +1,243 @@
+{
+	"id": "dragon-quest-1-and-2-remake",
+	"title": "Dragon Quest I & II HD-2D Remake",
+	"slug": "dragon-quest-1-and-2-remake",
+	"source": "https://mapgenie.io/dragon-quest-1-and-2-remake",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"accessory": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"armour": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"bank": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"clergy": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"dungeon": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"gold_coin": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"headgear": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"important_item": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"inn": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"item_shop": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"mini_medal": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"movable_boulder": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"scroll": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"secret_spot": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"seed": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"shield": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"sigil": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"small_plant": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"sparkly_spot": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"town": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "dragon-quest-i",
+			"title": "Dragon Quest I",
+			"data": "dragon-quest-i/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "dragon-quest-i/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#7a8780"
+				}
+			]
+		}
+	]
+}

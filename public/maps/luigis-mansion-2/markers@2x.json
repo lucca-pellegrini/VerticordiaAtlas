@@ -1,0 +1,22 @@
+{
+	"area": { "width": 66, "height": 88, "x": 0, "y": 0, "pixelRatio": 2 },
+	"boss": { "width": 66, "height": 88, "x": 66, "y": 0, "pixelRatio": 2 },
+	"dark_moon_piece": { "width": 66, "height": 88, "x": 132, "y": 0, "pixelRatio": 2 },
+	"locked_door": { "width": 66, "height": 88, "x": 198, "y": 0, "pixelRatio": 2 },
+	"portal": { "width": 66, "height": 88, "x": 0, "y": 88, "pixelRatio": 2 },
+	"secret_door": { "width": 66, "height": 88, "x": 66, "y": 88, "pixelRatio": 2 },
+	"boo": { "width": 66, "height": 88, "x": 132, "y": 88, "pixelRatio": 2 },
+	"gem": { "width": 66, "height": 88, "x": 198, "y": 88, "pixelRatio": 2 },
+	"chest": { "width": 66, "height": 88, "x": 0, "y": 176, "pixelRatio": 2 },
+	"key": { "width": 66, "height": 88, "x": 66, "y": 176, "pixelRatio": 2 },
+	"treasure": { "width": 66, "height": 88, "x": 132, "y": 176, "pixelRatio": 2 },
+	"easter_egg": { "width": 66, "height": 88, "x": 198, "y": 176, "pixelRatio": 2 },
+	"miscellaneous": { "width": 66, "height": 88, "x": 0, "y": 264, "pixelRatio": 2 },
+	"placeholder_1": { "width": 66, "height": 88, "x": 66, "y": 264, "pixelRatio": 2 },
+	"placeholder_2": { "width": 66, "height": 88, "x": 66, "y": 264, "pixelRatio": 2 },
+	"placeholder_3": { "width": 66, "height": 88, "x": 66, "y": 264, "pixelRatio": 2 },
+	"placeholder_4": { "width": 66, "height": 88, "x": 66, "y": 264, "pixelRatio": 2 },
+	"placeholder_5": { "width": 66, "height": 88, "x": 66, "y": 264, "pixelRatio": 2 },
+	"spider_web": { "width": 66, "height": 88, "x": 132, "y": 264, "pixelRatio": 2 },
+	"spike_plant": { "width": 66, "height": 88, "x": 198, "y": 264, "pixelRatio": 2 }
+}

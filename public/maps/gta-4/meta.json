@@ -1,0 +1,411 @@
+{
+	"id": "grand-theft-auto-4",
+	"title": "Grand Theft Auto IV",
+	"slug": "grand-theft-auto-4",
+	"source": "https://mapgenie.io/grand-theft-auto-4",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"vendor": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"air_hockey": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"arcade_game": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"arm_wrestling": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"assassination": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"bar": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"base_jump": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"bike_race": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"bike_theft": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"bowling": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"brucies_race": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"car_theft": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"car_wash": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"cards": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"clothing": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"club": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"dancing": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"darts": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"diner": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"drug_delivery": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"drug_war": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"elevator": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"exotic_export": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"fast_food": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"fight": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"fire_station": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"friend": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"gang_war": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"garage": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"golf": [
+				{
+					"cp": "e91f",
+					"color": "#fff"
+				}
+			],
+			"gun_shop": [
+				{
+					"cp": "e920",
+					"color": "#fff"
+				}
+			],
+			"health": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"helitour": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			],
+			"hospital": [
+				{
+					"cp": "e923",
+					"color": "#fff"
+				}
+			],
+			"internet_cafe": [
+				{
+					"cp": "e924",
+					"color": "#fff"
+				}
+			],
+			"laundromat": [
+				{
+					"cp": "e925",
+					"color": "#fff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e926",
+					"color": "#fff"
+				}
+			],
+			"mission": [
+				{
+					"cp": "e927",
+					"color": "#fff"
+				}
+			],
+			"most_wanted": [
+				{
+					"cp": "e928",
+					"color": "#fff"
+				}
+			],
+			"neighborhood": [
+				{
+					"cp": "e929",
+					"color": "#fff"
+				}
+			],
+			"nightclub": [
+				{
+					"cp": "e92a",
+					"color": "#fff"
+				}
+			],
+			"pay_n_spray": [
+				{
+					"cp": "e92b",
+					"color": "#fff"
+				}
+			],
+			"pigeon": [
+				{
+					"cp": "e92c",
+					"color": "#fff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e92d",
+					"color": "#fff"
+				}
+			],
+			"police_station": [
+				{
+					"cp": "e92e",
+					"color": "#fff"
+				}
+			],
+			"pool": [
+				{
+					"cp": "e92f",
+					"color": "#fff"
+				}
+			],
+			"random_encounter": [
+				{
+					"cp": "e930",
+					"color": "#fff"
+				}
+			],
+			"restaurant": [
+				{
+					"cp": "e931",
+					"color": "#fff"
+				}
+			],
+			"safe_house": [
+				{
+					"cp": "e932",
+					"color": "#fff"
+				}
+			],
+			"seagull": [
+				{
+					"cp": "e933",
+					"color": "#fff"
+				}
+			],
+			"side_mission": [
+				{
+					"cp": "e934",
+					"color": "#fff"
+				}
+			],
+			"strip_club": [
+				{
+					"cp": "e935",
+					"color": "#fff"
+				}
+			],
+			"stunt_jump": [
+				{
+					"cp": "e936",
+					"color": "#fff"
+				}
+			],
+			"subway_station": [
+				{
+					"cp": "e937",
+					"color": "#fff"
+				}
+			],
+			"tbogt_mission": [
+				{
+					"cp": "e938",
+					"color": "#fff"
+				}
+			],
+			"tlad_mission": [
+				{
+					"cp": "e939",
+					"color": "#fff"
+				}
+			],
+			"triathlon": [
+				{
+					"cp": "e93a",
+					"color": "#fff"
+				}
+			],
+			"vehicle": [
+				{
+					"cp": "e93b",
+					"color": "#fff"
+				}
+			],
+			"vigilante_mission": [
+				{
+					"cp": "e93c",
+					"color": "#fff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e93d",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "liberty-city",
+			"title": "Liberty City",
+			"data": "liberty-city/data.json",
+			"tilesets": [
+				{
+					"name": "Radar",
+					"template": "liberty-city/tiles/radar-v1/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#5d7c8d"
+				}
+			]
+		}
+	]
+}

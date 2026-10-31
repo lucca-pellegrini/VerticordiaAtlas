@@ -1,0 +1,287 @@
+{
+	"id": "grand-theft-auto-vice-city",
+	"title": "Grand Theft Auto: Vice City",
+	"slug": "grand-theft-auto-vice-city",
+	"source": "https://mapgenie.io/grand-theft-auto-vice-city",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"adrenaline": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"ammu_nation": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"armor": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"asset": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"asset_mission": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"bomb_shop": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"bribe": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"chopper_checkpoint": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"clothing": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"fire_station": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"firefighter_mission": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"gang_mission": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"hardware_store": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"health": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"hidden_package": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"hospital": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"import_garage": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"main_mission": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"off_road_mission": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"paramedic_mission": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"pay_n_spray": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"phone_mission": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"pizza_boy_mission": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"police_station": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"rampage": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"rc_top_fun": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"robbery": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"safe_house": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"stadium_event": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"street_race": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"stunt_jump": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"taxi_driver_mission": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"vehicle_spawn": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"vigilante_mission": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "vice-city",
+			"title": "Vice City",
+			"data": "vice-city/data.json",
+			"tilesets": [
+				{
+					"name": "Radar",
+					"template": "vice-city/tiles/radar-v1/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#5d7c8e"
+				},
+				{
+					"name": "Atlas",
+					"template": "vice-city/tiles/atlas-v1/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#c0e0e8"
+				},
+				{
+					"name": "Classic",
+					"template": "vice-city/tiles/classic-v1/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#99d0f7"
+				}
+			]
+		}
+	]
+}

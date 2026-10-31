@@ -1,0 +1,313 @@
+{
+	"id": "pokemon-scarlet-violet",
+	"title": "Pokémon Scarlet and Violet",
+	"slug": "pokemon-scarlet-violet",
+	"source": "https://mapgenie.io/pokemon-scarlet-violet?_gl=1*a00mxy*_up*MQ..*_ga*MTUwNTE0NjMyNy4xNzkzMzk0Nzgz*_ga_ZZRVRWZWGJ*czE3OTMzOTQ3ODEkbzEkZzAkdDE3OTMzOTQ3ODEkajYwJGwwJGgw",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"battle_item": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"berry": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"cave_entrance": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"chansey_supply_shop": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"clothing_store": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"delibird_presents": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"food_store": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"gimmighoul_chest": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"gimmighoul_roaming": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"gym": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"gym_leader": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"hairdresser": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"herba_mystica": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"legendary_pokemon": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"medicine": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"ominous_stake": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"other_item": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"path_of_legends": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"picnic": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"poke_ball": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"pokecenter": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"pokemon": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"shrine": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"side_mission": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"starfall_street": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"team_star_boss": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"tera_pokemon": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"tm": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"tm_material": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"trainer": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"valuable": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"victory_road": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"watchtower": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "paldea-region",
+			"title": "Paldea Region",
+			"data": "paldea-region/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "paldea-region/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#193050"
+				}
+			]
+		},
+		{
+			"slug": "kitakami-region",
+			"title": "Kitakami Region",
+			"data": "kitakami-region/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "kitakami-region/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#1e5d4c"
+				}
+			]
+		},
+		{
+			"slug": "terrarium",
+			"title": "Terrarium",
+			"data": "terrarium/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "terrarium/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#2e5d89"
+				}
+			]
+		}
+	]
+}

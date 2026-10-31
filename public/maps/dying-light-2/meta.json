@@ -1,0 +1,324 @@
+{
+	"id": "dying-light-2",
+	"title": "Dying Light 2",
+	"slug": "dying-light-2",
+	"source": "https://mapgenie.io/dying-light-2",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"agility_challenge": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"airdrop": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"bandit_camp": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"blueprint": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"challenge": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"combat_challenge": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"craftmaster": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"dark_hollow": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"evacuation_convoy": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"facility": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"foresaken_store": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"graffiti_mural": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"gre_anomaly": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"gre_building": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"hub": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"inhibitor": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"loot": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"love_interest": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"memento": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"metro_station": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"military_convoy": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"money": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"ng_inhibitor": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"nightrunner_trial": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"parkour_challenge": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"pk_settlement": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"player_stash": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"police_van": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"radio_tower": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"roof_grove": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"safe_zone": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"story_quest": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"survivor_settlement": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"tape": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"tournament_event": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"trader": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"windmill": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "villedor",
+			"title": "Villedor",
+			"data": "villedor/data.json",
+			"tilesets": [
+				{
+					"name": "Satellite",
+					"template": "villedor/tiles/satellite-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				},
+				{
+					"name": "Atlas",
+					"template": "villedor/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "bloody-ties",
+			"title": "Carnage Hall",
+			"data": "bloody-ties/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "bloody-ties/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#12151e"
+				}
+			]
+		}
+	]
+}

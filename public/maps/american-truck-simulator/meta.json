@@ -1,0 +1,147 @@
+{
+	"id": "american-truck-simulator",
+	"title": "American Truck Simulator",
+	"slug": "american-truck-simulator",
+	"source": "https://mapgenie.io/american-truck-simulator",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"agricultural_inspection": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"city": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"filling_station": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"garage": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"photo_trophy": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"port": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"recruitment_agency": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"resting_place": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"secret_road": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"service": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"toll_gate": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"tourist_board": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"truck_dealer": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"weigh_station": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "north-america",
+			"title": "North America",
+			"data": "north-america/data.json",
+			"tilesets": [
+				{
+					"name": "1_61",
+					"template": "north-america/tiles/gps-v8/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 17,
+					"viewMaxzoom": 18,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

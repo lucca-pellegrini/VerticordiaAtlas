@@ -1,0 +1,369 @@
+{
+	"id": "world-of-warcraft-forever",
+	"title": "World of Warcraft: Forever",
+	"slug": "world-of-warcraft-forever",
+	"source": "https://mapgenie.io/world-of-warcraft-forever/maps/azeroth",
+	"poster": "poster.webp",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"ancient_mana": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"ancient_translocator": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"ancient_waygate": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"auctioneer": [
+				{
+					"cp": "e903",
+					"color": "#f3b712"
+				}
+			],
+			"banker": [
+				{
+					"cp": "e904",
+					"color": "#f3b712"
+				}
+			],
+			"barber": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"barber_shop": [
+				{
+					"cp": "e906",
+					"color": "#f74a4a"
+				}
+			],
+			"battle_pet": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"bonus_objective": [
+				{
+					"cp": "e908",
+					"color": "#f52929"
+				}
+			],
+			"candy_bucket": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"city": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"daily": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"dark_soil": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"delve": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"digsite": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"encounter": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"eternal_gateway": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"everfrost_chip": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"ferry_master": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"fishing": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"flight_master": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"gas_cloud": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"glow_cap": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"graveyard": [
+				{
+					"cp": "e918",
+					"color": "#987143"
+				}
+			],
+			"herb": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"housing_decor_vendor": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"hunter_pet": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"innkeeper": [
+				{
+					"cp": "e91c",
+					"color": "#5e95cf"
+				}
+			],
+			"instance": [
+				{
+					"cp": "e91d",
+					"color": "#65ace2"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"legendary": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"lightforged_beacon": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"lore_object": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"lumber": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"lunar_elder": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"mailbox": [
+				{
+					"cp": "e924",
+					"color": "#e6d1a3"
+				}
+			],
+			"master_pet_tamer": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e926",
+					"color": "#987143"
+				}
+			],
+			"mount": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"netherwing_egg": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"ore": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"portal": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"profession_trainer": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"quest": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"rare_spawn": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"repair_vendor": [
+				{
+					"cp": "e92e",
+					"color": "#a8a8a8"
+				}
+			],
+			"repeatable": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"stable_master": [
+				{
+					"cp": "e930",
+					"color": "#a8a8a8"
+				}
+			],
+			"time_travel": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			],
+			"town": [
+				{
+					"cp": "e932",
+					"color": "#ffffff"
+				}
+			],
+			"transmogrifier": [
+				{
+					"cp": "e933",
+					"color": "#a363c5"
+				}
+			],
+			"transport": [
+				{
+					"cp": "e934",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e935",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e936",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "azeroth",
+			"title": "Azeroth",
+			"data": "azeroth/data.json",
+			"tilesets": [
+				{
+					"name": "azeroth2",
+					"template": "azeroth/tiles/azeroth2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 18,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,686 @@
+{
+	"id": "world-of-warcraft",
+	"title": "World of Warcraft",
+	"slug": "world-of-warcraft",
+	"source": "https://mapgenie.io/world-of-warcraft",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"treasure_chest": [
+				{
+					"cp": "e900",
+					"color": "#fff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e901",
+					"color": "#fff"
+				}
+			],
+			"transport": [
+				{
+					"cp": "e902",
+					"color": "#fff"
+				}
+			],
+			"transmogrifier": [
+				{
+					"cp": "e903",
+					"color": "#fff"
+				}
+			],
+			"town": [
+				{
+					"cp": "e904",
+					"color": "#fff"
+				}
+			],
+			"time_travel": [
+				{
+					"cp": "e905",
+					"color": "#fff"
+				}
+			],
+			"stable_master": [
+				{
+					"cp": "e906",
+					"color": "#fff"
+				}
+			],
+			"repeatable": [
+				{
+					"cp": "e907",
+					"color": "#fff"
+				}
+			],
+			"repair_vendor": [
+				{
+					"cp": "e908",
+					"color": "#fff"
+				}
+			],
+			"rare_spawn": [
+				{
+					"cp": "e909",
+					"color": "#fff"
+				}
+			],
+			"quest": [
+				{
+					"cp": "e90a",
+					"color": "#fff"
+				}
+			],
+			"profession_trainer": [
+				{
+					"cp": "e90b",
+					"color": "#fff"
+				}
+			],
+			"portal": [
+				{
+					"cp": "e90c",
+					"color": "#fff"
+				}
+			],
+			"ore": [
+				{
+					"cp": "e90d",
+					"color": "#fff"
+				}
+			],
+			"netherwing_egg": [
+				{
+					"cp": "e90e",
+					"color": "#fff"
+				}
+			],
+			"mount": [
+				{
+					"cp": "e90f",
+					"color": "#fff"
+				}
+			],
+			"master_pet_tamer": [
+				{
+					"cp": "e910",
+					"color": "#fff"
+				}
+			],
+			"mailbox": [
+				{
+					"cp": "e911",
+					"color": "#fff"
+				}
+			],
+			"lunar_elder": [
+				{
+					"cp": "e912",
+					"color": "#fff"
+				}
+			],
+			"lumber": [
+				{
+					"cp": "e913",
+					"color": "#fff"
+				}
+			],
+			"lore_object": [
+				{
+					"cp": "e914",
+					"color": "#fff"
+				}
+			],
+			"lightforged_beacon": [
+				{
+					"cp": "e915",
+					"color": "#fff"
+				}
+			],
+			"legendary": [
+				{
+					"cp": "e916",
+					"color": "#fff"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e917",
+					"color": "#fff"
+				}
+			],
+			"instance": [
+				{
+					"cp": "e918",
+					"color": "#fff"
+				}
+			],
+			"innkeeper": [
+				{
+					"cp": "e919",
+					"color": "#fff"
+				}
+			],
+			"hunter_pet": [
+				{
+					"cp": "e91a",
+					"color": "#fff"
+				}
+			],
+			"housing_decor_vendor": [
+				{
+					"cp": "e91b",
+					"color": "#fff"
+				}
+			],
+			"herb": [
+				{
+					"cp": "e91c",
+					"color": "#fff"
+				}
+			],
+			"graveyard": [
+				{
+					"cp": "e91d",
+					"color": "#fff"
+				}
+			],
+			"glow_cap": [
+				{
+					"cp": "e91e",
+					"color": "#fff"
+				}
+			],
+			"gas_cloud": [
+				{
+					"cp": "e91f",
+					"color": "#fff"
+				}
+			],
+			"flight_master": [
+				{
+					"cp": "e920",
+					"color": "#fff"
+				}
+			],
+			"fishing": [
+				{
+					"cp": "e921",
+					"color": "#fff"
+				}
+			],
+			"ferry_master": [
+				{
+					"cp": "e922",
+					"color": "#fff"
+				}
+			],
+			"everfrost_chip": [
+				{
+					"cp": "e923",
+					"color": "#fff"
+				}
+			],
+			"eternal_gateway": [
+				{
+					"cp": "e924",
+					"color": "#fff"
+				}
+			],
+			"encounter": [
+				{
+					"cp": "e925",
+					"color": "#fff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e926",
+					"color": "#fff"
+				}
+			],
+			"digsite": [
+				{
+					"cp": "e927",
+					"color": "#fff"
+				}
+			],
+			"delve": [
+				{
+					"cp": "e928",
+					"color": "#fff"
+				}
+			],
+			"dark_soil": [
+				{
+					"cp": "e929",
+					"color": "#fff"
+				}
+			],
+			"daily": [
+				{
+					"cp": "e92a",
+					"color": "#fff"
+				}
+			],
+			"city": [
+				{
+					"cp": "e92b",
+					"color": "#fff"
+				}
+			],
+			"candy_bucket": [
+				{
+					"cp": "e92c",
+					"color": "#fff"
+				}
+			],
+			"bonus_objective": [
+				{
+					"cp": "e92d",
+					"color": "#fff"
+				}
+			],
+			"battle_pet": [
+				{
+					"cp": "e92e",
+					"color": "#fff"
+				}
+			],
+			"barber_shop": [
+				{
+					"cp": "e92f",
+					"color": "#fff"
+				}
+			],
+			"barber": [
+				{
+					"cp": "e930",
+					"color": "#fff"
+				}
+			],
+			"banker": [
+				{
+					"cp": "e931",
+					"color": "#fff"
+				}
+			],
+			"auctioneer": [
+				{
+					"cp": "e932",
+					"color": "#fff"
+				}
+			],
+			"ancient_waygate": [
+				{
+					"cp": "e933",
+					"color": "#fff"
+				}
+			],
+			"ancient_translocator": [
+				{
+					"cp": "e934",
+					"color": "#fff"
+				}
+			],
+			"ancient_mana": [
+				{
+					"cp": "e935",
+					"color": "#fff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "eastern-kingdoms",
+			"title": "Eastern Kingdoms",
+			"data": "eastern-kingdoms/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "eastern-kingdoms/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 18,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "kalimdor",
+			"title": "Kalimdor",
+			"data": "kalimdor/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "kalimdor/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "dragon-isles",
+			"title": "Dragon Isles",
+			"data": "dragon-isles/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "dragon-isles/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "outland",
+			"title": "Outland",
+			"data": "outland/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "outland/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "northrend",
+			"title": "Northrend",
+			"data": "northrend/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "northrend/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#1e3b5d"
+				}
+			]
+		},
+		{
+			"slug": "pandaria",
+			"title": "Pandaria",
+			"data": "pandaria/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "pandaria/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#051419"
+				}
+			]
+		},
+		{
+			"slug": "draenor",
+			"title": "Draenor",
+			"data": "draenor/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "draenor/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#081a3e"
+				}
+			]
+		},
+		{
+			"slug": "kul-tiras",
+			"title": "Kul Tiras",
+			"data": "kul-tiras/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "kul-tiras/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "zandalar",
+			"title": "Zandalar",
+			"data": "zandalar/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "zandalar/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "broken-isles",
+			"title": "Broken Isles",
+			"data": "broken-isles/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "broken-isles/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "shadowlands",
+			"title": "Shadowlands",
+			"data": "shadowlands/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "shadowlands/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "khaz-algar",
+			"title": "Khaz Algar",
+			"data": "khaz-algar/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "khaz-algar/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#150d0b"
+				}
+			]
+		},
+		{
+			"slug": "argus",
+			"title": "Argus",
+			"data": "argus/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "argus/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "nazjatar",
+			"title": "Nazjatar",
+			"data": "nazjatar/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "nazjatar/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "quelthalas",
+			"title": "Quel'Thalas",
+			"data": "quelthalas/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "quelthalas/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "azuremyst-isles",
+			"title": "Azuremyst Isles",
+			"data": "azuremyst-isles/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "azuremyst-isles/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#011d29"
+				}
+			]
+		},
+		{
+			"slug": "deepholm",
+			"title": "Deepholm",
+			"data": "deepholm/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "deepholm/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#010101"
+				}
+			]
+		},
+		{
+			"slug": "tol-barad",
+			"title": "Tol Barad",
+			"data": "tol-barad/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "tol-barad/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#01000e"
+				}
+			]
+		},
+		{
+			"slug": "lost-isles",
+			"title": "Lost Isles",
+			"data": "lost-isles/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "lost-isles/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#150d0b"
+				}
+			]
+		},
+		{
+			"slug": "darkmoon-island",
+			"title": "Darkmoon Island",
+			"data": "darkmoon-island/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "darkmoon-island/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#374d40"
+				}
+			]
+		}
+	]
+}

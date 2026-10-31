@@ -1,0 +1,284 @@
+{
+	"id": "dragon-quest-vii",
+	"title": "Dragon Quest VII: Reimagined",
+	"slug": "dragon-quest-vii",
+	"source": "https://mapgenie.io/dragon-quest-vii",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"accessory": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"armour_shop": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"castle": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"clergy": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"goddess_statue": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"gold_coin": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"head": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"important_item": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"inn": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"item_shop": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"lucky_panel": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"main_story": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"mini_medal": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"mini_medal_exchange": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"monster_heart": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"ruins": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"seed": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"shield": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"ship_dock": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"sparkly_spot": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"sub_story": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"tablet_fragment": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"tablet_pedestal": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"teleportal": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"torso": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"tower": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"town": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"usable_item": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_shop": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "past",
+			"title": "Past",
+			"data": "past/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "past/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#0d1925"
+				}
+			]
+		},
+		{
+			"slug": "present",
+			"title": "Present",
+			"data": "present/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "present/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#0d1925"
+				}
+			]
+		}
+	]
+}

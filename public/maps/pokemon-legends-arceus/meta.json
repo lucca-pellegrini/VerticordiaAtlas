@@ -1,0 +1,239 @@
+{
+	"id": "pokemon-legends-arceus",
+	"title": "Pokémon Legends: Arceus",
+	"slug": "pokemon-legends-arceus",
+	"source": "https://mapgenie.io/pokemon-legends-arceus",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"alpha_pokemon": [
+				{
+					"cp": "e900"
+				}
+			],
+			"area": [
+				{
+					"cp": "e901"
+				}
+			],
+			"arena": [
+				{
+					"cp": "e902"
+				}
+			],
+			"berry": [
+				{
+					"cp": "e903"
+				}
+			],
+			"camp": [
+				{
+					"cp": "e904"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e905"
+				}
+			],
+			"character": [
+				{
+					"cp": "e906"
+				}
+			],
+			"clothier": [
+				{
+					"cp": "e907"
+				}
+			],
+			"consumable": [
+				{
+					"cp": "e908"
+				}
+			],
+			"craftworks": [
+				{
+					"cp": "e909"
+				}
+			],
+			"distortion": [
+				{
+					"cp": "e90a"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90b"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e90c"
+				}
+			],
+			"farm": [
+				{
+					"cp": "e90d"
+				}
+			],
+			"fast_travel_point": [
+				{
+					"cp": "e90e"
+				}
+			],
+			"game": [
+				{
+					"cp": "e90f"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e910"
+				}
+			],
+			"hairdresser": [
+				{
+					"cp": "e911"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e912"
+				}
+			],
+			"mineral": [
+				{
+					"cp": "e913"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e914"
+				}
+			],
+			"mushroom": [
+				{
+					"cp": "e915"
+				}
+			],
+			"noble_pokemon": [
+				{
+					"cp": "e916"
+				}
+			],
+			"old_verse": [
+				{
+					"cp": "e917"
+				}
+			],
+			"photo_studio": [
+				{
+					"cp": "e918"
+				}
+			],
+			"plant": [
+				{
+					"cp": "e919"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91a"
+				}
+			],
+			"pokemon": [
+				{
+					"cp": "e91b"
+				}
+			],
+			"quarters": [
+				{
+					"cp": "e91c"
+				}
+			],
+			"rare_pokemon": [
+				{
+					"cp": "e91d"
+				}
+			],
+			"request": [
+				{
+					"cp": "e91e"
+				}
+			],
+			"story_mission": [
+				{
+					"cp": "e91f"
+				}
+			],
+			"tm": [
+				{
+					"cp": "e920"
+				}
+			],
+			"trading_post": [
+				{
+					"cp": "e921"
+				}
+			],
+			"training_grounds": [
+				{
+					"cp": "e922"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e923"
+				}
+			],
+			"unown_pokemon": [
+				{
+					"cp": "e924"
+				}
+			],
+			"vendor": [
+				{
+					"cp": "e925"
+				}
+			],
+			"wisp": [
+				{
+					"cp": "e926"
+				}
+			],
+			"wood": [
+				{
+					"cp": "e927"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "hisui-region",
+			"title": "Hisui Region",
+			"data": "hisui-region/data.json",
+			"tilesets": [
+				{
+					"name": "V3",
+					"template": "hisui-region/tiles/default-v3/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#e3d2be"
+				}
+			]
+		}
+	]
+}

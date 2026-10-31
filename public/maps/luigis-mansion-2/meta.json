@@ -1,0 +1,197 @@
+{
+	"id": "luigis-mansion-2",
+	"title": "Luigi's Mansion 2",
+	"slug": "luigis-mansion-2",
+	"source": "https://mapgenie.io/luigis-mansion-2",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"area": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"boo": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"dark_moon_piece": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"gem": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"locked_door": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"portal": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"secret_door": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"spider_web": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"spike_plant": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "gloomy-manor",
+			"title": "Gloomy Manor",
+			"data": "gloomy-manor/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "gloomy-manor/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "haunted-towers",
+			"title": "Haunted Towers",
+			"data": "haunted-towers/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "haunted-towers/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "old-clockworks",
+			"title": "Old Clockworks",
+			"data": "old-clockworks/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "old-clockworks/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "secret-mine",
+			"title": "Secret Mine",
+			"data": "secret-mine/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "secret-mine/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "treacherous-mansion",
+			"title": "Treacherous Mansion",
+			"data": "treacherous-mansion/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "treacherous-mansion/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

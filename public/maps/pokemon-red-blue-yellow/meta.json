@@ -1,0 +1,168 @@
+{
+	"id": "pokemon-red-blue-yellow",
+	"title": "Pokémon Red/Blue/Yellow",
+	"slug": "pokemon-red-blue-yellow",
+	"source": "https://mapgenie.io/pokemon-red-blue-yellow",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"area": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"elite_four": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"gym_leader": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"hm": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"movable_boulder": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"notable_npc": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"pokemon_center": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"small_plant": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"tm": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"trader": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"trainer": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "redblue",
+			"title": "Red/Blue",
+			"data": "redblue/data.json",
+			"tilesets": [
+				{
+					"name": "Red",
+					"template": "redblue/tiles/red-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#c889a8"
+				},
+				{
+					"name": "Blue",
+					"template": "redblue/tiles/blue-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#4f88cf"
+				}
+			]
+		},
+		{
+			"slug": "yellow",
+			"title": "Yellow",
+			"data": "yellow/data.json",
+			"tilesets": [
+				{
+					"name": "Yellow",
+					"template": "yellow/tiles/yellow-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 17,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#7bce7c"
+				}
+			]
+		}
+	]
+}

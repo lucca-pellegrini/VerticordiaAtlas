@@ -1,0 +1,147 @@
+{
+	"id": "euro-truck-simulator-2",
+	"title": "Euro Truck Simulator 2",
+	"slug": "euro-truck-simulator-2",
+	"source": "https://mapgenie.io/euro-truck-simulator-2",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"border_crossing": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"capital": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"channel_tunnel": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"city": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"fuel_stop": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"garage": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"photo_trophy": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"port": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"recruitment_agency": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"resting_place": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"secret_road": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"service": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"toll_gate": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"truck_dealer": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"viewpoint": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"weigh_station": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "europe",
+			"title": "Europe",
+			"data": "europe/data.json",
+			"tilesets": [
+				{
+					"name": "1.61",
+					"template": "europe/tiles/gps-v6/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 17,
+					"viewMaxzoom": 18,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

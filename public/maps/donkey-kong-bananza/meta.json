@@ -1,0 +1,460 @@
+{
+	"id": "donkey-kong-bananza",
+	"title": "Donkey Kong Bananza",
+	"slug": "donkey-kong-bananza",
+	"source": "https://mapgenie.io/donkey-kong-bananza",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"banana_map": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"banandium_gem": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"battle": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"bonus_stage": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"checkpoint": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"chip_exchange": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"clothing": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"course": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"cranky_kong": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"extra_rare_fossil": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"fossil": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"fossil_map": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"getaway": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"map": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"music_disc": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"rare_fossil": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"rehearsal_hall": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"shifty_smash": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"stuff_shop": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"style_shop": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"warp_gong": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "ingot-isle",
+			"title": "Ingot Isle",
+			"data": "ingot-isle/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "ingot-isle/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#151618"
+				}
+			]
+		},
+		{
+			"slug": "lagoon",
+			"title": "Lagoon Layer",
+			"data": "lagoon/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "lagoon/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#3db39d"
+				}
+			]
+		},
+		{
+			"slug": "hilltop",
+			"title": "Hilltop Layer",
+			"data": "hilltop/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hilltop/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#3bb489"
+				}
+			]
+		},
+		{
+			"slug": "canyon",
+			"title": "Canyon Layer",
+			"data": "canyon/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "canyon/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#f68f62"
+				}
+			]
+		},
+		{
+			"slug": "divide",
+			"title": "The Divide",
+			"data": "divide/data.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "divide/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 12,
+					"viewMaxzoom": 13,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#62b19e"
+				}
+			]
+		},
+		{
+			"slug": "freezer",
+			"title": "Freezer Layer",
+			"data": "freezer/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "freezer/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#b197e0"
+				}
+			]
+		},
+		{
+			"slug": "forest",
+			"title": "Forest Layer",
+			"data": "forest/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "forest/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#3cad5f"
+				}
+			]
+		},
+		{
+			"slug": "junction",
+			"title": "Junction",
+			"data": "junction/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "junction/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#ca5e7e"
+				}
+			]
+		},
+		{
+			"slug": "resort",
+			"title": "Resort Layer",
+			"data": "resort/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "resort/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#54cfcd"
+				}
+			]
+		},
+		{
+			"slug": "tempest",
+			"title": "Tempest Layer",
+			"data": "tempest/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "tempest/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#1f89a1"
+				}
+			]
+		},
+		{
+			"slug": "landfill",
+			"title": "Landfill Layer",
+			"data": "landfill/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "landfill/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#bd7c42"
+				}
+			]
+		},
+		{
+			"slug": "racing",
+			"title": "Racing Layer",
+			"data": "racing/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "racing/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#ddbc51"
+				}
+			]
+		},
+		{
+			"slug": "radiance",
+			"title": "Radiance Layer",
+			"data": "radiance/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "radiance/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#6fae68"
+				}
+			]
+		},
+		{
+			"slug": "groove",
+			"title": "Groove Layer",
+			"data": "groove/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "groove/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#b2b0be"
+				}
+			]
+		},
+		{
+			"slug": "feast",
+			"title": "Feast Layer",
+			"data": "feast/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "feast/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#a1b53a"
+				}
+			]
+		},
+		{
+			"slug": "forbidden",
+			"title": "Forbidden Layer",
+			"data": "forbidden/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "forbidden/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#d86471"
+				}
+			]
+		},
+		{
+			"slug": "planet-core",
+			"title": "Planet Core",
+			"data": "planet-core/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "planet-core/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

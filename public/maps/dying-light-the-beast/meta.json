@@ -1,0 +1,249 @@
+{
+	"id": "dying-light-the-beast",
+	"title": "Dying Light: The Beast",
+	"slug": "dying-light-the-beast",
+	"source": "https://mapgenie.io/dying-light-the-beast",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"armor": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"asylum_patient_record": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"barons_research_recording": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"blueprint": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"castor_woods_beaver": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"castor_woods_newspaper": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"castor_woods_recipe": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"chimera": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"convoy": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"dark_zone": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"dr_peter_paulaner_diary": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"dr_tal_cubero_recording": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"driving_challenge": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"fisher_family_document": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"hidden_truths_with_spark": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"hub": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"loot": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"manual_page": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"mural": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"olivias_recording": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"safe_spot": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"safe_zone": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"sigil": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"story_quest": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"substation": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"trader": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_map": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"vehicle": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "castor-woods",
+			"title": "Castor Woods",
+			"data": "castor-woods/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "castor-woods/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

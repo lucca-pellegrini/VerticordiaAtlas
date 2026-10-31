@@ -1,0 +1,177 @@
+{
+	"id": "yakuza-kiwami",
+	"title": "Yakuza Kiwami",
+	"slug": "yakuza-kiwami",
+	"source": "https://mapgenie.io/yakuza-kiwami",
+	"poster": "poster.png",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"chapter_10": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_2": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_3": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_4": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_5": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_6": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_7": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"chapter_8": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"dream_machine": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"endgame": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"fishing_spot": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"gear_store": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"locker_key": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"majima": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"mesuking_card": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"restaurant": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"snack_store": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"taxi": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"telephone": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "kamurocho",
+			"title": "Kamurocho",
+			"data": "kamurocho/data.json",
+			"tilesets": [
+				{
+					"name": "kamurocho",
+					"template": "kamurocho/tiles/kamurocho/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

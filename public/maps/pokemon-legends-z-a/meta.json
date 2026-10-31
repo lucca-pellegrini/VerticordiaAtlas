@@ -1,0 +1,211 @@
+{
+	"id": "pokemon-legends-z-a",
+	"title": "Pokémon Legends: Z-A",
+	"slug": "pokemon-legends-z-a",
+	"source": "https://mapgenie.io/pokemon-legends-z-a",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"alpha_pokemon": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"berry": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"boutique": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"cafe": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"colorful_screw": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel_spot": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"hair_salon": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"holovator": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"key_item": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"ladder": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"main_mission": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"medicine": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"mega_pokemon": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"mega_stone": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"other_item": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"poke_ball": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"pokemon_center": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"promotion_match": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"restaurant": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"side_mission": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"tm": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"wild_zone": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "lumiose-city",
+			"title": "Lumiose City",
+			"data": "lumiose-city/data.json",
+			"tilesets": [
+				{
+					"name": "Day",
+					"template": "lumiose-city/tiles/day-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#738e95"
+				},
+				{
+					"name": "Night",
+					"template": "lumiose-city/tiles/night-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#191a2c"
+				}
+			]
+		}
+	]
+}
