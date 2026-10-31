@@ -191,7 +191,7 @@ export function publicMediaUrl(mediaUrl: string, game: string, originalName: str
 
 export function openMediaDb(root = REPO) {
 	mkdirSync(path.join(root, "data"), { recursive: true });
-	const db = new Database(path.join(root, "data", "atlas.db"), { create: true });
+	const db = new Database(path.join(root, "data", "atlas.db"), { create: true, strict: true });
 	db.exec(`
 		PRAGMA journal_mode = WAL;
 		PRAGMA busy_timeout = 5000;
@@ -202,7 +202,7 @@ export function openMediaDb(root = REPO) {
 			size INTEGER NOT NULL,
 			uploaded_at INTEGER NOT NULL,
 			PRIMARY KEY (game, original_name)
-		);
+		) STRICT;
 	`);
 
 	const hasStmt = db.prepare("SELECT 1 FROM media WHERE game = ? AND original_name = ?");

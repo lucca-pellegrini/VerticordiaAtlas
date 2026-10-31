@@ -1,14 +1,18 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-// The sign-in page: Google (the server does the redirect and checks the ID token), or a secret key. Either way the server sets the session.
+// The sign-in page: Google OIDC, email/username + password (with registration, email verification, and password reset),
+// or an anonymous 128-bit secret key.
 import { cleanSecretChars, formatSecretKey, validateSecretKey } from "../shared/secret-key.ts";
 import "./theme.ts";
 
 export { cleanSecretChars, formatSecretKey, validateSecretKey };
 
+type AuthViewName = "login" | "register" | "verify-pending" | "verify-result" | "forgot" | "reset";
+
 if (typeof document !== "undefined") {
-	const rawNext = typeof location !== "undefined" ? new URLSearchParams(location.search).get("next") || "" : "";
+	const params = typeof location !== "undefined" ? new URLSearchParams(location.search) : new URLSearchParams();
+	const rawNext = params.get("next") || "";
 	// only a path on this site: "/x" (not "//host") or nothing
 	const nextPath = /^\/(?!\/)/.test(rawNext) ? rawNext : "/";
 	const next = nextPath === "/" ? "../" : nextPath;
@@ -22,24 +26,64 @@ if (typeof document !== "undefined") {
 			body: body !== undefined ? JSON.stringify(body) : undefined,
 		}).then(async (r) => {
 			const data = await r.json().catch(() => ({}));
-			if (!r.ok) throw new Error(data.error || "Something went wrong.");
+			if (!r.ok) {
+				const err: any = new Error(data.error || "Something went wrong.");
+				err.status = r.status;
+				err.code = data.code;
+				err.field = data.field;
+				throw err;
+			}
 			return data;
 		});
 
 	const $ = <T extends HTMLElement = HTMLElement>(id: string): T => document.getElementById(id) as T;
-	const showError = (msg: string) => {
+	const showSecretError = (msg: string) => {
 		const e = $("secret-error");
 		if (!e) return;
 		e.textContent = msg;
 		e.hidden = !msg;
 	};
+	const setMsg = (id: string, msg: string) => {
+		const el = $(id);
+		if (!el) return;
+		el.textContent = msg;
+		el.hidden = !msg;
+	};
 	const done = () => {
 		location.href = next;
 	};
 
+	const VIEWS: Record<AuthViewName, string> = {
+		login: "view-login",
+		register: "view-register",
+		"verify-pending": "view-verify-pending",
+		"verify-result": "view-verify-result",
+		forgot: "view-forgot",
+		reset: "view-reset",
+	};
+
+	function switchView(view: AuthViewName): void {
+		for (const [k, id] of Object.entries(VIEWS)) {
+			const el = $(id);
+			if (el) el.hidden = k !== view;
+		}
+		const primaryBlock = $("primary-auth-block");
+		if (primaryBlock) {
+			primaryBlock.hidden = view === "verify-result" || view === "reset" || view === "verify-pending";
+		}
+		setMsg("login-error", "");
+		setMsg("register-error", "");
+		setMsg("verify-pending-error", "");
+		setMsg("verify-pending-ok", "");
+		setMsg("forgot-error", "");
+		setMsg("forgot-ok", "");
+		setMsg("reset-error", "");
+		setMsg("reset-ok", "");
+	}
+
 	/* ---------- Google: our own button; the server sends the browser to Google and back (see api.ts) ---------- */
 	async function setupGoogle(): Promise<void> {
-		const error = new URLSearchParams(location.search).get("error");
+		const error = params.get("error");
 		if (error) {
 			$("google-error").textContent = error;
 			$("google-error").hidden = false;
@@ -58,7 +102,209 @@ if (typeof document !== "undefined") {
 		btn.href = `../api/auth/google/start?next=${encodeURIComponent(nextPath)}`;
 		btn.hidden = false;
 	}
-	setupGoogle();
+	void setupGoogle();
+
+	/* ---------- View Navigation Buttons ---------- */
+	let pendingVerifyEmail = "";
+
+	$("btn-goto-register")?.addEventListener("click", () => {
+		switchView("register");
+		$<HTMLInputElement>("reg-username")?.focus();
+	});
+	$("btn-goto-forgot")?.addEventListener("click", () => {
+		const cur = $<HTMLInputElement>("login-identifier")?.value.trim() || "";
+		if (cur.includes("@")) {
+			$<HTMLInputElement>("forgot-email").value = cur;
+		}
+		switchView("forgot");
+		$<HTMLInputElement>("forgot-email")?.focus();
+	});
+	for (const id of ["btn-back-login-1", "btn-back-login-2", "btn-back-login-3", "btn-back-login-4"]) {
+		$(id)?.addEventListener("click", () => {
+			switchView("login");
+			$<HTMLInputElement>("login-identifier")?.focus();
+		});
+	}
+
+	/* ---------- Email / Username + Password Login ---------- */
+	const loginForm = $<HTMLFormElement>("email-login-form");
+	if (loginForm) {
+		loginForm.onsubmit = async (e) => {
+			e.preventDefault();
+			setMsg("login-error", "");
+			const identifier = $<HTMLInputElement>("login-identifier").value.trim();
+			const password = $<HTMLInputElement>("login-password").value;
+			if (!identifier || !password) {
+				setMsg("login-error", "Please enter your email or username and password.");
+				return;
+			}
+			const btn = $<HTMLButtonElement>("login-submit-btn");
+			btn.disabled = true;
+			try {
+				await api("POST", "auth/login", { identifier, password });
+				done();
+			} catch (err: any) {
+				setMsg("login-error", err.message || "Could not sign in.");
+			} finally {
+				btn.disabled = false;
+			}
+		};
+	}
+
+	/* ---------- Registration ---------- */
+	const registerForm = $<HTMLFormElement>("register-form");
+	if (registerForm) {
+		registerForm.onsubmit = async (e) => {
+			e.preventDefault();
+			setMsg("register-error", "");
+			const username = $<HTMLInputElement>("reg-username").value.trim();
+			const displayName = $<HTMLInputElement>("reg-display-name").value.trim();
+			const email = $<HTMLInputElement>("reg-email").value.trim();
+			const password = $<HTMLInputElement>("reg-password").value;
+			const btn = $<HTMLButtonElement>("register-submit-btn");
+			btn.disabled = true;
+			try {
+				const res = await api("POST", "auth/register", {
+					username,
+					displayName: displayName || undefined,
+					email,
+					password,
+				});
+				pendingVerifyEmail = email;
+				const msgEl = $("verify-pending-msg");
+				if (msgEl) {
+					msgEl.textContent =
+						res.message ||
+						`We sent a verification link to ${email}. Click the link in that email to activate your account.`;
+				}
+				switchView("verify-pending");
+			} catch (err: any) {
+				setMsg("register-error", err.message || "Could not create account.");
+			} finally {
+				btn.disabled = false;
+			}
+		};
+	}
+
+	$("btn-resend-verify")?.addEventListener("click", async () => {
+		if (!pendingVerifyEmail) return;
+		setMsg("verify-pending-error", "");
+		setMsg("verify-pending-ok", "");
+		const btn = $<HTMLButtonElement>("btn-resend-verify");
+		btn.disabled = true;
+		try {
+			const res = await api("POST", "auth/verify-email/resend", { email: pendingVerifyEmail });
+			setMsg("verify-pending-ok", res.message || "Verification email sent.");
+		} catch (err: any) {
+			setMsg("verify-pending-error", err.message || "Could not resend verification email.");
+		} finally {
+			btn.disabled = false;
+		}
+	});
+
+	/* ---------- Forgot Password ---------- */
+	const forgotForm = $<HTMLFormElement>("forgot-form");
+	if (forgotForm) {
+		forgotForm.onsubmit = async (e) => {
+			e.preventDefault();
+			setMsg("forgot-error", "");
+			setMsg("forgot-ok", "");
+			const email = $<HTMLInputElement>("forgot-email").value.trim();
+			const btn = $<HTMLButtonElement>("forgot-submit-btn");
+			btn.disabled = true;
+			try {
+				const res = await api("POST", "auth/password/forgot", { email });
+				setMsg(
+					"forgot-ok",
+					res.message ||
+						"If an account is associated with that email address, we have sent instructions to reset your password.",
+				);
+			} catch (err: any) {
+				setMsg("forgot-error", err.message || "Could not request password reset.");
+			} finally {
+				btn.disabled = false;
+			}
+		};
+	}
+
+	/* ---------- Verify Email Link (?verify=<token>) ---------- */
+	const verifyToken = params.get("verify");
+	if (verifyToken) {
+		switchView("verify-result");
+		void (async () => {
+			const heading = $("verify-result-heading");
+			const msg = $("verify-result-msg");
+			const contBtn = $<HTMLButtonElement>("btn-verify-continue");
+			try {
+				const res = await api("POST", "auth/verify-email", { token: verifyToken });
+				heading.textContent = "Email verified";
+				msg.textContent =
+					res.message || "Your email address has been confirmed. You can now sign in to your account.";
+				contBtn.hidden = false;
+				contBtn.onclick = () => {
+					history.replaceState(
+						null,
+						"",
+						location.pathname + (rawNext ? `?next=${encodeURIComponent(rawNext)}` : ""),
+					);
+					if (res.purpose === "email_change") {
+						location.href = "../account/";
+					} else {
+						switchView("login");
+						$<HTMLInputElement>("login-identifier")?.focus();
+					}
+				};
+			} catch (err: any) {
+				heading.textContent = "Verification failed";
+				msg.textContent = "";
+				setMsg("verify-result-error", err.message || "This verification link is invalid or has expired.");
+				contBtn.textContent = "Back to sign in";
+				contBtn.hidden = false;
+				contBtn.onclick = () => {
+					history.replaceState(null, "", location.pathname);
+					switchView("login");
+				};
+			}
+		})();
+	}
+
+	/* ---------- Password Reset Link (?reset=<token>) ---------- */
+	const resetToken = params.get("reset");
+	if (resetToken && !verifyToken) {
+		switchView("reset");
+		const resetForm = $<HTMLFormElement>("reset-form");
+		if (resetForm) {
+			resetForm.onsubmit = async (e) => {
+				e.preventDefault();
+				setMsg("reset-error", "");
+				setMsg("reset-ok", "");
+				const password = $<HTMLInputElement>("reset-password").value;
+				const confirm = $<HTMLInputElement>("reset-password-confirm").value;
+				if (password !== confirm) {
+					setMsg("reset-error", "Passwords do not match.");
+					return;
+				}
+				const btn = $<HTMLButtonElement>("reset-submit-btn");
+				btn.disabled = true;
+				try {
+					const res = await api("POST", "auth/password/reset", { token: resetToken, password });
+					setMsg("reset-ok", res.message || "Your password has been reset.");
+					setTimeout(() => {
+						history.replaceState(null, "", location.pathname);
+						switchView("login");
+						$<HTMLInputElement>("login-identifier")?.focus();
+					}, 1200);
+				} catch (err: any) {
+					setMsg("reset-error", err.message || "Could not reset password.");
+					btn.disabled = false;
+				}
+			};
+		}
+	} else if (!verifyToken) {
+		const mode = params.get("mode");
+		if (mode === "register") switchView("register");
+		else if (mode === "forgot") switchView("forgot");
+	}
 
 	/* ---------- secret keys ---------- */
 	$("toggle-secret").onclick = () => {
@@ -71,7 +317,7 @@ if (typeof document !== "undefined") {
 	let copiedTimer: ReturnType<typeof setTimeout> | null = null;
 
 	$("secret-new").onclick = async () => {
-		showError("");
+		showSecretError("");
 		try {
 			const { secret } = await api("POST", "auth/secret/new", {});
 			currentSecret = secret;
@@ -79,7 +325,7 @@ if (typeof document !== "undefined") {
 			$("secret-shown").hidden = false;
 			$("secret-new").hidden = true;
 		} catch (e: any) {
-			showError(e.message);
+			showSecretError(e.message);
 		}
 	};
 
@@ -117,13 +363,13 @@ if (typeof document !== "undefined") {
 		if (!currentSecret) return;
 		const btn = $<HTMLButtonElement>("secret-continue");
 		btn.disabled = true;
-		showError("");
+		showSecretError("");
 		try {
 			await api("POST", "auth/secret/confirm", { secret: currentSecret });
 			done();
 		} catch (err: any) {
 			btn.disabled = false;
-			showError(err.message);
+			showSecretError(err.message);
 		}
 	};
 
@@ -138,13 +384,11 @@ if (typeof document !== "undefined") {
 			if (e.key === "Tab" || e.key === "Enter" || e.key === "Escape") return;
 			if (e.key.startsWith("Arrow") || e.key === "Home" || e.key === "End") return;
 
-			// If the user types a dash manually, do not insert it
 			if (e.key === "-" || e.key === "–" || e.key === "—") {
 				e.preventDefault();
 				return;
 			}
 
-			// Backspace across a dash
 			if (e.key === "Backspace" && secretInput.selectionStart === secretInput.selectionEnd) {
 				const pos = secretInput.selectionStart || 0;
 				if (pos > 0 && secretInput.value[pos - 1] === "-") {
@@ -157,7 +401,6 @@ if (typeof document !== "undefined") {
 				}
 			}
 
-			// Single printable character
 			if (e.key.length === 1) {
 				if (!/[0-9a-zA-Z]/.test(e.key)) {
 					e.preventDefault();
@@ -173,7 +416,7 @@ if (typeof document !== "undefined") {
 		});
 
 		function onSecretInput(): void {
-			showError("");
+			showSecretError("");
 			const prevVal = secretInput.value;
 			const prevPos = secretInput.selectionStart ?? prevVal.length;
 
@@ -199,12 +442,12 @@ if (typeof document !== "undefined") {
 				const v = validateSecretKey(clean);
 				if (!v.valid) {
 					loginBtn?.setAttribute("aria-disabled", "true");
-					showError(v.error);
+					showSecretError(v.error);
 				} else {
 					loginBtn?.setAttribute("aria-disabled", "false");
 					if (!autoSubmitting) {
 						autoSubmitting = true;
-						void submitLogin();
+						void submitSecretLogin();
 					}
 				}
 			} else {
@@ -216,37 +459,37 @@ if (typeof document !== "undefined") {
 		secretInput.addEventListener("input", onSecretInput);
 	}
 
-	function tryLogin(): void {
-		showError("");
+	function trySecretLogin(): void {
+		showSecretError("");
 		const clean = secretInput ? cleanSecretChars(secretInput.value) : "";
 		if (clean.length === 0) {
-			showError("Please enter your secret key.");
+			showSecretError("Please enter your secret key.");
 			secretInput?.focus();
 			return;
 		}
 		if (clean.length < 30) {
-			showError(`Please enter a complete 30-character secret key (${clean.length}/30 entered).`);
+			showSecretError(`Please enter a complete 30-character secret key (${clean.length}/30 entered).`);
 			secretInput?.focus();
 			return;
 		}
 		const v = validateSecretKey(clean);
 		if (!v.valid) {
-			showError(v.error);
+			showSecretError(v.error);
 			secretInput?.focus();
 			return;
 		}
-		void submitLogin();
+		void submitSecretLogin();
 	}
 
-	async function submitLogin(): Promise<void> {
+	async function submitSecretLogin(): Promise<void> {
 		if (loginBtn) (loginBtn as HTMLButtonElement).disabled = true;
-		showError("");
+		showSecretError("");
 		try {
 			await api("POST", "auth/secret/login", { secret: secretInput.value });
 			done();
 		} catch (err: any) {
 			autoSubmitting = false;
-			showError(err.message);
+			showSecretError(err.message);
 		} finally {
 			if (loginBtn) (loginBtn as HTMLButtonElement).disabled = false;
 		}
@@ -255,7 +498,7 @@ if (typeof document !== "undefined") {
 	loginBtn?.addEventListener("click", (e) => {
 		if (loginBtn.getAttribute("aria-disabled") === "true") {
 			e.preventDefault();
-			tryLogin();
+			trySecretLogin();
 		}
 	});
 
@@ -263,9 +506,9 @@ if (typeof document !== "undefined") {
 		e.preventDefault();
 		const clean = secretInput ? cleanSecretChars(secretInput.value) : "";
 		if (clean.length === 30 && validateSecretKey(clean).valid) {
-			await submitLogin();
+			await submitSecretLogin();
 		} else {
-			tryLogin();
+			trySecretLogin();
 		}
 	};
 }

@@ -6,7 +6,7 @@
 		<title>Account · Verticordia Atlas</title>
 		<meta
 			name="description"
-			content="Manage your optional Verticordia Atlas sync account, active sessions, and offline maps stored in this browser."
+			content="Manage your optional Verticordia Atlas sync account, sign-in credentials, active sessions, and offline maps stored in this browser."
 		/>
 		<meta name="theme-color" content="#0b0e10" />
 		<script>
@@ -97,6 +97,161 @@
 				<p class="error" id="account-error" role="alert" hidden></p>
 			</section>
 
+			<!-- Profile & Display Name / Username -->
+			<section class="account-panel" id="profile-section" aria-labelledby="profile-heading" hidden>
+				<div class="panel-head">
+					<h2 id="profile-heading">Profile</h2>
+				</div>
+				<form id="profile-form" class="acct-form">
+					<div class="form-grid">
+						<label class="field">
+							<span>Display name <small>(broad Unicode &amp; spaces allowed)</small></span>
+							<input
+								id="profile-display-name"
+								class="text-input"
+								type="text"
+								maxlength="40"
+								autocomplete="name"
+								placeholder="Your display name"
+								required
+							/>
+						</label>
+						<label class="field">
+							<span>Username <small>(unique identifier, 2–20 chars, no spaces)</small></span>
+							<input
+								id="profile-username"
+								class="text-input"
+								type="text"
+								maxlength="20"
+								autocomplete="username"
+								spellcheck="false"
+								placeholder="Choose a unique username"
+							/>
+						</label>
+					</div>
+					<p class="error" id="profile-error" role="alert" hidden></p>
+					<div class="btn-row">
+						<button type="submit" class="primary-btn" id="btn-save-profile">Save profile</button>
+					</div>
+				</form>
+			</section>
+
+			<!-- Email Addresses -->
+			<section class="account-panel" id="emails-section" aria-labelledby="emails-heading" hidden>
+				<div class="panel-head">
+					<h2 id="emails-heading">Email addresses</h2>
+				</div>
+				<p class="small">
+					Verified email addresses can be used for password sign-in, password recovery, and security alerts.
+				</p>
+				<div id="emails-list" class="item-list"></div>
+				<form id="add-email-form" class="inline-form">
+					<input
+						id="add-email-input"
+						class="text-input"
+						type="email"
+						autocomplete="email"
+						placeholder="Add an email address (you@example.com)"
+						required
+					/>
+					<button type="submit" class="ghost" id="btn-add-email">Add email</button>
+				</form>
+				<p class="error" id="emails-error" role="alert" hidden></p>
+			</section>
+
+			<!-- Sign-in Methods & Credentials -->
+			<section class="account-panel" id="security-section" aria-labelledby="security-heading" hidden>
+				<div class="panel-head">
+					<h2 id="security-heading">Sign-in methods</h2>
+				</div>
+				<p class="small">
+					You can attach multiple sign-in methods to the same account and remove any method as long as at
+					least one way to sign in remains.
+				</p>
+				<div id="credentials-list" class="item-list"></div>
+
+				<!-- Inline Password Form (Set or Change) -->
+				<form id="password-form" class="sub-box acct-form" hidden>
+					<h3 id="password-form-title">Change password</h3>
+					<label class="field" id="pw-current-wrap">
+						<span>Current password</span>
+						<input
+							id="pw-current"
+							class="text-input"
+							type="password"
+							autocomplete="current-password"
+							placeholder="••••••••"
+						/>
+					</label>
+					<label class="field" id="pw-username-wrap" hidden>
+						<span>Choose a unique username <small>(required for password sign-in)</small></span>
+						<input
+							id="pw-username"
+							class="text-input"
+							type="text"
+							maxlength="20"
+							autocomplete="username"
+							spellcheck="false"
+							placeholder="e.g. Tarnished_One"
+						/>
+					</label>
+					<div class="form-grid">
+						<label class="field">
+							<span>New password <small>(min 8 chars)</small></span>
+							<input
+								id="pw-new"
+								class="text-input"
+								type="password"
+								minlength="8"
+								autocomplete="new-password"
+								placeholder="••••••••"
+								required
+							/>
+						</label>
+						<label class="field">
+							<span>Confirm new password</span>
+							<input
+								id="pw-confirm"
+								class="text-input"
+								type="password"
+								minlength="8"
+								autocomplete="new-password"
+								placeholder="••••••••"
+								required
+							/>
+						</label>
+					</div>
+					<p class="error" id="password-error" role="alert" hidden></p>
+					<div class="btn-row">
+						<button type="submit" class="primary-btn" id="btn-save-password">Save password</button>
+						<button type="button" class="ghost" id="btn-cancel-password">Cancel</button>
+					</div>
+				</form>
+
+				<!-- Inline Secret Key Setup Box -->
+				<div id="new-secret-box" class="sub-box" hidden>
+					<h3>Save your new secret key</h3>
+					<p class="small">
+						Save this key somewhere safe now. It is only shown once and allows signing in without an email
+						or Google account:
+					</p>
+					<div class="secret-box">
+						<code id="acct-secret-value" class="secret"></code>
+					</div>
+					<label class="saved">
+						<input type="checkbox" id="acct-secret-saved" /> I have saved this secret key somewhere safe
+					</label>
+					<div class="btn-row">
+						<button type="button" class="primary-btn" id="btn-confirm-add-secret" disabled>
+							Attach secret key to account
+						</button>
+						<button type="button" class="ghost" id="btn-cancel-add-secret">Cancel</button>
+					</div>
+				</div>
+
+				<p class="error" id="security-error" role="alert" hidden></p>
+			</section>
+
 			<section class="account-panel" id="offline-section" aria-labelledby="offline-heading">
 				<div class="panel-head">
 					<h2 id="offline-heading">Offline maps on this device</h2>
@@ -141,6 +296,58 @@
 				</div>
 			</section>
 		</main>
+
+		<!-- Secret-Key-Only Confirmation Modal -->
+		<div
+			class="modal-backdrop"
+			id="secret-confirm-modal"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="secret-modal-title"
+			hidden
+		>
+			<div class="modal-card">
+				<h2 id="secret-modal-title">Secret key will be your only way to sign in</h2>
+				<div class="warning-callout">
+					<p>
+						<strong>Warning:</strong> After this change, your <strong>secret key</strong> will be the only
+						remaining way to sign in to this account.
+					</p>
+					<p>
+						If you lose your secret key,
+						<strong
+							>your account and all synced progress are permanently lost and can never be
+							recovered.</strong
+						>
+					</p>
+				</div>
+				<p class="small">
+					To prove that you have your secret key saved, please enter the secret key for this account below to
+					confirm:
+				</p>
+				<form id="secret-confirm-form" class="acct-form">
+					<label class="field">
+						<span>Your account secret key</span>
+						<input
+							id="confirm-secret-input"
+							class="mono-input"
+							type="text"
+							autocomplete="off"
+							spellcheck="false"
+							placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XX"
+							required
+						/>
+					</label>
+					<p class="error" id="confirm-secret-error" role="alert" hidden></p>
+					<div class="btn-row">
+						<button type="submit" class="danger-solid-btn" id="btn-modal-secret-confirm">
+							Verify key &amp; continue
+						</button>
+						<button type="button" class="ghost" id="btn-modal-secret-cancel">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
 
 		<footer class="signin-foot wrap">
 			<p class="fine">

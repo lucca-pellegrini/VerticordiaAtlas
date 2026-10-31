@@ -487,7 +487,7 @@ describe("Google OAuth and session cookie flows", () => {
 		expect(lastStatus).toBe(429);
 	});
 
-	test("identities table stores (provider, issuer, subject) mapping for Google sign-ins", async () => {
+	test("auth_identities and email_addresses store Google identity and verified primary email", async () => {
 		// Log in with a valid token
 		const startRes = await fetch(`${baseUrl}/api/auth/google/start?next=/`, { redirect: "manual" });
 		const locUrl = new URL(startRes.headers.get("location")!);
@@ -514,9 +514,75 @@ describe("Google OAuth and session cookie flows", () => {
 		expect(res.status).toBe(303);
 
 		const row = api._db
-			.prepare("SELECT * FROM identities WHERE provider = 'google' AND subject = ?")
+			.prepare("SELECT * FROM auth_identities WHERE provider = 'google' AND provider_subject = ?")
 			.get("google-sub-identity-test") as any;
 		expect(row).toBeDefined();
-		expect(row.issuer).toBe("https://accounts.google.com");
+		expect(row.provider).toBe("google");
+
+		const emailRow = api._db.prepare("SELECT * FROM email_addresses WHERE user_id = ?").get(row.user_id) as any;
+		expect(emailRow).toBeDefined();
+		expect(emailRow.email).toBe("identity@example.com");
+		expect(emailRow.verified_at).toBeGreaterThan(0);
+		expect(emailRow.is_primary).toBe(1);
+	});
+
+	test("signed-in secret-key account can link and unlink a Google account (with secret key confirmation)", async () => {
+		const secret = api.newSecret();
+		const confirmRes = await fetch(`${baseUrl}/api/auth/secret/confirm`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret }),
+		});
+		const cookie = (confirmRes.headers.get("set-cookie") || "").split(";")[0];
+
+		const startRes = await fetch(`${baseUrl}/api/auth/google/start?link=1&next=/account/`, {
+			headers: { Cookie: cookie },
+			redirect: "manual",
+		});
+		const locUrl = new URL(startRes.headers.get("location")!);
+		const state = locUrl.searchParams.get("state")!;
+		const nonce = locUrl.searchParams.get("nonce")!;
+
+		const token = await makeIdToken({
+			iss: "https://accounts.google.com",
+			aud: "test-google-client",
+			sub: "google-sub-linked-999",
+			email: "linked@example.com",
+			name: "Linked User",
+			email_verified: true,
+			nonce,
+			exp: Math.floor(Date.now() / 1000) + 3600,
+		});
+
+		const cbRes = await fetch(`${baseUrl}/api/auth/google/callback`, {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded", Cookie: cookie },
+			body: new URLSearchParams({ state, id_token: token }).toString(),
+			redirect: "manual",
+		});
+		expect(cbRes.status).toBe(303);
+		expect(cbRes.headers.get("location")).toBe("/account/");
+
+		const meRes = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
+		const { user } = await meRes.json();
+		expect(user.methods).toEqual({ google: true, password: false, secretKey: true });
+		expect(user.email).toBe("linked@example.com");
+
+		// Unlinking Google leaves secretKey as the sole login method -> requires confirmSecretKey
+		const unlinkNoConfirm = await fetch(`${baseUrl}/api/account/credentials/revoke`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json", Cookie: cookie },
+			body: JSON.stringify({ type: "google" }),
+		});
+		expect(unlinkNoConfirm.status).toBe(400);
+		expect((await unlinkNoConfirm.json()).requireSecretKeyConfirmation).toBe(true);
+
+		const unlinkOk = await fetch(`${baseUrl}/api/account/credentials/revoke`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json", Cookie: cookie },
+			body: JSON.stringify({ type: "google", confirmSecretKey: secret }),
+		});
+		expect(unlinkOk.status).toBe(200);
+		expect((await unlinkOk.json()).user.methods).toEqual({ google: false, password: false, secretKey: true });
 	});
 });

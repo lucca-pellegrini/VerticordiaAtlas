@@ -533,6 +533,7 @@ const api = createApi({
 	root: REPO,
 	googleClientId: process.env.GOOGLE_CLIENT_ID || siteFile.googleClientId || null,
 	publicUrl: (process.env.PUBLIC_URL || siteFile.url || "").replace(/\/+$/, "") || null,
+	argon2: siteFile.argon2,
 	onEvent: (action, detail) => dashboard.onApi(action, detail),
 });
 

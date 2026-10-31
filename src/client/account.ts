@@ -29,7 +29,14 @@ export async function api(method: string, path: string, body?: unknown): Promise
 		throw Object.assign(new Error("network"), { network: true });
 	}
 	const data = await res.json().catch(() => ({}));
-	if (!res.ok) throw Object.assign(new Error(data.error || res.statusText), { status: res.status });
+	if (!res.ok) {
+		throw Object.assign(new Error(data.error || res.statusText), {
+			status: res.status,
+			code: data.code,
+			field: data.field,
+			requireSecretKeyConfirmation: Boolean(data.requireSecretKeyConfirmation),
+		});
+	}
 	return data;
 }
 

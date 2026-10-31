@@ -281,6 +281,101 @@ h2 {
 .error {
 	color: var(--danger);
 }
+.error[hidden],
+.ok-msg[hidden],
+.auth-view[hidden] {
+	display: none !important;
+}
+.ok-msg {
+	color: var(--ok, #58c27d);
+	font-size: 14px;
+	margin: 4px 0 0;
+}
+.auth-divider {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin: 22px 0 16px;
+	color: var(--ink-dim);
+	font-size: 12px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+.auth-divider::before,
+.auth-divider::after {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: var(--line-2);
+}
+.auth-card {
+	padding: 20px 22px;
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	background: color-mix(in srgb, var(--panel) 86%, transparent);
+}
+.auth-view {
+	display: grid;
+	gap: 14px;
+}
+.auth-form {
+	display: grid;
+	gap: 13px;
+}
+.field-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+.field small {
+	text-transform: none;
+	letter-spacing: normal;
+	font-weight: 400;
+	opacity: 0.8;
+}
+.field input.text-input {
+	font: 400 14.5px/1.4 "Instrument Sans";
+	letter-spacing: normal;
+}
+.field input.text-input::placeholder {
+	font-family: "Instrument Sans";
+	letter-spacing: normal;
+}
+.form-actions {
+	display: flex;
+	margin-top: 2px;
+}
+.full-btn {
+	width: 100%;
+	justify-content: center;
+	text-align: center;
+}
+.auth-switch {
+	margin: 2px 0 0;
+	font-size: 13.5px;
+	color: var(--ink-dim);
+	text-align: center;
+}
+.inline-link {
+	background: none;
+	border: 0;
+	padding: 0;
+	color: var(--accent-soft);
+	font: 500 13px/1.2 "Instrument Sans";
+	text-decoration: underline;
+	text-underline-offset: 3px;
+	cursor: pointer;
+}
+.inline-link:hover {
+	color: var(--ink);
+}
+.btn-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+}
 .other {
 	margin-top: 20px;
 	text-align: center;
