@@ -13,7 +13,9 @@ import {
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
+	startThrobber,
 	THEME,
+	throbberFrame,
 } from "./theme.js";
 
 export interface ScreenshotDashboardOptions {
@@ -53,6 +55,7 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 	let totalBytes = 0;
 	let currentShot: ShotItemMeta | null = null;
 	let currentSubStep = "Idle";
+	let activeThrobberFrame = throbberFrame(0);
 	const finished: FinishedShotRecord[] = [];
 	const logLinesList: { time: string; tag: string; message: string; color: string }[] = [];
 
@@ -118,7 +121,7 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 
 	// Header
 	const headerText = new TextRenderable(renderer, {
-		content: "VERTICORDIA ATLAS • APP SCREENSHOT CAPTURE (CDP)",
+		content: `${activeThrobberFrame} VERTICORDIA ATLAS • APP SCREENSHOT CAPTURE (CDP)`,
 		fg: THEME.borderFocus,
 	});
 	const subText = new TextRenderable(renderer, {
@@ -295,6 +298,13 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 		renderer.requestRender();
 	}
 
+	const throbber = startThrobber((frame) => {
+		activeThrobberFrame = frame;
+		if (isDestroyed) return;
+		headerText.content = `${frame} VERTICORDIA ATLAS • APP SCREENSHOT CAPTURE (CDP)`;
+		renderUi(false);
+	});
+
 	function handleResize(termW: number, termH: number) {
 		if (isDestroyed) return;
 		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 250, 120);
@@ -396,6 +406,8 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 			renderUi(false);
 		},
 		async finish() {
+			throbber.stop();
+			headerText.content = "✓ VERTICORDIA ATLAS • APP SCREENSHOT CAPTURE (CDP)";
 			currentShot = null;
 			currentSubStep = "All screenshots captured";
 			renderUi(true);
@@ -419,6 +431,7 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 			);
 		},
 		destroy() {
+			throbber.stop();
 			if (!isDestroyed) {
 				isDestroyed = true;
 				renderer.off("resize", handleResize);

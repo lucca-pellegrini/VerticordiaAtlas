@@ -47,6 +47,67 @@ export const RGBA_THEME = {
 	teal: RGBA.fromHex(THEME.teal),
 };
 
+/** Braille spinner frames shared by every animated activity indicator. */
+export const THROBBER_FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"] as const;
+
+/** Default animation cadence for throbbers. */
+export const THROBBER_INTERVAL_MS = 100;
+
+/** Wrap a monotonically increasing tick into a frame index. */
+export function throbberTickIndex(tick: number, frameCount = THROBBER_FRAMES.length): number {
+	if (frameCount <= 0) return 0;
+	return ((Math.floor(tick) % frameCount) + frameCount) % frameCount;
+}
+
+/** Return the glyph for a given animation tick. */
+export function throbberFrame(tick: number, frames: readonly string[] = THROBBER_FRAMES): string {
+	if (!frames.length) return "";
+	return frames[throbberTickIndex(tick, frames.length)];
+}
+
+export interface Throbber {
+	/** Current animation tick. */
+	readonly tick: number;
+	/** Current glyph. */
+	readonly frame: string;
+	/** Stop the interval. Safe to call more than once. */
+	stop(): void;
+}
+
+/**
+ * Start a lightweight interval that advances a spinner and reports each frame.
+ *
+ * The callback should only update the renderables it needs and request a render.
+ * Call `stop()` from the owning view's `finish()` / `destroy()` lifecycle hook.
+ */
+export function startThrobber(
+	onFrame: (frame: string, tick: number) => void,
+	intervalMs = THROBBER_INTERVAL_MS,
+	frames: readonly string[] = THROBBER_FRAMES,
+): Throbber {
+	let tick = 0;
+	let stopped = false;
+	const timer = setInterval(() => {
+		if (stopped) return;
+		tick++;
+		onFrame(throbberFrame(tick, frames), tick);
+	}, intervalMs);
+
+	return {
+		get tick() {
+			return tick;
+		},
+		get frame() {
+			return throbberFrame(tick, frames);
+		},
+		stop() {
+			if (stopped) return;
+			stopped = true;
+			clearInterval(timer);
+		},
+	};
+}
+
 export const DENSITY_GLYPHS = [" ", "░", "▒", "▓", "█"] as const;
 
 export function densityGlyph(ratio: number): string {

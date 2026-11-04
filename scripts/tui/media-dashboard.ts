@@ -13,7 +13,9 @@ import {
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
+	startThrobber,
 	THEME,
+	throbberFrame,
 } from "./theme.js";
 
 export interface MediaDashboardOptions {
@@ -60,6 +62,7 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 	let failed = 0;
 	let totalBytes = 0;
 	const totalExpected = opts.totalExpected || 0;
+	let activeThrobberFrame = throbberFrame(0);
 
 	const recentTransfers: MediaItemEvent[] = [];
 	const samples: { time: number; items: number; bytes: number }[] = [];
@@ -147,7 +150,7 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 	});
 
 	const headerText = new TextRenderable(renderer, {
-		content: "VERTICORDIA ATLAS • MEDIA ASSET PIPELINE",
+		content: `${activeThrobberFrame} VERTICORDIA ATLAS • MEDIA ASSET PIPELINE`,
 		fg: THEME.borderFocus,
 	});
 	const subText = new TextRenderable(renderer, {
@@ -320,6 +323,13 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 		renderer.requestRender();
 	}
 
+	const throbber = startThrobber((frame) => {
+		activeThrobberFrame = frame;
+		if (isDestroyed) return;
+		headerText.content = `${frame} VERTICORDIA ATLAS • MEDIA ASSET PIPELINE`;
+		renderUi(false);
+	});
+
 	function handleResize(termW: number, termH: number) {
 		if (isDestroyed) return;
 		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 128, 38);
@@ -371,6 +381,8 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 			renderUi(false);
 		},
 		async finish() {
+			throbber.stop();
+			headerText.content = "✓ VERTICORDIA ATLAS • MEDIA ASSET PIPELINE";
 			renderUi(true);
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
@@ -403,6 +415,7 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 			}
 		},
 		destroy() {
+			throbber.stop();
 			if (!isDestroyed) {
 				isDestroyed = true;
 				if (!opts.renderer) {

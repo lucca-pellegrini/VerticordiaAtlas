@@ -3,7 +3,7 @@
 
 import { BoxRenderable, type KeyEvent, TextRenderable } from "@opentui/core";
 
-import { fmtTime, RGBA_THEME, THEME } from "./theme.js";
+import { fmtTime, RGBA_THEME, startThrobber, THEME, throbberFrame } from "./theme.js";
 
 export interface ServerJobOptions {
 	renderer: any;
@@ -40,6 +40,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	let endTime = 0;
 	let jobStatus: "running" | "completed" | "failed" = "running";
 	let currentStage = "Initializing...";
+	let activeThrobberFrame = throbberFrame(0);
 	const logs: string[] = [];
 	let isDestroyed = false;
 
@@ -73,7 +74,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		fg: THEME.peach,
 	});
 	const statusBadge = new TextRenderable(renderer, {
-		content: " [RUNNING] ",
+		content: ` [${activeThrobberFrame} RUNNING] `,
 		fg: THEME.yellow,
 	});
 	titleRow.add(titleText);
@@ -111,6 +112,32 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		marginVertical: 0,
 	});
 	rootBox.add(stageContainer);
+
+	// Shown while no embedded stage TUI is mounted (e.g. metadata discovery).
+	const pendingTitle = new TextRenderable(renderer, {
+		content: `${activeThrobberFrame} Working…`,
+		fg: THEME.yellow,
+	});
+	const pendingStage = new TextRenderable(renderer, {
+		content: `Stage: ${currentStage}`,
+		fg: THEME.textDim,
+	});
+	stageContainer.add(pendingTitle);
+	stageContainer.add(pendingStage);
+
+	function truncateStage(stage: string): string {
+		const max = Math.max(20, boxW - 8);
+		return stage.length > max ? stage.slice(0, max - 1) + "…" : stage;
+	}
+
+	function updatePendingVisibility() {
+		const hasEmbedded = stageContainer
+			.getChildren()
+			.some((child) => child !== pendingTitle && child !== pendingStage);
+		const show = jobStatus === "running" && !hasEmbedded;
+		pendingTitle.visible = show;
+		pendingStage.visible = show;
+	}
 
 	// Streaming Log Pane
 	const logBox = new BoxRenderable(renderer, {
@@ -170,6 +197,18 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		renderer.requestRender();
 	}, 1000);
 
+	const throbber = startThrobber((frame) => {
+		if (isDestroyed) return;
+		activeThrobberFrame = frame;
+		pendingTitle.content = `${frame} Working…`;
+		if (jobStatus === "running") {
+			statusBadge.content = ` [${frame} RUNNING] `;
+			statusBadge.fg = THEME.yellow;
+		}
+		updatePendingVisibility();
+		renderer.requestRender();
+	});
+
 	return {
 		root: rootBox,
 		stageContainer,
@@ -181,6 +220,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		setStage(stageName: string) {
 			currentStage = stageName;
 			stageText.content = `Stage: ${stageName}`;
+			pendingStage.content = `Stage: ${truncateStage(stageName)}`;
 			renderer.requestRender();
 		},
 		addLog(line: string) {
@@ -193,16 +233,19 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		finish(success: boolean, message?: string) {
 			endTime = Date.now();
 			jobStatus = success ? "completed" : "failed";
+			throbber.stop();
 			if (success) {
-				statusBadge.content = " [COMPLETED] ";
+				statusBadge.content = " [✓ COMPLETED] ";
 				statusBadge.fg = THEME.green;
 				stageText.content = `Stage: Finished ✓ ${message || ""}`;
 				opts.onCompleted?.();
 			} else {
-				statusBadge.content = " [FAILED] ";
+				statusBadge.content = " [✗ FAILED] ";
 				statusBadge.fg = THEME.red;
 				stageText.content = `Stage: Error ✗ ${message || ""}`;
 			}
+			pendingTitle.visible = false;
+			pendingStage.visible = false;
 			renderer.requestRender();
 		},
 		handleKey(key: KeyEvent): boolean {
@@ -225,11 +268,13 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 			logBox.height = nextLogBoxH;
 			stageContainer.width = boxW - 2;
 			stageContainer.height = Math.max(8, boxH - 4 - nextLogBoxH - 1);
+			pendingStage.content = `Stage: ${truncateStage(currentStage)}`;
 			updateLogDisplay();
 		},
 		destroy() {
 			isDestroyed = true;
 			clearInterval(ticker);
+			throbber.stop();
 		},
 	};
 }

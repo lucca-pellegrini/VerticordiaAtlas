@@ -14,7 +14,9 @@ import {
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
+	startThrobber,
 	THEME,
+	throbberFrame,
 } from "./theme.js";
 
 export interface DashboardOptions {
@@ -84,6 +86,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 
 	let currentConcurrency = opts.concurrency || 16;
 	let currentDelayMs = 0;
+	let activeThrobberFrame = throbberFrame(0);
 
 	let validMinX = opts.bounds?.xMin ?? Infinity;
 	let validMaxX = opts.bounds?.xMax ?? -Infinity;
@@ -292,7 +295,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	});
 
 	const headerText = new TextRenderable(renderer, {
-		content: "VERTICORDIA ATLAS • TILE PYRAMID DOWNLOADER",
+		content: `${activeThrobberFrame} VERTICORDIA ATLAS • TILE PYRAMID DOWNLOADER`,
 		fg: THEME.borderFocus,
 	});
 	const subText = new TextRenderable(renderer, {
@@ -621,6 +624,13 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		}
 	}
 
+	const throbber = startThrobber((frame) => {
+		activeThrobberFrame = frame;
+		if (isDestroyed) return;
+		headerText.content = `${frame} VERTICORDIA ATLAS • TILE PYRAMID DOWNLOADER`;
+		scheduleRender(false);
+	});
+
 	function handleResize(termW: number, termH: number) {
 		if (isDestroyed) return;
 		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 128, 38);
@@ -769,6 +779,8 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			currentDelayMs = delayMs;
 		},
 		async finish() {
+			throbber.stop();
+			headerText.content = "✓ VERTICORDIA ATLAS • TILE PYRAMID DOWNLOADER";
 			scheduleRender(true);
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
@@ -802,6 +814,7 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			}
 		},
 		destroy() {
+			throbber.stop();
 			if (!isDestroyed) {
 				isDestroyed = true;
 				clearTimeout(renderTimer);

@@ -13,7 +13,9 @@ import {
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
+	startThrobber,
 	THEME,
+	throbberFrame,
 } from "./theme.js";
 
 export interface CardsDashboardOptions {
@@ -58,6 +60,7 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 	let totalBytes = 0;
 	let currentCard: CardItemMeta | null = null;
 	let currentSubStep = "Idle";
+	let activeThrobberFrame = throbberFrame(0);
 	const finished: FinishedCardRecord[] = [];
 	const logLinesList: { time: string; tag: string; message: string; color: string }[] = [];
 
@@ -137,7 +140,7 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 
 	// Header
 	const headerText = new TextRenderable(renderer, {
-		content: "VERTICORDIA ATLAS • SOCIAL CARD GENERATOR",
+		content: `${activeThrobberFrame} VERTICORDIA ATLAS • SOCIAL CARD GENERATOR`,
 		fg: THEME.borderFocus,
 	});
 	const subText = new TextRenderable(renderer, {
@@ -315,6 +318,13 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 		renderer.requestRender();
 	}
 
+	const throbber = startThrobber((frame) => {
+		activeThrobberFrame = frame;
+		if (isDestroyed) return;
+		headerText.content = `${frame} VERTICORDIA ATLAS • SOCIAL CARD GENERATOR`;
+		renderUi(false);
+	});
+
 	function handleResize(termW: number, termH: number) {
 		if (isDestroyed) return;
 		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 250, 120);
@@ -414,6 +424,8 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 			renderUi(false);
 		},
 		async finish() {
+			throbber.stop();
+			headerText.content = "✓ VERTICORDIA ATLAS • SOCIAL CARD GENERATOR";
 			currentCard = null;
 			currentSubStep = "All cards generated";
 			renderUi(true);
@@ -447,6 +459,7 @@ export async function createCardsDashboard(opts: CardsDashboardOptions): Promise
 			}
 		},
 		destroy() {
+			throbber.stop();
 			if (!isDestroyed) {
 				isDestroyed = true;
 				if (!opts.renderer) {

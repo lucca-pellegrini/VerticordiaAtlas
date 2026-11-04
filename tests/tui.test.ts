@@ -28,16 +28,36 @@ import {
 	isInteractiveTty,
 	promptAddGameTui,
 	renderProgressBar,
+	startThrobber,
+	THROBBER_FRAMES,
+	throbberFrame,
+	throbberTickIndex,
 	validatePosterUrl,
 } from "../scripts/tui/index.js";
 
 describe("TUI ecosystem components & helpers", () => {
-	test("theme helpers: densityGlyph, fmtTime, fmtBytes, renderProgressBar", () => {
+	test("theme helpers: densityGlyph, fmtTime, fmtBytes, renderProgressBar", async () => {
 		expect(densityGlyph(0)).toBe(" ");
 		expect(densityGlyph(0.2)).toBe("░");
 		expect(densityGlyph(0.4)).toBe("▒");
 		expect(densityGlyph(0.7)).toBe("▓");
 		expect(densityGlyph(0.95)).toBe("█");
+
+		// Animated throbber helpers cycle frames and can be stopped cleanly.
+		expect(throbberTickIndex(-1)).toBe(THROBBER_FRAMES.length - 1);
+		expect(throbberFrame(0)).toBe(THROBBER_FRAMES[0]);
+		expect(throbberFrame(THROBBER_FRAMES.length + 3)).toBe(THROBBER_FRAMES[3]);
+		const observedFrames: string[] = [];
+		const spinner = startThrobber((frame) => observedFrames.push(frame), 5);
+		await new Promise((r) => setTimeout(r, 25));
+		spinner.stop();
+		const stoppedAt = observedFrames.length;
+		expect(stoppedAt).toBeGreaterThan(0);
+		expect(
+			observedFrames.every((frame) => THROBBER_FRAMES.includes(frame as (typeof THROBBER_FRAMES)[number])),
+		).toBe(true);
+		await new Promise((r) => setTimeout(r, 15));
+		expect(observedFrames.length).toBe(stoppedAt);
 
 		expect(fmtTime(45)).toBe("00:45");
 		expect(fmtTime(125)).toBe("02:05");

@@ -13,7 +13,9 @@ import {
 	isInteractiveTty,
 	renderProgressBar,
 	RGBA_THEME,
+	startThrobber,
 	THEME,
+	throbberFrame,
 } from "./theme.js";
 
 export interface PruneDashboardOptions {
@@ -79,6 +81,7 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 	let curPrunedBytes = 0;
 	let curTopColors: [string, number][] = [];
 	let curPhase: "solid" | "overview" | "prune" | "idle" = "idle";
+	let activeThrobberFrame = throbberFrame(0);
 
 	const isInteractive = isInteractiveTty(opts.noTui);
 
@@ -166,7 +169,7 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 	});
 
 	const headerText = new TextRenderable(renderer, {
-		content: "VERTICORDIA ATLAS • TILE PYRAMID PRUNER & OPTIMIZER",
+		content: `${activeThrobberFrame} VERTICORDIA ATLAS • TILE PYRAMID PRUNER & OPTIMIZER`,
 		fg: THEME.borderFocus,
 	});
 	const subText = new TextRenderable(renderer, {
@@ -314,6 +317,13 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 		renderer.requestRender();
 	}
 
+	const throbber = startThrobber((frame) => {
+		activeThrobberFrame = frame;
+		if (isDestroyed) return;
+		headerText.content = `${frame} VERTICORDIA ATLAS • TILE PYRAMID PRUNER & OPTIMIZER`;
+		renderUi(false);
+	});
+
 	function handleResize(termW: number, termH: number) {
 		if (isDestroyed) return;
 		const targetW = opts.container ? opts.container.width || termW : termW || renderer.width;
@@ -380,6 +390,8 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 			renderUi(false);
 		},
 		async finish() {
+			throbber.stop();
+			headerText.content = "✓ VERTICORDIA ATLAS • TILE PYRAMID PRUNER & OPTIMIZER";
 			renderUi(true);
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
@@ -411,6 +423,7 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 			}
 		},
 		destroy() {
+			throbber.stop();
 			if (!isDestroyed) {
 				isDestroyed = true;
 				if (!opts.renderer) {

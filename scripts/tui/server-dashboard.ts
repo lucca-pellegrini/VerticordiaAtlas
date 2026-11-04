@@ -19,7 +19,9 @@ import {
 	isCtrlL,
 	isInteractiveTty,
 	RGBA_THEME,
+	startThrobber,
 	THEME,
+	throbberFrame,
 } from "./theme.js";
 
 export interface ServerDashboardOptions {
@@ -77,6 +79,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	let cachedTiles = 0;
 	let derivedTiles = 0;
 	let wsCount = 0;
+	let activeThrobberFrame = throbberFrame(0);
 
 	const recentRequests: HttpRequestEvent[] = [];
 	const recentCards: CardRenderEvent[] = [];
@@ -325,6 +328,12 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		{ id: "monitor", label: "Live Monitor", type: "monitor" },
 		{ id: "catalog", label: "Games Catalog", type: "catalog" },
 	];
+
+	function runningJobTabs(): TabItem[] {
+		return tabs.filter(
+			(tab) => tab.type === "job" && (tab.view as ServerJobView | undefined)?.status === "running",
+		);
+	}
 
 	const origLog = console.log;
 	const origInfo = console.info;
@@ -713,17 +722,19 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		for (let i = 0; i < tabs.length; i++) {
 			const t = tabs[i];
 			const isAct = i === activeTabIdx;
-			const badge = t.statusBadge ? ` ${t.statusBadge}` : "";
+			const isRunning = t.type === "job" && (t.view as ServerJobView | undefined)?.status === "running";
+			const badge = isRunning ? " (RUNNING)" : t.statusBadge ? ` ${t.statusBadge}` : "";
 			const canClose =
 				(i >= 2 && t.type === "form") || (t.type === "job" && (t.view as ServerJobView)?.status !== "running");
 			const closeMark = canClose ? " ×" : "";
 
 			if (isAct) {
-				tabPillTexts[i].content = ` ▌ ${i + 1}  ${t.label}${badge}${closeMark} `;
+				const spinner = isRunning ? `${activeThrobberFrame} ` : "";
+				tabPillTexts[i].content = ` ${spinner}▌ ${i + 1}  ${t.label}${badge}${closeMark} `;
 				tabPillTexts[i].fg = THEME.peach;
 				tabPillTexts[i].bg = THEME.surfaceLight;
-			} else if (t.statusBadge?.includes("RUNNING")) {
-				tabPillTexts[i].content = ` ◌ ${i + 1}  ${t.label} (RUNNING)${closeMark} `;
+			} else if (isRunning) {
+				tabPillTexts[i].content = ` ${activeThrobberFrame} ${i + 1}  ${t.label} (RUNNING)${closeMark} `;
 				tabPillTexts[i].fg = THEME.yellow;
 				tabPillTexts[i].bg = THEME.surface;
 			} else if (t.statusBadge?.includes("✓")) {
@@ -792,7 +803,12 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		lastRender = now;
 
 		const elapsed = (now - startTime) / 1000;
-		subText.content = `http://${opts.host}:${opts.port}/ | Uptime: ${fmtTime(elapsed)} | WS: ${wsCount} active`;
+		const runningJobs = runningJobTabs();
+		const activeJobs =
+			runningJobs.length > 0
+				? ` | ${activeThrobberFrame} ${runningJobs.length} job${runningJobs.length === 1 ? "" : "s"} running`
+				: "";
+		subText.content = `http://${opts.host}:${opts.port}/ | Uptime: ${fmtTime(elapsed)} | WS: ${wsCount} active${activeJobs}`;
 
 		const maxPathLen = Math.max(24, Math.floor(boxW * 0.45) - 18);
 
@@ -1060,6 +1076,14 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		renderUi(true);
 	}, 1000);
 
+	const throbber = startThrobber((frame) => {
+		if (isDestroyed) return;
+		activeThrobberFrame = frame;
+		if (runningJobTabs().length === 0) return;
+		updateTabBar();
+		renderUi(false);
+	});
+
 	return {
 		onRequest(ev) {
 			totalRequests++;
@@ -1096,6 +1120,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		},
 		destroy() {
 			clearInterval(ticker);
+			throbber.stop();
 			console.log = origLog;
 			console.info = origInfo;
 			console.warn = origWarn;
