@@ -152,13 +152,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	// Header Box
 	const headerBox = new BoxRenderable(renderer, {
 		flexDirection: "column",
-		width: boxW - 2,
+		width: boxW - 4,
 		marginVertical: 0,
 	});
 	const topHeaderRow = new BoxRenderable(renderer, {
 		flexDirection: "row",
 		justifyContent: "space-between",
-		width: boxW - 2,
+		width: boxW - 4,
 	});
 	const headerTitle = new TextRenderable(renderer, {
 		content: "VERTICORDIA ATLAS • SERVER DASHBOARD",
@@ -177,7 +177,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
-		width: boxW - 2,
+		width: boxW - 4,
 		height: 1,
 		backgroundColor: THEME.surface,
 		marginVertical: 0,
@@ -196,7 +196,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	});
 
 	const tabHintText = new TextRenderable(renderer, {
-		content: "C-1..0 / Alt-j/k ⇄  [C-w] Close ",
+		content: "C-1..0 / Alt-j/k ⇄  [C-w] Close",
 		fg: THEME.textDim,
 		bg: THEME.surface,
 	});
@@ -209,7 +209,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	const contentBox = new BoxRenderable(renderer, {
 		flexGrow: 1,
 		flexDirection: "column",
-		width: boxW - 2,
+		width: boxW - 4,
 		marginVertical: 0,
 	});
 	rootBox.add(contentBox);
@@ -227,7 +227,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	const monitorRoot = new BoxRenderable(renderer, {
 		flexDirection: "column",
 		flexGrow: 1,
-		width: boxW - 2,
+		width: boxW - 4,
 	});
 
 	const topRow = new BoxRenderable(renderer, {
@@ -386,7 +386,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	// Create Games Catalog View
 	const catalogView: GamesCatalogView = await createGamesCatalogView({
 		renderer,
-		width: boxW - 2,
+		width: boxW - 4,
 		height: boxH - 5,
 		onUpdate(game: CatalogGame, overwriteTiles: boolean) {
 			startUpdateJob(game, overwriteTiles);
@@ -410,7 +410,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	function createFormForTab(tab: TabItem): AddGameFormView {
 		const formView = createAddGameFormView({
 			renderer,
-			width: boxW - 2,
+			width: boxW - 4,
 			height: boxH - 5,
 			onSubmit(result: AddGameFormResult) {
 				startScrapeJobForTab(tab, result);
@@ -457,7 +457,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		const jobView = createServerJobView({
 			renderer,
-			width: boxW - 2,
+			width: boxW - 4,
 			height: boxH - 5,
 			jobId: tab.id,
 			jobType: "scrape",
@@ -548,7 +548,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		};
 		const jobView = createServerJobView({
 			renderer,
-			width: boxW - 2,
+			width: boxW - 4,
 			height: boxH - 5,
 			jobId: newTab.id,
 			jobType: "prune",
@@ -601,7 +601,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		};
 		const jobView = createServerJobView({
 			renderer,
-			width: boxW - 2,
+			width: boxW - 4,
 			height: boxH - 5,
 			jobId: newTab.id,
 			jobType: "scrape",
@@ -659,7 +659,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		};
 		const jobView = createServerJobView({
 			renderer,
-			width: boxW - 2,
+			width: boxW - 4,
 			height: boxH - 5,
 			jobId: newTab.id,
 			jobType: "cards",
@@ -756,7 +756,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		if (tabHintText) {
 			tabHintText.content =
-				boxW >= 105 ? "C-1..0 / Alt-j/k ⇄  [C-w] Close " : boxW >= 80 ? "C-1..0 / Alt-j/k ⇄ " : "";
+				boxW >= 105 ? "C-1..0 / Alt-j/k ⇄  [C-w] Close" : boxW >= 80 ? "C-1..0 / Alt-j/k ⇄" : "";
 		}
 
 		renderer.requestRender();
@@ -930,13 +930,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		rootBox.width = boxW;
 		rootBox.height = boxH;
-		headerBox.width = boxW - 2;
-		topHeaderRow.width = boxW - 2;
-		tabPillsRow.width = boxW - 2;
-		contentBox.width = boxW - 2;
-		monitorRoot.width = boxW - 2;
-		topRow.width = boxW - 2;
-		btmRow.width = boxW - 2;
+		headerBox.width = boxW - 4;
+		topHeaderRow.width = boxW - 4;
+		tabPillsRow.width = boxW - 4;
+		contentBox.width = boxW - 4;
+		monitorRoot.width = boxW - 4;
+		topRow.width = boxW - 4;
+		btmRow.width = boxW - 4;
 		httpPane.width = leftW;
 		syncPane.width = leftW;
 
@@ -949,13 +949,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		for (const tab of tabs) {
 			if (tab.view?.resize) {
-				tab.view.resize(boxW - 2, boxH - 5);
+				tab.view.resize(boxW - 4, boxH - 5);
 			}
 		}
 
 		if (tabHintText) {
 			tabHintText.content =
-				boxW >= 105 ? "C-1..0 / Alt-j/k ⇄  [C-w] Close " : boxW >= 80 ? "C-1..0 / Alt-j/k ⇄ " : "";
+				boxW >= 105 ? "C-1..0 / Alt-j/k ⇄  [C-w] Close" : boxW >= 80 ? "C-1..0 / Alt-j/k ⇄" : "";
 		}
 
 		renderUi(true);

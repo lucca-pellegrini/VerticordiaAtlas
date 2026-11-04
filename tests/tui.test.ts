@@ -512,6 +512,111 @@ describe("TUI ecosystem components & helpers", () => {
 		testEnv.dispose();
 	});
 
+	test("server-dashboard keeps the outer right border intact with symmetric inner padding", async () => {
+		const termW = 100;
+		const termH = 30;
+		const { boxW, boxH } = computeResponsiveBox(termW, termH, 250, 120);
+		const left = Math.floor((termW - boxW) / 2);
+		const top = Math.floor((termH - boxH) / 2);
+		const rightX = left + boxW - 1;
+
+		const testEnv = await createTestRenderer({ width: termW, height: termH });
+		const dashboard = await createServerDashboard({
+			host: "127.0.0.1",
+			port: 8080,
+			renderer: testEnv.renderer,
+		});
+		dashboard.setWsCount(3);
+		dashboard.onRequest({ method: "GET", path: "/maps/requiem", status: 200, durationMs: 4.5 });
+
+		const assertBorder = (label: string) => {
+			const lines = testEnv.captureCharFrame().split("\n");
+			for (let y = top; y < top + boxH; y++) {
+				const expected = y === top ? "┐" : y === top + boxH - 1 ? "┘" : "│";
+				expect(`${label} row ${y}: ${lines[y]?.[rightX]}`).toBe(`${label} row ${y}: ${expected}`);
+			}
+			return lines;
+		};
+
+		await testEnv.renderOnce();
+		let lines = assertBorder("monitor");
+		// Right-aligned header and tab hint end one column before the border,
+		// mirroring the single padding column on the left.
+		expect(lines[top + 1][rightX - 1]).toBe(" ");
+		expect(lines[top + 1][rightX - 2]).not.toBe(" ");
+		expect(lines[top + 2][rightX - 1]).toBe(" ");
+		expect(lines[top + 2][rightX - 2]).not.toBe(" ");
+
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "2",
+			alt: true,
+			ctrl: false,
+			meta: false,
+			shift: false,
+		} as any);
+		await new Promise((r) => setTimeout(r, 50));
+		await testEnv.renderOnce();
+		lines = assertBorder("catalog");
+		// The card grid spans the content width, so the outer card borders are
+		// inset by the same number of columns on both sides.
+		const cardTop = lines[top + 4];
+		let firstCard = left + 1;
+		while (cardTop[firstCard] === " ") firstCard++;
+		let lastCard = rightX - 1;
+		while (cardTop[lastCard] === " ") lastCard--;
+		expect(firstCard - (left + 1)).toBe(rightX - 1 - lastCard);
+
+		testEnv.renderer.keyInput.emit("keypress", { name: "n", ctrl: true } as any);
+		await new Promise((r) => setTimeout(r, 50));
+		await testEnv.renderOnce();
+		assertBorder("form");
+
+		dashboard.destroy();
+		testEnv.dispose();
+	});
+
+	test("server-job-view keeps header and log borders clear of right-aligned text", async () => {
+		const testEnv = await createTestRenderer({ width: 100, height: 30 });
+		const width = 96;
+		const height = 25;
+		const jobView = createServerJobView({
+			renderer: testEnv.renderer,
+			width,
+			height,
+			jobId: "job-border",
+			jobType: "scrape",
+			title: "Crimson Desert",
+			slug: "crimson-desert",
+		});
+		testEnv.renderer.root.add(jobView.root);
+		jobView.setStage("Fetching metadata");
+		jobView.addLog("Fetching https://mapgenie.io/crimson-desert");
+		await testEnv.renderOnce();
+
+		const lines = testEnv.captureCharFrame().split("\n");
+		const borderX = 1 + (width - 4) - 1;
+		expect(lines[0][borderX]).toBe("┐");
+		expect(lines[1][borderX]).toBe("│");
+		expect(lines[2][borderX]).toBe("│");
+		expect(lines[3][borderX]).toBe("┘");
+		// Running badge and elapsed text stop one column before the border.
+		expect(lines[1][borderX - 1]).toBe(" ");
+		expect(lines[1][borderX - 2]).not.toBe(" ");
+		expect(lines[2][borderX - 1]).toBe(" ");
+		expect(lines[2][borderX - 2]).not.toBe(" ");
+
+		const logH = Math.max(4, Math.min(8, Math.floor(height * 0.22)));
+		const logTop = lines.findIndex((line) => line.includes("STREAMING LOGS")) - 1;
+		expect(logTop).toBeGreaterThan(0);
+		for (let y = logTop; y < logTop + logH; y++) {
+			const expected = y === logTop ? "┐" : y === logTop + logH - 1 ? "┘" : "│";
+			expect(lines[y][borderX]).toBe(expected);
+		}
+
+		jobView.destroy();
+		testEnv.dispose();
+	});
+
 	test("games-catalog-view loads catalog, navigates 4-card grid, and supports reordering", async () => {
 		const testEnv = await createTestRenderer({ width: 100, height: 30 });
 		const renderer = testEnv.renderer;

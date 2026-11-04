@@ -61,20 +61,20 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		borderColor: RGBA_THEME.borderDim,
 		paddingX: 1,
 		paddingY: 0,
-		width: boxW - 2,
+		width: boxW - 4,
 	});
 
 	const titleRow = new BoxRenderable(renderer, {
 		flexDirection: "row",
 		justifyContent: "space-between",
-		width: boxW - 4,
+		width: boxW - 8,
 	});
 	const titleText = new TextRenderable(renderer, {
 		content: `JOB [${opts.jobType.toUpperCase()}]: ${opts.title} (${opts.slug})`,
 		fg: THEME.peach,
 	});
 	const statusBadge = new TextRenderable(renderer, {
-		content: ` [${activeThrobberFrame} RUNNING] `,
+		content: ` [${activeThrobberFrame} RUNNING]`,
 		fg: THEME.yellow,
 	});
 	titleRow.add(titleText);
@@ -84,7 +84,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	const subRow = new BoxRenderable(renderer, {
 		flexDirection: "row",
 		justifyContent: "space-between",
-		width: boxW - 4,
+		width: boxW - 8,
 	});
 	const stageText = new TextRenderable(renderer, {
 		content: `Stage: ${currentStage}`,
@@ -104,7 +104,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	const logBoxH = Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
 	const stageH = Math.max(8, boxH - 4 - logBoxH - 1);
 	const stageContainer = new BoxRenderable(renderer, {
-		width: boxW - 2,
+		width: boxW - 4,
 		height: stageH,
 		flexDirection: "column",
 		alignItems: "center",
@@ -141,7 +141,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 
 	// Streaming Log Pane
 	const logBox = new BoxRenderable(renderer, {
-		width: boxW - 2,
+		width: boxW - 4,
 		height: logBoxH,
 		border: true,
 		borderColor: RGBA_THEME.borderDim,
@@ -202,7 +202,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		activeThrobberFrame = frame;
 		pendingTitle.content = `${frame} Working…`;
 		if (jobStatus === "running") {
-			statusBadge.content = ` [${frame} RUNNING] `;
+			statusBadge.content = ` [${frame} RUNNING]`;
 			statusBadge.fg = THEME.yellow;
 		}
 		updatePendingVisibility();
@@ -235,12 +235,12 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 			jobStatus = success ? "completed" : "failed";
 			throbber.stop();
 			if (success) {
-				statusBadge.content = " [✓ COMPLETED] ";
+				statusBadge.content = " [✓ COMPLETED]";
 				statusBadge.fg = THEME.green;
 				stageText.content = `Stage: Finished ✓ ${message || ""}`;
 				opts.onCompleted?.();
 			} else {
-				statusBadge.content = " [✗ FAILED] ";
+				statusBadge.content = " [✗ FAILED]";
 				statusBadge.fg = THEME.red;
 				stageText.content = `Stage: Error ✗ ${message || ""}`;
 			}
@@ -260,13 +260,13 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 			boxH = h;
 			rootBox.width = boxW;
 			rootBox.height = boxH;
-			headerBox.width = boxW - 2;
-			titleRow.width = boxW - 4;
-			subRow.width = boxW - 4;
+			headerBox.width = boxW - 4;
+			titleRow.width = boxW - 8;
+			subRow.width = boxW - 8;
 			const nextLogBoxH = Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
-			logBox.width = boxW - 2;
+			logBox.width = boxW - 4;
 			logBox.height = nextLogBoxH;
-			stageContainer.width = boxW - 2;
+			stageContainer.width = boxW - 4;
 			stageContainer.height = Math.max(8, boxH - 4 - nextLogBoxH - 1);
 			pendingStage.content = `Stage: ${truncateStage(currentStage)}`;
 			updateLogDisplay();

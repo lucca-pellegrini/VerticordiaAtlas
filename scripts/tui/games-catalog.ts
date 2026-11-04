@@ -319,6 +319,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		while (rowPool.length < visibleRows) {
 			const rowBox = new BoxRenderable(renderer, {
 				flexDirection: "row",
+				justifyContent: "space-between",
 				gap: 1,
 				width: boxW - 2,
 				height: cardH,
