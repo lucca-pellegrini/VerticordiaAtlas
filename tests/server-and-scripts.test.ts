@@ -41,6 +41,9 @@ import { createRateLimiter } from "../server/rate-limit.ts";
 import { buildSecurityHeaders, collectInlineScriptHashes, parseUrl, withSecurityHeaders } from "../server/server.ts";
 import { mediaUrls } from "../src/client/map/detail.ts";
 import { PRECACHE } from "../src/client/sw.ts";
+import { hasTileFixtures } from "./tile-fixtures.ts";
+
+const HAS_RE7_BAKER_RANCH_TILES = hasTileFixtures("re7", ["baker-ranch"]);
 
 describe("server/cards helpers", () => {
 	test("hexToHsl and hslToHex round-trip", () => {
@@ -440,24 +443,27 @@ describe("server/api and server/ws integration", () => {
 		expect(reloginAfterDel.status).toBe(401);
 	});
 
-	test("collectMapPackItems gathers all metadata and tiles with root URLs and deduplication info", async () => {
-		const items = await collectMapPackItems(
-			path.join(process.cwd(), "public"),
-			path.join(process.cwd(), "cache", "tiles"),
-			"re7",
-			"baker-ranch",
-		);
-		expect(items).not.toBeNull();
-		expect(items!.length).toBeGreaterThan(10);
-		expect(items!.some((i) => i.url === "/maps/re7/meta.json")).toBe(true);
-		expect(items!.some((i) => i.url === "/maps/re7/baker-ranch/data.json")).toBe(true);
-		expect(items!.some((i) => i.url.startsWith("/maps/re7/baker-ranch/tiles/"))).toBe(true);
-		for (const item of items!) {
-			expect(item.url.startsWith("/")).toBe(true);
-			expect(item.size).toBeGreaterThanOrEqual(0);
-			expect(item.contentType.length).toBeGreaterThan(0);
-		}
-	});
+	test.skipIf(!HAS_RE7_BAKER_RANCH_TILES)(
+		"collectMapPackItems gathers all metadata and tiles with root URLs and deduplication info",
+		async () => {
+			const items = await collectMapPackItems(
+				path.join(process.cwd(), "public"),
+				path.join(process.cwd(), "cache", "tiles"),
+				"re7",
+				"baker-ranch",
+			);
+			expect(items).not.toBeNull();
+			expect(items!.length).toBeGreaterThan(10);
+			expect(items!.some((i) => i.url === "/maps/re7/meta.json")).toBe(true);
+			expect(items!.some((i) => i.url === "/maps/re7/baker-ranch/data.json")).toBe(true);
+			expect(items!.some((i) => i.url.startsWith("/maps/re7/baker-ranch/tiles/"))).toBe(true);
+			for (const item of items!) {
+				expect(item.url.startsWith("/")).toBe(true);
+				expect(item.size).toBeGreaterThanOrEqual(0);
+				expect(item.contentType.length).toBeGreaterThan(0);
+			}
+		},
+	);
 
 	test("bun:sqlite driver integration, db.transaction, and atomic rollback", async () => {
 		expect(api._db.constructor.name).toBe("Database");
