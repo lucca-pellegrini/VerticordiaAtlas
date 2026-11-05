@@ -425,35 +425,30 @@ export async function downloadTiles({
 	const maxOnly = !opts.unpruned;
 
 	if (maxOnly) {
-		const seeds: [number, number][] = [];
+		const maxCoord = 2 ** maxZ;
 
 		// 1. Sibling tileset on disk
 		const siblingSeeds = await findSiblingTiles(destDir, localTail, maxZ, opts.sourceDir);
 		if (siblingSeeds.length) {
 			console.log(`  seeding from ${fmt(siblingSeeds.length)} existing tiles on disk for map`);
-			seeds.push(...siblingSeeds);
 		}
 
 		// 2. Explicit bounds in ts.bounds[maxZ]
 		const bz = ts.bounds && !Array.isArray(ts.bounds) ? ts.bounds[maxZ] : null;
-		if (
+		const hasExplicitMaxBounds = Boolean(
 			bz?.x &&
 			bz?.y &&
 			Number.isFinite(bz.x.min) &&
 			Number.isFinite(bz.x.max) &&
 			Number.isFinite(bz.y.min) &&
-			Number.isFinite(bz.y.max)
-		) {
-			for (let x = bz.x.min; x <= bz.x.max; x++) {
-				for (let y = bz.y.min; y <= bz.y.max; y++) {
-					seeds.push([x, y]);
-				}
-			}
-		}
+			Number.isFinite(bz.y.max),
+		);
 
-		// 3. Markers in md.locations
+		// 3. Markers in md.locations (deduplicated, with extreme & percentile seeds prioritized first)
+		const markerSeeds: [number, number][] = [];
 		if (Array.isArray(md.locations) && md.locations.length > 0) {
-			const maxCoord = 2 ** maxZ;
+			const seenMarkers = new Set<string>();
+			const rawMarkers: [number, number][] = [];
 			for (const loc of md.locations) {
 				const lat = parseFloat(loc.latitude);
 				const lng = parseFloat(loc.longitude);
@@ -461,16 +456,79 @@ export async function downloadTiles({
 					const x = Math.floor(lon2x(lng, maxCoord));
 					const y = Math.floor(lat2y(lat, maxCoord));
 					if (x >= 0 && x < maxCoord && y >= 0 && y < maxCoord) {
-						seeds.push([x, y]);
+						const key = `${x},${y}`;
+						if (!seenMarkers.has(key)) {
+							seenMarkers.add(key);
+							rawMarkers.push([x, y]);
+						}
+					}
+				}
+			}
+			if (rawMarkers.length > 0) {
+				const byX = [...rawMarkers].sort((a, b) => a[0] - b[0]);
+				const byY = [...rawMarkers].sort((a, b) => a[1] - b[1]);
+				const n = rawMarkers.length;
+				const picks = [
+					byX[0],
+					byX[n - 1],
+					byY[0],
+					byY[n - 1],
+					byX[n >> 1],
+					...(n >= 8
+						? [
+								byX[Math.floor(n * 0.1)],
+								byX[Math.floor(n * 0.9)],
+								byY[Math.floor(n * 0.1)],
+								byY[Math.floor(n * 0.9)],
+							]
+						: []),
+				];
+				const orderedKeys = new Set<string>();
+				for (const [px, py] of picks) {
+					const k = `${px},${py}`;
+					if (!orderedKeys.has(k)) {
+						orderedKeys.add(k);
+						markerSeeds.push([px, py]);
+					}
+				}
+				for (const [rx, ry] of rawMarkers) {
+					const k = `${rx},${ry}`;
+					if (!orderedKeys.has(k)) {
+						orderedKeys.add(k);
+						markerSeeds.push([rx, ry]);
 					}
 				}
 			}
 		}
 
-		// 4. Single dive if seeds still empty
-		if (!seeds.length) {
-			const d = await diveForSeed(first, minZ, maxZ, (z, x, y) => fill(remote(base!), z, x, y));
-			if (d) seeds.push(d);
+		// 4. Single dive if no seeds exist yet
+		let diveSeed: [number, number] | null = null;
+		if (!siblingSeeds.length && !hasExplicitMaxBounds && !markerSeeds.length) {
+			diveSeed = await diveForSeed(first, minZ, maxZ, (z, x, y) => fill(remote(base!), z, x, y));
+		}
+
+		let explicitBounds: { xMin: number; xMax: number; yMin: number; yMax: number } | undefined;
+		let initialExpected: number | undefined;
+		if (hasExplicitMaxBounds) {
+			const xMin = Math.max(0, bz.x.min);
+			const xMax = Math.min(maxCoord - 1, bz.x.max);
+			const yMin = Math.max(0, bz.y.min);
+			const yMax = Math.min(maxCoord - 1, bz.y.max);
+			explicitBounds = { xMin, xMax, yMin, yMax };
+			initialExpected = Math.max(1, (xMax - xMin + 1) * (yMax - yMin + 1));
+		} else if (siblingSeeds.length > 0) {
+			let sMinX = Infinity,
+				sMaxX = -Infinity,
+				sMinY = Infinity,
+				sMaxY = -Infinity;
+			for (const [sx, sy] of siblingSeeds) {
+				if (sx < sMinX) sMinX = sx;
+				if (sx > sMaxX) sMaxX = sx;
+				if (sy < sMinY) sMinY = sy;
+				if (sy > sMaxY) sMaxY = sy;
+			}
+			explicitBounds = { xMin: sMinX, xMax: sMaxX, yMin: sMinY, yMax: sMaxY };
+			initialExpected = siblingSeeds.length;
 		}
 
 		const dashboard = await createTileDashboard({
@@ -482,33 +540,53 @@ export async function downloadTiles({
 			pattern: ts.pattern,
 			destDir,
 			noTui: opts.noTui,
-			totalExpected: seeds.length || undefined,
+			totalExpected: initialExpected,
+			bounds: explicitBounds,
 			container: opts.container,
 			renderer: opts.renderer,
 		});
 
 		const visited = new Set<string>();
-		const queue: [number, number][] = [];
+		const voidSet = new Set<string>();
+		const priorityQueue: [number, number][] = [];
+		const boxQueue: [number, number][] = [];
+		let priorityIdx = 0;
+		let boxIdx = 0;
 
-		let minX = Infinity,
-			maxX = -Infinity,
-			minY = Infinity,
-			maxY = -Infinity;
-		for (const [x, y] of seeds) {
+		function enqueue(x: number, y: number, highPriority = false) {
+			if (x < 0 || x >= maxCoord || y < 0 || y >= maxCoord) return;
 			const key = `${x},${y}`;
-			if (!visited.has(key)) {
-				visited.add(key);
-				queue.push([x, y]);
-				if (x < minX) minX = x;
-				if (x > maxX) maxX = x;
-				if (y < minY) minY = y;
-				if (y > maxY) maxY = y;
+			if (visited.has(key)) return;
+			visited.add(key);
+			if (highPriority) {
+				priorityQueue.push([x, y]);
+			} else {
+				boxQueue.push([x, y]);
 			}
 		}
 
-		if (Number.isFinite(minX) && Number.isFinite(maxX)) {
-			dashboard.updateBounds(minX, maxX, minY, maxY, queue.length);
+		for (const [mx, my] of markerSeeds) {
+			enqueue(mx, my, true);
 		}
+		if (diveSeed) {
+			enqueue(diveSeed[0], diveSeed[1], true);
+		}
+		for (const [sx, sy] of siblingSeeds) {
+			enqueue(sx, sy, false);
+		}
+		if (explicitBounds) {
+			for (let x = explicitBounds.xMin; x <= explicitBounds.xMax; x++) {
+				for (let y = explicitBounds.yMin; y <= explicitBounds.yMax; y++) {
+					enqueue(x, y, false);
+				}
+			}
+		}
+
+		let hasValidTile = false;
+		let validMinX = Infinity,
+			validMaxX = -Infinity,
+			validMinY = Infinity,
+			validMaxY = -Infinity;
 
 		const controller = new AdaptiveRateController({
 			enabled: opts.adaptive !== false,
@@ -522,34 +600,34 @@ export async function downloadTiles({
 
 		dashboard.setWorkerStats?.(controller.concurrency, controller.delayMs);
 
-		const maxCoord = 2 ** maxZ;
-		let queueIndex = 0;
 		let activeWorkers = 0;
 		let isAborted = false;
+		const hasMore = () => priorityIdx < priorityQueue.length || boxIdx < boxQueue.length;
 
 		await new Promise<void>((resolve) => {
 			function pump() {
 				if (isAborted) return;
-				while (activeWorkers < controller.concurrency && queueIndex < queue.length) {
+				while (activeWorkers < controller.concurrency && hasMore()) {
 					if (stats.saved + stats.skipped >= opts.maxTiles) {
 						isAborted = true;
 						console.log(`  stopping: reached --max-tiles ${opts.maxTiles}`);
 						break;
 					}
-					const [x, y] = queue[queueIndex++];
+					const [x, y] =
+						priorityIdx < priorityQueue.length ? priorityQueue[priorityIdx++] : boxQueue[boxIdx++];
 					activeWorkers++;
 					processTile(x, y)
 						.catch(() => {})
 						.finally(() => {
 							activeWorkers--;
-							if (queueIndex >= queue.length && activeWorkers === 0) {
+							if (!hasMore() && activeWorkers === 0) {
 								resolve();
 							} else {
 								pump();
 							}
 						});
 				}
-				if (queueIndex >= queue.length && activeWorkers === 0) {
+				if (!hasMore() && activeWorkers === 0) {
 					resolve();
 				}
 			}
@@ -559,7 +637,8 @@ export async function downloadTiles({
 				if (await exists(file)) {
 					stats.skipped++;
 					dashboard.onTile(x, y, "skipped");
-					expand(x, y);
+					onValidTile(x, y);
+					pump();
 					return;
 				}
 				const r = await getBin(fill(remote(base!), maxZ, x, y));
@@ -569,12 +648,14 @@ export async function downloadTiles({
 					stats.saved++;
 					stats.bytes += r.buf.length;
 					dashboard.onTile(x, y, "saved", r.buf.length);
-					expand(x, y);
+					onValidTile(x, y);
+					pump();
 				} else if (r.status === 0) {
 					stats.failed++;
 					dashboard.onTile(x, y, "failed");
 				} else {
 					stats.missing++;
+					voidSet.add(`${x},${y}`);
 					dashboard.onTile(x, y, "missing");
 				}
 
@@ -587,6 +668,77 @@ export async function downloadTiles({
 				if (controller.delayMs > 0) await sleep(controller.delayMs);
 			}
 
+			function onValidTile(x: number, y: number) {
+				if (!hasValidTile) {
+					hasValidTile = true;
+					validMinX = x;
+					validMaxX = x;
+					validMinY = y;
+					validMaxY = y;
+					enqueue(x - 1, y, true);
+					enqueue(x + 1, y, true);
+					enqueue(x, y - 1, true);
+					enqueue(x, y + 1, true);
+					expand(x, y);
+					return;
+				}
+
+				const grewLeft = x < validMinX;
+				const grewRight = x > validMaxX;
+				const grewTop = y < validMinY;
+				const grewBottom = y > validMaxY;
+
+				// Enqueue all unvisited tiles in the expanded bounding box of confirmed valid tiles,
+				// skipping cells directly behind already-known void (404) tiles.
+				while (validMinX > x) {
+					validMinX--;
+					for (let cy = validMinY; cy <= validMaxY; cy++) {
+						if (cy === y || !voidSet.has(`${validMinX + 1},${cy}`)) {
+							enqueue(validMinX, cy, false);
+						}
+					}
+				}
+				while (validMaxX < x) {
+					validMaxX++;
+					for (let cy = validMinY; cy <= validMaxY; cy++) {
+						if (cy === y || !voidSet.has(`${validMaxX - 1},${cy}`)) {
+							enqueue(validMaxX, cy, false);
+						}
+					}
+				}
+				while (validMinY > y) {
+					validMinY--;
+					for (let cx = validMinX; cx <= validMaxX; cx++) {
+						if (cx === x || !voidSet.has(`${cx},${validMinY + 1}`)) {
+							enqueue(cx, validMinY, false);
+						}
+					}
+				}
+				while (validMaxY < y) {
+					validMaxY++;
+					for (let cx = validMinX; cx <= validMaxX; cx++) {
+						if (cx === x || !voidSet.has(`${cx},${validMaxY - 1}`)) {
+							enqueue(cx, validMaxY, false);
+						}
+					}
+				}
+
+				if (grewLeft || grewRight || grewTop || grewBottom) {
+					const midX = (validMinX + validMaxX) >> 1;
+					const midY = (validMinY + validMaxY) >> 1;
+					if (grewLeft) enqueue(validMinX - 1, y, true);
+					if (grewRight) enqueue(validMaxX + 1, y, true);
+					if (grewTop) enqueue(x, validMinY - 1, true);
+					if (grewBottom) enqueue(x, validMaxY + 1, true);
+					if (!voidSet.has(`${validMinX},${midY}`)) enqueue(validMinX - 1, midY, true);
+					if (!voidSet.has(`${validMaxX},${midY}`)) enqueue(validMaxX + 1, midY, true);
+					if (!voidSet.has(`${midX},${validMinY}`)) enqueue(midX, validMinY - 1, true);
+					if (!voidSet.has(`${midX},${validMaxY}`)) enqueue(midX, validMaxY + 1, true);
+				}
+
+				expand(x, y);
+			}
+
 			function expand(x: number, y: number) {
 				const neighbors: [number, number][] = [
 					[x + 1, y],
@@ -595,13 +747,7 @@ export async function downloadTiles({
 					[x, y - 1],
 				];
 				for (const [nx, ny] of neighbors) {
-					if (nx >= 0 && nx < maxCoord && ny >= 0 && ny < maxCoord) {
-						const nkey = `${nx},${ny}`;
-						if (!visited.has(nkey)) {
-							visited.add(nkey);
-							queue.push([nx, ny]);
-						}
-					}
+					enqueue(nx, ny, false);
 				}
 			}
 

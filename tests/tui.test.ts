@@ -209,6 +209,26 @@ describe("TUI ecosystem components & helpers", () => {
 		// Valid X span: 100..110 (11 tiles), Y span: 200..210 (11 tiles) => 11 * 11 = 121
 		expect(st.estimatedTotal).toBe(121);
 
+		// 4. Interior missing tiles reduce estimatedTotal rather than leaving progress short of 100%
+		dashboard.onTile(105, 205, "missing");
+		dashboard.onTile(106, 206, "missing");
+		st = dashboard.getStats() as any;
+		expect(st.estimatedTotal).toBe(119);
+
+		// 5. If valid tiles expand past a previously misidentified edge (e.g. x=98 < 99),
+		// hasFourEdges resets until the new outer border (x=97) is confirmed
+		dashboard.onTile(98, 208, "saved", 1024);
+		st = dashboard.getStats() as any;
+		expect(st.hasFourEdges).toBe(false);
+		expect(st.progressMode).toBe("unknown");
+
+		dashboard.onTile(97, 208, "missing");
+		st = dashboard.getStats() as any;
+		expect(st.hasFourEdges).toBe(true);
+		expect(st.progressMode).toBe("estimated");
+		// Valid X span is now 98..110 (13 tiles), Y span 200..210 (11 tiles) => 143 - 3 interior voids (99,205; 105,205; 106,206) = 140
+		expect(st.estimatedTotal).toBe(140);
+
 		await dashboard.finish();
 	});
 

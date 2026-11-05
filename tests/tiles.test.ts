@@ -538,6 +538,81 @@ describe("scripts/add-game tile download", () => {
 			server.close();
 		}
 	});
+
+	test("enqueues confirmed marker bounding box, ignores void outlier markers, and recovers from indented edges", async () => {
+		const asked: string[] = [];
+		const realTile = await solid(20, 40, 60);
+		// Map at zoom 5 (32x32 world): valid tiles are [10..15] x [10..15] (36 tiles),
+		// EXCEPT an indentation on the left edge at (10, 12) which is missing (35 tiles total),
+		// plus a protrusion at (9, 14) sticking out to the left (so 36 valid tiles total).
+		const validSet = new Set<string>();
+		for (let x = 10; x <= 15; x++) {
+			for (let y = 10; y <= 15; y++) {
+				if (x === 10 && y === 12) continue;
+				validSet.add(`${x},${y}`);
+			}
+		}
+		validSet.add("9,14");
+
+		const server = http.createServer((req, res) => {
+			asked.push(req.url!);
+			const m = /^\/tiles\/(\d+)\/(\d+)\/(\d+)\.png$/.exec(req.url!);
+			if (!m) {
+				res.writeHead(404);
+				return res.end();
+			}
+			const [, zStr, xStr, yStr] = m;
+			const z = Number(zStr),
+				x = Number(xStr),
+				y = Number(yStr);
+			if (z === 1 && x === 0 && y === 0) {
+				res.writeHead(200, { "Content-Type": "image/png" });
+				return res.end(realTile);
+			}
+			if (z === 5 && validSet.has(`${x},${y}`)) {
+				res.writeHead(200, { "Content-Type": "image/png" });
+				return res.end(realTile);
+			}
+			res.writeHead(404);
+			res.end();
+		});
+		await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
+		const base = `http://127.0.0.1:${(server.address() as any).port}/tiles`;
+
+		const tileToLon = (x: number, z: number) => ((x + 0.5) / 2 ** z) * 360 - 180;
+		const tileToLat = (y: number, z: number) =>
+			(Math.atan(Math.sinh(Math.PI * (1 - (2 * (y + 0.5)) / 2 ** z))) * 180) / Math.PI;
+
+		// Markers at (11, 12), (14, 14), plus a bogus outlier marker far away in the void at (2, 2)
+		const locations = [
+			{ latitude: String(tileToLat(12, 5)), longitude: String(tileToLon(11, 5)) },
+			{ latitude: String(tileToLat(14, 5)), longitude: String(tileToLon(14, 5)) },
+			{ latitude: String(tileToLat(2, 5)), longitude: String(tileToLon(2, 5)) },
+		];
+
+		try {
+			const r = await downloadTiles({
+				md: { locations },
+				ts: {
+					pattern: "{z}/{x}/{y}.png",
+					min_zoom: 1,
+					tiles_max_zoom: 5,
+					bounds: null,
+				},
+				baseCandidates: [base],
+				destDir: path.join(tmp, "smart"),
+				localTail: "tiles/set/{z}/{x}/{y}.png",
+				opts: { concurrency: 4, delay: 0, maxTiles: 100000, unpruned: false },
+			});
+			// Every valid tile including the protrusion (9, 14) was found and saved
+			expect(r.stats.saved).toBe(validSet.size);
+			// The void region between the outlier (2, 2) and the real map [9..15] was NOT speculatively queued
+			expect(asked.includes("/tiles/5/2/2.png")).toBe(true);
+			expect(asked.includes("/tiles/5/5/5.png")).toBe(false);
+		} finally {
+			server.close();
+		}
+	});
 });
 
 describe("game popularity", () => {

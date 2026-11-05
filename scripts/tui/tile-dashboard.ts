@@ -92,11 +92,21 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 	let validMaxX = opts.bounds?.xMax ?? -Infinity;
 	let validMinY = opts.bounds?.yMin ?? Infinity;
 	let validMaxY = opts.bounds?.yMax ?? -Infinity;
-	let voidMinX = Infinity;
-	let voidMaxX = -Infinity;
-	let voidMinY = Infinity;
-	let voidMaxY = -Infinity;
+	const voidXs = new Set<number>();
+	const voidYs = new Set<number>();
+	const voidTiles = new Set<string>();
+	const voidCoords: [number, number][] = [];
 	let validCount = 0;
+
+	function recordVoid(x: number, y: number) {
+		voidXs.add(x);
+		voidYs.add(y);
+		const key = `${x},${y}`;
+		if (!voidTiles.has(key)) {
+			voidTiles.add(key);
+			voidCoords.push([x, y]);
+		}
+	}
 
 	function computeProgressState(totalDone: number) {
 		const hasExplicitBounds =
@@ -106,30 +116,69 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			Number.isFinite(opts.bounds.yMin) &&
 			Number.isFinite(opts.bounds.yMax);
 
-		const hasLeft = hasExplicitBounds || (validCount > 0 && Number.isFinite(voidMinX) && voidMinX <= validMinX);
-		const hasRight = hasExplicitBounds || (validCount > 0 && Number.isFinite(voidMaxX) && voidMaxX >= validMaxX);
-		const hasTop = hasExplicitBounds || (validCount > 0 && Number.isFinite(voidMinY) && voidMinY <= validMinY);
-		const hasBottom = hasExplicitBounds || (validCount > 0 && Number.isFinite(voidMaxY) && voidMaxY >= validMaxY);
+		const maxCoord = opts.zoom >= 0 && opts.zoom <= 30 ? 2 ** opts.zoom : Infinity;
+		const hasLeft = hasExplicitBounds || (validCount > 0 && (validMinX <= 0 || voidXs.has(validMinX - 1)));
+		const hasRight =
+			hasExplicitBounds || (validCount > 0 && (validMaxX >= maxCoord - 1 || voidXs.has(validMaxX + 1)));
+		const hasTop = hasExplicitBounds || (validCount > 0 && (validMinY <= 0 || voidYs.has(validMinY - 1)));
+		const hasBottom =
+			hasExplicitBounds || (validCount > 0 && (validMaxY >= maxCoord - 1 || voidYs.has(validMaxY + 1)));
 
 		const hasFourEdges = hasLeft && hasRight && hasTop && hasBottom;
 		const edgeCount = (hasLeft ? 1 : 0) + (hasRight ? 1 : 0) + (hasTop ? 1 : 0) + (hasBottom ? 1 : 0);
 
+		const hasValidBox =
+			Number.isFinite(validMinX) &&
+			Number.isFinite(validMaxX) &&
+			Number.isFinite(validMinY) &&
+			Number.isFinite(validMaxY);
+
 		let estimatedTotal = 0;
-		if (hasFourEdges) {
-			const rMinX = Number.isFinite(validMinX) ? validMinX : opts.bounds!.xMin;
-			const rMaxX = Number.isFinite(validMaxX) ? validMaxX : opts.bounds!.xMax;
-			const rMinY = Number.isFinite(validMinY) ? validMinY : opts.bounds!.yMin;
-			const rMaxY = Number.isFinite(validMaxY) ? validMaxY : opts.bounds!.yMax;
-			const w = Math.max(1, rMaxX - rMinX + 1);
-			const h = Math.max(1, rMaxY - rMinY + 1);
-			estimatedTotal = Math.max(totalDone, w * h);
+		let interiorMissing = 0;
+		if (hasFourEdges || hasExplicitBounds || hasValidBox) {
+			const rMinX = hasValidBox
+				? hasExplicitBounds
+					? Math.min(validMinX, opts.bounds!.xMin)
+					: validMinX
+				: opts.bounds!.xMin;
+			const rMaxX = hasValidBox
+				? hasExplicitBounds
+					? Math.max(validMaxX, opts.bounds!.xMax)
+					: validMaxX
+				: opts.bounds!.xMax;
+			const rMinY = hasValidBox
+				? hasExplicitBounds
+					? Math.min(validMinY, opts.bounds!.yMin)
+					: validMinY
+				: opts.bounds!.yMin;
+			const rMaxY = hasValidBox
+				? hasExplicitBounds
+					? Math.max(validMaxY, opts.bounds!.yMax)
+					: validMaxY
+				: opts.bounds!.yMax;
+			for (let i = 0; i < voidCoords.length; i++) {
+				const [vx, vy] = voidCoords[i];
+				if (vx >= rMinX && vx <= rMaxX && vy >= rMinY && vy <= rMaxY) {
+					interiorMissing++;
+				}
+			}
+			if (hasFourEdges) {
+				const w = Math.max(1, rMaxX - rMinX + 1);
+				const h = Math.max(1, rMaxY - rMinY + 1);
+				estimatedTotal = Math.max(totalDone, w * h - interiorMissing);
+			}
 		}
 
-		if (totalExpected > 0 && totalDone < totalExpected && (!hasFourEdges || estimatedTotal <= totalExpected)) {
-			const pct = (totalDone / totalExpected) * 100;
+		const effectiveExpected = totalExpected > 0 ? Math.max(totalDone, totalExpected - interiorMissing) : 0;
+		if (
+			effectiveExpected > 0 &&
+			totalDone < effectiveExpected &&
+			(!hasFourEdges || estimatedTotal <= Math.max(totalExpected, effectiveExpected))
+		) {
+			const pct = (totalDone / effectiveExpected) * 100;
 			return {
 				mode: "exact" as const,
-				total: totalExpected,
+				total: effectiveExpected,
 				pct: Math.min(100, Math.max(0, pct)),
 				hasFourEdges,
 				edgeCount,
@@ -177,7 +226,6 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 				if (maxX > validMaxX) validMaxX = maxX;
 				if (minY < validMinY) validMinY = minY;
 				if (maxY > validMaxY) validMaxY = maxY;
-				if (expected != null) validCount += expected;
 				if (expected != null && expected > totalExpected) totalExpected = expected;
 			},
 			onTile(x, y, status, bytes = 0) {
@@ -198,16 +246,10 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 					validCount++;
 				} else if (status === "missing") {
 					missing++;
-					if (x < voidMinX) voidMinX = x;
-					if (x > voidMaxX) voidMaxX = x;
-					if (y < voidMinY) voidMinY = y;
-					if (y > voidMaxY) voidMaxY = y;
+					recordVoid(x, y);
 				} else if (status === "failed") {
 					failed++;
-					if (x < voidMinX) voidMinX = x;
-					if (x > voidMaxX) voidMaxX = x;
-					if (y < voidMinY) voidMinY = y;
-					if (y > voidMaxY) voidMaxY = y;
+					recordVoid(x, y);
 				}
 				const now = Date.now();
 				if (now - lastLogTime >= 1500) {
@@ -688,7 +730,6 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			if (maxX > validMaxX) validMaxX = maxX;
 			if (minY < validMinY) validMinY = minY;
 			if (maxY > validMaxY) validMaxY = maxY;
-			if (expected != null) validCount += expected;
 			if (expected != null && expected > totalExpected) totalExpected = expected;
 			if (changed) bucketsDirty = true;
 			scheduleRender(false);
@@ -715,17 +756,11 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			} else if (status === "missing") {
 				missing++;
 				stNum = 2;
-				if (x < voidMinX) voidMinX = x;
-				if (x > voidMaxX) voidMaxX = x;
-				if (y < voidMinY) voidMinY = y;
-				if (y > voidMaxY) voidMaxY = y;
+				recordVoid(x, y);
 			} else if (status === "failed") {
 				failed++;
 				stNum = 3;
-				if (x < voidMinX) voidMinX = x;
-				if (x > voidMaxX) voidMaxX = x;
-				if (y < voidMinY) voidMinY = y;
-				if (y > voidMaxY) voidMaxY = y;
+				recordVoid(x, y);
 			}
 
 			let boundsChanged = false;
