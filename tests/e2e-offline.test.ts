@@ -61,7 +61,7 @@ describe("offline map download & disconnected navigation e2e", () => {
 		page.on("console", (msg) => {
 			if (msg.type() === "error") consoleErrors.push(msg.text());
 		});
-		page.on("pageerror", (err) => consoleErrors.push(err.message));
+		page.on("pageerror", (err: any) => consoleErrors.push(err?.message ?? String(err)));
 
 		// 1. Navigate to Resident Evil 2 map page (which has 4 maps: claire-a, claire-b, leon-a, leon-b)
 		await page.goto(`${BASE1}/maps/re2/`, { waitUntil: "networkidle2" });

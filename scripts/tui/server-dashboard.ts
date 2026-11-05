@@ -153,7 +153,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	const headerBox = new BoxRenderable(renderer, {
 		flexDirection: "column",
 		width: boxW - 4,
-		marginVertical: 0,
+		marginY: 0,
 	});
 	const topHeaderRow = new BoxRenderable(renderer, {
 		flexDirection: "row",
@@ -180,12 +180,12 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		width: boxW - 4,
 		height: 1,
 		backgroundColor: THEME.surface,
-		marginVertical: 0,
+		marginY: 0,
 	});
 	const tabPillsList = new BoxRenderable(renderer, {
 		flexDirection: "row",
 		gap: 1,
-		marginVertical: 0,
+		marginY: 0,
 	});
 	tabPillsRow.add(tabPillsList);
 
@@ -210,7 +210,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		flexGrow: 1,
 		flexDirection: "column",
 		width: boxW - 4,
-		marginVertical: 0,
+		marginY: 0,
 	});
 	rootBox.add(contentBox);
 
@@ -234,7 +234,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		flexDirection: "row",
 		gap: 2,
 		flexGrow: 1,
-		marginVertical: 0,
+		marginY: 0,
 	});
 	let leftW = Math.floor((boxW - 4) * 0.52);
 
@@ -767,8 +767,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	function switchTab(index: number) {
 		if (index < 0 || index >= tabs.length) return;
 		for (let i = 0; i < tabs.length; i++) {
-			if (i !== index && tabs[i].view?.blur) {
-				tabs[i].view.blur();
+			if (i !== index) {
+				tabs[i].view?.blur?.();
 			}
 		}
 
@@ -1006,7 +1006,9 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		}
 
 		// C-1..C-0, Alt+1..Alt+0, or Meta+1..Meta+0 to switch directly to tabs 1 through 10
-		const isCtrlOrAltOrMeta = Boolean(key.ctrl || key.alt || key.meta || (key.raw && /^\x1b[0-9]$/.test(key.raw)));
+		const isCtrlOrAltOrMeta = Boolean(
+			key.ctrl || key.option || key.meta || (key.raw && /^\x1b[0-9]$/.test(key.raw)),
+		);
 		if (isCtrlOrAltOrMeta) {
 			let digit = key.name;
 			if (key.raw && /^\x1b[0-9]$/.test(key.raw)) {
@@ -1037,7 +1039,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		// Alt-k, Alt-Up for previous tab
 		const isPrevTab =
-			((key.alt || key.meta) && (key.name === "k" || key.name === "K" || key.name === "up")) ||
+			((key.option || key.meta) && (key.name === "k" || key.name === "K" || key.name === "up")) ||
 			key.raw === "\x1bk";
 		if (isPrevTab) {
 			key.preventDefault?.();
@@ -1047,7 +1049,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		// Alt-j, Alt-Down for next tab
 		const isNextTab =
-			((key.alt || key.meta) && (key.name === "j" || key.name === "J" || key.name === "down")) ||
+			((key.option || key.meta) && (key.name === "j" || key.name === "J" || key.name === "down")) ||
 			key.raw === "\x1bj";
 		if (isNextTab) {
 			key.preventDefault?.();

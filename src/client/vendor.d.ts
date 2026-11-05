@@ -69,6 +69,16 @@ declare namespace maplibregl {
 		queryRenderedFeatures(geometry?: any, options?: Record<string, any>): any[];
 		dragPan: { enable(): void; disable(): void };
 		boxZoom: { enable(): void; disable(): void };
+		touchZoomRotate: { enable(): void; disable(): void; disableRotation(): void };
+	}
+	class Popup {
+		constructor(options?: Record<string, any>);
+		setLngLat(lnglat: [number, number] | LngLatLike): this;
+		setOffset(offset: any): this;
+		setHTML(html: string): this;
+		setText(text: string): this;
+		addTo(map: Map): this;
+		remove(): this;
 	}
 	class NavigationControl {
 		constructor(options?: Record<string, any>);
@@ -80,6 +90,7 @@ declare namespace maplibregl {
 
 declare const marked: {
 	use(ext: Record<string, any>): void;
+	lexer(src: string): any[];
 	parse(src: string): string;
 	Parser: {
 		parse(tokens: any[]): string;
@@ -87,6 +98,40 @@ declare const marked: {
 	};
 };
 
-declare module "../../../public/vendor/perfect-freehand.mjs" {
+declare module "*perfect-freehand.mjs" {
 	export function getStroke(points: number[][], options?: Record<string, any>): number[][];
+}
+
+interface ExtendableEvent extends Event {
+	waitUntil(f: Promise<any>): void;
+}
+
+interface FetchEvent extends ExtendableEvent {
+	readonly request: Request;
+	respondWith(r: Response | Promise<Response>): void;
+}
+
+interface ExtendableMessageEvent extends ExtendableEvent {
+	readonly data: any;
+	readonly source: ServiceWorkerClient | null;
+}
+
+interface ServiceWorkerClient {
+	postMessage(message: any): void;
+}
+
+interface ServiceWorkerGlobalScope extends EventTarget {
+	readonly registration: {
+		readonly scope: string;
+	};
+	readonly location: Location;
+	readonly clients: {
+		claim(): Promise<void>;
+		matchAll(options?: Record<string, any>): Promise<ServiceWorkerClient[]>;
+	};
+	skipWaiting(): Promise<void>;
+	addEventListener(type: "install" | "activate", listener: (event: ExtendableEvent) => void): void;
+	addEventListener(type: "fetch", listener: (event: FetchEvent) => void): void;
+	addEventListener(type: "message", listener: (event: ExtendableMessageEvent) => void): void;
+	addEventListener(type: string, listener: (event: any) => void): void;
 }

@@ -87,7 +87,7 @@ export function createMemoryPackStore(): PackStore {
 
 let dbPromise: Promise<IDBDatabase> | null = null;
 function openDb(): Promise<IDBDatabase> {
-	return (dbPromise ??= new Promise((resolve, reject) => {
+	return (dbPromise ??= new Promise<IDBDatabase>((resolve, reject) => {
 		if (typeof indexedDB === "undefined") return reject(new Error("IndexedDB unavailable"));
 		const req = indexedDB.open(DB_NAME, 1);
 		req.onupgradeneeded = () => {

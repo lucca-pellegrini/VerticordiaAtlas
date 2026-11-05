@@ -88,7 +88,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		flexDirection: "row",
 		justifyContent: "space-between",
 		width: boxW - 2,
-		marginVertical: 0,
+		marginY: 0,
 	});
 	const catalogStatsText = new TextRenderable(renderer, {
 		content: "Games: loading...",
@@ -107,7 +107,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		flexDirection: "column",
 		flexGrow: 1,
 		gap: 0,
-		marginVertical: 0,
+		marginY: 0,
 	});
 	rootBox.add(gridBox);
 
@@ -134,7 +134,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 	const editBox = new BoxRenderable(renderer, {
 		flexDirection: "column",
 		gap: 0,
-		marginVertical: 1,
+		marginY: 1,
 	});
 	const titleLabel = new TextRenderable(renderer, { content: "Title:", fg: THEME.peach });
 	const titleInput = new InputRenderable(renderer, {
@@ -200,7 +200,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 	// Search Input Box
 	const searchBox = new BoxRenderable(renderer, {
 		flexDirection: "column",
-		marginVertical: 1,
+		marginY: 1,
 	});
 	const searchLabel = new TextRenderable(renderer, { content: "Filter games by title or slug:", fg: THEME.teal });
 	const searchInput = new InputRenderable(renderer, {

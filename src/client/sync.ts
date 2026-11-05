@@ -136,16 +136,17 @@ export function createSync({
 		const snap = await snapshot();
 		const changed: string[] = [];
 		for (const item of items as SyncItem[]) {
-			if ((st.seen[item.key] ?? 0) >= item.updated_at) continue;
+			const updatedAt = item.updated_at ?? 0;
+			if ((st.seen[item.key] ?? 0) >= updatedAt) continue;
 			if (isDirty(item.key, snap)) {
-				st.conflicts[item.key] = { server: item.value, updated_at: item.updated_at };
+				st.conflicts[item.key] = { server: item.value, updated_at: updatedAt };
 				continue;
 			}
 			if (item.key.startsWith("profile:") && item.value !== null) await adoptOverPlaceholders(item.key);
 			await applyRemote(item);
 			st.sent[item.key] = sendHash(item.key, item.value);
 			st.content[item.key] = contentHash(item.key, item.value);
-			st.seen[item.key] = item.updated_at;
+			st.seen[item.key] = updatedAt;
 			changed.push(item.key);
 		}
 		if (changed.length) {

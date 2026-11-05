@@ -48,6 +48,7 @@ export interface MediaRecord {
 	sha256: string;
 	size: number;
 	uploaded_at: number;
+	verifiedUrl?: string;
 }
 
 export function mimeForMedia(filename: string): string {
@@ -274,7 +275,7 @@ export async function uploadAndVerifyBuffer({
 			const putUrl = s3.presign(key, { method: "PUT", expiresIn: 3600 });
 			const putRes = await fetchImpl(putUrl, {
 				method: "PUT",
-				body: buf,
+				body: buf as BodyInit,
 				headers: {
 					"Content-Type": contentType,
 					"Cache-Control": CACHE_CONTROL,
@@ -306,6 +307,7 @@ export async function uploadAndVerifyBuffer({
 				sha256,
 				size,
 				uploaded_at: Date.now(),
+				verifiedUrl: pubUrl,
 			};
 		} catch (e) {
 			lastErr = e;

@@ -143,7 +143,7 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 		flexDirection: "row",
 		gap: 2,
 		flexGrow: 1,
-		marginVertical: 1,
+		marginY: 1,
 	});
 
 	let leftW = Math.floor(boxW * 0.48);

@@ -184,7 +184,7 @@ export function createAddGameFormView(opts: {
 	// Form Fields
 	const formBox = new BoxRenderable(renderer, {
 		flexDirection: "column",
-		marginVertical: 1,
+		marginY: 1,
 		gap: 0,
 		flexGrow: 1,
 	});

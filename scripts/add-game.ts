@@ -746,7 +746,7 @@ async function downloadMarkers({
 			sprites?: number;
 		} = { json: "markers.json", png: "markers.png", json2x: null, png2x: null };
 		const j2 = await getBin(dir + "markers@2x.json" + q, 1),
-			p2 = j2.status === 200 ? await getBin(dir + "markers@2x.png" + q) : { status: 0 };
+			p2 = j2.status === 200 ? await getBin(dir + "markers@2x.png" + q) : { status: 0, buf: undefined };
 		if (j2.status === 200 && j2.buf && p2.status === 200 && p2.buf) {
 			await writeFile(path.join(outDir, "markers@2x.json"), j2.buf);
 			await writeFile(path.join(outDir, "markers@2x.png"), p2.buf);
@@ -864,6 +864,7 @@ export async function downloadMedia(
 	opts: {
 		concurrency: number;
 		delay?: number;
+		adaptive?: boolean;
 		game?: string;
 		mediaDb?: MediaDatabase;
 		uploadMedia?: boolean;
@@ -873,6 +874,8 @@ export async function downloadMedia(
 		getBinImpl?: typeof getBin;
 		fetchImpl?: typeof fetch;
 		noTui?: boolean;
+		container?: any;
+		renderer?: any;
 	},
 ) {
 	const writeLocal = !opts.uploadMedia || Boolean(opts.keepLocal);

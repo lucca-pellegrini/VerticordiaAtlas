@@ -12,7 +12,13 @@ import { ICONS, svgIcon } from "../icons.ts";
 import { PALETTE } from "./drawing.ts";
 
 export const TEMP_CAT_ID = -1;
-export const TEMP_CAT: UserCategory = { id: TEMP_CAT_ID, title: "Temporary", color: "#ffb547", temp: true };
+export const TEMP_CAT: UserCategory = {
+	id: TEMP_CAT_ID,
+	title: "Temporary",
+	color: "#ffb547",
+	glyph: null,
+	temp: true,
+};
 const NEW_CAT = "__new";
 
 export const MARKER_CONTROL_HTML =
@@ -198,7 +204,7 @@ export function setupUserMarkers({
 		}
 	}
 
-	function pruneEmptyCategories(catIds: (number | undefined)[]): void {
+	function pruneEmptyCategories(catIds: (number | null | undefined)[]): void {
 		const used = new Set(profileMarkers().map((m) => m.cat));
 		state.profile.userCats = profileCats().filter((c) => !catIds.includes(c.id) || used.has(c.id));
 	}

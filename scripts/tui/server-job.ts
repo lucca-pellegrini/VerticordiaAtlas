@@ -28,6 +28,8 @@ export interface ServerJobView {
 	finish(success: boolean, message?: string): void;
 	handleKey(key: KeyEvent): boolean;
 	resize(width: number, height: number): void;
+	focus?(): void;
+	blur?(): void;
 	destroy(): void;
 }
 
@@ -56,7 +58,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	// Top Job Header Box
 	const headerBox = new BoxRenderable(renderer, {
 		flexDirection: "column",
-		marginVertical: 0,
+		marginY: 0,
 		border: true,
 		borderColor: RGBA_THEME.borderDim,
 		paddingX: 1,
@@ -109,7 +111,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		flexDirection: "column",
 		alignItems: "center",
 		justifyContent: "center",
-		marginVertical: 0,
+		marginY: 0,
 	});
 	rootBox.add(stageContainer);
 

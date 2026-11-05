@@ -55,6 +55,8 @@ export interface GeoPoint {
 	lat: number;
 }
 
+export type DrawingPoint = GeoPoint;
+
 export interface ScreenPoint {
 	x: number;
 	y: number;

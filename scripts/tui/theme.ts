@@ -54,7 +54,7 @@ export const THROBBER_FRAMES = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦",
 export const THROBBER_INTERVAL_MS = 100;
 
 /** Wrap a monotonically increasing tick into a frame index. */
-export function throbberTickIndex(tick: number, frameCount = THROBBER_FRAMES.length): number {
+export function throbberTickIndex(tick: number, frameCount: number = THROBBER_FRAMES.length): number {
 	if (frameCount <= 0) return 0;
 	return ((Math.floor(tick) % frameCount) + frameCount) % frameCount;
 }

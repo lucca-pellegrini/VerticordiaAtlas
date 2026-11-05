@@ -163,7 +163,7 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 	const midRow = new BoxRenderable(renderer, {
 		flexDirection: "row",
 		gap: 2,
-		marginVertical: 1,
+		marginY: 1,
 		flexGrow: 1,
 	});
 

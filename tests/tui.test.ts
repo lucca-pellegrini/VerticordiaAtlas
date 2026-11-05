@@ -282,7 +282,7 @@ describe("TUI ecosystem components & helpers", () => {
 			minDelayMs: 0,
 			maxDelayMs: 250,
 			rampIntervalMs: 20,
-			probeIntervalMs: 40,
+			settleIntervalMs: 40,
 		});
 		expect(stuckCtrl.concurrency).toBe(4);
 		expect(stuckCtrl.delayMs).toBe(200);
@@ -916,8 +916,11 @@ describe("TUI ecosystem components & helpers", () => {
 		setTimeout(() => {
 			process.stdin.emit("data", Buffer.from("\r"));
 		}, 60);
-		const result = await Promise.race([formPromise, new Promise((r) => setTimeout(() => r("timeout"), 1000))]);
-		if (result !== "timeout" && result !== null) {
+		const result = await Promise.race([
+			formPromise,
+			new Promise<"timeout">((r) => setTimeout(() => r("timeout"), 1000)),
+		]);
+		if (result && result !== "timeout") {
 			expect(result.url).toBe("https://mapgenie.io/crimson-desert");
 			expect(result.downloadTiles).toBe(true);
 			expect(result.uploadMedia).toBe(false);
