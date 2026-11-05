@@ -30,7 +30,7 @@ import {
 	renderVerifyEmailTemplate,
 } from "./email-templates.ts";
 import { createSesEmailSender, type EmailSender } from "./email.ts";
-import { createRateLimiter } from "./rate-limit.ts";
+import { createRateLimiter, resolveClientIp } from "./rate-limit.ts";
 import { foldUnicode, validateDisplayName, validateEmail, validatePassword, validateUsername } from "./usernames.ts";
 
 export { normalizeSecret, validateSecretKey };
@@ -45,6 +45,7 @@ const SESSION_DAYS = 30;
 const REFRESH_WITHIN = 7 * DAY;
 const VERIFY_TOKEN_TTL = 6 * HOUR;
 const RESET_TOKEN_TTL = 20 * MINUTE;
+const REAUTH_WINDOW = 10 * MINUTE;
 const COOKIE = "va_session";
 const GOOGLE_ISSUERS = ["accounts.google.com", "https://accounts.google.com"];
 // a key names one item: a profile, or a map's presets or view. Only plain slugs and ids are allowed in it.
@@ -82,6 +83,7 @@ export interface ApiOptions {
 	allowedEmails?: string[] | null;
 	argon2?: Argon2Options;
 	emailSender?: EmailSender;
+	trustProxy?: boolean;
 	onEvent?: (action: string, detail: string) => void;
 }
 
@@ -95,7 +97,9 @@ interface SessionInfo {
 	token: string;
 	user: UserAccount;
 	tokenHash: string;
+	createdAt: number;
 	expiresAt: number;
+	reauthAt: number | null;
 }
 
 export interface WsData {
@@ -113,6 +117,7 @@ export function createApi({
 	allowedEmails = null,
 	argon2,
 	emailSender = createSesEmailSender(),
+	trustProxy = false,
 	onEvent,
 }: ApiOptions) {
 	mkdirSync(path.join(root, "data"), { recursive: true });
@@ -185,7 +190,8 @@ export function createApi({
 			user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
 			created_at INTEGER NOT NULL,
 			expires_at INTEGER NOT NULL,
-			last_used INTEGER NOT NULL
+			last_used INTEGER NOT NULL,
+			reauth_at INTEGER
 		) STRICT;
 		CREATE INDEX IF NOT EXISTS sessions_by_user ON sessions(user_id);
 
@@ -220,6 +226,12 @@ export function createApi({
 			PRIMARY KEY (game, original_name)
 		) STRICT;
 	`);
+
+	// Migrate existing sessions table if created before reauth_at was added
+	const sessionColumns = db.prepare("PRAGMA table_info(sessions)").all() as { name: string }[];
+	if (!sessionColumns.some((c) => c.name === "reauth_at")) {
+		db.exec("ALTER TABLE sessions ADD COLUMN reauth_at INTEGER");
+	}
 
 	// Seed reserved_usernames from vendored server/reserved-usernames.sql when empty
 	const reservedCount = (db.prepare("SELECT COUNT(*) AS n FROM reserved_usernames").get() as { n: number }).n;
@@ -260,15 +272,19 @@ export function createApi({
 		if (!h.has("Cache-Control")) h.set("Cache-Control", "no-store");
 		return new Response(JSON.stringify(body), { status, headers: h });
 	};
-	const clientIp = (req: Request): string =>
-		String(req.headers.get("x-real-ip") || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown");
+	const clientIp = (req: Request, remoteAddress?: string | null): string =>
+		resolveClientIp(req, trustProxy, remoteAddress);
 	const secure = (req: Request): boolean =>
-		Boolean(new URL(req.url).protocol === "https:" || req.headers.get("x-forwarded-proto") === "https");
+		Boolean(
+			new URL(req.url).protocol === "https:" || (trustProxy && req.headers.get("x-forwarded-proto") === "https"),
+		);
 	const resolveOrigin = (req: Request): string => {
 		if (publicUrl) return publicUrl.replace(/\/+$/, "");
 		const proto = secure(req) ? "https:" : new URL(req.url).protocol;
 		const host =
-			req.headers.get("x-forwarded-host")?.split(",")[0]?.trim() || req.headers.get("host") || "localhost";
+			(trustProxy ? req.headers.get("x-forwarded-host")?.split(",")[0]?.trim() : null) ||
+			req.headers.get("host") ||
+			"localhost";
 		return `${proto}//${host}`;
 	};
 
@@ -456,8 +472,16 @@ export function createApi({
 	function sessionFromToken(token: string): SessionInfo | null {
 		if (!token) return null;
 		const row = db
-			.prepare("SELECT token_hash, user_id, expires_at FROM sessions WHERE token_hash = ?")
-			.get(sha256(token)) as { token_hash: string; user_id: string; expires_at: number } | undefined;
+			.prepare("SELECT token_hash, user_id, created_at, expires_at, reauth_at FROM sessions WHERE token_hash = ?")
+			.get(sha256(token)) as
+			| {
+					token_hash: string;
+					user_id: string;
+					created_at: number;
+					expires_at: number;
+					reauth_at: number | null;
+			  }
+			| undefined;
 		if (!row) return null;
 		const t = now();
 		if (row.expires_at <= t) {
@@ -466,7 +490,14 @@ export function createApi({
 		}
 		const user = buildPublicUser(row.user_id);
 		if (!user) return null;
-		return { token, user, tokenHash: String(row.token_hash), expiresAt: Number(row.expires_at) };
+		return {
+			token,
+			user,
+			tokenHash: String(row.token_hash),
+			createdAt: Number(row.created_at),
+			expiresAt: Number(row.expires_at),
+			reauthAt: row.reauth_at !== null && row.reauth_at !== undefined ? Number(row.reauth_at) : null,
+		};
 	}
 	function sessionFrom(req: Request): SessionInfo | null {
 		return sessionFromToken(cookies(req)[COOKIE]);
@@ -494,9 +525,70 @@ export function createApi({
 		const token = crypto.randomBytes(32).toString("base64url");
 		const t = now();
 		db.prepare(
-			"INSERT INTO sessions (token_hash, user_id, created_at, expires_at, last_used) VALUES (?, ?, ?, ?, ?)",
-		).run(sha256(token), userId, t, t + SESSION_DAYS * DAY, t);
+			"INSERT INTO sessions (token_hash, user_id, created_at, expires_at, last_used, reauth_at) VALUES (?, ?, ?, ?, ?, ?)",
+		).run(sha256(token), userId, t, t + SESSION_DAYS * DAY, t, t);
 		return cookieHeader(req, token, SESSION_DAYS * 86400);
+	}
+
+	function markSessionReauthenticated(session: SessionInfo): number {
+		const t = Math.max(now(), session.createdAt + 1);
+		db.prepare("UPDATE sessions SET reauth_at = ?, last_used = ? WHERE token_hash = ?").run(
+			t,
+			t,
+			session.tokenHash,
+		);
+		session.reauthAt = t;
+		return t;
+	}
+
+	function isSessionReauthenticated(session: SessionInfo): boolean {
+		if (session.reauthAt === null || session.reauthAt === undefined) return false;
+		return now() - session.reauthAt < REAUTH_WINDOW;
+	}
+
+	async function verifyStepUpCredential(userId: string, body: any): Promise<boolean> {
+		if (!body || typeof body !== "object") return false;
+		const rawPassword =
+			typeof body.password === "string"
+				? body.password
+				: typeof body.currentPassword === "string"
+					? body.currentPassword
+					: "";
+		if (rawPassword) {
+			const cred = db.prepare("SELECT password_hash FROM password_credentials WHERE user_id = ?").get(userId) as
+				{ password_hash: string } | undefined;
+			if (!cred) return false;
+			return Bun.password.verify(rawPassword, cred.password_hash);
+		}
+		const rawSecret = body.secret ?? body.confirmSecretKey;
+		if (rawSecret !== undefined && rawSecret !== null && String(rawSecret).trim() !== "") {
+			return verifyUserSecretKey(userId, rawSecret);
+		}
+		if (typeof body.idToken === "string" && body.idToken && typeof body.nonce === "string" && body.nonce) {
+			try {
+				const g = await verifyGoogleToken(body.idToken, body.nonce);
+				const ident = db
+					.prepare(
+						"SELECT 1 FROM auth_identities WHERE user_id = ? AND provider = 'google' AND provider_subject = ?",
+					)
+					.get(userId, g.sub);
+				return Boolean(ident);
+			} catch {
+				return false;
+			}
+		}
+		return false;
+	}
+
+	async function requireReauth(session: SessionInfo, body?: any): Promise<void> {
+		if (isSessionReauthenticated(session)) return;
+		if (body && (await verifyStepUpCredential(session.user.id, body))) {
+			markSessionReauthenticated(session);
+			return;
+		}
+		throw httpError(403, "For your security, please confirm your password or secret key to continue.", {
+			requireReauth: true,
+		});
 	}
 
 	/* ---------- Google: verify the ID token via jose ---------- */
@@ -645,7 +737,7 @@ export function createApi({
 			}
 			ws.send('{"type":"hello"}');
 		},
-		message() {
+		message(_ws?: ServerWebSocket<WsData>, _msg?: string | Buffer) {
 			// clients have nothing to say beyond proving they are alive
 		},
 		close(ws: ServerWebSocket<WsData>) {
@@ -660,7 +752,7 @@ export function createApi({
 
 	function upgrade(
 		req: Request,
-		server: { upgrade: (req: Request, options?: { data?: WsData }) => boolean },
+		server: { upgrade: (req: Request, options: { data: WsData }) => boolean },
 	): Response | undefined {
 		const url = new URL(req.url);
 		if (url.pathname !== "/api/ws") return new Response("Bad Request", { status: 400 });
@@ -694,10 +786,10 @@ export function createApi({
 	}
 
 	/* ---------- HTTP route handler ---------- */
-	async function handle(req: Request, url: URL): Promise<Response | null> {
+	async function handle(req: Request, url: URL, remoteAddress?: string | null): Promise<Response | null> {
 		try {
 			const route = `${req.method} ${url.pathname}`;
-			const ip = clientIp(req);
+			const ip = clientIp(req, remoteAddress);
 
 			if (route === "GET /api/config") return json(200, { googleClientId });
 
@@ -1540,6 +1632,25 @@ export function createApi({
 			}
 
 			/* ---------- Account Management Routes (require active session) ---------- */
+			if (route === "POST /api/account/reauth") {
+				const session = sessionFrom(req);
+				if (!session) throw httpError(401, "not signed in");
+				const userId = session.user.id;
+				if (
+					!rateLimiter.allow("reauth:ip", ip, 20, 15 * MINUTE) ||
+					!rateLimiter.allow("reauth:user", userId, 10, 15 * MINUTE)
+				) {
+					throw httpError(429, "Too many attempts. Please wait a little and try again.");
+				}
+				const body = await readJson(req, 4000);
+				const ok = await verifyStepUpCredential(userId, body);
+				if (!ok) {
+					throw httpError(401, "The password or secret key you entered is incorrect.");
+				}
+				const reauthAt = markSessionReauthenticated(session);
+				return json(200, { ok: true, reauthAt });
+			}
+
 			if (route === "POST /api/account/profile") {
 				const session = sessionFrom(req);
 				if (!session) throw httpError(401, "not signed in");
@@ -1610,7 +1721,9 @@ export function createApi({
 					if (!curPass) throw httpError(400, "Please enter your current password.");
 					const ok = await Bun.password.verify(curPass, existingCred.password_hash);
 					if (!ok) throw httpError(401, "Your current password is incorrect.");
+					markSessionReauthenticated(session);
 				} else {
+					await requireReauth(session, body);
 					const hasVerifiedEmail = db
 						.prepare("SELECT 1 FROM email_addresses WHERE user_id = ? AND verified_at IS NOT NULL")
 						.get(userId);
@@ -1707,6 +1820,7 @@ export function createApi({
 				if (!session) throw httpError(401, "not signed in");
 				const userId = session.user.id;
 				const body = await readJson(req, 1000);
+				await requireReauth(session, body);
 				const v = validateSecretKey(body.secret);
 				if (!v.valid) throw httpError(400, v.error);
 				const secretHash = sha256(v.normalized);
@@ -1749,6 +1863,7 @@ export function createApi({
 					throw httpError(429, "Too many attempts. Please wait a little and try again.");
 				}
 				const body = await readJson(req, 2000);
+				await requireReauth(session, body);
 				const vEmail = validateEmail(body.email);
 				if (!vEmail.valid) throw httpError(400, vEmail.error);
 
@@ -1822,6 +1937,7 @@ export function createApi({
 				if (!session) throw httpError(401, "not signed in");
 				const userId = session.user.id;
 				const body = await readJson(req, 1000);
+				await requireReauth(session, body);
 				const emailId = String(body.emailId || "").trim();
 				const row = db
 					.prepare("SELECT id, email, verified_at FROM email_addresses WHERE id = ? AND user_id = ?")
@@ -1856,6 +1972,7 @@ export function createApi({
 				if (!session) throw httpError(401, "not signed in");
 				const userId = session.user.id;
 				const body = await readJson(req, 2000);
+				await requireReauth(session, body);
 				const emailId = String(body.emailId || "").trim();
 
 				const allEmails = getEmailsByUserStmt.all(userId) as {
@@ -1929,6 +2046,7 @@ export function createApi({
 				if (!session) throw httpError(401, "not signed in");
 				const userId = session.user.id;
 				const body = await readJson(req, 2000);
+				await requireReauth(session, body);
 				const type = String(body.type || "") as "google" | "password" | "secret_key";
 				if (type !== "google" && type !== "password" && type !== "secret_key") {
 					throw httpError(400, "Invalid credential type.");
@@ -2029,6 +2147,11 @@ export function createApi({
 			if (route === "POST /api/auth/delete-account" || route === "DELETE /api/me") {
 				const session = sessionFrom(req);
 				if (!session) throw httpError(401, "not signed in");
+				let body: any = {};
+				if (String(req.headers.get("content-type") || "").startsWith("application/json")) {
+					body = await readJson(req, 2000);
+				}
+				await requireReauth(session, body);
 				const userId = session.user.id;
 				for (const ws of [...(sockets.get(userId) || [])]) ws.close(4401, "account deleted");
 				sockets.delete(userId);
@@ -2122,6 +2245,9 @@ export function createApi({
 		clearInterval(sweepTimer);
 		for (const set of sockets.values()) for (const ws of set) ws.close();
 		sockets.clear();
+		try {
+			db.exec("PRAGMA wal_checkpoint(TRUNCATE);");
+		} catch {}
 		db.close();
 	};
 

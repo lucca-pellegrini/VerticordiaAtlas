@@ -11,7 +11,7 @@
 		<meta name="theme-color" content="#0b0e10" />
 		<script>
 			(() => {
-				const tm = document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)/);
+				const tm = document.cookie.match(/(?:^|;\s*)va_theme=(light|auto|dark)\b/);
 				if (tm) document.documentElement.dataset.theme = tm[1];
 				let raw = null;
 				const tn = document.cookie.match(/(?:^|;\s*)va_tint=([^;]+)/);

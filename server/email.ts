@@ -21,6 +21,9 @@ export interface SesConfig {
 	fromName?: string;
 	configurationSet?: string;
 	endpoint?: string;
+	devFallback?: boolean;
+	devLogFile?: string;
+	onDevLog?: (line: string) => void;
 }
 
 function parseDotEnvFile(filePath: string): Record<string, string> {
@@ -52,6 +55,8 @@ export function loadSesConfigFromEnv(rootDir = process.cwd()): SesConfig {
 		const v = process.env[key] ?? dotEnvSes[key];
 		return v && v.trim() ? v.trim() : undefined;
 	};
+	const devFlag = pick("DEV_EMAIL_LOG");
+	const isProd = (process.env.NODE_ENV || "").toLowerCase() === "production";
 	return {
 		region: pick("SES_REGION"),
 		accessKeyId: pick("SES_ACCESS_KEY_ID"),
@@ -60,11 +65,46 @@ export function loadSesConfigFromEnv(rootDir = process.cwd()): SesConfig {
 		fromName: pick("SES_FROM_NAME") || "Verticordia Atlas",
 		configurationSet: pick("SES_CONFIGURATION_SET"),
 		endpoint: pick("SES_ENDPOINT"),
+		devFallback: devFlag ? devFlag !== "0" && devFlag.toLowerCase() !== "false" : !isProd,
+		devLogFile: pick("DEV_EMAIL_LOG_FILE"),
+	};
+}
+
+export function createDevEmailSender(opts: { log?: (line: string) => void; logFile?: string } = {}): EmailSender {
+	const log = opts.log ?? ((line: string) => console.info(line));
+	return {
+		async send(msg: EmailMessage): Promise<{ messageId?: string }> {
+			const messageId = `dev-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+			const urls = msg.text.match(/https?:\/\/[^\s<>")]+/g) || [];
+			const summary = [
+				`[dev-email] To: ${msg.to} | Subject: ${msg.subject} | id: ${messageId}`,
+				...urls.map((u) => `[dev-email] Action URL: ${u}`),
+			].join("\n");
+			log(summary);
+			if (opts.logFile) {
+				try {
+					fs.mkdirSync(path.dirname(opts.logFile), { recursive: true });
+					fs.appendFileSync(
+						opts.logFile,
+						`${new Date().toISOString()}\n${summary}\n\n${msg.text}\n${"-".repeat(60)}\n`,
+						"utf8",
+					);
+				} catch {
+					/* ignore optional dev log file write failures */
+				}
+			}
+			return { messageId };
+		},
 	};
 }
 
 export function createSesEmailSender(cfg: SesConfig = loadSesConfigFromEnv()): EmailSender {
 	let client: SESv2Client | null = null;
+	const hasSesCredentials = Boolean(cfg.region && cfg.accessKeyId && cfg.secretAccessKey && cfg.fromEmail);
+	const fallbackSender =
+		!hasSesCredentials && cfg.devFallback
+			? createDevEmailSender({ log: cfg.onDevLog, logFile: cfg.devLogFile })
+			: null;
 
 	function getClient(): SESv2Client {
 		if (client) return client;
@@ -86,6 +126,9 @@ export function createSesEmailSender(cfg: SesConfig = loadSesConfigFromEnv()): E
 
 	return {
 		async send(msg: EmailMessage): Promise<{ messageId?: string }> {
+			if (fallbackSender) {
+				return fallbackSender.send(msg);
+			}
 			const ses = getClient();
 			const fromAddress = cfg.fromName ? `${cfg.fromName} <${cfg.fromEmail}>` : cfg.fromEmail!;
 			const cmd = new SendEmailCommand({

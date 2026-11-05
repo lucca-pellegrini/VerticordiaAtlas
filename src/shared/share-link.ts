@@ -13,6 +13,7 @@ const MAX_TITLE = 120,
 	MAX_DESC = 1200,
 	MAX_LENGTH = 4000,
 	MAX_LINKS = 200;
+export const MAX_DECOMPRESSED_BYTES = 16_384;
 const round = (n: number) => Math.round(n * 1e6) / 1e6;
 
 export interface PackMarkerInput {
@@ -58,6 +59,36 @@ async function pipe(bytes: Uint8Array, stream: CompressionStream | Decompression
 	return new Uint8Array(await new Response(out).arrayBuffer());
 }
 
+async function decompressBounded(bytes: Uint8Array, maxBytes: number): Promise<Uint8Array | null> {
+	const out = new Blob([bytes as BlobPart]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+	const reader = out.getReader();
+	const chunks: Uint8Array[] = [];
+	let total = 0;
+	try {
+		while (true) {
+			const { done, value } = await reader.read();
+			if (done) break;
+			if (!value) continue;
+			total += value.byteLength;
+			if (total > maxBytes) {
+				await reader.cancel().catch(() => {});
+				return null;
+			}
+			chunks.push(value);
+		}
+	} catch {
+		await reader.cancel().catch(() => {});
+		return null;
+	}
+	const result = new Uint8Array(total);
+	let offset = 0;
+	for (const chunk of chunks) {
+		result.set(chunk, offset);
+		offset += chunk.byteLength;
+	}
+	return result;
+}
+
 // "#rrggbb" in lower case, or null
 const colorOf = (c?: string | null): string | null =>
 	/^#?[0-9a-f]{6}$/i.test(c || "") ? "#" + String(c).replace("#", "").toLowerCase() : null;
@@ -92,10 +123,15 @@ export async function packMarker({
 }
 
 // the marker in a packed link, or null when the link is not a valid one
-export async function unpackMarker(str: string): Promise<UnpackedMarker | null> {
+export async function unpackMarker(
+	str: string,
+	maxDecompressedBytes = MAX_DECOMPRESSED_BYTES,
+): Promise<UnpackedMarker | null> {
 	try {
 		if (typeof str !== "string" || !str || str.length > MAX_LENGTH || !/^[A-Za-z0-9_-]+$/.test(str)) return null;
-		const json = new TextDecoder().decode(await pipe(fromBase64Url(str), new DecompressionStream("deflate-raw")));
+		const decompressed = await decompressBounded(fromBase64Url(str), maxDecompressedBytes);
+		if (!decompressed) return null;
+		const json = new TextDecoder().decode(decompressed);
 		const p = JSON.parse(json);
 		if (!(p.v === 1 || p.v === 2) || typeof p.title !== "string" || !p.title) return null;
 		if (!Number.isFinite(p.lat) || !Number.isFinite(p.lng) || Math.abs(p.lat) > 90 || Math.abs(p.lng) > 180)

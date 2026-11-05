@@ -165,6 +165,25 @@ describe("share-link", () => {
 		const badLat = await packMarker({ title: "Out of bounds", lat: 95, lng: 0, map: "world" });
 		expect(await unpackMarker(badLat)).toBeNull();
 	});
+
+	test("unpackMarker aborts decompression bombs exceeding MAX_DECOMPRESSED_BYTES", async () => {
+		const rawJson = JSON.stringify({
+			v: 2,
+			title: "Bomb",
+			lat: 0,
+			lng: 0,
+			desc: "A".repeat(100_000),
+		});
+		const compressedStream = new Blob([new TextEncoder().encode(rawJson)])
+			.stream()
+			.pipeThrough(new CompressionStream("deflate-raw"));
+		const compressedBytes = new Uint8Array(await new Response(compressedStream).arrayBuffer());
+		let bin = "";
+		for (const b of compressedBytes) bin += String.fromCharCode(b);
+		const b64url = btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+		expect(b64url.length).toBeLessThan(4000);
+		expect(await unpackMarker(b64url)).toBeNull();
+	});
 });
 
 describe("shared/escape and shared/theme-math", () => {

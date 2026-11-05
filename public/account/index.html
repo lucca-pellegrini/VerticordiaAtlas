@@ -349,6 +349,58 @@
 			</div>
 		</div>
 
+		<!-- Step-Up Re-Authentication Modal -->
+		<div
+			class="modal-backdrop"
+			id="reauth-modal"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="reauth-modal-title"
+			hidden
+		>
+			<div class="modal-card">
+				<h2 id="reauth-modal-title">Confirm your identity</h2>
+				<p class="small">
+					For your security, please re-enter your password or secret key to continue with this account change.
+				</p>
+				<form id="reauth-form" class="acct-form">
+					<label class="field" id="reauth-password-wrap">
+						<span>Current password</span>
+						<input
+							id="reauth-password-input"
+							class="text-input"
+							type="password"
+							autocomplete="current-password"
+							placeholder="••••••••"
+						/>
+					</label>
+					<label class="field" id="reauth-secret-wrap">
+						<span>Account secret key</span>
+						<input
+							id="reauth-secret-input"
+							class="mono-input"
+							type="text"
+							autocomplete="off"
+							spellcheck="false"
+							placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XX"
+						/>
+					</label>
+					<div id="reauth-google-wrap" class="btn-row" hidden>
+						<a class="ghost" id="reauth-google-link" href="../api/auth/google/start?next=%2Faccount%2F">
+							Re-authenticate with Google
+						</a>
+					</div>
+					<p class="error" id="reauth-error" role="alert" hidden></p>
+					<div class="btn-row">
+						<button type="submit" class="primary-btn" id="btn-modal-reauth-confirm">
+							Confirm &amp; continue
+						</button>
+						<button type="button" class="ghost" id="btn-modal-reauth-cancel">Cancel</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
 		<footer class="signin-foot wrap">
 			<p class="fine">
 				<a href="../about/">About</a><span class="sep" aria-hidden="true">·</span

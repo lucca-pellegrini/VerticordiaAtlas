@@ -277,6 +277,7 @@ if (typeof document !== "undefined") {
 
 	let activeUser: UserAccount | null = null;
 	let pendingSecretKeyAction: ((confirmKey: string) => Promise<void>) | null = null;
+	let pendingReauthAction: (() => Promise<void>) | null = null;
 	let generatedSecretKey = "";
 
 	const setError = (id: string, msg: string) => {
@@ -435,6 +436,84 @@ if (typeof document !== "undefined") {
 		};
 	}
 
+	/* ---------- Step-Up Re-Authentication Modal ---------- */
+	const reauthModal = $("reauth-modal");
+	const reauthPasswordInput = $<HTMLInputElement>("reauth-password-input");
+	const reauthSecretInput = $<HTMLInputElement>("reauth-secret-input");
+
+	function openReauthModal(onReauthenticated: () => Promise<void>): void {
+		pendingReauthAction = onReauthenticated;
+		setError("reauth-error", "");
+		const hasPw = Boolean(activeUser?.methods?.password);
+		const hasSecret = Boolean(activeUser?.methods?.secretKey);
+		const hasGoogle = Boolean(activeUser?.methods?.google);
+		if ($("reauth-password-wrap")) $("reauth-password-wrap").hidden = !hasPw;
+		if ($("reauth-secret-wrap")) $("reauth-secret-wrap").hidden = !hasSecret;
+		if ($("reauth-google-wrap")) $("reauth-google-wrap").hidden = !hasGoogle;
+		if ($("btn-modal-reauth-confirm")) $("btn-modal-reauth-confirm").hidden = !hasPw && !hasSecret;
+		if (reauthPasswordInput) reauthPasswordInput.value = "";
+		if (reauthSecretInput) reauthSecretInput.value = "";
+		if (reauthModal) reauthModal.hidden = false;
+		if (hasPw) reauthPasswordInput?.focus();
+		else if (hasSecret) reauthSecretInput?.focus();
+	}
+
+	function closeReauthModal(): void {
+		pendingReauthAction = null;
+		setError("reauth-error", "");
+		if (reauthModal) reauthModal.hidden = true;
+	}
+
+	if (reauthSecretInput) {
+		reauthSecretInput.addEventListener("input", () => {
+			setError("reauth-error", "");
+			reauthSecretInput.value = formatSecretKey(reauthSecretInput.value);
+		});
+	}
+	reauthPasswordInput?.addEventListener("input", () => setError("reauth-error", ""));
+	$("btn-modal-reauth-cancel")?.addEventListener("click", closeReauthModal);
+
+	const reauthForm = $<HTMLFormElement>("reauth-form");
+	if (reauthForm) {
+		reauthForm.onsubmit = async (e) => {
+			e.preventDefault();
+			if (!pendingReauthAction) return;
+			const password = reauthPasswordInput?.value || "";
+			const secret = reauthSecretInput?.value.trim() || "";
+			if (!password && !secret) {
+				setError("reauth-error", "Please enter your password or secret key.");
+				return;
+			}
+			const btn = $<HTMLButtonElement>("btn-modal-reauth-confirm");
+			if (btn) btn.disabled = true;
+			try {
+				await api("POST", "account/reauth", {
+					password: password || undefined,
+					secret: secret || undefined,
+				});
+				const action = pendingReauthAction;
+				closeReauthModal();
+				await action();
+			} catch (err: any) {
+				setError("reauth-error", err.message || "Could not verify your identity.");
+			} finally {
+				if (btn) btn.disabled = false;
+			}
+		};
+	}
+
+	async function withReauth(action: () => Promise<void>): Promise<void> {
+		try {
+			await action();
+		} catch (err: any) {
+			if (err && err.requireReauth) {
+				openReauthModal(action);
+				return;
+			}
+			throw err;
+		}
+	}
+
 	/* ---------- Email Management ---------- */
 	const addEmailForm = $<HTMLFormElement>("add-email-form");
 	if (addEmailForm) {
@@ -447,10 +526,12 @@ if (typeof document !== "undefined") {
 			const btn = $<HTMLButtonElement>("btn-add-email");
 			btn.disabled = true;
 			try {
-				const res = await api("POST", "account/email/add", { email });
-				input.value = "";
-				await refreshUserFromServer();
-				notify(res.message || "Confirmation email sent.");
+				await withReauth(async () => {
+					const res = await api("POST", "account/email/add", { email });
+					input.value = "";
+					await refreshUserFromServer();
+					notify(res.message || "Confirmation email sent.");
+				});
 			} catch (err: any) {
 				setError("emails-error", err.message || "Could not add email address.");
 			} finally {
@@ -484,9 +565,11 @@ if (typeof document !== "undefined") {
 			const emailId = primaryBtn.dataset.primaryEmailId!;
 			primaryBtn.disabled = true;
 			try {
-				await api("POST", "account/email/primary", { emailId });
-				await refreshUserFromServer();
-				notify("Primary email address updated.");
+				await withReauth(async () => {
+					await api("POST", "account/email/primary", { emailId });
+					await refreshUserFromServer();
+					notify("Primary email address updated.");
+				});
 			} catch (err: any) {
 				setError("emails-error", err.message || "Could not change primary email.");
 			} finally {
@@ -499,9 +582,11 @@ if (typeof document !== "undefined") {
 		if (removeBtn) {
 			const emailId = removeBtn.dataset.removeEmailId!;
 			const doRemove = async (confirmSecretKey?: string) => {
-				await api("POST", "account/email/remove", { emailId, confirmSecretKey });
-				await refreshUserFromServer();
-				notify("Email address removed.");
+				await withReauth(async () => {
+					await api("POST", "account/email/remove", { emailId, confirmSecretKey });
+					await refreshUserFromServer();
+					notify("Email address removed.");
+				});
 			};
 
 			if (wouldLeaveOnlySecretKey(activeUser, { type: "remove-email", emailId })) {
@@ -568,9 +653,11 @@ if (typeof document !== "undefined") {
 		if (revBtn) {
 			const cred = revBtn.dataset.credRevoke as "google" | "password" | "secret_key";
 			const doRevoke = async (confirmSecretKey?: string) => {
-				await api("POST", "account/credentials/revoke", { type: cred, confirmSecretKey });
-				await refreshUserFromServer();
-				notify("Sign-in method removed.");
+				await withReauth(async () => {
+					await api("POST", "account/credentials/revoke", { type: cred, confirmSecretKey });
+					await refreshUserFromServer();
+					notify("Sign-in method removed.");
+				});
 			};
 
 			if (wouldLeaveOnlySecretKey(activeUser, { type: "revoke-credential", cred })) {
@@ -614,14 +701,16 @@ if (typeof document !== "undefined") {
 			const btn = $<HTMLButtonElement>("btn-save-password");
 			btn.disabled = true;
 			try {
-				await api("POST", "account/password", {
-					currentPassword: currentPassword || undefined,
-					username: username || undefined,
-					newPassword,
+				await withReauth(async () => {
+					await api("POST", "account/password", {
+						currentPassword: currentPassword || undefined,
+						username: username || undefined,
+						newPassword,
+					});
+					pwForm.hidden = true;
+					await refreshUserFromServer();
+					notify("Password updated.");
 				});
-				pwForm.hidden = true;
-				await refreshUserFromServer();
-				notify("Password updated.");
 			} catch (err: any) {
 				setError("password-error", err.message || "Could not update password.");
 			} finally {
@@ -645,11 +734,14 @@ if (typeof document !== "undefined") {
 		btn.disabled = true;
 		setError("security-error", "");
 		try {
-			await api("POST", "account/secret/add", { secret: generatedSecretKey });
-			generatedSecretKey = "";
-			$("new-secret-box").hidden = true;
-			await refreshUserFromServer();
-			notify("Secret key attached to your account.");
+			const keyToAttach = generatedSecretKey;
+			await withReauth(async () => {
+				await api("POST", "account/secret/add", { secret: keyToAttach });
+				generatedSecretKey = "";
+				$("new-secret-box").hidden = true;
+				await refreshUserFromServer();
+				notify("Secret key attached to your account.");
+			});
 		} catch (err: any) {
 			btn.disabled = false;
 			setError("security-error", err.message || "Could not attach secret key.");
@@ -711,12 +803,14 @@ if (typeof document !== "undefined") {
 		const confirmBtn = $<HTMLButtonElement>("btn-delete-confirm");
 		confirmBtn.disabled = true;
 		try {
-			await api("POST", "auth/delete-account");
-			localStorage.removeItem(SIGNED_IN_KEY);
-			$("delete-confirm-box").hidden = true;
-			$("delete-initial-row").hidden = false;
-			renderUserState(null);
-			notify("Your account and server-synced data have been deleted.");
+			await withReauth(async () => {
+				await api("POST", "auth/delete-account");
+				localStorage.removeItem(SIGNED_IN_KEY);
+				$("delete-confirm-box").hidden = true;
+				$("delete-initial-row").hidden = false;
+				renderUserState(null);
+				notify("Your account and server-synced data have been deleted.");
+			});
 		} catch (e: any) {
 			showError(
 				e.network

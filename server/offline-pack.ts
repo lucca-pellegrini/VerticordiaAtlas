@@ -7,6 +7,7 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 
+import { createRateLimiter, type RateLimiter, resolveClientIp } from "./rate-limit.ts";
 import {
 	deriveRaw,
 	encodeTile,
@@ -20,6 +21,18 @@ import {
 
 export const VAOP_MAGIC = "VAOP";
 export const VAOP_VERSION = 1;
+
+export const PACK_SLUG_RE = /^[A-Za-z0-9_-][A-Za-z0-9._-]{0,119}$/;
+
+export function isValidPackSlug(slug: unknown): slug is string {
+	return typeof slug === "string" && slug !== "." && slug !== ".." && PACK_SLUG_RE.test(slug);
+}
+
+function isContainedWithin(childPath: string, parentDir: string): boolean {
+	const resolvedParent = path.resolve(parentDir);
+	const resolvedChild = path.resolve(childPath);
+	return resolvedChild.startsWith(resolvedParent + path.sep);
+}
 
 export interface PackItem {
 	file: string;
@@ -78,9 +91,21 @@ export async function collectMapPackItems(
 	gameSlug: string,
 	mapSlug: string,
 ): Promise<PackItem[] | null> {
-	const mapsDir = path.join(publicDir, "maps");
-	const gameDir = path.join(mapsDir, gameSlug);
-	const mapDir = path.join(gameDir, mapSlug);
+	if (!isValidPackSlug(gameSlug) || !isValidPackSlug(mapSlug)) return null;
+
+	const mapsDir = path.resolve(publicDir, "maps");
+	const gameDir = path.resolve(mapsDir, gameSlug);
+	const mapDir = path.resolve(gameDir, mapSlug);
+	const resolvedCacheRoot = path.resolve(cacheDir);
+	const cachedTilesDir = path.resolve(resolvedCacheRoot, gameSlug, mapSlug);
+
+	if (
+		!isContainedWithin(gameDir, mapsDir) ||
+		!isContainedWithin(mapDir, gameDir) ||
+		!isContainedWithin(cachedTilesDir, resolvedCacheRoot)
+	) {
+		return null;
+	}
 
 	const mapStat = await stat(mapDir).catch(() => null);
 	if (!mapStat || !mapStat.isDirectory()) return null;
@@ -137,7 +162,6 @@ export async function collectMapPackItems(
 	});
 
 	// 6. cached tiles in cache/tiles/<game>/<map>/ (if any)
-	const cachedTilesDir = path.join(cacheDir, gameSlug, mapSlug);
 	await walkDir(cachedTilesDir, (filePath, st) => {
 		const rel = path.relative(cachedTilesDir, filePath).split(path.sep).join("/");
 		const normUrl = `/maps/${gameSlug}/${mapSlug}/tiles/${rel}`;
@@ -153,7 +177,21 @@ export async function ensureIntermediateTiles(
 	gameSlug: string,
 	mapSlug: string,
 ): Promise<void> {
-	const metaPath = path.join(publicDir, "maps", gameSlug, "meta.json");
+	if (!isValidPackSlug(gameSlug) || !isValidPackSlug(mapSlug)) return;
+	const mapsDir = path.resolve(publicDir, "maps");
+	const gameDir = path.resolve(mapsDir, gameSlug);
+	const mapDir = path.resolve(gameDir, mapSlug);
+	const resolvedCacheRoot = path.resolve(cacheDir);
+	const mapCacheDir = path.resolve(resolvedCacheRoot, gameSlug, mapSlug);
+	if (
+		!isContainedWithin(gameDir, mapsDir) ||
+		!isContainedWithin(mapDir, gameDir) ||
+		!isContainedWithin(mapCacheDir, resolvedCacheRoot)
+	) {
+		return;
+	}
+
+	const metaPath = path.join(gameDir, "meta.json");
 	const meta = await readFile(metaPath, "utf8")
 		.then(JSON.parse)
 		.catch(() => null);
@@ -166,8 +204,12 @@ export async function ensureIntermediateTiles(
 		if (!split) continue;
 		const tail = split.tail;
 		const key = path.basename(split.base.replace(/\/+$/, ""));
-		const publicTilesDir = path.join(publicDir, "maps", gameSlug, split.base);
-		const cacheTilesDir = path.join(cacheDir, gameSlug, mapSlug, key);
+		if (!isValidPackSlug(key)) continue;
+		const publicTilesDir = path.resolve(gameDir, split.base);
+		const cacheTilesDir = path.resolve(mapCacheDir, key);
+		if (!isContainedWithin(publicTilesDir, gameDir) || !isContainedWithin(cacheTilesDir, mapCacheDir)) {
+			continue;
+		}
 		const minZ = ts.minzoom ?? 0;
 		const maxZ = ts.maxzoom ?? 18;
 		if (maxZ <= minZ) continue;
@@ -233,139 +275,255 @@ export async function ensureIntermediateTiles(
 
 const preparing = new Map<string, Promise<void>>();
 
+export const DEFAULT_PACK_RATE_MAX = 30;
+export const DEFAULT_PACK_RATE_WINDOW_MS = 15 * 60 * 1000;
+export const DEFAULT_PACK_MAX_CONCURRENT = 3;
+
+const defaultPackLimiter = createRateLimiter();
+
+export interface OfflinePackLimiterState {
+	active: number;
+}
+
+const defaultConcurrencyState: OfflinePackLimiterState = { active: 0 };
+
+export interface StreamOfflinePackOptions {
+	clientIp?: string;
+	trustProxy?: boolean;
+	remoteAddress?: string | null;
+	rateLimiter?: RateLimiter;
+	maxPerWindow?: number;
+	windowMs?: number;
+	maxConcurrent?: number;
+	concurrencyState?: OfflinePackLimiterState;
+	prepareFn?: (publicDir: string, cacheDir: string, gameSlug: string, mapSlug: string) => Promise<void>;
+}
+
 export async function streamOfflinePack(
 	req: Request,
 	publicDir: string,
 	cacheDir: string,
 	gameSlug: string,
 	mapSlug: string,
+	opts: StreamOfflinePackOptions = {},
 ): Promise<Response> {
-	// the response starts once the tiles exist (the page shows "Preparing"); two requests for one map share the work
-	const key = `${gameSlug}/${mapSlug}`;
-	let work = preparing.get(key);
-	if (!work) {
-		work = ensureIntermediateTiles(publicDir, cacheDir, gameSlug, mapSlug)
-			.catch(() => {})
-			.finally(() => preparing.delete(key));
-		preparing.set(key, work);
-	}
-	await work;
-	const items = await collectMapPackItems(publicDir, cacheDir, gameSlug, mapSlug);
-	if (!items) {
-		return new Response(JSON.stringify({ error: `Map ${gameSlug}/${mapSlug} not found` }), {
-			status: 404,
+	if (!isValidPackSlug(gameSlug) || !isValidPackSlug(mapSlug)) {
+		return new Response(JSON.stringify({ error: "Invalid map slug" }), {
+			status: 400,
 			headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
 		});
 	}
 
-	// Calculate total uncompressed payload bytes (file bytes + headers)
-	const seenInos = new Map<number, string>();
-	let totalBytes = 0;
-	for (const item of items) {
-		if (seenInos.has(item.ino)) {
-			// Type 1: [1 byte type] + [2 bytes targetUrlLen] + targetUrl + [2 bytes srcUrlLen] + srcUrl + [1 byte mimeLen] + mime
-			const src = seenInos.get(item.ino)!;
-			totalBytes +=
-				1 +
-				2 +
-				Buffer.byteLength(item.url) +
-				2 +
-				Buffer.byteLength(src) +
-				1 +
-				Buffer.byteLength(item.contentType);
-		} else {
-			seenInos.set(item.ino, item.url);
-			// Type 0: [1 byte type] + [2 bytes urlLen] + url + [1 byte mimeLen] + mime + [4 bytes size] + item.size
-			totalBytes += 1 + 2 + Buffer.byteLength(item.url) + 1 + Buffer.byteLength(item.contentType) + 4 + item.size;
-		}
-	}
-	seenInos.clear();
+	const mapsDir = path.resolve(publicDir, "maps");
+	const gameDir = path.resolve(mapsDir, gameSlug);
+	const mapDir = path.resolve(gameDir, mapSlug);
+	const resolvedCacheRoot = path.resolve(cacheDir);
+	const cachedTilesDir = path.resolve(resolvedCacheRoot, gameSlug, mapSlug);
 
-	const headers = {
-		"Content-Type": "application/octet-stream",
-		"Cache-Control": "no-store",
-		"X-VA-Total-Entries": String(items.length),
-		"X-VA-Total-Bytes": String(totalBytes),
+	if (
+		!isContainedWithin(gameDir, mapsDir) ||
+		!isContainedWithin(mapDir, gameDir) ||
+		!isContainedWithin(cachedTilesDir, resolvedCacheRoot)
+	) {
+		return new Response(JSON.stringify({ error: "Invalid map path" }), {
+			status: 400,
+			headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+		});
+	}
+
+	const limiter = opts.rateLimiter ?? defaultPackLimiter;
+	const maxPerWindow = opts.maxPerWindow ?? DEFAULT_PACK_RATE_MAX;
+	const windowMs = opts.windowMs ?? DEFAULT_PACK_RATE_WINDOW_MS;
+	const ip = opts.clientIp ?? resolveClientIp(req, Boolean(opts.trustProxy), opts.remoteAddress);
+
+	if (!limiter.allow("offline-pack:ip", ip, maxPerWindow, windowMs)) {
+		const retryAfter = limiter.retryAfterSeconds("offline-pack:ip", ip, windowMs);
+		return new Response(JSON.stringify({ error: "Too many offline pack requests. Please try again later." }), {
+			status: 429,
+			headers: {
+				"Content-Type": "application/json",
+				"Cache-Control": "no-store",
+				"Retry-After": String(retryAfter),
+			},
+		});
+	}
+
+	const maxConcurrent = opts.maxConcurrent ?? DEFAULT_PACK_MAX_CONCURRENT;
+	const conc = opts.concurrencyState ?? defaultConcurrencyState;
+	if (conc.active >= maxConcurrent) {
+		return new Response(JSON.stringify({ error: "Offline pack builder is busy. Please retry shortly." }), {
+			status: 429,
+			headers: {
+				"Content-Type": "application/json",
+				"Cache-Control": "no-store",
+				"Retry-After": "5",
+			},
+		});
+	}
+
+	conc.active++;
+	let slotReleased = false;
+	const releaseSlot = () => {
+		if (!slotReleased) {
+			slotReleased = true;
+			conc.active = Math.max(0, conc.active - 1);
+		}
 	};
 
-	if (req.method === "HEAD") {
-		return new Response(null, { status: 200, headers });
-	}
+	try {
+		// the response starts once the tiles exist (the page shows "Preparing"); two requests for one map share the work
+		const prepareImpl = opts.prepareFn ?? ensureIntermediateTiles;
+		const key = `${gameSlug}/${mapSlug}`;
+		let work = opts.prepareFn ? undefined : preparing.get(key);
+		if (!work) {
+			work = prepareImpl(publicDir, cacheDir, gameSlug, mapSlug)
+				.catch(() => {})
+				.finally(() => {
+					if (!opts.prepareFn) preparing.delete(key);
+				});
+			if (!opts.prepareFn) preparing.set(key, work);
+		}
+		await work;
+		const items = await collectMapPackItems(publicDir, cacheDir, gameSlug, mapSlug);
+		if (!items) {
+			releaseSlot();
+			return new Response(JSON.stringify({ error: `Map ${gameSlug}/${mapSlug} not found` }), {
+				status: 404,
+				headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
+			});
+		}
 
-	// Write 17-byte header:
-	// "VAOP" (4 bytes) | Version (1 byte) | Total Entries (4 bytes BE) | Total Bytes (8 bytes BE)
-	const hdr = Buffer.alloc(17);
-	hdr.write(VAOP_MAGIC, 0, 4, "ascii");
-	hdr.writeUInt8(VAOP_VERSION, 4);
-	hdr.writeUInt32BE(items.length, 5);
-	hdr.writeBigUInt64BE(BigInt(totalBytes), 9);
+		// Calculate total uncompressed payload bytes (file bytes + headers)
+		const seenInos = new Map<number, string>();
+		let totalBytes = 0;
+		for (const item of items) {
+			if (seenInos.has(item.ino)) {
+				// Type 1: [1 byte type] + [2 bytes targetUrlLen] + targetUrl + [2 bytes srcUrlLen] + srcUrl + [1 byte mimeLen] + mime
+				const src = seenInos.get(item.ino)!;
+				totalBytes +=
+					1 +
+					2 +
+					Buffer.byteLength(item.url) +
+					2 +
+					Buffer.byteLength(src) +
+					1 +
+					Buffer.byteLength(item.contentType);
+			} else {
+				seenInos.set(item.ino, item.url);
+				// Type 0: [1 byte type] + [2 bytes urlLen] + url + [1 byte mimeLen] + mime + [4 bytes size] + item.size
+				totalBytes +=
+					1 + 2 + Buffer.byteLength(item.url) + 1 + Buffer.byteLength(item.contentType) + 4 + item.size;
+			}
+		}
+		seenInos.clear();
 
-	const stream = new ReadableStream<Uint8Array>({
-		async start(controller) {
-			controller.enqueue(new Uint8Array(hdr.buffer, hdr.byteOffset, hdr.byteLength));
+		const headers = {
+			"Content-Type": "application/octet-stream",
+			"Cache-Control": "no-store",
+			"X-VA-Total-Entries": String(items.length),
+			"X-VA-Total-Bytes": String(totalBytes),
+		};
 
-			// Stream entries
-			for (const item of items) {
-				const prevUrl = seenInos.get(item.ino);
-				if (prevUrl !== undefined) {
-					// Type 1 (Alias)
-					const targetUrlBuf = Buffer.from(item.url, "utf8");
-					const srcUrlBuf = Buffer.from(prevUrl, "utf8");
-					const mimeBuf = Buffer.from(item.contentType, "utf8");
+		if (req.method === "HEAD") {
+			releaseSlot();
+			return new Response(null, { status: 200, headers });
+		}
 
-					const entryHdr = Buffer.alloc(
-						1 + 2 + targetUrlBuf.length + 2 + srcUrlBuf.length + 1 + mimeBuf.length,
-					);
-					let off = 0;
-					entryHdr.writeUInt8(1, off);
-					off += 1;
-					entryHdr.writeUInt16BE(targetUrlBuf.length, off);
-					off += 2;
-					targetUrlBuf.copy(entryHdr, off);
-					off += targetUrlBuf.length;
-					entryHdr.writeUInt16BE(srcUrlBuf.length, off);
-					off += 2;
-					srcUrlBuf.copy(entryHdr, off);
-					off += srcUrlBuf.length;
-					entryHdr.writeUInt8(mimeBuf.length, off);
-					off += 1;
-					mimeBuf.copy(entryHdr, off);
+		// Write 17-byte header:
+		// "VAOP" (4 bytes) | Version (1 byte) | Total Entries (4 bytes BE) | Total Bytes (8 bytes BE)
+		const hdr = Buffer.alloc(17);
+		hdr.write(VAOP_MAGIC, 0, 4, "ascii");
+		hdr.writeUInt8(VAOP_VERSION, 4);
+		hdr.writeUInt32BE(items.length, 5);
+		hdr.writeBigUInt64BE(BigInt(totalBytes), 9);
 
-					controller.enqueue(new Uint8Array(entryHdr.buffer, entryHdr.byteOffset, entryHdr.byteLength));
-				} else {
-					// Type 0 (Full file)
-					seenInos.set(item.ino, item.url);
-					const urlBuf = Buffer.from(item.url, "utf8");
-					const mimeBuf = Buffer.from(item.contentType, "utf8");
+		const stream = new ReadableStream<Uint8Array>({
+			async start(controller) {
+				try {
+					controller.enqueue(new Uint8Array(hdr.buffer, hdr.byteOffset, hdr.byteLength));
 
-					const entryHdr = Buffer.alloc(1 + 2 + urlBuf.length + 1 + mimeBuf.length + 4);
-					let off = 0;
-					entryHdr.writeUInt8(0, off);
-					off += 1;
-					entryHdr.writeUInt16BE(urlBuf.length, off);
-					off += 2;
-					urlBuf.copy(entryHdr, off);
-					off += urlBuf.length;
-					entryHdr.writeUInt8(mimeBuf.length, off);
-					off += 1;
-					mimeBuf.copy(entryHdr, off);
-					off += mimeBuf.length;
-					entryHdr.writeUInt32BE(item.size, off);
+					// Stream entries
+					for (const item of items) {
+						const prevUrl = seenInos.get(item.ino);
+						if (prevUrl !== undefined) {
+							// Type 1 (Alias)
+							const targetUrlBuf = Buffer.from(item.url, "utf8");
+							const srcUrlBuf = Buffer.from(prevUrl, "utf8");
+							const mimeBuf = Buffer.from(item.contentType, "utf8");
 
-					controller.enqueue(new Uint8Array(entryHdr.buffer, entryHdr.byteOffset, entryHdr.byteLength));
+							const entryHdr = Buffer.alloc(
+								1 + 2 + targetUrlBuf.length + 2 + srcUrlBuf.length + 1 + mimeBuf.length,
+							);
+							let off = 0;
+							entryHdr.writeUInt8(1, off);
+							off += 1;
+							entryHdr.writeUInt16BE(targetUrlBuf.length, off);
+							off += 2;
+							targetUrlBuf.copy(entryHdr, off);
+							off += targetUrlBuf.length;
+							entryHdr.writeUInt16BE(srcUrlBuf.length, off);
+							off += 2;
+							srcUrlBuf.copy(entryHdr, off);
+							off += srcUrlBuf.length;
+							entryHdr.writeUInt8(mimeBuf.length, off);
+							off += 1;
+							mimeBuf.copy(entryHdr, off);
 
-					if (item.size > 0) {
-						const fileStream = Bun.file(item.file).stream();
-						for await (const chunk of fileStream) {
-							controller.enqueue(chunk);
+							controller.enqueue(
+								new Uint8Array(entryHdr.buffer, entryHdr.byteOffset, entryHdr.byteLength),
+							);
+						} else {
+							// Type 0 (Full file)
+							seenInos.set(item.ino, item.url);
+							const urlBuf = Buffer.from(item.url, "utf8");
+							const mimeBuf = Buffer.from(item.contentType, "utf8");
+
+							const entryHdr = Buffer.alloc(1 + 2 + urlBuf.length + 1 + mimeBuf.length + 4);
+							let off = 0;
+							entryHdr.writeUInt8(0, off);
+							off += 1;
+							entryHdr.writeUInt16BE(urlBuf.length, off);
+							off += 2;
+							urlBuf.copy(entryHdr, off);
+							off += urlBuf.length;
+							entryHdr.writeUInt8(mimeBuf.length, off);
+							off += 1;
+							mimeBuf.copy(entryHdr, off);
+							off += mimeBuf.length;
+							entryHdr.writeUInt32BE(item.size, off);
+
+							controller.enqueue(
+								new Uint8Array(entryHdr.buffer, entryHdr.byteOffset, entryHdr.byteLength),
+							);
+
+							if (item.size > 0) {
+								const reader = Bun.file(item.file).stream().getReader();
+								try {
+									while (true) {
+										const { done, value } = await reader.read();
+										if (done) break;
+										if (value) controller.enqueue(value);
+									}
+								} finally {
+									reader.releaseLock();
+								}
+							}
 						}
 					}
+
+					controller.close();
+				} finally {
+					releaseSlot();
 				}
-			}
+			},
+			cancel() {
+				releaseSlot();
+			},
+		});
 
-			controller.close();
-		},
-	});
-
-	return new Response(stream, { status: 200, headers });
+		return new Response(stream, { status: 200, headers });
+	} catch (e) {
+		releaseSlot();
+		throw e;
+	}
 }

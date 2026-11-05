@@ -98,6 +98,33 @@ export async function findPoster(dir: string): Promise<string | null> {
 	return f ? path.join(dir, f) : null;
 }
 
+export function resolveSafeMediaFile(gameDir: string, mediaUrlStr: string): { name: string; file: string } | null {
+	try {
+		if (!mediaUrlStr || typeof mediaUrlStr !== "string") return null;
+		const rawSeg = new URL(mediaUrlStr, "http://x").pathname.split("/").pop() || "";
+		if (!rawSeg || /%(?:2f|5c|00)/i.test(rawSeg)) return null;
+		const name = decodeURIComponent(rawSeg);
+		if (
+			!name ||
+			name === "." ||
+			name === ".." ||
+			name.includes("/") ||
+			name.includes("\\") ||
+			/[\0-\x1f]/.test(name) ||
+			path.basename(name) !== name
+		) {
+			return null;
+		}
+		const mediaRoot = path.resolve(gameDir, "media");
+		const file = path.resolve(mediaRoot, name);
+		const rel = path.relative(mediaRoot, file);
+		if (!rel || rel.startsWith("..") || path.isAbsolute(rel)) return null;
+		return { name, file };
+	} catch {
+		return null;
+	}
+}
+
 // every game folder under maps/ (with a meta.json), plus the manifest's order for the homepage
 export async function loadGames(): Promise<{ games: LoadedGame[]; shown: LoadedGame[] }> {
 	const manifest: GameManifestEntry[] = (await Bun.file(path.join(PUBLIC, "maps", "index.json")).json()).games || [];

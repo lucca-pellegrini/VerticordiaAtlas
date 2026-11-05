@@ -29,8 +29,8 @@ have given you for free.
 Atlas shows interactive game maps and remembers everything you have found. It
 is local-first: all progress, custom markers, notes, freehand drawings,
 category filters, and camera positions are saved directly to your browser's
-IndexedDB. Entire map pyramids can be kept offline as single streaming packs
-served by the Service Worker without an active internet connection.
+IndexedDB. Entire map pyramids can be kept offline as single streaming `.vaop`
+packs served by the Service Worker without an active internet connection.
 
 You can maintain separate profiles for different playthroughs without
 artificial limits, and export or import your progress as plain JSON whenever
@@ -39,16 +39,20 @@ strokes, and polygon selection tools let you plan routes and update
 collectibles in bulk.
 
 An account is strictly optional. Progress can be synchronized between devices
-in the background using Google sign-in or an anonymous 128-bit Base32 secret
-key with checksum over WebSockets. The browser client has zero npm runtime
-dependencies: third-party client libraries (`maplibre-gl`, `marked`,
+in the background using interchangeable sign-in methods—Email/Username +
+Argon2id password, Google OIDC (`id_token`), or an anonymous 128-bit Base32
+secret key with checksum—over WebSockets. The browser client has zero npm
+runtime dependencies: third-party client libraries (`maplibre-gl`, `marked`,
 `perfect-freehand`, and `lucide/icons.json`) are vendored in `public/vendor/`,
-and fonts are self-hosted. The server side does indeed have runtime npm
-dependencies: `jose` (for Google OIDC ID token verification),
-`unique-names-generator` (for generating memorable account pseudonyms) and
-`sharp` (server and scripts only, loaded lazily for tile stitching and
-downsampling so the server can boot without it). Atlas runs without advertising
-or analytics, and relies entirely on vanilla TypeScript bundled and executed by
+and fonts are self-hosted. Server runtime dependencies in `package.json`
+include `jose` (Google OIDC ID token verification), `@aws-sdk/client-sesv2`
+(transactional email verification and password reset, with a local development
+console/file fallback), `confusables` and `unicode-case-folding` (UTS #39
+homograph and case-folding protection for usernames), `unique-names-generator`
+(memorable account pseudonyms), and `sharp` (loaded lazily for tile stitching
+and downsampling so the server can boot without it). CLI and server terminal
+dashboards are built with `@opentui/core`. Atlas runs without advertising or
+analytics, and relies entirely on vanilla TypeScript bundled and executed by
 Bun.
 
 [![Marker details and location links](public/screenshots/wide-5-totk.jpg)](https://atlas.verticordia.com:11680/maps/totk/?loc=281856&map=hyrule)
@@ -65,8 +69,14 @@ bun run build
 # Start the local server (HTTP static server, tile engine, and sync API)
 bun run start
 
+# Typecheck the entire repository
+bun run typecheck
+
 # Run the test suite
 bun test
+
+# Snapshot and rotate a live SQLite backup of data/atlas.db
+bun run backup
 
 # Format code
 bun fmt

@@ -19,6 +19,7 @@
 // The static homepage and game cards still come from make-cards.ts. Share cards need Chromium and ImageMagick,
 // like make-cards.ts. The address in tags comes from site.json when it is set, otherwise from the request.
 
+import { createHash } from "node:crypto";
 import type { Stats } from "node:fs";
 import { readdir, stat, unlink } from "node:fs/promises";
 import path from "node:path";
@@ -26,7 +27,7 @@ import path from "node:path";
 import { buildClient } from "../scripts/build.ts";
 import { createServerDashboard } from "../scripts/tui/server-dashboard.ts";
 import { unpackMarker } from "../src/shared/share-link.ts";
-import { createApi } from "./api.ts";
+import { createApi, type WsData } from "./api.ts";
 import {
 	categoryIcon,
 	chromePath,
@@ -41,11 +42,13 @@ import {
 	plainText,
 	PUBLIC,
 	REPO,
+	resolveSafeMediaFile,
 	socialTags,
 	withHead,
 } from "./cards.ts";
 import type { LoadedGame, MarkerCardInfo } from "./cards.ts";
-import { streamOfflinePack } from "./offline-pack.ts";
+import { isValidPackSlug, streamOfflinePack } from "./offline-pack.ts";
+import { resolveClientIp } from "./rate-limit.ts";
 import { DEFAULT_MAX_BYTES, DEFAULT_TARGET_BYTES, parseSize, TileCache } from "./tile-cache.ts";
 import { createTileService } from "./tile-service.ts";
 
@@ -112,8 +115,9 @@ const RENDER_CONCURRENCY = 2,
 	RENDERS_PER_WINDOW = 25,
 	WINDOW_MS = 10 * 60 * 1000;
 const clients = new Map<string, { start: number; count: number }>();
-const clientIp = (req: Request): string =>
-	String(req.headers.get("x-real-ip") || req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown");
+let trustProxy = false;
+const clientIp = (req: Request, remoteAddress?: string | null): string =>
+	resolveClientIp(req, trustProxy, remoteAddress);
 
 function allowRender(ip: string): boolean {
 	const now = Date.now();
@@ -192,20 +196,114 @@ async function firstScreenshot(gameSlug: string, gameDir: string, media: any[]):
 	for (const m of media || []) {
 		const kind = m.type || (m.mime_type || "").split("/")[0];
 		if (kind !== "image" || !m.url) continue;
-		let name: string | undefined;
-		try {
-			name = decodeURIComponent(new URL(m.url).pathname.split("/").pop()!);
-		} catch {
-			continue;
-		}
-		if (!name) continue;
-		const file = path.join(gameDir, "media", name);
-		if (await exists(file)) return file;
-		if (mediaUrl && api.hasMedia(gameSlug, name)) {
-			return `${mediaUrl}/v1/${encodeURIComponent(gameSlug)}/${encodeURIComponent(name)}`;
+		const safe = resolveSafeMediaFile(gameDir, String(m.url));
+		if (!safe) continue;
+		if (await exists(safe.file)) return safe.file;
+		if (mediaUrl && api?.hasMedia(gameSlug, safe.name)) {
+			return `${mediaUrl}/v1/${encodeURIComponent(gameSlug)}/${encodeURIComponent(safe.name)}`;
 		}
 	}
 	return null;
+}
+
+/* ---------- security headers ---------- */
+
+const DEFAULT_INLINE_SCRIPT_HASHES = [
+	"'sha256-nfeCTh9SO3CN1Xpgwz1bkOQ5zakEH+NsEbv5vLado9M='",
+	"'sha256-irTyvRsdCGuKrJlKg5RVLTajVcNJfqNGrWmYmITAprc='",
+];
+
+export async function collectInlineScriptHashes(publicDir = PUBLIC): Promise<string[]> {
+	const files = [
+		"index.html",
+		"map.html",
+		"signin/index.html",
+		"account/index.html",
+		"about/index.html",
+		"terms/index.html",
+		"privacy/index.html",
+		"license/index.html",
+	];
+	const hashes = new Set<string>(DEFAULT_INLINE_SCRIPT_HASHES);
+	for (const rel of files) {
+		try {
+			const html = await Bun.file(path.join(publicDir, rel)).text();
+			const re = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/gi;
+			for (let m = re.exec(html); m !== null; m = re.exec(html)) {
+				const digest = createHash("sha256").update(m[1], "utf8").digest("base64");
+				hashes.add(`'sha256-${digest}'`);
+			}
+		} catch {
+			/* ignore missing template */
+		}
+	}
+	return [...hashes];
+}
+
+let inlineScriptHashes = DEFAULT_INLINE_SCRIPT_HASHES;
+
+export function buildSecurityHeaders(
+	opts: {
+		mediaUrl?: string | null;
+		isHttps?: boolean;
+		isHtml?: boolean;
+		scriptHashes?: string[];
+	} = {},
+): Record<string, string> {
+	const headers: Record<string, string> = {
+		"X-Content-Type-Options": "nosniff",
+		"X-Frame-Options": "DENY",
+		"Referrer-Policy": "strict-origin-when-cross-origin",
+	};
+	if (opts.isHttps) {
+		headers["Strict-Transport-Security"] = "max-age=63072000; includeSubDomains; preload";
+	}
+	if (opts.isHtml !== false) {
+		const media = (opts.mediaUrl || "").replace(/\/+$/, "");
+		const hashes = (opts.scriptHashes ?? inlineScriptHashes).join(" ");
+		const scriptSrc = ["'self'", "https://accounts.google.com", hashes].filter(Boolean).join(" ");
+		const imgSrc = ["'self'", "data:", "blob:", media, "https:"].filter(Boolean).join(" ");
+		const connectSrc = ["'self'", "ws:", "wss:", "blob:", "data:", "https://accounts.google.com", media]
+			.filter(Boolean)
+			.join(" ");
+		headers["Content-Security-Policy"] = [
+			"default-src 'self'",
+			`script-src ${scriptSrc}`,
+			"style-src 'self' 'unsafe-inline' https://accounts.google.com",
+			"font-src 'self' data:",
+			`img-src ${imgSrc}`,
+			`connect-src ${connectSrc}`,
+			"worker-src 'self' blob:",
+			"child-src 'self' blob:",
+			"frame-src https://accounts.google.com",
+			"object-src 'none'",
+			"base-uri 'self'",
+			"form-action 'self'",
+		].join("; ");
+	}
+	return headers;
+}
+
+export function withSecurityHeaders(
+	res: Response,
+	opts: { mediaUrl?: string | null; isHttps?: boolean } = {},
+): Response {
+	const contentType = (res.headers.get("Content-Type") || "").toLowerCase();
+	const isHtml = contentType.startsWith("text/html");
+	const sec = buildSecurityHeaders({
+		mediaUrl: opts.mediaUrl,
+		isHttps: opts.isHttps,
+		isHtml,
+	});
+	const headers = new Headers(res.headers);
+	for (const [k, v] of Object.entries(sec)) {
+		if (!headers.has(k)) headers.set(k, v);
+	}
+	return new Response(res.body, {
+		status: res.status,
+		statusText: res.statusText,
+		headers,
+	});
 }
 
 /* ---------- routes ---------- */
@@ -410,7 +508,7 @@ async function sharedMarkerCard(req: Request, gameSlug: string, packed: string):
 }
 
 // sanitize the request target so scheme-relative paths ("//", "//////"), backslashes, or bad %-encoding never throw
-function parseUrl(raw: string | undefined): { url: URL; pathname: string } | null {
+export function parseUrl(raw: string | undefined): { url: URL; pathname: string } | null {
 	if (typeof raw !== "string") return null;
 	try {
 		let url: URL;
@@ -421,8 +519,11 @@ function parseUrl(raw: string | undefined): { url: URL; pathname: string } | nul
 			if (!trimmed.startsWith("/")) return null;
 			url = new URL(trimmed, "http://localhost");
 		}
+		if (/%(?:2f|5c|00)/i.test(url.pathname)) return null;
 		const pathname = decodeURIComponent(url.pathname).replace(/\\/g, "/").replace(/\/+/g, "/");
 		if (/[\x00-\x1f\x7f]/.test(pathname)) return null;
+		const segments = pathname.split("/").filter(Boolean);
+		if (segments.includes("..")) return null;
 		url.pathname = encodeURI(pathname);
 		return { url, pathname };
 	} catch {
@@ -482,7 +583,7 @@ async function serveStatic(req: Request, rel: string, search = ""): Promise<Resp
 		if (req.method === "HEAD") {
 			return new Response(null, { status: 200, headers });
 		}
-		return new Response(body, { status: 200, headers });
+		return new Response(body as BodyInit, { status: 200, headers });
 	}
 	headers["Content-Length"] = String(st.size);
 	if (req.method === "HEAD") {
@@ -512,199 +613,157 @@ function notModified(req: Request, etag: string, mtime: Date): boolean {
 	return false;
 }
 
-// Ensure client TypeScript bundles are fresh before accepting requests
-await buildClient();
+let mediaUrl = "https://atlas-media.verticordia.com";
+let api!: ReturnType<typeof createApi>;
 
-const siteFile = await Bun.file(path.join(REPO, "site.json")).json();
-const mediaUrl = String(process.env.MEDIA_URL || siteFile.mediaUrl || "https://atlas-media.verticordia.com").replace(
-	/\/+$/,
-	"",
-);
-const DEBUG = args.includes("--debug");
+if (import.meta.main) {
+	// Ensure client TypeScript bundles are fresh before accepting requests
+	await buildClient();
+	inlineScriptHashes = await collectInlineScriptHashes(PUBLIC);
 
-const dashboard = await createServerDashboard({
-	host: HOST,
-	port: PORT,
-	noTui: Boolean(args.includes("--no-tui")),
-});
+	const siteFile = await Bun.file(path.join(REPO, "site.json")).json();
+	mediaUrl = String(process.env.MEDIA_URL || siteFile.mediaUrl || "https://atlas-media.verticordia.com").replace(
+		/\/+$/,
+		"",
+	);
+	trustProxy =
+		process.env.TRUST_PROXY !== undefined
+			? process.env.TRUST_PROXY === "1" || process.env.TRUST_PROXY.toLowerCase() === "true"
+			: Boolean(siteFile.trustProxy);
+	const publicSiteUrl = (process.env.PUBLIC_URL || siteFile.url || "").replace(/\/+$/, "") || null;
+	const isHttpsSite = Boolean(publicSiteUrl?.startsWith("https://"));
+	const DEBUG = args.includes("--debug");
 
-const api = createApi({
-	debug: DEBUG,
-	root: REPO,
-	googleClientId: process.env.GOOGLE_CLIENT_ID || siteFile.googleClientId || null,
-	publicUrl: (process.env.PUBLIC_URL || siteFile.url || "").replace(/\/+$/, "") || null,
-	argon2: siteFile.argon2,
-	onEvent: (action, detail) => dashboard.onApi(action, detail),
-});
+	const dashboard = await createServerDashboard({
+		host: HOST,
+		port: PORT,
+		noTui: Boolean(args.includes("--no-tui")),
+	});
 
-// the tile cache: made tiles (the zooms between the stored ones) are kept on disk. Limits: --tile-cache-max / TILE_CACHE_MAX
-// (default 2GB) and --tile-cache-target / TILE_CACHE_TARGET (default 1GB, what an eviction pass shrinks it to).
-const tileCache = new TileCache({
-	root: path.join(REPO, "cache", "tiles"),
-	maxBytes: parseSize(opt("tile-cache-max", process.env.TILE_CACHE_MAX || "")) ?? DEFAULT_MAX_BYTES,
-	targetBytes: parseSize(opt("tile-cache-target", process.env.TILE_CACHE_TARGET || "")) ?? DEFAULT_TARGET_BYTES,
-	popularity: () => api.gamePopularity(),
-});
-void tileCache.init().catch((e) => console.error("tile cache:", e));
-const tiles = createTileService({
-	publicDir: PUBLIC,
-	cache: tileCache,
-	tilesets: async (game) => {
-		const g = (await games()).find((x) => x.slug === game);
-		return g ? g.maps.flatMap((m) => m.tilesets || []) : null;
-	},
-	onNewMap: (game) => api.recordGameRequest(game),
-});
+	api = createApi({
+		debug: DEBUG,
+		root: REPO,
+		googleClientId: process.env.GOOGLE_CLIENT_ID || siteFile.googleClientId || null,
+		publicUrl: publicSiteUrl,
+		argon2: siteFile.argon2,
+		trustProxy,
+		onEvent: (action, detail) => dashboard.onApi(action, detail),
+	});
 
-const server = Bun.serve({
-	port: PORT,
-	hostname: HOST,
-	async fetch(req, bunServer) {
-		const reqStart = Date.now();
-		const url = new URL(req.url);
-		if (url.pathname === "/api/ws") {
-			const rejected = api.upgrade(req, bunServer);
-			if (rejected) {
-				dashboard.onApi("ws:reject", `${rejected.status} (${url.searchParams.get("c") || "tab"})`);
-				return rejected;
-			}
-			dashboard.setWsCount(api.wsCount());
-			return;
-		}
+	// the tile cache: made tiles (the zooms between the stored ones) are kept on disk. Limits: --tile-cache-max / TILE_CACHE_MAX
+	// (default 2GB) and --tile-cache-target / TILE_CACHE_TARGET (default 1GB, what an eviction pass shrinks it to).
+	const tileCache = new TileCache({
+		root: path.join(REPO, "cache", "tiles"),
+		maxBytes: parseSize(opt("tile-cache-max", process.env.TILE_CACHE_MAX || "")) ?? DEFAULT_MAX_BYTES,
+		targetBytes: parseSize(opt("tile-cache-target", process.env.TILE_CACHE_TARGET || "")) ?? DEFAULT_TARGET_BYTES,
+		popularity: () => api.gamePopularity(),
+	});
+	void tileCache.init().catch((e) => console.error("tile cache:", e));
+	const tiles = createTileService({
+		publicDir: PUBLIC,
+		cache: tileCache,
+		tilesets: async (game) => {
+			const g = (await games()).find((x) => x.slug === game);
+			return g ? g.maps.flatMap((m) => m.tilesets || []) : null;
+		},
+		onNewMap: (game) => api.recordGameRequest(game),
+	});
 
-		try {
-			const parsed = parseUrl(req.url);
-			if (!parsed) {
-				const r = send(400, "bad request");
-				dashboard.onRequest({
-					method: req.method,
-					path: url.pathname,
-					status: 400,
-					durationMs: Date.now() - reqStart,
-				});
-				return r;
-			}
-			const { url: reqUrl, pathname: p } = parsed;
-			const offlinePack = /^\/api\/maps\/([^/]+)\/([^/]+)\/offline-pack$/.exec(p);
-			if (offlinePack) {
-				if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
-				// Offline packs may take several minutes to prepare on a cold cache; disable request idle timeout
-				bunServer?.timeout?.(req, 0);
-				const r = await streamOfflinePack(
-					req,
-					PUBLIC,
-					path.join(REPO, "cache", "tiles"),
-					offlinePack[1],
-					offlinePack[2],
-				);
-				const dur = Date.now() - reqStart;
-				dashboard.onRequest({
-					method: req.method,
-					path: p,
-					status: r.status,
-					durationMs: dur,
-				});
-				dashboard.onApi(`pack:${offlinePack[1]}/${offlinePack[2]}`, `-> ${r.status} (${dur.toFixed(0)}ms)`);
-				return r;
-			}
+	const wrapResponse = (res: Response): Response => withSecurityHeaders(res, { mediaUrl, isHttps: isHttpsSite });
 
-			if (p.startsWith("/api/")) {
-				const res = await api.handle(req, reqUrl);
-				const status = res ? res.status : 404;
-				const duration = Date.now() - reqStart;
-				const action = `${req.method} ${p.replace(/^\/api\//, "")}`;
-				dashboard.onRequest({
-					method: req.method,
-					path: p,
-					status,
-					durationMs: duration,
-				});
-				dashboard.onApi(action, `-> ${status} (${duration.toFixed(0)}ms)`);
-				if (!res) {
-					return send(404, '{"error":"not found"}', "application/json; charset=utf-8", {
-						"Cache-Control": "no-store",
-					});
+	const server = Bun.serve<WsData>({
+		port: PORT,
+		hostname: HOST,
+		async fetch(req, bunServer) {
+			const reqStart = Date.now();
+			const remoteAddress = bunServer?.requestIP?.(req)?.address ?? null;
+			const url = new URL(req.url);
+			if (url.pathname === "/api/ws") {
+				const rejected = api.upgrade(req, bunServer);
+				if (rejected) {
+					dashboard.onApi("ws:reject", `${rejected.status} (${url.searchParams.get("c") || "tab"})`);
+					return wrapResponse(rejected);
 				}
-				return res;
+				dashboard.setWsCount(api.wsCount());
+				return;
 			}
 
-			if (req.method !== "GET" && req.method !== "HEAD") return send(405, "method not allowed");
-
-			const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
-			if (card) {
-				const r = await shareCard(req, card[1], card[2], Number(card[3]));
-				dashboard.onCard({
-					type: "share",
-					key: `${card[1]}/${card[2]}/${card[3]}`,
-					durationMs: Date.now() - reqStart,
-					cached: r.status === 200,
-				});
-				dashboard.onRequest({
-					method: req.method,
-					path: p,
-					status: r.status,
-					durationMs: Date.now() - reqStart,
-				});
-				return r;
-			}
-
-			const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
-			if (tmCard) {
-				const r = await sharedMarkerCard(req, tmCard[1], reqUrl.searchParams.get("tm") || "");
-				dashboard.onCard({
-					type: "tm",
-					key: tmCard[1],
-					durationMs: Date.now() - reqStart,
-					cached: r.status === 200,
-				});
-				dashboard.onRequest({
-					method: req.method,
-					path: p,
-					status: r.status,
-					durationMs: Date.now() - reqStart,
-				});
-				return r;
-			}
-
-			const page = /^\/maps\/([^/]+)(?:\/|\/index\.html)?$/.exec(p);
-			if (page && page[1] !== "index.json" && page[1] !== "map.html") {
-				const gameList = await games();
-				const match = gameList.find((x) => x.slug === page[1]);
-				if (match) {
-					if (!p.endsWith("/") && !p.endsWith("/index.html")) {
-						return new Response(null, {
-							status: 301,
-							headers: { Location: `/maps/${encodeURI(page[1])}/${reqUrl.search}` },
-						});
+			try {
+				const parsed = parseUrl(req.url);
+				if (!parsed) {
+					const r = wrapResponse(send(400, "bad request"));
+					dashboard.onRequest({
+						method: req.method,
+						path: url.pathname,
+						status: 400,
+						durationMs: Date.now() - reqStart,
+					});
+					return r;
+				}
+				const { url: reqUrl, pathname: p } = parsed;
+				const offlinePack = /^\/api\/maps\/([^/]+)\/([^/]+)\/offline-pack$/.exec(p);
+				if (offlinePack) {
+					if (req.method !== "GET" && req.method !== "HEAD")
+						return wrapResponse(send(405, "method not allowed"));
+					if (!isValidPackSlug(offlinePack[1]) || !isValidPackSlug(offlinePack[2])) {
+						return wrapResponse(send(400, "invalid map slug"));
 					}
-					const tm = reqUrl.searchParams.get("tm");
-					if (tm) {
-						const res = await sharedMarkerPage(req, page[1], tm);
-						if (res) {
-							dashboard.onRequest({
-								method: req.method,
-								path: p,
-								status: res.status,
-								durationMs: Date.now() - reqStart,
-							});
-							return res;
-						}
+					// Offline packs may take up to a couple minutes on a cold cache; use a bounded 120s idle timeout
+					bunServer?.timeout?.(req, 120);
+					const r = wrapResponse(
+						await streamOfflinePack(
+							req,
+							PUBLIC,
+							path.join(REPO, "cache", "tiles"),
+							offlinePack[1],
+							offlinePack[2],
+							{ trustProxy, remoteAddress },
+						),
+					);
+					const dur = Date.now() - reqStart;
+					dashboard.onRequest({
+						method: req.method,
+						path: p,
+						status: r.status,
+						durationMs: dur,
+					});
+					dashboard.onApi(`pack:${offlinePack[1]}/${offlinePack[2]}`, `-> ${r.status} (${dur.toFixed(0)}ms)`);
+					return r;
+				}
+
+				if (p.startsWith("/api/")) {
+					const res = await api.handle(req, reqUrl, remoteAddress);
+					const status = res ? res.status : 404;
+					const duration = Date.now() - reqStart;
+					const action = `${req.method} ${p.replace(/^\/api\//, "")}`;
+					dashboard.onRequest({
+						method: req.method,
+						path: p,
+						status,
+						durationMs: duration,
+					});
+					dashboard.onApi(action, `-> ${status} (${duration.toFixed(0)}ms)`);
+					if (!res) {
+						return wrapResponse(
+							send(404, '{"error":"not found"}', "application/json; charset=utf-8", {
+								"Cache-Control": "no-store",
+							}),
+						);
 					}
-					const loc = reqUrl.searchParams.get("loc");
-					if (loc && /^\d+$/.test(loc)) {
-						const map = reqUrl.searchParams.get("map") || "";
-						const res = await sharePage(req, page[1], map, Number(loc));
-						if (res) {
-							dashboard.onRequest({
-								method: req.method,
-								path: p,
-								status: res.status,
-								durationMs: Date.now() - reqStart,
-							});
-							return res;
-						}
-					}
-					const r = await gamePage(req, page[1]);
+					return wrapResponse(res);
+				}
+
+				if (req.method !== "GET" && req.method !== "HEAD") return wrapResponse(send(405, "method not allowed"));
+
+				const card = /^\/cards\/share\/([^/]+)\/([^/]+)\/(\d+)\.jpg$/.exec(p);
+				if (card) {
+					const r = wrapResponse(await shareCard(req, card[1], card[2], Number(card[3])));
+					dashboard.onCard({
+						type: "share",
+						key: `${card[1]}/${card[2]}/${card[3]}`,
+						durationMs: Date.now() - reqStart,
+						cached: r.status === 200,
+					});
 					dashboard.onRequest({
 						method: req.method,
 						path: p,
@@ -713,81 +772,180 @@ const server = Bun.serve({
 					});
 					return r;
 				}
-			}
 
-			const tile = /^\/maps\/([^/]+)\/([^/]+)\/tiles\/([^/]+)\/(.+)$/.exec(p);
-			if (tile) {
-				const tileRes = await tiles.serve(req, tile[1], tile[2], tile[3], tile[4]);
-				const dur = Date.now() - reqStart;
-				const displayPath = `${tile[2]}/${tile[3]}/${tile[4]}`;
-				if (tileRes) {
-					const from = tileRes.headers.get("x-tile-from");
-					const action =
-						tileRes.status === 304
-							? "cached"
-							: from === "made"
-								? "derived"
-								: from === "cache"
-									? "cached"
-									: "stored";
-					dashboard.onTile({ action, path: displayPath, durationMs: dur });
+				const tmCard = /^\/cards\/tm\/([^/]+)\.jpg$/.exec(p);
+				if (tmCard) {
+					const r = wrapResponse(await sharedMarkerCard(req, tmCard[1], reqUrl.searchParams.get("tm") || ""));
+					dashboard.onCard({
+						type: "tm",
+						key: tmCard[1],
+						durationMs: Date.now() - reqStart,
+						cached: r.status === 200,
+					});
 					dashboard.onRequest({
 						method: req.method,
 						path: p,
-						status: tileRes.status,
-						durationMs: dur,
+						status: r.status,
+						durationMs: Date.now() - reqStart,
 					});
-					return tileRes;
-				} else {
-					dashboard.onTile({ action: "miss", path: displayPath, durationMs: dur });
+					return r;
 				}
-			}
 
-			const mediaMatch = /^\/maps\/([^/]+)\/media\/([^/]+)$/.exec(p);
-			if (mediaMatch && mediaUrl && api.hasMedia(mediaMatch[1], mediaMatch[2])) {
-				const r = new Response(null, {
-					status: 308,
-					headers: {
-						Location: `${mediaUrl}/v1/${encodeURIComponent(mediaMatch[1])}/${encodeURIComponent(mediaMatch[2])}`,
-						"Cache-Control": "public, max-age=31536000, immutable",
-					},
+				const page = /^\/maps\/([^/]+)(?:\/|\/index\.html)?$/.exec(p);
+				if (page && page[1] !== "index.json" && page[1] !== "map.html") {
+					const gameList = await games();
+					const match = gameList.find((x) => x.slug === page[1]);
+					if (match) {
+						if (!p.endsWith("/") && !p.endsWith("/index.html")) {
+							return wrapResponse(
+								new Response(null, {
+									status: 301,
+									headers: { Location: `/maps/${encodeURI(page[1])}/${reqUrl.search}` },
+								}),
+							);
+						}
+						const tm = reqUrl.searchParams.get("tm");
+						if (tm) {
+							const res = await sharedMarkerPage(req, page[1], tm);
+							if (res) {
+								dashboard.onRequest({
+									method: req.method,
+									path: p,
+									status: res.status,
+									durationMs: Date.now() - reqStart,
+								});
+								return wrapResponse(res);
+							}
+						}
+						const loc = reqUrl.searchParams.get("loc");
+						if (loc && /^\d+$/.test(loc)) {
+							const map = reqUrl.searchParams.get("map") || "";
+							const res = await sharePage(req, page[1], map, Number(loc));
+							if (res) {
+								dashboard.onRequest({
+									method: req.method,
+									path: p,
+									status: res.status,
+									durationMs: Date.now() - reqStart,
+								});
+								return wrapResponse(res);
+							}
+						}
+						const r = wrapResponse(await gamePage(req, page[1]));
+						dashboard.onRequest({
+							method: req.method,
+							path: p,
+							status: r.status,
+							durationMs: Date.now() - reqStart,
+						});
+						return r;
+					}
+				}
+
+				const tile = /^\/maps\/([^/]+)\/([^/]+)\/tiles\/([^/]+)\/(.+)$/.exec(p);
+				if (tile) {
+					const tileRes = await tiles.serve(req, tile[1], tile[2], tile[3], tile[4]);
+					const dur = Date.now() - reqStart;
+					const displayPath = `${tile[2]}/${tile[3]}/${tile[4]}`;
+					if (tileRes) {
+						const from = tileRes.headers.get("x-tile-from");
+						const action =
+							tileRes.status === 304
+								? "cached"
+								: from === "made"
+									? "derived"
+									: from === "cache"
+										? "cached"
+										: "stored";
+						dashboard.onTile({ action, path: displayPath, durationMs: dur });
+						dashboard.onRequest({
+							method: req.method,
+							path: p,
+							status: tileRes.status,
+							durationMs: dur,
+						});
+						return wrapResponse(tileRes);
+					} else {
+						dashboard.onTile({ action: "miss", path: displayPath, durationMs: dur });
+					}
+				}
+
+				const mediaMatch = /^\/maps\/([^/]+)\/media\/([^/]+)$/.exec(p);
+				if (mediaMatch && mediaUrl && api.hasMedia(mediaMatch[1], mediaMatch[2])) {
+					const r = wrapResponse(
+						new Response(null, {
+							status: 308,
+							headers: {
+								Location: `${mediaUrl}/v1/${encodeURIComponent(mediaMatch[1])}/${encodeURIComponent(mediaMatch[2])}`,
+								"Cache-Control": "public, max-age=31536000, immutable",
+							},
+						}),
+					);
+					dashboard.onRequest({
+						method: req.method,
+						path: p,
+						status: 308,
+						durationMs: Date.now() - reqStart,
+					});
+					return r;
+				}
+
+				const r = wrapResponse(await serveStatic(req, p, reqUrl.search));
+				dashboard.onRequest({
+					method: req.method,
+					path: p,
+					status: r.status,
+					durationMs: Date.now() - reqStart,
 				});
-				dashboard.onRequest({ method: req.method, path: p, status: 308, durationMs: Date.now() - reqStart });
 				return r;
+			} catch (e) {
+				console.error(e);
+				dashboard.onRequest({
+					method: req.method,
+					path: url.pathname,
+					status: 500,
+					durationMs: Date.now() - reqStart,
+				});
+				return wrapResponse(send(500, "server error"));
 			}
+		},
+		websocket: {
+			open(ws) {
+				api.websocket.open(ws);
+				dashboard.setWsCount(api.wsCount());
+				const u = ws.data?.userId?.slice(0, 8) || "anon";
+				const c = ws.data?.client || "tab";
+				dashboard.onApi("ws:open", `user ${u}... (${c})`);
+			},
+			message(ws, msg) {
+				api.websocket.message(ws, msg);
+			},
+			close(ws, code, _reason) {
+				api.websocket.close(ws);
+				dashboard.setWsCount(api.wsCount());
+				const u = ws.data?.userId?.slice(0, 8) || "anon";
+				dashboard.onApi("ws:close", `user ${u}... (code: ${code})`);
+			},
+		},
+	});
 
-			const r = await serveStatic(req, p, reqUrl.search);
-			dashboard.onRequest({ method: req.method, path: p, status: r.status, durationMs: Date.now() - reqStart });
-			return r;
-		} catch (e) {
-			console.error(e);
-			dashboard.onRequest({
-				method: req.method,
-				path: url.pathname,
-				status: 500,
-				durationMs: Date.now() - reqStart,
-			});
-			return send(500, "server error");
-		}
-	},
-	websocket: {
-		open(ws) {
-			api.websocket.open(ws);
-			dashboard.setWsCount(api.wsCount());
-			const u = (ws.data as any)?.userId?.slice(0, 8) || "anon";
-			const c = (ws.data as any)?.client || "tab";
-			dashboard.onApi("ws:open", `user ${u}... (${c})`);
-		},
-		message(ws, msg) {
-			api.websocket.message(ws, msg);
-		},
-		close(ws, code, reason) {
-			api.websocket.close(ws);
-			dashboard.setWsCount(api.wsCount());
-			const u = (ws.data as any)?.userId?.slice(0, 8) || "anon";
-			dashboard.onApi("ws:close", `user ${u}... (code: ${code})`);
-		},
-	},
-});
+	let shuttingDown = false;
+	const shutdown = async () => {
+		if (shuttingDown) return;
+		shuttingDown = true;
+		try {
+			await server.stop();
+		} catch {}
+		try {
+			api.close();
+		} catch {}
+		try {
+			dashboard.destroy();
+		} catch {}
+		process.exit(0);
+	};
+	process.on("SIGINT", () => void shutdown());
+	process.on("SIGTERM", () => void shutdown());
 
-console.log(`Verticordia Atlas on http://${HOST}:${PORT}/`);
+	console.log(`Verticordia Atlas on http://${HOST}:${PORT}/`);
+}

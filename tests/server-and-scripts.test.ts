@@ -8,6 +8,7 @@ import os from "node:os";
 import path from "node:path";
 
 import { deriveTheme, extractVar, tilesCovering } from "../scripts/add-game.ts";
+import { backupDatabase } from "../scripts/backup-db.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
 import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
 import { resolveGameSlug } from "../scripts/download-media.ts";
@@ -31,10 +32,13 @@ import {
 	hslToHex,
 	officialIcon,
 	plainText,
+	resolveSafeMediaFile,
 	socialTags,
 	withHead,
 } from "../server/cards.ts";
-import { collectMapPackItems } from "../server/offline-pack.ts";
+import { collectMapPackItems, isValidPackSlug, streamOfflinePack } from "../server/offline-pack.ts";
+import { createRateLimiter } from "../server/rate-limit.ts";
+import { buildSecurityHeaders, collectInlineScriptHashes, parseUrl, withSecurityHeaders } from "../server/server.ts";
 import { mediaUrls } from "../src/client/map/detail.ts";
 import { PRECACHE } from "../src/client/sw.ts";
 
@@ -50,7 +54,7 @@ describe("server/cards helpers", () => {
 		expect(light.accent).toBe("#d6453b");
 		expect(light.night).toMatch(/^#[0-9a-f]{6}$/);
 		expect(gameThemeColor(darkTheme, false)).toBe("#0b0e10");
-		expect(gameThemeColor(darkTheme, true)).toBe(light.night);
+		expect(gameThemeColor(darkTheme, true)).toBe(light.night!);
 		expect(gameFavicon(darkTheme, false)).toStartWith("data:image/svg+xml,");
 	});
 
@@ -632,7 +636,7 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 					getCalls++;
 					const stored = uploadedStore.get(url.pathname);
 					if (!stored) return new Response("Not found", { status: 404 });
-					return new Response(stored, { status: 200 });
+					return new Response(stored as BodyInit, { status: 200 });
 				}
 				return new Response("Method not allowed", { status: 405 });
 			},
@@ -715,7 +719,9 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 				}
 				if (req.method === "GET") {
 					const hit = uploadedStore.get(url.pathname);
-					return hit ? new Response(hit, { status: 200 }) : new Response("Not found", { status: 404 });
+					return hit
+						? new Response(hit as BodyInit, { status: 200 })
+						: new Response("Not found", { status: 404 });
 				}
 				return new Response(null, { status: 405 });
 			},
@@ -768,5 +774,152 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 			mockServer.stop(true);
 			mediaDb.close();
 		}
+	});
+
+	test("offline-pack and parseUrl reject path traversal slugs and out-of-root paths", async () => {
+		expect(parseUrl("/api/maps/..%2F..%2F/offline-pack")).toBeNull();
+		expect(parseUrl("/api/maps/..%2F../foo/offline-pack")).toBeNull();
+		expect(parseUrl("/maps/..%5C..%5Csecret")).toBeNull();
+
+		expect(isValidPackSlug("..")).toBe(false);
+		expect(isValidPackSlug(".")).toBe(false);
+		expect(isValidPackSlug("../etc")).toBe(false);
+		expect(isValidPackSlug("foo/bar")).toBe(false);
+		expect(isValidPackSlug("re7")).toBe(true);
+		expect(isValidPackSlug("baker-ranch")).toBe(true);
+
+		const publicDir = path.join(process.cwd(), "public");
+		const cacheDir = path.join(process.cwd(), "cache", "tiles");
+
+		expect(await collectMapPackItems(publicDir, cacheDir, "..", "data")).toBeNull();
+
+		const badRes1 = await streamOfflinePack(
+			new Request("http://localhost/api/maps/../data/offline-pack"),
+			publicDir,
+			cacheDir,
+			"..",
+			"data",
+		);
+		expect(badRes1.status).toBe(400);
+
+		const badRes2 = await streamOfflinePack(
+			new Request("http://localhost/api/maps/re7/../offline-pack"),
+			publicDir,
+			cacheDir,
+			"re7",
+			"..",
+		);
+		expect(badRes2.status).toBe(400);
+	});
+
+	test("streamOfflinePack enforces per-IP rate limiting and Retry-After header", async () => {
+		const rateLimiter = createRateLimiter();
+		const publicDir = path.join(process.cwd(), "public");
+		const cacheDir = path.join(process.cwd(), "cache", "tiles");
+		const req = new Request("http://localhost/api/maps/re7/baker-ranch/offline-pack", { method: "HEAD" });
+
+		const r1 = await streamOfflinePack(req, publicDir, cacheDir, "re7", "baker-ranch", {
+			rateLimiter,
+			remoteAddress: "198.51.100.42",
+			maxPerWindow: 2,
+			windowMs: 60_000,
+		});
+		expect(r1.status).toBe(200);
+
+		const r2 = await streamOfflinePack(req, publicDir, cacheDir, "re7", "baker-ranch", {
+			rateLimiter,
+			remoteAddress: "198.51.100.42",
+			maxPerWindow: 2,
+			windowMs: 60_000,
+		});
+		expect(r2.status).toBe(200);
+
+		const r3 = await streamOfflinePack(req, publicDir, cacheDir, "re7", "baker-ranch", {
+			rateLimiter,
+			remoteAddress: "198.51.100.42",
+			maxPerWindow: 2,
+			windowMs: 60_000,
+		});
+		expect(r3.status).toBe(429);
+		expect(Number(r3.headers.get("Retry-After"))).toBeGreaterThanOrEqual(1);
+	});
+
+	test("buildSecurityHeaders and withSecurityHeaders emit CSP, nosniff, frame deny, and HSTS", async () => {
+		const hashes = await collectInlineScriptHashes();
+		expect(hashes.length).toBeGreaterThanOrEqual(2);
+
+		const htmlRes = withSecurityHeaders(
+			new Response("<!doctype html><title>Test</title>", {
+				status: 200,
+				headers: { "Content-Type": "text/html; charset=utf-8" },
+			}),
+			{ mediaUrl: "https://atlas-media.verticordia.com", isHttps: true },
+		);
+
+		expect(htmlRes.headers.get("X-Content-Type-Options")).toBe("nosniff");
+		expect(htmlRes.headers.get("X-Frame-Options")).toBe("DENY");
+		expect(htmlRes.headers.get("Referrer-Policy")).toBe("strict-origin-when-cross-origin");
+		expect(htmlRes.headers.get("Strict-Transport-Security")).toContain("max-age=63072000");
+
+		const csp = htmlRes.headers.get("Content-Security-Policy") || "";
+		expect(csp).toContain("default-src 'self'");
+		expect(csp).toContain("worker-src 'self' blob:");
+		expect(csp).toContain("frame-src https://accounts.google.com");
+		expect(csp).toContain("object-src 'none'");
+		for (const h of hashes) {
+			expect(csp).toContain(h);
+		}
+
+		const jsonHeaders = buildSecurityHeaders({ isHtml: false, isHttps: false });
+		expect(jsonHeaders["X-Content-Type-Options"]).toBe("nosniff");
+		expect(jsonHeaders["Content-Security-Policy"]).toBeUndefined();
+	});
+
+	test("resolveSafeMediaFile blocks path traversal and confines filenames to gameDir/media", () => {
+		const gameDir = path.join(testDir, "public", "maps", "test-game");
+		expect(resolveSafeMediaFile(gameDir, "https://example.com/media/..%2F..%2Fsecret.png")).toBeNull();
+		expect(resolveSafeMediaFile(gameDir, "https://example.com/media/..")).toBeNull();
+		expect(resolveSafeMediaFile(gameDir, "https://example.com/media/.")).toBeNull();
+		expect(resolveSafeMediaFile(gameDir, "https://example.com/media/sub%5Cfile.png")).toBeNull();
+
+		const valid = resolveSafeMediaFile(gameDir, "https://media.mapgenie.io/storage/media/shot_01.jpg");
+		expect(valid).not.toBeNull();
+		expect(valid!.name).toBe("shot_01.jpg");
+		expect(valid!.file).toBe(path.resolve(gameDir, "media", "shot_01.jpg"));
+	});
+
+	test("backupDatabase creates online VACUUM INTO snapshots and rotates older backups", async () => {
+		const api = createApi({ root: testDir });
+		api.recordGameRequest("elden-ring");
+		api.close();
+
+		const dbPath = path.join(testDir, "data", "atlas.db");
+		const outDir = path.join(testDir, "backups");
+
+		const b1 = await backupDatabase({
+			dbPath,
+			outDir,
+			keep: 2,
+			now: new Date("2026-04-11T10:00:00.000Z"),
+		});
+		expect(await exists(b1.backupFile)).toBe(true);
+		expect(b1.bytes).toBeGreaterThan(0);
+
+		const b2 = await backupDatabase({
+			dbPath,
+			outDir,
+			keep: 2,
+			now: new Date("2026-04-11T11:00:00.000Z"),
+		});
+		const b3 = await backupDatabase({
+			dbPath,
+			outDir,
+			keep: 2,
+			now: new Date("2026-04-11T12:00:00.000Z"),
+		});
+		expect(b3.pruned).toEqual([b1.backupFile]);
+		expect(await exists(b1.backupFile)).toBe(false);
+		expect(await exists(b2.backupFile)).toBe(true);
+		expect(await exists(b3.backupFile)).toBe(true);
 	});
 });

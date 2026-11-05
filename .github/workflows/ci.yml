@@ -1,0 +1,30 @@
+name: CI
+
+on:
+    push:
+        branches: [main, master]
+    pull_request:
+
+jobs:
+    verify:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Setup Bun
+              uses: oven-sh/setup-bun@v2
+              with:
+                  bun-version: "1.4.4"
+
+            - name: Install dependencies
+              run: bun install --frozen-lockfile
+
+            - name: Build client bundles
+              run: bun run build
+
+            - name: Typecheck
+              run: bun run typecheck
+
+            - name: Run unit and integration tests
+              run: bun test tests/shared.test.ts tests/client-pure.test.ts tests/auth.test.ts tests/oauth.test.ts tests/server-and-scripts.test.ts tests/ws-e2e.test.ts tests/tiles.test.ts tests/tui.test.ts tests/lootatlas.test.ts

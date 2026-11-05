@@ -7,8 +7,8 @@ This file provides architectural context, conventions, and workflows for AI codi
 Verticordia Atlas is a local-first, offline-capable interactive game map viewer and completion tracker (`https://atlas.verticordia.com`).
 
 - **Local-First & Offline-First**: All user progress (found markers, custom markers, custom categories, freehand/shape map drawings, selection presets, per-map camera positions, and filter views) is stored locally in the browser's IndexedDB (`offline-map-viewer`, with an in-memory fallback when storage is blocked). The Service Worker (`src/client/sw.ts`) caches the application shell, game metadata, and map tiles so the app works offline after a game's map is opened. Full map pyramids can be downloaded via "Keep offline" as a single streamed `.vaop` pack into IndexedDB blob storage (`src/client/pack-store.ts`), served directly by the Service Worker even when completely disconnected.
-- **Optional Zero-Wait Sync**: Users can optionally sign in with Google (OIDC `id_token`) or an anonymous 128-bit Base32 secret key with checksum (`XXXX-XXXX-...`) to synchronize progress across devices. Sync (`src/client/sync.ts` + `server/api.ts`) runs asynchronously in the background using Web Locks (`navigator.locks`) for tab leader election, `BroadcastChannel` for cross-tab updates, and WebSockets (`/api/ws`) for instant cross-device push notifications.
-- **Vanilla TypeScript & Dependencies**: Both client and server are written in strict TypeScript executed and bundled by **Bun**. Do not introduce UI frameworks (React, Vue, Svelte, etc.) or client-side runtime npm packages. The browser client has zero npm dependencies; client third-party libraries (`maplibre-gl`, `marked`, `perfect-freehand`, and `lucide/icons.json`) are vendored in `public/vendor/`, and fonts (`Instrument Sans`, `Instrument Serif`, and `Red Hat Mono`) are self-hosted in `public/fonts/`. Server runtime dependencies in `package.json` are limited to `jose` (for Google OIDC ID token verification), `unique-names-generator` (for generating memorable secret key account usernames), and `sharp` (server and scripts only, loaded lazily in `server/tile-engine.ts` for tile stitching and downsampling so the server starts without it).
+- **Optional Zero-Wait Sync & Interchangeable Auth**: Users can optionally sign in with Email/Username + Argon2id password (`email_addresses` + `password_credentials`), Google (OIDC `id_token`), or an anonymous 128-bit Base32 secret key with checksum (`XXXX-XXXX-...`) to synchronize progress across devices. Multiple sign-in methods can be linked to the same account, and sensitive account mutations require recent re-authentication (`POST /api/account/reauth`, 10-minute step-up window). Sync (`src/client/sync.ts` + `server/api.ts`) runs asynchronously in the background using Web Locks (`navigator.locks`) for tab leader election, `BroadcastChannel` for cross-tab updates, and WebSockets (`/api/ws`) for instant cross-device push notifications.
+- **Vanilla TypeScript & Dependencies**: Both client and server are written in strict TypeScript executed and bundled by **Bun**. Do not introduce browser UI frameworks (React, Vue, Svelte, etc.) or client-side runtime npm packages. The browser client has zero npm dependencies; client third-party libraries (`maplibre-gl`, `marked`, `perfect-freehand`, and `lucide/icons.json`) are vendored in `public/vendor/`, and fonts (`Instrument Sans`, `Instrument Serif`, and `Red Hat Mono`) are self-hosted in `public/fonts/`. Server and CLI dependencies in `package.json` are `jose` (Google OIDC ID token verification), `@aws-sdk/client-sesv2` / `@aws-sdk/client-ses` (transactional emails via Amazon SES with an automatic local dev console/file fallback in `server/email.ts`), `confusables` and `unicode-case-folding` (Unicode NFC, case folding, and UTS #39 confusable skeleton checks in `server/usernames.ts`), `unique-names-generator` (memorable secret key account pseudonyms), `sharp` (server and scripts only, loaded lazily in `server/tile-engine.ts` for tile stitching and downsampling so the server starts without it), and `@opentui/core` (terminal UI dashboards in `scripts/tui/`).
 
 ---
 
@@ -17,8 +17,10 @@ Verticordia Atlas is a local-first, offline-capable interactive game map viewer 
 Bun is managed via `mise` (`.config/mise/config.toml`). If `bun` is not on the default `PATH`, invoke it via `mise` or `~/.local/share/mise/installs/bun/1.4.4/bin/bun`.
 
 - **Run tests**: `bun test`
+- **Typecheck**: `bun run typecheck` (`tsc --noEmit`)
 - **Build client bundles**: `bun run build` (runs `scripts/build.ts`)
-- **Start server**: `bun run start` (runs `server/server.ts`, which automatically executes `buildClient()` on startup)
+- **Start server**: `bun run start` (runs `server/server.ts`, which automatically executes `buildClient()` on startup; pass `--no-tui` to disable the OpenTUI dashboard)
+- **Backup SQLite database**: `bun run backup` (runs `scripts/backup-db.ts` using online `VACUUM INTO` and rotates older snapshots in `backups/`)
 - **Format code**: `bun fmt`
 
 ---
@@ -28,27 +30,28 @@ Bun is managed via `mise` (`.config/mise/config.toml`). If `bun` is not on the d
 ```text
 src/
 	shared/                 # Isomorphic TypeScript shared by client, server, and CLI scripts
-		types.ts            # Canonical domain interfaces (Profile, UserMarker, DrawingStroke, GameMeta, etc.)
+		types.ts            # Canonical domain interfaces (Profile, UserMarker, DrawingItem, GameMeta, etc.)
 		sync-rules.ts       # Deterministic JSON canonicalization (contentKey, sendKey) and FNV-1a hashing
+		secret-key.ts       # 128-bit Base32 secret key encoding, scattered checksum validation, and formatting
 		search.ts           # Diacritic-insensitive normalization and Levenshtein fuzzy matching
-		share-link.ts       # URL-safe deflate-raw marker packing/unpacking (?tm=...)
+		share-link.ts       # URL-safe deflate-raw marker packing/unpacking (?tm=...) with bounded decompression
 		theme-math.ts       # HSL color conversions and light-theme palette derivation
-		escape.ts           # HTML escaping (esc) and number formatting (fmt, fmtEn)
+		escape.ts           # HTML escaping (esc) and number/byte formatting (fmt, fmtEn, formatBytes)
 	client/                 # Browser TypeScript sources (bundled into public/ by scripts/build.ts)
 		map.ts              # Map viewer entrypoint: boot sequence, sync wiring, and top-level DOM events
 		home.ts             # Homepage entrypoint: game grid, fuzzy search, and "Continue" resume card
 		theme.ts            # Theme mode (light/auto/dark), game accent tinting, and navigation trail
 		account.ts          # Account pill UI, session checks, and API client wrapper
-		account-page.ts     # Account page entrypoint (/account/): session controls, offline maps, and account deletion
+		account-page.ts     # Account page entrypoint (/account/): profile, emails, credentials, step-up reauth, offline maps, and account deletion
 		offline.ts          # Device-local "Keep offline" coordinator, streaming .vaop pack unpacker, and repair/removal
 		pack-store.ts       # Chunked IndexedDB blob storage for offline map packs, with in-memory fallback
 		sync.ts             # Background sync engine, conflict resolution, Web Locks, and WebSocket client
-		signin.ts           # Sign-in page entrypoint (/signin/)
-		legal.ts            # Legal pages entrypoint (/about/, /terms/, /privacy/)
+		signin.ts           # Sign-in page entrypoint (/signin/): password login, registration, email verification, password reset, Google, and secret key
+		legal.ts            # Legal pages entrypoint (/about/, /terms/, /privacy/, /license/)
 		sw.ts               # Service Worker source (compiled to public/sw.js with injected version hash)
 		icons.ts            # Inline UI SVG icons
 		icons-lib.ts        # Lazy-loaded Lucide icon library and canvas pin renderer
-		vendor.d.ts         # Ambient types for global vendor libraries (maplibregl, marked)
+		vendor.d.ts         # Ambient types for global vendor libraries (maplibregl, marked, ServiceWorker)
 		map/                # Modularized map viewer subsystems
 			state.ts        # Shared viewer state singleton and core UI/dialog helpers
 			db.ts           # IndexedDB wrapper (profiles and meta stores) and syncStore adapter
@@ -64,23 +67,36 @@ src/
 			capture.ts      # High-DPI offscreen map + annotation screenshot capture
 			markdown.ts     # Markdown renderer (marked) with MapGenie internal link rewriting
 server/
-	server.ts               # HTTP static & dynamic server (ETags, gzip, dynamic map.html & OG tags)
-	api.ts                  # SQLite WAL backend (data/atlas.db), Google OIDC, secret keys, Bun WebSockets, and /api/sync
-	cards.ts                # Headless Chromium + ImageMagick social preview card renderer (1200x630 JPG)
+	server.ts               # HTTP static & dynamic server (CSP & security headers, ETags, gzip, dynamic map.html & OG tags, graceful shutdown)
+	api.ts                  # SQLite WAL backend (data/atlas.db), password/Google/secret-key auth, step-up reauth, Bun WebSockets, and /api/sync
+	usernames.ts            # Unicode NFC normalization, case-folding, UTS #39 confusable skeleton detection, and email/password validation
+	reserved-usernames.sql  # Seed list of reserved usernames
+	email.ts                # Amazon SESv2 email sender with automatic local development console/file fallback
+	email-templates.ts      # Transactional HTML & plain-text email templates (verification, password reset, email change, security alerts)
+	rate-limit.ts           # Sliding-window rate limiter and proxy-aware client IP resolver (resolveClientIp)
+	cards.ts                # Headless Chromium + ImageMagick social preview card renderer (1200x630 JPG) and safe media path resolution
 	tile-engine.ts          # sharp-based tile maths: stitch + downsample four tiles into one, single-colour detection and hard links
 	tile-cache.ts           # Disk cache cache/tiles/ for made tiles: in-memory recency, popularity-weighted eviction (2GB -> 1GB)
 	tile-service.ts         # Tile requests: stored tile -> cache -> make from the next zoom, cache and serve
-	offline-pack.ts         # Streams a map's metadata and tile pyramid as a binary .vaop pack, making intermediate zooms on the fly
+	offline-pack.ts         # Streams a map's metadata and tile pyramid as a binary .vaop pack with path containment, rate limits, and concurrency caps
 	assets/fonts/           # Font files used by headless Chromium during social card generation
 scripts/
 	build.ts                # Bundles src/client/*.ts into public/ and verifies/hashes SW precache files
+	backup-db.ts            # Online SQLite backup script (VACUUM INTO backups/atlas-*.db with rotation)
+	clean.ts                # Removes generated client bundles and temporary caches
 	add-game.ts             # Scrapes a MapGenie game/map into public/maps/<slug>/ (only the highest zoom of tiles; --force-get-tiles <map> takes every zoom)
+	update-games.ts         # Incrementally updates existing MapGenie games (markers, media, and optionally tiles)
+	lootatlas.ts            # Scrapes LootAtlas games/maps into public/maps/<slug>/
+	gamemaps-br.ts          # Scrapes GameMaps.com.br games/maps into public/maps/<slug>/
 	clean-markers.ts        # Rewrites intra-map MapGenie locationIds URLs in data.json to "#loc=<id>" fragments
 	prune-tiles.ts          # Links single-colour tiles, makes missing overviews, deletes intermediate zooms the server can remake (--dry-run)
 	download-tiles.ts       # Downloads map raster tiles into public/maps/<slug>/<map>/tiles/
 	download-media.ts       # Downloads marker screenshot media into public/maps/<slug>/media/
+	upload-media.ts         # Uploads marker media to Cloudflare R2 / S3, verifies SHA-256 via public URL, and records in SQLite media table
 	make-cards.ts           # Pre-renders OpenGraph card.jpg images for games
 	make-screenshots.ts     # Generates promotional screenshots in public/screenshots/
+	adaptive-rate.ts        # AIMD adaptive concurrency and delay controller for scrapers
+	tui/                    # OpenTUI terminal dashboards for server monitoring, game catalog, scraping, tile pruning, media, and cards
 public/                     # Static web root served by server/server.ts
 	index.html              # Homepage
 	map.html                # Shared HTML shell served for every /maps/<slug>/ route
@@ -93,9 +109,13 @@ public/                     # Static web root served by server/server.ts
 tests/
 	shared.test.ts          # Unit tests for src/shared/*
 	client-pure.test.ts     # Unit tests for client pure functions, map helpers, and sync engine
-	server-and-scripts.test.ts # Integration tests for server/api.ts, cards.ts, and scripts/build.ts
+	auth.test.ts            # Unit and integration tests for usernames, secret keys, registration, login, password reset, and step-up reauth
+	oauth.test.ts           # End-to-end Google OIDC sign-in and account linking tests
+	server-and-scripts.test.ts # Integration tests for server/api.ts, server/server.ts, cards.ts, offline-pack.ts, backup-db.ts, and scripts/build.ts
 	ws-e2e.test.ts          # End-to-end WebSocket tests for authentication, origin security, limits, and sync notifications
 	tiles.test.ts           # Tile engine, cache eviction, tile service, scripts/prune-tiles.ts, and add-game's tile download
+	tui.test.ts             # Unit and integration tests for adaptive rate controller and OpenTUI dashboards
+	lootatlas.test.ts       # Unit tests for LootAtlas scraper transforms and coordinate conversion
 	e2e-offline.test.ts     # End-to-end Puppeteer test verifying offline map pack downloads and disconnected navigation
 ```
 
@@ -114,10 +134,12 @@ tests/
     - `contentKey` strips `updated`, `map`, and `cameras` from profile records so camera movements and timestamps alone never trigger a conflict dialog between devices.
     - `sendKey` strips only `updated` so camera changes are still replicated to other devices when no content conflict exists.
 
-3. **Untrusted Data Sanitization & Escaping**:
+3. **Security & Untrusted Data Sanitization**:
     - Profile imports and synced records can contain arbitrary JSON; always pass profile data through `cleanUserData()` (`src/client/map/profiles.ts`).
     - Because UI rendering uses template strings and `innerHTML`, always escape dynamic text with `esc()` (`src/shared/escape.ts`).
     - Markdown descriptions rendered through `renderMd()` (`src/client/map/markdown.ts`) escape raw HTML tokens and restrict links to `http:`/`https:` or internal `#loc=<id>` references.
+    - `server/server.ts` emits a strict `Content-Security-Policy` header on HTML responses using SHA-256 hashes for the inline theme bootstrap scripts in `<head>`. Do not add new inline `<script>` blocks or inline event handlers (`onclick=`, etc.) without updating `collectInlineScriptHashes()` in `server/server.ts`.
+    - Proxy headers (`X-Forwarded-For`, `X-Real-IP`, `X-Forwarded-Proto`, `X-Forwarded-Host`) are only trusted when `trustProxy: true` in `site.json` (or `TRUST_PROXY=1`). Always resolve client IPs through `resolveClientIp()` (`server/rate-limit.ts`).
 
 4. **Testability of Client Modules**:
     - Guard top-level browser DOM side effects (`document`, `window`, `marked`, `matchMedia`) in client modules when they export pure functions or state helpers, so `bun test` can import and test them directly in a non-DOM environment.
@@ -135,4 +157,4 @@ tests/
     - Follow **Conventional Commits** (`feat:`, `fix:`, `refactor:`, `perf:`, `test:`, `chore:`, `style:`).
     - When a commit message includes an explanatory body, write **concise prose paragraphs**—never use bullet lists in commit messages.
 - **Verification**:
-    - Always run `bun test` (and `bun run build`) to verify changes before committing. All unit and integration tests must pass.
+    - Always run `bun run typecheck`, `bun test`, and `bun run build` to verify changes before committing. All unit and integration tests must pass.

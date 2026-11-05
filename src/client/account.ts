@@ -35,6 +35,7 @@ export async function api(method: string, path: string, body?: unknown): Promise
 			code: data.code,
 			field: data.field,
 			requireSecretKeyConfirmation: Boolean(data.requireSecretKeyConfirmation),
+			requireReauth: Boolean(data.requireReauth),
 		});
 	}
 	return data;

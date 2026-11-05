@@ -14,7 +14,8 @@ import {
 	renderVerifyEmailTemplate,
 	wrapPlainText72,
 } from "../server/email-templates.ts";
-import type { EmailMessage } from "../server/email.ts";
+import { createSesEmailSender, type EmailMessage } from "../server/email.ts";
+import { resolveClientIp } from "../server/rate-limit.ts";
 import {
 	confusableSkeleton,
 	foldUnicode,
@@ -478,5 +479,127 @@ describe("End-to-end authentication, verification, reset, and account credential
 			body: JSON.stringify({ type: "secret_key" }),
 		});
 		expect(revokeLast.status).toBe(400);
+	});
+
+	test("step-up re-authentication (POST /api/account/reauth) is enforced when session reauth_at is older than 10 minutes", async () => {
+		const { secret } = await (
+			await fetch(`${baseUrl}/api/auth/secret/new`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: "{}",
+			})
+		).json();
+		const confirmRes = await fetch(`${baseUrl}/api/auth/secret/confirm`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ secret }),
+		});
+		expect(confirmRes.status).toBe(200);
+		const cookie = (confirmRes.headers.get("set-cookie") || "").split(";")[0];
+
+		// Add an unverified email while session is fresh
+		const addEmailRes = await fetch(`${baseUrl}/api/account/email/add`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json", Cookie: cookie },
+			body: JSON.stringify({ email: "reauth-test@example.com" }),
+		});
+		expect(addEmailRes.status).toBe(200);
+		const { user: userWithEmail } = await addEmailRes.json();
+		const emailId = userWithEmail.emails[0].id;
+
+		// Age the session's reauth_at past 10 minutes
+		api._db
+			.prepare("UPDATE sessions SET reauth_at = ? WHERE user_id = ?")
+			.run(Date.now() - 15 * 60_000, userWithEmail.id);
+
+		// Sensitive routes now reject with 403 { requireReauth: true }
+		const delStale = await fetch(`${baseUrl}/api/auth/delete-account`, {
+			method: "POST",
+			headers: { Cookie: cookie },
+		});
+		expect(delStale.status).toBe(403);
+		expect((await delStale.json()).requireReauth).toBe(true);
+
+		const removeEmailStale = await fetch(`${baseUrl}/api/account/email/remove`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json", Cookie: cookie },
+			body: JSON.stringify({ emailId }),
+		});
+		expect(removeEmailStale.status).toBe(403);
+		expect((await removeEmailStale.json()).requireReauth).toBe(true);
+
+		// Wrong credential on /api/account/reauth returns 401
+		const badReauth = await fetch(`${baseUrl}/api/account/reauth`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json", Cookie: cookie },
+			body: JSON.stringify({ secret: api.newSecret() }),
+		});
+		expect(badReauth.status).toBe(401);
+
+		// Valid secret key on /api/account/reauth refreshes reauth_at
+		const goodReauth = await fetch(`${baseUrl}/api/account/reauth`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json", Cookie: cookie },
+			body: JSON.stringify({ secret }),
+		});
+		expect(goodReauth.status).toBe(200);
+		expect((await goodReauth.json()).ok).toBe(true);
+
+		// Subsequent email removal and account deletion now succeed
+		const removeEmailOk = await fetch(`${baseUrl}/api/account/email/remove`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json", Cookie: cookie },
+			body: JSON.stringify({ emailId }),
+		});
+		expect(removeEmailOk.status).toBe(200);
+
+		const delOk = await fetch(`${baseUrl}/api/auth/delete-account`, {
+			method: "POST",
+			headers: { Cookie: cookie },
+		});
+		expect(delOk.status).toBe(200);
+	});
+
+	test("resolveClientIp ignores spoofed X-Forwarded-For unless trustProxy is enabled", () => {
+		const req = new Request("http://localhost/api/auth/login", {
+			headers: {
+				"X-Forwarded-For": "203.0.113.9, 10.0.0.1",
+				"X-Real-IP": "198.51.100.7",
+			},
+		});
+		expect(resolveClientIp(req, false, "127.0.0.1")).toBe("127.0.0.1");
+		expect(resolveClientIp(req, false, null)).toBe("127.0.0.1");
+		expect(resolveClientIp(req, true, "127.0.0.1")).toBe("203.0.113.9");
+
+		const reqRealIpOnly = new Request("http://localhost/api/auth/login", {
+			headers: { "X-Real-IP": "198.51.100.7" },
+		});
+		expect(resolveClientIp(reqRealIpOnly, true, "127.0.0.1")).toBe("198.51.100.7");
+	});
+
+	test("createSesEmailSender uses local dev fallback when SES is unconfigured and devFallback is enabled", async () => {
+		const logs: string[] = [];
+		const devSender = createSesEmailSender({
+			devFallback: true,
+			onDevLog: (line) => logs.push(line),
+		});
+		const res = await devSender.send({
+			to: "dev@example.com",
+			subject: "Verify your email",
+			text: "Click https://atlas.example.com/signin/?verify=abc123 to verify.",
+			html: "<p>Verify</p>",
+		});
+		expect(res.messageId).toStartWith("dev-");
+		expect(logs.join("\n")).toContain("https://atlas.example.com/signin/?verify=abc123");
+
+		const strictSender = createSesEmailSender({ devFallback: false });
+		await expect(
+			strictSender.send({
+				to: "prod@example.com",
+				subject: "Test",
+				text: "Body",
+				html: "<p>Body</p>",
+			}),
+		).rejects.toThrow("Amazon SES is not configured");
 	});
 });
