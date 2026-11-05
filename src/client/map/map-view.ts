@@ -82,6 +82,11 @@ export function applyTheme(theme: Record<string, string> = {}): void {
 		}
 		if (map.getLayer("links")) map.setPaintProperty("links", "line-color", themeVar("accent-soft"));
 		if (map.getLayer("backlinks")) map.setPaintProperty("backlinks", "line-color", themeVar("backlink"));
+		if (map.getLayer("region-borders")) map.setPaintProperty("region-borders", "line-color", themeVar("ink"));
+		if (map.getLayer("region-labels")) {
+			map.setPaintProperty("region-labels", "text-color", themeVar("ink"));
+			map.setPaintProperty("region-labels", "text-halo-color", themeVar("night"));
+		}
 		const updateArrow = (name: string, fill: string) => {
 			if (!map.hasImage(name)) return;
 			const ac = document.createElement("canvas");
@@ -116,8 +121,11 @@ function getColorProbe(): CanvasRenderingContext2D {
 
 export const themeVar = (name: string): string => {
 	if (themeState.has(name)) return themeState.get(name)!;
+	if (typeof document === "undefined") return "";
 	const raw = getComputedStyle(document.documentElement).getPropertyValue(`--${name}`).trim();
+	if (!raw) return "";
 	const probe = getColorProbe();
+	probe.fillStyle = "#000000";
 	probe.fillStyle = raw;
 	return probe.fillStyle as string;
 };
@@ -581,7 +589,7 @@ export function initRegionLayers(map: any): void {
 			paint: {
 				"text-color": themeVar("ink"),
 				"text-opacity": ["case", ["==", ["get", "isRoot"], 1], 0.65, 0.45],
-				"text-halo-color": themeVar("bg"),
+				"text-halo-color": themeVar("night"),
 				"text-halo-width": 1.5,
 			},
 		},

@@ -36,6 +36,7 @@ import {
 	resolveTilesets,
 	sameCamera,
 	startOf,
+	themeVar,
 } from "../src/client/map/map-view.ts";
 import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
 import { parseDemoPresets } from "../src/client/map/presets.ts";
@@ -114,6 +115,11 @@ describe("icons and contrast helpers", () => {
 });
 
 describe("theme and navigation helpers", () => {
+	test("themeVar safely handles missing variables and non-DOM environments", () => {
+		expect(themeVar("bg")).toBe("");
+		expect(themeVar("unknown")).toBe("");
+	});
+
 	test("deriveLightAccentSoft produces valid hex color", () => {
 		expect(deriveLightAccentSoft("")).toBe("#b03028");
 		expect(deriveLightAccentSoft("#d6453b")).toMatch(/^#[0-9a-f]{6}$/);
