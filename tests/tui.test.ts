@@ -80,7 +80,7 @@ describe("TUI ecosystem components & helpers", () => {
 		expect(isCtrlL({ ctrl: true, name: "c" })).toBe(false);
 		expect(isCtrlL(null)).toBe(false);
 
-		// clearAndRedrawTerminal handles null and mocks safely
+		// clearAndRedrawTerminal handles null and mocks safely, and does not emit escape sequences during tests
 		const mockRenderer = {
 			forceFullRepaintRequested: false,
 			requestRenderCalled: false,
@@ -88,10 +88,21 @@ describe("TUI ecosystem components & helpers", () => {
 				this.requestRenderCalled = true;
 			},
 		};
-		clearAndRedrawTerminal(mockRenderer as any);
+		let stdoutWritten = "";
+		const origStdoutWrite = process.stdout.write;
+		(process.stdout as any).write = (chunk: any) => {
+			stdoutWritten += String(chunk);
+			return true;
+		};
+		try {
+			clearAndRedrawTerminal(mockRenderer as any);
+			clearAndRedrawTerminal(undefined);
+		} finally {
+			process.stdout.write = origStdoutWrite;
+		}
+		expect(stdoutWritten).toBe("");
 		expect(mockRenderer.forceFullRepaintRequested).toBe(true);
 		expect(mockRenderer.requestRenderCalled).toBe(true);
-		clearAndRedrawTerminal(undefined);
 	});
 
 	test("computeResponsiveBox computes bounded dimensions for any terminal size", () => {

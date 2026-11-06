@@ -169,9 +169,11 @@ export function isCtrlL(key: any): boolean {
 }
 
 export function clearAndRedrawTerminal(renderer?: any): void {
-	try {
-		process.stdout.write("\x1b[2J\x1b[3J\x1b[H");
-	} catch {}
+	if (isInteractiveTty()) {
+		try {
+			process.stdout.write("\x1b[2J\x1b[H");
+		} catch {}
+	}
 	if (renderer) {
 		try {
 			if ("forceFullRepaintRequested" in renderer) {
