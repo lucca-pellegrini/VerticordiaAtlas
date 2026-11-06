@@ -2,7 +2,6 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { type FSWatcher, watch } from "node:fs";
-import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import { BoxRenderable, InputRenderable, InputRenderableEvents, type KeyEvent, TextRenderable } from "@opentui/core";
@@ -235,8 +234,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 
 	async function loadIndexData() {
 		try {
-			const raw = await readFile(indexPath, "utf8");
-			const parsed = JSON.parse(raw);
+			const parsed = await Bun.file(indexPath).json();
 			allGames = Array.isArray(parsed.games) ? parsed.games : [];
 			applySearchFilter();
 		} catch (e: any) {
@@ -272,7 +270,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		try {
 			isSelfWriting = true;
 			const data = { games: allGames };
-			await writeFile(indexPath, JSON.stringify(data, null, "\t") + "\n", "utf8");
+			await Bun.write(indexPath, JSON.stringify(data, null, "\t") + "\n");
 		} catch (e: any) {
 			showToast(`Error saving index.json: ${e.message}`);
 		} finally {
@@ -485,8 +483,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		// Also update meta.json if it exists on disk
 		try {
 			const metaPath = path.join(mapsDir, game.slug, "meta.json");
-			const raw = await readFile(metaPath, "utf8");
-			const meta = JSON.parse(raw);
+			const meta: any = await Bun.file(metaPath).json();
 			meta.title = game.title;
 			meta.description = game.description;
 			if (game.theme?.accent) {
@@ -495,7 +492,7 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			}
 			if (game.tagLabel) meta.tagLabel = game.tagLabel;
 			if (game.defaultTag) meta.defaultTag = game.defaultTag;
-			await writeFile(metaPath, JSON.stringify(meta, null, "\t") + "\n", "utf8");
+			await Bun.write(metaPath, JSON.stringify(meta, null, "\t") + "\n");
 		} catch {}
 
 		await saveIndexData();

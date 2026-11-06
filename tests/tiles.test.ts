@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
-import { link, mkdir, mkdtemp, readdir, readFile, rm, stat, utimes, writeFile } from "node:fs/promises";
+import { link, mkdir, mkdtemp, readdir, rm, stat, utimes } from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
 import path from "node:path";
@@ -57,7 +57,7 @@ const gradient = (seed: number): Promise<Buffer> => {
 
 const put = async (file: string, buf: Buffer) => {
 	await mkdir(path.dirname(file), { recursive: true });
-	await writeFile(file, buf);
+	await Bun.write(file, buf);
 };
 const pixel = (raw: Buffer, x: number, y: number) => [...raw.subarray((y * 256 + x) * 4, (y * 256 + x) * 4 + 4)];
 
@@ -165,7 +165,9 @@ describe("a stored copy that has run out of hard links", () => {
 		const names = (await readdir(dir)).filter((f) => f.startsWith("solid-")).sort();
 		expect(names).toEqual(["solid-070707ff-1.png", "solid-070707ff-2.png", "solid-070707ff.png"]);
 		for (let i = 0; i < 5; i++)
-			expect(solidKey(await decodeTile(await readFile(path.join(dir, `3/0/${i}.png`))))).toBe("070707ff");
+			expect(
+				solidKey(await decodeTile(Buffer.from(await Bun.file(path.join(dir, `3/0/${i}.png`)).bytes()))),
+			).toBe("070707ff");
 		expect((await readdir(path.join(dir, "3/0"))).filter((f) => f.endsWith(".tmp"))).toEqual([]);
 	});
 
@@ -367,7 +369,7 @@ describe("tile service", () => {
 		const made = await svc.find("game", "world", "default", "2/1/1.png");
 		expect(made?.from).toBe("made");
 		expect(made!.file.startsWith(cache.root)).toBe(true);
-		const img = await sharp(await readFile(made!.file)).metadata();
+		const img = await sharp(await Bun.file(made!.file).bytes()).metadata();
 		expect([img.width, img.height, img.format]).toEqual([256, 256, "png"]);
 
 		const again = await svc.find("game", "world", "default", "2/1/1.png");

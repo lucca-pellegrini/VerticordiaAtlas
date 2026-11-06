@@ -40,7 +40,7 @@
 //   --no-tui             Disable terminal UI dashboard
 //   --help, -h           Show this help message
 
-import { readdir, readFile, stat } from "node:fs/promises";
+import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
@@ -48,14 +48,7 @@ import { parseArgs } from "node:util";
 import { runAddGamePipeline } from "./add-game.ts";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const exists = async (p: string) => {
-	try {
-		await stat(p);
-		return true;
-	} catch {
-		return false;
-	}
-};
+const exists = (p: string) => Bun.file(p).exists();
 
 export interface GameInfo {
 	folder: string;
@@ -121,7 +114,7 @@ export async function resolveGames(slugArgs: string[], all: boolean, mapsDir: st
 	let indexGames: any[] = [];
 	if (await exists(indexPath)) {
 		try {
-			indexGames = JSON.parse(await readFile(indexPath, "utf8")).games || [];
+			indexGames = (await Bun.file(indexPath).json()).games || [];
 		} catch {}
 	}
 
@@ -133,7 +126,7 @@ export async function resolveGames(slugArgs: string[], all: boolean, mapsDir: st
 			const metaPath = path.join(gameDir, "meta.json");
 			if (await exists(metaPath)) {
 				try {
-					const meta = JSON.parse(await readFile(metaPath, "utf8"));
+					const meta = await Bun.file(metaPath).json();
 					const indexEntry = indexGames.find((g) => g.slug === ent.name || g.id === meta.id);
 					list.push({ folder: ent.name, gameDir, meta, indexEntry });
 				} catch {}
@@ -150,7 +143,7 @@ export async function resolveGames(slugArgs: string[], all: boolean, mapsDir: st
 			if (!(await exists(metaPath))) {
 				throw new Error(`Game meta.json not found in ${gameDir}. Check the slug/folder name.`);
 			}
-			const meta = JSON.parse(await readFile(metaPath, "utf8"));
+			const meta = await Bun.file(metaPath).json();
 			const indexEntry = indexGames.find((g) => g.slug === folder || g.id === meta.id);
 			picked.push({ folder, gameDir, meta, indexEntry });
 		}
@@ -166,7 +159,7 @@ export async function detectMissingTilesets(game: GameInfo): Promise<MissingTile
 		const mapSlug = m.slug;
 		const dataPath = path.join(game.gameDir, mapSlug, "data.json");
 		if (!(await exists(dataPath))) continue;
-		const data = JSON.parse(await readFile(dataPath, "utf8"));
+		const data = await Bun.file(dataPath).json();
 		const tileSets = data.mapConfig?.tile_sets || [];
 		const tilesDir = path.join(game.gameDir, mapSlug, "tiles");
 		const existingDirs = new Set((await exists(tilesDir)) ? await readdir(tilesDir) : []);

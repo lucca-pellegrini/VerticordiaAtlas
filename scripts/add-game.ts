@@ -49,7 +49,7 @@
 //                        slow and big: use it for a map whose tiles have gaps at different places and zooms, e.g. Solstheim,
 //                        or any map that is not a perfect rectangle at the stored zoom)
 
-import { copyFile, mkdir, readdir, readFile, rename, rm, stat, unlink, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, rename, rm, stat, unlink } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -644,7 +644,7 @@ export async function downloadTiles({
 				const r = await getBin(fill(remote(base!), maxZ, x, y));
 				if (r.status === 200 && r.type?.startsWith("image/") && r.buf) {
 					await mkdir(path.dirname(file), { recursive: true });
-					await writeFile(file, r.buf);
+					await Bun.write(file, r.buf);
 					stats.saved++;
 					stats.bytes += r.buf.length;
 					dashboard.onTile(x, y, "saved", r.buf.length);
@@ -806,7 +806,7 @@ export async function downloadTiles({
 			const r = await getBin(fill(remote(base!), z, x, y));
 			if (r.status === 200 && r.type?.startsWith("image/") && r.buf) {
 				await mkdir(path.dirname(file), { recursive: true });
-				await writeFile(file, r.buf);
+				await Bun.write(file, r.buf);
 				stats.saved++;
 				stats.bytes += r.buf.length;
 				found.push([x, y]);
@@ -881,8 +881,8 @@ async function downloadMarkers({
 		}
 		const p = await getBin(dir + "markers.png" + q, 3, referer);
 		if (p.status !== 200 || !p.buf) continue;
-		await writeFile(path.join(outDir, "markers.json"), j.buf);
-		await writeFile(path.join(outDir, "markers.png"), p.buf);
+		await Bun.write(path.join(outDir, "markers.json"), j.buf);
+		await Bun.write(path.join(outDir, "markers.png"), p.buf);
 		const res: {
 			json: string;
 			png: string;
@@ -894,8 +894,8 @@ async function downloadMarkers({
 		const j2 = await getBin(dir + "markers@2x.json" + q, 1),
 			p2 = j2.status === 200 ? await getBin(dir + "markers@2x.png" + q) : { status: 0, buf: undefined };
 		if (j2.status === 200 && j2.buf && p2.status === 200 && p2.buf) {
-			await writeFile(path.join(outDir, "markers@2x.json"), j2.buf);
-			await writeFile(path.join(outDir, "markers@2x.png"), p2.buf);
+			await Bun.write(path.join(outDir, "markers@2x.json"), j2.buf);
+			await Bun.write(path.join(outDir, "markers@2x.png"), p2.buf);
 			res.json2x = "markers@2x.json";
 			res.png2x = "markers@2x.png";
 		}
@@ -953,7 +953,7 @@ async function downloadIcons({
 			const f = await getBin(new URL(font[1], link).href, 1, base);
 			if (f.status !== 200 || !f.buf) continue;
 			await mkdir(path.join(outDir, "icons"), { recursive: true });
-			await writeFile(path.join(outDir, "icons", "icons.woff"), f.buf);
+			await Bun.write(path.join(outDir, "icons", "icons.woff"), f.buf);
 			return { font: "icons/icons.woff", glyphs };
 		}
 		const imgMatch = text.match(/background(?:-image)?:\s*url\(['"]?([^'")?]+\.png)/i);
@@ -970,7 +970,7 @@ async function downloadIcons({
 		if (img.status !== 200 || !img.buf) continue;
 		const size = parseInt((text.match(/width:\s*(\d+)px/i) || [])[1], 10) || 18;
 		await mkdir(path.join(outDir, "icons"), { recursive: true });
-		await writeFile(path.join(outDir, "icons", "icons.png"), img.buf);
+		await Bun.write(path.join(outDir, "icons", "icons.png"), img.buf);
 		return { image: "icons/icons.png", size, glyphs };
 	}
 	return null;
@@ -1097,14 +1097,14 @@ export async function downloadMedia(
 				dashboard.onItem({ name, url, size: buf.length, status: "uploaded", verifiedUrl: rec.verifiedUrl });
 				if (opts.keepLocal) {
 					if (!(await exists(file))) {
-						await writeFile(file, buf);
+						await Bun.write(file, buf);
 						st.saved++;
 					}
 				} else if (await exists(file)) {
 					await unlink(file).catch(() => {});
 				}
 			} else {
-				await writeFile(file, buf);
+				await Bun.write(file, buf);
 				st.saved++;
 				st.bytes += buf.length;
 				dashboard.onItem({ name, url, size: buf.length, status: "downloaded" });
@@ -1646,10 +1646,10 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 	// 1. first page and its mapData
 	let page: { html: string; url: string }, md0: any;
 	if (v.mapdata) {
-		md0 = JSON.parse(await readFile(v.mapdata, "utf8"));
-		page = { html: v.html ? await readFile(v.html, "utf8") : "", url: startUrl.href };
+		md0 = await Bun.file(v.mapdata).json();
+		page = { html: v.html ? await Bun.file(v.html).text() : "", url: startUrl.href };
 	} else {
-		page = v.html ? { html: await readFile(v.html, "utf8"), url: startUrl.href } : await getPage(startUrl.href);
+		page = v.html ? { html: await Bun.file(v.html).text(), url: startUrl.href } : await getPage(startUrl.href);
 		const landed = new URL(page.url);
 		if (landed.origin !== origin) {
 			origin = landed.origin;
@@ -1718,9 +1718,9 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 			console.log("  ! icons:", e.message);
 			return null;
 		});
-		const meta = JSON.parse(await readFile(metaFile, "utf8"));
+		const meta = await Bun.file(metaFile).json();
 		meta.icons = icons;
-		await writeFile(metaFile, JSON.stringify(meta, null, 2) + "\n");
+		await Bun.write(metaFile, JSON.stringify(meta, null, 2) + "\n");
 		console.log(
 			icons
 				? `icons: ${Object.keys(icons.glyphs).length} glyphs in ${(icons as any).font || (icons as any).image}`
@@ -1785,7 +1785,7 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 		const ms = md.map?.slug || "map";
 		const dir = path.join(outDir, ms);
 		await mkdir(dir, { recursive: true });
-		await writeFile(path.join(dir, "data.json"), JSON.stringify(md));
+		await Bun.write(path.join(dir, "data.json"), JSON.stringify(md));
 		const sets = [...(md.mapConfig.tile_sets || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 		const chosen = v["all-tilesets"] ? sets : sets.slice(0, 1);
 		const entry = { slug: ms, title: md.map?.title || ms, data: `${ms}/data.json`, tilesets: [] as any[] };
@@ -1823,7 +1823,7 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 			if (r.status === 200 && r.buf && r.type) {
 				const ext = (r.type.split("/")[1] || "jpg").split(";")[0].replace("jpeg", "jpg");
 				poster = `poster.${ext}`;
-				await writeFile(path.join(outDir, poster), r.buf);
+				await Bun.write(path.join(outDir, poster), r.buf);
 			}
 		} else if (posterSrc) {
 			const resolvedSrc = path.resolve(expandHome(posterSrc.replace(/^file:\/\//, "")));
@@ -1842,7 +1842,7 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 
 	// 7. meta.json for the game and the homepage manifest
 	const prevMeta = (await exists(path.join(outDir, "meta.json")))
-		? JSON.parse(await readFile(path.join(outDir, "meta.json"), "utf8"))
+		? await Bun.file(path.join(outDir, "meta.json")).json()
 		: null;
 	const meta = {
 		id,
@@ -1860,12 +1860,12 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 		icons: v["no-icons"] ? (prevMeta?.icons ?? null) : icons,
 		maps: metaMaps,
 	};
-	const writeMeta = () => writeFile(path.join(outDir, "meta.json"), JSON.stringify(meta, null, 2) + "\n");
+	const writeMeta = () => Bun.write(path.join(outDir, "meta.json"), JSON.stringify(meta, null, 2) + "\n");
 	await writeMeta();
 
 	// 8. homepage manifest
 	let index: { games: any[] } = { games: [] };
-	if (await exists(v.index!)) index = JSON.parse(await readFile(v.index!, "utf8"));
+	if (await exists(v.index!)) index = await Bun.file(v.index!).json();
 	const prev = index.games.find((g) => g.slug === pageSlug) || {};
 	const posterAccent =
 		posterFile && (v.poster || !prev.theme) && !v.accent ? await accentFromPoster(posterFile) : null;
@@ -1895,7 +1895,7 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 	const at = index.games.findIndex((g) => g.slug === pageSlug);
 	if (at >= 0) index.games[at] = entry;
 	else index.games.push(entry);
-	await writeFile(v.index!, JSON.stringify(index, null, "\t") + "\n");
+	await Bun.write(v.index!, JSON.stringify(index, null, "\t") + "\n");
 	console.log(
 		`\nWrote ${path.join(outDir, "meta.json")} and updated ${v.index}; the game is now listed, fetching tiles and media`,
 	);

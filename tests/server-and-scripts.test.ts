@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, rm } from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
 import path from "node:path";
@@ -249,7 +249,7 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 		expect(PRECACHE).toContain("fonts/instrument-serif-latin-400-normal.woff2");
 		expect(PRECACHE).not.toContain("perfect-freehand.mjs");
 
-		const swCode = await readFile(path.join(process.cwd(), "public", "sw.js"), "utf8");
+		const swCode = await Bun.file(path.join(process.cwd(), "public", "sw.js")).text();
 		expect(swCode).toContain(swVersion);
 		expect(swCode).not.toContain("fonts.googleapis.com");
 	});
@@ -266,11 +266,11 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 			"public/license/index.html",
 		];
 		for (const rel of htmlPages) {
-			const html = await readFile(path.join(process.cwd(), rel), "utf8");
+			const html = await Bun.file(path.join(process.cwd(), rel)).text();
 			expect(html).not.toContain("fonts.googleapis.com");
 			expect(html).not.toContain("fonts.gstatic.com");
 		}
-		const baseCss = await readFile(path.join(process.cwd(), "public", "base.css"), "utf8");
+		const baseCss = await Bun.file(path.join(process.cwd(), "public", "base.css")).text();
 		expect(baseCss).toContain('font-family: "Instrument Sans"');
 		expect(baseCss).toContain('font-family: "Instrument Serif"');
 		expect(baseCss).toContain("./fonts/instrument-sans-latin-variable.woff2");

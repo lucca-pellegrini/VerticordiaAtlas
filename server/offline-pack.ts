@@ -4,7 +4,7 @@
 // server/offline-pack.ts: streams a complete map package (metadata, markers, icons, tiles)
 // in a single streaming binary pack (VAOP format) for offline storage.
 
-import { readdir, readFile, stat } from "node:fs/promises";
+import { readdir, stat } from "node:fs/promises";
 import path from "node:path";
 
 import { createRateLimiter, type RateLimiter, resolveClientIp } from "./rate-limit.ts";
@@ -192,8 +192,8 @@ export async function ensureIntermediateTiles(
 	}
 
 	const metaPath = path.join(gameDir, "meta.json");
-	const meta = await readFile(metaPath, "utf8")
-		.then(JSON.parse)
+	const meta = await Bun.file(metaPath)
+		.json()
 		.catch(() => null);
 	if (!meta) return;
 	const mapMeta = meta.maps?.find((m: any) => m.slug === mapSlug);
@@ -225,10 +225,16 @@ export async function ensureIntermediateTiles(
 
 		const readTile = async (rz: number, rx: number, ry: number): Promise<Buffer | null> => {
 			const p1 = path.join(publicTilesDir, tilePath(tail, rz, rx, ry));
-			const b1 = await readFile(p1).catch(() => null);
+			const b1 = await Bun.file(p1)
+				.bytes()
+				.then((a) => Buffer.from(a))
+				.catch(() => null);
 			if (b1) return b1;
 			const p2 = path.join(cacheTilesDir, tilePath(tail, rz, rx, ry));
-			return readFile(p2).catch(() => null);
+			return Bun.file(p2)
+				.bytes()
+				.then((a) => Buffer.from(a))
+				.catch(() => null);
 		};
 
 		const bg = parseBackground(ts.background);

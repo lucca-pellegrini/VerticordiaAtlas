@@ -8,7 +8,7 @@
 //
 // sharp is loaded on first use, so the server and the tests still start when it is not installed.
 
-import { link, mkdir, readdir, readFile, rename, stat, unlink, writeFile } from "node:fs/promises";
+import { link, mkdir, readdir, rename, stat, unlink } from "node:fs/promises";
 import path from "node:path";
 
 export const TILE = 256;
@@ -182,7 +182,7 @@ export const solidFile = (dir: string, key: string, ext: string, n = 0): string 
 
 async function writeAtomic(file: string, buf: Buffer): Promise<void> {
 	const tmp = tmpName(file);
-	await writeFile(tmp, buf);
+	await Bun.write(tmp, buf);
 	await rename(tmp, file);
 }
 
@@ -248,7 +248,7 @@ export async function dedupeSolid(
 ): Promise<{ key: string; freed: number } | null> {
 	const st = await stat(file);
 	if (st.size > maxBytes) return null;
-	const buf = await readFile(file);
+	const buf = Buffer.from(await Bun.file(file).bytes());
 	const key = solidKey(await decodeTile(buf));
 	if (!key) return null;
 	// already a link to one of the stored copies?

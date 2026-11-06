@@ -3,7 +3,7 @@
 
 // lootatlas.ts: Scraper and ingestion pipeline for Loot Atlas games (https://app.lootatlas.com).
 
-import { copyFile, mkdir, readdir, readFile, rename, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, readdir, rename, rm } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -444,10 +444,10 @@ export async function generateLootAtlasSpriteSheet(
 		.png()
 		.toBuffer();
 
-	await writeFile(path.join(outDir, "markers.png"), blank1x);
-	await writeFile(path.join(outDir, "markers@2x.png"), blank2x);
-	await writeFile(path.join(outDir, "markers.json"), JSON.stringify(defs1x, null, 2) + "\n");
-	await writeFile(path.join(outDir, "markers@2x.json"), JSON.stringify(defs2x, null, 2) + "\n");
+	await Bun.write(path.join(outDir, "markers.png"), blank1x);
+	await Bun.write(path.join(outDir, "markers@2x.png"), blank2x);
+	await Bun.write(path.join(outDir, "markers.json"), JSON.stringify(defs1x, null, 2) + "\n");
+	await Bun.write(path.join(outDir, "markers@2x.json"), JSON.stringify(defs2x, null, 2) + "\n");
 
 	return {
 		json: "markers.json",
@@ -725,7 +725,7 @@ export async function executeLootAtlasPipeline(
 		};
 
 		dataMaps.push(md);
-		await writeFile(path.join(mapDir, "data.json"), JSON.stringify(md));
+		await Bun.write(path.join(mapDir, "data.json"), JSON.stringify(md));
 
 		const metaEntry = {
 			slug: ms,
@@ -770,7 +770,7 @@ export async function executeLootAtlasPipeline(
 				const ctype = res.headers.get("content-type") || "image/jpeg";
 				const ext = (ctype.split("/")[1] || "jpg").split(";")[0].replace("jpeg", "jpg");
 				poster = `poster.${ext}`;
-				await writeFile(path.join(outDir, poster), buf);
+				await Bun.write(path.join(outDir, poster), buf);
 			}
 		} catch (e: any) {
 			log(`  ! could not download poster: ${e.message}`);
@@ -799,7 +799,7 @@ export async function executeLootAtlasPipeline(
 		icons: null,
 		maps: metaMaps,
 	};
-	const writeMeta = () => writeFile(path.join(outDir, "meta.json"), JSON.stringify(meta, null, 2) + "\n");
+	const writeMeta = () => Bun.write(path.join(outDir, "meta.json"), JSON.stringify(meta, null, 2) + "\n");
 	await writeMeta();
 
 	// Update homepage manifest (public/maps/index.json)
@@ -807,7 +807,7 @@ export async function executeLootAtlasPipeline(
 	let index: { games: any[] } = { games: [] };
 	if (await exists(indexPath)) {
 		try {
-			index = JSON.parse(await readFile(indexPath, "utf8"));
+			index = await Bun.file(indexPath).json();
 		} catch {}
 	}
 	const prevIndex = index.games.find((g) => g.slug === slug) || {};
@@ -833,7 +833,7 @@ export async function executeLootAtlasPipeline(
 	const at = index.games.findIndex((g) => g.slug === slug);
 	if (at >= 0) index.games[at] = manifestEntry;
 	else index.games.push(manifestEntry);
-	await writeFile(indexPath, JSON.stringify(index, null, "\t") + "\n");
+	await Bun.write(indexPath, JSON.stringify(index, null, "\t") + "\n");
 	log(`Wrote ${path.join(outDir, "meta.json")} and updated ${indexPath}`);
 
 	// Tile download

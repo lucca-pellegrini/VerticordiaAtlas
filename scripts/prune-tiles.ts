@@ -16,7 +16,7 @@
 //      so is every tile of a map whose highest zoom is missing.
 // --no-prune skips step 3; --dry-run only reports what would be done.
 
-import { readdir, readFile, rmdir, stat, unlink, writeFile } from "node:fs/promises";
+import { readdir, rmdir, stat, unlink } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
@@ -120,7 +120,7 @@ export async function optimizeTileset(o: {
 	await pool(tiles, conc, async (t) => {
 		let key: string | null = null;
 		if (o.dryRun) {
-			if (t.size <= 8192) key = solidKey(await decodeTile(await readFile(t.file)));
+			if (t.size <= 8192) key = solidKey(await decodeTile(Buffer.from(await Bun.file(t.file).bytes())));
 			if (key && firstOfColour.has(key)) r.solidFreed += t.size;
 			else if (key) firstOfColour.add(key);
 		} else {
@@ -158,7 +158,11 @@ export async function optimizeTileset(o: {
 			const raw = await deriveRaw(minZ, x, y, {
 				maxZoom: deepest,
 				background: bg,
-				read: (z, tx, ty) => readFile(path.join(dir, tilePath(tail, z, tx, ty))).catch(() => null),
+				read: (z, tx, ty) =>
+					Bun.file(path.join(dir, tilePath(tail, z, tx, ty)))
+						.bytes()
+						.then((b) => Buffer.from(b))
+						.catch(() => null),
 			});
 			if (!raw) return;
 			r.overview++;
@@ -221,7 +225,7 @@ async function main() {
 	for (const game of games) {
 		const metaFile = path.join(root, game, "meta.json");
 		try {
-			const meta: GameMeta = JSON.parse(await readFile(metaFile, "utf8"));
+			const meta: GameMeta = await Bun.file(metaFile).json();
 			for (const map of meta.maps || []) {
 				for (const ts of map.tilesets || []) {
 					const split = splitTemplate(ts.template);
@@ -263,7 +267,7 @@ async function main() {
 	}
 
 	for (const [file, meta] of changedMetaFiles.entries()) {
-		await writeFile(file, JSON.stringify(meta, null, 2) + "\n");
+		await Bun.write(file, JSON.stringify(meta, null, 2) + "\n");
 	}
 
 	await dashboard.finish();

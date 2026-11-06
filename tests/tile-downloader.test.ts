@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { describe, expect, test } from "bun:test";
-import { mkdir, rm, writeFile } from "node:fs/promises";
+import { mkdir, rm } from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
 import path from "node:path";
@@ -17,9 +17,9 @@ describe("tile downloader helper functions", () => {
 			const existingTs = path.join(tmp, "pywel", "tiles", "default-v3", "17");
 			await mkdir(path.join(existingTs, "500"), { recursive: true });
 			await mkdir(path.join(existingTs, "501"), { recursive: true });
-			await writeFile(path.join(existingTs, "500", "600.jpg"), "tile1");
-			await writeFile(path.join(existingTs, "500", "601.jpg"), "tile2");
-			await writeFile(path.join(existingTs, "501", "700.jpg"), "tile3");
+			await Bun.write(path.join(existingTs, "500", "600.jpg"), "tile1");
+			await Bun.write(path.join(existingTs, "500", "601.jpg"), "tile2");
+			await Bun.write(path.join(existingTs, "501", "700.jpg"), "tile3");
 
 			const seeds = await findSiblingTiles(tmp, "pywel/tiles/faction-v3/{z}/{x}/{y}.jpg", 17);
 			expect(seeds.length).toBe(3);

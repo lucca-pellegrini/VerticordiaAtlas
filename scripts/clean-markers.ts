@@ -11,7 +11,7 @@
 // "#loc=<id>". Links that point to another map are left as full URLs so the viewer can tell a cross-map link from a
 // local one and let the user know that switching maps on link follow is planned.
 
-import { readdir, readFile, writeFile } from "node:fs/promises";
+import { readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
@@ -151,7 +151,7 @@ export async function cleanGameOnDisk(
 	const metaFile = path.join(gameDir, "meta.json");
 	let meta: GameMeta;
 	try {
-		meta = JSON.parse(await readFile(metaFile, "utf8"));
+		meta = await Bun.file(metaFile).json();
 	} catch {
 		return null;
 	}
@@ -159,7 +159,7 @@ export async function cleanGameOnDisk(
 	for (const m of meta.maps || []) {
 		const file = path.join(gameDir, m.data || `${m.slug}/data.json`);
 		try {
-			loaded.push({ slug: m.slug, file, data: JSON.parse(await readFile(file, "utf8")) });
+			loaded.push({ slug: m.slug, file, data: await Bun.file(file).json() });
 		} catch {
 			/* missing data.json */
 		}
@@ -167,7 +167,7 @@ export async function cleanGameOnDisk(
 	if (!loaded.length) return null;
 	const stats = cleanGameMarkers(loaded.map((l, i) => ({ slug: l.slug, isDefault: i === 0, data: l.data })));
 	if ((stats.linksCleaned > 0 || stats.geometriesCleaned > 0) && !opts.dryRun) {
-		for (const l of loaded) await writeFile(l.file, JSON.stringify(l.data));
+		for (const l of loaded) await Bun.write(l.file, JSON.stringify(l.data));
 	}
 	return stats;
 }

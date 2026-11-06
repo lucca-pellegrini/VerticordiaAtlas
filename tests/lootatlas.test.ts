@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { describe, expect, test } from "bun:test";
-import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { mkdtemp, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
@@ -101,8 +101,8 @@ describe("scripts/lootatlas helpers", () => {
 			expect(sprite.json2x).toBe("markers@2x.json");
 			expect(sprite.png2x).toBe("markers@2x.png");
 
-			const defs1x = JSON.parse(await readFile(path.join(tmpDir, "markers.json"), "utf8"));
-			const defs2x = JSON.parse(await readFile(path.join(tmpDir, "markers@2x.json"), "utf8"));
+			const defs1x = await Bun.file(path.join(tmpDir, "markers.json")).json();
+			const defs2x = await Bun.file(path.join(tmpDir, "markers@2x.json")).json();
 
 			expect(defs1x["campfire"]).toBeDefined();
 			expect(defs1x["campfire"].width).toBe(33);
