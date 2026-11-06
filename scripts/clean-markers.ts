@@ -16,6 +16,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 
+import { sanitizeMapData } from "../src/shared/geometry.ts";
 import type { GameMeta } from "../src/shared/types.ts";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -91,9 +92,10 @@ export interface CleanGameStats {
 	maps: number;
 	locationsChanged: number;
 	linksCleaned: number;
+	geometriesCleaned: number;
 }
 
-// Clean all maps of a game in memory (mutating location.description in place) and return summary counts.
+// Clean all maps of a game in memory (mutating location.description and unclosed geometries in place) and return summary counts.
 export function cleanGameMarkers(maps: CleanMapInput[]): CleanGameStats {
 	const idsByMap = new Map<string, Set<number>>();
 	const allSlugs = new Set<string>();
@@ -108,8 +110,12 @@ export function cleanGameMarkers(maps: CleanMapInput[]): CleanGameStats {
 	}
 
 	let locationsChanged = 0,
-		linksCleaned = 0;
+		linksCleaned = 0,
+		geometriesCleaned = 0;
 	maps.forEach((m, idx) => {
+		if (sanitizeMapData(m.data)) {
+			geometriesCleaned++;
+		}
 		const sameMapIds = idsByMap.get(m.slug) ?? new Set<number>();
 		const otherMapIds = new Set<number>();
 		const otherMapSlugs = new Set<string>();
@@ -135,7 +141,7 @@ export function cleanGameMarkers(maps: CleanMapInput[]): CleanGameStats {
 			}
 		}
 	});
-	return { maps: maps.length, locationsChanged, linksCleaned };
+	return { maps: maps.length, locationsChanged, linksCleaned, geometriesCleaned };
 }
 
 export async function cleanGameOnDisk(
@@ -160,7 +166,7 @@ export async function cleanGameOnDisk(
 	}
 	if (!loaded.length) return null;
 	const stats = cleanGameMarkers(loaded.map((l, i) => ({ slug: l.slug, isDefault: i === 0, data: l.data })));
-	if (stats.linksCleaned > 0 && !opts.dryRun) {
+	if ((stats.linksCleaned > 0 || stats.geometriesCleaned > 0) && !opts.dryRun) {
 		for (const l of loaded) await writeFile(l.file, JSON.stringify(l.data));
 	}
 	return stats;
@@ -180,20 +186,23 @@ async function main() {
 		: (await readdir(root, { withFileTypes: true })).filter((d) => d.isDirectory()).map((d) => d.name);
 
 	let totalLocations = 0,
-		totalLinks = 0;
+		totalLinks = 0,
+		totalGeometries = 0;
 	for (const game of games) {
 		const r = await cleanGameOnDisk(path.join(root, game), { dryRun: v["dry-run"] });
 		if (!r) continue;
-		if (r.linksCleaned > 0) {
-			console.log(
-				`${game}: ${r.linksCleaned} link(s) across ${r.locationsChanged} marker(s) ${v["dry-run"] ? "would be " : ""}cleaned`,
-			);
+		const parts: string[] = [];
+		if (r.linksCleaned > 0) parts.push(`${r.linksCleaned} link(s) across ${r.locationsChanged} marker(s)`);
+		if (r.geometriesCleaned > 0) parts.push(`${r.geometriesCleaned} map geometry set(s)`);
+		if (parts.length > 0) {
+			console.log(`${game}: ${parts.join(", ")} ${v["dry-run"] ? "would be " : ""}cleaned`);
 		}
 		totalLocations += r.locationsChanged;
 		totalLinks += r.linksCleaned;
+		totalGeometries += r.geometriesCleaned;
 	}
 	console.log(
-		`\n${v["dry-run"] ? "Would clean" : "Cleaned"} ${totalLinks} same-map link(s) across ${totalLocations} marker(s).`,
+		`\n${v["dry-run"] ? "Would clean" : "Cleaned"} ${totalLinks} same-map link(s) across ${totalLocations} marker(s) and ${totalGeometries} map geometry set(s).`,
 	);
 }
 

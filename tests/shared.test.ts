@@ -4,6 +4,7 @@
 import { describe, expect, test } from "bun:test";
 
 import { esc, fmt, fmtEn } from "../src/shared/escape.ts";
+import { closeRing, sanitizeGeometry, sanitizeMapData } from "../src/shared/geometry.ts";
 import { flat, fuzzyScore, levenshtein, norm, words } from "../src/shared/search.ts";
 import {
 	B32,
@@ -251,5 +252,162 @@ describe("shared/secret-key", () => {
 		expect(validateSecretKey("V348-Q6DX-VWMR-EQ6W-3BPM-PC1S-P4C8-VK").valid).toBe(true);
 		expect(validateSecretKey("V348-Q6DX-VWMR-EQ67-3BPM-PC1S-P4C8-VK").valid).toBe(false);
 		expect(validateSecretKey("D6NQ-62B7-R7T2-1HXJ-8WT0-RHHD-FQ3M-67").valid).toBe(true);
+	});
+});
+
+describe("shared/geometry", () => {
+	test("closeRing closes open rings and deduplicates consecutive identical points", () => {
+		expect(closeRing([])).toEqual([]);
+		expect(closeRing([[0, 0]])).toEqual([[0, 0]]);
+		expect(
+			closeRing([
+				[0, 0],
+				[10, 0],
+				[10, 10],
+				[0, 10],
+			]),
+		).toEqual([
+			[0, 0],
+			[10, 0],
+			[10, 10],
+			[0, 10],
+			[0, 0],
+		]);
+		// Consecutive duplicates are removed before closing
+		expect(
+			closeRing([
+				[0, 0],
+				[0, 0],
+				[10, 0],
+				[10, 10],
+				[10, 10],
+				[0, 10],
+				[0, 0],
+				[0, 0],
+			]),
+		).toEqual([
+			[0, 0],
+			[10, 0],
+			[10, 10],
+			[0, 10],
+			[0, 0],
+		]);
+		// Already closed ring is preserved
+		expect(
+			closeRing([
+				[1, 1],
+				[2, 1],
+				[2, 2],
+				[1, 1],
+			]),
+		).toEqual([
+			[1, 1],
+			[2, 1],
+			[2, 2],
+			[1, 1],
+		]);
+	});
+
+	test("sanitizeGeometry normalizes Polygon, MultiPolygon, and LineStrings", () => {
+		const unclosedPoly = {
+			type: "Polygon",
+			coordinates: [
+				[
+					[0, 0],
+					[5, 0],
+					[5, 5],
+					[0, 5],
+				],
+			],
+		};
+		const cleanedPoly = sanitizeGeometry(unclosedPoly);
+		expect(cleanedPoly.coordinates[0]).toHaveLength(5);
+		expect(cleanedPoly.coordinates[0][4]).toEqual([0, 0]);
+
+		const unclosedMulti = {
+			type: "MultiPolygon",
+			coordinates: [
+				[
+					[
+						[0, 0],
+						[1, 0],
+						[1, 1],
+						[0, 1],
+					],
+				],
+			],
+		};
+		const cleanedMulti = sanitizeGeometry(unclosedMulti);
+		expect(cleanedMulti.coordinates[0][0]).toHaveLength(5);
+		expect(cleanedMulti.coordinates[0][0][4]).toEqual([0, 0]);
+
+		const dupLine = {
+			type: "LineString",
+			coordinates: [
+				[0, 0],
+				[0, 0],
+				[1, 1],
+				[1, 1],
+				[2, 2],
+			],
+		};
+		expect(sanitizeGeometry(dupLine).coordinates).toEqual([
+			[0, 0],
+			[1, 1],
+			[2, 2],
+		]);
+	});
+
+	test("sanitizeMapData mutates unclosed regions and location features in place", () => {
+		const mapData = {
+			regions: [
+				{
+					id: 1,
+					features: [
+						{
+							geometry: {
+								type: "Polygon",
+								coordinates: [
+									[
+										[0, 0],
+										[10, 0],
+										[10, 10],
+										[0, 10],
+									],
+								],
+							},
+						},
+					],
+				},
+			],
+			locations: [
+				{
+					id: 10,
+					features: [
+						{
+							geometry: {
+								type: "Polygon",
+								coordinates: [
+									[
+										[1, 1],
+										[2, 1],
+										[2, 2],
+										[1, 2],
+									],
+								],
+							},
+						},
+					],
+				},
+			],
+		};
+
+		const changed = sanitizeMapData(mapData);
+		expect(changed).toBe(true);
+		expect(mapData.regions[0].features[0].geometry.coordinates[0]).toHaveLength(5);
+		expect(mapData.locations[0].features[0].geometry.coordinates[0]).toHaveLength(5);
+
+		// Subsequent call is a no-op
+		expect(sanitizeMapData(mapData)).toBe(false);
 	});
 });

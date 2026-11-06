@@ -4,6 +4,7 @@
 /* ---------- game loading, theme application, map switcher, and MapLibre view ---------- */
 
 import { esc } from "../../shared/escape.ts";
+import { sanitizeGeometry } from "../../shared/geometry.ts";
 import { deriveLightTheme } from "../../shared/theme-math.ts";
 import { glyphPinImage, iconsReady } from "../icons-lib.ts";
 import { isLightTheme, recordGameOpen } from "../theme.ts";
@@ -507,7 +508,7 @@ export function buildRegionFeatures(regions: any[], show = true): { borders: any
 			if (f.geometry) {
 				borderFeats.push({
 					type: "Feature",
-					geometry: f.geometry,
+					geometry: sanitizeGeometry(f.geometry),
 					properties: {
 						id: r.id,
 						isRoot: isRoot ? 1 : 0,
@@ -630,11 +631,12 @@ export function buildLocationGeometryFeatures(
 		const lineOpacity = typeof lStyle["line-opacity"] === "number" ? lStyle["line-opacity"] : 0.8;
 
 		for (const feat of l.features) {
-			const geomType = feat.geometry?.type;
+			const cleanGeom = sanitizeGeometry(feat.geometry);
+			const geomType = cleanGeom?.type;
 			if (geomType === "Polygon" || geomType === "MultiPolygon") {
 				fillFeats.push({
 					type: "Feature",
-					geometry: feat.geometry,
+					geometry: cleanGeom,
 					properties: {
 						id: l.id,
 						fillColor,
@@ -643,7 +645,7 @@ export function buildLocationGeometryFeatures(
 				});
 				lineFeats.push({
 					type: "Feature",
-					geometry: feat.geometry,
+					geometry: cleanGeom,
 					properties: {
 						id: l.id,
 						lineColor,
@@ -654,7 +656,7 @@ export function buildLocationGeometryFeatures(
 			} else if (geomType === "LineString" || geomType === "MultiLineString") {
 				lineFeats.push({
 					type: "Feature",
-					geometry: feat.geometry,
+					geometry: cleanGeom,
 					properties: {
 						id: l.id,
 						lineColor,

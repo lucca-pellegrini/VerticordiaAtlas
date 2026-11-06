@@ -1769,6 +1769,9 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 				`markers: cleaned ${cleaned.linksCleaned} same-map link(s) across ${cleaned.locationsChanged} marker(s)`,
 			);
 		}
+		if (cleaned.geometriesCleaned > 0) {
+			console.log(`geometry: normalized unclosed rings across ${cleaned.geometriesCleaned} map(s)`);
+		}
 	}
 	const tilesBases: string[] = [];
 	if (v["tiles-base"]) tilesBases.push(v["tiles-base"].replace(/\/$/, ""));

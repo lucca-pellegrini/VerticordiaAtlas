@@ -477,6 +477,34 @@ describe("modularized map and home helpers", () => {
 		const rfHidden = buildRegionFeatures(testRegions, false);
 		expect(rfHidden.borders.features.length).toBe(0);
 
+		// buildRegionFeatures automatically closes unclosed polygon rings
+		const unclosedRegion = [
+			{
+				id: 200,
+				title: "Fire Temple",
+				parent_region_id: null,
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "Polygon",
+							coordinates: [
+								[
+									[0, 0],
+									[10, 0],
+									[10, 10],
+									[0, 10],
+								],
+							],
+						},
+					},
+				],
+			},
+		];
+		const rfUnclosed = buildRegionFeatures(unclosedRegion, true);
+		expect(rfUnclosed.borders.features[0].geometry.coordinates[0]).toHaveLength(5);
+		expect(rfUnclosed.borders.features[0].geometry.coordinates[0][4]).toEqual([0, 0]);
+
 		// buildLocationGeometryFeatures
 		const testLocsWithGeom = [
 			{
@@ -537,6 +565,35 @@ describe("modularized map and home helpers", () => {
 		expect(geoms.fills.features[0].properties.fillOpacity).toBe(0.5);
 		expect(geoms.lines.features.length).toBe(2); // polygon outline + line string
 		expect(geoms.lines.features.find((f: any) => f.properties.id === 278139)?.properties.lineColor).toBe("#239FBD");
+
+		// buildLocationGeometryFeatures closes unclosed polygon rings
+		const unclosedLocs = [
+			{
+				id: 999,
+				cat: 15306,
+				title: "Unclosed Zone",
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "Polygon",
+							coordinates: [
+								[
+									[0, 0],
+									[1, 0],
+									[1, 1],
+									[0, 1],
+								],
+							],
+						},
+					},
+				],
+			},
+		];
+		const unclosedGeoms = buildLocationGeometryFeatures(unclosedLocs, testStyles, testCats);
+		expect(unclosedGeoms.fills.features[0].geometry.coordinates[0]).toHaveLength(5);
+		expect(unclosedGeoms.lines.features[0].geometry.coordinates[0]).toHaveLength(5);
+		expect(unclosedGeoms.lines.features[0].geometry.coordinates[0][4]).toEqual([0, 0]);
 
 		// parseDemoPresets
 		const demoAllCatIds = [8988, 9049, 8979, 8980, 8981, 9071, 100, 200];

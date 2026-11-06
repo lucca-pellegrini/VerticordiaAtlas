@@ -195,13 +195,48 @@ describe("scripts/add-game pure helpers", () => {
 			},
 		];
 		const stats = cleanGameMarkers(maps);
-		expect(stats).toEqual({ maps: 2, locationsChanged: 2, linksCleaned: 2 });
+		expect(stats).toEqual({ maps: 2, locationsChanged: 2, linksCleaned: 2, geometriesCleaned: 0 });
 		expect(maps[0].data.locations[0].description).toBe(
 			"Go to [Key](#loc=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
 		);
 		expect(maps[1].data.locations[0].description).toBe(
 			"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](#loc=20).",
 		);
+	});
+
+	test("cleanGameMarkers normalizes unclosed polygon rings in regions and location features", () => {
+		const maps = [
+			{
+				slug: "the-continent",
+				data: {
+					locations: [],
+					regions: [
+						{
+							id: 1,
+							features: [
+								{
+									geometry: {
+										type: "Polygon",
+										coordinates: [
+											[
+												[0, 0],
+												[10, 0],
+												[10, 10],
+												[0, 10],
+											],
+										],
+									},
+								},
+							],
+						},
+					],
+				},
+			},
+		];
+		const stats = cleanGameMarkers(maps);
+		expect(stats.geometriesCleaned).toBe(1);
+		expect(maps[0].data.regions[0].features[0].geometry.coordinates[0]).toHaveLength(5);
+		expect(maps[0].data.regions[0].features[0].geometry.coordinates[0][4]).toEqual([0, 0]);
 	});
 });
 
