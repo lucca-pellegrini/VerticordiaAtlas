@@ -421,10 +421,14 @@ describe("TUI ecosystem components & helpers", () => {
 
 	test("server-dashboard multi-tab interactive UI boots, renders tabs, and navigates", async () => {
 		const testEnv = await createTestRenderer({ width: 120, height: 35 });
+		let exitTriggered = false;
 		const dashboard = await createServerDashboard({
 			host: "127.0.0.1",
 			port: 8080,
 			renderer: testEnv.renderer,
+			onExit: () => {
+				exitTriggered = true;
+			},
 		});
 
 		dashboard.onRequest({ method: "GET", path: "/maps/requiem", status: 200, durationMs: 4.5 });
@@ -439,6 +443,31 @@ describe("TUI ecosystem components & helpers", () => {
 			meta: false,
 			shift: false,
 		} as any);
+
+		// Open search modal via "/" in Catalog view
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "/",
+			ctrl: false,
+			alt: false,
+			meta: false,
+			shift: false,
+		} as any);
+		await testEnv.renderOnce();
+		const searchFrame = testEnv.captureCharFrame();
+		expect(searchFrame).toContain("SEARCH / FILTER CATALOG");
+		// Ensure "/" character was NOT inserted into the search query
+		expect(searchFrame).not.toContain("Filter games by title or slug:\n/");
+
+		// Press escape to close search modal
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "escape",
+			ctrl: false,
+			alt: false,
+			meta: false,
+			shift: false,
+		} as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).not.toContain("SEARCH / FILTER CATALOG");
 
 		// Open new Add Game tab via Ctrl+n
 		testEnv.renderer.keyInput.emit("keypress", {
@@ -466,7 +495,22 @@ describe("TUI ecosystem components & helpers", () => {
 			ctrl: true,
 		} as any);
 
-		dashboard.destroy();
+		// Press Ctrl+C and verify onExit hook is triggered without throwing
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "c",
+			ctrl: true,
+		} as any);
+		expect(exitTriggered).toBe(true);
+
+		await dashboard.destroy();
+
+		// Calling dashboard methods post-destruction must not throw Native scene is destroyed
+		expect(() => {
+			dashboard.onRequest({ method: "GET", path: "/late", status: 200, durationMs: 1.0 });
+			dashboard.onTile({ action: "stored", path: "/late/tile.jpg" });
+			dashboard.setWsCount(0);
+		}).not.toThrow();
+
 		testEnv.dispose();
 	});
 
@@ -672,6 +716,40 @@ describe("TUI ecosystem components & helpers", () => {
 		expect(catalog.handleKey({ name: "down" } as any)).toBe(true);
 		expect(catalog.handleKey({ name: "up" } as any)).toBe(true);
 		expect(catalog.handleKey({ name: "left" } as any)).toBe(true);
+
+		// Open search modal via "/" and verify preventDefault/stopPropagation
+		let keySlashPrevented = false;
+		let keySlashStopped = false;
+		const keySlash = {
+			name: "/",
+			preventDefault: () => {
+				keySlashPrevented = true;
+			},
+			stopPropagation: () => {
+				keySlashStopped = true;
+			},
+		} as any;
+		expect(catalog.handleKey(keySlash)).toBe(true);
+		expect(keySlashPrevented).toBe(true);
+		expect(keySlashStopped).toBe(true);
+		expect(catalog.isModalOpen()).toBe(true);
+
+		// Press escape to close search modal and verify preventDefault/stopPropagation
+		let keyEscPrevented = false;
+		let keyEscStopped = false;
+		const keyEsc = {
+			name: "escape",
+			preventDefault: () => {
+				keyEscPrevented = true;
+			},
+			stopPropagation: () => {
+				keyEscStopped = true;
+			},
+		} as any;
+		expect(catalog.handleKey(keyEsc)).toBe(true);
+		expect(keyEscPrevented).toBe(true);
+		expect(keyEscStopped).toBe(true);
+		expect(catalog.isModalOpen()).toBe(false);
 
 		// Reorder: swap game-a with game-b using "]"
 		expect(catalog.handleKey({ name: "]" } as any)).toBe(true);

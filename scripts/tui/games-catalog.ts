@@ -445,16 +445,20 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		tagLabelInput.value = game.tagLabel || "";
 		defaultTagInput.value = game.defaultTag || "";
 
+		if (!modalOverlay.parent) rootBox.add(modalOverlay);
 		editFocusIdx = 0;
 		updateEditFocus();
-		if (!modalOverlay.parent) rootBox.add(modalOverlay);
 		renderer.requestRender();
 	}
 
 	function updateEditFocus() {
 		for (let i = 0; i < editInputs.length; i++) {
-			if (i === editFocusIdx) editInputs[i].focus();
-			else editInputs[i].blur();
+			if (i === editFocusIdx) {
+				editInputs[i].cursorOffset = editInputs[i].value.length;
+				editInputs[i].focus();
+			} else {
+				editInputs[i].blur();
+			}
 		}
 		renderer.requestRender();
 	}
@@ -558,11 +562,11 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		deleteMsg.visible = false;
 		searchBox.visible = true;
 		modalTitle.content = "SEARCH / FILTER CATALOG";
+		if (!modalOverlay.parent) rootBox.add(modalOverlay);
 		searchInput.value = searchQuery;
+		searchInput.cursorOffset = searchInput.value.length;
 		searchInput.focus();
 		modalHint.content = "[Type to filter]   [Enter] Done   [Esc] Clear & Exit";
-
-		if (!modalOverlay.parent) rootBox.add(modalOverlay);
 		renderer.requestRender();
 	}
 
@@ -653,20 +657,25 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			// Handle modal keys if modal is open
 			if (modalState === "edit") {
 				if (key.name === "escape") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					closeModal();
 					return true;
 				}
 				if (key.name === "tab") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					if (key.shift) {
 						editFocusIdx = (editFocusIdx - 1 + editInputs.length) % editInputs.length;
 					} else {
 						editFocusIdx = (editFocusIdx + 1) % editInputs.length;
 					}
 					updateEditFocus();
-					key.preventDefault();
 					return true;
 				}
 				if (key.name === "return") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					saveEditModal();
 					return true;
 				}
@@ -675,10 +684,14 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 
 			if (modalState === "delete") {
 				if (key.name === "y" || key.name === "Y") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					confirmDelete();
 					return true;
 				}
 				if (key.name === "n" || key.name === "N" || key.name === "escape") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					closeModal();
 					return true;
 				}
@@ -687,10 +700,14 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 
 			if (modalState === "update") {
 				if (key.name === "escape") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					closeModal();
 					return true;
 				}
 				if (key.name === "space") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					updateOverwriteTiles = !updateOverwriteTiles;
 					const game = displayedGames[selectedIdx];
 					if (game) renderUpdateModalText(game);
@@ -698,6 +715,8 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 					return true;
 				}
 				if (key.name === "return") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					const game = displayedGames[selectedIdx];
 					closeModal();
 					if (game && opts.onUpdate) {
@@ -710,12 +729,16 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 
 			if (modalState === "search") {
 				if (key.name === "escape") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					searchQuery = "";
 					applySearchFilter();
 					closeModal();
 					return true;
 				}
 				if (key.name === "return") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
 					closeModal();
 					return true;
 				}
@@ -724,6 +747,8 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 
 			// Catalog Grid Navigation
 			if (key.name === "left" || key.name === "h") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				if (selectedIdx > 0) {
 					selectedIdx--;
 					renderGrid();
@@ -731,6 +756,8 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 				return true;
 			}
 			if (key.name === "right" || key.name === "l") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				if (selectedIdx < displayedGames.length - 1) {
 					selectedIdx++;
 					renderGrid();
@@ -738,6 +765,8 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 				return true;
 			}
 			if (key.name === "up" || key.name === "k") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				if (selectedIdx >= 4) {
 					selectedIdx -= 4;
 					renderGrid();
@@ -745,6 +774,8 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 				return true;
 			}
 			if (key.name === "down" || key.name === "j") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				if (selectedIdx + 4 < displayedGames.length) {
 					selectedIdx += 4;
 					renderGrid();
@@ -755,21 +786,29 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 				return true;
 			}
 			if (key.name === "home") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				selectedIdx = 0;
 				renderGrid();
 				return true;
 			}
 			if (key.name === "end") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				selectedIdx = Math.max(0, displayedGames.length - 1);
 				renderGrid();
 				return true;
 			}
 			if (key.name === "pageup") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				selectedIdx = Math.max(0, selectedIdx - 16);
 				renderGrid();
 				return true;
 			}
 			if (key.name === "pagedown") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				selectedIdx = Math.min(Math.max(0, displayedGames.length - 1), selectedIdx + 16);
 				renderGrid();
 				return true;
@@ -777,42 +816,60 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 
 			// CRUD Operations
 			if (key.name === "e" || key.name === "return") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				openEditModal();
 				return true;
 			}
 			if (key.name === "d" || key.name === "delete") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				openDeleteModal();
 				return true;
 			}
 			if (key.name === "[") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				moveGame(-1);
 				return true;
 			}
 			if (key.name === "]") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				moveGame(1);
 				return true;
 			}
 			if (key.name === "/") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				openSearchModal();
 				return true;
 			}
 
 			// Actions
 			if (key.name === "u" || key.name === "U") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				openUpdateModal();
 				return true;
 			}
 			if (key.name === "p" || key.name === "P") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				const g = displayedGames[selectedIdx];
 				if (g && opts.onPrune) opts.onPrune(g);
 				return true;
 			}
 			if (key.name === "c" || key.name === "C") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				const g = displayedGames[selectedIdx];
 				if (g && opts.onCards) opts.onCards(g);
 				return true;
 			}
 			if (key.name === "n" || key.name === "N") {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				if (opts.onNewScrape) opts.onNewScrape();
 				return true;
 			}

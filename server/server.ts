@@ -634,10 +634,13 @@ if (import.meta.main) {
 	const isHttpsSite = Boolean(publicSiteUrl?.startsWith("https://"));
 	const DEBUG = args.includes("--debug");
 
+	let shutdown = async () => {};
+
 	const dashboard = await createServerDashboard({
 		host: HOST,
 		port: PORT,
 		noTui: Boolean(args.includes("--no-tui")),
+		onExit: () => void shutdown(),
 	});
 
 	api = createApi({
@@ -930,17 +933,17 @@ if (import.meta.main) {
 	});
 
 	let shuttingDown = false;
-	const shutdown = async () => {
+	shutdown = async () => {
 		if (shuttingDown) return;
 		shuttingDown = true;
+		try {
+			await dashboard.destroy();
+		} catch {}
 		try {
 			await server.stop();
 		} catch {}
 		try {
 			api.close();
-		} catch {}
-		try {
-			dashboard.destroy();
 		} catch {}
 		process.exit(0);
 	};

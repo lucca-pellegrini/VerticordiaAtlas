@@ -29,6 +29,7 @@ export interface ServerDashboardOptions {
 	port: number;
 	noTui?: boolean;
 	renderer?: any;
+	onExit?: () => void;
 }
 
 export interface HttpRequestEvent {
@@ -58,7 +59,7 @@ export interface ServerDashboard {
 	onSync(action: string, detail: string): void;
 	onApi(action: string, detail: string): void;
 	setWsCount(count: number): void;
-	destroy(): void;
+	destroy(): void | Promise<void>;
 }
 
 interface TabItem {
@@ -126,11 +127,22 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		};
 	}
 
+	let isDestroyed = false;
+	let ticker: any = null;
+	let throbber: any = null;
+
 	const renderer =
 		opts.renderer ||
 		(await createCliRenderer({
-			exitOnCtrlC: true,
+			exitOnCtrlC: false,
+			exitSignals: [],
 		}));
+
+	renderer.on?.("destroy", () => {
+		isDestroyed = true;
+		if (ticker) clearInterval(ticker);
+		throbber?.stop();
+	});
 
 	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 250, 120);
 
@@ -794,10 +806,9 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	}
 
 	let lastRender = 0;
-	let isDestroyed = false;
 
 	function renderUi(force = false) {
-		if (isDestroyed) return;
+		if (isDestroyed || (renderer as any).isDestroyed) return;
 		const now = Date.now();
 		if (!force && now - lastRender < 100) return;
 		lastRender = now;
@@ -969,6 +980,19 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	renderer.keyInput.on("keypress", (key: KeyEvent) => {
 		if (isDestroyed) return;
 
+		// Ctrl-C gracefully shuts down the server
+		const isCtrlC = (key.ctrl && (key.name === "c" || key.name === "C")) || key.raw === "\x03";
+		if (isCtrlC) {
+			key.preventDefault?.();
+			key.stopPropagation?.();
+			if (opts.onExit) {
+				opts.onExit();
+			} else {
+				process.kill(process.pid, "SIGINT");
+			}
+			return;
+		}
+
 		// Ctrl-L clears entire terminal screen and redraws all components
 		if (isCtrlL(key)) {
 			clearAndRedrawTerminal(renderer);
@@ -1007,7 +1031,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		// C-1..C-0, Alt+1..Alt+0, or Meta+1..Meta+0 to switch directly to tabs 1 through 10
 		const isCtrlOrAltOrMeta = Boolean(
-			key.ctrl || key.option || key.meta || (key.raw && /^\x1b[0-9]$/.test(key.raw)),
+			key.ctrl || key.option || key.meta || (key as any).alt || (key.raw && /^\x1b[0-9]$/.test(key.raw)),
 		);
 		if (isCtrlOrAltOrMeta) {
 			let digit = key.name;
@@ -1039,7 +1063,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		// Alt-k, Alt-Up for previous tab
 		const isPrevTab =
-			((key.option || key.meta) && (key.name === "k" || key.name === "K" || key.name === "up")) ||
+			((key.option || key.meta || (key as any).alt) &&
+				(key.name === "k" || key.name === "K" || key.name === "up")) ||
 			key.raw === "\x1bk";
 		if (isPrevTab) {
 			key.preventDefault?.();
@@ -1049,7 +1074,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		// Alt-j, Alt-Down for next tab
 		const isNextTab =
-			((key.option || key.meta) && (key.name === "j" || key.name === "J" || key.name === "down")) ||
+			((key.option || key.meta || (key as any).alt) &&
+				(key.name === "j" || key.name === "J" || key.name === "down")) ||
 			key.raw === "\x1bj";
 		if (isNextTab) {
 			key.preventDefault?.();
@@ -1062,6 +1088,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		if (curTab?.view?.handleKey) {
 			const handled = curTab.view.handleKey(key);
 			if (handled) {
+				key.preventDefault?.();
+				key.stopPropagation?.();
 				renderUi(true);
 				return;
 			}
@@ -1074,11 +1102,11 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	switchTab(0);
 
 	// Auto-render ticker every 1s for uptime & memory
-	const ticker = setInterval(() => {
+	ticker = setInterval(() => {
 		renderUi(true);
 	}, 1000);
 
-	const throbber = startThrobber((frame) => {
+	throbber = startThrobber((frame) => {
 		if (isDestroyed) return;
 		activeThrobberFrame = frame;
 		if (runningJobTabs().length === 0) return;
@@ -1120,28 +1148,31 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			wsCount = count;
 			renderUi(false);
 		},
-		destroy() {
-			clearInterval(ticker);
-			throbber.stop();
+		async destroy() {
+			if (ticker) clearInterval(ticker);
+			throbber?.stop();
 			console.log = origLog;
 			console.info = origInfo;
 			console.warn = origWarn;
 			console.error = origError;
 			if (!isDestroyed) {
 				isDestroyed = true;
-				renderer.off("resize", handleResize);
-				process.stdout.off("resize", onStdoutResize);
+				renderer.off?.("resize", handleResize);
+				process.stdout.off?.("resize", onStdoutResize);
 				for (const tab of tabs) {
 					if (tab.view) tab.view.destroy();
 				}
 				if (!opts.renderer) {
 					try {
 						renderer.destroy();
+						await renderer.closed;
 					} catch {}
 				} else {
 					try {
 						renderer.root.remove(rootBox);
-						renderer.requestRender();
+						if (!(renderer as any).isDestroyed) {
+							renderer.requestRender();
+						}
 					} catch {}
 				}
 			}
