@@ -263,16 +263,22 @@ describe("End-to-end authentication, verification, reset, and account credential
 
 	test("rolls back registration if SES email delivery fails so user is never stuck unverified", async () => {
 		failEmailSend = true;
-		const res = await fetch(`${baseUrl}/api/auth/register`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({
-				username: "Melina",
-				email: "melina@landsbetween.org",
-				password: "correct-horse-battery",
-			}),
-		});
-		expect(res.status).toBe(503);
+		const origError = console.error;
+		console.error = () => {};
+		try {
+			const res = await fetch(`${baseUrl}/api/auth/register`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					username: "Melina",
+					email: "melina@landsbetween.org",
+					password: "correct-horse-battery",
+				}),
+			});
+			expect(res.status).toBe(503);
+		} finally {
+			console.error = origError;
+		}
 
 		// Subsequent attempt when SES recovers succeeds with the same username
 		failEmailSend = false;
