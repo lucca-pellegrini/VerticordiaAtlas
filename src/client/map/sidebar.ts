@@ -22,6 +22,7 @@ import { renderPresets } from "./presets.ts";
 import { HEX, saveProfileNow, scheduleSave, scheduleViewSave } from "./profiles.ts";
 import { runSearch } from "./search.ts";
 import { $, askDialog, fmt, state, toast, UNTAGGED } from "./state.ts";
+import { openStats } from "./stats.ts";
 import { TEMP_CAT } from "./usermarkers.ts";
 
 // checks whether a location matches the active region filter (including subregions if a parent region is selected)
@@ -643,6 +644,10 @@ export function setupTitleRow(): void {
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>` +
 		`<span>Keep map offline</span>` +
 		`</button>` +
+		`<button id="side-stats-btn" class="side-menu-link side-stats-btn" type="button">` +
+		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg>` +
+		`<span>Progress &amp; stats</span>` +
+		`</button>` +
 		`<button id="side-regions-btn" class="side-menu-link side-regions-btn" type="button" aria-pressed="true" hidden>` +
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>` +
 		`<span>Region borders</span>` +
@@ -681,6 +686,12 @@ export function setupTitleRow(): void {
 	};
 	closeBtn.onclick = () => document.body.classList.remove("side-open");
 	offlineBtn.onclick = () => toggleCurrentMapOffline();
+	tools.querySelector<HTMLButtonElement>("#side-stats-btn")!.onclick = () => {
+		moreMenu.hidden = true;
+		moreBtn.setAttribute("aria-expanded", "false");
+		moreBtn.focus(); // the dialog returns focus here when it closes
+		openStats();
+	};
 
 	const regionsBtn = tools.querySelector<HTMLButtonElement>("#side-regions-btn");
 	if (regionsBtn) {

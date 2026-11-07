@@ -1718,6 +1718,190 @@ dialog input[type="text"] {
 	font-weight: 600;
 }
 
+/* progress & stats dialog (stats.ts) */
+dialog.stats-dlg {
+	width: min(560px, calc(100% - 32px));
+	max-height: calc(100vh - 48px);
+	overflow-y: auto;
+}
+.sd-scope,
+.sd-status {
+	font-size: 13px;
+}
+.sd-head {
+	display: grid;
+	gap: 8px;
+	margin-bottom: 18px;
+}
+.sd-big {
+	font: 400 44px/1 var(--serif);
+}
+.sd-line {
+	color: var(--ink-dim);
+}
+.sd-bar {
+	display: block;
+	height: 8px;
+	border-radius: 999px;
+	background: var(--panel-2);
+	overflow: hidden;
+}
+.sd-fill {
+	display: block;
+	height: 100%;
+	background: var(--accent);
+}
+.sd-chips {
+	display: flex;
+	gap: 6px;
+}
+.sd-chip {
+	padding: 2px 10px;
+	border-radius: 999px;
+	border: 1px solid var(--line-2);
+	color: var(--ink-dim);
+	font-size: 12px;
+}
+.sd-chip.on {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+.sd-maps-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+}
+.sd-label {
+	font-weight: 600;
+}
+.sd-load {
+	padding: 6px 14px;
+	border-radius: 999px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+}
+.sd-rows {
+	list-style: none;
+	margin: 8px 0 0;
+	padding: 0;
+	display: grid;
+	gap: 6px;
+	max-height: 40vh;
+	overflow-y: auto;
+}
+.sd-row {
+	display: grid;
+	gap: 4px;
+	width: 100%;
+	text-align: left;
+	padding: 8px 10px;
+	border-radius: 12px;
+	border: 1px solid var(--line-2);
+	background: transparent;
+	color: inherit;
+}
+.sd-row:hover,
+.sd-row:focus-visible {
+	background: var(--panel-2);
+}
+.sd-row[aria-current="true"] {
+	border-color: var(--accent);
+}
+.sd-row-top {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+}
+.sd-row-count {
+	color: var(--ink-dim);
+	font-variant-numeric: tabular-nums;
+}
+.sd-sub-h {
+	font: 600 14px/1.2 var(--sans, inherit);
+	margin: 18px 0 8px;
+}
+.sd-callouts {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 12px;
+}
+.sd-callouts .sd-rows {
+	max-height: none;
+}
+.sd-sub {
+	padding-left: 18px;
+}
+.sd-note {
+	color: var(--ink-dim);
+	font-size: 13px;
+	padding: 4px 10px;
+}
+.sd-group {
+	margin-top: 8px;
+}
+.sd-group > summary {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 600;
+	padding: 6px 0;
+}
+.sd-group .sd-bar {
+	margin: 4px 0 8px;
+}
+.sd-group .sd-load {
+	margin-bottom: 8px;
+}
+.sd-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--c);
+	flex: none;
+}
+.sd-row .i {
+	width: 16px;
+	height: 16px;
+	vertical-align: -3px;
+	margin-right: 6px;
+}
+.sd-stale {
+	margin-top: 14px;
+	padding: 10px 12px;
+	border: 1px solid var(--danger);
+	border-radius: 12px;
+}
+.sd-stale p {
+	margin: 0 0 8px;
+	font-size: 13px;
+}
+.sd-stale .danger {
+	padding: 7px 16px;
+	border-radius: 999px;
+	border: 1px solid var(--danger);
+	background: color-mix(in srgb, var(--danger) 16%, transparent);
+	color: var(--danger);
+	font-weight: 600;
+}
+.sd-add {
+	margin-top: 14px;
+	font-size: 13px;
+}
+.sd-actions {
+	flex-wrap: wrap;
+}
+.sd-actions button[disabled] {
+	opacity: 0.5;
+	cursor: default;
+}
+@media (max-width: 560px) {
+	.sd-callouts {
+		grid-template-columns: 1fr;
+	}
+}
+
 #toast {
 	position: fixed;
 	left: 50%;

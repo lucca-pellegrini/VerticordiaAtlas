@@ -57,6 +57,17 @@ import {
 } from "../src/client/map/sidebar.ts";
 import { iconScale, state, vivid } from "../src/client/map/state.ts";
 import {
+	aggregate,
+	breakdown,
+	callouts,
+	csvCell,
+	csvRows,
+	percent,
+	staleIds,
+	summaryText,
+	toCsv,
+} from "../src/client/map/stats.ts";
+import {
 	createOfflineManager,
 	fnvBytes,
 	offlineKey,
@@ -1119,5 +1130,132 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 
 		// Cleanup
 		_setActiveDownloadForTest(null);
+	});
+});
+describe("progress stats", () => {
+	test("aggregate counts located markers and the found ones", () => {
+		const data = {
+			locations: [
+				{ id: 1, latitude: "1.5", longitude: "2" },
+				{ id: 2, latitude: "3", longitude: "4" },
+				{ id: 3, latitude: null, longitude: "4" },
+			],
+		};
+		expect(aggregate(data, new Set([2, 3, 99]))).toEqual({ total: 2, found: 1 });
+		expect(aggregate({ locations: [] }, new Set([1]))).toEqual({ total: 0, found: 0 });
+		expect(aggregate(undefined, new Set())).toEqual({ total: 0, found: 0 });
+	});
+
+	test("percent rounds and clamps stale totals to 100", () => {
+		expect(percent(1, 3)).toBe(33);
+		expect(percent(5, 0)).toBe(0);
+		expect(percent(120, 100)).toBe(100);
+	});
+});
+describe("progress breakdown", () => {
+	const data = {
+		categories: {
+			1: { id: 1, title: "Chests", group_id: 10, order: 1 },
+			2: { id: 2, title: "Shrines", group_id: 10, order: 2 },
+		},
+		groups: [{ id: 10, title: "Loot", color: "#ff0000", order: 1 }],
+		regions: [
+			{ id: 100, title: "North", parent_region_id: null },
+			{ id: 101, title: "Frost", parent_region_id: 100 },
+		],
+		tags: [
+			{ id: 5, title: "Boss" },
+			{ id: 6, title: "Cave" },
+		],
+		locations: [
+			{ id: 1, category_id: 1, region_id: 100, title: "A", tags: [5, 6], latitude: "1", longitude: "1" },
+			{ id: 2, category_id: 1, region_id: 101, title: "B", tags: [], latitude: "1", longitude: "1" },
+			{ id: 3, category_id: 2, region_id: 999, title: "C", tags: [5], latitude: "1", longitude: "1" },
+			{ id: 4, category_id: 2, region_id: null, title: "D", tags: [], latitude: null, longitude: "1" },
+		],
+	};
+
+	test("groups, sub-region roll-up, unassigned and overlapping tags", () => {
+		const b = breakdown(data, new Set([1, 3]));
+		expect(b.groups).toEqual([
+			{
+				id: 10,
+				title: "Loot",
+				color: "#ff0000",
+				total: 3,
+				found: 2,
+				cats: [
+					{ id: 1, title: "Chests", total: 2, found: 1 },
+					{ id: 2, title: "Shrines", total: 1, found: 1 },
+				],
+			},
+		]);
+		expect(b.regions).toEqual([
+			{ id: 100, title: "North", total: 2, found: 1, subs: [{ id: 101, title: "Frost", total: 1, found: 0 }] },
+		]);
+		expect(b.unassigned).toEqual({ total: 1, found: 1 });
+		expect(b.tags.map((t) => [t.title, t.total, t.found])).toEqual([
+			["Boss", 2, 2],
+			["Cave", 1, 1],
+		]);
+		expect(b.untagged).toEqual({ total: 1, found: 0 });
+	});
+
+	test("callouts pick the closest started categories and the biggest gaps", () => {
+		const cats = [
+			{ id: 1, title: "a", total: 4, found: 3 },
+			{ id: 2, title: "b", total: 10, found: 1 },
+			{ id: 3, title: "c", total: 2, found: 0 },
+			{ id: 4, title: "d", total: 2, found: 2 },
+		];
+		const c = callouts(cats);
+		expect(c.closest.map((x) => x.id)).toEqual([1, 2]);
+		expect(c.gaps.map((x) => x.id)).toEqual([2, 3, 1]);
+	});
+
+	test("stale ids are the found ones no marker has", () => {
+		expect(staleIds([1, 2, 3], new Set([2]))).toEqual([1, 3]);
+	});
+});
+
+describe("progress exports", () => {
+	test("CSV cells quote commas, quotes and newlines, and defuse formulas", () => {
+		expect(csvCell('say "hi", now\nthere')).toBe('"say ""hi"", now\nthere"');
+		expect(csvCell("=SUM(A1)")).toBe("'=SUM(A1)");
+		expect(csvCell(42)).toBe("42");
+	});
+
+	test("CSV output starts with a UTF-8 BOM and uses CRLF rows", () => {
+		expect(
+			toCsv([
+				["a", "b"],
+				["c,d", 1],
+			]),
+		).toBe('\ufeffa,b\r\n"c,d",1\r\n');
+	});
+
+	test("CSV rows resolve group, category, region and tag names", () => {
+		const data = {
+			categories: { 1: { id: 1, title: "Chests", group_id: 10, order: 1 } },
+			groups: [{ id: 10, title: "Loot", order: 1 }],
+			regions: [],
+			tags: [{ id: 5, title: "Boss" }],
+			locations: [
+				{ id: 7, category_id: 1, region_id: null, title: 'x "y"', tags: [5], latitude: "1", longitude: "2" },
+			],
+		};
+		expect(csvRows(data, new Set([7]), "Map A")).toEqual([
+			["Map A", "Loot", "Chests", "", 'x "y"', "yes", "Boss", 7],
+		]);
+	});
+
+	test("summary text lists the game and each map's state", () => {
+		expect(
+			summaryText("Game", 10, 4, [
+				{ title: "One", tally: { total: 6, found: 3 } },
+				{ title: "Two", tally: null },
+				{ title: "Three" },
+			]),
+		).toBe("Game: 4 of 10 markers found (40%)\nOne: 3 of 6 (50%)\nTwo: not available offline\nThree: not loaded");
 	});
 });
