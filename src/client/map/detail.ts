@@ -472,14 +472,14 @@ function markerAt(pt: { x: number; y: number }): any {
 	const k = iconScale(state.map.getZoom());
 	let best: any = null,
 		bestD = Infinity;
-	for (const f of state.map.queryRenderedFeatures(pt, { layers: ["locs", "locs-circles"] })) {
+	for (const f of state.map.queryRenderedFeatures(pt, { layers: ["locs", "locs-circles", "locs-text"] })) {
 		const l = state.byId.get(Number(f.properties.id));
 		if (!l) continue;
 		const p = state.map.project([l.lng, l.lat]);
-		// Circle markers sit centered at their point; pin icons sit above their point (22px is about half)
-		const isCircle = f.layer?.id === "locs-circles";
-		const d = isCircle ? Math.hypot(pt.x - p.x, pt.y - p.y) : Math.hypot(pt.x - p.x, pt.y - (p.y - 22 * k));
-		const hitRadius = isCircle ? 14 : 26 * k;
+		// Circle markers and text sit centered at their point; pin icons sit above their point (22px is about half)
+		const isCircleOrText = f.layer?.id === "locs-circles" || f.layer?.id === "locs-text";
+		const d = isCircleOrText ? Math.hypot(pt.x - p.x, pt.y - p.y) : Math.hypot(pt.x - p.x, pt.y - (p.y - 22 * k));
+		const hitRadius = isCircleOrText ? 18 : 26 * k;
 		if (d <= hitRadius && d < bestD) {
 			best = l;
 			bestD = d;

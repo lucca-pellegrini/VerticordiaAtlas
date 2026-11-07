@@ -33,9 +33,11 @@ import {
 	buildRegionFeatures,
 	circleStyleOf,
 	mapLimits,
+	normalizeTextSizeExpression,
 	resolveTilesets,
 	sameCamera,
 	startOf,
+	textStyleOf,
 	themeVar,
 } from "../src/client/map/map-view.ts";
 import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
@@ -610,6 +612,50 @@ describe("modularized map and home helpers", () => {
 		expect(demoRes[0].name).toBe("Fast Travel");
 		expect(demoRes[0].id).toBe("demo-169706");
 		expect(demoRes[0].hidden.sort()).toEqual([100, 200]);
+
+		// normalizeTextSizeExpression
+		const interpolated = ["interpolate", ["linear"], ["zoom"], 8, 8, 12, 24];
+		expect(normalizeTextSizeExpression(interpolated)).toBe(interpolated);
+		const numericScaled = normalizeTextSizeExpression(12, 16, 12, 8);
+		expect(numericScaled).toEqual(["interpolate", ["linear"], ["zoom"], 8, 5, 12, 12]);
+		expect(normalizeTextSizeExpression(0)).toBe(0);
+
+		// textStyleOf for text, text|marker, and features|text categories
+		const totkStyles = {
+			mapStyle: {
+				locationTitlesLayout: { "text-anchor": "top", "text-max-width": 500 },
+				locationTitlesPaint: { "text-color": "#A3954F", "text-halo-color": "#42371F", "text-halo-width": 0.5 },
+			},
+			textStyles: {
+				"8988": {
+					"text-size-10": 0,
+					"text-size-11": 0,
+					"text-size-16": 26,
+					"text-halo-width": 0.5,
+					"text-letter-spacing": 0.05,
+				},
+			},
+		};
+		const areaCat = { id: 8988, title: "Area", display_type: "text" };
+		const areaLoc = { id: 101, title: "Hyrule Field", cat: 8988 };
+		const tsArea = textStyleOf(areaCat, areaLoc, totkStyles);
+		expect(tsArea.isText).toBe(true);
+		expect(tsArea.alsoMarker).toBe(false);
+		expect(tsArea.textColor).toBe("#A3954F");
+		expect(tsArea.haloColor).toBe("#42371F");
+		expect(tsArea.size16).toBe(26);
+		expect(tsArea.letterSpacing).toBe(0.05);
+
+		const landmarkCat = { id: 8977, title: "Landmark", display_type: "text|marker" };
+		const landmarkLoc = { id: 102, title: "Temple of Time", cat: 8977 };
+		const tsLandmark = textStyleOf(landmarkCat, landmarkLoc, totkStyles);
+		expect(tsLandmark.isText).toBe(true);
+		expect(tsLandmark.alsoMarker).toBe(true);
+
+		const regularCat = { id: 9999, title: "Chest", display_type: "marker" };
+		const tsMarker = textStyleOf(regularCat, { id: 103, title: "Chest" }, totkStyles);
+		expect(tsMarker.isText).toBe(false);
+		expect(tsMarker.alsoMarker).toBe(true);
 	});
 });
 

@@ -83,11 +83,6 @@ export function applyTheme(theme: Record<string, string> = {}): void {
 		}
 		if (map.getLayer("links")) map.setPaintProperty("links", "line-color", themeVar("accent-soft"));
 		if (map.getLayer("backlinks")) map.setPaintProperty("backlinks", "line-color", themeVar("backlink"));
-		if (map.getLayer("region-borders")) map.setPaintProperty("region-borders", "line-color", themeVar("ink"));
-		if (map.getLayer("region-labels")) {
-			map.setPaintProperty("region-labels", "text-color", themeVar("ink"));
-			map.setPaintProperty("region-labels", "text-halo-color", themeVar("night"));
-		}
 		const updateArrow = (name: string, fill: string) => {
 			if (!map.hasImage(name)) return;
 			const ac = document.createElement("canvas");
@@ -493,16 +488,57 @@ export function mapLimits(info: any, data: any, tilesetIndexOrName?: number | st
 	return { ts, box, minZoom: ts.minzoom ?? 0, maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18, maxBounds };
 }
 
+function sanitizeColor(c: unknown): string | null {
+	if (typeof c !== "string") return null;
+	const trimmed = c.trim();
+	if (!trimmed || trimmed === "#") return null;
+	return trimmed;
+}
+
+// Ensures constant numeric text-size values shrink smoothly below thresholdZoom while keeping
+// MapGenie's zoom-interpolated text-size expressions untouched.
+export function normalizeTextSizeExpression(rawSize: any, fallbackSize = 16, thresholdZoom = 12, minZoom = 8): any {
+	if (Array.isArray(rawSize)) return rawSize;
+	if (typeof rawSize === "number") {
+		if (rawSize <= 0) return 0;
+		return [
+			"interpolate",
+			["linear"],
+			["zoom"],
+			minZoom,
+			Math.max(0, Math.round(rawSize * 0.45)),
+			thresholdZoom,
+			rawSize,
+		];
+	}
+	return [
+		"interpolate",
+		["linear"],
+		["zoom"],
+		minZoom,
+		Math.max(0, Math.round(fallbackSize * 0.45)),
+		thresholdZoom,
+		fallbackSize,
+	];
+}
+
 // region geometry and label features builder
-export function buildRegionFeatures(regions: any[], show = true): { borders: any; labels: any } {
+export function buildRegionFeatures(regions: any[], show = true, styles?: any): { borders: any; labels: any } {
 	if (!show || !regions || !regions.length) {
 		return { borders: emptyFC, labels: emptyFC };
 	}
 	const borderFeats: any[] = [];
 	const labelFeats: any[] = [];
+	const regionStyles = styles?.regionStyles || {};
 
 	for (const r of regions) {
 		const isRoot = !r.parent_region_id;
+		const rStyle = regionStyles[String(r.id)] || {};
+		const textColor = sanitizeColor(rStyle["text-color"]) || "#FFFFFF";
+		const haloColor = sanitizeColor(rStyle["text-halo-color"]) || "#000000";
+		const lineColor = sanitizeColor(rStyle["line-color"]) || "#FFFFFF";
+		const lineWidth = typeof rStyle["line-width"] === "number" ? rStyle["line-width"] : isRoot ? 1.5 : 1;
+
 		// Borders
 		for (const f of r.features || []) {
 			if (f.geometry) {
@@ -512,6 +548,8 @@ export function buildRegionFeatures(regions: any[], show = true): { borders: any
 					properties: {
 						id: r.id,
 						isRoot: isRoot ? 1 : 0,
+						"line-color": lineColor,
+						"line-width": lineWidth,
 					},
 				});
 			}
@@ -524,8 +562,10 @@ export function buildRegionFeatures(regions: any[], show = true): { borders: any
 			(cx == null || cy == null || !Number.isFinite(cx) || !Number.isFinite(cy)) &&
 			r.features?.[0]?.geometry?.coordinates
 		) {
-			const coords = r.features[0].geometry.coordinates;
-			const ring = Array.isArray(coords[0][0]) ? coords[0] : coords;
+			const geom = r.features[0].geometry;
+			const coords = geom.coordinates;
+			const ring =
+				geom.type === "MultiPolygon" ? coords[0]?.[0] : Array.isArray(coords[0]?.[0]) ? coords[0] : coords;
 			if (ring && ring.length) {
 				const xs = ring.map((p: any) => p[0]).filter(Number.isFinite);
 				const ys = ring.map((p: any) => p[1]).filter(Number.isFinite);
@@ -543,7 +583,10 @@ export function buildRegionFeatures(regions: any[], show = true): { borders: any
 				properties: {
 					id: r.id,
 					title: r.title || "",
+					subtitle: r.subtitle || "",
 					isRoot: isRoot ? 1 : 0,
+					"text-color": textColor,
+					"text-halo-color": haloColor,
 				},
 			});
 		}
@@ -555,9 +598,89 @@ export function buildRegionFeatures(regions: any[], show = true): { borders: any
 	};
 }
 
+export function applyRegionAndTextStyles(map: any, styles: any = state.data?.styles): void {
+	if (!map) return;
+	const mapStyle = styles?.mapStyle || {};
+	const subregionsEnabled = Boolean(mapStyle.subregionsEnabled);
+	const showRootRegions = !subregionsEnabled || mapStyle.showRegionTitles !== false;
+
+	if (map.getLayer("region-borders")) {
+		const bPaint = mapStyle.regionBorderPaint || {};
+		map.setPaintProperty("region-borders", "line-color", bPaint["line-color"] || "#FFFFFF");
+		map.setPaintProperty(
+			"region-borders",
+			"line-width",
+			bPaint["line-width"] ?? ["case", ["==", ["get", "isRoot"], 1], 1.5, 1],
+		);
+		map.setPaintProperty(
+			"region-borders",
+			"line-opacity",
+			bPaint["line-opacity"] ?? ["case", ["==", ["get", "isRoot"], 1], 0.35, 0.25],
+		);
+		map.setFilter("region-borders", !showRootRegions ? ["==", ["get", "isRoot"], 0] : null);
+	}
+
+	if (map.getLayer("region-labels")) {
+		const rLayout = mapStyle.regionTitlesLayout || {};
+		const rPaint = mapStyle.regionTitlesPaint || {};
+		map.setLayoutProperty("region-labels", "visibility", showRootRegions ? "visible" : "none");
+		map.setLayoutProperty("region-labels", "text-field", rLayout["text-field"] || ["get", "title"]);
+		map.setLayoutProperty(
+			"region-labels",
+			"text-size",
+			normalizeTextSizeExpression(rLayout["text-size"], 24, 12, 8),
+		);
+		map.setLayoutProperty("region-labels", "text-max-width", rLayout["text-max-width"] ?? 10);
+		map.setLayoutProperty("region-labels", "text-letter-spacing", rLayout["text-letter-spacing"] ?? 0);
+		map.setLayoutProperty("region-labels", "text-transform", rLayout["text-transform"] || "none");
+		map.setPaintProperty("region-labels", "text-color", rPaint["text-color"] ?? "#FFFFFF");
+		map.setPaintProperty("region-labels", "text-halo-color", rPaint["text-halo-color"] ?? "#000000");
+		map.setPaintProperty("region-labels", "text-halo-width", rPaint["text-halo-width"] ?? 1);
+		map.setPaintProperty("region-labels", "text-halo-blur", rPaint["text-halo-blur"] ?? 0);
+		map.setPaintProperty("region-labels", "text-opacity", rPaint["text-opacity"] ?? 1);
+		map.setFilter("region-labels", subregionsEnabled ? ["==", ["get", "isRoot"], 1] : null);
+	}
+
+	if (map.getLayer("subregion-labels")) {
+		const sLayout = mapStyle.subregionTitlesLayout || {};
+		const sPaint = mapStyle.subregionTitlesPaint || {};
+		map.setLayoutProperty("subregion-labels", "visibility", subregionsEnabled ? "visible" : "none");
+		map.setLayoutProperty("subregion-labels", "text-field", sLayout["text-field"] || ["get", "title"]);
+		map.setLayoutProperty(
+			"subregion-labels",
+			"text-size",
+			normalizeTextSizeExpression(sLayout["text-size"], 24, 14, 8),
+		);
+		map.setLayoutProperty("subregion-labels", "text-max-width", sLayout["text-max-width"] ?? 250);
+		map.setLayoutProperty("subregion-labels", "text-letter-spacing", sLayout["text-letter-spacing"] ?? 0.1);
+		map.setLayoutProperty("subregion-labels", "text-transform", sLayout["text-transform"] || "none");
+		map.setPaintProperty("subregion-labels", "text-color", sPaint["text-color"] ?? "#FFFFFF");
+		map.setPaintProperty("subregion-labels", "text-halo-color", sPaint["text-halo-color"] ?? "#000000");
+		map.setPaintProperty("subregion-labels", "text-halo-width", sPaint["text-halo-width"] ?? 1);
+		map.setPaintProperty("subregion-labels", "text-halo-blur", sPaint["text-halo-blur"] ?? 0);
+		map.setPaintProperty("subregion-labels", "text-opacity", sPaint["text-opacity"] ?? 1);
+		map.setFilter("subregion-labels", ["==", ["get", "isRoot"], 0]);
+	}
+
+	if (map.getLayer("locs-text")) {
+		const lLayout = mapStyle.locationTitlesLayout || {};
+		const lPaint = mapStyle.locationTitlesPaint || {};
+		map.setLayoutProperty("locs-text", "text-size", normalizeTextSizeExpression(lLayout["text-size"], 14, 11.5, 8));
+		map.setLayoutProperty("locs-text", "text-anchor", lLayout["text-anchor"] || "center");
+		map.setLayoutProperty("locs-text", "text-max-width", lLayout["text-max-width"] ?? 500);
+		map.setLayoutProperty("locs-text", "text-transform", lLayout["text-transform"] || "none");
+		map.setPaintProperty(
+			"locs-text",
+			"text-opacity",
+			lPaint["text-opacity"] ?? ["case", ["==", ["get", "f"], 1], 0.4, 1],
+		);
+	}
+}
+
 // region layers setup
 export function initRegionLayers(map: any): void {
 	if (map.getSource("region-borders")) return;
+	const beforeLayer = map.getLayer("locs-circles") ? "locs-circles" : undefined;
 	map.addSource("region-borders", { type: "geojson", data: emptyFC });
 	map.addLayer(
 		{
@@ -565,13 +688,13 @@ export function initRegionLayers(map: any): void {
 			type: "line",
 			source: "region-borders",
 			paint: {
-				"line-color": themeVar("ink"),
+				"line-color": "#FFFFFF",
 				"line-width": ["case", ["==", ["get", "isRoot"], 1], 1.5, 1],
-				"line-opacity": ["case", ["==", ["get", "isRoot"], 1], 0.35, 0.22],
+				"line-opacity": ["case", ["==", ["get", "isRoot"], 1], 0.35, 0.25],
 				"line-dasharray": [3, 2],
 			},
 		},
-		map.getLayer("locs-circles") ? "locs-circles" : undefined,
+		beforeLayer,
 	);
 
 	map.addSource("region-labels", { type: "geojson", data: emptyFC });
@@ -582,25 +705,56 @@ export function initRegionLayers(map: any): void {
 			source: "region-labels",
 			layout: {
 				"text-field": ["get", "title"],
-				"text-size": ["interpolate", ["linear"], ["zoom"], 8, 11, 12, 16, 15, 20],
-				"text-letter-spacing": 0.08,
-				"text-max-width": 12,
-				"text-allow-overlap": false,
+				"text-size": ["interpolate", ["linear"], ["zoom"], 8, 8, 12, 24],
+				"text-letter-spacing": 0,
+				"text-max-width": 10,
+				"text-allow-overlap": true,
+				"text-ignore-placement": true,
 			},
 			paint: {
-				"text-color": themeVar("ink"),
-				"text-opacity": ["case", ["==", ["get", "isRoot"], 1], 0.65, 0.45],
-				"text-halo-color": themeVar("night"),
-				"text-halo-width": 1.5,
+				"text-color": "#FFFFFF",
+				"text-opacity": 1,
+				"text-halo-color": "#000000",
+				"text-halo-width": 1,
+				"text-halo-blur": 0,
 			},
 		},
-		map.getLayer("locs-circles") ? "locs-circles" : undefined,
+		beforeLayer,
 	);
+
+	map.addLayer(
+		{
+			id: "subregion-labels",
+			type: "symbol",
+			source: "region-labels",
+			filter: ["==", ["get", "isRoot"], 0],
+			layout: {
+				visibility: "none",
+				"text-field": ["get", "title"],
+				"text-size": ["interpolate", ["linear"], ["zoom"], 8.9, 0, 9, 8, 15, 28],
+				"text-letter-spacing": 0.1,
+				"text-max-width": 250,
+				"text-allow-overlap": true,
+				"text-ignore-placement": true,
+			},
+			paint: {
+				"text-color": "#FFFFFF",
+				"text-opacity": 1,
+				"text-halo-color": "#000000",
+				"text-halo-width": 1,
+				"text-halo-blur": 0,
+			},
+		},
+		beforeLayer,
+	);
+
+	applyRegionAndTextStyles(map, state.data?.styles);
 }
 
 export function refreshRegions(): void {
 	if (!state.mapReady || !state.map) return;
-	const { borders, labels } = buildRegionFeatures(state.regions, state.showRegions);
+	applyRegionAndTextStyles(state.map, state.data?.styles);
+	const { borders, labels } = buildRegionFeatures(state.regions, state.showRegions, state.data?.styles);
 	const borderSrc = state.map.getSource("region-borders");
 	if (borderSrc) borderSrc.setData(borders);
 	const labelSrc = state.map.getSource("region-labels");
@@ -693,6 +847,117 @@ export function circleStyleOf(cat: any, mapStyle?: any): CircleStyle {
 	const radius = typeof cat.circle_radius === "number" ? cat.circle_radius : (paint["circle-radius"] ?? 5);
 	const opacity = typeof cat.circle_opacity === "number" ? cat.circle_opacity : 1;
 	return { isCircle: true, color, strokeColor, radius, opacity };
+}
+
+export interface TextStyle {
+	isText: boolean;
+	alsoMarker: boolean;
+	title: string;
+	textColor: string;
+	haloColor: string;
+	haloWidth: number;
+	haloBlur: number;
+	letterSpacing: number;
+	size10: number;
+	size11: number;
+	size16: number;
+}
+
+export function textStyleOf(cat: any, loc?: any, styles?: any): TextStyle {
+	const dt = cat?.display_type || "marker";
+	const isText = dt === "text" || dt === "text|marker" || dt === "features|text";
+	if (!isText) {
+		const isPureFeature = dt === "features" && Array.isArray(loc?.features) && loc.features.length > 0;
+		return {
+			isText: false,
+			alsoMarker: dt !== "circle" && !isPureFeature,
+			title: "",
+			textColor: "#FFFFFF",
+			haloColor: "#000000",
+			haloWidth: 1,
+			haloBlur: 0,
+			letterSpacing: 0,
+			size10: 12,
+			size11: 14,
+			size16: 18,
+		};
+	}
+
+	const mapStyle = styles?.mapStyle || {};
+	const paint = mapStyle.locationTitlesPaint || {};
+	const layout = mapStyle.locationTitlesLayout || {};
+	const ts = styles?.textStyles?.[String(cat.id)] || {};
+	let title = String(loc?.title || "").replace(/\\n/g, "\n");
+
+	if (!Object.keys(ts).length && (cat.id === 954 || cat.id === 4744)) {
+		let k = title.toUpperCase();
+		let textColor = "#62CEFE";
+		if (cat.id === 4744) {
+			textColor = "#FEF467";
+		} else if (k.includes("[PMC]")) {
+			k = k.replace("[PMC]", "").trim();
+			textColor = "#00E99B";
+		} else if (k.includes("[SCAV]")) {
+			k = k.replace("[SCAV]", "").trim();
+			textColor = "#FFAA00";
+		} else if (k.includes("[CO-OP]")) {
+			k = k.replace("[CO-OP]", "").trim();
+			textColor = "#62CEFE";
+		} else {
+			k = k.replace("[ALL]", "").trim();
+		}
+		return {
+			isText: true,
+			alsoMarker: dt === "text|marker",
+			title: k,
+			textColor,
+			haloColor: sanitizeColor(paint["text-halo-color"]) || "#000000",
+			haloWidth: 1.5,
+			haloBlur: 1,
+			letterSpacing: 0,
+			size10: 16,
+			size11: 18,
+			size16: 24,
+		};
+	}
+
+	const textColor = sanitizeColor(ts["text-color"]) || sanitizeColor(paint["text-color"]) || "#FFFFFF";
+	const haloColor = sanitizeColor(ts["text-halo-color"]) || sanitizeColor(paint["text-halo-color"]) || "#000000";
+	const haloWidth =
+		typeof ts["text-halo-width"] === "number"
+			? ts["text-halo-width"]
+			: typeof paint["text-halo-width"] === "number"
+				? paint["text-halo-width"]
+				: 1;
+	const haloBlur =
+		typeof ts["text-halo-blur"] === "number"
+			? ts["text-halo-blur"]
+			: typeof paint["text-halo-blur"] === "number"
+				? paint["text-halo-blur"]
+				: 0;
+	const letterSpacing =
+		typeof ts["text-letter-spacing"] === "number"
+			? ts["text-letter-spacing"]
+			: typeof layout["text-letter-spacing"] === "number"
+				? layout["text-letter-spacing"]
+				: 0;
+	const size10 = typeof ts["text-size-10"] === "number" ? ts["text-size-10"] : 12;
+	const size11 = typeof ts["text-size-11"] === "number" ? ts["text-size-11"] : 14;
+	const size16 = typeof ts["text-size-16"] === "number" ? ts["text-size-16"] : 18;
+
+	return {
+		isText: true,
+		alsoMarker: dt === "text|marker",
+		title,
+		textColor,
+		haloColor,
+		haloWidth,
+		haloBlur,
+		letterSpacing,
+		size10,
+		size11,
+		size16,
+	};
 }
 
 // where a map opens: the saved camera for it, else the game's start position
@@ -929,7 +1194,9 @@ export async function switchMap(slug: string, { remember = true } = {}): Promise
 	state.map.jumpTo(startOf(info, state.data, state.profile?.cameras?.[slug]));
 	revealWhenSettled(state.map);
 	if (remember) rememberCamera(true);
+	applyRegionAndTextStyles(state.map, state.data?.styles);
 	refreshAll();
+	refreshRegions();
 	endMorph({ later: true }); // the tween runs its full length from the numbers this refresh set
 	renderMapSwitch();
 	updateSidebar();
@@ -1194,6 +1461,39 @@ export function createMap(): void {
 			}, // the veil animates it per frame
 		});
 
+		map.addSource("locs-text", { type: "geojson", data: emptyFC });
+		map.addLayer({
+			id: "locs-text",
+			type: "symbol",
+			source: "locs-text",
+			layout: {
+				"text-field": ["get", "title"],
+				"text-size": [
+					"interpolate",
+					["linear"],
+					["zoom"],
+					10,
+					["get", "text-size-10"],
+					11,
+					["get", "text-size-11"],
+					16,
+					["get", "text-size-16"],
+				],
+				"text-letter-spacing": ["get", "text-letter-spacing"],
+				"text-anchor": "center",
+				"text-max-width": 500,
+				"text-allow-overlap": true,
+				"text-ignore-placement": true,
+			},
+			paint: {
+				"text-color": ["get", "text-color"],
+				"text-halo-color": ["get", "text-halo-color"],
+				"text-halo-width": ["get", "text-halo-width"],
+				"text-halo-blur": ["get", "text-halo-blur"],
+				"text-opacity": ["case", ["==", ["get", "f"], 1], 0.4, 1],
+			},
+		});
+
 		// a user marker under the pointer is drawn again here, a little larger, above the rest (see setHover)
 		map.addSource("hover-loc", { type: "geojson", data: emptyFC });
 		map.addLayer({
@@ -1326,6 +1626,25 @@ export function createMap(): void {
 		tip.remove();
 		setHover(null);
 	});
+
+	map.on("mousemove", "locs-text", (ev: any) => {
+		const f = ev.features && ev.features[0];
+		const l = f && state.byId.get(Number(f.properties.id));
+		setHover(l || null);
+		if (state.tool !== "pan") return;
+		if (!f) return;
+		if (!l) return;
+		map.getCanvas().style.cursor = "pointer";
+		tip.setLngLat([l.lng, l.lat])
+			.setOffset([0, -10])
+			.setText(l.title + (state.found.has(l.id) ? " (found)" : ""))
+			.addTo(map);
+	});
+	map.on("mouseleave", "locs-text", () => {
+		map.getCanvas().style.cursor = "";
+		tip.remove();
+		setHover(null);
+	});
 	map.on("move", updateLinkHeads);
 	map.on("movestart", closeCtx);
 	map.on("contextmenu", (ev: any) => {
@@ -1367,7 +1686,7 @@ export function createMap(): void {
 	map.on("click", (ev: any) => {
 		if (state.tool !== "pan") return; // markers cannot be clicked while selecting or drawing
 		document.body.classList.remove("side-open");
-		const hits = map.queryRenderedFeatures(ev.point, { layers: ["locs", "locs-circles"] });
+		const hits = map.queryRenderedFeatures(ev.point, { layers: ["locs", "locs-circles", "locs-text"] });
 		if (hits.length) select(Number(hits[0].properties.id), { fly: false });
 		else closeDetail();
 	});
@@ -1413,6 +1732,7 @@ export function refreshMap(): void {
 		rel = sel != null ? relatedOf(sel) : new Set<number>();
 	const symbolFeats: any[] = [];
 	const circleFeats: any[] = [];
+	const textFeats: any[] = [];
 	const mapStyle = state.data?.styles?.mapStyle;
 
 	for (const l of state.locs) {
@@ -1425,7 +1745,28 @@ export function refreshMap(): void {
 		}
 		const cat = state.cats?.get(l.cat);
 		const cStyle = circleStyleOf(cat, mapStyle);
+		const tStyle = textStyleOf(cat, l, state.data?.styles);
 		const f = state.found.has(l.id) ? 1 : 0;
+
+		if (tStyle.isText) {
+			textFeats.push({
+				type: "Feature",
+				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
+				properties: {
+					id: l.id,
+					title: tStyle.title || l.title || "",
+					"text-color": tStyle.textColor,
+					"text-halo-color": tStyle.haloColor,
+					"text-halo-width": tStyle.haloWidth,
+					"text-halo-blur": tStyle.haloBlur,
+					"text-letter-spacing": tStyle.letterSpacing,
+					"text-size-10": tStyle.size10,
+					"text-size-11": tStyle.size11,
+					"text-size-16": tStyle.size16,
+					f,
+				},
+			});
+		}
 
 		if (cStyle.isCircle) {
 			circleFeats.push({
@@ -1440,7 +1781,7 @@ export function refreshMap(): void {
 					f,
 				},
 			});
-		} else {
+		} else if (tStyle.alsoMarker) {
 			const icon = mapIcon(l.icon);
 			symbolFeats.push({
 				type: "Feature",
@@ -1452,6 +1793,8 @@ export function refreshMap(): void {
 	state.map.getSource("locs").setData({ type: "FeatureCollection", features: symbolFeats });
 	const circleSrc = state.map.getSource("locs-circles");
 	if (circleSrc) circleSrc.setData({ type: "FeatureCollection", features: circleFeats });
+	const textSrc = state.map.getSource("locs-text");
+	if (textSrc) textSrc.setData({ type: "FeatureCollection", features: textFeats });
 
 	// synchronize location feature polygons & lines
 	const visibleGeomLocs = state.locs.filter((l: any) => {
