@@ -479,10 +479,11 @@ export function mapLimits(info: any, data: any, tilesetIndexOrName?: number | st
 	// MapLibre's maxBounds wraps longitudes modulo 360: whole-world bounds (or [-180, 180] with padding)
 	// collapse the allowed range to 0-11px at the antimeridian, forcing zoom to max and pinning the view at lng 180.
 	const isWholeWorld = e - w >= 359 || (w <= -179 && e >= 179);
+	// shortcut: west edge exactly -180 pins MapLibre's centre (tile x 0 wraps to world width), nudge avoids it, upgrade if MapLibre changes its constrain maths
 	const maxBounds: [[number, number], [number, number]] | null = isWholeWorld
 		? null
 		: [
-				[Math.max(-180, w - pad), Math.max(-85.05, s - pad)],
+				[Math.max(-180 + 1e-10, w - pad), Math.max(-85.05, s - pad)],
 				[Math.min(180, e + pad), Math.min(85.05, n + pad)],
 			];
 	return { ts, box, minZoom: ts.minzoom ?? 0, maxZoom: ts.viewMaxzoom ?? ts.maxzoom ?? 18, maxBounds };

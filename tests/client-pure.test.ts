@@ -356,6 +356,14 @@ describe("modularized map and home helpers", () => {
 		expect(lim.maxZoom).toBe(14);
 		expect(lim.maxBounds).not.toBeNull();
 
+		// A west edge of exactly -180 wraps to +180 in MapLibre's maxBounds maths, pinning the centre
+		// at the west edge and blocking horizontal panning (GTA-5).
+		const gtaInfo = {
+			tilesets: [{ minzoom: 3, maxzoom: 7, bounds: [-180, 40.979898069620134, -45, 85.05112877980659] }],
+		};
+		const gtaLim = mapLimits(gtaInfo, { mapConfig: {} });
+		expect(gtaLim.maxBounds![0][0]).toBeGreaterThan(-180);
+
 		expect(startOf(info, data, null)).toEqual({ center: [0.5, -0.5], zoom: 10 });
 		expect(startOf(info, data, { lng: 0.1, lat: 0.2, zoom: 12 })).toEqual({ center: [0.1, 0.2], zoom: 12 });
 		// Out-of-range zoom falls back to mapConfig
