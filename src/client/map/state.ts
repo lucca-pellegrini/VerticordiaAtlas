@@ -92,6 +92,7 @@ export const state: Record<string, any> = {
 	activeTileset: null as string | null,
 	regions: [] as any[],
 	regionById: new Map<number, any>(),
+	regionFilter: null as number | null,
 	showRegions: true,
 	baseline: null, // baseline: the view before the first preset was picked
 	trail: [],

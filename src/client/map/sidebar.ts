@@ -24,14 +24,23 @@ import { runSearch } from "./search.ts";
 import { $, askDialog, fmt, state, toast, UNTAGGED } from "./state.ts";
 import { TEMP_CAT } from "./usermarkers.ts";
 
+// checks whether a location matches the active region filter (including subregions if a parent region is selected)
+export function inActiveRegion(l: { region?: number | null }, filter: number | null = state.regionFilter): boolean {
+	if (filter == null) return true;
+	if (l.region === filter) return true;
+	const locReg = l.region != null ? state.regionById?.get(l.region) : null;
+	return locReg?.parent_region_id === filter;
+}
+
 // with a tag selected, untagged markers are shown unless "only markers with this tag" is on
-export const applicable = (l: { tags: number[] }): boolean => {
+export const applicable = (l: { tags: number[]; region?: number | null }): boolean => {
+	if (!inActiveRegion(l)) return false;
 	if (state.tag == null) return true;
 	if (state.tag === UNTAGGED) return l.tags.length === 0;
 	return l.tags.includes(state.tag) || (!state.tagStrict && l.tags.length === 0);
 };
 
-export const shownOnMap = (l: { id: number; cat: number; tags: number[] }): boolean =>
+export const shownOnMap = (l: { id: number; cat: number; tags: number[]; region?: number | null }): boolean =>
 	applicable(l) && !state.view.hidden.has(l.cat) && !(state.view.hideFound && state.found.has(l.id));
 
 export function computeStats(): void {
@@ -422,6 +431,7 @@ export function updateSidebar(): void {
 	}
 	showCounts(found, total);
 	renderTilesetMenu();
+	renderRegionNavigator();
 	updateSidebarRegionsBtn();
 	updateTilesetControl();
 	saveSessionSoon();
@@ -598,7 +608,14 @@ export function arrangeSidebar(): void {
 	const scroll = document.createElement("div");
 	scroll.className = "side-scroll";
 	for (const el of [...head.children]) if (!el.matches(".title-row, .progress")) scroll.appendChild(el);
-	for (const sel of [".list-tools", "#results-bar", "#results", "#groups"]) {
+	for (const sel of [
+		".list-tools",
+		"#search-region-filter",
+		"#results-bar",
+		"#results",
+		"#groups-region-filter",
+		"#groups",
+	]) {
 		const el = document.querySelector("#side " + sel);
 		if (el) scroll.appendChild(el);
 	}
@@ -682,6 +699,143 @@ export function setupTitleRow(): void {
 	if (tilesetSection && tilesetSelect) {
 		renderTilesetMenu(tilesetSection, tilesetSelect);
 	}
+}
+
+export function focusRegion(r: any): void {
+	if (!r || !state.map) return;
+	// Pan or fit to region geometry or centroid
+	const map = state.map;
+	if (r.features && r.features.length) {
+		const geom = r.features[0].geometry;
+		const coords = geom.type === "MultiPolygon" ? geom.coordinates.flat(1) : geom.coordinates;
+		const ring = Array.isArray(coords[0]?.[0]) ? coords[0] : coords;
+		if (ring && ring.length) {
+			const xs = ring.map((p: any) => p[0]).filter(Number.isFinite);
+			const ys = ring.map((p: any) => p[1]).filter(Number.isFinite);
+			if (xs.length && ys.length) {
+				const bounds = [
+					[Math.min(...xs), Math.min(...ys)],
+					[Math.max(...xs), Math.max(...ys)],
+				];
+				map.fitBounds(bounds, { padding: 60, maxZoom: 14, speed: 1.4 });
+				return;
+			}
+		}
+	}
+	let cx = typeof r.center_x === "number" ? r.center_x : r.center_x ? parseFloat(r.center_x) : null;
+	let cy = typeof r.center_y === "number" ? r.center_y : r.center_y ? parseFloat(r.center_y) : null;
+	if (cx != null && cy != null && Number.isFinite(cx) && Number.isFinite(cy)) {
+		map.flyTo({ center: [cx, cy], zoom: Math.max(map.getZoom(), 11), speed: 1.4 });
+	}
+}
+
+export function setRegionFilter(id: number | null): void {
+	state.regionFilter = id;
+	renderRegionNavigator();
+	updateSidebar();
+	refreshMap();
+	if (state.search.active) runSearch();
+}
+
+export function syncRegionBanners(): void {
+	if (typeof document === "undefined") return;
+	const groupsBanner = document.getElementById("groups-region-filter");
+	const searchBanner = document.getElementById("search-region-filter");
+	const filterId = state.regionFilter;
+	const activeRegion = filterId != null ? state.regionById?.get(filterId) : null;
+	const bannerText = activeRegion ? `Region filter: ${activeRegion.title}` : "";
+	const isSearching = Boolean(state.search?.active);
+
+	if (groupsBanner) {
+		groupsBanner.hidden = !(activeRegion && !isSearching);
+		const textEl = groupsBanner.querySelector(".region-filter-text");
+		if (textEl) textEl.textContent = bannerText;
+		const clearBtn = groupsBanner.querySelector<HTMLButtonElement>(".region-filter-clear");
+		if (clearBtn) clearBtn.onclick = () => setRegionFilter(null);
+	}
+
+	if (searchBanner) {
+		searchBanner.hidden = !(activeRegion && isSearching);
+		const textEl = searchBanner.querySelector(".region-filter-text");
+		if (textEl) textEl.textContent = bannerText;
+		const clearBtn = searchBanner.querySelector<HTMLButtonElement>(".region-filter-clear");
+		if (clearBtn) clearBtn.onclick = () => setRegionFilter(null);
+	}
+
+	document.body.classList.toggle("has-region-filter", Boolean(activeRegion && !isSearching));
+}
+
+export function renderRegionNavigator(): void {
+	if (typeof document === "undefined") return;
+	syncRegionBanners();
+
+	const nav = document.getElementById("region-nav");
+	const btn = document.getElementById("region-nav-btn") as HTMLButtonElement | null;
+	const panel = document.getElementById("region-nav-panel");
+	const list = document.getElementById("region-nav-list");
+
+	if (!nav || !list || !btn || !panel) return;
+
+	const filterId = state.regionFilter;
+	const regions: any[] = state.regions || [];
+	if (!regions.length) {
+		nav.hidden = true;
+		panel.hidden = true;
+		btn.setAttribute("aria-expanded", "false");
+		return;
+	}
+
+	nav.hidden = false;
+
+	// Toggle expander on click
+	btn.onclick = (e) => {
+		e.stopPropagation();
+		const open = panel.hidden;
+		panel.hidden = !open;
+		btn.setAttribute("aria-expanded", String(open));
+		btn.classList.toggle("expanded", open);
+	};
+
+	// Categorize into roots and subregions
+	const roots = regions.filter((r) => !r.parent_region_id);
+	const hasMultiLevel = roots.length > 0 && regions.some((r) => r.parent_region_id != null);
+
+	let html = "";
+	if (hasMultiLevel) {
+		for (const root of roots) {
+			const isSel = root.id === filterId;
+			html += `<button type="button" class="region-nav-link root-link${isSel ? " selected" : ""}" data-reg-id="${root.id}">${esc(root.title)}</button>`;
+			const subs = regions.filter((r) => r.parent_region_id === root.id);
+			for (const sub of subs) {
+				const isSubSel = sub.id === filterId;
+				html += `<button type="button" class="region-nav-link sub-link${isSubSel ? " selected" : ""}" data-reg-id="${sub.id}">${esc(sub.title)}</button>`;
+			}
+		}
+	} else {
+		for (const r of regions) {
+			const isSel = r.id === filterId;
+			html += `<button type="button" class="region-nav-link${isSel ? " selected" : ""}" data-reg-id="${r.id}">${esc(r.title)}</button>`;
+		}
+	}
+	list.innerHTML = html;
+
+	list.querySelectorAll<HTMLButtonElement>("button[data-reg-id]").forEach((b) => {
+		const regId = Number(b.dataset.regId);
+		const r = state.regionById?.get(regId);
+		b.onclick = (e) => {
+			e.preventDefault();
+			if (r) focusRegion(r);
+		};
+		b.oncontextmenu = (e) => {
+			e.preventDefault();
+			if (state.regionFilter === regId) {
+				setRegionFilter(null);
+			} else {
+				setRegionFilter(regId);
+				if (r) focusRegion(r);
+			}
+		};
+	});
 }
 
 export function updateSidebarRegionsBtn(): void {

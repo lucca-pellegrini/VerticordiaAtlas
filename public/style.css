@@ -678,6 +678,150 @@ input[type="checkbox"]:active {
 	position: relative;
 }
 
+/* Region Navigator */
+.region-nav {
+	display: grid;
+	gap: 6px;
+	position: relative;
+}
+.region-nav-btn {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	padding: 8px 12px;
+	border-radius: 10px;
+	background: var(--panel-2);
+	border: 1px solid var(--line);
+	color: var(--ink);
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	transition:
+		background-color var(--fast),
+		border-color var(--fast);
+}
+.region-nav-btn:hover {
+	background: var(--tint);
+	border-color: var(--line-2);
+}
+.region-nav-caret {
+	width: 16px;
+	height: 16px;
+	transition: transform var(--fast);
+}
+.region-nav-btn.expanded .region-nav-caret {
+	transform: rotate(180deg);
+}
+.region-nav-panel {
+	display: grid;
+	gap: 6px;
+	padding: 8px;
+	background: var(--panel-2);
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	max-height: 280px;
+	overflow-y: auto;
+}
+.region-nav-list {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 4px;
+}
+.region-nav-link {
+	border: 1px solid transparent;
+	border-radius: 6px;
+	background: none;
+	color: var(--ink-dim);
+	font-size: 12px;
+	padding: 5px 6px;
+	text-align: center;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	transition: all var(--fast);
+}
+.region-nav-link:hover {
+	background: var(--tint);
+	color: var(--ink);
+}
+.region-nav-link.root-link {
+	grid-column: 1 / -1;
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 11px;
+	letter-spacing: 0.05em;
+	color: var(--ink);
+	background: color-mix(in srgb, var(--tint) 60%, transparent);
+	margin-top: 4px;
+}
+.region-nav-link.root-link:first-child {
+	margin-top: 0;
+}
+.region-nav-link.sub-link {
+	padding-left: 8px;
+}
+.region-nav-link.selected {
+	border-color: var(--accent);
+	background: color-mix(in srgb, var(--accent) 18%, transparent);
+	color: var(--accent);
+	font-weight: 600;
+}
+.region-nav-tip {
+	font-size: 11px;
+	color: var(--ink-dim);
+	text-align: center;
+	padding-top: 4px;
+	border-top: 1px solid var(--line);
+}
+
+/* Region Filter Notification Banner */
+.region-filter-banner {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
+	margin: 6px 8px;
+	background: color-mix(in srgb, var(--accent) 18%, transparent);
+	border: 1px dashed var(--accent);
+	border-radius: 8px;
+	color: var(--ink);
+	font-size: 12px;
+	font-weight: 500;
+	animation: pop 0.16s var(--ease);
+}
+.region-filter-clear {
+	flex: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	background: none;
+	border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+	border-radius: 4px;
+	color: var(--ink);
+	font-size: 15px;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+	transition:
+		background-color var(--fast),
+		color var(--fast);
+}
+.region-filter-clear:hover {
+	background: var(--accent);
+	color: var(--night);
+}
+.region-filter-text {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
 .search {
 	position: relative;
 }
@@ -3379,7 +3523,7 @@ body.loading-map #map .text-layer {
 .side-scroll {
 	gap: 0;
 }
-.side-scroll > :is(.profile-row, .tag-row, .preset-row, #preset-bar, .search) {
+.side-scroll > :is(.profile-row, .tag-row, .preset-row, #preset-bar, .region-nav, .search) {
 	margin-bottom: 14px;
 }
 
@@ -3415,27 +3559,34 @@ body.loading-map #map .text-layer {
 	height: 42px;
 	box-sizing: border-box;
 	align-items: center;
-	background: color-mix(in srgb, var(--panel) 90%, transparent);
-	backdrop-filter: blur(14px) saturate(1.1);
-	-webkit-backdrop-filter: blur(14px) saturate(1.1);
+	border-bottom: 0;
+	background: var(--panel);
 }
-.side-scroll > .list-tools {
-	background: color-mix(in srgb, var(--panel) 97%, transparent);
+/* sticky region filter banner follows as you scroll */
+.side-scroll > .region-filter-banner {
+	position: sticky;
+	top: 42px;
+	z-index: 3;
+	margin: 0 -16px;
+	padding: 8px 16px;
+	height: 38px;
+	box-sizing: border-box;
+	border-radius: 0;
+	border-left: none;
+	border-right: none;
+	background: color-mix(in srgb, var(--accent) 14%, var(--panel));
+	border-top: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+	border-bottom: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+	box-shadow: 0 1px 0 var(--line);
 }
 /* the group headings stick 1px under the toolbar's top edge: the toolbar (42px, above them) hides that pixel, so no seam shows */
 .side-scroll .group-head {
 	top: 41px;
-}
-.side-scroll > .list-tools {
-	z-index: 1;
-}
-/* no light edge where the heading meets the toolbar, and no ghost of the list behind the toolbar */
-.side-scroll .group-head {
+	z-index: 2;
 	box-shadow: 0 1px 0 #00000066;
 }
-.side-scroll > .list-tools {
-	border-bottom: 0;
-	background: var(--panel);
+body.has-region-filter .side-scroll .group-head {
+	top: 79px;
 }
 
 /* ---------- light mode refinements for map pages ---------- */

@@ -130,6 +130,24 @@
 						<button data-act="revert" class="chip">Revert</button>
 						<button data-act="overwrite" class="chip primary">Overwrite</button>
 					</div>
+					<div id="region-nav" class="region-nav" hidden>
+						<button
+							type="button"
+							id="region-nav-btn"
+							class="region-nav-btn"
+							aria-expanded="false"
+							aria-controls="region-nav-panel"
+						>
+							<span class="region-nav-label">Regions</span>
+							<svg class="region-nav-caret" viewBox="0 0 24 24" aria-hidden="true">
+								<path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</button>
+						<div id="region-nav-panel" class="region-nav-panel" hidden>
+							<div id="region-nav-list" class="region-nav-list"></div>
+							<div class="region-nav-tip">Tip: Right-click a region to filter only its markers</div>
+						</div>
+					</div>
 					<div class="search">
 						<input
 							id="search"
@@ -146,6 +164,10 @@
 					<label class="check"><input type="checkbox" id="hide-found" /><span>Hide found</span></label>
 					<button id="side-close" class="link-btn mobile-only">Close</button>
 				</div>
+				<div id="search-region-filter" class="region-filter-banner" hidden>
+					<button type="button" class="region-filter-clear" aria-label="Clear region filter">&times;</button>
+					<span class="region-filter-text"></span>
+				</div>
 				<div id="results-bar" class="results-bar">
 					<span class="r-count"></span>
 					<div id="scope-switch" class="map-switch scope-switch" role="group" aria-label="Search in">
@@ -155,6 +177,10 @@
 					</div>
 				</div>
 				<ul id="results"></ul>
+				<div id="groups-region-filter" class="region-filter-banner" hidden>
+					<button type="button" class="region-filter-clear" aria-label="Clear region filter">&times;</button>
+					<span class="region-filter-text"></span>
+				</div>
 				<div id="groups" class="groups"></div>
 			</aside>
 

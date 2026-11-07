@@ -14,7 +14,7 @@ import { svgIcon } from "../icons.ts";
 import { select } from "./detail.ts";
 import { mapData, placeThumb, refreshMap, switchMap } from "./map-view.ts";
 import { renderMd } from "./markdown.ts";
-import { applicable, iconHtml } from "./sidebar.ts";
+import { applicable, iconHtml, syncRegionBanners } from "./sidebar.ts";
 import { $, fmt, isMobile, state, vivid } from "./state.ts";
 
 const SEARCH_MIN = 2,
@@ -151,6 +151,7 @@ export async function runSearch(): Promise<void> {
 	s.wild = wild;
 	document.body.classList.add("searching");
 	syncSideClose();
+	syncRegionBanners();
 	const all = !wild && s.scope === "all" && state.meta.maps.length > 1;
 	let entries = localEntries();
 	if (all) {
@@ -203,6 +204,7 @@ export function leaveSearch(): void {
 	s.idx = -1;
 	document.body.classList.remove("searching");
 	syncSideClose();
+	syncRegionBanners();
 	const res = $("#results");
 	if (res) res.innerHTML = "";
 	refreshMap();
