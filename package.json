@@ -2,6 +2,7 @@
 	"scripts": {
 		"start": "bun server/server.ts",
 		"build": "bun scripts/build.ts",
+		"precompress": "bun scripts/precompress.ts",
 		"clean": "bun scripts/clean.ts",
 		"backup": "bun scripts/backup-db.ts",
 		"typecheck": "tsc --noEmit",

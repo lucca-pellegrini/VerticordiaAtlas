@@ -12,6 +12,7 @@ import { backupDatabase } from "../scripts/backup-db.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
 import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
 import { resolveGameSlug } from "../scripts/download-media.ts";
+import { needsSidecar, precompressAll, precompressFile } from "../scripts/precompress.ts";
 import {
 	mimeForMedia,
 	openMediaDb,
@@ -44,6 +45,7 @@ import {
 	collectInlineScriptHashes,
 	gameTilesets,
 	parseUrl,
+	serveStatic,
 	withSecurityHeaders,
 } from "../server/server.ts";
 import { mediaUrls } from "../src/client/map/detail.ts";
@@ -1020,5 +1022,102 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		expect(sets?.[0].template).toBe("world/tiles/default/{z}/{x}/{y}.jpg");
 
 		expect(await gameTilesets("village-truncated", fakePublic)).toBeNull();
+	});
+
+	test("precompress creates .br and .gz sidecars and skips up-to-date sidecars", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "precompress-test-"));
+		try {
+			const filePath = path.join(testDir, "test.json");
+			const largeContent = JSON.stringify({ data: "a".repeat(2000) });
+			await Bun.write(filePath, largeContent);
+
+			const first = precompressFile(filePath);
+			expect(first.br).toBe(true);
+			expect(first.gz).toBe(true);
+			expect(await Bun.file(`${filePath}.br`).exists()).toBe(true);
+			expect(await Bun.file(`${filePath}.gz`).exists()).toBe(true);
+
+			const second = precompressFile(filePath);
+			expect(second.br).toBe(false);
+			expect(second.gz).toBe(false);
+
+			const srcStat = await Bun.file(filePath).stat();
+			expect(needsSidecar(srcStat.mtimeMs, `${filePath}.br`)).toBe(false);
+			expect(needsSidecar(srcStat.mtimeMs, `${filePath}.gz`)).toBe(false);
+
+			// Touching source forces needsSidecar to become true
+			expect(needsSidecar(srcStat.mtimeMs + 5000, `${filePath}.br`)).toBe(true);
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	});
+
+	test("server static sidecar negotiation: br preferred, gz fallback, identity, Vary, and 304 handling", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "sidecar-serve-test-"));
+		try {
+			const publicDir = path.join(testDir, "public");
+			await mkdir(publicDir, { recursive: true });
+
+			const cssContent = "body { background: " + "blue; ".repeat(300) + "}";
+			const cssPath = path.join(publicDir, "style.css");
+			await Bun.write(cssPath, cssContent);
+
+			// Precompress to create sidecars
+			precompressFile(cssPath);
+			expect(await Bun.file(`${cssPath}.br`).exists()).toBe(true);
+			expect(await Bun.file(`${cssPath}.gz`).exists()).toBe(true);
+
+			// 1. Client accepts br and gzip -> br preferred
+			const reqBr = new Request("http://localhost/style.css", {
+				headers: { "Accept-Encoding": "gzip, deflate, br" },
+			});
+			const resBr = await serveStatic(reqBr, "style.css", "", publicDir);
+			expect(resBr.status).toBe(200);
+			expect(resBr.headers.get("Content-Encoding")).toBe("br");
+			expect(resBr.headers.get("Vary")).toBe("Accept-Encoding");
+			const etagBr = resBr.headers.get("ETag");
+			expect(etagBr).toContain("-br");
+
+			// 2. Client accepts only gzip -> gz sidecar served
+			const reqGz = new Request("http://localhost/style.css", {
+				headers: { "Accept-Encoding": "gzip, deflate" },
+			});
+			const resGz = await serveStatic(reqGz, "style.css", "", publicDir);
+			expect(resGz.status).toBe(200);
+			expect(resGz.headers.get("Content-Encoding")).toBe("gzip");
+			expect(resGz.headers.get("Vary")).toBe("Accept-Encoding");
+			const etagGz = resGz.headers.get("ETag");
+			expect(etagGz).toContain("-gz");
+
+			// 3. Client accepts neither -> uncompressed identity served with Vary header
+			const reqIdentity = new Request("http://localhost/style.css");
+			const resIdentity = await serveStatic(reqIdentity, "style.css", "", publicDir);
+			expect(resIdentity.status).toBe(200);
+			expect(resIdentity.headers.get("Content-Encoding")).toBeNull();
+			expect(resIdentity.headers.get("Vary")).toBe("Accept-Encoding");
+			const etagIdentity = resIdentity.headers.get("ETag");
+			expect(etagIdentity).not.toContain("-br");
+			expect(etagIdentity).not.toContain("-gz");
+
+			// 4. 304 Not Modified check with If-None-Match for br
+			const req304Br = new Request("http://localhost/style.css", {
+				headers: {
+					"Accept-Encoding": "br",
+					"If-None-Match": etagBr!,
+				},
+			});
+			const res304Br = await serveStatic(req304Br, "style.css", "", publicDir);
+			expect(res304Br.status).toBe(304);
+			expect(res304Br.headers.get("ETag")).toBe(etagBr);
+			expect(res304Br.headers.get("Vary")).toBe("Accept-Encoding");
+
+			// 5. If only .gz exists (remove .br), gz is used even if client accepts br
+			await rm(`${cssPath}.br`);
+			const resOnlyGz = await serveStatic(reqBr, "style.css", "", publicDir);
+			expect(resOnlyGz.status).toBe(200);
+			expect(resOnlyGz.headers.get("Content-Encoding")).toBe("gzip");
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
 	});
 });

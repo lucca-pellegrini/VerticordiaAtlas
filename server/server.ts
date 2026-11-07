@@ -578,12 +578,12 @@ export function parseUrl(raw: string | undefined): { url: URL; pathname: string 
 	}
 }
 
-async function serveStatic(req: Request, rel: string, search = ""): Promise<Response> {
+export async function serveStatic(req: Request, rel: string, search = "", publicDir = PUBLIC): Promise<Response> {
 	const rawParts = rel.split("/").filter(Boolean);
 	if (rawParts.includes("..")) return send(403, "forbidden");
-	let file = path.normalize(path.join(PUBLIC, rel));
-	if (file !== PUBLIC && !file.startsWith(PUBLIC + path.sep)) return send(403, "forbidden");
-	const parts = path.relative(PUBLIC, file).split(path.sep).filter(Boolean);
+	let file = path.normalize(path.join(publicDir, rel));
+	if (file !== publicDir && !file.startsWith(publicDir + path.sep)) return send(403, "forbidden");
+	const parts = path.relative(publicDir, file).split(path.sep).filter(Boolean);
 	if (parts.some((p) => p.startsWith(".") || p === "cache" || p === "node_modules")) return send(404, "not found");
 	let st: Stats;
 	try {
@@ -608,6 +608,81 @@ async function serveStatic(req: Request, rel: string, search = ""): Promise<Resp
 	if (!st.isFile()) return send(404, "not found");
 	const type = TYPES[path.extname(file).toLowerCase()];
 	if (!type) return send(404, "not found");
+
+	const acceptEncoding = req.headers.get("accept-encoding") || "";
+	const acceptsBr = /\bbr\b/.test(acceptEncoding);
+	const acceptsGz = /\bgzip\b/.test(acceptEncoding);
+
+	// Try precompressed sidecars for compressible text files above 1KB
+	if (TEXT.test(type) && st.size > 1024) {
+		if (acceptsBr) {
+			try {
+				const brStat = await stat(`${file}.br`);
+				if (brStat.isFile() && brStat.mtimeMs >= st.mtimeMs) {
+					const etag = `W/"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}-br"`;
+					const lastModified = st.mtime.toUTCString();
+					const headers: Record<string, string> = {
+						"Content-Type": type,
+						"Content-Encoding": "br",
+						"Content-Length": String(brStat.size),
+						ETag: etag,
+						"Last-Modified": lastModified,
+						"Cache-Control": "no-cache",
+						Vary: "Accept-Encoding",
+					};
+					if (notModified(req, etag, st.mtime)) {
+						return new Response(null, {
+							status: 304,
+							headers: {
+								ETag: etag,
+								"Last-Modified": lastModified,
+								"Cache-Control": headers["Cache-Control"],
+								Vary: "Accept-Encoding",
+							},
+						});
+					}
+					if (req.method === "HEAD") {
+						return new Response(null, { status: 200, headers });
+					}
+					return new Response(Bun.file(`${file}.br`), { status: 200, headers });
+				}
+			} catch {}
+		}
+		if (acceptsGz) {
+			try {
+				const gzStat = await stat(`${file}.gz`);
+				if (gzStat.isFile() && gzStat.mtimeMs >= st.mtimeMs) {
+					const etag = `W/"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}-gz"`;
+					const lastModified = st.mtime.toUTCString();
+					const headers: Record<string, string> = {
+						"Content-Type": type,
+						"Content-Encoding": "gzip",
+						"Content-Length": String(gzStat.size),
+						ETag: etag,
+						"Last-Modified": lastModified,
+						"Cache-Control": "no-cache",
+						Vary: "Accept-Encoding",
+					};
+					if (notModified(req, etag, st.mtime)) {
+						return new Response(null, {
+							status: 304,
+							headers: {
+								ETag: etag,
+								"Last-Modified": lastModified,
+								"Cache-Control": headers["Cache-Control"],
+								Vary: "Accept-Encoding",
+							},
+						});
+					}
+					if (req.method === "HEAD") {
+						return new Response(null, { status: 200, headers });
+					}
+					return new Response(Bun.file(`${file}.gz`), { status: 200, headers });
+				}
+			} catch {}
+		}
+	}
+
 	const etag = `W/"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`;
 	const lastModified = st.mtime.toUTCString();
 	const headers: Record<string, string> = {
@@ -616,13 +691,22 @@ async function serveStatic(req: Request, rel: string, search = ""): Promise<Resp
 		"Last-Modified": lastModified,
 		"Cache-Control": TEXT.test(type) ? "no-cache" : "public, max-age=3600",
 	};
+	if (TEXT.test(type)) {
+		headers.Vary = "Accept-Encoding";
+	}
 	if (notModified(req, etag, st.mtime)) {
+		const resHeaders: Record<string, string> = {
+			ETag: etag,
+			"Last-Modified": lastModified,
+			"Cache-Control": headers["Cache-Control"],
+		};
+		if (TEXT.test(type)) resHeaders.Vary = "Accept-Encoding";
 		return new Response(null, {
 			status: 304,
-			headers: { ETag: etag, "Last-Modified": lastModified, "Cache-Control": headers["Cache-Control"] },
+			headers: resHeaders,
 		});
 	}
-	if (TEXT.test(type) && st.size > 1024 && /\bgzip\b/.test(req.headers.get("accept-encoding") || "")) {
+	if (TEXT.test(type) && st.size > 1024 && acceptsGz) {
 		const body = await gzipped(file, st);
 		headers["Content-Encoding"] = "gzip";
 		headers["Content-Length"] = String(body.length);

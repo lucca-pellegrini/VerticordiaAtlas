@@ -19,6 +19,7 @@ Bun is managed via `mise` (`.config/mise/config.toml`). If `bun` is not on the d
 - **Run tests**: `bun test`
 - **Typecheck**: `bun run typecheck` (`tsc --noEmit`)
 - **Build client bundles**: `bun run build` (runs `scripts/build.ts`)
+- **Precompress static assets**: `bun run precompress` (runs `scripts/precompress.ts`; run once at deploy, after build)
 - **Start server**: `bun run start` (runs `server/server.ts`, which automatically executes `buildClient()` on startup; pass `--no-tui` to disable the OpenTUI dashboard)
 - **Backup SQLite database**: `bun run backup` (runs `scripts/backup-db.ts` using online `VACUUM INTO` and rotates older snapshots in `backups/`)
 - **Format code**: `bun fmt`
