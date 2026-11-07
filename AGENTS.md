@@ -155,6 +155,7 @@ tests/
     - Run `bun fmt` after editing files to ensure formatting and import sorting match repository standards.
 - **Commits**:
     - Follow **Conventional Commits** (`feat:`, `fix:`, `refactor:`, `perf:`, `test:`, `chore:`, `style:`).
+    - Wrap all commit messages (summary and body) strictly to **72 columns**.
     - When a commit message includes an explanatory body, write **concise prose paragraphs**—never use bullet lists in commit messages.
 - **Verification**:
     - Always run `bun run typecheck`, `bun test`, and `bun run build` to verify changes before committing. All unit and integration tests must pass.
