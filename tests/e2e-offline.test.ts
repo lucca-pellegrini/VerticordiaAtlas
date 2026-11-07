@@ -11,13 +11,14 @@ import { hasTileFixtures } from "./tile-fixtures.ts";
 const PORT1 = 11791;
 const BASE1 = `http://127.0.0.1:${PORT1}`;
 const HAS_RE2_TILES = hasTileFixtures("re2", ["claire-a", "claire-b", "leon-a", "leon-b"]);
+const HAS_HOLLOW_KNIGHT_TILES = hasTileFixtures("hollow-knight", ["hallownest"]);
 
 let serverProc1: any;
 let deadServer: { stop(force?: boolean): unknown } | null = null;
 let browser: Browser;
 
 beforeAll(async () => {
-	if (!HAS_RE2_TILES) return;
+	if (!HAS_RE2_TILES && !HAS_HOLLOW_KNIGHT_TILES) return;
 
 	serverProc1 = Bun.spawn(["bun", "server/server.ts", "--port", String(PORT1)], {
 		stdout: "ignore",
@@ -55,6 +56,113 @@ afterAll(async () => {
 	try {
 		deadServer?.stop(true);
 	} catch {}
+});
+
+describe("map marker navigation & tile loading e2e", () => {
+	test.skipIf(!HAS_HOLLOW_KNIGHT_TILES)(
+		"opens hollow-knight map, clicks a marker, and follows linked markers across the map while loading tiles without errors",
+		async () => {
+			const context = await browser.createBrowserContext();
+			const page = await context.newPage();
+			await page.setViewport({ width: 1280, height: 800 });
+
+			const consoleErrors: string[] = [];
+			page.on("console", (msg) => {
+				if (msg.type() === "error") consoleErrors.push(msg.text());
+			});
+			page.on("pageerror", (err: any) => consoleErrors.push(err?.message ?? String(err)));
+
+			const tileResponses: { url: string; status: number; xTileFrom: string | null }[] = [];
+			page.on("response", (res) => {
+				if (res.url().includes("/tiles/")) {
+					tileResponses.push({
+						url: res.url(),
+						status: res.status(),
+						xTileFrom: res.headers()["x-tile-from"] ?? null,
+					});
+				}
+			});
+
+			// 1. Open Hollow Knight map and wait for initial tiles to settle
+			await page.goto(`${BASE1}/maps/hollow-knight/`, { waitUntil: "domcontentloaded" });
+			await page.waitForSelector("#map canvas", { timeout: 15000 });
+			await page.waitForFunction(() => !document.body.classList.contains("loading-map"), { timeout: 25000 });
+
+			const initialTileCount = tileResponses.length;
+			expect(initialTileCount).toBeGreaterThan(0);
+			expect(tileResponses.every((t) => t.status === 200)).toBe(true);
+
+			// 2. Click "Mister Mushroom 7" (id 469835) on the MapLibre canvas near the starting camera
+			const box = await page.$eval("#map canvas", (el) => {
+				const r = el.getBoundingClientRect();
+				return { left: r.left, top: r.top, width: r.width, height: r.height };
+			});
+			const cx = box.left + box.width / 2;
+			const cy = box.top + box.height / 2;
+
+			// Mister Mushroom 7 is at (-0.834789, 0.833322), right of start camera (-0.841131, 0.833750) at zoom 13
+			let clickedCanvasMarker = false;
+			for (const dx of [74, 37, 70, 78, 35, 40]) {
+				for (const dy of [-12, -6, -18, 0]) {
+					await page.mouse.move(cx + dx, cy + dy);
+					const tipText = await page.evaluate(
+						() => document.querySelector(".maplibregl-popup.tip")?.textContent || "",
+					);
+					if (tipText.includes("Mister Mushroom 7")) {
+						await page.mouse.click(cx + dx, cy + dy);
+						clickedCanvasMarker = true;
+						break;
+					}
+				}
+				if (clickedCanvasMarker) break;
+			}
+			expect(clickedCanvasMarker).toBe(true);
+
+			await page.waitForSelector("body.detail-open #detail:not([hidden]) .d-title", { timeout: 10000 });
+			const firstTitle = await page.$eval("#detail .d-title", (el) => el.textContent?.trim() || "");
+			expect(firstTitle).toBe("Mister Mushroom 7");
+
+			// 3. Follow link to "Mister Mushroom 6" (469844), then "Mister Mushroom 5" (469843), then "Mister Mushroom 4" (469842)
+			const hops = [
+				{ id: "469844", title: "Mister Mushroom 6" },
+				{ id: "469843", title: "Mister Mushroom 5" },
+				{ id: "469842", title: "Mister Mushroom 4" },
+			];
+
+			let prevTileCount = tileResponses.length;
+			for (const hop of hops) {
+				const linkSelector = `#detail-body a[data-loc="${hop.id}"]`;
+				await page.waitForSelector(linkSelector, { visible: true, timeout: 10000 });
+				await page.$eval(linkSelector, (el) => (el as HTMLElement).click());
+
+				await page.waitForFunction(
+					(expectedTitle) => {
+						const el = document.querySelector("#detail .d-title");
+						return el && el.textContent?.trim() === expectedTitle;
+					},
+					{ timeout: 10000 },
+					hop.title,
+				);
+				expect(await page.evaluate(() => location.hash)).toBe(`#loc=${hop.id}`);
+
+				// Wait for the camera flyTo animation to request and load tiles for the new region
+				await page.waitForFunction(() => !document.body.classList.contains("loading-map"), { timeout: 15000 });
+				await new Promise((r) => setTimeout(r, 1200));
+				expect(tileResponses.length).toBeGreaterThan(prevTileCount);
+				expect(tileResponses.every((t) => t.status === 200)).toBe(true);
+				expect(tileResponses.every((t) => ["stored", "cache", "made"].includes(t.xTileFrom || ""))).toBe(true);
+				prevTileCount = tileResponses.length;
+			}
+
+			// Verify the back button in the detail card is visible after following the link chain
+			const backHidden = await page.$eval("#detail-back", (el) => (el as HTMLElement).hidden);
+			expect(backHidden).toBe(false);
+			expect(consoleErrors).toEqual([]);
+
+			await context.close();
+		},
+		120000,
+	);
 });
 
 describe("offline map download & disconnected navigation e2e", () => {

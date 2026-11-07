@@ -799,7 +799,12 @@ export async function executeLootAtlasPipeline(
 		icons: null,
 		maps: metaMaps,
 	};
-	const writeMeta = () => Bun.write(path.join(outDir, "meta.json"), JSON.stringify(meta, null, 2) + "\n");
+	const writeMeta = async () => {
+		const target = path.join(outDir, "meta.json");
+		const tmp = `${target}.tmp.${process.pid}.${Date.now()}`;
+		await Bun.write(tmp, JSON.stringify(meta, null, 2) + "\n");
+		await rename(tmp, target);
+	};
 	await writeMeta();
 
 	// Update homepage manifest (public/maps/index.json)
@@ -833,7 +838,9 @@ export async function executeLootAtlasPipeline(
 	const at = index.games.findIndex((g) => g.slug === slug);
 	if (at >= 0) index.games[at] = manifestEntry;
 	else index.games.push(manifestEntry);
-	await Bun.write(indexPath, JSON.stringify(index, null, "\t") + "\n");
+	const tmpIndex = `${indexPath}.tmp.${process.pid}.${Date.now()}`;
+	await Bun.write(tmpIndex, JSON.stringify(index, null, "\t") + "\n");
+	await rename(tmpIndex, indexPath);
 	log(`Wrote ${path.join(outDir, "meta.json")} and updated ${indexPath}`);
 
 	// Tile download

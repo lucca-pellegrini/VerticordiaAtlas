@@ -1720,7 +1720,9 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 		});
 		const meta = await Bun.file(metaFile).json();
 		meta.icons = icons;
-		await Bun.write(metaFile, JSON.stringify(meta, null, 2) + "\n");
+		const tmpMeta = `${metaFile}.tmp.${process.pid}.${Date.now()}`;
+		await Bun.write(tmpMeta, JSON.stringify(meta, null, 2) + "\n");
+		await rename(tmpMeta, metaFile);
 		console.log(
 			icons
 				? `icons: ${Object.keys(icons.glyphs).length} glyphs in ${(icons as any).font || (icons as any).image}`
@@ -1860,7 +1862,12 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 		icons: v["no-icons"] ? (prevMeta?.icons ?? null) : icons,
 		maps: metaMaps,
 	};
-	const writeMeta = () => Bun.write(path.join(outDir, "meta.json"), JSON.stringify(meta, null, 2) + "\n");
+	const writeMeta = async () => {
+		const target = path.join(outDir, "meta.json");
+		const tmp = `${target}.tmp.${process.pid}.${Date.now()}`;
+		await Bun.write(tmp, JSON.stringify(meta, null, 2) + "\n");
+		await rename(tmp, target);
+	};
 	await writeMeta();
 
 	// 8. homepage manifest
@@ -1895,7 +1902,9 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 	const at = index.games.findIndex((g) => g.slug === pageSlug);
 	if (at >= 0) index.games[at] = entry;
 	else index.games.push(entry);
-	await Bun.write(v.index!, JSON.stringify(index, null, "\t") + "\n");
+	const tmpIndex = `${v.index!}.tmp.${process.pid}.${Date.now()}`;
+	await Bun.write(tmpIndex, JSON.stringify(index, null, "\t") + "\n");
+	await rename(tmpIndex, v.index!);
 	console.log(
 		`\nWrote ${path.join(outDir, "meta.json")} and updated ${v.index}; the game is now listed, fetching tiles and media`,
 	);

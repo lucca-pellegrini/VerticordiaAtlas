@@ -27,6 +27,7 @@ import path from "node:path";
 import { buildClient } from "../scripts/build.ts";
 import { createServerDashboard } from "../scripts/tui/server-dashboard.ts";
 import { unpackMarker } from "../src/shared/share-link.ts";
+import type { GameMeta, TilesetMeta } from "../src/shared/types.ts";
 import { createApi, type WsData } from "./api.ts";
 import {
 	categoryIcon,
@@ -81,10 +82,22 @@ const HOST = opt("host", "127.0.0.1"),
 	PORT = Number(opt("port", "8080"));
 
 // the configured address, if there is a real one; otherwise the address the request came in on
+let siteUrlCache: { at: number; url: string | null } | null = null;
 const configuredSite = async (): Promise<string | null> => {
-	const raw = process.env.SITE_URL || (await Bun.file(path.join(REPO, "site.json")).json()).url || "";
-	const site = raw.replace(/\/+$/, "");
-	return /^https?:\/\/[^/]+$/.test(site) && !site.includes("YOUR-DOMAIN") ? site : null;
+	if (process.env.SITE_URL) {
+		const site = process.env.SITE_URL.replace(/\/+$/, "");
+		return /^https?:\/\/[^/]+$/.test(site) && !site.includes("YOUR-DOMAIN") ? site : null;
+	}
+	if (siteUrlCache && Date.now() - siteUrlCache.at < 30000) return siteUrlCache.url;
+	try {
+		const raw = String((await Bun.file(path.join(REPO, "site.json")).json()).url || "");
+		const site = raw.replace(/\/+$/, "");
+		const url = /^https?:\/\/[^/]+$/.test(site) && !site.includes("YOUR-DOMAIN") ? site : null;
+		siteUrlCache = { at: Date.now(), url };
+		return url;
+	} catch {
+		return siteUrlCache?.url ?? null;
+	}
 };
 const siteOrigin = async (req: Request): Promise<string> =>
 	(await configuredSite()) || `${new URL(req.url).protocol}//${req.headers.get("host") || "localhost"}`;
@@ -92,10 +105,44 @@ const siteOrigin = async (req: Request): Promise<string> =>
 /* ---------- caches: the game list (short time), map data (by file date), chrome (once), renders (once) ---------- */
 
 let gamesCache: { at: number; list: LoadedGame[] } | null = null;
+let gamesInflight: Promise<LoadedGame[]> | null = null;
 async function games(): Promise<LoadedGame[]> {
-	if (!gamesCache || Date.now() - gamesCache.at > 30000)
-		gamesCache = { at: Date.now(), list: (await loadGames()).games };
-	return gamesCache.list;
+	if (gamesCache && Date.now() - gamesCache.at <= 30000) return gamesCache.list;
+	if (!gamesInflight) {
+		gamesInflight = loadGames()
+			.then((r) => {
+				gamesCache = { at: Date.now(), list: r.games };
+				return r.games;
+			})
+			.catch((e) => {
+				if (gamesCache) return gamesCache.list;
+				throw e;
+			})
+			.finally(() => {
+				gamesInflight = null;
+			});
+	}
+	return gamesInflight;
+}
+
+const tilesetCache = new Map<string, { mtime: number; sets: TilesetMeta[] }>();
+export async function gameTilesets(game: string, publicDir = PUBLIC): Promise<TilesetMeta[] | null> {
+	if (!isValidPackSlug(game)) return null;
+	const metaFile = path.join(publicDir, "maps", game, "meta.json");
+	const key = `${publicDir}:${game}`;
+	try {
+		const st = await stat(metaFile);
+		const hit = tilesetCache.get(key);
+		if (hit && hit.mtime === st.mtimeMs) return hit.sets;
+		const meta: GameMeta = await Bun.file(metaFile).json();
+		const sets = (meta.maps || []).flatMap((m) => m.tilesets || []);
+		tilesetCache.set(key, { mtime: st.mtimeMs, sets });
+		return sets;
+	} catch {
+		const hit = tilesetCache.get(key);
+		if (hit) return hit.sets;
+		return null;
+	}
 }
 
 const dataCache = new Map<string, { mtime: number; json: any }>();
@@ -665,10 +712,7 @@ if (import.meta.main) {
 	const tiles = createTileService({
 		publicDir: PUBLIC,
 		cache: tileCache,
-		tilesets: async (game) => {
-			const g = (await games()).find((x) => x.slug === game);
-			return g ? g.maps.flatMap((m) => m.tilesets || []) : null;
-		},
+		tilesets: (game) => gameTilesets(game, PUBLIC),
 		onNewMap: (game) => api.recordGameRequest(game),
 	});
 
@@ -677,6 +721,7 @@ if (import.meta.main) {
 	const server = Bun.serve<WsData>({
 		port: PORT,
 		hostname: HOST,
+		idleTimeout: 120,
 		async fetch(req, bunServer) {
 			const reqStart = Date.now();
 			const remoteAddress = bunServer?.requestIP?.(req)?.address ?? null;

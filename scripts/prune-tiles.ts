@@ -16,7 +16,7 @@
 //      so is every tile of a map whose highest zoom is missing.
 // --no-prune skips step 3; --dry-run only reports what would be done.
 
-import { readdir, rmdir, stat, unlink } from "node:fs/promises";
+import { readdir, rename, rmdir, stat, unlink } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
@@ -267,7 +267,9 @@ async function main() {
 	}
 
 	for (const [file, meta] of changedMetaFiles.entries()) {
-		await Bun.write(file, JSON.stringify(meta, null, 2) + "\n");
+		const tmp = `${file}.tmp.${process.pid}.${Date.now()}`;
+		await Bun.write(tmp, JSON.stringify(meta, null, 2) + "\n");
+		await rename(tmp, file);
 	}
 
 	await dashboard.finish();

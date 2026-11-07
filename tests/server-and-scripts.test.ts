@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
-import { mkdtemp, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, rm } from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
 import path from "node:path";
@@ -30,6 +30,7 @@ import {
 	gameThemeColor,
 	hexToHsl,
 	hslToHex,
+	loadGames,
 	officialIcon,
 	plainText,
 	resolveSafeMediaFile,
@@ -38,7 +39,13 @@ import {
 } from "../server/cards.ts";
 import { collectMapPackItems, isValidPackSlug, streamOfflinePack } from "../server/offline-pack.ts";
 import { createRateLimiter } from "../server/rate-limit.ts";
-import { buildSecurityHeaders, collectInlineScriptHashes, parseUrl, withSecurityHeaders } from "../server/server.ts";
+import {
+	buildSecurityHeaders,
+	collectInlineScriptHashes,
+	gameTilesets,
+	parseUrl,
+	withSecurityHeaders,
+} from "../server/server.ts";
 import { mediaUrls } from "../src/client/map/detail.ts";
 import { PRECACHE } from "../src/client/sw.ts";
 import { hasTileFixtures } from "./tile-fixtures.ts";
@@ -962,5 +969,56 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		expect(await exists(b1.backupFile)).toBe(false);
 		expect(await exists(b2.backupFile)).toBe(true);
 		expect(await exists(b3.backupFile)).toBe(true);
+	});
+
+	test("loadGames and gameTilesets survive truncated sibling meta.json without failing valid games", async () => {
+		const fakePublic = path.join(testDir, "public-corrupt-test");
+		const goodDir = path.join(fakePublic, "maps", "good-game");
+		const brokenDir = path.join(fakePublic, "maps", "village-truncated");
+		await mkdir(goodDir, { recursive: true });
+		await mkdir(brokenDir, { recursive: true });
+
+		await Bun.write(
+			path.join(fakePublic, "maps", "index.json"),
+			JSON.stringify({ games: [{ slug: "good-game", title: "Good Game" }, { slug: "village-truncated" }] }),
+		);
+		await Bun.write(
+			path.join(goodDir, "meta.json"),
+			JSON.stringify({
+				id: "good-game",
+				title: "Good Game",
+				maps: [
+					{
+						slug: "world",
+						title: "World",
+						data: "world/data.json",
+						tilesets: [
+							{
+								name: "Default",
+								template: "world/tiles/default/{z}/{x}/{y}.jpg",
+								minzoom: 8,
+								maxzoom: 14,
+							},
+						],
+					},
+				],
+			}),
+		);
+		// Truncated JSON that triggers "SyntaxError: JSON Parse error: Expected '}'"
+		await Bun.write(
+			path.join(brokenDir, "meta.json"),
+			'{"id":"village","maps":[{"slug":"the-village","title":"The Village"',
+		);
+
+		const loaded = await loadGames(fakePublic);
+		expect(loaded.games.map((g) => g.slug)).toEqual(["good-game"]);
+		expect(loaded.shown.map((g) => g.slug)).toEqual(["good-game"]);
+
+		const sets = await gameTilesets("good-game", fakePublic);
+		expect(sets).not.toBeNull();
+		expect(sets?.length).toBe(1);
+		expect(sets?.[0].template).toBe("world/tiles/default/{z}/{x}/{y}.jpg");
+
+		expect(await gameTilesets("village-truncated", fakePublic)).toBeNull();
 	});
 });

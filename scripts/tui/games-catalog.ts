@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { type FSWatcher, watch } from "node:fs";
+import { rename } from "node:fs/promises";
 import path from "node:path";
 
 import { BoxRenderable, InputRenderable, InputRenderableEvents, type KeyEvent, TextRenderable } from "@opentui/core";
@@ -270,7 +271,9 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		try {
 			isSelfWriting = true;
 			const data = { games: allGames };
-			await Bun.write(indexPath, JSON.stringify(data, null, "\t") + "\n");
+			const tmp = `${indexPath}.tmp.${process.pid}.${Date.now()}`;
+			await Bun.write(tmp, JSON.stringify(data, null, "\t") + "\n");
+			await rename(tmp, indexPath);
 		} catch (e: any) {
 			showToast(`Error saving index.json: ${e.message}`);
 		} finally {
@@ -492,7 +495,9 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			}
 			if (game.tagLabel) meta.tagLabel = game.tagLabel;
 			if (game.defaultTag) meta.defaultTag = game.defaultTag;
-			await Bun.write(metaPath, JSON.stringify(meta, null, "\t") + "\n");
+			const tmpMeta = `${metaPath}.tmp.${process.pid}.${Date.now()}`;
+			await Bun.write(tmpMeta, JSON.stringify(meta, null, "\t") + "\n");
+			await rename(tmpMeta, metaPath);
 		} catch {}
 
 		await saveIndexData();

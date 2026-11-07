@@ -126,15 +126,25 @@ export function resolveSafeMediaFile(gameDir: string, mediaUrlStr: string): { na
 }
 
 // every game folder under maps/ (with a meta.json), plus the manifest's order for the homepage
-export async function loadGames(): Promise<{ games: LoadedGame[]; shown: LoadedGame[] }> {
-	const manifest: GameManifestEntry[] = (await Bun.file(path.join(PUBLIC, "maps", "index.json")).json()).games || [];
+export async function loadGames(publicDir = PUBLIC): Promise<{ games: LoadedGame[]; shown: LoadedGame[] }> {
+	let manifest: GameManifestEntry[] = [];
+	try {
+		manifest = (await Bun.file(path.join(publicDir, "maps", "index.json")).json()).games || [];
+	} catch {}
 	const listed = new Map<string, GameManifestEntry>(manifest.map((g) => [g.slug, g]));
 	const games: LoadedGame[] = [];
-	for (const d of await readdir(path.join(PUBLIC, "maps"), { withFileTypes: true })) {
+	for (const d of await readdir(path.join(publicDir, "maps"), { withFileTypes: true }).catch(() => [])) {
 		if (!d.isDirectory()) continue;
-		const dir = path.join(PUBLIC, "maps", d.name);
-		if (!(await exists(path.join(dir, "meta.json")))) continue;
-		const meta: GameMeta = await Bun.file(path.join(dir, "meta.json")).json();
+		const dir = path.join(publicDir, "maps", d.name);
+		const metaPath = path.join(dir, "meta.json");
+		if (!(await exists(metaPath))) continue;
+		let meta: GameMeta;
+		try {
+			meta = await Bun.file(metaPath).json();
+		} catch {
+			continue;
+		}
+		if (!meta || typeof meta !== "object") continue;
 		const entry: Partial<GameManifestEntry> = listed.get(d.name) || {};
 		const title = cleanTitle(entry.title || meta.title || d.name);
 		games.push({
@@ -148,7 +158,7 @@ export async function loadGames(): Promise<{ games: LoadedGame[]; shown: LoadedG
 			alt: entry.posterAlt || `${title} key art`,
 			theme: { ...DEFAULT_THEME, ...(entry.theme || {}) },
 			stats: entry.stats || [],
-			poster: await findPoster(dir),
+			poster: await findPoster(dir).catch(() => null),
 		});
 	}
 	const shown = manifest.map((e) => games.find((g) => g.slug === e.slug)).filter((g): g is LoadedGame => Boolean(g));
