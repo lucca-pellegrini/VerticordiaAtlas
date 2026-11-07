@@ -15,6 +15,61 @@ import crypto from "node:crypto";
 import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
+import zlib from "node:zlib";
+
+const gzipAsync = promisify(zlib.gzip);
+const brotliCompressAsync = promisify(zlib.brotliCompress);
+
+export function acceptsEncoding(req: Request): { br: boolean; gz: boolean } {
+	const accept = req.headers.get("accept-encoding") || "";
+	return {
+		br: /\bbr\b/.test(accept),
+		gz: /\bgzip\b/.test(accept),
+	};
+}
+
+export function negotiateEncoding(req: Request): "br" | "gzip" | null {
+	const { br, gz } = acceptsEncoding(req);
+	if (br) return "br";
+	if (gz) return "gzip";
+	return null;
+}
+
+export async function compressApiResponse(req: Request, res: Response, minSize = 1024): Promise<Response> {
+	const encoding = negotiateEncoding(req);
+	if (!encoding) return res;
+	if (res.headers.has("Content-Encoding")) return res;
+
+	const body = await res.arrayBuffer();
+	if (body.byteLength <= minSize) {
+		return new Response(body, { status: res.status, headers: res.headers });
+	}
+
+	const compressed: Buffer =
+		encoding === "br"
+			? await brotliCompressAsync(Buffer.from(body), {
+					params: {
+						[zlib.constants.BROTLI_PARAM_QUALITY]: 5,
+					},
+				})
+			: await gzipAsync(Buffer.from(body), { level: 6 });
+
+	const headers = new Headers(res.headers);
+	headers.set("Content-Encoding", encoding);
+	headers.set("Content-Length", String(compressed.length));
+	const existingVary = headers.get("Vary");
+	if (!existingVary) {
+		headers.set("Vary", "Accept-Encoding");
+	} else if (!/\bAccept-Encoding\b/i.test(existingVary)) {
+		headers.set("Vary", `${existingVary}, Accept-Encoding`);
+	}
+
+	if (req.method === "HEAD") {
+		return new Response(null, { status: res.status, headers });
+	}
+	return new Response(new Uint8Array(compressed), { status: res.status, headers });
+}
 
 import type { ServerWebSocket } from "bun";
 import { createRemoteJWKSet, jwtVerify } from "jose";
@@ -786,7 +841,7 @@ export function createApi({
 	}
 
 	/* ---------- HTTP route handler ---------- */
-	async function handle(req: Request, url: URL, remoteAddress?: string | null): Promise<Response | null> {
+	async function handleRoute(req: Request, url: URL, remoteAddress?: string | null): Promise<Response | null> {
 		try {
 			const route = `${req.method} ${url.pathname}`;
 			const ip = clientIp(req, remoteAddress);
@@ -2188,6 +2243,12 @@ export function createApi({
 			console.error("api:", e);
 			return json(500, { error: "server error" });
 		}
+	}
+
+	async function handle(req: Request, url: URL, remoteAddress?: string | null): Promise<Response | null> {
+		const res = await handleRoute(req, url, remoteAddress);
+		if (!res) return null;
+		return compressApiResponse(req, res);
 	}
 
 	// expired sessions, sign-in states, and account tokens are removed at startup and hourly
