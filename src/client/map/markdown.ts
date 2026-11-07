@@ -68,7 +68,9 @@ export function internalRefs(src: string | null | undefined, selfId: number): nu
 	return out;
 }
 
-if (typeof marked !== "undefined") {
+let configured = false;
+export function configureMarked(): void {
+	if (configured || typeof marked === "undefined") return;
 	marked.use({
 		gfm: true,
 		breaks: true, // single line breaks stay line breaks, as the descriptions were written
@@ -102,6 +104,43 @@ if (typeof marked !== "undefined") {
 			},
 		},
 	});
+	configured = true;
+}
+
+if (typeof marked !== "undefined") configureMarked();
+
+let markedPromise: Promise<void> | null = null;
+
+export function ensureMarked(): Promise<void> {
+	if (typeof marked !== "undefined") {
+		configureMarked();
+		return Promise.resolve();
+	}
+	if (!markedPromise) {
+		markedPromise = new Promise<void>((resolve, reject) => {
+			if (typeof document === "undefined") {
+				resolve();
+				return;
+			}
+			const script = document.createElement("script");
+			script.src = "../../vendor/marked.umd.js";
+			script.onload = () => {
+				configureMarked();
+				resolve();
+			};
+			script.onerror = () => {
+				markedPromise = null;
+				reject(new Error("Failed to load marked"));
+			};
+			(document.head || document.body || document.documentElement)?.appendChild(script);
+		});
+	}
+	return markedPromise;
+}
+
+export function _resetMarkedForTest(): void {
+	markedPromise = null;
+	configured = false;
 }
 
 export function renderMd(src: string | null | undefined): string {
