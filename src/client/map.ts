@@ -287,10 +287,22 @@ function wire(): void {
 	};
 	$("#show-all")!.onclick = () => {
 		state.view.hidden.clear();
+		for (const { rows } of state.ui?.groups.values() || []) {
+			for (const { row, cb } of rows) {
+				cb.checked = true;
+				row.classList.remove("off");
+			}
+		}
 		onViewChanged();
 	};
 	$("#hide-all")!.onclick = () => {
 		state.cats.forEach((c: any) => state.view.hidden.add(c.id));
+		for (const { rows } of state.ui?.groups.values() || []) {
+			for (const { row, cb } of rows) {
+				cb.checked = false;
+				row.classList.add("off");
+			}
+		}
 		onViewChanged();
 	};
 

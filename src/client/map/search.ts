@@ -205,7 +205,12 @@ export async function runSearch(): Promise<void> {
 		const activeEl = $("#results")?.querySelector("li.result.active");
 		if (activeEl) activeEl.scrollIntoView({ block: "nearest" });
 	}
-	refreshMap();
+	state.search.causedRefresh = true;
+	try {
+		refreshMap();
+	} finally {
+		state.search.causedRefresh = false;
+	}
 }
 
 // the list's close button: "Close" (it folds the panel on a phone, and is hidden on a desktop) becomes a red X while
@@ -237,7 +242,12 @@ export function leaveSearch(): void {
 	syncRegionBanners();
 	const res = $("#results");
 	if (res) res.innerHTML = "";
-	refreshMap();
+	state.search.causedRefresh = true;
+	try {
+		refreshMap();
+	} finally {
+		state.search.causedRefresh = false;
+	}
 }
 
 function resultHtml(h: any, i: number): string {
@@ -410,9 +420,14 @@ export async function openResult(li: HTMLElement | null): Promise<void> {
 		slug = li.dataset.map!;
 	syncSearchActive(id, slug);
 	endPreview({ restore: false }); // select() flies there from where the preview left the map
-	if (slug !== state.mapInfo.slug) {
-		await switchMap(slug);
-		if (state.mapInfo?.slug !== slug) return;
+	state.search.causedRefresh = true;
+	try {
+		if (slug !== state.mapInfo.slug) {
+			await switchMap(slug);
+			if (state.mapInfo?.slug !== slug) return;
+		}
+		select(id);
+	} finally {
+		state.search.causedRefresh = false;
 	}
-	select(id);
 }

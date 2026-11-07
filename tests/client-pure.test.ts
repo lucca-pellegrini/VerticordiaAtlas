@@ -32,6 +32,7 @@ import {
 	buildLocationGeometryFeatures,
 	buildRegionFeatures,
 	circleStyleOf,
+	createScheduler,
 	mapLimits,
 	normalizeTextSizeExpression,
 	resolveTilesets,
@@ -1370,5 +1371,97 @@ describe("progress exports", () => {
 				{ title: "Three" },
 			]),
 		).toBe("Game: 4 of 10 markers found (40%)\nOne: 3 of 6 (50%)\nTwo: not available offline\nThree: not loaded");
+	});
+});
+
+describe("frame scheduler (createScheduler)", () => {
+	test("many schedule calls produce one flush", () => {
+		let flushes = 0;
+		const frames: (() => void)[] = [];
+		const s = createScheduler(
+			() => {
+				flushes++;
+			},
+			(cb) => frames.push(cb),
+		);
+
+		s.schedule();
+		s.schedule();
+		s.schedule();
+
+		expect(flushes).toBe(0);
+		expect(frames.length).toBe(1);
+
+		frames.shift()!();
+		expect(flushes).toBe(1);
+		expect(frames.length).toBe(0);
+	});
+
+	test("a flush scheduled during a flush runs in the next frame", () => {
+		let runCount = 0;
+		const frames: (() => void)[] = [];
+		let scheduler: any;
+		scheduler = createScheduler(
+			() => {
+				runCount++;
+				if (runCount === 1) {
+					scheduler.schedule();
+				}
+			},
+			(cb) => frames.push(cb),
+		);
+
+		scheduler.schedule();
+		expect(frames.length).toBe(1);
+
+		frames.shift()!();
+		expect(runCount).toBe(1);
+		expect(frames.length).toBe(1);
+
+		frames.shift()!();
+		expect(runCount).toBe(2);
+		expect(frames.length).toBe(0);
+	});
+
+	test("final state is flushed after rapid updates", () => {
+		let stateValue = 0;
+		let observedValue = 0;
+		const frames: (() => void)[] = [];
+		const s = createScheduler(
+			() => {
+				observedValue = stateValue;
+			},
+			(cb) => frames.push(cb),
+		);
+
+		stateValue = 1;
+		s.schedule();
+		stateValue = 2;
+		s.schedule();
+		stateValue = 3;
+		s.schedule();
+
+		expect(observedValue).toBe(0);
+		frames.shift()!();
+		expect(observedValue).toBe(3);
+	});
+
+	test("synchronous flush runs immediately and avoids duplicate frame execution", () => {
+		let runCount = 0;
+		const frames: (() => void)[] = [];
+		const s = createScheduler(
+			() => {
+				runCount++;
+			},
+			(cb) => frames.push(cb),
+		);
+
+		s.schedule();
+		expect(runCount).toBe(0);
+		s.flush();
+		expect(runCount).toBe(1);
+
+		if (frames.length > 0) frames.shift()!();
+		expect(runCount).toBe(1);
 	});
 });

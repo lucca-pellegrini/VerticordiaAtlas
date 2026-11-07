@@ -11,13 +11,18 @@ import type { OfflineStatus } from "../offline.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
 import {
+	createScheduler,
+	flushRefreshNow,
 	refreshAll,
 	refreshMap,
 	refreshRegions,
+	requestRefresh,
 	resolveTilesets,
 	switchTileset,
 	updateTilesetControl,
 } from "./map-view.ts";
+export { createScheduler };
+export type { FrameScheduler } from "./map-view.ts";
 import { renderPresets } from "./presets.ts";
 import { HEX, saveProfileNow, scheduleSave, scheduleViewSave } from "./profiles.ts";
 import { runSearch } from "./search.ts";
@@ -44,16 +49,108 @@ export const applicable = (l: { tags: number[]; region?: number | null }): boole
 export const shownOnMap = (l: { id: number; cat: number; tags: number[]; region?: number | null }): boolean =>
 	applicable(l) && !state.view.hidden.has(l.cat) && !(state.view.hideFound && state.found.has(l.id));
 
-export function computeStats(): void {
-	const st = new Map<number, { total: number; found: number }>();
-	for (const l of state.locs) {
-		if (!applicable(l)) continue;
-		let s = st.get(l.cat);
-		if (!s) st.set(l.cat, (s = { total: 0, found: 0 }));
-		s.total++;
-		if (state.found.has(l.id)) s.found++;
+let statsDirty = true;
+const dirtyCats = new Set<number>();
+let locsByCat: Map<number, any[]> | null = null;
+let lastFoundSize = -1;
+let lastRegionFilter: number | null | undefined = undefined;
+let lastTag: any = undefined;
+let lastTagStrict: boolean | undefined = undefined;
+let lastLocsLen = -1;
+
+export function invalidateStats(catId?: number): void {
+	if (catId == null) {
+		statsDirty = true;
+		dirtyCats.clear();
+	} else if (!statsDirty) {
+		dirtyCats.add(catId);
 	}
-	state.stats = st;
+}
+
+export function invalidateLocsByCat(): void {
+	locsByCat = null;
+	statsDirty = true;
+	dirtyCats.clear();
+}
+
+function getLocsByCat(): Map<number, any[]> {
+	if (!locsByCat) {
+		locsByCat = new Map();
+		for (const l of state.locs) {
+			let arr = locsByCat.get(l.cat);
+			if (!arr) locsByCat.set(l.cat, (arr = []));
+			arr.push(l);
+		}
+	}
+	return locsByCat;
+}
+
+export function computeStats(): void {
+	const foundSize = state.found?.size ?? 0;
+	const unchanged =
+		!statsDirty &&
+		dirtyCats.size === 0 &&
+		foundSize === lastFoundSize &&
+		state.regionFilter === lastRegionFilter &&
+		state.tag === lastTag &&
+		state.tagStrict === lastTagStrict &&
+		state.locs.length === lastLocsLen &&
+		state.stats &&
+		state.stats.size > 0;
+
+	if (unchanged) return;
+
+	const byCat = getLocsByCat();
+	const fullRecompute =
+		statsDirty ||
+		!state.stats ||
+		state.stats.size === 0 ||
+		state.regionFilter !== lastRegionFilter ||
+		state.tag !== lastTag ||
+		state.tagStrict !== lastTagStrict ||
+		state.locs.length !== lastLocsLen ||
+		(dirtyCats.size === 0 && foundSize !== lastFoundSize);
+
+	if (fullRecompute) {
+		const st = new Map<number, { total: number; found: number }>();
+		for (const [catId, locs] of byCat) {
+			let total = 0,
+				found = 0;
+			for (const l of locs) {
+				if (!applicable(l)) continue;
+				total++;
+				if (state.found.has(l.id)) found++;
+			}
+			st.set(catId, { total, found });
+		}
+		for (const catId of state.cats.keys()) {
+			if (!st.has(catId)) st.set(catId, { total: 0, found: 0 });
+		}
+		state.stats = st;
+		statsDirty = false;
+		dirtyCats.clear();
+	} else {
+		for (const catId of dirtyCats) {
+			const locs = byCat.get(catId);
+			let total = 0,
+				found = 0;
+			if (locs) {
+				for (const l of locs) {
+					if (!applicable(l)) continue;
+					total++;
+					if (state.found.has(l.id)) found++;
+				}
+			}
+			state.stats.set(catId, { total, found });
+		}
+		dirtyCats.clear();
+	}
+
+	lastFoundSize = foundSize;
+	lastRegionFilter = state.regionFilter;
+	lastTag = state.tag;
+	lastTagStrict = state.tagStrict;
+	lastLocsLen = state.locs.length;
 }
 
 const BLACK_OR_WHITE = new Set(["#000", "#000000", "#fff", "#ffffff"]); // layers the site leaves to the category colour
@@ -209,6 +306,10 @@ export function buildSidebar(): void {
 		};
 		gToggle.onchange = () => {
 			for (const c of g.cats) gToggle.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id);
+			for (const { row, cb } of rows) {
+				cb.checked = gToggle.checked;
+				row.classList.toggle("off", !cb.checked);
+			}
 			onViewChanged();
 		};
 		el.querySelector<HTMLElement>(".group-head")!.oncontextmenu = (e) => {
@@ -231,6 +332,7 @@ export function buildSidebar(): void {
 			row.htmlFor = cb.id;
 			cb.onchange = () => {
 				cb.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id);
+				row.classList.toggle("off", !cb.checked);
 				onViewChanged();
 			};
 			row.oncontextmenu = (e) => {
@@ -385,14 +487,25 @@ export function closeRowMenu(): void {
 export function showOnly(ids: Iterable<number>): void {
 	const keep = new Set(ids);
 	for (const id of state.cats.keys()) keep.has(id) ? state.view.hidden.delete(id) : state.view.hidden.add(id);
+	for (const { rows } of state.ui?.groups.values() || []) {
+		for (const { c, row, cb } of rows) {
+			cb.checked = !state.view.hidden.has(c.id);
+			row.classList.toggle("off", !cb.checked);
+		}
+	}
 	onViewChanged();
 }
 
 // "List these markers": the categories shown alone, and the search lists everything they show (the wildcard "*")
 export function listCats(cats: any[]): void {
-	showOnly(cats.map((c) => c.id));
-	const search = $<HTMLInputElement>("#search");
-	if (search) search.value = "*";
+	state.search.causedRefresh = true;
+	try {
+		showOnly(cats.map((c) => c.id));
+		const search = $<HTMLInputElement>("#search");
+		if (search) search.value = "*";
+	} finally {
+		state.search.causedRefresh = false;
+	}
 	runSearch();
 }
 
@@ -519,11 +632,7 @@ export function saveSession(): void {
 }
 
 export function onViewChanged(): void {
-	scheduleViewSave();
-	updateSidebar();
-	refreshMap();
-	renderPresets();
-	if (state.search.active) runSearch(); // hidden categories and "hide found" change what matches
+	requestRefresh({ viewChange: true });
 }
 
 const USER_GROUP = "user-markers";
@@ -587,6 +696,7 @@ export function rebuildUserData(): void {
 		};
 	});
 	state.locs = [...state.officialLocs, ...userLocs];
+	invalidateLocsByCat();
 	state.byId = new Map(state.locs.map((l: any) => [l.id, l]));
 	state.outLinks = new Map();
 	state.inLinks = new Map();
@@ -742,10 +852,9 @@ export function focusRegion(r: any): void {
 
 export function setRegionFilter(id: number | null): void {
 	state.regionFilter = id;
+	invalidateStats();
 	renderRegionNavigator();
-	updateSidebar();
-	refreshMap();
-	if (state.search.active) runSearch();
+	onViewChanged();
 }
 
 export function syncRegionBanners(): void {
