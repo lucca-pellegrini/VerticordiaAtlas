@@ -14,12 +14,21 @@ import { setupDrawing } from "./drawing.ts";
 import { renderMd } from "./markdown.ts";
 import { buildMarkerFilter } from "./marker-filter.ts";
 import { loadMapState, migratePresets, renderPresets } from "./presets.ts";
-import { isSavePending, loadProfiles, saveProfileNow, scheduleSave, syncTagStrict } from "./profiles.ts";
+import {
+	isSavePending,
+	loadProfiles,
+	saveProfileNow,
+	scheduleSave,
+	scheduleViewSave,
+	syncTagStrict,
+} from "./profiles.ts";
 import { runSearch } from "./search.ts";
 import { inSelection, setupSelection } from "./selection.ts";
 import {
 	buildSidebar,
 	endMorph,
+	invalidateLocsByCat,
+	invalidateStats,
 	rebuildUserData,
 	resetShownCounts,
 	shownOnMap,
@@ -285,6 +294,7 @@ export async function prepareMap(info: any): Promise<void> {
 	state.officialLocs = state.locs;
 	state.byId = new Map(state.locs.map((l: any) => [l.id, l]));
 	state.tags = [...(data.tags || [])].sort((a: any, b: any) => a.id - b.id);
+	invalidateLocsByCat();
 
 	await loadMapState();
 
@@ -1197,11 +1207,10 @@ export async function switchMap(slug: string, { remember = true } = {}): Promise
 	revealWhenSettled(state.map);
 	if (remember) rememberCamera(true);
 	applyRegionAndTextStyles(state.map, state.data?.styles);
-	refreshAll();
+	refreshAll({ immediate: true });
 	refreshRegions();
 	endMorph({ later: true }); // the tween runs its full length from the numbers this refresh set
 	renderMapSwitch();
-	updateSidebar();
 	syncMapOfflineState();
 }
 
@@ -1893,12 +1902,112 @@ function placeRelatedRings(): void {
 	}
 }
 
-export function refreshAll(): void {
-	invalidateMarkerSource();
+export type FrameScheduler = {
+	schedule: () => void;
+	flush: () => void;
+	isPending: () => boolean;
+};
+
+const defaultRaf =
+	typeof requestAnimationFrame === "function" ? requestAnimationFrame : (cb: () => void) => setTimeout(cb, 0);
+
+export function createScheduler(
+	flushFn: () => void,
+	requestFrame: (cb: () => void) => any = defaultRaf,
+): FrameScheduler {
+	let scheduled = false;
+	let flushing = false;
+	let nextScheduled = false;
+
+	function run(): void {
+		scheduled = false;
+		flushing = true;
+		try {
+			flushFn();
+		} finally {
+			flushing = false;
+			if (nextScheduled) {
+				nextScheduled = false;
+				schedule();
+			}
+		}
+	}
+
+	function onFrame(): void {
+		if (!scheduled) return;
+		run();
+	}
+
+	function schedule(): void {
+		if (flushing) {
+			nextScheduled = true;
+			return;
+		}
+		if (!scheduled) {
+			scheduled = true;
+			requestFrame(onFrame);
+		}
+	}
+
+	function flush(): void {
+		if (!scheduled && !nextScheduled && !flushing) return;
+		scheduled = false;
+		nextScheduled = false;
+		run();
+	}
+
+	return {
+		schedule,
+		flush,
+		isPending: () => scheduled || nextScheduled || flushing,
+	};
+}
+
+let pendingAll = false;
+let pendingViewSave = false;
+let pendingSearch = false;
+
+function flushRefreshPass(): void {
+	const all = pendingAll;
+	const viewSave = pendingViewSave;
+	const search = pendingSearch;
+	pendingAll = false;
+	pendingViewSave = false;
+	pendingSearch = false;
+
+	if (all) {
+		invalidateMarkerSource();
+		invalidateStats();
+	}
+	if (viewSave) {
+		scheduleViewSave();
+	}
 	updateSidebar();
-	renderPresets(); // the tag and its switch change which categories count as selected
+	renderPresets();
 	refreshMap();
-	state.drawing?.render();
-	if (state.search.active) runSearch();
-	if (state.selected != null) renderDetail();
+	if (all) {
+		state.drawing?.render();
+		if (state.selected != null) renderDetail();
+	}
+	if (state.search?.active && search && !state.search.causedRefresh) {
+		runSearch();
+	}
+}
+
+export const refreshScheduler = createScheduler(flushRefreshPass);
+
+export function requestRefresh(options?: { all?: boolean; viewChange?: boolean }): void {
+	if (options?.all) pendingAll = true;
+	if (options?.viewChange) pendingViewSave = true;
+	if (!state.search?.causedRefresh) pendingSearch = true;
+	refreshScheduler.schedule();
+}
+
+export function flushRefreshNow(): void {
+	refreshScheduler.flush();
+}
+
+export function refreshAll({ immediate = false } = {}): void {
+	requestRefresh({ all: true });
+	if (immediate) flushRefreshNow();
 }
