@@ -153,6 +153,9 @@ tests/
     - Maximum line length is **120 characters**.
     - Use semicolons (`semi = true`) and omit trailing final newlines (`insertFinalNewline = false`).
     - Run `bun fmt` after editing files to ensure formatting and import sorting match repository standards.
+    - Before committing, stage the files first, then run `bun fmt --staged` so only the staged set is formatted.
+- **Generated map data**:
+    - Never modify `public/maps/` directly unless the user explicitly asks; it is maintained by the scripts in `scripts/`. Other processes may also rewrite these files, and `bun fmt` may reformat them, so do not stage them by accident.
 - **Commits**:
     - Follow **Conventional Commits** (`feat:`, `fix:`, `refactor:`, `perf:`, `test:`, `chore:`, `style:`).
     - Wrap all commit messages (summary and body) strictly to **72 columns**.
