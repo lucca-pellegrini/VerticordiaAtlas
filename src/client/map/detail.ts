@@ -6,7 +6,7 @@
 import { esc } from "../../shared/escape.ts";
 import { packMarker } from "../../shared/share-link.ts";
 import { svgIcon } from "../icons.ts";
-import { refreshMap } from "./map-view.ts";
+import { invalidateMarkerSource, refreshMap } from "./map-view.ts";
 import { ensureMarked, internalRefs, renderMd } from "./markdown.ts";
 import { scheduleSave } from "./profiles.ts";
 import { endPreview, syncSearchActive } from "./search.ts";
@@ -458,6 +458,7 @@ function openCtx(x: number, y: number, { title = "", items }: { title?: string; 
 export function setFound(id: number, on: boolean): void {
 	if (on) state.found.add(id);
 	else state.found.delete(id);
+	invalidateMarkerSource();
 	scheduleSave();
 	updateSidebar();
 	refreshMap();
@@ -609,6 +610,7 @@ function showLinkFallback(url: string): void {
 
 export function toggleFound(id: number): void {
 	state.found.has(id) ? state.found.delete(id) : state.found.add(id);
+	invalidateMarkerSource();
 	scheduleSave();
 	updateSidebar();
 	refreshMap();
