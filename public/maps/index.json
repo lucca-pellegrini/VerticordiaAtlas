@@ -2862,6 +2862,276 @@
 			],
 			"tagLabel": "Filter",
 			"defaultTag": null
+		},
+		{
+			"id": "control-resonant",
+			"slug": "control-resonant",
+			"title": "CONTROL Resonant",
+			"description": "Every marker on the CONTROL Resonant map.",
+			"poster": "control-resonant/poster",
+			"theme": {
+				"accent": "#b3734c",
+				"accent-soft": "#d4b19b",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1711",
+				"line": "#362921"
+			},
+			"stats": [
+				{
+					"value": 2121,
+					"label": "markers"
+				},
+				{
+					"value": 42,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "donkey-kong-bananza",
+			"slug": "donkey-kong-bananza",
+			"title": "Donkey Kong Bananza",
+			"description": "Every marker on the Donkey Kong Bananza map.",
+			"poster": "donkey-kong-bananza/poster",
+			"theme": {
+				"accent": "#d9921f",
+				"accent-soft": "#e9c180",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 2171,
+					"label": "markers"
+				},
+				{
+					"value": 268,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "ghost-recon-wildlands",
+			"slug": "ghost-recon-wildlands",
+			"title": "Tom Clancy's Ghost Recon Wildlands",
+			"description": "Every marker on the Tom Clancy's Ghost Recon Wildlands map.",
+			"poster": "ghost-recon-wildlands/poster",
+			"theme": {
+				"accent": "#b98e46",
+				"accent-soft": "#d8c097",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 2528,
+					"label": "markers"
+				},
+				{
+					"value": 68,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "gothic",
+			"slug": "gothic",
+			"title": "Gothic 1 Remake",
+			"description": "Every marker on the Gothic 1 Remake map.",
+			"poster": "gothic/poster",
+			"theme": {
+				"accent": "#9a4b28",
+				"accent-soft": "#d5825d",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362721"
+			},
+			"stats": [
+				{
+					"value": 1714,
+					"label": "markers"
+				},
+				{
+					"value": 44,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "luigis-mansion",
+			"slug": "luigis-mansion",
+			"title": "Luigi's Mansion",
+			"description": "Every marker on the Luigi's Mansion map.",
+			"poster": "luigis-mansion/poster",
+			"theme": {
+				"accent": "#4575ba",
+				"accent-soft": "#97b2d8",
+				"night": "#06080c",
+				"panel": "#0c1016",
+				"panel-2": "#11171f",
+				"line": "#212936"
+			},
+			"stats": [
+				{
+					"value": 390,
+					"label": "markers"
+				},
+				{
+					"value": 17,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "luigis-mansion-2",
+			"slug": "luigis-mansion-2",
+			"title": "Luigi's Mansion 2",
+			"description": "Every marker on the Luigi's Mansion 2 map.",
+			"poster": "luigis-mansion-2/poster",
+			"theme": {
+				"accent": "#64d625",
+				"accent-soft": "#a7e982",
+				"night": "#080c06",
+				"panel": "#0f160c",
+				"panel-2": "#161f11",
+				"line": "#283621"
+			},
+			"stats": [
+				{
+					"value": 442,
+					"label": "markers"
+				},
+				{
+					"value": 46,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "luigis-mansion-3",
+			"slug": "luigis-mansion-3",
+			"title": "Luigi's Mansion 3",
+			"description": "Every marker on the Luigi's Mansion 3 map.",
+			"poster": "luigis-mansion-3/poster",
+			"theme": {
+				"accent": "#18aa20",
+				"accent-soft": "#52e05a",
+				"night": "#060c07",
+				"panel": "#0c160c",
+				"panel-2": "#111f12",
+				"line": "#213622"
+			},
+			"stats": [
+				{
+					"value": 876,
+					"label": "markers"
+				},
+				{
+					"value": 15,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "metal-gear-solid-peace-walker",
+			"slug": "metal-gear-solid-peace-walker",
+			"title": "Metal Gear Solid: Peace Walker",
+			"description": "Every marker on the Metal Gear Solid: Peace Walker map.",
+			"poster": "metal-gear-solid-peace-walker/poster",
+			"theme": {
+				"accent": "#b8a11a",
+				"accent-soft": "#e3d05f",
+				"night": "#0c0b06",
+				"panel": "#16140c",
+				"panel-2": "#1f1d11",
+				"line": "#363321"
+			},
+			"stats": [
+				{
+					"value": 656,
+					"label": "markers"
+				},
+				{
+					"value": 14,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "the-legend-of-zelda-ocarina-of-time",
+			"slug": "oot",
+			"title": "The Legend of Zelda: Ocarina of Time (Switch 2 Remake)",
+			"description": "Every marker on the The Legend of Zelda: Ocarina of Time (Switch 2 Remake) map.",
+			"poster": "oot/poster",
+			"theme": {
+				"accent": "#23529f",
+				"accent-soft": "#5889da",
+				"night": "#06080c",
+				"panel": "#0c0f16",
+				"panel-2": "#11171f",
+				"line": "#212936"
+			},
+			"stats": [
+				{
+					"value": 613,
+					"label": "markers"
+				},
+				{
+					"value": 29,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "phantom-blade-zero",
+			"slug": "phantom-blade-zero",
+			"title": "Phantom Blade Zero",
+			"description": "Every marker on the Phantom Blade Zero map.",
+			"poster": "phantom-blade-zero/poster",
+			"theme": {
+				"accent": "#886b3a",
+				"accent-soft": "#c2a470",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 1653,
+					"label": "markers"
+				},
+				{
+					"value": 245,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
 		}
 	]
 }
