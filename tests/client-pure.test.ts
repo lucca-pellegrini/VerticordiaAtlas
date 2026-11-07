@@ -43,7 +43,7 @@ import {
 import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
 import { parseDemoPresets } from "../src/client/map/presets.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
-import { matchOf, queryOf } from "../src/client/map/search.ts";
+import { matchOf, queryOf, truncateDesc } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
 import {
 	_setActiveDownloadForTest,
@@ -335,6 +335,17 @@ describe("modularized map and home helpers", () => {
 		expect(matchOf(q, { title: "Goldn Seed", desc: "" })?.[0]).toBe(3);
 		expect(matchOf(q, { title: "Shrine", desc: "Contains a golden seed inside." })).toEqual([4, 0]);
 		expect(matchOf(q, { title: "Unrelated", desc: "Nothing here" })).toBeNull();
+	});
+
+	test("truncateDesc collapses whitespace and truncates on word boundaries", () => {
+		expect(truncateDesc("Short description")).toBe("Short description");
+		const longText =
+			"This is a long description with multiple sentences and lots of details about an item found inside the cave, including some tips.";
+		const truncated = truncateDesc(longText, 50);
+		expect(truncated.endsWith("…")).toBe(true);
+		expect(truncated.length).toBeLessThanOrEqual(51);
+		expect(truncated).toBe("This is a long description with multiple sentences…");
+		expect(truncateDesc("Line 1\n\nLine 2\t\tLine 3")).toBe("Line 1 Line 2 Line 3");
 	});
 
 	test("cleanUserData sanitizes untrusted imported profile fields and uniqueName avoids collisions", () => {

@@ -13,16 +13,43 @@ import { flat, fuzzyScore, words } from "../../shared/search.ts";
 import { svgIcon } from "../icons.ts";
 import { select } from "./detail.ts";
 import { mapData, placeThumb, refreshMap, switchMap } from "./map-view.ts";
-import { renderMd } from "./markdown.ts";
 import { applicable, iconHtml, syncRegionBanners } from "./sidebar.ts";
 import { $, fmt, isMobile, state, vivid } from "./state.ts";
 
 const SEARCH_MIN = 2,
-	SEARCH_SHOWN = 300,
+	SEARCH_SHOWN_INIT = 50,
+	SEARCH_SHOWN_MAX = 300,
 	PREVIEW_MS = 350;
+export const SEARCH_DEBOUNCE_MS = 140;
 export const HOVER_MS = 50; // the pointer must rest this long on a result or a link before the map follows it
 
 const mapName = (slug: string): string => state.meta?.maps?.find((m: any) => m.slug === slug)?.title || slug;
+
+// truncate a description to a maximum length on a word boundary without parsing markdown
+export function truncateDesc(text: string, maxLen = 160): string {
+	const clean = text.replace(/[\r\n\t]+/g, " ").trim();
+	if (clean.length <= maxLen) return clean;
+	const cut = clean.slice(0, maxLen);
+	const lastSpace = cut.lastIndexOf(" ");
+	return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut) + "…";
+}
+
+let debounceTimer: ReturnType<typeof setTimeout> | undefined;
+
+export function cancelSearchDebounce(): void {
+	if (debounceTimer !== undefined) {
+		clearTimeout(debounceTimer);
+		debounceTimer = undefined;
+	}
+}
+
+export function debounceSearch(fn: () => void, delay = SEARCH_DEBOUNCE_MS): void {
+	cancelSearchDebounce();
+	debounceTimer = setTimeout(() => {
+		debounceTimer = undefined;
+		fn();
+	}, delay);
+}
 
 export interface SearchQuery {
 	phrase: string;
@@ -169,6 +196,7 @@ export async function runSearch(): Promise<void> {
 				.sort((a, b) => a.e.l.title.localeCompare(b.e.l.title))
 		: rankEntries(queryOf(text), entries, { byDistance: !all });
 	s.rows = hits;
+	s.limit = SEARCH_SHOWN_INIT;
 	s.ids = new Set(hits.filter((h: any) => h.here).map((h: any) => h.e.l.id));
 	const selIdx = state.selected != null ? hits.findIndex((h: any) => h.here && h.e.l.id === state.selected) : -1;
 	s.idx = selIdx;
@@ -193,12 +221,14 @@ export function syncSideClose(): void {
 }
 
 export function leaveSearch(): void {
+	cancelSearchDebounce();
 	const s = state.search;
 	endPreview({ instant: true });
 	s.run++;
 	s.active = false;
 	s.ids = null;
 	s.rows = [];
+	s.limit = SEARCH_SHOWN_INIT;
 	s.busy = false;
 	s.wild = false;
 	s.idx = -1;
@@ -216,27 +246,51 @@ function resultHtml(h: any, i: number): string {
 		found = state.found.has(l.id);
 	const icon = e.cat ? iconHtml(e.cat.icon, e.cat.color || e.col) : "";
 	const sub = [e.cat?.title, here ? "" : mapName(e.slug)].filter(Boolean).join(" · ");
+	const desc = l.desc ? truncateDesc(l.desc) : "";
 	return (
 		`<li class="result${found ? " found" : ""}${i === state.search.idx ? " active" : ""}" data-id="${l.id}" data-map="${esc(e.slug)}">` +
 		`<div class="r-head"><span class="ico-wrap">${icon}</span><span class="r-title">${esc(l.title)}</span>${found ? '<span class="r-found">found</span>' : ""}</div>` +
 		`<div class="r-sub">${esc(sub)}</div>` +
-		(l.desc ? `<div class="r-desc">${renderMd(l.desc)}</div>` : "") +
+		(desc ? `<div class="r-desc">${esc(desc)}</div>` : "") +
 		"</li>"
 	);
 }
 
+export function showMoreResults(): void {
+	const s = state.search;
+	const cap = Math.min(s.rows.length, SEARCH_SHOWN_MAX);
+	if (s.limit >= cap) return;
+	s.limit = Math.min(s.limit + SEARCH_SHOWN_INIT, cap);
+	renderResults();
+}
+
 export function renderResults(): void {
 	const s = state.search,
-		n = s.rows.length;
+		n = s.rows.length,
+		shownCap = Math.min(n, SEARCH_SHOWN_MAX),
+		limit = Math.min(s.limit || SEARCH_SHOWN_INIT, shownCap);
 	const resEl = $("#results");
-	if (resEl) resEl.innerHTML = s.rows.slice(0, SEARCH_SHOWN).map(resultHtml).join("");
+	if (resEl) {
+		let html = s.rows.slice(0, limit).map(resultHtml).join("");
+		if (shownCap > limit) {
+			const remaining = shownCap - limit;
+			const nextChunk = Math.min(remaining, SEARCH_SHOWN_INIT);
+			html +=
+				`<li class="results-more-row">` +
+				`<button type="button" id="results-more-btn" class="results-more-btn">` +
+				`Show more (${fmt(nextChunk)} more, ${fmt(remaining)} left)` +
+				`</button>` +
+				`</li>`;
+		}
+		resEl.innerHTML = html;
+	}
 	const bar = $("#results-bar");
 	if (bar) {
 		bar.querySelector(".r-count")!.textContent = s.busy
 			? "Searching the other maps…"
 			: n === 0
 				? "No matches"
-				: `${fmt(n)} result${n === 1 ? "" : "s"}${n > SEARCH_SHOWN ? `, first ${SEARCH_SHOWN} listed` : ""}`;
+				: `${fmt(n)} result${n === 1 ? "" : "s"}${n > limit ? `, ${limit} shown` : ""}`;
 	}
 	// a game with one map has nothing to choose between: the pills are not there at all
 	const scope = $("#scope-switch");
