@@ -47,6 +47,7 @@ import {
 	isLocalLocHref,
 	mapgenieLocId,
 } from "../src/client/map/markdown.ts";
+import { buildMarkerFilter } from "../src/client/map/marker-filter.ts";
 import { parseDemoPresets } from "../src/client/map/presets.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf, truncateDesc } from "../src/client/map/search.ts";
@@ -685,6 +686,67 @@ describe("modularized map and home helpers", () => {
 		expect(demoRes[0].name).toBe("Fast Travel");
 		expect(demoRes[0].id).toBe("demo-169706");
 		expect(demoRes[0].hidden.sort()).toEqual([100, 200]);
+
+		// buildMarkerFilter
+		// 1. Default / empty options returns null (no filter, all visible)
+		expect(buildMarkerFilter({})).toBeNull();
+
+		// 2. Hidden categories
+		expect(buildMarkerFilter({ hiddenCats: [10, 20] })).toEqual([
+			"!",
+			["in", ["get", "cat"], ["literal", [10, 20]]],
+		]);
+
+		// 3. Hide found
+		expect(buildMarkerFilter({ hideFound: true })).toEqual(["!=", ["get", "f"], 1]);
+
+		// 4. Tag selection: untagged
+		expect(buildMarkerFilter({ tag: "untagged" })).toEqual(["==", ["length", ["get", "tags"]], 0]);
+
+		// 5. Tag selection: numeric non-strict (matches tag OR has 0 tags)
+		expect(buildMarkerFilter({ tag: 5, tagStrict: false })).toEqual([
+			"any",
+			["in", 5, ["get", "tags"]],
+			["==", ["length", ["get", "tags"]], 0],
+		]);
+
+		// 6. Tag selection: numeric strict (only matches tag)
+		expect(buildMarkerFilter({ tag: 5, tagStrict: true })).toEqual(["in", 5, ["get", "tags"]]);
+
+		// 7. Search active with matched IDs
+		expect(buildMarkerFilter({ searchIds: [101, 102] })).toEqual(["in", ["get", "id"], ["literal", [101, 102]]]);
+
+		// 8. Search active with empty matched IDs (nothing matches search)
+		expect(buildMarkerFilter({ searchIds: [] })).toBe(false);
+
+		// 9. Pinned / selected marker kept visible even if category is hidden, search is active, or hide-found is on
+		const pinnedFilter = buildMarkerFilter({
+			pinnedIds: [999],
+			hiddenCats: [10],
+			hideFound: true,
+			searchIds: [101],
+		});
+		expect(pinnedFilter).toEqual([
+			"any",
+			["in", ["get", "id"], ["literal", [999]]],
+			[
+				"all",
+				["!", ["in", ["get", "cat"], ["literal", [10]]]],
+				["!=", ["get", "f"], 1],
+				["in", ["get", "id"], ["literal", [101]]],
+			],
+		]);
+
+		// 10. Pinned when no other filters active returns null (everything is visible anyway)
+		expect(buildMarkerFilter({ pinnedIds: [999] })).toBeNull();
+
+		// 11. Region filter
+		expect(buildMarkerFilter({ matchingRegions: [100, 101] })).toEqual([
+			"in",
+			["get", "region"],
+			["literal", [100, 101]],
+		]);
+		expect(buildMarkerFilter({ matchingRegions: [] })).toBe(false);
 
 		// normalizeTextSizeExpression
 		const interpolated = ["interpolate", ["linear"], ["zoom"], 8, 8, 12, 24];

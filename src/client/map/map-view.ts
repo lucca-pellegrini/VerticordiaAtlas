@@ -12,6 +12,7 @@ import { setupCapture } from "./capture.ts";
 import { closeCtx, closeDetail, dismiss, mapMenuAt, renderDetail, select, updateLinkHeads } from "./detail.ts";
 import { setupDrawing } from "./drawing.ts";
 import { renderMd } from "./markdown.ts";
+import { buildMarkerFilter } from "./marker-filter.ts";
 import { loadMapState, migratePresets, renderPresets } from "./presets.ts";
 import { isSavePending, loadProfiles, saveProfileNow, scheduleSave, syncTagStrict } from "./profiles.ts";
 import { runSearch } from "./search.ts";
@@ -1727,34 +1728,37 @@ export function relatedOf(id: number): Set<number> {
 	return out;
 }
 
-export function refreshMap(): void {
-	if (!state.mapReady) return;
-	const sel = state.selected,
-		rel = sel != null ? relatedOf(sel) : new Set<number>();
+let markerSourcesDirty = true;
+export function invalidateMarkerSource(): void {
+	markerSourcesDirty = true;
+}
+
+export function rebuildMarkerSource(): void {
+	if (!state.mapReady || !state.map) return;
+	const mapStyle = state.data?.styles?.mapStyle;
 	const symbolFeats: any[] = [];
 	const circleFeats: any[] = [];
 	const textFeats: any[] = [];
-	const mapStyle = state.data?.styles?.mapStyle;
 
 	for (const l of state.locs) {
-		// the card's marker and the markers it links to are always drawn: a filter (hidden category, hide found, a search)
-		// must not hide what the card is about
-		const pinned = l.id === sel || rel.has(l.id);
-		if (!pinned) {
-			if (!shownOnMap(l)) continue;
-			if (state.search.ids && !state.search.ids.has(l.id)) continue; // while searching: the matches only
-		}
 		const cat = state.cats?.get(l.cat);
 		const cStyle = circleStyleOf(cat, mapStyle);
 		const tStyle = textStyleOf(cat, l, state.data?.styles);
 		const f = state.found.has(l.id) ? 1 : 0;
+		const baseProps = {
+			id: l.id,
+			cat: l.cat,
+			tags: l.tags || [],
+			region: l.region ?? null,
+			f,
+		};
 
 		if (tStyle.isText) {
 			textFeats.push({
 				type: "Feature",
 				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
 				properties: {
-					id: l.id,
+					...baseProps,
 					title: tStyle.title || l.title || "",
 					"text-color": tStyle.textColor,
 					"text-halo-color": tStyle.haloColor,
@@ -1764,7 +1768,6 @@ export function refreshMap(): void {
 					"text-size-10": tStyle.size10,
 					"text-size-11": tStyle.size11,
 					"text-size-16": tStyle.size16,
-					f,
 				},
 			});
 		}
@@ -1774,12 +1777,11 @@ export function refreshMap(): void {
 				type: "Feature",
 				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
 				properties: {
-					id: l.id,
+					...baseProps,
 					color: cStyle.color,
 					strokeColor: cStyle.strokeColor,
 					radius: cStyle.radius,
 					opacity: cStyle.opacity,
-					f,
 				},
 			});
 		} else if (tStyle.alsoMarker) {
@@ -1787,18 +1789,63 @@ export function refreshMap(): void {
 			symbolFeats.push({
 				type: "Feature",
 				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
-				properties: { id: l.id, icon, f, z: f ? 0 : 1 },
+				properties: {
+					...baseProps,
+					icon,
+					z: f ? 0 : 1,
+				},
 			});
 		}
 	}
-	state.map.getSource("locs").setData({ type: "FeatureCollection", features: symbolFeats });
+
+	const locsSrc = state.map.getSource("locs");
+	if (locsSrc) locsSrc.setData({ type: "FeatureCollection", features: symbolFeats });
 	const circleSrc = state.map.getSource("locs-circles");
 	if (circleSrc) circleSrc.setData({ type: "FeatureCollection", features: circleFeats });
 	const textSrc = state.map.getSource("locs-text");
 	if (textSrc) textSrc.setData({ type: "FeatureCollection", features: textFeats });
+	markerSourcesDirty = false;
+}
+
+export function refreshMap(): void {
+	if (!state.mapReady) return;
+	const map = state.map;
+	if (markerSourcesDirty) {
+		rebuildMarkerSource();
+	}
+
+	const sel = state.selected,
+		rel = sel != null ? relatedOf(sel) : new Set<number>();
+	const pinnedIds = sel != null ? [sel, ...rel] : [];
+
+	let matchingRegions: number[] | null = null;
+	if (state.regionFilter != null) {
+		const rf = state.regionFilter;
+		matchingRegions = [rf];
+		for (const r of state.regions || []) {
+			if (r.parent_region_id === rf) matchingRegions.push(r.id);
+		}
+	}
+
+	const searchIds = state.search.active && !state.search.wild && state.search.ids ? state.search.ids : null;
+
+	const filter = buildMarkerFilter({
+		hiddenCats: state.view?.hidden,
+		tag: state.tag,
+		tagStrict: state.tagStrict,
+		hideFound: state.view?.hideFound,
+		matchingRegions,
+		searchIds,
+		pinnedIds,
+	});
+
+	if (map.getLayer("locs")) map.setFilter("locs", filter);
+	if (map.getLayer("locs-circles")) map.setFilter("locs-circles", filter);
+	if (map.getLayer("locs-text")) map.setFilter("locs-text", filter);
 
 	// synchronize location feature polygons & lines
 	const visibleGeomLocs = state.locs.filter((l: any) => {
+		if (!l.features || !l.features.length) return false;
 		const pinned = l.id === sel || rel.has(l.id);
 		if (pinned) return true;
 		if (!shownOnMap(l)) return false;
@@ -1806,9 +1853,9 @@ export function refreshMap(): void {
 		return true;
 	});
 	const geoms = buildLocationGeometryFeatures(visibleGeomLocs, state.data?.styles, state.cats);
-	const fillSrc = state.map.getSource("loc-fills");
+	const fillSrc = map.getSource("loc-fills");
 	if (fillSrc) fillSrc.setData(geoms.fills);
-	const lineSrc = state.map.getSource("loc-lines");
+	const lineSrc = map.getSource("loc-lines");
 	if (lineSrc) lineSrc.setData(geoms.lines);
 
 	syncRelatedRings(rel);
@@ -1847,6 +1894,7 @@ function placeRelatedRings(): void {
 }
 
 export function refreshAll(): void {
+	invalidateMarkerSource();
 	updateSidebar();
 	renderPresets(); // the tag and its switch change which categories count as selected
 	refreshMap();
