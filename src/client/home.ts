@@ -328,8 +328,6 @@ export function orderGames<T extends { slug: string }>(games: T[], recentSlugs: 
 	return ordered;
 }
 
-let latestManifestGames: GameManifestEntry[] = [];
-
 async function main(): Promise<void> {
 	const list = document.getElementById("game-list")!;
 	const fail = (msg: string) =>
@@ -379,8 +377,6 @@ async function main(): Promise<void> {
 	await syncOfflineCardStates();
 
 	setupSearch(list);
-	latestManifestGames = index.games;
-	if (isOnlineState) void prefetchPosters(index.games);
 }
 
 // Search: a card matches by its title or description, exactly or with typos (shared/search.ts).
@@ -532,6 +528,7 @@ function posterSrc(g: GameManifestEntry, size: number): string {
 	return /\.(jpe?g|png|webp|avif)$/i.test(g.poster) ? `maps/${g.poster}` : `maps/${g.poster}-${size}.webp`;
 }
 
+// shortcut: posters are only lazy-loaded on demand instead of prefetched, cache them if an offline homepage is added
 export function posterUrlsForGame(g: GameManifestEntry): string[] {
 	if (!g.poster) return [];
 	if (/\.(jpe?g|png|webp|avif)$/i.test(g.poster)) {
@@ -548,45 +545,6 @@ export function allPosterUrls(games: readonly GameManifestEntry[]): string[] {
 		}
 	}
 	return [...set];
-}
-
-export async function prefetchPosters(games: readonly GameManifestEntry[]): Promise<void> {
-	if (typeof window === "undefined") return;
-	if (typeof navigator !== "undefined" && (!navigator.onLine || !isOnlineState)) return;
-	const urls = allPosterUrls(games);
-	if (!urls.length) return;
-
-	if ("serviceWorker" in navigator) {
-		try {
-			const reg = await navigator.serviceWorker.ready;
-			if (reg.active) {
-				reg.active.postMessage({ type: "va-cache-posters", urls });
-			}
-		} catch {}
-	}
-
-	const schedule = (cb: () => void) => {
-		if (typeof requestIdleCallback !== "undefined") {
-			requestIdleCallback(cb, { timeout: 3000 });
-		} else {
-			setTimeout(cb, 150);
-		}
-	};
-
-	schedule(async () => {
-		const concurrency = 4;
-		let idx = 0;
-		const worker = async () => {
-			while (idx < urls.length) {
-				if (typeof navigator !== "undefined" && (!navigator.onLine || !isOnlineState)) break;
-				const u = urls[idx++];
-				try {
-					await fetch(u, { priority: "low" } as RequestInit);
-				} catch {}
-			}
-		};
-		await Promise.all(Array.from({ length: concurrency }, () => worker()));
-	});
 }
 
 const pct = (f: number, n: number): number => (n ? Math.floor((1000 * f) / n) / 10 : 0);
@@ -838,10 +796,7 @@ if (typeof document !== "undefined") {
 		true,
 	);
 
-	window.addEventListener("online", () => {
-		void syncOfflineCardStates();
-		if (latestManifestGames.length) void prefetchPosters(latestManifestGames);
-	});
+	window.addEventListener("online", () => void syncOfflineCardStates());
 	window.addEventListener("offline", () => void syncOfflineCardStates());
 	window.addEventListener("focus", () => void syncOfflineCardStates());
 	if ("serviceWorker" in navigator) {
