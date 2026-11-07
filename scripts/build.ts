@@ -57,11 +57,9 @@ async function runBundle(target: BuildTarget): Promise<boolean> {
 	const outPath = path.join(REPO, target.outfile);
 	const result = await Bun.build({
 		entrypoints: [entryPath],
-		outdir: path.dirname(outPath),
-		naming: path.basename(outPath),
 		target: "browser",
 		format: target.format ?? "esm",
-		minify: false,
+		minify: true,
 		sourcemap: "none",
 		...(target.define ? { define: target.define } : {}),
 	});
@@ -69,6 +67,15 @@ async function runBundle(target: BuildTarget): Promise<boolean> {
 		const msg = result.logs.map((l) => l.message || String(l)).join("\n");
 		throw new Error(`Bun.build failed for ${target.entry}:\n${msg}`);
 	}
+	const newBuf = await result.outputs[0].arrayBuffer();
+	const newBytes = new Uint8Array(newBuf);
+	if (await exists(outPath)) {
+		const existingBytes = await Bun.file(outPath).bytes();
+		if (Buffer.compare(newBytes, existingBytes) === 0) {
+			return true;
+		}
+	}
+	await Bun.write(outPath, newBytes);
 	return true;
 }
 
