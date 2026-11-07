@@ -49,8 +49,11 @@ import {
 	_setActiveDownloadForTest,
 	DOTS_SVG,
 	downloadDiscardSummary,
+	inActiveRegion,
 	moreBtnProgressIcon,
+	renderRegionNavigator,
 	renderTilesetMenu,
+	setRegionFilter,
 } from "../src/client/map/sidebar.ts";
 import { iconScale, state, vivid } from "../src/client/map/state.ts";
 import {
@@ -664,6 +667,18 @@ describe("modularized map and home helpers", () => {
 		const tsMarker = textStyleOf(regularCat, { id: 103, title: "Chest" }, totkStyles);
 		expect(tsMarker.isText).toBe(false);
 		expect(tsMarker.alsoMarker).toBe(true);
+
+		// inActiveRegion and region filtering logic
+		state.regionById = new Map([
+			[100, { id: 100, title: "Surface", parent_region_id: null }],
+			[101, { id: 101, title: "Akkala", parent_region_id: 100 }],
+			[200, { id: 200, title: "Depths", parent_region_id: null }],
+		]);
+		expect(inActiveRegion({ region: 101 }, null)).toBe(true);
+		expect(inActiveRegion({ region: 101 }, 101)).toBe(true);
+		expect(inActiveRegion({ region: 101 }, 100)).toBe(true); // matches child of parent
+		expect(inActiveRegion({ region: 101 }, 200)).toBe(false);
+		expect(inActiveRegion({ region: null }, 100)).toBe(false);
 	});
 });
 
