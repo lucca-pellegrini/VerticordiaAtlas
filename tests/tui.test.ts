@@ -587,6 +587,168 @@ describe("TUI ecosystem components & helpers", () => {
 		testEnv.dispose();
 	});
 
+	test("server-dashboard live monitor chronological order, timestamps, scrollback, pane focus, and clipboard copy", async () => {
+		const testEnv = await createTestRenderer({ width: 120, height: 32 });
+		let exitTriggered = false;
+		const copiedTexts: string[] = [];
+		const mockClipboardWrites: { text: string; options?: any }[] = [];
+
+		const dashboard = await createServerDashboard({
+			host: "127.0.0.1",
+			port: 8080,
+			renderer: testEnv.renderer,
+			onExit: () => {
+				exitTriggered = true;
+			},
+			onCopy: (text) => {
+				copiedTexts.push(text);
+			},
+			clipboard: {
+				writeText(text: string, options?: any) {
+					mockClipboardWrites.push({ text, options });
+					return Promise.resolve({ status: "written" });
+				},
+			},
+		});
+
+		const baseTime = new Date(2026, 0, 15, 14, 23, 5).getTime();
+		// Push 20 HTTP request events with incrementing timestamps
+		for (let i = 1; i <= 20; i++) {
+			dashboard.onRequest({
+				method: "GET",
+				path: `/maps/req-${String(i).padStart(2, "0")}`,
+				status: 200,
+				durationMs: 3,
+				time: baseTime + i * 1000,
+			});
+		}
+
+		await testEnv.renderOnce();
+		let frame = testEnv.captureCharFrame();
+		// Verify timestamps are rendered (14:23:xx) and newest item (/maps/req-20) appears BELOW older items (/maps/req-19)
+		expect(frame).toContain("14:23:25 [GET 200] /maps/req-20");
+		expect(frame).toContain("14:23:24 [GET 200] /maps/req-19");
+		const idx19 = frame.indexOf("/maps/req-19");
+		const idx20 = frame.indexOf("/maps/req-20");
+		expect(idx19).toBeGreaterThan(0);
+		expect(idx20).toBeGreaterThan(idx19);
+
+		// Press Tab to focus first pane (LIVE HTTP REQUESTS)
+		testEnv.renderer.keyInput.emit("keypress", { name: "tab", shift: false } as any);
+		await testEnv.renderOnce();
+		frame = testEnv.captureCharFrame();
+		expect(frame).toContain("▸ LIVE HTTP REQUESTS [FOCUSED]");
+
+		// Press Shift+Tab to cycle backwards to fourth pane (TILE ENGINE & CACHE), then Tab back to pane 0
+		testEnv.renderer.keyInput.emit("keypress", { name: "tab", shift: true } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("▸ TILE ENGINE & CACHE [FOCUSED]");
+		testEnv.renderer.keyInput.emit("keypress", { name: "tab", shift: false } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("▸ LIVE HTTP REQUESTS [FOCUSED]");
+
+		// Scroll up 1 line with 'k' and 1 line with 'up' arrow
+		testEnv.renderer.keyInput.emit("keypress", { name: "k" } as any);
+		testEnv.renderer.keyInput.emit("keypress", { name: "up" } as any);
+		await testEnv.renderOnce();
+		frame = testEnv.captureCharFrame();
+		expect(frame).toContain("▸ LIVE HTTP REQUESTS [↑ -2]");
+		expect(frame).not.toContain("/maps/req-20");
+		expect(frame).toContain("/maps/req-18");
+
+		// Scroll down 1 line with 'j'
+		testEnv.renderer.keyInput.emit("keypress", { name: "j" } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("▸ LIVE HTTP REQUESTS [↑ -1]");
+
+		// Half-page up with Ctrl+u, then half-page down with Ctrl+d
+		testEnv.renderer.keyInput.emit("keypress", { name: "u", ctrl: true } as any);
+		await testEnv.renderOnce();
+		frame = testEnv.captureCharFrame();
+		expect(frame).not.toContain("[↑ -1]");
+
+		testEnv.renderer.keyInput.emit("keypress", { name: "d", ctrl: true } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("▸ LIVE HTTP REQUESTS [↑ -1]");
+
+		// Full-page up with Ctrl+b and PageUp, then down with PageDown and Ctrl+f
+		testEnv.renderer.keyInput.emit("keypress", { name: "b", ctrl: true } as any);
+		testEnv.renderer.keyInput.emit("keypress", { name: "pageup" } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("/maps/req-01");
+
+		testEnv.renderer.keyInput.emit("keypress", { name: "pagedown" } as any);
+		testEnv.renderer.keyInput.emit("keypress", { name: "f", ctrl: true } as any);
+		await testEnv.renderOnce();
+
+		// Scroll all the way to the top with 'g' and down to the bottom with 'G'
+		testEnv.renderer.keyInput.emit("keypress", { name: "g", shift: false } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("/maps/req-01");
+		expect(testEnv.captureCharFrame()).not.toContain("/maps/req-20");
+
+		testEnv.renderer.keyInput.emit("keypress", { name: "g", shift: true, sequence: "G" } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("/maps/req-20");
+
+		// Scroll all the way to the top with 'home' and down to the bottom with 'end'
+		testEnv.renderer.keyInput.emit("keypress", { name: "home" } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("/maps/req-01");
+
+		testEnv.renderer.keyInput.emit("keypress", { name: "end" } as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("/maps/req-20");
+
+		// Mouse wheel scroll up on LIVE HTTP REQUESTS pane (around x=15, y=8)
+		await testEnv.mockMouse.scroll(15, 8, "up");
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("▸ LIVE HTTP REQUESTS [↑ -");
+
+		// Pressing Esc unfocuses all panes and returns to the bottom, following new lines
+		testEnv.renderer.keyInput.emit("keypress", { name: "escape" } as any);
+		await testEnv.renderOnce();
+		frame = testEnv.captureCharFrame();
+		expect(frame).not.toContain("[FOCUSED]");
+		expect(frame).not.toContain("[↑ -");
+		expect(frame).toContain("/maps/req-20");
+
+		// New event arrives and is automatically followed at the bottom
+		dashboard.onRequest({
+			method: "POST",
+			path: "/maps/req-21",
+			status: 201,
+			durationMs: 4,
+			time: baseTime + 21 * 1000,
+		});
+		await new Promise((r) => setTimeout(r, 120));
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("/maps/req-21");
+
+		// Select text in the header or HTTP pane by dragging with the mouse and copy with Ctrl+Shift+C
+		const lines = testEnv.captureCharFrame().split("\n");
+		const reqLineY = lines.findIndex((l) => l.includes("/maps/req-21"));
+		expect(reqLineY).toBeGreaterThan(0);
+		const reqLineX = lines[reqLineY].indexOf("/maps/req-21");
+		await testEnv.mockMouse.drag(reqLineX, reqLineY, reqLineX + 12, reqLineY);
+		await testEnv.renderOnce();
+
+		// Press Ctrl+Shift+C: must copy selection and MUST NOT trigger onExit
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "c",
+			ctrl: true,
+			shift: true,
+		} as any);
+		await testEnv.renderOnce();
+		expect(exitTriggered).toBe(false);
+		expect(dashboard.getLastCopiedText?.()).toContain("/maps/req-21");
+		expect(copiedTexts.some((t) => t.includes("/maps/req-21"))).toBe(true);
+		expect(mockClipboardWrites.some((w) => w.text.includes("/maps/req-21"))).toBe(true);
+
+		await dashboard.destroy();
+		testEnv.dispose();
+	});
+
 	test("server-dashboard keeps the outer right border intact with symmetric inner padding", async () => {
 		const termW = 100;
 		const termH = 30;

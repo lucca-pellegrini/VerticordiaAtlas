@@ -170,7 +170,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		const display = logs.slice(-logLinesPool.length);
 		const maxCol = Math.max(20, boxW - 8);
 		for (let i = 0; i < logLinesPool.length; i++) {
-			const item = display[display.length - 1 - i];
+			const item = display[i];
 			if (item) {
 				const truncated = item.length > maxCol ? item.slice(0, maxCol - 1) + "…" : item;
 				logLinesPool[i].content = truncated;
@@ -228,8 +228,11 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		addLog(line: string) {
 			const trimmed = line.trim();
 			if (!trimmed) return;
-			logs.push(trimmed);
-			if (logs.length > 200) logs.shift();
+			const d = new Date();
+			const ts = `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(d.getSeconds()).padStart(2, "0")}`;
+			const entry = /^\d{2}:\d{2}:\d{2}\b/.test(trimmed) ? trimmed : `${ts} ${trimmed}`;
+			logs.push(entry);
+			if (logs.length > 1000) logs.shift();
 			updateLogDisplay();
 		},
 		finish(success: boolean, message?: string) {

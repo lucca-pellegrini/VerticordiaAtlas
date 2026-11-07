@@ -4,7 +4,15 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { BoxRenderable, createCliRenderer, type KeyEvent, TextRenderable } from "@opentui/core";
+import {
+	BoxRenderable,
+	createCliRenderer,
+	createHostClipboard,
+	type HostClipboardService,
+	type KeyEvent,
+	type MouseEvent,
+	TextRenderable,
+} from "@opentui/core";
 
 import { fmt } from "../../src/shared/escape.js";
 import { runAddGamePipeline } from "../add-game.js";
@@ -24,12 +32,32 @@ import {
 	throbberFrame,
 } from "./theme.js";
 
+export const MONITOR_SCROLLBACK_LIMIT = 1000;
+
+export function fmtClock(ms: number): string {
+	const d = new Date(ms);
+	const hh = String(d.getHours()).padStart(2, "0");
+	const mm = String(d.getMinutes()).padStart(2, "0");
+	const ss = String(d.getSeconds()).padStart(2, "0");
+	return `${hh}:${mm}:${ss}`;
+}
+
+function fitLine(str: string, maxCols: number): string {
+	if (maxCols <= 1) return str.slice(0, Math.max(0, maxCols));
+	return str.length > maxCols ? str.slice(0, maxCols - 1) + "…" : str;
+}
+
 export interface ServerDashboardOptions {
 	host: string;
 	port: number;
 	noTui?: boolean;
 	renderer?: any;
 	onExit?: () => void;
+	onCopy?: (text: string) => void;
+	clipboard?: {
+		writeText(text: string, options?: any): Promise<any> | any;
+		dispose?(): Promise<void> | void;
+	};
 }
 
 export interface HttpRequestEvent {
@@ -37,6 +65,7 @@ export interface HttpRequestEvent {
 	path: string;
 	status: number;
 	durationMs: number;
+	time?: number;
 }
 
 export interface CardRenderEvent {
@@ -44,21 +73,24 @@ export interface CardRenderEvent {
 	key: string;
 	durationMs: number;
 	cached: boolean;
+	time?: number;
 }
 
 export interface TileEvent {
 	action: "stored" | "cached" | "derived" | "miss";
 	path: string;
 	durationMs?: number;
+	time?: number;
 }
 
 export interface ServerDashboard {
 	onRequest(ev: HttpRequestEvent): void;
 	onCard(ev: CardRenderEvent): void;
 	onTile(ev: TileEvent): void;
-	onSync(action: string, detail: string): void;
-	onApi(action: string, detail: string): void;
+	onSync(action: string, detail: string, time?: number): void;
+	onApi(action: string, detail: string, time?: number): void;
 	setWsCount(count: number): void;
+	getLastCopiedText?(): string;
 	destroy(): void | Promise<void>;
 }
 
@@ -81,11 +113,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	let derivedTiles = 0;
 	let wsCount = 0;
 	let activeThrobberFrame = throbberFrame(0);
+	let lastCopiedText = "";
+	let copiedUntil = 0;
 
-	const recentRequests: HttpRequestEvent[] = [];
-	const recentCards: CardRenderEvent[] = [];
+	const recentRequests: (HttpRequestEvent & { time: number })[] = [];
+	const recentCards: (CardRenderEvent & { time: number })[] = [];
 	const recentSyncs: { time: number; action: string; detail: string }[] = [];
-	const recentTiles: TileEvent[] = [];
+	const recentTiles: (TileEvent & { time: number })[] = [];
 
 	const isInteractive = Boolean(opts.renderer) || isInteractiveTty(opts.noTui);
 
@@ -122,6 +156,9 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			},
 			setWsCount(count) {
 				wsCount = count;
+			},
+			getLastCopiedText() {
+				return lastCopiedText;
 			},
 			destroy() {},
 		};
@@ -250,6 +287,81 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	});
 	let leftW = Math.floor((boxW - 4) * 0.52);
 
+	let focusedPaneIdx: number | null = null;
+	let hoveredPaneIdx: number | null = null;
+	const scrollOffsets: [number, number, number, number] = [0, 0, 0, 0];
+
+	let maxEventLines = Math.max(3, Math.floor((boxH - 12) / 2));
+	let maxTileLines = Math.max(2, maxEventLines - 1);
+
+	const paneBaseTitles = [
+		"LIVE HTTP REQUESTS",
+		"SOCIAL CARDS (HEADLESS CHROMIUM)",
+		"API & SYNC HUB (WEBSOCKET / SQLite)",
+		"TILE ENGINE & CACHE",
+	] as const;
+
+	function getPaneBufferLength(paneIdx: number): number {
+		if (paneIdx === 0) return recentRequests.length;
+		if (paneIdx === 1) return recentCards.length;
+		if (paneIdx === 2) return recentSyncs.length;
+		return recentTiles.length;
+	}
+
+	function getPaneVisibleLines(paneIdx: number): number {
+		return paneIdx === 3 ? maxTileLines : maxEventLines;
+	}
+
+	function clampPaneScroll(paneIdx: number) {
+		const maxOff = Math.max(0, getPaneBufferLength(paneIdx) - getPaneVisibleLines(paneIdx));
+		if (scrollOffsets[paneIdx] > maxOff) scrollOffsets[paneIdx] = maxOff;
+		if (scrollOffsets[paneIdx] < 0) scrollOffsets[paneIdx] = 0;
+	}
+
+	function scrollPane(paneIdx: number, deltaLines: number) {
+		scrollOffsets[paneIdx] += deltaLines;
+		clampPaneScroll(paneIdx);
+	}
+
+	function pushToPaneBuffer<T>(buf: T[], item: T, paneIdx: number) {
+		buf.push(item);
+		const shifted = buf.length > MONITOR_SCROLLBACK_LIMIT;
+		if (shifted) buf.shift();
+		if (scrollOffsets[paneIdx] > 0 && !shifted) {
+			scrollOffsets[paneIdx]++;
+		}
+		clampPaneScroll(paneIdx);
+	}
+
+	function makePaneMouseHandlers(paneIdx: number) {
+		return {
+			onMouseOver() {
+				hoveredPaneIdx = paneIdx;
+			},
+			onMouseOut() {
+				if (hoveredPaneIdx === paneIdx) hoveredPaneIdx = null;
+			},
+			onMouseDown() {
+				if (focusedPaneIdx !== paneIdx) {
+					focusedPaneIdx = paneIdx;
+					renderUi(true);
+				}
+			},
+			onMouseScroll(ev: MouseEvent) {
+				focusedPaneIdx = paneIdx;
+				const dir = ev.scroll?.direction;
+				const step = Math.max(1, ev.scroll?.delta || 1);
+				if (dir === "up") {
+					scrollPane(paneIdx, step);
+					renderUi(true);
+				} else if (dir === "down") {
+					scrollPane(paneIdx, -step);
+					renderUi(true);
+				}
+			},
+		};
+	}
+
 	const httpPane = new BoxRenderable(renderer, {
 		width: leftW,
 		flexDirection: "column",
@@ -257,8 +369,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		borderColor: RGBA_THEME.borderDim,
 		paddingX: 1,
 		paddingY: 0,
+		...makePaneMouseHandlers(0),
 	});
-	httpPane.add(new TextRenderable(renderer, { content: "LIVE HTTP REQUESTS", fg: THEME.peach }));
+	const httpTitle = new TextRenderable(renderer, { content: paneBaseTitles[0], fg: THEME.peach });
+	httpPane.add(httpTitle);
 
 	const cardPane = new BoxRenderable(renderer, {
 		flexGrow: 1,
@@ -267,8 +381,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		borderColor: RGBA_THEME.borderDim,
 		paddingX: 1,
 		paddingY: 0,
+		...makePaneMouseHandlers(1),
 	});
-	cardPane.add(new TextRenderable(renderer, { content: "SOCIAL CARDS (HEADLESS CHROMIUM)", fg: THEME.teal }));
+	const cardTitle = new TextRenderable(renderer, { content: paneBaseTitles[1], fg: THEME.teal });
+	cardPane.add(cardTitle);
 
 	topRow.add(httpPane);
 	topRow.add(cardPane);
@@ -287,8 +403,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		borderColor: RGBA_THEME.borderDim,
 		paddingX: 1,
 		paddingY: 0,
+		...makePaneMouseHandlers(2),
 	});
-	syncPane.add(new TextRenderable(renderer, { content: "API & SYNC HUB (WEBSOCKET / SQLite)", fg: THEME.mauve }));
+	const syncTitle = new TextRenderable(renderer, { content: paneBaseTitles[2], fg: THEME.mauve });
+	syncPane.add(syncTitle);
 
 	const tilePane = new BoxRenderable(renderer, {
 		flexGrow: 1,
@@ -297,8 +415,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		borderColor: RGBA_THEME.borderDim,
 		paddingX: 1,
 		paddingY: 0,
+		...makePaneMouseHandlers(3),
 	});
-	tilePane.add(new TextRenderable(renderer, { content: "TILE ENGINE & CACHE", fg: THEME.green }));
+	const tileTitle = new TextRenderable(renderer, { content: paneBaseTitles[3], fg: THEME.green });
+	tilePane.add(tileTitle);
 	const tileStats1 = new TextRenderable(renderer, {
 		content: "Total: 0 · Stored: 0 · Cache: 0 · Stitched: 0 (0.0%)",
 		fg: THEME.text,
@@ -308,6 +428,9 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	btmRow.add(syncPane);
 	btmRow.add(tilePane);
 	monitorRoot.add(btmRow);
+
+	const monitorPanes = [httpPane, cardPane, syncPane, tilePane];
+	const monitorTitles = [httpTitle, cardTitle, syncTitle, tileTitle];
 
 	function updatePaneLines(pane: BoxRenderable, lines: TextRenderable[], targetCount: number) {
 		while (lines.length < targetCount) {
@@ -321,9 +444,6 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		}
 	}
 
-	let maxEventLines = Math.max(3, Math.floor((boxH - 12) / 2));
-	let maxTileLines = Math.max(2, maxEventLines - 1);
-
 	const httpLines: TextRenderable[] = [];
 	const cardLines: TextRenderable[] = [];
 	const syncLines: TextRenderable[] = [];
@@ -333,6 +453,40 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	updatePaneLines(cardPane, cardLines, maxEventLines);
 	updatePaneLines(syncPane, syncLines, maxEventLines);
 	updatePaneLines(tilePane, tileLines, maxTileLines);
+
+	// Clipboard service: uses OpenTUI host clipboard when running interactively (or custom clipboard in tests)
+	let hostClipboard: HostClipboardService | NonNullable<ServerDashboardOptions["clipboard"]> | null =
+		opts.clipboard ?? null;
+	if (!hostClipboard && !opts.renderer) {
+		try {
+			hostClipboard = createHostClipboard();
+		} catch {}
+	}
+
+	function copySelectedText(): boolean {
+		const sel = renderer.getSelection?.();
+		const text = sel?.getSelectedText?.() || "";
+		if (!text) return false;
+		lastCopiedText = text;
+		copiedUntil = Date.now() + 2000;
+		opts.onCopy?.(text);
+		try {
+			void Promise.resolve(hostClipboard?.writeText(text)).catch(() => {});
+			void Promise.resolve(hostClipboard?.writeText(text, { selection: "primary" })).catch(() => {});
+		} catch {}
+		try {
+			if (renderer.isOsc52Supported?.()) {
+				renderer.copyToClipboardOSC52?.(text);
+			}
+		} catch {}
+		renderUi(true);
+		return true;
+	}
+
+	const onSelection = () => {
+		copySelectedText();
+	};
+	renderer.on?.("selection", onSelection);
 
 	// Tabs system
 	let activeTabIdx = 0;
@@ -352,9 +506,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	const origWarn = console.warn;
 	const origError = console.error;
 
-	function logApi(action: string, detail: string) {
-		recentSyncs.push({ time: Date.now(), action, detail });
-		if (recentSyncs.length > 50) recentSyncs.shift();
+	function logApi(action: string, detail: string, time = Date.now()) {
+		pushToPaneBuffer(recentSyncs, { time, action, detail }, 2);
 		renderUi(false);
 	}
 
@@ -805,13 +958,17 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		renderUi(true);
 	}
 
-	let lastRender = 0;
+	function slicePaneItems<T>(buf: T[], visibleCount: number, paneIdx: number): T[] {
+		clampPaneScroll(paneIdx);
+		const offset = scrollOffsets[paneIdx];
+		const endIdx = Math.max(0, buf.length - offset);
+		const startIdx = Math.max(0, endIdx - visibleCount);
+		return buf.slice(startIdx, endIdx);
+	}
 
-	function renderUi(force = false) {
+	function renderUi(_force = false) {
 		if (isDestroyed || (renderer as any).isDestroyed) return;
 		const now = Date.now();
-		if (!force && now - lastRender < 100) return;
-		lastRender = now;
 
 		const elapsed = (now - startTime) / 1000;
 		const runningJobs = runningJobTabs();
@@ -821,19 +978,34 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				: "";
 		subText.content = `http://${opts.host}:${opts.port}/ | Uptime: ${fmtTime(elapsed)} | WS: ${wsCount} active${activeJobs}`;
 
-		const maxPathLen = Math.max(24, Math.floor(boxW * 0.45) - 18);
+		const leftInnerW = Math.max(12, leftW - 4);
+		const rightInnerW = Math.max(12, boxW - 4 - leftW - 2 - 4);
+		const maxPathLen = Math.max(16, Math.floor(boxW * 0.45) - 27);
 
-		// HTTP lines
-		const displayHttp = recentRequests.slice(-httpLines.length);
+		for (let p = 0; p < 4; p++) {
+			clampPaneScroll(p);
+			const isFocused = focusedPaneIdx === p;
+			monitorPanes[p].borderColor = isFocused ? RGBA_THEME.borderFocus : RGBA_THEME.borderDim;
+			const innerW = p % 2 === 0 ? leftInnerW : rightInnerW;
+			const prefix = isFocused ? "▸ " : "";
+			const scrollBadge = scrollOffsets[p] > 0 ? ` [↑ -${scrollOffsets[p]}]` : isFocused ? " [FOCUSED]" : "";
+			monitorTitles[p].content = fitLine(`${prefix}${paneBaseTitles[p]}${scrollBadge}`, innerW);
+		}
+
+		// HTTP lines (chronological: oldest visible at top, newest at bottom)
+		const displayHttp = slicePaneItems(recentRequests, httpLines.length, 0);
 		for (let i = 0; i < httpLines.length; i++) {
-			const item = displayHttp[displayHttp.length - 1 - i];
+			const item = displayHttp[i];
 			if (item) {
 				let col = THEME.green;
 				if (item.status >= 500) col = THEME.red;
 				else if (item.status >= 400) col = THEME.yellow;
 				else if (item.status >= 300) col = THEME.blue;
 				const p = item.path.length > maxPathLen ? item.path.slice(0, maxPathLen - 1) + "…" : item.path;
-				httpLines[i].content = `[${item.method} ${item.status}] ${p} (${item.durationMs.toFixed(0)}ms)`;
+				httpLines[i].content = fitLine(
+					`${fmtClock(item.time)} [${item.method} ${item.status}] ${p} (${item.durationMs.toFixed(0)}ms)`,
+					leftInnerW,
+				);
 				httpLines[i].fg = col;
 			} else {
 				httpLines[i].content = "  ·";
@@ -841,15 +1013,18 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			}
 		}
 
-		// Card lines
-		const displayCards = recentCards.slice(-cardLines.length);
+		// Card lines (chronological: oldest visible at top, newest at bottom)
+		const displayCards = slicePaneItems(recentCards, cardLines.length, 1);
 		for (let i = 0; i < cardLines.length; i++) {
-			const item = displayCards[displayCards.length - 1 - i];
+			const item = displayCards[i];
 			if (item) {
 				const tag = item.cached ? "[CACHE]" : "[RENDER]";
 				const col = item.cached ? THEME.teal : THEME.peach;
 				const k = item.key.length > maxPathLen ? item.key.slice(0, maxPathLen - 1) + "…" : item.key;
-				cardLines[i].content = `${tag} ${item.type}: ${k} (${item.durationMs.toFixed(0)}ms)`;
+				cardLines[i].content = fitLine(
+					`${fmtClock(item.time)} ${tag} ${item.type}: ${k} (${item.durationMs.toFixed(0)}ms)`,
+					rightInnerW,
+				);
 				cardLines[i].fg = col;
 			} else {
 				cardLines[i].content = "  ·";
@@ -857,13 +1032,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			}
 		}
 
-		// Sync lines
-		const displaySyncs = recentSyncs.slice(-syncLines.length);
+		// Sync lines (chronological: oldest visible at top, newest at bottom)
+		const displaySyncs = slicePaneItems(recentSyncs, syncLines.length, 2);
 		for (let i = 0; i < syncLines.length; i++) {
-			const item = displaySyncs[displaySyncs.length - 1 - i];
+			const item = displaySyncs[i];
 			if (item) {
 				const det = item.detail.length > maxPathLen ? item.detail.slice(0, maxPathLen - 1) + "…" : item.detail;
-				syncLines[i].content = `[${item.action}] ${det}`;
+				syncLines[i].content = fitLine(`${fmtClock(item.time)} [${item.action}] ${det}`, leftInnerW);
 				syncLines[i].fg = THEME.mauve;
 			} else {
 				syncLines[i].content = "  ·";
@@ -871,10 +1046,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			}
 		}
 
-		// Tile lines & stats
-		const displayTiles = recentTiles.slice(-tileLines.length);
+		// Tile lines & stats (chronological: oldest visible at top, newest at bottom)
+		const displayTiles = slicePaneItems(recentTiles, tileLines.length, 3);
 		for (let i = 0; i < tileLines.length; i++) {
-			const item = displayTiles[displayTiles.length - 1 - i];
+			const item = displayTiles[i];
 			if (item) {
 				let tag = "[STORED]";
 				let col = THEME.green;
@@ -890,7 +1065,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				}
 				const dur = item.durationMs != null ? ` (${item.durationMs.toFixed(0)}ms)` : "";
 				const p = item.path.length > maxPathLen ? item.path.slice(0, maxPathLen - 1) + "…" : item.path;
-				tileLines[i].content = `${tag.padEnd(8)} ${p}${dur}`;
+				tileLines[i].content = fitLine(`${fmtClock(item.time)} ${tag.padEnd(8)} ${p}${dur}`, rightInnerW);
 				tileLines[i].fg = col;
 			} else {
 				tileLines[i].content = "  ·";
@@ -899,7 +1074,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		}
 
 		const hitRatio = totalTiles > 0 ? (((storedTiles + cachedTiles) / totalTiles) * 100).toFixed(1) : "0.0";
-		tileStats1.content = `Total: ${fmt(totalTiles)} · Stored: ${fmt(storedTiles)} · Cache: ${fmt(cachedTiles)} · Stitched: ${fmt(derivedTiles)} (${hitRatio}%)`;
+		tileStats1.content = fitLine(
+			`Total: ${fmt(totalTiles)} · Stored: ${fmt(storedTiles)} · Cache: ${fmt(cachedTiles)} · Stitched: ${fmt(derivedTiles)} (${hitRatio}%)`,
+			rightInnerW,
+		);
 
 		// Context-sensitive Footer Keybind Hints
 		const memMb = (process.memoryUsage().rss / (1024 * 1024)).toFixed(1);
@@ -909,7 +1087,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		const tabHint = `[C-1..${tabMax === 10 ? "0" : tabMax}] Tabs   [Alt-j/k] Next/Prev`;
 
 		if (cur.type === "monitor") {
-			hints = `${tabHint}   [C-n] New Scrape   [^C] Quit Server`;
+			hints = `[Tab] Focus Pane   [↑↓/jk/PgUp/PgDn] Scroll   [Esc] Follow   [C-S-c/y] Copy   [C-n] New   [^C] Quit`;
 		} else if (cur.type === "catalog") {
 			const cat = cur.view as GamesCatalogView;
 			if (cat?.isModalOpen()) {
@@ -928,7 +1106,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			}
 		}
 
-		footerBar.content = `${hints}   |   RSS: ${memMb} MB`;
+		const copiedBadge = now < copiedUntil ? "   |   ✓ Copied" : "";
+		footerBar.content = fitLine(`${hints}${copiedBadge}   |   RSS: ${memMb} MB`, boxW - 4);
 		renderer.requestRender();
 	}
 
@@ -980,8 +1159,27 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	renderer.keyInput.on("keypress", (key: KeyEvent) => {
 		if (isDestroyed) return;
 
-		// Ctrl-C gracefully shuts down the server
-		const isCtrlC = (key.ctrl && (key.name === "c" || key.name === "C")) || key.raw === "\x03";
+		// Ctrl+Shift+C, Meta+C, Super+C, or 'y' (when selection exists and not in form) copies selected text
+		const isCopyShortcut =
+			(key.ctrl && key.shift && (key.name === "c" || key.name === "C")) ||
+			((key.meta || (key as any).super) && (key.name === "c" || key.name === "C")) ||
+			(!key.ctrl &&
+				!(key as any).alt &&
+				!key.meta &&
+				!key.option &&
+				(key.name === "y" || key.name === "Y") &&
+				tabs[activeTabIdx]?.type !== "form" &&
+				Boolean(renderer.getSelection?.()?.getSelectedText?.()));
+		if (isCopyShortcut) {
+			key.preventDefault?.();
+			key.stopPropagation?.();
+			copySelectedText();
+			return;
+		}
+
+		// Ctrl-C (without Shift) gracefully shuts down the server
+		const isCtrlC =
+			(!key.shift && key.ctrl && (key.name === "c" || key.name === "C")) || (key.raw === "\x03" && !key.shift);
 		if (isCtrlC) {
 			key.preventDefault?.();
 			key.stopPropagation?.();
@@ -1083,8 +1281,81 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			return;
 		}
 
-		// Forward keys to active tab view (tab-specific bindings)
+		// Live Monitor pane focus & scrollback navigation
 		const curTab = tabs[activeTabIdx];
+		if (curTab?.type === "monitor") {
+			const isShiftTab = (key.name === "tab" && key.shift) || key.name === "backtab" || key.raw === "\x1b[Z";
+			const isTab = key.name === "tab" && !key.shift && !isShiftTab;
+			if (isTab) {
+				focusedPaneIdx = focusedPaneIdx === null ? 0 : (focusedPaneIdx + 1) % 4;
+				key.preventDefault?.();
+				key.stopPropagation?.();
+				renderUi(true);
+				return;
+			}
+			if (isShiftTab) {
+				focusedPaneIdx = focusedPaneIdx === null ? 3 : (focusedPaneIdx + 3) % 4;
+				key.preventDefault?.();
+				key.stopPropagation?.();
+				renderUi(true);
+				return;
+			}
+			if (key.name === "escape" || key.raw === "\x1b") {
+				focusedPaneIdx = null;
+				scrollOffsets[0] = 0;
+				scrollOffsets[1] = 0;
+				scrollOffsets[2] = 0;
+				scrollOffsets[3] = 0;
+				key.preventDefault?.();
+				key.stopPropagation?.();
+				renderUi(true);
+				return;
+			}
+
+			const targetPane = focusedPaneIdx ?? hoveredPaneIdx;
+			if (targetPane !== null) {
+				const fullPage = getPaneVisibleLines(targetPane);
+				const halfPage = Math.max(1, Math.floor(fullPage / 2));
+				const noMod = !key.ctrl && !key.option && !key.meta && !(key as any).alt;
+
+				const isUp = noMod && (key.name === "up" || key.name === "k");
+				const isDown = noMod && (key.name === "down" || key.name === "j");
+				const isHalfUp = (key.ctrl && (key.name === "u" || key.name === "U")) || key.raw === "\x15";
+				const isHalfDown = (key.ctrl && (key.name === "d" || key.name === "D")) || key.raw === "\x04";
+				const isFullUp =
+					(key.ctrl && (key.name === "b" || key.name === "B")) || key.raw === "\x02" || key.name === "pageup";
+				const isFullDown =
+					(key.ctrl && (key.name === "f" || key.name === "F")) ||
+					key.raw === "\x06" ||
+					key.name === "pagedown";
+				const isBottom =
+					(noMod && key.name === "end") ||
+					(noMod && (key.name === "G" || key.sequence === "G" || (key.name === "g" && key.shift)));
+				const isTop = (noMod && key.name === "home") || (noMod && !isBottom && key.name === "g" && !key.shift);
+
+				if (isUp || isDown || isHalfUp || isHalfDown || isFullUp || isFullDown || isTop || isBottom) {
+					focusedPaneIdx = targetPane;
+					if (isUp) scrollPane(targetPane, 1);
+					else if (isDown) scrollPane(targetPane, -1);
+					else if (isHalfUp) scrollPane(targetPane, halfPage);
+					else if (isHalfDown) scrollPane(targetPane, -halfPage);
+					else if (isFullUp) scrollPane(targetPane, fullPage);
+					else if (isFullDown) scrollPane(targetPane, -fullPage);
+					else if (isTop) {
+						scrollOffsets[targetPane] = Math.max(0, getPaneBufferLength(targetPane) - fullPage);
+						clampPaneScroll(targetPane);
+					} else if (isBottom) {
+						scrollOffsets[targetPane] = 0;
+					}
+					key.preventDefault?.();
+					key.stopPropagation?.();
+					renderUi(true);
+					return;
+				}
+			}
+		}
+
+		// Forward keys to active tab view (tab-specific bindings)
 		if (curTab?.view?.handleKey) {
 			const handled = curTab.view.handleKey(key);
 			if (handled) {
@@ -1117,14 +1388,12 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	return {
 		onRequest(ev) {
 			totalRequests++;
-			recentRequests.push(ev);
-			if (recentRequests.length > 50) recentRequests.shift();
+			pushToPaneBuffer(recentRequests, { ...ev, time: ev.time ?? Date.now() }, 0);
 			renderUi(false);
 		},
 		onCard(ev) {
 			totalCards++;
-			recentCards.push(ev);
-			if (recentCards.length > 50) recentCards.shift();
+			pushToPaneBuffer(recentCards, { ...ev, time: ev.time ?? Date.now() }, 1);
 			renderUi(false);
 		},
 		onTile(ev) {
@@ -1132,21 +1401,22 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			if (ev.action === "stored") storedTiles++;
 			else if (ev.action === "cached") cachedTiles++;
 			else if (ev.action === "derived") derivedTiles++;
-			recentTiles.push(ev);
-			if (recentTiles.length > 50) recentTiles.shift();
+			pushToPaneBuffer(recentTiles, { ...ev, time: ev.time ?? Date.now() }, 3);
 			renderUi(false);
 		},
-		onSync(action, detail) {
-			recentSyncs.push({ time: Date.now(), action, detail });
-			if (recentSyncs.length > 50) recentSyncs.shift();
+		onSync(action, detail, time = Date.now()) {
+			pushToPaneBuffer(recentSyncs, { time, action, detail }, 2);
 			renderUi(false);
 		},
-		onApi(action, detail) {
-			logApi(action, detail);
+		onApi(action, detail, time = Date.now()) {
+			logApi(action, detail, time);
 		},
 		setWsCount(count) {
 			wsCount = count;
 			renderUi(false);
+		},
+		getLastCopiedText() {
+			return lastCopiedText;
 		},
 		async destroy() {
 			if (ticker) clearInterval(ticker);
@@ -1158,9 +1428,15 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			if (!isDestroyed) {
 				isDestroyed = true;
 				renderer.off?.("resize", handleResize);
+				renderer.off?.("selection", onSelection);
 				process.stdout.off?.("resize", onStdoutResize);
 				for (const tab of tabs) {
 					if (tab.view) tab.view.destroy();
+				}
+				if (hostClipboard && !opts.clipboard) {
+					try {
+						await hostClipboard.dispose?.();
+					} catch {}
 				}
 				if (!opts.renderer) {
 					try {
