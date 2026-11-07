@@ -1120,4 +1120,71 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 			await rm(testDir, { recursive: true, force: true });
 		}
 	});
+
+	test("serveStatic cache-control headers: immutable tiles and media, mutable data.json and posters", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "static-cache-test-"));
+		try {
+			const publicDir = path.join(testDir, "public");
+
+			// 1. Stored tile file
+			const tilePath = path.join(publicDir, "maps", "game", "world", "tiles", "default", "1", "0", "0.png");
+			await mkdir(path.dirname(tilePath), { recursive: true });
+			await Bun.write(tilePath, "fake-tile-data");
+
+			// 2. Marker media file
+			const mediaPath = path.join(publicDir, "maps", "game", "media", "marker-photo.jpg");
+			await mkdir(path.dirname(mediaPath), { recursive: true });
+			await Bun.write(mediaPath, "fake-media-data");
+
+			// 3. Mutable data.json
+			const dataPath = path.join(publicDir, "maps", "game", "world", "data.json");
+			await mkdir(path.dirname(dataPath), { recursive: true });
+			await Bun.write(dataPath, JSON.stringify({ locations: [] }));
+
+			// 4. Mutable poster image
+			const posterPath = path.join(publicDir, "maps", "game", "poster-600.webp");
+			await mkdir(path.dirname(posterPath), { recursive: true });
+			await Bun.write(posterPath, "fake-poster-data");
+
+			const tileRes = await serveStatic(
+				new Request("http://localhost/maps/game/world/tiles/default/1/0/0.png"),
+				"/maps/game/world/tiles/default/1/0/0.png",
+				"",
+				publicDir,
+			);
+			expect(tileRes.status).toBe(200);
+			expect(tileRes.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
+
+			const mediaRes = await serveStatic(
+				new Request("http://localhost/maps/game/media/marker-photo.jpg"),
+				"/maps/game/media/marker-photo.jpg",
+				"",
+				publicDir,
+			);
+			expect(mediaRes.status).toBe(200);
+			expect(mediaRes.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
+
+			const dataRes = await serveStatic(
+				new Request("http://localhost/maps/game/world/data.json"),
+				"/maps/game/world/data.json",
+				"",
+				publicDir,
+			);
+			expect(dataRes.status).toBe(200);
+			expect(dataRes.headers.get("Cache-Control")).toBe("no-cache");
+			expect(dataRes.headers.get("Cache-Control")).not.toContain("immutable");
+
+			const posterRes = await serveStatic(
+				new Request("http://localhost/maps/game/poster-600.webp"),
+				"/maps/game/poster-600.webp",
+				"",
+				publicDir,
+			);
+			expect(posterRes.status).toBe(200);
+			expect(posterRes.headers.get("Cache-Control")).toBe("public, max-age=3600");
+			expect(posterRes.headers.get("Cache-Control")).not.toContain("immutable");
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	});
 });

@@ -178,7 +178,7 @@ export function createTileService(o: TileServiceOptions) {
 			"Content-Type": contentType(found.ext),
 			ETag: etag,
 			"Last-Modified": new Date(f.lastModified).toUTCString(),
-			"Cache-Control": "public, max-age=3600",
+			"Cache-Control": "public, max-age=31536000, immutable",
 			"X-Tile-From": found.from,
 		});
 		const inm = req.headers.get("if-none-match");
