@@ -82,6 +82,7 @@ export const state: Record<string, any> = {
 		ids: null,
 		rows: [],
 		idx: 0,
+		limit: 50,
 		preview: null,
 		run: 0,
 		busy: false,
