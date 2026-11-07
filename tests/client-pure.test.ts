@@ -40,7 +40,13 @@ import {
 	textStyleOf,
 	themeVar,
 } from "../src/client/map/map-view.ts";
-import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
+import {
+	_resetMarkedForTest,
+	ensureMarked,
+	isCrossMapUrl,
+	isLocalLocHref,
+	mapgenieLocId,
+} from "../src/client/map/markdown.ts";
 import { parseDemoPresets } from "../src/client/map/presets.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
 import { matchOf, queryOf, truncateDesc } from "../src/client/map/search.ts";
@@ -325,6 +331,40 @@ describe("modularized map and home helpers", () => {
 			isCrossMapUrl("https://fallout4map.com/far-harbor", ["commonwealth", "far-harbor"], "commonwealth"),
 		).toBe(true);
 		expect(isCrossMapUrl("https://youtu.be/abc", slugs, "velen-novigrad")).toBe(false);
+	});
+
+	test("ensureMarked caches promise and injects script tag once", async () => {
+		_resetMarkedForTest();
+		const appended: any[] = [];
+		const fakeScript: any = {};
+		const fakeDoc = {
+			createElement: (tag: string) => {
+				if (tag === "script") return fakeScript;
+				return {};
+			},
+			head: {
+				appendChild: (el: any) => {
+					appended.push(el);
+					setTimeout(() => {
+						if (el.onload) el.onload();
+					}, 0);
+				},
+			},
+		};
+		const prevDoc = (globalThis as any).document;
+		(globalThis as any).document = fakeDoc;
+		try {
+			const p1 = ensureMarked();
+			const p2 = ensureMarked();
+			expect(p1).toBe(p2);
+			await p1;
+			expect(appended.length).toBe(1);
+			expect(fakeScript.src).toContain("vendor/marked.umd.js");
+		} finally {
+			if (prevDoc === undefined) delete (globalThis as any).document;
+			else (globalThis as any).document = prevDoc;
+			_resetMarkedForTest();
+		}
 	});
 
 	test("queryOf and matchOf rank exact, phrase, word, and fuzzy matches", () => {
