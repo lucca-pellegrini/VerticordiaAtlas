@@ -28,7 +28,7 @@ import { buildClient } from "../scripts/build.ts";
 import { createServerDashboard } from "../scripts/tui/server-dashboard.ts";
 import { unpackMarker } from "../src/shared/share-link.ts";
 import type { GameMeta, TilesetMeta } from "../src/shared/types.ts";
-import { createApi, type WsData } from "./api.ts";
+import { acceptsEncoding, createApi, type WsData } from "./api.ts";
 import {
 	categoryIcon,
 	chromePath,
@@ -104,14 +104,23 @@ const siteOrigin = async (req: Request): Promise<string> =>
 
 /* ---------- caches: the game list (short time), map data (by file date), chrome (once), renders (once) ---------- */
 
-let gamesCache: { at: number; list: LoadedGame[] } | null = null;
+const GAMES_CACHE_TTL_MS = 5 * 60 * 1000;
+let gamesCache: { at: number; mtime: number; list: LoadedGame[] } | null = null;
 let gamesInflight: Promise<LoadedGame[]> | null = null;
-async function games(): Promise<LoadedGame[]> {
-	if (gamesCache && Date.now() - gamesCache.at <= 30000) return gamesCache.list;
+export async function games(publicDir = PUBLIC): Promise<LoadedGame[]> {
+	const manifestFile = path.join(publicDir, "maps", "index.json");
+	let mtime = 0;
+	try {
+		mtime = (await stat(manifestFile)).mtimeMs;
+	} catch {}
+
+	if (gamesCache && gamesCache.mtime === mtime && Date.now() - gamesCache.at <= GAMES_CACHE_TTL_MS) {
+		return gamesCache.list;
+	}
 	if (!gamesInflight) {
-		gamesInflight = loadGames()
+		gamesInflight = loadGames(publicDir)
 			.then((r) => {
-				gamesCache = { at: Date.now(), list: r.games };
+				gamesCache = { at: Date.now(), mtime, list: r.games };
 				return r.games;
 			})
 			.catch((e) => {
@@ -145,14 +154,42 @@ export async function gameTilesets(game: string, publicDir = PUBLIC): Promise<Ti
 	}
 }
 
-const dataCache = new Map<string, { mtime: number; json: any }>();
-async function readData(file: string): Promise<any> {
+const MAX_DATA_CACHE = 8;
+export interface DataCacheEntry {
+	mtime: number;
+	json: any;
+	locIndex: Map<number, any>;
+}
+export const dataCache = new Map<string, DataCacheEntry>();
+
+export async function readDataEntry(file: string): Promise<DataCacheEntry> {
 	const st = await stat(file);
 	const hit = dataCache.get(file);
-	if (hit && hit.mtime === st.mtimeMs) return hit.json;
+	if (hit && hit.mtime === st.mtimeMs) {
+		dataCache.delete(file);
+		dataCache.set(file, hit);
+		return hit;
+	}
 	const json = await Bun.file(file).json();
-	dataCache.set(file, { mtime: st.mtimeMs, json });
-	return json;
+	const locIndex = new Map<number, any>();
+	for (const loc of json.locations || []) {
+		const id = Number(loc?.id);
+		if (!Number.isNaN(id) && !locIndex.has(id)) {
+			locIndex.set(id, loc);
+		}
+	}
+	const entry: DataCacheEntry = { mtime: st.mtimeMs, json, locIndex };
+	dataCache.delete(file);
+	if (dataCache.size >= MAX_DATA_CACHE) {
+		const oldest = dataCache.keys().next().value;
+		if (oldest !== undefined) dataCache.delete(oldest);
+	}
+	dataCache.set(file, entry);
+	return entry;
+}
+
+export async function readData(file: string): Promise<any> {
+	return (await readDataEntry(file)).json;
 }
 
 // Card renders start headless Chromium, which is expensive. So: a few at a time; a limit per client per window; and when a
@@ -209,14 +246,15 @@ const once = (key: string, fn: () => Promise<boolean>): Promise<boolean> => {
 
 /* ---------- a marker, from the game's own data ---------- */
 
-async function markerInfo(gameSlug: string, mapSlug: string, id: number): Promise<MarkerCardInfo | null> {
+export async function markerInfo(gameSlug: string, mapSlug: string, id: number): Promise<MarkerCardInfo | null> {
 	const g = (await games()).find((x) => x.slug === gameSlug);
 	if (!g) return null;
 	const mapMeta = g.maps.find((m) => m.slug === mapSlug);
 	if (!mapMeta?.data) return null;
-	const data = await readData(path.join(g.dir, mapMeta.data));
-	const loc = (data.locations || []).find((l: any) => Number(l.id) === id);
+	const entry = await readDataEntry(path.join(g.dir, mapMeta.data));
+	const loc = entry.locIndex.get(id);
 	if (!loc) return null;
+	const data = entry.json;
 	const cat: any = Object.values(data.categories || {}).find((c: any) => c.id === loc.category_id);
 	const shot = await firstScreenshot(gameSlug, g.dir, loc.media);
 	// the card shows the category's icon: the game's own icon-font glyph, on its group's colour
@@ -609,9 +647,7 @@ export async function serveStatic(req: Request, rel: string, search = "", public
 	const type = TYPES[path.extname(file).toLowerCase()];
 	if (!type) return send(404, "not found");
 
-	const acceptEncoding = req.headers.get("accept-encoding") || "";
-	const acceptsBr = /\bbr\b/.test(acceptEncoding);
-	const acceptsGz = /\bgzip\b/.test(acceptEncoding);
+	const { br: acceptsBr, gz: acceptsGz } = acceptsEncoding(req);
 
 	// Try precompressed sidecars for compressible text files above 1KB
 	if (TEXT.test(type) && st.size > 1024) {
