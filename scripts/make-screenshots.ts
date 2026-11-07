@@ -3,8 +3,11 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-// make-screenshots.ts: the screenshots listed in public/manifest.webmanifest, taken from a running site in headless
-// Chromium (driven over the DevTools protocol, so no npm dependency).
+// make-screenshots.ts: the promotional screenshots, taken from a running site in headless Chromium (driven over the
+// DevTools protocol, so no npm dependency). Each scene is captured in a light and a dark variant: the light files keep
+// their names and are the ones listed in public/manifest.webmanifest, the dark ones get a "-dark" suffix, and README.md
+// shows the dark variant through <picture> when the visitor prefers a dark color scheme. Use --only with a "-dark" name
+// (e.g. --only wide-2-map-dark) to capture a single variant.
 //
 //   bun scripts/make-screenshots.ts [--base http://127.0.0.1:8072] [--out public/screenshots] [--only wide-3,narrow-1] [--no-tui]
 //
@@ -21,9 +24,12 @@ import { parseArgs } from "node:util";
 import { createScreenshotDashboard, type ScreenshotDashboard } from "./tui/screenshot-dashboard.ts";
 
 type Form = "wide" | "narrow";
+type Theme = "light" | "dark";
+const THEMES: Theme[] = ["light", "dark"];
 type Shot = {
 	name: string; // file name without extension, and the order in the manifest
 	form: Form;
+	theme: Theme;
 	path: string; // page to open, relative to --base
 	settle?: string; // JS, evaluated until it returns true before the picture is taken
 	prepare?: string; // JS run after the page settled (opens a panel, types a search, ...)
@@ -47,7 +53,7 @@ const LIST_LOCATIONS = `(() => { document.querySelector('#groups .group-head .ro
   document.querySelector('#row-menu button[data-act="list"]').click(); })()`;
 // the sidebar as a phone shows it: opened over the map, search focused
 const OPEN_SEARCH = `(() => { document.getElementById('side-toggle').click(); document.getElementById('search').focus(); })()`;
-// the same scenes at both form factors: a set of six, one per entry of the manifest's screenshots
+// the same scenes at both form factors and both themes: a set of six, one per entry of the manifest's screenshots
 const SCENES: {
 	name: string;
 	path: string;
@@ -92,32 +98,28 @@ const SCENES: {
 		caption: "List these markers: every category of a group, listed together",
 	},
 ];
-const SHOTS: Shot[] = [
-	...SCENES.map((sc) => ({
-		name: `wide-${SCENES.indexOf(sc) + 1}-${sc.name}`,
-		form: "wide" as Form,
-		path: sc.path,
-		settle: sc.settle,
-		prepare: sc.prepare,
-		typeText: sc.typeText,
-		caption: sc.caption,
-	})),
-	...SCENES.map((sc) => ({
-		name: `narrow-${SCENES.indexOf(sc) + 1}-${sc.name}`,
-		form: "narrow" as Form,
-		path: sc.path,
-		settle: sc.settle,
-		// a phone shows the sidebar as a panel over the map: open it first, then the same action as the wide scene
-		prepare:
-			sc.prepare && sc.typeText
+const sceneShot = (form: Form, sc: (typeof SCENES)[number], theme: Theme): Shot => ({
+	name: `${form}-${SCENES.indexOf(sc) + 1}-${sc.name}${theme === "dark" ? "-dark" : ""}`,
+	form,
+	theme,
+	path: sc.path,
+	settle: sc.settle,
+	// a phone shows the sidebar as a panel over the map: open it first, then the same action as the wide scene
+	prepare:
+		form === "wide"
+			? sc.prepare
+			: sc.prepare && sc.typeText
 				? OPEN_SEARCH
 				: sc.prepare
 					? `(() => { document.getElementById('side-toggle').click(); setTimeout(() => { ${sc.prepare} }, 300); })()`
 					: undefined,
-		typeText: sc.typeText,
-		caption: sc.caption,
-	})),
-];
+	typeText: sc.typeText,
+	caption: sc.caption,
+});
+
+const SHOTS: Shot[] = (["wide", "narrow"] as Form[]).flatMap((form) =>
+	SCENES.flatMap((sc) => THEMES.map((theme) => sceneShot(form, sc, theme))),
+);
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -217,6 +219,14 @@ async function shoot(cdp: Cdp, shot: Shot, base: string, out: string, dashboard:
 		await cdp.send("Emulation.setTouchEmulationEnabled", { enabled: true, maxTouchPoints: 5 });
 	}
 
+	// emulation persists across navigations: set it for every shot so no state leaks between captures. The site's
+	// default "auto" theme follows this media query, so no va_theme cookie is needed.
+	dashboard.onShotStep(`Emulating prefers-color-scheme: ${shot.theme}`);
+	await cdp.send("Emulation.setEmulatedMedia", {
+		media: "",
+		features: [{ name: "prefers-color-scheme", value: shot.theme }],
+	});
+
 	const navUrl = new URL(shot.path, base).href;
 	dashboard.onShotStep(`Navigating to ${navUrl}`);
 	await cdp.send("Page.navigate", { url: navUrl });
@@ -278,7 +288,7 @@ Usage: bun scripts/make-screenshots.ts [options]
 Options:
   --base <url>     Base URL of the running site (default: http://127.0.0.1:8072)
   --out <dir>      Output directory for screenshots (default: public/screenshots)
-  --only <names>   Comma-separated list of screenshot names or prefixes (e.g. wide-1,narrow)
+  --only <names>   Comma-separated list of screenshot names or prefixes (e.g. wide-1,narrow; dark variants end in -dark)
   --no-tui         Disable the interactive terminal UI
   --help, -h       Show this help message
 `);

@@ -9,7 +9,19 @@
 Interactive game maps that work offline, keep your progress on your own device,
 and do not hold the basics hostage behind a paywall.
 
-[![Interactive map viewer and tracker](public/screenshots/wide-2-map.jpg)](https://atlas.verticordia.com:11680/maps/elden-ring/)
+<a href="https://atlas.verticordia.com:11680/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/screenshots/wide-1-games-dark.jpg">
+    <img alt="The games: one card for each map" src="public/screenshots/wide-1-games.jpg">
+  </picture>
+</a>
+
+<a href="https://atlas.verticordia.com:11680/maps/elden-ring/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/screenshots/wide-2-map-dark.jpg">
+    <img alt="Interactive map viewer and tracker" src="public/screenshots/wide-2-map.jpg">
+  </picture>
+</a>
 
 ---
 
@@ -55,7 +67,19 @@ dashboards are built with `@opentui/core`. Atlas runs without advertising or
 analytics, and relies entirely on vanilla TypeScript bundled and executed by
 Bun.
 
-[![Marker details and location links](public/screenshots/wide-5-totk.jpg)](https://atlas.verticordia.com:11680/maps/totk/?loc=281856&map=hyrule)
+<a href="https://atlas.verticordia.com:11680/maps/totk/?loc=281856&map=hyrule">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/screenshots/wide-5-totk-dark.jpg">
+    <img alt="Marker details and location links" src="public/screenshots/wide-5-totk.jpg">
+  </picture>
+</a>
+
+<a href="https://atlas.verticordia.com:11680/maps/elden-ring/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="public/screenshots/wide-4-search-dark.jpg">
+    <img alt="Search: the results replace the list, and the map shows only the matches" src="public/screenshots/wide-4-search.jpg">
+  </picture>
+</a>
 
 ## Getting Started
 
