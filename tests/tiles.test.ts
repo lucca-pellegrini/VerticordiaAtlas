@@ -410,6 +410,7 @@ describe("tile service", () => {
 		expect(res).not.toBeNull();
 		expect(res!.status).toBe(200);
 		expect(res!.headers.get("Content-Type")).toBe("image/png");
+		expect(res!.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
 		const etag = res!.headers.get("ETag");
 		expect(etag).not.toBeNull();
 
@@ -419,6 +420,7 @@ describe("tile service", () => {
 		});
 		const res304 = await svc.serve(req304, "game", "world", "default", "3/2/2.png");
 		expect(res304!.status).toBe(304);
+		expect(res304!.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
 	});
 });
 

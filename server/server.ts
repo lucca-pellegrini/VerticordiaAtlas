@@ -685,11 +685,16 @@ export async function serveStatic(req: Request, rel: string, search = "", public
 
 	const etag = `W/"${st.size.toString(36)}-${Math.floor(st.mtimeMs).toString(36)}"`;
 	const lastModified = st.mtime.toUTCString();
+	const isImmutable = !TEXT.test(type) && (parts.includes("tiles") || (parts[0] === "maps" && parts[2] === "media"));
 	const headers: Record<string, string> = {
 		"Content-Type": type,
 		ETag: etag,
 		"Last-Modified": lastModified,
-		"Cache-Control": TEXT.test(type) ? "no-cache" : "public, max-age=3600",
+		"Cache-Control": TEXT.test(type)
+			? "no-cache"
+			: isImmutable
+				? "public, max-age=31536000, immutable"
+				: "public, max-age=3600",
 	};
 	if (TEXT.test(type)) {
 		headers.Vary = "Accept-Encoding";
