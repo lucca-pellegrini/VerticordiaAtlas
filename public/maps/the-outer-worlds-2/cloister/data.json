@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "the-outer-worlds-2",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/the-outer-worlds-2/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -34,6 +34,12 @@
 			"order": 10,
 			"color": "233941",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -271,6 +277,12 @@
 			"order": 10,
 			"color": "88CF78",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -564,6 +576,12 @@
 			"order": 20,
 			"color": "82A2CF",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -857,6 +875,12 @@
 			"order": 40,
 			"color": "D1AE64",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1038,6 +1062,12 @@
 			"order": 50,
 			"color": "9c3443",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1135,6 +1165,12 @@
 			"order": 60,
 			"color": "3F5E7A",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -2606,9 +2642,6 @@
 								[-0.5518721330289793, 0.8558454919055691],
 								[-0.8570719248635328, 0.8551274547940579],
 								[-0.8629057617378351, 0.8612227150130565],
-								[-0.8568378640662786, 0.8551567585081727],
-								[-0.8568378640662786, 0.8551567585081727],
-								[-0.8568378640662786, 0.8551567585081727],
 								[-0.8568378640662786, 0.8551567585081727]
 							]
 						],
@@ -2667,7 +2700,6 @@
 								[-0.8654939660432319, 0.6339998229917541],
 								[-0.8654939660432319, 0.5616365327044832],
 								[-0.9979295695798669, 0.5616365327044832],
-								[-0.9979295695798669, 0.6339998229917541],
 								[-0.9979295695798669, 0.6339998229917541]
 							]
 						],
@@ -2727,7 +2759,6 @@
 								[-0.8650617451054927, 0.7104513330021973],
 								[-0.9360276121713582, 0.7106597336184706],
 								[-0.9357898900061343, 0.7486219758265804],
-								[-0.9352981539204563, 0.7803691950671805],
 								[-0.9352981539204563, 0.7803691950671805]
 							]
 						],
@@ -2757,7 +2788,6 @@
 								[-0.6692606528690135, 0.9362195765452412],
 								[-0.6692606528690135, 0.8669078778744961],
 								[-0.7383761507221038, 0.8669078778744961],
-								[-0.7383761507221038, 0.9362195765452412],
 								[-0.7383761507221038, 0.9362195765452412]
 							]
 						],
@@ -2787,7 +2817,6 @@
 								[-0.28499658449788967, 0.7861370277901756],
 								[-0.28499658449788967, 0.7142296083752058],
 								[-0.5417952799335239, 0.7142296083752058],
-								[-0.5417952799335239, 0.7861370277901756],
 								[-0.5417952799335239, 0.7861370277901756]
 							]
 						],
@@ -2846,7 +2875,6 @@
 								[-0.38935851235933683, 0.7042711936044412],
 								[-0.38935851235933683, 0.5511086106331788],
 								[-0.5427359322716541, 0.5511086106331788],
-								[-0.5427359322716541, 0.7042711936044412],
 								[-0.5427359322716541, 0.7042711936044412]
 							]
 						],
@@ -2892,6 +2920,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 496180,
@@ -33877,7 +33906,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "ss-flf-book",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/the-outer-worlds-2/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

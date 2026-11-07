@@ -1,0 +1,261 @@
+{
+	"id": "control-resonant",
+	"title": "CONTROL Resonant",
+	"slug": "control-resonant",
+	"source": "https://mapgenie.io/control-resonant",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"ability_door": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"arcade_cabinet": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"artifact": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"audio": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"checkpoint": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"chest": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"command_charge": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"document": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"dog": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"facility": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel_door": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"gravity": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"gravity_well": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"important_person": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"instant_photo": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"keycard": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"large_health_element": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"map_kit": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"orientation_point": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"outfit": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"polaroid": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"power_core_station": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"quest": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"research_balloon": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"resonant_entity": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"secret": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"sketchbook": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"source": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"taskboard": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"taxi": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"unused": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"vending_machine": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"vendor": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"video": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"world_feat": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "district",
+			"title": "Manhattan",
+			"data": "district/data.json",
+			"tilesets": [
+				{
+					"name": "v9",
+					"template": "district/tiles/v9/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#090f1b"
+				}
+			]
+		}
+	]
+}

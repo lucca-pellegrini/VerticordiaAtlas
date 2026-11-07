@@ -9,11 +9,11 @@
 			"posterAlt": "Resident Evil Requiem key art: a white-haired woman in a dark hood and red jacket, looking to the right.",
 			"theme": {
 				"accent": "#a8332b",
-				"accent-soft": "#e0837a",
-				"night": "#0b0708",
-				"panel": "#150e10",
-				"panel-2": "#1e1517",
-				"line": "#34222a"
+				"accent-soft": "#d9716a",
+				"night": "#0c0706",
+				"panel": "#160c0c",
+				"panel-2": "#1f1211",
+				"line": "#362221"
 			},
 			"stats": [
 				{
@@ -2830,6 +2830,33 @@
 				},
 				{
 					"value": 9,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "satisfactory",
+			"slug": "satisfactory",
+			"title": "Satisfactory",
+			"description": "Every marker on the Satisfactory map.",
+			"poster": "satisfactory/poster",
+			"theme": {
+				"accent": "#df8920",
+				"accent-soft": "#eabd86",
+				"night": "#0c0906",
+				"panel": "#16110c",
+				"panel-2": "#1f1911",
+				"line": "#362c21"
+			},
+			"stats": [
+				{
+					"value": 2509,
+					"label": "markers"
+				},
+				{
+					"value": 48,
 					"label": "categories"
 				}
 			],

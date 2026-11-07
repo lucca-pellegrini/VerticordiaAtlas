@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "slime-rancher",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -34,6 +34,12 @@
 			"order": 5,
 			"color": "493952",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -243,6 +249,12 @@
 			"order": 10,
 			"color": "CB3E67",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -788,7 +800,6 @@
 								[-0.8247559485836291, 0.5873566555459746],
 								[-0.8287801709666098, 0.5869255929133601],
 								[-0.8342733350290246, 0.5816043669080102],
-								[-0.8450021710896465, 0.5198091287477666],
 								[-0.8450021710896465, 0.5198091287477666]
 							]
 						],
@@ -989,6 +1000,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 355446,
@@ -7355,7 +7367,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

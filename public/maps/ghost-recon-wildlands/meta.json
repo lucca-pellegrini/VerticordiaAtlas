@@ -1,0 +1,338 @@
+{
+	"id": "ghost-recon-wildlands",
+	"title": "Tom Clancy's Ghost Recon Wildlands",
+	"slug": "ghost-recon-wildlands",
+	"source": "https://mapgenie.io/ghost-recon-wildlands",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"accessory_case": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"airport": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"airspray": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"amphetatruck": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"animal_traffic": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"bonus_medal": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"buchon_mission": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"cartel_base": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"cartel_facility": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"cartel_property": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"cartel_site": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"checkpoint": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"diversion": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"electro_challange": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"factory": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"farm": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"gas_station": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"guns_for_hire": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"headhunter": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"intel_cache": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"kingslayer_file": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"lazarus_file": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"lieutenant": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"location": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"lost_car": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"main_mission": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"major_intel": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"mine": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"mortar_strike": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"observation_post": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"outpost": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"rally_point": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"rebel_hideout": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"rebel_vip": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"recon": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"ruins": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"sabotage": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"shrine": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"skill_point": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"steal_the_helicopter": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"steal_the_plane": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"tower_cast": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"unidad_base": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"vehicle_drop_off": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_case": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "bolivia",
+			"title": "Bolivia",
+			"data": "bolivia/data.json",
+			"tilesets": [
+				{
+					"name": "default-v3",
+					"template": "bolivia/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "narco-road-fallen-ghosts",
+			"title": "Narco Road & Fallen Ghosts",
+			"data": "narco-road-fallen-ghosts/data.json",
+			"tilesets": [
+				{
+					"name": "bolivia-dlc-v1",
+					"template": "narco-road-fallen-ghosts/tiles/bolivia-dlc-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

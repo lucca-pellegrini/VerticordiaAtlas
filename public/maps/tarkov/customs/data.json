@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "tarkov",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/tarkov/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -34,6 +34,12 @@
 			"order": 10,
 			"color": "386150",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -663,6 +669,12 @@
 			"order": 10,
 			"color": "9c3443",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -788,6 +800,12 @@
 			"order": 10,
 			"color": "453A49",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -2106,6 +2124,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 29994,
@@ -12587,7 +12606,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 159639,
+					"title": "",
+					"file_name": "ef67628a-63dd-46e3-bca4-ce0ef7d3911d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ef67628a-63dd-46e3-bca4-ce0ef7d3911d.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 932446,
@@ -12784,13 +12816,26 @@
 			"region_id": null,
 			"category_id": 27131,
 			"title": "Project Documentation",
-			"description": null,
+			"description": "",
 			"latitude": "0.97348322284114",
 			"longitude": "-1.15419130586460",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 159640,
+					"title": "",
+					"file_name": "379e2a2c-5598-4ea1-93b9-306428525ae1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/379e2a2c-5598-4ea1-93b9-306428525ae1.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 932641,
@@ -12858,7 +12903,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 159086,
+					"title": "",
+					"file_name": "44ab2d12-2472-417f-bea3-6c204108fd43.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44ab2d12-2472-417f-bea3-6c204108fd43.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 939026,
@@ -17420,7 +17478,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "bender-bold",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/tarkov/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": true,
 			"subregionsEnabled": false,

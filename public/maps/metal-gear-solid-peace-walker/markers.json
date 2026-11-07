@@ -1,0 +1,18 @@
+{
+	"objective": { "width": 33, "height": 44, "x": 0, "y": 0, "pixelRatio": 1 },
+	"transition": { "width": 33, "height": 44, "x": 33, "y": 0, "pixelRatio": 1 },
+	"extraction_point": { "width": 33, "height": 44, "x": 66, "y": 0, "pixelRatio": 1 },
+	"area": { "width": 33, "height": 44, "x": 99, "y": 0, "pixelRatio": 1 },
+	"main_op": { "width": 33, "height": 44, "x": 0, "y": 44, "pixelRatio": 1 },
+	"extra_op": { "width": 33, "height": 44, "x": 33, "y": 44, "pixelRatio": 1 },
+	"outer_op": { "width": 33, "height": 44, "x": 66, "y": 44, "pixelRatio": 1 },
+	"document": { "width": 33, "height": 44, "x": 99, "y": 44, "pixelRatio": 1 },
+	"camouflage": { "width": 33, "height": 44, "x": 0, "y": 88, "pixelRatio": 1 },
+	"schematic": { "width": 33, "height": 44, "x": 33, "y": 88, "pixelRatio": 1 },
+	"ammo": { "width": 25, "height": 25, "x": 66, "y": 88, "pixelRatio": 1 },
+	"ration": { "width": 25, "height": 25, "x": 91, "y": 88, "pixelRatio": 1 },
+	"miscellaneous": { "width": 25, "height": 25, "x": 0, "y": 132, "pixelRatio": 1 },
+	"prisoner": { "width": 25, "height": 25, "x": 25, "y": 132, "pixelRatio": 1 },
+	"explosive": { "width": 25, "height": 25, "x": 50, "y": 132, "pixelRatio": 1 },
+	"item": { "width": 25, "height": 25, "x": 75, "y": 132, "pixelRatio": 1 }
+}

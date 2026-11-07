@@ -1,0 +1,431 @@
+{
+	"id": "phantom-blade-zero",
+	"title": "Phantom Blade Zero",
+	"slug": "phantom-blade-zero",
+	"source": "https://mapgenie.io/phantom-blade-zero",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"accessory": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"accessory_fragment": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"ash": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"ash2": [
+				{
+					"cp": "e903",
+					"color": "#d6eb37"
+				}
+			],
+			"ash3": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"bell": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"blacksmith": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"blackstone": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"book": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"challenge": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"character": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"coal": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"coal2": [
+				{
+					"cp": "e90d",
+					"color": "#d6eb37"
+				}
+			],
+			"coal3": [
+				{
+					"cp": "e90e",
+					"color": "#50d352"
+				}
+			],
+			"collectible_quest": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"crystal": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"crystal2": [
+				{
+					"cp": "e911",
+					"color": "#d6eb37"
+				}
+			],
+			"crystal3": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"gallery": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"interactable": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"mechanical_gear": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"mechanical_gear2": [
+				{
+					"cp": "e917",
+					"color": "#d6eb37"
+				}
+			],
+			"mechanical_gear3": [
+				{
+					"cp": "e918",
+					"color": "#50d352"
+				}
+			],
+			"medicine": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"memory": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"memory_flower": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"memory2": [
+				{
+					"cp": "e91c",
+					"color": "#d6eb37"
+				}
+			],
+			"memory3": [
+				{
+					"cp": "e91d",
+					"color": "#50d352"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"metal": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"metal2": [
+				{
+					"cp": "e920",
+					"color": "#d6eb37"
+				}
+			],
+			"metal3": [
+				{
+					"cp": "e921",
+					"color": "#50d352"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"phantom_edge": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"progression": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"remnant_dust": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"sha_chi_amber": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"soul_tempering_material": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"story_quest": [
+				{
+					"cp": "e928",
+					"color": "#ccc733"
+				}
+			],
+			"story_quest2": [
+				{
+					"cp": "e929",
+					"color": "#c07ed3"
+				}
+			],
+			"tale": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"talisman": [
+				{
+					"cp": "e92b",
+					"color": "#c48731"
+				}
+			],
+			"talisman2": [
+				{
+					"cp": "e92c",
+					"color": "#d5d737"
+				}
+			],
+			"talisman3": [
+				{
+					"cp": "e92d",
+					"color": "#b756b8"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"treasure": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e930",
+					"color": "#ffffff"
+				}
+			],
+			"wood": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			],
+			"wood2": [
+				{
+					"cp": "e932",
+					"color": "#d6eb37"
+				}
+			],
+			"wood3": [
+				{
+					"cp": "e933",
+					"color": "#50d352"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "weeping-creek-valley",
+			"title": "Weeping Creek Valley",
+			"data": "weeping-creek-valley/data.json",
+			"tilesets": [
+				{
+					"name": "v1",
+					"template": "weeping-creek-valley/tiles/v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "crimson-forest",
+			"title": "Crimson Forest",
+			"data": "crimson-forest/data.json",
+			"tilesets": [
+				{
+					"name": "v1",
+					"template": "crimson-forest/tiles/v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "village-of-lu",
+			"title": "Village of Lu",
+			"data": "village-of-lu/data.json",
+			"tilesets": [
+				{
+					"name": "v1",
+					"template": "village-of-lu/tiles/v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "pangzhen",
+			"title": "Pangzhen",
+			"data": "pangzhen/data.json",
+			"tilesets": [
+				{
+					"name": "v1",
+					"template": "pangzhen/tiles/v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "the-mandates-encampment",
+			"title": "Mandate Encampment",
+			"data": "the-mandates-encampment/data.json",
+			"tilesets": [
+				{
+					"name": "v1",
+					"template": "the-mandates-encampment/tiles/v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "meigu-lake",
+			"title": "Meigu Lake",
+			"data": "meigu-lake/data.json",
+			"tilesets": [
+				{
+					"name": "v1",
+					"template": "meigu-lake/tiles/v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		}
+	]
+}

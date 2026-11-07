@@ -1,0 +1,247 @@
+{
+	"id": "the-legend-of-zelda-ocarina-of-time",
+	"title": "The Legend of Zelda: Ocarina of Time (Switch 2 Remake)",
+	"slug": "the-legend-of-zelda-ocarina-of-time",
+	"source": "https://mapgenie.io/the-legend-of-zelda-ocarina-of-time",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"big_poe": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"block": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"bottle": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"compass": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"dungeon_map": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"equipment": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"fairy_fountain": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"gold_skulltula": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"gossip_stone": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"heart_piece": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"objective": [
+				{
+					"cp": "e910",
+					"color": "#343444"
+				},
+				{
+					"cp": "e911",
+					"color": "#ffffff",
+					"ml": "-1em"
+				}
+			],
+			"obstacle": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"recovery_item": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"rupee": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"shield": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"shop": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"soft_soil": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"song": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"switch": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"torch": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"tunic": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"upgrade": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "child-past",
+			"title": "Child (Past)",
+			"data": "child-past/data.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "child-past/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "adult-future",
+			"title": "Adult (Future)",
+			"data": "adult-future/data.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "adult-future/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}

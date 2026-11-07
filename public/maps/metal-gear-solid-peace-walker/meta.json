@@ -1,0 +1,135 @@
+{
+	"id": "metal-gear-solid-peace-walker",
+	"title": "Metal Gear Solid: Peace Walker",
+	"slug": "metal-gear-solid-peace-walker",
+	"source": "https://mapgenie.io/metal-gear-solid-peace-walker/maps/costa-rica",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"ammo": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"area": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"camouflage": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"document": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"explosive": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"extra_op": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"extraction_point": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"item": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"main_op": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"objective": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"outer_op": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"prisoner": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"ration": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"schematic": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "costa-rica",
+			"title": "Costa Rica",
+			"data": "costa-rica/data.json",
+			"tilesets": [
+				{
+					"name": "v3",
+					"template": "costa-rica/tiles/v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#2a2a2a"
+				}
+			]
+		}
+	]
+}

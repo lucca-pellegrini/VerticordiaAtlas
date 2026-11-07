@@ -12,25 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "pharloom",
-			"title": "Pharloom",
-			"data": "pharloom/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "pharloom/tiles/default-v9/{z}/{y}/{x}.jpg",
-					"minzoom": 9,
-					"maxzoom": 14,
-					"viewMaxzoom": 15,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			]
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -461,5 +442,24 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "pharloom",
+			"title": "Pharloom",
+			"data": "pharloom/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "pharloom/tiles/default-v9/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
 }

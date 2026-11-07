@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "tarkov",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/tarkov/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -34,6 +34,12 @@
 			"order": 10,
 			"color": "386150",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -187,6 +193,12 @@
 			"order": 10,
 			"color": "9c3443",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -284,6 +296,12 @@
 			"order": 10,
 			"color": "453A49",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -874,6 +892,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 464731,
@@ -2922,7 +2941,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "bender-bold",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/tarkov/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": true,
 			"subregionsEnabled": false,

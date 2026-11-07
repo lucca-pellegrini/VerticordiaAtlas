@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "resident-evil-7-biohazard",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -34,6 +34,12 @@
 			"order": 10,
 			"color": "424242",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -159,6 +165,12 @@
 			"order": 10,
 			"color": "CE8B51",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -396,6 +408,12 @@
 			"order": 10,
 			"color": "7C9FA5",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -717,6 +735,12 @@
 			"order": 10,
 			"color": "647D64",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1066,6 +1090,12 @@
 			"order": 10,
 			"color": "63605D",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -2515,6 +2545,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 438892,
@@ -29615,18 +29646,74 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 77, "game_id": 211, "title": "Easy", "icon": null, "color": null, "icon_color": null },
-		{ "id": 78, "game_id": 211, "title": "Normal", "icon": null, "color": null, "icon_color": null },
-		{ "id": 79, "game_id": 211, "title": "Madhouse", "icon": null, "color": null, "icon_color": null },
-		{ "id": 80, "game_id": 211, "title": "Professional", "icon": null, "color": null, "icon_color": null },
-		{ "id": 81, "game_id": 211, "title": "Joe Must Die", "icon": null, "color": null, "icon_color": null }
+		{ "id": 77, "game_id": 211, "order": 0, "title": "Easy", "icon": null, "color": null, "icon_color": null },
+		{ "id": 78, "game_id": 211, "order": 0, "title": "Normal", "icon": null, "color": null, "icon_color": null },
+		{ "id": 79, "game_id": 211, "order": 0, "title": "Madhouse", "icon": null, "color": null, "icon_color": null },
+		{
+			"id": 80,
+			"game_id": 211,
+			"order": 0,
+			"title": "Professional",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 81,
+			"game_id": 211,
+			"order": 0,
+			"title": "Joe Must Die",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	],
 	"tagsById": {
-		"77": { "id": 77, "game_id": 211, "title": "Easy", "icon": null, "color": null, "icon_color": null },
-		"78": { "id": 78, "game_id": 211, "title": "Normal", "icon": null, "color": null, "icon_color": null },
-		"79": { "id": 79, "game_id": 211, "title": "Madhouse", "icon": null, "color": null, "icon_color": null },
-		"80": { "id": 80, "game_id": 211, "title": "Professional", "icon": null, "color": null, "icon_color": null },
-		"81": { "id": 81, "game_id": 211, "title": "Joe Must Die", "icon": null, "color": null, "icon_color": null }
+		"77": {
+			"id": 77,
+			"game_id": 211,
+			"order": 0,
+			"title": "Easy",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"78": {
+			"id": 78,
+			"game_id": 211,
+			"order": 0,
+			"title": "Normal",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"79": {
+			"id": 79,
+			"game_id": 211,
+			"order": 0,
+			"title": "Madhouse",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"80": {
+			"id": 80,
+			"game_id": 211,
+			"order": 0,
+			"title": "Professional",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"81": {
+			"id": 81,
+			"game_id": 211,
+			"order": 0,
+			"title": "Joe Must Die",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -29636,7 +29723,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

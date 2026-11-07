@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "silent-hill-f",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -1184,8 +1184,6 @@
 								[-1.0304941726216441, 0.9719763529175651],
 								[-1.0304941726216441, 0.7355017679974623],
 								[-0.6932612550793067, 0.7355017679974623],
-								[-0.6932612550793067, 0.9719763529175651],
-								[-0.6932612550793067, 0.9719763529175651],
 								[-0.6932612550793067, 0.9719763529175651]
 							]
 						],
@@ -1244,7 +1242,6 @@
 								[-0.5919233577553484, 0.5199441948130641],
 								[-0.5919233577553484, 0.3231706130844998],
 								[-0.3402704478082512, 0.3231706130844998],
-								[-0.3402704478082512, 0.5199441948130641],
 								[-0.3402704478082512, 0.5199441948130641]
 							]
 						],
@@ -30652,20 +30649,52 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 86, "game_id": 238, "title": "Story", "icon": null, "color": null, "icon_color": null },
-		{ "id": 87, "game_id": 238, "title": "Hard", "icon": null, "color": null, "icon_color": null },
-		{ "id": 88, "game_id": 238, "title": "Lost in the Fog", "icon": null, "color": null, "icon_color": null },
-		{ "id": 89, "game_id": 238, "title": "NG+", "icon": null, "color": null, "icon_color": null },
-		{ "id": 90, "game_id": 238, "title": "NG", "icon": null, "color": null, "icon_color": null },
-		{ "id": 91, "game_id": 238, "title": "NG++", "icon": null, "color": null, "icon_color": null }
+		{ "id": 86, "game_id": 238, "order": 0, "title": "Story", "icon": null, "color": null, "icon_color": null },
+		{ "id": 87, "game_id": 238, "order": 0, "title": "Hard", "icon": null, "color": null, "icon_color": null },
+		{
+			"id": 88,
+			"game_id": 238,
+			"order": 0,
+			"title": "Lost in the Fog",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{ "id": 89, "game_id": 238, "order": 0, "title": "NG+", "icon": null, "color": null, "icon_color": null },
+		{ "id": 90, "game_id": 238, "order": 0, "title": "NG", "icon": null, "color": null, "icon_color": null },
+		{ "id": 91, "game_id": 238, "order": 0, "title": "NG++", "icon": null, "color": null, "icon_color": null }
 	],
 	"tagsById": {
-		"86": { "id": 86, "game_id": 238, "title": "Story", "icon": null, "color": null, "icon_color": null },
-		"87": { "id": 87, "game_id": 238, "title": "Hard", "icon": null, "color": null, "icon_color": null },
-		"88": { "id": 88, "game_id": 238, "title": "Lost in the Fog", "icon": null, "color": null, "icon_color": null },
-		"89": { "id": 89, "game_id": 238, "title": "NG+", "icon": null, "color": null, "icon_color": null },
-		"90": { "id": 90, "game_id": 238, "title": "NG", "icon": null, "color": null, "icon_color": null },
-		"91": { "id": 91, "game_id": 238, "title": "NG++", "icon": null, "color": null, "icon_color": null }
+		"86": {
+			"id": 86,
+			"game_id": 238,
+			"order": 0,
+			"title": "Story",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"87": {
+			"id": 87,
+			"game_id": 238,
+			"order": 0,
+			"title": "Hard",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"88": {
+			"id": 88,
+			"game_id": 238,
+			"order": 0,
+			"title": "Lost in the Fog",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"89": { "id": 89, "game_id": 238, "order": 0, "title": "NG+", "icon": null, "color": null, "icon_color": null },
+		"90": { "id": 90, "game_id": 238, "order": 0, "title": "NG", "icon": null, "color": null, "icon_color": null },
+		"91": { "id": 91, "game_id": 238, "order": 0, "title": "NG++", "icon": null, "color": null, "icon_color": null }
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -30675,7 +30704,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

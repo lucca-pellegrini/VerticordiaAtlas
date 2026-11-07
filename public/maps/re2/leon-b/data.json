@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "resident-evil-2-remake",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -34,6 +34,12 @@
 			"order": 10,
 			"color": "498C97",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -215,6 +221,12 @@
 			"order": 20,
 			"color": "5D5285",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -480,6 +492,12 @@
 			"order": 30,
 			"color": "807035",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -773,6 +791,12 @@
 			"order": 30,
 			"color": "393939",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -954,6 +978,12 @@
 			"order": 40,
 			"color": "E0BE5D",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -2124,6 +2154,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 544963,
@@ -11503,14 +11534,38 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 108, "game_id": 265, "title": "Assisted", "icon": null, "color": null, "icon_color": null },
-		{ "id": 109, "game_id": 265, "title": "Standard", "icon": null, "color": null, "icon_color": null },
-		{ "id": 110, "game_id": 265, "title": "Hardcore", "icon": null, "color": null, "icon_color": null }
+		{ "id": 108, "game_id": 265, "order": 0, "title": "Assisted", "icon": null, "color": null, "icon_color": null },
+		{ "id": 109, "game_id": 265, "order": 0, "title": "Standard", "icon": null, "color": null, "icon_color": null },
+		{ "id": 110, "game_id": 265, "order": 0, "title": "Hardcore", "icon": null, "color": null, "icon_color": null }
 	],
 	"tagsById": {
-		"108": { "id": 108, "game_id": 265, "title": "Assisted", "icon": null, "color": null, "icon_color": null },
-		"109": { "id": 109, "game_id": 265, "title": "Standard", "icon": null, "color": null, "icon_color": null },
-		"110": { "id": 110, "game_id": 265, "title": "Hardcore", "icon": null, "color": null, "icon_color": null }
+		"108": {
+			"id": 108,
+			"game_id": 265,
+			"order": 0,
+			"title": "Assisted",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"109": {
+			"id": 109,
+			"game_id": 265,
+			"order": 0,
+			"title": "Standard",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"110": {
+			"id": 110,
+			"game_id": 265,
+			"order": 0,
+			"title": "Hardcore",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -11520,7 +11575,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

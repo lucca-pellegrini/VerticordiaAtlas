@@ -12,40 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "hyrule-first-quest",
-			"title": "Hyrule - First Quest",
-			"data": "hyrule-first-quest/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "hyrule-first-quest/tiles/default-v2/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 14,
-					"viewMaxzoom": 16,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
-				}
-			]
-		},
-		{
-			"slug": "hyrule-second-quest",
-			"title": "Hyrule - Second Quest",
-			"data": "hyrule-second-quest/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "hyrule-second-quest/tiles/default-v2/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 14,
-					"viewMaxzoom": 16,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
-				}
-			]
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -152,5 +118,39 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "hyrule-first-quest",
+			"title": "Hyrule - First Quest",
+			"data": "hyrule-first-quest/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hyrule-first-quest/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "hyrule-second-quest",
+			"title": "Hyrule - Second Quest",
+			"data": "hyrule-second-quest/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hyrule-second-quest/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

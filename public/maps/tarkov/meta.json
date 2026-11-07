@@ -367,8 +367,16 @@
 					"maxzoom": 16,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#dadada"
+					"tileSize": 256
+				},
+				{
+					"name": "Old",
+					"template": "interchange/tiles/default-v1/{z}/{x}/{y}.png",
+					"minzoom": 8,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
 				}
 			]
 		},
@@ -384,8 +392,16 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#0e0e0e"
+					"tileSize": 256
+				},
+				{
+					"name": "0.13",
+					"template": "shoreline/tiles/default-v1/{z}/{x}/{y}.png",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
 				}
 			]
 		},
@@ -417,8 +433,7 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 15,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#444444"
+					"tileSize": 256
 				}
 			]
 		}

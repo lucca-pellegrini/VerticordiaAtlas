@@ -12,59 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "baker-ranch",
-			"title": "Baker Ranch",
-			"data": "baker-ranch/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "baker-ranch/tiles/default-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 9,
-					"maxzoom": 14,
-					"viewMaxzoom": 14,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			]
-		},
-		{
-			"slug": "end-of-zoe",
-			"title": "End of Zoe",
-			"data": "end-of-zoe/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "end-of-zoe/tiles/default-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 14,
-					"viewMaxzoom": 14,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			]
-		},
-		{
-			"slug": "not-a-hero",
-			"title": "Not a Hero",
-			"data": "not-a-hero/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "not-a-hero/tiles/default-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 9,
-					"maxzoom": 14,
-					"viewMaxzoom": 15,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			]
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -351,5 +298,58 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "baker-ranch",
+			"title": "Baker Ranch",
+			"data": "baker-ranch/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "baker-ranch/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "end-of-zoe",
+			"title": "End of Zoe",
+			"data": "end-of-zoe/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "end-of-zoe/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "not-a-hero",
+			"title": "Not a Hero",
+			"data": "not-a-hero/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "not-a-hero/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
 }

@@ -12,59 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "africa",
-			"title": "Africa",
-			"data": "africa/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "africa/tiles/default-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 14,
-					"viewMaxzoom": 16,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			]
-		},
-		{
-			"slug": "lost-in-nightmares",
-			"title": "Lost in Nightmares",
-			"data": "lost-in-nightmares/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "lost-in-nightmares/tiles/default-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 11,
-					"viewMaxzoom": 15,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			]
-		},
-		{
-			"slug": "desperate-escape",
-			"title": "Desperate Escape",
-			"data": "desperate-escape/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "desperate-escape/tiles/default-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 9,
-					"maxzoom": 11,
-					"viewMaxzoom": 15,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			]
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -237,5 +184,58 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "africa",
+			"title": "Africa",
+			"data": "africa/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "africa/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "lost-in-nightmares",
+			"title": "Lost in Nightmares",
+			"data": "lost-in-nightmares/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "lost-in-nightmares/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 11,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		},
+		{
+			"slug": "desperate-escape",
+			"title": "Desperate Escape",
+			"data": "desperate-escape/data.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "desperate-escape/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 11,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
 }

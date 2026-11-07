@@ -35,7 +35,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "the-outer-worlds",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -45,6 +45,12 @@
 			"order": 10,
 			"color": "386150",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -198,6 +204,12 @@
 			"order": 10,
 			"color": "2db3b9",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -323,6 +335,12 @@
 			"order": 10,
 			"color": "9c3443",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -420,6 +438,12 @@
 			"order": 50,
 			"color": "453A49",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -573,6 +597,12 @@
 			"order": 60,
 			"color": "386150",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1428,7 +1458,8 @@
 								[-0.72238671682021, 0.92072826407056],
 								[-0.72238671682021, 0.7758619796228],
 								[-0.81233727834365, 0.7758619796228],
-								[-0.81233727834365, 0.92072826407056]
+								[-0.81233727834365, 0.92072826407056],
+								[-0.72238671682021, 0.92072826407056]
 							]
 						]
 					},
@@ -1455,7 +1486,8 @@
 								[-0.63798210036566, 0.77291139289379],
 								[-0.63798210036566, 0.59576955864499],
 								[-0.81342002761176, 0.59576955864499],
-								[-0.81342002761176, 0.77291139289379]
+								[-0.81342002761176, 0.77291139289379],
+								[-0.63798210036566, 0.77291139289379]
 							]
 						]
 					},
@@ -1482,7 +1514,8 @@
 								[-0.63312280080459, 1.044992791023],
 								[-0.63312280080459, 0.7786083089478],
 								[-0.72032678029677, 0.7786083089478],
-								[-0.72032678029677, 1.044992791023]
+								[-0.72032678029677, 1.044992791023],
+								[-0.63312280080459, 1.044992791023]
 							]
 						]
 					},
@@ -1509,7 +1542,8 @@
 								[-0.36190938921277, 0.74810674141823],
 								[-0.36190938921277, 0.60701099161214],
 								[-0.62592458696668, 0.60701099161214],
-								[-0.62592458696668, 0.74810674141823]
+								[-0.62592458696668, 0.74810674141823],
+								[-0.36190938921277, 0.74810674141823]
 							]
 						]
 					},
@@ -1536,7 +1570,8 @@
 								[-0.63470310399623, 0.5872528984483],
 								[-0.63470310399623, 0.49799299453577],
 								[-0.72808689305873, 0.49799299453577],
-								[-0.72808689305873, 0.5872528984483]
+								[-0.72808689305873, 0.5872528984483],
+								[-0.63470310399623, 0.5872528984483]
 							]
 						]
 					},
@@ -1563,7 +1598,8 @@
 								[-0.34146864911054, 0.89618230082971],
 								[-0.34146864911054, 0.7561212134065],
 								[-0.62917311688398, 0.7561212134065],
-								[-0.62917311688398, 0.89618230082971]
+								[-0.62917311688398, 0.89618230082971],
+								[-0.34146864911054, 0.89618230082971]
 							]
 						]
 					},
@@ -1590,7 +1626,8 @@
 								[-0.81783846129724, 0.77237019304039],
 								[-0.81783846129724, 0.64809692894024],
 								[-1.0595376800472, 0.64809692894024],
-								[-1.0595376800472, 0.77237019304039]
+								[-1.0595376800472, 0.77237019304039],
+								[-0.81783846129724, 0.77237019304039]
 							]
 						]
 					},
@@ -1617,7 +1654,8 @@
 								[-0.62989658544154, 0.48975355455153],
 								[-0.62989658544154, 0.30814029639579],
 								[-0.73426670262904, 0.30814029639579],
-								[-0.73426670262904, 0.48975355455153]
+								[-0.73426670262904, 0.48975355455153],
+								[-0.62989658544154, 0.48975355455153]
 							]
 						]
 					},
@@ -1632,6 +1670,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 72725,
@@ -10800,7 +10839,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

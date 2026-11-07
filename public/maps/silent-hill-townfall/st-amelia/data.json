@@ -33,7 +33,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "silent-hill-townfall",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -20762,9 +20762,19 @@
 	],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
-	"tags": [{ "id": 134, "game_id": 315, "title": "NG+", "icon": null, "color": null, "icon_color": null }],
+	"tags": [
+		{ "id": 134, "game_id": 315, "order": 0, "title": "NG+", "icon": null, "color": null, "icon_color": null }
+	],
 	"tagsById": {
-		"134": { "id": 134, "game_id": 315, "title": "NG+", "icon": null, "color": null, "icon_color": null }
+		"134": {
+			"id": 134,
+			"game_id": 315,
+			"order": 0,
+			"title": "NG+",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -20776,7 +20786,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

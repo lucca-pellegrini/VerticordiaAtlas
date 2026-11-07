@@ -24,7 +24,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "v-rising",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/v-rising/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -2588,7 +2588,6 @@
 								[-0.9523970224393565, 1.0343111965567147],
 								[-0.9377920859035669, 1.0715623959034701],
 								[-0.907688033043712, 1.0897408176882806],
-								[-0.8999384748823331, 1.125501325515117],
 								[-0.8999384748823331, 1.125501325515117]
 							]
 						],
@@ -2852,7 +2851,6 @@
 								[-1.1189604379702587, 0.8306435728071477],
 								[-1.1329700866362025, 0.7817130573521638],
 								[-1.1043237003012218, 0.6289460533289499],
-								[-1.0169147608005091, 0.6071072262820244],
 								[-1.0169147608005091, 0.6071072262820244]
 							]
 						],
@@ -60792,7 +60790,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "nocturne-serif-semibold",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/v-rising/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": true,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

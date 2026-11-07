@@ -35,7 +35,7 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "sons-of-the-forest",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
@@ -14146,7 +14146,20 @@
 			"features": null,
 			"ign_page_id": "How_to_Get_the_Golden_Armor_and_Gold_Mask",
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 158576,
+					"title": "",
+					"file_name": "9ad7b882-b40b-4299-841a-a742865cfa68.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9ad7b882-b40b-4299-841a-a742865cfa68.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 268974,
@@ -29468,7 +29481,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,
