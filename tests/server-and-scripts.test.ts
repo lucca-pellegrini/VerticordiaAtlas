@@ -443,6 +443,22 @@ describe("server/api and server/ws integration", () => {
 		expect(pushCamData.results[0].status).toBe("ok");
 		expect(pushCamData.results[0].updated_at).toBeGreaterThan(serverTime1);
 
+		// 6b. GET with since returns only rows touched at or after it; no parameter returns every row
+		const pullAll = await (await fetch(`${baseUrl}/api/sync`, { headers: { Cookie: cookie } })).json();
+		const pullNew = await (
+			await fetch(`${baseUrl}/api/sync?since=${pushCamData.results[0].updated_at + 1}`, {
+				headers: { Cookie: cookie },
+			})
+		).json();
+		const pullSame = await (
+			await fetch(`${baseUrl}/api/sync?since=${pushCamData.results[0].updated_at}`, {
+				headers: { Cookie: cookie },
+			})
+		).json();
+		expect(pullAll.items.length).toBe(1);
+		expect(pullNew.items).toEqual([]);
+		expect(pullSame.items.length).toBe(1);
+
 		// 7. Content change with stale base SHOULD return status: 'conflict'
 		const pushConflict = await fetch(`${baseUrl}/api/sync`, {
 			method: "POST",

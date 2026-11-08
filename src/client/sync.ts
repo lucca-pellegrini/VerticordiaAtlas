@@ -9,7 +9,7 @@
 // Conflicts: an item is sent with the server timestamp this device last saw ("base"). If the server has something newer
 // while this device also has unsent changes to the same item, the user is asked which to keep. Otherwise the newer wins.
 
-import { contentKey, fnv, sendKey } from "../shared/sync-rules.ts";
+import { contentKey as defaultContentKey, fnv, sendKey as defaultSendKey } from "../shared/sync-rules.ts";
 import type { Profile, SyncItem } from "../shared/types.ts";
 
 const CHANNEL = "va-sync";
@@ -51,12 +51,15 @@ export function createSync({
 	ui,
 	api,
 	socketUrl = null,
+	keys = { contentKey: defaultContentKey, sendKey: defaultSendKey },
 }: {
 	store: SyncStore;
 	ui: SyncUI;
 	api: (method: string, path: string, body?: any) => Promise<any>;
 	socketUrl?: ((clientId: string) => string) | null;
+	keys?: { contentKey: typeof defaultContentKey; sendKey: typeof defaultSendKey }; // injectable so tests can count hashing
 }) {
+	const { contentKey, sendKey } = keys;
 	const bc = typeof BroadcastChannel !== "undefined" ? new BroadcastChannel(CHANNEL) : null;
 	let leader = false,
 		running = false,
@@ -71,6 +74,26 @@ export function createSync({
 	let sockTimer: ReturnType<typeof setTimeout> | null = null;
 	let sockFails = 0,
 		live = false;
+
+	// Items checked equal to what was last sent, so a push cycle need not hash them again. Only a local note (with the
+	// item's key) or a full cycle (poll, socket, online, visibility) drops them: the full cycle catches writers that never note.
+	const clean = new Set<string>();
+	let noted = new Set<string>(),
+		notedAll = false; // notes since the current push began: such items must not be marked clean from a stale read
+	let cursor = 0, // newest server update this device has pulled; 0 = pull everything
+		lastFullPull = 0;
+	const FULL_PULL_MS = 10 * 60_000; // shortcut: server clock steps back could hide a row from `since`; a full pull re-reads all
+	function note(keys?: string[]): void {
+		if (!keys?.length) {
+			clean.clear();
+			notedAll = true;
+			return;
+		}
+		for (const k of keys) {
+			clean.delete(k);
+			noted.add(k);
+		}
+	}
 
 	/* ---------- what this device holds, as sync items ---------- */
 	const sendHash = (key: string, v: unknown): string | null =>
@@ -132,11 +155,15 @@ export function createSync({
 
 	/* ---------- pull: the server's newer items ---------- */
 	async function pull(): Promise<void> {
-		const { items } = await api("GET", "sync");
+		const full = !cursor || Date.now() - lastFullPull > FULL_PULL_MS;
+		const { items } = await api("GET", full ? "sync" : `sync?since=${cursor}`);
+		if (full) lastFullPull = Date.now();
 		const snap = await snapshot();
 		const changed: string[] = [];
+		let newest = cursor;
 		for (const item of items as SyncItem[]) {
 			const updatedAt = item.updated_at ?? 0;
+			if (updatedAt > newest) newest = updatedAt;
 			if ((st.seen[item.key] ?? 0) >= updatedAt) continue;
 			if (isDirty(item.key, snap)) {
 				st.conflicts[item.key] = { server: item.value, updated_at: updatedAt };
@@ -147,8 +174,10 @@ export function createSync({
 			st.sent[item.key] = sendHash(item.key, item.value);
 			st.content[item.key] = contentHash(item.key, item.value);
 			st.seen[item.key] = updatedAt;
+			clean.delete(item.key);
 			changed.push(item.key);
 		}
+		cursor = newest; // `since` is inclusive and seen[] drops repeats, so rows sharing the newest timestamp are safe
 		if (changed.length) {
 			bc?.postMessage({ type: "remote", keys: changed });
 			await ui.remoteChanged(changed);
@@ -158,12 +187,17 @@ export function createSync({
 
 	/* ---------- push: this device's changes ---------- */
 	async function push(): Promise<void> {
+		noted = new Set();
+		notedAll = false;
 		const snap = await snapshot();
 		const items: { key: string; value: any; base: number }[] = [];
 		for (const [key, value] of snap) {
+			if (clean.has(key)) continue;
 			if (st.sent[key] !== sendHash(key, value)) items.push({ key, value, base: st.seen[key] ?? 0 });
+			else if (!notedAll && !noted.has(key)) clean.add(key);
 		}
 		for (const key of Object.keys(st.sent)) {
+			if (!snap.has(key)) clean.delete(key);
 			if (!snap.has(key) && st.sent[key] !== null) items.push({ key, value: null, base: st.seen[key] ?? 0 });
 		}
 		for (let i = 0; i < items.length; i += BATCH) {
@@ -193,8 +227,9 @@ export function createSync({
 	};
 
 	/* ---------- the cycle (leader only) ---------- */
-	async function cycle(): Promise<void> {
+	async function cycle(incremental = false): Promise<void> {
 		if (!leader || stopped) return;
+		if (!incremental) note();
 		if (running) {
 			again = true;
 			return;
@@ -228,7 +263,7 @@ export function createSync({
 		POLL_SLOW = 5 * 60_000;
 	function setPolling(ms: number): void {
 		if (interval) clearInterval(interval);
-		interval = setInterval(cycle, ms);
+		interval = setInterval(() => cycle(), ms);
 		(interval as any).unref?.();
 	}
 
@@ -255,7 +290,7 @@ export function createSync({
 				live = true;
 				setPolling(POLL_SLOW);
 				cycle();
-			} else if (m?.type === "changed") cycle();
+			} else if (m?.type === "changed") cycle(true);
 		};
 		ws.onclose = (ev) => {
 			if (sock === ws) sock = null;
@@ -295,6 +330,7 @@ export function createSync({
 				await applyRemote({ key, value: c.server, updated_at: c.updated_at });
 				st.sent[key] = sendHash(key, c.server);
 				st.content[key] = contentHash(key, c.server);
+				clean.delete(key);
 				taken.push(key);
 			}
 			st.seen[key] = c.updated_at;
@@ -310,14 +346,17 @@ export function createSync({
 
 	function schedulePush(ms = 1500): void {
 		if (pushTimer) clearTimeout(pushTimer);
-		pushTimer = setTimeout(cycle, ms);
+		pushTimer = setTimeout(() => cycle(true), ms);
 		(pushTimer as any).unref?.();
 	}
 
 	/* ---------- tabs ---------- */
 	bc?.addEventListener("message", (ev) => {
 		const m = ev.data || {};
-		if (m.type === "local" && leader) schedulePush();
+		if (m.type === "local" && leader) {
+			note(m.keys);
+			schedulePush();
+		}
 		if (m.type === "remote" && !leader) ui.remoteChanged(m.keys || []);
 		if (m.type === "status" && !leader) ui.status({ online: m.online });
 	});
@@ -362,9 +401,13 @@ export function createSync({
 	return {
 		start,
 		stop,
-		noteLocal() {
-			bc?.postMessage({ type: "local" });
-			if (leader) schedulePush();
+		// keys: the sync keys that changed ("profile:<game>:<id>", "meta:<k>"); none means any of them may have
+		noteLocal(keys?: string[]) {
+			bc?.postMessage({ type: "local", keys });
+			if (leader) {
+				note(keys);
+				schedulePush();
+			}
 		},
 		resolveConflicts,
 		isLeader: () => leader,

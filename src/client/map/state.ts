@@ -113,12 +113,12 @@ export const state: Record<string, any> = {
 	drag: null, // map tool; selection shape kind; the selection (map coordinates) and the one being drawn
 };
 
-let syncNoteFn: (() => void) | null = null;
-export function setSyncNote(fn: () => void): void {
+let syncNoteFn: ((keys?: string[]) => void) | null = null;
+export function setSyncNote(fn: (keys?: string[]) => void): void {
 	syncNoteFn = fn;
 }
-export function syncNote(): void {
-	syncNoteFn?.();
+export function syncNote(keys?: string[]): void {
+	syncNoteFn?.(keys);
 }
 
 let toastTimer: ReturnType<typeof setTimeout> | undefined;

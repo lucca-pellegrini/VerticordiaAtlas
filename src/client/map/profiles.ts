@@ -201,7 +201,7 @@ export async function saveProfileNow(): Promise<void> {
 	p.updated = Date.now();
 	try {
 		await dbPut("profiles", p);
-		syncNote();
+		syncNote([`profile:${p.key}`]);
 	} catch (e) {
 		console.error(e);
 		toast("Could not save progress in this browser.");
