@@ -188,6 +188,7 @@ export interface MapMeta {
 	slug: string;
 	title: string;
 	data: string;
+	compact?: string; // data.compact.json beside data.json, when the map has one (see compact-map.ts)
 	tilesets: TilesetMeta[];
 }
 

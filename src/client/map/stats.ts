@@ -3,6 +3,7 @@
 
 /* ---------- progress & stats dialog: overview, per-map progress, current-map breakdown, exports ---------- */
 
+import { locationsOf } from "../../shared/compact-map.ts";
 import { esc } from "../../shared/escape.ts";
 import { mapData, refreshAll, switchMap } from "./map-view.ts";
 import { saveProfileNow, scheduleViewSave, syncTagStrict } from "./profiles.ts";
@@ -41,7 +42,7 @@ const CSV_HEADER = ["Map", "Group", "Category", "Region", "Title", "Found", "Tag
 
 // markers the map shows: the same coordinate rule as prepareMap
 const placed = (data: any): any[] =>
-	(data?.locations || []).filter(
+	locationsOf(data).filter(
 		(l: any) => Number.isFinite(parseFloat(l.latitude)) && Number.isFinite(parseFloat(l.longitude)),
 	);
 
@@ -262,7 +263,7 @@ export function openStats(): void {
 		allLoaded() ? maps.reduce((s, m) => s + results.get(m.slug)!.total, 0) : indexTotal;
 	const knownIds = (): Set<number> => {
 		const k = new Set<number>();
-		for (const data of raw.values()) for (const l of data?.locations || []) k.add(l.id);
+		for (const data of raw.values()) for (const l of locationsOf(data)) k.add(l.id);
 		for (const m of state.profile?.userMarkers || []) k.add(m.id);
 		return k;
 	};

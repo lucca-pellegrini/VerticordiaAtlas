@@ -18,6 +18,7 @@ import { parseArgs } from "node:util";
 
 import { sanitizeMapData } from "../src/shared/geometry.ts";
 import type { GameMeta } from "../src/shared/types.ts";
+import { refreshCompact } from "./compact-map.ts";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -167,7 +168,10 @@ export async function cleanGameOnDisk(
 	if (!loaded.length) return null;
 	const stats = cleanGameMarkers(loaded.map((l, i) => ({ slug: l.slug, isDefault: i === 0, data: l.data })));
 	if ((stats.linksCleaned > 0 || stats.geometriesCleaned > 0) && !opts.dryRun) {
-		for (const l of loaded) await Bun.write(l.file, JSON.stringify(l.data));
+		for (const l of loaded) {
+			await Bun.write(l.file, JSON.stringify(l.data));
+			await refreshCompact(path.dirname(l.file));
+		}
 	}
 	return stats;
 }

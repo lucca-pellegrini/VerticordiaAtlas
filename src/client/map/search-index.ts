@@ -7,6 +7,8 @@
    is built). No description, no media, no coordinates: the full map data is dropped once indexed. So a description
    never matches on another map, and its result shows none. */
 
+import { locationsOf } from "../../shared/compact-map.ts";
+
 export interface IndexEntry {
 	l: { id: number; title: string; desc: string; tags: number[] };
 	slug: string;
@@ -20,7 +22,7 @@ export function indexMap(slug: string, data: any, colorOf: (c: string) => string
 	const cats = new Map<number, any>(Object.values<any>(data.categories || {}).map((c) => [c.id, c]));
 	const groupCol = new Map<number, string>((data.groups || []).map((g: any) => [g.id, colorOf(g.color)]));
 	const out: IndexEntry[] = [];
-	for (const d of data.locations || []) {
+	for (const d of locationsOf(data)) {
 		// a location without a point is never listed
 		if (!Number.isFinite(parseFloat(d.latitude)) || !Number.isFinite(parseFloat(d.longitude))) continue;
 		const cat = cats.get(d.category_id);
