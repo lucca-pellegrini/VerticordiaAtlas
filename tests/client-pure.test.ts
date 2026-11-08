@@ -51,6 +51,7 @@ import {
 import { buildMarkerFilter } from "../src/client/map/marker-filter.ts";
 import { parseDemoPresets } from "../src/client/map/presets.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
+import { indexedOthers, indexMap } from "../src/client/map/search-index.ts";
 import { matchOf, queryOf, truncateDesc } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
 import {
@@ -367,6 +368,43 @@ describe("modularized map and home helpers", () => {
 			else (globalThis as any).document = prevDoc;
 			_resetMarkedForTest();
 		}
+	});
+
+	test("all-maps search index keeps only searchable fields and filters by saved view", () => {
+		const data = {
+			categories: { 1: { id: 1, title: "Seeds", icon: "x", color: "#fff", group_id: 9, extra: "no" } },
+			groups: [{ id: 9, color: "#123456" }],
+			locations: [
+				{
+					id: 1,
+					title: "Golden Seed",
+					description: "long text",
+					category_id: 1,
+					tags: [3],
+					latitude: "1",
+					longitude: "2",
+					media: [1],
+				},
+				{ id: 2, title: "Élan", description: "d", category_id: 2, latitude: "1", longitude: "2" },
+				{ id: 3, title: "No point", category_id: 1, latitude: "x", longitude: "2" },
+			],
+		};
+		const idx = [...indexMap("a", data, (c) => c.toUpperCase()), ...indexMap("b", data, (c) => c)];
+		expect(idx.length).toBe(4); // the location without a point is not indexed
+		expect(idx[0].l).toEqual({ id: 1, title: "Golden Seed", desc: "", tags: [3] });
+		expect(idx[0].cat).toEqual({ id: 1, title: "Seeds", icon: "x", color: "#fff", group_id: 9 });
+		expect(idx[0].col).toBe("#123456");
+		expect(idx[1].cat).toBeUndefined();
+		// ranking runs on the index as on full data; descriptions are gone, titles still match (accents ignored)
+		expect(matchOf(queryOf("golden seed"), idx[0].l)).toEqual([0, 0]);
+		expect(matchOf(queryOf("elan"), idx[1].l)).toEqual([0, 0]);
+		expect(matchOf(queryOf("long text"), idx[0].l)).toBeNull();
+		// the current map is left out; hidden categories and found markers follow that map's saved view
+		const views = { b: { hidden: [2], hideFound: true } };
+		expect(indexedOthers(idx, "b", views, new Set()).map((e) => e.slug)).toEqual(["a", "a"]);
+		expect(indexedOthers(idx, "a", views, new Set()).map((e) => e.l.id)).toEqual([1]);
+		expect(indexedOthers(idx, "a", views, new Set([1])).length).toBe(0);
+		expect(indexedOthers(idx, "a", undefined, new Set([1])).length).toBe(2);
 	});
 
 	test("queryOf and matchOf rank exact, phrase, word, and fuzzy matches", () => {
