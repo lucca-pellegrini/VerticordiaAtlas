@@ -160,9 +160,17 @@ describe("tile engine", () => {
 		// a 16 x 16 pyramid at zoom 4 with a hole; tiles are served from memory
 		const tiles = new Map<string, Buffer>();
 		beforeAll(async () => {
+			const tasks: Promise<void>[] = [];
 			for (let x = 0; x < 16; x++)
-				for (let y = 0; y < 16; y++) if (x < 12 || y < 8) tiles.set(`4/${x}/${y}`, await gradient(x * 16 + y));
-		});
+				for (let y = 0; y < 16; y++)
+					if (x < 12 || y < 8)
+						tasks.push(
+							gradient(x * 16 + y).then((buf) => {
+								tiles.set(`4/${x}/${y}`, buf);
+							}),
+						);
+			await Promise.all(tasks);
+		}, 60_000);
 		const reader = (tick?: (d: 1 | -1) => void) => async (z: number, x: number, y: number) => {
 			tick?.(1);
 			await Bun.sleep(1);
