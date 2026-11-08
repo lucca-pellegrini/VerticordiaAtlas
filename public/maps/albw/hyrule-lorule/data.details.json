@@ -1,0 +1,824 @@
+{
+	"v": 1,
+	"d": {
+		"214554": [
+			"Interact with the middle gravestone to reveal the secret passage to the [Sanctuary Dungeon](#loc=214556)",
+			[]
+		],
+		"214555": [
+			"**Location:** In the chest, right at the entrance of the [Sanctuary Dungeon](#loc=214556)  \n**Utility:** Lights up torches, melts ice and damages enemies.  \n**Note:** Beating the [Treacherous Tower](#loc=215192)'s Advanced level for the first time upgrades it to the _Super Lamp_, which deals 8 times more damage to enemies.",
+			[]
+		],
+		"214556": [
+			"**Required items:**\n- [Captain's Sword](#loc=214550)\n\n**Notable items:**\n- [Lamp](#loc=214555)\n- [Heart Piece](#loc=214622)",
+			[]
+		],
+		"214557": ["Becomes Ravio's Shop after acquiring the [Smooth Gem](#loc=214586).", []],
+		"214558": [
+			"**Location:** Given by Ravio after completing the [Sanctuary Dungeon](#loc=214556).  \n**Utility:** Enables Wall Merging upon completing the [Eastern Palace](#loc=214576).",
+			[]
+		],
+		"214559": ["**Location:** Given by Princess Zelda after completing the [Sanctuary Dungeon](#loc=214556).", []],
+		"214561": [
+			"**Location:** Given by the [Fortune-Teller](#loc=214560).  \n**Utility:** Reveals Hint Ghosts.",
+			[]
+		],
+		"214564": [
+			"**Location:** In the cave, on top of the stairs; drop down in the hole from the Village using a Cucco.",
+			[]
+		],
+		"214565": ["**Inventory:**\n- [Shield](#loc=214566) (50)", []],
+		"214566": [
+			"**Location:** Sold by the [Shop](#loc=214565) for 50 Rupees.  \n**Utility:** Blocks all incoming damage from a given direction.",
+			[]
+		],
+		"214567": [
+			"**Inventory:**\n- [Bottle](#loc=214568) (100)\n- [Smooth Gem](#loc=214586) (200), after visiting the [Zora Cave](#loc=214585)",
+			[]
+		],
+		"214568": ["**Location:** Sold by the [Street Merchant](#loc=214567) for 100 Rupees.", []],
+		"214570": [
+			"Gives the [Net](#loc=214571) when spoken to for the first time.\n\nAlso gives the [Bee Badge](#loc=215305) in exchange for a Golden Bee (one can be purchased [here](#loc=215304)).",
+			[]
+		],
+		"214571": [
+			"**Location:** Given by the [Bee Guy](#loc=214570).  \n**Utility:** Allows for catching bugs, fruits, fairies, and more. Must be then stored in a Bottle.  \n**Note:** Beating the [Treacherous Tower](#loc=215192)'s Advanced level for the second time upgrades it to the _Super Net_, which deals 8 times more damage.",
+			[]
+		],
+		"214572": [
+			"**Objective:** Dodge the Cuccos flying in the ranch for 30 seconds. Each level increases the number and size of Cuccos.\n\n**Level 1 (Egg):**  \n_Cost:_ 20 Rupees  \n_Reward:_ 40 Rupees\n\n**Level 2 (Chick):**  \n_Cost:_ 30 Rupees  \n_Reward:_ 60 Rupees\n\n**Level 3 (Rooster):**  \n_Cost:_ 50 Rupees  \n_Reward:_ 150 Rupees and a [Heart Piece](#loc=214573)\n\n**Level 4 (Endless):**  \n_Special:_ As the name implies, this level is endless-ish.  \n_Cost:_ 10 Rupees\n_Reward:_ 100 Rupees per 100 seconds  \n_Special reward:_ Lasting 1,000 seconds rewards 3,000 Rupees",
+			[]
+		],
+		"214573": ["**Location:** Reward for completing the _Rooster_ level of [Cucco Ranch](#loc=214572).", []],
+		"214575": [
+			"**Renting price:** 50 Rupees  \n**Buying price:** 800 Rupees  \n**Upgrade:** _Nice Bow_, which fires a spread of 3 arrows.",
+			[]
+		],
+		"214576": [
+			"**Required items:**\n- [Bow & Arrow](#loc=214575)\n\n**Notable items:**\n- [Monster Guts](#loc=214578)\n- [Monster Guts](#loc=214579)\n- [Heart Container](#loc=214580)",
+			[]
+		],
+		"214578": [
+			"**Location:** [Eastern Palace](#loc=214576) - Floor 2, NW room.  \nReward for completing the pressure plate puzzle.",
+			[]
+		],
+		"214579": [
+			"**Location:** [Eastern Palace](#loc=214576) - Floor 2, NE room.  \nDestroy all the pots to spawn a chest on the upper platform.",
+			[]
+		],
+		"214580": ["**Location:** Reward for defeating the [Eastern Palace](#loc=214576)'s boss.", []],
+		"214581": [
+			"**Location:** Given by Irene when crossing the bridge after completing [Eastern Palace](#loc=214576).  \n**Utility:** Allows warping between Weather Vanes.",
+			[]
+		],
+		"214582": [
+			"**Location:** On the tree stumpt, after completing [Eastern Palace](#loc=214576).  \n**Utility:** Allows the player to map an item to the 'X' button.",
+			[]
+		],
+		"214584": [
+			"**Inventory:**\n- Red Potion (restores 8 hearts): 50 Rupees\n- Blue Potion (restores all health): 200 Rupees and 10 Monster Tails\n- Yellow Potion (brief invincibility): 100 Rupees and 10 Monster Horns\n- Purple Potion (AoE damage): 60 Rupees and 10 Monster Guts",
+			[]
+		],
+		"214586": [
+			"**Location:** Sold by the [Street Merchant](#loc=214567) for 200 Rupees.  \n**Utility:** After visiting the [Zora Cave](#loc=214585), bring it back to gain [Zora's Flippers](#loc=214607).",
+			[]
+		],
+		"214587": [
+			"**Location:** After visiting the [Zora Cave](#loc=214585), surprise the Shady Guy from behind through Wall Merging.  \n**Utility:** Allows for bashing into trees and pillars, revealing hidden items.",
+			[]
+		],
+		"214589": [
+			"**Location:** Speak with Rosso in his [house](#loc=214588).  \n**Utility:** Allows picking up and moving small rocks.",
+			[]
+		],
+		"214591": [
+			"**Location:** On a tunnel, going between the lava pillars. Access by dropping from a platform, higher on the left.",
+			[]
+		],
+		"214593": [
+			"**Required items:**\n- [Power Glove](#loc=214589)\n- [Hammer](#loc=214597)\n\n**Notable items:**\n- [Monster Guts](#loc=215119)\n- [Heart Container](#loc=215120)\n- [Pendant of Power](#loc=215121)",
+			[]
+		],
+		"214594": [
+			"**Renting price:** 50 Rupees  \n**Buying price:** 800 Rupees  \n**Upgrade:** _Nice Hookshot_, which extends farther and deals more damage.",
+			[]
+		],
+		"214595": [
+			"Ravio offers two services:  \n_Rental:_ After acquiring the [Smooth Gem](#loc=214586), Ravio starts renting his gear. Rented gear will return to Ravio upon dying, and must be rented again.  \n_Buying:_ After acquiring the [Master Sword](#loc=215148), Ravio starts selling his gear. Purchased gear will not return to Ravio upon dying.\n\n**Available gear:** (Rental price / Purchase price)\n- [Bow & Arrow](#loc=214575) (50/800)\n- [Hookshot](#loc=214594) (50/800)\n- [Bomb](#loc=214598) (50/800)\n- [Boomerang](#loc=214599) (50/800)\n- [Hammer](#loc=214597) (50/800)\n- [Tornado Rod](#loc=214596) (50/800)\n- [Sand Rod](#loc=214602) (50/800)\n- [Fire Rod](#loc=214600) (100/1,200)\n- [Ice Rod](#loc=214601) (100/1,200)",
+			[]
+		],
+		"214596": [
+			"**Renting price:** 50 Rupees  \n**Buying price:** 800 Rupees  \n**Upgrade:** _Nice Tornado Rod_, which has a bigger blast radius and slightly damages enemies.",
+			[]
+		],
+		"214597": [
+			"**Renting price:** 50 Rupees  \n**Buying price:** 800 Rupees  \n**Upgrade:** _Nice Hammer_, which deals more damage and sends a stunning shockwave.",
+			[]
+		],
+		"214598": [
+			"**Renting price:** 50 Rupees  \n**Buying price:** 800 Rupees  \n**Upgrade:** _Nice Bomb_, which increases its explosion size and damage.",
+			[]
+		],
+		"214599": [
+			"**Renting price:** 50 Rupees  \n**Buying price:** 800 Rupees  \n**Upgrade:** _Nice Boomerang_, which throws 3 boomerangs at a time.",
+			[]
+		],
+		"214600": [
+			"**Renting price:** 100 Rupees  \n**Buying price:** 1,200 Rupees  \n**Upgrade:** _Nice Fire Rod_, which increases the size, travel distance and damage of the fire pillar.",
+			[]
+		],
+		"214601": [
+			"**Renting price:** 100 Rupees  \n**Buying price:** 1,200 Rupees  \n**Upgrade:** _Nice Ice Rod_, which drops 4 blocks of ice instead of 1.",
+			[]
+		],
+		"214602": [
+			"**Renting price:** 50 Rupees  \n**Buying price:** 800 Rupees  \n**Upgrade:** _Nice Sand Rod_, which creates permanant walls that can be dismissed.  \n**Note:** Unavailable until [Osfala](#loc=215235) is rescued.",
+			[]
+		],
+		"214603": [
+			"**Note:** Requires the [Bomb](#loc=214598) to access the cavern.\n\nSpeaking with her allows the player to collect lost Maiamais. For every 10 maiamais collected, Mother Maiamai can upgrade one gear from [Ravio's Shop](#loc=214595) that the player _owns_. See each gear for their upgrades.",
+			[]
+		],
+		"214604": [
+			"**Location:** In the corner wall; use [Ravio's Bracelet](#loc=214558)'s Wall Merging to dislodge it.",
+			[]
+		],
+		"214607": [
+			"**Location:** Given by Oren after bringing her the [Smooth Gem](#loc=214586).  \n**Utility:** Allows swimming.",
+			[]
+		],
+		"214608": ["**Location:** At the bottom of the lake; requires [Zora's Flippers](#loc=214607) to access.", []],
+		"214609": [
+			"**Location:** In the cave behind the waterfall; requires [Zora's Flippers](#loc=214607) to access.",
+			[]
+		],
+		"214622": [
+			"**Location:** [Sanctuary Dungeon](#loc=214556) - In the large room with the walkways; Wall Merge with [Ravio's Bracelet](#loc=214558) on the wall behind the red chest on the upper level, then move right.",
+			[]
+		],
+		"214623": [
+			"**Location:** In the corner wall; Wall Merge with [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"214624": ["**Location:** At the bottom of the pool; requires [Zora's Flippers](#loc=214607) to access.", []],
+		"214628": [
+			"**Location:** In the rock wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"214629": [
+			"**Location:** Under a small rock, just south of the area entrance; use the [Power Glove](#loc=214589) to access.",
+			[]
+		],
+		"214631": [
+			"**Location:** In an alcove, just south of the giant log; Wall Merge using [Ravio's Bracelet](#loc=214558) to access via a fissure in the southern wall.",
+			[]
+		],
+		"214632": [
+			"**Location:** In a tree, south of a giant log; use the [Pegasus Boots](#loc=214587) to dislodge it.",
+			[]
+		],
+		"214633": ["**Location:** In the tall grass, to the left of a tree; cut the grass down to access.", []],
+		"214634": [
+			"**Location:** Under a small rock, between the two fences; use the [Power Glove](#loc=214589) to access.",
+			[]
+		],
+		"214636": ["**Location:** In tall grass, between two small fences; cut it down to access.", []],
+		"214637": [
+			"**Location:** Under a small rock, on top of the building's roof. Fly to the roof from the upper platform to the north with a Cucoo, then use the [Power Glove](#loc=214589) to access.",
+			[]
+		],
+		"214638": [
+			"**Location:** Behind the [Blacksmith's House](#loc=214639); access by Wall Merging with [Ravio's Bracelet](#loc=214558) from the right.",
+			[]
+		],
+		"214639": ["Upgrades the [Master Sword](#loc=215148)'s damage for 2 Master Ores.", []],
+		"214640": [
+			"**Location:** In a tree, on the side of the path; use the [Pegasus Boots](#loc=214587) to dislodge it.",
+			[]
+		],
+		"214641": [
+			"**Location:** In a tree, on the side of the path; use the [Pegasus Boots](#loc=214587) to dislodge it.",
+			[]
+		],
+		"214647": [
+			"**Objective:** Collect as many Rupees as you can within 30 seconds. Remaining time is not displayed in game. Ending closer to 30 seconds multiplies the amount, while going over 30 seconds nullifies it.  \n**Cost:** 50 Rupees  \n**Reward:** The first time the player collects over 100 Rupees, he receives a [Heart Piece](#loc=214649)",
+			[]
+		],
+		"214649": [
+			"**Location:** Reward for collecting over 100 Rupees in [Rupee Rush](#loc=214647) for the first time.",
+			[]
+		],
+		"214652": [
+			"**Location:** In the southern wall of [Rupee Rush](#loc=214647); Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"214654": [
+			"**Location:** In the northernmost tree of the clearing; use the [Pegasus Boots](#loc=214587) to dislodge it.",
+			[]
+		],
+		"214656": [
+			"**Location:** In the tree, near the corner wall; use the [Pegasus Boots](#loc=214587) to dislodge it.",
+			[]
+		],
+		"214658": [
+			"**Location:** In the northern wall of [Link's House](#loc=214557); Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"214660": [
+			"**Location:** In the tree, on the side of [Hyrule Castle](#loc=214551); use the [Pegasus Boots](#loc=214587) to dislodge it.",
+			[]
+		],
+		"214661": [
+			"**Location:** On the side of [Hyrule Castle](#loc=214551), surrounded by small rocks; use the [Power Glove](#loc=214589) to remove them and gain access.",
+			[]
+		],
+		"214666": ["**Location:** In the central pillar; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"214668": [
+			"**Location:** Against the wall between the two pillars; use a [Bomb](#loc=214598) to reveal the entrance.",
+			[]
+		],
+		"214669": [
+			"**Location:** Within the [Secret Cavern](#loc=214668) - At the far end of the first corridor, at the bottom of the pool; use [Zora's Flippers](#loc=214607) to access.",
+			[]
+		],
+		"214670": [
+			"**Location:** Behind some tall pillars; access from the other side of the [Secret Cavern](#loc=214668).",
+			[]
+		],
+		"214672": [
+			"**Location:** At the bottom of the river; use the [Zora's Flippers](#loc=214607) to access, swimming all the way from the southern shore.",
+			[]
+		],
+		"214674": [
+			"**Required items:**\n- [Zora's Flippers](#loc=214607)\n- [Tornado Rod](#loc=214596)\n- [Lamp](#loc=214555)\n\n**Notable items:**\n- [Monster Guts](#loc=215139)\n- [Heart Container](#loc=215140)\n- [Pendant of Wisdom](#loc=215141)",
+			[]
+		],
+		"214676": [
+			"**Location:** Given by the Bird Lover, who dwells near the river level; requires [Zora's Flippers](#loc=214607) to swim all the way from the southern shore under the bridge.",
+			[]
+		],
+		"214679": ["**Location:** At the bottom of the river; use [Zora's Flippers](#loc=214607) to access.", []],
+		"214680": ["**Location:** At the bottom of the river; use [Zora's Flippers](#loc=214607) to access.", []],
+		"214684": [
+			"**Location:** At the bottom of the river; use [Zora's Flippers](#loc=214607) to access.  \n**Utility:** Give to the [Milk Bar](#loc=214757) Owner to gain the [Premium Milk](#loc=214759).",
+			[]
+		],
+		"214685": ["**Location:** In a tree; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"214691": ["**Location:** Surrounded by wooden pegs; use the [Hammer](#loc=214597) to gain access.", []],
+		"214702": [
+			"**Location:** At the far end of the blocked cavern; requires the following gear:\n- [Power Glove](#loc=214589)\n- [Bomb](#loc=214598)\n- [Ravio's Bracelet](#loc=214558)",
+			[]
+		],
+		"214713": [
+			"**Objective:** Race to the other racing bro behind [Rosso's House](#loc=214588) within the time limit.  \n**Cost:** 20 Rupees.\n**Rewards:**\n- Level 1 (75 seconds): 100 Rupees\n- Level 2 (65 seconds): [Heart Piece](#loc=214714)\n- Level 3 (beat your previous time): 300 Rupees",
+			[]
+		],
+		"214714": ["**Location:** Reward for completing level 2 of [Hyrule Hotfoot](#loc=214713).", []],
+		"214759": [
+			"**Location:** Given by the Milk Bar Owner after reading the [Letter in a Bottle](#loc=214684).  \n**Utility:** Traded for an [Empty Bottle](#loc=214769) to the [Bouldering Guy](#loc=214768)",
+			[]
+		],
+		"214764": [
+			"**Location:** On top of pillar, in the moving platforms puzzle behind the west wall. Requires the following gear to access:\n- [Hookshot](#loc=214594)\n- [Hammer](#loc=214597)",
+			[]
+		],
+		"214768": ["**Location:** On a platform; Merge Wall when exiting the moving platforms cave to reach him.", []],
+		"214769": [
+			"**Location:** Given by the [Bouldering Guy](#loc=214768) after bringing him [Premium Milk](#loc=214759).",
+			[]
+		],
+		"214771": [
+			"**Location:** Under a small rock, near the cave's entrance; use the [Power Glove](#loc=214589) to access.",
+			[]
+		],
+		"215119": [
+			"**Location:** [Tower of Hera](#loc=214593) - Floor 6; access by smashing the cracked blocks on Floor 7 with the [Hammer](#loc=214597).",
+			[]
+		],
+		"215120": ["**Location:** Reward for defeating the boss of the [Tower of Hera](#loc=214593)", []],
+		"215121": ["**Location:** Reward for defeating the boss of the [Tower of Hera](#loc=214593)", []],
+		"215122": ["**Location:** In the flowers on the floor; use the [Tornado Rod](#loc=214596) to dislodge it.", []],
+		"215123": ["**Location:** In the flowers on the floor; use the [Tornado Rod](#loc=214596) to dislodge it.", []],
+		"215124": [
+			"**Location:** On the eastern side of the [Fortune-Teller](#loc=214560)'s tent; Merge Walls with [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215125": [
+			"**Location:** Inside the alcove's back wall; Wall Merge with [Ravio's Bracelet](#loc=214558) from the west to access.",
+			[]
+		],
+		"215126": [
+			"**Location:** Inside the easternmost tree; use the [Pegasus Boots](#loc=214587) to dislodge it.",
+			[]
+		],
+		"215127": ["**Location:** Stuck in the pillar; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"215128": ["**Location:** At the bottom of the river; use the [Zora's Flippers](#loc=214607) to access.", []],
+		"215129": [
+			"**Location:** In the wall, up the ladder; use [Zora's Flippers](#loc=214607) and [Ravio's Bracelet](#loc=214558) to access.",
+			[]
+		],
+		"215130": [
+			"**Location:** Inside the [Witch's House](#loc=214584), in the western wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215131": [
+			"**Location:** In the southern wall; Wall Merge using [Ravio's Bracelet](#loc=214558) atop the hole to dislodge it.",
+			[]
+		],
+		"215132": [
+			"**Location:** Under a small rock, surrounded by larger boulders; use the [Power Glove](#loc=214589) to access.",
+			[]
+		],
+		"215133": [
+			"**Location:** In the rocky wall; Wall Merge from the cavern entrance just to the left using [Ravio's Bracelet](#loc=214558) to access.",
+			[]
+		],
+		"215134": ["**Location:** In the wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.", []],
+		"215135": [
+			"**Location:** Under a small rock; use the [Hookshot](#loc=214594) to cross the bridge and the [Power Glove](#loc=214589) to access.",
+			[]
+		],
+		"215136": ["**Location:** At the bottom of the pool; use the [Zora's Flippers](#loc=214607) to access.", []],
+		"215138": [
+			"**Location:** Underneath a flower, behind the [House of Gales](#loc=214674); use the [Tornado Rod](#loc=214596) to dislodge it.",
+			[]
+		],
+		"215139": ["**Location:** [House of Gales](#loc=214674) - Floor 1, NE room; reward for solving the room.", []],
+		"215140": ["**Location:** Reward for defeating the boss of [House of Gales](#loc=214674)", []],
+		"215141": ["**Location:** Reward for defeating the boss of [House of Gales](#loc=214674)", []],
+		"215142": ["**Inventory:**\n- ??", []],
+		"215143": [
+			"**Location:** Sold by the [Lakeside Item Seller](#loc=215142) for 50 Rupees.  \n**Utility:** Teleports the player back to the dungeon's entrance.",
+			[]
+		],
+		"215144": [
+			"**Location:** Sold by the [Lakeside Item Seller](#loc=215142) for 30 Rupees.  \n**Utility:** Stuns nearby enemies.",
+			[]
+		],
+		"215145": [
+			"**Location:** Sold by the [Lakeside Item Seller](#loc=215142) for 100 Rupees.  \n**Utility:** Blocks all damage in a given direction.",
+			[]
+		],
+		"215146": [
+			"**Location:** Hidden in a secret cavern; use a [Bomb](#loc=214598) to blow up the wall between the two small rocks.  \n**Quest:** Bring him a [Scoot Fruit](#loc=215143) to gain 100 Rupees.",
+			[]
+		],
+		"215147": [
+			"**Location:** In a chest, at the end of a secret cavern; using a [Bomb](#loc=214598), blow up the northern wall to reveal.",
+			[]
+		],
+		"215148": [
+			"**Location:** Deep in the Lost Woods; solve the maze riddles to access.  \n**Requirements:**\n- [Pendant of Courage](#loc=214559)\n- [Pendant of Power](#loc=215121)\n- [Pendant of Wisdom](#loc=215141)",
+			[]
+		],
+		"215149": ["**Required items:**\n- [Master Sword](#loc=215148)\n\n**Notable items:**\n- ??", []],
+		"215151": [
+			"**Location:** In the western wall of the Blacksmith's House; Wall Merge using [Ravio's Bracelet](#loc=214558) from the east to dislodge it.",
+			[]
+		],
+		"215153": [
+			"**Location:** In the Vacant House; access by blowing up the northern wall with a [Bomb](#loc=214598) from the outside.",
+			[]
+		],
+		"215154": [
+			"**Location:** In the corner wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215155": ["**Location:** In a tree; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"215156": [
+			"**Location:** In the stone wall, on the eastern side; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215158": ["**Location:** In a tree; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"215159": [
+			"**Location:** In the souther wall of the ruin; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215161": ["**Location:** Against the inside wall of the ruins.  \n**Destination:** [Portal](#loc=215162)", []],
+		"215162": [
+			"**Location:** Inside the house, behind racks of clothes.  \n**Destination:** [Portal](#loc=215161)",
+			[]
+		],
+		"215163": [
+			"**Location:** Given by the Stylish Lady after talking to her. The door is locked; use the [Portal](#loc=215162) to access.",
+			[]
+		],
+		"215164": [
+			"**Location:** Outside the house, against the northern wall.  \n**Destination:** [Portal](#loc=215165)",
+			[]
+		],
+		"215165": [
+			"**Location:** Outside the house, against the northern wall.  \n**Destination:** [Portal](#loc=215164)",
+			[]
+		],
+		"215166": [
+			"**Location:** In the western wall; Merge Wall using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215167": [
+			"**Location:** In an alcove outside the house; Wall Merge using [Ravio's Bracelet](#loc=214558) from the side to access.",
+			[]
+		],
+		"215168": ["**Location:** On the southern of the pillar.  \n**Destination:** [Portal](#loc=215169)", []],
+		"215169": ["**Location:** On the southern of the pillar.  \n**Destination:** [Portal](#loc=215168)", []],
+		"215170": [
+			"**Location:** In the tall grass, east of the [Portal](#loc=215168); cut it down to dislodge it.",
+			[]
+		],
+		"215171": ["**Location:** In a skull, past the giant ribcage; break it to access.", []],
+		"215172": [
+			"**Location:** In the rocky wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215173": [
+			"**Location:** In the eastern wall of the hole; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215174": ["**Location:** In the tall grass; cut it down to dislodge it.", []],
+		"215175": [
+			"**Location:** On top of the ruins; flutter down from the northern ledge using a Cucco to access.",
+			[]
+		],
+		"215176": ["**Location:** In the tree; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"215177": ["**Location:** Within the ruins.  \n**Destination:** [Portal](#loc=215178)", []],
+		"215178": [
+			"**Location:** Inside [Rosso's House](#loc=214588), against the northern wall.  \n**Destination:** [Portal](#loc=215177)",
+			[]
+		],
+		"215179": [
+			"**Location:** Against the northern wall of the [Sanctuary](#loc=214552).  \n**Destination:** [Portal](#loc=215180)",
+			[]
+		],
+		"215180": [
+			"**Location:** Inside the cavern, against the back wall.  \n**Destination:** [Portal](#loc=215179)",
+			[]
+		],
+		"215181": [
+			"**Location:** In the corner wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215183": ["**Location:** In the tree; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"215184": [
+			"**Location:** Up on the platform, behind a boulder; use a [Bomb](#loc=214598) to access.  \n**Destination:** [Portal](#loc=215185)",
+			[]
+		],
+		"215185": ["**Location:** Up on the platform.  \n**Destination:** [Portal](#loc=215184)", []],
+		"215186": ["**Location:** Inside the cavern, up on the platform; use the [Portal](#loc=215185) to access.", []],
+		"215187": [
+			"**Location:** High up on the corner wall; Wall Merge using [Ravio's Bracelet](#loc=214558) from the platform to the right to dislodge it. Access the platform through the [Portal](#loc=215185)",
+			[]
+		],
+		"215188": [
+			"**Location:** Above the cavern door; Wall Merge from the platform just east to access.  \n**Destination:** [Portal](#loc=215189)",
+			[]
+		],
+		"215189": ["**Location:** High up on the cliff side.  \n**Destination:** [Portal](#loc=215188)", []],
+		"215190": [
+			"**Location:** Under a skull, on top of the platform; break it to dislodge it. Access from the [Portal](#loc=215189).",
+			[]
+		],
+		"215192": [
+			"**Objective:** Defeat all enemies in the room to advance; complete all rooms to win the level. Further levels have harder enemies and more rooms. When replaying a level, beating it with a lower time will yield additional Rupees.\n\n**Beginner (5 rooms):**  \n_Cost:_ 100 Rupees  \n_Reward:_ 300 Rupees\n\n**Intermediate (15 rooms):**  \n_Cost:_ 200 Rupees  \n_Reward:_ 1,000 Rupees and a [Heart Piece](#loc=215193)\n\n**Advanced (50 rooms):**  \n_Cost:_ 300 Rupees  \n_Reward:_ 5,000 Rupees  \n_Other rewards:_ Beating the level for the first time upgrades the [Lamp](#loc=214555) to the Super Lamp. Beating it a second time upgrades the [Net](#loc=214571) to the Super Net.",
+			[]
+		],
+		"215193": [
+			"**Location:** Reward for completing the [Treacherous Tower](#loc=215192)'s Intermediate level.",
+			[]
+		],
+		"215194": ["**Location:** On the side of the mountain.  \n**Destination:** [Portal](#loc=215195)", []],
+		"215195": ["**Location:** On the side of the mountain.  \n**Destination:** [Portal](#loc=215194)", []],
+		"215197": [
+			"**Location:** High up on the wall; Merge Wall using [Ravio's Bracelet](#loc=214558) from the upper cliff to dislodge it.",
+			[]
+		],
+		"215198": [
+			"**Location:** In a chest, on the platform. Access by climbing the ice cave (going west at the crossroads) and Wall Merging from the platform to the west.",
+			[]
+		],
+		"215199": [
+			"**Location:** Under a skull; break it to dislodge it. Access by dropping from the [Golden Rupee](#loc=215198) above.",
+			[]
+		],
+		"215200": [
+			"**Location:** On the southern side of the pillar; access by climbing the ice cavern, going north at the crossroads.  \n**Destination:** [Portal](#loc=215201)",
+			[]
+		],
+		"215201": ["**Location:** On the southern side of the portal.  \n**Destination:** [Portal](#loc=215200)", []],
+		"215202": ["**Location:** On the ground; access through the [Portal](#loc=215201)", []],
+		"215203": [
+			"**Location:** In the rocky wall; Merge Wall using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215205": [
+			"**Objective:** Open 3 treasure chests, among a choice of 15. You keep whatever you open.  \n**Cost:** 200 Rupees  \n**Treasure distribution:**\n- 1x [Heart Piece](#loc=215206) (turns into a Golden Rupee once opened)\n- 2x Golden Rupee (300)\n- 3x Silver Rupee (100)\n- 3x Red Rupee (20)\n- 3x Green Rupee (1)\n- 1x Monster Guts\n- 1x Monster Horn\n- 1x Monster Tail",
+			[]
+		],
+		"215206": ["**Location:** Can be found in [Fortune's Choice](#loc=215205).", []],
+		"215207": [
+			"**Objective:** Collect as many Rupees as you can within 30 seconds. Remaining time is not displayed in game. Ending closer to 30 seconds multiplies the amount, while going over 30 seconds nullifies it.  \n**Cost:** 100 Rupees  \n**Reward:** The first time the player collects over 150 Rupees, he receives a [Heart Piece](#loc=215208).",
+			[]
+		],
+		"215208": [
+			"**Location:** Reward for collecting over 150 Rupees in [Rupee Rush](#loc=215207) for the first time.",
+			[]
+		],
+		"215209": [
+			"**Location:** In the [Rupee Rush](#loc=215207) area, in the northern wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge.",
+			[]
+		],
+		"215210": ["**Location:** In the rocky wall, to the south.  \n**Destination:** [Portal](#loc=215211)", []],
+		"215211": ["**Location:** In the rocky wall, to the south.  \n**Destination:** [Portal](#loc=215210)", []],
+		"215212": ["**Location:** In the rocky wall, to the south.  \n**Destination:** [Portal](#loc=215213)", []],
+		"215213": ["**Location:** In the rocky wall, to the south.  \n**Destination:** [Portal](#loc=215212)", []],
+		"215214": [
+			"**Location:** High up on the wall; Wall Merge using [Ravio's Bracelet](#loc=214558) from the [Portal](#loc=215213) to dislodge it.",
+			[]
+		],
+		"215215": ["**Location:** In a skull, in the corner; break it to dislodge it.", []],
+		"215216": [
+			"**Objective:** Hit 30 balls into the fields, breaking pots to gain points.  \n**Cost:** 50 Rupees  \n**Reward:** 1 Rupee per point scored  \n**Special reward:** A [Heart Piece](#loc=215217), the first time the player scores above 100 points.",
+			[]
+		],
+		"215217": [
+			"**Location:** Reward for obtaining 100 Rupees at [Octoball Derby](#loc=215216) for the first time.",
+			[]
+		],
+		"215218": ["For 200 Rupees, gain access to the garden containing the", []],
+		"215219": [
+			"**Location:** In [Bomb-Shop](#loc=215218)'s garden. Access must be purchased for 200 Rupees.  \n**Utility:** Blows up large cracked boulders.  \n**Note:** This bomb isn't carried; it must be pushed to destination without taking damage. When consumed, another grows in this spot.",
+			[]
+		],
+		"215220": [
+			"**Location:** In the tall grass, just north of the [Big Bomb Flower](#loc=215219); cut it down to dislodge it.",
+			[]
+		],
+		"215221": [
+			"**Location:** Inside a caver, behind a large boulder, which must be blown using a [Big Bomb Flower](#loc=215219).  \nCan be given 50 or 200 Rupees to fully heal the player and release a few fairies. After donating a total of 3,000 Rupees, gives an [Empty Bottle](#loc=215222).",
+			[]
+		],
+		"215222": ["**Location:** Given by the [Great Rupee Fairy](#loc=215221) after donating 3,000 Rupees.", []],
+		"215223": [
+			"**Location:** In a cavern, behind a large boulder. Use a [Big Bomb Flower](#loc=215219) to blow it up.",
+			[]
+		],
+		"215224": [
+			"**Location:** In a cavern, behind a large boulder. Use a [Big Bomb Flower](#loc=215219) to blow it up.",
+			[]
+		],
+		"215225": [
+			"**Location:** On top of the middle pillar; use the [Pegasus Boots](#loc=214587) to dislodge it.",
+			[]
+		],
+		"215227": ["**Location:** At the bottom of the pond; use [Zora's Flippers](#loc=214607) to access.", []],
+		"215228": [
+			"**Location:** In the rocky wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215229": ["**Location:** On the rocky wall.  \n**Destination:** [Portal](#loc=215230)", []],
+		"215230": ["**Location:** On the rocky wall.  \n**Destination:** [Portal](#loc=215229)", []],
+		"215231": [
+			"♪ A smart thief fears the boss's wrath!  \n♪ I'd rather be on a cliff walkin' a narrow path.  \n♪ Sometimes it hurts too much t'care.  \n♪ Ya think knowledge is power, but it's really despair.  \n♪ Every time I say I'm a-leavin',  \n♪ This accursed life sets me back to thievin'!",
+			[]
+		],
+		"215232": [
+			"**Required items:**\n- Solve the [Song Riddle](#loc=215231)\n- [Lamp](#loc=214555)\n\n**Notable items:**\n- [Master Ore](#loc=215233)\n- [Heart Container](#loc=215234)\n- [Osfala](#loc=215235)",
+			[]
+		],
+		"215233": [
+			"**Location:** [Thieves' Hideout](#loc=215232) - Floor B3, SW corner. Press both buttons to reveal a hidden corrider on the left; the Master Ore is in the chest at the end.",
+			[]
+		],
+		"215234": ["**Location:** Reward for completing the [Thieves' Hideout](#loc=215232).", []],
+		"215235": ["**Linked dungeon:** [Thieves' Hideout](#loc=215232)", []],
+		"215236": ["**Location:** In the sand pit; use the [Sand Rod](#loc=214602) to dislodge it.", []],
+		"215237": ["**Location:** In the rocky wall.  \n**Destination:** [Portal](#loc=215238)", []],
+		"215238": ["**Location:** In the rocky wall.  \n**Destination:** [Portal](#loc=215237)", []],
+		"215239": [
+			"**Location:** Reward for solving the puzzle; requires the [Sand Rod](#loc=214602) and the [Tornado Rod](#loc=214596).",
+			[]
+		],
+		"215241": [
+			"**Location:** In the wall, on the shore; Merge Walls using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215242": ["**Location:** At the bottom of the pool; use [Zora's Flippers](#loc=214607) to access.", []],
+		"215243": ["**Location:** On the southern side of the pillar.  \n**Destination:** [Portal](#loc=215244)", []],
+		"215244": ["**Location:** On the southern side of the pillar.  \n**Destination:** [Portal](#loc=215243)", []],
+		"215245": ["**Location:** In the middle of the sand; use the [Sand Rod](#loc=214602) to dislodge it.", []],
+		"215246": [
+			"**Location:** High up the wall, behind a boulder. Requires the [Bomb](#loc=214598) to blow it up.  \n**Destination:** [Portal](#loc=215248)",
+			[]
+		],
+		"215247": ["**Location:** On the platform; use the [Portal](#loc=215248) to access.", []],
+		"215248": ["**Location:** In the rocky wall.  \n**Destination:** [Portal](#loc=215246)", []],
+		"215249": ["**Location:** On the southern side of the pillar.  \n**Destination:** [Portal](#loc=215250)", []],
+		"215250": ["**Location:** On the southern side of the pillar.  \n**Destination:** [Portal](#loc=215249)", []],
+		"215251": [
+			"**Location:** High up on the wall; access from the ledge to the right.  \n**Destination:** [Portal](#loc=215252)",
+			[]
+		],
+		"215252": ["**Location:** On the rocky wall, above the bridge.  \n**Destination:** [Portal](#loc=215251)", []],
+		"215253": ["**Location:** In the small alcove.  \n**Destination:** [Portal](#loc=215254)", []],
+		"215254": ["**Location:** High up in the alcove.  \n**Destination:** [Portal](#loc=215253)", []],
+		"215255": ["**Location:** In the sand; use the [Sand Rod](#loc=214602) to dislodge it.", []],
+		"215257": [
+			"**Required items:**\n- [Sand Rod](#loc=214602)\n\n**Notable items:**\n- [Titan's Mitt](#loc=215258)\n- [Heart Container](#loc=215261)\n- [Irene](#loc=215262)",
+			[]
+		],
+		"215258": [
+			"**Location:** [Desert Palace](#loc=215257) - 1st floor, central room. Use the [Sand Rod](#loc=214602) to build sand bridges across the pillars, and Wall Merge behind the sandfall to a chest.  \n**Utility:** Move large rocks.",
+			[]
+		],
+		"215259": [
+			"**Location:** On the northern wall, on the higher platform. Complete [Desert Palace](#loc=215257) to access.  \n**Destination:** [Portal](#loc=215260)",
+			[]
+		],
+		"215260": ["**Location:** In the northern wall.  \n**Destination:** [Portal](#loc=215259)", []],
+		"215261": ["**Location:** Reward for completing the [Desert Palace](#loc=215257).", []],
+		"215262": ["**Linked dungeon:** [Desert Palace](#loc=215257)", []],
+		"215263": ["**Location:** Under a large boulder; use the [Titan's Mitt](#loc=215258) to access.", []],
+		"215264": ["**Location:** Under a large boulder; use the [Titan's Mitt](#loc=215258) to dislodge it.", []],
+		"215265": ["**Location:** Under a large boulder; use the [Titan's Mitt](#loc=215258) to dislodge it.", []],
+		"215266": ["**Location:** Under a large boulder; use the [Titan's Mitt](#loc=215258) to dislodge it.", []],
+		"215267": ["**Location:** Under the large boulder; use the [Titan's Mitt](#loc=215258) to access.", []],
+		"215268": [
+			"**Location:** Inside the cavern, in the large chest on the SE platform. Access via the [Secret Entrance](#loc=215267).",
+			[]
+		],
+		"215269": ["**Location:** Under a large boulder; use the [Titan's Mitt](#loc=215258) to access.", []],
+		"215270": [
+			"**Location:** In the cavern blocked by a large boulder; use the [Titan's Mitt](#loc=215258) to access.",
+			[]
+		],
+		"215271": [
+			"**Location:** In the corner wall; Wall Marge using [Ravio's Bracelet](#loc=214558) to dislodge it. Access the ledge by moving a large boulder in [Death Mountain Cavern](#loc=215272) with the [Titan's Mitt](#loc=215258).",
+			[]
+		],
+		"215273": ["**Location:** Under the large boulder; use the [Titan's Mitt](#loc=215258) to access.", []],
+		"215274": [
+			"**Location:** Under the large boulder; use the [Titan's Mitt](#loc=215258) to dislodge it. Access by Wall Merging using [Ravio's Bracelet](#loc=214558) from [Hyrule Hotfoot](#loc=214713).",
+			[]
+		],
+		"215275": [
+			"**Location:** Under the large boulder; use the [Titan's Mitt](#loc=215258) to dislodge it. Access by Wall Merging from the ledge up north.",
+			[]
+		],
+		"215276": [
+			"**Location:** In the northern wall, blocked by rocks; use a [Bomb](#loc=214598) to clear it.  \n**Destination:** [Portal](#loc=215277)",
+			[]
+		],
+		"215277": ["**Location:** In the northern wall.  \n**Destination:** [Portal](#loc=215276)", []],
+		"215278": [
+			"**Location:** In the southern wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it. Wall Merge from the ledge up north to access.",
+			[]
+		],
+		"215279": ["**Location:** In the cavern; speak with her to refill all hearts.", []],
+		"215280": ["**Location:** In the hedge; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.", []],
+		"215281": ["**Location:** In a tree; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"215282": ["**Location:** In a tree; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"215283": ["**Location:** In the rocky pillar; use the [Pegasus Boots](#loc=214587) to dislodge it.", []],
+		"215284": ["**Location:** On the northern side of the pillar.  \n**Destination:** [Portal](#loc=215285)", []],
+		"215285": ["**Location:** On the northern side of the pillar.  \n**Destination:** [Portal](#loc=215284)", []],
+		"215286": ["**Location:** At the bottom of the waterfall; use [Zora's Flippers](#loc=214607) to access.", []],
+		"215287": ["**Location:** In the wall, behind the waterfall.  \n**Destination:** [Portal](#loc=215288)", []],
+		"215288": ["**Location:** In the wall, behind the waterfall.  \n**Destination:** [Portal](#loc=215287)", []],
+		"215289": [
+			"**Location:** In the wall of the cliff, to the north.  \n**Destination:** [Portal](#loc=215290)",
+			[]
+		],
+		"215290": [
+			"**Location:** In the wall of the cliff, to the north.  \n**Destination:** [Portal](#loc=215289)",
+			[]
+		],
+		"215291": ["**Location:** In the tall grass, on the cliff; cut it down to dislodge it.", []],
+		"215292": ["**Location:** At the bottom of the lake; use [Zora's Flippers](#loc=214607) to access.", []],
+		"215293": ["**Location:** At the bottom of the lake; use [Zora's Flippers](#loc=214607) to access.", []],
+		"215294": ["**Location:** At the end of the thin beam.", []],
+		"215295": [
+			"**Location:** In the northern hedge; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.",
+			[]
+		],
+		"215297": [
+			"**Required items:**\n- [Bomb](#loc=214598)\n- [Lamp](#loc=214555) or [Fire Rod](#loc=214600)\n\n**Notable items:**\n- [Master Ore](#loc=215298)\n- [Heart Container](#loc=215299)\n- [Gulley](#loc=215300)",
+			[]
+		],
+		"215298": [
+			"**Location:** [Dark Palace](#loc=215297) - Floor 2, central room. Place a [Bomb](#loc=214598) near the southern-most purple activator, then quickly make your way up. Take the purple elevator and Wall Merge with the symbol to gain access.",
+			[]
+		],
+		"215299": ["**Location:** Reward for completing [Dark Palace](#loc=215297)", []],
+		"215300": ["**Linked dungeon:** [Dark Palace](#loc=215297)", []],
+		"215301": ["**Location:** Under a large boulder; use the [Titan's Mitt](#loc=215258) to access.", []],
+		"215302": [
+			"**Location:** Under a large boulder; use the [Titan's Mitt](#loc=215258) to access. Also requires the [Hammer](#loc=214597) to clear the pegs in front of the bridge.",
+			[]
+		],
+		"215303": ["**Location:** In a cave, between the two giant ribcages.", []],
+		"215304": [
+			"**Location:** Sold by the [Mysterious Man](#loc=215303) for 888 Rupees.\n\nCan be traded to the [Bee Guy](#loc=214570) for the [Bee Badge](#loc=215305)",
+			[]
+		],
+		"215305": [
+			"**Location:** Traded by the [Bee Guy](#loc=214570) for a Golden Bee (one can be purchased [here](#loc=215304)).  \n**Utility:** Befriends bees, making them attack the enemies instead.",
+			[]
+		],
+		"215306": ["**Location:** Under a large boulder; use the [Titan's Mitt](#loc=215258) to access.", []],
+		"215308": [
+			"**Required items:**\n- [Lamp](#loc=214555)\n- [Bomb](#loc=214598)\n\n**Notable items:**\n- [Master Ore](#loc=215309)\n- [Heart Container](#loc=215310)\n- [Seres](#loc=215311)",
+			[]
+		],
+		"215309": [
+			"**Location:** [Skull Woods](#loc=215308) - Floor B1, NW room. After entering the room from above, Wall Merge on the western wall to the narrow walkway. The Ore is in the large chest.",
+			[]
+		],
+		"215310": ["**Location:** Reward for completing [Skull Woods](#loc=215308)", []],
+		"215311": ["**Linked dungeon:** [Skull Woods](#loc=215308)", []],
+		"215312": [
+			"**Location:** Cut down the flowers to reveal a secret hatch, leading to a puzzle room. Solve to to access the Rupee.",
+			[]
+		],
+		"215313": [
+			"**Location:** High up in the northern wall; access by Wall Merging from the other side of the cliff.  \n**Destination:** [Portal](#loc=215314)",
+			[]
+		],
+		"215314": ["**Location:** High up against the northern wall.  \n**Destination:** [Portal](#loc=215313)", []],
+		"215315": [
+			"**Location:** High up in the southern wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it. Access through the [Portal](#loc=215314).",
+			[]
+		],
+		"215316": ["**Location:** High up on the wall; Wall Merge from the western cliff to dislodge it.", []],
+		"215317": ["**Location:** In the middle of the water; defeat the nearby enemies to save it.", []],
+		"215318": [
+			"**Location:** On its back, on the shore; use the [Titan's Mitt](#loc=215258) to throw it back into the water.",
+			[]
+		],
+		"215319": ["**Location:** Under a giant boulder; use the [Titan's Mitt](#loc=215258) to access.", []],
+		"215320": ["**Location:** In the northern wall.  \n**Destination:** [Portal](#loc=215321)", []],
+		"215321": ["**Location:** In the northern wall.  \n**Destination:** [Portal](#loc=215320)", []],
+		"215322": [
+			"**Location:** Under a skull; Wall Merge from the ledge east of the [Portal](#loc=215320) to access.",
+			[]
+		],
+		"215323": ["**Location:** In the wall; Wall Merge using [Ravio's Bracelet](#loc=214558) to dislodge it.", []],
+		"215324": ["**Location:** At the bottom of the pond; use [Zora's Flippers](#loc=214607) to access.", []],
+		"215326": [
+			"**Required items:**\n- Rescue all three baby turtles ([Stranded Turtle](#loc=215318); [Attacked Turtle](#loc=215317); [Stuck Turtle](#loc=215316)), so Mama Turtle starts swimming around the lake.\n- [Ice Rod](#loc=214601)\n\n**Notable items:**\n- ??",
+			[]
+		],
+		"215327": [
+			"**Location:** [Turtle Rock](#loc=215326) - SW leg. Use the seesaw to use the top teleporter. Then, use the next teleporter, and cross the lava lake using the [Ice Rod](#loc=214601). The door on the other side will lead outside, to the Heart Piece.",
+			[]
+		],
+		"215328": [
+			"**Location:** [Turtle Rock](#loc=215326) - Floor B1, central room. Kill all 4 Red Mages to spawn a chest on a pillar.  \n**Utility:** Blocks magical attacks.",
+			[]
+		],
+		"215329": ["**Location:** Reward for completing [Turtle Rock](#loc=215326)", []],
+		"215330": ["**Linked dungeon:** [Turtle Rock](#loc=215326)", []],
+		"215331": [
+			"**Required items:**\n- [Hookshot](#loc=214594)\n- [Big Bomb Flower](#loc=215219)\n- [Bomb](#loc=214598)\n\n**Notable items:**\n- [Golden Rupee](#loc=215332)\n- [Blue Mail](#loc=215333)\n- [Heart Container](#loc=215334)\n- [Oren](#loc=215335)",
+			[]
+		],
+		"215332": [
+			"**Location:** [Swamp Palace](#loc=215331) - Floor B1, small western room. Throw a [Bomb](#loc=214598) at the activator to spawn the chest.",
+			[]
+		],
+		"215333": [
+			"**Location:** [Swamp Palace](#loc=215331) - Floor B1, central room. Lower the water level to 1 bar, then jump in the central pond and swim to the northern room.  \n**Utility:** Halves damage taken.",
+			[]
+		],
+		"215334": ["**Location:** Reward for completing [Swamp Palace](#loc=215331)", []],
+		"215335": ["**Linked dungeon:** [Swamp Palace](#loc=215331)", []],
+		"215336": [
+			"**Required items:**\n- [Fire Rod](#loc=214600)\n\n**Notable items:**\n- [Golden Rupee](#loc=215337)\n- [Stamina Scroll](#loc=215338)\n- [Heart Container](#loc=215339)\n- [Rosso](#loc=215340)",
+			[]
+		],
+		"215337": [
+			"**Location:** [Ice Ruins](#loc=215336), Floor 1; after activating the rotating platforms, walk underneath the stairs to access.",
+			[]
+		],
+		"215338": [
+			"**Location:** [Ice Ruins](#loc=215336) - Floor B3, central room. On the higher platform on the right; drop down from the floor above.  \n**Utility:** Increases maximum stamina.",
+			[]
+		],
+		"215339": ["**Location:** Reward for completing [Ice Ruins](#loc=215336)", []],
+		"215340": ["**Linked dungeon:** [Ice Ruins](#loc=215336)", []],
+		"215341": [
+			"**Location:** Automatically granted once saving all 7 Sages:\n- [Impa](#loc=215330)\n- [Rosso](#loc=215340)\n- [Irene](#loc=215262)\n- [Gulley](#loc=215300)\n- [Seres](#loc=215311)\n- [Osfala](#loc=215235)  \n- [Oren](#loc=215335)\n\n**Utility:** Progresses the game.",
+			[]
+		],
+		"215342": [
+			"**Required items:**\n- [Triforce of Courage](#loc=215341)\n\n**Notable items:**\n- [Red Mail](#loc=215343)",
+			[]
+		],
+		"215343": [
+			"**Location:** [Lorule Castle](#loc=215342) - Floor 4, central room. Turns off all torched to reveal the hidden path to the south.\n  \n**Utility:** Halves incoming damage; stacks with [Blue Mail](#loc=215333) for a total of 75% damage reduction.",
+			[]
+		],
+		"396584": [
+			"**Location:** Behind the pillar  \n**Destination:** Above the pool of water behind the water dungeon ??",
+			[]
+		],
+		"396589": ["Fairy Fountain.  Tornado Rod needed from Ravio's Shop to access.", []]
+	}
+}

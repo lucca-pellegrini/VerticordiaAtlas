@@ -1,0 +1,184 @@
+{
+	"v": 1,
+	"d": {
+		"677169": ["This is where the escape begins.", []],
+		"899524": ["Inside a safe", []],
+		"899525": ["[Ladder](#loc=899526)", []],
+		"899526": ["[Ladder](#loc=899525)", []],
+		"899527": ["Inside the safe.", []],
+		"899529": ["**Unlocked By:** [Transport Area Key](#loc=899530)", []],
+		"899530": [
+			"Dropped by an enemy, or spawns in a safe that otherwise holds random loot / a weapon.\n- [Safe 1](#loc=899527)\n- [Safe 2](#loc=899524)\n\n**Used To:** Unlock the [Transport Area Door](#loc=899529)",
+			[
+				{
+					"id": 140205,
+					"title": "unedited021882",
+					"file_name": "69ae3f91-4948-4211-a5a8-69e17fbc3e3f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/69ae3f91-4948-4211-a5a8-69e17fbc3e3f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"899533": ["[Ladder](#loc=899534)", []],
+		"899534": ["[Ladder](#loc=899533)", []],
+		"899535": ["[Ladder](#loc=899536)", []],
+		"899536": ["[Ladder](#loc=899535)", []],
+		"899538": ["[Arrival](#loc=899539)", []],
+		"899539": ["[Assisted Jump](#loc=899538)", []],
+		"899540": ["[Arrival](#loc=899541)", []],
+		"899541": ["[Jump Down](#loc=899540)", []],
+		"899544": ["**Unlocked By:** Jill, after the [Assisted Jump](#loc=899538) and [Jump Down](#loc=899540)", []],
+		"899545": [
+			"Appears in a cutscene here after the [Assisted Jump](#loc=899538), but not always - the chances are better if you've killed every enemy in the area first.\n\nIt can take a while for the spawns to stop - and if it seems bugged, restarting the game completely can help.\n\nOnce he finally *does* spawn, he'll try to run away - quickly run back and kill him for a Score Star (Large).",
+			[
+				{
+					"id": 140206,
+					"title": "unedited021883",
+					"file_name": "494b39f4-f3fa-4081-baf4-629a8997ee1f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/494b39f4-f3fa-4081-baf4-629a8997ee1f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"899546": [
+			"",
+			[
+				{
+					"id": 140208,
+					"title": "unedited021885",
+					"file_name": "200fc6a8-fd9e-4b7f-ad3c-12bd1e35c77a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/200fc6a8-fd9e-4b7f-ad3c-12bd1e35c77a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"899547": [
+			"Inside the shipping container after an enemy bursts out of it.",
+			[
+				{
+					"id": 140207,
+					"title": "unedited021884",
+					"file_name": "4a578865-8663-43ae-801f-1683f8ecc84e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4a578865-8663-43ae-801f-1683f8ecc84e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"899548": [
+			"On a high-up satellite dish.",
+			[
+				{
+					"id": 140210,
+					"title": "unedited021888",
+					"file_name": "32b6b996-5b28-44fb-a41b-ad7c71c46867.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/32b6b996-5b28-44fb-a41b-ad7c71c46867.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"899554": ["[Arrival](#loc=899555)", []],
+		"899555": ["[Assisted Jump](#loc=899554)", []],
+		"899561": ["Dropped by a miniboss.\n\n**Used To:** Unlock the [Emergency Exit Door](#loc=899563)", []],
+		"899562": ["In a locker.", []],
+		"899563": ["**Unlocked By:** [Emergency Exit Key](#loc=899561)", []],
+		"899564": ["[Arrival](#loc=899565)", []],
+		"899565": ["[Heavy Door](#loc=899564)", []],
+		"899568": ["Inside a safe.", []],
+		"899572": ["**Unlocked By:** [Grenade Launcher](#loc=899580)", []],
+		"899580": ["Use it to blow up the [Gate](#loc=899572).", []],
+		"899583": ["[Ladder](#loc=899584)", []],
+		"899584": ["[Ladder](#loc=899583)", []],
+		"899586": [
+			"In the tunnel; can only be reached by using the [Grenade Launcher](#loc=899580) or any other explosive to blow up a rock blocking it.",
+			[]
+		],
+		"899587": ["Inside a safe.", []],
+		"899588": ["Inside a locker.", []],
+		"899589": ["[Ladder](#loc=899590)", []],
+		"899590": ["[Ladder](#loc=899589)", []],
+		"899593": [
+			"Inside a train carriage that can only be accessed after using the [Grenade Launcher](#loc=899585) or any other explosive to blow up a rock in the way.",
+			[]
+		],
+		"899594": [
+			"Inside a train carriage that can only be accessed after using the [Grenade Launcher](#loc=899585) or any other explosive to blow up a rock in the way.",
+			[]
+		],
+		"899595": [
+			"Inside a tunnel can only be accessed after using the [Grenade Launcher](#loc=899580) or any other explosive to blow up a rock in the way.",
+			[]
+		],
+		"899599": ["[Downstairs](#loc=899600)", []],
+		"899600": ["[Upstairs](#loc=899599)", []],
+		"899603": ["In a locker.", []],
+		"899604": ["**Unlocked By:** Approaching from the north.", []],
+		"899610": ["[Ladder](#loc=899611)", []],
+		"899611": ["[Ladder](#loc=899610)", []],
+		"899614": ["**Unlocked By:** [Grenade Launcher](#loc=899598)", []],
+		"899615": ["**Unlocked By:** [Grenade Launcher](#loc=899621)", []],
+		"899618": ["[Upstairs](#loc=899619)", []],
+		"899619": ["[Downstairs](#loc=899618)", []],
+		"899620": ["Inside a safe.", []],
+		"899623": ["[Ladder](#loc=899625)", []],
+		"899624": ["Ladder", []],
+		"899625": ["[Ladder](#loc=899623)", []],
+		"899626": ["[Ladder](#loc=899624)", []],
+		"899630": ["**Unlocked By:** Approaching from the north after the [Assisted Jump](#loc=899631)", []],
+		"899632": ["[Upper Level](#loc=899633)", []],
+		"899633": ["[Lower Level](#loc=899632)", []],
+		"899637": [
+			"Atop the wall in front of the two [Grenade Launchers](#loc=899636). You'll need to kill all of the enemies on top of the wall - usually two waves - before the agitator will spawn.",
+			[
+				{
+					"id": 140209,
+					"title": "unedited021887",
+					"file_name": "d10a55e1-7d55-4529-9989-3c03ec9983b0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d10a55e1-7d55-4529-9989-3c03ec9983b0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"899638": [
+			"Emerges from the elevator with around 30 seconds left on the timer, so long as you've been killing the minibosses quickly.\n\nStay near the elevator and have a proximity bomb or some grenades ready for a quick kill - he'll usually have a parasite grow out of his head, which can be instantly killed with a flash grenade.",
+			[]
+		],
+		"899639": ["[Arrival](#loc=899640)", []],
+		"899640": ["[Heavy Door](#loc=899639)", []],
+		"899650": ["Ladder", []],
+		"899651": ["[Ladder](#loc=899650)", []],
+		"899654": ["[Ladder](#loc=899655)", []],
+		"899655": ["[Ladder](#loc=899654)", []],
+		"899659": ["[Ladder](#loc=899660)", []],
+		"899660": ["[Ladder](#loc=899659)", []]
+	}
+}

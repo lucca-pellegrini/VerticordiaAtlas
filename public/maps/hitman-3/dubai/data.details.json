@@ -1,0 +1,204 @@
+{
+	"v": 1,
+	"d": {
+		"64999": ["**Poison Target:** Lucy Phillips", []],
+		"65004": ["**Poison Target:** Cornelia Stuyvesant", []],
+		"65005": ["**Poison Target:** Carl Ingram's Assistant", []],
+		"65008": ["**Poison Target:** Carl Ingram", []],
+		"65010": ["Poison Target: Penthouse Guard", []],
+		"65011": ["**Poison Target:** Famous Chef", []],
+		"65012": ["**Poison Target:** Carl Ingram", []],
+		"65216": [
+			"Drop onto the Private Bar by shooting the chain or releasing the [Winch](#loc=65217) on Level 2.",
+			[]
+		],
+		"65217": ["Release to drop the [Hanging Lamp](#loc=65216) onto the Private Bar.", []],
+		"65218": [
+			"Drop onto the Art Gallery by shooting the cable  or releasing the [Winch](#loc=65232) on Level 3.",
+			[]
+		],
+		"65219": [
+			"Drop onto the Art Gallery by shooting the cable or releasing the [Winch](#loc=65238) on Level 3.",
+			[]
+		],
+		"65220": ["**Required:** Fuse Cell", []],
+		"65221": ["**Required:** Wrench", []],
+		"65222": ["Drop onto the Art Gallery by shooting the cable.", []],
+		"65223": ["**Required:** Wrench", []],
+		"65224": ["**Required:** Screwdriver", []],
+		"65225": ["**Required:** Screwdriver", []],
+		"65226": ["**Required:** Screwdriver", []],
+		"65232": ["Release to drop the [Cloud](#loc=65218) onto the Art Gallery.", []],
+		"65233": ["**Required:** Crowbar", []],
+		"65234": ["**Required:** Screwdriver", []],
+		"65235": ["**Required:** Crowbar", []],
+		"65238": ["Release to drop the [Cloud](#loc=65219) onto the Art Gallery.", []],
+		"65239": ["**Required:** Screwdriver", []],
+		"65240": ["**Required:** Screwdriver", []],
+		"65241": ["**Required:** Crowbar", []],
+		"65242": ["**Required:** Crowbar", []],
+		"65243": ["**Required:** Crowbar", []],
+		"65244": ["**Required:** Screwdriver", []],
+		"65245": ["**Required:** Wrench", []],
+		"65246": ["**Required:** Screwdriver", []],
+		"65247": [
+			"**Required:** Explosive Golf Ball\n\n**Related Challenge:** Angry Bird\n\nEliminate Carl Ingram by making him strike an explosive golf ball.",
+			[]
+		],
+		"65248": ["**Required:** Kitchen Knife\n\n**Sabotage Target:** Carl Ingram", []],
+		"65249": ["**Required:** Kitchen Knife\n\n**Sabotage Target:** Marcus Stuyvesant", []],
+		"65250": ["Release by shooting the chain.", []],
+		"65251": ["Release to drop the [Hanging Plant](#loc=65252).", []],
+		"65252": ["Drop by releasing the [Winch](#loc=65251) nearby.", []],
+		"65253": [
+			"**Required:** Screwdriver\n\n**Sabotage Target:** Carl Ingram\n\nIf you meet with Carl Ingram as the Assassin, he will lean against the tampered railing and fall to his death.",
+			[]
+		],
+		"65254": ["Turn On/Off", []],
+		"65313": ["Interact with or shoot the terminal to destroy evidence and disable security system.", []],
+		"65314": ["Interact with or shoot the terminal to destroy evidence and disable security system.", []],
+		"65315": ["**Unlocked By:** Keypad Code (4706)", []],
+		"65316": ["**Unlocked By:** Burj Al-Ghazali Staff Keycard", []],
+		"65317": ["**Unlocked By:** Keypad Code (4706)", []],
+		"65318": ["**Unlocked By:** Burj Al-Ghazali Staff Keycard", []],
+		"65319": ["**Unlocked By:** Illegal Manual Methods (Crowbar, Lockpick, etc.)", []],
+		"65320": ["**Unlocked By:** Burj Al-Ghazali Staff Keycard", []],
+		"65321": ["**Unlocked By:**\n- Security Key\n- Illegal Manual Methods (Crowbar, Lockpick, etc.)", []],
+		"65322": ["**Unlocked By:** Penthouse Keycard", []],
+		"65323": ["**Unlocked By:**\n- Security Key\n- Illegal Manual Methods (Crowbar, Lockpick, etc.)", []],
+		"65324": ["**Unlocked By:**\n- Janitorial Key\n- Illegal Manual Methods (Crowbar, Lockpick, etc.)", []],
+		"65325": ["**Unlocked By:** Penthouse Keycard", []],
+		"65326": ["**Unlocked By:** Penthouse Keycard", []],
+		"65327": ["**Unlocked By:** Penthouse Key", []],
+		"65335": ["**Required:** Maintenance Staff Disguise", []],
+		"65336": ["**Required:** Maintenance Staff Disguise", []],
+		"65337": ["**Required:** Maintenance Staff Disguise", []],
+		"65342": ["**Required:** Maintenance Staff Disguise", []],
+		"65343": ["**Required:** Art Technician Disguise", []],
+		"65344": ["**Required:** Guard Disguise", []],
+		"65345": ["**Required:** Maintenance Staff Disguise", []],
+		"65346": ["**Required:** Elite Soldier Disguise", []],
+		"65347": ["**Required:** Penthouse Staff Disguise", []],
+		"65348": ["**Required:** Penthouse Staff Disguise", []],
+		"65349": ["**Required:** The Assassin Disguise", []],
+		"65350": ["**Required:** Penthouse Staff Disguise", []],
+		"65351": ["**Required:** Penthouse Staff Disguise", []],
+		"65427": ["**Carried By:** Female Janitor\n\nWalks between Level -1 and 0.", []],
+		"65441": [
+			"**Related Challenge:** Particular Palette\n\nIn an Event Staff disguise, serve Marcus Stuyvesant this rare whiskey at the Art Gallery bar.",
+			[]
+		],
+		"65470": [
+			"**Related Challenge:** Angry Bird\n\nEliminate Carl Ingram by making him strike an explosive golf ball.",
+			[]
+		],
+		"65482": ["**Gun Type:** SMG", []],
+		"65483": ["**Gun Type:** Pistol", []],
+		"65484": ["**Gun Type:** Assault Rifle", []],
+		"65485": ["**Gun Type:** SMG", []],
+		"65488": ["**Required:** Mastery Level 2", []],
+		"65489": ["**Required:** Mastery Level 4", []],
+		"65490": ["**Required:** Mastery Level 7", []],
+		"65491": ["**Required:** Mastery Level 11", []],
+		"65492": ["**Required:** Mastery Level 19", []],
+		"65493": ["**Required:** Mastery Level 17", []],
+		"65494": ["**Required:** Mastery Level 6", []],
+		"65495": ["**Required:** Mastery Level 14", []],
+		"65496": ["**Required:** Mastery Level 12\n\n_Small items only._", []],
+		"65497": ["**Required:** Mastery Level 8\n\n_Small items only._", []],
+		"65498": ["**Required:** Mastery Level 9", []],
+		"65499": ["**Required:** Mastery Level 3\n\n_Small items only._", []],
+		"65551": ["**Required:** Camera Scan", []],
+		"65552": ["**Required:** Camera Scan", []],
+		"65553": ["**Required:** Camera Scan", []],
+		"65554": ["**Required:** Camera Scan", []],
+		"65556": ["**Required:** Camera Scan", []],
+		"65583": ["**Required:** Crowbar\n\nOpens a [shortcut to the Helipad](#loc=65588) on Level 3.", []],
+		"65588": [
+			"**Required:** Crowbar\n\n_Must be unlocked from [above on the balcony next to the study](#loc=65583)._",
+			[]
+		],
+		"65593": ["**Required:** Crowbar\n\n_Opens a [shortcut from from the Gardens](#loc=65630) on Level 1._", []],
+		"65596": ["**Required:** Crowbar\n\n_Must be unlocked from [above on the Penthouse Terrace](#loc=65599)._", []],
+		"65599": ["**Required:** Crowbar\n\nOpens a [shortcut to a maintenance room](#loc=65596) on Level 3.", []],
+		"65630": ["**Required:** Crowbar\n\n_Must be unlocked from [above on the Helipad](#loc=65593)._", []],
+		"65644": ["**Carried By:** Female Janitor\n\nWalks between Level -1 and 0.", []],
+		"65645": ["Can only be unlocked from one side.", []],
+		"65647": ["Insert credit card.", []],
+		"65648": ["Requires a coin to dispense soda can.", []],
+		"65649": ["**Related Mission Story:** (In)Security", []],
+		"65653": ["Select \"Floor Plan\" to reveal mission map.", []],
+		"65654": ["**Required:** Event Staff Disguise", []],
+		"65655": ["Inside locker.", []],
+		"65657": ["Select \"Floor Plan\" to reveal mission map.", []],
+		"65658": ["Select \"Floor Plan\" to reveal mission map.", []],
+		"65659": ["Select \"Floor Plan\" to reveal mission map.", []],
+		"65660": ["**Carried By:** Event Staff", []],
+		"65661": ["**Required:** Event Staff", []],
+		"65664": ["Select \"Floor Plan\" to reveal mission map.", []],
+		"65666": ["Requires a coin to dispense soda can.", []],
+		"65667": ["Select \"Floor Plan\" to reveal mission map.", []],
+		"65668": ["**Required:** Crowbar\n\nPlace or remove fuse cell.", []],
+		"65671": ["**Unlocks:** [Helicopter](#loc=69432)  exit", []],
+		"65672": ["**Required:** Crowbar\n\nInside fuse box.", []],
+		"65673": ["**Required:** Event Staff Disguise & Whiskey Bottle", []],
+		"65674": ["**Required:** Crowbar\n\nInside fuse box.", []],
+		"65676": [
+			"**Possible Actions:**\n- Rearrange Meetings\n- Disable Cameras\n- Deposit Emergency Funds\n- Open Elevator Doors (Persistent Shortcut)",
+			[]
+		],
+		"65677": ["Inside a safe.\n\n**Safe Code:** 6927", []],
+		"65679": ["**Required:** Fuel Cell\n\nCan be used to overcharge The Sun.", []],
+		"65680": ["Use the nearby  fuse box to overcharge The Sun.", []],
+		"65685": ["**Required:** Carl Ingram & Marcus Stuyvesant must be alone", []],
+		"65686": ["**Required:** Evacuation Keycard\n\nTriggers evacuation.", []],
+		"65687": ["Eavesdrop on conversation between Penthouse Guards.", []],
+		"65688": ["**Required:** Famous Chef Disguise", []],
+		"65689": ["**Required:** Famous Chef Disguise", []],
+		"65690": ["**Required:** Famous Chef Disguise\n\nNotify Carl Ingram that the food is ready.", []],
+		"65691": ["Eavesdrop on conversation between Famous Chef and Penthouse Guard.", []],
+		"65692": ["**Required:** Penthouse Staff Disguise", []],
+		"65693": ["**Required:** The Assassin Disguise", []],
+		"65694": ["Eavesdrop on conversation between Penthouse Guard and Penthouse Staff.", []],
+		"65695": ["**Required:** Evacuation Keycard\n\nTriggers evacuation.", []],
+		"69432": ["**Requires:** [Helicopter Key](#loc=65671)", []],
+		"69433": ["**Requirements:** Unlock Elevators using the [Server Terminal](#loc=65676)", []],
+		"69434": ["**Required:** Use the [Server Terminal](#loc=65676) to unlock the elevator.", []],
+		"88526": [
+			"In the Server Room on Level 2, access the [Server Terminal](#loc=65676) to open all elevator doors.",
+			[]
+		],
+		"88528": [
+			"In the Server Room on Level 2, access the [Server Terminal](#loc=65676) to open all elevator doors.",
+			[]
+		],
+		"88529": [
+			"In the Server Room on Level 2, access the [Server Terminal](#loc=65676) to open all elevator doors.",
+			[]
+		],
+		"152247": [
+			"**Required:** Camera Scan\n\nUse the camera to open the window shutters. Must open all six window shutters in a single run to complete the challenge.\n\nMust use the Burj Al-Ghazali Exterior starting location to scan this window shutter.",
+			[]
+		],
+		"152248": [
+			"**Required:** Camera Scan\n\nUse the camera to open the window shutters. Must open all six window shutters in a single run to complete the challenge.",
+			[]
+		],
+		"152249": [
+			"**Required:** Camera Scan\n\nUse the camera to open the window shutters. Must open all six window shutters in a single run to complete the challenge.",
+			[]
+		],
+		"152250": [
+			"**Required:** Camera Scan\n\nUse the camera to open the window shutters. Must open all six window shutters in a single run to complete the challenge.",
+			[]
+		],
+		"152251": [
+			"**Required:** Camera Scan\n\nUse the camera to open the window shutters. Must open all six window shutters in a single run to complete the challenge.",
+			[]
+		],
+		"152252": [
+			"**Required:** Camera Scan\n\nUse the camera to open the window shutters. Must open all six window shutters in a single run to complete the challenge.",
+			[]
+		]
+	}
+}

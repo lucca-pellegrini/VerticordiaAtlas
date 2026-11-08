@@ -715,7 +715,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "white-orchard/data.compact.json"
 		},
 		{
 			"slug": "vizima-palace",
@@ -731,7 +732,8 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "vizima-palace/data.compact.json"
 		},
 		{
 			"slug": "velen-novigrad",
@@ -748,7 +750,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "velen-novigrad/data.compact.json"
 		},
 		{
 			"slug": "skellige",
@@ -765,7 +768,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "skellige/data.compact.json"
 		},
 		{
 			"slug": "kaer-morhen",
@@ -782,7 +786,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "kaer-morhen/data.compact.json"
 		},
 		{
 			"slug": "time-and-space",
@@ -799,7 +804,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "time-and-space/data.compact.json"
 		},
 		{
 			"slug": "isle-of-mists",
@@ -815,7 +821,8 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "isle-of-mists/data.compact.json"
 		},
 		{
 			"slug": "realm-of-rumination",
@@ -832,7 +839,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "realm-of-rumination/data.compact.json"
 		},
 		{
 			"slug": "toussaint",
@@ -849,7 +857,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "toussaint/data.compact.json"
 		},
 		{
 			"slug": "fablesphere",
@@ -866,7 +875,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "fablesphere/data.compact.json"
 		}
 	]
 }

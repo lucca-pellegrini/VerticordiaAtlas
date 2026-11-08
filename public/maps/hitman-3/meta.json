@@ -219,7 +219,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "dubai/data.compact.json"
 		},
 		{
 			"slug": "dartmoor",
@@ -236,7 +237,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "dartmoor/data.compact.json"
 		},
 		{
 			"slug": "berlin",
@@ -253,7 +255,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "berlin/data.compact.json"
 		},
 		{
 			"slug": "chongqing",
@@ -270,7 +273,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "chongqing/data.compact.json"
 		},
 		{
 			"slug": "mendoza",
@@ -287,7 +291,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "mendoza/data.compact.json"
 		}
 	]
 }

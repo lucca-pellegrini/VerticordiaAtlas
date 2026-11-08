@@ -1,0 +1,480 @@
+{
+	"v": 1,
+	"d": {
+		"384487": ["In C-1: A Timely Entrance, pick up two Gold Ingots next to the telescope.", []],
+		"384488": [
+			"In C-1: A Timely Entrance, vacuum the pile of dirt in this corner to reveal two Gold Ingots, and a beetle.",
+			[]
+		],
+		"384489": [
+			"Follow the train tracks right, flashing the red bomb to destroy the rubble as you go. At the end of the tracks, shine the Dark-Light on the buffer stop to reveal a toolbox with this Gem in it.",
+			[
+				{
+					"id": 54742,
+					"title": "Gem - Ruby 1",
+					"file_name": "dd9a20eb-535d-401a-ad58-312fbb709ef7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dd9a20eb-535d-401a-ad58-312fbb709ef7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384490": ["In C-1: A Timely Entrance, vacuum the two fans on the vent pipes at this point.", []],
+		"384491": [
+			"To open, turn the red wheel with the Poltergust so that the large clock on the door reads 3:30.",
+			[]
+		],
+		"384492": [
+			"In B-1: A Timely Entrance, use the Dark-Light to reveal the missing chunk of train tracks to reach this toolbox.\n\nIn B-4: Play Catch, this will contain a Gold Bomb instead.",
+			[]
+		],
+		"384493": [
+			"Take the red ribbon spool and place it in the [Ribbon Clamp](#loc=384496) on the left-hand side of the room. Vacuum it to reveal Combooter.",
+			[
+				{
+					"id": 54743,
+					"title": "Hidden Boo - Combooter",
+					"file_name": "e53e103b-d435-455d-834d-5c7d3e84f673.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e53e103b-d435-455d-834d-5c7d3e84f673.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384494": [
+			"Shine the Dark-Light on a palette of cardboard boxes to reveal a hidden green ribbon spool. Put it in the [Ribbon Clamp](#loc=384496) and vacuum it to get this Ruby.",
+			[
+				{
+					"id": 54744,
+					"title": "Gem - Ruby 2",
+					"file_name": "95dd464e-2a6e-4abe-ab2c-3c5feb29f7cf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95dd464e-2a6e-4abe-ab2c-3c5feb29f7cf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384495": [
+			"In C-1: A Timely Entrance, flash the safe with the Strobulb and grab the golden ribbon spool inside. Place it in the [Ribbon Clamp](#loc=384496) and vacuum it to get this Key.\n\nIn C-3: Roundhouse Brawl, this safe will have five Golden Spiders in it instead. You'll need to flash and lure a nearby bomb to burn down the webs blocking the safe first.",
+			[]
+		],
+		"384496": ["Place the ribbon spools in here to vacuum them and get their rewards!", []],
+		"384497": ["In C-1: A Timely Entrance, vacuum the wad of Bills on the shelf with axles.", []],
+		"384498": ["In C-1: A Timely Entrance, yank this chain to reveal a Golden Greenie.", []],
+		"384501": ["Is opened in C-Boss: Showtime.", []],
+		"384502": ["Awarded for defeating the ghosts in this room in C-1: A Timely Entrance.", []],
+		"384503": [
+			"Shine the Dark-Light here to reveal a toolbox with this Ruby in it.",
+			[
+				{
+					"id": 54745,
+					"title": "Gem - Ruby 3",
+					"file_name": "9b066306-1938-4ce8-a3ce-f9645a824c89.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9b066306-1938-4ce8-a3ce-f9645a824c89.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384504": [
+			"In C-5: Piece at Last, shine the Dark-Light at this end of the balcony to reveal a toolbox, which has a Golden Bomb inside.",
+			[]
+		],
+		"384505": ["Vacuum the fan on this wall for bills!", []],
+		"384506": [
+			"Behind the thin wall. Use the ceiling fan to get to the left side of the room, then go right to get behind the thin wall where these Gold Ingots are.",
+			[]
+		],
+		"384507": ["Found during C-1: A Timely Entrance, inside the drawing desk.", []],
+		"384508": ["In C-1: A Timely Entrance, as three Gold Ingots on the balcony.", []],
+		"384509": ["In C-1: A Timely Entrance, as three Gold Ingots on the balcony.", []],
+		"384510": ["In C-1: A Timely Entrance, as three Gold Ingots on the balcony.", []],
+		"384511": [
+			"In C-1: A Timely Entrance, open the toolbox here. There's also a Gold Ingot on top of the wooden crates nearby.",
+			[]
+		],
+		"384515": ["In C-2: Underground Expedition, three Gold Beetles fly above this spot.", []],
+		"384516": [
+			"During C-2: Underground Expedition, vacuum the sheet above the bed to reveal a paining of a Gem. Shine the Dark-Light on the painting to get the real Gem.",
+			[
+				{
+					"id": 54746,
+					"title": "Gem - Ruby 4",
+					"file_name": "e2b3f96f-ffa0-44ec-aaf5-fd8ce0cf5027.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e2b3f96f-ffa0-44ec-aaf5-fd8ce0cf5027.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384517": ["Vacuum up the fake wall sheet to open up this doorway.", []],
+		"384518": [
+			"In C-2: Underground Expedition, check to the right of the northern zipline to find this concealed door. Open each of the four chests to reveal a Golden Greenie.",
+			[]
+		],
+		"384519": [
+			"During C-2: Underground Expedition, detour from Canyon Hall to the Canyon Stairs. Check the front-right corner for this Gem, up the wall and webbed up.",
+			[
+				{
+					"id": 54747,
+					"title": "Gem - Ruby 5",
+					"file_name": "1e01450e-c3ea-4eb0-931d-fe1d2622540a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e01450e-c3ea-4eb0-931d-fe1d2622540a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384520": ["Up to 172 Coins can be earned while going down the Pit Slide.", []],
+		"384521": ["Check inside this corner for three Gold Ingots.", []],
+		"384522": [
+			"While tugging the mine cart at the bottom of the room, check behind it for this cave with the Ruby stuck in some webs.",
+			[
+				{
+					"id": 54748,
+					"title": "Gem - Ruby 6",
+					"file_name": "7253e9c1-6bad-4f72-82ae-c7eab921202b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7253e9c1-6bad-4f72-82ae-c7eab921202b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384523": ["In this alcove is a Gold Ingot and three Gold Bats.", []],
+		"384524": [
+			"After filling this room with sand, use the Dark-Light on the gap in the rock ramp at the back of the room to expose this Hidden Boo.",
+			[
+				{
+					"id": 54749,
+					"title": "Hidden Boo - Bootine",
+					"file_name": "d9c05cb2-9e31-4c7c-b09b-b5b3a945d457.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9c05cb2-9e31-4c7c-b09b-b5b3a945d457.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384525": [
+			"After filling this room with sand, use the Dark-Light to expose [a bridge section](#loc=384524), letting you use the rock ramp to get to this toolbox with cash inside.",
+			[]
+		],
+		"384526": ["Burn down the web wall to access this side-cave with a Chest and a Gold Ingot.", []],
+		"384527": ["Sitting as two Gold Ingots in this side-cave.", []],
+		"384528": ["In this side-cave, flash the four Gold Spiders with the Strobulb.", []],
+		"384529": [
+			"In C-3: Roundhouse Brawl, chase the toolbox all the way to the end of the upper walkway, then open it to catch a Golden Greenie.",
+			[]
+		],
+		"384530": [
+			"In C-3: Roundhouse Brawl, grab the green ribbon spool here in the cobwebs and take it down to the [Ribbon Clamp](#loc=384496) on the first floor. Yank it to get the cash!",
+			[]
+		],
+		"384531": [
+			"In C-3: Roundhouse Brawl, vacuum a spool of green ribbons here under the upper walkway from a cobweb. Put it in the [Ribbon Clamp](#loc=384496) to get 100 Coins!",
+			[]
+		],
+		"384532": [
+			"In C-3: Roundhouse Brawl, held by a Greenie with a bucket on its head. To get it, vacuum the rug to reveal a red fan that controls the nearby clock: use it to change the time to 9:00, setting off an alarm that wakes the Greenie up. Defeat the Greenie to get the Ruubie!",
+			[
+				{
+					"id": 54750,
+					"title": "Gem - Ruby 7",
+					"file_name": "afc77562-21a8-46fc-b021-4ead3673a7ff.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/afc77562-21a8-46fc-b021-4ead3673a7ff.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384533": ["In C-3: Roundhouse Brawl, cross down the second set of metal beams to reach this.", []],
+		"384534": [
+			"Cross south down the second set of metal beams, then to right and turn south around the corner. At the end will be a toolbox with this Ruby in it.",
+			[
+				{
+					"id": 54751,
+					"title": "Gem - Ruby 8",
+					"file_name": "473ed990-626f-47b4-bb4c-01a02e5d6103.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/473ed990-626f-47b4-bb4c-01a02e5d6103.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384535": ["In C-3: Roundhouse Brawl, three Gold Ingots rest on the treadmill-floor of this room.", []],
+		"384536": [
+			"In this room, head under the wooden stairs to enter a secret room, where you can vacuum up the fake view in the window. This reveals a portal door you can use to enter a maze minigame. Collect all the Red Coins to unlock the toolbox in the middle!",
+			[]
+		],
+		"384537": ["In C-3: Roundhouse Brawl, there's a wad of Notes sitting on a ledge high up this wall.", []],
+		"384538": ["In C-3: Roundhouse Brawl, check behind the large crate close to the southern entrance.", []],
+		"384539": ["In C-3: Roundhouse Brawl and C-4: Play Catch, check this spot for two Gold Ingots.", []],
+		"384540": ["Open the toolbox at this spot for Coins!", []],
+		"384541": [
+			"In C-3: Roundhouse Brawl, use the Dark-Light to reveal a vent in this corner, which dispenses a Golden Bomb when you pull on its chain. Avoid it and let it blow up to release 5 Gold Ingots!",
+			[]
+		],
+		"384542": [
+			"In C-3: Roundhouse Brawl, two Gold Spiders appear here when you first exit from the Kiln Room's northern door.",
+			[]
+		],
+		"384543": ["Shine the Dark-Light onto the key picture to get a real Key.", []],
+		"384545": ["In C-3: Roundhouse Brawl, grab these three Gold Ingots.", []],
+		"384546": [
+			"Discovered mandatorily as part of C-3: Roundhouse Brawl, after defeating the two Greenies.",
+			[
+				{
+					"id": 54752,
+					"title": "Hidden Boo - Boodonkulous",
+					"file_name": "50a23621-1ed1-4bf7-9c6f-7b59765e9e36.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50a23621-1ed1-4bf7-9c6f-7b59765e9e36.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384547": [
+			"In C-3: Roundhouse Brawl and C-4: Play Catch, vacuum up the sheet painted like the brick wall to reveal these golden goodies.",
+			[]
+		],
+		"384548": [
+			"From the bottom of the wooden stairs nearby, keep heading left to slip through a hole in the wall. Inside this small room will be the Ruby.",
+			[
+				{
+					"id": 54753,
+					"title": "Gem - Ruby 9",
+					"file_name": "eb7f6fa0-261f-4c7a-9c68-f02c26473e86.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb7f6fa0-261f-4c7a-9c68-f02c26473e86.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384549": ["Appears in C-3: Roundhouse Brawl after defeating the Ancient Poltergeist.", []],
+		"384553": [
+			"In B-3: Roundhouse Brawl, use the Dark-Light under the stairs to reveal a cash-filled cabinet.",
+			[]
+		],
+		"384554": [
+			"In B-4: Play Catch, light up this lantern with the Dark-Light to expose the Boo.",
+			[
+				{
+					"id": 54754,
+					"title": "Hidden Boo - JamBoolaya",
+					"file_name": "0653b92c-7d5e-453a-b0ef-8010069a81d6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0653b92c-7d5e-453a-b0ef-8010069a81d6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384597": [
+			"In B-5: Piece at Last, approach the hole in the wall to cause various Beetles to fly out, including three Gold Beetles.",
+			[]
+		],
+		"384598": [
+			"In the back area of this room during C-5: Piece at Last. To get here, use the Dark-Light to reveal some planks of wood that lets you cross over a bridge of wooden crates on the right side of the room. Here you'll find a shaking door: enter it to be taken to a Portal minigame.\n\nTo complete the minigame, grab all the Red Coins by going clockwise around the maze. Once you get them all, you can open the toolbox in the middle with the Gem inside.",
+			[
+				{
+					"id": 54763,
+					"title": "Gem - Ruby 10",
+					"file_name": "ebfb190c-58bc-427d-afc7-4213b3a24793.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ebfb190c-58bc-427d-afc7-4213b3a24793.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384599": [
+			"In B-5: Piece at Last, if you flashed the golden safe in the F1 floor of the Service Elevator, then when passing through here on the B1 floor, the safe will fall down and release 150 Coins in bills.",
+			[]
+		],
+		"384600": [
+			"In C-5: Piece at Last at the bottom of this room, shine the Dark-Light at the southern side of the railing below the giant gear above to reveal this toolbox, with the Ruby inside.",
+			[
+				{
+					"id": 54764,
+					"title": "Gem - Ruby 11",
+					"file_name": "751d3ffc-453e-41d7-b680-0503628711e0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/751d3ffc-453e-41d7-b680-0503628711e0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384602": ["Shine the Dark-Light on this spot to reveal this door.", []],
+		"384603": ["In B-5: Piece at Last, two Golden Mice can be found here.", []],
+		"384604": ["In B-5: Piece at Last, two Gold Ingots are hidden here in an alcove, behind a spiderweb.", []],
+		"384605": ["In C-5: Piece at Last, check behind a wooden crate at this spot to find a Gold Ingot.", []],
+		"384606": [
+			"In C-5: Piece at Last, flash the Gold Bomb on the central gear to get 5 Gold Ingots when it explodes.",
+			[]
+		],
+		"384607": [
+			"In B-5: Piece at Last, after revealing the gear with the Dark-Light, look for a toolbox on the left side that you can open for cash.",
+			[]
+		],
+		"384608": [
+			"In C-5: Piece at Last, after riding up the gear to the upper level, head left and check behind the oil drum to pull down the fake wall. In the side-room, shine the Dark-Light in the front-left corner of the room to reveal a toolbox with Boony in it.",
+			[
+				{
+					"id": 54766,
+					"title": "Hidden Boo - Boony RaBoot B",
+					"file_name": "58aa63bb-a957-462e-adbc-204e7d96e484.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58aa63bb-a957-462e-adbc-204e7d96e484.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 54765,
+					"title": "Hidden Boo - Boony RaBoot A",
+					"file_name": "19bbd5a0-5915-4d63-936b-9f42b0a0c962.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/19bbd5a0-5915-4d63-936b-9f42b0a0c962.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384609": [
+			"In C-5: Piece at Last, ride a second gear from the locker area up to this spot to find three Gold Ingots.",
+			[]
+		],
+		"384610": [
+			"In C-5: Piece at Last, sneak past the two red Slammer ghosts in the locker area, then ride up a second gear and head right to find this Golden Greenie. If you fight the Slammers, this will disappear.",
+			[]
+		],
+		"384611": ["In C-5: Piece at Last, open the middle-left locker to find a Golden Greenie.", []],
+		"384613": [
+			"In C-5: Piece at Last, check this spot for two Gold Ingots and a wad of bills. There's also a third Ingot on the conveyor belt above: vacuum the spider web to drop it down.",
+			[]
+		],
+		"384614": [
+			"In C-5: Piece at Last, vacuum the red poster at this spot to reveal an alcove with cash in it.",
+			[]
+		],
+		"384616": [
+			"In C-5: Piece at Last, when you return here with Toad, flash all the Spiders to get 37 Coins total.",
+			[]
+		],
+		"384617": ["You'll fight many ghost enemies and the Strong Sneaker when you return here with Toad.", []],
+		"384618": [
+			"In C-5: Piece at Last, when you return here with Toad, shoot them into the golden pendulum to drop a TON of bills!",
+			[]
+		],
+		"384619": ["In C-5: Piece at Last, open the toolbox at this spot for 100 Coins.", []],
+		"384621": [
+			"In C-5: Piece at Last, if you vacuum a sheet in the northeastern corner of this room, you'll expose a mirror with this Gem in the reflection. To reach it, come back here with Toad and fire them over the railing towards the camera.",
+			[
+				{
+					"id": 54767,
+					"title": "Gem - Ruby 12",
+					"file_name": "b1f34711-a47a-412c-a49d-e303effb14f9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b1f34711-a47a-412c-a49d-e303effb14f9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384622": [
+			"In In C-5: Piece at Last, Toad will collect five Gold Ingots in the process of collecting [Ruby #12](#loc=384621).",
+			[]
+		],
+		"384623": [
+			"In C-Boss: Showtime, after getting through the [(c)locked door](#loc=384501), head to the left side of the Movements room until the camera turns to face the window. You'll be able to see this Ruby through it: use the Poltergust to grab it!",
+			[
+				{
+					"id": 54902,
+					"title": "Gem - Ruby 13",
+					"file_name": "7de13cf9-eb85-4162-9b2b-ef53c5a07073.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7de13cf9-eb85-4162-9b2b-ef53c5a07073.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384627": ["In C-Boss: Showtime, look for two Gold Ingots on the right as you ascend this room.", []],
+		"384633": ["In C-Boss: Showtime, look for these behind a spiderweb as you ascend this room.", []],
+		"384634": ["In C-Boss: Showtime, look for a wad of notes behind a spiderweb as you ascend this room.", []],
+		"384635": ["In C-Boss: Showtime, look for a wad of notes at the top of this room, behind some spiderwebs.", []],
+		"384636": [
+			"When you get to the top of this room, several spiders appear, including a Gold Spider. There's a second Gold Spider on the right-hand side of the room.",
+			[]
+		],
+		"384638": ["Fought during C-3: Showtime.", []]
+	}
+}

@@ -1,0 +1,1147 @@
+{
+	"v": 1,
+	"d": {
+		"31540": [
+			"**Always Open:** ✔  \n**Announcement:** None    \n**Requirements:** Sink the water level using the [nearby control panel](#loc=31541). The water takes ~90 seconds to sink.",
+			[]
+		],
+		"31542": [
+			"**Always Open:** ✔  \n**Requirements:** Restore power from the nearby [Boiler Room](#loc=31563)  \n**Announcement:**  \n[](https://media.mapgenie.io/guides/tarkov/announcement_main_elevator.mp3)",
+			[]
+		],
+		"31543": ["**Always Open:** ✔  \n**Announcement:** -  \n**Requirements:** No backpack equipped.", []],
+		"31547": [
+			"",
+			[
+				{
+					"id": 1314,
+					"title": "",
+					"file_name": "1e53e0dc-d4c7-4f30-8141-dd3456a1d0cc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e53e0dc-d4c7-4f30-8141-dd3456a1d0cc.jpg",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31549": [
+			"**Always Open:** ✔  \n**Requirements:** Restore elevator power in [Room G6](#loc=31547)  \n**Announcement:**  \n[](https://media.mapgenie.io/guides/tarkov/announcement_medical_elevator.mp3)",
+			[]
+		],
+		"31550": ["**Unlocks Extraction:** [Cargo Elevator](#loc=31571)", []],
+		"31563": [
+			"",
+			[
+				{
+					"id": 1313,
+					"title": "",
+					"file_name": "eba75859-d796-400f-9f42-123bd0f36d3c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eba75859-d796-400f-9f42-123bd0f36d3c.jpg",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31570": [
+			"**Always Open:** ✘  \n**Requirements:** Use the [Hangar Gate Controls](#loc=31829)  \n**Announcement:**  \n[](https://media.mapgenie.io/guides/tarkov/announcement_hanger.mp3)",
+			[]
+		],
+		"31571": [
+			"**Always Available:** ✔  \n**Requirements:** Turn on [Cargo Elevator Power](#loc=31550) in the basement.    \n**Announcement:**  \n[](https://media.mapgenie.io/guides/tarkov/announcement_cargo_elevator.mp3)",
+			[]
+		],
+		"31573": ["On top of the boxes", []],
+		"31574": ["Nearby (?)", []],
+		"31575": ["At the open door of the car", []],
+		"31576": ["Not on ground level - on a raised platform. Should be removed.", []],
+		"31578": ["In the back of the black SUV", []],
+		"31579": ["Beside the pickup truck", []],
+		"31580": ["In the back of the blue car", []],
+		"31582": ["On the table", []],
+		"31584": ["In front of the vending machines", []],
+		"31585": ["On the table", []],
+		"31586": ["In front of the vending machine", []],
+		"31587": ["On the table", []],
+		"31589": ["On the desk", []],
+		"31590": ["On the bench", []],
+		"31591": ["On the sound system. Potentially spawns a VPX.", []],
+		"31593": ["R15", []],
+		"31595": ["On the bench", []],
+		"31596": ["On the bench", []],
+		"31597": ["By the laptop", []],
+		"31602": ["On the bench", []],
+		"31603": ["In the last shower cubicle", []],
+		"31604": ["On the sinks", []],
+		"31607": ["On the bench", []],
+		"31608": ["On the shelves in the corner", []],
+		"31610": ["On the bed", []],
+		"31611": ["Hanging in the corner", []],
+		"31613": ["On the bench", []],
+		"31623": ["On the desk", []],
+		"31624": ["On the bench", []],
+		"31625": ["In front of the vending machine", []],
+		"31628": ["On the table", []],
+		"31633": ["Inside the red container", []],
+		"31634": ["Inside the red container", []],
+		"31645": [
+			"**Key:** Lab. Blue Keycard\n- [Spawn #1 (Shoreline)](https://mapgenie.io/tarkov/maps/shoreline?locationIds=28027)\n- [Spawn #2 (Shoreline)](https://mapgenie.io/tarkov/maps/shoreline?locationIds=28028)\n- [Spawn #3 (Shoreline)](https://mapgenie.io/tarkov/maps/shoreline?locationIds=32009)  \n- Spawn #4 (Reserve - On Glukhar's body)",
+			[]
+		],
+		"31650": [
+			"**Key:** Lab. Black Keycard\n- [Spawn #1](#loc=31902)\n- [Spawn #2](#loc=31903)\n- [Spawn #3](#loc=31904)",
+			[
+				{
+					"id": 44641,
+					"title": "",
+					"file_name": "8bb09b41-8907-424b-abfa-dc93c3418a06.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8bb09b41-8907-424b-abfa-dc93c3418a06.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31651": [
+			"**Key:** Lab. Black Keycard\n- [Spawn #1](#loc=31902)\n- [Spawn #2](#loc=31903)\n- [Spawn #3](#loc=31904)",
+			[]
+		],
+		"31654": ["Under the desk", []],
+		"31655": ["Under the desk", []],
+		"31656": ["Under the desk", []],
+		"31657": ["Under the desk", []],
+		"31658": [
+			"**Key:** Lab. Key. Testing Area (Weap.)\n- [Spawn #1](#loc=31684)\n- [Spawn #2](#loc=31693)\n- [Spawn #3](#loc=31889)",
+			[]
+		],
+		"31659": [
+			"**Key:** Lab. Key. Testing Area (Weap.)\n- [Spawn #1](#loc=31684)\n- [Spawn #2](#loc=31693)\n- [Spawn #3](#loc=31889)",
+			[
+				{
+					"id": 1322,
+					"title": "",
+					"file_name": "3ceb612d-62af-452d-945e-385b26245f8a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ceb612d-62af-452d-945e-385b26245f8a.jpg",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31662": ["On the table inside the cage", []],
+		"31664": ["In the office underneath the walkway.", []],
+		"31665": ["Under the desk in the office underneath the walkway.", []],
+		"31667": ["On the table", []],
+		"31668": ["Hanging in the corner", []],
+		"31669": ["Under the desk", []],
+		"31670": ["Under the desk", []],
+		"31671": ["Under the desk", []],
+		"31673": ["Between the two desks", []],
+		"31674": ["Under the desk", []],
+		"31675": ["Under the desk", []],
+		"31676": ["Under the desk", []],
+		"31684": [
+			"**Unlocks:** [Weapon Testing Area (Lk.TA(w))](#loc=31658)  \n**Location:** On a stool beside the Duffle Bag.",
+			[]
+		],
+		"31686": ["On a desk beside the stool.", []],
+		"31687": ["Under the desk", []],
+		"31688": ["Under the desk", []],
+		"31689": ["On the desk", []],
+		"31690": ["On the table", []],
+		"31691": ["On top of the wooden crates", []],
+		"31693": [
+			"**Unlocks:** [Weapon Testing Area (Lk.TA(w))](#loc=31658)  \n\n**Location:** On the kitchen counter beside the plant.",
+			[
+				{
+					"id": 1317,
+					"title": "",
+					"file_name": "7d740add-d74a-4d4a-92ba-882e0eca64d7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d740add-d74a-4d4a-92ba-882e0eca64d7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31694": ["On the counter", []],
+		"31695": ["On the desk", []],
+		"31696": ["On the desk", []],
+		"31698": ["Under the desk", []],
+		"31699": ["Under the desk", []],
+		"31700": ["On the bench", []],
+		"31701": ["**To:** [Switchboard](#loc=31702)", []],
+		"31731": ["On the desk", []],
+		"31732": ["Under the desk", []],
+		"31735": ["On the bench", []],
+		"31743": ["On the bench", []],
+		"31746": ["On the couch", []],
+		"31757": ["On the bookshelf", []],
+		"31759": ["In front of the vending machine", []],
+		"31768": ["Beside the mattress", []],
+		"31770": ["Ammo (?)", []],
+		"31771": ["On the boxes", []],
+		"31772": ["On the shelves", []],
+		"31773": ["On the shelves", []],
+		"31774": ["On the table", []],
+		"31775": ["On the table", []],
+		"31776": ["On the table", []],
+		"31778": ["On the table", []],
+		"31781": ["On the bench", []],
+		"31782": ["On the shelves", []],
+		"31785": ["On the desk", []],
+		"31786": ["Under the desk", []],
+		"31787": ["Under the desk", []],
+		"31788": ["Under the desk", []],
+		"31789": ["Under the desk", []],
+		"31790": ["On the shelves", []],
+		"31791": [
+			"**Key:** Lab. Red Keycard\n- [Spawn #1 (Shoreline)](https://mapgenie.io/tarkov/maps/shoreline?locationIds=32006)  \n- [Spawn #2 (Shoreline)](https://mapgenie.io/tarkov/maps/shoreline?locationIds=32007)  \n- [Spawn #3 (Shoreline)](https://mapgenie.io/tarkov/maps/shoreline?locationIds=32008)  \n- [Spawn #4 (Shoreline)](https://mapgenie.io/tarkov/maps/shoreline?locationIds=28084)\n- [Spawn #5 (Shoreline)](https://mapgenie.io/tarkov/maps/shoreline?locationIds=497954)",
+			[]
+		],
+		"31792": [
+			"**Key:** Lab. Key. Arsenal Storage Room\n- [Spawn #1 (Customs)](https://mapgenie.io/tarkov/maps/customs?locationIds=30066)\n- [Spawn #2 (Customs)](https://mapgenie.io/tarkov/maps/customs?locationIds=30263)\n- [Spawn #3 (Customs)](https://mapgenie.io/tarkov/maps/customs?locationIds=30181)",
+			[]
+		],
+		"31793": ["In front of the vending machine", []],
+		"31795": [
+			"**Key:** Lab. Violet Keycard\n- [Spawn #1 (Woods)](https://mapgenie.io/tarkov/maps/woods?locationIds=30453)  \n- [Spawn #2 (Woods)](https://mapgenie.io/tarkov/maps/woods?locationIds=30454)  \n- [Spawn #3 (Woods)](https://mapgenie.io/tarkov/maps/woods?locationIds=30452)",
+			[]
+		],
+		"31796": ["Under the desk", []],
+		"31798": ["**Unlocks:** [Parking Gate Extraction](#loc=32101)", []],
+		"31803": ["On the shelves", []],
+		"31804": ["On the sofa", []],
+		"31805": ["On the table", []],
+		"31807": ["On the shelves", []],
+		"31808": ["On the table", []],
+		"31813": [
+			"**Key:** Lab. Yellow Keycard\n- [Spawn #1](#loc=31892)\n- [Spawn #2](#loc=31899)\n- [Spawn #3](#loc=31900)",
+			[]
+		],
+		"31814": [
+			"These can be used to deactivate the announcement that plays when opening the [Parking Gate](#loc=32101) extraction.",
+			[]
+		],
+		"31816": ["(?)", []],
+		"31819": ["Under the monitor", []],
+		"31821": ["On the table", []],
+		"31824": ["Always Meds (?)", []],
+		"31825": ["On top of the sound system", []],
+		"31826": ["On top of the sound system", []],
+		"31827": [
+			"**Key:** Lab. Key. Manager Office\n- [Spawn #1](#loc=31886)\n- [Spawn #2](#loc=31887)\n- [Spawn #3](#loc=31888)\n- [Spawn #4](#loc=267642)",
+			[]
+		],
+		"31828": [
+			"**Key:** Lab. Green Keycard\n- [Spawn #1](#loc=31881)\n- [Spawn #2](#loc=31882)\n- [Spawn #3](#loc=31883)",
+			[]
+		],
+		"31829": [
+			"**Unlocks:** [Hanger Gate](#loc=31570)",
+			[
+				{
+					"id": 1327,
+					"title": "",
+					"file_name": "326c6c47-07a0-48be-a646-0726ebad1d4c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/326c6c47-07a0-48be-a646-0726ebad1d4c.jpg",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31831": ["Under the desk", []],
+		"31832": ["On the table", []],
+		"31849": ["On the shelves", []],
+		"31854": ["On the bed", []],
+		"31856": ["On the trolley", []],
+		"31857": ["Saline (?)", []],
+		"31858": ["On the table in the small room", []],
+		"31859": ["On the patient table", []],
+		"31861": ["On the small trolley", []],
+		"31862": ["On the trolley", []],
+		"31867": [
+			"Next to the water tank",
+			[
+				{
+					"id": 1315,
+					"title": "",
+					"file_name": "23d431ae-d8c0-421a-a982-eec5a70b54f0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/23d431ae-d8c0-421a-a982-eec5a70b54f0.jpg",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31871": ["On the bed", []],
+		"31874": ["On the crate", []],
+		"31877": ["2nd last shower cubicle on the right. Next to the Duffle Bag.", []],
+		"31878": ["2nd last shower cubicle on the right.", []],
+		"31880": ["On the trolley", []],
+		"31881": [
+			"**Unlocks:** [Sterile Laboratory](#loc=31828)  \n**Location:** On the reception desk beside the computer.",
+			[
+				{
+					"id": 1326,
+					"title": "",
+					"file_name": "ebfac04a-2390-4c46-84cb-0bafc6abdb03.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ebfac04a-2390-4c46-84cb-0bafc6abdb03.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31882": [
+			"**Unlocks:** [Sterile Laboratory](#loc=31828)  \n**Location:** Between the blue folders on the shelves.",
+			[
+				{
+					"id": 1330,
+					"title": "",
+					"file_name": "726a4921-7c51-449c-9b35-b555f0203774.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/726a4921-7c51-449c-9b35-b555f0203774.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31883": [
+			"**Unlocks:** [Sterile Laboratory](#loc=31828)  \n**Location:** On the lab desk next to the glass tubes",
+			[
+				{
+					"id": 1320,
+					"title": "",
+					"file_name": "12a6caba-7bf2-4259-9abe-9c88e599fba8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/12a6caba-7bf2-4259-9abe-9c88e599fba8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31885": ["On the desk", []],
+		"31886": ["**Unlocks:** [Manager's Office](#loc=31827)  \n**Location:** ??", []],
+		"31887": [
+			"**Unlocks:** [Manager's Office](#loc=31827)  \n**Location:** Sitting on the passenger seat of the SUV with the Weapon Box in the trunk.",
+			[
+				{
+					"id": 1321,
+					"title": "",
+					"file_name": "07894c5a-9d71-4366-bf64-3702bb130742.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07894c5a-9d71-4366-bf64-3702bb130742.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31888": [
+			"**Unlocks:** [Manager's Office](#loc=31827)  \n**Location:** In the conference room in the office. On the right hand side of the powered on laptop.",
+			[
+				{
+					"id": 1329,
+					"title": "",
+					"file_name": "5ed86e23-53ac-4f28-93ec-4ab5fb0dc5d2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5ed86e23-53ac-4f28-93ec-4ab5fb0dc5d2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31889": [
+			"**Unlocks:** [Weapon Testing Area (Lk.TA(w))](#loc=31658)  \n**Location:** On the shelves immediately on the left when entering the Security Office",
+			[
+				{
+					"id": 1331,
+					"title": "",
+					"file_name": "9d392349-f520-41f1-bc2f-5dffd58e0a01.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9d392349-f520-41f1-bc2f-5dffd58e0a01.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31892": [
+			"**Unlocks:** [Security Office #2](#loc=31813)  \n**Location:** In the middle of the central wooden table against the window.",
+			[
+				{
+					"id": 1318,
+					"title": "",
+					"file_name": "15765335-3b38-485b-b104-3cf84d2c76ac.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/15765335-3b38-485b-b104-3cf84d2c76ac.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31897": ["On the floor", []],
+		"31899": [
+			"**Unlocks:** [Security Office #2](#loc=31813)  \n**Location:** On the conference room table - next to a laptop.",
+			[
+				{
+					"id": 1323,
+					"title": "",
+					"file_name": "b8c25cb6-da8a-40b4-8404-89fc2529886f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b8c25cb6-da8a-40b4-8404-89fc2529886f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31900": [
+			"**Unlocks:** [Security Office #2](#loc=31813)  \n**Location:** On top of the table - between the computers.",
+			[
+				{
+					"id": 1319,
+					"title": "",
+					"file_name": "b07f9f93-d919-47de-91ed-0ea074356640.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b07f9f93-d919-47de-91ed-0ea074356640.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31902": [
+			"**Unlocks:** [Experiments Area](#loc=31650)  \n**Location:** On the desk under the walkway - opposite the orange dome. Next to the telephone.",
+			[
+				{
+					"id": 1316,
+					"title": "",
+					"file_name": "235d7bcc-4845-474c-86d4-08adacd4662a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/235d7bcc-4845-474c-86d4-08adacd4662a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31903": [
+			"**Unlocks:** [Experiments Area](#loc=31650)  \n**Location:** On the large table of science equipment - next to the 2 glass volumetric flasks.",
+			[
+				{
+					"id": 1325,
+					"title": "",
+					"file_name": "c95810a0-f374-4478-abbe-206ed5c72445.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c95810a0-f374-4478-abbe-206ed5c72445.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"31904": [
+			"**Unlocks:** [Experiments Area](#loc=31650)  \n**Location:** On the desk next to the computer, inside the [Sterile Laboratory](#loc=31828).  NB:  Green Keycard required for access.",
+			[]
+		],
+		"32021": ["Inside the [Experiments Area](#loc=31650)", []],
+		"32022": ["Inside the [Experiments Area](#loc=31650)", []],
+		"32023": ["Inside the [Quarantine Zone](#loc=31645). On the bottom shelf on the trolley", []],
+		"32024": ["Inside the [Quarantine Zone](#loc=31645).", []],
+		"32025": ["Inside the [Quarantine Zone](#loc=31645).", []],
+		"32026": ["Inside the [Quarantine Zone](#loc=31645). On the bed", []],
+		"32027": ["Inside the [Quarantine Zone](#loc=31645). On the bed", []],
+		"32028": ["Inside the [Quarantine Zone](#loc=31645). On the bed", []],
+		"32029": ["Inside the [Sterile Laboratory](#loc=31828)", []],
+		"32030": ["Inside the [Sterile Laboratory (Green)](#loc=31828)", []],
+		"32031": ["Inside the [Sterile Laboratory (Green)](#loc=31828). On the desk.", []],
+		"32032": ["Inside the [Sterile Laboratory (Green)](#loc=31828).", []],
+		"32033": ["Inside the [Sterile Laboratory (Green)](#loc=31828).", []],
+		"32034": ["Inside the [Sterile Laboratory (Green)](#loc=31828).", []],
+		"32035": ["Inside the [Sterile Laboratory (Green)](#loc=31828).", []],
+		"32036": ["Inside the [Sterile Laboratory (Green)](#loc=31828).", []],
+		"32037": ["Inside the [Sterile Laboratory (Green)](#loc=31828).  In the round metal container.", []],
+		"32038": ["[Manager's Office](#loc=31827) - on the desk.", []],
+		"32039": ["[Manager's Office](#loc=31827) - on the desk.", []],
+		"32040": ["[Manager's Office](#loc=31827) - on the desk.", []],
+		"32041": ["[Manager's Office](#loc=31827)", []],
+		"32042": ["[Manager's Office](#loc=31827) - _under_ the desk.", []],
+		"32043": ["[Manager's Office](#loc=31827)", []],
+		"32044": ["[Manager's Office](#loc=31827)", []],
+		"32045": ["[Manager's Office](#loc=31827) - on the desk.", []],
+		"32047": ["Inside the [Arsenal Storage Room](#loc=31792)", []],
+		"32048": ["Inside the [Arsenal Storage Room](#loc=31792). On the shelves.", []],
+		"32049": ["Inside the [Arsenal Storage Room](#loc=31792). On the shelves.", []],
+		"32050": ["Inside the [Arsenal Storage Room](#loc=31792). On the shelves.", []],
+		"32051": ["Inside [Security Room #1](#loc=31791). On the weapon rack..", []],
+		"32052": ["Inside [Security Room #1](#loc=31791). On the weapon rack..", []],
+		"32053": ["Inside [Security Room #1](#loc=31791). On the table.", []],
+		"32055": ["Inside [Security Room #1](#loc=31791). In the cabinets.", []],
+		"32056": ["Inside [Security Room #1](#loc=31791). On the table", []],
+		"32057": ["Inside [Security Room #1](#loc=31791). On the crate", []],
+		"32058": ["Inside the [Arsenal Storage Room](#loc=31792)). On the shelves.", []],
+		"32059": ["Inside the [Arsenal Storage Room](#loc=31792)). On the floor", []],
+		"32060": ["Inside the [Arsenal Storage Room](#loc=31792)). On the shelves.", []],
+		"32061": ["On the small pedestal in the corner.", []],
+		"32062": ["On the table.", []],
+		"32064": ["On top of the PC block", []],
+		"32065": ["On the presentation desk", []],
+		"32066": [
+			"[Security Room #2 (Violet)](#loc=31795) - on the shelves.",
+			[
+				{
+					"id": 68490,
+					"title": "",
+					"file_name": "543c4b3c-0dfd-4841-92f5-f340d41dda5b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/543c4b3c-0dfd-4841-92f5-f340d41dda5b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"32067": ["[Security Room #2 (Violet)](#loc=31795) - on the server racks", []],
+		"32068": ["[Security Room #2 (Violet)](#loc=31795).", []],
+		"32069": ["[Security Room #2 (Violet)](#loc=31795).", []],
+		"32070": ["[Security Room #2 (Violet)](#loc=31795).", []],
+		"32071": ["[Security Room #2 (Violet)](#loc=31795).", []],
+		"32072": ["[Security Room #2 (Violet)](#loc=31795) - on the ground near the server rack.", []],
+		"32073": ["[Security Room #2 (Violet)](#loc=31795) - on the desk.", []],
+		"32074": ["Next to the laptop", []],
+		"32075": ["Potential spawn on the desk beside the televisions", []],
+		"32076": ["Beside the laptop", []],
+		"32077": ["On the desk", []],
+		"32078": ["[Manager's Office](#loc=31827) - on the desk", []],
+		"32079": ["[Manager's Office](#loc=31827)", []],
+		"32080": ["On small boxes", []],
+		"32082": ["On top of the barrels", []],
+		"32083": ["On top of some small boxes", []],
+		"32084": ["[Sterile Laboratory (Green)](#loc=31828) - in the round metal container on the table.", []],
+		"32091": [
+			"The Scav spawn mechanics on The Labs work differently to other maps.\n\nScav Raiders will begin spawning after 5 minutes.  Every couple of minutes there is a chance a Scav Raider will spawn. They can spawn anywhere and patrol anywhere.\n\nGroups of 2-4 Scav Raiders will also spawn when any of the extraction buttons are pressed (you'll hear an announcement on the intercom).  When this happens, they spawn nearby the relevant extraction and patrol towards it.",
+			[]
+		],
+		"32101": [
+			"**Always Open:** ✘  \n**Requirements:** Activate [Parking Gate Controls](#loc=31798). Optionally, you can disable the alarm by activating the [Parking Gate Alarm Controls](#loc=31814)  \n**Announcement:**  \n[](https://media.mapgenie.io/guides/tarkov/announcement_parking.mp3)",
+			[]
+		],
+		"32103": [
+			"Spawns on the desk, beside the laptop closest to the wall.",
+			[
+				{
+					"id": 149109,
+					"title": "",
+					"file_name": "efd4c3ea-21a1-435f-b532-24158d173509.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/efd4c3ea-21a1-435f-b532-24158d173509.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"41325": ["**Key Required:** Keycard with a Blue Marking (Found on Sanitar)", []],
+		"46254": ["**Quest:** TerraGroup Employee", []],
+		"72257": ["Spawns on the desk", []],
+		"72258": ["On the desk.", []],
+		"77169": ["Possible spawn on top of some small boxes behind the giant white pipes", []],
+		"77170": ["Possible spawn on the circular desk", []],
+		"77171": ["Possible spawn on the right-middle shelf", []],
+		"77172": ["Possible spawn on the top-right most shelf", []],
+		"77173": [
+			"**Unlocks:** [Experiments Area (Black)](#loc=31650)  \n**Location:** Possible spawn behind the right-most monitor on the table",
+			[]
+		],
+		"77174": ["Below the Virtex spawn near some small boxes", []],
+		"77175": ["Possible spawn on the right-most table next to the phone and blue binder", []],
+		"77176": ["Possible spawn in between the 2 right-most server racks on the table", []],
+		"77177": ["Possible spawn on the fallen server rack", []],
+		"77178": ["Possible spawn on the desk near the monitor", []],
+		"77179": ["Possible spawn above the green keycard spawn", []],
+		"77180": ["Possible spawn next to the laptop near the yellow key card spawn", []],
+		"77181": ["Possible spawn below the green keycard", []],
+		"77182": ["In front of the right-most printer/fax machine on the table", []],
+		"116917": ["On the bed frame.", []],
+		"116918": ["On a bench.", []],
+		"145177": ["Potential spawn on the office chair in front of the printer.", []],
+		"145178": ["On the table, beside the screen", []],
+		"145179": [
+			"On the shelves",
+			[
+				{
+					"id": 12619,
+					"title": "",
+					"file_name": "687e6bc0-ebb0-4d1b-8b84-d36148845bdd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/687e6bc0-ebb0-4d1b-8b84-d36148845bdd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"157638": ["**Possible Spawns:** Vase, Sheriff Badge, Ophthalmoscope, GPU", []],
+		"157639": ["On top of blue wrapped crate", []],
+		"157640": ["On shelves", []],
+		"157641": ["On the cart", []],
+		"157642": ["Under the desk", []],
+		"157643": ["On the black pallet between the yellow barrels", []],
+		"157644": [
+			"**Possible Spawns:** Horse, GPU, ???",
+			[
+				{
+					"id": 37650,
+					"title": "",
+					"file_name": "be20812c-94d0-4f85-8540-f7e87d094b57.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be20812c-94d0-4f85-8540-f7e87d094b57.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"191148": [
+			"On the table with the small black weapons crate. or on the chair beside it.\n\n**Possible Spawns:** Bitcoin",
+			[]
+		],
+		"191149": ["On the floor in the corner of the room", []],
+		"191150": [
+			"Potential GPU, Lion spawn on desk",
+			[
+				{
+					"id": 21728,
+					"title": "",
+					"file_name": "ecd0dc82-654a-451a-9565-b49ba0d4888f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ecd0dc82-654a-451a-9565-b49ba0d4888f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"267635": ["**Possible Spawns:** GPU, LEDX, BTC\n\nOn top of the safe", []],
+		"267636": [
+			"**Possible Spawns:** LedX, Opthomaloscope, Far-Forward Items, Virtex, COFDM, GPU, Microboard\n\n\n\nOn the ground between the red and the Frodo car.",
+			[]
+		],
+		"267637": ["**Possible Spawns:** Zibbo, Dry FUel", []],
+		"267638": [
+			"Between the 2 chairs or on the table",
+			[
+				{
+					"id": 37654,
+					"title": "",
+					"file_name": "7fbf0cf5-aeaf-41e0-8b49-a373b66d9c38.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7fbf0cf5-aeaf-41e0-8b49-a373b66d9c38.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"267639": ["On the small table.", []],
+		"267642": [
+			"**Unlocks:** [Manager's Office (Lk.MO)](#loc=31827)  \n\n**Location:** In the Negotiation Room, on the desk next to the glass door. Sitting next to the computer mouse.",
+			[
+				{
+					"id": 145229,
+					"title": "",
+					"file_name": "d23a9824-6581-40c7-ae9b-3934ae598adc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d23a9824-6581-40c7-ae9b-3934ae598adc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"267643": ["**Possible Spawns:** GPU / Streamer Items", []],
+		"267644": [
+			"On the floor to the right of the desk\nPossible Spawns: Streamer Loot, Wooden Clock, Vase, Random Technical Supplies, EXT.",
+			[]
+		],
+		"267646": ["Possible spawn at the end of the desk", []],
+		"267647": ["On the white boxes\n\n**Possible Spawns:** LEDX / Far-Foward / Microboard / etc.", []],
+		"290524": [
+			"Spawn on the table or beside the cat statue on the floor",
+			[
+				{
+					"id": 37649,
+					"title": "",
+					"file_name": "6b55da65-9746-4578-9a92-d92e8d6e3896.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6b55da65-9746-4578-9a92-d92e8d6e3896.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"290525": ["On top of the boxes", []],
+		"290526": ["**Possible Spawns:** Skull / BTC / Streamer Items / GPA", []],
+		"290527": ["**Possible Spawns:** Roler / GPU / Raven / Skull / GP Coin / BitCoin / Streamer Items", []],
+		"290528": [
+			"On the table",
+			[
+				{
+					"id": 37652,
+					"title": "",
+					"file_name": "776450f4-6b54-481f-939b-65a793d1c261.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/776450f4-6b54-481f-939b-65a793d1c261.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"290529": [
+			"One the bench beside stairs",
+			[
+				{
+					"id": 37653,
+					"title": "",
+					"file_name": "469fb5e6-b8e8-41d3-99b0-2adfb1a197d3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/469fb5e6-b8e8-41d3-99b0-2adfb1a197d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"290532": ["On the floor in front of the sofa", []],
+		"290533": [
+			"On the boxes",
+			[
+				{
+					"id": 37655,
+					"title": "",
+					"file_name": "0e04fae6-36e3-4213-ae5b-810bb2a829b1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e04fae6-36e3-4213-ae5b-810bb2a829b1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"290534": [
+			"On the desk under the far right monitor",
+			[
+				{
+					"id": 37656,
+					"title": "",
+					"file_name": "c8a16623-c548-438a-a09f-6929c3be299f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8a16623-c548-438a-a09f-6929c3be299f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"290535": ["Top of crate", []],
+		"316194": [
+			"**Location:** On the table",
+			[
+				{
+					"id": 44640,
+					"title": "",
+					"file_name": "4f2f1341-88e5-4d2e-bb8f-7b2c54ca32b8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f2f1341-88e5-4d2e-bb8f-7b2c54ca32b8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"316195": ["On the ground", []],
+		"316198": ["Loose Stimulants & LEDXs can be found all along the borders of the Experiments Area", []],
+		"316199": [
+			"**Location:** On the shelves\n\nPossible spawns: Golden rooster",
+			[
+				{
+					"id": 44642,
+					"title": "",
+					"file_name": "45653bc1-5c3f-404d-978d-d268ff43e9f2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/45653bc1-5c3f-404d-978d-d268ff43e9f2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"316200": ["**Location:** On the table by the blue jacket\n\nSkull, GP Coin, Iridium, etc.", []],
+		"397685": [
+			"Quest: Sightseeing\nQuest Giver: Skier \nRequirements: 10x MS2000 Marker, included when task is accepted. only 1 needed on The Labs. plant marker inside the elevator",
+			[]
+		],
+		"397686": ["**Always Open:** ✔  \n**Single Use:** ✘  \n**Requirements:** -Marathon", []],
+		"398072": ["Sitting on top of the desk near the garbage cans", []],
+		"398073": [
+			"**Unlocks:** Security Room #2  \n**Location:** On the Table",
+			[
+				{
+					"id": 149364,
+					"title": "",
+					"file_name": "92fdd518-803c-420a-b552-c33968b22fbb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/92fdd518-803c-420a-b552-c33968b22fbb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"398074": [
+			"Found a chainlet on the shelf, other side of the desk",
+			[
+				{
+					"id": 68491,
+					"title": "",
+					"file_name": "952b6f39-c57e-4576-a611-3370848902bd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/952b6f39-c57e-4576-a611-3370848902bd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"398075": ["Ledx spawn on the round table", []],
+		"398076": ["LEDX, etc...", []],
+		"398077": ["found roler on shelf. possibly other valuables spawn?", []],
+		"398078": ["Rooster roler bitcoin", []],
+		"398079": [
+			"**Location:** on the one of three chairs.",
+			[
+				{
+					"id": 56697,
+					"title": "",
+					"file_name": "25a476d4-ed41-4c06-8678-a257c1bcf9ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/25a476d4-ed41-4c06-8678-a257c1bcf9ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"401461": ["**Unlocks:** Security Room #1  \n**Location:** On the sofa/bench facing the wall", []],
+		"401475": ["On a chair at end of the table", []],
+		"401785": [
+			"**Quest:** Quality Standard  \n**Quest Giver:** Therapist  \n**Location:** On top of the yellow barrel inside the dome\n\n**Note:** This quest requires the \"Edge of Darkness\" edition of Escape From Tarkov.",
+			[]
+		],
+		"401786": ["**Quest:** Marathon - Beneath The Streets   \n**Quest Giver:** Therapist", []],
+		"401787": ["**Quest:** Marathon - Beneath the Streets  \n**Quest Giver:** Therapist", []],
+		"401788": ["**Quest:** Marathon - Beneath the Streets  \n**Quest Giver:** Therapist", []],
+		"401790": ["Over the yellow generator", []],
+		"401791": ["Near the blue pallet", []],
+		"401792": ["On top of the boxes", []],
+		"401793": ["Loot on top of boxes", []],
+		"401794": ["On floor in front of refrigerator", []],
+		"401798": ["On top of the barrels", []],
+		"401800": ["**Possible Spawns:** LEDX inside the test room on Boxes", []],
+		"424904": [
+			"**Key Required:** TerraGroup Labs residential unit keycard (100% spawn in Labs Containment Block)  \n\n**Behind the Lock:** \n- 8-10 valuable spawns\n- Loose Loot (Bitcoins, GP, Statues, Roosters, lions) \n- Gun Spawn under Bed (RSASS, MK47, 300 Blackout Rifle, Velociraptor 300, TX-15) \n- Intelligence Folders and blue intelligence folders\n- Up to 4 duffle bags",
+			[]
+		],
+		"424905": ["**Unlocks:** Security Room #2  \n**Location:** On the corner of the table", []],
+		"424906": ["On One of the two computer chairs side by side", []],
+		"424907": [
+			"Floor between the filing cabinet and shelves",
+			[
+				{
+					"id": 68492,
+					"title": "",
+					"file_name": "897e30bc-020b-44d9-9a65-8183a7d1b479.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/897e30bc-020b-44d9-9a65-8183a7d1b479.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"430362": ["**Quest:** TerraGroup Employee\n**Quest Giver:** Peacekeeper", []],
+		"430363": ["Under the shelves", []],
+		"430364": ["**Location:** On the couches or floor", []],
+		"430365": ["On cart in corner room.", []],
+		"511040": [
+			"**Key Required:** Black keycard  \n**Behind the Lock:** \n- Loose Valuables on floor\n- Locked Safe (with valuables)\n- 100% Spawn Chance for Cardinal Apartment Key",
+			[]
+		],
+		"511042": ["On beanbag\n\n**Possible Spawns:** BTC, GP, Badge", []],
+		"511043": ["On bed and under bed.\n\n**Possible Spawns:** Gold / Bitcoin / Tetriz / etc.", []],
+		"511044": [
+			"**Key Required:**  Residential Unit Key\n**Behind the Lock:** Gold Spawns, Gun on the floor under the bunk bed on the left, intel on the shelf on the left as you walk in.\n\nThis key on the map is incorrectly at the enterance to the whole area on the map, but only this room is behind the lock.",
+			[]
+		],
+		"511046": ["**Unlocks:** [Residential Unit](#loc=424904)  \n**Location:** On table", []],
+		"511047": ["**Unlocks:** [Residential Unit](#loc=424904)  \n**Location:** On top of junction box", []],
+		"511049": ["Residential Complex (Containment Block)", []],
+		"511050": ["Tables and sides, various med items including injectors", []],
+		"511052": [
+			"**Key Required:** Unlocked by [button in adjacent room](#loc=511051)  \n\n**Behind the Lock:** Res Unit key spawn, loose medical items and stims",
+			[]
+		],
+		"511053": ["**Unlocks:** Residential Unit Locked Door  \n**Location:** Labs", []],
+		"511054": ["On desk behind desk nameplate", []],
+		"511057": ["Vpx spawn sometimes", []],
+		"931579": ["top the counter, left of the container", []],
+		"931584": ["Right of the laptop, top of the dosier.", []],
+		"931585": ["On the countertop near the plant", []],
+		"931586": ["Left of the keyboard", []],
+		"931590": ["Atop the counter", []],
+		"931592": ["Between the keyboard and laptop atop the desk.", []],
+		"932432": ["Find a Black Division team? Help us track them down by making a suggestion", []],
+		"932937": ["On top of the cardboard boxes", []],
+		"932938": ["On a desk; look through the window to make sure it's there before using a key.", []],
+		"932939": [
+			"They spawn in the bookshelf , the middle one, between files, in the control room to open the shipping room extract",
+			[]
+		],
+		"932940": ["On the table", []],
+		"932941": [
+			"",
+			[
+				{
+					"id": 148460,
+					"title": "",
+					"file_name": "d33d858e-fdb0-4213-a001-0b5b2b0bea57.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d33d858e-fdb0-4213-a001-0b5b2b0bea57.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"932942": [
+			"Atop the table next to one of the laptops.",
+			[
+				{
+					"id": 152877,
+					"title": "",
+					"file_name": "0df32543-3ca6-4f0b-8cc0-c0b25e2b7c2b.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0df32543-3ca6-4f0b-8cc0-c0b25e2b7c2b.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"932943": ["on desk next to laptop", []],
+		"932944": [
+			"On the shelf",
+			[
+				{
+					"id": 145228,
+					"title": "",
+					"file_name": "b0a464ab-748a-4c7b-be3d-4ac249659c3a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b0a464ab-748a-4c7b-be3d-4ac249659c3a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"932945": ["Far end of the table.", []],
+		"932946": ["Atop a pedestal", []],
+		"939114": ["**Unlocks:** [Residential Unit](#loc=424904)  \n**Location:** On the table", []],
+		"939115": ["**Unlocks:** [Residential Unit](#loc=424904)  \n**Location:** Behind the whiteboard", []],
+		"939117": [
+			"On the desk with the lamp on.",
+			[
+				{
+					"id": 152879,
+					"title": "",
+					"file_name": "79647696-38fa-44e1-b41b-910620b24efe.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79647696-38fa-44e1-b41b-910620b24efe.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"939119": [
+			"On the table with laboratory equipment",
+			[
+				{
+					"id": 152878,
+					"title": "",
+					"file_name": "66b9fd4c-e0ad-4d79-b9d1-e6437743bc34.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66b9fd4c-e0ad-4d79-b9d1-e6437743bc34.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"939120": [
+			"On the reception desk",
+			[
+				{
+					"id": 147119,
+					"title": "",
+					"file_name": "c5afb4e7-3097-405e-9858-766359bd8d74.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5afb4e7-3097-405e-9858-766359bd8d74.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"939121": [
+			"On the first high table coming from Red/Violet in the canteen.",
+			[
+				{
+					"id": 152876,
+					"title": "",
+					"file_name": "e4ef639d-b339-491c-86a0-9505219b09e4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4ef639d-b339-491c-86a0-9505219b09e4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"939123": ["Next to the blue folder holder on the desk", []],
+		"939125": ["On the stand beside the bed", []],
+		"939126": [
+			"",
+			[
+				{
+					"id": 147287,
+					"title": "",
+					"file_name": "92c40bb3-429a-4494-ba83-c33d5e711060.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/92c40bb3-429a-4494-ba83-c33d5e711060.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"939127": ["On the table between the sofas", []],
+		"939128": ["on desk", []],
+		"939364": ["**Key Required:** ??  \n**Behind the Lock:** ??", []]
+	}
+}

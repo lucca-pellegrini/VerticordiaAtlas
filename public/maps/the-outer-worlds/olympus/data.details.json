@@ -1,0 +1,61 @@
+{
+	"v": 1,
+	"d": {
+		"46497": ["Under the desk", []],
+		"46500": [
+			"**Optional Key:** [Olympus Orbital Station Keycard](#loc=76931)\n\n**Note:** Can also be access via a secret passage in the toilets",
+			[]
+		],
+		"46501": ["Access via crawling in from the toilets", []],
+		"46507": ["In the small utility area under the platform - access from the north", []],
+		"46508": ["In the small utility area under the platform - access from the north", []],
+		"46509": ["In the small utility area under the platform - access from the north", []],
+		"46517": [
+			"Reward for completing [The Man in High Orbit\n](https://mapgenie.io/the-outer-worlds/maps/byzantium?locationIds=46516) or can be pickpocketed from [Dr. Jasper Low](#loc=46514).",
+			[]
+		],
+		"46520": [
+			"Given to you by [Dr. Jasper Low](#loc=46514) during [The Man in High Orbit\n](https://mapgenie.io/the-outer-worlds/maps/byzantium?locationIds=46516)",
+			[]
+		],
+		"46525": ["**Optional Key:** [Olympus Orbital Station Keycard](#loc=76931)", []],
+		"46526": [
+			"Given to you by [Dr. Jasper Low](#loc=46514) during [The Man in High Orbit\n](https://mapgenie.io/the-outer-worlds/maps/byzantium?locationIds=46516) or can be pickpocketed.",
+			[]
+		],
+		"46527": [
+			"**Quest Giver:** [Dr. Jasper Low](#loc=46514)  \n**Previous Quest:** [The Man in High Orbit\n](https://mapgenie.io/the-outer-worlds/maps/byzantium?locationIds=46516)",
+			[]
+		],
+		"46528": ["Underneath the stairwell", []],
+		"46530": ["Opened by climbing down a ladder from Floor 2", []],
+		"46532": ["Carried by [Receptionist Kelley](#loc=46531).", []],
+		"76931": [
+			"**Unlocks:** \n- [Locked Door](#loc=46500)\n- [Locked Door](#loc=46525)\n\nNext to the door, on the top shelf of the utility cart.",
+			[]
+		],
+		"897343": [
+			"On the table next to the door",
+			[
+				{
+					"id": 139331,
+					"title": "",
+					"file_name": "cb726fe1-b3c7-43d5-8f83-57d895c5e578.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb726fe1-b3c7-43d5-8f83-57d895c5e578.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"897345": ["Underneath the ramp.", []],
+		"897348": ["In the dead scientist's hand.", []],
+		"897351": ["Underneath the highest ramp.", []],
+		"897352": ["Underneath the highest ramp.", []],
+		"897354": ["Takes you above all the mechanicals.", []],
+		"897357": ["Can be pickpocketed off [Dr. Jasper Low](#loc=46514)", []]
+	}
+}

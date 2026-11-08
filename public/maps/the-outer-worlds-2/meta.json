@@ -397,7 +397,8 @@
 					"tileSize": 256,
 					"background": "#171310"
 				}
-			]
+			],
+			"compact": "ships/data.compact.json"
 		},
 		{
 			"slug": "horizon-point-station",
@@ -414,7 +415,8 @@
 					"tileSize": 256,
 					"background": "#171310"
 				}
-			]
+			],
+			"compact": "horizon-point-station/data.compact.json"
 		},
 		{
 			"slug": "paradise-island",
@@ -431,7 +433,8 @@
 					"tileSize": 256,
 					"background": "#0f1410"
 				}
-			]
+			],
+			"compact": "paradise-island/data.compact.json"
 		},
 		{
 			"slug": "golden-ridge",
@@ -448,7 +451,8 @@
 					"tileSize": 256,
 					"background": "#0f1410"
 				}
-			]
+			],
+			"compact": "golden-ridge/data.compact.json"
 		},
 		{
 			"slug": "free-market-station",
@@ -465,7 +469,8 @@
 					"tileSize": 256,
 					"background": "#0f1410"
 				}
-			]
+			],
+			"compact": "free-market-station/data.compact.json"
 		},
 		{
 			"slug": "praetor",
@@ -482,7 +487,8 @@
 					"tileSize": 256,
 					"background": "#0f1410"
 				}
-			]
+			],
+			"compact": "praetor/data.compact.json"
 		},
 		{
 			"slug": "cloister",
@@ -499,7 +505,8 @@
 					"tileSize": 256,
 					"background": "#0f1410"
 				}
-			]
+			],
+			"compact": "cloister/data.compact.json"
 		},
 		{
 			"slug": "acs-undisputed-claim",
@@ -516,7 +523,8 @@
 					"tileSize": 256,
 					"background": "#0f1410"
 				}
-			]
+			],
+			"compact": "acs-undisputed-claim/data.compact.json"
 		},
 		{
 			"slug": "reconstituted-horizon-point",
@@ -533,7 +541,8 @@
 					"tileSize": 256,
 					"background": "#251313"
 				}
-			]
+			],
+			"compact": "reconstituted-horizon-point/data.compact.json"
 		}
 	]
 }

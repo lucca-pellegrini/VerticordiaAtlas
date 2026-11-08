@@ -1,0 +1,54 @@
+{
+	"v": 1,
+	"d": {
+		"75149": ["Found inside a [treasure chest](#loc=75148).", []],
+		"75151": ["Above, on a balcony ledge.", []],
+		"75153": ["Use repeated Flowmotion to scale up the wall.", []],
+		"75160": ["Use Reality Shift to knock down the wall of boxes blocking this treasure chest.", []],
+		"75161": ["Use Flowmotion to scale up the wall and grab this treasure chest.", []],
+		"75162": ["At the very top of the fountain.", []],
+		"75261": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★☆☆☆☆\n\n**Bonus Objective:** Block at least 3 enemy attacks!",
+			[]
+		],
+		"75262": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★☆☆☆☆\n\n**Bonus Objective:** Achieve victory without using △ commands!",
+			[]
+		],
+		"75263": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★☆☆☆☆\n\n**Bonus Objective:** Take damage no more than 2 times!",
+			[]
+		],
+		"75264": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★☆☆\n\n**Bonus Objective:** Pull off at least 3 successful counters!",
+			[]
+		],
+		"75265": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★☆☆\n\n**Bonus Objective:** Achieve victory in 20 seconds or less!",
+			[]
+		],
+		"75266": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★★☆\n\n**Bonus Objective:** Take damage no more than 2 times!",
+			[]
+		],
+		"75333": [
+			"**Difficulty:** ★★★★★\n\n**Boss:** [Hockomonkey (Mage)](#loc=75358)\n\nNote: Secret Portals are all super-powered versions of bosses from the game's plot. See the boss' map marker for strategies.",
+			[]
+		],
+		"75338": ["Clear [Special Portal 3](#loc=75263) in Traverse Town as Riku.", []],
+		"75340": ["Speak to Joshua as Riku.", []],
+		"75350": ["Clear [Special Portal 2](#loc=75262) in Traverse Town as Riku.", []],
+		"75354": [
+			"During your second visit to Traverse Town as Riku, the Spellican will summon a stampede of Cera Terror. Automatically received after defeating the stampede.",
+			[]
+		],
+		"75357": [
+			"**Recommended Level:** 50+\n\nThis is a secret, post-game boss available to both Sora and Riku in the Fountain Plaza. To gain the Ultima Keyblade for both characters, you'll need to beat him twice. Although you can technically fight this boss as early as Level 40, it's highly recommended to return later with better stats, keyblades, and commands.\n\nJulius uses ground-based melee attacks: charging, grabbing, punching, etc. The key is to keep your distance. Focus on movements that keep you in the air, and use long-range commands. Be very careful about landing hits with your Keyblade. Land a few hits, retreat, wait for another opening, and repeat—be patient!\n\nKeep an eye out for when Julius is stunned and goes slack. It's a good idea to keep one, mega-powerful close-range command in your deck for this moment, like Ars Arcanum or Icebreaker.\n\nAfter getting Julius down to half health, he will gain two very powerful abilities: a lightning barrage attack, and disabling your currently selected command. The latter ability is a huge problem. Disabling a command causes it to take 4-5 times longer to reload, which effectively removes it for the rest of the battle. Do ***not*** let him disable any Cure commands in your deck.\n\n**Glitch/Cheese Method:** If you have 8 x Balloon commands and enough Dream Eaters to have 5 x Magic Haste equipped—Congratulations! You can ignore everything above. Julius has a failsafe where he'll repeat his last attack if interrupted. Balloon is a great AOE attack that will interrupt Julius, and the Magic Hastes will keep your reload time low enough that you can essentially just spam the ability. This will keep Julius in a stunned loop while your barrage of Balloon attacks whittle down his health. With this method, Julius does not enter his second phase.",
+			[]
+		],
+		"75358": [
+			"**Weaknesses:** Slow\n\nUnlike Sora's much more aggressive version of this boss—Riku's version of Hockomonkey spends a lot of time avoiding Riku in the air.\n\nDodge Hockomonkey's long-ranged fireballs and melee attacks, while trying to get in range to land some attacks of your own. The boss may disappear and spawn swarming hands, but defeat the hands to make Hockomonkey reappear. Flowmotion can be your lifesaver; the fast traversal and melee attacks can catch up to Hockomonkey, even when it's retreating. Slow is also a useful magic command to keep up with Hockomonkey's movements.",
+			[]
+		]
+	}
+}

@@ -1,0 +1,1854 @@
+{
+	"v": 1,
+	"d": {
+		"482906": [
+			"**Location:** Only appears here if you revisit the Radiance Layer - specifically, the boss arena on SL1204 - and grab a key to destroy the Void totem in the room above.\n\nJump down the hole that appears to find yourself back in the Feast layer with the bananas in front of you.",
+			[]
+		],
+		"482908": [
+			"**Location:** Covered in muck against the wall behind the Warp Gong. Throw a salt chunk at it to access the gem.",
+			[
+				{
+					"id": 98899,
+					"title": "image",
+					"file_name": "7c712581-a840-4e04-85dd-e6e2bf0aea56.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c712581-a840-4e04-85dd-e6e2bf0aea56.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482909": [
+			"**Location:** Against the wall, opposite the Warp Gong\n\n**Reward:** \n- [03 - Wrecked by Freestyle Bananzas](#loc=482910)\n- [04 - Fast-Paced Freestyle Bananzas](#loc=482911)\n- [05 - Lost and Found under the Building](#loc=482912)",
+			[
+				{
+					"id": 98900,
+					"title": "image",
+					"file_name": "4fd8c9e1-b214-45c7-b0fb-77f8ac2b22e0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4fd8c9e1-b214-45c7-b0fb-77f8ac2b22e0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482910": [
+			"**Location:** [Freestyle Bananzas: City Smash](#loc=482909) - Destroy the building in under one minute.",
+			[]
+		],
+		"482911": [
+			"**Location:** [Freestyle Bananzas: City Smash](#loc=482909) - Destroy the building with at least 20 seconds remaining on the clock.\n\n_Tip: Elephant Banaza can begin the destruction while standing behind the starting line!_",
+			[]
+		],
+		"482912": [
+			"**Location:** [Freestyle Bananzas: City Smash](#loc=482909) - Underneath the blue balloon lift. Smack the balloon to raise the platform, then slip underneath.",
+			[]
+		],
+		"482913": [
+			"**Location:** Underground, in a hut's basement.\n\n**Opponents:** 5x Antickoid\n\n**Reward:** [6 - Battle: Bouncy Beatings](#loc=482914)",
+			[
+				{
+					"id": 98901,
+					"title": "image",
+					"file_name": "93f1da53-a45d-4549-9dd2-be039f725505.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/93f1da53-a45d-4549-9dd2-be039f725505.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482914": ["**Location:** Reward for completing [Feast Layer Battle Challenge 1](#loc=482913)", []],
+		"482915": [
+			"**Sells:**\n- [Purple Britches](#loc=491635)\n- [Shock-Proof Britches](#loc=491636)\n- [Yum-Yum Tie](#loc=491637)\n- [Prime Feast Apparel](#loc=491638)\n- [Neon Feast Apparel](#loc=491639)\n- [Pastel Feast Apparel](#loc=491640)\n- [Midnight Gradient Fur](#loc=491641)\n- [Guava Split Fur](#loc=491642)",
+			[]
+		],
+		"482918": [
+			"**Location:** Underground, in the basement of the [Chip Exchange](#loc=482916). Go down the right-most ramp, then use a chunk of salt to remove the muck and access the gem.",
+			[]
+		],
+		"482919": ["**Location:** In a pile of gold, on a platform on the other side of the muck wall.", []],
+		"482921": [
+			"**Location:** On a grassy island by the wall.\n\n**Opponents:** 10x Wallopoid\n\n**Reward:** [09 - Battle: Wallopoid Warfare](#loc=482922)",
+			[]
+		],
+		"482922": ["**Location:** Reward for completing [Feast Layer Battle Challenge 2](#loc=482921)", []],
+		"482923": [
+			"**Location:** At the bottom of the soda tower.",
+			[
+				{
+					"id": 98902,
+					"title": "image",
+					"file_name": "32f00464-7b54-4af9-867e-9024eaa88b8b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/32f00464-7b54-4af9-867e-9024eaa88b8b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482924": [
+			"**Location:** Appears on the Growtone after feeding it 500 Gold.",
+			[
+				{
+					"id": 98903,
+					"title": "image",
+					"file_name": "881575ad-45d9-45aa-8741-7f87615e8e76.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/881575ad-45d9-45aa-8741-7f87615e8e76.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482925": [
+			"**Location:** Appears on the Growtone after feeding it 2,500 Gold.",
+			[
+				{
+					"id": 98904,
+					"title": "image",
+					"file_name": "7deeb3e0-2e10-4940-b0fd-036cc235e5b9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7deeb3e0-2e10-4940-b0fd-036cc235e5b9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482926": [
+			"**Location:** Appears on the Growtone after feeding it 5,000 Gold.",
+			[
+				{
+					"id": 98905,
+					"title": "image",
+					"file_name": "c7ad7601-d3a3-4b5f-80c0-37885357dcdf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c7ad7601-d3a3-4b5f-80c0-37885357dcdf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482927": [
+			"**Location:** Against the wall, right of [Fried Pride Plaza](#loc=482920).\n\n**Reward:** \n- [14 - A Secret Salty Snack](#loc=482928)\n- [15 - Slinging the Salt](#loc=482929)\n- [16 - Melting the Muck](#loc=482930)",
+			[]
+		],
+		"482928": [
+			"**Location:** [Steady Flow of Salt](#loc=482927) - In a secret room, behind the first salt wall near the top.",
+			[
+				{
+					"id": 98906,
+					"title": "image",
+					"file_name": "1ad70c8b-fa0c-4455-9345-0586fc5e6ccc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ad70c8b-fa0c-4455-9345-0586fc5e6ccc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482929": [
+			"**Location:** [Steady Flow of Salt](#loc=482927) - On the top of the first pillar with a salt wall.",
+			[]
+		],
+		"482930": ["**Location:** [Steady Flow of Salt](#loc=482927) - At the end of the course.", []],
+		"482931": [
+			"**Location:** In a salt pile, behind the wall.",
+			[
+				{
+					"id": 98907,
+					"title": "image",
+					"file_name": "c8079b60-bd76-4b93-b89e-35406a73e520.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8079b60-bd76-4b93-b89e-35406a73e520.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482933": ["**Location:** On the top of the Grater-go-Round. Can be reached with Snake Bananza.", []],
+		"482935": [
+			"**Location:** In the center of the Grater-go-Round, on the bottom floor.",
+			[
+				{
+					"id": 98908,
+					"title": "image",
+					"file_name": "73e5071a-b637-40df-b701-32a757a5dd2b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/73e5071a-b637-40df-b701-32a757a5dd2b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482936": [
+			"**Location:** On the side of the path.\n\n**Reward:** \n- [20 - Through the Mauling Walls](#loc=482937)\n- [21 - A Wall All Alone](#loc=482938)\n- [22 - Falling Mauling Walls](#loc=482939)",
+			[
+				{
+					"id": 104099,
+					"title": "",
+					"file_name": "30ca00f2-6755-4262-af6c-dc32d9c9efce.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/30ca00f2-6755-4262-af6c-dc32d9c9efce.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482937": ["**Location:** [Trap-Filled Towers](#loc=482936) - Beyond the first tower and cheese path.", []],
+		"482938": [
+			"**Location:** [Trap-Filled Towers](#loc=482936) - After grabbing [20 - Through the Mauling Walls](#loc=482937):\n1. Continue the course until you reach 3 Sand Wallopoids. Punch through the center to reveal a hole.\n2. Jump down the hole and climb to the other side to reveal a lonely Wallopoid.\n3. Break through it to access the gem.",
+			[]
+		],
+		"482939": ["**Location:** [Trap-Filled Towers](#loc=482936) - At the end of the course.", []],
+		"482940": ["**Location:** Near the top of Kingly Swings, behind a muck wall.", []],
+		"482941": ["**Location:** At the very top of Kingly Swings, next to the Burger Switch.", []],
+		"482942": [
+			"**Location:** In the center of the soda-filled tub. Empty it by throwing some salt at the muck-clogged spout behind the tub.",
+			[
+				{
+					"id": 98909,
+					"title": "image",
+					"file_name": "cbae1029-13e2-40cd-8a12-c2aa547dd49f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cbae1029-13e2-40cd-8a12-c2aa547dd49f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482944": [
+			"**Location:** Against the wall, on the lower section near [Kingly Swings](#loc=482943).\n\n**Opponents:** 8x Muckoids\n\n**Reward:** [26 - Battle: Muck on Parade](#loc=482945)",
+			[]
+		],
+		"482945": ["**Location:** Reward for completing [Feast Layer Battle Challenge 3](#loc=482944)", []],
+		"482946": [
+			"**Location:** On the platform overlooking the oil lake\n\n**Strategy:** Using Elephant Bananza, walk the platform while sucking the shifty material behind you, effectively erasing your path until you're back at the start.\n\n**Reward:** [27 - Shifty Smash: Over the Oil Lake](#loc=482947)",
+			[]
+		],
+		"482947": ["**Location:** Reward for completing the [Shifty Smash](#loc=482946).", []],
+		"482948": [
+			"**Location:** Given by the Smashintone after smashing through 30,000 cubic meters of salt in the layer.",
+			[]
+		],
+		"482949": [
+			"**Location:** Given by the Quiztone after completing the quiz. Use the following answers:\n- Giant speaker\n- Lightning equipment\n- Forest of nuggets",
+			[]
+		],
+		"482950": [
+			"**Location:** Reward for reuniting the first Fragment with its body. The closest one can be found [here](#loc=491788).",
+			[]
+		],
+		"482951": [
+			"**Location:** Reward for reuniting [Fragment 1](#loc=491788) and [Fragment 2 & 3](#loc=491789) with their body.",
+			[]
+		],
+		"482952": [
+			"**Location:** Behind a muck wall along the oil river. Throw salt from any salt platform to access.",
+			[
+				{
+					"id": 98910,
+					"title": "image",
+					"file_name": "684b96b3-04aa-4251-975f-173d26b598cd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/684b96b3-04aa-4251-975f-173d26b598cd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482954": [
+			"**Location:** In a room in the center of the oil river. To access, first break the Void Machine to reveal the Muckoid, then use the nearby salt to defeat it and access the gem.",
+			[]
+		],
+		"482955": [
+			"**Location:** On a high ledge by the lion's hind leg.\n\n**Opponents:** 13x Muckoid\n\n**Reward:** [34 - Battle: Mine-Cart Muck](#loc=482956)",
+			[]
+		],
+		"482956": ["**Location:** Reward for completing [Feast Layer Battle Challenge 4](#loc=482955)", []],
+		"482957": ["**Location:** In the center of the fryhouse, after defeating the Mad Mixer.", []],
+		"482959": [
+			"**Location:** In the hidden tomb; dig down beside the ladder. Given upon finding and revealing [Hiddentone 1](#loc=491695), [Hiddentone 2](#loc=491694), [Hiddentone 3](#loc=491692) and [Hiddentone 4](#loc=491693).",
+			[]
+		],
+		"482960": [
+			"**Location:** Against the back wall of the graveyard; costs 600 Gold to unlock.\n\n**Reward:** \n- [37 - Roarcoaster Rest Stop](#loc=491713)\n- [38 - Behind a Roaring Waterfall](#loc=491715)\n- [39 - A Roaring Finish](#loc=491714)",
+			[]
+		],
+		"491631": [
+			"**Location:** In the mouth of the lion statue.",
+			[
+				{
+					"id": 104019,
+					"title": "",
+					"file_name": "c2de8574-0d90-4c01-a8d4-63ca7f737bb5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2de8574-0d90-4c01-a8d4-63ca7f737bb5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491632": [
+			"**Location:** In some muck next to the path. Throw a chunk of Salt to collect it.",
+			[
+				{
+					"id": 104020,
+					"title": "",
+					"file_name": "83531cc1-a17a-444d-81dd-7d6ff0e7996b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/83531cc1-a17a-444d-81dd-7d6ff0e7996b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491634": ["Inside the hut.", []],
+		"491635": [
+			"**Effect:** Reduces shock damage from electrified iron or muck by 10 percent.\n\n**Cost:** 1 Old Tire",
+			[]
+		],
+		"491636": [
+			"**Effect:** Reduces shock damage from electrified iron or muck by 10 percent.\n\n**Cost:** 5 Old Tires\n\n**Upgrades:**\n- Increase to 30 percent: 10 Old Tires\n- Increase to 40 percent: 3 Cathode-Ray Tubes",
+			[]
+		],
+		"491637": [
+			"**Effect:** Pressing Y to eat any foods or food-based terrain (not just fruit) will recover your health.\n\n**Cost:** 1 Cathode-Ray Tube\n\n**Upgrades:**\n- Double the effectiveness: 3 Cathode-Ray Tubes\n- Triple the effectiveness: 1 Robot",
+			[]
+		],
+		"491638": [
+			"**Effect:** During Bananzas, your health will gradually recover.\n\n**Cost:** 5 Old Tires\n\n**Upgrades:**\n- 25 percent faster: 10 Old Tires\n- 50 percent faster: 3 Cathode-Ray Tubes",
+			[]
+		],
+		"491639": [
+			"**Effect:** Copies the effect (and upgrades) of the [Prime Feast Apparel](#loc=491638)\r\n\r\n**Cost:** 5 Old Tires",
+			[]
+		],
+		"491640": [
+			"**Effect:** Copies the effect (and upgrades) of the [Prime Feast Apparel](#loc=491638)\r\n\r\n**Cost:** 10 Old Tires",
+			[]
+		],
+		"491641": ["**Cost:** 5 Old Tires", []],
+		"491642": ["**Cost:** 10 Old Tires", []],
+		"491645": [
+			"**Location:** Underground, behind a wall of muck.",
+			[
+				{
+					"id": 104021,
+					"title": "",
+					"file_name": "f392458c-2b28-4eca-87d7-07aecb0ff964.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f392458c-2b28-4eca-87d7-07aecb0ff964.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491646": [
+			"**Location:** Underground, behind a wall of muck.",
+			[
+				{
+					"id": 104022,
+					"title": "",
+					"file_name": "0a2fbdbe-9b3d-4189-8a13-c61da09bd576.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a2fbdbe-9b3d-4189-8a13-c61da09bd576.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491647": [
+			"**Location:** Underground, sticking out of some muck in the basement of the [Stuff Shop](#loc=491633).",
+			[
+				{
+					"id": 104023,
+					"title": "",
+					"file_name": "9745cede-48d3-45a8-bee6-43385c99eae0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9745cede-48d3-45a8-bee6-43385c99eae0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491648": ["Underground, in a room beneath the pipes.", []],
+		"491649": ["**Location:** Behind a wall of muck on the second-highest level of the Grater-Go-Round tower.", []],
+		"491650": [
+			"**Location:** On top of a small wall behind the Grater-Go-Round.",
+			[
+				{
+					"id": 104024,
+					"title": "",
+					"file_name": "06439d96-4396-427e-b405-7fa250f2d241.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/06439d96-4396-427e-b405-7fa250f2d241.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491651": [
+			"**Location:** Sticking out of the muck.",
+			[
+				{
+					"id": 104025,
+					"title": "",
+					"file_name": "5f1c9625-5710-46eb-9eaf-838c3a47c240.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f1c9625-5710-46eb-9eaf-838c3a47c240.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491653": [
+			"**Location:** Sticking out of some muck on the backside of a wall.",
+			[
+				{
+					"id": 104026,
+					"title": "",
+					"file_name": "8079d9e9-6aab-4d03-9040-52d0e8e5e4ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8079d9e9-6aab-4d03-9040-52d0e8e5e4ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491654": [
+			"**Location:** Underneath a bridge made of fragile cheese.",
+			[
+				{
+					"id": 104027,
+					"title": "",
+					"file_name": "3905f8c7-783b-42c0-8f23-dd77e36b49fb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3905f8c7-783b-42c0-8f23-dd77e36b49fb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491655": [
+			"**Location:** On top of the cheese arch.",
+			[
+				{
+					"id": 104028,
+					"title": "",
+					"file_name": "ee0d0356-159d-4876-8230-50889bbb3b0f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee0d0356-159d-4876-8230-50889bbb3b0f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491656": ["Accessed by riding the minecarts from any of the other stations.", []],
+		"491657": [
+			"**Location:** On a wall beside the rollercoaster track that leads from [Mane Gate Market](#loc=491656) to the [Ferocious Fryhouse](#loc=482953). Throw a rock to collect it.",
+			[
+				{
+					"id": 104029,
+					"title": "",
+					"file_name": "c37ce1f0-07ea-4a9e-a60d-e1b0bc01c358.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c37ce1f0-07ea-4a9e-a60d-e1b0bc01c358.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491658": [
+			"**Location:** On a wall beside the rollercoaster track that leads from [Mane Gate Market](#loc=491656) to the [Ferocious Fryhouse](#loc=482953). Throw a rock to collect it.",
+			[
+				{
+					"id": 104030,
+					"title": "",
+					"file_name": "234f43d4-e917-4441-9c2b-09d7d44477b5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/234f43d4-e917-4441-9c2b-09d7d44477b5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491659": [
+			"In a tunnel beside the rollercoaster track that leads from [Mane Gate Market](#loc=491656) to the [Ferocious Fryhouse](#loc=482953).\n\nHand over 300 gold to have a Barrel Cannon built here.",
+			[]
+		],
+		"491660": [
+			"**Location:** On a pillar found when riding a minecart from from [Mane Gate Market](#loc=491656) to the [Ferocious Fryhouse](#loc=482953). Throw a rock to collect it.",
+			[
+				{
+					"id": 104046,
+					"title": "",
+					"file_name": "348d2199-e940-48e3-abc4-e3ac8dabd8b0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/348d2199-e940-48e3-abc4-e3ac8dabd8b0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491661": [
+			"**Location:** On top of a spire.",
+			[
+				{
+					"id": 104031,
+					"title": "",
+					"file_name": "0d0862b5-4863-4167-a3b6-74fecc980f7e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d0862b5-4863-4167-a3b6-74fecc980f7e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491662": [
+			"**Location:** On the back of the lion statue's head.",
+			[
+				{
+					"id": 104032,
+					"title": "",
+					"file_name": "9996bd51-091e-441d-8483-0efe8a1ab78f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9996bd51-091e-441d-8483-0efe8a1ab78f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491663": [
+			"**Location:** Sticking out of some muck on the backside of the archway leading to the market.",
+			[
+				{
+					"id": 104033,
+					"title": "",
+					"file_name": "b2668b87-a95f-44dd-942b-387146e1a50c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b2668b87-a95f-44dd-942b-387146e1a50c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491664": [
+			"**Location:** On top of a grand stone wall next to the lion gate.",
+			[
+				{
+					"id": 104034,
+					"title": "",
+					"file_name": "525d4184-8a61-4f2b-a548-f287b6fddfe4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/525d4184-8a61-4f2b-a548-f287b6fddfe4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491665": [
+			"**Location:** Sticking out of some muck on the side of the soda tower.",
+			[
+				{
+					"id": 104035,
+					"title": "",
+					"file_name": "4b2c3502-11ab-4893-ba0c-3fb4d034ea76.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4b2c3502-11ab-4893-ba0c-3fb4d034ea76.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491666": [
+			"**Location:** In a small crater in the side of the wall.",
+			[
+				{
+					"id": 104036,
+					"title": "",
+					"file_name": "0a4ef065-a211-40c0-8f86-47834b8ab721.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a4ef065-a211-40c0-8f86-47834b8ab721.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491667": [
+			"**Location:** Underground, on the backside of the [Chip Exchange](#loc=482916) building's basement.",
+			[
+				{
+					"id": 104037,
+					"title": "",
+					"file_name": "8c7b551f-c617-4729-8f14-ed8a208ba7a8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8c7b551f-c617-4729-8f14-ed8a208ba7a8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491668": [
+			"**Location:** Stuck to a piece of stone jutting out of the top of the archway.",
+			[
+				{
+					"id": 104038,
+					"title": "",
+					"file_name": "da44e5e0-13bd-419f-9c3a-15b14d28ed1c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da44e5e0-13bd-419f-9c3a-15b14d28ed1c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491669": [
+			"**Location:** Underground, in a side-room next to the path.",
+			[
+				{
+					"id": 104039,
+					"title": "",
+					"file_name": "d707bb1b-5568-4615-b486-40722d40e8d4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d707bb1b-5568-4615-b486-40722d40e8d4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491670": [
+			"**Location:** Behind a wall of muck. Knock a salt pig into it to clear it away.",
+			[
+				{
+					"id": 104040,
+					"title": "",
+					"file_name": "24d97d2b-b40c-4046-997b-1f2905d7c244.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/24d97d2b-b40c-4046-997b-1f2905d7c244.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491672": [
+			"**Location:** In the area behind the [Refinery Getaway](#loc=491671).\n\n**Strategy:** Use Elephant Bananza to suck up the statue without even needing to move!\n\n**Reward:** [46 - Shifty Smash: Huge Monument](#loc=491673)",
+			[]
+		],
+		"491673": ["**Location:** Reward for beating the [Shifty Smash Challenge](#loc=491672).", []],
+		"491674": [
+			"**Location:** On top of the tall rock.",
+			[
+				{
+					"id": 104047,
+					"title": "",
+					"file_name": "bd8ab798-d416-4813-b7ae-7f016e31c13d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd8ab798-d416-4813-b7ae-7f016e31c13d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491675": [
+			"**Sells:**\r\n- [Purple Britches](#loc=491635)\r\n- [Shock-Proof Britches](#loc=491636)\r\n- [Yum-Yum Tie](#loc=491637)\r\n- [Prime Feast Apparel](#loc=491638)\r\n- [Neon Feast Apparel](#loc=491639)\r\n- [Pastel Feast Apparel](#loc=491640)\r\n- [Midnight Gradient Fur](#loc=491641)\r\n- [Guava Split Fur](#loc=491642)",
+			[]
+		],
+		"491677": [
+			"**Location:** On top of the 'fries' behind the [Style Shop](#loc=491675).",
+			[
+				{
+					"id": 104042,
+					"title": "",
+					"file_name": "01ce11ab-bb05-43dc-b3ce-41f601ff94e6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/01ce11ab-bb05-43dc-b3ce-41f601ff94e6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491678": [
+			"**Location:** Between two muck 'fangs' on the back of the huge lion statue. Use the salt on its tail to destroy the muck.",
+			[
+				{
+					"id": 104041,
+					"title": "",
+					"file_name": "f14c7154-2013-4467-a6d5-b77862dd75b8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f14c7154-2013-4467-a6d5-b77862dd75b8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491680": ["**Location:** On top of the giant lion statue's mane.", []],
+		"491681": [
+			"**Location:** On the back of a Muck Fractone riding the ferris wheel. Can only be collected after destroying the Void Tank at the top.\n\n_Tip: The other Fractone on the platform is made of salt!_",
+			[
+				{
+					"id": 104043,
+					"title": "",
+					"file_name": "624eaf14-3e87-4ede-846f-1acec746181e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/624eaf14-3e87-4ede-846f-1acec746181e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491682": ["Underground, in the refinery.", []],
+		"491683": [
+			"**Location:** Underground, in a glob of muck on the wall of the refinery's 'moving salt platforms' room.",
+			[
+				{
+					"id": 104045,
+					"title": "",
+					"file_name": "4408d1eb-d81b-4741-bc77-c06d81fd8419.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4408d1eb-d81b-4741-bc77-c06d81fd8419.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491684": [
+			"**Location:** Underground, behind a wall of muck in the corner of the refinery's 'moving salt platforms' room.",
+			[]
+		],
+		"491685": ["**Location:** Underground, next to the Burger Switch in the corner of the refinery.", []],
+		"491686": [
+			"**Location:** In a glob of muck on the back of the arch.",
+			[
+				{
+					"id": 104048,
+					"title": "",
+					"file_name": "53cfe1a6-de8d-4035-b186-4f853f3611e8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/53cfe1a6-de8d-4035-b186-4f853f3611e8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491687": [
+			"**Location:** Underground, on the back of a Fractone in the area behind a Wallopoid. Can only be collected after destroying a Void Tank.",
+			[
+				{
+					"id": 104049,
+					"title": "",
+					"file_name": "c096db90-e80b-4d30-9991-ec91081b9baf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c096db90-e80b-4d30-9991-ec91081b9baf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491688": [
+			"**Location:** Underground, in the room behind a Wallopoid. Can only be collected after destroying a Void Tank.",
+			[]
+		],
+		"491689": [
+			"**Location:** At the bottom of the soda tank. Can only be collected by destroying the Muck blocking a pipe, found underground a short distance to the north.",
+			[]
+		],
+		"491690": [
+			"**Location:** On the second-lowest paw built into the cliff face.",
+			[
+				{
+					"id": 104050,
+					"title": "",
+					"file_name": "b5644d14-c31e-4988-9da5-31555900188c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b5644d14-c31e-4988-9da5-31555900188c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491691": [
+			"**Location:** On the nose of a lion head built into the cliff face.",
+			[
+				{
+					"id": 104051,
+					"title": "",
+					"file_name": "eb484cde-5e95-49e4-b14c-7a70dca0fb51.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb484cde-5e95-49e4-b14c-7a70dca0fb51.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491692": [
+			"Underneath a grave at the edge of the Seekertone's room. You'll need to hit it with Salt to 'reveal' it.\n\n_Tip: A salt Fragmentone can be found beneath a grave next to the Seekertone._",
+			[]
+		],
+		"491693": ["Facing the wall in the corner of the Seekertone's room.", []],
+		"491694": ["In a tunnel / stone lion's mouth at the edge of the Seekertone's room.", []],
+		"491695": ["At the edge of a line of bushes in the corner of the Seekertone's room.", []],
+		"491698": [
+			"**Location:** On the wall behind a large glob of muck.",
+			[
+				{
+					"id": 104052,
+					"title": "",
+					"file_name": "f8c10688-2a3b-444f-911c-097b4ad9d609.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f8c10688-2a3b-444f-911c-097b4ad9d609.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491699": [
+			"**Location:** On the backside of the cheese above the challenge course.",
+			[
+				{
+					"id": 104100,
+					"title": "",
+					"file_name": "a87d5976-4d4f-445c-bda0-a6e7495eb49b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a87d5976-4d4f-445c-bda0-a6e7495eb49b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491700": [
+			"**Location:** Inside the wedge of cheese.",
+			[
+				{
+					"id": 104054,
+					"title": "",
+					"file_name": "8e9e7a43-cfa4-425f-b229-5423fbb1b927.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8e9e7a43-cfa4-425f-b229-5423fbb1b927.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491701": [
+			"**Location:** Underneath the large turnip.",
+			[
+				{
+					"id": 104055,
+					"title": "",
+					"file_name": "5615be61-323e-4f51-b1c1-85bfaa9ddd81.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5615be61-323e-4f51-b1c1-85bfaa9ddd81.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491702": [
+			"**Location:** On the ground next to a burger table.",
+			[
+				{
+					"id": 104056,
+					"title": "",
+					"file_name": "2258b936-bfeb-4f6b-96f3-44393a1ed059.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2258b936-bfeb-4f6b-96f3-44393a1ed059.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491703": [
+			"**Sells:**\r\n- [Purple Britches](#loc=491635)\r\n- [Shock-Proof Britches](#loc=491636)\r\n- [Yum-Yum Tie](#loc=491637)\r\n- [Prime Feast Apparel](#loc=491638)\r\n- [Neon Feast Apparel](#loc=491639)\r\n- [Pastel Feast Apparel](#loc=491640)\r\n- [Midnight Gradient Fur](#loc=491641)\r\n- [Guava Split Fur](#loc=491642)",
+			[]
+		],
+		"491704": [
+			"**Location:** In a glob of muck stuck to a beam found when riding a minecart through the Kingly Swings.",
+			[
+				{
+					"id": 104057,
+					"title": "",
+					"file_name": "6f395b8f-3e87-4ff0-889c-5a129ab96911.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6f395b8f-3e87-4ff0-889c-5a129ab96911.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491705": [
+			"**Location:** On the fries next to a minecart track connecting the Kingly Swings and Ferocious Fryhouse.",
+			[
+				{
+					"id": 104058,
+					"title": "",
+					"file_name": "ccd9ac83-62d8-479a-9b4e-a6414eca2f98.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ccd9ac83-62d8-479a-9b4e-a6414eca2f98.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491706": [
+			"On an island reached by riding the minecart from [Grater-Go-Round](#loc=491652) to Mane Gate Market and throwing a rock at the arrow sign.",
+			[]
+		],
+		"491707": [
+			"**Location:** Inside a cage on an island reached by riding the minecart from [Grater-Go-Round](#loc=491652) to Mane Gate Market and throwing a rock at the arrow sign.\n\nOnce you're on the island, climb onto the platform and destroy two muck walls to reach the banana.\n\n_Tip: Use the Snake Bananza's double jump!_",
+			[]
+		],
+		"491708": [
+			"**Location:** In a glob of muck on the side of a pillar next to the second wind pillar in the Kingly Swings area.",
+			[
+				{
+					"id": 104059,
+					"title": "",
+					"file_name": "5bdf873a-23e0-45a6-b2b3-ad328f0ffe87.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5bdf873a-23e0-45a6-b2b3-ad328f0ffe87.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491709": [
+			"**Location:** In a crater near the top of the tall wall.",
+			[
+				{
+					"id": 104060,
+					"title": "",
+					"file_name": "da650769-47ff-4f0d-aefb-6f5814beb45c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da650769-47ff-4f0d-aefb-6f5814beb45c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491710": [
+			"**Location:** In a muck stalactite hanging above the oil river.",
+			[
+				{
+					"id": 104061,
+					"title": "",
+					"file_name": "8f9f55aa-8465-4ded-9194-30bae55eada2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8f9f55aa-8465-4ded-9194-30bae55eada2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491711": [
+			"**Location:** Above the entrance to the oil river.",
+			[
+				{
+					"id": 104062,
+					"title": "",
+					"file_name": "cb212c1e-fa7a-43e5-8f35-548815a881f3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb212c1e-fa7a-43e5-8f35-548815a881f3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491712": [
+			"**Location:** On a wall near the challenge course.",
+			[
+				{
+					"id": 104063,
+					"title": "",
+					"file_name": "d2d5ebf2-2795-4160-b3b7-9c408f04cc7c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d2d5ebf2-2795-4160-b3b7-9c408f04cc7c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491713": [
+			"**Location:** [Branching-Track Roarcoster](#loc=482960) - In front of the minecart's first stopping point.",
+			[]
+		],
+		"491714": ["**Location:** [Branching-Track Roarcoster](#loc=482960) - At the end of the course.", []],
+		"491715": [
+			"**Location:** [Branching-Track Roarcoster](#loc=482960) - Halfway through the course, one track splits off behind a waterfall. Throw a rock at the arrow sign behind some flowing water to find the banana there.",
+			[]
+		],
+		"491716": [
+			"**Location:** Between two gravestones next to the path.",
+			[
+				{
+					"id": 104064,
+					"title": "",
+					"file_name": "41f88e9b-b5d6-49a5-9c60-2033232b3131.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41f88e9b-b5d6-49a5-9c60-2033232b3131.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491717": [
+			"**Location:** On top of the stone lion's nose.",
+			[
+				{
+					"id": 104065,
+					"title": "",
+					"file_name": "fde571ad-0f24-4e96-98c8-ed4f0c771aa5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fde571ad-0f24-4e96-98c8-ed4f0c771aa5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491718": [
+			"**Location:** On top of a large purple paw.",
+			[
+				{
+					"id": 104066,
+					"title": "",
+					"file_name": "c8c22392-96b0-4e70-a8c5-bf5d3fcd8023.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8c22392-96b0-4e70-a8c5-bf5d3fcd8023.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491719": [
+			"**Location:** On top of a large neon-blue fry.",
+			[
+				{
+					"id": 104067,
+					"title": "",
+					"file_name": "4dec901b-85cb-4ddb-9a54-8d8616a2b55a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4dec901b-85cb-4ddb-9a54-8d8616a2b55a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491720": [
+			"**Location:** Inside the huge lion statue's mouth.",
+			[
+				{
+					"id": 104068,
+					"title": "",
+					"file_name": "d2e74a73-8021-461e-ac47-184b203cb7d5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d2e74a73-8021-461e-ac47-184b203cb7d5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491721": [
+			"**Location:** On a platform behind the huge lion statue's left ear.",
+			[
+				{
+					"id": 104069,
+					"title": "",
+					"file_name": "bbd9ccb8-acea-4955-a83e-2a46bbdce8c9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bbd9ccb8-acea-4955-a83e-2a46bbdce8c9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491722": [
+			"**Location:** On the lion's tail.",
+			[
+				{
+					"id": 104070,
+					"title": "",
+					"file_name": "5e4d59c9-00a4-4280-ab2b-8d8dc09d14d3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e4d59c9-00a4-4280-ab2b-8d8dc09d14d3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491723": [
+			"**Location:** On a wall near the lion's back feet.",
+			[
+				{
+					"id": 104071,
+					"title": "",
+					"file_name": "4e53a1db-0538-4a5e-a040-91ea7e95f381.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e53a1db-0538-4a5e-a040-91ea7e95f381.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491724": [
+			"**Location:** On the huge lion statue's foot, guarded by an enemy made of muck.",
+			[
+				{
+					"id": 104072,
+					"title": "",
+					"file_name": "b092b390-b10b-4dfc-8152-c1b63c11d6d8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b092b390-b10b-4dfc-8152-c1b63c11d6d8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491725": [
+			"**Location:** On a rock blocking the walkway.",
+			[
+				{
+					"id": 104073,
+					"title": "",
+					"file_name": "92809b17-5d9a-4f5b-a31e-eb69aa1ea9a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/92809b17-5d9a-4f5b-a31e-eb69aa1ea9a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491738": [
+			"**Location:** Underneath a turnip.",
+			[
+				{
+					"id": 104075,
+					"title": "",
+					"file_name": "ec8aa74f-465c-4661-8415-f0372463fba2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec8aa74f-465c-4661-8415-f0372463fba2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491739": [
+			"**Location:** Underground, in the area behind a Wallopoid. Can only be collected after destroying a Void Tank.",
+			[
+				{
+					"id": 104076,
+					"title": "",
+					"file_name": "1998fed5-c9d6-4d75-aa33-87b139091e15.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1998fed5-c9d6-4d75-aa33-87b139091e15.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491740": [
+			"**Location:** In a corner next to the path.\n\n**Opponents:** Wallopoid x5\n\n**Reward:** [48 - Battle: Labyrinth Lurkers](#loc=491741)",
+			[]
+		],
+		"491741": ["**Location:** Reward for completing [Feast Layer Battle Challenge 5](#loc=491740).", []],
+		"491742": [
+			"**Location:** In a glob of muck at the end of a narrow ledge.",
+			[
+				{
+					"id": 104077,
+					"title": "",
+					"file_name": "150da486-3d19-4d45-8964-99336aafb172.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/150da486-3d19-4d45-8964-99336aafb172.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491743": [
+			"**Location:** In a pile of muck immediately to your left after riding the first wind pillar up.",
+			[
+				{
+					"id": 104078,
+					"title": "",
+					"file_name": "366daab9-2012-4095-b6ae-c6ad23592db9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/366daab9-2012-4095-b6ae-c6ad23592db9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491744": [
+			"**Location:** Underground, in a glob of muck on the back wall of the refinery's 'moving salt platforms' room.",
+			[
+				{
+					"id": 104083,
+					"title": "",
+					"file_name": "5116ecce-fdce-4e78-a87f-98d0d9366b2a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5116ecce-fdce-4e78-a87f-98d0d9366b2a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491745": ["**Location:** In the mouth of the lion statue next to the minecart track.", []],
+		"491781": [
+			"**Location:** Underground, on top of a vent inside the refinery's 'moving salt platforms' room. To reach it, climb up a pipe next to the [Royal Oil Cruise](#loc=491682) checkpoint and use Ostrich Bananza to fly over to the duct next to a large blue vent hood.",
+			[]
+		],
+		"491782": [
+			"**Location:** Underground. After grabbing [43 - Floating on a Royal Oil Cruise!](#loc=491685), climb back down the ladder and go around the platform for another quick ride on a moving salt platform to reach it.",
+			[
+				{
+					"id": 104101,
+					"title": "",
+					"file_name": "1803dc3f-0cf1-4f2d-a106-3a6ca1dd5865.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1803dc3f-0cf1-4f2d-a106-3a6ca1dd5865.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491783": [
+			"On an island reached by riding the minecart from [Mane Gate Market](#loc=491656) to the Ferocious Fryhouse and throwing a rock at the arrow sign.",
+			[]
+		],
+		"491784": [
+			"**Location:** In the middle of a circle of muck in the air next to [Umbrella-Straw Station](#loc=491783). Use Snake Bananza to reach it.",
+			[]
+		],
+		"491785": [
+			"On an island reached by riding the minecart from  the [Grater-Go-Round Station](#loc=491652) to the Ferocious Fryhouse and throwing a rock at the arrow sign.",
+			[]
+		],
+		"491786": [
+			"**Location:** On an island reached by riding the minecart from  the [Grater-Go-Round Station](#loc=491652) to the Ferocious Fryhouse and throwing a rock at the arrow sign.\n\n**Strategy:** Punch upwards with Kong Bananza, then charge-jump with Snake Bananza.\n\n**Reward:** [50 - Shifty Smash: Out of the Box](#loc=491787)",
+			[]
+		],
+		"491787": ["**Location:** Reward for completing the [Shifty Smash Challenge](#loc=491786).", []],
+		"491788": [
+			"At the end of a short potato bridge that sinks when you stand on it. Jump repeatedly to make sure it doesn't get fully submerged.",
+			[]
+		],
+		"491789": [
+			"Inside the huge lion statue's paw at the other end of the short potato bridge that sinks when you stand on it. Jump repeatedly to make sure it doesn't get fully submerged.",
+			[]
+		],
+		"491790": ["**Location:** Inside a muck-covered ferris wheel carriage.", []],
+		"491791": ["**Location:** Exchanged for Banandium Chips at the [Chip Exchange](#loc=482916).", []],
+		"491792": ["**Location:** Inside the finished burger's lowest meat patty.", []],
+		"491793": ["**Location:** On top of the finished burger.", []],
+		"491794": ["On a tomato near the top of the finished burger.", []],
+		"491795": ["**Location:** Beneath the huge lion statue's chin.", []],
+		"491797": ["**Location:** In front of you when landing in Sublayer 1401 for the first time.", []],
+		"491798": [
+			"**Location:** At the edge of the room where you enter the sublayer for the first time.",
+			[
+				{
+					"id": 104102,
+					"title": "",
+					"file_name": "327ca2cb-7901-4b5a-90d0-a2d9ba5439dd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/327ca2cb-7901-4b5a-90d0-a2d9ba5439dd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491799": [
+			"**Location:** In a side-room connected to the area you land in when entering Sublayer 1401 for the first time.\n\n**Opponents:** Muckoid x2\n\n**Reward:** [59 - Battle: Ducking the Muck Wall](#loc=491800)\n\n_Tip: Use Snake Bananza to jump over the muck wall!_",
+			[]
+		],
+		"491800": ["**Location:** Reward for beating [Feast Layer Battle Challenge 6](#loc=491799)", []],
+		"491801": [
+			"**Location:** Near the top of a cheese pillar at the edge of the room.",
+			[
+				{
+					"id": 104103,
+					"title": "",
+					"file_name": "4222df98-ca4e-4b8a-ab9a-343693de1bbe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4222df98-ca4e-4b8a-ab9a-343693de1bbe.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491802": [
+			"Hidden beneath some cheese.",
+			[
+				{
+					"id": 104104,
+					"title": "",
+					"file_name": "9304364d-e4e2-4db7-9d4e-6c54a35fac71.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9304364d-e4e2-4db7-9d4e-6c54a35fac71.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491803": [
+			"**Location:** Stuck in a pile of cheese found after climbing down the [Ladder](#loc=491802).",
+			[
+				{
+					"id": 104105,
+					"title": "",
+					"file_name": "597891ae-f790-4498-a95f-10fc1e1f75fa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/597891ae-f790-4498-a95f-10fc1e1f75fa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491804": [
+			"**Location:** Behind a Muckoid on the right side of the tunnel.",
+			[
+				{
+					"id": 104106,
+					"title": "",
+					"file_name": "5b1cd1c8-fde4-4aa5-893b-daeeba974f64.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b1cd1c8-fde4-4aa5-893b-daeeba974f64.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491805": [
+			"**Location:** Under the tunnel, in a pile of muck inside an area reached by dropping into the nearby large room and turning around.",
+			[
+				{
+					"id": 104108,
+					"title": "",
+					"file_name": "0118947b-c697-4bf0-9a08-de6ade2d342b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0118947b-c697-4bf0-9a08-de6ade2d342b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 104107,
+					"title": "",
+					"file_name": "d80e79c8-9545-4a45-b191-98ae654a18c8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d80e79c8-9545-4a45-b191-98ae654a18c8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491806": [
+			"Beneath a metal grate. To get through it, get the nearby Muckoid enemies to spit muck at the bars.",
+			[
+				{
+					"id": 104109,
+					"title": "",
+					"file_name": "e19ef5c8-ada7-4872-bd6e-41cd130b79dc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e19ef5c8-ada7-4872-bd6e-41cd130b79dc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491807": ["In a pile of cheese in the area accessed via [Ladder](#loc=491806).", []],
+		"491808": [
+			"**Location:** Behind a wall of cheese in the area accessed via [Ladder](#loc=491806).",
+			[
+				{
+					"id": 104110,
+					"title": "",
+					"file_name": "d5a31124-c5d8-4142-ac02-fcce5601c3e4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d5a31124-c5d8-4142-ac02-fcce5601c3e4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491809": [
+			"**Location:** At the end of a pipe behind a waterfall in the tunnel.",
+			[
+				{
+					"id": 104111,
+					"title": "",
+					"file_name": "ae42ec81-bb5b-4090-8f54-4758e88af664.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae42ec81-bb5b-4090-8f54-4758e88af664.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491810": [
+			"**Location:** In a glob of muck in the upper corner of the room.",
+			[
+				{
+					"id": 104112,
+					"title": "",
+					"file_name": "78c09ea1-2060-4383-aa1d-1d8a4cf3df94.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/78c09ea1-2060-4383-aa1d-1d8a4cf3df94.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491811": [
+			"**Location:** On the floor at the edge of the room. Can only be collected by melting the floor around it with Muckoid spit.",
+			[
+				{
+					"id": 104113,
+					"title": "",
+					"file_name": "33bd2a6e-45f8-4752-b09f-70fe1d05f270.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33bd2a6e-45f8-4752-b09f-70fe1d05f270.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491812": [
+			"**Location:** Behind a Muckoid in the corner of the room.",
+			[
+				{
+					"id": 104114,
+					"title": "",
+					"file_name": "89f1b099-e2f2-4a2d-a20b-0ffb5d82f849.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/89f1b099-e2f2-4a2d-a20b-0ffb5d82f849.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491813": [
+			"**Location:** Under the tunnel, in a side-room connected to an area reached by dropping into the nearby large room and turning around.",
+			[
+				{
+					"id": 104115,
+					"title": "",
+					"file_name": "1adcdc35-4d15-421f-a84b-8527bdf0a370.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1adcdc35-4d15-421f-a84b-8527bdf0a370.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491814": ["**Location:** Given to you by [Cranky Kong](#loc=491813)", []],
+		"491815": [
+			"**Location:** Stuck in some cheese near the checkpoint.",
+			[
+				{
+					"id": 104116,
+					"title": "",
+					"file_name": "c3f50ac1-48b3-4e8e-92fa-c62433d0a45d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c3f50ac1-48b3-4e8e-92fa-c62433d0a45d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491817": [
+			"**Location:** In a small room beneath the [Waste-Oil Container](#loc=491816) checkpoint.",
+			[
+				{
+					"id": 104118,
+					"title": "",
+					"file_name": "1ea84be6-2042-4721-a282-1c23e70ca566.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ea84be6-2042-4721-a282-1c23e70ca566.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 104117,
+					"title": "",
+					"file_name": "d0ce0530-9e58-49bf-9cde-83ef5945998c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d0ce0530-9e58-49bf-9cde-83ef5945998c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491818": [
+			"**Location:** At the edge of the large room. Transform into a snake to enter.\n\n**Reward:** \n- [64 - Resist the Tide of Walls](#loc=491819)\n- [65 - Bouncing Tall off a Wall](#loc=491820)\n- [66 - Strike Back against the Walls](#loc=491821)",
+			[]
+		],
+		"491819": ["**Location:** [Waves of Walls](#loc=491818) - Behind the first series of moving walls.", []],
+		"491820": [
+			"**Location:** [Waves of Walls](#loc=491818) - When you reach the end of the second series of moving walls, stand on the spot where they spawn and charge a jump. When a tall wall spawns, release the jump to grip the ceiling where the banana awaits.",
+			[]
+		],
+		"491821": ["**Location:** [Waves of Walls](#loc=491818) - At the end of the course.", []],
+		"491822": [
+			"**Location:** On a metal barrier. Can only be collected by getting the nearby Muckoids to spit on it.",
+			[
+				{
+					"id": 104119,
+					"title": "",
+					"file_name": "b272ae42-a3ad-4f4e-a3f7-e849072db071.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b272ae42-a3ad-4f4e-a3f7-e849072db071.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491823": [
+			"**Location:** Underneath the metal walkway. Get the Muckoid enemies to spit on the metal to reach it.",
+			[
+				{
+					"id": 104120,
+					"title": "",
+					"file_name": "d5337b9d-5379-42d8-a662-d92c2fb2030c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d5337b9d-5379-42d8-a662-d92c2fb2030c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491826": [
+			"**Location:** In a pillar of muck to your left when entering the large room.",
+			[
+				{
+					"id": 104121,
+					"title": "",
+					"file_name": "88b08dc2-240e-49c1-9f5b-9425f295fb42.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/88b08dc2-240e-49c1-9f5b-9425f295fb42.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491827": [
+			"**Location:** Stuck in a glob of muck at the edge of the room.",
+			[
+				{
+					"id": 104122,
+					"title": "",
+					"file_name": "ed71fe6f-7552-4c56-ad16-b3d553fd3f57.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed71fe6f-7552-4c56-ad16-b3d553fd3f57.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491828": [
+			"**Location:** Covered in muck on top of a floating platform. Use the nearby pillar of salt to clear it out.",
+			[
+				{
+					"id": 104123,
+					"title": "",
+					"file_name": "b3bed2ee-3dbf-40cb-aa7a-2e1a3f57bc30.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3bed2ee-3dbf-40cb-aa7a-2e1a3f57bc30.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491830": ["Appears after defeating the boss.", []],
+		"491831": [
+			"**Location:** Reward for speaking to the Glamtone while wearing Burn-Proof Britches and the Yellow Tempest Coat.",
+			[]
+		],
+		"927009": ["Drop down inside lion statue's mouth, past fossil.", []]
+	}
+}

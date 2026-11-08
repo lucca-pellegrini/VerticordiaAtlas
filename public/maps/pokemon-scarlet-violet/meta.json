@@ -273,7 +273,8 @@
 					"tileSize": 256,
 					"background": "#193050"
 				}
-			]
+			],
+			"compact": "paldea-region/data.compact.json"
 		},
 		{
 			"slug": "kitakami-region",
@@ -290,7 +291,8 @@
 					"tileSize": 256,
 					"background": "#1e5d4c"
 				}
-			]
+			],
+			"compact": "kitakami-region/data.compact.json"
 		},
 		{
 			"slug": "terrarium",
@@ -307,7 +309,8 @@
 					"tileSize": 256,
 					"background": "#2e5d89"
 				}
-			]
+			],
+			"compact": "terrarium/data.compact.json"
 		}
 	]
 }

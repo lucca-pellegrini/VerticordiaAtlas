@@ -1,0 +1,2828 @@
+{
+	"v": 1,
+	"d": {
+		"72621": [
+			"The only settlement in Nuka-World. \n\nPerfect for a large farm - ranked 4th in maximum horizontal build area, and 1st in maximum build height, standing at 20 floors in height. Supply lines can be linked from this workshop to Commonwealth settlements. \n\nSiding with the Nuka-World raiders before interacting with this workshop will turn it into a raider outpost, but you can avoid this by completing [Open Season](#loc=401877) or not siding with the raiders.",
+			[]
+		],
+		"72626": [
+			"Entered during the [High Noon at the Gulch](#loc=401874) quest after getting your hands on [Mad Mulligan's Mine Key](#loc=461542).",
+			[]
+		],
+		"72642": ["Entered via [Dry Rock Gulch - Employee Access Door](#loc=461541)", []],
+		"73641": [
+			"**Issue #1, The Terrible Truce**\n\nGalactic Zone, [Starport Nuka](#loc=72632) — Outside of the Star Control, head to the left and to the right of the stairs, get behind the Expert-locked gate. Find the magazine on the wooden box next to the car\n\n**Perk:** Villainous Virtuosity — Increases speech challenge success chance by 10%.",
+			[]
+		],
+		"73642": [
+			"**Issue #2, Fear the Knife King**\n\n[Nuka-World Junkyard](#loc=72658) — On the top floor of the barn, on a desk near an animatronic alien.\n\n**Perk:** Bladed Bravado — +25% Combat Knife and Switchblade damage.",
+			[
+				{
+					"id": 58517,
+					"title": "Fallout 4_20240920005948",
+					"file_name": "590c4d7e-cfac-4143-a2b1-8b6bca784545.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/590c4d7e-cfac-4143-a2b1-8b6bca784545.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"73643": [
+			"**Issue #3, Mutant Fists of Stephie Knuckles**\n\nKiddie Kingdom, [Fun House](#loc=72627) — Make your way through the room with mirrors and into the room with the spinning rocket platforms.  Cross that room into the room with the spinning green tunnels.  Enter the last tunnel on the right, then turn left all the way to the end of the tunnel to find the magazine on the ground to the right.\n\n**Perk:** Pugilistic Propensities — +10% hand to hand weapon damage.",
+			[
+				{
+					"id": 58522,
+					"title": "Fallout 4_20240922202146",
+					"file_name": "400e2bbd-90f0-43bd-afb2-8f6ccbd7ee56.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/400e2bbd-90f0-43bd-afb2-8f6ccbd7ee56.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"73644": [
+			"**Issue #4, Nuka Brahmin Stampede!**\n\n[Grandchester Mystery Mansion](#loc=72636) — At the end of the tour in the room with Zachariah, enter through the Master-locked red door in the attic. On a wooden crate to the right as you enter.\n\n**Perk:** Cautionary Crafts — +5% explosives damage.",
+			[
+				{
+					"id": 85226,
+					"title": "unedited000589",
+					"file_name": "78ecd337-5ccd-4485-b137-ce7304e0d799.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/78ecd337-5ccd-4485-b137-ce7304e0d799.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"73645": [
+			"**Issue #5, That No-Caps Rage**\n\n[Dry Rock Gulch Employee Area](#loc=72642) — On the roof of the central brick building. This area is normally only accessible after successfully restoring power to Nuka-World, but you can bypass the requirement by using a jetpack power armor mod.\n\n**Perk:** Motivationally Moneyless\n- +1  Strength and Endurance if you have <= 10,000 caps\n- +2  Strength and Endurance if you have <= 1,000 caps\n- +3  Strength and Endurance if you have <= 100 caps",
+			[
+				{
+					"id": 58526,
+					"title": "Fallout 4_20240923160501",
+					"file_name": "e4009bb5-00f1-4cec-a10b-2d69dbc9552f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4009bb5-00f1-4cec-a10b-2d69dbc9552f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76141": [
+			"Inside [Cappy's Cafe](#loc=454828), on the counter in the cafe's kitchen.",
+			[
+				{
+					"id": 58525,
+					"title": "Fallout 4_20240923155815",
+					"file_name": "0b092008-4db8-428d-a92d-f72bb20d8364.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b092008-4db8-428d-a92d-f72bb20d8364.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76142": [
+			"[Grandchester Mystery Mansion](#loc=72636) — At the end of the tour in the room with Zachariah, on top of a dresser opposite the exit door.",
+			[
+				{
+					"id": 85225,
+					"title": "unedited000588",
+					"file_name": "6d42a0ea-74f3-46e0-89d7-18f0c927fbb2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6d42a0ea-74f3-46e0-89d7-18f0c927fbb2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76143": [
+			"Head south from the Star Control under the Star Market sign.  Immediately after passing under the sign, turn left and find the recipe on a yellow magazine rack",
+			[
+				{
+					"id": 58515,
+					"title": "Fallout 4_20240919234355",
+					"file_name": "37fdf4b4-85b5-4798-857c-d8e8ada7ef79.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37fdf4b4-85b5-4798-857c-d8e8ada7ef79.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76144": [
+			"[Starlight Interstellar Theater](#loc=72634)— In the main theater room, on a counter near the theater's controls.",
+			[
+				{
+					"id": 58516,
+					"title": "Fallout 4_20240919235310",
+					"file_name": "2807ea78-25ca-43f4-9c37-e9d37697d566.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2807ea78-25ca-43f4-9c37-e9d37697d566.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76145": [
+			"[RobCo Battlezone](#loc=72631) — Underneath the seating area in the battlezone, in the gift shop. The recipe is on yellow shelves with Nuka-Cola bottles, opposite the cash registers.",
+			[
+				{
+					"id": 58518,
+					"title": "Fallout 4_20240920014123",
+					"file_name": "4064738c-0a24-41a0-83bc-4c65e14253c2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4064738c-0a24-41a0-83bc-4c65e14253c2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76146": [
+			"[Dry Rock Gulch Theater](#loc=72643) — Inside the brick building with a red awning and Nuka-Cola Cherry sign. On a metal table near Nuka-Cola theme park statues.",
+			[
+				{
+					"id": 58514,
+					"title": "Fallout 4_20240919220439",
+					"file_name": "b57c61c5-c7b4-4271-b075-5d5ed4f0c260.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b57c61c5-c7b4-4271-b075-5d5ed4f0c260.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76147": [
+			"[Dry Rock Gulch Theater](#loc=72643) — Enter the theater and turn right. Walk up the outdoor stands and ladder until you reach the sniper nest on the neighboring building. On a small metal table next to the skeleton.",
+			[
+				{
+					"id": 58513,
+					"title": "Fallout 4_20240919220059",
+					"file_name": "f85304f0-e0a5-4580-87b2-09c15ed4b429.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f85304f0-e0a5-4580-87b2-09c15ed4b429.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76148": [
+			"[Mad Mulligan's Minecart Coaster](#loc=72626), Exterior — Between the building and Bandit Roundup carnival game, on top of a Nuka-World food cart.",
+			[
+				{
+					"id": 58527,
+					"title": "Fallout 4_20240923160558",
+					"file_name": "6b059f62-d21c-4156-b1f8-471b32613d7c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6b059f62-d21c-4156-b1f8-471b32613d7c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76317": [
+			"[Safari Adventure](#loc=72625), Welcome Center (Interior) — On the desk next to the computer, in the main lobby below the entrance.",
+			[
+				{
+					"id": 58520,
+					"title": "Fallout 4_20240920031954",
+					"file_name": "b269313a-bd44-4719-9a82-12f2f181b133.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b269313a-bd44-4719-9a82-12f2f181b133.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76318": [
+			"[Safari Adventure](#loc=72625), Exterior — From the park's entrance, turn left. Follow the path and, just before the ship with the shamrock, turn left down the alley.  At the end of the alley, make another left to find a shack against the brick outer wall. The recipe is inside the shack, on a shelf.",
+			[
+				{
+					"id": 58528,
+					"title": "Fallout 4_20240923160835",
+					"file_name": "d6dd1b3a-a2d3-4241-8d61-e76b9c4dd570.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6dd1b3a-a2d3-4241-8d61-e76b9c4dd570.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76319": [
+			"[Fun House](#loc=72627), Interior — After solving all the Fun House puzzles and illusions, you have the option to unchain the shortcut to the entrance or open a door to the maintenance hallways. Go down the maintenance hallways until you reach Oswald's control room. On top of the red terminal desk.",
+			[
+				{
+					"id": 58523,
+					"title": "Fallout 4_20240922202849",
+					"file_name": "ecb8ff6d-5d27-4d91-8576-2a3b8204fb24.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ecb8ff6d-5d27-4d91-8576-2a3b8204fb24.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76320": [
+			"[King Cola's Castle](#loc=72628), Interior — Walk onto the stage to enter the backstage area. Go through the archway straight back and open the double-doors on the right to the women's dressing room. On the middle vanity desk.",
+			[
+				{
+					"id": 58524,
+					"title": "Fallout 4_20240922204030",
+					"file_name": "457cd595-29d0-442c-b0c2-e2b9edafcd6a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/457cd595-29d0-442c-b0c2-e2b9edafcd6a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76322": [
+			"[Nuka-World Power Plant](#loc=72659) — just before the ladder that leads to the roof, you'll reach a room on the catwalk with a pool table and two skeletons sitting at desks. \n\nThe recipe is on a desk next to the skeleton in the corner.",
+			[
+				{
+					"id": 85271,
+					"title": "unedited000634",
+					"file_name": "e507ce22-f9ca-4c3e-b367-62c5f06d72aa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e507ce22-f9ca-4c3e-b367-62c5f06d72aa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76323": [
+			"At the [Hubologist's Camp](#loc=72656), on booth table within the diner.",
+			[
+				{
+					"id": 75908,
+					"title": "",
+					"file_name": "1610d63b-a452-482f-a26f-d887dc055c10.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1610d63b-a452-482f-a26f-d887dc055c10.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76324": [
+			"Speak to Evan, sitting at the top of [Evan's Home](#loc=72655), and agree to take some supplies when he offers them.",
+			[]
+		],
+		"76325": [
+			"**Location:** Purchased from the merchant Aaron Corbett in the [Nuka-Town Market](#loc=72650)\n\n**Effect:** +15% Damage after each consecutive hit on the same target",
+			[]
+		],
+		"76326": [
+			"**Location:** Reward for helping Cito defeat a Gatorclaw when entering the [Safari Adventure](#loc=72625) area.",
+			[]
+		],
+		"76335": [
+			"**Location:** Behind the locked safe door in John-Caleb Bradberton's office.\n\n**Prerequisite:** Complete side quest [Cappy in a Haystack](#loc=401873) siding with Bradberton at the end and killing him (alternatively you can side with Sierra to get her reward, then turn off the power to kill Bradberton afterwards to get all rewards - Sierra will turn hostile).\n\n**Effect:** Fires Nuka-nukes and deals 50% more damage than a standard Fat Man",
+			[]
+		],
+		"76336": [
+			"**Location:** Obtained from Mason in [Bradberton Amphitheater](#loc=72652) during main quest [An Ambitious Plan](#loc=401867)\n\n**Prerequisite:** It is advised to save before meeting Mason for the first time as you'll only get one chance for this weapon.  Take an aggressive dialogue route by choosing dialogue options on the right-hand side, and passing the Charisma checks for the duration of the conversation.  After passing the final dialogue option 'Do as your told', you'll be rewarded with the weapon\n\n**Effect:** +15% Damage after each consecutive hit on the same target",
+			[]
+		],
+		"76337": [
+			"**Location:** On top of the roof of [King Cola's Castle](#loc=72628)\n\n**Prerequisite:** Found at the end of [A Magical Kingdom](#loc=401876), where it's either given to you by Oswald the Outrageous after showing him [Rachel's Holotape](#loc=437237) or taken from his corpse.\n\n**Effect:** Ignores 30% damage and energy resistance",
+			[]
+		],
+		"76408": ["**Location:** In the Nuka-Cade, lying on the ground in front of the 'Red Menace' arcade game.", []],
+		"76413": [
+			"**Location:** [Nuka-Cade](#loc=148953) - has a chance of appearing in the Nuka-Cade Prize Terminal's Level 5 prizes, where it can be purchased for 6250 tickets.\n\n**Effect:** Inflicts ongoing acid damage and temporarily reduces damage resistance.",
+			[
+				{
+					"id": 82487,
+					"title": "",
+					"file_name": "c69a983f-3ac1-4a01-a711-a61b52b324bf.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c69a983f-3ac1-4a01-a711-a61b52b324bf.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76417": [
+			"**Location:** In the _Secure Beverageer Lab_ inside the [World of Refreshment](#loc=72639).  After entering the Lab, take the elevator down and find the schematics in the _Test Room_\n\n**Prerequisite:** Turn the main power back on in the park during main quest _Power Play_\n\n**Effect:** You can now build Quantum Grenades and [Thirst Zapper](#loc=76418) modifications.",
+			[]
+		],
+		"76418": [
+			"**Location:** In the _Secure Beverageer Lab_ inside the [World of Refreshment](#loc=72639).  After entering the Lab, take the elevator down and find the gun in the _Test Room_\n\n**Prerequisite:** Turn the main power back on in the park during main quest [Power Play](#loc=401870)\n\n**Note:** Can be picked up elsewhere earlier in the game, but is pretty useless until you get the [Project Cobalt Schematics](#loc=76417) and mod it, at which point it becomes extremely powerful.\n\n**Effect:** Each Nuka mod increases damage and projectiles deal AoE damage.  Effects are amplified with the rarity of the refreshment used.  Additionally, projectiles track targets in VATS.",
+			[]
+		],
+		"76419": [
+			"**Location:** Purchased from Katelyn Alden the Brahmin merchant in [Nuka-Town Market](#loc=72650)\n\n**Effect:** +25 Bleed Damage over 5 seconds.",
+			[]
+		],
+		"76420": [
+			"**Location:** Worn by Overboss Colter inside [Cola-Cars Arena](#loc=72635).  \n\n**Prerequisite:** Defeat Overboss Colter during [Taken For A Ride](#loc=401856)",
+			[]
+		],
+		"76421": [
+			"**Location:** Inside the [World of Refreshment](#loc=72639).  Enter the tunnel titled \"Enjoy the Ride\" and follow the Nuka Quantum river back into the building until you come across the armor on your right behind a locked door.  Head through the broken wall under the Nuka Grape sign and up the stairs and into the control room.  Find the 'Systems Control Terminal' to unlock the door to the power armor.",
+			[]
+		],
+		"76422": [
+			"**Location:** Inside the Star Control building, in the display case.  \n\n**Prerequisite:** Install all 35 Star Cores during main quest _Star Control_",
+			[
+				{
+					"id": 82516,
+					"title": "unedited007905",
+					"file_name": "c476760a-7380-4406-9446-dbef2a9025f5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c476760a-7380-4406-9446-dbef2a9025f5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"76423": [
+			"**Location:** Defeat the Rogue Knight challenger in [Cola-Cars Arena](#loc=72635)\n\n**Prerequisite:** Obtained at the end of the [Amoral Combat](#loc=401872) side quest.  Note that this quest is repeatable with different enemies to challenge, the Rogue Knight being one of them.\n\n**Effect:** Unlimited Mag Size.",
+			[]
+		],
+		"147778": [
+			"On the top floor of [Starport Nuka](#loc=72632), in a console behind the elevator. Must restore Nuka-World's power in the [Power Play](#loc=401870) mission to make the elevator useable.",
+			[
+				{
+					"id": 82517,
+					"title": "unedited007906",
+					"file_name": "d4c03d16-383e-456e-87ce-1380852f2a1c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d4c03d16-383e-456e-87ce-1380852f2a1c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147779": [
+			"In the ride control room of Mad Mulligan's Minecart Coaster, next to the room with the large pit, on Sam Teller's corpse.",
+			[
+				{
+					"id": 12795,
+					"title": "",
+					"file_name": "fcf811b0-6fc0-4814-b316-63bd25c4d5e2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fcf811b0-6fc0-4814-b316-63bd25c4d5e2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147780": [
+			"Inside [Mad Mulligan's Minecart Coaster](#loc=72626). Soon after entering, look for the corpse of Terry Tanaka behind some boxes in the first tunnel - the note is in his inventory.",
+			[
+				{
+					"id": 85249,
+					"title": "unedited000614",
+					"file_name": "5b84b660-ae13-4b69-812e-c7c100c0e640.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b84b660-ae13-4b69-812e-c7c100c0e640.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147781": [
+			"On a locker shelf, in the same room as the safe with Mad Mulligan's Mine key.",
+			[
+				{
+					"id": 12796,
+					"title": "",
+					"file_name": "02799903-53dd-48d2-9d2b-46ee43228131.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/02799903-53dd-48d2-9d2b-46ee43228131.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147782": [
+			"Given to you by Sierra Petrovita at the start of the [Cappy in a Haystack](#loc=401873) quest.",
+			[]
+		],
+		"147783": ["**Location:** In the Gauntlet, in the maze section, in a fusion generator.", []],
+		"147784": ["Power armor with fusion core on a military truck", []],
+		"147785": [
+			"On a locker shelf in the same room as the safe with the Mad Mulligan's Mine key.",
+			[
+				{
+					"id": 12797,
+					"title": "",
+					"file_name": "8a741c31-ee19-4740-afef-349426c77b4b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a741c31-ee19-4740-afef-349426c77b4b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147786": [
+			"[Nuka-World Power Plant](#loc=72659) - behind a security door in the basement. Hack the Advanced terminal next to it to gain access.",
+			[
+				{
+					"id": 85272,
+					"title": "unedited000635",
+					"file_name": "36bc9ac0-3f67-45e6-afbc-c3f0329a14c3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36bc9ac0-3f67-45e6-afbc-c3f0329a14c3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 85273,
+					"title": "unedited000636",
+					"file_name": "73f60ab8-b8b8-4cc3-a5ee-f8a63dad3983.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/73f60ab8-b8b8-4cc3-a5ee-f8a63dad3983.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148945": [
+			"**Location:** In [The Parlor](#loc=148954), in the dressing room with a master-difficulty locked door connected to the stage. Once inside, it's on the desk to the left.",
+			[
+				{
+					"id": 85243,
+					"title": "unedited000608",
+					"file_name": "84c33c22-f472-4cff-932b-9699e7d7240e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/84c33c22-f472-4cff-932b-9699e7d7240e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148946": [
+			"**Location:** In [The Parlor](#loc=148954), in the dressing room with a master-difficulty locked door connected to the stage. Once inside, it's on the desk to the left.",
+			[
+				{
+					"id": 85244,
+					"title": "unedited000608",
+					"file_name": "c00485b6-58d7-4b9b-9390-f77e118c9866.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c00485b6-58d7-4b9b-9390-f77e118c9866.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148947": [
+			"**Location:** On the second level of Fizztop Mountain, inside the shack in the back. Three holotapes with the same name but different contents.",
+			[]
+		],
+		"148948": [
+			"**Location:** In the employees only room in the back right of the [Nuka-Cade](#loc=148953), in a fusion generator.",
+			[
+				{
+					"id": 82539,
+					"title": "unedited007931",
+					"file_name": "d1c5537f-a6ed-49df-a319-72cce5ba04a9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d1c5537f-a6ed-49df-a319-72cce5ba04a9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148949": [
+			"**Location:** On a console to the right of the mainframe's terminal.",
+			[
+				{
+					"id": 82515,
+					"title": "unedited007904",
+					"file_name": "31d09870-39a0-4ca9-b680-53fe757adc69.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31d09870-39a0-4ca9-b680-53fe757adc69.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148950": [
+			"The tape can be found in Nuka-Town USA, on the Infirmary Center's reception desk.",
+			[
+				{
+					"id": 55792,
+					"title": "",
+					"file_name": "16e48194-4593-44cb-9048-b0ee5b5fd26d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/16e48194-4593-44cb-9048-b0ee5b5fd26d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148951": [
+			"**Location:** Inside a fusion generator on the ground floor of the large barn.",
+			[
+				{
+					"id": 85230,
+					"title": "unedited000593",
+					"file_name": "fe68f569-47e9-414b-8e27-04ee67b71fba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fe68f569-47e9-414b-8e27-04ee67b71fba.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148953": [
+			"An unmarked location near the end of the street leading up to the [Fizztop Grille](#loc=72646).",
+			[]
+		],
+		"148956": [
+			"**Location:** As you enter the Angry Anaconda area, go straight ahead. It is in a generator by the trailers in the middle.",
+			[
+				{
+					"id": 85253,
+					"title": "unedited000618",
+					"file_name": "2be2df07-7313-4861-bc4d-06b45e0fa76f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2be2df07-7313-4861-bc4d-06b45e0fa76f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148957": ["Inside a shack with an Expert Level Door.", []],
+		"351108": [
+			"**Required:** Complete [An Ambitious Plan](#loc=401867) (Nuka World Quest)\n\n**Companion Quest:** None\n\n**Romanceable?** Yes\n\n**Affinity Interests:**\n- Mean, selfish, violent behavior\n- Modify weapons\n- Commit murder\n- Lockpick\n- Cap reward negotiation\n- Steal items\n- Refuse settlement quest\n\n**Companion Perk:** Lessons in Blood — +5% more XP per kill and +10 Damage Resistance",
+			[]
+		],
+		"357153": [
+			"**Location:** Next to a skeleton on a table in the Bandit Round-Up",
+			[
+				{
+					"id": 138386,
+					"title": "",
+					"file_name": "40b2b5dd-26ae-47bf-8f2b-5b6812762e4a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/40b2b5dd-26ae-47bf-8f2b-5b6812762e4a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"357155": ["Defended by cave crickets. Three dead settlers. Some exotic nuka cola bottles are stored.", []],
+		"357156": ["Look for a wind turbine power tower.", []],
+		"357157": [
+			"A safe with a master-difficulty lock can be found directly west of [Dunmore Homestead](#loc=72657). Brett Dunmore will give you the key if you complete [Open Season](#loc=401877).\n\nSearch the area around the safe to find a shovel, caps stash, weapon, and some ammo.",
+			[
+				{
+					"id": 85223,
+					"title": "unedited000586",
+					"file_name": "45577d7b-bca2-40d9-b136-12be8756fac8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/45577d7b-bca2-40d9-b136-12be8756fac8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"357158": [
+			"[Grandchester Mystery Mansion](#loc=72636) — After finding Zachariah, go through the red Master-locked door next to the bed. The mini nuke can then be found in a yellow container next to the steamer trunk.",
+			[
+				{
+					"id": 51964,
+					"title": "",
+					"file_name": "521bc6c8-e437-4eae-b54e-97b8d4437e23.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/521bc6c8-e437-4eae-b54e-97b8d4437e23.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389669": [
+			"On the roof of the factory at the highest point inside the cubicle next to the giant red bottle.",
+			[
+				{
+					"id": 85261,
+					"title": "unedited000625",
+					"file_name": "73d5725d-3349-47be-beed-27607bac7072.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/73d5725d-3349-47be-beed-27607bac7072.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389670": [
+			"On the wall of some restrooms near the [Fizztop Grille](#loc=72646).",
+			[
+				{
+					"id": 55793,
+					"title": "",
+					"file_name": "128e7efe-691f-4794-9d17-484931d8ad48.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/128e7efe-691f-4794-9d17-484931d8ad48.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"401856": [
+			"**Previous:** All Aboard\n\n**Quest Giver:** Porter Gage & RedEye\n\n_A man named Porter Gage spoke to me over the Nuka-Express speaker system. He told me I was heading into a death trap, but he has an offer for me should I survive._\n\n**Rewards:**\n- 500+ XP\n- [Overboss Power Armor](#loc=76420) (Full Set)\n- Raider Rank: Overboss\n\n**Next:** [An Ambitious Plan](#loc=401867)",
+			[]
+		],
+		"401865": [
+			"[Grandchester Mystery Mansion](#loc=72636) — Looted from Zachariah, found in a room at the end of the tour.",
+			[]
+		],
+		"401867": [
+			"**Previous:** [Taken For A Ride](#loc=401856)\n\n**Quest Giver:** Porter Gage\n\n_Gage has explained that in order to take over all of Nuka-World, I need to get the three rival gangs to support me. The Disciples, The Operators, and the Pack all need to be convinced that I can lead them as Overboss._\n\n**Rewards:**\n- 400+ XP\n- Companion: [Porter Gage](#loc=351108)\n\n**Next:** [The Grand Tour](#loc=401868)",
+			[]
+		],
+		"401868": [
+			"**Previous:** [An Ambitious Plan](#loc=401867)\n\n**Quest Giver:** Porter Gage\n\n_To expand the territory for my gangs, I need to secure all of the parks beyond the walls of Nuka-Town U.S.A. and then choose which gangs will occupy the areas permanently._\n\n**Note:** It is not possible to evenly assign parks (5 parks, 3 gangs), so inevitably one gang will be left short. This has repercussions later in [Power Play](#loc=401870), so choose wisely!\n\n**Rewards:**\n- 400+ XP\n\n**Next:** [Home Sweet Home](#loc=401869)",
+			[]
+		],
+		"401869": [
+			"**Previous:** [The Grand Tour](#loc=401868)\n\n**Quest Giver:** Porter Gage\n\n_Gage seems to think we should start expanding into the Commonwealth. He suggested I talk to a man named Shank in the Nuka-Town market._\n\n**Rewards:**\n- 500+ XP\n\n**Next:** [Power Play](#loc=401870)",
+			[]
+		],
+		"401870": [
+			"**END OF NUKA-WORLD (DLC) QUESTLINE**\n\n**Previous:** [Home Sweet Home](#loc=401869)\n\n**Quest Giver:** Shank\n\n_Now that I've established a proper foothold in the Commonwealth, I should return to Shank to discuss our next move._\n\n**Rewards:**\n- 400+ XP\n- 2 x Perks awarded based on which two gangs remained loyal:\n   - Ace Operator (Operators)\n   - Chosen Disciple (Disciples)\n   - Pack Alpha (The Pack)",
+			[]
+		],
+		"401872": [
+			"**Required:** Complete [The Grand Tour](#loc=401868), leave then return to [Nuka-Town USA](#loc=72651)\n\n**Quest Giver:** None (Automatically Added)\n\n_Gang members have informed the Overboss that a challenger has appeared in the Gauntlet. Will you accept the fight invitation?_\n\n**Rewards:**\n- 75+ XP\n- [Aeternus](#loc=76423) (after killing the sixth challenger, 'Rogue Knight')",
+			[]
+		],
+		"401873": [
+			"**Quest Giver:** Sierra Petrovita\n\n_A Nuka-Cola Super Fan is on the hunt for \"Hidden Cappy\" signs throughout Nuka World. Will you help her?_\n\nNote: It's recommended to complete this in tandem with [The Grand Tour](#loc=401868) because the list of objective locations are nearly the same.\n\n**Hidden Cappy Locations:**\n- [Nuka-Town USA](#loc=389670)\n- [Safari Adventure: Cappy's Treehouse](#loc=401900)\n- [Safari Adventure: Primate House](#loc=454783)\n- [Dry Rock Gulch: Graveyard](#loc=405135)\n- [Dry Rock Gulch: Mad Mulligan's Mine](#loc=454791)\n- [Galactic Zone: Star Control](#loc=454787)\n- [Galactic Zone: RobCo Battlezone](#loc=454790)\n- [Kiddie Kingdom: Fun House](#loc=454782)\n- [Kiddie Kingdom: King Cola's Castle](#loc=454781)\n- [World of Refreshment](#loc=454779)\n\n**Rewards:**\n-  XP\n- Side with J.C. Bradberton:\n    - 500 Caps + [Nuka-Nuke Launcher](#loc=76335)\n- Side with Sierra Petrovita:\n    - [Nuka World Jumpsuit](#loc=538639)",
+			[]
+		],
+		"401874": [
+			"**Quest Giver:** Enter [Dry Rock Gulch](#loc=72644) (Automatically Added)\n\n_Dry Rock Gulch is infested with Bloodworms. The Bloodworms are nesting inside of Mad Mulligan's Mine. The door is locked, and the only key is in a safe. I need to get the combination from the other Protectron cowboys._\n\nNote: A large portion of this quest can be bypassed by convincing the Protectrons to hand over the keys. Requires high Charisma or Robotics Expert perk.\n\n**Rewards:**\n- 400+ XP\n- 200 Caps\n- Cowboy Hat\n- Western Outfit\n- Western Revolver\n- [The Grand Tour](#loc=401868): Control of Dry Rock Gulch",
+			[]
+		],
+		"401875": [
+			"**Related Quest:** [Precious Medals](#loc=401879)\n\n[Mad Mulligan's Minecart Coaster](#loc=72626) — In the chained gift shop by the ride's entrance. Travel through the ride to get on the other side of the chained door.",
+			[]
+		],
+		"401876": [
+			"**Quest Giver:** Enter [Kiddie Kingdom](#loc=72641) (Automatically Added)\n\n_Kiddie Kingdom is covered in radioactive mist and a strange voice has taunted me over the Park Announcement system. I should look for the source of the voice._\n\n**Rewards:**\n- 400+ XP\n- Oswald's Tophat\n- Sword of Wonders\n- [The Grand Tour](#loc=401868): Control of Kiddie Kingdom",
+			[]
+		],
+		"401877": [
+			"**Quest Givers:**\n- Mackenzie Bridgeman, Doctor in [Nuka-Town Market](#loc=72650)\n- Preston Garvey, given as a Minutemen settlement defense quest \n\n_McKenzie Bridgeman suggested that I should wipe out the Raiders at Nuka-World. I will consider her proposal._\n\nNote: This side quest serves as an alternate ending to the Nuka-World DLC quest line. Completing it makes all raiders hostile and essentially wipes Nuka-World empty; only non-raider traders and quests will be available. You can still power up Nuka-World afterwards. Plus, it makes Preston Garvey _very_ happy!\n\n**Rewards:**\n- 600 XP\n- Liberated Traders",
+			[]
+		],
+		"401879": [
+			"**Quest Giver:** N.I.R.A. (Nuka-Cola Robot)\n\n_Collect a commemorative Park Medallion from every major Nuka-World park and receive a special reward!_\n\nNote: It's recommended to complete this in tandem with [The Grand Tour](#loc=401868) because the list of objective locations are nearly the same.\n\nPark Medallions:\n- [Dry Rock Gulch: Mad Mulligan's Minecart Coaster](#loc=401875)\n- [Galactic Zone: Nuka-Galaxy ](#loc=401895)\n- [Galactic Zone: Vault-Tec Among the Stars](#loc=401896)\n- [Kiddie Kingdom: Ferris Wheel](#loc=402221)\n- [Kiddie Kingdom: Nuka-Racers](#loc=402222)\n- [Safari Adventure: Cappy's Treehouse](#loc=401899)\n- [Nuka-Cola Bottling Plant: World of Refreshment](#loc=401898)\n\n**Rewards:**\n- 75+ XP\n- Nuka-Cola Dark\n- Nuka-Grape\n- Nuka-Cola Quantum",
+			[]
+		],
+		"401882": [
+			"**Quest Giver:** Cito\n\n_I met a man named Cito in the Safari Adventure area of Nuka-World. He asked me to help him take care of the Gatorclaw infestation in the area._\n\n**Rewards:**\n- 400+ XP\n- [The Grand Tour](#loc=401868): Control of Safari Adventure\n- [Cito's Shiny Slugger](#loc=76326)",
+			[]
+		],
+		"401884": [
+			"**Quest Giver:** Enter [Galactic Zone](#loc=72648) (Automatically Added)\n\n_Just outside the Galactic Zone, I found the remains of a battle between a group of traders and some robots. One of the traders was carrying a holotape that might explain what happened here._\n\nTip: There are 35 total Star Cores in Nuka-World, but you only need 20 Star Cores to complete the quest. \n\nAt 5, 10, and 15 Star Cores found, new terminal options to make Galactic Zone easer to explore. At 20 Star Cores, all robots in Galactic Zone become friendly. If you find all 35 Star Cores, the center display will open and you can loot the Quantum X-01 Power Armor..\n\n**Rewards:**\n- 400+ XP\n- [The Grand Tour](#loc=401868): Control of Galactic Zone\n- Automatron DLC: Unlocks all Nuka-World robot mods",
+			[]
+		],
+		"401886": [
+			"**Quest Giver:** Dara Hubell, Leader of [Hubologist's Camp](#loc=72656)\n\n_Met a strange man who invited me to join Hubology._\n\n**Rewards:**\n- 450+ XP\n- 200-350 Caps\n- [Hub's Alien Blaster](#loc=401887)",
+			[]
+		],
+		"401887": ["Unique Energy Weapon. Reward for completing [Trip to the Stars](#loc=401886).", []],
+		"401888": [
+			"**Quest Giver:** Enter [World of Refreshment](#loc=72639) (Automatically Added)\n\n_World of Refreshment is overrun with rogue robots and Nukalurks. Clear out the interior and exterior to take control of the bottling plant._\n\n**Rewards:**\n- 350+ XP\n- [The Grand Tour](#loc=401868): Control of Nuka-Cola Bottling Plant",
+			[]
+		],
+		"401894": [
+			"[Nuka-Galaxy](#loc=72630) — Loot the Nuka-Girl animatronic sitting on a rocket near the ride's exit.",
+			[
+				{
+					"id": 82507,
+					"title": "unedited007897",
+					"file_name": "8911de4a-2af4-402b-9f90-fe70c75512fa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8911de4a-2af4-402b-9f90-fe70c75512fa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"401895": [
+			"**Related Quest:** [Precious Medals](#loc=401879)\n\nNear the ride's exit, at the top of the stairs behind the [Nuka-Girl Rocketsuit](#loc=401894)-wearing mannequin.",
+			[
+				{
+					"id": 58533,
+					"title": "Fallout 4_20240920003316",
+					"file_name": "6059887b-3778-43a2-944a-a59e92206a2b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6059887b-3778-43a2-944a-a59e92206a2b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"401896": [
+			"**Related Quest:** [Precious Medals](#loc=401879)\n\nFollow the rail-lined walkway through the tour until you reach the exit vault door. As you exit, turn left to find the medallion dispenser in the corner.",
+			[
+				{
+					"id": 58532,
+					"title": "Fallout 4_20240920003734",
+					"file_name": "db8a8f5a-9d7f-4624-8724-bc1ad9db7e4b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/db8a8f5a-9d7f-4624-8724-bc1ad9db7e4b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"401898": [
+			"**Related Quest:** [Precious Medals](#loc=401879)\n\n[World of Refreshment](#loc=72639), Exterior — In the queue lines outside the attraction.",
+			[
+				{
+					"id": 58534,
+					"title": "Fallout 4_20240920024502",
+					"file_name": "2d45ed75-1432-4ba6-8025-2cf554936e7b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2d45ed75-1432-4ba6-8025-2cf554936e7b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"401899": [
+			"**Related Quest:** [Precious Medals](#loc=401879)\n\n[Cappy's Treehouse](#loc=72624) — Navigate to the center of the maze, then take the elevator up to the treehouse. On the lower treehouse floor, in an alcove near the Nuka-Cola mascot statue.",
+			[]
+		],
+		"401900": [
+			"[Cappy's Treehouse](#loc=72624) — On a wall at the eastern edge of the maze beneath the treehouse. As you enter, turn right, right, left, then right one more time to find it.",
+			[
+				{
+					"id": 58521,
+					"title": "Fallout 4_20240920032629",
+					"file_name": "57143c29-6997-40f0-8223-24c7b3e1f507.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57143c29-6997-40f0-8223-24c7b3e1f507.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"402221": [
+			"**Related Quest:** [Precious Medals](#loc=401879)\n\nAt the base of the Ferris Wheel, against the fence.",
+			[
+				{
+					"id": 58530,
+					"title": "Fallout 4_20240922210705",
+					"file_name": "e5f20a0c-6edd-48ec-8897-86a7b6f583d6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5f20a0c-6edd-48ec-8897-86a7b6f583d6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"402222": [
+			"**Related Quest:** [Precious Medals](#loc=401879)\n\nAt the ride entrance to Nuka-Racers, near the track start.",
+			[
+				{
+					"id": 58531,
+					"title": "Fallout 4_20240922210827",
+					"file_name": "d595fb4c-08a4-427b-9d01-efb6ec85f108.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d595fb4c-08a4-427b-9d01-efb6ec85f108.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"405135": [
+			"Behind a gravestone.",
+			[
+				{
+					"id": 58529,
+					"title": "Fallout 4_20240924014912",
+					"file_name": "586e6395-9ff6-4c5e-882a-69c77550f917.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/586e6395-9ff6-4c5e-882a-69c77550f917.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"437235": [
+			"**Location:** Within a hanging gondola in the barn. Jump off the walkway on the upper floor to reach it.",
+			[
+				{
+					"id": 75909,
+					"title": "",
+					"file_name": "e84fa8bf-1168-4e04-87fe-f0cec11867d7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e84fa8bf-1168-4e04-87fe-f0cec11867d7.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"437236": [
+			"Inside the locked (novice) building beneath the large power antenna. Hack the terminal (advanced) to gain access to the armor.",
+			[]
+		],
+		"437237": [
+			"Inside a shack with destroyed walls, on a makeshift bench next to Rachel's body.",
+			[
+				{
+					"id": 75910,
+					"title": "",
+					"file_name": "ffa43398-5dd0-4db3-b07e-e33ed028f917.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ffa43398-5dd0-4db3-b07e-e33ed028f917.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"437238": [
+			"In the garage of Morton Residence. You can teleport inside by looking at the power armor station through the window and using it - or enter the intended way, through a [Drainpipe](#loc=461563) at the base of a stone wall to the west.",
+			[
+				{
+					"id": 75911,
+					"title": "",
+					"file_name": "9962be32-7a01-4e87-84ca-3d533d06d50a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9962be32-7a01-4e87-84ca-3d533d06d50a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"437239": [
+			"At the end of the bridge on top of Bradberton Overpass. Be quick, as a Gunner can enter the frame before you reach it.",
+			[
+				{
+					"id": 75912,
+					"title": "",
+					"file_name": "f3492170-7fa4-4caf-bb84-40fd4241b976.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f3492170-7fa4-4caf-bb84-40fd4241b976.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454779": [
+			"Inside the [World of Refreshment](#loc=72639), in a wild west-themed part of the Nuka-Cola Quantum river ride. You'll find it on the side of a two-story building opposite the Nuka Wild sign.",
+			[
+				{
+					"id": 94744,
+					"title": "",
+					"file_name": "f1285a0f-2ea6-4175-aea8-7580f19a4cdf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f1285a0f-2ea6-4175-aea8-7580f19a4cdf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454780": [
+			"Inside the [Nuka-Cola Bottling Plant](#loc=72638) found at the end of the [World of Refreshment](#loc=72639) river tour. You'll find it on the ground by a dead Gunner and some double doors.",
+			[
+				{
+					"id": 85265,
+					"title": "unedited000628",
+					"file_name": "aa88faf5-30c3-4636-8ba8-e2e92e176d7d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa88faf5-30c3-4636-8ba8-e2e92e176d7d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454781": [
+			"[Kiddie Kingdom](#loc=72641) exterior: at the top of the tower near [King Cola's Castle](#loc=72628).",
+			[
+				{
+					"id": 82480,
+					"title": "",
+					"file_name": "e7ce7fc1-493d-4ec2-92e7-5334bc5defef.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e7ce7fc1-493d-4ec2-92e7-5334bc5defef.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454782": [
+			"[Fun House](#loc=72627), interior: Behind the first red door going clockwise from the entrance to the spinning room.",
+			[
+				{
+					"id": 82481,
+					"title": "",
+					"file_name": "3ce8aae4-bea5-4e56-aeee-4a998fcd02db.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ce8aae4-bea5-4e56-aeee-4a998fcd02db.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454783": [
+			"Outside the [Safari Adventure Primate House](#loc=72623), behind a gorilla statue to the right of the door. A gap in the hedge will let you reach the back of the statue.",
+			[
+				{
+					"id": 82482,
+					"title": "",
+					"file_name": "c6d09170-98ed-4499-be90-9a913ef067f4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c6d09170-98ed-4499-be90-9a913ef067f4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454784": ["On a table next to Shelbie Chase in the [Nuka-Town Market](#loc=72650).", []],
+		"454785": [
+			"[Nuka-World Junkyard](#loc=72658) — On the top floor of the barn, in a console near the [SCAV!](#loc=73642) magazine.",
+			[
+				{
+					"id": 85229,
+					"title": "unedited000592",
+					"file_name": "d0a70e59-db58-4b11-8427-11dc03e31471.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d0a70e59-db58-4b11-8427-11dc03e31471.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454786": [
+			"On a wall near an 'Employees Only' sign and locked gate near [Starport Nuka](#loc=72632).",
+			[
+				{
+					"id": 82484,
+					"title": "",
+					"file_name": "b9d91d1b-c2dd-4e62-9172-e1dc4a28843c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9d91d1b-c2dd-4e62-9172-e1dc4a28843c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454787": [
+			"Near a trader's corpse in the Employees Only area behind [Starport Nuka](#loc=72632).",
+			[
+				{
+					"id": 82513,
+					"title": "unedited007902",
+					"file_name": "35349688-6d20-4d4a-84d1-1e4b2d5463a0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35349688-6d20-4d4a-84d1-1e4b2d5463a0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454788": [
+			"Next to a corpse among the consoles in [Starport Nuka](#loc=72632)'s Star Control area.",
+			[
+				{
+					"id": 82514,
+					"title": "unedited007903",
+					"file_name": "2de5b3c8-a7f4-4781-9f87-195d85a08bdb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2de5b3c8-a7f4-4781-9f87-195d85a08bdb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454789": [
+			"On the upper floor of [Starport Nuka](#loc=72632)'s Star Control area, inside a display case with an Advanced-difficulty lock. You can also find [a key](#loc=454812) to unlock the case in an office with a novice-difficulty locked door nearby.",
+			[
+				{
+					"id": 82519,
+					"title": "unedited007908",
+					"file_name": "69c87d9b-8ccb-4af2-8a2e-4c84e019f865.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/69c87d9b-8ccb-4af2-8a2e-4c84e019f865.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454790": [
+			"[Galactic Zone](#loc=72648) exterior, near [RobCo Battlezone](#loc=72631). On a wall near the top of the Space Walk.",
+			[
+				{
+					"id": 82485,
+					"title": "",
+					"file_name": "b94bf117-f102-47bc-9065-5e81f9063601.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b94bf117-f102-47bc-9065-5e81f9063601.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454791": [
+			"Inside [Mad Mulligan's Minecart Coaster](#loc=72626), on the wall of a small shack in a pit.",
+			[
+				{
+					"id": 82486,
+					"title": "",
+					"file_name": "c36620f6-0141-4b63-bb6e-8e31f4391eef.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c36620f6-0141-4b63-bb6e-8e31f4391eef.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454792": [
+			"Inside a duffle bag on top of the trailer.",
+			[
+				{
+					"id": 85254,
+					"title": "unedited000619",
+					"file_name": "5ea57179-8ca8-42e2-a700-4212b9fb88c5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5ea57179-8ca8-42e2-a700-4212b9fb88c5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454793": [
+			"Next to a lamp post and some corpses.",
+			[
+				{
+					"id": 123498,
+					"title": "",
+					"file_name": "6bc2f2ae-16c4-4680-80e6-2c555b51d388.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6bc2f2ae-16c4-4680-80e6-2c555b51d388.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454794": [
+			"Opposite [Nuka-Galaxy](#loc=72630), at the very top of ArcJet G-Force.",
+			[
+				{
+					"id": 82498,
+					"title": "unedited007886",
+					"file_name": "5d50214f-ae50-4680-838b-7d246306b798.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d50214f-ae50-4680-838b-7d246306b798.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454795": ["Near [RobCo Battlezone](#loc=72631), at the bottom of the Space Walk ramp inside a console.", []],
+		"454796": [
+			"[RobCo Battlezone](#loc=72631) - on a shelf behind the counter in the gift shop.",
+			[
+				{
+					"id": 82488,
+					"title": "unedited007875",
+					"file_name": "903cfc97-849c-4d67-89fd-ee2bd3429ca4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/903cfc97-849c-4d67-89fd-ee2bd3429ca4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454797": [
+			"Four are inside the [RobCo Battlezone](#loc=72631). They can be found:\n- On a countertop in the gift shop.\n- On a table opposite a door leading to the basement\n- In the Employees Only room to your left as you enter the main area\n- In the basement beneath the arena, on the cabinet opposite a Sentry Bot",
+			[
+				{
+					"id": 82491,
+					"title": "unedited007880",
+					"file_name": "46e52d93-4aab-4bf0-b6c0-0aa2b1a90e7e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/46e52d93-4aab-4bf0-b6c0-0aa2b1a90e7e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82492,
+					"title": "unedited007881",
+					"file_name": "0bf7a0bd-7639-420f-bf92-156db3551a17.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0bf7a0bd-7639-420f-bf92-156db3551a17.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82493,
+					"title": "unedited007882",
+					"file_name": "be484539-59d1-420c-aeba-aa4b1d4c936d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be484539-59d1-420c-aeba-aa4b1d4c936d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454798": [
+			"[RobCo Battlezone](#loc=72631) - inside red consoles in the 'employees only' room to the left as you enter the main arena. Pick through the novice-difficulty lock or use the [RobCo Battlezone Key](#loc=454797) to gain access.",
+			[
+				{
+					"id": 82489,
+					"title": "unedited007878",
+					"file_name": "47590596-78a2-4eb2-a751-4b1052862957.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/47590596-78a2-4eb2-a751-4b1052862957.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82495,
+					"title": "unedited007877",
+					"file_name": "c62c7dc6-8e42-4679-9020-0fa516da3627.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c62c7dc6-8e42-4679-9020-0fa516da3627.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454800": [
+			"[RobCo Battlezone](#loc=72631) - Inside a console underneath the main arena, next to a Sentry Bot.",
+			[]
+		],
+		"454802": [
+			"[RobCo Battlezone](#loc=72631) - Inside a console in the main arena.",
+			[
+				{
+					"id": 82494,
+					"title": "unedited007883",
+					"file_name": "f06d2974-3b0a-4242-8266-b2a2c34059c2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f06d2974-3b0a-4242-8266-b2a2c34059c2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454803": [
+			"Inside a tiny red booth directly right of the entrance to [Nuka-Galaxy](#loc=72630).",
+			[
+				{
+					"id": 82496,
+					"title": "unedited007884",
+					"file_name": "24548827-20e3-4f37-b4c0-4f338ef08c30.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/24548827-20e3-4f37-b4c0-4f338ef08c30.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454804": [
+			"Next to the corpse of a trader leaning against the prize booth.",
+			[
+				{
+					"id": 82497,
+					"title": "unedited007885",
+					"file_name": "cac8bad5-fca8-4739-b5a7-a9125f728873.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cac8bad5-fca8-4739-b5a7-a9125f728873.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454805": [
+			"[Nuka-Galaxy](#loc=72630) - Inside a console in the control room next to the 'Airlock 3' entrance.",
+			[
+				{
+					"id": 82499,
+					"title": "unedited007888",
+					"file_name": "397c19f2-2ef2-430a-a8db-3d3a37c2d982.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/397c19f2-2ef2-430a-a8db-3d3a37c2d982.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82500,
+					"title": "unedited007887",
+					"file_name": "3f3bb142-f4b2-4f3c-9646-29ef719c496a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f3bb142-f4b2-4f3c-9646-29ef719c496a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454806": [
+			"[Nuka-Galaxy](#loc=72630) - Inside a console in the maintenance area at the bottom of a room filled with asteroids.",
+			[
+				{
+					"id": 82501,
+					"title": "unedited007890",
+					"file_name": "e6c25abe-ffac-4ede-b0fd-2c5211c35b9d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6c25abe-ffac-4ede-b0fd-2c5211c35b9d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82502,
+					"title": "unedited007891",
+					"file_name": "85b83fce-1c4d-4991-80e0-41c05e31514d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/85b83fce-1c4d-4991-80e0-41c05e31514d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454807": [
+			"[Nuka-Galaxy](#loc=72630) - Inside a console at the north-western edge of a room with stone arches and robots fighting aliens.",
+			[
+				{
+					"id": 82504,
+					"title": "unedited007894",
+					"file_name": "5f255bc4-3ab2-4f86-92a3-c936b8cec381.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f255bc4-3ab2-4f86-92a3-c936b8cec381.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82503,
+					"title": "unedited007893",
+					"file_name": "df4e299b-cd15-4cc7-8727-6a465909ce30.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df4e299b-cd15-4cc7-8727-6a465909ce30.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"454808": [
+			"[Nuka-Galaxy](#loc=72630) - After climbing a whole lot of stairs and reaching a room where the tracks curl around planets, climb some more stairs in the south-eastern corner to find the core in a console.",
+			[
+				{
+					"id": 82506,
+					"title": "unedited007896",
+					"file_name": "7e3a656a-8435-41e5-963e-7157673a40a2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e3a656a-8435-41e5-963e-7157673a40a2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82505,
+					"title": "unedited007895",
+					"file_name": "2d225aac-0646-4a6b-b478-13475acb10fb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2d225aac-0646-4a6b-b478-13475acb10fb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"454809": [
+			"Two are inside [Nuka-Galaxy](#loc=72630).\n\nOne is on top of a console opposite the [Nuka-Girl Rocketsuit](#loc=401894)-wearing mannequin near the ride's exit, and the other is on top of a console in the nearby employees-only area that the key unlocks.",
+			[
+				{
+					"id": 82508,
+					"title": "unedited007898",
+					"file_name": "3badb577-942c-457b-b62c-82a50204846f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3badb577-942c-457b-b62c-82a50204846f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82512,
+					"title": "unedited007901",
+					"file_name": "f7760a88-0d97-4fa4-b7b7-714794c87e57.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f7760a88-0d97-4fa4-b7b7-714794c87e57.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454810": [
+			"[Nuka-Galaxy](#loc=72630) — Inside a console opposite the [Nuka-Girl Rocketsuit](#loc=401894)-wearing mannequin near the ride's exit.",
+			[
+				{
+					"id": 82509,
+					"title": "unedited007898",
+					"file_name": "99bc71fc-5709-4812-ba66-d5a192daeb80.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/99bc71fc-5709-4812-ba66-d5a192daeb80.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454811": [
+			"[Nuka-Galaxy](#loc=72630) - Inside the consoles in an employees only area near the entrance. Pick through a master-difficulty lock or use the [Nuka-Galaxy Employee Key](#loc=454809) to gain access.",
+			[
+				{
+					"id": 82510,
+					"title": "unedited007899",
+					"file_name": "4054f647-da56-4ad9-a3ae-750b9efa1936.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4054f647-da56-4ad9-a3ae-750b9efa1936.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82511,
+					"title": "unedited007900",
+					"file_name": "4af49f3c-1fe6-4c0b-92cc-ca214439f4d9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4af49f3c-1fe6-4c0b-92cc-ca214439f4d9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454812": [
+			"On the upper floor of Star Control, on a desk in the office with a novice-difficulty locked door.\n\nUsed to unlock a display case holding a [Star Core](#loc=454789) nearby.",
+			[
+				{
+					"id": 82518,
+					"title": "unedited007907",
+					"file_name": "e3938073-4c5f-4bea-98fd-b4ad750af234.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3938073-4c5f-4bea-98fd-b4ad750af234.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454813": [
+			"On the upper floor of [Starport Nuka](#loc=72632)'s Star Control area, inside a display case with an Advanced-difficulty lock. You can also find [a key](#loc=454812) to unlock the case in an office with a novice-difficulty locked door nearby.",
+			[
+				{
+					"id": 82520,
+					"title": "unedited007908",
+					"file_name": "a1064825-6c0e-4ee6-becd-01f5be82c917.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a1064825-6c0e-4ee6-becd-01f5be82c917.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454814": [
+			"[Starlight Interstellar Theater](#loc=72634) - Next to a corpse in the bathrooms found in the building's north-eastern corner.",
+			[
+				{
+					"id": 82521,
+					"title": "unedited007909",
+					"file_name": "b076fb41-54ba-42c4-9ff5-44babe32a2f7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b076fb41-54ba-42c4-9ff5-44babe32a2f7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454815": [
+			"[Starlight Interstellar Theater](#loc=72634) - Inside a pantry found in the building's south-eastern corner. Pick through an Advanced-difficulty lock, or use the [Starlight Theater Pantry Key](#loc=454816) to get inside.",
+			[
+				{
+					"id": 82523,
+					"title": "unedited007911",
+					"file_name": "6a553253-2c64-41fd-8269-8fb42516753a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a553253-2c64-41fd-8269-8fb42516753a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454816": [
+			"[Starlight Interstellar Theater](#loc=72634) - On a countertop in the kitchens found in the building's south-eastern corner.\n\nUnlocks the nearby pantry that houses a [Star Core](#loc=454815).",
+			[
+				{
+					"id": 82522,
+					"title": "unedited007910",
+					"file_name": "c6d47528-7bb2-4fc7-9751-3ba3f1b72986.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c6d47528-7bb2-4fc7-9751-3ba3f1b72986.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454817": [
+			"[Starlight Interstellar Theater](#loc=72634) - Inside a console in the middle of the main room.",
+			[
+				{
+					"id": 82524,
+					"title": "unedited007912",
+					"file_name": "540a45f9-f884-4add-b109-5dcc384521e2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/540a45f9-f884-4add-b109-5dcc384521e2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454818": [
+			"[Starlight Interstellar Theater](#loc=72634) - Inside a console on the upper floor, accessed via elevator (or jetpack).",
+			[
+				{
+					"id": 82525,
+					"title": "unedited007913",
+					"file_name": "0d56d7d2-7fe9-471d-aa6e-cd25a1ec1e72.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d56d7d2-7fe9-471d-aa6e-cd25a1ec1e72.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454819": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Multiple can be found throughout the area. Locations include:\n- On a filing cabinet to your left immediately after entering (near the tour's entrance)\n- On the shelves of a desk opposite the elevators on the lower floor (near the tour's exit)\n- On top of a desk on the lower floor (near the tour's exit)",
+			[
+				{
+					"id": 82526,
+					"title": "unedited007914",
+					"file_name": "14da81f3-0ada-4808-bc63-c826a29786d1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14da81f3-0ada-4808-bc63-c826a29786d1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454820": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Immediately after beginning the tour, check behind a rock to find a door with an expert-difficulty lock. Pick it open (or use a [Vault-Tec Employee Key](#loc=454819)) to find the core in a console.",
+			[
+				{
+					"id": 82527,
+					"title": "unedited007916",
+					"file_name": "b0656d64-bf59-4098-873a-f33859286b1e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b0656d64-bf59-4098-873a-f33859286b1e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82528,
+					"title": "unedited007915",
+					"file_name": "35cb0058-dce8-4977-a2d7-1d6b5a65fb99.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35cb0058-dce8-4977-a2d7-1d6b5a65fb99.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454821": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Follow the tour until you reach a vault's 'residential' area. Pick through an Expert-difficulty lock (or use the [Vault-Tec Employee Key](#loc=454819)) on a door in the corner of the baby's room to reach a control room, then pick through a Master-difficulty lock (or use the [Vault-Tec Control Room Key](#loc=454826)) to find the cores in a console.",
+			[
+				{
+					"id": 82530,
+					"title": "unedited007918",
+					"file_name": "ccd51ba6-c456-4249-b467-d6c6e58be0b8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ccd51ba6-c456-4249-b467-d6c6e58be0b8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82531,
+					"title": "unedited007919",
+					"file_name": "bc3a0f9e-4ed1-4ffe-ad4a-9a504afe0b03.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bc3a0f9e-4ed1-4ffe-ad4a-9a504afe0b03.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454822": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Follow the tour until you reach a 'residential' area. A hole in the corner of the living room will take you to a room with some reactors, where this core is inside a console in the corner.",
+			[
+				{
+					"id": 82532,
+					"title": "unedited007920",
+					"file_name": "640fc0f3-6c13-478c-b2c2-3dc151750ae7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/640fc0f3-6c13-478c-b2c2-3dc151750ae7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454823": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Follow the tour until you reach a vault. Jump over the railings into the atrium, follow a corridor, and you'll find the key in a locker.",
+			[
+				{
+					"id": 82533,
+					"title": "unedited007923",
+					"file_name": "f53a2ea7-0fb6-485f-88fa-629f7a9a8813.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f53a2ea7-0fb6-485f-88fa-629f7a9a8813.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454824": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Follow the tour until you reach a vault's 'residential' area. Pick through an Expert-difficulty lock in the corner (or use the [Vault-Tec Observation Lab Key](#loc=454823)) to find the core in a console near the door.",
+			[
+				{
+					"id": 82535,
+					"title": "unedited007925",
+					"file_name": "d0e5ab6c-0d17-4c1e-931a-0becf3f0b1c6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d0e5ab6c-0d17-4c1e-931a-0becf3f0b1c6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 82534,
+					"title": "unedited007924",
+					"file_name": "2e7f6eb2-9f40-4d74-a5ba-749b406fa38c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2e7f6eb2-9f40-4d74-a5ba-749b406fa38c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"454825": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Follow the tour until you reach a vault's 'residential' area. Pick through an Expert-difficulty lock in the corner (or use the [Vault-Tec Observation Lab Key](#loc=454823)) to find the core in a generator near the door.",
+			[]
+		],
+		"454826": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Follow the tour until you reach a vault's 'residential' area. Pick through an Expert-difficulty lock in the corner (or use the [Vault-Tec Observation Lab Key](#loc=454823)) to find the key on a desk.",
+			[
+				{
+					"id": 82536,
+					"title": "unedited007927",
+					"file_name": "56101d40-865b-49cf-9d08-2d0c430fed4e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/56101d40-865b-49cf-9d08-2d0c430fed4e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454827": [
+			"[Vault Tec: Among the Stars](#loc=72633) - Follow the tour until you reach a vault's 'residential' area. Pick through an Expert-difficulty lock in the corner (or use the [Vault-Tec Observation Lab Key](#loc=454823)) to find the holotape on top of a filing cabinet in the corner.",
+			[
+				{
+					"id": 82538,
+					"title": "unedited007928",
+					"file_name": "aeddf268-2c9f-4149-a879-838150c256f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aeddf268-2c9f-4149-a879-838150c256f2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"454828": [
+			"An unmarked location immediately to your left as you go through a red door at the southern end of the street.",
+			[]
+		],
+		"454829": [
+			"[Nuka-Cade](#loc=148953) - On top of a weapons workbench in the 'Employees Only' room at the southern end of the building.",
+			[
+				{
+					"id": 82540,
+					"title": "unedited007932",
+					"file_name": "13859587-8d78-43a5-98b6-a9dc4709d5e1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/13859587-8d78-43a5-98b6-a9dc4709d5e1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461465": [
+			"A group of raiders can be found fighting super mutants or other enemies here.\n\nLoot in the area includes junk, miscellaneous containers, and fever blossom plants.",
+			[
+				{
+					"id": 85220,
+					"title": "unedited000583",
+					"file_name": "f1f0ef1b-94be-4a10-a9b9-4f56579b451b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f1f0ef1b-94be-4a10-a9b9-4f56579b451b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461466": [
+			"A truck filled with radioactive barrels can be found in a toxic puddle here.\n\nIn the back of the truck, you can find a combat rifle and explosives box with a novice-difficulty lock.",
+			[
+				{
+					"id": 85221,
+					"title": "unedited000584",
+					"file_name": "c141e140-262c-431c-b27b-85844323faca.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c141e140-262c-431c-b27b-85844323faca.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461467": [
+			"A polluted lake can be found here, home to a group of Mirelurks and their queen. At the southern edge of the lake, you can find a skeleton alongside a minigun, some ammo, and a steamer trunk.",
+			[
+				{
+					"id": 85222,
+					"title": "unedited000585",
+					"file_name": "dadf0156-f285-43ee-bdf3-0093a4ccd51f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dadf0156-f285-43ee-bdf3-0093a4ccd51f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461468": [
+			"In the inventory of the 'Ticket Taker', a Protectron found dead outside the [Grandchester Mystery Mansion](#loc=72636).\n\nUnlocks the mansion's front door.",
+			[
+				{
+					"id": 85224,
+					"title": "unedited000587",
+					"file_name": "72db5ce8-4096-4f63-8265-cf7ee293ffc9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/72db5ce8-4096-4f63-8265-cf7ee293ffc9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461470": [
+			"A lone super mutant and his pet hound can be found living here.\n\nSearch the shack to find a first aid kit, junk, weapons workbench, bobby pin box, and some carrots.",
+			[
+				{
+					"id": 85227,
+					"title": "unedited000590",
+					"file_name": "1cfe2c94-a3f1-4c15-a0c8-5177e4a9d1ca.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1cfe2c94-a3f1-4c15-a0c8-5177e4a9d1ca.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461471": [
+			"A deathclaw has created a nest beneath the rocky overhang here.\n\nA steamer trunk can be found among the skeletons.",
+			[
+				{
+					"id": 85228,
+					"title": "unedited000591",
+					"file_name": "c5804ffc-6109-40cb-84f6-dc28a10621f3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5804ffc-6109-40cb-84f6-dc28a10621f3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461500": [
+			"[Nuka-World Junkyard](#loc=72658) - in the mouth of a stuffed bear in the tunnels beneath the trash pile.",
+			[
+				{
+					"id": 85231,
+					"title": "unedited000594",
+					"file_name": "469c2ec0-e363-4daf-9861-c1d3796dda00.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/469c2ec0-e363-4daf-9861-c1d3796dda00.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461524": [
+			"A small house can be found here. Loot consists of a few crops and junk items.",
+			[
+				{
+					"id": 85232,
+					"title": "unedited000595",
+					"file_name": "e87d718e-a913-40d8-8e17-f29c05a3b69b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e87d718e-a913-40d8-8e17-f29c05a3b69b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461525": [
+			"An unmarked house and garage can be found here. Loot consists of junk items, crops, miscellaneous containers, and a bottle of bourbon.",
+			[
+				{
+					"id": 85233,
+					"title": "unedited000596",
+					"file_name": "c8ea5ba2-3936-4ba3-85ee-3c46560d0c21.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8ea5ba2-3936-4ba3-85ee-3c46560d0c21.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461526": [
+			"[Cola-Cars Arena](#loc=72635) - Inside a red locker in the locker room.",
+			[
+				{
+					"id": 85234,
+					"title": "unedited000597",
+					"file_name": "3a18549b-fbfe-4e37-9690-893f151bf957.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a18549b-fbfe-4e37-9690-893f151bf957.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461527": [
+			"**Location:** [Cola-Cars Arena](#loc=72635) - Inside a locker in the locker room, close to the ground.\n\n**Note:** Used to kill Colter during [Taken For A Ride](#loc=401856), but otherwise quite useless until you get the [Project Cobalt Schematics](#loc=76417) and mod it to use different (and _way_ more powerful) types of ammo.",
+			[
+				{
+					"id": 85235,
+					"title": "unedited000598",
+					"file_name": "5622daf4-a7dd-46e8-8f97-46e3b04351de.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5622daf4-a7dd-46e8-8f97-46e3b04351de.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461528": [
+			"[Cola-Cars Arena](#loc=72635) - when you reach the locker room, enter the bathroom and proceed through a hole in the wall. This will take you to a generator room, where the fusion core is in a generator.",
+			[
+				{
+					"id": 85236,
+					"title": "unedited000600",
+					"file_name": "9ff77ff9-7644-4e4d-a097-9ce02c81b9f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9ff77ff9-7644-4e4d-a097-9ce02c81b9f2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461529": [
+			"On a table behind Aaron Corbett in the [Nuka-Town Market](#loc=72650).",
+			[
+				{
+					"id": 85237,
+					"title": "unedited000601",
+					"file_name": "f763c1bb-4ca9-437e-970a-062cede6a60a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f763c1bb-4ca9-437e-970a-062cede6a60a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461530": [
+			"On a shelf below Aaron Corbett's countertop in the [Nuka-Town Market](#loc=72650)",
+			[
+				{
+					"id": 85238,
+					"title": "unedited000603",
+					"file_name": "fe4c8ebd-f909-4bdc-bce8-cf1d0f39726b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fe4c8ebd-f909-4bdc-bce8-cf1d0f39726b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461531": [
+			"Unique grenade that attracts predators. Given to you by Mason at the start of the [Home Sweet Home](#loc=401869) quest.",
+			[]
+		],
+		"461532": [
+			"An unmarked interior accessed through red doors in the [Bradberton Amphitheater](#loc=72652).",
+			[
+				{
+					"id": 85239,
+					"title": "unedited000604",
+					"file_name": "0f7e3e2a-654c-4cfc-932c-f71439882374.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f7e3e2a-654c-4cfc-932c-f71439882374.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461533": [
+			"[Nuka-Town Backstage](#loc=461532) - Proceed north and head through the first door on your right to find it on a side-table.",
+			[
+				{
+					"id": 85240,
+					"title": "unedited000605",
+					"file_name": "75535a1f-0d0c-446b-9532-6669947066ac.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/75535a1f-0d0c-446b-9532-6669947066ac.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461534": [
+			"[Nuka-Town Backstage](#loc=461532) - On a table in the north-west corner of the main room.",
+			[
+				{
+					"id": 85241,
+					"title": "unedited000606",
+					"file_name": "96ee4d70-e57f-4461-8378-700cab3988e5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/96ee4d70-e57f-4461-8378-700cab3988e5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461535": ["[Nuka-Town Backstage](#loc=461532) - on a table in the back room, opposite the caged animals.", []],
+		"461536": [
+			"[The Parlor](#loc=148954) - on a shelf inside Lizzie Wyath's office (the small room connected  the kitchen).",
+			[
+				{
+					"id": 85242,
+					"title": "unedited000607",
+					"file_name": "57551448-5e63-4fd1-8a5c-06a4e576689c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57551448-5e63-4fd1-8a5c-06a4e576689c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461537": [
+			"Unique grenade that makes it easier to scare settlers out of their settlements. Given to you by Lizzie Wyath at the start of the [Home Sweet Home](#loc=401869) quest.",
+			[]
+		],
+		"461538": [
+			"Inside Clark's Toolbox, found in a closed restroom stall and secured with an advanced-difficulty lock.",
+			[
+				{
+					"id": 85245,
+					"title": "unedited000609",
+					"file_name": "dedd259a-dfdd-441b-95cb-e9dd7cb4a9d6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dedd259a-dfdd-441b-95cb-e9dd7cb4a9d6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461539": [
+			"A uniquely-named footlocker, found underneath the bridge. Can only be unlocked with [Clark's Stash Key](#loc=461540)",
+			[
+				{
+					"id": 85246,
+					"title": "unedited000610",
+					"file_name": "7e0416ca-282c-44c7-8d5f-db70b00c9a82.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e0416ca-282c-44c7-8d5f-db70b00c9a82.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461540": [
+			"Inside Clark's Toolbox, found in a closed restroom stall and secured with an advanced-difficulty lock. Used to unlock [Clark's Stash](#loc=461539)",
+			[]
+		],
+		"461541": [
+			"On the exterior wall. Only accessible after main power is returned at the end of [Power Play](#loc=401870), and partially hidden behind a hedge.",
+			[
+				{
+					"id": 85247,
+					"title": "unedited000612",
+					"file_name": "30022d93-4d91-43c4-9314-28e50b9f5ed6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/30022d93-4d91-43c4-9314-28e50b9f5ed6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461542": [
+			"Inside a safe opened during [High Noon at The Gulch](#loc=401874). Play along with the robots' antics, or just kill them and loot their parts of the code to gain access.\n\nUsed to enter [Mad Mulligan's Minecart Coaster](#loc=72626).",
+			[
+				{
+					"id": 85248,
+					"title": "unedited000613",
+					"file_name": "7bffba94-2c5b-469b-8e76-2d4f77fdf2fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7bffba94-2c5b-469b-8e76-2d4f77fdf2fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461543": [
+			"In the inventory of Ricky Braxton, found in a tunnel near the end of [Mad Mulligan's Minecart Coaster](#loc=72626).",
+			[
+				{
+					"id": 85250,
+					"title": "unedited000615",
+					"file_name": "e5b26303-3a67-47d5-a894-4ed03d6da877.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5b26303-3a67-47d5-a894-4ed03d6da877.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461544": [
+			"A Super Mutant Behemoth lurks in the small ravine here.",
+			[
+				{
+					"id": 85251,
+					"title": "unedited000616",
+					"file_name": "13f04e7c-7355-4e6a-b050-fc6d8409bf27.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/13f04e7c-7355-4e6a-b050-fc6d8409bf27.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461545": [
+			"On top of a wooden crate in the middle of nowhere.",
+			[
+				{
+					"id": 85252,
+					"title": "unedited000617",
+					"file_name": "f0d176c8-1cba-4691-80e0-4b4f88722bbe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0d176c8-1cba-4691-80e0-4b4f88722bbe.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461546": [
+			"Inside a duffle bag on top of the trailer it unlocks.",
+			[
+				{
+					"id": 85255,
+					"title": "unedited000619",
+					"file_name": "07f1e820-0a95-41bf-bea3-6487d88dc69f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07f1e820-0a95-41bf-bea3-6487d88dc69f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461547": [
+			"Inside a tool case in the trailer. Pick through the expert-difficulty lock, or use the [AFAD Key](#loc=461546) to reach it.\n\nUnlocks an Employees Only terminal blocking your access to the basement in the [Safari Adventure Welcome Center](#loc=461548).",
+			[
+				{
+					"id": 85256,
+					"title": "unedited000620",
+					"file_name": "56d9172b-d8af-46d6-a740-068b918159ab.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/56d9172b-d8af-46d6-a740-068b918159ab.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461548": [
+			"An unmarked location opposite the entrance to the [Safari Adventure](#loc=72625) zone. Grab [Dr. Hein's Passcode](#loc=461547) to gain access to the basement.",
+			[]
+		],
+		"461549": [
+			"In a duffle bag next to the terminal-locked door on the ground floor of the [Safari Adventure Welcome Center](#loc=461548).",
+			[
+				{
+					"id": 85257,
+					"title": "unedited000621",
+					"file_name": "f57363a9-3095-4ec1-ae66-f7148a5c4be1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f57363a9-3095-4ec1-ae66-f7148a5c4be1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461550": [
+			"Inside a generator in the flooded part of the [Safari Adventure Welcome Center](#loc=461548)'s basement.",
+			[
+				{
+					"id": 85258,
+					"title": "unedited000622",
+					"file_name": "954fd383-a9ef-4fe8-b4b8-d9e2d4b114e7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/954fd383-a9ef-4fe8-b4b8-d9e2d4b114e7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461552": [
+			"[Safari Adventure Welcome Center](#loc=461548) - when you reach the flooded section of the basement, go to the north-western edge of the room to find it on a red console.",
+			[
+				{
+					"id": 85259,
+					"title": "unedited000623",
+					"file_name": "412afe35-5b2c-4524-8a64-9fa890b689ea.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/412afe35-5b2c-4524-8a64-9fa890b689ea.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461553": [
+			"[Safari Adventure Welcome Center](#loc=461548) - when you enter the basement, go through the first double doors on your right to find both holotapes on a desk in front of Dr. Hein's Terminal.",
+			[
+				{
+					"id": 85260,
+					"title": "unedited000624",
+					"file_name": "9315e84f-3a6b-4b5d-8ee6-f71c9e386029.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9315e84f-3a6b-4b5d-8ee6-f71c9e386029.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461554": [
+			"On top of the roof of [King Cola's Castle](#loc=72628), where it's either given to you by Oswald the Outrageous after showing him [Rachel's Holotape](#loc=437237) or taken from his corpse.\n\n**Effect:** \r\n- +1 Perception\n- +1 Charisma\n- Increases the wearer's movement speed by 10%.",
+			[]
+		],
+		"461555": [
+			"On the roof of [King Cola's Castle](#loc=72628), where it can only be obtained by killing Oswald the Outrageous.\n\n**Effect:**\n- +1 Charisma\n- +1 Endurance\n- Reduces damage from humans by 15%",
+			[]
+		],
+		"461556": [
+			"On top of a cabinet in a small room on the roof of the bottling plant.",
+			[
+				{
+					"id": 85262,
+					"title": "unedited000626",
+					"file_name": "df458b7e-3c11-4127-a9c1-ba373592cf81.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df458b7e-3c11-4127-a9c1-ba373592cf81.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461557": [
+			"On top of a cabinet in a small room on the roof of the bottling plant.",
+			[
+				{
+					"id": 85263,
+					"title": "unedited000626",
+					"file_name": "5ae79e8f-16f4-4c6c-9d83-5836c5cbb0a3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5ae79e8f-16f4-4c6c-9d83-5836c5cbb0a3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461558": [
+			"[World of Refreshment](#loc=72639) - next to the broken terminal and the dead body of Sergeant Lanier, in the room with the big nuka-cola quantum vats.",
+			[
+				{
+					"id": 85264,
+					"title": "unedited000627",
+					"file_name": "750a2e77-2c30-4600-9422-b0fe66435f43.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/750a2e77-2c30-4600-9422-b0fe66435f43.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461559": [
+			"Home to a group of Gunners, and often attacked by the local raider gangs.\r\n\r\nSearch it to find a cooking station, armor workbench, junk, and food.",
+			[
+				{
+					"id": 85266,
+					"title": "unedited000629",
+					"file_name": "b5416d6d-c2b4-4781-8516-f88c4f5de058.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b5416d6d-c2b4-4781-8516-f88c4f5de058.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461561": [
+			"A reasonably sized camp can be found here.\n\nSearch it to find a bed, ammo box, junk, food, chemistry station, crops, and a chem cooler with a novice-difficulty lock. In the corner behind a bed, you'll also find a safe with a Master-difficulty lock.",
+			[
+				{
+					"id": 85267,
+					"title": "unedited000630",
+					"file_name": "bb955b9d-d298-43a9-ae48-1c14a7d76f43.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb955b9d-d298-43a9-ae48-1c14a7d76f43.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461563": [
+			"Leads to [Morton Residence](#loc=72618), giving you access to the power armor inside.",
+			[
+				{
+					"id": 85268,
+					"title": "unedited000631",
+					"file_name": "a0ff7d66-05a1-40f5-96bd-270b3732645e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a0ff7d66-05a1-40f5-96bd-270b3732645e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461564": [
+			"[Fizztop Grille](#loc=72646) - next to the bed on the raised platform.",
+			[
+				{
+					"id": 85269,
+					"title": "unedited000632",
+					"file_name": "70af6e0c-dd77-44aa-9601-b19879f248fb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/70af6e0c-dd77-44aa-9601-b19879f248fb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"461565": [
+			"Unique grenade that turns enemies against one another. Given to you by Dixie at the start of the [Home Sweet Home](#loc=401869) quest.",
+			[]
+		],
+		"461566": [
+			"In the inventory of Tiana Alston, found dead among the trader corpses by whichever entrance to the [Galactic Zone](#loc=72648) you approach first.",
+			[
+				{
+					"id": 85270,
+					"title": "unedited000633",
+					"file_name": "4e416250-ad8f-4e80-bd57-9aeae74305f3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e416250-ad8f-4e80-bd57-9aeae74305f3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"498398": [
+			"In the inventory of a Pack member killed by a Deathclaw.\n\n**Note - The deathclaw and corpse holding this holotape can spawn anywhere in Nuka-World, as it is linked to a random encounter.**",
+			[]
+		],
+		"498401": [
+			"[Safari Adventure Primate House](#loc=72623) - On a small box in the pen on the right, next to a mattress.",
+			[]
+		],
+		"498402": [
+			"Worn by a Gunner Leader on the [Bradberton Overpass](#loc=72640). Destroy or steal the fusion core to take the frame, or kill its wearer to take the pieces.",
+			[]
+		],
+		"499129": [
+			"Inside a wrecked teacup on a ledge near the spaceship.",
+			[
+				{
+					"id": 107118,
+					"title": "unedited015857",
+					"file_name": "0c193524-54aa-4154-8c6d-064cd2fe6b01.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c193524-54aa-4154-8c6d-064cd2fe6b01.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"499130": [
+			"On a shelf inside the subway carriage.",
+			[
+				{
+					"id": 107119,
+					"title": "unedited015858",
+					"file_name": "ee06befc-9116-4dc2-9d2d-f5b133792341.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee06befc-9116-4dc2-9d2d-f5b133792341.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"499141": [
+			"[Nuka-World Junkyard](#loc=72658) - In the inventory of a sentry bot outside a subway carriage.",
+			[
+				{
+					"id": 107127,
+					"title": "unedited015859",
+					"file_name": "34a65102-9a1c-4724-8bb8-bc7ae2a182f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/34a65102-9a1c-4724-8bb8-bc7ae2a182f9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"503473": [
+			"Inside the open house, a bonfire can be kindled to receive stimpaks. This is a reference to the Dark Souls series, where bonfires with swords sticking out of them act as checkpoints that restore your health.",
+			[
+				{
+					"id": 108835,
+					"title": "",
+					"file_name": "fa0f3df8-e9ae-4de1-8f8c-6c03ce8b23b9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa0f3df8-e9ae-4de1-8f8c-6c03ce8b23b9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 108836,
+					"title": "",
+					"file_name": "0021b906-66f7-4e7a-bd05-d7671c537122.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0021b906-66f7-4e7a-bd05-d7671c537122.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"509680": ["Master-locked safe and some junk", []],
+		"538639": [
+			"**Location:** Inside John-Caleb Bradberton's office - given to you by Sierra.\n\r\n**Prerequisite:** Complete side quest [Cappy in a Haystack](#loc=401873) siding with Sierra by keeping Bradberton alive. You can side with Sierra to get her reward, then turn off the power to kill Bradberton and get the [Nuka-Nuke Launcher [Unique Fat Man]](https://fallout4map.com/nuka-world?locationIds=76335) - but Sierra will turn hostile.\r\n\r\n**Effect:**\n- Intelligence +1\n- Perception +1",
+			[]
+		],
+		"538644": [
+			"On the desk next to Bradburton's terminal inside the office, accessed during [Cappy in a Haystack](#loc=401873)",
+			[]
+		],
+		"538645": [
+			"Back entrance of the bear cave",
+			[
+				{
+					"id": 119920,
+					"title": "",
+					"file_name": "735d0287-4c4d-4493-84f7-fc13c2ba2b82.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/735d0287-4c4d-4493-84f7-fc13c2ba2b82.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"543599": ["[Cola-Cars Arena](#loc=72635) - On a corpse sitting on a bench.", []],
+		"543600": ["[Nuka-Town Backstage](#loc=461532) - Near the armor and weapon workbenches, on a bookshelf.", []],
+		"543601": ["[Nuka-Town Backstage](#loc=461532) - Near the armor and weapon workbenches, on a bookshelf.", []],
+		"543602": ["Entered during [Taken For A Ride](#loc=401856). Good luck!", []],
+		"543603": [
+			"Found on a super mutant's corpse in a Mirelurk-infested part of [Nuka-World Access Tunnels (The Gauntlet)](#loc=543602).",
+			[]
+		],
+		"543604": ["[World of Refreshment](#loc=72639) - On a countertop in a room filled with consoles.", []],
+		"543605": ["[The Parlor](#loc=148954) - On a shelf in a small room.", []],
+		"543606": ["[Nuka-Town Backstage](#loc=461532) - In an open locker.", []],
+		"543608": ["[Nuka-Town Backstage](#loc=461532) - On the floor next to a suitcase.", []],
+		"543609": [
+			"**Location:** Behind the locked safe door in John-Caleb Bradberton's office.\r\n\r\n**Prerequisite:** Complete side quest [Cappy in a Haystack](#loc=401873) siding with Bradberton at the end and killing him (alternatively you can side with Sierra to get her reward, then turn off the power to kill Bradberton afterwards to get all rewards - Sierra will turn hostile).",
+			[]
+		],
+		"543610": [
+			"On the desk next to Bradburton's terminal inside the office, accessed during [Cappy in a Haystack](#loc=401873)",
+			[]
+		],
+		"543611": ["[Nuka-Station](#loc=72653) - On the corpse of Ophelia, found in a pile of rubble.", []],
+		"543612": ["[The Parlor](#loc=148954) - On a shelf in a small room.", []],
+		"543613": [
+			"**Location:** In the _Secure Beverageer Lab_ inside the [World of Refreshment](#loc=72639).  After entering the _Test Room_, it's on a table next to a weapons workbench.\n\n**Prerequisite:** Turn the main power back on in the park during main quest _Power Play_",
+			[]
+		],
+		"543614": ["[Nuka-Station](#loc=72653) - On the corpse of Corin, found on a sleeping bag.", []],
+		"543615": ["[Nuka-Town Backstage](#loc=461532) - On the floor next to a suitcase.", []],
+		"543616": ["[Nuka-Town Backstage](#loc=461532) - On a desk near two cans of paint.", []],
+		"543617": [
+			"Recipe for a chem that grants Charisma +3 and better prices when bartering for 4 minutes. Given to you by Lizzie Wyath at the start of the [Home Sweet Home](#loc=401869) quest.",
+			[]
+		],
+		"543618": ["[Nuka-Station](#loc=72653) - On the corpse of Sykes, found near a door.", []],
+		"543619": ["[Nuka-Town Backstage](#loc=461532) - On a desk near a trash can with a ribcage inside.", []],
+		"545820": [
+			"Inside a red toolbox at the bottom of the ramp on the platform where you find the [Nuka-Xtreme Recipe](#loc=76147).",
+			[
+				{
+					"id": 148545,
+					"title": "",
+					"file_name": "df89c64d-9b6e-4f66-8504-99a82722dfa5.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df89c64d-9b6e-4f66-8504-99a82722dfa5.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"561068": ["On the small table by the window in the bedroom area of Fizztop Grille", []],
+		"561072": ["Looted from Ian's corpse, which can be found in the covered outdoor section of the gauntlet.", []],
+		"561073": ["Looted from one of the generators in the maze of fusion generators in the gauntlet.", []],
+		"561074": ["Looted from Private Tyler's corpse in the gauntlet, in the maze of fusion generators.", []],
+		"606656": ["Given to you by Cito as part of [Safari Adventure](#loc=401882)", []],
+		"606657": [
+			"Inside a locked (Hard) safe in John-Caleb Bradberton's office, accessed during [Cappy in a Haystack](#loc=401873)",
+			[]
+		],
+		"606658": [
+			"**Location:** In the _Secure Beverageer Lab_ inside the [World of Refreshment](#loc=72639). \n- **Meacham Recording AB27**: In a bedroom\n- **Meacham Recording AB30**: On a counter in the cafeteria\n- **Meacham Recording AB35**: On a roll of tickets next to a broken screen\n- **Meacham Recording AB42**: On a console",
+			[]
+		],
+		"606659": ["Looted from Nisha.", []],
+		"606660": ["Looted from Eyebots in Nuka-World.", []],
+		"606661": ["Looted from a corpse in the [Nuka-World Access Tunnels (The Gauntlet)](#loc=543602)", []],
+		"891836": [
+			"Has a military trunk and a wooden crate",
+			[
+				{
+					"id": 138108,
+					"title": "",
+					"file_name": "7d0736d6-b50f-4cf4-8344-e7330bb8d359.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d0736d6-b50f-4cf4-8344-e7330bb8d359.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

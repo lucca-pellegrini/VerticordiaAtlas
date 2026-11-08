@@ -609,7 +609,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "the-lands-between/data.compact.json"
 		},
 		{
 			"slug": "the-shadow-realm",
@@ -626,7 +627,8 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			]
+			],
+			"compact": "the-shadow-realm/data.compact.json"
 		}
 	]
 }

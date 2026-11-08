@@ -1,0 +1,689 @@
+{
+	"v": 1,
+	"d": {
+		"270831": [
+			"**Sequence** -  1\n\n**Location:** In the middle of a hallway, on the floor",
+			[
+				{
+					"id": 32365,
+					"title": "1",
+					"file_name": "c3149403-3d97-41a0-82ad-211c0c5e65b9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c3149403-3d97-41a0-82ad-211c0c5e65b9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270832": [
+			"**Sequence** -  1\n\n**Location:** On the table of the employee cubicle",
+			[
+				{
+					"id": 32366,
+					"title": "2",
+					"file_name": "ca9db7a9-220a-4b49-a55e-18deb66d9a3e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ca9db7a9-220a-4b49-a55e-18deb66d9a3e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270833": [
+			"**Sequence** -  1\n\n**Location:** In the toilet, next to the sink",
+			[
+				{
+					"id": 32367,
+					"title": "3",
+					"file_name": "2bd9444f-2cac-4fee-8933-9fd35378cab3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2bd9444f-2cac-4fee-8933-9fd35378cab3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270834": [
+			"**Sequence** -  1\n\n**Location:** On the office chair",
+			[
+				{
+					"id": 32368,
+					"title": "4",
+					"file_name": "ba222d3d-75b1-4fe0-88b0-1437b7abb90b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ba222d3d-75b1-4fe0-88b0-1437b7abb90b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270835": ["**Sequence** -  1\n\nAssociated with this [Computer](#loc=270836)", []],
+		"270836": [
+			"**Sequence** -  1\n\n**Contents:**\n- Inspiration: Al Mualim\n\nAssociated with this [Server](#loc=270835)",
+			[
+				{
+					"id": 32370,
+					"title": "1",
+					"file_name": "2d8f5ee7-cb53-4cb4-9ef2-31a4d065fe8d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2d8f5ee7-cb53-4cb4-9ef2-31a4d065fe8d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270837": [
+			"**Sequence** -  1\n\n**Contents:**\n- Lindsifarne\n\n**Prerequisite:**\n- Repair this [Server](#loc=270835)",
+			[
+				{
+					"id": 32371,
+					"title": "2",
+					"file_name": "5b5897f2-4bd0-4926-9751-ab36abd91ce1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b5897f2-4bd0-4926-9751-ab36abd91ce1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270838": [
+			"**Sequence** -  1\n\n**Contents:**\n- The Ankh\n\n**Prerequisite:**\n- Repair this [Server](#loc=270835)",
+			[
+				{
+					"id": 32372,
+					"title": "3",
+					"file_name": "a1c6f722-2322-4477-895a-f706fb9633ee.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a1c6f722-2322-4477-895a-f706fb9633ee.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270839": [
+			"**Sequence** -  1\n\n**Location:** On the floor, in front of the security guard",
+			[
+				{
+					"id": 32373,
+					"title": "5",
+					"file_name": "01e295d2-c648-4707-bd5c-4a67fbcd2588.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/01e295d2-c648-4707-bd5c-4a67fbcd2588.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270840": [
+			"**Sequence** -  3\n\n**Location:** On the couch in Otto's office",
+			[
+				{
+					"id": 32376,
+					"title": "6",
+					"file_name": "1f653f01-8c76-4f43-b29c-1ca9e8496b98.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f653f01-8c76-4f43-b29c-1ca9e8496b98.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270841": [
+			"After completing **Sequence** -  6\n\n**Location:** On the floor of another's employee cubicle\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32406,
+					"title": "21",
+					"file_name": "6e015d3b-5237-43de-a796-8b0339d0460b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6e015d3b-5237-43de-a796-8b0339d0460b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270842": [
+			"After completing **Sequence** -  6\n\n**Contents:**\n- The Koh-i-Noor\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32407,
+					"title": "18",
+					"file_name": "2b5ff6d8-023c-4cdf-8ec1-27f2269487f9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2b5ff6d8-023c-4cdf-8ec1-27f2269487f9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270843": [
+			"After completing **Sequence** -  6\n\n**Contents:**\n- The Soldiers\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32408,
+					"title": "19",
+					"file_name": "61d391e6-d239-44cc-8481-11a324e0c1d7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61d391e6-d239-44cc-8481-11a324e0c1d7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270844": [
+			"**Sequence** -  5\n\n**Location:** On the couch",
+			[
+				{
+					"id": 32394,
+					"title": "14",
+					"file_name": "525fbe4d-d71d-4ba0-afc2-8a41bc97dd1e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/525fbe4d-d71d-4ba0-afc2-8a41bc97dd1e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270845": [
+			"**Sequence** -  5\n\n**Contents:**\n- The Dead\n\n**Prerequisite:**\n- Repair this [Server](#loc=270868)",
+			[
+				{
+					"id": 32395,
+					"title": "11",
+					"file_name": "804d0693-c304-4343-a0d1-a9d9aa4e1003.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/804d0693-c304-4343-a0d1-a9d9aa4e1003.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270846": [
+			"**Sequence** -  5\n\n**Contents:**\n- Cairo Debrief\n\n**Prerequisite:**\n- Repair this [Server](#loc=270868)",
+			[
+				{
+					"id": 32396,
+					"title": "12",
+					"file_name": "2885cab8-6f6b-45a5-a3c8-969be8229d3b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2885cab8-6f6b-45a5-a3c8-969be8229d3b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270849": [
+			"After completing **Sequence** -  6\n\n**Contents:**\n- New Orders\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32409,
+					"title": "20",
+					"file_name": "10d5808f-58b7-47eb-a12a-bab066c4d4af.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/10d5808f-58b7-47eb-a12a-bab066c4d4af.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270850": [
+			"After completing **Sequence** -  6\n\n**Location:**  On the table of another's employee cubicle\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32410,
+					"title": "22",
+					"file_name": "d800cfd3-2eaf-42e9-863d-58b3dc26db7f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d800cfd3-2eaf-42e9-863d-58b3dc26db7f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270851": [
+			"After completing **Sequence** -  6\n\n**Otso Berg's Profile**\n**Contents:**\n- Florence goes FUBAR\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32403,
+					"title": "14",
+					"file_name": "4ad34f12-596c-462b-8699-11612f2db48e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ad34f12-596c-462b-8699-11612f2db48e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270852": [
+			"**Sequence** -  3\n\n**Location:** On the ground by the stairs and bushes",
+			[
+				{
+					"id": 32380,
+					"title": "9",
+					"file_name": "141b7a8b-29da-482d-8839-4deb12a09db2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/141b7a8b-29da-482d-8839-4deb12a09db2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270853": [
+			"After completing **Sequence** -  6\n\n**Location:** On the table\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32405,
+					"title": "20",
+					"file_name": "bc494bd6-da2e-47b5-bc7b-237eb31be790.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bc494bd6-da2e-47b5-bc7b-237eb31be790.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270854": [
+			"After completing **Sequence** -  6\n\n**Contents:**\n- The Box\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32404,
+					"title": "15",
+					"file_name": "be1e2711-035c-4f1a-b036-07c11bf88c0f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be1e2711-035c-4f1a-b036-07c11bf88c0f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270855": [
+			"**Sequence** -  3\n\n**Location:** Behind the round couch, on the ground",
+			[
+				{
+					"id": 32379,
+					"title": "8",
+					"file_name": "75f13d88-e4c2-4378-bdbb-cc088445db6b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/75f13d88-e4c2-4378-bdbb-cc088445db6b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270856": [
+			"**Sequence** -  3\n\n**Location:** On the ground behind the plant bed",
+			[
+				{
+					"id": 32381,
+					"title": "10",
+					"file_name": "7e70fc27-5b4b-4c94-8664-39b21137f438.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e70fc27-5b4b-4c94-8664-39b21137f438.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270858": [
+			"**Sequence** -  3\n\n**Contents:**\n- Inspiration: Daniel Cross\n\n**Prerequisite:**\n- Repair this [Server](#loc=270860)",
+			[
+				{
+					"id": 32382,
+					"title": "7",
+					"file_name": "d62cec95-6392-4979-8a7e-948ce5045dd0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d62cec95-6392-4979-8a7e-948ce5045dd0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270859": [
+			"**Sequence** -  3\n\n**Contents:**\n- Paris\n\n**Prerequisite:**\n- Repair this [Server](#loc=270860)",
+			[
+				{
+					"id": 32383,
+					"title": "8",
+					"file_name": "34f851f5-4ab6-4772-8582-4cc2b8aa68d5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/34f851f5-4ab6-4772-8582-4cc2b8aa68d5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270860": ["**Sequence** -  3\n\nAssociated with this [Computer](#loc=270861)", []],
+		"270861": [
+			"**Sequence** -  3\n\n**Contents:**\n- Vidic's New Recruit\n\nAssociated with this [Server](#loc=270860)",
+			[
+				{
+					"id": 32378,
+					"title": "6",
+					"file_name": "a686b873-2167-45df-89cc-8c74d03257e4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a686b873-2167-45df-89cc-8c74d03257e4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270862": [
+			"**Sequence** -  3\n\n**Location:** On the floating walkway",
+			[
+				{
+					"id": 32377,
+					"title": "7",
+					"file_name": "a42995cb-a460-4aea-b0b7-ceda33ad13f1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a42995cb-a460-4aea-b0b7-ceda33ad13f1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270863": [
+			"**Sequence** -  5\n\n**Location:** On top of the covered balcony chair",
+			[
+				{
+					"id": 32390,
+					"title": "12",
+					"file_name": "43be1664-1c83-49dd-bbc1-a02c1b4c4b01.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/43be1664-1c83-49dd-bbc1-a02c1b4c4b01.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270864": [
+			"**Sequence** -  5\n\n**Location:** Behind plant pot",
+			[
+				{
+					"id": 32389,
+					"title": "11",
+					"file_name": "b36449ee-73ae-436a-98bc-6e9b48a396eb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b36449ee-73ae-436a-98bc-6e9b48a396eb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270865": [
+			"**Sequence** -  5\n\n**Contents:**\n- The Cult\n\n**Prerequisite:**\n- Repair this [Server](#loc=270868)",
+			[
+				{
+					"id": 32393,
+					"title": "10",
+					"file_name": "9d146ac8-8f23-4c64-a626-57c042d80ca2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9d146ac8-8f23-4c64-a626-57c042d80ca2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270867": [
+			"**Sequence** -  5\n\n**Location:** On the floor, next to the toolbox",
+			[
+				{
+					"id": 32392,
+					"title": "13",
+					"file_name": "16edf735-3bb2-4cd6-9a9f-3858db74dcb0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/16edf735-3bb2-4cd6-9a9f-3858db74dcb0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270868": ["**Sequence** -  5\n\nAssociated with this [Computer](#loc=270869)", []],
+		"270869": [
+			"**Sequence** -  5\n\n**Contents:**\n- Inspiration: Baptiste\n\nAssociated with this [Server](#loc=270868)",
+			[
+				{
+					"id": 32391,
+					"title": "9",
+					"file_name": "c06cda3a-d07a-44aa-9d57-f3934f44a385.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c06cda3a-d07a-44aa-9d57-f3934f44a385.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270871": [
+			"After completing **Sequence** -  6\n\n**Location:** On the ground behind big server pillar",
+			[
+				{
+					"id": 32397,
+					"title": "15",
+					"file_name": "a3b11fe6-6d6d-4902-ba4d-3d17c4e53cb8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3b11fe6-6d6d-4902-ba4d-3d17c4e53cb8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270872": ["After completing **Sequence** -  6\n\nAssociated with this [Computer](#loc=270873)", []],
+		"270873": [
+			"After completing **Sequence** -  6\n\n**Contents:**\n- Cross Training\n\nAssociated with this [Server](#loc=270872)",
+			[
+				{
+					"id": 32398,
+					"title": "13",
+					"file_name": "1566084d-2f75-485e-9695-a978d4eebed7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1566084d-2f75-485e-9695-a978d4eebed7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270874": [
+			"**Sequence** -  6\n\n**Location:** On the floor",
+			[
+				{
+					"id": 32399,
+					"title": "16",
+					"file_name": "50e95cac-0af7-4d44-8b1a-943d335699f3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50e95cac-0af7-4d44-8b1a-943d335699f3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270876": [
+			"After completing **Sequence** -  6\n\n**Location:** On the sink table in the employee's cubicle 04",
+			[
+				{
+					"id": 32402,
+					"title": "19",
+					"file_name": "66b85e56-e352-453b-89c6-5a55df510bec.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66b85e56-e352-453b-89c6-5a55df510bec.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270877": [
+			"After completing **Sequence** -  6\n\n**Contents:**\n- Inspiration: Duncan Walpole\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32400,
+					"title": "17",
+					"file_name": "d9105db2-80b2-4a07-820f-978ac2ca0ad0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9105db2-80b2-4a07-820f-978ac2ca0ad0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270878": [
+			"After completing **Sequence** -  6\n\n**Contents:**\n- The Support\n\n**Prerequisite:**\n- Repair this [Server](#loc=270872)",
+			[
+				{
+					"id": 32401,
+					"title": "18",
+					"file_name": "e3b4d9f0-0c7d-44a6-8dad-a8341aaa6307.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3b4d9f0-0c7d-44a6-8dad-a8341aaa6307.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270879": [
+			"**Sequence** -  1\n\n**Contents:**\n- Inspiration: Haytham Kenway\n\n**Prerequisite:**\n- Repair this [Server](#loc=270835)",
+			[
+				{
+					"id": 32374,
+					"title": "4",
+					"file_name": "f8e2b522-fcd3-496b-9e2d-6a8839fcdf69.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f8e2b522-fcd3-496b-9e2d-6a8839fcdf69.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"270880": [
+			"**Sequence** -  1\n\n**Contents:**\n- The Leaders\n\n**Prerequisite:**\n- Repair this [Server](#loc=270835)",
+			[
+				{
+					"id": 32375,
+					"title": "5",
+					"file_name": "f23e8689-7447-40c5-a54e-428a46e1dfb7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f23e8689-7447-40c5-a54e-428a46e1dfb7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

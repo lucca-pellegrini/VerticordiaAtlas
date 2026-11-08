@@ -1,0 +1,5260 @@
+{
+	"v": 1,
+	"d": {
+		"119845": ["Crushes vehicles and awarding with small quantities of money.", []],
+		"119847": ["Costs $1,000", []],
+		"119848": ["Costs $1,000", []],
+		"119849": ["Costs $1,000", []],
+		"119850": [
+			"**Objective:** Pick up 15 checkpoints in five minutes,\neach checkpoint gives an additional 20 seconds.  \n**Reward:** $20,000  \n**Prerequisite:** [Luigi's Girls](#loc=119852)  \n\n**Note:** The mission starts when entered _[Patriot](#loc=121996)_.",
+			[]
+		],
+		"119851": [
+			"**Objective:** Pick up 20 checkpoints in two minutes. Each checkpoint gives an additional 5 seconds.  \n**Reward:** $30,000  \n**Prerequisite:** [Last Requests](#loc=120479)  \n\n**Note:** The mission starts after entering a _­[Stallion](#loc=122108)_ outside of the car park.",
+			[]
+		],
+		"119852": [
+			"**Objective:** Head over to the [Sweeney General Hospital](#loc=119861), and bring _Misty_ to [Luigi's Sex Club 7](#loc=120360).  \n**Reward:** $1,500 + [Portland Safehouse](#loc=119864)  \n**Quest Giver:** _Luigi Goterelli_  \n**Prerequisite:** [Give Me Liberty](#loc=120251)",
+			[]
+		],
+		"119853": [
+			"**Objective:** Pick up 12 checkpoints in two minutes. Each checkpoint gives an additional 10 seconds.  \n**Reward:** $30,000  \n**Prerequisite:** [Last Requests](#loc=120479)  \n\n**Note:** The mission starts after entering the _[Landstalker](#loc=122071)_ behind the house.",
+			[]
+		],
+		"119854": [
+			"**Objective:** Pick up 20 checkpoints in five minutes,\neach checkpoint gives an additional 15 seconds.  \n**Reward:** $40,000  \n**Prerequisite:** [A Drop In The Ocean](#loc=121485).\n\n**Note:** The mission starts when entered _[Patriot](#loc=121997)_.",
+			[]
+		],
+		"119855": [
+			"**Weapons:**  \n- **Pistol** - $250  \nPrerequisite: [Pump-Action Pimp](#loc=120461)  \n- **Uzi** - $800  \nPrerequisite: [Cipriani's Chauffeur](#loc=120466)",
+			[]
+		],
+		"119856": [
+			"**Weapons:**  \n- **Uzi** - $800  \n- **Grenades** - $2,000  \n- **Body Armor** - $3,000  \n- **AK47** - $3,000  \n- **Sniper Rifle** - $10,000  \n\n**Prerequisite:** [Last Requests](#loc=120479)",
+			[]
+		],
+		"119858": ["Arms vehicle with a remote, timed, and engine ignition bomb.  \nCosts $1,000", []],
+		"119859": ["Arms vehicle with a remote, timed, and engine ignition bomb.  \nCosts $1,000", []],
+		"119860": ["Arms vehicle with a remote, timed, and engine ignition bomb.  \nCosts $1,000", []],
+		"119864": ["**Prerequisite:** [Luigi's Girls](#loc=119852).", []],
+		"119865": ["**Prerequisite:** [Last Requests](#loc=120479)", []],
+		"119866": ["**Prerequisite:** [A Drop In The Ocean](#loc=121485)", []],
+		"119876": ["**Prerequisite:** [Last Requests](#loc=120479)", []],
+		"119877": ["**Prerequisite:** [Last Requests](#loc=120479)", []],
+		"119878": ["**Prerequisite:** [Last Requests](#loc=120479)", []],
+		"119879": ["**Prerequisite:** [Last Requests](#loc=120479)", []],
+		"119880": [
+			"**Objective:** Destroy at least one _Diablo Stallion_ with an RC car.  \n**Reward:** $1,000 per destroyed car.  \n**Prerequisite:** [Luigi's Girls](#loc=119852)",
+			[]
+		],
+		"119881": [
+			"**Objective:** Destroy at least one _Mafia Sentinel_ with an RC car.  \n**Reward:** $1,000 per destroyed car.  \n**Prerequisite:** [Luigi's Girls](#loc=119852).",
+			[]
+		],
+		"119882": [
+			"**Objective:** Destroy at least one _Yakuza Stinger_ with an RC car.  \n**Reward:** $1,000 per destroyed car.  \n**Prerequisite:** [Last Requests](#loc=120479)",
+			[]
+		],
+		"119883": [
+			"**Objective:** Destroy at least one _Hoods Rumpo XL_ with an RC car.  \n**Reward:** $1,000 per destroyed car.  \n**Prerequisite:** [A Drop In The Ocean](#loc=121485).",
+			[]
+		],
+		"119884": [
+			"**Objective:**  Finish first in street race.  \n**Reward:** $10,000  \n**Quest Giver:** _El Burro_  \n**Prerequisite:** [Van Heist](#loc=120465)",
+			[]
+		],
+		"119885": [
+			"**Objective:** Bring a bank manager to the [Car Crusher](#loc=119845).  \n**Reward:** $1,000  \n**Quest Giver:** _Marty Chonks_  \n**Prerequisite:** \n- [Drive Misty For Me](#loc=120370)\n- Available from 9:00 to 19:00",
+			[]
+		],
+		"120244": [
+			"**Objective:**  Arm _Mr. Whoopee_ with a bomb and blow up gang members.  \n**Reward:** $8,000  \n**Quest Giver:** _El Burro_  \n**Prerequisite:** [Turismo](#loc=119884)",
+			[]
+		],
+		"120245": [
+			"**Objective:** Collect magazines before time runs out, kill the thief and deliver magazines.  \n**Reward:** $20,000  \n**Quest Giver:** _El Burro_  \n**Prerequisite:** [Trial By Fire](#loc=120246)  \n\n**Note:**\n- Collect all magazines to get a $10,000 bonus.  \n- After completion, the [Turismo](#loc=119884) mission becomes repeatable.",
+			[]
+		],
+		"120246": [
+			"**Objective:** Pick up the flamethrower and burn 25 _Triads_ in two and a half minutes.  \n**Reward:** $10,000  \n**Quest Giver:** _El Burro_  \n**Prerequisite:** [I Scream, You Scream](#loc=120244)",
+			[]
+		],
+		"120247": [
+			"**Objective:** Bring two thieves to _Marty Chonks_ and use [Pay 'n' Spray](#loc=119847).  \n**Reward:** $2,000  \n**Quest Giver:** _Marty Chonks_  \n**Prerequisite:** \n- [The Crook](#loc=119885)\n- Available from 9:00 to 19:00",
+			[]
+		],
+		"120248": [
+			"**Objective:** Bring _Mrs. Chonks_ to the [Bitch'n' Dog Food](#loc=120440)  and dump the car into the sea.  \n**Reward:** $2,000  \n**Quest Giver:** _Marty Chonks_  \n**Prerequisite:** \n- [The Thieves](#loc=120247)\n- Available from 9:00 to 19:00",
+			[]
+		],
+		"120249": [
+			"**Objective:** Bring _Carl_ to _Marty Chonks_.  \n**Reward:** $4,000  \n**Quest Giver:** _Marty Chonks_  \n**Prerequisite:**\n- [The Wife](#loc=120248)\n- Available from 9:00 to 19:00",
+			[]
+		],
+		"120251": [
+			"**Objective:** Drive to the [Portland Safehouse](#loc=119864), then head over to [Luigi's Sex Club 7](#loc=120360).  \n\n**Note:** The mission starts right after _Introduction_ cutscene is ended.",
+			[]
+		],
+		"120252": ["**Note:** To pick up - use a [ramp](#loc=122261) nearby.", []],
+		"120253": ["**Note:** To pick up - climb the building from the back.", []],
+		"120254": ["**Note:** To pick up - use a ramp or a hole in a fence nearby.", []],
+		"120255": ["**Note:** To pick up - enter into the courtyard.", []],
+		"120273": ["**Note:** To pick up - use a [ramp](#loc=122259) near the subway entrance.", []],
+		"120285": [
+			"**Note:** To pick up this - use [Baillie Station](#loc=119873) for accessing the roof with a car.  \n[Screenshot](#loc=120288)",
+			[]
+		],
+		"120286": [
+			"**Note:** To pick up this - use [Baillie Station](#loc=119873) for accessing the roof with a car.  \n[Screenshot](#loc=120288)",
+			[]
+		],
+		"120287": [
+			"**Note:** To pick up this - use [Baillie Station](#loc=119873) for accessing the roof with a car.  \n[Screenshot](#loc=120288)",
+			[]
+		],
+		"120288": [
+			"**Note:** To pick up this - use [Baillie Station](#loc=119873) for accessing the roof with a car.",
+			[
+				{
+					"id": 10605,
+					"title": "rooftop",
+					"file_name": "0674c50e-d522-49a3-a596-9cc04f10dfe5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0674c50e-d522-49a3-a596-9cc04f10dfe5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"120361": [
+			"**Objective:** Kill the dealer and steal, [Pay 'n' Spray](#loc=119847)  the dealer's car, then bring it to [Luigi's Lock-Up](#loc=120369).  \n**Reward:** $4,000  \n**Quest Giver:** _Luigi Goterelli_  \n**Prerequisite:** [Luigi's Girls](#loc=119852)",
+			[]
+		],
+		"120369": ["**Note:** Only available in [Don't Spank Ma Bitch Up](#loc=120361) mission.", []],
+		"120370": [
+			"**Objective:** Pick up _Misty_ from [Hepburn Heights](#loc=120378), then head over to [Joey's Auto Painting](#loc=120371).  \n**Reward:** $1,000  \n**Quest Giver:** _Luigi Goterelli_  \n**Prerequisite:** [Don't Spank Ma Bitch Up](#loc=120361)",
+			[]
+		],
+		"120392": [
+			"Use [Baillie Station](#loc=119873) for accessing the roof with a car.",
+			[
+				{
+					"id": 10598,
+					"title": "hp_1",
+					"file_name": "395b8571-d556-4c17-aaf1-006954df5c32.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/395b8571-d556-4c17-aaf1-006954df5c32.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"120394": [
+			"**Note:** To pick up this - use [Rothwell Station](#loc=119875) to access this roof.",
+			[
+				{
+					"id": 10600,
+					"title": "Flamethrower",
+					"file_name": "bba5bfe7-557c-40d1-99c2-62105a608c26.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bba5bfe7-557c-40d1-99c2-62105a608c26.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"120398": [
+			"**Note:** To pick up this - use a sand pile that's located east of this building and climb up the roof.",
+			[]
+		],
+		"120399": [
+			"**Note:** To pick up this - use a sand pile that's located east of this building and climb up the roof.",
+			[]
+		],
+		"120401": [
+			"**Note:** To pick up this - use east rooftops in [Saint Mark's](#loc=120381).",
+			[
+				{
+					"id": 10601,
+					"title": "Shotgun2",
+					"file_name": "d00eb976-71bb-44af-9d5d-621610471d4e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d00eb976-71bb-44af-9d5d-621610471d4e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"120404": ["**Note:** Kill hobos inside the [Harbour Tunnel](#loc=120444) to get this.", []],
+		"120408": ["**Prerequisite:** Get 10 kills in [Portland Vigilante](#loc=120414).", []],
+		"120409": ["**Prerequisite:** Get 20 kills in [Portland Vigilante](#loc=120414).", []],
+		"120410": ["**Prerequisite:** Get 10 kills in [Staunton Island Vigilante](#loc=120422).", []],
+		"120411": ["**Prerequisite:** Get 20 kills in [Staunton Island Vigilante](#loc=120422).", []],
+		"120412": ["**Prerequisite:** Get 20 kills in [Shoreside Vale Vigilante](#loc=120423).", []],
+		"120413": ["**Prerequisite:** Get 10 kills in [Shoreside Vale Vigilante](#loc=120423).", []],
+		"120414": [
+			"**Objective:** Kill the criminals until time runs out.  \n\n**Rewards:**  \n- Each kill in a row gives you $500 more than a previous one.\n- Total 10 kills - 1 Bribe to all Safehouses.  \n- Total 20 kills - 2nd Bribe to all Safehouses.  \n\n**Note:** Use any _[Police Car](#loc=122019)_ to start the mission.",
+			[]
+		],
+		"120415": [
+			"**Objective:** Drive passengers to a specific location using any _[Taxi](#loc=122058)_ or _[Cabbie](#loc=122048)_, until time runs out.  \n**Reward:**  \n-  _[Borgnine](#loc=122035)_ cab will spawn at the [Borgnine Taxis](#loc=120436).  \n- Money.  \n\n**Note:** Complete 100 fares total to get _Borgnine_ cab.",
+			[]
+		],
+		"120416": [
+			"**Objective:** Find and extinguish 20 burning vehicles in total in _Portland_, until time runs out.  \n\n**Rewards:**  \n- Each extinguished vehicle gives you $250 more than a previous one.  \n- **Flamethrower** to all Safehouses.  \n\n**Note:** Use any _[Fire Truck](#loc=122027)_ to start the mission.  \n**Note:** To unlock **Flamethrower** complete:  \n- [Staunton Island Firefighter Mission](#loc=120424)\n- [Shoreside Vale Firefighter Mission](#loc=120425)",
+			[]
+		],
+		"120417": [
+			"**Objective:** Deliver the patients to the hospital until time runs out. \n\n**Rewards:**  \n-  Level 1 - $100  \n- Level 2 - $400  \n- Level 3 - $900  \n- Level 4 - $1,600  \n- Level 5 - $2,500  \n- Level 6 - $3,600  \n- Level 7 - $4,900  \n- Level 8 - $6,400  \n- Level 9 - $8,100  \n- Level 10 - $10,000  \n- Level 11 - $12,100  \n- Level 12 - $14,400 + **Infinite Sprint**  \n\n**Additional Rewards:**  \n- Deliver 43 patients in total - **Health** to all Safehouses.  \n- Deliver 78 patients in total - **Andrenaline** to all Safehouses.  \n\n**Note:** Use any _[Ambulance](#loc=122018)_ to start the mission.",
+			[]
+		],
+		"120418": ["**Prerequisite:** Deliver 43 patients in total in [Paramedic Mission](#loc=120417).", []],
+		"120419": ["**Prerequisite:** Deliver 78 patients in total in [Paramedic Mission](#loc=120417).", []],
+		"120422": [
+			"**Objective:** Kill the criminals until time runs out.  \n\n**Rewards:**  \n- Each kill in a row gives you $500 more than a previous one.\n- Total 10 kills - 3rd Bribe to all Safehouses.  \n- Total 20 kills - 4th Bribe to all Safehouses.  \n\n**Note:** Use any _[Police Car](#loc=122024)_ to start the mission.",
+			[]
+		],
+		"120423": [
+			"**Objective:** Kill the criminals until time runs out.  \n\n**Rewards:**  \n- Each kill in a row gives you $500 more than a previous one.\n- Total 10 kills - 5th Bribe to all Safehouses.  \n- Total 20 kills - 6th Bribe to all Safehouses.  \n\n**Note:** Use any _[Police Car](#loc=122023)_ to start the mission.",
+			[]
+		],
+		"120424": [
+			"**Objective:** Find and extinguish 20 burning vehicles in total in _Staunton Island_, until time runs out.  \n\n**Rewards:**  \n- Each extinguished vehicle gives you $250 more than a previous one.  \n- **Flamethrower** to all Safehouses.  \n\n**Note:** Use any _[Fire Truck](#loc=122028)_ to start the mission.  \n**Note:** To unlock **Flamethrower** complete:  \n- [Portland Firefighter Mission](#loc=120416)  \n- [Shoreside Vale Firefighter Mission](#loc=120425)",
+			[]
+		],
+		"120425": [
+			"**Objective:** Find and extinguish 20 burning vehicles in total in _Shoreside Vale_, until time runs out.  \n\n**Rewards:**  \n- Each extinguished vehicle gives you $250 more than a previous one.  \n- **Flamethrower** to all Safehouses.  \n\n**Note:** Use any _[Fire Truck](#loc=122029)_ to start the mission.  \n**Note:** To unlock **Flamethrower** complete:  \n- [Staunton Island Firefighter Mission](#loc=120424)\n- [Portland Fire Station](#loc=119867)",
+			[]
+		],
+		"120426": ["**Prerequisite:** Collect 10 _Hidden Packages_.", []],
+		"120427": ["**Prerequisite:** Collect 20 _Hidden Packages_.", []],
+		"120428": ["**Prerequisite:** Collect 30 _Hidden Packages_.", []],
+		"120429": ["**Prerequisite:** Collect 40 _Hidden Packages_.", []],
+		"120430": ["**Prerequisite:** Collect 50 _Hidden Packages_.", []],
+		"120431": ["**Prerequisite:** Collect 60 _Hidden Packages_.", []],
+		"120432": ["**Prerequisite:** Collect 70 _Hidden Packages_.", []],
+		"120433": ["**Prerequisite:** Collect 80 _Hidden Packages_.", []],
+		"120434": ["**Prerequisite:** Collect 90 _Hidden Packages_.", []],
+		"120435": ["**Prerequisite:** Collect 100 _Hidden Packages_.", []],
+		"120460": ["**Prerequisite:** [Van Heist](#loc=120465)  \n**Note:** Will give money for _Securicar_.", []],
+		"120461": [
+			"**Objective:** Pick up _Pistol_ and kill the pimps.  \n**Reward:** $4,000 + [Ammu-Nation](#loc=119855)  \n**Quest Giver:** _Luigi Goterelli_  \n**Prerequisite:** [Drive Misty For Me](#loc=120370)  \n\n**Note:** The mission can be skipped if not completed before [Last Requests](#loc=120479).",
+			[]
+		],
+		"120462": [
+			"**Objective:** Steal _Forelli's Idaho_, arm a car in [8-Ball Autos](#loc=119858) and kill _Forelli_.  \n**Reward:** $10,000  \n**Quest Giver:** _Joey Leone_  \n**Prerequisite:** [Drive Misty For Me](#loc=120370)",
+			[]
+		],
+		"120463": [
+			"**Objective:** Deliver minimum of 4 girls to [Old School Hall](#loc=120437).  \n**Reward:** $2,000 - $4,000  \n**Quest Giver:** _Luigi Goterelli_  \n**Prerequisite:** [Pump-Action Pimp](#loc=120461)  \n\n**Note:**\n- Deliver all 8 girls to receive a $2,000 bonus.  \n- The mission can be skipped if not completed before [Last Requests](#loc=120479).",
+			[]
+		],
+		"120464": [
+			"**Objective:** Head over to [Chinatown](#loc=120376) and kill _Lee Chong_  \n**Reward:** $10,000  \n**Quest Giver:** _Joey Leone_  \n**Prerequisite:** [Mike Lips Last Lunch](#loc=120462)",
+			[]
+		],
+		"120465": [
+			"**Objective:** Damage the _Securicar_ and take it to the [Portland Lock-Up](#loc=120460).\n**Reward:** $20,000  \n**Quest Giver:** _Joey Leone_  \n**Prerequisite:** [Farewell \"Chunky\" Lee Chong](#loc=120464)",
+			[]
+		],
+		"120466": [
+			"**Objective:** Drive _Toni Cipriani_ to [Chinatown](#loc=120376) and to [Momma's Restaurante](#loc=120451).  \n**Reward:** $3,000  \n**Quest Giver:** _Joey Leone_  \n**Prerequisite:** [Van Heist](#loc=120465)",
+			[]
+		],
+		"120467": [
+			"**Objective:** Head over to the [Greasy Joe's](#loc=120442) steal the car and use [Car Crusher](#loc=119845).  \n**Reward:** $10,000  \n**Quest Giver:** _Joey Leone_  \n**Prerequisite:** [Cipriani's Chauffeur](#loc=120466)  \n\n**Note:** The mission can be skipped if not completed before [Last Requests](#loc=120479).",
+			[]
+		],
+		"120468": [
+			"**Objective:** Pick up all burglars and help them rob a bank.  \n**Reward:** $10,000 - $30,000  \n**Quest Giver:** _Joey Leone_  \n**Prerequisite:** [Dead Skunk In The Trunk](#loc=120467)  \n\n**Note:**  \n- To earn $30,000 - all burglars need to stay alive.  \n- The mission can be skipped if not completed before [Last Requests](#loc=120479).",
+			[]
+		],
+		"120469": [
+			"**Objective:** Pick up _Grenades_ and destroy 3 _Mr. Wongs_ cars.  \n**Reward:** $20,000  \n**Quest Giver:** _Toni Cipriani_  \n**Prerequisite:** [Cipriani's Chauffeur](#loc=120466)",
+			[]
+		],
+		"120470": [
+			"**Objective:**  Pick up the briefcase and kill all of the _Triads_.  \n**Reward:** $10,000  \n**Quest Giver:** _Toni Cipriani_  \n**Prerequisite:** [Taking Out The Laundry](#loc=120469)",
+			[]
+		],
+		"120471": [
+			"**Objective:**  Pick up all characters and head over to [Salvatore's Gentlemen's Club](#loc=120454).  \n**Reward:** $15,000  \n**Quest Giver:** _Toni Cipriani_  \n**Prerequisite:** [The Pick-Up](#loc=120470)",
+			[]
+		],
+		"120472": [
+			"**Objective:** Drive _Maria_ to a party, then help her get to the [Salvatore's Gentlemen's Club](#loc=120454).  \n**Reward:** $10,000  \n**Quest Giver:** _Salvatore Leone_  \n**Prerequisite:** [Salvatore's Called a Meeting](#loc=120471)",
+			[]
+		],
+		"120473": [
+			"**Objective:**  Kill all of the _Triads_.  \n**Reward:** $30,000  \n**Quest Giver:** _Toni Cipriani_  \n**Prerequisite:** [Chaperone](#loc=120472)  \n\n**Note:** The mission can be skipped if not completed before [Last Requests](#loc=120479).",
+			[]
+		],
+		"120474": [
+			"**Objective:**  Drive _Trashmaster_  to the [Turtle Head Fishing Company](#loc=120475) and kill all the _Triads_.  \n**Reward:** $30,000  \n**Quest Giver:** _Toni Cipriani_  \n**Prerequisite:** [Triads and Tribulations](#loc=120473)  \n\n**Note:** The mission can be skipped if not completed before [Last Requests](#loc=120479).",
+			[]
+		],
+		"120476": [
+			"**Objective:**  Follow _Curly Bob's_ taxi and then kill him.  \n**Reward:** $15,000  \n**Quest Giver:** _Salvatore Leone_  \n**Prerequisite:** [Chaperone](#loc=120472)",
+			[]
+		],
+		"120477": [
+			"**Cutscene**   \n**Quest Giver:** _Salvatore Leone_  \n**Prerequisite:** [Cutting The Grass](#loc=120476)",
+			[]
+		],
+		"120478": [
+			"**Objective:**  Head over to [Portland Harbor](#loc=120375) and protect _8-Ball_.  \n**Reward:** $150,000  \n**Quest Giver:** _8-Ball_  \n**Prerequisite:** [Bomb Da Base Act I](#loc=120477)",
+			[]
+		],
+		"120479": [
+			"**Objective:**  Meet _Maria_ at [Callahan Point](#loc=120373).  \n**Reward:** $20,000 + Staunton Island  \n**Quest Giver:** _Salvatore Leone_  \n**Prerequisite:** [Bomb Da Base Act II](#loc=120478)  \n\n**Note:** This mission prevents completing:  \n- [Pump-Action Pimp](#loc=120461)  \n- [The Fuzz Ball](#loc=120463)  \n- [Dead Skunk In The Trunk](#loc=120467)  \n- [The Getaway](#loc=120468)\n- [Triads and Tribulations](#loc=120473)\n- [Blow Fish](#loc=120474)",
+			[]
+		],
+		"120481": [
+			"**Civilian Vehicles:**  \n- [Blista](#loc=121722)  \n- [Bobcat](#loc=121726)  \n- [Bus](#loc=122011)  \n- [Coach](#loc=121978)  \n- [Dodo](#loc=121980)  \n- [Flatbed](#loc=122010)  \n- [Linerunner](#loc=121985)  \n- [Moonbeam](#loc=121987)  \n- [Mr. Whoopee](#loc=122012)  \n- [Mule](#loc=121993)  \n- [Patriot](#loc=121996)  \n- [Pony](#loc=121998)  \n- [Rumpo](#loc=122000)  \n- [Securicar](#loc=122013)  \n- [Trashmaster](#loc=122014)  \n- [Yankee](#loc=122009)  \n\n**Rewards:**\n- $1,000 for one vehicle.\n- $200,000 for completing the list.\n- The ability to take any vehicle that is on the list from this garage becomes available after completion.  \n\n**Note:**  \n- Many vehicles spawn naturally.\n- If the vehicle didn't spawn - try another time.",
+			[]
+		],
+		"120482": [
+			"**Civilian Vehicles:**  \n- [Banshee](#loc=122038)  \n- [BF Injection](#loc=122040)  \n- [Cabbie](#loc=122048)  \n- [Cheetah](#loc=122052)  \n- [Esperanto](#loc=122057)  \n- [Idaho](#loc=122061)\n- [Infernus](#loc=122063)  \n- [Kuruma](#loc=122070)  \n- [Landstalker](#loc=122073)\n- [Manana](#loc=122078)  \n- [Perennial](#loc=122081)  \n- [Sentinel](#loc=122090)  \n- [Stallion](#loc=122109)  \n- [Stinger](#loc=122115)  \n- [Stretch](#loc=122116)  \n- [Taxi](#loc=122051)\n\n**Rewards:**\n- $1,000 for one vehicle.\n- $200,000 for completing the list.\n- The ability to take any vehicle that is on the list from this garage becomes available after completion.  \n\n**Note:**  \n- Many vehicles spawn naturally.\n- If the vehicle didn't spawn - try another time.",
+			[]
+		],
+		"120483": [
+			"**Emergency Vehicles:** \n- [Ambulance](#loc=122018)  \n- [Barracks OL](#loc=122017)  \n- [Enforcer](#loc=122025)  \n- [FBI Car](#loc=122015)  \n- [Fire Truck](#loc=122027)  \n- [Police Car](#loc=122020)  \n- [Rhino](#loc=122033)  \n\n**Rewards:**\n- $1,500 for one vehicle.\n- $200,000 for completing the list.\n- The ability to take any vehicle that is on the list from this spot becomes available after completion.",
+			[]
+		],
+		"121454": ["Staunton Plaza", []],
+		"121458": ["**Note:** To get there - use a couple of vehicles and jump over the concrete wall.", []],
+		"121459": [
+			"**Objective:** Kill _Salvatore Leone_.  \n**Reward:** $25,000  \n**Quest Giver:** _Asuka Kasen_  \n**Prerequisite:** [Last Requests](#loc=120479)",
+			[]
+		],
+		"121460": [
+			"**Objective:**  Collect as many checkpoints as possible.  \n**Reward:** Up to $15,000  \n**Quest Giver:** _King Courtney_  \n**Prerequisite:** [Sayonara Salvatore](#loc=121459).\n\n**Note:** Each checkpoint gives a $1,000.",
+			[]
+		],
+		"121461": [
+			"**Objective:** Drive to [Hepburn Heights](#loc=120378), kill _Diablos_ and go back to _Staunton Island_.  \n**Reward:** $10,000  \n**Quest Giver:** _King Courtney_  \n**Prerequisite:** [Bling-Bling Scramble](#loc=121460)",
+			[]
+		],
+		"121462": [
+			"**Objective:**  Steal _[Mafia Sentinel](#loc=122043)_, _[Yakuza Stinger](#loc=122045)_, _[Diablo Stallion](#loc=120378)_ and park them into the [South Newport Garage](#loc=121463).  \n**Reward:** $10,000  \n**Quest Giver:** _King Courtney_  \n**Prerequisite:** [Uzi Rider](#loc=121461)",
+			[]
+		],
+		"121464": [
+			"**Objective:**  Destroy the three vans to stop the bombguys from spawning.  \n**Reward:** $10,000  \n**Quest Giver:** _King Courtney_  \n**Prerequisite:** [Gangcar Round-Up](#loc=121462)",
+			[]
+		],
+		"121465": [
+			"**Objective:**  Take out all of the spies.  \n**Reward:** $15,000  \n**Quest Giver:** _Asuka Kasen_  \n**Prerequisite:** [Sayonara Salvatore](#loc=121459)",
+			[]
+		],
+		"121466": [
+			"**Objective:**  Steal _Predator_ and destroy the reporter's boat.  \n**Reward:** $10,000  \n**Quest Giver:** _Asuka Kasen_  \n**Prerequisite:** [Under Surveillance](#loc=121465)",
+			[]
+		],
+		"121467": [
+			"**Objective:**  Meet the cop in [Belleville Park](#loc=121425).  \n**Reward:** $11,000  \n**Quest Giver:** _Asuka Kasen_  \n**Prerequisite:** [Paparazzi Purge](#loc=121466)",
+			[]
+		],
+		"121468": [
+			"**Objective:** Head over to [Kenji's Casino](#loc=121416) and kill _Tanner_.  \n**Reward:** $20,000  \n**Quest Giver:** _Asuka Kasen_  \n**Prerequisite:** [Payday For Ray](#loc=121467)\n\n**Note:** The mission can be skipped if not completed before [Grand Theft Aero](#loc=121493)",
+			[]
+		],
+		"121469": [
+			"**Objective:**  Rescue _Kanbu_.  \n**Reward:** $30,000  \n**Quest Giver:** _Kenji Kasen_  \n**Prerequisite:** [Under Surveillance](#loc=121465)\n\n**Note:** The mission can be skipped if not completed before [Waka-Gashira Wipeout!](#loc=121484)",
+			[]
+		],
+		"121470": [
+			"**Objective:** Steal _Stinger_, _Cheetah_, _Infernus_ and park them into the [North Newport Garage](#loc=121472).  \n**Reward:** $25,000  \n**Quest Giver:** _Kenji Kasen_  \n**Prerequisite:** [Kanbu Bust-Out](#loc=121469)\n\n**Note:** The mission can be skipped if not completed before [Waka-Gashira Wipeout!](#loc=121484)",
+			[]
+		],
+		"121473": [
+			"**Objective:** Take the briefcase back to the [Kenji's Casino](#loc=121416).  \n**Reward:** $25,000  \n**Quest Giver:** _Kenji Kasen_  \n**Prerequisite:** [Grand Theft Auto](#loc=121470)\n\n**Note:** The mission can be skipped if not completed before [Waka-Gashira Wipeout!](#loc=121484)",
+			[]
+		],
+		"121474": [
+			"**Objective:** Collect three briefcases and take them to the [Kenji's Casino](#loc=121416).  \n**Reward:** $10,000  \n**Quest Giver:** _Kenji Kasen_  \n**Prerequisite:** [Deal Steal](#loc=121473)\n\n**Note:** The mission can be skipped if not completed before [Waka-Gashira Wipeout!](#loc=121484)",
+			[]
+		],
+		"121475": [
+			"**Objective:** Kill at least 8 _Yardie_ dealers.  \n**Reward:** $10,000  \n**Quest Giver:** _Kenji Kasen_  \n**Prerequisite:** [Deal Steal](#loc=121473)\n\n**Note:**  \n- Each additional kill adds $1,000 to the base reward.\n- The mission can be skipped if not completed before [Waka-Gashira Wipeout!](#loc=121484)",
+			[]
+		],
+		"121476": [
+			"**Objective:** Throw a grenade in [Leon McAffrey's Apartment](#loc=121444), and kill him.  \n**Reward:** $30,000  \n**Quest Giver:** _Ray Machowski_  \n**Prerequisite:** [Payday For Ray](#loc=121467)",
+			[]
+		],
+		"121477": [
+			"**Objective:** Help _Phil Cassidy_ to fight off the  _Colombian Cartel_.  \n**Reward:** $10,000 + [Phil's Army Surplus](#loc=121451)  \n**Quest Giver:** _Ray Machowski_  \n**Prerequisite:** [Silence The Sneak](#loc=121476)",
+			[]
+		],
+		"121478": [
+			"**Weapons:**  \n- **Shotgun** - $1,500  \n- **M16** - $5,000  \n- **Rocket Launcher** - $25,000  \n\n**Prerequisite:** [Arms Shortage](#loc=121477)",
+			[]
+		],
+		"121479": [
+			"**Objective:** Collect 6 boxes of evidence and destroy the car.  \n**Reward:** $10,000  \n**Quest Giver:** _Ray Machowski_  \n**Prerequisite:** [Arms Shortage](#loc=121477)",
+			[]
+		],
+		"121480": [
+			"**Objective:** Steal _Predator_ and kill _Ray's_ partner.  \n**Reward:** $15,000  \n**Quest Giver:** _Ray Machowski_  \n**Prerequisite:** [Evidence Dash](#loc=121479)",
+			[]
+		],
+		"121481": [
+			"**Objective:** Kill _McAffrey_.  \n**Reward:** $10,000  \n**Quest Giver:** _Ray Machowski_  \n**Prerequisite:** [Gone Fishing](#loc=121480)",
+			[]
+		],
+		"121482": [
+			"**Objective:** Steal _[Cartel Cruiser](#loc=122246)_, infiltrate [Colombian Hideout](#loc=121483) and take the _Old Oriental Gentleman_ back to [Love Media Building](#loc=121414).  \n**Reward:** $40,000  \n**Quest Giver:** _Donald Love_  \n**Prerequisite:** [Evidence Dash](#loc=121479)",
+			[]
+		],
+		"121484": [
+			"**Objective:** Head over to [Fort Staunton](#loc=121426), steal _[Cartel Cruiser](#loc=122246)_, and kill _Kenji Kasen_ at [Newport Multistorey Car Park](#loc=121450).  \n**Reward:** $30,000  \n**Quest Giver:** _Donald Love_  \n**Prerequisite:** [Liberator](#loc=121482)  \n\n**Note:** This mission prevents completing:  \n- [Kanbu Bust-Out](#loc=121469)\n- [Grand Theft Auto](#loc=121470)\n- [Deal Steal](#loc=121473)\n- [Shima](#loc=121474)\n- [Smack Down](#loc=121475)",
+			[]
+		],
+		"121485": [
+			"**Objective:** Take all 6 packages to _Donald Love_.  \n**Reward:** $10,000 + Shoreside Vale  \n**Quest Giver:** _Donald Love_  \n**Prerequisite:** [Waka-Gashira Wipeout!](#loc=121484)",
+			[]
+		],
+		"121486": [
+			"**Objective:** Escort _Ray Machowski_ to the [Airport](#loc=119846).  \n**Reward:** $20,000  \n**Quest Giver:** _Ray Machowski_  \n**Prerequisite:**\n- [Plaster Blaster](#loc=121481)\n- [A Drop In The Ocean](#loc=121485)\n\n**Additional Rewards:**  \n- [$20,000](#loc=121488)  \n- [Sniper Rifle](#loc=121489)  \n- [M16](#loc=121490)  \n- [Rocket  Launcher](#loc=121491)  \n- [Bulletproof Patriot](#loc=121492)",
+			[]
+		],
+		"121487": ["**Note:** Only available in [Marked Man](#loc=121486) mission.", []],
+		"121488": ["$20,000\n\n**Note:** Only available in [Marked Man](#loc=121486) mission.", []],
+		"121489": ["**Note:** Only available in [Marked Man](#loc=121486) mission.", []],
+		"121490": ["**Note:** Only available in [Marked Man](#loc=121486) mission.", []],
+		"121491": ["**Note:** Only available in [Marked Man](#loc=121486) mission.", []],
+		"121492": ["**Note:** Only available in [Marked Man](#loc=121486) mission.", []],
+		"121493": [
+			"**Objective:** Return the package to _Donald Love_.  \n**Reward:** $50,000  \n**Quest Giver:** _Donald Love_  \n**Prerequisite:** [A Drop In The Ocean](#loc=121485)  \n\n**Note:** This mission prevents completing:  \n- [Two-Faced Tanner](#loc=121468)",
+			[]
+		],
+		"121494": [
+			"**Objective:** Escort the _Old Oriental Gentleman_ into the [Pike Creek Lock-Up](#loc=121495).  \n**Reward:** $40,000  \n**Quest Giver:** _Donald Love_  \n**Prerequisite:** [Grand Theft Aero](#loc=121493)",
+			[]
+		],
+		"121495": ["**Note:** Only available in [Escort Service](#loc=121494) mission.", []],
+		"121496": [
+			"**Objective:** Get the _Securicar_ from [Pike Creek Lock-Up](#loc=121495) and lead the cops away from the warehouse.  \n**Reward:** $35,000  \n**Quest Giver:** _Donald Love_  \n**Prerequisite:** [Escort Service](#loc=121494)",
+			[]
+		],
+		"121497": ["**Cutscene**   \n**Quest Giver:** _Donald Love_   \n**Prerequisite:** [Decoy](#loc=121496)", []],
+		"121499": ["**Prerequisite:** Collect 10 _Hidden Packages_.", []],
+		"121500": ["**Prerequisite:** Collect 20 _Hidden Packages_.", []],
+		"121501": ["**Prerequisite:** Collect 30 _Hidden Packages_.", []],
+		"121502": ["**Prerequisite:** Collect 40 _Hidden Packages_.", []],
+		"121503": ["**Prerequisite:** Collect 60 _Hidden Packages_.", []],
+		"121504": ["**Prerequisite:** Collect 70 _Hidden Packages_.", []],
+		"121505": ["**Prerequisite:** Collect 80 _Hidden Packages_.", []],
+		"121506": ["**Prerequisite:** Collect 90 _Hidden Packages_.", []],
+		"121507": ["**Prerequisite:** Collect 100 _Hidden Packages_.", []],
+		"121508": ["**Prerequisite:** Collect 50 _Hidden Packages_.", []],
+		"121509": ["**Prerequisite:** Deliver 78 patients in total in [Paramedic Mission](#loc=120417).", []],
+		"121510": ["**Prerequisite:** Deliver 43 patients in total in [Paramedic Mission](#loc=120417).", []],
+		"121511": ["**Prerequisite:** Get 10 kills in [Portland Vigilante](#loc=120414).", []],
+		"121512": ["**Prerequisite:** Get 20 kills in [Portland Vigilante](#loc=120414).", []],
+		"121513": ["**Prerequisite:** Get 10 kills in [Staunton Island Vigilante](#loc=120422).", []],
+		"121514": ["**Prerequisite:** Get 20 kills in [Staunton Island Vigilante](#loc=120422).", []],
+		"121515": ["**Prerequisite:** Get 10 kills in [Shoreside Vale Vigilante](#loc=120423).", []],
+		"121516": ["**Prerequisite:** Get 20 kills in [Shoreside Vale Vigilante](#loc=120423).", []],
+		"121517": [
+			"**Weapons:**  \n- **Molotov Cocktail** - $2,000  \n- **Flamethrower** - $25,000  \n\n**Prerequisite:** [A Drop In The Ocean](#loc=121485)",
+			[]
+		],
+		"121527": [
+			"**Objective:**  Get 20 _Purple Nines_ drive-by kills with **Uzi**.  \n**Reward:** $10,000  \n**Quest Giver:** _D-Ice_  \n**Prerequisite:** [A Drop In The Ocean](#loc=121485)",
+			[]
+		],
+		"121528": [
+			"**Objective:**  Use the RC car to destroy 3 armored cars.  \n**Reward:** $10,000  \n**Quest Giver:** _D-Ice_  \n**Prerequisite:** [Uzi Money](#loc=121527)",
+			[]
+		],
+		"121531": [
+			"**Objective:** Take D-Ice's _Infernus_  and park it in [Saint Mark's Lock-Up](#loc=121532).  \n**Reward:** $20,000  \n**Quest Giver:** _D-Ice_  \n**Prerequisite:** [Toyminator](#loc=121528)",
+			[]
+		],
+		"121533": [
+			"**Objective:** Collect 30 pieces of bullion and drop them off in [D-Ice's Lock-Up](#loc=121536).  \n**Reward:** $25,000  \n**Quest Giver:** _D-Ice_  \n**Prerequisite:** [Rigged to Blow](#loc=121531)",
+			[]
+		],
+		"121538": [
+			"**Objective:** Head over to [Staunton View Picnic Area](#loc=121525) and kill all the Purple Nines.  \n**Reward:** $10,000  \n**Quest Giver:** _D-Ice_  \n**Prerequisite:** [Bullion Run](#loc=121533)",
+			[]
+		],
+		"121540": [
+			"**Objective:** Lure 3 groups of the _Colombian Cartel_ to the trap.  \n**Reward:** $35,000  \n**Quest Giver:** _Asuka Kasen_  \n**Prerequisite:** [Grand Theft Aero](#loc=121493)",
+			[]
+		],
+		"121543": [
+			"**Objective:** Destroy 9 _Kappa Coffee Stalls_, before time runs out.  \n**Reward:** $40,000  \n**Quest Giver:** _Asuka Kasen_  \n**Prerequisite:** [Bait](#loc=121540)\n\nAll [Espresso-2-Go! Stalls](https://mapgenie.io/grand-theft-auto-3/maps/liberty-city/?search=ESPRESSO-2-GO%21+Stall+%26%26+category%3A3915) - Hides everything on a map and shows the locations of the stalls",
+			[]
+		],
+		"121545": [
+			"**Objective:** Collect the cargo and stash it at the [Panlantic Construction Site](#loc=121454).  \n**Reward:** $45,000  \n**Quest Giver:** _Asuka Kasen_  \n**Prerequisite:** [Espresso-2-Go!](#loc=121543)",
+			[]
+		],
+		"121547": ["**Cutscene**   \n**Quest Giver:** _Catalina_  \n**Prerequisite:** [S.A.M.](#loc=121545)", []],
+		"121549": [
+			"**Objective:** Follow the _Chopper_ to find and kill _Catalina_.  \n**Reward:**  \n- $1,000,000  \n- _Rhino_ at [Phil's Army Surplus](#loc=121451)  \n\n**Quest Giver:** _Catalina_  \n**Prerequisite:**  \n- [Ransom](#loc=121547)\n- $500,000",
+			[]
+		],
+		"121551": ["**Note:** To pick up - go to the second floor of the construction site.", []],
+		"121552": ["**Note:** To pick up - go to the second floor of the construction site.", []],
+		"121553": ["**Note:** Located under the bridge between two truck trailers.", []],
+		"121556": ["**Note:** To pick this up - use a couple of vehicles and jump over the concrete wall.", []],
+		"121557": ["**Note:** To pick this up - use a couple of vehicles and jump over the concrete wall.", []],
+		"121564": ["**Note:** To pick this up - use [Shoreside Lift Bridge](#loc=121418) and a fast car.", []],
+		"121565": ["**Note:** To pick this up - use [Shoreside Lift Bridge](#loc=121418) and a fast car.", []],
+		"121566": ["**Note:** To pick this up use a _[Cartel Cruiser](#loc=122245)_ and drive through the gates.", []],
+		"121592": ["**Note:** Located under [Shoreside Lift Bridge](#loc=121418)", []],
+		"121595": [
+			"",
+			[
+				{
+					"id": 10867,
+					"title": "m16",
+					"file_name": "7cf1230a-bb32-4440-b507-b08deb0d1b3a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7cf1230a-bb32-4440-b507-b08deb0d1b3a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121596": ["**Note:** To pick this up - use the east corner to jump on the roof of the building.", []],
+		"121598": ["**Note:** Located inside the [TW@ Cafe](#loc=121457) on the second floor.", []],
+		"121607": ["**Note:** To pick this up - use grass ramp nearby.", []],
+		"121609": ["**Note:** Located under the parking lot.", []],
+		"121622": ["**Prerequisite:** Collect 10 _Hidden Packages_.", []],
+		"121625": ["**Prerequisite:** Collect 20 _Hidden Packages_.", []],
+		"121626": ["**Prerequisite:** Collect 30 _Hidden Packages_.", []],
+		"121627": ["**Prerequisite:** Collect 40 _Hidden Packages_.", []],
+		"121628": ["**Prerequisite:** Collect 60 _Hidden Packages_.", []],
+		"121629": ["**Prerequisite:** Collect 70 _Hidden Packages_.", []],
+		"121630": ["**Prerequisite:** Collect 80 _Hidden Packages_.", []],
+		"121631": ["**Prerequisite:** Collect 90 _Hidden Packages_.", []],
+		"121632": ["**Prerequisite:** Collect 100 _Hidden Packages_.", []],
+		"121634": ["**Prerequisite:** Collect 50 _Hidden Packages_.", []],
+		"121635": ["**Prerequisite:** Get 10 kills in [Portland Vigilante](#loc=120414).", []],
+		"121636": ["**Prerequisite:** Get 20 kills in [Portland Vigilante](#loc=120414).", []],
+		"121637": ["**Prerequisite:** Get 10 kills in [Staunton Island Vigilante](#loc=120422).", []],
+		"121638": ["**Prerequisite:** Get 20 kills in [Staunton Island Vigilante](#loc=120422).", []],
+		"121639": ["**Prerequisite:** Get 10 kills in [Shoreside Vale Vigilante](#loc=120423).", []],
+		"121640": ["**Prerequisite:** Get 20 kills in [Shoreside Vale Vigilante](#loc=120423).", []],
+		"121641": ["Prerequisite: Deliver 43 patients in total in Paramedic Mission.", []],
+		"121642": ["Prerequisite: Deliver 78 patients in total in Paramedic Mission.", []],
+		"121643": [
+			"**Objective:** Kill **30** _Diablo_ members in 2 minutes using **M-16**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121644)",
+			[
+				{
+					"id": 48027,
+					"title": "",
+					"file_name": "3e2e1cd5-d136-4e5d-a8c4-27f00d91c3b4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e2e1cd5-d136-4e5d-a8c4-27f00d91c3b4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121644": [
+			"**Objective:** Kill **30** _Diablo_ members in 2 minutes using **M-16**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121643)",
+			[]
+		],
+		"121645": [
+			"**Objective:** Kill **25** _Triads_ in 2 minutes using **Uzi**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121646)",
+			[
+				{
+					"id": 48029,
+					"title": "",
+					"file_name": "8aed045e-85e5-4551-baa8-4915300d650c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8aed045e-85e5-4551-baa8-4915300d650c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121646": [
+			"**Objective:** Kill **25** _Triads_ in 2 minutes using **Uzi**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121645)",
+			[]
+		],
+		"121647": [
+			"**Objective:** Destroy **13** vehicles in 2 minutes using **Rocket Launcher**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121648)",
+			[
+				{
+					"id": 48030,
+					"title": "",
+					"file_name": "d74295a0-72a0-4616-acbe-17e2fbfb71ad.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d74295a0-72a0-4616-acbe-17e2fbfb71ad.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121648": [
+			"**Objective:** Destroy **13** vehicles in 2 minutes using **Rocket Launcher**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121647)",
+			[]
+		],
+		"121649": [
+			"**Objective:** Kill **20** _Triads_ in 2 minutes using **Shotgun**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121650)",
+			[
+				{
+					"id": 48028,
+					"title": "",
+					"file_name": "6cad9cf2-2e24-443f-a8f0-f79d9e6d91b1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6cad9cf2-2e24-443f-a8f0-f79d9e6d91b1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121650": [
+			"**Objective:** Kill **20** _Triads_ in 2 minutes using **Shotgun**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121649)",
+			[]
+		],
+		"121651": [
+			"**Objective:** Destroy **10** vehicles in 2 minutes using **Grenades**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:**  \n- If failed - [Second location](#loc=121652)\n- To access this - use [Baillie Station](#loc=119873)",
+			[
+				{
+					"id": 48026,
+					"title": "",
+					"file_name": "0f024a44-0309-48b9-8bbe-db9e8b18a278.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f024a44-0309-48b9-8bbe-db9e8b18a278.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121652": [
+			"**Objective:** Destroy **10** vehicles in 2 minutes using **Grenades**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:**  \n- If failed - [First location](#loc=121651)\n- To access this - use [Baillie Station](#loc=119873)",
+			[]
+		],
+		"121653": [
+			"**Objective:** Kill **20** _Mafia_ members in 2 minutes using **AK47**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121654)",
+			[
+				{
+					"id": 48025,
+					"title": "",
+					"file_name": "6865b1f4-9dc3-4ab1-9987-ababbd5c702c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6865b1f4-9dc3-4ab1-9987-ababbd5c702c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121654": [
+			"**Objective:** Kill **20** _Mafia_ members in 2 minutes using **AK47**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121653)",
+			[]
+		],
+		"121656": [
+			"**Objective:** Burn **25** _Yakuza_ members in 2 minutes using **Flamethrower**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121657)",
+			[]
+		],
+		"121657": [
+			"**Objective:** Burn **25** _Yakuza_ members in 2 minutes using **Flamethrower**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121656)",
+			[]
+		],
+		"121680": [
+			"**Objective:** Headshot **17** _Yardie_ members in 2 minutes using **Sniper Rifle**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121690)",
+			[]
+		],
+		"121690": [
+			"**Objective:** Headshot **17** _Yardie_ members in 2 minutes using **Sniper Rifle**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:**  \n- If failed - [First location](#loc=121680)  \n- To access this - use [Kenji's Casino](#loc=121416) stairs.",
+			[]
+		],
+		"121691": [
+			"**Objective:** Kill **30** _Yardie_ members in 2 minutes using **Rocket Launcher**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121692)",
+			[]
+		],
+		"121692": [
+			"**Objective:** Kill **30** _Yardie_ members in 2 minutes using **Rocket Launcher**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First Location](#loc=121691)",
+			[]
+		],
+		"121693": [
+			"**Objective:** Destroy **8** vehicles in 2 minutes using **Shotgun**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121694)",
+			[]
+		],
+		"121694": [
+			"**Objective:** Destroy **8** vehicles in 2 minutes using **Shotgun**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121693)",
+			[]
+		],
+		"121695": [
+			"**Objective:** Torch **16** _Yakuza_ members in 2 minutes using **Molotov Cocktail**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121696)",
+			[]
+		],
+		"121696": [
+			"**Objective:** Torch **16** _Yakuza_ members in 2 minutes using **Molotov Cocktail**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121695)",
+			[]
+		],
+		"121697": [
+			"**Objective:** Destroy **15** vehicles in 2 minutes using **M16**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121698)",
+			[]
+		],
+		"121698": [
+			"**Objective:** Destroy **15** vehicles in 2 minutes using **M16**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121697)",
+			[]
+		],
+		"121699": [
+			"**Objective:** Explode **25** _Yardie_ members in 2 minutes using **Grenades**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121700)",
+			[]
+		],
+		"121700": [
+			"**Objective:** Explode **25** _Yardie_ members in 2 minutes using **Grenades**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121699)",
+			[]
+		],
+		"121701": [
+			"**Objective:** Run over **20** _Colombians_ in 2 minutes using any **vehicle**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121702)",
+			[]
+		],
+		"121702": [
+			"**Objective:** Run over **20** _Colombians_ in 2 minutes using any **vehicle**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121701)",
+			[]
+		],
+		"121703": [
+			"**Objective:** Drive-by and destroy **7** vehicles in 2 minutes. \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121704)",
+			[]
+		],
+		"121704": [
+			"**Objective:** Drive-by and destroy **7** vehicles in 2 minutes. \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121703)",
+			[]
+		],
+		"121705": [
+			"**Objective:** Destroy **15** vehicles in 2 minutes using **Rocket Launcher**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:**  \n- If failed - [Second location](#loc=121706)\n- To access this - use stairs on the side of the building.",
+			[]
+		],
+		"121706": [
+			"**Objective:** Destroy **15** vehicles in 2 minutes using **Rocket Launcher**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121705)",
+			[]
+		],
+		"121707": [
+			"**Objective:** Headshot **15** _Colombians_ in 2 minutes using **Sniper Rifle**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121708)",
+			[]
+		],
+		"121708": [
+			"**Objective:** Headshot **15** _Colombians_ in 2 minutes using **Sniper Rifle**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:**  \n- If failed - [First location](#loc=121707)\n- To access this - jump on the roof from the back police parking lot.",
+			[]
+		],
+		"121709": [
+			"**Objective:** Burn **20** _Colombians_ in 2 minutes using **Flamethrower**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121710)",
+			[]
+		],
+		"121710": [
+			"**Objective:** Burn **20** _Colombians_ in 2 minutes using **Flamethrower**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121709)",
+			[]
+		],
+		"121711": [
+			"**Objective:** Headshot **20** _Hoods_ in 2 minutes using **M16**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [Second location](#loc=121712)",
+			[]
+		],
+		"121712": [
+			"**Objective:** Headshot **20** _Hoods_ in 2 minutes using **M16**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:**  \n- If failed - [First location](#loc=121711)  \n- Located behind the billboard.",
+			[]
+		],
+		"121713": [
+			"**Objective:** Kill **20** _Hoods_ in 2 minutes using **Shotgun**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:**  \n- If failed - [Second location](#loc=121714)\n- To access this - jump from the bridge above.",
+			[]
+		],
+		"121714": [
+			"**Objective:** Kill **20** _Hoods_ in 2 minutes using **Shotgun**.  \n\n**Reward:**  \n- Each Rampage gives $5,000 more than a previous one.  \n- Completing all Rampages - gives $1,000,000.\n\n**Note:** If failed - [First location](#loc=121713)",
+			[]
+		],
+		"121722": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10665,
+					"title": "blista",
+					"file_name": "ddc01e78-f2c5-48b6-a8b8-8494ab43169e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddc01e78-f2c5-48b6-a8b8-8494ab43169e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121726": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10666,
+					"title": "bobcat",
+					"file_name": "2ebfef8e-faae-43cf-80e5-d8d113746714.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2ebfef8e-faae-43cf-80e5-d8d113746714.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121727": [
+			"Used in [Portland Import/Export](#loc=120481)",
+			[
+				{
+					"id": 10667,
+					"title": "pony",
+					"file_name": "6f79637e-a2b3-401a-8b21-91bbeb97fc3e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6f79637e-a2b3-401a-8b21-91bbeb97fc3e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121967": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10674,
+					"title": "Blista2",
+					"file_name": "91f73140-215b-4ba2-9f38-020a258bf516.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91f73140-215b-4ba2-9f38-020a258bf516.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121968": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10675,
+					"title": "Blista3",
+					"file_name": "009c1060-5076-4c50-a5aa-4b0baf8aca64.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/009c1060-5076-4c50-a5aa-4b0baf8aca64.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121969": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10676,
+					"title": "Blista4",
+					"file_name": "7cdcd45a-f5f1-4dc4-a82a-4bab42df0c5d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7cdcd45a-f5f1-4dc4-a82a-4bab42df0c5d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121970": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10677,
+					"title": "Blista5",
+					"file_name": "5bea8e6e-be39-4eff-9f2b-a01c46858d31.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5bea8e6e-be39-4eff-9f2b-a01c46858d31.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121971": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10679,
+					"title": "Bobcat2",
+					"file_name": "037b83a0-aebf-4655-ad58-6bbe2646b3a7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/037b83a0-aebf-4655-ad58-6bbe2646b3a7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121972": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10678,
+					"title": "Bobcat3",
+					"file_name": "e3e42de8-c4e3-48e9-8359-69b233e2c741.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3e42de8-c4e3-48e9-8359-69b233e2c741.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121973": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10680,
+					"title": "Bobcat4",
+					"file_name": "7c86c825-4212-4e01-ac25-3068cc0e7166.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c86c825-4212-4e01-ac25-3068cc0e7166.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121974": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10681,
+					"title": "Bobcat5",
+					"file_name": "41f8c03a-f835-461b-afcc-dd237fee4ea4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41f8c03a-f835-461b-afcc-dd237fee4ea4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121975": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10683,
+					"title": "blista6",
+					"file_name": "2830ad9c-d039-431b-a56d-8adf1eada8bc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2830ad9c-d039-431b-a56d-8adf1eada8bc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121976": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10682,
+					"title": "bobcat6",
+					"file_name": "8cf7b793-d44d-48d8-b872-3b2f187009b5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8cf7b793-d44d-48d8-b872-3b2f187009b5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121977": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10684,
+					"title": "blista7",
+					"file_name": "fb21bf02-7762-4089-9f58-8be9235a419f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fb21bf02-7762-4089-9f58-8be9235a419f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121978": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10685,
+					"title": "coach1",
+					"file_name": "899e144c-c28b-41b2-9c74-a7f5ab48be01.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/899e144c-c28b-41b2-9c74-a7f5ab48be01.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121979": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10686,
+					"title": "coach2",
+					"file_name": "f332ccc8-b53c-4c7a-a200-499db44b9fcb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f332ccc8-b53c-4c7a-a200-499db44b9fcb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121980": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10687,
+					"title": "dodo1",
+					"file_name": "ab298c1d-f55e-48c9-b9a7-5e340a22cf3d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab298c1d-f55e-48c9-b9a7-5e340a22cf3d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121981": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10688,
+					"title": "dodo2",
+					"file_name": "3c347415-17b0-40d4-9751-b34bb3c7fa9d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3c347415-17b0-40d4-9751-b34bb3c7fa9d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121982": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:**  \n- If the vehicle didn't spawn - try another time.\n- Available after [Grand Theft Aero](#loc=121493) mission.",
+			[]
+		],
+		"121983": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10689,
+					"title": "Policecar1",
+					"file_name": "35419a35-f965-4a16-a179-fb6cd132f854.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35419a35-f965-4a16-a179-fb6cd132f854.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121984": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10690,
+					"title": "Linerunner1",
+					"file_name": "85f3a749-b19d-4a24-b3dc-0ad0bf07a4aa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/85f3a749-b19d-4a24-b3dc-0ad0bf07a4aa.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121985": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10691,
+					"title": "Linerunner2",
+					"file_name": "f104ea2e-9281-44bb-af96-9f01357eac3d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f104ea2e-9281-44bb-af96-9f01357eac3d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121986": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10692,
+					"title": "moonbeam1",
+					"file_name": "ddf2e12b-39bb-4fea-8abc-88bebba414c5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddf2e12b-39bb-4fea-8abc-88bebba414c5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121987": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10693,
+					"title": "moonbeam2",
+					"file_name": "619fec32-758a-4739-87ce-5eb949e17303.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/619fec32-758a-4739-87ce-5eb949e17303.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121989": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10694,
+					"title": "moonbeam3",
+					"file_name": "16cf809f-89e6-4939-b6ea-90c953b5d4f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/16cf809f-89e6-4939-b6ea-90c953b5d4f2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121990": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:**  \n- If the vehicle didn't spawn - try another time.\n- Located in the underground parking lot.",
+			[
+				{
+					"id": 10696,
+					"title": "moonbeam4",
+					"file_name": "8f223401-3e4b-479d-9b8f-bbb14aca1276.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8f223401-3e4b-479d-9b8f-bbb14aca1276.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121991": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10695,
+					"title": "moonbeam5",
+					"file_name": "fd2f1da0-0886-4749-a619-c282ceb6f915.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fd2f1da0-0886-4749-a619-c282ceb6f915.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121992": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10697,
+					"title": "mule2",
+					"file_name": "6c067e36-f6f6-46fd-8123-531e3f66d4d0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c067e36-f6f6-46fd-8123-531e3f66d4d0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121993": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10699,
+					"title": "mule1",
+					"file_name": "79f19b3a-b3fa-4a65-9f3b-e6170b13efe9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79f19b3a-b3fa-4a65-9f3b-e6170b13efe9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121994": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10700,
+					"title": "moonbeam4",
+					"file_name": "af30c561-a2e4-4c38-8d3d-d5317bef6ae0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/af30c561-a2e4-4c38-8d3d-d5317bef6ae0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121995": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10701,
+					"title": "mule3",
+					"file_name": "41ac23f6-aa1f-492f-9282-4724331f2860.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41ac23f6-aa1f-492f-9282-4724331f2860.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121996": [
+			"Used in [Portland Import/Export](#loc=120481) and [Patriot Playground](#loc=119850)  \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10702,
+					"title": "patriot",
+					"file_name": "ff27b0b3-b7fe-4758-9740-a59247b431fc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff27b0b3-b7fe-4758-9740-a59247b431fc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121997": [
+			"Used in [Portland Import/Export](#loc=120481) and [Gripped!](#loc=119854)  \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10739,
+					"title": "pariot2",
+					"file_name": "b982b0a4-8498-4dd3-8e6d-d4c26200ae75.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b982b0a4-8498-4dd3-8e6d-d4c26200ae75.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121998": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10703,
+					"title": "pony2",
+					"file_name": "15acb2fd-e626-496c-9501-8505c464bb0f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/15acb2fd-e626-496c-9501-8505c464bb0f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"121999": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10704,
+					"title": "pony3",
+					"file_name": "ae28c186-237b-4de7-9c32-79dae50077ef.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae28c186-237b-4de7-9c32-79dae50077ef.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122000": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10711,
+					"title": "rumpo2",
+					"file_name": "ee8156ca-0dd9-4235-ac0b-175b42cd1e7d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee8156ca-0dd9-4235-ac0b-175b42cd1e7d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122001": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10715,
+					"title": "pony4",
+					"file_name": "3fe54b0c-837d-402d-9c06-e6618517746f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3fe54b0c-837d-402d-9c06-e6618517746f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122002": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10716,
+					"title": "rumpo3",
+					"file_name": "1ed272ed-7e6e-4ad8-87ba-31753c567950.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ed272ed-7e6e-4ad8-87ba-31753c567950.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122003": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10705,
+					"title": "rumpo4",
+					"file_name": "6d2b0cee-f7e2-4f5c-b503-5c93fa045753.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6d2b0cee-f7e2-4f5c-b503-5c93fa045753.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122004": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10706,
+					"title": "rumpo5",
+					"file_name": "3845e75b-5471-43b0-8641-7b2ed5b03991.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3845e75b-5471-43b0-8641-7b2ed5b03991.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122005": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10707,
+					"title": "rumpo6",
+					"file_name": "a7ea5133-8489-46d8-9a68-ed1df69f5497.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a7ea5133-8489-46d8-9a68-ed1df69f5497.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122006": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10708,
+					"title": "rumpo8",
+					"file_name": "ebe199c9-654d-4ad4-becd-2aac5b98ca7c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ebe199c9-654d-4ad4-becd-2aac5b98ca7c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122007": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10709,
+					"title": "rumpo7",
+					"file_name": "f143b411-f8e8-4ec4-ad02-f68c8bd3122e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f143b411-f8e8-4ec4-ad02-f68c8bd3122e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122008": [
+			"",
+			[
+				{
+					"id": 10712,
+					"title": "yankee1",
+					"file_name": "7802c85f-1c76-416b-af79-135a79a1a8ba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7802c85f-1c76-416b-af79-135a79a1a8ba.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 10717,
+					"title": "yankee1",
+					"file_name": "49129bee-ea7c-4d77-b696-ad0727ee23c3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49129bee-ea7c-4d77-b696-ad0727ee23c3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122009": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10713,
+					"title": "yankee2",
+					"file_name": "78389062-6807-47bd-9f87-7068e11190fc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/78389062-6807-47bd-9f87-7068e11190fc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122010": [
+			"**Note:** Spawns near [Fort Staunton](#loc=121426), [Rockford](#loc=121429) and [Aspatria](#loc=121423)",
+			[
+				{
+					"id": 10714,
+					"title": "FLATBED",
+					"file_name": "820bcd6f-55dd-4160-add5-cd56b6be2230.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/820bcd6f-55dd-4160-add5-cd56b6be2230.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122011": [
+			"**Note:** Spawns near [Fort Staunton](#loc=121426), [Liberty Campus](#loc=121427) and [Aspatria](#loc=121423)",
+			[
+				{
+					"id": 10719,
+					"title": "Bus",
+					"file_name": "af553fbe-7a6f-4849-861f-80c74505390c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/af553fbe-7a6f-4849-861f-80c74505390c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122012": [
+			"**Note:** Rarely spawns in [Saint Mark's](#loc=120381) and [Cedar Grove](#loc=121431)",
+			[
+				{
+					"id": 10721,
+					"title": "mrwhoopee",
+					"file_name": "1c9786c5-7342-47a0-9bac-8f704db65bea.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1c9786c5-7342-47a0-9bac-8f704db65bea.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122013": [
+			"**Note:** Rarely spawns in [Chinatown](#loc=120376), [Rockford](#loc=121429) and [Aspatria](#loc=121423)",
+			[
+				{
+					"id": 10720,
+					"title": "securicar",
+					"file_name": "994d8d0d-e0a0-4d30-92af-a8c12daafef9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/994d8d0d-e0a0-4d30-92af-a8c12daafef9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122014": [
+			"**Note:** Rarely spawns in [Bedford Point](#loc=121424) and [Aspatria](#loc=121423)",
+			[
+				{
+					"id": 10718,
+					"title": "Trashmaster",
+					"file_name": "e58ce000-aecd-457d-bbfa-f52613e016fe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e58ce000-aecd-457d-bbfa-f52613e016fe.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122015": ["**Note:** Only available at a 5-star wanted level.", []],
+		"122017": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10722,
+					"title": "baracks",
+					"file_name": "71b8cf95-1e43-461a-b235-9af9d0276657.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/71b8cf95-1e43-461a-b235-9af9d0276657.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 10723,
+					"title": "baracks",
+					"file_name": "ff5eb9fa-3ba5-47af-b850-2d1e5d106daf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff5eb9fa-3ba5-47af-b850-2d1e5d106daf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122018": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and [Paramedic Mission](#loc=120417)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10724,
+					"title": "ambulance1",
+					"file_name": "65f2c98e-868d-457d-afec-710de7ad7b15.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/65f2c98e-868d-457d-afec-710de7ad7b15.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122019": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Vigilante](#loc=120414) mission\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10730,
+					"title": "policecar2",
+					"file_name": "1362b32b-050a-46ff-b5b9-238ce38e523e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1362b32b-050a-46ff-b5b9-238ce38e523e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122020": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Vigilante](#loc=120414) mission\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10732,
+					"title": "policecar3",
+					"file_name": "e699acca-3fbb-45a3-b20d-cdef94a72a99.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e699acca-3fbb-45a3-b20d-cdef94a72a99.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122021": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and [Paramedic Mission](#loc=120417)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10734,
+					"title": "ambulance2",
+					"file_name": "9390f3c5-098f-4aba-940a-4dc2ef6c2c9b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9390f3c5-098f-4aba-940a-4dc2ef6c2c9b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122022": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and [Paramedic Mission](#loc=120417)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10735,
+					"title": "ambulance3",
+					"file_name": "e12f240a-aa51-4fa7-9ca7-21b830be2a0a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e12f240a-aa51-4fa7-9ca7-21b830be2a0a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122023": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Vigilante](#loc=120423) mission\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10736,
+					"title": "policecar6",
+					"file_name": "bd2b2cca-69b9-42cf-b2d2-234632952437.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd2b2cca-69b9-42cf-b2d2-234632952437.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122024": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Vigilante](#loc=120422) mission\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10733,
+					"title": "policecar4",
+					"file_name": "d0bf4ce7-5054-426a-8a8d-88ad0668dee1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d0bf4ce7-5054-426a-8a8d-88ad0668dee1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122025": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Vigilante](#loc=120422) mission\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10725,
+					"title": "enforcer",
+					"file_name": "78b18515-7dda-4da0-971b-80dfa22bcee7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/78b18515-7dda-4da0-971b-80dfa22bcee7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122026": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Vigilante](#loc=120422) mission\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10726,
+					"title": "policecar5",
+					"file_name": "1e23dbc0-f041-4ed2-8f5f-56b3a998ddb9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e23dbc0-f041-4ed2-8f5f-56b3a998ddb9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122027": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Firefighter](#loc=120416) mission  \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10728,
+					"title": "Firetruck2",
+					"file_name": "38e6e257-a0c6-4e6f-83fa-220e4ff9033a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/38e6e257-a0c6-4e6f-83fa-220e4ff9033a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122028": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Firefighter](#loc=120424) mission  \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10727,
+					"title": "Firetruck1",
+					"file_name": "8cd7062b-bebe-4ba9-850f-2726bd8b799c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8cd7062b-bebe-4ba9-850f-2726bd8b799c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122029": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Firefighter](#loc=120425) mission  \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10729,
+					"title": "Firetruck3",
+					"file_name": "caaaec46-22e4-4888-9da1-ad154ae9fccf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/caaaec46-22e4-4888-9da1-ad154ae9fccf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122030": ["**Prerequisite:** Complete all [Firefighter missions](#loc=120416).", []],
+		"122031": ["**Prerequisite:** Complete all [Firefighter missions](#loc=120424).", []],
+		"122032": ["**Prerequisite:** Complete all [Firefighter missions](#loc=120425).", []],
+		"122033": [
+			"Used in [Emergency Vehicles Import/Export](#loc=120483) and any [Vigilante](#loc=120422) mission\n\n**Note:**  \n- If the vehicle didn't spawn - try another time.\n- Spawns after completing [The Exchange](#loc=121549) mission.",
+			[]
+		],
+		"122034": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10737,
+					"title": "banshee1",
+					"file_name": "d6f5ecc9-9394-4368-8f05-f660d5ccf770.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6f5ecc9-9394-4368-8f05-f660d5ccf770.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122035": ["**Prerequisite:** [Taxi Driver Mission](#loc=120415)", []],
+		"122036": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10738,
+					"title": "banshee2",
+					"file_name": "3a5241dd-a806-48a0-a28b-cf36c9c1a948.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a5241dd-a806-48a0-a28b-cf36c9c1a948.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122037": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[]
+		],
+		"122038": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10741,
+					"title": "banshee4",
+					"file_name": "e52beef4-4369-4f22-8fbe-9d810fbcfd71.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e52beef4-4369-4f22-8fbe-9d810fbcfd71.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122039": [
+			"Used in [Portland Import/Export](#loc=120481)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10740,
+					"title": "bobcat7",
+					"file_name": "07446e4c-224d-49eb-a33a-fb09089a1246.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07446e4c-224d-49eb-a33a-fb09089a1246.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122040": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)  \n**Prerequisite:** [Sayonara Salvatore](#loc=121459)\n\n**Note:**  \n- If the vehicle didn't spawn - try another time.\n- Spawns between 18:00 and 0:00",
+			[]
+		],
+		"122041": [
+			"Used in [Gangcar Round-Up](#loc=121462) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10743,
+					"title": "mafia2",
+					"file_name": "4e2080a6-e730-4a9a-8774-285791f0198b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e2080a6-e730-4a9a-8774-285791f0198b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122042": [
+			"Used in [Gangcar Round-Up](#loc=121462) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10744,
+					"title": "mafia3",
+					"file_name": "486f9b7a-eba0-4e9d-b8a2-a33bb9f1901f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/486f9b7a-eba0-4e9d-b8a2-a33bb9f1901f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122043": [
+			"Used in [Gangcar Round-Up](#loc=121462) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10742,
+					"title": "mafia1",
+					"file_name": "c4871b7d-5f08-414e-bbb1-cbdbc846374e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c4871b7d-5f08-414e-bbb1-cbdbc846374e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122044": [
+			"Used in [Gangcar Round-Up](#loc=121462) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10745,
+					"title": "yakuza1",
+					"file_name": "8fe88cf1-2e1b-46a9-8ac4-d7b6bb5c3a5f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8fe88cf1-2e1b-46a9-8ac4-d7b6bb5c3a5f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122045": [
+			"Used in [Gangcar Round-Up](#loc=121462) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10746,
+					"title": "yakuza2",
+					"file_name": "b0d368b7-dcfc-409b-8d71-e9cf5bf1c70c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b0d368b7-dcfc-409b-8d71-e9cf5bf1c70c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122046": [
+			"Used in [Gangcar Round-Up](#loc=121462) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10747,
+					"title": "yakuza3",
+					"file_name": "5c1dbc6b-f875-4f80-9c4a-2f7f7f954761.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5c1dbc6b-f875-4f80-9c4a-2f7f7f954761.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122047": [
+			"Used in [Gangcar Round-Up](#loc=121462) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10748,
+					"title": "yakuza4",
+					"file_name": "7d1515a9-819c-46d2-ba47-d2b0a680b090.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d1515a9-819c-46d2-ba47-d2b0a680b090.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122048": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482) and [Taxi Driver Mission](#loc=120415)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10749,
+					"title": "cabbie",
+					"file_name": "cc4472e2-b6e0-4db7-891b-67464c870d43.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc4472e2-b6e0-4db7-891b-67464c870d43.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122049": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482) and [Taxi Driver Mission](#loc=120415)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10750,
+					"title": "taxi1",
+					"file_name": "7d18083f-354e-4104-b057-24425435db5c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d18083f-354e-4104-b057-24425435db5c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122050": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482) and [Taxi Driver Mission](#loc=120415)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10751,
+					"title": "taxi2",
+					"file_name": "87cd1bc4-7512-4e36-ac8d-6ecc7ae7d594.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87cd1bc4-7512-4e36-ac8d-6ecc7ae7d594.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122051": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482) and [Taxi Driver Mission](#loc=120415)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10752,
+					"title": "taxi3",
+					"file_name": "cd436706-be2a-429d-b2f3-1c7a6964eefc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cd436706-be2a-429d-b2f3-1c7a6964eefc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122052": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10753,
+					"title": "cheetah",
+					"file_name": "4341c127-4160-4b16-84c0-885726d3877e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4341c127-4160-4b16-84c0-885726d3877e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122053": [
+			"Used in [Portland Import/Export](#loc=120481) \n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10754,
+					"title": "rumpo9",
+					"file_name": "27cfe558-5493-4716-aeec-db681983baf8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/27cfe558-5493-4716-aeec-db681983baf8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122054": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10755,
+					"title": "esperanto1",
+					"file_name": "df8a3b3f-fb78-481c-b6b7-dd172590eb5c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df8a3b3f-fb78-481c-b6b7-dd172590eb5c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122055": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10756,
+					"title": "esperanto2",
+					"file_name": "3df9bccb-66ed-49b9-b675-d26bee512923.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3df9bccb-66ed-49b9-b675-d26bee512923.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122056": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10757,
+					"title": "esperanto3",
+					"file_name": "dfe31688-8504-40c5-93b8-121217a961a0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dfe31688-8504-40c5-93b8-121217a961a0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122057": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10758,
+					"title": "esperanto4",
+					"file_name": "5009207c-d866-4bad-bbf9-8eca1cb808aa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5009207c-d866-4bad-bbf9-8eca1cb808aa.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122058": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482) and [Taxi Driver Mission](#loc=120415)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10759,
+					"title": "taxi4",
+					"file_name": "b77dca27-349d-4501-aef4-693e3ba4466b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b77dca27-349d-4501-aef4-693e3ba4466b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122059": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10760,
+					"title": "esperanto5",
+					"file_name": "b93d9197-80a4-46bd-bb41-039ad4116faf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b93d9197-80a4-46bd-bb41-039ad4116faf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122060": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10761,
+					"title": "idaho1",
+					"file_name": "b2fe00de-37a3-4543-85ec-02203b1e0132.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b2fe00de-37a3-4543-85ec-02203b1e0132.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122061": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10762,
+					"title": "idaho2",
+					"file_name": "9a1a4b7c-0ecf-4b67-8b16-0a60972d86c8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a1a4b7c-0ecf-4b67-8b16-0a60972d86c8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122062": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10763,
+					"title": "idaho3",
+					"file_name": "ce6ac019-910a-4d72-92c8-64905a83dc9f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ce6ac019-910a-4d72-92c8-64905a83dc9f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122063": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10764,
+					"title": "infernus",
+					"file_name": "63d91b11-a5a6-4564-9090-09fd83218a33.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/63d91b11-a5a6-4564-9090-09fd83218a33.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122064": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10766,
+					"title": "kuruma2",
+					"file_name": "409836c4-ad44-4a5d-8c4b-c8853690a947.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/409836c4-ad44-4a5d-8c4b-c8853690a947.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122065": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10765,
+					"title": "kuruma1",
+					"file_name": "e9959903-b4b1-4e47-aa80-b7aa0d76a795.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9959903-b4b1-4e47-aa80-b7aa0d76a795.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122066": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10767,
+					"title": "kuruma3",
+					"file_name": "a82b65b6-e011-4e2b-826d-669fbd17c646.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a82b65b6-e011-4e2b-826d-669fbd17c646.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122067": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10768,
+					"title": "kuruma4",
+					"file_name": "59fe8c83-4d13-40a9-937b-1adb54e13b6e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/59fe8c83-4d13-40a9-937b-1adb54e13b6e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122068": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10769,
+					"title": "kuruma5",
+					"file_name": "9d8d98b3-0f9d-40da-bdbf-83158fbf7bc1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9d8d98b3-0f9d-40da-bdbf-83158fbf7bc1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122069": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10770,
+					"title": "kuruma6",
+					"file_name": "608d756d-cbb4-4217-8e1f-b2714e446316.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/608d756d-cbb4-4217-8e1f-b2714e446316.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122070": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10771,
+					"title": "kuruma7",
+					"file_name": "4a54e865-0061-4c9b-82aa-050fd409dca5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4a54e865-0061-4c9b-82aa-050fd409dca5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122071": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482) and [A Ride in the Park](#loc=119853)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10774,
+					"title": "landstalker3",
+					"file_name": "30a2485c-a327-4612-8fb9-77152e777ec7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/30a2485c-a327-4612-8fb9-77152e777ec7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122072": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10775,
+					"title": "landstalker4",
+					"file_name": "b1cff102-edd8-4716-826c-072ab34a75e1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b1cff102-edd8-4716-826c-072ab34a75e1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122073": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10772,
+					"title": "landstalker1",
+					"file_name": "d7a796ae-ca8f-4c2b-92df-51b442291e0a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d7a796ae-ca8f-4c2b-92df-51b442291e0a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122074": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10773,
+					"title": "landstalker2",
+					"file_name": "d5859731-9258-437a-8d44-120b7c08cf02.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d5859731-9258-437a-8d44-120b7c08cf02.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122075": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10776,
+					"title": "kuruma8",
+					"file_name": "1a266535-ea57-4d94-97fa-362a38f8e381.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1a266535-ea57-4d94-97fa-362a38f8e381.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122076": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10779,
+					"title": "manana1",
+					"file_name": "4d38b527-89af-4c8a-b14d-2474664b0725.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d38b527-89af-4c8a-b14d-2474664b0725.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122077": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10781,
+					"title": "landstalker5",
+					"file_name": "96d60531-c330-4f34-bf04-b06e46ca7f97.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/96d60531-c330-4f34-bf04-b06e46ca7f97.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122078": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10780,
+					"title": "manana2",
+					"file_name": "0096df8b-15ad-4f2c-acc1-c69bc28d8869.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0096df8b-15ad-4f2c-acc1-c69bc28d8869.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122079": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10777,
+					"title": "idaho4",
+					"file_name": "c510611c-9a4d-40e7-a55d-a16e38032f4d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c510611c-9a4d-40e7-a55d-a16e38032f4d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122080": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10784,
+					"title": "perennial3",
+					"file_name": "0119fea7-a3b0-4717-8049-f1eb8fb0041b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0119fea7-a3b0-4717-8049-f1eb8fb0041b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122081": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10782,
+					"title": "perennial1",
+					"file_name": "2b528942-a5ad-408e-8ff8-432b52c38af8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2b528942-a5ad-408e-8ff8-432b52c38af8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122082": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10783,
+					"title": "perennial2",
+					"file_name": "6ad0d98d-3ba6-4b5c-ab23-9f128b3d6ad1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6ad0d98d-3ba6-4b5c-ab23-9f128b3d6ad1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122083": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10785,
+					"title": "perennial4",
+					"file_name": "ac7a0c1f-9d3f-4ff2-8fb2-2d5edfff7754.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac7a0c1f-9d3f-4ff2-8fb2-2d5edfff7754.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122087": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10786,
+					"title": "sentinel1",
+					"file_name": "237ac32a-4f48-47e5-b181-e919f1456733.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/237ac32a-4f48-47e5-b181-e919f1456733.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122088": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10787,
+					"title": "sentinel2",
+					"file_name": "be0c6f18-c271-474f-b376-5a4013ef50e5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be0c6f18-c271-474f-b376-5a4013ef50e5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122089": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10788,
+					"title": "sentinel3",
+					"file_name": "68e56b72-ca6a-4367-a2ba-2866e148a905.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68e56b72-ca6a-4367-a2ba-2866e148a905.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122090": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10789,
+					"title": "sentinel4",
+					"file_name": "318338e3-fa54-4de8-a071-f60d401143d9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/318338e3-fa54-4de8-a071-f60d401143d9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122101": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10791,
+					"title": "stallion1",
+					"file_name": "ba6b7d44-fd56-4b61-8d95-10891f08d714.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ba6b7d44-fd56-4b61-8d95-10891f08d714.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122102": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10796,
+					"title": "stallion6",
+					"file_name": "3eac47fa-bcd5-4933-bbe9-de1b354cf50d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3eac47fa-bcd5-4933-bbe9-de1b354cf50d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122104": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10797,
+					"title": "stallion7",
+					"file_name": "1ea3ee81-1769-4526-ac7b-79b99dd4d528.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ea3ee81-1769-4526-ac7b-79b99dd4d528.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122105": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10795,
+					"title": "stallion5",
+					"file_name": "c878b294-096d-445e-a269-e01b568a3fc4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c878b294-096d-445e-a269-e01b568a3fc4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122106": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10793,
+					"title": "stallion3",
+					"file_name": "f45070a7-dc4c-455c-af35-ae623ef78f8a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f45070a7-dc4c-455c-af35-ae623ef78f8a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122108": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482) and [Multistorey Mayhem](#loc=119851)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10794,
+					"title": "stallion4",
+					"file_name": "32320ff6-1b31-4e9d-9d70-b41c44e812b3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/32320ff6-1b31-4e9d-9d70-b41c44e812b3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122109": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10792,
+					"title": "stallion2",
+					"file_name": "ea1d2ad1-2f02-455f-940d-880f9d0819bd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ea1d2ad1-2f02-455f-940d-880f9d0819bd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122114": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10798,
+					"title": "stinger1",
+					"file_name": "9523e07d-39b7-4df4-b890-a453fd68b25c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9523e07d-39b7-4df4-b890-a453fd68b25c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122115": [
+			"Used in [Shoreside Vale Import/Export](#loc=120482)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10799,
+					"title": "stinger2",
+					"file_name": "5d7379de-a85f-4e60-bdd0-ed5bf075e43c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d7379de-a85f-4e60-bdd0-ed5bf075e43c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122116": [
+			"**Note:** Spawns near [Belleville Park](#loc=121425) and [Aspatria](#loc=121423)",
+			[
+				{
+					"id": 10800,
+					"title": "stretch",
+					"file_name": "cea930bc-e719-4af1-a4bd-55b16edfd558.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cea930bc-e719-4af1-a4bd-55b16edfd558.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122244": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10813,
+					"title": "cartel3",
+					"file_name": "f732e684-dc91-4101-a5b9-5eaf21bbd38f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f732e684-dc91-4101-a5b9-5eaf21bbd38f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122245": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10812,
+					"title": "cartel2",
+					"file_name": "b247f12d-1a40-4874-9764-14ff5c9ca85d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b247f12d-1a40-4874-9764-14ff5c9ca85d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122246": [
+			"Used in [Liberator](#loc=121482) and [Waka-Gashira Wipeout!](#loc=121484)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10811,
+					"title": "cartel1",
+					"file_name": "b891ee59-8ecb-4deb-af85-fa18a3ff14f7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b891ee59-8ecb-4deb-af85-fa18a3ff14f7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122247": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10816,
+					"title": "predator2",
+					"file_name": "e2118bdc-0cc1-4241-a5fb-743cc6850b0d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e2118bdc-0cc1-4241-a5fb-743cc6850b0d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122248": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10835,
+					"title": "predator1",
+					"file_name": "b866ce95-d34d-4802-b248-5e20f1ef695e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b866ce95-d34d-4802-b248-5e20f1ef695e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122249": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10815,
+					"title": "reefer1",
+					"file_name": "1b96d64b-ec0a-4f4e-b6a9-ede0e12a78d3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1b96d64b-ec0a-4f4e-b6a9-ede0e12a78d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 10846,
+					"title": "reefer1",
+					"file_name": "f9463ade-d750-44e1-97cb-92df83340b5b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f9463ade-d750-44e1-97cb-92df83340b5b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122250": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10814,
+					"title": "speeder1",
+					"file_name": "55c37457-9c7f-4906-bf43-01d39ee3b437.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/55c37457-9c7f-4906-bf43-01d39ee3b437.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122252": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10817,
+					"title": "pantlantic1",
+					"file_name": "edd5ffec-11fd-43ca-9494-a90891f40c83.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/edd5ffec-11fd-43ca-9494-a90891f40c83.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122253": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10818,
+					"title": "pantlantic2",
+					"file_name": "d4d6b055-39b6-4fb1-ab51-bf8f827668d0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d4d6b055-39b6-4fb1-ab51-bf8f827668d0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122254": ["**Note:** If the vehicle didn't spawn - try another time.", []],
+		"122255": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10819,
+					"title": "wong1",
+					"file_name": "ed1e70fc-9dea-4faf-9e6b-d25290bc1863.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed1e70fc-9dea-4faf-9e6b-d25290bc1863.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122256": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10820,
+					"title": "belly2",
+					"file_name": "755ce2b6-26d8-47e9-999b-cf607ed8a24a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/755ce2b6-26d8-47e9-999b-cf607ed8a24a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122257": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10822,
+					"title": "belly4",
+					"file_name": "02aadd8f-9241-4b1d-98c5-cdd14617c531.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/02aadd8f-9241-4b1d-98c5-cdd14617c531.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122258": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10821,
+					"title": "belly3",
+					"file_name": "28607924-57ff-4e67-9bb4-f8fa8eb843ff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/28607924-57ff-4e67-9bb4-f8fa8eb843ff.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122259": [
+			"**Note:** To complete this - [jump](#loc=122260) to the railway tracks.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 40980,
+					"title": "",
+					"file_name": "79c3cf9c-6529-4f82-9cdf-3b3a1a72e1c0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79c3cf9c-6529-4f82-9cdf-3b3a1a72e1c0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122260": ["**Note:** Landing area for this [Stunt Jump](#loc=122259)", []],
+		"122261": [
+			"**Note:** To complete this - [jump](#loc=122262) over the pedestrian bridge.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 40979,
+					"title": "",
+					"file_name": "640fa74c-59d7-407f-95c5-4ceb4618ee9c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/640fa74c-59d7-407f-95c5-4ceb4618ee9c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122262": ["**Note:** Landing area for this [Stunt Jump](#loc=122261)", []],
+		"122263": [
+			"**Note:** To complete this - [jump](#loc=122264) over the metal beam.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10825,
+					"title": "stunt1",
+					"file_name": "bf07fa6e-062c-4be3-8dfa-0b7e57685924.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf07fa6e-062c-4be3-8dfa-0b7e57685924.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122264": ["**Note:** Landing area for this [Stunt Jump](#loc=122263)", []],
+		"122265": [
+			"**Note:** To complete this - [jump](#loc=122266) over two metal beams.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10826,
+					"title": "stunt2",
+					"file_name": "42955a5d-7986-4041-b5c0-0a72bf6f92d1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42955a5d-7986-4041-b5c0-0a72bf6f92d1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122266": ["**Note:** Landing area for this [Stunt Jump](#loc=122265)", []],
+		"122267": [
+			"**Note:** To complete this - [jump](#loc=122268) over  the building.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 40977,
+					"title": "",
+					"file_name": "ad68506b-bedd-44f8-a0dc-0e49449f0352.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ad68506b-bedd-44f8-a0dc-0e49449f0352.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122268": ["**Note:** Landing area for this [Stunt Jump](#loc=122267)", []],
+		"122269": ["**Note:** Landing area for this [Stunt Jump](#loc=122270)", []],
+		"122270": [
+			"**Note:** To complete this - [jump](#loc=122269) over four trailers.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 40978,
+					"title": "",
+					"file_name": "bb1d0f8c-c206-4440-b34b-94752aff8139.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb1d0f8c-c206-4440-b34b-94752aff8139.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122271": [
+			"**Note:** To complete this - [jump](#loc=122272) on the red roof of the warehouse.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 40976,
+					"title": "",
+					"file_name": "677a10d7-d100-4133-a45b-525cd366ba01.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/677a10d7-d100-4133-a45b-525cd366ba01.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122272": ["**Note:** Landing area for this [Stunt Jump](#loc=122271)", []],
+		"122273": [
+			"**Note:** To complete this - [jump](#loc=122274) over the water to another side.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 40975,
+					"title": "",
+					"file_name": "36b74c9b-28de-4ae0-b7b3-e3164a19466a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36b74c9b-28de-4ae0-b7b3-e3164a19466a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122274": ["**Note:** Landing area for this [Stunt Jump](#loc=122273)", []],
+		"122275": [
+			"**Note:** To complete this - [jump](#loc=122276) over water, under the bridge.\nApproach from North\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10827,
+					"title": "stunt3",
+					"file_name": "67befff0-7eb3-49b9-a322-1538dd2a5f4c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/67befff0-7eb3-49b9-a322-1538dd2a5f4c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122276": ["**Note:** Landing area for this [Stunt Jump](#loc=122275)", []],
+		"122277": [
+			"**Note:** To complete this - [jump](#loc=122278) using stairs inside [TW@ Cafe](#loc=121457).\nApproach from east side of the street.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10828,
+					"title": "stunt4",
+					"file_name": "60b763a2-63c0-441b-87d1-56c1716060c7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60b763a2-63c0-441b-87d1-56c1716060c7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122278": ["**Note:** Landing area for this [Stunt Jump](#loc=122277)", []],
+		"122279": [
+			"**Note:** To complete this - [jump](#loc=122280) over the bridge.\nGet onto the median north/north east up the road.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10829,
+					"title": "stunt5",
+					"file_name": "af11cdc6-0274-4249-af65-a39bc25faa25.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/af11cdc6-0274-4249-af65-a39bc25faa25.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122280": ["**Note:** Landing area for this [Stunt Jump](#loc=122279)", []],
+		"122281": [
+			"**Note:** To complete this - [jump](#loc=122282) down to the street corner.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10830,
+					"title": "stunt6",
+					"file_name": "db755956-9994-46ec-b175-0085b20c63f3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/db755956-9994-46ec-b175-0085b20c63f3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122282": ["**Note:** Landing area for this [Stunt Jump](#loc=122281)", []],
+		"122283": [
+			"**Note:** To complete this - [jump](#loc=122284) over the water to the park below.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10831,
+					"title": "stunt7",
+					"file_name": "74af287d-270d-4482-bea8-739d67aeead8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/74af287d-270d-4482-bea8-739d67aeead8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122284": ["**Note:** Landing area for this [Stunt Jump](#loc=122283)", []],
+		"122285": [
+			"**Note:** To complete this - [jump](#loc=122286) down behind the building.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10832,
+					"title": "stunt8",
+					"file_name": "a5d92362-acdd-42e2-acda-1cf2dbcabd8e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a5d92362-acdd-42e2-acda-1cf2dbcabd8e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122286": [
+			"**Note:** Landing area for this [Stunt Jump](#loc=122285)",
+			[
+				{
+					"id": 10833,
+					"title": "land1",
+					"file_name": "b770d807-91bb-4912-b8c5-1262eee56bd6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b770d807-91bb-4912-b8c5-1262eee56bd6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122287": [
+			"**Note:** To complete this - [jump](#loc=122288) onto the garage roof.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 41028,
+					"title": "",
+					"file_name": "e059039d-e636-4c7b-81f4-c5f4a26cc752.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e059039d-e636-4c7b-81f4-c5f4a26cc752.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122288": ["**Note:** Landing area for this [Stunt Jump](#loc=122287)", []],
+		"122289": [
+			"**Note:** To complete this - [jump](#loc=122290) using a wooden ramp over water.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 41024,
+					"title": "",
+					"file_name": "785796e3-35af-4239-8503-b7bf1fd91add.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/785796e3-35af-4239-8503-b7bf1fd91add.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122290": ["**Note:** Landing area for this [Stunt Jump](#loc=122289)", []],
+		"122291": [
+			"**Note:** To complete this - [jump](#loc=122292) over the airplane or onto the other plane wing.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 10834,
+					"title": "stunt9",
+					"file_name": "d6461807-fa93-4a3d-89b4-77a1ee84cf54.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6461807-fa93-4a3d-89b4-77a1ee84cf54.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122292": ["**Note:** Landing area for this [Stunt Jump](#loc=122291)", []],
+		"122293": [
+			"**Note:** To complete this - [jump](#loc=122294) over the building.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 41027,
+					"title": "",
+					"file_name": "e3038f82-2099-44f4-ab30-a023562b6e3c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3038f82-2099-44f4-ab30-a023562b6e3c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122294": ["**Note:** Landing area for this [Stunt Jump](#loc=122293)", []],
+		"122295": [
+			"**Note:** To complete this - [jump](#loc=122297) over the building.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 41026,
+					"title": "",
+					"file_name": "df13bebc-60f1-490e-91b7-7c16003d7d35.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df13bebc-60f1-490e-91b7-7c16003d7d35.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122296": [
+			"**Note:** To complete this - [jump](#loc=122298) over the building.\n\n**Reward:**  \n- Each Stunt Jump gives $5,000 more than a previous one.  \n- Completing all Stunt Jumps - gives $1,000,000.",
+			[
+				{
+					"id": 41025,
+					"title": "",
+					"file_name": "ead2fdd7-7df6-414f-8e3c-93c9a40241bb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ead2fdd7-7df6-414f-8e3c-93c9a40241bb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122297": ["**Note:** Landing area for this [Stunt Jump](#loc=122295)", []],
+		"122298": ["**Note:** Landing area for this [Stunt Jump](#loc=122296)", []],
+		"122299": [
+			"**Note:** If the vehicle didn't spawn - try another time.",
+			[
+				{
+					"id": 10836,
+					"title": "speeder2",
+					"file_name": "be5d4dc9-2c2c-446d-991e-e3b5553974fb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be5d4dc9-2c2c-446d-991e-e3b5553974fb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122300": [
+			"",
+			[
+				{
+					"id": 12651,
+					"title": "",
+					"file_name": "9416f5b6-426f-4929-a689-f56bdb9034cf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9416f5b6-426f-4929-a689-f56bdb9034cf.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122301": [
+			"To pick up this - use [Rothwell Station](#loc=119875) to access this roof",
+			[
+				{
+					"id": 10837,
+					"title": "pack1",
+					"file_name": "cd0b8557-9ef4-4d78-9ebe-7c652106af48.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cd0b8557-9ef4-4d78-9ebe-7c652106af48.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122302": [
+			"To pick up this - jump on the roof from the road above",
+			[
+				{
+					"id": 10838,
+					"title": "pack2",
+					"file_name": "35243c91-5d1c-44d9-98ef-cdc1f79fa1f3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35243c91-5d1c-44d9-98ef-cdc1f79fa1f3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122303": [
+			"Located inside [Capital Autos](#loc=120443)",
+			[
+				{
+					"id": 12652,
+					"title": "",
+					"file_name": "2a738850-210b-4fe3-86b7-f1aa1fca8061.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2a738850-210b-4fe3-86b7-f1aa1fca8061.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122304": [
+			"",
+			[
+				{
+					"id": 10839,
+					"title": "pack3",
+					"file_name": "7ed3400d-fe98-4165-8973-2f5ac0460d6e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7ed3400d-fe98-4165-8973-2f5ac0460d6e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122305": [
+			"Located below on the ledge",
+			[
+				{
+					"id": 10840,
+					"title": "pack4",
+					"file_name": "83bec340-18d8-4c0a-a2e9-006fb8211725.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/83bec340-18d8-4c0a-a2e9-006fb8211725.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122306": [
+			"",
+			[
+				{
+					"id": 12656,
+					"title": "",
+					"file_name": "bf6b502a-b675-4735-aeaa-19361d263a49.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf6b502a-b675-4735-aeaa-19361d263a49.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122307": [
+			"Located near bushes",
+			[
+				{
+					"id": 12655,
+					"title": "",
+					"file_name": "93b99c16-3d88-43c5-98b9-2eb68b0b066a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/93b99c16-3d88-43c5-98b9-2eb68b0b066a.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122308": [
+			"Located inside bushes",
+			[
+				{
+					"id": 12654,
+					"title": "",
+					"file_name": "2502f02d-c691-4310-a84a-0738cf5be457.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2502f02d-c691-4310-a84a-0738cf5be457.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122309": [
+			"Between the building and the wall",
+			[
+				{
+					"id": 40987,
+					"title": "",
+					"file_name": "d3217e0f-30b7-4e0c-ae77-ab92e6ff7a13.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d3217e0f-30b7-4e0c-ae77-ab92e6ff7a13.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122310": [
+			"Located inside a destroyed building",
+			[
+				{
+					"id": 12671,
+					"title": "",
+					"file_name": "e2b707bd-0bc5-4882-8843-b1ec9c9e3012.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e2b707bd-0bc5-4882-8843-b1ec9c9e3012.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122311": [
+			"To pick up this - use east rooftops in [Saint Mark's](#loc=120381).",
+			[
+				{
+					"id": 12653,
+					"title": "",
+					"file_name": "cd19a0c7-c168-4646-8a07-f5c92b1e0e6b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cd19a0c7-c168-4646-8a07-f5c92b1e0e6b.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122312": [
+			"Use stairs inside the courtyard of [Luigi's Sex Club 7](#loc=120360) to access this rooftop",
+			[
+				{
+					"id": 40984,
+					"title": "",
+					"file_name": "b85305ed-b746-41ea-9cdf-d9284fd74aac.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b85305ed-b746-41ea-9cdf-d9284fd74aac.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122313": [
+			"Use stairs inside the courtyard of [Luigi's Sex Club 7](#loc=120360) to access this rooftop.",
+			[
+				{
+					"id": 12657,
+					"title": "",
+					"file_name": "f6a6574d-5811-49a3-b747-0fca20b1f51d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6a6574d-5811-49a3-b747-0fca20b1f51d.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122314": [
+			"Use alley stairs to access this rooftop",
+			[
+				{
+					"id": 10841,
+					"title": "pack7",
+					"file_name": "83f11783-3d06-4750-9152-4424df257a37.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/83f11783-3d06-4750-9152-4424df257a37.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122315": [
+			"**Prerequisite:** [Last Requests](#loc=120479)\n\nIn the subway",
+			[
+				{
+					"id": 10842,
+					"title": "pack8",
+					"file_name": "a76a62e8-d540-43cc-b266-2f0f6193800c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a76a62e8-d540-43cc-b266-2f0f6193800c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122316": [
+			"Located inside building",
+			[
+				{
+					"id": 40985,
+					"title": "",
+					"file_name": "64764bc5-8d76-415c-a21d-c662a0654bec.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/64764bc5-8d76-415c-a21d-c662a0654bec.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122317": [
+			"In a long alleyway full of clotheslines south of the Salvatore Mansion.",
+			[
+				{
+					"id": 40986,
+					"title": "",
+					"file_name": "8db56b96-d80b-41da-be1d-76db30e9e3f7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8db56b96-d80b-41da-be1d-76db30e9e3f7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122318": [
+			"Located inside [Harbour Tunnel](#loc=120444)",
+			[
+				{
+					"id": 10843,
+					"title": "pack9",
+					"file_name": "69510120-8746-466d-af43-61ced55aa537.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/69510120-8746-466d-af43-61ced55aa537.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122319": [
+			"Use [Baillie Station](#loc=119873) for accessing this roof",
+			[
+				{
+					"id": 10844,
+					"title": "pack10",
+					"file_name": "5e947260-36e3-4e5e-bd16-7c7ba5aab49b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e947260-36e3-4e5e-bd16-7c7ba5aab49b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122320": [
+			"",
+			[
+				{
+					"id": 40983,
+					"title": "",
+					"file_name": "e8df13c8-6e03-433c-9bdf-355df7310288.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e8df13c8-6e03-433c-9bdf-355df7310288.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122321": [
+			"Use alley stairs to access this rooftop",
+			[
+				{
+					"id": 10845,
+					"title": "pack11",
+					"file_name": "a3d17997-d85f-424c-b481-a07629649ef7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3d17997-d85f-424c-b481-a07629649ef7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122322": [
+			"",
+			[
+				{
+					"id": 12662,
+					"title": "",
+					"file_name": "995a6ff9-2c4b-4ae6-a00b-8a8b7f5b18b6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/995a6ff9-2c4b-4ae6-a00b-8a8b7f5b18b6.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122323": [
+			"",
+			[
+				{
+					"id": 12658,
+					"title": "",
+					"file_name": "6adb36d0-b08f-47d0-838e-6f893dfce0fe.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6adb36d0-b08f-47d0-838e-6f893dfce0fe.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122324": [
+			"Use stairs near [Les Cargo](#loc=120447) and jump to this roof",
+			[
+				{
+					"id": 40982,
+					"title": "",
+					"file_name": "e6c22fa8-7789-4438-ba7b-0cc951ea0b09.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6c22fa8-7789-4438-ba7b-0cc951ea0b09.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122325": [
+			"",
+			[
+				{
+					"id": 12659,
+					"title": "",
+					"file_name": "3cea40ac-34fe-4ff8-8bf7-982ce3b99d38.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3cea40ac-34fe-4ff8-8bf7-982ce3b99d38.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122326": [
+			"",
+			[
+				{
+					"id": 48031,
+					"title": "",
+					"file_name": "6eac79cd-68fa-46c1-8465-cc734eb3bb72.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6eac79cd-68fa-46c1-8465-cc734eb3bb72.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122327": [
+			"",
+			[
+				{
+					"id": 12661,
+					"title": "",
+					"file_name": "966d8dbb-85db-49df-95ab-3f977457abc8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/966d8dbb-85db-49df-95ab-3f977457abc8.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122328": [
+			"Use a sand pile that's located east of this building and climb up the roof.",
+			[
+				{
+					"id": 12660,
+					"title": "",
+					"file_name": "8fba22e1-ac7f-4383-a7fd-e3766b4c58e7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8fba22e1-ac7f-4383-a7fd-e3766b4c58e7.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122329": [
+			"",
+			[
+				{
+					"id": 12663,
+					"title": "",
+					"file_name": "d7c69419-1443-4b80-a761-3cb01fe1f0e6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d7c69419-1443-4b80-a761-3cb01fe1f0e6.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122330": [
+			"Use any [boat](#loc=122250) to pick this up",
+			[
+				{
+					"id": 10848,
+					"title": "pack15",
+					"file_name": "1f83b375-4142-4b9a-8e3b-69b81ebb954e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f83b375-4142-4b9a-8e3b-69b81ebb954e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122331": [
+			"To enter [Turtle Head Fishing Company](#loc=120475) - use [Triad Fish Van](#loc=122254) or [Trashmaster](#loc=122014)",
+			[
+				{
+					"id": 10847,
+					"title": "pack14",
+					"file_name": "de29b927-27e1-41e8-b500-b95f639f2486.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de29b927-27e1-41e8-b500-b95f639f2486.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122332": [
+			"Located on top of the [Fort Staunton Bridge](#loc=121443), use steel beams to get this",
+			[
+				{
+					"id": 10849,
+					"title": "pack16",
+					"file_name": "8440bde3-2578-4db9-b809-ca8b822a085a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8440bde3-2578-4db9-b809-ca8b822a085a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122333": [
+			"",
+			[
+				{
+					"id": 41054,
+					"title": "",
+					"file_name": "b555261b-6c4d-4478-9ec3-8a895b57ee75.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b555261b-6c4d-4478-9ec3-8a895b57ee75.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122334": [
+			"Located behind the billboard",
+			[
+				{
+					"id": 41053,
+					"title": "",
+					"file_name": "b6b4173a-4b27-4e50-9b53-5fae78c6d5de.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b6b4173a-4b27-4e50-9b53-5fae78c6d5de.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122335": [
+			"Use an Ambulance to climb there",
+			[
+				{
+					"id": 10850,
+					"title": "pack17",
+					"file_name": "36d034be-8bca-4ad2-b56c-5a0251a83ba9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36d034be-8bca-4ad2-b56c-5a0251a83ba9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122336": [
+			"",
+			[
+				{
+					"id": 41052,
+					"title": "",
+					"file_name": "60c19d4e-f6b7-4415-8f18-40940669d7fd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60c19d4e-f6b7-4415-8f18-40940669d7fd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122337": [
+			"",
+			[
+				{
+					"id": 41051,
+					"title": "",
+					"file_name": "b07d068e-59fc-44e6-a3dc-a2996a1e12b5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b07d068e-59fc-44e6-a3dc-a2996a1e12b5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122338": [
+			"Located on the second floor of the construction site.",
+			[
+				{
+					"id": 10851,
+					"title": "pack18",
+					"file_name": "98a8544d-6fae-4403-9b5f-9c3c54cf99ff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/98a8544d-6fae-4403-9b5f-9c3c54cf99ff.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122339": [
+			"Located on [Panlantic Construction Site](#loc=121454)",
+			[
+				{
+					"id": 10852,
+					"title": "pack19",
+					"file_name": "247cb1b7-6844-4987-b781-caf11bdea22d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/247cb1b7-6844-4987-b781-caf11bdea22d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122340": [
+			"Located in [Colombian Hideout](#loc=121483) inside the garage.\n\nUse [Cartel Cruiser](#loc=122245) to drive through the gate",
+			[
+				{
+					"id": 10853,
+					"title": "pack20",
+					"file_name": "2e50bc32-2ddb-4efc-8432-81589d684e17.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2e50bc32-2ddb-4efc-8432-81589d684e17.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122341": [
+			"Located inside the garage",
+			[
+				{
+					"id": 10854,
+					"title": "pack21",
+					"file_name": "90a16958-a585-4344-be29-c8e2e9be6377.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/90a16958-a585-4344-be29-c8e2e9be6377.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122342": [
+			"Located on the second floor of [Newport Multistorey Car Park](#loc=121450)",
+			[
+				{
+					"id": 10855,
+					"title": "pack22",
+					"file_name": "50625179-0526-496f-b62c-cc029a084b7d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50625179-0526-496f-b62c-cc029a084b7d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122343": [
+			"",
+			[
+				{
+					"id": 41050,
+					"title": "",
+					"file_name": "f1139f1b-3d76-4577-a6c5-7363fb4c3582.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f1139f1b-3d76-4577-a6c5-7363fb4c3582.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122344": [
+			"Jump from the [Shoreside Lift Bridge](#loc=121418) to get this or use any tall vehicle",
+			[
+				{
+					"id": 10856,
+					"title": "pack23",
+					"file_name": "247bce5d-bb97-41d5-a60b-6f02c000aaf9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/247bce5d-bb97-41d5-a60b-6f02c000aaf9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122345": [
+			"Located under the upper road",
+			[
+				{
+					"id": 10857,
+					"title": "pack24",
+					"file_name": "11b43c1e-2ae8-4524-8786-f25b117e9484.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/11b43c1e-2ae8-4524-8786-f25b117e9484.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122346": [
+			"",
+			[
+				{
+					"id": 41049,
+					"title": "",
+					"file_name": "bb260315-a0d9-4a83-9bab-066ac046da26.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb260315-a0d9-4a83-9bab-066ac046da26.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122347": [
+			"Use the bridge lifting platform to get this, only accessible when the bridge platform is raised",
+			[
+				{
+					"id": 10858,
+					"title": "pack25",
+					"file_name": "292f28ac-a575-4938-ad32-d7d4d652926f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/292f28ac-a575-4938-ad32-d7d4d652926f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122348": [
+			"Located beneath the bridge",
+			[
+				{
+					"id": 10859,
+					"title": "pack26",
+					"file_name": "1a3f1d80-4812-452c-b589-a2e36fe54899.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1a3f1d80-4812-452c-b589-a2e36fe54899.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122349": [
+			"",
+			[
+				{
+					"id": 12587,
+					"title": "",
+					"file_name": "b9979d50-5067-4f78-b15f-25a329b48b56.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9979d50-5067-4f78-b15f-25a329b48b56.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122350": [
+			"",
+			[
+				{
+					"id": 12586,
+					"title": "",
+					"file_name": "be149d32-7381-44db-986c-896bbaea651e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be149d32-7381-44db-986c-896bbaea651e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122351": [
+			"",
+			[
+				{
+					"id": 12585,
+					"title": "",
+					"file_name": "ada12994-4527-444e-a905-57ee3c83fb95.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ada12994-4527-444e-a905-57ee3c83fb95.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122352": [
+			"",
+			[
+				{
+					"id": 12670,
+					"title": "",
+					"file_name": "2202fd02-4a5d-492a-b88f-bee1dd909da6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2202fd02-4a5d-492a-b88f-bee1dd909da6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122353": [
+			"Located beneath the bridge",
+			[
+				{
+					"id": 12666,
+					"title": "",
+					"file_name": "8520d3f6-fd12-401b-b1d8-392894a48260.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8520d3f6-fd12-401b-b1d8-392894a48260.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122354": [
+			"Behind the police station. Use a police car to open the gate.",
+			[
+				{
+					"id": 12667,
+					"title": "",
+					"file_name": "49046627-b727-4c76-925e-e61d07fe755e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49046627-b727-4c76-925e-e61d07fe755e.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122355": [
+			"Located on top of the [AMCo. Headquarters](#loc=121436)",
+			[
+				{
+					"id": 12669,
+					"title": "",
+					"file_name": "d5a3f0c0-5eba-43bf-afae-0ba8660ba6e0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d5a3f0c0-5eba-43bf-afae-0ba8660ba6e0.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122356": [
+			"",
+			[
+				{
+					"id": 12650,
+					"title": "",
+					"file_name": "31656881-b657-4781-afee-aab7f5ffc277.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31656881-b657-4781-afee-aab7f5ffc277.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122357": [
+			"",
+			[
+				{
+					"id": 12647,
+					"title": "",
+					"file_name": "775533ef-ce4b-46ae-8068-6944870fe933.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/775533ef-ce4b-46ae-8068-6944870fe933.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122358": [
+			"Located on the second floor inside the building",
+			[
+				{
+					"id": 10860,
+					"title": "pack28",
+					"file_name": "7f7bcf6a-3596-4e89-9eef-76b0e0ae0502.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7f7bcf6a-3596-4e89-9eef-76b0e0ae0502.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122359": [
+			"Located in the [Underground Parking Lot](#loc=121720)",
+			[
+				{
+					"id": 10861,
+					"title": "pack29",
+					"file_name": "74565f52-85f5-4f8e-acbb-1b734f62ff1b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/74565f52-85f5-4f8e-acbb-1b734f62ff1b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122360": [
+			"",
+			[
+				{
+					"id": 12649,
+					"title": "",
+					"file_name": "7e684c5c-2754-4ff6-86f8-fc4530212456.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e684c5c-2754-4ff6-86f8-fc4530212456.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122361": [
+			"Located on the roof",
+			[
+				{
+					"id": 10862,
+					"title": "pack30",
+					"file_name": "9f8e9bbd-92cb-45f3-ad17-cee846bae26b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9f8e9bbd-92cb-45f3-ad17-cee846bae26b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122362": [
+			"",
+			[
+				{
+					"id": 12648,
+					"title": "",
+					"file_name": "fd5392f7-ff0c-4f7c-b3c7-46a33e9e02f0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fd5392f7-ff0c-4f7c-b3c7-46a33e9e02f0.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122363": [
+			"Located in the underground parking lot.",
+			[
+				{
+					"id": 10863,
+					"title": "pack31",
+					"file_name": "b9133a1a-1457-497c-84b1-a319cf96a23e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9133a1a-1457-497c-84b1-a319cf96a23e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122364": [
+			"",
+			[
+				{
+					"id": 41048,
+					"title": "",
+					"file_name": "644d47ce-8089-4595-b790-a0702916c7b8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/644d47ce-8089-4595-b790-a0702916c7b8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122365": [
+			"Located on the pedestrian bridge",
+			[
+				{
+					"id": 10864,
+					"title": "pack32",
+					"file_name": "57d089c7-0dd1-4163-a2d5-007b5a7505e3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57d089c7-0dd1-4163-a2d5-007b5a7505e3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122366": [
+			"Located behind the statue",
+			[
+				{
+					"id": 41047,
+					"title": "",
+					"file_name": "3ffd0c83-ed24-4ceb-bc55-75fa9d0d280e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ffd0c83-ed24-4ceb-bc55-75fa9d0d280e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122367": [
+			"Located on [Kenji's Casino](#loc=121416) roof",
+			[
+				{
+					"id": 10865,
+					"title": "pack33",
+					"file_name": "aa46435a-f896-4bf7-88e9-4c21bb8ad3d7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa46435a-f896-4bf7-88e9-4c21bb8ad3d7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122368": [
+			"",
+			[
+				{
+					"id": 41035,
+					"title": "",
+					"file_name": "0c28f777-3158-4f5d-9d73-bd42304a4e55.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c28f777-3158-4f5d-9d73-bd42304a4e55.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122369": [
+			"",
+			[
+				{
+					"id": 41034,
+					"title": "",
+					"file_name": "68e8b850-0672-44eb-9287-8cec3bef95ad.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68e8b850-0672-44eb-9287-8cec3bef95ad.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122370": [
+			"",
+			[
+				{
+					"id": 10866,
+					"title": "pack34",
+					"file_name": "fefd6b86-616a-46a9-b0be-995023d852e1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fefd6b86-616a-46a9-b0be-995023d852e1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122371": [
+			"",
+			[
+				{
+					"id": 10868,
+					"title": "pack35",
+					"file_name": "2c378dec-8435-4867-b4e1-d631499d3f54.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2c378dec-8435-4867-b4e1-d631499d3f54.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122372": [
+			"",
+			[
+				{
+					"id": 12664,
+					"title": "",
+					"file_name": "acaee96c-e796-4f66-8b18-0deb63be7e15.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/acaee96c-e796-4f66-8b18-0deb63be7e15.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122373": [
+			"Located on the house porch",
+			[
+				{
+					"id": 41032,
+					"title": "",
+					"file_name": "d8329d60-d719-4a5e-a128-464f2a21aaf3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d8329d60-d719-4a5e-a128-464f2a21aaf3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122374": [
+			"Located on the house porch",
+			[
+				{
+					"id": 41033,
+					"title": "",
+					"file_name": "fffe0c93-221d-4f9f-8417-fbf8cd6461db.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fffe0c93-221d-4f9f-8417-fbf8cd6461db.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122375": [
+			"",
+			[
+				{
+					"id": 41039,
+					"title": "",
+					"file_name": "b6ecc593-aa03-4c96-a670-38e87652c1ce.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b6ecc593-aa03-4c96-a670-38e87652c1ce.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122376": [
+			"To pick this up use a _[Cartel Cruiser](#loc=122245)_ and drive through the gates.",
+			[
+				{
+					"id": 41031,
+					"title": "",
+					"file_name": "c437db61-2d3f-4c4b-8759-470a30b4591d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c437db61-2d3f-4c4b-8759-470a30b4591d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122377": [
+			"",
+			[
+				{
+					"id": 41029,
+					"title": "",
+					"file_name": "9176e97a-9841-43a4-8cb4-d4ac8abcb6b0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9176e97a-9841-43a4-8cb4-d4ac8abcb6b0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122378": [
+			"To pick up this - complete this [Stunt Jump](#loc=122285)",
+			[
+				{
+					"id": 10869,
+					"title": "pack36",
+					"file_name": "c54c4aee-59ad-41d6-a9fe-8851db57c28b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c54c4aee-59ad-41d6-a9fe-8851db57c28b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122379": [
+			"Located under the bridge just north of the tunnel (across from the graffiti)",
+			[
+				{
+					"id": 10870,
+					"title": "pack37",
+					"file_name": "a3b0831a-c77e-4cff-85b9-efc1f1181623.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3b0831a-c77e-4cff-85b9-efc1f1181623.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122380": [
+			"To access this - jump on the roof from the back police parking lot.",
+			[
+				{
+					"id": 10871,
+					"title": "pack38",
+					"file_name": "7d875512-ff2e-47e3-ac59-e8887272cac7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d875512-ff2e-47e3-ac59-e8887272cac7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122381": [
+			"",
+			[
+				{
+					"id": 41036,
+					"title": "",
+					"file_name": "4fd7bcfe-3cd7-43b8-b7bd-f30c98dadff3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4fd7bcfe-3cd7-43b8-b7bd-f30c98dadff3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122382": [
+			"Located behind [Rumpo Rampage](#loc=119883) mission",
+			[
+				{
+					"id": 10872,
+					"title": "pack39",
+					"file_name": "03da5e57-a31e-4dfd-875f-0583fff66f60.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03da5e57-a31e-4dfd-875f-0583fff66f60.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122383": [
+			"",
+			[
+				{
+					"id": 12668,
+					"title": "",
+					"file_name": "99eef57c-e10e-4e79-811e-358e153fa13c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/99eef57c-e10e-4e79-811e-358e153fa13c.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122384": [
+			"Located between apartment buildings",
+			[
+				{
+					"id": 41030,
+					"title": "",
+					"file_name": "dcd4b79d-a28c-46bd-b5b1-478766d5820b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dcd4b79d-a28c-46bd-b5b1-478766d5820b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122385": [
+			"To pick up this - jump on the container from the road above",
+			[
+				{
+					"id": 10873,
+					"title": "pack40",
+					"file_name": "904c110a-09cf-4127-a1b0-3e152ba831d1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/904c110a-09cf-4127-a1b0-3e152ba831d1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122386": [
+			"Behind the Hospital",
+			[
+				{
+					"id": 41037,
+					"title": "",
+					"file_name": "d3e7a0f2-3c2e-4059-af56-113dfc07f49d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d3e7a0f2-3c2e-4059-af56-113dfc07f49d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122387": [
+			"Use stairs nearby and jump to this roof",
+			[
+				{
+					"id": 10874,
+					"title": "pack41",
+					"file_name": "e627325a-d65e-4088-81b2-52c30c202ae8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e627325a-d65e-4088-81b2-52c30c202ae8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122388": [
+			"",
+			[
+				{
+					"id": 41040,
+					"title": "",
+					"file_name": "bb2b3864-f7ee-43d4-a0e5-55a784e243e0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb2b3864-f7ee-43d4-a0e5-55a784e243e0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122389": [
+			"Located under the [wooden ramp](#loc=122289)",
+			[
+				{
+					"id": 10875,
+					"title": "pack42",
+					"file_name": "76ae2ef7-8def-4d03-b3b2-14d53e921a88.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76ae2ef7-8def-4d03-b3b2-14d53e921a88.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122390": [
+			"",
+			[
+				{
+					"id": 41044,
+					"title": "",
+					"file_name": "bb42e644-5b75-4984-a3ac-a48c76a1c38c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb42e644-5b75-4984-a3ac-a48c76a1c38c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122391": [
+			"",
+			[
+				{
+					"id": 41045,
+					"title": "",
+					"file_name": "0141aeb8-c898-4f81-8958-7ec0e81ada86.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0141aeb8-c898-4f81-8958-7ec0e81ada86.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122392": [
+			"Located under the plane wing",
+			[
+				{
+					"id": 41043,
+					"title": "",
+					"file_name": "19d24204-3364-4c70-b358-e0ab6d0a2adb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/19d24204-3364-4c70-b358-e0ab6d0a2adb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122393": [
+			"Located under the plane",
+			[
+				{
+					"id": 41042,
+					"title": "",
+					"file_name": "b8cdf5e0-02eb-4997-b521-10dac0ba0972.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b8cdf5e0-02eb-4997-b521-10dac0ba0972.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122394": [
+			"Located behind the billboard",
+			[
+				{
+					"id": 41046,
+					"title": "",
+					"file_name": "7b98ad1f-b011-43e8-9264-7efc9fa2a7d3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b98ad1f-b011-43e8-9264-7efc9fa2a7d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122395": [
+			"- Located at the [Shoreside Terminal Station](#loc=119878)",
+			[
+				{
+					"id": 10876,
+					"title": "pack43",
+					"file_name": "d0441bf1-b577-4d9c-9a08-ca52b9a2c0ef.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d0441bf1-b577-4d9c-9a08-ca52b9a2c0ef.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122396": [
+			"",
+			[
+				{
+					"id": 12665,
+					"title": "",
+					"file_name": "d2a518d6-b51c-4e81-86f4-f64bc0749d01.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d2a518d6-b51c-4e81-86f4-f64bc0749d01.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122397": [
+			"",
+			[
+				{
+					"id": 41041,
+					"title": "",
+					"file_name": "84117ac4-7544-469c-8d5a-233c30efd21f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/84117ac4-7544-469c-8d5a-233c30efd21f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122398": [
+			"",
+			[
+				{
+					"id": 10878,
+					"title": "pack44",
+					"file_name": "3809f9b3-0632-4ebc-9d19-a8b347438c58.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3809f9b3-0632-4ebc-9d19-a8b347438c58.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"316878": [
+			"Used in [Liberator](#loc=121482) and [Waka-Gashira Wipeout!](#loc=121484)\n\n**Note:** If the vehicle didn't spawn - try another time.",
+			[]
+		],
+		"379881": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"379882": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"379883": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"379884": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"379885": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"379886": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"379887": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"379888": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"379889": ["During [Espresso-2-Go!](#loc=121543) Main Mission", []],
+		"563674": ["Only Blista spawn in Portland", []]
+	}
+}

@@ -1,0 +1,3437 @@
+{
+	"v": 1,
+	"d": {
+		"481484": [
+			"**Unlocks:**\n- Stash\n- Rest Spot\n- Workbench\n\n**Rewards:**\n- 3,000 XP\n- [Hunting Bow Blueprint](#loc=481488)",
+			[]
+		],
+		"481485": [
+			"[Next](#loc=481486) \n\n**Quest Steps:**\n- Pick up the radio.\n- Find a way out of the lab.\n- Get out of the lab.\n   - Take the adrenaline.\n   - Survive!\n   - Take the elevator up.\n- Climb up the elevator shaft.\n- Escape the facility.\n\n**Reward(s):**\n- 10,000 XP",
+			[]
+		],
+		"481486": [
+			"[Next](#loc=481489) | [Previous](#loc=481485)\n\n**Quest Steps:**\n- Get to the monastery.\n   - Find another way to get inside.\n- Establish a safe location.\n   - Close the entrance door.\n   - Kill all the infected.\n   - Turn on the generator.\n   - Turn on the safe zone lights.\n- Kill the [chimera](#loc=481487).\n- Check your stash.\n- Talk to Olivia.\n- Take the Manual.\n- Use the workbench.\n- Talk to Olivia.\n\n**Reward(s):**\n- 10,000 XP\n- Binoculars\n- 5 Lockpicks\n- 500 Old World Money",
+			[]
+		],
+		"481487": ["**Part of the story quest [Safe Haven](#loc=481486)**", []],
+		"481488": [
+			"**Location:** On top of the workbench inside the [Monastery](#loc=481484)",
+			[
+				{
+					"id": 97845,
+					"title": "20250918145903_1",
+					"file_name": "b48f1255-49d7-4c92-ac20-1595d227621d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b48f1255-49d7-4c92-ac20-1595d227621d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481489": [
+			"[Next](#loc=481583) | [Previous](#loc=481486)\n\n**Quest Steps:**\n- Explore the valley for allies against the Baron.\n   - Investigate the town.\n   - Investigate the smoke.\n- Get to the Town Hall.\n   - Investigate the town.\n- Kill the [chimera](#loc=481548).\n   - Clear the patio of infected.\n- Find Town Hall survivors.\n- Get to the tower to help Sheriff.\n- Reset the power.\n   - Connect the electrical boxes with a cable.\n\n**Reward(s):**\n- 10,000 XP\n- Venom Blueprint\n- Military Cutlass\n- 10 Wiring\n- Cordyceps\n- Oxidizers\n- Battery\n- 500 Old World Money",
+			[]
+		],
+		"481492": [
+			"**Unlocks:**\n- UV Source\n- Rest Spot\n\n**Rewards:**\n- [Fire Arrows](#loc=481494) Blueprint\n- 2,000 XP",
+			[]
+		],
+		"481493": [
+			"**Location:** On top of a hill under a tree",
+			[
+				{
+					"id": 97846,
+					"title": "20250918151321_1",
+					"file_name": "60a2e9b2-e42b-4f93-b419-73bb61b365de.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60a2e9b2-e42b-4f93-b419-73bb61b365de.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481494": [
+			"**Location:** On top of the table at the top of the [Camping Tower](#loc=481492)",
+			[
+				{
+					"id": 97847,
+					"title": "20250918151858_1",
+					"file_name": "f0221f55-ea55-44a6-a7b3-8972248713b5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0221f55-ea55-44a6-a7b3-8972248713b5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481495": ["**Unlocks:**\n- UV Source\n- Rest Spot\n\n**Rewards:**\n- Shock Bolts Blueprint\n- 2,000 XP", []],
+		"481496": [
+			"**Location:** On top of a crate at the end of the bed at the top of the [Asylum Island Tower](#loc=481495)",
+			[
+				{
+					"id": 97848,
+					"title": "20250918152305_1",
+					"file_name": "8bef4c02-2e27-4aa2-8ae4-58d1869918fc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8bef4c02-2e27-4aa2-8ae4-58d1869918fc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481499": ["**Possible Loot:**\n- [Laceration](#loc=481500) Blueprint", []],
+		"481500": [
+			"**Location:** On a shelf inside a barricaded room, accessible via the vent",
+			[
+				{
+					"id": 97849,
+					"title": "20250918153200_1",
+					"file_name": "b340a7b4-5555-41d9-a25e-0e63fe543ff3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b340a7b4-5555-41d9-a25e-0e63fe543ff3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481501": [
+			"**Location:** On a shelf inside a barricaded room, accessible via the vent",
+			[
+				{
+					"id": 97851,
+					"title": "20250918153445_1",
+					"file_name": "07240ef2-548b-48ab-b9ae-aff4a8461abc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07240ef2-548b-48ab-b9ae-aff4a8461abc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481502": [
+			"**Location:** On the ground next to some paint buckets inside a barricaded room, accessible via the vent",
+			[]
+		],
+		"481503": [
+			"**Possible Loot:**\n- [Beginner Manual Pages](#loc=481504)\n- [Beginner Manual Pages](#loc=481505)\n- [Beginner Manual Pages](#loc=481509)\n- [Beginner Manual Pages](#loc=481507)\n- [Heavy Vest](#loc=481506) Chestpiece",
+			[]
+		],
+		"481504": [
+			"**Location:** On the ground at the foot of the bed inside the [Station Sq. Apartment](#loc=481503)",
+			[
+				{
+					"id": 97852,
+					"title": "20250918154446_1",
+					"file_name": "547a7203-caf2-49f8-842f-c9d39b8cf736.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/547a7203-caf2-49f8-842f-c9d39b8cf736.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481505": [
+			"**Location:** Inside the second area of the [Station Sq. Apartment](#loc=481503) through the vent, in a side room through a hole in the wall on top of a dresser",
+			[
+				{
+					"id": 97854,
+					"title": "20250918180406_1",
+					"file_name": "0efd8e9f-35c7-42b2-b7b4-52c1c2e77845.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0efd8e9f-35c7-42b2-b7b4-52c1c2e77845.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 97855,
+					"title": "20250918180414_1",
+					"file_name": "ef984e25-4f18-4e16-9e58-a0a442a0b1ff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ef984e25-4f18-4e16-9e58-a0a442a0b1ff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481506": [
+			"**Location:** Inside the second area of the [Station Sq. Apartment](#loc=481503) through the vent, in a side room through a hole in the wall on top of a dresser\n\n**Slot:** Chestpiece  \n**Armor Value:** 5",
+			[
+				{
+					"id": 97856,
+					"title": "20250918180406_1",
+					"file_name": "eb928744-e4f4-4233-829c-ac6730957200.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb928744-e4f4-4233-829c-ac6730957200.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 97857,
+					"title": "20250918180414_1",
+					"file_name": "8a5760d5-6cbd-4b60-8f6d-203293433fcb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a5760d5-6cbd-4b60-8f6d-203293433fcb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481507": [
+			"**Location:** Inside the second area of the [Station Sq. Apartment](#loc=481503) through the vent, in a side room through a hole in the wall on top of a dresser between two tall dressers",
+			[
+				{
+					"id": 97858,
+					"title": "20250918180406_1",
+					"file_name": "1093d87e-d210-4c6d-8b04-6e302c5e014e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1093d87e-d210-4c6d-8b04-6e302c5e014e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 97859,
+					"title": "20250918180757_1",
+					"file_name": "f13071b7-2b15-4c09-ab4c-8538b6a1d1a5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f13071b7-2b15-4c09-ab4c-8538b6a1d1a5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481508": [
+			"**Location:** Inside the second area of the [Station Sq. Apartment](#loc=481503) through the vent, in a side room through a hole in the wall on top of a dresser between two tall dressers\n\n**Loot:** ??",
+			[
+				{
+					"id": 97860,
+					"title": "20250918180406_1",
+					"file_name": "c92909f0-4bb3-47f4-8ba8-06f81544b4fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c92909f0-4bb3-47f4-8ba8-06f81544b4fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 97861,
+					"title": "20250918180757_1",
+					"file_name": "6d8fe9f4-5b75-4782-ad49-23ffd81338d6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6d8fe9f4-5b75-4782-ad49-23ffd81338d6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481509": [
+			"**Location:** Inside the [Station Sq. Apartment](#loc=481503) on the top floor, accessible through a vent, on the floor of a bathroom through a hole in the wall",
+			[
+				{
+					"id": 97862,
+					"title": "20250918181305_1",
+					"file_name": "b277ac78-7f4a-4ec5-9be4-637c5302ca5c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b277ac78-7f4a-4ec5-9be4-637c5302ca5c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 97863,
+					"title": "20250918181315_1",
+					"file_name": "d0ed38b6-d54a-43ba-88dd-904aab57fbad.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d0ed38b6-d54a-43ba-88dd-904aab57fbad.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481510": ["**Possible Loot:**\n- [Voltage](#loc=481511) Blueprint", []],
+		"481511": [
+			"**Location:** Inside the [Mega Store America](#loc=481510) in a locked office on top of a dead body",
+			[
+				{
+					"id": 97865,
+					"title": "20250918182032_1",
+					"file_name": "eafd4e9a-92d0-4e58-bc63-7ea4e256c3f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eafd4e9a-92d0-4e58-bc63-7ea4e256c3f2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481512": [
+			"**Possible Loot:**\n- [Resistance Booster](#loc=481513) Blueprint\n- [Beginner Manual Pages](#loc=481514)",
+			[]
+		],
+		"481513": [
+			"**Location:** Inside the [Pharmacy](#loc=481512) in a locked storeroom on a shelf",
+			[
+				{
+					"id": 97866,
+					"title": "20250918182332_1",
+					"file_name": "f6d681ac-df16-431f-9731-6bd2da69a0f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6d681ac-df16-431f-9731-6bd2da69a0f9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481514": [
+			"**Location:** Inside the [Pharmacy](#loc=481512) in a locked storeroom on a shelf",
+			[
+				{
+					"id": 97867,
+					"title": "20250918182332_1",
+					"file_name": "ab77c3e2-69ce-4b9f-bd23-50893bd0147e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab77c3e2-69ce-4b9f-bd23-50893bd0147e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481516": [
+			"**Possible Loot:**\n- [Beginner Manual Pages](#loc=481517)\n- [Beginner Manual Pages x2](#loc=481518)\n- [Beginner Manual Pages](#loc=481520)\n- [Heavy Tactical Mask](#loc=481522)",
+			[]
+		],
+		"481517": [
+			"**Location:** On the second floor of the [Gallery Sq. Apartment](#loc=481516), accessible through a vent, on top of a desk next to a computer",
+			[
+				{
+					"id": 97868,
+					"title": "20250918183026_1",
+					"file_name": "278ae5cc-c706-4d41-831c-86232710861d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/278ae5cc-c706-4d41-831c-86232710861d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481518": [
+			"**Location:** On the second floor of the [Gallery Sq. Apartment](#loc=481516), accessible through a vent, in a secret room behind a vent cover on a bookshelf",
+			[
+				{
+					"id": 97869,
+					"title": "20250918183150_1",
+					"file_name": "de51b623-37c5-44a4-ab96-ce57255f00cd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de51b623-37c5-44a4-ab96-ce57255f00cd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481520": [
+			"**Location:** On the third floor of the [Gallery Sq. Apartment](#loc=481516), accessible through a vent, being held by a body in a hallway",
+			[
+				{
+					"id": 97871,
+					"title": "20250918184626_1",
+					"file_name": "9ad3615b-3aae-4e2e-9c05-6595b090ed05.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9ad3615b-3aae-4e2e-9c05-6595b090ed05.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481522": [
+			"**Location:** On the second floor of the [Gallery Sq. Apartment](#loc=481516), accessible through a vent, in a secret room behind a vent cover on a dresser\n\n**Slot:** Headgear  \n**Armor Value:** 5",
+			[
+				{
+					"id": 97873,
+					"title": "20250918184849_1",
+					"file_name": "e6b91e7d-0114-42c8-99c0-2d3e14023d38.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6b91e7d-0114-42c8-99c0-2d3e14023d38.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481525": [
+			"**Possible Loot:**\n- [Resistance Booster](#loc=481526) Blueprint\n- [Beginner Manual Pages](#loc=481527)",
+			[]
+		],
+		"481526": [
+			"**Location:** Inside the [Pharmacy](#loc=481512) in a locked storeroom on a shelf",
+			[
+				{
+					"id": 97874,
+					"title": "20250918185923_1",
+					"file_name": "645972f7-2687-4480-a613-e3503fb45036.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/645972f7-2687-4480-a613-e3503fb45036.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481527": [
+			"**Location:** Inside the [Pharmacy](#loc=481512) in a locked storeroom on a shelf",
+			[
+				{
+					"id": 97875,
+					"title": "20250918185923_1",
+					"file_name": "00da4d1f-eb1c-4696-97d1-072233437305.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/00da4d1f-eb1c-4696-97d1-072233437305.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481528": [
+			"**Possible Loot:**\n- [Scavenger Reinforced Jeans](#loc=481530)\n- [Beginner Manual Pages](#loc=481529)",
+			[]
+		],
+		"481529": [
+			"**Location:** Inside the [Vanity Store](#loc=481528) in a locked storage room on a shelf",
+			[
+				{
+					"id": 97877,
+					"title": "20250918190234_1",
+					"file_name": "460c27c7-01fa-49ac-b2f3-267f5097bedd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/460c27c7-01fa-49ac-b2f3-267f5097bedd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481530": [
+			"**Location:** Inside the [Vanity Store](#loc=481528) in a locked storage room on a shelf\n\n**Slot:** Joggers  \n**Armor Value:** 3\n\n**Bonuses:**\n- +6% Common Craftparts loot\n- +3% Uncommon Craftparts loot\n- +4% Damage (Accessories)",
+			[
+				{
+					"id": 97876,
+					"title": "20250918190234_1",
+					"file_name": "96d2a667-8b33-4d27-ad35-02ea9169fd6a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/96d2a667-8b33-4d27-ad35-02ea9169fd6a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481531": [
+			"**Location:** Inside the [Vanity Store](#loc=481528) in a locked storage room on a shelf",
+			[
+				{
+					"id": 97878,
+					"title": "20250918190506_1",
+					"file_name": "4bcec5a3-7994-4b55-b516-6e29166b6a5e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4bcec5a3-7994-4b55-b516-6e29166b6a5e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481533": [
+			"**Unlocks:**\n- Rest Spot\n- Stash\n- Workbench\n\n**Rewards:**\n- [Extinguisher](#loc=481534) Blueprint\n- 3,000 XP",
+			[]
+		],
+		"481534": [
+			"**Location:** On top of the workbench at the top of the [Library Tower](#loc=481533)",
+			[
+				{
+					"id": 97879,
+					"title": "20250918191019_1",
+					"file_name": "a77046b2-0032-4d2a-8077-635ffbfe91c8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a77046b2-0032-4d2a-8077-635ffbfe91c8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481535": [
+			"**Possible Loot:**\n- [Beginner Manual Pages x2](#loc=481536)\n- [Beginner Manual Pages](#loc=481538)\n- [Heavy Trousers](#loc=481537)",
+			[]
+		],
+		"481536": [
+			"**Location:** On the second floor of the [Library Sq. Apartment](#loc=481535), accesssible through a vent, in a secret room through a hole covered by a vent cover",
+			[
+				{
+					"id": 97880,
+					"title": "20250918191558_1",
+					"file_name": "9255e061-7837-4de7-9802-3faad1fb4785.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9255e061-7837-4de7-9802-3faad1fb4785.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481537": [
+			"**Location:** On the second floor of the [Library Sq. Apartment](#loc=481535), accesssible through a vent, in a secret room through a hole covered by a vent cover\n\n**Slot:** Joggers  \n**Armor Value:** 5",
+			[
+				{
+					"id": 97881,
+					"title": "20250918191725_1",
+					"file_name": "390b1a35-f574-439f-84d2-ac567e1eec03.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/390b1a35-f574-439f-84d2-ac567e1eec03.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481538": [
+			"**Location:** On the third floor of the [Library Sq. Apartment](#loc=481535), accesssible through a vent, in a locked bathroom behind a toilet",
+			[
+				{
+					"id": 97882,
+					"title": "20250918191954_1",
+					"file_name": "fdae7171-5700-43bc-97f3-b5a276ddb195.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fdae7171-5700-43bc-97f3-b5a276ddb195.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481539": [
+			"**Possible Loot:**\n- [Beginner Manual Pages](#loc=481540)\n- [Beginner Manual Pages](#loc=481542)\n- [Scavenger Headset](#loc=481543)",
+			[]
+		],
+		"481540": [
+			"**Location:** Inside the [Nate Market](#loc=481539) in a locked office on top of a pallet of boxes",
+			[
+				{
+					"id": 97883,
+					"title": "20250918192323_1",
+					"file_name": "da5f16a5-d174-4191-b7fb-3a8f3898f4c2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da5f16a5-d174-4191-b7fb-3a8f3898f4c2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481541": [
+			"**Location:** In the basement of [Nate Market](#loc=481539) in a locked room, accessible through a hole covered by a vent cover",
+			[
+				{
+					"id": 97884,
+					"title": "20250918192443_1",
+					"file_name": "35ecd393-02a9-4afe-a5b4-29b0ace630d3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35ecd393-02a9-4afe-a5b4-29b0ace630d3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481542": [
+			"**Location:** In the basement of [Nate Market](#loc=481539) in a locked room, accessible through a hole covered by a vent cover",
+			[
+				{
+					"id": 97885,
+					"title": "20250918192548_1",
+					"file_name": "c531812f-ea24-4ae6-97f2-a269fc7c86b9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c531812f-ea24-4ae6-97f2-a269fc7c86b9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481543": [
+			"**Location:** In the basement of [Nate Market](#loc=481539) in a locked room, accessible through a hole covered by a vent cover\n\n**Slot:** Headgear  \n**Armor Value:** 2\n\n**Bonuses:**\n- +6% Common Craftparts loot\n- +3% Uncommon Craftparts loot\n- +4% Damage (Accessories)",
+			[
+				{
+					"id": 97886,
+					"title": "20250918192548_1",
+					"file_name": "8bbfc853-cfbc-423f-8443-610a5b51b600.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8bbfc853-cfbc-423f-8443-610a5b51b600.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481544": ["**Possible Loot:**\n- [Demolisher Trophy](#loc=481545) Blueprint", []],
+		"481545": [
+			"**Location:** Inside the [City Bridge Convoy](#loc=481544)",
+			[
+				{
+					"id": 97887,
+					"title": "20250918192929_1",
+					"file_name": "df7a159f-0713-4800-9e39-3ea5ed43ad9e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df7a159f-0713-4800-9e39-3ea5ed43ad9e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481546": [
+			"**Unlocks:**\n- Rest Spot\n- Stash\n- Workbench\n\n**Rewards:**\n- [Spark](#loc=481547) Blueprint\n- 3,000 XP",
+			[]
+		],
+		"481547": [
+			"**Location:** On top of the workbench inside the [Inn](#loc=481546)",
+			[
+				{
+					"id": 97888,
+					"title": "20250918193414_1",
+					"file_name": "cbd09574-dd53-4e67-915d-e012b62622bf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cbd09574-dd53-4e67-915d-e012b62622bf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481548": ["**Part of the story quest [Life after Life](#loc=481489)**", []],
+		"481554": ["**Unlocks**\n- UV Source\n- Rest Spot\n\n**Rewards**\n- Merc Shooting Arm Guard\n- 2,000 XP", []],
+		"481555": [
+			"**Unlocks**\n- UV Source\n- Rest Spot\n\n**Rewards**\n- [Bleeding Knife Blueprint](#loc=483173)\n- 2,000 XP",
+			[]
+		],
+		"481556": [
+			"**Unlocks**\n- UV Source\n- Rest Spot\n\n**Rewards**\n- [Shock Knife Blueprint](#loc=484473)\n- 2,000 XP",
+			[]
+		],
+		"481557": ["**Unlocks**\n- UV Source\n- Rest Spot\n\n**Rewards**\n- Merc Long Sleeve Shirt\n- 2,000 XP", []],
+		"481558": [
+			"**Unlocks**\n- UV Source\n- Rest Spot\n\n**Rewards**\n- Merc Fingerless Gloves\n- 2,000 XP\n- Treasure Map D2",
+			[]
+		],
+		"481559": [
+			"**Location:**  Inside the Highway Bus Refuge across from your stash (under a picture)",
+			[
+				{
+					"id": 97893,
+					"title": "",
+					"file_name": "a8b4d817-43fb-499b-8eee-bdb49584d612.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a8b4d817-43fb-499b-8eee-bdb49584d612.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481560": [
+			"**Unlocks:**\n- Rest Spot\n- Stash\n- Workbench\n\n**Rewards:**\n- [The Rust Blueprint](#loc=483756)\n- 3,000 XP",
+			[
+				{
+					"id": 97894,
+					"title": "",
+					"file_name": "9500b8db-6429-483b-a980-e14019a62bbd.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9500b8db-6429-483b-a980-e14019a62bbd.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481561": [
+			"**Unlocks:**\n- Rest Spot\n- Stash\n- Workbench\n\n**Rewards:**\n- [Sawblade Launcher](#loc=484482) Blueprint\n- [Good Night](#loc=559149) Blueprint\n- 3,000 XP",
+			[
+				{
+					"id": 97895,
+					"title": "",
+					"file_name": "8b40e342-0f8c-4baf-bd39-3afd9d3a2833.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8b40e342-0f8c-4baf-bd39-3afd9d3a2833.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481562": [
+			"**Unlocks:**\n- UV Source\n- Rest Spot\n\n**Rewards:**\n- [Merc Shooting Headset](#loc=481591)\n- 2,000 XP",
+			[]
+		],
+		"481564": [
+			"**Unlocks:**\n- Rest Spot\n- Workbench\n- Stash\n\n**Rewards:**\n- [Break Knuckles](#loc=556605) Blueprint\n- EP06: \"The Hunstman's Shadow\" Collectible \n- 3,000 XP",
+			[]
+		],
+		"481565": [
+			"Branch if you pick up you hear a whistling. Likely some sort of side quest or collectable. Under the road, slightly submerged in the water.\n\nPart of the [Bober the Beaver](#loc=482842) Easter Egg",
+			[
+				{
+					"id": 119980,
+					"title": "",
+					"file_name": "284212a4-f59d-4f76-8f10-459da7f10c1f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/284212a4-f59d-4f76-8f10-459da7f10c1f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481566": [
+			"**Unlocks:**\n- UV Source\n- Rest Spot\n\n**Rewards:**\n- [Blueprint: Exploding Knife](#loc=484478)\n- 2,000 XP",
+			[]
+		],
+		"481567": [
+			"**Location:** On a basket in the basement of the Cafe & Bistro building.",
+			[
+				{
+					"id": 100383,
+					"title": "",
+					"file_name": "b10ba9a2-60f1-4ae9-91a8-a2c312380a58.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b10ba9a2-60f1-4ae9-91a8-a2c312380a58.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481568": [
+			"**Location:** Inside a small house by the pond, above the fireplace",
+			[
+				{
+					"id": 100677,
+					"title": "",
+					"file_name": "4354532a-12da-478e-a47e-b175ed851dbb.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4354532a-12da-478e-a47e-b175ed851dbb.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481569": [
+			"**Location:** Above the door on the balcony on the top floor of the building (south side)\n\nLocked behind sidequest \"Stay human\"",
+			[]
+		],
+		"481570": [
+			"**Location:** Inside the garage (small electricity puzzle, can be done by pulling cable from the container next to the garage)",
+			[]
+		],
+		"481571": ["Unlocks\n- UV Source\n- Rest Spot\n\nRewards\n- Merc Boots\n- 2,000 XP", []],
+		"481572": [
+			"*Grappling Hook Required*\n\n**Unlocks:**\n- UV Source\n- Rest Spot\n\n**Rewards:**\n- [Fire Bolts](#loc=483360) Blueprint\n- 2,000 XP",
+			[]
+		],
+		"481573": [
+			"**Unlocks**\n- Rest Spot\n- Stash\n- Workbench\n\n**Rewards**\n- [Slashers Blueprint](#loc=483542)\n- 3,000 XP",
+			[]
+		],
+		"481574": [
+			"**Location:** Next To The Bed On Window Ledge\n\n**Loot:** ??",
+			[
+				{
+					"id": 97896,
+					"title": "",
+					"file_name": "e6b595fd-c68d-41a6-bb96-4c5ac3bfec64.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6b595fd-c68d-41a6-bb96-4c5ac3bfec64.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481575": [
+			"**Unlocks**\n- UV Source\n- Rest Spot\n\n**Rewards**\n- [Shock Arrows Blueprint](#loc=484689)\n- 2,000 Xp",
+			[]
+		],
+		"481576": [
+			"**Unlocks**\n- UV Source\n- Rest Spot\n\n**Rewards**\n- Merc Combat Pants\n- [Parkour Trophy Blueprint](#loc=483545)\n- 2,000 XP",
+			[]
+		],
+		"481577": [
+			"**Location:** Top of Chimney with flags",
+			[
+				{
+					"id": 97897,
+					"title": "",
+					"file_name": "e8c2e42a-911c-4514-b07a-5f2b2c1ba3d1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e8c2e42a-911c-4514-b07a-5f2b2c1ba3d1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481578": [
+			"**Location:** On the window ledge, next to the bed\n\n**Loot:** ??",
+			[
+				{
+					"id": 97898,
+					"title": "",
+					"file_name": "7fbb8f2f-a767-491a-97c1-4cc6101ce093.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7fbb8f2f-a767-491a-97c1-4cc6101ce093.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481581": ["Possible Loot\n- Ammo\n- Rare Weapon\n- Throwables\n- Valuables", []],
+		"481582": [
+			"**Location:** Next to the entry to Town Hall",
+			[
+				{
+					"id": 97899,
+					"title": "",
+					"file_name": "a7cc69ef-4241-4d45-bf89-37ba2c90c6a1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a7cc69ef-4241-4d45-bf89-37ba2c90c6a1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481583": [
+			"[Next](#loc=481585) | [Previous](#loc=481489)\n\n**Quest Steps:**\n- Talk to Jacob.\n- Hunt the Beast before the trail fades.\n   - Find the Beast's traces.\n   - Follow the Beast's traces.\n   - Investigate the explosion site.\n   - Investigate the basement entrance.\n   - Get to the church.\n- Hunt the Beast before the trail fades.\n- Pursue the Beast.\n   - Climb the tower.\n   - Get to the train tunnel.\n   - Find the Beast in the train tunnel.\n- Escape the tunnels.\n\n**Reward(s):**\n- 10,000 XP\n- 500 Old World Money",
+			[]
+		],
+		"481585": [
+			"[Next](#loc=483306) | [Previous](#loc=481583)\n\n**Quest Steps:**\n- Talk to Olivia.\n- Locate the Chimera transport.\n- Search the transport site.\n- Follow the Chimera traces.\n- Track the Chimera in the swamps.\n- Get to the island.\n- Find the Chimera.\n- Kill the [Chimera](#loc=481600).\n\n**Reward(s):**\n- 5,000 XP\n- 800 Old World Money",
+			[]
+		],
+		"481586": [
+			"**Location:** In front of the Hardwood Art Gallery in front of a stone post next to an advertisement",
+			[
+				{
+					"id": 97900,
+					"title": "20250919134657_1",
+					"file_name": "7b738e55-ec49-4ee1-9e65-95e263083246.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b738e55-ec49-4ee1-9e65-95e263083246.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481587": [
+			"**Location:** In the courtyard of the monastery under a window next to a bench",
+			[
+				{
+					"id": 97901,
+					"title": "20250919134946_1",
+					"file_name": "9932b840-39b6-4b61-a8ac-e590aad94ea8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9932b840-39b6-4b61-a8ac-e590aad94ea8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481588": [
+			"At the train tunnel covered in debris, there will be text on the wall saying 9 and 3/4 that you can walk through, a reference to Harry Potter. \n\nAfter walking through the wall, you'll need to break some blocks - a reference to Minecraft.\n\nFinally, you'll find a golden train - a reference to the Nazi gold train urban legend.",
+			[
+				{
+					"id": 97903,
+					"title": "20250919135332_1",
+					"file_name": "fdc74bfe-c721-4223-aab7-405bd4d44078.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fdc74bfe-c721-4223-aab7-405bd4d44078.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481589": [
+			"**Location:** At the back of the train at the end of the [Harry Potter/Minecraft Easter Egg](#loc=481588)",
+			[
+				{
+					"id": 97902,
+					"title": "20250919135748_1",
+					"file_name": "de9b4b4b-3cd6-4402-890a-5af976752ff2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de9b4b4b-3cd6-4402-890a-5af976752ff2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481591": [
+			"**Location:** On top of a chair at the top of the [Mountain Shelter Tower](#loc=481590)\n\n**Slot:** Headgear  \n**Armor Value:** 3\n\n**Bonuses:**\n- +1.5% Damage Resistance (Infected)\n- +3% Damage (Headshot or Headstrike)\n- -6% Firearms Recoil",
+			[]
+		],
+		"481593": [
+			"**Location:** Under a picnic table inside the covered patio on top of the Nature Reserve next to a dead body\n\n**Loot:** ??",
+			[
+				{
+					"id": 97904,
+					"title": "20250919140936_1",
+					"file_name": "5a4b8ad9-2398-4143-a939-43f4eb8461bc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5a4b8ad9-2398-4143-a939-43f4eb8461bc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481594": [
+			"**Location:** On top of a rock next to the large cabin",
+			[
+				{
+					"id": 97905,
+					"title": "20250919141126_1",
+					"file_name": "241daa40-f39f-473d-8f19-1b3cb0ef0803.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/241daa40-f39f-473d-8f19-1b3cb0ef0803.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481598": ["**Location:** Inside the wagon beside the skeleton\n\n**Code:** 658335", []],
+		"481599": [
+			"Unlocked during the Main Quest [A New Strain](#loc=483275)\n\n\n**Unlocks:**\n- Rest Spot\n- Workbench\n- Stash\n\n**Rewards:**\n- [Blueprint: Workout](#loc=484474)\n- 3,000 EXP",
+			[]
+		],
+		"481600": ["Fought during the mission \"[First Blood](#loc=481585)\".", []],
+		"481602": [
+			"**Location**: On top of the part of the mural with the blue hand\n\n**Text**: Graffiti artists versus those in power - this mural is from a time when rebellious artists still had someone to fight against",
+			[
+				{
+					"id": 97907,
+					"title": "",
+					"file_name": "c4385d04-06dc-4782-ab63-10f068579a10.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c4385d04-06dc-4782-ab63-10f068579a10.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481603": [
+			"**Location:** Recreation Island Tower - on the window sill to the right when you enter the tower.\n\n**Loot:** ??",
+			[
+				{
+					"id": 97908,
+					"title": "",
+					"file_name": "ff9cd443-2227-41fc-b2c3-473c6022468e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff9cd443-2227-41fc-b2c3-473c6022468e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481604": [
+			"Found to the left of the painting",
+			[
+				{
+					"id": 97909,
+					"title": "",
+					"file_name": "d4c6c6fa-7888-4878-b5e4-23ec36b13690.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d4c6c6fa-7888-4878-b5e4-23ec36b13690.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481606": [
+			"**Location**: On the upper floor, to the left of the sheep graffiti\n\n**Text**: An example of urban dialogue. The mural \"Sheep\" was created at the behest of the city. Whereas the graffiti \"Wolf\" is a less polite artistic commentary",
+			[
+				{
+					"id": 97911,
+					"title": "",
+					"file_name": "8e39e600-5aac-427a-bacc-15afed5166ee.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8e39e600-5aac-427a-bacc-15afed5166ee.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481607": [
+			"**Location:** on the table in the attic\n\n**Loot:** Note has combo for safe in downstairs apartment (11, 24, 32)",
+			[]
+		],
+		"481608": ["**Location:** In attic on corpse", []],
+		"481609": ["**Location:** Finish the Convoy, inside the back part of a container.", []],
+		"481610": ["**Possible Loot:**\n- Ammo\n- Rare Weapon\n- Throwables\n- Valuables", []],
+		"481611": [
+			"**Location:** In front of the entrance to the pharmacy",
+			[
+				{
+					"id": 97912,
+					"title": "",
+					"file_name": "d0515ef6-f959-4992-ac3f-ab41dbe7d803.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d0515ef6-f959-4992-ac3f-ab41dbe7d803.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481612": [
+			"**Location:** On the fountain",
+			[
+				{
+					"id": 97913,
+					"title": "",
+					"file_name": "6511e535-0309-4693-a2ff-d4860e6abeab.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6511e535-0309-4693-a2ff-d4860e6abeab.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481613": [
+			"**Location**: In the attic of the house the mural is on\n\n**Text**: This large-scale mural was commissioned by the city with the intent to showcase Castor Woods as an attractive tourist destination",
+			[
+				{
+					"id": 97914,
+					"title": "",
+					"file_name": "37ecf672-94cc-43f2-bc82-721193fd3bef.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37ecf672-94cc-43f2-bc82-721193fd3bef.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481614": [
+			"**Location**: On the roof right in front of the mural, fairly hard to miss\n\n**Text**: One of several murals commisioned by the city, sadly vandalized over the course of time",
+			[
+				{
+					"id": 97915,
+					"title": "",
+					"file_name": "fc5b26b7-c02b-4f29-9eaf-1b18b5c1e62f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc5b26b7-c02b-4f29-9eaf-1b18b5c1e62f.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481615": [
+			"**Location:** Inside the cave to the left of the campfire.",
+			[
+				{
+					"id": 98892,
+					"title": "",
+					"file_name": "9c444a1e-80a1-4897-b158-f2e8387e7191.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9c444a1e-80a1-4897-b158-f2e8387e7191.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481616": [
+			"**Location:** On the little terrace sticking out next to the mural\n\n**Text:** One of many murals commissioned by the city.",
+			[
+				{
+					"id": 97916,
+					"title": "",
+					"file_name": "0ef25967-d8f8-4e83-9e3f-c879b07256f0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0ef25967-d8f8-4e83-9e3f-c879b07256f0.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481617": [
+			"_Wind, adrenaline and a crazy ride down the hill. What are you waiting for?_\n\nInteract with the red bicycle to do a timed parkour challenge, where you'll have to ride the bike down the hill through various checkpoints.\n\nPlayers are rewarded with 3 Old World Wines as Reward for getting Gold!",
+			[
+				{
+					"id": 97917,
+					"title": "",
+					"file_name": "094e6e90-8b3a-4b01-8255-67c833fdd53e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/094e6e90-8b3a-4b01-8255-67c833fdd53e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481618": [
+			"**Location:** Inside a cave - the entrance is behind a waterfall. The Sigil is underwater to the left down the cave.",
+			[]
+		],
+		"481619": [
+			"**Location:** In the church basement. Sigil is attached to the base of the winged statue. Area naturally accessed during \"The Beast Within\" quest.",
+			[
+				{
+					"id": 108442,
+					"title": "",
+					"file_name": "8349d605-6994-4ba2-98bf-c0e8601ce7e3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8349d605-6994-4ba2-98bf-c0e8601ce7e3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481620": [
+			"**Location:** On the lure machine.",
+			[
+				{
+					"id": 125890,
+					"title": "",
+					"file_name": "333e8ada-054d-4b86-9161-f93d7dbe8892.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/333e8ada-054d-4b86-9161-f93d7dbe8892.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481621": [
+			"At the exit of the tunnel, next to the sign",
+			[
+				{
+					"id": 97918,
+					"title": "",
+					"file_name": "85d8ec84-eb6d-48f9-9e2c-3cc868792eb5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/85d8ec84-eb6d-48f9-9e2c-3cc868792eb5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481622": [
+			"On the main path leading to the Memorial Hill of Heroes, next to the garbage dump",
+			[
+				{
+					"id": 97919,
+					"title": "",
+					"file_name": "32f05e29-1d09-42b5-b8d3-07d079828a2b.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/32f05e29-1d09-42b5-b8d3-07d079828a2b.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481623": [
+			"In front of the dam",
+			[
+				{
+					"id": 97920,
+					"title": "",
+					"file_name": "9085b547-5693-48c5-a11b-42af79bd90f2.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9085b547-5693-48c5-a11b-42af79bd90f2.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481649": [
+			"**Location:** On the backside of a pillar",
+			[
+				{
+					"id": 97935,
+					"title": "",
+					"file_name": "3a253a96-8923-4e80-9ee1-a2e8bd2536e6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a253a96-8923-4e80-9ee1-a2e8bd2536e6.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481651": [
+			"**Location:** Under the bridge, on the Old Town side.\n\n**Text:** A mural that depicts a sleeping Atlas, tired from carrying the vault of the heavens on his shoulders.",
+			[
+				{
+					"id": 99434,
+					"title": "",
+					"file_name": "7b9f3922-3b13-4a3d-944b-ae74dc7f3190.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b9f3922-3b13-4a3d-944b-ae74dc7f3190.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481652": [
+			"**Location:** Place the 8 sigils on the Pentagram on the ground",
+			[
+				{
+					"id": 100388,
+					"title": "",
+					"file_name": "2484f0de-25e4-4f5f-9cd7-14c140fc0e4f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2484f0de-25e4-4f5f-9cd7-14c140fc0e4f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481654": [
+			"Next to the bench",
+			[
+				{
+					"id": 97937,
+					"title": "",
+					"file_name": "4c1f3d10-b777-4eee-a7f7-ce1f60c5dedd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c1f3d10-b777-4eee-a7f7-ce1f60c5dedd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481655": [
+			"Enter through a second floor window, the note is directly in front on top of the table, next to the safebox",
+			[]
+		],
+		"481656": [
+			"**Location:** On the roof near an open window.\n\n*Text:** The work of a local artist who had a fondness for satyrs, nymphs, and Art Nouveau. This piece depicts a Satyr.",
+			[
+				{
+					"id": 97938,
+					"title": "",
+					"file_name": "0df5e896-48d6-4c83-a0f2-ba7bcc228999.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0df5e896-48d6-4c83-a0f2-ba7bcc228999.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481657": [
+			"Mural of a large dragon in the shape of an infinity symbol. Located on the eastern side of this building\n\n\n**Location:** Across the mural on a little porch\n\n**Text:** One of many murals commissioned by the authorities of Castor Woods to enhance the city's visual appeal",
+			[
+				{
+					"id": 97939,
+					"title": "",
+					"file_name": "412c89e9-c834-44fa-b1f1-2be4a0ba2001.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/412c89e9-c834-44fa-b1f1-2be4a0ba2001.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481658": [
+			"Deep in a cave behind the southern waterfall.\n\nThis epic weapon is lying near a corpse of a cave explorer. Nearby is a note by the explorer.",
+			[
+				{
+					"id": 97940,
+					"title": "",
+					"file_name": "17343b8f-b89d-479a-b031-17b864230cc6.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17343b8f-b89d-479a-b031-17b864230cc6.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481660": ["Climb to the top of the monument to unlock the achievement", []],
+		"481661": [
+			"**Location:** On top of the momeument in a bird's nest.",
+			[
+				{
+					"id": 97941,
+					"title": "",
+					"file_name": "f77f047f-a73a-4b31-a4ce-7f507501a7be.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f77f047f-a73a-4b31-a4ce-7f507501a7be.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481662": ["**Possible Loot:**\n- Scavenger Arm Wrap", []],
+		"481664": [
+			"On the stack of boxes that has a red case, across from the log pile.",
+			[
+				{
+					"id": 119976,
+					"title": "",
+					"file_name": "02d5aa54-5653-463e-b7fc-d92878842053.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/02d5aa54-5653-463e-b7fc-d92878842053.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481836": [
+			"**Location:** On the table in the kitchen-diner, enter the building via a small courtyard and up a small set of stairs at ground level.",
+			[
+				{
+					"id": 119981,
+					"title": "",
+					"file_name": "c13912a7-d980-451e-9910-8732740b8714.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c13912a7-d980-451e-9910-8732740b8714.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481837": [
+			"**Location**: On the right side of the street in front of the tunnel\n\n**Text**: More fish, frogs and other freshwater inhavitants. The creator wanted to depict the brutality of nature and the cycle of \"life and death\".",
+			[
+				{
+					"id": 98047,
+					"title": "",
+					"file_name": "fa083e02-a62e-41c4-b8e1-2d0495a264d8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa083e02-a62e-41c4-b8e1-2d0495a264d8.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481838": [
+			"**Location:** Inside the Town Hall. Upper floor in Council Chamber (Room 201)",
+			[
+				{
+					"id": 100385,
+					"title": "",
+					"file_name": "92375182-8a09-48da-a0c2-d7f8dbd93d22.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/92375182-8a09-48da-a0c2-d7f8dbd93d22.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481839": [
+			"**Location:** On the bed in the Town Hall\n\n**Slot:** Hands  \n**Armor Value:** 2\n\n**Bonuses:**\n+1.5% Damage Resistance\n+3% Damage (2H Weapons)\n+3% Damage (Power Attack)",
+			[]
+		],
+		"481840": ["Unlocked after Story Quest: [The Beast Within](#loc=481583)", []],
+		"481841": ["**Location:** On shelf to the right of workbench\n\n**Type:** Weapon Blueprint (1H Blade)", []],
+		"481842": [
+			"**Location:** Enter the very top floor of the building through an open window. The recipe is behind a locked door.",
+			[]
+		],
+		"481843": [
+			"**Location:** In the corner of an outdoor seating area in front of a coffee shop. The collectible is hidden next to the white tree, to the right of the mural.\n\n\n\n\n**Text:** An expression of dissatisfaction with the food quality at a nearby restaurant.",
+			[
+				{
+					"id": 99634,
+					"title": "",
+					"file_name": "62c90ee9-1894-4f81-8dcc-ead98459ac5d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62c90ee9-1894-4f81-8dcc-ead98459ac5d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481844": [
+			"**Prequisites:** \n- Clear out the zombies by the accident in the area before being able to take the quest.\n- Efficient Driving and Collision Expert Skills\n\n**Rewards:**\n- Car Repair Kit (Blueprint)\n- Beginner Manual Pages (x2)\n- 4,000 XP",
+			[
+				{
+					"id": 149102,
+					"title": "",
+					"file_name": "76172d50-cf63-4c21-a709-2bbec89cae3c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76172d50-cf63-4c21-a709-2bbec89cae3c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481845": [
+			"**Location:** On the edge of the water.\n\nPart of the [Bober the Beaver](#loc=482842) Easter Egg",
+			[
+				{
+					"id": 119977,
+					"title": "",
+					"file_name": "1f195448-b6aa-4a02-92ad-61ed3c436570.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f195448-b6aa-4a02-92ad-61ed3c436570.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481846": [
+			"**Location:** On a small Island.\n\nPart of the [Bober the Beaver](#loc=482842) Easter Egg",
+			[
+				{
+					"id": 99192,
+					"title": "",
+					"file_name": "33598120-a5dc-4cca-a551-2ef39d679f5c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33598120-a5dc-4cca-a551-2ef39d679f5c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481847": [
+			"**Location:** Fisherman Tower\n\n**Slot:** Chest\n**Armor Value:** 3\n\n**Bonuses:**\n+1.5% Damage Resistance (Infected)\n+3.0% Damage (Headshot or Headstrike)\n-6% Firearms Recoil",
+			[]
+		],
+		"481848": [
+			"During or after the side quest \"Killing Streak: Final Chapter\", on entering the library, head up to the top floor. Follow the landing around until you find a bunch of mattresses with a corpse. Enter the nearby room and the recipe is on a shelf next to the doorway.\n\r\nAfter finishing the side quest the side door is left unlocked.",
+			[]
+		],
+		"481849": [
+			"**Location:** On the lower roof overhang to the right of the mural.\n\n**Text:** A mural funded by Castor Woods that aims to promote reading and hiking.",
+			[
+				{
+					"id": 99435,
+					"title": "",
+					"file_name": "a54db0b7-39a1-4424-a888-4797b8adfd08.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a54db0b7-39a1-4424-a888-4797b8adfd08.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481850": [
+			"**Location:** In the corner, on the very top floor.\n\n**Text:** The work of an artist who chose to comment on the societal situation after the outbreak of the pandemic.",
+			[
+				{
+					"id": 99345,
+					"title": "",
+					"file_name": "c13a8fd6-b3f8-434c-84d5-4bd74cfd10c8.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c13a8fd6-b3f8-434c-84d5-4bd74cfd10c8.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481851": [
+			"**Location:** A vent here leads to \"Doomday Dan's\" underground bunker containing the jacket and some UV bars.\n\n**Slot:** Chest \n**Armor Value:** 3\n\n**Bonuses:**\n- +3% Recognition Time\n- +6% Stamina Damage\n- +3% Damage (Backstab)",
+			[]
+		],
+		"481852": ["Unfinished Beaver Dam where the 6 Mysterious Branches need to be placed", []],
+		"481853": [
+			"Branch if you pick up you hear a whistling. Slightly under the Bridge.\n\nPart of the [Bober the Beaver](#loc=482842) Easter Egg",
+			[
+				{
+					"id": 109321,
+					"title": "",
+					"file_name": "45871062-e59c-46f5-b08a-03defbfc84fc.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/45871062-e59c-46f5-b08a-03defbfc84fc.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481854": [
+			"**Location:** Inside Dark Zone, in the locked room, in the hand of the corpse",
+			[
+				{
+					"id": 98048,
+					"title": "",
+					"file_name": "0d8db396-86c5-4f8e-9d9a-0009c9dad507.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d8db396-86c5-4f8e-9d9a-0009c9dad507.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481855": ["**Possible Loot:**\n- Weapon Mod\n- Blades\n- Scrap\n- Weights", []],
+		"481856": ["**Location**: On top of factory chimney", []],
+		"481857": [
+			"**Location:** Inside the house, behind the movable wardrobe in the kitchen.\n\nGertrude Fischer disappears mysteriously in the valley of Castor Woods.",
+			[
+				{
+					"id": 100384,
+					"title": "",
+					"file_name": "14dc80ec-7bdf-47b8-b8bc-d2dcf4c11afb.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14dc80ec-7bdf-47b8-b8bc-d2dcf4c11afb.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481858": ["**Location:** On the floor inside a small locked building inside a power substation.", []],
+		"481860": ["**Possible Loot:**\n- Ammo\n- Rare Weapon\n- Throwables\n- Valuables", []],
+		"481861": [
+			"3 Lootable Trucks\n\n**Possible Loot:**\n- Ammo\n- Rare Weapon\n- Throwables\n- Valuables",
+			[
+				{
+					"id": 98050,
+					"title": "",
+					"file_name": "acbc1a88-a97b-4b16-9e23-6708d4160310.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/acbc1a88-a97b-4b16-9e23-6708d4160310.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481862": [
+			"Once you have access to Exile’s Cave (main quest-gated), you’ll find this stone perched on a rock near the south exit , lit by a candle next to a cup and bowl.\nNote: Map and compass does not point to same South",
+			[
+				{
+					"id": 100194,
+					"title": "",
+					"file_name": "a1351310-7377-44c3-bdae-2707b64a4681.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a1351310-7377-44c3-bdae-2707b64a4681.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 100195,
+					"title": "",
+					"file_name": "27040c05-aad3-4399-bfa0-7f48d0436c4f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/27040c05-aad3-4399-bfa0-7f48d0436c4f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481863": [
+			"Found inside the tunnel on the left side, the item will be on the right side of the mural, next to the truck that's behind the APC.",
+			[
+				{
+					"id": 99636,
+					"title": "",
+					"file_name": "99f9f750-5f5a-47b7-a4a4-bc39a1f97519.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/99f9f750-5f5a-47b7-a4a4-bc39a1f97519.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481864": [
+			"**Location:** On the rooftop\n\n**Text**: The work of a local artist who had a fondness for satyrs, nymphs and Art nouveau. This piece depicts a nymph\n\n(Not to be confused with another one nearby called \"[A Satyr Playing for a Nymph](#loc=481656)\")",
+			[
+				{
+					"id": 99633,
+					"title": "",
+					"file_name": "968346bd-25bd-463e-af53-ef0043c1807d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/968346bd-25bd-463e-af53-ef0043c1807d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481867": ["**Location:** In a small utility building, behind a locked roof hatch.", []],
+		"481868": [
+			"**Location:** In the bus on the highway safe zone, along the left-hand interior towards the driver's seat, on a pin board.\n\n**Loot:** You know what J. calls those old factories? Surprise cakes. Let's hope the surprise this time isn't a horde of biters and empty storerooms. It's worth checking the rooftop entrance. A.",
+			[]
+		],
+		"481869": [
+			"**Location:** West side of the Tree of Madness, Inside the Skeleton's Mouth",
+			[
+				{
+					"id": 99270,
+					"title": "",
+					"file_name": "db152fc0-5ecd-4617-84aa-0fdb002bd1ed.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/db152fc0-5ecd-4617-84aa-0fdb002bd1ed.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481870": [
+			"**Location:** Next to the back tires of wrecked car, near a bag.\n\n**Loot:** Rouge Jacket and 8x UV Bar",
+			[]
+		],
+		"481871": [
+			"**Location:** On the rooftop",
+			[
+				{
+					"id": 99437,
+					"title": "",
+					"file_name": "b7948c67-e05d-48f2-8da8-a87ad0d919bc.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b7948c67-e05d-48f2-8da8-a87ad0d919bc.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 100381,
+					"title": "",
+					"file_name": "c378d105-662c-4da0-9b99-41b283a78f13.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c378d105-662c-4da0-9b99-41b283a78f13.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481872": [
+			"**Location:** When facing the mural, on the left side of the wall there is a scaffold, the item is on the third level of it.",
+			[
+				{
+					"id": 99432,
+					"title": "",
+					"file_name": "9297c03b-e562-4e2e-bf5f-7e02eb201706.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9297c03b-e562-4e2e-bf5f-7e02eb201706.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"481873": ["**Location:** On the ground next to a corpse near a yellow bus.", []],
+		"481874": [
+			"**Location:** Found the roof of [Nate Market](#loc=481662)  \n\nYou need to knock 77 times on the wall-mounted stash box to open it.",
+			[]
+		],
+		"482533": [
+			"**Location:** Hidden camp area with yellow-leaf trees and a tent. Just as you enter this area, look to the immediate right, and you'll spot a wide stone with The Moon stone sigil placed on it.",
+			[
+				{
+					"id": 98702,
+					"title": "",
+					"file_name": "dfb4d158-d3fb-4047-a74a-eb7e4337b167.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dfb4d158-d3fb-4047-a74a-eb7e4337b167.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 99272,
+					"title": "",
+					"file_name": "aaf0b90e-1d7e-4f63-8f5e-40973f635584.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aaf0b90e-1d7e-4f63-8f5e-40973f635584.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482534": ["In cabin next to the pond.\n\nPart of What Lurks Beyond the Pines quest Side Quest", []],
+		"482535": [
+			"**Location:** Under the bridge",
+			[
+				{
+					"id": 99431,
+					"title": "",
+					"file_name": "22f3badd-b65e-4650-a7d5-71e2228e9375.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/22f3badd-b65e-4650-a7d5-71e2228e9375.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482536": [
+			"**Location:** Inside the Asylum Block A, Inside *Reflection Room* (106A). The Mural will be on the floor. \n\n\nThis area can be accessed during a *Mission: Cries Trapped In The Walls* OR can be accessed after completing the mission through the window",
+			[
+				{
+					"id": 99635,
+					"title": "",
+					"file_name": "8452e910-9ebc-41bd-964b-ecb12bdeb028.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8452e910-9ebc-41bd-964b-ecb12bdeb028.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482537": [
+			"**Location**: On top of the underpass, next to the road\n\n**Text**: One of the many works by street artists operating in the Castor Woods area. The artist's goal was to depict a catfish the devours people walking through the tunnel. In Castor Woods, even art has an appetite for passersby.",
+			[
+				{
+					"id": 99343,
+					"title": "",
+					"file_name": "e00ac804-cd0e-4adb-9d04-3873b9f53091.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e00ac804-cd0e-4adb-9d04-3873b9f53091.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482538": [
+			"**Location:** To the right of the mural underneath the blue train car.",
+			[
+				{
+					"id": 99433,
+					"title": "",
+					"file_name": "f0f7cc26-b46f-4962-bc24-99d971e99fe9.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0f7cc26-b46f-4962-bc24-99d971e99fe9.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482539": [
+			"**Location:** On the roof, under the AC unit.",
+			[
+				{
+					"id": 99342,
+					"title": "",
+					"file_name": "a5a58890-525c-454d-8813-70f0dcd59398.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a5a58890-525c-454d-8813-70f0dcd59398.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482540": [
+			"**Location:** On the side of the Mega Store America building - on top of the scaffolding\n\n**Text:** A mural that celebrates children's imagination.",
+			[
+				{
+					"id": 99632,
+					"title": "",
+					"file_name": "aea5e19e-fbed-404a-a794-03e84bc19820.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aea5e19e-fbed-404a-a794-03e84bc19820.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482541": [
+			"**Location:** Next to the CWIP Industry Park gate",
+			[
+				{
+					"id": 119982,
+					"title": "",
+					"file_name": "3779e9a5-272f-4ef3-8a28-7537a8ecc5ea.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3779e9a5-272f-4ef3-8a28-7537a8ecc5ea.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482543": [
+			"On the side of the building. The collectible will be sitting on the balcony above.",
+			[
+				{
+					"id": 99436,
+					"title": "",
+					"file_name": "cb4b9b39-2556-4012-93bc-553b154438e9.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb4b9b39-2556-4012-93bc-553b154438e9.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482544": [
+			"**Location:** Southwest of the asylum, you need to climb the stone steps, and on the middle level you'll find the beaver statue on the right side of the wall on a staircase going down to the pond area.",
+			[
+				{
+					"id": 103238,
+					"title": "",
+					"file_name": "6837f365-00e1-4142-8ccc-484ac240ac28.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6837f365-00e1-4142-8ccc-484ac240ac28.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482545": [
+			"**Location:** Enter the house from the front. Go upstairs, and you'll find the diary on the shelves of a bookshelf on the left side.",
+			[
+				{
+					"id": 119975,
+					"title": "",
+					"file_name": "19497cf4-e451-4086-80d1-84631bc08c38.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/19497cf4-e451-4086-80d1-84631bc08c38.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482564": [
+			"**Location:** It's posted on a billboard on the hill with small pavilions.",
+			[
+				{
+					"id": 99286,
+					"title": "",
+					"file_name": "941d6d8e-3eff-4a1c-b2ef-9edea0a22296.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/941d6d8e-3eff-4a1c-b2ef-9edea0a22296.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482566": ["**Rewards:**\n- [Shock Mine Blueprint](#loc=482723)\n- 3,000 XP", []],
+		"482567": ["**Possible Loot:**\n- Empowerment Mod", []],
+		"482569": [
+			"**Location:** Down a hatch in a red brick waste area.\n\nA generator and cable is in the nearby hut. Use the cable to power the hatch and open it. After opening it you'll need to detach the same cable and use it to power the doors in the bunker.",
+			[]
+		],
+		"482570": [
+			"**Loot:**\n- Scavenger Fingerless Glove\n- 4 Gear Armor\n- +6% Common Craftparts loot\n- +3% Uncommon Craftparts loot\n- +4% Damage (Accessories)\n\n**Possible Loot:**\n- Cordyceps\n- Manual Pages\n- Scraps\n- Common Valuables\n- Rare Valuables\n- Common Resources\n- Rare Resources",
+			[]
+		],
+		"482571": ["Located in the safe zone on the shelf near the sleeping bag.", []],
+		"482572": [
+			"**Location:** Above the mural on the bridge support. accessible from the opposite side of the support that the mural is on.",
+			[
+				{
+					"id": 98912,
+					"title": "",
+					"file_name": "a506a440-18d9-480f-9d67-1d8c813590d5.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a506a440-18d9-480f-9d67-1d8c813590d5.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482573": [
+			"**Location:** Above the mural are two balconies, the collectable is on the 2nd.\n\n**Text:** A city-sponsored mural that depicts a local bird species. The initial version raised the objections of a fussy ornithologist, who successfully petitioned to have it repainted so that the birds are depicted more \"accurately\"",
+			[
+				{
+					"id": 99344,
+					"title": "",
+					"file_name": "f86b7569-8cd6-4bf0-9f92-96341106d1a2.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f86b7569-8cd6-4bf0-9f92-96341106d1a2.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482723": [
+			"**Location:** Behind the locked door inside the [Village Relay](#loc=482566) substation",
+			[
+				{
+					"id": 98837,
+					"title": "",
+					"file_name": "7aa5c269-7045-4a18-aa86-88f4182a92e1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7aa5c269-7045-4a18-aa86-88f4182a92e1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482724": ["**Location:** Inside the building, behind destructible barricade.", []],
+		"482824": [
+			"**Location:** On top of the shelf where Olivia sits. \n\n**Note:** Only spawns after the Vengeance is Mine main story mission.",
+			[]
+		],
+		"482825": [
+			"**Location:** Acquired after completing the Vengeance is mine main story mission and returning to Olivia. Found inside the bathroom behind Olivia next to the laptop.",
+			[]
+		],
+		"482826": [
+			"**Location:** During the side quest [Killing Streak: Final Chapter](#loc=482979) - Ground floor of the library, on a web-covered shelf by a corpse in a small side room.\n\n\nEleanor Fischer executed for sorcellery at Castor Woods",
+			[]
+		],
+		"482827": [
+			"Is needed to progress in Hydro-Puzzle side quest. Safe is on the desk closest to the door in the payroll managers office.\n\n**Safe Code: 27 01 15**",
+			[
+				{
+					"id": 98893,
+					"title": "",
+					"file_name": "020a656b-ff8f-4693-88b2-c502c6b747a1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/020a656b-ff8f-4693-88b2-c502c6b747a1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482828": [
+			"**Location:** On the edge of the water, next to a car.\n\nPart of the [Bober the Beaver](#loc=482842) Easter Egg",
+			[
+				{
+					"id": 109320,
+					"title": "",
+					"file_name": "14b25c9f-a02a-4f67-b2ce-8d65b3988d32.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14b25c9f-a02a-4f67-b2ce-8d65b3988d32.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482829": ["Possible Loot:\n- Slit (mod)\n- Manual Pages", []],
+		"482830": ["Location: Inside Dark Zone, in the locked room", []],
+		"482831": [
+			"**Location:** In a cupboard in the kitchen",
+			[
+				{
+					"id": 98894,
+					"title": "",
+					"file_name": "088df948-ea92-437b-b978-02561aa33c4e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/088df948-ea92-437b-b978-02561aa33c4e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482832": [
+			"Location: The crate is on the roof, behind one of the vents.",
+			[
+				{
+					"id": 98895,
+					"title": "",
+					"file_name": "0532b5eb-22ba-4c96-a40e-f0ac3e2b0820.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0532b5eb-22ba-4c96-a40e-f0ac3e2b0820.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482833": ["**Location:** On the top of the chimney.", []],
+		"482834": ["**Location:** On the top of the chimney.", []],
+		"482835": ["Available after Vengeance is Mine main story quest.", []],
+		"482837": ["**Location:**  Inside the factory, 2nd floor.", []],
+		"482838": [
+			"**Location:** Inside the factory, 2nd floor.",
+			[
+				{
+					"id": 108441,
+					"title": "",
+					"file_name": "974820ae-9474-499c-b7e8-51ad98a72937.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/974820ae-9474-499c-b7e8-51ad98a72937.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482839": [
+			"Use beast mode to remove the rock on top of the door. Miscellaneous loot inside.",
+			[
+				{
+					"id": 99190,
+					"title": "",
+					"file_name": "b814099e-9e63-45f8-a5a0-26185aa4be28.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b814099e-9e63-45f8-a5a0-26185aa4be28.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482840": [
+			"**Location:** Inside a small cabin protected by bandits.\n\n**Slot:** Gloves  \n**Armor Value:** 4\n\n**Bonuses:**\n- +3% Recognition Time\n- +6% Stamina Damage\n- +3% Damage (Backstab)",
+			[]
+		],
+		"482841": [
+			"**Location:** Inside the secret Beaver's Cave safe zone which is unlocked by finding all 6 of the mysterious branches and rebuilding the Beaver's Dam.\n\nSleep in the secret safe zone once and the weapon will appear on the nearby work bench.",
+			[]
+		],
+		"482842": [
+			"**Location:** After collecting 6 branches, use them to build a dam. Then, exit the game and return to the dam again. This will open an underwater cave where you'll encounter Beaver himself.",
+			[]
+		],
+		"482843": [
+			"**Location:** Near the dam on the stone\n\nPart of the [Bober the Beaver](#loc=482842) Easter Egg",
+			[]
+		],
+		"482845": [
+			"**Location:** Inside a kitchen cabinet in the middle building, entered through a window seen in the first photo.",
+			[
+				{
+					"id": 98913,
+					"title": "",
+					"file_name": "36bf7e66-881c-4345-9016-49c0c0b29be1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36bf7e66-881c-4345-9016-49c0c0b29be1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 99289,
+					"title": "",
+					"file_name": "7b2a2384-f645-4721-b5af-ecf881cd444f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b2a2384-f645-4721-b5af-ecf881cd444f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				},
+				{
+					"id": 99288,
+					"title": "",
+					"file_name": "d5847954-e5c2-4dc8-8a33-a9686d310b80.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d5847954-e5c2-4dc8-8a33-a9686d310b80.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 30,
+					"spoiler": false
+				}
+			]
+		],
+		"482846": ["**Rewards:**\n- Acid (Tip Mod Craftplan)\n- 3,000 XP", []],
+		"482847": [
+			"**Location:** On the first floor of the building (not ground floor) through a locked door.\n\n**Code:** 12 18 22",
+			[
+				{
+					"id": 119978,
+					"title": "",
+					"file_name": "cc41e1e6-d551-436e-81f6-2fa0af386a4b.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc41e1e6-d551-436e-81f6-2fa0af386a4b.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482850": ["Location: On top of the tower West of Safe Room", []],
+		"482851": [
+			"**Location:** Underneath remnants of a ruined building. Lots of mines to deal with on the way down.\n\nThis is the location pointed out by Treasure Map C2",
+			[
+				{
+					"id": 99187,
+					"title": "",
+					"file_name": "db9ec2f5-1c07-449f-999c-317bba3b0ea0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/db9ec2f5-1c07-449f-999c-317bba3b0ea0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482852": ["**Location:** In the [Highway Tower](#loc=481571) - on window ledge next to the bed.", []],
+		"482853": ["**Unlocks:** \n- ??  \n\n**Rewards:** \n- [Blueprint: Mine](#loc=483546)\n- 3000xp", []],
+		"482854": [
+			"**Location:** At the junkyard, near the device.",
+			[
+				{
+					"id": 137190,
+					"title": "",
+					"file_name": "a69ee7cc-f6d8-4635-9bba-4a830a54822f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a69ee7cc-f6d8-4635-9bba-4a830a54822f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482855": [
+			"**Location:** Inside a room that can be accessed through a hatch on the southeast side of the roof (check game compass, the map is not oriented north).",
+			[]
+		],
+		"482856": [
+			"Inside the Factory. Located on the desk in the basement in the room opposite the locked door (shortcut).",
+			[]
+		],
+		"482857": ["**Possible Loot:**\n- Manual Pages\n- Valuables\n\n**One-time Loot:**\n- Heavy Gloves", []],
+		"482858": ["**Possible Loot:**\n- [Scavenger Boots](#loc=484686)\n- Beginner Manual Pages", []],
+		"482859": ["Access is on the roof on the northeast side of the school.", []],
+		"482860": ["**Location:** In the basement of Nate Market on a white table.", []],
+		"482971": [
+			"Next | Previous\n\n**Quest Steps:**\n- Talk to Exiles' scout.\n- Retrieve the research from the gym outpost.\n- Clear the escape route for Camilo\n   - Kill all the infected.\n   - Unlock the exit\n- Get the research from the archive.\n- Deliver the research to Lydia.\n- Look for Ray and Camilo.\n- Investigate for Camilo's traces.\n   - Find a way into the house.\n   - Kill all the infected in the building.\n\n**Reward(s):**\n- 12500 XP\n- 800 Old World Money\n- .38 Revolver\n- 6 Revolver Ammo",
+			[]
+		],
+		"482972": ["**One-Time Loot:**\n- Heavy Boots\n\n**Possible Loot:**\n- Manual Pages\n- Valuables", []],
+		"482973": [
+			"**Location:** Found on a desk in the gym of the school.\n\nBest obtained during the mission [School's Out](#loc=482971).",
+			[
+				{
+					"id": 98914,
+					"title": "",
+					"file_name": "bf7108c1-bc6d-488c-8e79-2bcf58e527f1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf7108c1-bc6d-488c-8e79-2bcf58e527f1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482974": ["**Location:** On the desk by the computer", []],
+		"482975": [
+			"Fought during the quest Toxic Relationship.",
+			[
+				{
+					"id": 98915,
+					"title": "",
+					"file_name": "87bac7b0-2c2a-4574-be7d-eec05577036b.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87bac7b0-2c2a-4574-be7d-eec05577036b.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"482976": [
+			"**Requirement:** Complete [First Blood](#loc=481585)\n\n**Quest Giver:** Doug\n\n**Rewards:**\n- 4000 XP\n- 2 Beginner Manual Pages\n- Soldier Boots",
+			[]
+		],
+		"482977": [
+			"Shortly after [Killing Streak: Volume Three](#loc=482978) ended (leave the Townhall area)\n\n**Rewards:**\n- 4000 XP\n- 2 Beginner Manual Pages",
+			[]
+		],
+		"482978": [
+			"Sleep after [Killing Streak: Volume Two](#loc=482980) to get a call from Doug\n\n**Rewards:**\n- 4000 XP\n- 2 Beginner Manual Pages",
+			[]
+		],
+		"482979": [
+			"Right after [Killing Streak: Volume Four](#loc=482977) the Final Chapter will begin.\n\n**Rewards:**\n- 4000 XP\n- Soldier Tactical Vest\n- 2 Beginner Manual Pages",
+			[]
+		],
+		"482980": [
+			"Some time after [Killing Streak](#loc=482976) Doug will call you to start this quest\n\n**Rewards:**\n- 4000 XP\n- 2 Beginner Manual Pages",
+			[]
+		],
+		"483169": [
+			"**Loot:**\n- [Regeneration Booster](#loc=483172) Blueprint\n\n**Possible Loot:**\n- Manual Pages\n- Scraps\n- Common Valuables\n- Rare Valuables\n- Common Resources\n- Rare Resources",
+			[
+				{
+					"id": 99180,
+					"title": "",
+					"file_name": "b1056dac-ffb6-4b77-83e3-6e1183826245.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b1056dac-ffb6-4b77-83e3-6e1183826245.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483171": ["**Unlocks:** \n- ??  \n\n**Rewards:** \n- ??", []],
+		"483172": ["**Location:** Inside [Pharmacy](#loc=483169) behind the locked door.", []],
+		"483173": [
+			"**Location:** Inside the [Cargo Station Tower](#loc=481555) on the window sill.",
+			[
+				{
+					"id": 99181,
+					"title": "",
+					"file_name": "e0d73a4c-7eba-40ae-b618-60cd712a4125.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0d73a4c-7eba-40ae-b618-60cd712a4125.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483174": [
+			"**Location:** End of the rail line. Have to crawl inside to the back of the container.\n\n**Loot:**\n- UV Light\n- ??Random Epic Weapon??\n- Other miscellaneous loot",
+			[
+				{
+					"id": 99182,
+					"title": "",
+					"file_name": "38d7437e-2c63-4cbd-a849-a085183625e9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/38d7437e-2c63-4cbd-a849-a085183625e9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483175": [
+			"**Unlocks:**\n- Rest Spot\n- Stash\n- Workbench\n\n**Rewards:**\n- Lightning Blueprint\n- Voltage Shaft Mod\n- 3000 XP",
+			[
+				{
+					"id": 99183,
+					"title": "",
+					"file_name": "a5772420-3166-4341-8d06-39d5c6b59c95.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a5772420-3166-4341-8d06-39d5c6b59c95.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483176": [
+			"Epic Charm - Weapon Mod\n- +5% Common Craftparts loot\n\n**Location:** Inside the [Vanity Store](#loc=483178) behind the locked door",
+			[
+				{
+					"id": 99184,
+					"title": "",
+					"file_name": "c371dd92-a019-49a3-89f3-b1fdd5b6ea6b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c371dd92-a019-49a3-89f3-b1fdd5b6ea6b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483177": [
+			"Location: Inside Vanity Store behind the locked door\n\nSlot: Chest \nArmor Value: 7\nBonuses:\n- +6% Common Craftparts loot\n- +3% Uncommon Craftparts loot\n- +4%$ Damage (Accessories)",
+			[
+				{
+					"id": 99185,
+					"title": "",
+					"file_name": "f0a3e7b0-4934-4d7f-874d-e6a7ac3336d7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0a3e7b0-4934-4d7f-874d-e6a7ac3336d7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483178": [
+			"**Loot:** \n- [Scavenger Reinforced Shirt](#loc=483177)\n- [Lucky Duck](#loc=483176) \n- Scrap\n- Feathers\n- Rags\n- Leather",
+			[
+				{
+					"id": 99186,
+					"title": "",
+					"file_name": "c987147d-c0a5-4b13-8e8f-35b78e5d32fb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c987147d-c0a5-4b13-8e8f-35b78e5d32fb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483179": [
+			"**Location:** Upstairs in the right side room of Anna and Ron's house. Can be found during/ after the Sign of Love side quest.",
+			[]
+		],
+		"483180": ["**Possible Loot:**\n- Ammo\n- Rare Weapon\n- Throwables\n- Valuables", []],
+		"483181": [
+			"Unlocked during a late-game story mission.\n\n**Unlocks:**\n- Rest Spot\n- Stash\n- Workbench\n\n**Rewards:**\n- XP: 3,000",
+			[
+				{
+					"id": 99188,
+					"title": "",
+					"file_name": "4ccd277a-f1c6-4179-bdbb-2fd3f29f8a2b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ccd277a-f1c6-4179-bdbb-2fd3f29f8a2b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483182": [
+			"[Next]() | [Previous]()\n\n**Quest Steps:**\n- Meet with Lydia.\n- Get inside the Mental Asylum.\n- Find Block B at the first floor.\n- Find the power generator in the basement.\n- Find the hospital's employee card.\n- Find the medical storage in Block B.\n- Find the doctor on the ground floor of Block B.\n- Get back to the medical storage.\n- Find the drug Neuroraze.\n- Escape from the Mental Asylum.\n- Escape!\n\n**Reward(s):**\n- 12,500 XP\n- 750 Old World Money\n- *Rewards are given after completing the second half of the quest.*\n\n**Note:** This quest is split into two parts in the games code but appears to be one while playing. Part one is called \"MQ Mental Asylum\" and part two is called \"MQ Hub Attack\".",
+			[]
+		],
+		"483183": [
+			"Next ?? | [Previous](#loc=483182)\n\n**Quest Steps:**\n- Get to Lydia and Camilo.\n- Get to the Town Hall.\n- Turn off the gas dispenser device.\n- Eliminate Baron's soldiers.\n- Defeat Baron's soldiers at the mortar nest and destroy the mortar.\n- Collect the gas grenades.\n- Kill the Chimera.\n- Kill the Chimeras.\n\n**Reward(s):**\n- 12,500 XP\n- 750 Old World Money\n\n**Note:** This quest is split into two parts in the games code but appears to be one while playing. Part one is called \"MQ Mental Asylum\" and part two is called \"MQ Hub Attack\".",
+			[]
+		],
+		"483184": [
+			"[Previous]()\n\n**Quest Steps:**\n- Check on the Beast in the Exiles' cave.\n- Get to the tunnels.\n- Find the way to the castle.\n- Neutralize sharpshooters on the walls.\n- Open the gates.\n- Defeat Baron's soldiers.\n- Follow the Baron.\n   - Take the elevator down.\n- Follow the Baron into the complex.\n   - Follow the railway tunnel.\n   - Survive!\n   - Bring the Chimeras' health down.\n- Defeat the Baron.\n\n**Reward(s):**\n- 20,000 XP\n- The Real Beast\n- 1500 Old World Money",
+			[]
+		],
+		"483185": [
+			"**Prerequisites:** Complete [School's Out](#loc=482971)\n\n**Location:** At the highest level of the cave in the right most pocket. Speak with the two men sitting down to start the quest.\n\n**Quest Steps:**\n- Get to the abandoned pharmacy.\n- ??\n\n**Reward(s):**\n- 10000 XP\n- 2 Expert Manual Pages\n\n**Note:** This *could* be seen as an easter egg referencing the previous game in the series *\"Dying Light 2: Stay Human\".*",
+			[
+				{
+					"id": 99189,
+					"title": "",
+					"file_name": "57ce3ba2-219a-42b3-bdde-56d525771db7.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57ce3ba2-219a-42b3-bdde-56d525771db7.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483186": [
+			"**Prerequisites:** Must have completed the story quest \"[Requiem for a Scream]()\".\n\n**Location:** At the trader in the Exiles' camp. Talk to her to start the quest.\n\n**Quest Steps:**\n- Get to the house used by Jenna's runners.\n- ??\n\n**Reward(s):**\n- 10,000 XP\n- 2 Expert Manual Pages",
+			[]
+		],
+		"483187": [
+			"[Next]() | [Previous]()\n\n**Quest Steps:**\n- Get to the E&F plant.\n- Acquire two red-gas canisters from the E&F plant.\n- Enter the vehicle.\n- Drive through the marked locations.\n- Keep The Beast focused on you without harming it.\n- Weaken The Beast, but don't kill it.\n- Lure The Beast's attention to yourself.\n   - Don't harm The Beast.\n- Defeat The Beast.\n\n**Reward(s):**\n- 20,000 XP\n- Beast Among Us\n- Steel Bat\n- 900 Old World Money",
+			[]
+		],
+		"483188": [
+			"[Next]() | [Previous]()\n\n**Quest Steps:**\n- Get to the volatiles' hive.\n- Find the hive in the caverns.\n   - Search for a way forward.\n   - Kill the [Chimera]().\n- Get the blood samples from live volatile nests.\n- Escape!\n- Talk to Lydia.\n\n**Reward(s):**\n- 12,500 XP\n- Survivor Hat\n- 800 Old World Money",
+			[]
+		],
+		"483189": ["Fought during the story quest \"[Buried Truths](#loc=483190)\".", []],
+		"483190": [
+			"[Next]() | [Previous]()\n\n**Quest Steps:**\n- Talk to Olivia\n- Find the [Chimera](#loc=483189).\n- Kill the Chimera.\n\n**Reward(s):**\n- 12,500 XP\n- 800 Old World Money",
+			[]
+		],
+		"483191": ["Fought during the story quest [One Flew Over the Volatiles' Nest](#loc=483188).", []],
+		"483192": [
+			"Fought during the quest \"[Requiem for a Scream](#loc=483193)\".",
+			[
+				{
+					"id": 99191,
+					"title": "",
+					"file_name": "0847d39e-c293-4b0c-beda-de0026726f72.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0847d39e-c293-4b0c-beda-de0026726f72.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483193": [
+			"[Next]() | [Previous](#loc=482971)\n\n**Quest Steps:**\n- Meet with Olivia.\n- Find the [Chimera](#loc=483192).\n   - Get inside the cement plant.\n   - Investigate the interior of the plant.\n- Kill the Chimera.\n- Deliver the sample to Olivia.\n- Talk to Camilo.\n- Talk to Lydia and Camilo.\n\n**Reward(s):**\n- 10,000 XP\n- Survivor Spiked Arm Wrap\n- 800 Old World Money",
+			[]
+		],
+		"483255": ["**Location:** Museum substation relay", []],
+		"483257": [
+			"**Location:** Inside of a barn, on one of the wooden pillars on the right side after getting in.\n\n**Loot:** The Statement (Legendary Shotgun location)",
+			[
+				{
+					"id": 99269,
+					"title": "",
+					"file_name": "8c14ad61-d241-4624-bd46-3455a6e578af.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8c14ad61-d241-4624-bd46-3455a6e578af.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483258": [
+			"**Location:** Inside the Power Plant safe zone, which is unlocked after completing the Power Gambit story mission.",
+			[]
+		],
+		"483261": [
+			"**Location:** Ground Floor on the kitchen table",
+			[
+				{
+					"id": 99273,
+					"title": "",
+					"file_name": "2ee47de5-f107-44dc-a492-a64d0ec680d8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2ee47de5-f107-44dc-a492-a64d0ec680d8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483262": [
+			"Workshop with the Easter Egg is located behind the wirefence house, next to the two lions statues.\nGain access to the workshop by restoring power to it, using generator in a tool shed next to it.\nTool shed is accessed via vent hole on the Northern side of the shed (you'll need to tear off the grating).",
+			[]
+		],
+		"483264": [
+			"**Location:** Inside the bunker.  There's a hatch in the back yard leading to a bunker where you'll find a note saying the owner has gone to find a fuse in the house above. You can find the fuse on their dead body in the bathroom.\n\nUse the fuse to open the unpowered gate in the bunker. Inside you'll find a note hinting to a poster in the room which provides the code for the safe containing the weapon.\n\n**Safe Code:** 2 2 19",
+			[]
+		],
+		"483266": ["Unlocked after completing [The Fast and Fortunate](#loc=481844)", []],
+		"483268": [
+			"**Location:** Inside the house, basement level. Can be accessed through the vent hidden with the boxes, then you need to open the cabinet with the key from the sauna.\n\n**Slot:** Boots  \n\n**Armor Value:** 4\n\n**Bonuses:**\n- +3% Recognition Time\n- +6% Stamina Damage\n- +3% Damage (Backstab)",
+			[]
+		],
+		"483270": [
+			"**Location:** In the hidden room. Kick the painting near the bookcase and press the button behind it.\n\n**Slot:** Bracers\n\n**Armor Value:** 4\n\n**Bonuses:**\n- +3% Recognition Time\n- +6% Stamina Damage\n- +3% Damage (Backstab)",
+			[]
+		],
+		"483272": [
+			"**Location:** On the ventilation chambers in the middle of the Sewege Treatment Plant complex (above the Chimera arena)",
+			[
+				{
+					"id": 119979,
+					"title": "",
+					"file_name": "614beb1b-681e-4194-ac36-32da79978ebf.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/614beb1b-681e-4194-ac36-32da79978ebf.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483273": ["**Unlocks:**\n- ??\n\n**Rewards:**\n- ??", []],
+		"483275": [
+			"Next | Previous\nAfter Power Gambit\n\n**Quest Steps:**\n- Talk to Jacob\n- Talk to Sheriff\n- ???\n\nRewards:\n10000 XP\nSurvivor Jacket\n500 Old World Money\n\n**Reward(s):**\n- ??",
+			[]
+		],
+		"483276": [
+			"Given by Pietro after \"The Cable Guy\" quest finishes\n\nRewards:\n10000 XP\nBruiser Arm Protectors\n2 Beginner Manual Pages",
+			[]
+		],
+		"483277": [
+			"After quest Dead Beats is finished. Sleep a night and the Researcher will call you\n\nRewards:\n- 5000 XP\n- Bruiser Trousers\n- 2 Beginner Manual Pages\n- Spas Decoy Blueprint",
+			[]
+		],
+		"483278": [
+			"2nd Floor of the Townhall in the library. A Researcher will give the quest.\n\nRewards:\n5000 XP\n2 Beginner Manual Pages",
+			[]
+		],
+		"483279": [
+			"After [The Beast Within](#loc=481583)\n\nEli is searching for his dad. He is one of the side rooms of the Townhall.",
+			[]
+		],
+		"483280": ["**Location:** Paper stuck on the map, above Elena's Notes.\n\n**Loot:** ??", []],
+		"483282": ["**Unlocks:**\n- Power to Old Town\n\n**Rewards:**\n- Flame Tip Mod Blueprint\n- 3000xp", []],
+		"483286": [
+			"**Note:** The Flare Charm is part of a random encounter (hostage). It doesn't just appear at this location.\n\nAfter you rescue someone look for what appears to be some rifled through luggage.",
+			[]
+		],
+		"483291": [
+			"**Location:** Building with unpowered shutters\n\nDive in the flooded hatch near the towers, open the vent and follow the path. Turn on the generator, grab the cable and go back the way you came. Once you resurface, head to the building opposite the one you were just in, and plug in the cable to access the building.\n\n**Slot:** ??  \n**Armor Value:** ??\n\n**Bonuses:**\n- ??",
+			[]
+		],
+		"483293": [
+			"**Location:** Ground floor, on the desk.",
+			[
+				{
+					"id": 99294,
+					"title": "",
+					"file_name": "98d2684e-487b-4eb0-975c-917dc8e052cd.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/98d2684e-487b-4eb0-975c-917dc8e052cd.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483294": [
+			"**Location:** Ground floor, on the console.",
+			[
+				{
+					"id": 99296,
+					"title": "",
+					"file_name": "52ab6ba1-071f-4af1-8ab0-117ed97193cb.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/52ab6ba1-071f-4af1-8ab0-117ed97193cb.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483295": [
+			"**Location:** Inside the book store on a shelf behind the register.",
+			[
+				{
+					"id": 99297,
+					"title": "",
+					"file_name": "35aa5bfb-e35e-4920-aba4-094f3dfce57d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35aa5bfb-e35e-4920-aba4-094f3dfce57d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483297": [
+			"It's the parcel locker for the code you find on a note in the train cars (used automatically if you find the code first). Contains legendary items.\n\n**Location:** Just outside the railway station up against a high wall next to a white car",
+			[]
+		],
+		"483298": [
+			"**Prerequisites:** Obtained right after getting the Power Plant up and running and on the way back to report to the sheriff\n\n**Rewards:**\n- 10, 500 XP\n- 2 Beginner Manual Pages\n- Remote Trap Controller",
+			[]
+		],
+		"483299": ["**Location:** Inside the [Inn](#loc=481546), on one of the tables.", []],
+		"483300": [
+			"**Location:** Inside the power plant, accessible during the “Power Gambit” story quest. On a coffee table in the room adjacent to where you drop down into a room with biters.",
+			[
+				{
+					"id": 100382,
+					"title": "",
+					"file_name": "3997e16d-8f8c-460b-81e8-9a3e67411a1d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3997e16d-8f8c-460b-81e8-9a3e67411a1d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483301": ["**Location:** Under the highway, near the truck.", []],
+		"483303": ["Unlocked after completing [The Fast and Fortunate](#loc=481844)", []],
+		"483304": [
+			"**Location:** Located inside a cabin with the corrugated sheeting on the porch.  Just behind the front door entrance, pinned to a wardrobe.\n\n**Loot:** A railcar full of loot",
+			[]
+		],
+		"483305": [
+			"**Location:** On the table near your stash inside the [Abandoned House](#loc=481564) safezone.",
+			[]
+		],
+		"483306": [
+			"Next | [Previous - First Blood](#loc=481585)\n\n**Quest Steps:**\n- Talk to Sheriff\n- ???\n\n**Reward(s):**\n- 10000 XP\n- 500 Old World Money\n- Survivor Reinforced Jeans",
+			[]
+		],
+		"483347": [
+			"**Location:** In the attic, under the roof.\n\nFrom the 3 power wires going to the house, jump to the balcony with the broken railing and enter the doorway to the attic. Approaching the metal door, the weapon is a tennis racket and will be on the back of the left pillar.",
+			[]
+		],
+		"483348": [
+			"**Location:** Inside the building, accessible during/after [A New Strain](#loc=483275). \n\nOn some shelves in the room where you have a cutscene with a scientist.",
+			[
+				{
+					"id": 108825,
+					"title": "",
+					"file_name": "4b6061b1-caa5-452e-b041-920e21a6971d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4b6061b1-caa5-452e-b041-920e21a6971d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483349": [
+			"**CONTAINS SPOILERS**\n\n**Location:** Requires mods to reach, as it is outside the playable area and is surrounded by a damage barrier that instantly kills the player.\n\n**Loot:** Various weapons, ammo, and med kits.\n\n**Notes:** During normal gameplay, the only time this location is accessed is during the final section of the final story quest, [The Last Supper](). On the helipad are NPCs of Aiden, Lydia, and the beast version of the Baron. Although all three are in idle animations, they are static and do not react to anything.",
+			[
+				{
+					"id": 99346,
+					"title": "",
+					"file_name": "7f937283-10bd-4ba5-9504-f8f78fd8920a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7f937283-10bd-4ba5-9504-f8f78fd8920a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483350": ["Unlocked after completing \"[The Fast and Fortunate](#loc=481844)\"", []],
+		"483351": ["\"Note from Ron\", to Anna. Mentions locations. On top of the workbench.", []],
+		"483352": [
+			"**Location:** Anna and Ron's house - Available after receiving the \"A Sign of Love\" side quest.\n\nAccess the house from a locked door behind the house on the second floor balcony.",
+			[]
+		],
+		"483353": ["Unlocked after completing \"[The Fast and Fortunate](#loc=481844)\"", []],
+		"483354": ["Unlocked after completing \"[The Fast and Fortunate](#loc=481844)\"", []],
+		"483355": ["Unlocked after completing \"[The Fast and Fortunate](#loc=481844)\"", []],
+		"483356": ["Unlocked after completing \"[The Fast and Fortunate](#loc=481844)\"", []],
+		"483357": [
+			"**Location:** In the [Nate Market Dark Zone](#loc=482570)'s 2nd floor that can be accessed by breaking a window.\n\nIn the kitchen.",
+			[]
+		],
+		"483358": [
+			"**Location:** Inside the house.\n\n**Slot:** Chestpiece\n\n**Armor Value:** 7\n\n**Bonuses:**\n- +1.5% Damage Resistance (Infected)\n- +3% Damage (2H Weapons)\n- +3% Damage (Power Attack)",
+			[]
+		],
+		"483359": ["**Location:** In front of a Dark Zone.\n\n**Loot:** Military Medkit, UV Bar.", []],
+		"483360": ["**Location:** [Farms Tower](#loc=481572)", []],
+		"483361": [
+			"**Location:** Inside the barn on the backyard. Becomes accessible only during or after the quest **Last Wish**.",
+			[]
+		],
+		"483363": [
+			"**Location:** Inside the bookstore, on a bookshelf",
+			[
+				{
+					"id": 99347,
+					"title": "",
+					"file_name": "84b7e1d2-a1d6-4d74-bc17-e437e291e5ce.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/84b7e1d2-a1d6-4d74-bc17-e437e291e5ce.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483364": [
+			"Location: On a shelf next to the TV in the first floor of the building (not ground floor).",
+			[
+				{
+					"id": 137189,
+					"title": "",
+					"file_name": "bd8d8efd-a9ad-4804-9801-75278361eaaf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd8d8efd-a9ad-4804-9801-75278361eaaf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483441": ["**Location:** In substation relay building", []],
+		"483442": ["Can be found in the basement during a story quest. On a cabinet in a paper rack.", []],
+		"483444": ["**Location:** Found in an operating room by the padded cells.", []],
+		"483445": ["**Location:** Can be found in an operating room by the padded cells.", []],
+		"483446": [
+			"Part of the Asylum Patient Records collection.\nCan be found in break room in Block B after getting the keycard.",
+			[]
+		],
+		"483447": [
+			"**Location:** Can be found in a padded cell, by climbing through a vent two cells earlier. Besides the scientist you take a keycard from.",
+			[]
+		],
+		"483448": ["**Location:** Found in an office, blasting loud music in the lower Block B.", []],
+		"483449": ["**Location:** Found in an office, blasting loud music in the lower Block B.", []],
+		"483450": ["**Location:** Ground Floor of the House, In the living room on the cupboard.", []],
+		"483451": [
+			"**Location:** On the ground near the entry into the dark zone. Has a hint about the code for the hotel safe box.",
+			[]
+		],
+		"483452": [
+			"**Rewards:** \n- [Fling](#loc=483453)",
+			[
+				{
+					"id": 99421,
+					"title": "",
+					"file_name": "be67bacb-6352-4f20-9dbb-a73ce295a9dc.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be67bacb-6352-4f20-9dbb-a73ce295a9dc.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483453": [
+			"**Location:** Inside a small shack-sized building at the edge of a courtyard. After completing the Power Gambit story mission, the Touristic Relay substation location will be here.",
+			[]
+		],
+		"483454": ["Unlocked after completing [The Fast and Fortunate](#loc=481844)", []],
+		"483455": ["Weapon mod on a counter in the middle of the building.", []],
+		"483456": [
+			"**Location:** Inside the building on the ground floor, towards the back of the cafe on the counter.  Easily accessible during the second part of \"Hunting Yaga\".",
+			[
+				{
+					"id": 99438,
+					"title": "",
+					"file_name": "3e1a0df6-268d-4565-8b82-910bdd2d90d7.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e1a0df6-268d-4565-8b82-910bdd2d90d7.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483457": ["**Location:** Ground floor of the building, in a booth of the cafe.", []],
+		"483458": ["**Unlocks:** \n- [Frost Tip Mod](#loc=483459)\n\n**Rewards:** \n- 3000 xp", []],
+		"483459": ["**Location:** [Farm Relay](#loc=483458)", []],
+		"483460": [
+			"Inside Taurus Gas Station behind a locked door. Take the vent inside the bathroom, it's on a desk to your right as you enter.",
+			[
+				{
+					"id": 99422,
+					"title": "",
+					"file_name": "fabae4b7-64a0-4f88-906c-37e149ea7184.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fabae4b7-64a0-4f88-906c-37e149ea7184.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483461": ["**Unlocks:** \n- [Bleeding Mine](#loc=481858)  \n\n**Rewards:** \n- 3000XP", []],
+		"483462": [
+			"**Unlocks:** \n- ??  \n\n**Rewards:** \n- Slaughter Blueprint (Bleed Shaft Mod)\n- [Inhibitor Charm Blueprint](#loc=484235) (+3% XP)",
+			[]
+		],
+		"483463": ["**Location:** On top of one of the silos in sewage treatment plant", []],
+		"483464": [
+			"**Location:** In a boarded up shack (enterable from behind)\n\nSurvivor Wish: -3% Stamina Cost (Melee Weapons)",
+			[
+				{
+					"id": 103239,
+					"title": "",
+					"file_name": "7356a8a5-aabf-4d2e-b814-c6fb5ccbf5f9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7356a8a5-aabf-4d2e-b814-c6fb5ccbf5f9.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483467": [
+			"**Possible Loot:**\n- Ammo\n- Rare Weapon\n- Throwables\n- Valuables",
+			[
+				{
+					"id": 99424,
+					"title": "",
+					"file_name": "640e164c-efa1-48a5-a762-1bab9f17c2d7.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/640e164c-efa1-48a5-a762-1bab9f17c2d7.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483534": [
+			"**Location:** Upstairs in the Golden Pine Motel. At the end of the hall way through a locked door on the right there will be the memo on the desk in the room.",
+			[
+				{
+					"id": 100386,
+					"title": "",
+					"file_name": "17311c13-cb76-4bd8-a972-4baf5fdbfc2e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17311c13-cb76-4bd8-a972-4baf5fdbfc2e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483535": [
+			"On the statue. \n\nYou have to shoot 9 stone tablets around the square (similar to the ones found on the statue)\n\nAfter that - investigate the statue to unlock the weapon",
+			[
+				{
+					"id": 99430,
+					"title": "",
+					"file_name": "2df12a7b-072f-4fec-91d7-1a72b6cbe376.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2df12a7b-072f-4fec-91d7-1a72b6cbe376.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483536": [
+			"**Location:** Inside the building, upstairs in a safe. A note beside the safe provides clues for figuring out the combination. \n\n**Hint:** The whiteboard isn't blank.\n\n**Safe Combination:** 15-22-40",
+			[
+				{
+					"id": 148984,
+					"title": "",
+					"file_name": "0080af53-f53f-4bcf-8db4-5154159843da.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0080af53-f53f-4bcf-8db4-5154159843da.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483537": [
+			"You can find the combination hint by flashing the UV lights on the whiteboard nearby. The safe combination is 15 22 40.",
+			[]
+		],
+		"483538": [
+			"Four pizza boxes surrounding a Modern Saber common weapon, with one dead rat on a pizza box. Found during [Hydro-Puzzle](#loc=483276) mission for Pietro.",
+			[]
+		],
+		"483539": [
+			"South of Station Square Apartments, 2nd floor to left of the red \"Motel\" banner. On the shelf next to the radio",
+			[
+				{
+					"id": 148679,
+					"title": "",
+					"file_name": "6ac17dff-6e7d-4aec-b397-7d951a42669d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6ac17dff-6e7d-4aec-b397-7d951a42669d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483540": [
+			"**Location:** Inside the apartment block, upstairs inside a locked kitchen.   Behind a portrait of a dog.\n\nSafe combination: 14-11-20\n\n**Slot:** Headwear  \n\n**Armor Value:** 5\n\n**Bonuses**: \n- +3% Damage (Firearms) \n- -3% Firearms Recoil \n- +1.5% Damage Resistance (Humans)",
+			[]
+		],
+		"483541": [
+			"In the building across the street from the safe zone, enter through the vent on the left side of the roof, it's in the power locked room",
+			[]
+		],
+		"483542": ["**Location:** On workbench in Groundkeepers house", []],
+		"483543": [
+			"**Location:** Upstairs, first door on right. Will need key, Key in a cabinet on the first floor by the reception desk.",
+			[
+				{
+					"id": 119983,
+					"title": "",
+					"file_name": "60471df8-7820-4154-a6ca-12dad0ee8c14.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60471df8-7820-4154-a6ca-12dad0ee8c14.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"483544": [
+			"**Location:** Inside the locked building, it can be accessed through the sewer grate nearby. (18-20-66)",
+			[]
+		],
+		"483545": [
+			"**Location:** At the top of the of the [Chimneys Tower](#loc=481576) safe zone next to the rest point.",
+			[]
+		],
+		"483546": ["**Location:** In the transformer where you need to run the power cable", []],
+		"483756": ["**Location:** On the Workstation.", []],
+		"483985": ["**Location:** Ground floor - living room, on the bookshelf to the left of the TV stand.", []],
+		"484235": ["**Location:** Inside the [Factory Relay](#loc=483462) station. Grants +3% XP.", []],
+		"484236": ["In the room connected to the master bedroom on the second floor.", []],
+		"484237": [
+			"On the dresser in the master bedroom on the second floor",
+			[
+				{
+					"id": 112156,
+					"title": "",
+					"file_name": "b47cf9fd-72c1-41e4-9e33-6e659bbfbc42.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b47cf9fd-72c1-41e4-9e33-6e659bbfbc42.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"484238": [
+			"Similar to the roof groves from Dying Light 2.\n- Feathers\n- Resin (harvest from same tree as birdhouse, rear bottom)\n- Honey\n- Chamomile",
+			[]
+		],
+		"484239": ["Inside the small building next to the window\n\n**Code:** 22 - 44 -66", []],
+		"484240": ["**Prerequisite:** Complete [Le Mans-Ion](#loc=484241)", []],
+		"484241": ["**Prerequisite:** Complete [The Fast and Fortunate](#loc=481844)", []],
+		"484242": [
+			"A garden with sage, marigold and poppy herbs and a herbalist's note on healing remedies\n\n**Location:** on top of a stone pillar you can get to by swinging across branches or using a grappling hook",
+			[]
+		],
+		"484243": [
+			"**Location:** Inside locked shed that needs to be powered by going behind another shed in the same backyard, going through the vent hole, getting the cable and plugging it into the first shed's side.\n\nInside you'll find some resources, a military medkit, the \"Uninvited Guests\" note, and the Legendary Shotgun, The Statement.",
+			[
+				{
+					"id": 100193,
+					"title": "",
+					"file_name": "9a6a431c-7763-44b8-b623-ef2d68780faa.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a6a431c-7763-44b8-b623-ef2d68780faa.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"484418": ["Code is 34 55 89", []],
+		"484419": [
+			"**Location:** Inside Locked shed which can be accessed from a vent near the wall. \n\nCode can be found on a hay trailer in the field behind it.\n\nLoot - Legendary UV Bar\n\nCode 11 - 20 - 30",
+			[
+				{
+					"id": 100387,
+					"title": "",
+					"file_name": "0ea38348-3bf0-4006-9dfb-52e4dcfc174a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0ea38348-3bf0-4006-9dfb-52e4dcfc174a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"484472": [
+			"Located inside a closed hutch in the motel's kitchen/dinging room on the ground floor. The code is: 86-15-10.",
+			[]
+		],
+		"484473": ["**Location:** [Village Voltage Pole](#loc=481556) Tower - on the bed", []],
+		"484474": ["**Location:** [Old Hideout](#loc=481599) - on the workbench", []],
+		"484476": ["When entering B block, hop into a small room with lights and music playing. It is on a table.", []],
+		"484477": ["When entering the medical storage room that requires a Bioscan, check the room.", []],
+		"484478": ["**Location:** In the [River Tower](#loc=481566)", []],
+		"484480": [
+			"**Location:** Boarded hole under the stairs.",
+			[
+				{
+					"id": 100492,
+					"title": "",
+					"file_name": "fc954ce6-4219-4eb7-b9a7-7a0c4e30fb0a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc954ce6-4219-4eb7-b9a7-7a0c4e30fb0a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"484481": ["On the corpse.", []],
+		"484482": [
+			"**Location:** While restoring power in [Silos](#loc=481561) safezone, the bluepring will be sitting in the power room on the workbench with \"goodnight\" blueprint aswell",
+			[]
+		],
+		"484483": [
+			"**Location:** Near the Silo safehouse, an old combine harvester can be filled with a fuel (around 33 cans). When it's filled, a hidden challenge called Demolition Derby is unlocked.  \n\n**Challenge:** Kill 76 in a given time to get a gold.",
+			[]
+		],
+		"484578": [
+			"A safe with a hint underneath it. \n\n**Unlocks:**\n- Hint for the code is on the paper Infront of the safe. \n\nAnswer: Within the Town Hall, next to the Information Office is a board indicating the room number for the Passport Office: 11-51-16\n\n**Rewards:**\n- Old World Money, Valuables and Revolver Ammo",
+			[
+				{
+					"id": 100626,
+					"title": "",
+					"file_name": "74b086f8-e2c9-43d2-9346-52d16ba7dd4c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/74b086f8-e2c9-43d2-9346-52d16ba7dd4c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"484579": ["Unlocked after completing [The Fast and Fortunate](#loc=481844)", []],
+		"484580": ["Unlocked after completing [The Fast and Fortunate](#loc=481844)", []],
+		"484581": [
+			"Back of the bus with headphones and a note:\n\nHis toes are sweaty,\nlips weak,\nballs are heavy.\nThere's vomit on his hoodie already,\ndad's spaghetti.",
+			[
+				{
+					"id": 100627,
+					"title": "",
+					"file_name": "1030052b-67e7-4b8e-91d1-127dcd9aefc1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1030052b-67e7-4b8e-91d1-127dcd9aefc1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"484582": [
+			"A group of broken trees, with a birdhouse on the ground, bee hive, harvestable resin, and plants.\n- Feathers\n- Resin \n- Honey\n- Chamomile\n- Lavender",
+			[]
+		],
+		"484583": [
+			"This one doesn't have a wood shack, so it looks like a small cluster of trees from a distance.\n- Feathers\n- Resin\n- Honey\n- Poppy\n- Chamomile",
+			[]
+		],
+		"484584": [
+			"**Location:** On the first floor, behind a wooden plank you can shove aside, and a locked door.\n\n**Safe Code:** 12-25-55",
+			[]
+		],
+		"484682": [
+			"Accessible only during or after completing the Last Wish side quest. Located at the ground floor of the building. The code is: 20-7-6.",
+			[]
+		],
+		"484683": [
+			"Accessible only during or after completing the Last Wish side quest. Located at the ground floor of the building. The code is: 11-17-8.",
+			[]
+		],
+		"484684": [
+			"Accessible only during or after completing the Last Wish side quest. Located at the ground floor of the building. The code is: 71-61-45.",
+			[]
+		],
+		"484685": ["Complete [A New Strain](#loc=483275), then visit Keller at the town hall.", []],
+		"484686": [
+			"**Location:** Inside [Taurus Megastore](#loc=482858)\n\n**Slot:** boot \n**Armor Value:** 2\n\n**Bonuses:**\n- +6% common resources\n- +3% uncommon resources\n- +4% dmg accessories",
+			[]
+		],
+		"484687": [
+			"**Location:** Downstairs inside the house ??  \n\n**Slot:** Gloves/Hands  \n**Armor Value:** 5\n\n**Bonuses:**\n- ??",
+			[]
+		],
+		"484688": ["During and after the \"Stay Human\" side quest, a Manual Page will spawn in the attic", []],
+		"484689": ["**Location:** [Gas Station Voltage Pole](#loc=481575)", []],
+		"503302": ["Possible Loot\n- UV bars\n- Military Medkits\n- Hand Grenades\n- Ammo", []],
+		"503303": ["Possible Loot\r\n- UV bars\r\n- Military Medkits\r\n- Hand Grenades\r\n- Ammo", []],
+		"538769": [
+			"Upstairs on the second floor by the master bedroom, it will be in a cabinet in the corner of the room.",
+			[
+				{
+					"id": 119974,
+					"title": "",
+					"file_name": "f09fb355-724c-4bfd-8dda-79b85af4debd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f09fb355-724c-4bfd-8dda-79b85af4debd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"538770": [
+			"**Note:** Only available during _Some Like it Dark_.\n\nIn a side room reached by interacting with a wooden board, you'll find a chicken feeling peckish - for corpses. Interact with the chicken to adopt it.",
+			[]
+		],
+		"538771": ["Located next to workbench after completing \"Some Like It Dark\" main quest. 2 Handed weapon", []],
+		"538772": [
+			"Available after Some like it Dark story quest. \n\n**Rewards:**\n- 10000 XP\n- 2 Intermediate Manual Pages",
+			[]
+		],
+		"538773": [
+			"From Starchild. Available after Some like it Dark Story Quest.\n\n**Rewards:**\n- 10000 XP\n- 2 Intermediate Manual Pages",
+			[]
+		],
+		"556605": [
+			"**Location:** On the workbench in the house.",
+			[
+				{
+					"id": 124588,
+					"title": "",
+					"file_name": "bcb67725-f9c0-4692-9f0c-70ce2c33f421.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bcb67725-f9c0-4692-9f0c-70ce2c33f421.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"556606": [
+			"A small shrine with a variety of crafting flowers and a note to Mother from the Faceless.\n\nSurrounded by a fence with \"peaceful\" zombies (until disturbed).",
+			[]
+		],
+		"559146": ["**Location:** In the [Village Tower](#loc=481554) - on window ledge next to the bed.", []],
+		"559149": ["Underneath the Weapons Bench", []],
+		"559150": ["**Location:** In the [Town Hall](#loc=481840) - middle room on the second floor. (Room 201)", []],
+		"559151": [
+			"**Location:** In the [Abandoned House](#loc=481564) - next to the speaker.\n\nMay only appear after the Vengeance is Mine quest.",
+			[]
+		],
+		"559152": ["**Location:** In the [Taurus Gas Station](#loc=482567) - in the innermost room.", []],
+		"559153": ["**Location:** In the [Nate Market](#loc=481662) - in the innermost room.", []],
+		"559154": ["**Location:** In the [Vanity Store](#loc=481528) - in the innermost room.", []],
+		"607462": [
+			"Behind a locked (Hard) door, you'll see a Volatile nest separated from you by another door, with a broken window.\n\nThis is a callback to a similar easter egg in Dying Light 1, and just like in that game, interacting with the door here will start a chase with a whole lot of volatiles.",
+			[]
+		]
+	}
+}

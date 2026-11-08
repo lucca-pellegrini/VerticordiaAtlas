@@ -1,0 +1,3087 @@
+{
+	"v": 1,
+	"d": {
+		"1043976": ["What happens in the box... stays in the box.", []],
+		"1043977": [
+			"**Prerequisites:**\n- Snake Only\n\n**Rewards:**\n- M1C Design Specs RANK 1\n- Smoke Grenade Design Specs RANK 1\n\n**Ops Unlocked:**\n- [010 - Fulton Recovery](#loc=1043978)",
+			[]
+		],
+		"1043978": [
+			"**Prerequisites:**\n\n- [M001 - Investigate the Supply Facility](#loc=1043977)\n- MSF Soldiers Only\n- Single Player Only\n\n**Rewards:**\n\n- Solid Magazine Layout Design Specs RANK 1",
+			[]
+		],
+		"1043979": [
+			"**Prerequisites:**\n- [M002 - Contact the Sandinista Comandante](#loc=1043991)\n- Only ends when you walk out of the shooting range.\n\n**Rewards:**\n- Weapon XP",
+			[]
+		],
+		"1043980": [
+			"**Prerequisites:**\n\n- [M007 - Tank Battle: T-72U](#loc=1044067)\n- Only ends when you walk out of the Kill House.\n- Single Player Only\n\n**Rewards:**\n\n- Weapon XP",
+			[]
+		],
+		"1043981": [
+			"**Prerequisites:**\n- [M002 - Contact the Sandinista Comandante](#loc=1043991)\n\n**Rewards:**\n- Weapon XP",
+			[]
+		],
+		"1043982": [
+			"**Prerequisites:**\n\n- [M007 - Tank Battle: T-72U](#loc=1044067)\n- Single Player Only\n\n**Rewards:**\n\n- Weapon XP",
+			[]
+		],
+		"1043983": [
+			"**Prerequisites:**\n\n- [M003 - Pursue Amanda](#loc=1044001)\n- Single Player Only\n\n**Rewards:**\n\n- Weapon XP",
+			[]
+		],
+		"1043984": [
+			"**Prerequisites:**\n\n- [M004 - Armored Vehicle Battle: LAV-Type G](#loc=1044028)\n- Single Player Only\n\n**Rewards:**\n\n- Weapon XP",
+			[]
+		],
+		"1043985": [
+			"**Prerequisites:**\n\n- [M010 - Pupa Battle](#loc=1044070)\n- Single Player Only\n\n**Rewards:**\n\n- Weapon XP",
+			[]
+		],
+		"1043986": [
+			"**Prerequisites:**\n\n- [M027 - Zadornov Search Mission](#loc=1044092)\n- Single Player Only\n\n**Rewards:**\n\n- Soviet Patrol Base stage in VERSUS OPS\n\n**Ops Unlocked:**\n\n- [E056 - One Shot](#loc=1044373)",
+			[]
+		],
+		"1043987": [
+			"**Prerequisites:**\n\n- [M033 - ZEKE Battle](#loc=1044099)\n- Single Player Only\n\n**Rewards:**\n\n- Commando uniform in VERSUS OPS \n- M19 Design Specs RANK 3\n\n**Ops Unlocked:**\n- [E066 - Missile Intercept Mission](#loc=1044383)",
+			[]
+		],
+		"1043988": ["Fulton extract him to activate the [Extraction Point](#loc=1043989)", []],
+		"1043989": ["Activates when the [Sleeping Soldier](#loc=1043988) is fulton extracted.", []],
+		"1043991": [
+			"**Prerequisites:**\n- [M001 - Investigate the Supply Facility](#loc=1043977)\n\n**Rewards:**\n- M1911A1 Design Specs RANK 1\n- LAW Rank 1\n\n**Ops Unlocked:**\n- [E001 - Target Practice: No Limit](#loc=1043979)\n- [003 - Target Practice: Score Attack](#loc=1043981)",
+			[]
+		],
+		"1043994": [
+			"",
+			[
+				{
+					"id": 156692,
+					"title": "1000103847",
+					"file_name": "fa511c89-cbcd-4752-b1b7-edc90355f807.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa511c89-cbcd-4752-b1b7-edc90355f807.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1043997": [
+			"Upper level, reached via ladder.",
+			[
+				{
+					"id": 156693,
+					"title": "1000103848",
+					"file_name": "6500a937-36c8-42f2-a1cc-e9a30656316c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6500a937-36c8-42f2-a1cc-e9a30656316c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044001": [
+			"**Prerequisites:**\n- [M002 - Contact the Sandinista Comandante](#loc=1043991)\n\n**Rewards:**\n- [Stun Grenade](#loc=1044005)\n- [M10](#loc=1044009)\n- [Twin Barrel Shotgun](#loc=1044011)\n- [Tiger Stripe](#loc=1044019)\n\n**Ops Unlocked:**\n- [005 - Marksmanship Challenge](#loc=1043983)",
+			[]
+		],
+		"1044002": [
+			"On the upper level, reached via stairs at the edges of the room.",
+			[
+				{
+					"id": 156068,
+					"title": "1000103799",
+					"file_name": "ca220779-255e-4adb-9775-0e9d16b0c961.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ca220779-255e-4adb-9775-0e9d16b0c961.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044005": [
+			"",
+			[
+				{
+					"id": 156069,
+					"title": "1000103800",
+					"file_name": "3a116a7a-2373-4e01-9491-642e7d5352a4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a116a7a-2373-4e01-9491-642e7d5352a4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044009": [
+			"",
+			[
+				{
+					"id": 156070,
+					"title": "1000103801",
+					"file_name": "ff2cebe2-0d6d-4b5b-bd97-8ae7170ee81b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff2cebe2-0d6d-4b5b-bd97-8ae7170ee81b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044011": [
+			"",
+			[
+				{
+					"id": 156071,
+					"title": "1000103802",
+					"file_name": "37f00bc2-f802-4f91-bd44-d17aa900ebc9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37f00bc2-f802-4f91-bd44-d17aa900ebc9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044016": ["Next to the prisoner in the shed.", []],
+		"1044019": [
+			"Also unlocks Tiger Stripe (Naked)",
+			[
+				{
+					"id": 156072,
+					"title": "1000103803",
+					"file_name": "dcba3435-08c3-40cd-90ab-a3af0aefaac3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dcba3435-08c3-40cd-90ab-a3af0aefaac3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044025": ["Middle of the crater.", []],
+		"1044028": [
+			"**Prerequisites:**\n- [M003 - Pursue Amanda](#loc=1044001)\n\n**Rewards:**\n- LAV-Type G\n- Tortilla Chips Recipe RANK 1\n- Canned Soft Drink Recipe RANK 1\n\n**Ops Unlocked:**\n- [006 - Marksmanship Challenge](#loc=1043984)",
+			[]
+		],
+		"1044032": ["One of the rooms where Chico may be held prisoner. The game chooses one at random.", []],
+		"1044033": ["One of the rooms where Chico may be held prisoner. The game chooses one at random.", []],
+		"1044036": ["One of the rooms where Chico may be held prisoner. The game chooses one at random.", []],
+		"1044037": ["One of the rooms where Chico may be held prisoner. The game chooses one at random.", []],
+		"1044040": ["One of the rooms where Chico may be held prisoner. The game chooses one at random.", []],
+		"1044042": [
+			"**Prerequisites:**\n- [M004 - Armored Vehicle Battle: LAV-Type G](#loc=1044028)\n\n**Rewards:**\n- C4 Design Specs RANK 1\n- Support Supply Mk. (Set) Blueprints RANK 1\n- Support Strike Mk. (Set) Blueprints RANK 1\n- Aldea Los Despiertos stage in VERSUS OPS\n\n**Ops Unlocked:**\n- [E030 - Classified Document Retrieval](#loc=1044045)",
+			[]
+		],
+		"1044044": [
+			"**Prerequisites:**\n- [M005 - Rescue Chico](#loc=1044042)\n\n**Rewards:**\n- M60 Design Specs RANK 1\n- Sonic Eye Design Specs RANK 1\n\n**Ops Unlocked:**\n- [E011 - Fulton Recovery](#loc=1044089)",
+			[]
+		],
+		"1044045": [
+			"**Prerequisites:**\n- [M005 - Rescue Chico](#loc=1044042)\n\n**Rewards:**\n- RPG-2 Schematics\n- [Squares](#loc=1044058)",
+			[]
+		],
+		"1044056": [
+			"Required to activate the [Extraction Point](#loc=1044062).\n\nThe first one you pick up will be an RPG-2 schematic.",
+			[
+				{
+					"id": 157139,
+					"title": "1000103855",
+					"file_name": "c2ea28c2-7309-46e4-a987-0274e4afd14c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2ea28c2-7309-46e4-a987-0274e4afd14c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044057": [
+			"Required to activate the [Extraction Point](#loc=1044062).\n\nThe first one you pick up will be an RPG-2 schematic.",
+			[
+				{
+					"id": 157138,
+					"title": "1000103854",
+					"file_name": "97781335-8903-402b-aba1-473f3dc3a85a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/97781335-8903-402b-aba1-473f3dc3a85a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044058": ["Also unlocks Squares (Naked)", []],
+		"1044059": [
+			"Required to activate the [Extraction Point](#loc=1044062).\n\nThe first one you pick up will be an RPG-2 schematic.",
+			[
+				{
+					"id": 157140,
+					"title": "1000103856",
+					"file_name": "1000eefe-e154-448d-84c1-48ccdc35de83.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1000eefe-e154-448d-84c1-48ccdc35de83.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044060": [
+			"Required to activate the [Extraction Point](#loc=1044062).\n\nThe first one you pick up will be an RPG-2 schematic.",
+			[]
+		],
+		"1044061": [
+			"Required to activate the [Extraction Point](#loc=1044062).\n\nThe first one you pick up will be an RPG-2 schematic.",
+			[
+				{
+					"id": 157137,
+					"title": "1000103853",
+					"file_name": "eefd6527-7817-4b4a-b260-016482298126.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eefd6527-7817-4b4a-b260-016482298126.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044062": [
+			"Activates after finding:\n\n- [CNFDTL Doc](#loc=1044056)\n- [CNFDTL Doc](#loc=1044057)\n- [CNFDTL Doc](#loc=1044059)\n- [CNFDTL Doc](#loc=1044060)\n- [CNFDTL Doc](#loc=1044061)",
+			[]
+		],
+		"1044067": [
+			"**Prerequisites:**\n- [M006 - Pursue the Jungle Train](#loc=1044044)\n\n**Rewards:**\n- T-72U\n- Mosin-Nagant Design Specs RANK 1\n- Curry Recipe RANK 1\n- El Cadalso stage in VERSUS OPS\n\n**Ops Unlocked:**\n- [E002 - Target Practice: No Limit](#loc=1043980)\n- [E004 - Target Practice: Time Attack](#loc=1043982)",
+			[]
+		],
+		"1044068": [
+			"**Prerequisites:**\n- [M007 - Tank Battle: T-72U](#loc=1044067)\n- C4\n\n**Rewards:**\n- [Desert Auscam](#loc=1044392)\n\n**Ops Unlocked:**\n- [E012 - Fulton Recovery](#loc=1044330)",
+			[]
+		],
+		"1044069": [
+			"**Prerequisites:**\n- [M008 - Destroy the Barricade](#loc=1044068)\n\n**Rewards:**\n- [Hideo Kojima](#loc=1044405)\n- M1928A1 Design Specs RANK 1\n\n**Ops Unlocked:**\n- [E018 - Target Demolition](#loc=1044336)",
+			[]
+		],
+		"1044070": [
+			"**Prerequisites:**\n\n- [M009 - Infiltrate the Crater Base](#loc=1044069)\n\n**Rewards:**\n\n- Support Supply Marker (Thrown) Design Specs RANK 2\n- Chaff Grenade Design Specs RANK 1\n- Night Vision Goggles Design Specs RANK 1\n- ID Card (H)\n\n**Ops Unlocked:**\n\n- [E007 - Marksmanship Challenge](#loc=1043985)\n- [E069 - Armored Vehicle Battle: BTR-60 PA](#loc=1044386)\n- [O01 - Destroy the Infantry Unit 01](#loc=1055098)\n- [O02 - Destroy the Infantry Combat Unit 01](#loc=1055099)\n- [O03 - Destroy the Infantry Combat Unit 02](#loc=1055100)",
+			[]
+		],
+		"1044071": [
+			"**Prerequisites:**\n- [M010 - Pupa Battle](#loc=1044070)\n\n**Rewards:**\n- [Snake](#loc=1044410)\n- Ballistic Shield Design Specs RANK 1\n\n**Ops Unlocked:**\n- [E028 - Item Capture](#loc=1044346)",
+			[]
+		],
+		"1044072": [
+			"**Prerequisites:**\n- [M011 - Travel to the Cloud Forest](#loc=1044071)\n\n**Rewards:**\n- Mi-24A\n- Sneaking Suit Camouflage\n- FIM-43 Design Specs RANK 3\n\n**Ops Unlocked:**\n- [E051 - Obstacle Demolition](#loc=1044368)",
+			[]
+		],
+		"1044075": [
+			"**Prerequisites:**\n- [M012 - Attack Chopper Battle: Mi-24A](#loc=1044072)\n- ID Card (H)\n\n**Rewards:**\n- Support Strike Marker (Thrown) Design Specs RANK 2\n- Support Supply Marker Design Specs RANK 3\n- Ruinas de Xochiquetzal stage in VERSUS OPS\n\n**Ops Unlocked:**\n- None",
+			[]
+		],
+		"1044076": [
+			"**Prerequisites:**\n- [M013 - Head for the Lab](#loc=1044075)\n\n**Rewards:**\n- None\n\n**Ops Unlocked:**\n- [E013 - Fulton Recovery](#loc=1044331)",
+			[]
+		],
+		"1044077": [
+			"**Prerequisites:**\n- [M014 - Locate the ID Card](#loc=1044076)\n\n**Rewards:**\n- Carl Gustav M2 Design Specs RANK 2\n- Support Strike Marker Design Specs RANK 3\n\n**Ops Unlocked:**\n- [E052 - Eliminate the Kidnappers](#loc=1044369)\n- [E088 - Attack Chopper Battle: AH56A-Bomber](#loc=1044434)",
+			[]
+		],
+		"1044079": [
+			"**Prerequisites:**\n- [M015 - Chrysalis Battle](#loc=1044077)\n\n**Rewards:**\n- Miners' Residence stage in VERSUS OPS\n\n**Ops Unlocked:**\n- [E053 - Clearing Escape](#loc=1044370)",
+			[]
+		],
+		"1044080": [
+			"**Prerequisites:**\n- [M016 - Travel to the Mine Base](#loc=1044079)\n\n**Rewards:**\n- None\n\n**Ops Unlocked:**\n- [E029 - Item Capture](#loc=1044347)\n- [E080 - Tank Battle: KPz 70](#loc=1044426)",
+			[]
+		],
+		"1044081": [
+			"**Prerequisites:**\n- [M017 - Eliminate the Guards](#loc=1044080)\n\n**Rewards:**\n- None\n\n**Ops Unlocked:**\n- [E031 - Classified Document Retrieval](#loc=1044348)",
+			[]
+		],
+		"1044082": [
+			"**Prerequisites:**\n- [M018 - Cocoon Battle](#loc=1044081)\n\n**Rewards:**\n- ID Card (P) - if the quicktime events are completed successfully\n- Underground Passage B stage in VERSUS OPS\n\n**Ops Unlocked:**\n- None",
+			[]
+		],
+		"1044083": [
+			"**Prerequisites:**\n- [M019 - Infiltrate the Underground Base](#loc=1044082)\n- Snake Only\n\n**Rewards:**\n- Sore Thumb\n\n**Ops Unlocked:**\n- [E054 - Snake Gear Retrieval](#loc=1044371)",
+			[]
+		],
+		"1044084": [
+			"**Prerequisites:**\n- [M020 - Torture Chamber Escape](#loc=1044083)\n\n**Rewards:**\n- None\n\n**Ops Unlocked:**\n- None",
+			[]
+		],
+		"1044085": [
+			"**Prerequisites:**\n- [M021 - Head for Peace Walker's Hangar](#loc=1044084)\n\n**Rewards:**\n- Battle Dress Camouflage\n\n**Ops Unlocked:**\n- [E038 - Base Defense](#loc=1044355)",
+			[]
+		],
+		"1044086": [
+			"**Prerequisites:**\n- [M022 - Peace Walker Battle](#loc=1044085)\n\n**Rewards:**\n- None\n\n**Ops Unlocked:**\n- None",
+			[]
+		],
+		"1044087": [
+			"**Prerequisites:**\n- [M023 - Infiltrate the U.S. Missile Base](#loc=1044086)\n\n**Rewards:**\n- None\n\n**Ops Unlocked:**\n- None",
+			[]
+		],
+		"1044088": [
+			"**Prerequisites:**\n- [M024 - Head to the Control Tower](#loc=1044087)\n\n**Rewards:**\n- None\n\n**Ops Unlocked:**\n- None",
+			[]
+		],
+		"1044089": [
+			"**Prerequisites:**\n\n- [M006 - Pursue the Jungle Train](#loc=1044044)\n- Fulton Recovery System\n\n**Rewards:**\n\n- Liquid Magazine Layout Design Specs RANK 1\n- Cologne Design Specs RANK 1",
+			[]
+		],
+		"1044091": [
+			"**Prerequisites:**\n\n- [M025 - Peace Walker Battle 2](#loc=1044088)\n\n**Rewards:**\n\n- Tuxedo camouflage\n- New Co-Ops Comms Messages\n\n\n\n**Ops Unlocked:**\n\n- [E014 - Fulton Recovery](#loc=1044332)\n- [E067 - Date with Paz](#loc=1044384)\n- [E103 - Armored Vehicle Battle: LAV-Type G](#loc=1044449)",
+			[]
+		],
+		"1044092": [
+			"**Prerequisites:**\n\n- [M026 - Peace Walker Battle 3](#loc=1044091)\n- Complete any two missions\n\n**Rewards:**\n\n- [Smoke Grenade (Colored)](#loc=1052965)\n- Soliton Radar Design Specs RANK 1\n\n**Ops Unlocked:**\n\n- [E015 - Fulton Recovery](#loc=1044333)\n- [E008 - Marksmanship Challenge](#loc=1043986)\n- [E076 - Tank Battle: T-72U](#loc=1044422)",
+			[]
+		],
+		"1044093": [
+			"**Prerequisites:**\n\n- [M027 - Zadornov Search Mission](#loc=1044092)\n- Complete any three missions\n\n**Rewards:**\n\n- [Box Bomb](#loc=1052976)\n- Cardboard Box Tank Design Specs RANK 1\n\n**Ops Unlocked:**\n\n- [E019 - Target Demolition](#loc=1044337)\n- [E039 - Base Defense](#loc=1044356)\n- [E035 - Hold Up](#loc=1044352)\n- [E112 - AI Weapon Battle: Pupa Type II](#loc=1044458)",
+			[]
+		],
+		"1044094": [
+			"**Prerequisites:**\n\n- [M028 - Zadornov Search Mission 2](#loc=1044093)\n- Complete any five missions\n\n**Rewards:**\n\n- None\n\n**Ops Unlocked:**\n\n- [E016 - Fulton Recovery](#loc=1044334)\n- [E033 - Claymore Disarmament](#loc=1044350)\n- [E021 - Cargo Truck Demolition](#loc=1044339)\n- [E086 - Attack Chopper Battle: Mi-24D](#loc=1044432)",
+			[]
+		],
+		"1044095": [
+			"**Prerequisites:**\n\n- [M029 - Zadornov Search Mission 3](#loc=1044094)\n- Complete any four missions\n\n**Rewards:**\n\n- M21 Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E063 - Pooyan Mission](#loc=1044380)\n- [E057 - Paparazzi](#loc=1044374)\n- [E040 - Base Defense](#loc=1044357)\n- [E114 - AI Weapon Battle: Chrysalis Type II](#loc=1044460)",
+			[]
+		],
+		"1044096": [
+			"**Prerequisites:**\n\n- [M030 - Zadornov Search Mission 4](#loc=1044095)\n- Complete any three missions\n\n**Rewards:**\n\n- Rescue Box Design Specs RANK 1 \n\n**Ops Unlocked:**\n- [E060 - Dead Man's Treasure](#loc=1044377)\n- [E036 - Hold Up](#loc=1044353)\n- [E034 - Claymore Disarmament](#loc=1044351)\n- [E116 - AI Weapon Battle: Cocoon Type II](#loc=1044462)",
+			[]
+		],
+		"1044098": [
+			"**Prerequisites:**\n- [M031 - Zadornov Search Mission 5](#loc=1044096)\n- Complete any two missions\n\n**Rewards:**\n- PB/6P9 Design Specs RANK 3\n\n**Ops Unlocked:**\n- [E017 - Fulton Recovery](#loc=1044335)\n- [E043 - Defend Key Supplies](#loc=1044360)\n- [E118 - AI Weapon Battle: Peace Walker Type II](#loc=1044464)",
+			[]
+		],
+		"1044099": [
+			"**Prerequisites:**\n- [M032 - Zadornov Search Mission 6](#loc=1044098)\n- Intel Team lv. 40 & second Mother Base plant built\n- ZEKE has all main parts & a Railgun equipped\n- After a call from Kaz, confront [Zadornov](#loc=1055015) in Extra Op 001.\n\n**Rewards:**\n- New Co-Ops Comms Messages \n- Stealth Mat Design Specs RANK 1 \n- Stealth Gun Design Specs RANK 2 \n\n**Ops Unlocked:**\n- [E023 - Eliminate Enemy Soldiers](#loc=1044341)\n- [E044 - Defend Key Supplies](#loc=1044361)\n- [E009 - Marksmanship Challenge](#loc=1043987)\n- [E058 - Paparazzi](#loc=1044375)\n- [E064 - Pooyan Mission](#loc=1044381)\n- [E045 - Perfect Stealth](#loc=1044362)\n- [E104 - Armored Vehicle Battle: LAV-Type G Custom](#loc=1044450)\n- [E085 - Attack Chopper Battle: Mi-24A Custom](#loc=1044431)\n- [E096 - Tank Battle: KPz 70 Custom](#loc=1044442)\n- [E113 - AI Weapon Battle: Pupa Custom](#loc=1044459)\n- [E120 - Metal Gear ZEKE - Mock Battle](#loc=1044466)",
+			[]
+		],
+		"1044107": ["If playing solo, you can climb over the wall by placing a Love Box on the other side.", []],
+		"1044116": ["Under the stairs.", []],
+		"1044118": ["Fulton extract them to activate the [Extraction Point](#loc=1044685)", []],
+		"1044330": [
+			"**Prerequisites:**\n\n- [M008 - Destroy the Barricade](#loc=1044068)\n- Fulton Recovery System\n- Single Player Only\n\n**Rewards:**\n\n- None",
+			[]
+		],
+		"1044331": [
+			"**Prerequisites:**\n\n- [M014 - Locate the ID Card](#loc=1044076)\n- Fulton Recovery System\n- Single Player Only\n\n**Rewards:**\n\n- [RK47](#loc=1044488)\n- Super Magazine Layout Design Specs RANK 1",
+			[]
+		],
+		"1044332": [
+			"**Prerequisites:**\n\n- [M026 - Peace Walker Battle 3](#loc=1044091)\n- Fulton Recovery System\n\n**Rewards:**\n\n- [Aerial Mine](#loc=1052952)\n\n**S Rank Rewards:**\n\n- Leaf Camouflage\n- Leaf (Naked) Camouflage\n\n\n\n**Ops Unlocked:**\n\n- [E022 - Eliminate Enemy Soldiers](#loc=1044340)",
+			[]
+		],
+		"1044333": [
+			"**Prerequisites:**\n\n- [M027 - Zadornov Search Mission](#loc=1044092)\n- Fulton Recovery System\n- Single Player Only\n\n**Rewards:**\n\n- [UZ61](#loc=1052970)\n- Ruinas de Xochiquetzal (Night) stage in VERSUS OPS",
+			[]
+		],
+		"1044334": [
+			"**Prerequisites:**\n\n- [M029 - Zadornov Search Mission 3](#loc=1044094)\n- Fulton Recovery System\n\n**Rewards:**\n\n- None",
+			[]
+		],
+		"1044335": [
+			"**Prerequisites:**\n\n- [M032 - Zadornov Search Mission 6](#loc=1044098)\n- Fulton Recovery System\n\n**Rewards:**\n\n- None\n\n**Ops Unlocked:**\n\n- [E101 - Armored Vehicle Battle: BTR-60 PB](#loc=1044447)",
+			[]
+		],
+		"1044336": [
+			"**Prerequisites:**\n\n- [M009 - Infiltrate the Crater Base](#loc=1044069)\n- C4\n- Single Player Only\n\n**Rewards:**\n\n- [Claymore](#loc=1044406)\n- Solidus Magazine Layout Design Specs RANK 1",
+			[]
+		],
+		"1044337": [
+			"**Prerequisites:**\n\n- [M028 - Zadornov Search Mission 2](#loc=1044093)\n- C4\n- Single Player Only\n\n**Rewards:**\n\n- Aldea Los Despiertos (Night) stage in VERSUS OPS\n\n**Ops Unlocked:**\n\n- [E095 - Tank Battle: KPz 70](#loc=1044441)",
+			[]
+		],
+		"1044338": [
+			"**Prerequisites:**\n\n- [E077 - Tank Battle: T-72U Custom](#loc=1044423)\n- C4\n- Single Player Only\n\n**Rewards:**\n\n- None\n\n**S Rank Rewards:**\n\n- C96 Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E089 - Attack Chopper Battle: AH56A-Bomber Custom](#loc=1044435)",
+			[]
+		],
+		"1044339": [
+			"**Prerequisites:**\n\n- [M029 - Zadornov Search Mission 3](#loc=1044094)\n- Single Player Only\n\n**Rewards:**\n\n- Bosque del Alba (Night) stage in VERSUS OPS\n\n**Ops Unlocked:**\n\n- [E093 - Tank Battle - T-72A](#loc=1044439)",
+			[]
+		],
+		"1044340": [
+			"**Prerequisites:**\n\n- [E014 - Fulton Recovery](#loc=1044332)\n\n**Rewards:**\n\n- Silo Entrance stage in VERSUS OPS",
+			[]
+		],
+		"1044341": [
+			"**Prerequisites:**\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n- [M16A1 (STG)](#loc=1055018)\n- Twin Barrel (Rubber Slug) Design Specs RANK 3 \n\n**Ops Unlocked:**\n- [E024 - Eliminate Enemy Soldiers](#loc=1044342)",
+			[]
+		],
+		"1044342": [
+			"**Prerequisites:**\n- [E023 - Eliminate Enemy Soldiers](#loc=1044341)\n\n**Rewards:**\n- Russian Soldier uniform in VERSUS OPS\n- Carl Gustav (MP) Design Specs RANK 3\n\n**Ops Unlocked:**\n- [E105 - Attack Chopper Battle: Mi-24A Custom](#loc=1044451)",
+			[]
+		],
+		"1044343": [
+			"**Prerequisites:**\n- [E105 - Attack Chopper Battle: Mi-24A Custom](#loc=1044451)\n\n**Rewards:**\n- [M16A1 (GL)](#loc=1055588)\n\n**Ops Unlocked:**\n- [E070 - Armored Vehicle Battle: BTR-60 PA Custom](#loc=1044387)",
+			[]
+		],
+		"1044344": [
+			"**Prerequisites:**\n- [E070 - Armored Vehicle Battle: BTR-60 PA Custom](#loc=1044387)\n\n**Rewards:**\n- [M16A1 (SGL)](#loc=1055591)\n\n**Ops Unlocked:**\n- [E027 - Eliminate Enemy Soldiers](#loc=1044345)",
+			[]
+		],
+		"1044345": [
+			"**Prerequisites:**\n- [E026 - Eliminate Enemy Soldiers](#loc=1044344)\n\n**Rewards:**\n- Escort Soldier uniform in VERSUS OPS\n\n**S Rank Rewards:**\n- Sleep Gas Grenade Design Specs RANK 1\n\n**Ops Unlocked:**\n- [E094 - Tank Battle: T-72A Custom](#loc=1044440)",
+			[]
+		],
+		"1044346": [
+			"**Prerequisites:**\n\n- [M011 - Travel to the Cloud Forest](#loc=1044071)\n- C4\n- Single Player Only\n\n**Rewards:**\n\n- [M37](#loc=1044412)\n- PKM Design Specs RANK 1",
+			[]
+		],
+		"1044347": [
+			"**Prerequisites:**\n\n- [M017 - Eliminate the Guards](#loc=1044080)\n- C4\n- Single Player Only\n\n**Rewards:**\n\n- [Splitter](#loc=1044703)\n- Anti-Tank Mine Design Specs RANK 1",
+			[]
+		],
+		"1044348": [
+			"**Prerequisites:**\n- [M018 - Cocoon Battle](#loc=1044081)\n\n**Rewards:**\n- MG3 Design Specs",
+			[]
+		],
+		"1044349": [
+			"**Prerequisites:**\n\n- [E103 - Armored Vehicle Battle: LAV-Type G](#loc=1044449)\n\n**Rewards:**\n\n- EZ Gun (Life Recovery) Schematic RANK 2",
+			[]
+		],
+		"1044350": [
+			"**Prerequisites:**\n\n- [M029 - Zadornov Search Mission 3](#loc=1044094)\n- Single Player Only\n\n**Rewards:**\n\n- None\n\n**Ops Unlocked:**\n\n- [E071 - Armored Vehicle Battle: BTR-60 PB](#loc=1044417)",
+			[]
+		],
+		"1044351": [
+			"**Prerequisites:**\n\n- [M031 - Zadornov Search Mission 5](#loc=1044096)\n- Single Player Only\n\n**Rewards:**\n\n- Miners' Residence (Night) stage in VERSUS OPS\n\n**Ops Unlocked:**\n\n- [E099 - Armored Vehicle Battle: BTR-60 PA](#loc=1044445)",
+			[]
+		],
+		"1044352": [
+			"**Prerequisites:**\n\n- [M028 - Zadornov Search Mission 2](#loc=1044093)\n\n**Rewards:**\n\n- Banana Cultivation Instructions RANK 1\n\n**Ops Unlocked:**\n\n- [E106 - Attack Chopper Battle: Mi-24D](#loc=1044452)",
+			[]
+		],
+		"1044353": [
+			"**Prerequisites:**\n- [M031 - Zadornov Search Mission 5](#loc=1044096)\n\n**Rewards:**\n- [M10(BJ)](#loc=1053281)\n\n**Ops Unlocked:**\n- [E108 - Attack Chopper Battle: AH56A-Bomber](#loc=1044454)",
+			[]
+		],
+		"1044354": [
+			"**Prerequisites:**\n- [E091 - Attack Chopper Battle: AH56A-Raider Custom](#loc=1044437)\n\n**Rewards:**\n- [RPK](#loc=1055986)\n- Russian Commando uniform in VERSUS OPS\n\n**S Rank Rewards:**\n- MP5SD2 Design Specs RANK 5\n\n**Ops Unlocked:**\n- [E098 - Tank Battle: MBTk-70 Custom](#loc=1044444)",
+			[]
+		],
+		"1044355": [
+			"**Prerequisites:**\n\n- [M022 - Peace Walker Battle](#loc=1044085)\n- MSF Soldiers Only\n\n**Rewards:**\n\n- RPG-7 Design Specs RANK 2",
+			[]
+		],
+		"1044356": [
+			"**Prerequisites:**\n\n- [M028 - Zadornov Search Mission 2](#loc=1044093)\n\n**Rewards:**\n\n- Bananal Fruta de Oro: Farm (Night) stage in VERSUS OPS",
+			[]
+		],
+		"1044357": [
+			"**Prerequisites:**\n\n- [M030 - Zadornov Search Mission 4](#loc=1044095)\n- MSF Soldiers Only\n\n**Rewards:**\n\n- None\n\n**Ops Unlocked:**\n\n- [E082 - Tank Battle: MBTk-70](#loc=1044428)",
+			[]
+		],
+		"1044358": [
+			"**Prerequisites:**\n\n- [E044 - Defend Key Supplies](#loc=1044361)\n\n**Rewards:**\n\n- M700 (LR) Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E077 - Tank Battle: T-72U Custom](#loc=1044423)",
+			[]
+		],
+		"1044359": [
+			"**Prerequisites:**\n\n- [E076 - Tank Battle: T-72U](#loc=1044422)\n\n**Rewards:**\n\n- Pillbox Purgatory stage in VERSUS OPS",
+			[]
+		],
+		"1044360": [
+			"**Prerequisites:**\n\n- [M032 - Zadornov Search Mission 6](#loc=1044098)\n\n**Rewards:**\n\n- M60 (Armor Piercing) Design Specs RANK 2\n\n**Ops Unlocked:**\n\n- [E097 - Tank Battle: MBTk-70](#loc=1044443)",
+			[]
+		],
+		"1044361": [
+			"**Prerequisites:**\n\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n\n- MG3 (Armor Piercing) Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E041 - Base Defense](#loc=1044358)",
+			[]
+		],
+		"1044362": [
+			"**Prerequisites:**\n\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n- ADM63 Design Specs RANK 3\n\n**S Rank Rewards:**\n- Chocolate Chip camouflage\n\n**Ops Unlocked:**\n- [E046 - Perfect Stealth](#loc=1044363)",
+			[]
+		],
+		"1044363": [
+			"**Prerequisites:**\n\n- [E045 - Perfect Stealth](#loc=1044362)\n\n**Rewards:**\n\n- [M16A1 (STG + laser)](#loc=1055688)\n- [M1C (PR)](#loc=1055693)\n\n**Ops Unlocked:**\n\n- [E102 - Armored Vehicle Battle: BTR-60 PB Custom](#loc=1044448)",
+			[]
+		],
+		"1044364": [
+			"**Prerequisites:**\n\n- [E102 - Armored Vehicle Battle: BTR-60 PB Custom](#loc=1044448)\n\n**Rewards:**\n\n- [M653](#loc=1055741)\n\n**S Rank Rewards:**\n\n- SUG Design Specs RANK 5\n\n**Ops Unlocked:**\n\n- [E048 - Perfect Stealth](#loc=1044365)",
+			[]
+		],
+		"1044365": [
+			"**Prerequisites:**\n\n- [E047 - Perfect Stealth](#loc=1044364)\n\n**Rewards:**\n\n- [M653(STG)](#loc=1055742)\n\n**S Rank Rewards:**\n- G11 Design Specs RANK 5\n\n**Ops Unlocked:**\n\n- [E091 - Attack Chopper Battle: Ah56A-Raider Custom](#loc=1044437)",
+			[]
+		],
+		"1044366": [
+			"**Prerequisites:**\n\n- [E091 - Attack Chopper Battle: AH56A-Raider Custom](#loc=1044437)\n\n**Rewards:**\n\n- [M653(SGL)](#loc=1055744)\n- [MP5A2](#loc=1055747)\n\n**S Rank Rewards:**\n- PTRS1941 Design Specs RANK 5\n\n**Ops Unlocked:**\n\n- [E075 - Armored Vehicle Battle: LAV-Type C Custom](#loc=1044421)",
+			[]
+		],
+		"1044367": [
+			"**Prerequisites:**\n\n- [E075 - Armored Vehicle Battle: LAV-Type C Custom](#loc=1044421)\n\n**Rewards:**\n\n- [PTRD1941](#loc=1055985)\n\n**S Rank Rewards:**\n\n- Stealth Camouflage Design Specs RANK 5\n\n**Ops Unlocked:**\n\n- [E083 - Tank Battle: MBTk-70 Custom](#loc=1044429)",
+			[]
+		],
+		"1044368": [
+			"**Prerequisites:**\n\n- [M012 - Attack Chopper Battle: Mi-24A](#loc=1044072)\n- C4\n- MSF Soldiers Only\n- Single Player Only\n\n**Rewards:**\n\n- [Magazine](#loc=1044474)",
+			[]
+		],
+		"1044369": [
+			"**Prerequisites:**\n- [M015 - Chrysalis Battle](#loc=1044077)\n\n**Rewards:**\n- [PM](#loc=1044490)",
+			[]
+		],
+		"1044370": [
+			"**Prerequisites:**\n\n- [M016 - Travel to the Mine Base](#loc=1044079)\n- MSF Soldiers Only\n\n**Rewards:**\n\n- [Decoy](#loc=1044499)",
+			[]
+		],
+		"1044371": [
+			"**Prerequisites:**\n\n- [M020 - Torture Chamber Escape](#loc=1044083)\n- MSF Soldiers Only\n\n**Rewards:**\n\n- None",
+			[]
+		],
+		"1044372": [
+			"**Prerequisites:**\n\n- [E089 - Attack Chopper Battle: AH56A-Bomber Custom](#loc=1044435)\n- Fulton Recovery System\n\n**Rewards:**\n\n- [Ballistic Shield (Color) Design Specs](#loc=1055617)\n- Female POW uniform in VERSUS OPS\n\n**S Rank Rewards:**\n- M16A1(GL + laser) Design Specs RANK 5\n\n**Ops Unlocked:**\n\n- [E079 - Tank Battle: T-72A Custom](#loc=1044425)",
+			[]
+		],
+		"1044373": [
+			"**Prerequisites:**\n\n- [E008 - Marksmanship Challenge](#loc=1043986)\n- Single Player Only\n\n**Rewards:**\n\n- None\n\n**Ops Unlocked:**\n\n- [E090 - Attack Chopper Battle: AH56A-Raider](#loc=1044436)",
+			[]
+		],
+		"1044374": [
+			"**Prerequisites:**\n\n- [M030 - Zadornov Search Mission 4](#loc=1044095)\n- Camera\n- Single Player Only\n\n**Rewards:**\n\n- [MP5A2](#loc=1055756)\n\n**Ops Unlocked:**\n\n- [E059 - Ghost Photography](#loc=1044376)",
+			[]
+		],
+		"1044375": [
+			"**Prerequisites:**\n\n- [M033 - ZEKE Battle](#loc=1044099)\n- Camera\n- Single Player Only\n\n**Rewards:**\n\n- M700 Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E061 - Dead Man's Treasure](#loc=1044378)",
+			[]
+		],
+		"1044376": [
+			"**Prerequisites:**\n\n- [E057 - Paparazzi](#loc=1044374)\n- Camera\n- Single Player Only\n\n**Rewards:**\n\n- None\n\n**Ops Unlocked:**\n\n- [E084 - Attack Chopper Battle: Mi-24A](#loc=1044430)",
+			[]
+		],
+		"1044377": [
+			"**Prerequisites:**\n- [M031 - Zadornov Search Mission 5](#loc=1044096)\n- No LIFE regeneration items or weapons allowed\n\n**Rewards:**\n- None\n\n_Tip: One of the soldiers you can perform CPR on has the Five-Star Chef skill!_",
+			[]
+		],
+		"1044378": [
+			"**Prerequisites:**\n\n- [E058 - Paparazzi](#loc=1044375)\n- No LIFE regeneration items or weapons allowed\n\n**Rewards:**\n\n- Scout uniform in VERSUS OPS\n\n**S Rank Rewards:**\n- STENCH (fatigues) Camouflage\n\n**Ops Unlocked:**\n\n- [E092 - Tank Battle: T-72U Custom](#loc=1044438)",
+			[]
+		],
+		"1044379": [
+			"**Prerequisites:**\n\n- [E092 - Tank Battle: T-72U Custom](#loc=1044438)\n- No LIFE regeneration items or weapons allowed \n\n**Rewards:**\n\n- [Neo-Moss](#loc=1055652)\n- SPAS-12 Design Specs RANK 3\n\n**S Rank Rewards:**\n- M202A1 Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E100 - Armored Vehicle Battle: BTR-60 PA Custom](#loc=1044446)",
+			[]
+		],
+		"1044380": [
+			"**Prerequisites:**\n\n- [M030 - Zadornov Search Mission 4](#loc=1044095)\n\n**Rewards:**\n\n- El Cadalso (Night) stage in VERSUS OPS\n\n**Ops Unlocked:**\n\n- [E074 - Armored Vehicle Battle: LAV-Type C](#loc=1044420)",
+			[]
+		],
+		"1044381": [
+			"**Prerequisites:**\n\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n\n- Fulton Sleep Gas Mine Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E065 - Pooyan Mission](#loc=1044382)",
+			[]
+		],
+		"1044382": [
+			"**Prerequisites:**\n\n- [E064 - Pooyan Mission](#loc=1044381)\n\n**Rewards:**\n\n- None\n\n**S Rank Rewards:**\n- WA2000 Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E087 - Attack Chopper Battle: Mi-24D Custom](#loc=1044433)",
+			[]
+		],
+		"1044383": [
+			"**Prerequisites:**\n\n- [E009 - Marksmanship Challenge](#loc=1043987)\n\n**Rewards:**\n\n- Mechanic uniform in VERSUS OPS\n\n**S Rank Rewards:**\n\n- M16A1(SGL + laser) Design Specs RANK 5\n\n**Ops Unlocked:**\n\n- [E073 - Armored Vehicle Battle: LAV-Type G Custom](#loc=1044419)",
+			[]
+		],
+		"1044384": [
+			"**Prerequisites:**\n\n- [M026 - Peace Walker Battle 3](#loc=1044091)\n- Snake Only\n- Single Player Only\n\n\n\n**Tips:**\n\n- End the mission by getting into a Love Box near Paz.\n- Increase Paz Affinity by using Co-Ops Comms 2-3 times each, such as:\n  - You can do this.\n  - I knew you had it in you!\n  - Good luck.\n  - Impressive.\n  - Thanks.\n  - You're pretty good.\n  - Good to have you!\n  - I'm with ya.\n  - Peace!\n  - Kept you waiting, huh?\n  - Good!\n\n**Rewards:**\n\n- [EZ Gun (PR)](#loc=1052940)\n\n\n\n**S Rank Rewards:**\n\n- Amanda camouflage (Female MSF Only)\n- [Swim Trunks](#loc=1052939)\n- Paz, Amanda, Cecile, and Strangelove wear swimwear in the model viewer",
+			[]
+		],
+		"1044385": [
+			"**Prerequisites:**\n\n- [E119 - AI Weapon Battle: Peace Walker Custom](#loc=1044465)\n- Snake Only\n- Single Player Only\n\n**Tips:**\n\n- End the mission by getting into a Love Box near Kaz.\n- Increase Miller Affinity by using Co-Ops Comms 2-3 times each, such as:\n  - You can do this.\n  - I knew you had it in you!\n  - Impressive.\n  - Thanks.\n  - You're pretty good.\n  - Not bad!\n  - Good to have you!\n  - I'm with ya.\n  - Good!\n  - I like it!\n- Kaz is also a little freaky and likes to be held / KO'd in CQC.\n\n**Rewards:**\n\n- [Patriot](#loc=1056346)\n\n**S Rank Rewards:**\n- Miller camouflage",
+			[]
+		],
+		"1044386": ["**Prerequisites:**\n- [M010 - Pupa Battle](#loc=1044070)\n\n**Rewards:**\n- BTR-60 PA", []],
+		"1044387": [
+			"**Prerequisites:**\n\n- [E025 - Eliminate Enemy Soldiers](#loc=1044343)\n\n**Rewards:**\n\n- BTR-60PA(C)\n\n**Ops Unlocked:**\n\n- [E026 - Eliminate Enemy Soldiers](#loc=1044344)",
+			[]
+		],
+		"1044392": [
+			"Also unlocks Desert Auscam (Naked). Reached by climbing over the wall via the nearby box.",
+			[
+				{
+					"id": 156118,
+					"title": "1000103807",
+					"file_name": "fdbaa39a-689b-483f-aee7-20a80a1cc517.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fdbaa39a-689b-483f-aee7-20a80a1cc517.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044393": ["Use C4 to destroy it.", []],
+		"1044394": ["Activates the [Extraction Point](#loc=1044395) once fulton extracted.", []],
+		"1044395": ["Activates once the [Researcher](#loc=1044394) has been fulton extracted.", []],
+		"1044402": ["Inside a room; drop in from above.", []],
+		"1044403": ["Inside a room.", []],
+		"1044405": [
+			"Inside the truck with license plate 63824 during [M009 - Infiltrate the Crater Base](#loc=1044069). Once he's been discovered, he'll join Mother Base with an S-rank in Intel and Medicine. Very humble, Kojima-san!",
+			[]
+		],
+		"1044406": [
+			"",
+			[
+				{
+					"id": 156119,
+					"title": "1000103800",
+					"file_name": "3a116a7a-2373-4e01-9491-642e7d5352a4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a116a7a-2373-4e01-9491-642e7d5352a4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044407": ["Blow them up with C4 to activate the [Extraction Point](#loc=1044684)", []],
+		"1044410": [
+			"Also unlocks Snake (Naked)",
+			[
+				{
+					"id": 156120,
+					"title": "1000103810",
+					"file_name": "2f5091b1-ba03-4fb5-b4da-415f8113f93d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f5091b1-ba03-4fb5-b4da-415f8113f93d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044412": [
+			"Reached by climbing over the wall via the nearby box.",
+			[
+				{
+					"id": 156121,
+					"title": "1000103811",
+					"file_name": "0a2b8e2a-0917-4680-9d45-6657dbb666b1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a2b8e2a-0917-4680-9d45-6657dbb666b1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044413": ["Detonate the box and take the supplies to activate the [Extraction Point](#loc=1044414)", []],
+		"1044414": ["Activates after detonating and stealing the [Enemy Supplies](#loc=1044413)", []],
+		"1044417": [
+			"**Prerequisites:**\n\n- [E033 - Claymore Disarmament](#loc=1044350)\n\n**Rewards:**\n\n- BTR-60 PB",
+			[]
+		],
+		"1044418": [
+			"**Prerequisites:**\n\n- [E104 - Armored Vehicle Battle: LAV-Type G Custom](#loc=1044450)\n\n**Rewards:**\n\n- BTR-60 PB(C)\n\n**Ops Unlocked:**\n\n- [E085 - Attack Chopper Battle: Mi-24A Custom](#loc=1044431)",
+			[]
+		],
+		"1044419": [
+			"**Prerequisites:**\n\n- [E066 - Missile Intercept Mission](#loc=1044383)\n\n**Rewards:**\n\n- LAV-G(C)\n\n**Ops Unlocked:**\n\n- [E107 - Attack Chopper Battle: Mi-24D Custom](#loc=1044453)",
+			[]
+		],
+		"1044420": [
+			"**Prerequisites:**\n\n- [E063 - Pooyan Mission](#loc=1044380)\n\n**Rewards:**\n\n- LAV-Type C",
+			[]
+		],
+		"1044421": [
+			"**Prerequisites:**\n\n- [E049 - Perfect Stealth](#loc=1044366)\n\n**Rewards:**\n\n- LAV-C(C)\n\n**S Rank Rewards:**\n- M134 Design Specs RANK 5\n\n**Ops Unlocked:**\n\n- [E050 - Perfect Stealth](#loc=1044367)",
+			[]
+		],
+		"1044422": [
+			"**Prerequisites:**\n\n- [M027 - Zadornov Search Mission](#loc=1044092)\n\n**Rewards:**\n\n- T-72U\n\n**Ops Unlocked:**\n\n- [E042 - POW Defense](#loc=1044359)",
+			[]
+		],
+		"1044423": [
+			"**Prerequisites:**\n\n- [E041 - Base Defense](#loc=1044358)\n\n**Rewards:**\n\n- T-72U(C)\n\n**Ops Unlocked:**\n\n- [E020 - Target Demolition](#loc=1044338)",
+			[]
+		],
+		"1044424": ["**Prerequisites:**\n- [E060 - Dead Man's Treasure](#loc=1044377)\n\n**Rewards:**\n- T-72A", []],
+		"1044425": [
+			"**Prerequisites:**\n\n- [E055 - U.S. Soldier Rescue](#loc=1044372)\n\n**Rewards:**\n\n- T-72A(C)\n\n**S Rank Rewards:**\n- EM Wave Gun Design Specs RANK 5",
+			[]
+		],
+		"1044426": ["**Prerequisites:**\n- [M017 - Eliminate the Guards](#loc=1044080)\n\n**Rewards:**\n- KPz 70", []],
+		"1044427": [
+			"**Prerequisites:**\n\n- [E096 - Tank Battle: KPz 70 Custom](#loc=1044442)\n\n**Rewards:**\n\n- KPZ 70 (C)",
+			[]
+		],
+		"1044428": ["**Prerequisites:**\n- [E040 - Base Defense](#loc=1044357)\n\n**Rewards:**\n- MBTk-70", []],
+		"1044429": [
+			"**Prerequisites:**\n- [E050 - Perfect Stealth](#loc=1044367)\n\n**Rewards:**\n- MBTK-70(C)\n\n**S Rank Rewards:**\n- Electromagnetic Net Design Specs RANK 1",
+			[]
+		],
+		"1044430": ["**Prerequisites:**\n- [E059 - Ghost Photography](#loc=1044376)\n\n**Rewards:**\n- Mi-24A", []],
+		"1044431": [
+			"**Prerequisites:**\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n- MI-24A(C)\n\n**Ops Unlocked:**\n- [E109 - Attack Chopper Battle: AH56A-Bomber Custom](#loc=1044455)",
+			[]
+		],
+		"1044432": [
+			"**Prerequisites:**\n\n- [M029 - Zadornov Search Mission 3](#loc=1044094)\n\n**Rewards:**\n\n- Mi-24D",
+			[]
+		],
+		"1044433": [
+			"**Prerequisites:**\n- [E065 - Pooyan Mission](#loc=1044382)\n\n**Rewards:**\n- MI-24D(C)\n\n**Ops Unlocked:**\n- [E111 - Attack Chopper Battle: AH56A-Raider Custom](#loc=1044457)",
+			[]
+		],
+		"1044434": [
+			"**Prerequisites:**\n- [M015 - Chrysalis Battle](#loc=1044077)\n\n**Rewards:**\n- AH56A-Bomber",
+			[]
+		],
+		"1044435": [
+			"**Prerequisites:**\n\n- [E020 - Target Demolition](#loc=1044338)\n\n**Rewards:**\n\n- AH56A-B(C)\n\n**Ops Unlocked:**\n\n- [E055 - U.S. Soldier Rescue](#loc=1044372)",
+			[]
+		],
+		"1044436": ["**Prerequisites:**\n\n- [E056 - One Shot](#loc=1044373)\n\n**Rewards:**\n\n- AH56A-Raider", []],
+		"1044437": [
+			"**Prerequisites:**\n\n- [E048 - Perfect Stealth](#loc=1044365)\n\n**Rewards:**\n\n- RH56A-R(C)\n\n**Ops Unlocked:**\n\n- [E049 - Perfect Stealth](#loc=1044366)\n- [E037 - Hold Up](#loc=1044354)",
+			[]
+		],
+		"1044438": [
+			"**Prerequisites:**\n- [E061 - Dead Man's Treasure](#loc=1044378)\n\n**Rewards:**\n- T-72U(C)\n\n**Ops Unlocked:**\n- [E062 - Dead Man's Treasure](#loc=1044379)",
+			[]
+		],
+		"1044439": [
+			"**Prerequisites:**\n\n- [E021 - Cargo Truck Demolition](#loc=1044339)\n\n**Rewards:**\n\n- T-72A",
+			[]
+		],
+		"1044440": [
+			"**Prerequisites:**\n- [E027 - Eliminate Enemy Soldiers](#loc=1044345)\n\n**Rewards:**\n- T-72A(C)",
+			[]
+		],
+		"1044441": ["**Prerequisites:**\n\n- [E019 - Target Demolition](#loc=1044337)\n\n**Rewards:**\n\n- KPz 70", []],
+		"1044442": [
+			"**Prerequisites:**\n\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n\n- KPZ 70(C)\n\n**S Rank Rewards:**\n\n- [E081 - Tank Battle: KPz 70 Custom](#loc=1044427)",
+			[]
+		],
+		"1044443": ["**Prerequisites:**\n- [E043 - Defend Key Supplies](#loc=1044360)\n\n**Rewards:**\n- MBTk-70", []],
+		"1044444": [
+			"**Prerequisites:**\n- [E037 - Hold Up](#loc=1044354)\n\n**Rewards:**\n- MBTK-70(C)\n- Carl Gustav (Fulton) Design Specs RANK 3",
+			[]
+		],
+		"1044445": [
+			"**Prerequisites:**\n- [E034 - Claymore Disarmament](#loc=1044351)\n\n**Rewards:**\n- BTR-60 PA",
+			[]
+		],
+		"1044446": [
+			"**Prerequisites:**\n- [E062 - Dead Man's Treasure](#loc=1044379)\n\n**Rewards:**\n- BTR-60PA(C)",
+			[]
+		],
+		"1044447": [
+			"**Prerequisites:**\n\n- [E017 - Fulton Recovery](#loc=1044335)\n\n**Rewards:**\n\n- BTR-60 PB\n\n**Ops Unlocked:**\n\n- [E110 - Attack Chopper Battle: AH56A-Raider](#loc=1044456)",
+			[]
+		],
+		"1044448": [
+			"**Prerequisites:**\n- [E046 - Perfect Stealth](#loc=1044363)\n\n**Rewards:**\n- BTR-60PB(C)\n\n**Ops Unlocked:**\n- [E047 - Perfect Stealth](#loc=1044364)",
+			[]
+		],
+		"1044449": [
+			"**Prerequisites:**\n\n- [M026 - Peace Walker Battle 3](#loc=1044091)\n\n**Rewards:**\n\n- LAV-Type G\n\n**Ops Unlocked:**\n\n- [E032 - Classified Document Retrieval](#loc=1044349)",
+			[]
+		],
+		"1044450": [
+			"**Prerequisites:**\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n- LAV-G(C)\n\n**Ops Unlocked:**\n- [E072 - Armored Vehicle Battle: BTR-60 PB Custom](#loc=1044418)",
+			[]
+		],
+		"1044451": [
+			"**Prerequisites:**\n- [E024 - Eliminate Enemy Soldiers](#loc=1044342)\n\n**Rewards:**\n- MI-24A(C)\n\n**Ops Unlocked:**\n- [E025 - Eliminate Enemy Soldiers](#loc=1044343)",
+			[]
+		],
+		"1044452": ["**Prerequisites:**\n\n- [E035 - Hold Up](#loc=1044352)\n\n**Rewards:**\n\n- Mi-24D", []],
+		"1044453": [
+			"**Prerequisites:**\n\n- [E073 - Armored Vehicle Battle: LAV-Type G Custom](#loc=1044419)\n\n**Rewards:**\n- Mi-24D(C)\n\n**S Rank Rewards:**\n- M202A1 Design Specs RANK 4",
+			[]
+		],
+		"1044454": ["**Prerequisites:**\n- [E036 - Hold Up](#loc=1044353)\n\n**Rewards:**\n- None", []],
+		"1044455": [
+			"**Prerequisites:**\n\n- [E085 - Attack Chopper Battle: Mi-24A Custom](#loc=1044431)\n\n**Rewards:**\n\n- AH65A-B(C)",
+			[]
+		],
+		"1044456": [
+			"**Prerequisites:**\n\n- [E101 - Armored Vehicle Battle: BTR-60 PB](#loc=1044447)\n\n**Rewards:**\n\n- AH56A-Raider",
+			[]
+		],
+		"1044457": [
+			"**Prerequisites:**\n- [E087 - Attack Chopper Battle: Mi-24D Custom](#loc=1044433)\n\n**Rewards:**\n- AH56A-R(C)\n\n**S Rank Rewards:**\n- M47 Design Specs RANK 5",
+			[]
+		],
+		"1044458": [
+			"**Prerequisites:**\n\n- [M028 - Zadornov Search Mission 2](#loc=1044093)\n\n**Rewards:**\n\n- None",
+			[]
+		],
+		"1044459": [
+			"**Prerequisites:**\n\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n\n- None\n\n**Ops Unlocked:**\n\n- [E115 - AI Weapon Battle: Chrysalis Custom](#loc=1044461)",
+			[]
+		],
+		"1044460": [
+			"**Prerequisites:**\n\n- [M030 - Zadornov Search Mission 4](#loc=1044095)\n\n**Rewards:**\n\n- None",
+			[]
+		],
+		"1044461": [
+			"**Prerequisites:**\n\n- [E113 - AI Weapon Battle: Pupa Custom](#loc=1044459)\n\n**Rewards:**\n\n- None\n\n**S Rank Rewards:**\n\n- Railgun Design Specs RANK 3\n\n**Ops Unlocked:**\n\n- [E117 - AI Weapon Battle: Cocoon Custom](#loc=1044463)",
+			[]
+		],
+		"1044462": [
+			"**Prerequisites:**\n- [M031 - Zadornov Search Mission 5](#loc=1044096)\n\n**Rewards:**\n- None",
+			[]
+		],
+		"1044463": [
+			"**Prerequisites:**\n\n- [E115 - AI Weapon Battle: Chrysalis Custom](#loc=1044461)\n\n**Rewards:**\n\n- None\n\n**Ops Unlocked:**\n\n- [E119 - AI Weapon Battle: Peace Walker Custom](#loc=1044465)",
+			[]
+		],
+		"1044464": [
+			"**Prerequisites:**\n- [M032 - Zadornov Search Mission 6](#loc=1044098)\n\n**Rewards:**\n- None",
+			[]
+		],
+		"1044465": [
+			"**Prerequisites:**\n\n- [E117 - AI Weapon Battle: Cocoon Custom](#loc=1044463)\n\n**Rewards:**\n\n- None\n\n**S Rank Rewards:**\n\n- Infinity Bandana Design Specs RANK 1\n\n**Ops Unlocked:**\n\n- [E068 - Date with Kaz](#loc=1044385)",
+			[]
+		],
+		"1044466": ["**Prerequisites:**\n\n- [M033 - ZEKE Battle](#loc=1044099)\n\n**Rewards:**\n\n- None", []],
+		"1044467": [
+			"**Prerequisites:**\n\n- Meet [Trenya](#loc=1056302)\n\n**Rewards:**\n\n- New CO-OPS Comm. Messages\n- Rathalos Wing is a very rare reward from this op. You can improve the chances of it being rewarded by:\n  - Tranquilizing the beast - easier after dealing regular damage\n  - Cutting off its tail\n  - Breaking its head\n  - Breaking both wings individually\n    - See the screenshot above for a 'broken parts' visual reference\n\n**S Rank Rewards:**\n\n- Rathalos camouflage\n\n**Ops Unlocked:**\n\n- [E122 - <<Hunting Quest: Rathalos / Twilight>>](#loc=1044468)\n- [E123 - <<Hunting Quest: Tigrex>>](#loc=1044469)",
+			[
+				{
+					"id": 157396,
+					"title": "1000103988",
+					"file_name": "130d6bed-195c-4939-a539-befd8b6bfcfb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/130d6bed-195c-4939-a539-befd8b6bfcfb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044468": [
+			"**Prerequisites:**\n\n- [E121 - <<Hunting Quest: Rathalos>>](#loc=1044467)\n\n**Tips:**\n\n- Rathalos Wing is a very rare reward from this op. You can improve the chances of it being rewarded by:\n  - Tranquilizing the beast - easier after dealing regular damage\n  - Cutting off its tail\n  - Breaking its head\n  - Breaking both wings individually\n    - See the screenshot above for a 'broken parts' visual reference\n\n**S Rank Rewards:**\n\n- Rathalos camouflage",
+			[
+				{
+					"id": 157387,
+					"title": "1000103988",
+					"file_name": "130d6bed-195c-4939-a539-befd8b6bfcfb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/130d6bed-195c-4939-a539-befd8b6bfcfb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044469": [
+			"**Prerequisites:**\n\n- [E121 - <<Hunting Quest: Rathalos>>](#loc=1044467)\n\n**Rewards:**\n\n- Tigrex Fang is a very rare reward from this op. You can improve the chances of it being rewarded by:\n  - Tranquilizing the beast - easier after dealing regular damage\n  - Cutting off its tail\n  - Breaking its head - the left horn snaps\n  - Breaking both front claws individually.\n    - On the left claw, the middle nail breaks.\n    - On the right claw, the rightmost nail breaks.\n\n**S Rank Rewards:**\n\n- Tigrex camouflage\n\n**Ops Unlocked:**\n\n- [E124 - <<Hunting Quest: Tigrex / Twilight>>](#loc=1044470)\n- [E125 - <<Hunting Quest: Gear REX>>](#loc=1044471)",
+			[
+				{
+					"id": 157394,
+					"title": "1000103989",
+					"file_name": "36474e5f-5fe4-4b90-aa35-23e6104ad489.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36474e5f-5fe4-4b90-aa35-23e6104ad489.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044470": [
+			"**Prerequisites:**\n\n- [E123 - <<Hunting Quest: Tigrex>>](#loc=1044469)\n\n**Rewards:**\n\n- Tigrex Fang is a very rare reward from this op. You can improve the chances of it being rewarded by:\n  - Tranquilizing the beast - easier after dealing regular damage\n  - Cutting off its tail\n  - Breaking its head - the left horn snaps\n  - Breaking both front claws individually.\n    - On the left claw, the middle nail breaks.\n    - On the right claw, the rightmost nail breaks.\n\n**S Rank Rewards:**\n\n- Tigrex camouflage",
+			[
+				{
+					"id": 157395,
+					"title": "1000103989",
+					"file_name": "36474e5f-5fe4-4b90-aa35-23e6104ad489.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36474e5f-5fe4-4b90-aa35-23e6104ad489.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044471": [
+			"**Prerequisites:**\n\n- [E123 - <<Hunting Quest: Tigrex>>](#loc=1044469)\n\n**Rewards:**\n\n- Gear REX Mucous is a very rare reward from this op. You can improve the chances of it being rewarded by:\n  - Tranquilizing the beast - easier after dealing regular damage\n  - Cutting off its tail\n  - Breaking its head - the front-left horn snaps\n  - Breaking its back spikes\n  - Bursting the red sac at the base of the stinger\n\n**S Rank Rewards:**\n\n- Gear REX camouflage\n\n**Ops Unlocked:**\n\n- [E126 - <<Hunting Quest: Gear REX / Twilight>>](#loc=1044472)",
+			[]
+		],
+		"1044472": [
+			"**Prerequisites:**\n\n- [E125 - <<Hunting Quest: Gear REX>>](#loc=1044471)\n\n**Rewards:**\n\n- Gear REX Mucous is a very rare reward from this op. You can improve the chances of it being rewarded by:\n  - Tranquilizing the beast - easier after dealing regular damage\n  - Cutting off its tail\n  - Breaking its head - the front-left horn snaps\n  - Breaking its back spikes\n  - Bursting the red sac at the base of the stinger\n\n**S Rank Rewards:**\n\n- Gear REX camouflage\n\n**Ops Unlocked:**\n\n- [E127 - Gear REX: Showdown at Crater Base](#loc=1044473)",
+			[]
+		],
+		"1044473": [
+			"**Prerequisites:**\n\n- [E126 - <<Hunting Quest: Gear REX / Twilight>>](#loc=1044472)\n\n**Rewards:**\n\n- Gear REX Concentrate is a very rare reward from this op. You can improve the chances of it being rewarded by:\n  - Tranquilizing the beast - easier after dealing regular damage\n  - Cutting off its tail\n  - Breaking its head - the front-left horn snaps\n  - Breaking its back spikes\n  - Bursting the red sac at the base of the stinger\n\n**S Rank Rewards:**\n\n- Gear REX camouflage\n\n**Ops Unlocked:**\n\n- [E128 - Gear REX Strikes Back](#loc=1044482)",
+			[]
+		],
+		"1044474": [
+			"",
+			[
+				{
+					"id": 156122,
+					"title": "1000103812",
+					"file_name": "860c8475-73d4-41d5-b63e-525bf992e830.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/860c8475-73d4-41d5-b63e-525bf992e830.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044475": ["Blow it up to activate the [Extraction Point](#loc=1044476)", []],
+		"1044476": ["Activates once the [Rubble](#loc=1044475) is destroyed.", []],
+		"1044482": [
+			"**Prerequisites:**\n\n- [E127 - Gear REX: Showdown at Crater Base](#loc=1044473)\n\n**Rewards:**\n\n- Bikini Top camouflage (may appear during [E068 - Date with Kaz](#loc=1044385) in some versions of the game)\n- Cookbook Research Notes RANK 1\n- Gear REX Super Extract is a very rare reward from this op. You can improve the chances of it being rewarded by:\n  - Tranquilizing the beast - easier after dealing regular damage\n  - Cutting off its tail\n  - Breaking its head - the front-left horn snaps\n  - Breaking its back spikes\n  - Bursting the red sac at the base of the stinger\n\n**S Rank Rewards:**\n\n- Gear REX camouflage",
+			[]
+		],
+		"1044487": [
+			"One of the spots where the ID card-holding CIA Mercenary can spawn. The game chooses one at random.",
+			[
+				{
+					"id": 156123,
+					"title": "1000103813",
+					"file_name": "6cd8c48b-4362-4a7b-91ce-937fb8f8e38a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6cd8c48b-4362-4a7b-91ce-937fb8f8e38a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044488": [
+			"",
+			[
+				{
+					"id": 156125,
+					"title": "1000103814",
+					"file_name": "c8e4824d-5df9-4916-9173-c348688cba6e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8e4824d-5df9-4916-9173-c348688cba6e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044489": ["Fulton extract them to activate the [Extraction Point](#loc=1044686)", []],
+		"1044490": [
+			"",
+			[
+				{
+					"id": 156126,
+					"title": "1000103815",
+					"file_name": "b9c71330-15f9-4439-a2cc-a02c4f396739.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9c71330-15f9-4439-a2cc-a02c4f396739.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044491": ["Activates once every Kidnapper drone has been destroyed.", []],
+		"1044493": [
+			"On the rooftop; to reach him, you'll need to drop off the ledge and shimmy over.",
+			[
+				{
+					"id": 156127,
+					"title": "1000103816",
+					"file_name": "1826e900-14d6-4041-8a27-1547394cd6cd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1826e900-14d6-4041-8a27-1547394cd6cd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044497": [
+			"On the rooftop. To reach it, place a Love Box beside the crates on the building's south-east corner and climb on top of it, or climb a ladder onto the south-west building and roll across the rooftops.",
+			[]
+		],
+		"1044498": [
+			"Obtained by performing a Leap of Faith off the rooftop. To reach this spot, climb a ladder onto the southern building and roll across the rooftops.\n\nDoes not need to be developed, but an R&D team level of 37 is required to produce new ones between missions.",
+			[
+				{
+					"id": 156128,
+					"title": "1000103817",
+					"file_name": "dfee0bc3-4d30-42a8-8a5c-108e5e468243.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dfee0bc3-4d30-42a8-8a5c-108e5e468243.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044682": ["Activates once all targets have been destroyed.", []],
+		"1044683": ["Activates after shooting all of the targets.", []],
+		"1044684": ["Activates after destroying the [Enemy Supplies](#loc=1044407).", []],
+		"1044685": ["Activates after fulton extracting the [Prisoner](#loc=1044118)", []],
+		"1044686": ["Activates after fulton extracting the [Researcher](#loc=1044489)", []],
+		"1044687": ["Under the stairs.", []],
+		"1044690": ["Activates after shooting all targets.", []],
+		"1044699": ["**Possible Spawns:**\n- Battery\n- Ration\n- Mate", []],
+		"1044700": ["**Possible Spawns:**\n- Ration\n- Mate", []],
+		"1044701": ["Blow up the crate, then steal the items to activate the [Extraction Point](#loc=1044702)", []],
+		"1044702": ["Appears after the [Enemy Supplies](#loc=1044701) have been blown up and stolen.", []],
+		"1044703": ["Also unlocks Splitter (Naked)", []],
+		"1044705": [
+			"Required to activate the [Extraction Point](#loc=1044707)\n\nThe first one you pick up will be MG3 Design Specs",
+			[]
+		],
+		"1044706": [
+			"Required to activate the [Extraction Point](#loc=1044707)\n\nThe first one you pick up will be MG3 Design Specs",
+			[]
+		],
+		"1044707": [
+			"Activates after finding:\n\n- [CNFDTL Doc](#loc=1044710)\n- [CNFDTL Doc](#loc=1044706)\n- [CNFDTL Doc](#loc=1044708)\n- [CNFDTL Doc](#loc=1044705)\n- [CNFDTL Doc](#loc=1044709)",
+			[]
+		],
+		"1044708": [
+			"Required to activate the [Extraction Point](#loc=1044707)\n\nInside the building.\n\nThe first one you pick up will be MG3 Design Specs",
+			[]
+		],
+		"1044709": [
+			"Required to activate the [Extraction Point](#loc=1044707)\n\nOn the rooftop. To reach this spot, climb a ladder onto the southern building and roll across the rooftops.\n\nThe first one you pick up will be MG3 Design Specs",
+			[]
+		],
+		"1044710": [
+			"Required to activate the [Extraction Point](#loc=1044707)\n\nInside the building.\n\nThe first one you pick up will be MG3 Design Specs",
+			[]
+		],
+		"1044713": ["Obtained by interacting with the mirror.", []],
+		"1044714": ["Inside a cell. Unlock the door with the [Console](#loc=1044716).", []],
+		"1044716": [
+			"Interact with it to open the cells.\n\n\n\n_In CO-OP, a friend can reduce the voltage that Snake is being tortured with at the start of the mission._",
+			[]
+		],
+		"1044718": ["One of five pieces of gear needed to activate the [Extraction Point](#loc=1044724)", []],
+		"1044719": ["One of five pieces of gear needed to activate the [Extraction Point](#loc=1044724)", []],
+		"1044720": ["One of five pieces of gear needed to activate the [Extraction Point](#loc=1044724)", []],
+		"1044721": ["One of five pieces of gear needed to activate the [Extraction Point](#loc=1044724)", []],
+		"1044722": [
+			"On replays, it is replaced by a Ration.",
+			[
+				{
+					"id": 156280,
+					"title": "1000103822",
+					"file_name": "17e7838d-1523-4d4f-a8e9-9b2be375bed6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17e7838d-1523-4d4f-a8e9-9b2be375bed6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1044723": [
+			"Inside the elevator. Press the button to summon it.\n\nOne of five pieces of gear needed to activate the [Extraction Point](#loc=1044724)",
+			[]
+		],
+		"1044724": [
+			"Activates after retrieving all of Snake's gear.\n- [Snake's Rations](#loc=1044718)\n- [Snake's Battery](#loc=1044719)\n- [Snake's Love Box](#loc=1044720)\n- [Snake's Fulton Balloons](#loc=1044721)\n- [Snake's Ammo](#loc=1044723)",
+			[]
+		],
+		"1044928": ["Upper floor.", []],
+		"1044930": ["Upper floor.", []],
+		"1044984": ["Activates after all 40 enemies have been dealt with.", []],
+		"1044985": ["Underground", []],
+		"1052749": ["Upper level.", []],
+		"1052939": [
+			"On the dock, but only when replaying the mission after previously getting an S rank.",
+			[
+				{
+					"id": 156450,
+					"title": "1000103823",
+					"file_name": "bde1bbcf-cada-48d9-a7f8-51ce70508265.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bde1bbcf-cada-48d9-a7f8-51ce70508265.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052940": [
+			"After reaching 115,000 Heroism and unlocking the \"Say good night...\" battle cry, use it on Paz then search her to obtain the schematic.",
+			[]
+		],
+		"1052941": [
+			"One of six that must be collected to activate the [Extraction Point](#loc=1052947).\n\nThe first one you pick up will be an EZ Gun (LR) Schematic.",
+			[
+				{
+					"id": 157226,
+					"title": "1000103925",
+					"file_name": "cd91e90e-28d6-4dbc-a9e3-90c7ca28a63c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cd91e90e-28d6-4dbc-a9e3-90c7ca28a63c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052942": [
+			"One of six that must be collected to activate the [Extraction Point](#loc=1052947).\n\nThe first one you pick up will be an EZ Gun (LR) Schematic.",
+			[
+				{
+					"id": 157227,
+					"title": "1000103926",
+					"file_name": "d75ba9d4-eb9d-4d8f-851a-6b139a50a6cc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d75ba9d4-eb9d-4d8f-851a-6b139a50a6cc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052943": [
+			"One of six that must be collected to activate the [Extraction Point](#loc=1052947).\n\nThe first one you pick up will be an EZ Gun (LR) Schematic.",
+			[
+				{
+					"id": 157228,
+					"title": "1000103927",
+					"file_name": "1c53faea-b85a-41ae-a8c7-e31736505f8e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1c53faea-b85a-41ae-a8c7-e31736505f8e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052944": [
+			"One of six that must be collected to activate the [Extraction Point](#loc=1052947).\n\nThe first one you pick up will be an EZ Gun (LR) Schematic.",
+			[
+				{
+					"id": 156453,
+					"title": "1000103824",
+					"file_name": "38e70042-6968-4f3a-b2ee-03a2d5412018.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/38e70042-6968-4f3a-b2ee-03a2d5412018.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052945": [
+			"One of six that must be collected to activate the [Extraction Point](#loc=1052947).\n\nThe first one you pick up will be an EZ Gun (LR) Schematic.",
+			[
+				{
+					"id": 157229,
+					"title": "1000103928",
+					"file_name": "e519db3d-4839-43b9-957a-ac2bcf2a721b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e519db3d-4839-43b9-957a-ac2bcf2a721b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052946": [
+			"One of six that must be collected to activate the [Extraction Point](#loc=1052947).\n\nThe first one you pick up will be an EZ Gun (LR) Schematic.",
+			[
+				{
+					"id": 157230,
+					"title": "1000103929",
+					"file_name": "ee220624-528b-45f3-be85-f63c71ba683c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee220624-528b-45f3-be85-f63c71ba683c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052947": [
+			"Activates after finding all documents.\n\n- [CNFDTL Doc](#loc=1052941)\n- [CNFDTL Doc](#loc=1052942)\n- [CNFDTL Doc](#loc=1052943)\n- [CNFDTL Doc](#loc=1052944)\n- [CNFDTL Doc](#loc=1052945)\n- [CNFDTL Doc](#loc=1052946)",
+			[]
+		],
+		"1052951": [
+			"",
+			[
+				{
+					"id": 156691,
+					"title": "1000103825",
+					"file_name": "99fc943e-55ba-4c57-8038-982c95fe7b85.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/99fc943e-55ba-4c57-8038-982c95fe7b85.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052952": [
+			"",
+			[
+				{
+					"id": 156454,
+					"title": "1000103825",
+					"file_name": "99fc943e-55ba-4c57-8038-982c95fe7b85.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/99fc943e-55ba-4c57-8038-982c95fe7b85.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052954": [
+			"Watch out for the claymores on either side.\n\n\n\nFulton extract them to activate the [Extraction Point](#loc=1052955)",
+			[]
+		],
+		"1052955": ["Activates after the [Prisoner](#loc=1052954) is fulton extracted.", []],
+		"1052957": ["In a room.", []],
+		"1052965": [
+			"",
+			[
+				{
+					"id": 156501,
+					"title": "1000103827",
+					"file_name": "15bf009a-9050-4551-ac79-2d90402c7d1d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/15bf009a-9050-4551-ac79-2d90402c7d1d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052967": ["Available after shooting all targets.", []],
+		"1052968": ["Activates after killing all enemies with a single shot.", []],
+		"1052969": ["Activates once all 30 enemies are dealt with, and the POW has made his way over here.", []],
+		"1052970": [
+			"",
+			[
+				{
+					"id": 156503,
+					"title": "1000103828",
+					"file_name": "150ff146-4de0-4f3c-bbd6-d5b8f46a79a8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/150ff146-4de0-4f3c-bbd6-d5b8f46a79a8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052971": [
+			"",
+			[
+				{
+					"id": 156502,
+					"title": "1000103829",
+					"file_name": "30d5bcc2-d9d4-4324-8d2c-940bf8840b72.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/30d5bcc2-d9d4-4324-8d2c-940bf8840b72.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052972": ["Activates after the disguised researcher is fulton extracted.", []],
+		"1052973": [
+			"Fulton extract him to activate the [Extraction Point](#loc=1052974)",
+			[
+				{
+					"id": 156504,
+					"title": "1000103830",
+					"file_name": "ef86c732-6353-4dc9-8293-23fd5e739cda.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ef86c732-6353-4dc9-8293-23fd5e739cda.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052974": ["Activates once [Zadornov](#loc=1052973) has been fulton extracted (if he was in this area.)", []],
+		"1052975": [
+			"One of the spots where the ID card-holding CIA Mercenary can spawn. The game chooses one at random.",
+			[
+				{
+					"id": 156505,
+					"title": "1000103831",
+					"file_name": "3faef944-7c5f-45dc-afe0-bf9be036f2ac.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3faef944-7c5f-45dc-afe0-bf9be036f2ac.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052976": [
+			"",
+			[
+				{
+					"id": 156506,
+					"title": "1000103832",
+					"file_name": "2732d643-5135-4f90-b583-4a184ef848f6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2732d643-5135-4f90-b583-4a184ef848f6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052977": [
+			"One of a few places Zadornov can spawn.\n\nFulton extract him to activate the [Extraction Point](#loc=1052978).",
+			[
+				{
+					"id": 156507,
+					"title": "1000103833",
+					"file_name": "9d357a6e-d776-4472-9e00-5a5acbe7593f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9d357a6e-d776-4472-9e00-5a5acbe7593f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052978": ["Activates after [Zadornov](#loc=1052977) is fulton extracted, if he was in this area.", []],
+		"1052979": ["Blow it up with C4 to activate the [Extraction Point](#loc=1052980)", []],
+		"1052980": ["Activates after blowing up the [Enemy Supplies](#loc=1052979) with C4.", []],
+		"1052986": ["Activates after all 20 enemies have been dealt with.", []],
+		"1052987": [
+			"",
+			[
+				{
+					"id": 156510,
+					"title": "1000103834",
+					"file_name": "eb334da2-dac3-4cc6-8f14-7b9e4106780e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb334da2-dac3-4cc6-8f14-7b9e4106780e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053149": [
+			"",
+			[
+				{
+					"id": 156574,
+					"title": "1000103835",
+					"file_name": "85ef89bd-1a50-4ce2-bfdb-952458f34e55.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/85ef89bd-1a50-4ce2-bfdb-952458f34e55.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053154": ["Fulton extract him to activate the [Extraction Point](#loc=1053155)", []],
+		"1053155": ["Activates after fulton extracting the [Researcher](#loc=1053154).", []],
+		"1053160": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053171)",
+			[
+				{
+					"id": 157147,
+					"title": "1000103863",
+					"file_name": "1f97d77f-4215-45e0-905e-73cf1f8f7d18.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f97d77f-4215-45e0-905e-73cf1f8f7d18.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053161": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053171)",
+			[
+				{
+					"id": 157141,
+					"title": "1000103857",
+					"file_name": "89b15194-208b-4981-9627-4327d5cdb6a4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/89b15194-208b-4981-9627-4327d5cdb6a4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053164": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053171)",
+			[
+				{
+					"id": 157142,
+					"title": "1000103858",
+					"file_name": "99082995-ff74-44e0-8308-b5e64a23dd42.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/99082995-ff74-44e0-8308-b5e64a23dd42.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053165": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053171)",
+			[
+				{
+					"id": 157148,
+					"title": "1000103864",
+					"file_name": "181e1b75-a58d-42eb-8ca7-ee7b86857170.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/181e1b75-a58d-42eb-8ca7-ee7b86857170.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053166": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053171)",
+			[
+				{
+					"id": 157145,
+					"title": "1000103861",
+					"file_name": "17fbc1dd-665d-407b-8998-5d5f53cdec74.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17fbc1dd-665d-407b-8998-5d5f53cdec74.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053167": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053171)",
+			[
+				{
+					"id": 157143,
+					"title": "1000103859",
+					"file_name": "21bdb57e-bd6d-421d-b3f3-0e10fe4c6934.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/21bdb57e-bd6d-421d-b3f3-0e10fe4c6934.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053168": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053171)",
+			[
+				{
+					"id": 157146,
+					"title": "1000103862",
+					"file_name": "31bccae8-bcf4-4946-9a7f-77d69b843463.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31bccae8-bcf4-4946-9a7f-77d69b843463.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053170": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053171)",
+			[
+				{
+					"id": 157144,
+					"title": "1000103860",
+					"file_name": "1a32e756-1064-49fd-bcf7-c1b81a31f04f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1a32e756-1064-49fd-bcf7-c1b81a31f04f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053171": [
+			"Activates after disarming all Claymore mines in the area.\n\n- [Claymore](#loc=1053161)\n- [Claymore](#loc=1053160)\n- [Claymore](#loc=1053165)\n- [Claymore](#loc=1053164)\n- [Claymore](#loc=1053167)\n- [Claymore](#loc=1053168)\n- [Claymore](#loc=1053170)\n- [Claymore](#loc=1053166)",
+			[]
+		],
+		"1053213": [
+			"",
+			[
+				{
+					"id": 157149,
+					"title": "1000103865",
+					"file_name": "8673e37b-a6c3-4cf9-be0d-9b8f015c00bb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8673e37b-a6c3-4cf9-be0d-9b8f015c00bb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053214": [
+			"",
+			[
+				{
+					"id": 157150,
+					"title": "1000103866",
+					"file_name": "c9158530-5db7-454f-9ba7-9fc1aa09f54e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c9158530-5db7-454f-9ba7-9fc1aa09f54e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053216": [
+			"",
+			[
+				{
+					"id": 157151,
+					"title": "1000103867",
+					"file_name": "a2dcbe3c-6e44-494b-9a2c-0d5165168b3c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a2dcbe3c-6e44-494b-9a2c-0d5165168b3c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053218": [
+			"",
+			[
+				{
+					"id": 157152,
+					"title": "1000103868",
+					"file_name": "6a56c3fb-cccb-45d3-a498-104a60fdbe0a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a56c3fb-cccb-45d3-a498-104a60fdbe0a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053219": [
+			"",
+			[
+				{
+					"id": 157153,
+					"title": "1000103869",
+					"file_name": "b9647e90-c3f4-43e8-8879-30b1c577bcc0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9647e90-c3f4-43e8-8879-30b1c577bcc0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053220": [
+			"",
+			[
+				{
+					"id": 157154,
+					"title": "1000103869",
+					"file_name": "b9647e90-c3f4-43e8-8879-30b1c577bcc0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9647e90-c3f4-43e8-8879-30b1c577bcc0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053221": ["One of the rooms where Zadornov may be hiding. The game chooses one at random.", []],
+		"1053223": ["One of the rooms where Zadornov may be hiding. The game chooses one at random.", []],
+		"1053224": ["One of the rooms where Zadornov may be hiding. The game chooses one at random.", []],
+		"1053225": ["One of the rooms where Zadornov may be hiding. The game chooses one at random.", []],
+		"1053226": ["One of the rooms where Zadornov may be hiding. The game chooses one at random.", []],
+		"1053227": [
+			"Take a picture of him to activate the [Extraction Point](#loc=1053228)",
+			[
+				{
+					"id": 156591,
+					"title": "1000103836",
+					"file_name": "66a6302d-0c94-45fe-abad-5d2fa6d77fdd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66a6302d-0c94-45fe-abad-5d2fa6d77fdd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053228": ["Activates after taking a picture of the [Enemy Commander](#loc=1053227)", []],
+		"1053230": ["Activates after all 15 enemies have been dealt with.", []],
+		"1053256": ["Inside the truck with license plate **БEИ**", []],
+		"1053268": [
+			"Activates after finding all of the dead men's treasures.\n\n- [Dead Man's Treasure](#loc=1055640)\n- [Dead Man's Treasure](#loc=1055641)\n- [Dead Man's Treasure](#loc=1055642)\n- [Dead Man's Treasure](#loc=1055643)\n- [Dead Man's Treasure](#loc=1055644)",
+			[]
+		],
+		"1053282": ["Activates after holding up all six enemies.", []],
+		"1053379": [
+			"",
+			[
+				{
+					"id": 156633,
+					"title": "1000103842",
+					"file_name": "912efd8f-3383-40a7-9773-f2a3a2ec80ab.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/912efd8f-3383-40a7-9773-f2a3a2ec80ab.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053380": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053388).",
+			[
+				{
+					"id": 157162,
+					"title": "1000103921",
+					"file_name": "9e836644-0c91-4900-aa39-0744402502df.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e836644-0c91-4900-aa39-0744402502df.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053381": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053388).",
+			[
+				{
+					"id": 157161,
+					"title": "1000103920",
+					"file_name": "b30c85c5-a2b6-4e8b-a138-ba0d6deb7f18.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b30c85c5-a2b6-4e8b-a138-ba0d6deb7f18.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053382": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053388).",
+			[
+				{
+					"id": 157160,
+					"title": "1000103919",
+					"file_name": "1288461a-2a94-448b-9188-c537c666e27b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1288461a-2a94-448b-9188-c537c666e27b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053383": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053388).",
+			[
+				{
+					"id": 157165,
+					"title": "1000103924",
+					"file_name": "e4940319-d5cd-4c10-8f53-755d4a78a469.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4940319-d5cd-4c10-8f53-755d4a78a469.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053384": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053388).",
+			[
+				{
+					"id": 157163,
+					"title": "1000103922",
+					"file_name": "35deff42-ac66-4868-bdf7-b079f2eec3b2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35deff42-ac66-4868-bdf7-b079f2eec3b2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053385": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053388).",
+			[
+				{
+					"id": 157164,
+					"title": "1000103923",
+					"file_name": "043f5057-d4a7-43b2-a3be-e809f7a3a5ba.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/043f5057-d4a7-43b2-a3be-e809f7a3a5ba.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053386": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053388).",
+			[
+				{
+					"id": 157158,
+					"title": "1000103917",
+					"file_name": "f3448967-1168-44ea-9f19-919d6fa0f7d6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f3448967-1168-44ea-9f19-919d6fa0f7d6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053387": [
+			"One of eight that must be disarmed to activate the [Extraction Point](#loc=1053388).",
+			[
+				{
+					"id": 157159,
+					"title": "1000103918",
+					"file_name": "9aa49f9c-1d15-4312-bff6-0790de833c5e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9aa49f9c-1d15-4312-bff6-0790de833c5e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053388": [
+			"Activates after disarming all of the Claymores.\n\n- [Claymore](#loc=1053383)\n- [Claymore](#loc=1053385)\n- [Claymore](#loc=1053384)\n- [Claymore](#loc=1053382)\n- [Claymore](#loc=1053381)\n- [Claymore](#loc=1053387)\n- [Claymore](#loc=1053386)\n- [Claymore](#loc=1053380)",
+			[]
+		],
+		"1053426": [
+			"One of the boxes Zadornov may be hiding inside. The game chooses one at random.\n\n\n\nFulton extract him to activate the [Extraction Point](#loc=1055187).",
+			[
+				{
+					"id": 156635,
+					"title": "1000103843",
+					"file_name": "98c4e1e0-f81b-4f5b-a59b-5df7a93a3988.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/98c4e1e0-f81b-4f5b-a59b-5df7a93a3988.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053428": [
+			"",
+			[
+				{
+					"id": 156636,
+					"title": "1000103844",
+					"file_name": "b3ad1391-8226-4503-8cc1-1f0a4659f8b7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3ad1391-8226-4503-8cc1-1f0a4659f8b7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053432": [
+			"One of the boxes Zadornov may be hiding inside. The game chooses one at random.\n\nFulton extract him to activate the [Extraction Point](#loc=1055180)",
+			[
+				{
+					"id": 156637,
+					"title": "1000103845",
+					"file_name": "7f0331d0-c90a-4fdc-97eb-ca842607ceaa.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7f0331d0-c90a-4fdc-97eb-ca842607ceaa.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1053433": [
+			"One of the boxes Zadornov may be hiding inside. The game chooses one at random.\n\n\n\nFulton extract him to activate the [Extraction Point](#loc=1053448).",
+			[]
+		],
+		"1053448": ["Available after finding Zadornov inside [this specific box](#loc=1053433).", []],
+		"1053469": ["Activates once all 11 enemies have been fulton extracted.", []],
+		"1054014": ["Activates after all 20 enemies are dealt with.", []],
+		"1055015": [
+			"Appears here after receiving a call from Kaz, assuming you've met all requirements for Main Op 033.",
+			[
+				{
+					"id": 156985,
+					"title": "1000103850",
+					"file_name": "386167de-f056-49be-9423-3cac1c797dba.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/386167de-f056-49be-9423-3cac1c797dba.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055016": [
+			"When ZEKE is on another platform, press the button, then take cover against a wall. You can then aim and confirm the target for a missile strike.",
+			[]
+		],
+		"1055017": ["Press the button to summon multiple resupply boxes.", []],
+		"1055018": [
+			"",
+			[
+				{
+					"id": 156989,
+					"title": "1000103851",
+					"file_name": "ed1fd1bf-9fbf-4bc7-88f5-a574571ca769.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed1fd1bf-9fbf-4bc7-88f5-a574571ca769.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055019": ["Activates after dealing with all 10 enemies.", []],
+		"1055090": ["Inside a room.", []],
+		"1055092": ["Activates once all 15 enemies are dealt with.", []],
+		"1055093": ["One of the bases that must be defended.", []],
+		"1055094": ["One of the bases that must be defended.", []],
+		"1055095": ["One of the bases that must be defended.", []],
+		"1055096": [
+			"The POW that must be defended. \n\n\n\n_Tip: Enemies will hold fire if he is concealed by a smoke grenade. They will also be distracted by any nearby decoys._",
+			[]
+		],
+		"1055098": [
+			"**Prerequisite:** [M010 - Pupa Battle](#loc=1044070)\n\n**Difficulty:** E\n\n**Potential Rewards:**\n\n- Cardboard Box Tank RANK 1 x3\n- Leaf (Naked) Camouflage\n- RK47(GL) Design Specs",
+			[]
+		],
+		"1055099": [
+			"**Prerequisite:** [M010 - Pupa Battle](#loc=1044070)\n\n**Difficulty:** D\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Stun Cannon) RANK 2 x3\n- Leaf (Naked) Camouflage\n- RK47(GL) Design Specs",
+			[]
+		],
+		"1055100": [
+			"**Prerequisite:** [M010 - Pupa Battle](#loc=1044070)\n\n**Difficulty:** D\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Stun Cannon) RANK 2 x3\n- Leaf (Naked) Camouflage\n- RK47(GL) Design Specs",
+			[]
+		],
+		"1055101": [
+			"**Difficulty:** D+\n\n**Potential Rewards:**\n\n- 12 Gauge Shotshell x25\n- Leaf (Naked) Camouflage\n- RK47(GL) Design Specs",
+			[]
+		],
+		"1055102": [
+			"**Difficulty:** D+\n\n**Potential Rewards:**\n\n- 12 Gauge Shotshell x25\n- Choco Chip (Naked) Camouflage\n- XFIM-92A Design Specs",
+			[]
+		],
+		"1055103": [
+			"**Difficulty:** D+\n\n**Potential Rewards:**\n\n- 12 Gauge Shotshell x25\n- Choco Chip (Naked) Camouflage\n- XFIM-92A Design Specs",
+			[]
+		],
+		"1055104": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- Box Bomb RANK 2 x3\n- Choco Chip (Naked) Camouflage\n- XFIM-92A Design Specs",
+			[]
+		],
+		"1055105": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- Cardboard Box Tank RANK 2 x3\n- Choco Chip (Naked) Camouflage\n- M63A1 Design Specs",
+			[]
+		],
+		"1055106": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Choco Chip (Naked) Camouflage\n- M63A1 Design Specs",
+			[]
+		],
+		"1055107": ["One of the bases that must be defended.", []],
+		"1055108": ["One of the bases that must be defended.", []],
+		"1055109": ["One of the bases that must be defended.", []],
+		"1055110": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (M16) x20\n- Choco Chip (Naked) Camouflage\n- XFIM-92A Design Specs",
+			[]
+		],
+		"1055111": [
+			"**Difficulty:** D+\n\n**Potential Rewards:**\n\n- Cardboard Box Tank RANK 2 x3\n- Choco Chip (Naked) Camouflage\n- M63A1 Design Specs",
+			[]
+		],
+		"1055112": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- Stun Box RANK 2 x3\n- Choco Chip (Naked) Camouflage\n- M63A1 Design Specs",
+			[]
+		],
+		"1055113": [
+			"**Difficulty:** D+\n\n**Potential Rewards:**\n\n- Spicy Curry RANK 2 x5\n- Tiger Stripe (Naked) Camouflage\n- RK47(GL) Design Specs",
+			[]
+		],
+		"1055114": [
+			"**Difficulty:** C+\n\n**Potential Rewards:**\n\n- Box Bomb RANK 2 x3\n- Tiger Stripe (Naked) Camouflage\n- RK47(GL) Design Specs",
+			[]
+		],
+		"1055115": [
+			"**Difficulty:** B\n\n**Potential Rewards:**\n\n- Box Bomb RANK 2 x3\n- Tiger Stripe (Naked) Camouflage\n- RK47(GL) Design Specs",
+			[]
+		],
+		"1055116": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- Rescue Box RANK 2 x3\n- Tiger Stripe (Naked) Camouflage\n- RK47(GL) Design Specs",
+			[]
+		],
+		"1055117": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- Great Curry RANK 4 x4\n- Leaf (Naked) Camouflage\n- M63A1 Design Specs",
+			[]
+		],
+		"1055118": [
+			"**Difficulty:** C+\n\n**Potential Rewards:**\n\n- Rescue Box RANK 2 x3\n- Leaf (Naked) Camouflage\n- M63A1 Design Specs",
+			[]
+		],
+		"1055119": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- Great Curry RANK 4 x4\n- Leaf (Naked) Camouflage\n- M63A1 Design Specs",
+			[]
+		],
+		"1055120": [
+			"**Difficulty:** C\n\n**Potential Rewards:**\n\n- Spicy Curry RANK 2 x5\n- Leaf (Naked) Camouflage\n- M63A1 Design Specs",
+			[]
+		],
+		"1055121": [
+			"Fulton extract him to activate the [Extraction Point](#loc=1055122). \n\nOne area where Zadornov may be hiding. The game chooses one at random.",
+			[
+				{
+					"id": 157157,
+					"title": "1000103916",
+					"file_name": "e6802b44-0923-4039-b784-64e5d8231dbd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6802b44-0923-4039-b784-64e5d8231dbd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055122": ["Available once [Zadornov](#loc=1055121) has been fulton extracted, if he was in this area.", []],
+		"1055123": [
+			"**Difficulty:** B\n\n**Potential Rewards:**\n\n- Stun Box RANK 2 x3\n- Choco Chip (Naked) Camouflage\n- ADM65 Design Specs",
+			[]
+		],
+		"1055124": [
+			"**Difficulty:** C+\n\n**Potential Rewards:**\n\n- 12 Gauge Shotshell x25\n- Choco Chip (Naked) Camouflage\n- ADM65 Design Specs",
+			[]
+		],
+		"1055125": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Stun Box RANK 2 x3\n- Choco Chip (Naked) Camouflage\n- ADM65 Design Specs",
+			[]
+		],
+		"1055126": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Stun Box RANK 2 x3\n- Choco Chip (Naked) Camouflage\n- ADM65 Design Specs",
+			[]
+		],
+		"1055127": [
+			"**Difficulty:** C+\n\n**Potential Rewards:**\n\n- Cardboard Box Tank RANK 2 x3\n- Choco Chip (Naked) Camouflage\n- RK47(SGL) Design Specs",
+			[]
+		],
+		"1055128": [
+			"**Difficulty:** A+\n\n**Potential Rewards:**\n\n- Box Bomb RANK 3 x3\n- Choco Chip (Naked) Camouflage\n- RK47(SGL) Design Specs",
+			[]
+		],
+		"1055129": [
+			"**Difficulty:** B\n\n**Potential Rewards:**\n\n- Spicy Curry RANK 2 x5\n- Choco Chip (Naked) Camouflage\n- RK47(SGL) Design Specs",
+			[]
+		],
+		"1055130": [
+			"**Difficulty:** B\n\n**Potential Rewards:**\n\n- 12 Gauge Shotshell x25\n- Choco Chip (Naked) Camouflage\n- RK47(SGL) Design Specs",
+			[]
+		],
+		"1055131": [
+			"**Difficulty:** B\n\n**Potential Rewards:**\n\n- 12 Gauge Shotshell x25\n- Tiger Stripe (Naked) Camouflage\n- ADM65 Design Specs",
+			[]
+		],
+		"1055132": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Stun Box RANK 2 x3\n- Tiger Stripe (Naked) Camouflage\n- ADM65 Design Specs",
+			[]
+		],
+		"1055133": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Smoke Shell) RANK 2 x3\n- Tiger Stripe (Naked) Camouflage\n- ADM65 Design Specs",
+			[]
+		],
+		"1055134": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Ballistic Shield RANK 4 x3\n- Tiger Stripe (Naked) Camouflage\n- ADM65 Design Specs",
+			[]
+		],
+		"1055135": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Stun Box RANK 3 x3\n- Desert Auscam (Naked) Camouflage\n- RK47(SGL) Design Specs",
+			[]
+		],
+		"1055136": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Desert Auscam (Naked) Camouflage\n- RK47(SGL) Design Specs",
+			[]
+		],
+		"1055137": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (M16) x20\n- Desert Auscam (Naked) Camouflage\n- RK47(SGL) Design Specs",
+			[]
+		],
+		"1055138": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Spicy Curry Rank 2 x5\n- Desert Auscam (Naked) Camouflage\n- RK47(SGL) Design Specs",
+			[]
+		],
+		"1055139": [
+			"**Difficulty:** A+\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Stun Cannon) RANK 2 x3\n- Desert Auscam (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055140": [
+			"**Difficulty:** A\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Smoke Shell) RANK 2 x3\n- Desert Auscam (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055141": [
+			"**Difficulty:** A+\n\n**Potential Rewards:**\n\n- Ballistic Shield RANK 4 x3\n- Desert Auscam (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055142": [
+			"**Difficulty:** S\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Desert Auscam (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055143": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Smoke Shell) RANK 2 x3\n- Squares (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055144": [
+			"**Difficulty:** B+\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (M16) x20\n- Squares (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055145": [
+			"**Difficulty:** A+\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Smoke Shell) RANK 2 x3\n- Squares (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055146": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- Ballistic Shield RANK 4 x3\n- Squares (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055147": [
+			"**Difficulty:** A\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Squares (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055148": [
+			"**Difficulty:** S\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Squares (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055149": [
+			"**Difficulty:** A\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (M16) x20\n- Squares (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055150": [
+			"**Difficulty:** A\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (RK) x20\n- Squares (Naked) Camouflage\n- Kampfpistole Design Specs",
+			[]
+		],
+		"1055151": [
+			"**Difficulty:** A\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Smoke Shell) RANK 2 x3\n- Splitter (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055152": [
+			"**Difficulty:** S\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (M16) x20\n- Splitter (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055153": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Splitter (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055154": [
+			"**Difficulty:** A+\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Splitter (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055155": [
+			"**Difficulty:** S\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Splitter (Naked) Camouflage\n- XFIM-92A Design Specs",
+			[]
+		],
+		"1055156": [
+			"**Difficulty:** S\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Stun Cannon) RANK 2 x3\n- Splitter (Naked) Camouflage\n- XFIM-92A Design Specs",
+			[]
+		],
+		"1055157": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- Ballistic Shield RANK 4 x3\n- Splitter (Naked) Camouflage\n- XFIM-92A Design Specs",
+			[]
+		],
+		"1055158": [
+			"**Difficulty:** S\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (RK) x20\n- Splitter (Naked) Camouflage\n- XFIM-92A Design Specs",
+			[]
+		],
+		"1055159": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (M16) x20\n- Snake (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055160": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (RK) x20\n- Snake (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055161": [
+			"**Difficulty:** S\n\n**Potential Rewards:**\n\n- Cardboard Box Tank (Smoke Shell) RANK 3 x3\n- Snake (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055162": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Snake (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055163": [
+			"**Difficulty:** S++\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Snake (Naked) Camouflage\n- SVD(NV) Design Specs",
+			[]
+		],
+		"1055164": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (RK) x20\n- Snake (Naked) Camouflage\n- SVD(NV) Design Specs",
+			[]
+		],
+		"1055165": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5\n- Snake (Naked) Camouflage\n- SVD(NV) Design Specs",
+			[]
+		],
+		"1055166": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (RK) x20\n- Snake (Naked) Camouflage\n- SVD(NV) Design Specs",
+			[]
+		],
+		"1055167": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- M47 Missile x10\n- Snake (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055168": [
+			"**Difficulty:** S+\n\n**Potential Rewards:**\n\n- Carl Gustav Fulton Rounds x5 \n- Snake (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055169": [
+			"**Difficulty:** S++\n\n**Potential Rewards:**\n\n- M47 Missile x10 \n- Snake (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055170": [
+			"**Difficulty:** S++\n\n**Potential Rewards:**\n\n- 40mm Smoke Rounds (RK) x20\n- Snake (Naked) Camouflage\n- CAW Design Specs",
+			[]
+		],
+		"1055171": [
+			"**Difficulty:** S++\n\n**Potential Rewards:**\n\n- M47 Missile x10\n- Battle Dress (with helmet) Camouflage\n- SVD(NV) Design Specs",
+			[]
+		],
+		"1055172": [
+			"**Difficulty:** S++\n\n**Potential Rewards:**\n\n- M47 Missile x10\n- Battle Dress (with helmet) Camouflage\n- SVD(NV) Design Specs",
+			[]
+		],
+		"1055173": [
+			"**Difficulty:** S++\n\n**Potential Rewards:**\n\n- M47 Missile x10\n- Battle Dress (with helmet) Camouflage\n- SVD(NV) Design Specs",
+			[]
+		],
+		"1055174": [
+			"**Difficulty:** S++\n\n**Potential Rewards:**\n\n- M47 Missile x10\n- Battle Dress (with helmet) Camouflage\n- SVD(NV) Design Specs",
+			[]
+		],
+		"1055180": ["Available after finding Zadornov inside [this specific box.](#loc=1053432)", []],
+		"1055187": ["Available after finding Zadornov inside [this specific box.](#loc=1053426)", []],
+		"1055586": [
+			"Fulton extract him to activate the [Extraction Point.](#loc=1055587)\n\nOne area where Zadornov may be hiding. The game chooses one at random.",
+			[
+				{
+					"id": 157240,
+					"title": "1000103930",
+					"file_name": "c1765033-99db-4bbc-8048-76d5b2b33d40.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c1765033-99db-4bbc-8048-76d5b2b33d40.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055587": ["Activates once [Zadornov](#loc=1055586) is extracted, if he spawned in this area.", []],
+		"1055588": [
+			"",
+			[
+				{
+					"id": 157241,
+					"title": "1000103931",
+					"file_name": "3af9a687-5f44-450b-8fbf-0914019f37e1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3af9a687-5f44-450b-8fbf-0914019f37e1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055589": ["Activates once all 8 enemies have been dealt with.", []],
+		"1055591": [
+			"",
+			[
+				{
+					"id": 157245,
+					"title": "1000103932",
+					"file_name": "95bb9d2f-6d18-4548-84eb-cc356670107a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95bb9d2f-6d18-4548-84eb-cc356670107a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055592": [
+			"",
+			[
+				{
+					"id": 157246,
+					"title": "1000103933",
+					"file_name": "5055c6d6-fd2d-4925-8eec-6fef8d3fa52b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5055c6d6-fd2d-4925-8eec-6fef8d3fa52b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055593": [
+			"",
+			[
+				{
+					"id": 157247,
+					"title": "1000103934",
+					"file_name": "f570bcfd-3988-4d7b-a82f-efb90c96e314.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f570bcfd-3988-4d7b-a82f-efb90c96e314.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055594": [
+			"",
+			[
+				{
+					"id": 157248,
+					"title": "1000103935",
+					"file_name": "5bb86b50-6306-4a81-98c7-18691838e39f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5bb86b50-6306-4a81-98c7-18691838e39f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055595": ["Activates after dealing with all 21 enemies.", []],
+		"1055596": ["Activates after dealing with all 5 enemies.", []],
+		"1055597": [
+			"",
+			[
+				{
+					"id": 157249,
+					"title": "1000103936",
+					"file_name": "33967212-5968-49d4-a758-37fa37cd3a21.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33967212-5968-49d4-a758-37fa37cd3a21.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055598": ["One of three that must be protected.", []],
+		"1055599": ["Activates after dealing with all 30 enemies.", []],
+		"1055600": ["One of three that must be defended.", []],
+		"1055601": ["One of three that must be defended.", []],
+		"1055602": ["One of three that must be defended.", []],
+		"1055603": ["Activates after dealing with all 20 enemies.", []],
+		"1055609": ["Blow it up with C4 to activate the [Extraction Point](#loc=1055610)", []],
+		"1055610": ["Activates after blowing up the [Supply Box](#loc=1055609).", []],
+		"1055617": [
+			"",
+			[
+				{
+					"id": 157250,
+					"title": "1000103937",
+					"file_name": "985ca85c-f1f6-4854-b3d8-832d5c97b6dd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/985ca85c-f1f6-4854-b3d8-832d5c97b6dd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055620": [
+			"Beyond a heavy door that you'll need to lift\nFulton extract him to activate the [Extraction Point](#loc=1055621)",
+			[]
+		],
+		"1055621": ["Activates after fulton extracting the [U.S. Soldier](#loc=1055620)", []],
+		"1055625": ["Activates after shooting all targets.", []],
+		"1055627": [
+			"One of the spots where the commander stops to exercise",
+			[
+				{
+					"id": 157254,
+					"title": "1000103940",
+					"file_name": "f0f046d1-46ca-4323-9e07-7246f503b7cf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0f046d1-46ca-4323-9e07-7246f503b7cf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055628": ["One of the spots where the commander stops to exercise", []],
+		"1055629": [
+			"One of the spots where the commander stops to exercise",
+			[
+				{
+					"id": 157255,
+					"title": "1000103942",
+					"file_name": "7302e657-0772-40c0-9123-a6b06392cf1a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7302e657-0772-40c0-9123-a6b06392cf1a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055630": [
+			"One of the spots where the commander stops to exercise",
+			[
+				{
+					"id": 157256,
+					"title": "1000103943",
+					"file_name": "f222438b-7b4e-4adc-9044-eb7ac17b57db.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f222438b-7b4e-4adc-9044-eb7ac17b57db.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055631": [
+			"One of the spots where the commander stops to exercise",
+			[
+				{
+					"id": 157257,
+					"title": "1000103944",
+					"file_name": "3224880e-5f55-476f-814b-762bc0e65938.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3224880e-5f55-476f-814b-762bc0e65938.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055632": [
+			"One of the spots where the commander stops to exercise",
+			[
+				{
+					"id": 157258,
+					"title": "1000103945",
+					"file_name": "e654251b-edd2-43f2-b866-9715d45f507d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e654251b-edd2-43f2-b866-9715d45f507d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055633": [
+			"One of the spots where the commander stops to exercise",
+			[
+				{
+					"id": 157259,
+					"title": "1000103946",
+					"file_name": "fa48eea6-f75f-49cc-be28-dad03914529d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa48eea6-f75f-49cc-be28-dad03914529d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055634": ["Activates after taking a picture of the base commander mid-exercise.", []],
+		"1055635": [
+			"",
+			[
+				{
+					"id": 157260,
+					"title": "1000103954",
+					"file_name": "cdf733f8-71eb-4566-8fae-6be15398091b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cdf733f8-71eb-4566-8fae-6be15398091b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055636": [
+			"On the rooftop; to reach it, you'll need to drop off the ledge and shimmy over.",
+			[
+				{
+					"id": 157261,
+					"title": "1000103955",
+					"file_name": "2fa142c3-a6f1-467e-886d-58cc203bd996.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2fa142c3-a6f1-467e-886d-58cc203bd996.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055637": [
+			"On the rooftop. To reach this spot, climb a ladder onto the southern building and roll across the rooftops.",
+			[
+				{
+					"id": 157262,
+					"title": "1000103956",
+					"file_name": "02eaf1bb-091a-4f89-b84d-aaf61e1debfd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/02eaf1bb-091a-4f89-b84d-aaf61e1debfd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055638": [
+			"On the rooftop. To reach this spot, climb a ladder onto the southern building and roll across the rooftops.\n\n_It's to die for!_",
+			[
+				{
+					"id": 157263,
+					"title": "1000103957",
+					"file_name": "d5d84eb4-1d33-4277-a276-32c1f0b52f77.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d5d84eb4-1d33-4277-a276-32c1f0b52f77.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055639": [
+			"Activates after looting all of the dead men's treasures.\n- [Dead Man's Treasure](#loc=1055635)\n- [Dead Man's Treasure](#loc=1055636)\n- [Dead Man's Treasure](#loc=1055637)\n- [Dead Man's Treasure](#loc=1055638)",
+			[]
+		],
+		"1055640": [
+			"One of five that must be collected to activate the [Extraction Point](#loc=1053268). Watch out for ghosts!",
+			[
+				{
+					"id": 157264,
+					"title": "1000103958",
+					"file_name": "37bdc7ae-ed38-4779-8b0b-742c293fe481.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37bdc7ae-ed38-4779-8b0b-742c293fe481.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055641": [
+			"One of five that must be collected to activate the [Extraction Point](#loc=1053268). Watch out for ghosts!",
+			[
+				{
+					"id": 157265,
+					"title": "1000103959",
+					"file_name": "9291ac53-607f-49f0-93e1-fbe2aa6eda3f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9291ac53-607f-49f0-93e1-fbe2aa6eda3f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055642": [
+			"One of five that must be collected to activate the [Extraction Point](#loc=1053268). Watch out for ghosts!",
+			[
+				{
+					"id": 157266,
+					"title": "1000103960",
+					"file_name": "3d1d82df-2ddd-40a7-910a-72f7af4f04b5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3d1d82df-2ddd-40a7-910a-72f7af4f04b5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055643": [
+			"One of five that must be collected to activate the [Extraction Point](#loc=1053268). Watch out for ghosts!",
+			[
+				{
+					"id": 157267,
+					"title": "1000103961",
+					"file_name": "f85d0217-3f35-40da-9c74-aff1518e3cb8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f85d0217-3f35-40da-9c74-aff1518e3cb8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055644": [
+			"One of five that must be collected to activate the [Extraction Point](#loc=1053268). Watch out for ghosts!",
+			[
+				{
+					"id": 157268,
+					"title": "1000103962",
+					"file_name": "8a1c20f0-8b60-4044-84a1-9aa1c95ee361.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a1c20f0-8b60-4044-84a1-9aa1c95ee361.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055645": [
+			"",
+			[
+				{
+					"id": 157269,
+					"title": "1000103963",
+					"file_name": "f3d04239-a876-44c6-9f03-cf9f1afecfcd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f3d04239-a876-44c6-9f03-cf9f1afecfcd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055646": [
+			"",
+			[
+				{
+					"id": 157270,
+					"title": "1000103964",
+					"file_name": "217dbb99-0061-4b5c-908c-606fddfecae2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/217dbb99-0061-4b5c-908c-606fddfecae2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055647": [
+			"",
+			[
+				{
+					"id": 157271,
+					"title": "1000103966",
+					"file_name": "7d108c5b-ba1a-4b24-bc08-6f550e8ede85.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d108c5b-ba1a-4b24-bc08-6f550e8ede85.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055648": [
+			"",
+			[
+				{
+					"id": 157272,
+					"title": "1000103967",
+					"file_name": "66299af9-3528-4a79-b320-847524d28e3f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66299af9-3528-4a79-b320-847524d28e3f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055649": [
+			"",
+			[
+				{
+					"id": 157273,
+					"title": "1000103968",
+					"file_name": "b1399dd2-1aa1-4143-b0d4-4329883ab1d6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b1399dd2-1aa1-4143-b0d4-4329883ab1d6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055650": [
+			"",
+			[
+				{
+					"id": 157274,
+					"title": "1000103969",
+					"file_name": "630dc9e7-ec88-408c-8e29-b997353f62ff.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/630dc9e7-ec88-408c-8e29-b997353f62ff.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055652": [
+			"Obtained through codec calls while near a ghost; when you hear the ghost of The End, the camouflage is unlocked after completing the mission.",
+			[]
+		],
+		"1055661": ["Activates after shooting all the balloons.", []],
+		"1055688": [
+			"",
+			[
+				{
+					"id": 157279,
+					"title": "1000103970",
+					"file_name": "1bb5f754-a513-4e62-8005-7072c0ad1306.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1bb5f754-a513-4e62-8005-7072c0ad1306.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055693": [
+			"Inside a room; drop in from above.",
+			[
+				{
+					"id": 157280,
+					"title": "1000103971",
+					"file_name": "15b8a74d-add0-41b9-8965-8747b02d3384.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/15b8a74d-add0-41b9-8965-8747b02d3384.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055740": [
+			"",
+			[
+				{
+					"id": 157284,
+					"title": "1000103972",
+					"file_name": "9f905d0f-16b9-473c-a68d-b7cdef514c26.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9f905d0f-16b9-473c-a68d-b7cdef514c26.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055741": [
+			"",
+			[
+				{
+					"id": 157285,
+					"title": "1000103973",
+					"file_name": "0aa56a7b-ac2b-4b46-affe-1dd71938d73a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0aa56a7b-ac2b-4b46-affe-1dd71938d73a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055742": [
+			"On top of a box. If playing solo, climb on top of a box to reach it.",
+			[
+				{
+					"id": 157286,
+					"title": "1000103974",
+					"file_name": "ff4f1d99-be4f-4175-b709-20284b051b5b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff4f1d99-be4f-4175-b709-20284b051b5b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055743": [
+			"",
+			[
+				{
+					"id": 157287,
+					"title": "1000103975",
+					"file_name": "c0117994-97e1-4f03-a2aa-1a577628130d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c0117994-97e1-4f03-a2aa-1a577628130d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055744": [
+			"",
+			[
+				{
+					"id": 157288,
+					"title": "1000103976",
+					"file_name": "0d9eb079-aae9-47dd-a9af-44a4dc637c46.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d9eb079-aae9-47dd-a9af-44a4dc637c46.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055747": [
+			"Can only be reached with the help of a co-op partner, or in [Extra Op 057](#loc=1055756)",
+			[
+				{
+					"id": 157289,
+					"title": "1000103977",
+					"file_name": "d4ab3e93-1cfb-4167-8861-997013016b4d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d4ab3e93-1cfb-4167-8861-997013016b4d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055756": [
+			"",
+			[
+				{
+					"id": 157290,
+					"title": "1000103978",
+					"file_name": "781d1810-544b-4eaa-b7b6-ad40d43d880a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/781d1810-544b-4eaa-b7b6-ad40d43d880a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055985": [
+			"",
+			[
+				{
+					"id": 157292,
+					"title": "1000103980",
+					"file_name": "47fbc566-bcb3-4fb9-bc53-621c879670ae.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/47fbc566-bcb3-4fb9-bc53-621c879670ae.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055986": [
+			"",
+			[
+				{
+					"id": 157291,
+					"title": "1000103981",
+					"file_name": "523a1089-19f0-4c82-a9b2-e4f9a4f42712.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/523a1089-19f0-4c82-a9b2-e4f9a4f42712.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1055987": ["Activates after holding up all 9 enemies.", []],
+		"1056302": [
+			"Only appears here when playing as Snake after listening to all of Chico's Geographical Info tapes in the Briefing Files menu. Approach to unlock some Monster Hunter crossover ops.",
+			[
+				{
+					"id": 157340,
+					"title": "1000103982",
+					"file_name": "e4f3e1ad-b18b-481e-8d88-48487e3d1e74.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4f3e1ad-b18b-481e-8d88-48487e3d1e74.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1056330": [
+			"Upper floor. If playing solo, he can only be rescued by the [Fulton Launcher](#loc=1044444)\n\n\n\nTo do so, bring a cardboard box and use it to get on top of a box at the south-western edge of the ground floor. From there, take aim at the spot in the screenshot above; with a bit of luck, the prisoner will be saved.",
+			[
+				{
+					"id": 157353,
+					"title": "1000103985",
+					"file_name": "7fb6ee88-55fa-46b0-8861-af5dcb5f28e2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7fb6ee88-55fa-46b0-8861-af5dcb5f28e2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1056346": [
+			"Obtained by knocking out Kaz and searching him while he's unconscious.",
+			[
+				{
+					"id": 157354,
+					"title": "1000103986",
+					"file_name": "9df15360-b2a9-4bdc-8a84-b37ed3b17d51.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9df15360-b2a9-4bdc-8a84-b37ed3b17d51.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063564": [
+			"Can be used to cook rations so they restore more health - but only if you time it right!\n\n\n\nThe nearby Felyne can also be spoken to with Co-Op Comms, and can help fight the monster.",
+			[]
+		],
+		"1063565": ["Activates after shooting all of the balloons.", []]
+	}
+}

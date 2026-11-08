@@ -140,7 +140,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "twilight-town/data.compact.json"
 		},
 		{
 			"slug": "kingdom-of-corona",
@@ -156,7 +157,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "kingdom-of-corona/data.compact.json"
 		},
 		{
 			"slug": "monstropolis",
@@ -172,7 +174,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "monstropolis/data.compact.json"
 		},
 		{
 			"slug": "olympus",
@@ -188,7 +191,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "olympus/data.compact.json"
 		},
 		{
 			"slug": "the-caribbean",
@@ -204,7 +208,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "the-caribbean/data.compact.json"
 		},
 		{
 			"slug": "toy-box",
@@ -220,7 +225,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "toy-box/data.compact.json"
 		},
 		{
 			"slug": "keyblade-graveyard",
@@ -237,7 +243,8 @@
 					"tileSize": 256,
 					"background": "#614440"
 				}
-			]
+			],
+			"compact": "keyblade-graveyard/data.compact.json"
 		},
 		{
 			"slug": "san-fransokyo",
@@ -254,7 +261,8 @@
 					"tileSize": 256,
 					"background": "#40279c"
 				}
-			]
+			],
+			"compact": "san-fransokyo/data.compact.json"
 		},
 		{
 			"slug": "arendelle",
@@ -270,7 +278,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "arendelle/data.compact.json"
 		},
 		{
 			"slug": "remind",
@@ -287,7 +296,8 @@
 					"tileSize": 256,
 					"background": "#614440"
 				}
-			]
+			],
+			"compact": "remind/data.compact.json"
 		}
 	]
 }

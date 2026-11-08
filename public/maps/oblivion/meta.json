@@ -27,7 +27,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "cyrodiil/data.compact.json"
 		},
 		{
 			"slug": "shivering-isles",
@@ -43,7 +44,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "shivering-isles/data.compact.json"
 		}
 	],
 	"icons": {

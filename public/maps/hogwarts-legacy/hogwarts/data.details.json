@@ -1,0 +1,2006 @@
+{
+	"v": 1,
+	"d": {
+		"252490": ["**Location:** In the corridor leading to the Map Chamber.", []],
+		"252491": ["**Location:** Against the southern wall.  \n**Contents:** 500 galleons", []],
+		"252493": ["**Location:** Circling around the stone archway  \n**How to Acquire:** Accio", []],
+		"252495": [
+			"**Location:** Dungeons - Against the northern wall.  \n**Associated Key:** [Daedalian Key](#loc=253198)",
+			[]
+		],
+		"252496": [
+			"**Location:** After going through the first [Toad Statue](#loc=252499).  \n**How to Acquire:** Levioso",
+			[]
+		],
+		"252497": ["**Location:** Under the troll statue.", []],
+		"252498": [
+			"**Location:** At the end of the Toad Statue chain; start [here](#loc=252499), then travel from statue to statue, following the dotted lines.",
+			[]
+		],
+		"252499": [
+			"On interaction, teleports you to the associated Toad Statue; leads to the [Legendary Chest](#loc=252498).",
+			[]
+		],
+		"252501": ["**Location:** Just past the class door.  \n**How to Acquire:** Revelio", []],
+		"252503": ["**Location:** Just left of the entrance of the class.", []],
+		"252504": ["**Location:** On the desk in the corner of the Alchemy Class.", []],
+		"252506": [
+			"**Location:** On the desk, in the corner of the Muggle Studies classroom.",
+			[
+				{
+					"id": 110231,
+					"title": "",
+					"file_name": "1107f33b-4f09-4dff-a77b-e8b9f67394e6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1107f33b-4f09-4dff-a77b-e8b9f67394e6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252509": [
+			"**Location:** At the bottom of the stairs leading into the Dungeons.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252510": ["**Location:** In front of the urn on the dresser.  \n**How to Acquire:** Revelio", []],
+		"252511": [
+			"**Location:** On the top landing, left of the hallway.  \n**Associated Key:** [Daedalian Key](#loc=253202)",
+			[]
+		],
+		"252512": ["**Location:** In front of the southern-most tapestry.  \n**How to Acquire:** Revelio", []],
+		"252513": ["**Location:** In the northern corner of the room.", []],
+		"252515": ["**Location:** In front of the display case.  \n**How to Acquire:** Revelio", []],
+		"252516": [
+			"**Location:** On the 2nd landing, in front of the scorch marks.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252517": ["**Location:** In front of the door leading to the Long Gallery.", []],
+		"252519": ["**Location:** In front of the display case.  \n**How to Acquire:** Revelio", []],
+		"252520": ["**Location:** In the corner between a stairwell and carved wooden face.", []],
+		"252521": [
+			"**Location:** Bell Tower Courtyard entrance. Next to the door.    \n\n**How to Acquire:** Revelio",
+			[]
+		],
+		"252522": ["**Location:** Just past the front door, on the left.  \n**How to Acquire:** Revelio", []],
+		"252523": ["**Location:** Just right of the door, on a pedestal  \n**How to Acquire:** Revelio", []],
+		"252524": ["**Location:** In the corner of the higher landing.  \n**How to Acquire:** Any Fire spell", []],
+		"252525": [
+			"**Solution:**\n- (?): Just left of the door; Graphorn\n- (??): To the right, between the statue and the staircase; Unicorn",
+			[]
+		],
+		"252526": [
+			"**Solution:**\n- (?): Against the southern curved wall; Owl\n- (??): In the western alcove, left of the stairs; Quintaped",
+			[]
+		],
+		"252527": ["**Location:** In the [Arithmancy Door](#loc=252526) room.", []],
+		"252529": [
+			"**Location:** In front of the empty portrait, past the [Arithmancy Door](#loc=252525)  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252530": ["Interact with the portrait to get frozen, as if by Petrificus Totalus.", []],
+		"252531": ["**Location:** In the [Arithmancy Door](#loc=252525) room.", []],
+		"252532": ["**Location:** In the [Arithmancy Door](#loc=252525) room.", []],
+		"252533": ["**Location:** On the table, in front of the tapestry", []],
+		"252534": [
+			"**Location:** Halfway through the Long Gallery  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=252535) back.",
+			[]
+		],
+		"252535": [
+			"**Location:** On top of the troll statue  \n**Corresponding portrait:** [Lumos Painting](#loc=252534)",
+			[]
+		],
+		"252537": [
+			"**Location:** On a crate, in the locked room off of the long hallway below Central Hall. (Lock Level II)",
+			[]
+		],
+		"252538": ["**Location:** On the floor of the locked room.", []],
+		"252539": [
+			"**Location:** At the eastern end of the Long Gallery, at the base of the stairs.  \n**Associated Key:** [Daedalian Key](#loc=253054)",
+			[]
+		],
+		"252542": ["**Location:** In a secret room behind the owl statue; interact with it to flip the door open.", []],
+		"252544": ["**Location:** Just left of the door.", []],
+		"252545": ["**Location:** At the end of the planters, on the ground.", []],
+		"252547": ["**Location:** On the platform above the greenhouse.", []],
+		"252548": ["**Location:** At the end of the curved hallway.  \n**Contents:** 500 galleons", []],
+		"252549": ["**Location:** In front of the potted tree.  \n**How to Acquire:** Revelio", []],
+		"252550": ["**Location:** In the corner of the greenhouse, behind the Venomous Tentaculas.", []],
+		"252551": ["**Associated Quest:** [Venomous Valour](#loc=252602)", []],
+		"252552": ["**Location:** On the platform above the greenhouse.", []],
+		"252553": [
+			"**Location:** In front of the large tree, on the southern side.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252554": [
+			"**Location:** Flying high in the library; access it from the higher floor.  \n**How to Acquire:** Accio",
+			[]
+		],
+		"252556": ["**Location:** On the floor, in the locked room.", []],
+		"252557": ["**Location:** At the end of the locked room.  \n**How to Acquire:** Levioso", []],
+		"252559": ["**Location:** On the raised balcony.  \n**How to Acquire:** Any Fire spell.", []],
+		"252560": ["**Location:** On the counter between the 2 main doors.", []],
+		"252561": [
+			"**Location:** Fluttering amidst the bookshelves.  \n**Associated cabinet:** [House Cabinet](#loc=252564)",
+			[]
+		],
+		"252562": ["**Location:** In the room beyond the fireplace; requires Glacius to access.", []],
+		"252563": ["**Location:** Against the back wall, on the 1st floor of the library.", []],
+		"252564": [
+			"**Location:** Against the back wall  of the library, on the 1st floor.  \n**Associated Key:** [Daedalian Key](#loc=252561)",
+			[]
+		],
+		"252565": ["**Location:** On the raised wooden dais, behind the staircase.", []],
+		"252566": [
+			"**Location:** In the alcove, on the 2nd floor.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=252567) back.",
+			[]
+		],
+		"252567": [
+			"**Location:** On the lectern, facing the library.  \n**Corresponding portrait:** [Lumos Painting](#loc=252566)",
+			[]
+		],
+		"252568": ["**Location:** In the Restricted Section, in front of the grate.", []],
+		"252569": ["**Location:** Behind the grate; access from the other side.  \n**Lock:** Level I", []],
+		"252570": ["**Location:** In front of the jumping book on the shelf.  \n**How to Acquire:** Revelio", []],
+		"252571": ["**Location:** To the right of the staircase.", []],
+		"252572": ["**Location:** At the start of the hallway  \n**Contents:** 500 galleons", []],
+		"252573": [
+			"**Location:** In the Library Restricted Section on the dresser, just before the door.",
+			[
+				{
+					"id": 31856,
+					"title": "",
+					"file_name": "0c56aae8-8758-4206-aab7-3adaba023d43.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c56aae8-8758-4206-aab7-3adaba023d43.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252574": ["**Location:** In front of the staircase.  \n**How to Acquire:** Levioso", []],
+		"252575": [
+			"**Location:** On the table in the corner of the room.",
+			[
+				{
+					"id": 34212,
+					"title": "",
+					"file_name": "dbdb4527-6000-41f8-a497-0027dddcd6e4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dbdb4527-6000-41f8-a497-0027dddcd6e4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252576": ["**Location:** In the small room, in front of the door.", []],
+		"252577": ["**Location:** On the lower platform.", []],
+		"252579": ["**Location:** In front of the fountain, on the northern side.  \n**How to Acquire:** Revelio", []],
+		"252580": ["**Location:** Flying near the southern door.  \n**How to Acquire:** Accio", []],
+		"252581": [
+			"**Solution:**\n- (?): Just left of the door; Spider\n- (??): On the landing above the door, take the staircase behind it to access; Snake",
+			[]
+		],
+		"252582": ["**Location:** In the [Arithmancy Door](#loc=252581) room.", []],
+		"252583": ["**Location:** In the [Arithmancy Door](#loc=252581) room.", []],
+		"252584": [
+			"**Location:** On the lower landing, in front of the Arithmancy Door.  \n**Associated Key:** [Daedalian Key](#loc=253056)",
+			[]
+		],
+		"252585": ["**Location:** In front of the statue, on the lower landing.  \n**How to Acquire:** Revelio", []],
+		"252586": ["**Location:** Against the wall, in the corridor leading to the classroom.", []],
+		"252590": [
+			"**Location:** Behind Professor Sharp's desk.",
+			[
+				{
+					"id": 43672,
+					"title": "",
+					"file_name": "0f4ce91b-a9da-4dc6-a836-e016f7c742d5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f4ce91b-a9da-4dc6-a836-e016f7c742d5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252591": [
+			"**Location:** On the southern side of the table.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 43671,
+					"title": "",
+					"file_name": "5efa45f9-811e-4757-85f8-61815fc39ec4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5efa45f9-811e-4757-85f8-61815fc39ec4.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252593": [
+			"**Location:** Under the roofed area of the courtyard, against the wall.  \n**How to Acquire:** Levioso",
+			[]
+		],
+		"252594": ["**Location:** In the corner of the courtyard.", []],
+		"252599": [
+			"**Location:**  In front of the Wyvern Fountain in the Transfiguration Courtyard.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252600": [
+			"**Requirements:** Start of \"The Locket's Secret\" main quest  \n**How To Begin:** Speak with Nellie Oggspire in the Transfiguration Courtyard  \n**Rewards:**\n- Collectible House Robe",
+			[]
+		],
+		"252601": ["**Location:** Under the roofed portion of the courtyard, near the classroom.", []],
+		"252602": [
+			"**Prerequisite:** Complete Professor Hecat's Assignment I.  \n**Spells:** Incendio.  \n**How To Begin:** Talk to Duncan Hobhouse   \n**Rewards:**\n- Appearances (Venomous Tentacula Robe)\n\n_Duncan Hobhouse seems to have a Puffskein problem. I wonder if I can help him out._",
+			[]
+		],
+		"252604": [
+			"**Requirements:** ??  \n**How To Begin:** Speak to Zenobia Noke  \n**Rewards:**\n- Wand Handles",
+			[]
+		],
+		"252605": [
+			"**Location:** In the corner of the room, on top of the locked staircase.  \n**How to Acquire:** Levioso",
+			[]
+		],
+		"252606": ["**Location:** In the room, at the top of the locked staircase.", []],
+		"252607": ["**Location:** In the upper hall, near Zenobia Noke   \n**Contents:** 500 galleons", []],
+		"252608": ["**Requirements:** ??  \n**Rewards:** _Confringo_ spell", []],
+		"252611": ["**Location:** Upstairs in the Defence Against The Dark Arts tower", []],
+		"252614": ["**Location:** In the locked room.", []],
+		"252615": ["**Location:** In the locked room.", []],
+		"252616": ["**Location:** In front of the cage.  \n**How to Acquire:** Revelio", []],
+		"252618": ["**Location:** In front of the sphinx statue  \n**How to Acquire:** Revelio", []],
+		"252620": [
+			"**Location:** In the small alcove under the stairs in the Quad Courtyard.  \n**Lock:** Level I",
+			[]
+		],
+		"252621": [
+			"**Location:** Against the wall, on the lower level.  \n**Associated Key:** [Daedalian Key](#loc=253315)",
+			[]
+		],
+		"252625": ["**Location:** In the locked room.", []],
+		"252628": ["**Location:** Flying in circles around the stone pillars.  \n**How to Acquire:** Accio", []],
+		"252629": ["**Location:** At the end of the corridor.  \n**How to Acquire:** Levioso", []],
+		"252630": ["**Location:** At the end of the hallway, in front of the statue.  \n**Lock:** Level II", []],
+		"252631": ["**Location:** In the Undercroft, against the north-western wall.", []],
+		"252632": ["**Location:** In front of the stained windows.  \n**How to Acquire:** Revelio", []],
+		"252633": ["**Location:** In the Undercroft, against one of the central pillars", []],
+		"252634": ["**Location:** In the Undercroft, against the southern wall by the barrels", []],
+		"252635": [
+			"**Location:** On the first landing, against the eastern wall.  \n**How to Acquire:** Lumos to reveal the painting, the bring the [Moth](#loc=252636) back.",
+			[]
+		],
+		"252636": [
+			"**Location:** On the potted plant.  \n**Corresponding portrait:** [Lumos Painting](#loc=252635)",
+			[]
+		],
+		"252637": [
+			"**Requirements:** Start Ravenclaw house specific main quest \"Olivander's Heirloom\"  \n\n**How To Begin:** Pick up the map at the very top of the Owlery tower    \n\n**Rewards:**\n- Appearances",
+			[]
+		],
+		"252638": [
+			"**Location:** At the top of the stairs, against the eastern wall.  \n**Associated Key:** [Daedalian Key](#loc=253366)",
+			[]
+		],
+		"252640": [
+			"**Location:** In front of the lectern, at the bottom of the auditorium.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252641": [
+			"**Requirements:** Start of \" The Locket's Secret\" main quest  \n**How To Begin:** Speak to Arthur Plummly    \n**Rewards:** 180 XP",
+			[]
+		],
+		"252643": ["**Location:** In the corner of the narrow hallway.", []],
+		"252644": [
+			"**Location:** At the end of the narrow hallway, just before the auditorium.  \n**Contents:** 500 galleons",
+			[]
+		],
+		"252646": ["**Location:** Just inside the Room of Requirement", []],
+		"252647": [
+			"**Requirements:** Level 5, Room of Requirement Unlocked  \n**How To Begin:** Speak with Professor Weasley in the Room of Requirement  \n**Rewards:**\n- 180xp\n- Altering Spell\n- 2x Conjuration Spellcraft\n- Increases the size of the Room of Requirement",
+			[]
+		],
+		"252649": ["Staircase, leading further up the Bell Tower.", []],
+		"252650": [
+			"**Location:** From [Towards the Bell Tower](#loc=252649), climb the staircase; the chest is at the end of the first landing, underneath a portrait.",
+			[]
+		],
+		"252652": [
+			"**Location:** From [Towards the Bell Tower](#loc=252649), climb the wooden staircase all the way up. The chest is on the balcony, in an alcove.",
+			[]
+		],
+		"252653": [
+			"**Location:** From [Towards the Bell Tower](#loc=252649), climb the wooden staircase all the way up. The chest is on the balcony, against a wall.",
+			[]
+		],
+		"252654": [
+			"**Location:** From [Towards the Bell Tower](#loc=252649), climb the wooden staircase all the way up. Then, interact with the Frog Statue to teleport to a nearby tower; the chest is against a wall.",
+			[]
+		],
+		"252655": [
+			"**Location:** From [Towards the Bell Tower](#loc=252649), climb the wooden staircase all the way up. Then, interact with the Frog Statue to teleport to a nearby tower; the chest is against a wall.",
+			[]
+		],
+		"252657": [
+			"**Location:** In the locked room, in the closest alcove.  \n**How to Acquire:** Any Fire spell",
+			[]
+		],
+		"252658": ["**Solution:**\n- (?): Just left of the door; Lizard\n- (??): Just right of the door; Snake", []],
+		"252659": ["**Location:** In the [Arithmancy Door](#loc=252658) room.", []],
+		"252660": ["**Location:** In the [Arithmancy Door](#loc=252658) room.", []],
+		"252663": [
+			"**Location:** On a dresser, in the locked room (Lock Level II).",
+			[
+				{
+					"id": 32735,
+					"title": "",
+					"file_name": "15408b81-c7b9-4732-ba22-d1f6a3639738.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/15408b81-c7b9-4732-ba22-d1f6a3639738.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252664": ["**Location:** In the locked room, just past the door.", []],
+		"252666": [
+			"**Location:** In the locked room, at the end of the table.",
+			[
+				{
+					"id": 137547,
+					"title": "",
+					"file_name": "b3ba83c9-3be7-4093-be46-5f2ec662b2f8.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3ba83c9-3be7-4093-be46-5f2ec662b2f8.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252667": ["**Location:** In the locked room, against the northern wall.", []],
+		"252668": [
+			"**Location:** At the end of the locked room, in front of the closet.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 149387,
+					"title": "",
+					"file_name": "fc8ddbe3-87b6-4b06-a14a-f806c20c0349.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc8ddbe3-87b6-4b06-a14a-f806c20c0349.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252671": [
+			"**Location:** Just beyond the door to the Pungent Passage  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=252672) back.",
+			[]
+		],
+		"252672": [
+			"**Location:** In front of the centaur mural.  \n**Corresponding portrait:** [Lumos Painting](#loc=252671)",
+			[]
+		],
+		"252673": ["**Location:** Against the wall, between two murals.", []],
+		"252675": [
+			"**Location:** In the middle of the Pungent Passage, in front of the southern wall.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 149309,
+					"title": "",
+					"file_name": "41bf25cb-71ee-4fbf-b931-389a9cb67870.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41bf25cb-71ee-4fbf-b931-389a9cb67870.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252676": ["**Location:** On the ground, beside the Floo Flame.", []],
+		"252677": ["**Location:** In front of the display case.  \n**How to Acquire:** Revelio", []],
+		"252678": [
+			"**Location:** On a balcony, against the wall  \n**Associated Key:** [Daedalian Key](#loc=253365)",
+			[]
+		],
+		"252681": ["**Location:** In the locked office, against the wall.", []],
+		"252682": ["**Location:** In the locked office, on the desk.", []],
+		"252684": ["**Location:** Just before the door.", []],
+		"252685": [
+			"**Location:** On the middle wooden pillar.  \n**Corresponding portrait:** [Lumos Painting](#loc=252686)",
+			[]
+		],
+		"252686": [
+			"**Location:** Against the wall, in the middle of the landing.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=252685) back.",
+			[]
+		],
+		"252687": ["**Location:** On the floor of the bathroom.", []],
+		"252688": ["**Location:** Near the bathroom door.", []],
+		"252690": ["**Location:** Against the far wall of the bathroom.  \n**Contents:** 500 galleons", []],
+		"252691": ["**Location:** On the instructor's desk.", []],
+		"252692": [
+			"**Location:** On a table behind Fig's desk.",
+			[
+				{
+					"id": 109811,
+					"title": "",
+					"file_name": "4ecf40bf-4b4d-4b75-b512-ea62c89217bb.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ecf40bf-4b4d-4b75-b512-ea62c89217bb.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252693": ["**Location:** In the corner of Fig's office.", []],
+		"252694": [
+			"**Location:** High on a wall, opposite of the balcony.  \n**How to Acquire:** Confringo; Accio",
+			[]
+		],
+		"252695": ["**Location:** At the end of the balcony.  \n**Lock:** Level I", []],
+		"252696": [
+			"**Location:** Flying in loops, just outside the Charms classroom.  \n**How to Acquire:** Accio",
+			[]
+		],
+		"252697": ["**Location:** On the floor, beside the staircase.", []],
+		"252698": ["**Location:** At the foot of the bed.", []],
+		"252699": ["**Location:** On the floor, against the northeast wall.", []],
+		"252701": ["**Location:** At the end of the bedroom.  \n**Lock:** Level I", []],
+		"252702": ["**Solution:**\n- (?): Just left of the door; Graphorn\n- (??): Just right of the door; Squid", []],
+		"252703": ["**Location:** On the floor, in the [Arithmancy Door](#loc=252702) room.", []],
+		"252704": ["**Location:** In the far corner of the [Arithmancy Door](#loc=252702) room.", []],
+		"252708": ["**Location:** Behind the desk.", []],
+		"252709": ["**Location:** Underneath the window", []],
+		"252711": ["**Location:** In the corner of the balcony.", []],
+		"252713": ["**Location:** Just past the locked door.  \n**How to Acquire:** Revelio", []],
+		"252714": ["**Location:** Just past the locked door, on the right.", []],
+		"252715": ["**Location:** At the end of the cell, behind the locked door.", []],
+		"252716": ["**Location:** At the base of the spiralling staircase.  \n**How to Acquire:** Levioso", []],
+		"252718": [
+			"**Location:** In front of the Room of Requirement  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 31785,
+					"title": "",
+					"file_name": "c149a133-669e-4935-8e65-15ebfa4b7699.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c149a133-669e-4935-8e65-15ebfa4b7699.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252719": ["**Location:** In front of the classroom.", []],
+		"252720": [
+			"**Location:** In the classroom, near the top of the Astronomy Tower.  \n**Associated Key:** [Daedalian Key](#loc=267512)",
+			[]
+		],
+		"252722": ["**Location:** Underneath the spiraling staircase.", []],
+		"252723": [
+			"**Location:** Next to the fireplace.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=252724) back.",
+			[]
+		],
+		"252724": [
+			"**Location:** On top of the blackboard.  \n**Corresponding portrait:** [Lumos Painting](#loc=252723)",
+			[]
+		],
+		"252725": ["**Location:** In front of the giant telescope.  \n**How to Acquire:** Revelio", []],
+		"252726": ["**Location:** On a drawer, near the stairs.", []],
+		"252727": ["**Location:** At the end of the small room.  \n**How to Acquire:** Any Fire spell.", []],
+		"252729": ["**Location:** On the landing against the southeast wall.", []],
+		"252730": [
+			"**Location:** On the landing, just left of the staircase.  \n**Associated Key:** [Daedalian Key](#loc=252767)",
+			[]
+		],
+		"252731": [
+			"**Requirements:** Any Fire spell.  \n**Solution:** Light all 4 braziers on the bridge. Then, interact with them to rotate their number, so they match the key found on the northern side. The code is:\n- Northern pillar: IV\n- Western pillar: II\n- Southern pillar: III\n- Eastern pillar: I",
+			[]
+		],
+		"252732": [
+			"**Location:** Under the bridge; solve the [Bridge Puzzle](#loc=252731) to access.",
+			[
+				{
+					"id": 137546,
+					"title": "",
+					"file_name": "742ff4bd-cbe1-4134-9628-0a53fa9cfd04.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/742ff4bd-cbe1-4134-9628-0a53fa9cfd04.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252733": ["**Location:** Under the bridge; solve the [Bridge Puzzle](#loc=252731) to access.", []],
+		"252734": ["**Location:** Under the bridge; solve the [Bridge Puzzle](#loc=252731) to access.", []],
+		"252767": ["**Location:** Under the staircase.  \n**Associated cabinet:** [House Cabinet](#loc=252730)", []],
+		"252768": ["**Location:** In front of a portrait, on the narrow corridor.  \n**How to Acquire:** Revelio", []],
+		"252769": ["**Location:** Just past the staircase.", []],
+		"252770": [
+			"After reaching the top of the staircase, a metal ladder will drop down, granting access to the Divination classroom.",
+			[]
+		],
+		"252771": [
+			"**Location:** In the Divination classroom, on the teacher's desk.",
+			[
+				{
+					"id": 31854,
+					"title": "",
+					"file_name": "61dcb5a9-4509-4ddd-92a7-b51a9d435ecf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61dcb5a9-4509-4ddd-92a7-b51a9d435ecf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252772": [
+			"**Location:** Inside the [Divination classroom](#loc=252770), in front of the inner circle of tables.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252774": [
+			"Helps open Arithmancy puzzles.",
+			[
+				{
+					"id": 31789,
+					"title": "",
+					"file_name": "39587592-8c3b-4837-a012-cd39946a9959.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/39587592-8c3b-4837-a012-cd39946a9959.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252775": ["**Solution:**\n- (?): Just left of the door; Owl\n- (??): Just right of the door; Snake", []],
+		"252776": ["**Location:** In the hallway beyond the [Arithmancy Door](#loc=252775)", []],
+		"252777": ["**Location:** Against the wall.", []],
+		"252778": ["**Solution:**\n- (?): Just left of the door; Owl\n- (??): Just right of the door; Quintaped", []],
+		"252779": ["**Location:** Beyond the [Arithmancy Door](#loc=252778)", []],
+		"252780": ["**Location:** Beyond the [Arithmancy Door](#loc=252778)", []],
+		"252781": ["**Solution:**\n- (?): Just left of the door; Lizard\n- (??): Just right of the door; Unicorn", []],
+		"252782": ["**Location:** Beyond the [Arithmancy Door](#loc=252781)", []],
+		"252783": ["**Location:** Beyond the [Arithmancy Door](#loc=252781)", []],
+		"252784": ["**Location:** Just past the front door to the classroom.  \n**How to Acquire:** Revelio", []],
+		"252785": [
+			"**Location:** At the end of the wooden walkway.  \n**Contents:** 500 galleons",
+			[
+				{
+					"id": 34211,
+					"title": "",
+					"file_name": "4b550f4f-b4f0-42eb-a79b-68c12fedbf37.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4b550f4f-b4f0-42eb-a79b-68c12fedbf37.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252786": ["**Location:** At the end of the wooden walkway.", []],
+		"252787": ["**Location:** At the entrance of the covered bridge.", []],
+		"252788": ["**Location:** On the south side of the fountain.  \n**How to Acquire:** Revelio", []],
+		"252790": ["**Location:** Inside the locked room.", []],
+		"252791": [
+			"**Location:** Inside the locked room.  \n**How to Acquire:** Lumos to reveal the painting, the bring the [Moth](#loc=252792) back.",
+			[]
+		],
+		"252792": [
+			"**Location:** On a pillar, at the end of the covered portion of the courtyard.  \n**Corresponding portrait:** [Lumos Painting](#loc=252791)",
+			[]
+		],
+		"252794": ["**Location:** On a wooden box next to a table with 5 helms on it.", []],
+		"252795": ["**Location:** In the fenced area.", []],
+		"252799": ["Part of the [Clock Tower Puzzle](#loc=252800).", []],
+		"252800": [
+			"**Solution:** Using either Glacius or Arresto Momentum, stop the pendulum at one of four positions to unlock its corresponding door. Enter all 4 doors to complete the puzzle. From left to right (when looking from the platform), the positions are:\n- [Unicorn Door](#loc=252799)\n- [Angry Face Door](#loc=252805)\n- [Twin Dragon Door](#loc=252809)\n- [Praying Mantis Door](#loc=252807)",
+			[]
+		],
+		"252801": ["**Location:** On a table, behind the [Unicorn Door](#loc=252799).", []],
+		"252802": ["**Location:** Beside the door leaving the courtyard.", []],
+		"252803": ["**Location:** In the fenced area of the courtyard.  \n**How to Acquire:** Levioso", []],
+		"252804": [
+			"**Location:** Flying high in the Clock Tower; access from this platform.  \n**How to Acquire:** Accio",
+			[]
+		],
+		"252805": ["Part of the [Clock Tower Puzzle](#loc=252800)", []],
+		"252806": ["**Location:** Behind the [Angry Face Door](#loc=252805)  \n**Contents:** 500 galleons", []],
+		"252807": ["Part of the [Clock Tower Puzzle](#loc=252800)", []],
+		"252808": ["**Location:** Beyond the [Praying Mantis Door](#loc=252807)", []],
+		"252809": ["Part of the [Clock Tower Puzzle](#loc=252800)", []],
+		"252810": ["**Location:** Beyond the [Twin Dragon Door](#loc=252809)", []],
+		"252811": ["**Location:** Beyond the [Twin Dragon Door](#loc=252809)", []],
+		"252812": [
+			"**Location:** At the western end of the walkway.  \n**Associated Key:** [Daedalian Key](#loc=253385)",
+			[]
+		],
+		"252813": [
+			"**Location:** On the highest wooden platform, facing the gears.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252814": ["**Location:** On the raised wooden platform.", []],
+		"252815": [
+			"**Location:** High up against the wall; access from the wooden platform just west.  \n**How to Acquire:** Confringo; Accio",
+			[]
+		],
+		"252818": ["**Location:** In front of the spiraling staircase.", []],
+		"252819": ["**Location:** In front of the fountain.  \n**How to Acquire:** Revelio", []],
+		"252820": ["**Location:** On a nightstand, between two beds.", []],
+		"252821": ["**Location:** Flying around in the hospital wing.  \n**How to Acquire:** Accio", []],
+		"252825": ["**Location:** Behind the locked door.", []],
+		"252826": ["**Location:** In the center of the staircase alcove.  \n**How to Acquire:** Revelio", []],
+		"252827": [
+			"**Location:** Just north of the spiraling staircase.  \n**Associated Key:** [Daedalian Key](#loc=253191)",
+			[]
+		],
+		"252828": ["**Location:** At the bottom of the spiraling staircase.  \n**How to Acquire:** Levioso", []],
+		"252829": ["**Location:** At the end of the wooden walkway.  \n**Lock:** Level I", []],
+		"252830": ["**Location:** Underneath the window, by a locked door.  \n**How to Acquire:** Revelio", []],
+		"252832": ["**Location:** Flying around the staircase  \n**How to Acquire:** Accio", []],
+		"252833": [
+			"**Location:** In the middle of the hallway.  \n**Associated cabinet:** [House Cabinet](#loc=252834)",
+			[]
+		],
+		"252834": [
+			"**Location:** At the bottom of the staircase, in the alcove.  \n**Associated Key:** [Daedalian Key](#loc=252833)",
+			[]
+		],
+		"252837": ["Only accessible to witches.", []],
+		"252838": [
+			"**Solution:**\n- (?): Just left of the door; Demiguise\n- (??): On the opposite wall of (?); Hydra",
+			[]
+		],
+		"252839": [
+			"**Location:** Beyond the [Arithmancy Door](#loc=252838), on a branching walkway under a window.",
+			[]
+		],
+		"252840": ["**Location:** Beyond the [Arithmancy Door](#loc=252838); at the end of the wooden walkway.", []],
+		"252844": ["**Location:** On the dresser.", []],
+		"252847": ["**Location:** Beyond the locked door.", []],
+		"252848": [
+			"**Location:** In front of the bookcase.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 149388,
+					"title": "",
+					"file_name": "cc504ca0-6327-49cf-bf9f-d8726bd9df5b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc504ca0-6327-49cf-bf9f-d8726bd9df5b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252849": ["**Location:** At the foot of the bed.", []],
+		"252853": ["**Location:** In front of the bed.", []],
+		"252854": ["**Location:** In the corner of the bedroom.  \n**Lock:** Level II", []],
+		"252855": ["**Location:** Beside the fireplace.", []],
+		"252858": ["**Location:** On the dresser.", []],
+		"252859": ["**Location:** On the dresser.", []],
+		"252860": ["**Location:** In front of the Fat Lady.  \n**How to Acquire:** Revelio", []],
+		"252861": ["Only lets Gryffindor students through", []],
+		"252862": ["**Location:** In the alcove facing the One-Eyed Witch", []],
+		"252864": ["**Location:** In front of the One-Eyed Witch  \n**How to Acquire:** Revelio", []],
+		"252865": [
+			"**Location:** In the corridor leading from the Grand Staircase to the Reception Hall.  \n**Associated Key:** [Daedalian Key](#loc=253226)",
+			[]
+		],
+		"252866": [
+			"**Solution:**\n- (?): Just left of the door; Demiguise - 0\n- (??): From the door, head northeast, take the stairs down then head back southwest. (??) is roughly under the door; Quintaped – 5",
+			[]
+		],
+		"252867": ["**Location:** Beyond the [Arithmancy Door](#loc=252866)", []],
+		"252868": ["**Location:** Beyond the [Arithmancy Door](#loc=252866)", []],
+		"252869": ["**Location:** Flying in a circle around the central pillar.  \n**How to Acquire:** Accio", []],
+		"252870": ["**Location:** In the alcove leading towards Ravenclaw Tower.  \n**How to Acquire:** Levioso", []],
+		"252871": ["**Location:** At the end of the hallway connecting the Grand Staircase to Ravenclaw Tower.", []],
+		"252872": ["**Location:** On a small round table.", []],
+		"252873": [
+			"**Location:** At the bottom of the spiral staircase, near the door toward the Viaduct Entrance.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=252874) back.",
+			[]
+		],
+		"252874": [
+			"**Location:** On the wall, underneath the paintings.  \n**Corresponding portrait:** [Lumos Painting](#loc=252873)",
+			[]
+		],
+		"252875": ["**Location:** Halfway up the Ravenclaw Tower staircase.  \n**How to Acquire:** Revelio", []],
+		"252876": ["Only lets Ravenclaw students through.", []],
+		"252878": [
+			"**Location:** Between the two large rooms.  \n**Note:** Only activates for Ravenclaw students.",
+			[]
+		],
+		"252879": [
+			"**Location:** At the very bottom of the Ravenclaw rooms, underneath the staircase.  \n**Lock:** Level III",
+			[]
+		],
+		"252880": ["**Location:** Just beyond the door.  \n\n**Lock:** Level II", []],
+		"252881": ["**Location:** Underneath the stained windows.  \n**Lock:** Level I", []],
+		"252887": ["**Location:** Under the stone arch.", []],
+		"252888": ["**Location:** Behind wooden double doors.", []],
+		"252889": ["**Location:** In [Madam Kogawa's Office](#loc=252891), just past the door.", []],
+		"252891": [
+			"A small room outside the castle, accessible from a staircase beside the Summoner's Court. Contains:\n- [Small Chest](#loc=252889)\n- [Letter from Imelda Reyes](#loc=252892)\n- [Letter From Professor Wealsey](#loc=252893)\n- [Locked Chest](#loc=252894)",
+			[]
+		],
+		"252892": ["**Location:** [Madam Kogawa's Office](#loc=252891)", []],
+		"252893": ["**Location:** [Madam Kogawa's Office](#loc=252891)", []],
+		"252894": [
+			"**Location:** [Madam Kogawa's Office](#loc=252891) - Against the far wall.  \n**Lock:** Level II",
+			[]
+		],
+		"252895": ["**Location:** Behind Summoner's Court.", []],
+		"252896": ["Gladwin Moon's room", []],
+		"252897": [
+			"**Location:** On a dresser, on the 1st floor.",
+			[
+				{
+					"id": 137548,
+					"title": "",
+					"file_name": "e3b56f18-1420-4e3e-ae3c-b744a21aa6c4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3b56f18-1420-4e3e-ae3c-b744a21aa6c4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252898": ["**Location:** On the 1st floor, on the ground.", []],
+		"252899": ["**Location:** On the 2nd floor wooden balcony.", []],
+		"252901": ["**Location:** In the 2nd floor bedroom.", []],
+		"252903": ["**Location:** Past the locked door, in front of the table.  \n**How to Acquire:** Revelio", []],
+		"252904": ["**Location:** On the floor of the locked room.", []],
+		"252905": ["**Location:** On top of the battlements", []],
+		"252907": ["**Location:** In the locked room atop the battlements.", []],
+		"252908": ["**Location:** In the locked room atop the battlements.", []],
+		"252909": [
+			"**Location:** In the locked room atop the battlements.  \n**How to Acquire:** Levioso",
+			[
+				{
+					"id": 111487,
+					"title": "",
+					"file_name": "6349f023-defb-4fce-9ab1-ab94400b79e9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6349f023-defb-4fce-9ab1-ab94400b79e9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252910": ["**Location:** In the room atop the battlements  \n**Contents:** 500 galleons", []],
+		"252911": ["**Location:** On the 1st floor, in the center of the room.  \n**How to Acquire:** Revelio", []],
+		"252913": [
+			"**Location:** In the locked room, on a wooden crate. (Lock Level I)",
+			[
+				{
+					"id": 32730,
+					"title": "",
+					"file_name": "1fa30828-08d4-46b2-ba6c-9282055c9603.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1fa30828-08d4-46b2-ba6c-9282055c9603.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252914": [
+			"**Location:** In the locked room.",
+			[
+				{
+					"id": 111484,
+					"title": "",
+					"file_name": "ac8ddaa9-2d9c-475b-87cc-2ceaad34e94b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac8ddaa9-2d9c-475b-87cc-2ceaad34e94b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252917": ["**Location:** In the locked room.", []],
+		"252924": [
+			"**Location:** Near the top of the battlements.  \n**How to Acquire:** Confringo; Accio",
+			[
+				{
+					"id": 111488,
+					"title": "",
+					"file_name": "10901b95-ff92-4e21-8077-ef440126be02.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/10901b95-ff92-4e21-8077-ef440126be02.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252927": ["**Location:** In the Great Hall, next to the entrance.", []],
+		"252928": [
+			"**Location:** Inside the Great Hall  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 31709,
+					"title": "",
+					"file_name": "9bba09ca-9b5c-400c-9d4d-fcdc7e6b3a4d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9bba09ca-9b5c-400c-9d4d-fcdc7e6b3a4d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252951": [
+			"**Location:** Outside the tower, against the wall.  \n**Corresponding portrait:** [Lumos Painting](#loc=252958)",
+			[
+				{
+					"id": 111485,
+					"title": "",
+					"file_name": "684ac2cd-65b5-420a-8bfc-9a8e3812cefe.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/684ac2cd-65b5-420a-8bfc-9a8e3812cefe.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252958": [
+			"**Location:** Behind the 1st floor locked door, in the corner of the room.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=252951) back.",
+			[]
+		],
+		"252962": ["**Location:** At the bottom of the staircase.", []],
+		"252976": ["**Location:** In the Beasts office, against the far wall.", []],
+		"252978": [
+			"**Location:** On the teacher's desk, in the locked building. (Lock Level II)",
+			[
+				{
+					"id": 32733,
+					"title": "",
+					"file_name": "67fde606-b97f-49f0-8bcd-c9c39e2f729c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/67fde606-b97f-49f0-8bcd-c9c39e2f729c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"252983": ["**Location:** Just beyond the locked door.", []],
+		"252997": ["**Location:** In the locked fenced area.", []],
+		"253029": ["**Location:** Against the far wall of the Astronomy Classroom.  \n**Lock:** Level I", []],
+		"253042": [
+			"**Location:** In the corner of Fig's classroom.",
+			[
+				{
+					"id": 34213,
+					"title": "",
+					"file_name": "ee117142-1b77-4b4c-a4e0-cbbc6594e2c0.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee117142-1b77-4b4c-a4e0-cbbc6594e2c0.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253045": [
+			"**Location:** At the top of the stairs leading to Professor Hecat's office.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253046": [
+			"**Location:** In front of the stained window, behind the rhino skeleton.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253047": [
+			"**Location:** Flying near the middle stairs.  \n**How to Acquire:** Accio  \n**Note:** Must start Professor Ronen's Assignment",
+			[]
+		],
+		"253049": ["**Location:** At the bottom of the staircase.  \n**How to Acquire:** Revelio", []],
+		"253051": ["**Location:** On a table, to the side of the classroom.", []],
+		"253052": [
+			"**Location:** Flying over the broken statue.  \n**How to Acquire:** Accio  \n**Note:** Must start Professor Ronen's Assignment",
+			[]
+		],
+		"253054": [
+			"**Location:** Near the Potions Classroom Floo Flame.  \n**Associated cabinet:** [House Cabinet](#loc=252539)",
+			[]
+		],
+		"253056": [
+			"**Location:** On the raised dais, next to the portraits.  \n**Associated cabinet:** [House Cabinet](#loc=252584)",
+			[]
+		],
+		"253070": [
+			"**Location:** On the wall next to the Statue of Gregory the Smarmy.  \n**Corresponding portrait:** [Lumos Painting](#loc=253207)  \n**Note:** Part of [Like a Moth to a Frame](#loc=253124)",
+			[]
+		],
+		"253071": ["Location: Against the South wall", []],
+		"253073": [
+			"**Tasks:** \n- Acquire and use a Focus Potion    \n- Acquire Maxima and Edurus Potions, and use them simultaneously  \n**Rewards:** Depulso Spell",
+			[]
+		],
+		"253078": [
+			"The Map Chamber is the nineteenth main quest within Hogwarts Legacy; where you briefly reunite with Professor Fig and uncover more truths within the Map Chamber.",
+			[]
+		],
+		"253082": [
+			"**Tasks:** \n- Acquire and use an Invisibility Potion  \n- Acquire and user a Thunderbrew Potion against enemies    \n**Rewards:** Diffindo",
+			[]
+		],
+		"253084": [
+			"**Tasks:** \n- Pop 5 Balloons over the Quidditch Pitch\n- Pop 5 Balloons over Hogsmeade Station  \n\n**Rewards:** \n- Glacius\n- 150xp",
+			[]
+		],
+		"253111": [
+			"**Tasks:** \n- Pop 5 Balloons near the Spires\n- Pop 5 Balloons near Keenbridge Tower  \n\n**Rewards:** Arresto Momentum",
+			[]
+		],
+		"253113": ["**Requirements:** Level 13  \n**Rewards:** ??", []],
+		"253124": [
+			"**Requirements:** \nComplete Welcome to Hogwarts   \n\n**How To Begin:** \nTalk to Lenora Everleigh  \n\n**Rewards:** \nClothing",
+			[]
+		],
+		"253125": [
+			"**Requirements:** Charms Class  \n**How To Begin:** Talk to Cressida Blume   \n**Rewards:** \n- Wand Handles \n- Gold",
+			[]
+		],
+		"253126": [
+			"**Location:** Flying high in the air in the Viaduct Entrance hall, accessed from the rafters.  \n**How to Acquire:** Accio",
+			[]
+		],
+		"253128": ["**Location:** At the base of the stairs near the bridge", []],
+		"253129": [
+			"**Location:** Next to the exit to the Viaduct Courtyard  \n**Associated Key:** [Daedalian Key](#loc=253294)",
+			[]
+		],
+		"253130": [
+			"**Requirements:** Complete the \"Merlin Trials\" main quest.\n\n**How To Begin:** Talk to Garreth Weasley  \n\n**Rewards:**\n- 180 XP\n- Gold\n- Conjuration Spellcraft",
+			[]
+		],
+		"253191": ["**Location:** ??  \n**Associated cabinet:** [House Cabinet](#loc=252827)", []],
+		"253193": [
+			"**Location:** On the table, in the locked room off of the Great Hall.",
+			[
+				{
+					"id": 109812,
+					"title": "",
+					"file_name": "8696c4c6-7113-44e6-a58a-d0d99dc26ce1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8696c4c6-7113-44e6-a58a-d0d99dc26ce1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253195": [
+			"**Location:** In a secret area, through the toilet in the middle stall.",
+			[
+				{
+					"id": 32734,
+					"title": "",
+					"file_name": "7cdd3e27-fad6-4df8-8d34-dd68c992676a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7cdd3e27-fad6-4df8-8d34-dd68c992676a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253196": [
+			"**Location:** At the far end of the Hospital Wing.  \n**Note:** Part of The Caretaker's Lunar Lament quest, but not the official Demiguise Statue count.",
+			[]
+		],
+		"253197": [
+			"**Location:** At the far end of the Prefects Bathroom.  \n**Note:** Part of The Caretaker's Lunar Lament quest, but not the official Demiguise Statue count.",
+			[]
+		],
+		"253198": [
+			"**Location:** Right after you pass the alchemy door the key is in the center of the hall  \n**Associated cabinet:** [House Cabinet](#loc=252495)",
+			[]
+		],
+		"253199": ["**Location:** Behind the boxes on the higher ledge.", []],
+		"253200": [
+			"**Location:** In the Alchemy Class, high above the doorway.  \n**How to Acquire:** Confringo; Accio",
+			[]
+		],
+		"253201": [
+			"**Location:** In front of the cannon.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 149389,
+					"title": "",
+					"file_name": "2f775eb4-d165-4038-ab5b-c56ccb33af94.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f775eb4-d165-4038-ab5b-c56ccb33af94.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253202": [
+			"**Location:** In front of the sleeping dragon statue.\n**Associated cabinet:** [House Cabinet](#loc=252511)",
+			[]
+		],
+		"253203": ["Across from the Arithmancy Door", []],
+		"253204": [
+			"**Location:** In front of the large painting, on the 2nd floor of the library.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253205": ["**Location:** On a table in the center of the Library", []],
+		"253206": ["**Location:** Flying all across Central Hall  \n**How to Acquire:** Accio", []],
+		"253207": [
+			"**Location:** Against the wall, above the benches.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=253070)  \n**Note:** Part of the [Like a Moth to a Frame](#loc=253124) quest.",
+			[]
+		],
+		"253210": [
+			"**Location:** An the left wall in front of the mural of the Mermaid.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253211": ["**Location:** On the left wall as you enter the Prefects' Bathroom\n**Lock:** Level I", []],
+		"253213": [
+			"**Location:** In front of the [Ravenclaw Common Room Door](#loc=252876).\n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 149390,
+					"title": "",
+					"file_name": "2ca9fa66-2f4d-4c2f-bb11-f4c8b11cb662.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2ca9fa66-2f4d-4c2f-bb11-f4c8b11cb662.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253215": ["**Location:** Next to the floo flame.  \n**How to open:** Collect all 16 House Tokens.", []],
+		"253216": [
+			"**Location:**  To the left of the entrance in the Gryffindor common room, under the painting of grassy mountains.\n\nPart of Nellie Oggspire side quest, The Gryffindor House Chest is used to store the sixteen Daedalian Keys that are found around Hogwarts.",
+			[]
+		],
+		"253217": ["**Location:** In the boys dorm, on the side.  \n**Lock:** Level II", []],
+		"253219": ["**Location:** Upstairs, under the window in the lounge nook. Only accessible by witches.", []],
+		"253220": ["**Location:** Next to the archway to the staircases.", []],
+		"253221": [
+			"**Location:** At the base of the stairs, heading down from the common room you awake in after the sorting ceremony.\n\nContains better common gear than small chests.\n\n**Lock:** Level I",
+			[]
+		],
+		"253222": ["**Location:** Behind the changing screen. Only accessible to witches.", []],
+		"253223": ["**Location:** In front of the staircase, on the wall.\n**How to Acquire:** Revelio", []],
+		"253224": ["Teleports the player to a secret room with a [Wand Handle](#loc=253225)", []],
+		"253225": [
+			"**Location:** In a secret room above the hallway; use the [Toad Statue](#loc=253224) to access.",
+			[]
+		],
+		"253226": [
+			"**Location:** On top of the stairs (not in the corridor)  \n**Associated cabinet:** [House Cabinet](#loc=252865)",
+			[]
+		],
+		"253227": [
+			"**Location:** In front of the statue, between the two staircases.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 111071,
+					"title": "",
+					"file_name": "81fec6e2-0279-49e0-a4bd-ab5325584b85.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/81fec6e2-0279-49e0-a4bd-ab5325584b85.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253228": [
+			"**Location:** in front of the hourglasses with the house symbols.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 111068,
+					"title": "",
+					"file_name": "c180218c-2f93-41b7-b8e9-0e5119372b27.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c180218c-2f93-41b7-b8e9-0e5119372b27.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253229": ["**Location:** Slytherin Dungeon - Up the stairs, between two Knight statues.", []],
+		"253230": ["**Location:** On the landing above the Ravenclaw corridor.  \n**How to Acquire:** Revelio", []],
+		"253231": ["**Location:** In the alcove past the Grand Staircase.", []],
+		"253232": [
+			"**Location:** High on the northern wall of the Grand Staircase; climb on the inner staircase as high as you can to access.  \n**How to Acquire:** Confringo; Accio",
+			[]
+		],
+		"253233": [
+			"**Solution:**\n- (?): Left of the door, along the staircase; Salamander – 6\n- (??): Opposite of the door, on the central pillar; Octopus – 7",
+			[]
+		],
+		"253234": ["**Location:** In the [Arithmancy Door](#loc=253233)", []],
+		"253235": ["**Location:** In the [Arithmancy Door](#loc=253233)", []],
+		"253236": ["**Location:** Near the window on the left.", []],
+		"253237": ["**Location:** In front of the heavy armour.  \n**How to Acquire:** Revelio", []],
+		"253238": ["**Location:** In the archway to the room.", []],
+		"253239": [
+			"**Location:** In front of the casket, in the southern portion of the room.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253240": [
+			"**Location:** In front of the trophy cabinet, in the northern portion of the room.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253242": ["**Location:** In front of display case with armour in it.  \n**How to Acquire:** Revelio", []],
+		"253243": ["**Location:** In front of elf armour holding a tea set.  \n**How to Acquire:** Revelio", []],
+		"253244": ["**Location:** In the window alcove.", []],
+		"253247": ["**Location:** Against the far wall of the room.", []],
+		"253250": ["**Location:** Against the wall, beneath the portraits.", []],
+		"253251": ["**Location:** Just right of the locked door.", []],
+		"253253": ["**Location:** In the corner of the bedroom.", []],
+		"253254": ["**Location:** On the dresser.", []],
+		"253255": ["**Location:** In front of the large gargoyle.  \n**How to Acquire:** Revelio", []],
+		"253260": ["**Location:** Halfway down the stairs, on a landing.  \n**How to Acquire:** Revelio", []],
+		"253261": ["**Location:** Beside the Pear Portrait.", []],
+		"253262": ["**Location:** In front of the Pear Portrait.  \n**How to Acquire:** Revelio", []],
+		"253263": ["**Location:** In the corner of the kitchen, behind some cages.", []],
+		"253264": ["**Location:** On the floor, in front of the washing station.", []],
+		"253265": [
+			"**Location:** On a small table, beside the cuttlery armoire.",
+			[
+				{
+					"id": 31842,
+					"title": "",
+					"file_name": "02a38262-2859-47fd-a336-bdec9fe861a0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/02a38262-2859-47fd-a336-bdec9fe861a0.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253266": [
+			"**Location:** In front of the house-elf homes.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 149393,
+					"title": "",
+					"file_name": "43e62dca-1bfd-453f-8024-f17faca4b70c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/43e62dca-1bfd-453f-8024-f17faca4b70c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253267": ["**Location:** In the corner of the room.", []],
+		"253268": [
+			"**Location:** In the middle of the tables, between the 2nd and the 3rd.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253269": ["**Location:** In front of the barrel pile.  \n**How to Acquire:** Revelio", []],
+		"253270": ["Only lets Hufflepuff students through.", []],
+		"253271": ["**Location:** Against the column, beside the staircase.", []],
+		"253272": [
+			"**Location:** Against the wall, just before the Great Hall.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=253273) back.",
+			[]
+		],
+		"253273": [
+			"**Location:** On the golden chair behind the lecturn.  \n**Corresponding portrait:**  [Lumos Painting](#loc=253272)",
+			[
+				{
+					"id": 111069,
+					"title": "",
+					"file_name": "596a239c-8ee0-4976-ae01-caf2e892c9c0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/596a239c-8ee0-4976-ae01-caf2e892c9c0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253274": ["**Location:** In the corner, underneath a window.", []],
+		"253275": [
+			"**Location:** At the bottom of the steps, in front of the lecturn.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253276": ["**Location:** In the locked room, on a dresser.", []],
+		"253277": ["**Location:** In the locked room, on the table.", []],
+		"253278": [
+			"**Location:** Floating around the northwestern portion of the Great Hall.  \n**Associated cabinet:** [House Cabinet](#loc=253279)",
+			[]
+		],
+		"253279": [
+			"**Location:** On the landing.  \n**Associated Key:** [Daedalian Key](#loc=253278)",
+			[
+				{
+					"id": 111070,
+					"title": "",
+					"file_name": "23cf6d6d-ff00-4206-86c1-8ff4f7a4bc61.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/23cf6d6d-ff00-4206-86c1-8ff4f7a4bc61.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253280": [
+			"**Location:** Against the wall.  \n**Lock:** Level I",
+			[
+				{
+					"id": 111073,
+					"title": "",
+					"file_name": "f597bd64-35cc-48be-9c4e-7164767f2fad.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f597bd64-35cc-48be-9c4e-7164767f2fad.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253281": ["**Location:** Up the wooden platform.  \n**How to Acquire:** Any Fire spell.", []],
+		"253282": [
+			"**Solution:**\n- (?): Just left of the door; Spider\n- (??): On the right side of the hallway, just before the door; Snake",
+			[]
+		],
+		"253283": ["**Location:** Beyond the [Arithmancy Door](#loc=253282)", []],
+		"253284": ["**Location:** Beyond the [Arithmancy Door](#loc=253282)", []],
+		"253285": ["**Location:** Flying above the stairs in the Entrance Hall.  \n**How to Acquire:** Accio", []],
+		"253286": ["**Location:** On the stairs landing.  \n**How to Acquire:** Levioso", []],
+		"253287": [
+			"**Location:** At the bottom of the stairs.\n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 111072,
+					"title": "",
+					"file_name": "e7a7e25f-98e4-4f2e-80d0-2c6516fc38f4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e7a7e25f-98e4-4f2e-80d0-2c6516fc38f4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253294": [
+			"**Location:** In front of the hourglasses\n**Associated cabinet:** [House Cabinet](#loc=253129)",
+			[]
+		],
+		"253295": ["**Location:** Inside the locked room.", []],
+		"253296": [
+			"**Location:** On the wall near the bottom of the stairs.  \n**How to Acquire:** Lumos to reveal the painting, the bring the [Moth](#loc=253297) back.",
+			[
+				{
+					"id": 44011,
+					"title": "",
+					"file_name": "f25b5bd2-a69b-4719-9ab3-f3c4ce2b4fdc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f25b5bd2-a69b-4719-9ab3-f3c4ce2b4fdc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253297": [
+			"**Location:** Behind the kelpie statue.  \n**Corresponding portrait:** [Lumos Painting](#loc=253296)",
+			[
+				{
+					"id": 111076,
+					"title": "",
+					"file_name": "72b93f01-f584-4b82-8c67-54f70cee3e20.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/72b93f01-f584-4b82-8c67-54f70cee3e20.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253298": ["**Location:** Next to the entrance to the boathouse.", []],
+		"253300": ["**Location:** Inside the Boat house  \n**How to Acquire:** Any Fire spell.", []],
+		"253301": ["**Location:** Inside the boathouse, by a wooden pillar.", []],
+		"253302": [
+			"**Location:** At the end of the dock, next to a boat partially in the water.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253303": ["**Destination:** [To the Viaduct Courtyard](#loc=253304)", []],
+		"253304": ["**Destination:** [To the Underground Harbour](#loc=253303)", []],
+		"253305": ["**Location:** At the end of the pier.  \n**Contents:** 500 galleons", []],
+		"253306": ["**Location:** In the wooden shelves.", []],
+		"253307": ["**Location:** At the end of the pier.", []],
+		"253308": ["**Location:** At the end of the last wooden pier.  \n**How to Acquire:** Revelio", []],
+		"253309": [
+			"**Location:** In a alcove, just off the courtyard.  \n**How to Acquire:** Levioso",
+			[
+				{
+					"id": 111074,
+					"title": "",
+					"file_name": "f01a5e8b-fa16-49d9-94b7-a0880a4686c6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f01a5e8b-fa16-49d9-94b7-a0880a4686c6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253310": ["**Location:** Flying over the gardens.  \n**How to Acquire:** Accio", []],
+		"253311": ["**Location:** Outside near the stairs to the Great Hall.", []],
+		"253312": ["**Location:** Next to a statue in the gardens.  \n**How to Acquire:** Revelio", []],
+		"253313": ["**Location:** On a rampart, low against the tower.  \n**Lock:** Level I", []],
+		"253314": ["**Location:** Flying around the Quad Courtyard.\n**How to Acquire:** Accio", []],
+		"253315": [
+			"**Location:** Flying in circles, in front of the stone archway.  \n**Associated cabinet:** [House Cabinet](#loc=252621)",
+			[]
+		],
+		"253316": ["**Location:** Entrance to Quad Courtyard", []],
+		"253317": [
+			"**Location:** High on the wall, just east of the fountain.  \n**How to Acquire:** Confringo; Accio",
+			[]
+		],
+		"253318": [
+			"**Location:** Up the stairs, on a landing.  \n**How to Acquire:** Levioso",
+			[
+				{
+					"id": 111077,
+					"title": "",
+					"file_name": "4e541242-6faf-4865-9de9-1dcb101ba90e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e541242-6faf-4865-9de9-1dcb101ba90e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253319": [
+			"**Location:** On a balcony, close to the wall.\n**Contents:** 500 galleons",
+			[
+				{
+					"id": 111075,
+					"title": "",
+					"file_name": "92f74666-b37e-4d94-a350-95a79c4fa8d6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/92f74666-b37e-4d94-a350-95a79c4fa8d6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253321": ["**Location:** In front of the locked door.  \n**How to Acquire:** Revelio", []],
+		"253324": [
+			"**Location:** In the secret room beyond the central stall.",
+			[
+				{
+					"id": 110409,
+					"title": "",
+					"file_name": "0a4c5386-464b-4cb2-a200-334bcca8e996.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a4c5386-464b-4cb2-a200-334bcca8e996.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253325": ["**Location:** At the back of the bathroom.", []],
+		"253326": ["**Location:** In the corner of the hallway.  \n**How to Acquire:** Any Fire Spell", []],
+		"253327": [
+			"**Location:** In front of a statue, in the alcove next to the stairs.\n\n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 111079,
+					"title": "",
+					"file_name": "45f3c7d8-02dd-4482-8094-51f9e99bcd7f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/45f3c7d8-02dd-4482-8094-51f9e99bcd7f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253328": [
+			"**Location:** In front of a map on the wall.\n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 111078,
+					"title": "",
+					"file_name": "d56992cf-1ee1-4f92-bb32-868fab988a84.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d56992cf-1ee1-4f92-bb32-868fab988a84.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253329": ["Use Depulso on the button above the map to reveal the room.", []],
+		"253330": ["**Location:** Just beyond the [Hidden Door](#loc=253329)", []],
+		"253332": [
+			"**Location:** On the wall, beyond the [Hidden Door](#loc=253329)  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=253333) back.",
+			[]
+		],
+		"253333": [
+			"**Location:** Inside the bathroom, on top of a towel rack.  \n**Corresponding portrait:** [Lumos Painting](#loc=253332)",
+			[]
+		],
+		"253334": ["**Location:** Tucked away in a corner of the corridor", []],
+		"253335": ["**Location:** Slytherin Dungeon. Next to Lower Grand Staircase Floo Flame.", []],
+		"253336": ["**Location:** Next to the Kelpie statue.  \n**Contents:** 500 galleons", []],
+		"253337": ["**Location:** Next to the statue in middle of the hall.  \n**How to Acquire:** Revelio", []],
+		"253338": ["Only lets Slytherin students through.", []],
+		"253339": ["**Location:** Next to Slytherin Common Room Door.", []],
+		"253340": ["**Location:** ??", []],
+		"253341": ["**Location:** In the dormitory.  \n**Lock:** Level I", []],
+		"253342": ["**Location** Behind the statue.  \n**Lock:** Level III", []],
+		"253343": ["**Location** In the dormitory.  \n**Lock:** Level II", []],
+		"253345": [
+			"**Location:** On the wall, beside the bathrooms.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=253346) back.",
+			[]
+		],
+		"253346": [
+			"**Location:** On a pillar, between the two torches.  \n**Corresponding portrait:** [Lumos Painting](#loc=253345)",
+			[]
+		],
+		"253347": ["**Location:** On the floor of the bathroom.", []],
+		"253348": [
+			"**Location:** In front of the sink just after you enter the bathroom.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253349": ["**Location:** At the bottom of the staircase leading to the Entrance Hall.", []],
+		"253351": ["**Location:** On a table beyond the locked door.", []],
+		"253352": ["**Location:** Beyond the locked door.  \n**How to Acquire:** Any Fire spell.", []],
+		"253355": ["**Location:** In Detention, against the northern wall.", []],
+		"253356": ["**Location:** In Detention, behind the desk.", []],
+		"253357": ["**Location:** In Detention, against the southern wall.  \n**Contents:** 500 galleons", []],
+		"253358": ["**Location:** In front of the desk.  \n**How to Acquire:** Revelio", []],
+		"253361": ["**Location:** In front of the empty tables.  \n**How to Acquire:** Revelio", []],
+		"253362": ["**Location:** Tucked in the alcove.", []],
+		"253363": [
+			"**Location:** In front of the tapestry, at the end of the room.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 149392,
+					"title": "",
+					"file_name": "03925cd9-3577-473c-b80f-af7c0622d2db.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03925cd9-3577-473c-b80f-af7c0622d2db.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253364": ["Part of The Hall of Herodiana quest.", []],
+		"253365": [
+			"**Location:** Next to the rhino skeleton.\n**Associated cabinet:** [House Cabinet](#loc=252678)",
+			[]
+		],
+		"253366": [
+			"**Location:** Hovering near the staircase, on the lower level.  \n**Associated cabinet:** [House Cabinet](#loc=252638)",
+			[]
+		],
+		"253367": ["Location of the item to finish Cache In The Castle quest.", []],
+		"253368": ["**Location:** Outside of West Tower, to the left.  \n**Contents:** 500 galleons", []],
+		"253369": ["**Location:** Flying above the fountain.  \n**How to Acquire:** Accio", []],
+		"253370": [
+			"**Location:** In front of the beehive-like structures, above the Herbology Hidden Corridor.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253371": [
+			"**Location:** Southwest of the Quidditch pitch, on a rocky ledge just beyond a hole in the castle ramparts.  On the Quidditch Pitch side of the wall.  \n**How to Acquire:** Revelio",
+			[
+				{
+					"id": 43978,
+					"title": "",
+					"file_name": "66bb9f8c-a5ce-455a-8bbf-966a2e38370e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66bb9f8c-a5ce-455a-8bbf-966a2e38370e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"253372": [
+			"**Location:** Just right of the Headmaster Gargoyle.  \n**How to Acquire:** Lumos to reveal the painting, then bring the [Moth](#loc=253373) back.",
+			[]
+		],
+		"253373": [
+			"**Location:** High in the wooden frame.  \n**Corresponding portrait:** [Lumos Painting](#loc=253372)",
+			[]
+		],
+		"253376": [
+			"**Location:** In the tower, directly west of the Beasts Classroom.   \n**How to Acquire:** Revelio",
+			[]
+		],
+		"253377": [
+			"**Location:** At the top of the tower, you have to climb the ladder to the very top.  \n**How to Acquire:** Levioso",
+			[]
+		],
+		"253378": [
+			"**Location:** Flying at the top of the tower, you have to climb the ladder to the very top  \n**How to Acquire:** Accio",
+			[]
+		],
+		"253379": ["**Location:** Flying in the Deathday Party Room  \n**How to Acquire:** Accio", []],
+		"253380": ["Use Glacius to put out the fireplace then crawl through.", []],
+		"253381": ["**Location:** At the top of the staircase, next to the ladder.  \n**How to Acquire:** Revelio", []],
+		"253382": ["**Location:** Inside the Owlery, on the bottom floor.", []],
+		"253383": [
+			"**Location:** In the room beyond the [Hidden Staircase](#loc=253380)  \n**How to Acquire:** Any Fire spell.",
+			[]
+		],
+		"253384": ["**Location:** On the floor beneath a west facing window", []],
+		"253385": [
+			"**Location:** In the stairwell\n\n**Required Spells:** Alohomora\n\n**Associated cabinet:** [House Cabinet](#loc=252812)",
+			[]
+		],
+		"266419": ["**Associated Quest:** [Venomous Valour](#loc=252602)", []],
+		"266420": ["**Location:** At the end of the locked room.", []],
+		"266421": ["**Location:** In the corner to the left of the fireplace  \n**Contents:** 500 galleons", []],
+		"266422": ["**Location:** On top of the table, next to the brown armchair.", []],
+		"266423": [
+			"**Location:** Headmaster's Office - On the right side as you enter.\n**How to Acquire:** Revelio in front of the Sorting Hat",
+			[]
+		],
+		"266424": [
+			"**Location:** In the alcove in SE point of room, that leads to the password staircase.  face the bench from the doorway of the room\n**How to Acquire:** Revelio",
+			[]
+		],
+		"266425": ["**Location:** Flying over the Beasts Classroom House  \n**How to Acquire:** Accio", []],
+		"266426": [
+			"**Location:** Follow the quest line pertaining to the Crucio curse\n**How to Acquire:** Revelio",
+			[]
+		],
+		"266427": ["**Location:** In the tower.\n\n**Note:** Requires Broom.", []],
+		"266428": ["**Location:** In the tower.", []],
+		"266472": ["**Location:** In the locked room.", []],
+		"266473": ["**Location:** At the foot of the bed.", []],
+		"266475": [
+			"**Location:** In the room beyond the [Hidden Staircase](#loc=253380)",
+			[
+				{
+					"id": 137545,
+					"title": "",
+					"file_name": "f134f59a-6742-46c5-be4f-4631c8697b2a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f134f59a-6742-46c5-be4f-4631c8697b2a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"266476": [
+			"**Location:** In the locked room underneath the office. One on the left on the floor. One on the right on a table.",
+			[]
+		],
+		"266477": ["**Location:** In the locked room underneath the office, against the far wall.", []],
+		"266481": ["**Location:** In the corner of the locked room.", []],
+		"266484": ["**Location:** In the dresser, in the locked room.", []],
+		"266488": ["_A letter to Professor Weasley from her brother_", []],
+		"266495": ["**Location:** On the ground, in the locked room.", []],
+		"267507": ["After the assignment from Professor Ronen, use Reparo on the statue by the water.", []],
+		"267512": [
+			"**Location:** First key found during the introduction to the quest \"The Daedalian Keys\"  \n**Associated cabinet:** [House Cabinet](#loc=252720)",
+			[]
+		],
+		"267587": ["**Location:** Against the wall on the right hand side of the door way.", []],
+		"267588": [
+			"**Location:** Same room as the Bell Tower Courtyard. After you enter from the door to the North, from the outside, go left up the stairs, and then right up the stairs. It is the left most statue.\n**How to Acquire:** During the History of Magic Class. Revelio.",
+			[]
+		],
+		"267589": [
+			"**Location:** To the right of the Floo Flame for Bell Tower Courtyard.\n**How to Acquire:** During the History of Magic Class. Revelio.",
+			[]
+		],
+		"267590": [
+			"**Requirements:** Complete [Trials of Merlin](https://mapgenie.io/hogwarts-legacy/maps/world?locationIds=278042)    \n**How To Begin:** Speak to Leander Prewett at the Summoner's Court  \n\n**Rewards:** 180XP",
+			[]
+		],
+		"267592": ["**Location:** ??", []],
+		"267593": [
+			"_A receipt for personal items for Professor Black_\n\nOn a small table with a bust and a bowl of fruit",
+			[]
+		],
+		"267873": [
+			"**Location:** On your left as soon as you enter the locked Bathroom.",
+			[
+				{
+					"id": 31826,
+					"title": "",
+					"file_name": "a87e85c8-d2c7-46f5-aaa0-92af8123a3df.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a87e85c8-d2c7-46f5-aaa0-92af8123a3df.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"268234": [
+			"**Requirements:** Complete [Summoner's Court: Match 1](#loc=267590).   \n**Rewards:** 180XP    \n\nMatch 2 is against Samantha Dale.",
+			[]
+		],
+		"268235": [
+			"**Location:** In the middle of the room at the top of the spiral staircase.\n\n**How to Acquire:** Revelio",
+			[]
+		],
+		"268236": [
+			"_A letter to Professor Black from Minister for Magic Spavin_  \nOn the floor next to rubbish bin and coat rack",
+			[]
+		],
+		"268286": [
+			"**Requirements:** Complete Percival Rackham's Trial  \n**How To Begin:** Talk to Nerida Roberts  \n**Rewards:** \n- 180 XP\n- Mermish Liaison Uniform",
+			[]
+		],
+		"268287": [
+			"**Requirements:** Complete [Summoner's Court: Match 3](#loc=268288)  \n**Rewards:** 180 XP  \n\nMatch 4 is against Charlotte Morrison.",
+			[]
+		],
+		"268288": [
+			"**Requirements:** Complete [Summoner's Court: Match 2](#loc=268234)  \n**Rewards:** 180 XP\n\nMatch 3 is against Grace Pinch-Smedley",
+			[]
+		],
+		"268353": [
+			"**Location:** Second floor of the library   \n**How to Acquire:** Revelio  \n**Note:** Acquired during Professor Weasley's 2nd assignment",
+			[]
+		],
+		"268359": ["**Location:** In the corner of the room.", []],
+		"268436": [
+			"**Requirements:** \n- Complete Charles Rookwood's Trial\n- Beaten Samantha Dale in Summoner's court: Match 2\n**How To Begin:** Talk to Samantha Dale\n**Rewards:**\n- 180 XP\n- Totem Collection item",
+			[]
+		],
+		"268602": [
+			"**Requirements:**\n- The Helm of Urtkot\n- Beasts Class\n- The Caretaker's Lunar Lament\n- Confringo (The Shadow of the Undercroft main quest)\n\n**Location:** Talk to Adelaide Oakes\n**Rewards:**\n- 180 XP\n- Handcrafted Necklace",
+			[]
+		],
+		"268603": [
+			"**Requirements:**\n- The Helm of Urtkot\n- Beasts Class\n- The Caretaker's Lunar Lament\n- Depulso (Professor Sharp's assignment 1)\n\n**How To Begin:** Talk to Sophronia Franklin at the study area near Charm Classroom  \n**Rewards:**\n- 180 XP\n- Herodiana's Cape\n- Herodiana's Attire\n- Herodiana's Cap",
+			[]
+		],
+		"268633": ["**Location:** Inside the Divination class", []],
+		"268634": [
+			"**Requirements:** Complete  \"Defense Against Dark Arts Class\" & speak with Sebastian.  \n**How To Begin:** Speak with  Lucan Brattleby",
+			[]
+		],
+		"271750": ["**Location:** Around the headmasters bedroom", []],
+		"271751": ["**Location:** Next to the locked door in the Headmaster's office", []],
+		"271752": ["**Location:** Past the locked door.", []],
+		"271753": ["**Location:** Next to the book", []],
+		"271754": ["**Location:** To the right of the Wand Handle chest", []],
+		"271756": ["**Location:** On top of some luggage on the right as you enter.", []],
+		"271757": ["**Location:** Back of the Room.", []],
+		"271758": ["**Location:** Level I locked chest. At the foot of a bed", []],
+		"271759": ["**Location:** At the foot of the bed.  \n**Lock:** Level III", []],
+		"271761": ["Halfway up to the balcony, next to where the two greenhouses meet (door)", []],
+		"304065": ["**Requirements:** Level 4  \n**Rewards:** N/A", []],
+		"304066": ["**Requirements:** Level 2  \n**Rewards:** N/A", []],
+		"304067": ["**Tasks:**\nCollect troll Bogeys\nCast Depulso on a levitated enemy\n\n**Rewards:**\nDescendo", []],
+		"304068": [
+			"**Tasks:** \n- Use venomous Tentacula on enemies\n- Use Mandrake on multiple enemies simultaneously\n\n**Rewards:**  Wingardium Leviosa",
+			[]
+		],
+		"304069": [
+			"**Tasks:** \n- Grow and harvest fluxweed\n- Acquire all three Combat plants and use them simultaneously\n\n**Rewards:** \n- Flipendo",
+			[]
+		],
+		"304070": ["**Requirements:** Level 3  \n**Rewards:** N/A", []],
+		"304071": [
+			"**Requirements:** \n- Complete Secrets of the Restricted Section\n- Level 3\n\n**Rewards:** N/A",
+			[]
+		],
+		"304072": [
+			"**Requirements:** \n- Level 3\n- Incendio (Complete Professor Hecat's Assignment 1)\n\n**Rewards:** Disillusionment",
+			[]
+		],
+		"308731": [
+			"Upstairs, south east corner.",
+			[
+				{
+					"id": 43673,
+					"title": "",
+					"file_name": "324e7f22-71ac-452f-8c4f-d0bcf683fcaf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/324e7f22-71ac-452f-8c4f-d0bcf683fcaf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"309033": [
+			"**Requirements:** Complete [Crossed Wands Round 1](#loc=268634)    \n**How To Begin:** Speak with Lucan Brattleby",
+			[]
+		],
+		"309034": [
+			"**Requirements:** Complete Tomes and Tribulations  \n**How To Begin:** Talk to Lucan Brattleby  \n**Rewards:**\n- Appearances",
+			[]
+		],
+		"309122": [
+			"**Tasks:** \n- Successfully avoid enemy attacks by dodge rolling (0/10)\n- Cast incendio on enemies (0/5)  \n\n**Rewards:** Expelliarmus",
+			[]
+		],
+		"309123": [
+			"**Tasks:** \n- Win two rounds of Crossed Wands\n- Complete a round of spell combination practice with Lucan Brattleby\n**Rewards:** Incendio",
+			[]
+		],
+		"309124": ["**Requirements:** Level 1\n**Rewards:** Levioso", []],
+		"309125": [
+			"**Requirements:** Level 1. Charms Class is the third main quest within Hogwarts Legacy; where you begin your training at Hogwarts by learning the Summoning Spell, Accio.  \n**Rewards:** Accio",
+			[]
+		],
+		"309126": [
+			"**Requirements:** Start Professor Hecat's Assignment 1  \n**How To Begin:** Talk to Lucan Brattleby  \n**Rewards:** N/A",
+			[]
+		],
+		"309127": [
+			"**Requirements:** Complete Tomes and Tribulations  \n**How To Begin:** Talk to Lucan Brattleby  \n**Rewards:** N/A",
+			[]
+		],
+		"309129": [
+			"**Location:** Flying high above the [Wooden Cat](#loc=252523) Field Guide Page  \n**How to Acquire:** Accio",
+			[
+				{
+					"id": 111878,
+					"title": "",
+					"file_name": "c8ea178b-cc21-479a-8798-62abd449658c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8ea178b-cc21-479a-8798-62abd449658c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"309130": [
+			"**Requirements:** Level 20 . Must have completed _In the shadow of the Relic_.    \n**How To Begin:** Speak to Ferdinand Octavius Pratt's Portrait   \n**Rewards:** \n- Conjuration  \n- XP\n- Gold",
+			[]
+		],
+		"309131": [
+			"**Requirements:** Complete In the Shadow of the Mine\n**How To Begin:** Speak to Evangeline Bardsley in the Astronomy Tower  \n**Rewards:**\n- Conjuration Spellcraft",
+			[]
+		],
+		"309132": [
+			"**Requirements:** Complete [Summoner's Court: Match 4](#loc=268287)    \n**How To Begin:** Speak to Professor Ronen at the Summoner's Court   \n**Rewards:**\n- 180 XP\n- Summoner's Court Champion Gloves",
+			[]
+		],
+		"309133": [
+			"**Tasks:** \n- Collect the flying page near the broken statue\n- Collect the flying page in the Defense Against the Dark Arts Tower  \n\n**Rewards:** Reparo",
+			[]
+		],
+		"309134": [
+			"**Requirements:** Finish Welcome to Hogsmeade quest\n**Rewards:** N/A\n\nYou need to talk to Fig, you can sometimes find him randomly in the castle (usually the Charms class), but if you go to his office, you can \"Wait\" to activate the quest.",
+			[]
+		],
+		"309135": [
+			"**Requirements:** \n- Level 2\n- Reparo\n\n**Rewards:** \n- Ancient Magic Throw\n- Ancient Magic",
+			[]
+		],
+		"380820": [
+			"**Requirements:** \t\n- Complete The Helm of Urtkot\n- Level 16\n\n**Rewards:**\n- Conjuration Spellcrafts x2 \n- Nab-Sack",
+			[]
+		],
+		"380821": [
+			"**Requirements:**\n- Must be at least Level 6.\n- Must complete \"Flying Class\" main task.\n\n**Rewards:**\n- 260 XP\n- Conjuring Spell\n- Evanesco\n- Conjuration Spellcraft",
+			[]
+		],
+		"380823": [
+			"**Requirements:** Complete Lodgok’s Loyalty Main Quest and Reach Level 24\n\n**Rewards:** 260 XP",
+			[]
+		],
+		"390099": [
+			"**Requirements:** Progress through the main story and complete  Percival Rackham's Trial\n**Rewards:** Alohomora Spell",
+			[]
+		],
+		"390100": [
+			"**Location:** Found as part of The Caretaker's Lunar Lament quest. Not counted as part of the Demiguise Statues collection quest.",
+			[
+				{
+					"id": 55815,
+					"title": "firstdemiguise",
+					"file_name": "cc3ae2f4-3a58-41ad-8458-c6408cabb40d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc3ae2f4-3a58-41ad-8458-c6408cabb40d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390105": [
+			"**Requirements:** Complete Wand Mastery  \n**Rewards:** Final quest. Choose \"I intent to keep it contained here\" for the Good Ending or \"I intend to open it\" for the Bad Ending.",
+			[]
+		],
+		"390106": [
+			"**Requirements:** Weasley After Class is the fifth main quest within Hogwarts Legacy; where you prepare to depart for Hogsmeade, but not before learning a new spell, Reparo, whilst completing additional assignments from Professor Ronen. \n**Rewards:** Reparo",
+			[]
+		],
+		"390107": [
+			"**Requirements:** Level 34, complete Weasley's Watchful Eye\n**Rewards:** Get the \"True\" Ending",
+			[]
+		],
+		"390159": [
+			"**Requirements:** Complete The Polyjuice Plot\n**Rewards:** Access to the Headmaster's Office Unlocked",
+			[]
+		],
+		"390162": ["**Requirements:** Complete The Headmistress Speaks\n**Rewards:** N/A", []],
+		"390163": [
+			"**Requirements:** Complete In the Shadow of the Mine  \n**Rewards:** N/A",
+			[
+				{
+					"id": 55816,
+					"title": "headmistress",
+					"file_name": "5365695d-4b3a-425a-bfd5-18c1f73ce4d2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5365695d-4b3a-425a-bfd5-18c1f73ce4d2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390165": ["**Requirements:** Complete Professor Weasley's Assignment  \n**Rewards:** N/A", []],
+		"390361": [
+			"**Requirements:** This quest is available exclusively for those within House Gryffindor.  \n**Rewards:** N/A",
+			[]
+		],
+		"390362": [
+			"**Requirements:**  This quest is available exclusively for those within House Hufflepuff.  \n**Rewards:** N/A",
+			[]
+		],
+		"390368": [
+			"Astronomy Class is the twenty-sixth main quest within Hogwarts Legacy; where you attend Astrology for the first time, receive your very own telescope, and uncover the magical properties of Astrology Tables.",
+			[]
+		],
+		"390370": [
+			"Back on the Path is the twenty-eighth main quest within Hogwarts Legacy; where you briefly meet with Fig in the Map Chamber once more, and learn the location of the second Trial.",
+			[]
+		],
+		"390374": [
+			"Welcome to Hogwarts is the second main quest within Hogwarts Legacy; where you are sorted into your House, and begin your life in the legendary school of witchcraft and wizardry.",
+			[]
+		],
+		"390381": [
+			"To find Foal Of The Dead, you'll want to talk to Deek in The Room of Requirement. This quest will only be available after you complete Charles Rockwood's Trial first. As soon as you begin talking to him, the quest will begin.",
+			[]
+		],
+		"509704": [
+			"In the room behind the Slytherin Lock, accessible during the quest In the Shadow of the Study.",
+			[]
+		],
+		"511311": [
+			"**Requirement:** Complete Charles Rookwood’s Trial Main Quest\n**Tasks:** \n- Capture a Diricawl\n- Capture a Giant Purple Toad\n\n\n**Rewards:** Bombarda",
+			[]
+		]
+	}
+}

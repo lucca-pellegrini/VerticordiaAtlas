@@ -38,7 +38,8 @@
 					"tileSize": 256,
 					"background": "#2c3039"
 				}
-			]
+			],
+			"compact": "world/data.compact.json"
 		},
 		{
 			"slug": "hogwarts",
@@ -55,7 +56,8 @@
 					"tileSize": 256,
 					"background": "#968662"
 				}
-			]
+			],
+			"compact": "hogwarts/data.compact.json"
 		},
 		{
 			"slug": "hogsmeade",
@@ -71,7 +73,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "hogsmeade/data.compact.json"
 		}
 	],
 	"icons": {

@@ -489,7 +489,8 @@
 					"tileSize": 256,
 					"background": "#9b8f77"
 				}
-			]
+			],
+			"compact": "sanctuary/data.compact.json"
 		}
 	]
 }

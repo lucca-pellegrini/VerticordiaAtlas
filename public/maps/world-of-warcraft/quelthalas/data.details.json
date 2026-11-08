@@ -1,0 +1,1101 @@
+{
+	"v": 1,
+	"d": {
+		"672666": ["**Type:** Raid", []],
+		"672667": ["**Type:** Raid", []],
+		"672668": ["**Type:** Raid", []],
+		"672669": ["**Type:** Raid", []],
+		"672670": ["**Type:** Raid", []],
+		"672671": ["**Type:** Raid", []],
+		"672672": ["**Type:** Dungeon", []],
+		"672673": ["**Type:** Dungeon", []],
+		"672674": ["**Type:** Dungeon", []],
+		"672675": ["**Type:** Dungeon", []],
+		"672676": ["**Type:** Dungeon", []],
+		"672677": ["**Type:** Dungeon", []],
+		"672678": ["**Type:** Dungeon", []],
+		"672679": ["**Type:** Dungeon", []],
+		"672680": ["**Type:** Dungeon", []],
+		"672681": ["**Type:** Dungeon", []],
+		"672682": ["**Faction:** Horde", []],
+		"672721": ["**Type:** Dungeon", []],
+		"672722": ["**Type:** Dungeon", []],
+		"672723": ["**Type:** Raid", []],
+		"672724": ["**Faction:** Horde  \n**Type:** Flight Path", []],
+		"672725": ["**Faction:** Horde  \n**Type:** Flight Path", []],
+		"672728": ["**Faction:** Neutral  \n**Type:** Flight Path", []],
+		"672734": ["**Faction:** Horde  \n**Type:** Flight Path", []],
+		"672735": ["**Faction:** Horde  \n**Type:** Flight Path", []],
+		"674185": ["**Faction:** Horde", []],
+		"674186": ["**Faction:** Horde", []],
+		"674194": ["**Faction:** Horde", []],
+		"674195": ["**Faction:** Horde", []],
+		"674196": ["**Faction:** Horde", []],
+		"674197": ["**Faction:** Horde", []],
+		"674198": ["**Faction:** Horde", []],
+		"674199": ["**Breed:** Magic", []],
+		"674200": ["**Breed:** Magic", []],
+		"674201": ["**Breed:** Magic", []],
+		"674202": ["**Breed:** Magic", []],
+		"674203": ["**Breed:** Magic", []],
+		"674204": ["**Breed:** Magic", []],
+		"674205": ["**Breed:** Magic", []],
+		"674206": ["**Breed:** Dragonkin", []],
+		"674207": ["**Breed:** Critter", []],
+		"674208": ["**Breed:** Elemental", []],
+		"674209": ["**Breed:** Elemental", []],
+		"674210": ["**Breed:** Dragonkin", []],
+		"674211": ["**Breed:** Humanoid", []],
+		"674212": ["**Breed:** Critter", []],
+		"674213": ["**Breed:** Critter", []],
+		"674214": ["**Breed:** Critter", []],
+		"674215": ["**Breed:** Critter", []],
+		"674216": ["**Breed:** Critter", []],
+		"674218": ["**Breed:** Critter", []],
+		"674219": ["**Breed:** Critter", []],
+		"674220": ["**Breed:** Critter", []],
+		"674221": ["**Breed:** Critter", []],
+		"674222": ["**Breed:** Critter", []],
+		"674223": ["**Breed:** Critter", []],
+		"674224": ["**Breed:** Critter", []],
+		"674225": ["**Breed:** Critter", []],
+		"674226": ["**Breed:** Critter", []],
+		"674227": ["**Breed:** Critter", []],
+		"674228": ["**Breed:** Critter", []],
+		"674229": ["**Breed:** Critter", []],
+		"674230": ["**Breed:** Critter", []],
+		"674231": ["**Breed:** Critter", []],
+		"674232": ["**Breed:** Critter", []],
+		"674233": ["**Breed:** Beast", []],
+		"674234": ["**Breed:** Beast", []],
+		"674235": ["**Breed:** Beast", []],
+		"674236": ["**Breed:** Beast", []],
+		"674237": ["**Breed:** Beast", []],
+		"674238": ["**Breed:** Beast", []],
+		"674239": ["**Breed:** Beast", []],
+		"674240": ["**Breed:** Beast", []],
+		"674241": ["**Breed:** Beast", []],
+		"674242": ["**Breed:** Dragonkin", []],
+		"674244": ["**Breed:** Beast", []],
+		"674245": ["**Breed:** Beast", []],
+		"674246": ["**Breed:** Beast", []],
+		"674248": ["**Breed:** Beast", []],
+		"674249": ["**Breed:** Beast", []],
+		"674250": ["**Breed:** Beast", []],
+		"674251": ["**Breed:** Beast", []],
+		"674252": ["**Breed:** Beast", []],
+		"674253": ["**Breed:** Beast", []],
+		"674254": ["**Breed:** Beast", []],
+		"674255": ["**Breed:** Beast", []],
+		"674256": ["**Breed:** Beast", []],
+		"674257": ["**Breed:** Critter", []],
+		"674258": ["**Breed:** Dragonkin", []],
+		"674259": ["**Breed:** Dragonkin", []],
+		"674260": ["**Breed:** Elemental", []],
+		"674261": ["**Breed:** Elemental", []],
+		"674262": ["**Breed:** Elemental", []],
+		"674263": ["**Breed:** Elemental", []],
+		"674264": ["**Breed:** Elemental", []],
+		"674265": ["**Breed:** Elemental", []],
+		"674267": ["**Breed:** Elemental", []],
+		"674268": ["**Breed:** Elemental", []],
+		"674269": ["**Breed:** Elemental", []],
+		"674270": ["**Breed:** Elemental", []],
+		"674271": ["**Breed:** Elemental", []],
+		"674272": ["**Breed:** Elemental", []],
+		"674273": ["**Breed:** Elemental", []],
+		"674274": ["**Breed:** Elemental", []],
+		"674275": ["**Breed:** Elemental", []],
+		"674276": ["**Breed:** Elemental", []],
+		"674277": ["**Breed:** Elemental", []],
+		"674278": ["**Breed:** Elemental", []],
+		"674279": ["**Breed:** Elemental", []],
+		"674280": ["**Breed:** Elemental", []],
+		"674281": ["**Breed:** Elemental", []],
+		"674282": ["**Breed:** Elemental", []],
+		"674283": ["**Breed:** Elemental", []],
+		"674284": ["**Breed:** Elemental", []],
+		"674285": ["**Breed:** Elemental", []],
+		"674286": ["**Breed:** Elemental", []],
+		"674287": ["**Breed:** Elemental", []],
+		"674288": ["**Breed:** Elemental", []],
+		"674289": ["**Breed:** Elemental", []],
+		"674290": ["**Breed:** Elemental", []],
+		"674291": ["**Breed:** Elemental", []],
+		"674292": ["**Breed:** Elemental", []],
+		"674293": ["**Breed:** Elemental", []],
+		"674294": ["**Breed:** Elemental", []],
+		"674295": ["**Breed:** Elemental", []],
+		"674296": ["**Breed:** Elemental", []],
+		"674297": ["**Breed:** Elemental", []],
+		"674298": ["**Breed:** Elemental", []],
+		"674299": ["**Breed:** Elemental", []],
+		"674300": ["**Breed:** Elemental", []],
+		"674302": ["**Breed:** Elemental", []],
+		"674303": ["**Breed:** Elemental", []],
+		"674304": ["**Breed:** Elemental", []],
+		"674305": ["**Breed:** Elemental", []],
+		"674307": ["**Breed:** Elemental", []],
+		"674308": ["**Breed:** Elemental", []],
+		"674309": ["**Breed:** Elemental", []],
+		"674310": ["**Breed:** Elemental", []],
+		"674311": ["**Breed:** Elemental", []],
+		"674312": ["**Breed:** Elemental", []],
+		"674313": ["**Breed:** Elemental", []],
+		"674314": ["**Breed:** Elemental", []],
+		"674315": ["**Breed:** Elemental", []],
+		"674316": ["**Breed:** Elemental", []],
+		"674317": ["**Breed:** Elemental", []],
+		"674318": ["**Breed:** Elemental", []],
+		"674319": ["**Breed:** Elemental", []],
+		"674320": ["**Breed:** Elemental", []],
+		"674321": ["**Breed:** Elemental", []],
+		"674322": ["**Breed:** Elemental", []],
+		"674323": ["**Breed:** Elemental", []],
+		"674324": ["**Breed:** Elemental", []],
+		"674325": ["**Breed:** Elemental", []],
+		"674326": ["**Breed:** Elemental", []],
+		"674327": ["**Breed:** Elemental", []],
+		"674328": ["**Breed:** Elemental", []],
+		"674330": ["**Breed:** Elemental", []],
+		"674331": ["**Breed:** Elemental", []],
+		"674332": ["**Breed:** Elemental", []],
+		"674333": ["**Breed:** Elemental", []],
+		"674334": ["**Breed:** Elemental", []],
+		"674335": ["**Breed:** Elemental", []],
+		"674336": ["**Breed:** Elemental", []],
+		"674337": ["**Breed:** Elemental", []],
+		"674338": ["**Breed:** Elemental", []],
+		"674339": ["**Breed:** Elemental", []],
+		"674340": ["**Breed:** Elemental", []],
+		"674342": ["**Breed:** Elemental", []],
+		"674343": ["**Breed:** Elemental", []],
+		"674344": ["**Breed:** Elemental", []],
+		"674345": ["**Breed:** Elemental", []],
+		"674346": ["**Breed:** Elemental", []],
+		"674347": ["**Breed:** Elemental", []],
+		"674348": ["**Breed:** Elemental", []],
+		"674349": ["**Breed:** Elemental", []],
+		"674350": ["**Breed:** Elemental", []],
+		"674351": ["**Breed:** Elemental", []],
+		"674352": ["**Breed:** Elemental", []],
+		"674353": ["**Breed:** Elemental", []],
+		"674354": ["**Breed:** Elemental", []],
+		"674355": ["**Breed:** Elemental", []],
+		"674356": ["**Breed:** Aquatic", []],
+		"674357": ["**Breed:** Aquatic", []],
+		"674358": ["**Breed:** Aquatic", []],
+		"674359": ["**Breed:** Aquatic", []],
+		"674360": ["**Breed:** Aquatic", []],
+		"674362": ["**Breed:** Aquatic", []],
+		"674363": ["**Breed:** Aquatic", []],
+		"674364": ["**Breed:** Aquatic", []],
+		"674365": ["**Breed:** Aquatic", []],
+		"674366": ["**Breed:** Aquatic", []],
+		"674367": ["**Breed:** Aquatic", []],
+		"674368": ["**Breed:** Aquatic", []],
+		"674369": ["**Breed:** Aquatic", []],
+		"674370": ["**Breed:** Aquatic", []],
+		"674371": ["**Breed:** Aquatic", []],
+		"674372": ["**Breed:** Aquatic", []],
+		"674374": ["**Breed:** Aquatic", []],
+		"674375": ["**Breed:** Aquatic", []],
+		"674376": ["**Breed:** Aquatic", []],
+		"674377": ["**Breed:** Aquatic", []],
+		"674378": ["**Breed:** Aquatic", []],
+		"674379": ["**Breed:** Aquatic", []],
+		"674380": ["**Breed:** Aquatic", []],
+		"674381": ["**Breed:** Aquatic", []],
+		"674383": ["**Breed:** Aquatic", []],
+		"674384": ["**Breed:** Aquatic", []],
+		"674385": ["**Breed:** Aquatic", []],
+		"674386": ["**Breed:** Aquatic", []],
+		"674387": ["**Breed:** Aquatic", []],
+		"674388": ["**Breed:** Aquatic", []],
+		"674389": ["**Breed:** Aquatic", []],
+		"674391": ["**Breed:** Aquatic", []],
+		"674392": ["**Breed:** Aquatic", []],
+		"674393": ["**Breed:** Aquatic", []],
+		"674394": ["**Breed:** Aquatic", []],
+		"674395": ["**Breed:** Aquatic", []],
+		"674396": ["**Breed:** Aquatic", []],
+		"674397": ["**Breed:** Aquatic", []],
+		"674398": ["**Breed:** Aquatic", []],
+		"674399": ["**Breed:** Aquatic", []],
+		"674400": ["**Breed:** Aquatic", []],
+		"674401": ["**Breed:** Aquatic", []],
+		"674403": ["**Breed:** Critter", []],
+		"674404": ["**Breed:** Critter", []],
+		"674405": ["**Breed:** Critter", []],
+		"674406": ["**Breed:** Critter", []],
+		"674407": ["**Breed:** Critter", []],
+		"674408": ["**Breed:** Critter", []],
+		"674409": ["**Breed:** Critter", []],
+		"674410": ["**Breed:** Critter", []],
+		"674411": ["**Breed:** Critter", []],
+		"674412": ["**Breed:** Critter", []],
+		"674413": ["**Breed:** Critter", []],
+		"674414": ["**Breed:** Critter", []],
+		"674415": ["**Breed:** Critter", []],
+		"674416": ["**Breed:** Critter", []],
+		"674417": ["**Breed:** Critter", []],
+		"674418": ["**Breed:** Critter", []],
+		"674419": ["**Breed:** Critter", []],
+		"674421": ["**Breed:** Beast", []],
+		"674422": ["**Breed:** Beast", []],
+		"674423": ["**Breed:** Beast", []],
+		"674424": ["**Breed:** Beast", []],
+		"674425": ["**Breed:** Beast", []],
+		"674426": ["**Breed:** Beast", []],
+		"674427": ["**Breed:** Beast", []],
+		"674428": ["**Breed:** Beast", []],
+		"674429": ["**Breed:** Beast", []],
+		"674430": ["**Breed:** Beast", []],
+		"674431": ["**Breed:** Beast", []],
+		"674432": ["**Breed:** Beast", []],
+		"674433": ["**Breed:** Beast", []],
+		"674434": ["**Breed:** Beast", []],
+		"674435": ["**Breed:** Beast", []],
+		"674436": ["**Breed:** Beast", []],
+		"674437": ["**Breed:** Beast", []],
+		"674438": ["**Breed:** Beast", []],
+		"674439": ["**Breed:** Beast", []],
+		"674440": ["**Breed:** Beast", []],
+		"674441": ["**Breed:** Beast", []],
+		"674442": ["**Breed:** Beast", []],
+		"674443": ["**Breed:** Beast", []],
+		"674444": ["**Breed:** Beast", []],
+		"674445": ["**Breed:** Beast", []],
+		"674446": ["**Breed:** Beast", []],
+		"674447": ["**Breed:** Beast", []],
+		"674448": ["**Breed:** Beast", []],
+		"674449": ["**Breed:** Beast", []],
+		"674450": ["**Breed:** Beast", []],
+		"674452": ["**Breed:** Beast", []],
+		"674453": ["**Breed:** Beast", []],
+		"674454": ["**Breed:** Beast", []],
+		"674455": ["**Breed:** Undead", []],
+		"674456": ["**Breed:** Undead", []],
+		"674457": ["**Breed:** Undead", []],
+		"674458": ["**Breed:** Undead", []],
+		"674459": ["**Breed:** Undead", []],
+		"674461": ["**Breed:** Undead", []],
+		"674462": ["**Breed:** Undead", []],
+		"674463": ["**Breed:** Undead", []],
+		"674464": ["**Breed:** Undead", []],
+		"674465": ["**Breed:** Undead", []],
+		"674466": ["**Breed:** Undead", []],
+		"674467": ["**Breed:** Undead", []],
+		"674468": ["**Breed:** Undead", []],
+		"674469": ["**Breed:** Undead", []],
+		"674470": ["**Breed:** Undead", []],
+		"674471": ["**Breed:** Undead", []],
+		"674472": ["**Breed:** Undead", []],
+		"674474": ["**Breed:** Undead", []],
+		"674475": ["**Breed:** Undead", []],
+		"674476": ["**Breed:** Undead", []],
+		"674477": ["**Breed:** Undead", []],
+		"674478": ["**Breed:** Undead", []],
+		"674479": ["**Breed:** Undead", []],
+		"674480": ["**Breed:** Undead", []],
+		"674481": ["**Breed:** Undead", []],
+		"674482": ["**Breed:** Undead", []],
+		"674483": ["**Breed:** Undead", []],
+		"674484": ["**Breed:** Beast", []],
+		"674485": ["**Breed:** Beast", []],
+		"674486": ["**Breed:** Beast", []],
+		"674487": ["**Breed:** Beast", []],
+		"674488": ["**Breed:** Beast", []],
+		"674489": ["**Breed:** Beast", []],
+		"674490": ["**Breed:** Beast", []],
+		"674491": ["**Breed:** Beast", []],
+		"674492": ["**Breed:** Beast", []],
+		"674493": ["**Breed:** Beast", []],
+		"674494": ["**Breed:** Beast", []],
+		"674495": ["**Breed:** Beast", []],
+		"674496": ["**Breed:** Beast", []],
+		"674497": ["**Breed:** Beast", []],
+		"674498": ["**Breed:** Beast", []],
+		"674499": ["**Breed:** Beast", []],
+		"674500": ["**Breed:** Critter", []],
+		"674501": ["**Breed:** Critter", []],
+		"674502": ["**Breed:** Critter", []],
+		"674503": ["**Breed:** Critter", []],
+		"674504": ["**Breed:** Critter", []],
+		"674505": ["**Breed:** Critter", []],
+		"674506": ["**Breed:** Critter", []],
+		"674507": ["**Breed:** Critter", []],
+		"674508": ["**Breed:** Critter", []],
+		"674509": ["**Breed:** Critter", []],
+		"674510": ["**Breed:** Critter", []],
+		"674511": ["**Breed:** Critter", []],
+		"674512": ["**Breed:** Critter", []],
+		"674513": ["**Breed:** Critter", []],
+		"674514": ["**Breed:** Critter", []],
+		"674515": ["**Breed:** Critter", []],
+		"674516": ["**Breed:** Critter", []],
+		"674517": ["**Breed:** Critter", []],
+		"674518": ["**Breed:** Critter", []],
+		"674519": ["**Breed:** Aquatic", []],
+		"674520": ["**Breed:** Aquatic", []],
+		"674521": ["**Breed:** Aquatic", []],
+		"674522": ["**Breed:** Aquatic", []],
+		"674523": ["**Breed:** Aquatic", []],
+		"674524": ["**Breed:** Aquatic", []],
+		"674525": ["**Breed:** Aquatic", []],
+		"674526": ["**Breed:** Aquatic", []],
+		"674527": ["**Breed:** Aquatic", []],
+		"674528": ["**Breed:** Aquatic", []],
+		"674529": ["**Breed:** Aquatic", []],
+		"674530": ["**Breed:** Aquatic", []],
+		"674531": ["**Breed:** Aquatic", []],
+		"674532": ["**Breed:** Aquatic", []],
+		"674533": ["**Breed:** Aquatic", []],
+		"674534": ["**Breed:** Aquatic", []],
+		"674535": ["**Breed:** Aquatic", []],
+		"674536": ["**Breed:** Aquatic", []],
+		"674537": ["**Breed:** Aquatic", []],
+		"674538": ["**Breed:** Aquatic", []],
+		"674539": ["**Breed:** Aquatic", []],
+		"674540": ["**Breed:** Aquatic", []],
+		"674541": ["**Breed:** Aquatic", []],
+		"674542": ["**Breed:** Aquatic", []],
+		"674543": ["**Breed:** Aquatic", []],
+		"674544": ["**Breed:** Aquatic", []],
+		"674545": ["**Breed:** Aquatic", []],
+		"674546": ["**Breed:** Aquatic", []],
+		"674547": ["**Breed:** Aquatic", []],
+		"674548": ["**Breed:** Beast", []],
+		"674549": ["**Breed:** Beast", []],
+		"674550": ["**Breed:** Beast", []],
+		"674551": ["**Breed:** Beast", []],
+		"674552": ["**Breed:** Beast", []],
+		"674553": ["**Breed:** Beast", []],
+		"674555": ["**Breed:** Beast", []],
+		"674556": ["**Breed:** Beast", []],
+		"674558": ["**Breed:** Beast", []],
+		"674559": ["**Breed:** Beast", []],
+		"674560": ["**Breed:** Beast", []],
+		"674561": ["**Breed:** Beast", []],
+		"674562": ["**Breed:** Beast", []],
+		"674563": ["**Breed:** Beast", []],
+		"674564": ["**Breed:** Beast", []],
+		"674565": ["**Breed:** Beast", []],
+		"674566": ["**Breed:** Beast", []],
+		"674567": ["**Breed:** Beast", []],
+		"674568": ["**Breed:** Beast", []],
+		"674569": ["**Breed:** Beast", []],
+		"674570": ["**Breed:** Beast", []],
+		"674571": ["**Breed:** Beast", []],
+		"674572": ["**Breed:** Beast", []],
+		"674573": ["**Breed:** Beast", []],
+		"674574": ["**Breed:** Beast", []],
+		"674575": ["**Breed:** Beast", []],
+		"892032": [
+			"**Faction:** Horde\n\n**Start:** Outrunner Alarion\n\n**Questline:** Sunstrider Isle (8 of 8)\n\n**Previous:** [Package Recovery](#loc=892080)",
+			[]
+		],
+		"892033": [
+			"**Faction:** Horde\n\n**Start:** Aeldon Sunbrand\n\n**Questline:** Eversong Woods (2 of 35)\n\n**Previous:** [WANTED: Thaelis the Hungerer](#loc=892034)\n\n**Next:** [Darnassian Intrusions](#loc=892073)",
+			[]
+		],
+		"892034": [
+			"**Faction:** Horde\n\n**Start:** Wanted: Thaelis the Hungerer\n\n**Questline:** Eversong Woods (1 of 35)\n\n**Next:** [Unstable Mana Crystals](#loc=892033)",
+			[]
+		],
+		"892035": [
+			"**Faction:** Horde\n\n**Start:** Magister Jaronis\n\n**Questline:** Eversong Woods (4 of 35)\n\n**Previous:** [Darnassian Intrusions](#loc=892073)\n\n**Next:** [Arcane Instability](#loc=892043)",
+			[]
+		],
+		"892036": [
+			"**Faction:** Horde\n\n**Start:** Ranger Jaela\n\n**Questline:** Eversong Woods (35 of 35)\n\n**Previous:** [Swift Discipline](#loc=892061)",
+			[]
+		],
+		"892037": [
+			"**Faction:** Horde\n\n**Start:** Lieutenant Dawnrunner\n\n**Questline:** Eversong Woods (23 of 35)\n\n**Previous:** [Captain Kelisendra's Lost Rutters](#loc=892050)\n\n**Next:** [The Spearcrafter's Hammer](#loc=892038)",
+			[]
+		],
+		"892038": [
+			"**Faction:** Horde\n\n**Start:** Arathel Sunforge\n\n**Questline:** Eversong Woods (24 of 35)\n\n**Previous:** [Amani Encroachment](#loc=892037)\n\n**Next:** [Deactivating the Spire](#loc=892052)",
+			[]
+		],
+		"892039": [
+			"**Faction:** Horde\n\n**Start:** Ven'jashi\n\n**Questline:** Eversong Woods (26 of 35)\n\n**Previous:** [Deactivating the Spire](#loc=892052)\n\n**Next:** [Abandoned Investigations](#loc=892054)",
+			[]
+		],
+		"892040": [
+			"**Faction:** Horde\n\n**Start:** Velendris Whitemorn\n\n**Questline:** Eversong Woods (17 of 35)\n\n**Previous:** [Situation at Sunsail Anchorage](#loc=892055)\n\n**Next:** [Grimscale Pirates!](#loc=892049)",
+			[]
+		],
+		"892041": [
+			"**Faction:** Horde\n\n**Start:** Incriminating Documents (dropped by Darnassian Scout)\n\n**Questline:** Eversong Woods (6 of 35)\n\n**Previous:** [Arcane Instability](#loc=892043)\n\n**Next:** [The Dwarven Spy](#loc=892042)",
+			[]
+		],
+		"892042": [
+			"**Faction:** Horde\n\n**Start:** Aeldon Sunbrand\n\n**Questline:** Eversong Woods (7 of 35)\n\n**Previous:** [Incriminating Documents](#loc=892041)\n\n**Next:** [Pelt Collection](#loc=892046)",
+			[]
+		],
+		"892043": [
+			"**Faction:** Horde\n\n**Start:** Ley-Keeper Velania\n\n**Questline:** Eversong Woods (5 of 35)\n\n**Previous:** [Major Malfunction](#loc=892035)\n\n**Next:** [Incriminating Documents](#loc=892041)",
+			[]
+		],
+		"892044": [
+			"**Faction:** Horde\n\n**Start:** Apprentice Mirveda\n\n**Questline:** Eversong Woods (11 of 35)\n\n**Previous:** [The Party Never Ends](#loc=892062)\n\n**Next:** [Unexpected Results](#loc=892045)",
+			[]
+		],
+		"892045": [
+			"**Faction:** Horde\n\n**Start:** Apprentice Mirveda\n\n**Questline:** Eversong Woods (12 of 35)\n\n**Previous:** [Corrupted Soil](#loc=892044)\n\n**Next:** [Research Notes](#loc=892070)",
+			[]
+		],
+		"892046": [
+			"**Faction:** Horde\n\n**Start:** Velan Brightoak\n\n**Questline:** Eversong Woods (8 of 35)\n\n**Previous:** [The Dwarven Spy](#loc=892042)\n\n**Next:** [A Somber Task](#loc=892243)",
+			[]
+		],
+		"892047": [
+			"**Faction:** Horde\n\n**Start:** Hathvelion Sungaze\n\n**Questline:** Eversong Woods (19 of 35)\n\n**Previous:** [Grimscale Pirates!](#loc=892049)\n\n**Next:** [The Ring of Mmmrrrggglll](#loc=892048)",
+			[]
+		],
+		"892048": [
+			"**Faction:** Horde\n\n**Start:** Hathvelion Sungaze\n\n**Questline:** Eversong Woods (20 of 35)\n\n**Previous:** [Fish Heads, Fish Heads...](#loc=892047)\n\n**Next:** [Wretched Ringleader](#loc=892063)",
+			[]
+		],
+		"892049": [
+			"**Faction:** Horde\n\n**Start:** Captain Kelisendra\n\n**Questline:** Eversong Woods (18 of 35)\n\n**Previous:** [Lost Armaments](#loc=892040)\n\n**Next:** [Fish Heads, Fish Heads...](#loc=892047)",
+			[]
+		],
+		"892050": [
+			"**Faction:** Horde\n\n**Start:** Captain Kelisendra's Lost Rutters (dropped by Grimscale murlocs)\n\n**Questline:** Eversong Woods (22 of 35)\n\n**Previous:** [Wretched Ringleader](#loc=892063)\n\n**Next:** [Amani Encroachment](#loc=892037)",
+			[]
+		],
+		"892051": ["**Faction:** Horde\n\n**Start:** Magister Duskwither", []],
+		"892052": [
+			"**Faction:** Horde\n\n**Start:** Apprentice Loralthalis\n\n**Questline:** Eversong Woods (25 of 35)\n\n**Previous:** [The Spearcrafter's Hammer](#loc=892038)\n\n**Next:** [Zul'Marosh](#loc=892039)",
+			[]
+		],
+		"892053": [
+			"**Faction:** Horde\n\n**Start:** Apprentice Loralthalis\n\n**Questline:** Eversong Woods (31 of 35)\n\n**Previous:** [Warning Fairbreeze Village](#loc=892076)\n\n**Next:** [Soaked Pages](#loc=892059)",
+			[]
+		],
+		"892054": [
+			"**Faction:** Horde\n\n**Start:** Magister Duskwither's Journal\n\n**Questline:** Eversong Woods (27 of 35)\n\n**Previous:** [Zul'Marosh](#loc=892039)\n\n**Next:** [Cleaning up the Grounds](#loc=892056)",
+			[]
+		],
+		"892055": [
+			"**Faction:** Horde\n\n**Start:** Ranger Degolien\n\n**Questline:** Eversong Woods (16 of 35)\n\n**Previous:** [Powering our Defenses](#loc=892244)\n\n**Next:** [Lost Armaments](#loc=892040)",
+			[]
+		],
+		"892056": [
+			"**Faction:** Horde\n\n**Start:** Groundskeeper Wyllithen\n\n**Questline:** Eversong Woods (28 of 35)\n\n**Previous:** [Abandoned Investigations](#loc=892054)\n\n**Next:** [Amani Invasion](#loc=892075)",
+			[]
+		],
+		"892057": ["**Faction:** Horde\n\n**Start:** Magister Jaronis", []],
+		"892058": ["**Faction:** Horde\n\n**Start:** Apprentice Ralen", []],
+		"892059": [
+			"**Faction:** Horde\n\n**Start:** Apprentice Meledor\n\n**Questline:** Eversong Woods (32 of 35)\n\n**Previous:** [Word from the Spire](#loc=892053)\n\n**Next:** [Taking the Fall](#loc=892060)",
+			[]
+		],
+		"892060": [
+			"**Faction:** Horde\n\n**Start:** Apprentice Meledor\n\n**Questline:** Eversong Woods (33 of 35)\n\n**Previous:** [Soaked Pages](#loc=892059)\n\n**Next:** [Swift Discipline](#loc=892061)",
+			[]
+		],
+		"892061": [
+			"**Faction:** Horde\n\n**Start:** Instructor Antheol\n\n**Questline:** Eversong Woods (34 of 35)\n\n**Previous:** [Taking the Fall](#loc=892060)\n\n**Next:** [The Dead Scar](#loc=892036)",
+			[]
+		],
+		"892062": [
+			"**Faction:** Horde\n\n**Start:** Lord Saltheril\n\n**Questline:** Eversong Woods (10 of 35)\n\n**Previous:** [A Somber Task](#loc=892243)\n\n**Next:** [Corrupted Soil](#loc=892044)",
+			[]
+		],
+		"892063": [
+			"**Faction:** Horde\n\n**Start:** Velendris Whitemorn\n\n**Questline:** Eversong Woods (21 of 35)\n\n**Previous:** [The Ring of Mmmrrrggglll](#loc=892048)\n\n**Next:** [Captain Kelisendra's Lost Rutters](#loc=892050)",
+			[]
+		],
+		"892064": ["**Faction:** Horde\n\n**Start:** Ley-Keeper Caidanis", []],
+		"892065": ["**Faction:** Horde\n\n**Start:** Magistrix Landra Dawnstrider", []],
+		"892066": ["**Faction:** Horde\n\n**Start:** Apothecary Thedra", []],
+		"892067": [
+			"**Faction:** Horde\n\n**Start:** Ranger Sareyn\n\n**Questline:** Eversong Woods (14 of 35)\n\n**Previous:** [Research Notes](#loc=892070)\n\n**Next:** [Powering our Defenses](#loc=892244)",
+			[]
+		],
+		"892068": ["**Faction:** Horde\n\n**Start:** Ranger Sareyn", []],
+		"892069": ["**Faction:** Horde\n\n**Start:** Magistrix Landra Dawnstrider", []],
+		"892070": [
+			"**Faction:** Horde\n\n**Start:** Apprentice Mirveda\n\n**Questline:** Eversong Woods (13 of 35)\n\n**Previous:** [Unexpected Results](#loc=892045)\n\n**Next:** [Defending Fairbreeze Village](#loc=892067)",
+			[]
+		],
+		"892071": ["**Faction:** Horde\n\n**Start:** Aeldon Sunbrand", []],
+		"892072": ["**Faction:** Horde\n\n**Start:** Ardeyn Riverwind", []],
+		"892073": [
+			"**Faction:** Horde\n\n**Start:** Aeldon Sunbrand\n\n**Questline:** Eversong Woods (3 of 35)\n\n**Previous:** [Unstable Mana Crystals](#loc=892033)\n\n**Next:** [Major Malfunction](#loc=892035)",
+			[]
+		],
+		"892074": ["**Faction:** Horde\n\n**Start:** Marniel Amberlight", []],
+		"892075": [
+			"**Faction:** Horde\n\n**Start:** Amani Invasion Plans (dropped by Chieftain Zul'Marosh)\n\n**Questline:** Eversong Woods (29 of 35)\n\n**Previous:** [Cleaning up the Grounds](#loc=892056)\n\n**Next:** [Warning Fairbreeze Village](#loc=892076)",
+			[]
+		],
+		"892076": [
+			"**Faction:** Horde\n\n**Start:** Lieutenant Dawnrunner\n\n**Questline:** Eversong Woods (30 of 35)\n\n**Previous:** [Amani Invasion](#loc=892075)\n\n**Next:** [Word from the Spire](#loc=892053)",
+			[]
+		],
+		"892077": ["**Faction:** Horde\n\n**Start:** Apprentice Loralthalis", []],
+		"892078": ["**Faction:** Horde\n\n**Start:** Magistrix Landra Dawnstrider", []],
+		"892079": [
+			"**Faction:** Horde\n\n**Start:** Outrunner Alarion\n\n**Questline:** Sunstrider Isle (6 of 8)\n\n**Previous:** [Aiding the Outrunners](#loc=1016141)\n\n**Next:** [Package Recovery](#loc=892080)",
+			[]
+		],
+		"892080": [
+			"**Faction:** Horde\n\n**Start:** Slain Outrunner\n\n**Questline:** Sunstrider Isle (7 of 8)\n\n**Previous:** [Slain by the Wretched](#loc=892079)\n\n**Next:** [Completing the Delivery](#loc=892032)",
+			[]
+		],
+		"892081": ["**Name:** Magistrix Eredania  \n**Faction:** Horde", []],
+		"892082": ["**Name:** Arcanist Sheynathren  \n**Faction:** Horde", []],
+		"892083": ["**Name:** Botanist Tyniarrel  \n**Faction:** Horde", []],
+		"892085": ["**Name:** Marniel Amberlight  \n**Faction:** Horde", []],
+		"892086": ["**Name:** Sathiel  \n**Faction:** Horde", []],
+		"892087": ["**Name:** Sleyin  \n**Faction:** Horde", []],
+		"892089": ["**Name:** Innkeeper Delaniel  \n**Faction:** Horde", []],
+		"892090": ["**Name:** Vara  \n**Faction:** Horde", []],
+		"892091": ["**Name:** Kanaria  \n**Faction:** Horde", []],
+		"892092": ["**Name:** Quarelestra  \n**Faction:** Horde", []],
+		"892093": ["**Name:** Saren  \n**Faction:** Horde", []],
+		"892094": ["**Name:** Aleinia  \n**Faction:** Horde", []],
+		"892095": ["**Name:** Geron  \n**Faction:** Horde", []],
+		"892096": ["**Name:** Sathein  \n**Faction:** Horde", []],
+		"892097": ["**Name:** Mathreyn  \n**Faction:** Horde", []],
+		"892099": ["**Name:** Innkeeper Jovia  \n**Faction:** Horde", []],
+		"892100": ["**Name:** Sylann  \n**Faction:** Horde", []],
+		"892101": ["**Name:** Hatheon  \n**Faction:** Horde", []],
+		"892102": ["**Name:** Ceera  \n**Faction:** Horde", []],
+		"892103": ["**Name:** Elana  \n**Faction:** Horde", []],
+		"892104": ["**Name:** Winthren  \n**Faction:** Horde", []],
+		"892105": ["**Name:** Keeli  \n**Faction:** Horde", []],
+		"892106": ["**Name:** Auctioneer Vynna  \n**Faction:** Horde", []],
+		"892107": ["**Name:** Auctioneer Feynna  \n**Faction:** Horde", []],
+		"892108": ["**Name:** Auctioneer Darise  \n**Faction:** Horde", []],
+		"892109": ["**Name:** Auctioneer Jenath  \n**Faction:** Horde", []],
+		"892111": ["**Name:** Welethelon  \n**Faction:** Horde", []],
+		"892112": ["**Name:** Noraelath  \n**Faction:** Horde", []],
+		"892113": ["**Name:** Keelen Sheets  \n**Faction:** Horde", []],
+		"892114": ["**Name:** Andra  \n**Faction:** Horde", []],
+		"892115": ["**Name:** Zyandrel  \n**Faction:** Horde", []],
+		"892117": ["**Name:** Zathanna  \n**Faction:** Horde", []],
+		"892119": ["**Name:** Lynalis  \n**Faction:** Horde", []],
+		"892120": ["**Name:** Tyn  \n**Faction:** Horde", []],
+		"892121": ["**Name:** Alestus  \n**Faction:** Horde", []],
+		"892122": ["**Name:** Drathen  \n**Faction:** Horde", []],
+		"892124": ["**Name:** Elynara  \n**Faction:** Horde", []],
+		"892125": ["**Name:** Innkeeper Velandra  \n**Faction:** Horde", []],
+		"892126": ["**Name:** Auctioneer Caidori  \n**Faction:** Horde", []],
+		"892127": ["**Name:** Auctioneer Ithillan  \n**Faction:** Horde", []],
+		"892128": ["**Name:** Auctioneer Tandron  \n**Faction:** Horde", []],
+		"892130": ["**Name:** Novia  \n**Faction:** Horde", []],
+		"892131": ["**Name:** Periel  \n**Faction:** Horde", []],
+		"892132": ["**Name:** Daenice  \n**Faction:** Horde", []],
+		"892133": ["**Name:** Mathaleron  \n**Faction:** Horde", []],
+		"892135": ["**Name:** Belil  \n**Faction:** Horde", []],
+		"892136": ["**Name:** Bemarrin  \n**Faction:** Horde", []],
+		"892137": ["**Name:** Eriden  \n**Faction:** Horde", []],
+		"892138": ["**Name:** Shalenn  \n**Faction:** Horde", []],
+		"892139": ["**Name:** Danwe  \n**Faction:** Horde", []],
+		"892142": ["**Name:** Sedana  \n**Faction:** Horde", []],
+		"892143": ["**Name:** Zantasia  \n**Faction:** Horde", []],
+		"892144": ["**Name:** Botanist Nathera  \n**Faction:** Horde", []],
+		"892145": ["**Name:** Camberon  \n**Faction:** Horde", []],
+		"892146": ["**Name:** Paelarin  \n**Faction:** Horde", []],
+		"892147": ["**Name:** Arathel Sunforge  \n**Faction:** Horde", []],
+		"892235": ["**Name:** Provisioner Vredigar  \n**Faction:** Horde", []],
+		"892236": ["**Name:** Paniar  \n**Faction:** Horde", []],
+		"892237": ["**Name:** Master Chef Mouldier  \n**Faction:** Horde", []],
+		"892238": ["**Name:** Innkeeper Kalarin  \n**Faction:** Horde", []],
+		"892239": ["**Name:** Blacksmith Frances  \n**Faction:** Horde", []],
+		"892240": ["**Name:** Terellia  \n**Faction:** Horde", []],
+		"892241": ["**Name:** Narina  \n**Faction:** Horde", []],
+		"892242": ["**Start:** Ranger Valanna", []],
+		"892243": [
+			"**Faction:** Horde\n\n**Start:** Larianna Riverwind\n\n**Questline:** Eversong Woods (9 of 35)\n\n**Previous:** [Pelt Collection](#loc=892046)\n\n**Next:** [The Party Never Ends](#loc=892062)",
+			[]
+		],
+		"892244": [
+			"**Faction:** Horde\n\n**Start:** Runewarden Deryan\n\n**Questline:** Eversong Woods (15 of 35)\n\n**Previous:** [Defending Fairbreeze Village](#loc=892067)\n\n**Next:** [Situation at Sunsail Anchorage](#loc=892055)",
+			[]
+		],
+		"892245": [
+			"**Faction:** Neutral\n\n**Start:** Magister Idonis\n\n**Related Achievements:**\n- Call of the Light\n\n**Questline:** The Light's Summons (1 of 17)\n\n**Next:** [A Voice from the Light](https://mapgenie.io/world-of-warcraft/maps/khaz-algar?locationIds=1018099)",
+			[]
+		],
+		"892246": [
+			"**Faction:** Horde\n\n**Start:** Arcanist Vandril\n\n**Questline:** Ghostlands (4 of 41)\n\n**Previous:** [Return to Arcanist Vandril](#loc=892297)\n\n**Next:** [Help Ranger Valanna!](#loc=892250)",
+			[]
+		],
+		"892247": [
+			"**Faction:** Horde\n\n**Start:** Arcanist Vandril\n\n**Questline:** Ghostlands (31 of 41)\n\n**Previous:** [Deactivate An'owyn](#loc=892269)\n\n**Next:** [Windrunner Village](#loc=892248)",
+			[]
+		],
+		"892248": [
+			"**Faction:** Horde\n\n**Start:** Arcanist Vandril\n\n**Questline:** Ghostlands (32 of 41)\n\n**Previous:** [Goldenmist Village](#loc=892247)\n\n**Next:** [The Sanctum of the Sun](#loc=892255)",
+			[]
+		],
+		"892249": [
+			"**Faction:** Horde\n\n**Start:** Auto-Accept\n\n**Questline:** Ghostlands (6 of 41)\n\n**Previous:** [Help Ranger Valanna!](#loc=892250)\n\n**Next:** [Report to Captain Helios](#loc=892251)",
+			[]
+		],
+		"892250": [
+			"**Faction:** Horde\n\n**Start:** Ranger Lethvalin\n\n**Questline:** Ghostlands (5 of 41)\n\n**Previous:** [Suncrown Village](#loc=892246)\n\n**Next:** [Dealing with Zeb'Sora](#loc=892249)",
+			[]
+		],
+		"892251": [
+			"**Faction:** Horde\n\n**Start:** Ranger Valanna\n\n**Questline:** Ghostlands (7 of 41)\n\n**Previous:** [Dealing with Zeb'Sora](#loc=892249)\n\n**Next:** [Investigate the Amani Catacombs](#loc=892279)",
+			[]
+		],
+		"892252": ["**Faction:** Horde\n\n**Start:** Courier Dawnstrider", []],
+		"892253": [
+			"**Faction:** Horde\n\n**Start:** Apothecary Renzithen\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (23 of 41)\n\n**Previous:** [Salvaging the Past](#loc=892254)\n\n**Next:** [Down the Dead Scar](#loc=892257)",
+			[]
+		],
+		"892254": [
+			"**Faction:** Horde\n\n**Start:** Magister Darenis\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (22 of 41)\n\n**Previous:** [Tomber's Supplies](#loc=892256)\n\n**Next:** [The Plagued Coast](#loc=892253)",
+			[]
+		],
+		"892255": [
+			"**Faction:** Horde\n\n**Start:** Magister Darenis\n\n**Questline:** Ghostlands (33 of 41)\n\n**Previous:** [Windrunner Village](#loc=892248)\n\n**Next:** [The Farstrider Enclave](#loc=892293)",
+			[]
+		],
+		"892256": [
+			"**Faction:** Horde\n\n**Start:** Rathis Tomber\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (21 of 41)\n\n**Previous:** [Trouble at the Underlight Mines](#loc=892278)\n\n**Next:** [Salvaging the Past](#loc=892254)",
+			[]
+		],
+		"892257": [
+			"**Faction:** Horde\n\n**Start:** Deathstalker Rathiel\n\n**Questline:** Ghostlands (24 of 41)\n\n**Previous:** [The Plagued Coast](#loc=892253)\n\n**Next:** [Rotting Hearts](#loc=892285)",
+			[]
+		],
+		"892258": [
+			"**Faction:** Horde\n\n**Start:** Wanted Poster\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (18 of 41)\n\n**Previous:** [Bring Me Kel'gash's Head!](#loc=892284)\n\n**Next:** [Culinary Crunch](#loc=892271)",
+			[]
+		],
+		"892259": [
+			"**Faction:** Horde\n\n**Start:** Geranis Whitemorn\n\n**Questline:** Ghostlands (12 of 41)\n\n**Previous:** [Spirits of the Drowned](#loc=892288)\n\n**Next:** [Vanquishing Aquantion](#loc=892274)",
+			[]
+		],
+		"892260": ["**Faction:** Horde\n\n**Start:** Farstrider Sedina", []],
+		"892261": ["**Faction:** Horde\n\n**Start:** Farstrider Sedina", []],
+		"892262": [
+			"**Faction:** Horde\n\n**Start:** Dame Auriferous\n\n**Questline:** Ghostlands (27 of 41)\n\n**Previous:** [Spinal Dust](#loc=892286)\n\n**Next:** [Into Occupied Territory](#loc=892265)",
+			[]
+		],
+		"892263": ["**Faction:** Horde\n\n**Start:** Ranger Vynna", []],
+		"892264": [
+			"**Faction:** Horde\n\n**Start:** Dusty Journal\n\n**Questline:** Ghostlands (35 of 41)\n\n**Previous:** [The Farstrider Enclave](#loc=892293)\n\n**Next:** [Report to Magister Kaendris](#loc=892272)",
+			[]
+		],
+		"892265": [
+			"**Faction:** Horde\n\n**Start:** Dame Auriferous\n\n**Questline:** Ghostlands (28 of 41)\n\n**Previous:** [Investigate An'daroth](#loc=892262)\n\n**Next:** [Deliver the Plans to An'telas](#loc=892267)",
+			[]
+		],
+		"892266": [
+			"**Faction:** Horde\n\n**Start:** Arcanist Janeda\n\n**Storyline:** Dar'Khan Drathir\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (38 of 41)\n\n**Previous:** [The Twin Ziggurats](#loc=892276)\n\n**Next:** [War on Deatholme](#loc=892287)",
+			[]
+		],
+		"892267": [
+			"**Faction:** Horde\n\n**Start:** Dame Auriferous\n\n**Questline:** Ghostlands (29 of 41)\n\n**Previous:** [Into Occupied Territory](#loc=892265)\n\n**Next:** [Deactivate An'owyn](#loc=892269)",
+			[]
+		],
+		"892268": [
+			"**Faction:** Horde\n\n**Start:** Magister Kaendris\n\n**Storyline:** Dar'Khan Drathir\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (41 of 41)\n\n**Previous:** [Dar'Khan's Lieutenants](#loc=892270)",
+			[]
+		],
+		"892269": [
+			"**Faction:** Horde\n\n**Start:** Magister Sylastor\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (30 of 41)\n\n**Previous:** [Deliver the Plans to An'telas](#loc=892267)\n\n**Next:** [Goldenmist Village](#loc=892247)",
+			[]
+		],
+		"892270": [
+			"**Faction:** Horde\n\n**Start:** Magister Idonis\n\n**Storyline:** Dar'Khan Drathir\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (40 of 41)\n\n**Previous:** [War on Deatholme](#loc=892287)\n\n**Next:** [The Traitor's Destruction](#loc=892268)",
+			[]
+		],
+		"892271": [
+			"**Faction:** Horde\n\n**Start:** Master Chef Mouldier\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (19 of 41)\n\n**Previous:** [WANTED: Knucklerot and Luzran](#loc=892258)\n\n**Next:** [Trouble at the Underlight Mines](#loc=892278)",
+			[]
+		],
+		"892272": [
+			"**Faction:** Horde\n\n**Start:** Ranger Vynna\n\n**Questline:** Ghostlands (36 of 41)\n\n**Previous:** [Hints of the Past](#loc=892264)\n\n**Next:** [The Twin Ziggurats](#loc=892276)",
+			[]
+		],
+		"892273": ["**Faction:** Horde\n\n**Start:** High Executor Mavren", []],
+		"892274": [
+			"**Faction:** Horde\n\n**Start:** Geranis Whitemorn\n\n**Storyline:** Farstrider Enclave\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (13 of 41)\n\n**Previous:** [Forgotten Rituals](#loc=892259)\n\n**Next:** [Attack on Zeb'Tela](#loc=892290)",
+			[]
+		],
+		"892275": ["**Faction:** Horde\n\n**Start:** The Lady's Necklace (dropped by Fallen Ranger)", []],
+		"892276": [
+			"**Faction:** Horde\n\n**Start:** Magister Kaendris\n\n**Questline:** Ghostlands (37 of 41)\n\n**Previous:** [Report to Magister Kaendris](#loc=892272)\n\n**Next:** [Captives at Deatholme](#loc=892266)",
+			[]
+		],
+		"892277": ["**Faction:** Neutral\n\n**Start:** High Executor Mavren", []],
+		"892278": [
+			"**Faction:** Horde\n\n**Start:** Deathstalker Maltendis\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (20 of 41)\n\n**Previous:** [Culinary Crunch](#loc=892271)\n\n**Next:** [Tomber's Supplies](#loc=892256)",
+			[]
+		],
+		"892279": [
+			"**Faction:** Horde\n\n**Start:** Ranger Vynna\n\n**Storyline:** Farstrider Enclave\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (8 of 41)\n\n**Previous:** [Report to Captain Helios](#loc=892251)\n\n**Next:** [Troll Juju](#loc=892280)",
+			[]
+		],
+		"892280": [
+			"**Faction:** Horde\n\n**Start:** Apothecary Venustus\n\n**Storyline:** Farstrider Enclave\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (9 of 41)\n\n**Previous:** [Investigate the Amani Catacombs](#loc=892279)\n\n**Next:** [Shadowpine Weaponry](#loc=892283)",
+			[]
+		],
+		"892281": ["**Faction:** Horde\n\n**Start:** Apprentice Shatharia", []],
+		"892282": ["**Faction:** Horde\n\n**Start:** Ranger Lilatha", []],
+		"892283": [
+			"**Faction:** Horde\n\n**Start:** Captain Helios\n\n**Storyline:** Farstrider Enclave\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (10 of 41)\n\n**Previous:** [Troll Juju](#loc=892280)\n\n**Next:** [Spirits of the Drowned](#loc=892288)",
+			[]
+		],
+		"892284": [
+			"**Faction:** Horde\n\n**Start:** Wanted Poster: Kel'gash the Wicked\n\n**Storyline:** Farstrider Enclave\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (17 of 41)\n\n**Previous:** [A Little Dash of Seasoning](#loc=892289)\n\n**Next:** [WANTED: Knucklerot and Luzran](#loc=892258)",
+			[]
+		],
+		"892285": [
+			"**Faction:** Horde\n\n**Start:** Magistrix Aminel\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (25 of 41)\n\n**Previous:** [Down the Dead Scar](#loc=892257)\n\n**Next:** [Spinal Dust](#loc=892286)",
+			[]
+		],
+		"892286": [
+			"**Faction:** Horde\n\n**Start:** Auto-Accept\n\n**Storyline:** Citizens of Tranquillien\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (26 of 41)\n\n**Previous:** [Rotting Hearts](#loc=892285)\n\n**Next:** [Investigate An'daroth](#loc=892262)",
+			[]
+		],
+		"892287": [
+			"**Faction:** Horde\n\n**Start:** Magister Idonis\n\n**Storyline:** Dar'Khan Drathir\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (39 of 41)\n\n**Previous:** [Captives at Deatholme](#loc=892266)\n\n**Next:** [Dar'Khan's Lieutenants](#loc=892270)",
+			[]
+		],
+		"892288": [
+			"**Faction:** Horde\n\n**Start:** Ranger Krenn'an\n\n**Storyline:** Farstrider Enclave\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (11 of 41)\n\n**Previous:** [Shadowpine Weaponry](#loc=892283)\n\n**Next:** [Forgotten Rituals](#loc=892259)",
+			[]
+		],
+		"892289": [
+			"**Faction:** Horde\n\n**Start:** Apothecary Venustus\n\n**Storyline:** Farstrider Enclave\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (16 of 41)\n\n**Previous:** [Assault on Zeb'Nowa](#loc=892291)\n\n**Next:** [Bring Me Kel'gash's Head!](#loc=892284)",
+			[]
+		],
+		"892290": [
+			"**Faction:** Horde\n\n**Start:** Farstrider Solanna\n\n**Questline:** Ghostlands (14 of 41)\n\n**Previous:** [Vanquishing Aquantion](#loc=892274)\n\n**Next:** [Assault on Zeb'Nowa](#loc=892291)",
+			[]
+		],
+		"892291": [
+			"**Faction:** Horde\n\n**Start:** Farstrider Solanna\n\n**Storyline:** Farstrider Enclave\n\n**Related Achievements:**\n- Ghostlands Quests\n- Loremaster of Eastern Kingdoms\n- The Loremaster\n\n**Questline:** Ghostlands (15 of 41)\n\n**Previous:** [Attack on Zeb'Tela](#loc=892290)\n\n**Next:** [A Little Dash of Seasoning](#loc=892289)",
+			[]
+		],
+		"892292": ["**Faction:** Horde\n\n**Start:** Apprentice Vor'el", []],
+		"892293": [
+			"**Faction:** Horde\n\n**Start:** Magister Kaendris\n\n**Questline:** Ghostlands (34 of 41)\n\n**Previous:** [The Sanctum of the Sun](#loc=892255)\n\n**Next:** [Hints of the Past](#loc=892264)",
+			[]
+		],
+		"892294": ["**Faction:** Horde\n\n**Start:** Dying Blood Elf", []],
+		"892295": [
+			"**Faction:** Neutral\n\n**Start:** Arcanist Vandril\n\n**Questline:** Ghostlands (2 of 41)\n\n**Previous:** [The Forsaken](#loc=1016167)\n\n**Next:** [Return to Arcanist Vandril](#loc=892297)",
+			[]
+		],
+		"892296": ["**Start:** Auto-Accept", []],
+		"892297": [
+			"**Faction:** Horde\n\n**Start:** High Executor Mavren\n\n**Questline:** Ghostlands (3 of 41)\n\n**Previous:** [The Forsaken](#loc=892295)\n\n**Next:** [Suncrown Village](#loc=892246)",
+			[]
+		],
+		"892298": ["**Faction:** Neutral\n\n**Start:** Magister Kaendris", []],
+		"892299": ["**Faction:** Neutral\n\n**Start:** Lor'themar Theron", []],
+		"1016111": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{mage width=16}} Mage\n\n**Start:** Archmage Shymm",
+			[]
+		],
+		"1016112": [
+			"**Faction:** Horde\n\n**Required Level:** 10\n\n**Start:** Warchief's Herald\n\n**Questline:** The Stormwind Extraction (1 of 3)\n\n**Next:** [The Stormwind Extraction](https://mapgenie.io/world-of-warcraft/maps/kalimdor?locationIds=1032172)",
+			[]
+		],
+		"1016131": ["**Faction:** Horde\n\n**Start:** Lor'themar Theron", []],
+		"1016132": ["**Faction:** Horde\n\n**Start:** Sathren Azuredawn", []],
+		"1016139": ["**Faction:** Horde\n\n**Start:** Arcanist Ithanas", []],
+		"1016140": [
+			"**Faction:** Horde\n\n**Start:** Lanthan Perilon\n\n**Questline:** Sunstrider Isle (3 of 8)\n\n**Previous:** [Unfortunate Measures](#loc=1016148)\n\n**Next:** [Felendren the Banished](#loc=1016142)",
+			[]
+		],
+		"1016141": [
+			"**Faction:** Horde\n\n**Start:** Lanthan Perilon\n\n**Questline:** Sunstrider Isle (5 of 8)\n\n**Previous:** [Felendren the Banished](#loc=1016142)\n\n**Next:** [Slain by the Wretched](#loc=892079)",
+			[]
+		],
+		"1016142": [
+			"**Faction:** Horde\n\n**Start:** Lanthan Perilon\n\n**Questline:** Sunstrider Isle (4 of 8)\n\n**Previous:** [Aggression](#loc=1016140)\n\n**Next:** [Aiding the Outrunners](#loc=1016141)",
+			[]
+		],
+		"1016143": [
+			"**Faction:** Horde\n\n**Start:** Magistrix Erona\n\n**Questline:** Sunstrider Isle (1 of 8)\n\n**Next:** [Unfortunate Measures](#loc=1016148)",
+			[]
+		],
+		"1016144": ["**Faction:** Horde\n\n**Start:** Magistrix Erona", []],
+		"1016145": ["**Faction:** Horde\n\n**Start:** Well Watcher Solanian", []],
+		"1016146": ["**Faction:** Horde\n\n**Start:** Well Watcher Solanian", []],
+		"1016147": ["**Faction:** Horde\n\n**Start:** Arcanist Helion", []],
+		"1016148": [
+			"**Faction:** Horde\n\n**Start:** Magistrix Erona\n\n**Questline:** Sunstrider Isle (2 of 8)\n\n**Previous:** [Reclaiming Sunstrider Isle](#loc=1016143)\n\n**Next:** [Aggression](#loc=1016140)",
+			[]
+		],
+		"1016149": ["**Faction:** Horde\n\n**Start:** Jarson Everlong", []],
+		"1016150": ["**Faction:** Horde\n\n**Start:** Jarson Everlong", []],
+		"1016151": ["**Faction:** Horde\n\n**Start:** Jarson Everlong", []],
+		"1016152": ["**Faction:** Horde\n\n**Start:** Jarson Everlong", []],
+		"1016153": ["**Faction:** Horde\n\n**Start:** Ranger Degolien", []],
+		"1016154": [
+			"**Faction:** Horde\n\n**Required Class:** {{mage width=16}} Mage\n\n**Start:** Instructor Antheol",
+			[]
+		],
+		"1016155": ["**Faction:** Horde\n\n**Start:** Skymaster Brightdawn", []],
+		"1016156": ["**Faction:** Horde\n\n**Start:** Sathiel", []],
+		"1016157": [
+			"**Faction:** Horde\n\n**Required Class:** {{mage width=16}} Mage\n\n**Start:** Instructor Antheol",
+			[]
+		],
+		"1016158": ["**Faction:** Horde\n\n**Start:** Skymistress Gloaming", []],
+		"1016159": [
+			"**Faction:** Horde\n\n**Required Class:** {{mage width=16}} Mage\n\n**Start:** Instructor Antheol",
+			[]
+		],
+		"1016160": ["**Faction:** Horde\n\n**Start:** Larianna Riverwind", []],
+		"1016161": [
+			"**Faction:** Horde\n\n**Required Class:** {{mage width=16}} Mage\n\n**Start:** Arcanist Vandril",
+			[]
+		],
+		"1016162": [
+			"**Faction:** Horde\n\n**Required Class:** {{mage width=16}} Mage\n\n**Start:** Arcanist Vandril",
+			[]
+		],
+		"1016163": ["**Faction:** Horde\n\n**Start:** Magister Kaendris", []],
+		"1016164": ["**Faction:** Horde\n\n**Start:** High Executor Mavren", []],
+		"1016165": ["**Faction:** Horde\n\n**Start:** Magistrix Aminel", []],
+		"1016166": ["**Faction:** Horde\n\n**Start:** Magistrix Aminel", []],
+		"1016167": [
+			"**Faction:** Horde\n\n**Start:** Arcanist Vandril\n\n**Questline:** Ghostlands (1 of 41)\n\n**Next:** [The Forsaken](#loc=892295)",
+			[]
+		],
+		"1016170": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Eldara Dawnrunner", []],
+		"1016171": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Anchorite Kairthos", []],
+		"1016172": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Captain Theris Dawnhearth", []],
+		"1016173": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Smith Hauthaa", []],
+		"1016174": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Magister Ilastar", []],
+		"1016175": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Captain Valindria", []],
+		"1016176": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Smith Hauthaa", []],
+		"1016177": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Eldara Dawnrunner", []],
+		"1016178": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Vindicator Xayann", []],
+		"1016179": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Eldara Dawnrunner", []],
+		"1016180": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Vindicator Kaalan", []],
+		"1016181": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Astromancer Darnarian", []],
+		"1016182": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Mar'nah", []],
+		"1016183": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Mar'nah", []],
+		"1016184": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Tradesman Portanuus", []],
+		"1016185": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Tradesman Portanuus", []],
+		"1016186": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Eldara Dawnrunner", []],
+		"1016187": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Battlemage Arynna", []],
+		"1016188": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Harbinger Inuuro", []],
+		"1016189": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Captain Theris Dawnhearth", []],
+		"1016190": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Anchorite Ayuri", []],
+		"1016228": ["**Faction:** Alliance\n\n**Required Level:** 25\n\n**Start:** Halduron Brightwing", []],
+		"1016229": ["**Faction:** Alliance\n\n**Required Level:** 25\n\n**Start:** Halduron Brightwing", []],
+		"1016230": [
+			"**Faction:** Alliance\n\n**Required Level:** 25\n\n**Required Class:** {{priest width=16}} Priest, {{shaman width=16}} Shaman, {{druid width=16}} Druid\n\n**Start:** Halduron Brightwing",
+			[]
+		],
+		"1016231": ["**Faction:** Horde\n\n**Required Level:** 25\n\n**Start:** Halduron Brightwing", []],
+		"1016232": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Halduron Brightwing", []],
+		"1016233": [
+			"**Faction:** Neutral\n\n**Required Level:** 25\n\n**Required Class:** {{priest width=16}} Priest, {{shaman width=16}} Shaman, {{druid width=16}} Druid\n\n**Start:** Halduron Brightwing",
+			[]
+		],
+		"1016234": ["**Faction:** Horde\n\n**Required Level:** 25\n\n**Start:** Halduron Brightwing", []],
+		"1016235": [
+			"**Faction:** Horde\n\n**Required Level:** 25\n\n**Required Class:** {{priest width=16}} Priest, {{shaman width=16}} Shaman, {{druid width=16}} Druid\n\n**Start:** Halduron Brightwing",
+			[]
+		],
+		"1016237": [
+			"**Faction:** Horde\n\n**Required Level:** 15\n\n**Start:** Lor'themar Theron\n\n**Related Achievements:**\n- Dominance Offensive Campaign\n\n**Questline:** Dominance Offensive (24 of 44)\n\n**Previous:** [Get My Results!](https://mapgenie.io/world-of-warcraft/maps/pandaria?locationIds=1026327)\n\n**Next:** [The Kun-Lai Expedition](https://mapgenie.io/world-of-warcraft/maps/pandaria?locationIds=1026353)",
+			[]
+		],
+		"1016238": [
+			"**Faction:** Horde\n\n**Required Level:** 40\n\n**Start:** Lady Liadrin\n\n**Questline:** Allies of the Horde: Nightborne (3 of 4)\n\n**Previous:** [Silvermoon City](https://mapgenie.io/world-of-warcraft/maps/broken-isles?locationIds=1021493)\n\n**Next:** [The Nightborne](#loc=1016239)",
+			[]
+		],
+		"1016239": [
+			"**Faction:** Horde\n\n**Required Level:** 40\n\n**Start:** Lady Liadrin\n\n**Related Achievements:**\n- Allied Races: Nightborne\n\n**Questline:** Allies of the Horde: Nightborne (4 of 4)\n\n**Previous:** [Remember the Sunwell](#loc=1016238)",
+			[]
+		],
+		"1016240": [
+			"**Faction:** Alliance\n\n**Required Level:** 40\n\n**Start:** High Elf Ranger\n\n**Related Achievements:**\n- Allied Races: Void Elf\n\n**Questline:** Allies of the Alliance: Void Elf (2 of 2)\n\n**Previous:** [The Ghostlands](https://mapgenie.io/world-of-warcraft/maps/eastern-kingdoms?locationIds=1038976)",
+			[]
+		],
+		"1016241": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lor'themar Theron\n\n**Questline:** Blood Elf Heritage Armor (2 of 10)\n\n**Previous:** [The Pride of the Sin'dorei](https://mapgenie.io/world-of-warcraft/maps/kalimdor?locationIds=1035055)\n\n**Next:** [Writing on the Wall](#loc=1016242)",
+			[]
+		],
+		"1016242": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lor'themar Theron\n\n**Questline:** Blood Elf Heritage Armor (3 of 10)\n\n**Previous:** [Walk Among Ghosts](#loc=1016241)\n\n**Next:** [The First to Fall](#loc=1016243)",
+			[]
+		],
+		"1016243": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lor'themar Theron\n\n**Questline:** Blood Elf Heritage Armor (4 of 10)\n\n**Previous:** [Writing on the Wall](#loc=1016242)\n\n**Next:** [Lament of the Highborne](#loc=1016244)",
+			[]
+		],
+		"1016244": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lor'themar Theron\n\n**Questline:** Blood Elf Heritage Armor (5 of 10)\n\n**Previous:** [The First to Fall](#loc=1016243)\n\n**Next:** [The Day Hope Died](#loc=1016245)",
+			[]
+		],
+		"1016245": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lor'themar Theron\n\n**Questline:** Blood Elf Heritage Armor (6 of 10)\n\n**Previous:** [Lament of the Highborne](#loc=1016244)\n\n**Next:** [Defense of Qual'Danas](#loc=1016246)",
+			[]
+		],
+		"1016246": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lor'themar Theron\n\n**Questline:** Blood Elf Heritage Armor (7 of 10)\n\n**Previous:** [The Day Hope Died](#loc=1016245)\n\n**Next:** [The Setting Sun](#loc=1016248)",
+			[]
+		],
+		"1016247": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lady Liadrin\n\n**Questline:** Blood Elf Heritage Armor (9 of 10)\n\n**Previous:** [The Setting Sun](#loc=1016248)\n\n**Next:** [The Fall of the Sunwell](#loc=1016249)",
+			[]
+		],
+		"1016248": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lady Liadrin\n\n**Questline:** Blood Elf Heritage Armor (8 of 10)\n\n**Previous:** [Defense of Qual'Danas](#loc=1016246)\n\n**Next:** [A People Shattered](#loc=1016247)",
+			[]
+		],
+		"1016249": [
+			"**Faction:** Horde\n\n**Required Level:** 50\n\n**Start:** Lady Liadrin\n\n**Questline:** Blood Elf Heritage Armor (10 of 10)\n\n**Previous:** [A People Shattered](#loc=1016247)",
+			[]
+		],
+		"1016250": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (3 of 16)\n\n**Previous:** [Summons from the Matriarch](https://mapgenie.io/world-of-warcraft/maps/shadowlands?locationIds=1041308)\n\n**Next:** [Tranquillien Besieged](#loc=1016251)",
+			[]
+		],
+		"1016251": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (4 of 16)\n\n**Previous:** [Briefing](#loc=1016250)\n\n**Next:** [Death to the Scourge](#loc=1016252)",
+			[]
+		],
+		"1016252": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (5 of 16)\n\n**Previous:** [Tranquillien Besieged](#loc=1016251)\n\n**Next:** [Magnus Installation](#loc=1016253)",
+			[]
+		],
+		"1016253": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Archmage Aethas Sunreaver\n\n**Questline:** Knights of Blood (6 of 16)\n\n**Previous:** [Death to the Scourge](#loc=1016252)\n\n**Next:** [A Knight's Weapon](#loc=1016254)",
+			[]
+		],
+		"1016254": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (7 of 16)\n\n**Previous:** [Magnus Installation](#loc=1016253)\n\n**Next:** [An Honest Heart](#loc=1016255)",
+			[]
+		],
+		"1016255": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (8 of 16)\n\n**Previous:** [A Knight's Weapon](#loc=1016254)\n\n**Next:** [An Unbreakable Will](#loc=1016256)",
+			[]
+		],
+		"1016256": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (9 of 16)\n\n**Previous:** [An Honest Heart](#loc=1016255)\n\n**Next:** [Unfair Fight](https://mapgenie.io/world-of-warcraft/maps/shadowlands?locationIds=1041311)",
+			[]
+		],
+		"1016257": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (13 of 16)\n\n**Previous:** [Return to the Ghostlands](https://mapgenie.io/world-of-warcraft/maps/shadowlands?locationIds=1041312)\n\n**Next:** [Justice Long Overdue](#loc=1016258)",
+			[]
+		],
+		"1016258": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (14 of 16)\n\n**Previous:** [I Am the Blade of the Light](#loc=1016257)\n\n**Next:** [Blood Knight](#loc=1016260)",
+			[]
+		],
+		"1016259": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Required Class:** {{warrior width=16}} Warrior, {{hunter width=16}} Hunter, {{rogue width=16}} Rogue, {{priest width=16}} Priest, {{deathknight width=16}} Death Knight, {{mage width=16}} Mage, {{warlock width=16}} Warlock, {{monk width=16}} Monk, {{demonhunter width=16}} Demon Hunter\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (16 of 16)\n\n**Previous:** [Blood Knight](#loc=1016260)",
+			[]
+		],
+		"1016260": [
+			"**Faction:** Horde\n\n**Required Level:** 60\n\n**Required Class:** {{paladin width=16}} Paladin\n\n**Start:** Lady Liadrin\n\n**Questline:** Knights of Blood (15 of 16)\n\n**Previous:** [Justice Long Overdue](#loc=1016258)\n\n**Next:** [Victory for the Sin'dorei](#loc=1016259)",
+			[]
+		],
+		"1016261": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{paladin width=16}} Paladin\n\n**Start:** Champion Bachi",
+			[]
+		],
+		"1016262": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{mage width=16}} Mage\n\n**Start:** Archmage Shymm",
+			[]
+		],
+		"1016263": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{shaman width=16}} Shaman\n\n**Start:** Gez'li",
+			[]
+		],
+		"1016264": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{warlock width=16}} Warlock\n\n**Start:** Kaal Soulreaper",
+			[]
+		],
+		"1016265": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{hunter width=16}} Hunter\n\n**Start:** Holt Thunderhorn",
+			[]
+		],
+		"1016266": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016267": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016268": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016269": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016270": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016271": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{warrior width=16}} Warrior\n\n**Start:** Sark Ragetotem",
+			[]
+		],
+		"1016272": [
+			"**Faction:** Horde\n\n**Required Level:** 20\n\n**Required Class:** {{rogue width=16}} Rogue\n\n**Start:** Gregory Charles",
+			[]
+		],
+		"1016273": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{warrior width=16}} Warrior\n\n**Start:** Sark Ragetotem",
+			[]
+		],
+		"1016274": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016275": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016276": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016277": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016278": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{priest width=16}} Priest\n\n**Start:** Malakai Cross",
+			[]
+		],
+		"1016279": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{warlock width=16}} Warlock\n\n**Start:** Kaal Soulreaper",
+			[]
+		],
+		"1016280": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{paladin width=16}} Paladin\n\n**Start:** Champion Bachi",
+			[]
+		],
+		"1016281": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{hunter width=16}} Hunter\n\n**Start:** Holt Thunderhorn",
+			[]
+		],
+		"1016282": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{shaman width=16}} Shaman\n\n**Start:** Beram Skychaser",
+			[]
+		],
+		"1016283": [
+			"**Faction:** Horde\n\n**Required Level:** 8\n\n**Required Class:** {{rogue width=16}} Rogue\n\n**Start:** Gregory Charles",
+			[]
+		],
+		"1016284": ["**Faction:** Neutral\n\n**Required Level:** 25\n\n**Start:** Captain Theris Dawnhearth", []]
+	}
+}

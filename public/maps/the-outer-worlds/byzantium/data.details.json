@@ -1,0 +1,127 @@
+{
+	"v": 1,
+	"d": {
+		"18747": ["Carries _Note to Mr. Billingsly_", []],
+		"18749": ["In the river", []],
+		"18756": ["On the shelf", []],
+		"18765": ["**Given By:** Alonzo Vallejos", []],
+		"18768": ["Optional: Lockwood's Office Key", []],
+		"18772": ["Winston Forsythe", []],
+		"18777": ["Celeste Jolicoeur", []],
+		"18778": ["Carries _Celeste's Key_", []],
+		"18782": ["Inside the locked drawer (40/0)", []],
+		"18783": ["Requires: Celeste's Key", []],
+		"18790": [
+			"**Requires:** [Byzantium Estate Key](https://mapgenie.io/the-outer-worlds/maps/groundbreaker?locationIds=18961)",
+			[]
+		],
+		"18795": ["Inside the locker", []],
+		"18819": ["By the body of a dead HPS worker", []],
+		"18821": ["**Given By:** Giles Molina", []],
+		"18822": ["Sold by _Winston Forsythe_.", []],
+		"18823": ["Sold by _Winston Forsythe_", []],
+		"18825": ["Sold by _Percival Platt_", []],
+		"18826": ["Sold by _Percival Platt_.\n\n**Note:** Might not be available due to game bug", []],
+		"18827": ["Reward for completing [All Halcyon in a Day](#loc=18765)", []],
+		"18828": ["**Given By:** Celeste Jolicoeur", []],
+		"18829": ["Reward for completing [Makes Space Suits, Won't Travel](#loc=18828)", []],
+		"18831": ["**Given By:** Hortense Ingalsbee", []],
+		"18852": ["On the table in Minister Clarke's Residence.\n\n**Ship Location:** ??", []],
+		"18854": [
+			"**Given By:** Minister Clarke\n\nHe gives you _Minister Clarke's Data Cartridge_ upon starting the mission",
+			[]
+		],
+		"18855": ["Received from [Minister Clarke](#loc=18849) during _The City and the Stars_.", []],
+		"19159": ["**Given By:** Sophia Akande", []],
+		"19164": ["This one runs", []],
+		"19168": ["Runs when you get close", []],
+		"19169": ["Behind some crates", []],
+		"19172": ["**Given By:** Maverick Johnston", []],
+		"19173": ["**Given By:** Sophia Akande", []],
+		"19197": ["In Chairman Rockwell's office.\n\n**Ship Location:** SAM's Cabin", []],
+		"19198": [
+			"On the desk.\n\n**Ship Location:** Supposedly Ellie's Quarters, but currently glitched and won't appear.",
+			[]
+		],
+		"19201": ["On the upper shelf.\n\n**Ship Location:** Felix's Cabin", []],
+		"19244": ["On the wall in the corner.  \n\n**Ship Location:** Felix's Cabin", []],
+		"43790": ["In the river.", []],
+		"43791": ["On the table in the corner of the room.", []],
+		"43793": ["On the ground behind the bench.", []],
+		"46259": ["Added in Peril on Gorgon DLC", []],
+		"46298": ["On the cart", []],
+		"46301": ["On the table", []],
+		"46305": ["Speak with him to help the poor canid Anubis for a minor Board reputation gain.", []],
+		"46306": ["Lower level. On the table beside the piano", []],
+		"46308": ["On the bench.\n\nLots of loot on the bench too", []],
+		"46310": ["**Key:** [Technician's Keycard](#loc=46314)", []],
+		"46311": ["**Key:** [Technician's Keycard](#loc=46314)", []],
+		"46314": ["On the body of the Corporate Technician", []],
+		"46315": ["On the ground beside the Corporate Technician", []],
+		"46317": ["On the table. Unsure if a fixed spawn or random kit upgrade (?)", []],
+		"46319": ["On the table. Unsure if a fixed spawn or random kit upgrade (?)", []],
+		"46320": ["On the table.", []],
+		"46321": ["On the shelves.", []],
+		"46323": ["Inside the Locked Safe (95)", []],
+		"46347": [
+			"**Given By:** [Clarence Mostly](#loc=46296)  \n**Previous:** [Mostly Harmless](https://mapgenie.io/the-outer-worlds/maps/gorgon?locationIds=49104)",
+			[]
+		],
+		"46348": [
+			"If you speak to [Tilda Coatsworth](#loc=46302) before stealing the trophy, she'll give you this keycard.",
+			[]
+		],
+		"46516": ["**Given By:** [Clarence Mostly](#loc=46296)  \n**Previous:** _Mostly Harmless_", []],
+		"64783": ["Related to \"The City and the Stars\" Main Quest.", []],
+		"76482": [
+			"After you help Milburn Hoates out with his pet canid Anubis, you can find Anubis in your captain's quarters.",
+			[]
+		],
+		"76483": [
+			"If you completed his Task \"Cupid of the Laboratory\" he will give you a \"Hibernation Lab Keycard\".",
+			[]
+		],
+		"76486": [
+			"With a couple of Science (70) checks and one Lie (1) she can grant you access to the lower floors.",
+			[]
+		],
+		"77151": ["Carried by Carmen Imagawa, can be stolen.", []],
+		"144424": ["**Related Task:** _[All Halcyon in a Day](#loc=18765)_", []],
+		"894963": ["On the wall near one of the two guards stationed at this hallway ending", []],
+		"894969": ["On the other side of the low fence.", []],
+		"894970": ["Where the wall is broken, exposing the metal underneath.", []],
+		"894971": [
+			"Can be pickpocketed from Guard Mayfield or you can get him drunk and take it when he passes out in the other room",
+			[]
+		],
+		"894973": ["Can be pickpocketed off the Corporate Sentinel guarding the front door.", []],
+		"894974": ["Ellie's companion quest.", []],
+		"894975": ["Ellie's father.", []],
+		"894976": ["Ellie's mother.", []],
+		"894977": ["Ellie's Companion Quest: \"The Low Crusade\"", []],
+		"894978": ["Ellie's Companion Quest: \"The Low Crusade\"", []],
+		"894984": ["Can be pickpocketed from _Percival Platt_.", []],
+		"894991": ["During the main quest _The City and the Stars_.", []],
+		"895011": ["Underneath _Nini Prescott's_ desk", []],
+		"895012": [
+			"Inside a room accessible after doing quest Long Distance For Her.",
+			[
+				{
+					"id": 138884,
+					"title": "",
+					"file_name": "790ae5d4-837e-4e43-822b-db5ba1f6d470.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/790ae5d4-837e-4e43-822b-db5ba1f6d470.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"895016": ["Can be pickpocketed from the _Corporate Commander_.", []],
+		"895018": ["On the wall left of the door.", []],
+		"895019": ["In the bottom, Half-opened locker.", []]
+	}
+}

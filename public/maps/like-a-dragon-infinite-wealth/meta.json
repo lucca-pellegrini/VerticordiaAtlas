@@ -515,7 +515,8 @@
 					"tileSize": 256,
 					"background": "#110c10"
 				}
-			]
+			],
+			"compact": "isezaki-ijincho/data.compact.json"
 		},
 		{
 			"slug": "honolulu",
@@ -532,7 +533,8 @@
 					"tileSize": 256,
 					"background": "#110c10"
 				}
-			]
+			],
+			"compact": "honolulu/data.compact.json"
 		},
 		{
 			"slug": "kamurocho",
@@ -549,7 +551,8 @@
 					"tileSize": 256,
 					"background": "#110c10"
 				}
-			]
+			],
+			"compact": "kamurocho/data.compact.json"
 		}
 	]
 }

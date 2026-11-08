@@ -1,0 +1,1538 @@
+{
+	"v": 1,
+	"d": {
+		"145077": ["**Location:** Inside the vent at ground level.", []],
+		"145081": [
+			"Optional conversation if you talk to him at the beginning of the game, before going to the Patient Pacification Chamber in the southwest.",
+			[]
+		],
+		"145086": ["**Location:** Inside the vent at ground level.", []],
+		"145087": [
+			"**Location:** At the end of the vent, in a small cubicle on the north side just before exiting east. (Right in front of you when following this vent during the story, can't miss it).",
+			[]
+		],
+		"145090": [
+			"When you first arrive at this location there are 2 Guards and 1 Blackgate Convict that need to be saved BEFORE clearing the gas in the room.\n\nThey're all on the platforms in the higher level: \n\n- [Guard 1](#loc=145090)  \n- [Guard 2](#loc=145091)  \n- [Blackgate Convict](#loc=145092)",
+			[]
+		],
+		"145091": [
+			"When you first arrive at this location there are 2 Guards and 1 Blackgate Convict that need to be saved BEFORE clearing the gas in the room.\n\nThey're all on the platforms in the higher level: \n\n- [Guard 1](#loc=145090)  \n- [Guard 2](#loc=145091)  \n- [Blackgate Convict](#loc=145092)",
+			[]
+		],
+		"145092": [
+			"When you first arrive at this location there are 2 Guards and 1 Blackgate Convict that need to be saved BEFORE clearing the gas in the room.\n\nThey're all on the platforms in the higher level: \n\n- [Guard 1](#loc=145090)  \n- [Guard 2](#loc=145091)  \n- [Blackgate Convict](#loc=145092)",
+			[]
+		],
+		"145097": ["In a vent under the floor; access it by opening one of the two grates.", []],
+		"145101": ["Hardly even a Boss, since you can Glide Kick into Ground Takedown him for a 3-second defeat.", []],
+		"145102": ["**Achievement note:** Can't get Mano-a-mano in this fight.", []],
+		"145103": ["**Location:** In the office.", []],
+		"145104": ["**Location:** On the ground around the little office in the center.", []],
+		"145106": ["**Location:** In the upstairs office; use the stairs on the east side.", []],
+		"145107": [
+			"**Location:** While escaping the Intensive Treatment area after the elevator gets trashed, near the end of the climb (before the fight with the thugs). It'll be right in front of you and an on-screen prompt will appear (Hold Scan). Can't miss it.",
+			[]
+		],
+		"145108": [
+			"**Location:** After climbing up the elevator shafts, on the platform where you fought the Joker's goons. (To the right and then right again when looking at [Chronicle of Arkham #2 - Intensive Treatment](#loc=145107)).",
+			[
+				{
+					"id": 13297,
+					"title": "Joker Teeth - Intensive Treatment_Reticle",
+					"file_name": "4ae7fbf8-d626-4adf-b1a2-7485aa7556e9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ae7fbf8-d626-4adf-b1a2-7485aa7556e9.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145109": ["**Location:** On a desk inside the office.", []],
+		"145110": ["**Location:** On the ground around Boles' corpse.", []],
+		"145112": [
+			"**Riddle:** Don't cut yourself on this Sharply observed portrait.\n\n**Solution:** Scan Warden Sharp's portrait on the west wall.",
+			[]
+		],
+		"145114": [
+			"**Riddle:** A puzzle has many sides, but only some are visible.\n\n**Solution:** Scan the question mark.\n\nFrom inside the office, in Detective Mode, look south. The \"top part\" of the Riddler's iconic question mark is on the middle one of the 3 windows. The \"dot\" is on the wall outside, below a large, round vent.",
+			[
+				{
+					"id": 13298,
+					"title": "Riddle #8 - Intensive Treatment",
+					"file_name": "bca9ac8a-5dee-4544-8fa0-a34a8d1f9cca.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bca9ac8a-5dee-4544-8fa0-a34a8d1f9cca.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145116": [
+			"**Riddle:** You don't know Jack about Gotham. Tune in to find out.\n\n**Solution:** Use Zoom Mode to check the radio, making sure the name Jack Ryder's clearly visible.",
+			[]
+		],
+		"145117": ["Leads to a one-way drop.\n\n[From Intensive Treatment - Utility Corridor](#loc=145118)", []],
+		"145118": [
+			"One-way drop, can't go back into Intensive Treatment this way.\n\n[To Arkham Island, East](#loc=145117)",
+			[]
+		],
+		"145140": [
+			"**Riddle:** Dr. Jonathan Crane plans on elevating fear to new depths.\n\n**Solution:** Drop into the west elevator shaft and climb into a vent to the east. In it, follow the red-lit vent south until you reach a cave-like room (if you open the map you'll see you're basically in Cell Block Transfer). Scan that room.",
+			[]
+		],
+		"145141": [
+			"**Riddle:** A top hat and tails is the only dress code for this party in the North.\n\n**Solution:** The poster of the Penguin on the south wall.",
+			[]
+		],
+		"145145": [
+			"**Riddle:** The legacy of this island has been well and truly buried.\n\n**Solution:** There's an unearthed coffin in this general location. Zoom in on the headstone and Scan.",
+			[
+				{
+					"id": 13299,
+					"title": "Riddle #1 - Arkham Island, East",
+					"file_name": "c0fa0ae4-1ed5-4949-93f5-017ae85524bc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c0fa0ae4-1ed5-4949-93f5-017ae85524bc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145146": [
+			"**Riddle:** Gotham's greatest family towers over the city.\n\n**Solution:** On the roof. Grapple to the clock tower (can do from the general location of [Riddler Trophy #7 - Arkham Island, East](#loc=145158)). Head to the northeast corner and look northeast toward the city. Zoom in on the building with the big W and Scan.",
+			[
+				{
+					"id": 13306,
+					"title": "Riddle #2 - Arkham Island, East_Reticle",
+					"file_name": "73907aa3-2297-4d67-be60-3e4f9e93c6dc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/73907aa3-2297-4d67-be60-3e4f9e93c6dc.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145147": [
+			"**Riddle:** My challenges appear to those with the correct position in life.\n\n**Solution:** Scan the question mark.\n\nOn the roof, at the top of the clock tower, next to [Riddler Trophy #1 - Arkham Island](#loc=145159). Go to the south side of the platform, look south and enter Detective Mode. The top part of the question mark is on the roof of the building below you; the dot is at your feet on the platform you're standing on. Align them and Scan.",
+			[
+				{
+					"id": 13307,
+					"title": "Riddle #3 - Arkham Island, East",
+					"file_name": "478371d3-3834-4bbb-bfdc-509dc67bc242.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/478371d3-3834-4bbb-bfdc-509dc67bc242.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145154": ["**Location:** Inside the shack.", []],
+		"145155": [
+			"**Location:** Near the northeastern-most headstone, semi-hidden in the grass in front of it.",
+			[
+				{
+					"id": 13300,
+					"title": "Riddler Trophy #8 - Arkham Island, East",
+					"file_name": "a0259d96-e867-4bde-9e61-4f9970266a4d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a0259d96-e867-4bde-9e61-4f9970266a4d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145156": [
+			"**Location:** Outside of the mansion, in the garden-like area (climb over the metal gate or grapple over the walls to access it). Looking at the south wall, the Chronicle is between the second and third pillars (starting from the west).",
+			[
+				{
+					"id": 13303,
+					"title": "Chronicle of Arkham #1 - Arkham Island, East_Reticle",
+					"file_name": "06256b47-8686-4934-b2f5-0065f24b6eb3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/06256b47-8686-4934-b2f5-0065f24b6eb3.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145157": [
+			"**Location:** From [Chronicle of Arkham #1 - Arkham Island, East](#loc=145156). Looking east there's a ledge you can grapple to, leading to a small area with a lone pillar in the middle. The Trophy is behind it.",
+			[
+				{
+					"id": 13304,
+					"title": "Riddler Trophy #5 - Arkham Island, East",
+					"file_name": "413fbc22-2327-41f1-9774-4a0291002408.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/413fbc22-2327-41f1-9774-4a0291002408.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145158": [
+			"**Location:** Outside of the mansion, on the roof.  Go all the way east in the garden-like area and look way up. If you have trouble, grappling to the ledges on the north or south sides is easier.\n\nThis Trophy is practically above [Riddler Trophy #5 - Arkham Island](#loc=145157).",
+			[
+				{
+					"id": 13305,
+					"title": "Riddler Trophy #7 - Arkham Island, East",
+					"file_name": "d4a1eab9-e0bd-4694-bcbd-b8dd2c5ef958.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d4a1eab9-e0bd-4694-bcbd-b8dd2c5ef958.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145159": [
+			"**Location:** On the roof. Grapple to the very top of the clock tower (can do from the general location of [Riddle #2 - Arkham Island](#loc=145146), on the east side). Move to the west side and the Trophy will be right in front of the clock.",
+			[]
+		],
+		"145160": [
+			"**Location:** From the top of the clock tower, the southwest corner. Look southwest and there will be a tower-like building with an \"open\" roof. Below it, to your left, there's a metal fence. The Trophy is in front of it; jump/glide there.",
+			[
+				{
+					"id": 13308,
+					"title": "Riddler Trophy #6 - Arkham Island, East_Reticle",
+					"file_name": "9a3f25c1-da4a-4271-a944-1f30f2e5aeed.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a3f25c1-da4a-4271-a944-1f30f2e5aeed.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145161": [
+			"From the top of the clock tower, the northwest corner, jump and glide heading constantly northwest. Aim towards the \"road\" heading to Arkham North.",
+			[]
+		],
+		"145162": ["**Location:** Inside the southern guard tower (grapple up to it), on the table.", []],
+		"145163": ["**Location:** On the roof of the northern guard tower (probably need to grapple up twice).", []],
+		"145164": ["**Location:** On the ground in this small \"protrusion\".", []],
+		"145165": [
+			"First gadget.\n\n**Location:** In the Batmobile. Obtainable the first time you access Arkham North, after escaping Intensive Treatment.",
+			[]
+		],
+		"145166": [
+			"**Riddle:** Now I see it, now you don't.\n\n**Solution:** Scan the question mark.\n\nThe top part is under the archway to the east (the one used to enter the building). The dot is on the underside of the \"stone walkway\" inside and up.",
+			[
+				{
+					"id": 13312,
+					"title": "Riddle #1 - Arkham Island, North",
+					"file_name": "d2ee79e2-a06f-4d9d-ba8b-8764b0e04117.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d2ee79e2-a06f-4d9d-ba8b-8764b0e04117.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145167": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Riddle:** Let's face it, there are two Dents on the wall.\n\n**Solution:** Scan the Dent posters on the south wall in the west guard room.",
+			[]
+		],
+		"145168": [
+			"**Riddle:** Tweedledum and Tweedledee SAW it, can you SEE it?\n\n**Solution:** Scan the seesaw on the side of the road just as you reach the gate out of the asylum.",
+			[]
+		],
+		"145169": [
+			"**Location:** Inside the abandoned building, in the second floor. Grapple up from inside the building to the ledge, or from outside to the window.",
+			[]
+		],
+		"145170": ["**Location:** Inside the abandoned building, ground floor, close to the south wall.", []],
+		"145171": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** On the ground, between the two guard houses, there's a breakable floor (use Detective Mode if you can't find it). Stand on top of it and use the Gel.",
+			[]
+		],
+		"145172": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** Inside the eastern guard house. Grapple to the roof and use the Gel on the breakable area.",
+			[]
+		],
+		"145173": ["**Location:** In the western guard tower, on the desk. Grapple up to it (or use the stairs).", []],
+		"145174": ["**Location:** On the roof of the western guard tower.", []],
+		"145175": [
+			"**Location:** On a large stone \"cliff\". Reach it by gliding northeast from the roof of the western guard tower ([Riddler Trophy #10 - Arkham Island, North](#loc=145174)).",
+			[
+				{
+					"id": 13311,
+					"title": "Riddler Trophy #8 - Arkham Island, North_Reticle",
+					"file_name": "8050621e-2bbe-4ad0-a899-6150824c5d44.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8050621e-2bbe-4ad0-a899-6150824c5d44.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145176": [
+			"**Location:** On the roof. Grapple up to a ledge a bit to the west of this pin (on the north side) and then walk east over the slanted roof.",
+			[
+				{
+					"id": 13310,
+					"title": "Riddler Trophy #7 - Arkham Island, North",
+					"file_name": "6f0cb34f-93bd-4177-ab2f-6ac65830d257.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6f0cb34f-93bd-4177-ab2f-6ac65830d257.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145183": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Riddle:** Does Scarecrow's gas break down barriers as it drives you insane?\n\n**Solution:** Grapple up to the \"archway\" closest to the gate to the east and look north and up. Pull down a high breakable wall, grapple to it and Scan the cannisters.",
+			[]
+		],
+		"145184": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212) with Range Amplifier upgrade.\n\n**Riddle:** Zsasz is counting on you finding his work.\n\n**Solution:** Scan the table with 3 dead guards \"playing cards\" in the guard room above the entrance to the building. The panel to overload is on the other side of the electric barrier.",
+			[]
+		],
+		"145185": [
+			"**Riddle:** Do you see what I can see? No? Then maybe I am in a stronger position.\n\n**Solution:** Scan the question mark.\n\nThe top part is on the ground right in front of the door to the Penitentiary. The dot is on the railing on the ledge above said door (grapple up to it). Align the symbol from there (it takes a bit of movement and camera work).",
+			[
+				{
+					"id": 13315,
+					"title": "Riddle #3 - Arkham Island, West",
+					"file_name": "d53cda9a-5f18-4ee8-93d8-02ce30dfcbc3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d53cda9a-5f18-4ee8-93d8-02ce30dfcbc3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145186": ["**Location:** On the ground in front of the entrance.", []],
+		"145187": ["**Location:** On the rooftop.", []],
+		"145188": ["**Location:** On a box inside the shack.", []],
+		"145189": [
+			"**Location:** On the roof of the shack, on the southeast side, in front of the tires.",
+			[
+				{
+					"id": 13313,
+					"title": "Riddler Trophy #7 - Arkham Island, West",
+					"file_name": "5da550ac-d467-4562-9a1b-0eec79a1e2be.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5da550ac-d467-4562-9a1b-0eec79a1e2be.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145190": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** From the ground, northeast of [Patient Interview Tape #1 - Arkham Island, West](#loc=145188), look northwest and up. There's a little area you can grapple to with a breakable wall. Use Detective Mode if you can't see it.",
+			[
+				{
+					"id": 13314,
+					"title": "Chronicle of Arkham #1 - Arkham Island, West",
+					"file_name": "41ab6a14-0c98-4e70-b7aa-49536d4e7c5b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41ab6a14-0c98-4e70-b7aa-49536d4e7c5b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145191": ["**Location:** Underneath the guard tower, semi-hidden in the bushes.", []],
+		"145192": ["**Location:** At the bottom of the waterfall, in front of a drainage ditch.", []],
+		"145197": ["**Location:** On a ledge above the door.", []],
+		"145198": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\nAccessed from the roof.\n\n[To Arkham Island, West](#loc=145199)",
+			[]
+		],
+		"145199": ["[To Medical Facility - Maintenance Access](#loc=145198)", []],
+		"145201": [
+			"**Location:** In the fenced-off room (in Maintenance Access). Reach it by following the vent to an intersection and taking the path to your right.",
+			[]
+		],
+		"145205": [
+			"**Location:** On the bottom floor. They are a bit separated; the other 2 are to the west and east of this one.",
+			[
+				{
+					"id": 13317,
+					"title": "Joker Teeth - Medical Facility",
+					"file_name": "ae5b668a-db7d-472a-b669-0a5f79492045.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae5b668a-db7d-472a-b669-0a5f79492045.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145206": [
+			"**Location:** Beneath the ground floor. Can access from a grate on the southwest corner, or through a breakable floor mostly above the Chronicle itself.",
+			[]
+		],
+		"145207": [
+			"**Riddle:** TICK! TOCK! News flash! Someone is not getting out of here alive.\n\n**Solution:** On the ground floor. Scan the cell with the skeletons.",
+			[]
+		],
+		"145218": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Riddle:** A question can only be answered from a new perspective. Don't you agree?\n\n**Solution:** Scan the question mark.\n\nBlow up the breakable floor around this area on the second floor. Enter Detective Mode and face north. The top part is on the \"wall\" that was previously covered by the breakable floor; the dot is on the ground on the floor below.",
+			[
+				{
+					"id": 13316,
+					"title": "Riddle #5 - Medical Facility",
+					"file_name": "d1307907-08ca-4614-8532-0647f2a8ad46.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d1307907-08ca-4614-8532-0647f2a8ad46.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145219": ["**Requires** [Explosive Gel](#loc=145165).\n\nOn the ground floor, behind a breakable wall.", []],
+		"145220": [
+			"**Location:** On a desk in the small office on the second floor (enter from the area where the elevator is, to the south).",
+			[]
+		],
+		"145223": ["**Location:** On the roof of this small room.", []],
+		"145225": ["After rescuing Dr. Young; they pop out of the purple present box.", []],
+		"145226": ["**Location:** Enter the vent from any of the \"entrances\", from the main corridor.", []],
+		"145228": ["**Location:** Second floor, in front of the electric panel you had to disable.", []],
+		"145229": ["**Location:** Second floor, in front of the electric panel you had to disable.", []],
+		"145230": ["**Location:** On the roof of the room where Aaron Cash and Dr. Kellerman were.", []],
+		"145233": ["**Location:** On a desk in the room where Cash and Dr. Kellerman were.", []],
+		"145234": [
+			"**Riddle:** Was this fire fly too hot off the press?\n\n**Solution:** Zoom in on the newspaper clips on the cabinet and Scan the one about Firefly.",
+			[]
+		],
+		"145235": ["After rescuing Dr. Kellerman; they pop out of the purple present box.", []],
+		"145238": [
+			"**Riddle:** Shhhhsshh! Rumors persist that Tommy Elliot operates in Arkham. Can it be true?\n\n**Solution:** Scan the whiteboard on the second floor, west wall.",
+			[]
+		],
+		"145239": ["After rescuing Dr. Chen; they pop out of the purple present box.", []],
+		"145241": ["**Location:** In front of the elevator, after rescuing all 3 doctors.", []],
+		"145247": [
+			"**Riddle:** What silent killer of the oceans can be found in a tiny jar?\n\n**Solution:** At the north side of the eastern examination table there's a small cart with a jar on it. After dealing with Scarecrow, zoom in and scan it.",
+			[]
+		],
+		"145307": ["**Location:** On the desk.", []],
+		"145332": ["**Riddle:** Is this bear the Bane of his life?\n\n**Solution:** Scan the bear on the desk.", []],
+		"145364": [
+			"**Location:** In the vent, at ground level (technically second level, but accessible on foot, no need to grapple or anything).",
+			[]
+		],
+		"145384": [
+			"**Location:** On the roof of the room where Quinn held Gordon prisoner. During story you had to grapple up before crashing down through the glass ceiling. The Trophy is right on the ledge, impossible to miss.",
+			[]
+		],
+		"145393": [
+			"Fight takes place here, but actually triggers in the Experimental Chamber just east after rescuing Gordon.",
+			[]
+		],
+		"145394": [
+			"When returning to Arkham North after rescuing Gordon. Two in the ramp, one just past the door northeast.",
+			[]
+		],
+		"145395": [
+			"**Location:** Just before entering the tunnel to the Batcave, look above to a ledge you can grapple to. The Trophy is in a small tunnel there.",
+			[
+				{
+					"id": 13309,
+					"title": "Riddler Trophy #6 - Arkham Island, North",
+					"file_name": "825b6576-3e48-4703-a003-82dfbb0ec6f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/825b6576-3e48-4703-a003-82dfbb0ec6f9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145406": [
+			"**Location:** Right after entering the tunnel to the Batcave you need to grapple up a wall. The Chronicle is on your left as soon as you pull yourself up.",
+			[]
+		],
+		"145424": [
+			"**Requires** [Explosive Gel](#loc=145165).  \n**Location:** Activate Detective Mode in this room with the skulls in the center to find a destructible wall with the Trophy behind it.",
+			[]
+		],
+		"145454": [
+			"Unlocked through a cutscene after rescuing Gordon.  \nLeads to a one-way drop.\n\n[From Arkham Island, North](#loc=145475)",
+			[]
+		],
+		"145475": ["Can't get back to the Island from here.\n\n[To Caves - The Batcave](#loc=145454)", []],
+		"145514": ["Second gadget.\n\n**Location:** During a cutscene in the Batcave after rescuing Gordon.", []],
+		"145538": ["**Location:** On the west wall.", []],
+		"145549": [
+			"When exiting the Batcave during the story, try opening this door before heading north towards the Objective.",
+			[]
+		],
+		"145550": ["**Location:** On the ground, next to the corpse.", []],
+		"145552": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** In a vent just above the corpse. Open it with the Batclaw and grapple up to it.",
+			[]
+		],
+		"145555": ["**Location:** Along the corridor, one at a time.", []],
+		"145557": ["**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** Behind the breakable wall.", []],
+		"145600": [
+			"**Location:** From the entrance to the area (ground level, south side), make a right and climb into a sort of hollow pillar that will be on your left. Jump across to a walkway and turn left (west). Drop down to a second walkway and then jump to a third. The Trophy's around the corner.",
+			[
+				{
+					"id": 12638,
+					"title": "Riddler Trophy #16 - Caves (Collectible overview)",
+					"file_name": "81fbc606-19e1-49eb-b9d5-420b6e229bc9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/81fbc606-19e1-49eb-b9d5-420b6e229bc9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 12639,
+					"title": "Riddler Trophy #16 - Caves (Path view)",
+					"file_name": "5297556d-c825-4a28-848e-30f511367bbb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5297556d-c825-4a28-848e-30f511367bbb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145601": [
+			"**Location:** From the entrance to the area (ground level, south side), make a right and climb into a sort of hollow pillar that will be on your left. Jump across to a walkway and turn right (east). Jump to a second walkway, turn around the corner, and jump the gap twice.  \nHave to get to this platform to progress story, can't miss them.",
+			[]
+		],
+		"145602": [
+			"**Location:** In a room-of-sorts inside a pillar.\n\nFrom the entrance to the area (ground level, south side), make a right and climb into a sort of hollow pillar that will be on your left. Jump across to a walkway and turn right (east). Jump to a second walkway, turn around the corner and jump the gap. On your left there will be a ledge you can shimmy on. Follow it around the corner and climb into the pillar.",
+			[
+				{
+					"id": 12646,
+					"title": "Riddler Trophy #17 - Caves_Path",
+					"file_name": "77139cd0-c892-45fd-a385-b7236b59c41e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/77139cd0-c892-45fd-a385-b7236b59c41e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 12645,
+					"title": "Riddler Trophy #17 - Caves_Collectible_Reticle",
+					"file_name": "ff723c47-371e-4bff-910d-a82677aab94c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff723c47-371e-4bff-910d-a82677aab94c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145610": [
+			"**Location:** In a room-of-sorts inside a pillar, on the \"second level\".\n\nWhile progressing through the story you'll climb up a collapsed pillar west of [Joker Teeth x 2](#loc=145601). After proceeding a bit more you'll reach some sort of aqueduct.  \nThe Trophy is in front of you, can't miss it.",
+			[
+				{
+					"id": 12644,
+					"title": "Riddler Trophy #7 - Caves",
+					"file_name": "e0dd6406-d9f2-4512-9e1f-be5c0914f128.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0dd6406-d9f2-4512-9e1f-be5c0914f128.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145612": [
+			"**Location:** In a pillar, on the \"third level\".\n\nFrom the aqueduct mentioned in [Riddler Trophy #7 - Caves](#loc=145610), go up a second collapsed pillar. When you reach the platform at the end, notice a ledge you can shimmy on to your left. Do so around the corner and pull yourself up twice.",
+			[]
+		],
+		"145616": [
+			"**Riddle:** A puzzle has many sides, but only some are visible.\n\n**Solution:** Scan the question mark.\n\nExactly in the spot where you found [Riddler Trophy #5 - Caves](#loc=145612), use Detective Mode and look west and a bit up. The dot is on the wall right in front of you and the top part on the underside of a bridge above.",
+			[
+				{
+					"id": 12641,
+					"title": "Riddle #1 - Caves",
+					"file_name": "06700259-e795-4b46-9078-a730e4e26a72.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/06700259-e795-4b46-9078-a730e4e26a72.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"145618": ["**Location:** On the \"third level\", at the entrance to the corridor leading to the exit.", []],
+		"145619": ["**Location:** On the \"third level\", in the corridor leading to the exit.", []],
+		"145620": ["**Location:** On the \"third level\", in the corridor leading to the exit.", []],
+		"146088": ["**Location:** On the second box, on your left, as you enter the area.", []],
+		"146090": [
+			"**Requires** [Explosive Gel](#loc=145165).  \n\nThe wall can only be detonated from the east, meaning this path can only be unlocked after the events in the Batcave (when you obtain the [Batclaw](#loc=145514)).\n\n[To Caves - Surface Access](#loc=146091)",
+			[]
+		],
+		"146091": [
+			"**Location:** On the top floor of the abandoned building.  \nThis connection is unlocked after visiting the Batcave (when you obtain the [Batclaw](#loc=145514)).\n\n[To Arkham Island, North](#loc=146090)",
+			[]
+		],
+		"146092": [
+			"After the visit to the Batcave (when you obtain the [Batclaw](#loc=145514)).\n\n**Location:** In front of the gate to the passageway.",
+			[]
+		],
+		"146093": [
+			"After the visit to the Batcave (when you obtain the [Batclaw](#loc=145514)).\n\n**Location:** In front of the door to the Mansion.",
+			[]
+		],
+		"146094": [
+			"**Requires** [Explosive Gel](#loc=145165).  \n**Location:** From the door to the Mansion, in Detective Mode, you can see a destructible floor on the ground just a bit to the northeast.",
+			[]
+		],
+		"146095": [
+			"**Requires** [Explosive Gel](#loc=145165).  \n**Location:** Underneath the stairs leading up to the Botanical Garden; there's a destructible wall on the east side.",
+			[]
+		],
+		"146096": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** A vent on a ledge just above the door.\n\n[To Arkham Island, East](#loc=146097)",
+			[]
+		],
+		"146097": [
+			"**Location:** In a balcony above the door leading outside on the ground floor.\n\n[To Arkham Mansion - Mansion Entrance Hall](#loc=146096)",
+			[]
+		],
+		"146099": [
+			"**Location:** In a vent on ground level. From the bottom of the stairs, facing north, it's on your right.",
+			[
+				{
+					"id": 12700,
+					"title": "Riddler Trophy #6 - Arkham Mansion",
+					"file_name": "417e1ea9-b7cf-436e-9ab9-40c4c0a5cc18.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/417e1ea9-b7cf-436e-9ab9-40c4c0a5cc18.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"146101": [
+			"**Requires:** [Explosive Gel](#loc=145165).\n\n**Location:** Behind a breakable wall in a vent in the ceiling.\n\nWhen progressing during the story you had to climb up to some vents to get out of the Hall, and blow up a breakable wall. The Chronicle is just in front of you after doing so, can't miss it.",
+			[]
+		],
+		"146103": [
+			"**Riddle:** Who is the main man in the main hall?\n\n**Solution:** Scan the portrait of Commissioner Gordon.",
+			[]
+		],
+		"146104": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** In a hollow in the pedestal of the huge statue.",
+			[]
+		],
+		"146105": [
+			"**Location:** In front of the door, just up the stairs. One is inside the small room; pry open the vent to get it.",
+			[]
+		],
+		"146106": ["**Location:** In the small room. The vent to access it is on the north side.", []],
+		"146109": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** On the desk in this room behind iron bars. Access it through the vent to the southwest.",
+			[
+				{
+					"id": 12701,
+					"title": "Interview Tape - The Scarecrow 2_Collectible",
+					"file_name": "5544adef-fd21-4c65-9490-4ab6e2478913.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5544adef-fd21-4c65-9490-4ab6e2478913.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 12702,
+					"title": "Interview Tape - The Scarecrow 2_Path",
+					"file_name": "2e161bde-c49b-4789-a32a-a6a62f450983.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2e161bde-c49b-4789-a32a-a6a62f450983.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"146110": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** On the desk in this room behind iron bars. Access it through the vent to the northwest.",
+			[
+				{
+					"id": 12703,
+					"title": "Riddler Trophy #1 - Arkham Mansion",
+					"file_name": "bf263419-8305-4fe3-abb9-2036b43aa712.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf263419-8305-4fe3-abb9-2036b43aa712.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"146112": [
+			"**Location:** On the floor of the biggest of the three rooms of this subsection. Access through the vent to the southeast.",
+			[]
+		],
+		"146113": [
+			"**Riddle:** Did Amadeus go mad, or was he just dizzy?\n\n**Solution:** Scan the cell with the circular markings.",
+			[]
+		],
+		"146114": [
+			"**Location:** On the roof (of sorts) of this area. Access it through the vent north of [Riddle #7 - Arkham Mansion](#loc=146113).",
+			[]
+		],
+		"146121": [
+			"**Riddle:** It'll be a cold day in Hell when this Ghul rises again.\n\n**Solution:** Scan the toe tag of the corpse in the morgue.",
+			[]
+		],
+		"146122": [
+			"**Riddle:** How do you mask your feelings without losing control?\n\n**Solution:** Scan the black skull-like mask on the wall of Dr. Young's actual office, right below the vent you used to enter.",
+			[]
+		],
+		"146123": ["**Location:** On the desk.", []],
+		"146124": ["**Location:** From the purple present box after exiting Dr. Young's Office.", []],
+		"146126": ["**Location:** Around the glass tables; one near the north one, two near the south one.", []],
+		"146127": [
+			"**Riddle:** What does a bird need in the rain?\n\n**Solution:** Scan the top hat and umbrellas in the glass display.",
+			[]
+		],
+		"146128": [
+			"**Riddle:** This fiendish puzzle literally appears out of thin air.\n\n**Solution:** Scan the question mark.\n\nEnter Detective Mode and you'll see the top part on the west wall, next to the glass table. The dot is on the vent on the east side, you need to grapple up to it. It's on the same platform as [Chronicle of Arkham #1 - Arkham Mansion](#loc=146129).",
+			[
+				{
+					"id": 12704,
+					"title": "Riddle #1 - Arkham Mansion",
+					"file_name": "9fec2a99-bf69-4ad1-9c13-5f92aaaa15c1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9fec2a99-bf69-4ad1-9c13-5f92aaaa15c1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"146129": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** Behind a breakable wall on a platform reachable by grappling up to a vent.",
+			[]
+		],
+		"146138": ["**Requires** [Batclaw](#loc=145514).\n\n**Location:** In the vent.", []],
+		"146140": [
+			"**Location:** One as you enter the room from the western circular room, one as you go down the stairs and one at the very bottom.",
+			[]
+		],
+		"146141": [
+			"**Location:** Inside a vent at the very top floor, the same level from which you cut down the chandelier. Probably need to grapple up twice.",
+			[]
+		],
+		"146142": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** Inside a vent on the ground floor (excluding the basement where the hostages were), the level with the glass floor.",
+			[]
+		],
+		"146143": [
+			"**Location:** On a balcony you can grapple up to if you look south when standing between the two small rooms.",
+			[
+				{
+					"id": 13345,
+					"title": "Chronicle of Arkham #2 - Arkham Mansion",
+					"file_name": "47c218c6-eaa9-4169-8fb7-ee578366eef2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/47c218c6-eaa9-4169-8fb7-ee578366eef2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"146145": [
+			"**Riddle:** A game of Cat and mouse can be painful.\n\n**Solution:** Scan Catwoman's glass display.",
+			[]
+		],
+		"146146": ["**Location:** On the desk.", []],
+		"146147": [
+			"**Riddle:** Isn't the Warden too old for a puppet show?\n\n**Solution:** Scan Scarface's glass display.",
+			[]
+		],
+		"146149": ["**Location:** On a desk in the office.", []],
+		"146156": [
+			"**Location:** On a second floor accessed by grappling up (look up when entering this area from the south). Two at the north end, one in a cabinet \"cubicle\" on the west side.",
+			[]
+		],
+		"146161": ["**Location:** From the purple gift box, after rescuing Dr. Young from Zsasz.", []],
+		"146171": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** Behind some iron bars. Grapple up and get rid of the destructible floor/roof. Accessed from the Abandoned Tunnel just south.",
+			[]
+		],
+		"146173": [
+			"After returning to Arkham West on the way to the Penitentiary.\n\n**Location:** In the guard tower.",
+			[]
+		],
+		"146175": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** In a vent to your right just before entering the building.",
+			[]
+		],
+		"146201": ["**Location:** On the desk.", []],
+		"146203": ["**Location:** In the last toilet stall.", []],
+		"146204": [
+			"**Riddle:** How do you reflect on your successes and failures, Batman?\n\n**Solution:** Scan your reflection on the women's toilet's mirror (no need to Zoom, but you have to stand pretty close to it).",
+			[]
+		],
+		"146205": ["(Note to Spoon: Both areas, immediately east and southwest of the pin)", []],
+		"146206": ["**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** Behind a breakable wall.", []],
+		"146209": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** Behind a breakable wall, in a cell on the second floor.",
+			[]
+		],
+		"146210": [
+			"**Riddle:** A case of mistaken identity?\n\n**Solution:** Scan the person behind the glass wall.",
+			[]
+		],
+		"146211": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** In a cell on the second floor, behind iron bars. Overload the box right beside it.",
+			[]
+		],
+		"146212": ["Third gadget.\n\n**Location:** During the cutscene when releasing the Warden.", []],
+		"146213": [
+			"**Location:** Inside a cell.  The door will open after you save Warden Sharp in the room to the south.",
+			[]
+		],
+		"146214": ["**Location:** In and right outside the office on the second floor, need to grapple up.", []],
+		"146215": ["**Location:** On a desk in the office on the second floor, need to grapple up.", []],
+		"146216": [
+			"**Riddle:** Two people, one voice, no gun?\n\n**Solution:** Scan the tommy gun in the glass display on the north wall, on the second floor. Need to grapple up.",
+			[]
+		],
+		"146217": ["**Location:** In the cell.", []],
+		"146218": [
+			"**Riddle:** This room is the end of days for even the most celebrated killer.\n\n**Solution:** Scan the cell with all the calendar pages.",
+			[]
+		],
+		"146220": ["After rescuing the 2 guards from Quinn.", []],
+		"146221": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** In a vent accessed from the Guard Room after saving the 2 guards from Quinn. In the hall leading south and then west, the vent entrance is up on the east wall.",
+			[]
+		],
+		"146222": ["**Location:** On a bunch of papers on the south side. Need to save the 2 guards from Quinn.", []],
+		"146223": ["After rescuing the 2 guards in the Guard Room.", []],
+		"146224": ["After rescuing the 2 guards in the Guard Room.", []],
+		"146226": [
+			"**Riddle:** What has four walls, two sides, and one ex-DA?\n\n**Solution:** Scan the \"Vote Dent\" poster on the wall of the cell.",
+			[]
+		],
+		"146228": ["Appears after finding Dr. Young's formula and leaving the area.", []],
+		"146229": [
+			"**Requires** [Batclaw](#loc=145514).\n\nOn a desk in an office on the second floor, after grappling up a vent. Need to access this room to progress the story, can't really miss it.",
+			[]
+		],
+		"146230": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** In a cell behind iron bars. Need to blow up a breakable wall on the second floor and drop down.",
+			[]
+		],
+		"146231": [
+			"**Riddle:** All alone in your cell? Why don't you break the ice with the most dangerous prisoners?\n\n**Solution:** Scan the cell covered in ice.",
+			[]
+		],
+		"146232": ["**Location:** On the floor as you enter.", []],
+		"146233": ["**Location:** On the desk.", []],
+		"146234": ["**Location:** On a desk in a room on the second floor.", []],
+		"146235": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** Just inside Cell 5. Overload the control panel for it in the room where Quinn was, south of [Patient Interview Tape #1 - Penitentiary](#loc=146234).",
+			[]
+		],
+		"146236": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\nAfter getting [Riddler Trophy #4 - Penitentiary](#loc=146235) the cell door will lock behind you. Blow up the wall and Scan the Chronicle.",
+			[]
+		],
+		"147382": ["From the purple gift box, after capturing Quinn.", []],
+		"147400": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On the desk in the guard building; overload the panel just by the door.",
+			[]
+		],
+		"147415": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On ground level, under the service lift; overload the panel right next to it.",
+			[]
+		],
+		"147431": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212) with Range Amplifier upgrade.\n\n**Location:** In a guard room above the entrance to the building. The panel is on the other side of the electric barrier.",
+			[]
+		],
+		"147473": [
+			"**Requires** [Batclaw](#loc=145514)  \n\n**Location:** From the southwest entrance look northeast and up and grapple up to a vent. From there, walk a bit northeast and find a second vent looking southeast and up.",
+			[]
+		],
+		"147549": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On a desk in the west guard room. Overload the panel just next to the electric barrier.",
+			[]
+		],
+		"147580": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212) with Range Amplifier upgrade.\n\n**Location:** In a guard tower just outside the abandoned building. Grapple up to the door; the panel is on the other side of the electric barrier. (Reportedly, may be able to get it without the upgrade if you stand at the very limit of the barrier before taking damage).",
+			[]
+		],
+		"147600": [
+			"**Location:** On the ground, near a corpse. When returning to Arkham East on the way to the Botanical Gardens.",
+			[]
+		],
+		"147601": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On a desk in the room in the mountain. Access it from either of the guard towers to the east.",
+			[]
+		],
+		"147602": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On the floor in the room in the mountain. Access it from either of the guard towers to the east. The Trophy is between the 2 fenced off \"offices\".",
+			[]
+		],
+		"147603": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On a desk in the guardhouse.",
+			[]
+		],
+		"147604": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On a desk in the guardhouse.",
+			[]
+		],
+		"147608": ["**Location:** On the ground, as you enter the area. At your feet or maybe even behind you.", []],
+		"147609": ["**Location:** On the ground, just a few steps from the door.", []],
+		"147610": [
+			"**Location:** Underground. Right as you enter the area, to your left and right is a small mini garden-like area, each leading to a vent. Follow either one to the end and drop down.\n\n**Note:** This one appears to be the only gatherable collectible if you visit this location before the story brings you here.",
+			[
+				{
+					"id": 12736,
+					"title": "Chronicle of Arkham - Deciphered message #13_Reticle",
+					"file_name": "6453ecb5-2829-4cb7-ba6e-13d75ab980fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6453ecb5-2829-4cb7-ba6e-13d75ab980fd.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147611": [
+			"**Riddle:** Is the number up for these guards?\n\n**Solution:** Scan the 2 dead guards with the books.",
+			[]
+		],
+		"147612": ["**Location:** On the bench.", []],
+		"147614": [
+			"**Riddle:** What time is tea time in Wonderland?\n\n**Solution:** Scan the tea set on the second floor, northwest of the statue. From the south entrance, go up the stairs to your left.",
+			[]
+		],
+		"147615": [
+			"**Location:** On the second floor, directly north of the statue. There are some metal grates on the floor shaped like a T. Trophy's inside.",
+			[]
+		],
+		"147617": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** In a vent on the ground floor (actually below, you need to drop to the base of the statue/fountain). There's a breakable wall northwest of the statue, right below the tea set in [Riddle #1 - Botanical Gardens](#loc=147614).",
+			[]
+		],
+		"147664": ["**Location:** On the ground, in front of the bench.", []],
+		"147665": [
+			"**Riddle:** Remember the Waynes? How could anyone forget?\n\n**Solution:** Zoom in on the plaque on the bench and Scan it.",
+			[
+				{
+					"id": 15480,
+					"title": "",
+					"file_name": "69324cc4-f224-470d-a3c3-644574cda54a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/69324cc4-f224-470d-a3c3-644574cda54a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147668": ["**Location:** On the ground, close to the bench.", []],
+		"147669": ["**Location:** On the bench.", []],
+		"147672": ["**Location:** On a computer terminal on ground level.", []],
+		"147673": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212) with Range Amplifier upgrade.\n\n**Location:** On the third level, behind the electric barrier (the panel to overload also behind the barrier). The Map is on a bunch of papers to your right as you enter the room.",
+			[]
+		],
+		"147674": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212) with Range Amplifier upgrade.\n\n**Location:** On the third level, behind the electric barrier (the panel to overload also behind the barrier). The Trophy is on a desk to your left as you enter the room.",
+			[]
+		],
+		"147675": ["**Location:** On the ground, next to the vent entrance.", []],
+		"147676": [
+			"**Riddle:** The Ratcatcher needed more than just his charm to lead his army.\n\n**Solution:** Around this area the ground of the vent won't be a solid panel, but some iron bars. Below there's some gloves and other gear. Scan it.",
+			[]
+		],
+		"147677": ["**Location:** In the vent.", []],
+		"147679": [
+			"**Location:** In a fenced off room, below ground level.\n\nFrom the south entrance to the area, drop down to the very bottom (water level) and go to the north side. There will be a metal grate on the ground; enter it and follow it south until you can pop out in the aforementioned room.",
+			[]
+		],
+		"147680": [
+			"**Location:** At the end of the sewage drain.\n\nOn the bottom (water) level go to the northeast corner and drop down yet a bit more, then follow the water south.",
+			[]
+		],
+		"147681": [
+			"**Location:** From the south entrance drop down to the bottom level and go up the stairs in front of you, then go up the stairs going east.\n\nAt the top turn north and jump the gap, then jump the gap west (careful not to bonk into the pipe). Go west and climb up the wall to the ledge you can shimmy on and go south, pulling yourself up when you reach the water.\n\nTurn around (you're now facing east) and jump the gap, then walk a bit south and cut the rope holding up the catwalk to the east.  \nFinally, cross the catwalk, turn north and jump the gap to reach the Trophy.",
+			[]
+		],
+		"147682": [
+			"**Riddle:** This challenge can only be seen by those with a different view on life.\n\n**Solution:** Scan the question mark.\n\n(Follow the directions in [Riddler Trophy #8 - Botanical Gardens](#loc=147681) until you cut down the catwalk.)  \nAs you start crossing the catwalk, climb up a wall to your left and shimmy left until you can pull yourself up. Crouch under a pillar to go north and use Detective Mode. The question mark is on the ground, half of it on the platform you're on and half of it on a platform below.",
+			[
+				{
+					"id": 15479,
+					"title": "",
+					"file_name": "41cc0221-5e0f-4193-9986-6f4d1777cf70.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41cc0221-5e0f-4193-9986-6f4d1777cf70.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147683": [
+			"**Location:** From [Riddle #4 - Botanical Gardens](#loc=147682) jump north to a ledge you can shimmy on and head left. Pull yourself up and Scan the Chronicle inside this little nook.",
+			[]
+		],
+		"147684": [
+			"**Riddle:** Looks like all the king's horses trampled all the king's men.\n\n**Solution:** Scan the figurines on the bench.",
+			[]
+		],
+		"147685": [
+			"**Riddle:** Is this a tribute to what a mad dog left behind?\n\n**Solution:** Scan the plaque at the feet of the statue.",
+			[]
+		],
+		"147686": ["**Location:** On the bench.", []],
+		"147690": [
+			"**Location:** In the control deck. You have to take out a thug here for story progression, can't miss them.",
+			[]
+		],
+		"147691": ["**Location:** On the bench, next to the place where the hostages' cages get dropped.", []],
+		"147692": [
+			"**Riddle:** There's no closet in the Gardens, so someone is using the roof instead.\n\n**Solution:** From the spot where the cages landed, look west and up to see a skeleton. Grapple to a platform closer to it (like the one in the picture), zoom in and Scan.",
+			[
+				{
+					"id": 12752,
+					"title": "Riddle #7 - Botanical Gardens_Reticle",
+					"file_name": "276e3f11-56c0-44b1-a356-155405caa9e2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/276e3f11-56c0-44b1-a356-155405caa9e2.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147696": [
+			"You must defeat a Titan **without** using Batarangs.\n\nYou basically want to make them run into each other. Dodge the charge of one Titan and then get between that one and the other to try and make them crash. When they get stunned, whack them. When one takes a knee, ride him and try to make him whack the other one.  \nRinse and repeat.\n\nYou can also try to use Explosive Gel to stun them.  \nAfter one of them goes down, the Achievement should pop up. You can now use Batarangs on the last one.",
+			[]
+		],
+		"147698": ["Fourth gadget.\n\n**Location:** After the boss fight.", []],
+		"147699": [
+			"**Requires:** [Line Launcher](#loc=147698)  \n\n**Location:** When exiting this area, don't aim the Line Launcher at the door to the east, but rather at this alcove to the southeast.",
+			[
+				{
+					"id": 12754,
+					"title": "Riddler Trophy #9 - Botanical Gardens",
+					"file_name": "6b443bdd-5465-4078-bc39-57691622fc71.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6b443bdd-5465-4078-bc39-57691622fc71.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147700": [
+			"**Requires** [Line Launcher](#loc=147698)\n \n**Location:** On the ground after using the Launcher. You need to come this way during story progression, can't miss it.",
+			[]
+		],
+		"147703": ["**Location:** On the floor, on our way out of the Gardens to speak with Cash.", []],
+		"147704": [
+			"**Requires** [Line Launcher](#loc=147698).\n\n**Location:** On the upper entrance to the building, accessed with the Line Launcher, where the sniper is during story progression. Can't miss them.",
+			[]
+		],
+		"147706": [
+			"**Location:** From the south entrance, pry open a vent cover to your right, on the ground. Get in and make a left, then another left and immediately a right; kick the vent cover open. The Trophy is in front of you behind a fence; climb to the low platform to your left to reach an entrance.",
+			[
+				{
+					"id": 12755,
+					"title": "Riddler Trophy #10 - Intensive Treatment_Path_Reticle",
+					"file_name": "60948160-bcdf-40f2-9870-ac2f09bcf92e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60948160-bcdf-40f2-9870-ac2f09bcf92e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 12756,
+					"title": "Riddler Trophy #10 - Intensive Treatment_Collectible_Reticle",
+					"file_name": "8435934e-7ec9-4b1a-8f1e-17179ec964db.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8435934e-7ec9-4b1a-8f1e-17179ec964db.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"147707": [
+			"**Location:** When you enter this room and walk down the hall after the events in the Botanical Gardens.",
+			[]
+		],
+		"147708": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Riddle:** Hook up with the relatives before you're transferred out of here.  \n**Solution:** Zoom in on the picture of Cash's family and Scan it.",
+			[]
+		],
+		"147710": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212) with Range Amplifier upgrade.\n\n**Location:** On the computer terminal.",
+			[]
+		],
+		"148201": [
+			"**Location:** After returning to Intensive Treatment after the events in the Botanical Gardens.  \n\nWhen entering this area from the south, turn right. On a desk in an office behind an already-disabled electric barrier.",
+			[]
+		],
+		"148206": [
+			"**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** Midway up the elevator shafts. For clarity's sake, follow from [Riddler Trophy #4 - Intensive Treatment](#loc=148216).\n\nWith the vent with the Trophy to your left, jump the gap ahead and turn left. Climb and then grapple up. Turn left again, climb over the pipes and then crouch under the next. While crouched immediately turn left and you'll reach 2 walls. The Chronicle is behind the left one.",
+			[]
+		],
+		"148216": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Location:** Midway up the elevator shafts.\n\nFrom the ground floor. At the southeast corner, next to the stairs, look north and up. Grapple to the closest (highest) platform. Turn around and jump into a ledge you can shimmy on.  \nFollow it right and climb up into a vent. After getting out, to your right, grapple up twice and immediately turn left. The Trophy is in a vent in front of you. Take off the cover with the Batclaw and carefully jump to it.",
+			[]
+		],
+		"148225": [
+			"**Location:** Below ground level, under the elevator shafts (meaning, after returning to Intensive Treatment). On a desk in the office up the stairs.",
+			[]
+		],
+		"148230": [
+			"**Requires** [Batclaw](#loc=145514).  \n**Location:** In a high vent. From the door leading to decontamination look west and up. Use Detective Mode if you can't see it.",
+			[]
+		],
+		"148232": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).  \r\n**Location:** On a desk to your left as you enter the office.",
+			[]
+		],
+		"148238": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).  \n**Location:** Climb up the ladder in the office.",
+			[]
+		],
+		"148249": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212) and [Batclaw](#loc=145514).\n\n**Location:** Climb up the stairs to the second floor and you'll see a vent up in the wall in front of you as you reach the top. The Trophy's inside.",
+			[]
+		],
+		"148250": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212) and [Explosive Gel](#loc=145165).\n\n**Riddle:** Even I was shocked when I saw how Maxie Zeus was treated!\n\n**Solution:** Blow up the destructive wall and Scan the cell (almost any part of it works, like the drawings ahead of you).",
+			[]
+		],
+		"148251": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Riddle:** Where would I find my home sweet home?\n\n**Solution:** Scan the cell.",
+			[]
+		],
+		"148252": [
+			"**Location:** Below ground level, after returning to Intensive Treatment.\n\n[To Intensive Treatment - Secure Transit](#loc=148253)",
+			[]
+		],
+		"148253": ["[To Caves - Control Room Access](#loc=148252)", []],
+		"148258": ["**Location:** On a box straight ahead of you as you enter the area from the south.", []],
+		"148268": [
+			"**Requires** [Line Launcher](#loc=147698).  \n**Location:** On a platform right above the water (it's in plain sight). Use the Line Launcher from the corridor just northwest of here.",
+			[]
+		],
+		"148283": ["**Location:** On the ground after collecting the spores in Croc's Lair.", []],
+		"148284": ["**Requires** [Line Launcher](#loc=147698).\n\n**Location:** Across the gap, in plain sight.", []],
+		"148285": ["Fifth and last gadget.\n\n**Location:** During a cutscene in our second visit to the Batcave.", []],
+		"148286": [
+			"**Location:** On the lowest level of this cliff; may have seen it during the cutscene.\n\n\nAccessible while leaving the Batcave, after obtaining Ultra-Batclaw.",
+			[
+				{
+					"id": 12809,
+					"title": "Riddler Trophy #3 - Caves_Reticle",
+					"file_name": "475f5fbc-cc6e-4bd2-af12-73a621003a19.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/475f5fbc-cc6e-4bd2-af12-73a621003a19.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148287": [
+			"**Requires** [Line Launcher](#loc=147698).  \n**Location:** From inside the cave southwest of here, grapple up to the lowest edge (the one to the northeast). You can step outside to a small platform, and from there glide to the Trophy.  \nTo get back, use the Line Launcher towards the southwest to return to the cave area, and then grapple up back to the platform from which you glided.",
+			[]
+		],
+		"148289": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** In a room in the ceiling. Pull down the destructible roof and grapple up to it.",
+			[]
+		],
+		"148290": [
+			"**Requires** [Line Launcher](#loc=147698).\n\n**Location:** On the second floor. From the aqueduct jump south to the hollow pillar that contained [Riddler Trophy #7 - Caves](#loc=145610), and from there Line Launch east to this Trophy.",
+			[
+				{
+					"id": 12808,
+					"title": "Riddler Trophy #13 - Caves",
+					"file_name": "0004ef28-cd79-48fe-9fd0-ccaf9ea3dedd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0004ef28-cd79-48fe-9fd0-ccaf9ea3dedd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148293": [
+			"**Requires** [Line Launcher](#loc=147698).\n\n**Location:** On the third floor. From the platform to the east exit, Line Launch west. You need to head this way during story progression, can't miss it.",
+			[]
+		],
+		"148316": [
+			"**Location:** Near the top, east from the Pump Control Room (whose breakable wall you had to pull down). With said room behind you, look right and slightly below.",
+			[
+				{
+					"id": 12810,
+					"title": "Riddler Trophy #8 - Caves",
+					"file_name": "b7009834-8323-4758-9ba3-8ad959a636a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b7009834-8323-4758-9ba3-8ad959a636a1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148321": [
+			"**Requires** [Ultra Batclaw](#loc=148285).  \n**Location:** In the Pump Control Room, on a stool.",
+			[]
+		],
+		"148324": [
+			"**Requires** [Ultra Batclaw](#loc=148285) (to get to this area).  \r\n**Location:** On a drum barrel in this corridor.",
+			[]
+		],
+		"148326": ["**Location:** On the ground.", []],
+		"148327": ["**Location:** On the ground, after climbing up the stairs.", []],
+		"148328": [
+			"**Requires** [Ultra Batclaw](#loc=148285).  \n**Location:** As you're climbing the second set of stairs, look up to see a high destructible wall.",
+			[]
+		],
+		"148329": [
+			"**Requires** [Line Launcher](#loc=147698).  \r\n**Location:** On a drum barrel in a platform. Line Launch from the entrance to the room.",
+			[]
+		],
+		"148330": ["**Location:** On the ground.", []],
+		"148331": ["**Location:** On the ground.", []],
+		"148332": ["**Location:** On the ground.", []],
+		"148335": ["**Requires** [Ultra Batclaw](#loc=148285).  \n**Location:** Behind the high breakable wall.", []],
+		"148336": ["**Requires** [Ultra Batclaw](#loc=148285).  \n**Location:** Behind the high breakable wall.", []],
+		"148339": [
+			"**Location:** From the purple gift box after clearing the Control Room and Pump Room.\n\n**NB:** This box can also be in the left corridor if the left control room was the last one you cleared.",
+			[]
+		],
+		"148340": [
+			"Ride a Titan and knock down 10 thugs.  \nThere will be an event battle in this area after clearing the Control Room and the Pump Room, and it's a good place to try. Just use the common Titan tactics (Quick Batarang, dodge, whack him) until he takes a knee, ride him and try to aim him towards the thugs.",
+			[]
+		],
+		"148341": [
+			"**Requires** [Ultra Batclaw](#loc=148285).  \n**Location:** After the Titan fight, go into the area he came out from and pull down a high breakable wall. The Chronicle is at the end of the cubicle.",
+			[]
+		],
+		"148342": ["[From Caves - Pressure Control Junction](#loc=148343)", []],
+		"148343": ["One-way drop, can't get back to the Caves from here.\n\n[To Arkham Island, West](#loc=148342)", []],
+		"148345": [
+			"**Requires** [Line Launcher](#loc=147698).\n\n**Location:** Use the Line Launcher from the northeast side of the roof of the Medical Facility. It's in the open, easy to see.",
+			[]
+		],
+		"148347": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** Right before the gate (do not enter the tunnel), already in the \"hallway\", look up to see a breakable ceiling. Pull it down and grapple up to find the Trophy.",
+			[]
+		],
+		"148348": ["**Location:** On the ground, after the second visit to the Batcave.", []],
+		"148384": ["After solving this Riddle, if you return to the room some time later, his corpse is gone.", []],
+		"148385": [
+			"**Location:** On the ground, after the first visit to the Botanical Gardens. Near the Warden's statue and the guard house.",
+			[]
+		],
+		"148386": ["**Location:** In the south guard tower, after the second visit to the Batcave.", []],
+		"148387": [
+			"**Location:** After the first flight of stairs to the Botanical Gardens, after the second visit to the Batcave.",
+			[]
+		],
+		"148388": ["**Location:** On the ground, during our second visit to the Gardens.", []],
+		"148389": ["In our second visit to the Gardens.", []],
+		"148390": ["After the second visit to the Gardens.\n\n**Location:** On the ground.", []],
+		"148391": ["After the second visit to the Gardens.\n\n**Location:** In the guard tower.", []],
+		"148392": [
+			"**Requires** [Line Launcher](#loc=147698).\n\n**Location:** In a kind of hall around here. Line Launch from the west guard tower.",
+			[]
+		],
+		"148393": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** Behind a high breakable wall pretty much just below [Riddler Trophy #1 - Arkham Island, North](#loc=148392). Access it from the ground.",
+			[]
+		],
+		"148394": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** Grapple up to the vents in the corridor southwest and look northeast and up to find a high breakable wall.",
+			[]
+		],
+		"148395": [
+			"**Requires** [Ultra Batclaw](#loc=148285) and [Line Launcher](#loc=147698).  \n**Location:** It's the Trophy we can see behind the bars next to [Riddler Trophy #6 - Arkham Island, North](#loc=145395). Proceed through the tunnel until you reach the metal door and turn around. Pull down the breakable wall and Line Launch into the area.",
+			[]
+		],
+		"148396": ["**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** Pull down a breakable ceiling.", []],
+		"148397": ["**Requires** [Explosive Gel](#loc=145165).\n\n**Location:** Behind a destructible wall.", []],
+		"148398": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** Behind a high breakable wall.\n\nYou need to use the Ultra Batclaw from the end of the catwalk ([Riddler Trophy #8 - Botanical Gardens](#loc=147681) for reference if you get lost). Then, try to jump into it from the nearby platform or grapple up from a lower floor.",
+			[]
+		],
+		"148399": [
+			"**Requires** [Ultra Batclaw](#loc=148285) and [Line Launcher](#loc=147698).\n\n**Location:** Behind a breakable wall. From the area where you fought the two Titans, pull down the wall and Line Launch into the newly opened area.",
+			[]
+		],
+		"148400": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On a desk as soon as you pass the electric barrier.",
+			[]
+		],
+		"148401": ["**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** Behind a high breakable wall.", []],
+		"148402": [
+			"**Requires:** [Explosive Gel](#loc=145165)  \n  \n**Location:** Behind a hidden breakable wall. You cannot detect it (even in Detective Mode).\n\nApproach the northern wall of the Warden's office and plant 3 Explosive Gels close together to bring it down. If you look REALLY close near the ground, you'll see a sort of \"notch\" indicating you're in the right place.\n\nYou might need to walk all the way to the other side of the room before detonating in order for it to work.",
+			[
+				{
+					"id": 12814,
+					"title": "Easter Egg_Hidden Room_1",
+					"file_name": "cd20767f-b2a2-4c8c-a861-4ef704a177e7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cd20767f-b2a2-4c8c-a861-4ef704a177e7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 12815,
+					"title": "Easter Egg_Hidden Room_2",
+					"file_name": "6b1ca8d4-1b68-4881-9dcc-81f6e68b4939.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6b1ca8d4-1b68-4881-9dcc-81f6e68b4939.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148403": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** On the ground, behind a high breakable wall.",
+			[]
+		],
+		"148404": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212), and [Line Launcher](#loc=147698) or Armor Upgrade...probably V4, depending on your skill.  \n**Riddle:** Our records show that a Strange transfer request was made in this room.  \n**Solution:** Scan the red folders on your right saying \"STRANGE FILES\".  \nThe room itself is safe, but the corridor is electrified and it hurts A LOT. Use the Line Launcher or roll through it. If you try to do it rolling, be advised that the camera repositions weirdly and you'll probably get stuck somewhere along the way, leading to death on the way out, if not on the way in. But I'm sure it's probably possible if you're skilled enough.",
+			[]
+		],
+		"148405": ["**Location:** On the table.", []],
+		"148406": [
+			"**Riddle:** Is the generosity of our benefactors on the Wayne?  \n**Solution:** Scan the golden plaque on the wall.",
+			[]
+		],
+		"148407": ["**Requires** [Ultra Batclaw](#loc=148285).  \n**Location:** Behind a high breakable wall.", []],
+		"148408": [
+			"**Requires** [Batclaw](#loc=145514)\n\n**Location:** In a high vent. Above the office of sorts, top floor.",
+			[]
+		],
+		"148409": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** Behind a high breakable wall. From the entrance, grapple to the top of the central room/structure (where the doc was held hostage) and turn around to see it.",
+			[]
+		],
+		"148410": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On a small shelf on wheels up the stairs, on the second floor. The panel to overload is to you immediate left as you enter the room.",
+			[]
+		],
+		"148411": ["**Requires** [Batclaw](#loc=145514)\n\n**Location:** In a high vent.", []],
+		"148412": [
+			"**Requires** [Batclaw](#loc=145514).\n\n**Riddle:** Are you going to take your hat off to Harley, Bats?\n\n**Solution:** From the Sanatorium, pull down the high vent cover above the elevator and drop all the way down the elevator shaft. Access a vent there to reach this office.  \nScan the little mannequin (or head of one) with Harley's hat.",
+			[]
+		],
+		"148413": [
+			"**Requires** [Cryptographic Sequencer](#loc=146212).\n\n**Location:** On a desk on the north side of this little office.",
+			[]
+		],
+		"148414": [
+			"**Requires** [Ultra Batclaw](#loc=148285).\n\n**Location:** On the medical table next to the west wall.  \nWhen accessing this area from the east, the high breakable wall to pull down will be on your left if you go north in the main hallway.",
+			[]
+		],
+		"148415": [
+			"**Requires** [Batclaw](#loc=145514)\n\nThere's a high vent you can pull down above and slightly to the left of the elevator.\n\n[To Sanatorium](#loc=148416)",
+			[]
+		],
+		"148416": ["[To Secure Access](#loc=148415)", []],
+		"148417": ["**Location:** On a desk in the room where Bane was.", []],
+		"148418": [
+			"**Requires** [Explosive Gel](#loc=145165) and [Ultra Batclaw](#loc=148285).  \n\nSame goes for the Teeth, the Patient Interview Tape and [Trophy #5](#loc=146221) - all collectibles in this area require you to get rid of the \"Happy Gas\".  \n\nWhen you enter, take the corridor south (towards the room where the guards are) and, as you make a right, grapple up to the vents. \n\nBlow up a breakable wall and then pull down another one across the room. Throw a Batarang at the box and we're done.",
+			[]
+		],
+		"148419": [
+			"**Requires** [Line Launcher](#loc=147698).  \n**Location:** Line Launch to the room that had the box we broke with the Batarang. The Trophy's to the corridor to the north, to your immediate right.",
+			[]
+		],
+		"148420": [
+			"**Requires** [Line Launcher](#loc=147698).  \n**Riddle:** When is something right in front of you but still hidden from view?  \n**Solution:** Scan the question mark.  \nGo to the north room with the Batarang-destroyed box, look south and use Detective Mode.",
+			[
+				{
+					"id": 12816,
+					"title": "Riddle #2 - Penitentiary",
+					"file_name": "14db017f-202d-49be-8c38-83379f624a18.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14db017f-202d-49be-8c38-83379f624a18.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148421": [
+			"**Riddle:** Prometheus, Arkham guards' most wanted and most hated.  \n**Solution:** Zoom in and Scan the Wanted poster on the east wall.",
+			[]
+		],
+		"148422": [
+			"**Requires** [Explosive Gel](#loc=145165) or [Ultra Batclaw](#loc=148285).\n\n**Location:** Behind a breakable wall in the main room (ground floor), on the south side in the southwest corner.",
+			[]
+		],
+		"148423": [
+			"**Requires** [Line Launcher](#loc=147698).\n\n**Location:** Use the Line Launcher across the electrified water.",
+			[]
+		],
+		"148424": [
+			"Winner of a Rocksteady contest.",
+			[
+				{
+					"id": 12817,
+					"title": "Mysterious Inmate",
+					"file_name": "91ff1aa4-096f-409f-8dec-d3cd6e720d10.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91ff1aa4-096f-409f-8dec-d3cd6e720d10.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"148425": [
+			"**Prerequisite:** Scan all 23 prior Chronicles.\n\n**Location:** On the ground in the room where Warden Sharp was.  \n\nScanning this grants the \"World's Greatest Detective\" Achievement.",
+			[]
+		],
+		"148492": [
+			"At the end of the game, right before the final battle, there will be a bunch of thugs \"throwing a party\". They don't attack you unless you attack first. Take them all out to get this Achievement.  \nReportedly, you only need to defeat the ones in the building, and not the 4 outside, but might as well just in case...",
+			[]
+		],
+		"148496": [
+			"At the end of the game, right before the final battle, there will be a bunch of thugs \"throwing a party\". They don't attack you, but you can start a battle with them.  \nYou can get all of these Freeflow Combo Achievements in the Challenge Rooms (and probably need to hit Combo 40 anyway if you're aiming for them), but this is a good place to just get it out of the way. Plenty of enemies, but half of them just stand around while you deal with the other half.",
+			[]
+		],
+		"148519": [
+			"**[SPOILERS BELOW]**...kinda.\n\n**Location:** In the Visitor Center - Visitor Room.  \nIf you keep visiting this area during the game, you'll find a mannequin of the Joker with a TV for its head, and Joker will talk to you through it. However, if you turn around and then look at it again, the \"mannequin\" will have changed positions, hinting at the fact that it was the real Joker all along!",
+			[]
+		],
+		"150293": ["[To Arkham Island, West](#loc=150294)", []],
+		"150294": ["[To Visitor Center - Visitor Room](#loc=150293)", []],
+		"150299": ["[To Arkham Island, North](#loc=150300)", []],
+		"150300": ["[To Intensive Treatment - Maintenance Access](#loc=150299)", []],
+		"507439": ["[Arkham Island, West](#loc=507440)", []],
+		"507440": ["[Penitentiary - Cells Access](#loc=507439)", []],
+		"507441": ["After disabling all the pumps.", []],
+		"507442": ["I'VE GOT YOUR SCENT, BATMAN! I WILL HUNT YOU DOWN!\n\n*He meant it.*", []],
+		"507443": [
+			"When passing by the phone, you may hear a woman calling the asylum to ask if Steve is OK.\n\nThe Joker replies that he'll look for him, calling back a few seconds later to say they'd found his head - just his head. Hahahaha!",
+			[]
+		],
+		"507444": [
+			"While following Harley's fingerprints, a typical playthrough will see you enter this room and witness the Joker kill a guard by kicking him into the electrified water. \n\nIf you were to enter the generator room to the east first and disable the power via the box on the top floor, the Joker will comment on you being one step ahead, and a different cutscene plays when you enter this room.",
+			[]
+		],
+		"512645": ["[To Botanical Gardens - Main Entrance](#loc=512646)", []],
+		"512646": ["[To Arkham Island, East](#loc=512645)", []]
+	}
+}

@@ -1,0 +1,978 @@
+{
+	"v": 1,
+	"d": {
+		"390576": [
+			"**Prerequisite:** Try to open the [Parlor Locked Door](#loc=390577).\n\nUnlocks the [Parlor Locked Door](#loc=390577).",
+			[
+				{
+					"id": 55907,
+					"title": "Foyer - Parlor Key",
+					"file_name": "eeddc25f-53ce-4ab9-abe1-d7e16072aca3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eeddc25f-53ce-4ab9-abe1-d7e16072aca3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390577": ["Unlocked with the [Parlor Key](#loc=390576).", []],
+		"390578": ["**Prerequisite:** Enter the [Parlor](#loc=390577).", []],
+		"390619": [
+			"Blow out the purple candles on the north wall, then defeat the ghosts to reveal a Chest with this Key inside.\n\nUnlocks the [Anteroom Locked Door](#loc=390620).",
+			[]
+		],
+		"390620": ["Unlocked with the [Anteroom Key](#loc=390619).", []],
+		"390621": ["In the 3DS version of Luigi's Mansion, this also contains a Speedy Spirit.", []],
+		"390625": ["Found inside the right-hand wardrobe.", []],
+		"390627": [
+			"Appears above the coat rack on the wall after defeating all the ghosts in the room.\n\nUnlocks the [Living Quarters Hallway Locked Door](#loc=390628).",
+			[]
+		],
+		"390628": ["Unlocked with the [Living Quarters Hallway Key](#loc=390627).", []],
+		"390774": [
+			"To defeat Neville, stand away from him and look away, so that he turns visible in the chair. After a book is thrown at you, he'll yawn, revealing his heart and allowing you to capture him.",
+			[
+				{
+					"id": 56056,
+					"title": "Study - Neville",
+					"file_name": "61a226b5-120c-4865-88ee-90eb5098798b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61a226b5-120c-4865-88ee-90eb5098798b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390798": [
+			"**Prerequisite:** Capture [Neville](#loc=390774)\n\nUnlocks the [Master Bedroom Locked Door](#loc=390799).",
+			[]
+		],
+		"390799": ["Unlocked with the [Master Bedroom Key](#loc=390798).", []],
+		"390812": [
+			"To reveal Lydia's Heart, pull back the curtain closest to her using the vacuum.",
+			[
+				{
+					"id": 55975,
+					"title": "Master Bedroom - Lydia - Arrow",
+					"file_name": "f414ef56-885c-407c-a4f6-96aa64423236.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f414ef56-885c-407c-a4f6-96aa64423236.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390818": [
+			"**Prerequisite:** Capture [Lydia](#loc=390812)\n\nUnlocks the [Nursery Locked Door](#loc=390820).",
+			[]
+		],
+		"390820": ["Unlocked with the [Nursery Key](#loc=390818).", []],
+		"390823": [
+			"Vacuum the Rocking Horse to initiate the Chauncey fight.",
+			[
+				{
+					"id": 55977,
+					"title": "Nursery - Chauncey",
+					"file_name": "e578f943-1ecd-4cf4-8f78-69ba0ff61dee.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e578f943-1ecd-4cf4-8f78-69ba0ff61dee.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390830": [
+			"**Prerequisite:** Defeat [Chauncey](#loc=390823)\n\nUnlocks the [1F Hallway Locked Door A](#loc=390831).",
+			[]
+		],
+		"390831": ["Unlocked with the [1F Hallway Key A](#loc=390830).", []],
+		"390839": ["Inside the table with the white sheet on it.", []],
+		"390905": [
+			"**Prerequisite:** Defeat the two Grabbing Ghosts.\n\nUnlocks the [Ball Room Locked Door](#loc=390910).",
+			[]
+		],
+		"390909": [
+			"To defeat, stand on the rotating platform they're dancing on and wait for them to finish their dance routine, exposing their hearts so you can vacuum them.",
+			[
+				{
+					"id": 55993,
+					"title": "Ballroom - The Dancing Whirlwinds",
+					"file_name": "abbcb1f0-8eef-4578-a74d-3228cfd13c64.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/abbcb1f0-8eef-4578-a74d-3228cfd13c64.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390910": ["Unlocked with the [Ball Room Key](#loc=390905).", []],
+		"390911": [
+			"**Prerequisite:** Capture [The Floating Whirlwinds](#loc=390909)\n\nUnlocks the [Storage Room Locked Door](#loc=390912).",
+			[]
+		],
+		"390912": ["Unlocked with the [Storage Room Key](#loc=390911).", []],
+		"390913": ["Inside the chair.", []],
+		"390916": ["Press this to reveal the western side of the Storage Room.", []],
+		"390917": ["Behind the poster. Press this to release the Boos from the [Boo Vault](#loc=390918).", []],
+		"390918": ["Open this with the [Button](#loc=390917) to release the 50 Boos across the mansion.", []],
+		"390919": ["**Health:** 30 HP", []],
+		"390920": ["**Health:** 50 HP", []],
+		"390921": ["**Health:** 30 HP", []],
+		"390922": ["**Health:** 60 HP", []],
+		"390923": ["**Health:** 40 HP", []],
+		"390924": ["**Health:** 60 HP", []],
+		"390925": ["**Health:** 60 HP", []],
+		"390926": ["**Health:** 50 HP", []],
+		"390927": ["Unlocked by capturing 5 Boos.", []],
+		"390931": [
+			"**Prerequisite:** Talk to Toad, then interact with the toilet.\n\nUnlocks the [Fortune-teller's Room Locked Door](#loc=390932).",
+			[]
+		],
+		"390932": ["Unlocked with the [Fortune-teller's Room Key](#loc=390931).", []],
+		"390936": ["Behind the Clairvoya's chair.", []],
+		"390937": [
+			"Reveal Clairvoya by shining Luigi's torch onto the crystal ball in the middle of the room.\n\nClairvoya only be captured after finding and reading all five of Mario's Lost Items. With the exception of [Mario's Star](#loc=394192), all of these items will be in different locations between the GameCube and 3DS versions of the game.",
+			[
+				{
+					"id": 56044,
+					"title": "Fortune-teller's Room - Madame Clairvoya",
+					"file_name": "f845236e-ab8c-4940-ac47-94f61065f957.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f845236e-ab8c-4940-ac47-94f61065f957.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390938": [
+			"Acquire from this chest by defeating all six Blue Grabbing Ghosts in the room.",
+			[
+				{
+					"id": 55994,
+					"title": "Mirror Room - Fire Element Medal",
+					"file_name": "b270ffa7-0546-4332-a35e-1039bcd7bdf5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b270ffa7-0546-4332-a35e-1039bcd7bdf5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390939": ["**Health:** 40 HP", []],
+		"390941": [
+			"**Prerequisite:** Light all four candelabras in the corners of this room.\n\nUnlocks the [Laundry Room Locked Door](#loc=390942).",
+			[]
+		],
+		"390942": ["Unlocked with the [Laundry Room Key](#loc=390941).", []],
+		"390943": ["**Health:** 40 HP", []],
+		"390944": ["Reveal by defeating the four ghosts in this room.", []],
+		"390946": [
+			"Found inside the washing machine.",
+			[
+				{
+					"id": 55995,
+					"title": "Laundry Room - Mario's Hat",
+					"file_name": "8991787d-8621-43ed-84e5-50cdb69f3eff.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8991787d-8621-43ed-84e5-50cdb69f3eff.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390954": [
+			"Grab some fire from the wall candles, then light the floating candles on fire to reveal Shivers. He'll float back to the Butler Room for [his boss battle](#loc=390955).",
+			[
+				{
+					"id": 55996,
+					"title": "1F Hallway - Shivers Candle",
+					"file_name": "c606d7fc-ac20-420b-b86e-5aee08ada537.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c606d7fc-ac20-420b-b86e-5aee08ada537.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390955": [
+			"After [lighting his candles](#loc=390954), Shivers will flee to this stool, where you can then capture him.",
+			[
+				{
+					"id": 55997,
+					"title": "Butler Room - Shivers",
+					"file_name": "db9b57ae-cc35-4660-84b9-823eee93f8c1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/db9b57ae-cc35-4660-84b9-823eee93f8c1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390956": [
+			"**Prerequisite:** Defeat [Shivers](#loc=390955)\n\nUnlocks the [Conservatory Locked Door](#loc=390957).",
+			[]
+		],
+		"390957": ["Unlocked with the [Conservatory Key](#loc=390956).", []],
+		"390958": ["**Health:** 40 HP", []],
+		"390959": [
+			"Search this with the Game Boy Horror camera to create a vortex to be sucked into the [Hidden Room](#loc=390963) to the east.",
+			[]
+		],
+		"390963": [
+			"Search this with the Game Boy Horror camera to create a vortex to be sucked back to the [Butler's Room](#loc=390959).",
+			[]
+		],
+		"390964": ["**Health:** 40 HP", []],
+		"390966": [
+			"**Prerequisite:** Capture all four Flash ghosts hidden in the Red Chests using Fire.\n\nMake sure to vacuum everything EXCEPT the gems, as doing the gems first will risk the Coins and Bills vanishing before you can get to them.",
+			[]
+		],
+		"391218": [
+			"Reveal by interacting with all the western instruments so that they're all playing Super Mario Bros.' \"Overworld\" (including all three drums). Then, approach the piano.\n\nYou'll then play some musical trivia. The answer will be either \"Super Mario Bros. 3\" or \"Water\". If you get it wrong, you'll have to exit the room and try again.",
+			[
+				{
+					"id": 55998,
+					"title": "Conservatory - Melody",
+					"file_name": "a7f57030-7903-4721-b679-ce0b678066d4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a7f57030-7903-4721-b679-ce0b678066d4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"391219": [
+			"**Prerequisite:** Capture [Melody](#loc=391218)\n\nUnlocks the [Dining Room Locked Door](#loc=391220).",
+			[]
+		],
+		"391220": ["Unlocked with the [Dining Room Key](#loc=391219).", []],
+		"391222": ["**Health:** 40 HP", []],
+		"391235": [
+			"To capture, use fire to light the two candles on the table, then capture the ghost waiters before vacuuming up Mr. Luggs' meal. Dodge Luggs' fire attacks until his heart is exposed, letting you capture him!",
+			[
+				{
+					"id": 56010,
+					"title": "Dining Room - Mr. Luggs",
+					"file_name": "1cd2280c-a5d9-4774-affc-1f4fca626614.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1cd2280c-a5d9-4774-affc-1f4fca626614.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"391236": ["Inside the dishes cabinet.", []],
+		"391239": [
+			"Reveal by Searching the piece of cheese at this spot with the Game Boy Horror Camera, **before** capturing the ghosts in this room.",
+			[]
+		],
+		"391245": ["**Prerequisite:** Capture [Mr. Luggs](#loc=391235)", []],
+		"391246": ["**Health:** 80 HP", []],
+		"391247": ["Inside the dishwasher.", []],
+		"391248": ["Has a chance of appearing when you enter the Kitchen.", []],
+		"391249": ["Open this oven and blow fire on it to get a Ruby.", []],
+		"391250": ["**Health:** 80 HP", []],
+		"391588": ["Open this to reveal a Flash. Defeat it with fire to reveal the Water Element Medal.", []],
+		"391589": [
+			"Defeat the flash in the [Fridge](#loc=391588) to reveal this.",
+			[
+				{
+					"id": 56011,
+					"title": "Kitchen - Water Element Medal",
+					"file_name": "d64568b2-720c-45af-951a-bedde28f39e5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d64568b2-720c-45af-951a-bedde28f39e5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"391591": [
+			"Can only be used by dousing it with water, after picking up the [Water Element Medal](#loc=391589).",
+			[]
+		],
+		"391592": [
+			"**Prerequisite:** Obtain the [Water Element Medal](#loc=391589)\n\nWater these plants to get treasure!",
+			[]
+		],
+		"391593": [
+			"**Prerequisite:** Obtain the [Water Element Medal](#loc=391589)\n\nWater this plant to get an Emerald.",
+			[]
+		],
+		"391594": [
+			"Water this plant during the second, third and fourth chapters of the game to get a **huge** amount of treasure.",
+			[]
+		],
+		"391596": [
+			"Shine a light on Spooky's spot outside the doghouse until it starts attacking you. Dodge him until Mr. Bones shows up, then capture Mr. Bones. He'll leave behind a bone that Spooky will go after, revealing his heart and letting you capture him.",
+			[
+				{
+					"id": 56055,
+					"title": "Boneyard - Spooky",
+					"file_name": "9b3ef303-8966-45b5-b43a-7ccf32b6dd1f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9b3ef303-8966-45b5-b43a-7ccf32b6dd1f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"391597": ["Search with the Game Boy Horror Camera to get to the [Graveyard](#loc=391599).", []],
+		"391599": ["Search with the Game Boy Horror Camera to get to the [Boneyard](#loc=391597).", []],
+		"391600": [
+			"**Prerequisite:** Capture [Bogmire](#loc=391601).\n\nUnlocks the [Courtyard Locked Door](#loc=391602).",
+			[]
+		],
+		"391601": [
+			"To reveal Bogmire, interact with the tombstones to reveal and defeat three Mr. Bones.\n\nIn the boss fight itself, vacuum one of the Shadow Bogmires and fire it at the real one. This allows you to vacuum Bogmire for a bit and decrease his health.",
+			[
+				{
+					"id": 56012,
+					"title": "Graveyard - Bogmire",
+					"file_name": "6fc5eb6e-4d03-4b8b-8541-7161ca2fb8af.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6fc5eb6e-4d03-4b8b-8541-7161ca2fb8af.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"391602": ["Unlocked with the [Courtyard Key](#loc=391600).", []],
+		"391604": ["Water this for a Gold Ingot.", []],
+		"391605": ["Water this for some cash.", []],
+		"391606": ["Water this for an Emerald.", []],
+		"391607": ["Reveal this by capturing the Ceiling Surprise and Purple Bombers.", []],
+		"391608": ["Inside the outhouse. Will not work until you get the [Rec Room Key](#loc=391611).", []],
+		"391609": [
+			"Inside the birdhouse.",
+			[
+				{
+					"id": 56014,
+					"title": "Courtyard - Mario's Letter",
+					"file_name": "518a6460-6aaa-4745-892b-5b1417f20062.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/518a6460-6aaa-4745-892b-5b1417f20062.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"391610": ["Leads down to [Bottom of the Well](#loc=391612).", []],
+		"391611": [
+			"**Prerequisite:** Investigate the stone statue mouth to the east, then capture the Ceiling Surprise.\n\nUnlocks the [Rec Room Locked Door](#loc=391613).",
+			[]
+		],
+		"391612": ["Leads up to the [Courtyard](#loc=391610).", []],
+		"391613": ["Unlocked with the [Rec Room Key](#loc=391611).", []],
+		"391615": ["**Prerequisite:** Run on this treadmill.\n\nUnlocks [1F Hallway Locked Door B](#loc=391616).", []],
+		"391616": ["Unlocked with [1F Hallway Key B](#loc=391615)", []],
+		"391619": ["Inside the southern yellow bicycle.", []],
+		"391620": [
+			"To expose Biff's heart, press A on the punching bags to whack him with it. Do this two more times to expose the heart and attempt a capture.",
+			[
+				{
+					"id": 56015,
+					"title": "Rec Room - Biff Atlas",
+					"file_name": "a4694ca7-ad55-4d0a-813f-ccd3d4a81f2d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a4694ca7-ad55-4d0a-813f-ccd3d4a81f2d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"391621": ["To reveal this chest, capture [Biff Atlas](#loc=391620).", []],
+		"391622": ["**Health:** 100 HP", []],
+		"391624": ["Unlock this door by dousing it with water.", []],
+		"391625": [
+			"Reveal by Searching the piece of cheese at this spot with the Game Boy Horror Camera, **before** capturing the ghosts in this room.",
+			[]
+		],
+		"391626": ["Has a random chance of appearing when you enter this room.", []],
+		"391627": ["**Health:** 50 HP", []],
+		"391629": ["To reveal, defeat the Grabbing Ghosts in this room.", []],
+		"392610": ["Has a small chance of appearing here.", []],
+		"392616": ["Revealed for defeating the Temper Terror in the toiler using water.", []],
+		"392618": ["Inside the right-hand armchair.", []],
+		"392620": [
+			"To expose her heart, knock over her basket of yarn balls with the A button, then fire them at her three times.",
+			[
+				{
+					"id": 56016,
+					"title": "Nana's Room - Nana",
+					"file_name": "5437eef5-364a-4ed8-ae7e-cc9da874f4f4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5437eef5-364a-4ed8-ae7e-cc9da874f4f4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"392635": [
+			"**Prerequisite:** Capture [Nana](#loc=392620)\n\nUnlocks the [The Twins' Room Locked Door](#loc=392636).",
+			[]
+		],
+		"392636": ["Unlocked with the [The Twins' Room Key](#loc=392635).", []],
+		"392639": ["**Health:** 100 HP", []],
+		"392641": [
+			"To expose Petunia's heart for capture, grab some ice from the [Tea Room](#loc=391624) bucket and use it to chill her.\n\nAfter capturing her, make sure to vacuum the bath to collect any Pearls that fell into it.",
+			[
+				{
+					"id": 56017,
+					"title": "Bathroom - Miss Petunia",
+					"file_name": "0f3202d4-8db7-4502-8fc9-a2372168855d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f3202d4-8db7-4502-8fc9-a2372168855d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"392642": [
+			"**Prerequisite:** Capture [Miss Petunia](#loc=392641)\n\nUnlocks the [Billiards Room Locked Door](#loc=392643).",
+			[]
+		],
+		"392643": ["Unlocked with the [Billiards Room Key](#loc=392642).", []],
+		"392649": ["Inside the chair.", []],
+		"392652": [
+			"To expose Slim's heart, hit him with three of the billiard balls that go flying after he takes a shot.",
+			[
+				{
+					"id": 56018,
+					"title": "Billiards Room - Slim Bankshot",
+					"file_name": "1bb7e1dc-9e8a-4127-99ea-38bb9b16222b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1bb7e1dc-9e8a-4127-99ea-38bb9b16222b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"392653": ["To reveal this chest, capture [Slim Bankshot](#loc=392652).", []],
+		"392654": ["**Health:** 50 HP", []],
+		"392658": [
+			"To reveal, turn on the projector, then capture the seven Grabbing Ghosts (their positions are given away by the shadows cast by the projector).",
+			[
+				{
+					"id": 56019,
+					"title": "Projection Room - Mario's Glove",
+					"file_name": "70060ec6-0cc5-484f-81fd-571761d084a8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/70060ec6-0cc5-484f-81fd-571761d084a8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"392660": ["**Health:** 50 HP", []],
+		"394181": [
+			"While this Speedy Spirit appears in all versions of the game, in the 3DS Hidden Mansion it only appears during the blackout.",
+			[]
+		],
+		"394184": [
+			"To reveal, spin the ceiling helicopters anti-clockwise four times.\n\nTo find them during hide and seek, only interact with boxes that shake when you vacuum them.",
+			[
+				{
+					"id": 56040,
+					"title": "The Twin's Room - Henry and Orville",
+					"file_name": "ba6dc95a-c499-4407-aa2a-dbdb68b4f730.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ba6dc95a-c499-4407-aa2a-dbdb68b4f730.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"394185": ["**Health:** 100 HP", []],
+		"394186": [
+			"Awarded for capturing [Henry and Orville](#loc=394184).",
+			[
+				{
+					"id": 56041,
+					"title": "The Twins' Room - Mario's Shoe",
+					"file_name": "8b629974-353e-491f-93f6-7688c76d4765.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8b629974-353e-491f-93f6-7688c76d4765.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"394189": [
+			"**Health:** 100 HP\n\nTo light up the room for this Boo, light the five candelabras and stand in the middle of the room, then defeat the waves of ghosts.",
+			[]
+		],
+		"394191": [
+			"Interact with this to reveal the eastern side of the room.",
+			[
+				{
+					"id": 56042,
+					"title": "Observatory - Telescope",
+					"file_name": "f77032f2-ad14-462b-97cc-989be46ad4b0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f77032f2-ad14-462b-97cc-989be46ad4b0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"394192": [
+			"After using the [Telescope](#loc=394191), vacuum a falling star and fire it at the moon. This reveals a path to Mario's Star.\n\nThis is the only Lost Mario Item in the same location in the GCN and 3DS version of the game.",
+			[
+				{
+					"id": 56043,
+					"title": "Observatory - Mario's Star",
+					"file_name": "1223e4e0-eaad-4949-a58f-62348b5cff0f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1223e4e0-eaad-4949-a58f-62348b5cff0f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"394193": [
+			"**Health:** 40 HP\n\nTo light up the room, you need to find all five of Mario's Lost Items and show them to [Madame Clairvoya](#loc=390937) so you can capture her.",
+			[]
+		],
+		"394194": [
+			"**Prerequisite:** Capture [Madame Clairvoya](#loc=390937)\n\nUnlocks the [Safari Room Locked Door](#loc=394195).",
+			[]
+		],
+		"394195": ["Unlocked with the [Safari Room Key](#loc=394194).", []],
+		"394199": [
+			"Search the cheese between the crates and the chair using the Game Boy Horror Camera to reveal this Gold Mouse.",
+			[]
+		],
+		"394200": ["**Health:** 100 HP", []],
+		"394201": [
+			"**Prerequisite:** Defeat all five ghosts after vacuuming the deer heads on the north wall.\n\nUnlocks the [Balcony Locked Door](#loc=394202).",
+			[]
+		],
+		"394202": [
+			"In addition to the [Balcony Key](#loc=394201), you'll also need to have captured 20 Boos in order to open this door.",
+			[]
+		],
+		"394205": ["Water this for a Gold Ingot.", []],
+		"394206": ["Water these for Bills. Both pots count as a single plant to water.", []],
+		"394207": ["Water this for Treasure.", []],
+		"394208": ["Water this for Treasure.", []],
+		"394210": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to spew fire with the L trigger.", []],
+		"394211": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to spew fire with the L trigger.", []],
+		"394212": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot Ice with the L trigger.", []],
+		"394213": ["Vacuum this to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.", []],
+		"394214": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.", []],
+		"394215": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.", []],
+		"394216": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"394217": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"394218": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.", []],
+		"394219": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.", []],
+		"394220": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"394221": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"394222": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"394223": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"394224": ["Water this to get an Emerald.", []],
+		"394225": ["Water this to get a Gold Ingot.", []],
+		"394226": ["Water this to get a Ruby.", []],
+		"394227": ["Water this to get some Coins.", []],
+		"394228": ["Water this to get some Bills.", []],
+		"394229": ["Water this to get some treasure.", []],
+		"394230": ["Water this to get an Emerald.", []],
+		"394231": [
+			"To defeat Boolossus, make it touch the horn of one of the unicorn statues, then use the Ice Element from the statues to freeze and capture as many Boos as you can before it reforms.\n\nIn addition to being a Portrait Ghost, Boolossus counts for 15 Boos.",
+			[
+				{
+					"id": 56046,
+					"title": "Balcony - Boolossus",
+					"file_name": "9f3cb12e-ac3d-4c34-bb22-8a79a8f89249.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9f3cb12e-ac3d-4c34-bb22-8a79a8f89249.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"394232": [
+			"Vacuum this to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger. Is only a source of Ice during the [Boolossus](#loc=394231) fight.",
+			[]
+		],
+		"394233": [
+			"Vacuum this to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger. Is only a source of Ice during the [Boolossus](#loc=394231) fight.",
+			[]
+		],
+		"394234": [
+			"**Prerequisite:** Capture [Boolossus](#loc=394231)\n\nUnlocks the [West Hall Locked Door](#loc=394235).",
+			[]
+		],
+		"394235": [
+			"Unlocked with the [West Hall Key](#loc=394234).\n\n***WARNING:*** Getting close to this door whilst holding its key will initiate a blackout, filling **every** room with ghosts until power is restored!",
+			[
+				{
+					"id": 56047,
+					"title": "Balcony - Blackout Strike",
+					"file_name": "4fc75bec-6da6-4a60-86c7-9d33ccbe8721.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4fc75bec-6da6-4a60-86c7-9d33ccbe8721.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"395444": ["Use this telephone to talk with Toad, then move on to [the second one](#loc=395519)", []],
+		"395446": ["Inside the piano bench, but only during the [blackout](#loc=394235).", []],
+		"395447": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"395448": ["Inside this red chest, but only during the [blackout](#loc=394235).", []],
+		"395449": ["Inside the crib, but only during the [blackout](#loc=394235).", []],
+		"395450": [
+			"Only appears during the [blackout](#loc=394235). To expose his heart, stand in front of him to make him attempt to scare you.",
+			[
+				{
+					"id": 56045,
+					"title": "Wardrobe Room - Uncle Grimmly",
+					"file_name": "27efacb8-22c6-47ad-9dfd-24ba303469bb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/27efacb8-22c6-47ad-9dfd-24ba303469bb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"395451": [
+			"**Prerequisite:** Capture [Uncle Grimmly](#loc=395450)\n\nUnlocks the [Breaker Room Locked Door](#loc=395452).",
+			[]
+		],
+		"395452": ["Normally unlocked, in Area 4 this door is unlocked with the [Breaker Room Key](#loc=395451).", []],
+		"395453": ["Used to restore the lights and end the [blackout](#loc=394235).", []],
+		"395454": [
+			"**Prerequisite:** Use the [Breaker Switch](#loc=395453) to lift the [blackout](#loc=394235).\n\nUnlocks the [Cellar Locked Door](#loc=395455).",
+			[]
+		],
+		"395455": ["Unlocked with the [Cellar Key](#loc=395454).", []],
+		"395456": ["**Health:** 200 HP", []],
+		"395457": ["Inside the wooden box.", []],
+		"395458": [
+			"Contains a Purple Puncher that you need to capture in order to turn the lights on in this room.",
+			[]
+		],
+		"395459": [
+			"Contains a Purple Puncher that you need to capture in order to turn the lights on in this room.",
+			[]
+		],
+		"395460": ["Under the pile of dust you can vacuum up.", []],
+		"395461": [
+			"**Prerequisite:** Capture the two Speedy Spirits in the two Wooden Barrels\n\nUnlocks the [Clockwork Room Locked Door](#loc=395467).",
+			[]
+		],
+		"395462": ["Under the pile of dust you can vacuum up.", []],
+		"395467": ["Unlocked with the [Clockwork Room Key](#loc=395461).", []],
+		"395468": ["Contains a Mr. Bones ghost that you need to capture to light up this room.", []],
+		"395470": ["Contains a Mr. Bones ghost that you need to capture to light up this room.", []],
+		"395471": [
+			"Revealed after capturing the Mr. Bones in the Wooden Chests in this room.\n\n- [Wooden Chest](#loc=395468)\n- [Wooden Chest](#loc=395470)",
+			[]
+		],
+		"395472": ["**Health:** 300 HP", []],
+		"395476": [
+			"To activate, turn on the clocks in the northwest and northeast corners on the room, and on the table in the western side of the room. To capture, vacuum the plungers of their rifles as they fire.\n\nDo note that your performance with the blue soldier is what determines the frame of their portrait.",
+			[
+				{
+					"id": 56049,
+					"title": "Clockwork Room - Clockwork Soldiers",
+					"file_name": "b4bb60ff-3547-47ec-9aa8-1abfdf4bdeaf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b4bb60ff-3547-47ec-9aa8-1abfdf4bdeaf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"395477": [
+			"Unlocks after you defeat the [Clockwork Soldiers](#loc=395476). Takes you up to the roof of the mansion.",
+			[]
+		],
+		"395478": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to spew fire with the L trigger.", []],
+		"395479": [
+			"**Prerequisite:** Defeat the six Shy Guys and two Flashes on the roof.\n\nUnlocks the [Armory Locked Door](#loc=395480).",
+			[]
+		],
+		"395480": ["Unlocked with the [Armory Key](#loc=395479).", []],
+		"395481": ["Enter here via the northeast chimney on the Roof.", []],
+		"395482": ["Fall down here to enter [the Sealed Room](#loc=395481)", []],
+		"395483": ["Behind the sheet. This is the only way to leave the Sealed Room.", []],
+		"395484": ["Inside the red chest.", []],
+		"395486": [
+			"Open this, and a bunch of ghosts will spawn in the room. Clearing them will light the room up, locking you out of the Gold Mouse.",
+			[]
+		],
+		"395487": ["This is the light above the door, not the large chandelier.", []],
+		"395494": [
+			"Has a random chance of appearing when you fall into the room. This is a frustrating one to get, as you have to leave the room using the [Mirror](#loc=395483) and climb up to the roof to re-enter the room again via the [chimney](#loc=395482).",
+			[]
+		],
+		"395495": [
+			"**Prerequisite:** Defeat the ghosts that appear when opening the [Ghosts Chest](#loc=395486)\n\nUnlocks the [Sitting Room Locked Door](#loc=395498).",
+			[]
+		],
+		"395497": [
+			"This door can never be opened. The only way into here is via the [Sealed Room Entrance](#loc=395482) chimney on the roof.",
+			[]
+		],
+		"395498": ["Unlocked with the [Sitting Room Key](#loc=395495).", []],
+		"395499": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to spew fire with the L trigger.", []],
+		"395500": ["Vacuum this to get a Water Spirit, allowing the Poltergust to spew water with the L trigger.", []],
+		"395501": [
+			"Light these candles to spawn in six Golden Ghosts, then two Temper Terrors. Defeat the latter using the [Water Source](#loc=395500).",
+			[]
+		],
+		"395502": ["**Health:** 100 HP", []],
+		"395503": [
+			"Spray with water from [the pot in the Sitting Room](#loc=395500) to wake her. Vacuum her dolls up when the battle begins so they don't pester you.",
+			[
+				{
+					"id": 56050,
+					"title": "Guest Room - Sue Pea",
+					"file_name": "fea0f301-409b-4091-8691-80da4da377b4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fea0f301-409b-4091-8691-80da4da377b4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"395504": [
+			"Reveal by defeating [Sue Pea](#loc=395503). Once you have, leave the Guest Room and come back so that the room is the right-way up.",
+			[]
+		],
+		"395505": ["**Health:** 100 HP", []],
+		"395506": ["Water this to get a Sapphire.", []],
+		"395509": ["Water this to get a Gold Ingot.", []],
+		"395510": ["Inside the suit of armor. Interact from the back or side to avoid getting hit by the mace.", []],
+		"395511": ["Inside the suit of armor. Interact from the back or side to avoid getting hit by the mace.", []],
+		"395512": ["Inside the suit of armor. Interact from the back or side to avoid getting hit by the mace.", []],
+		"395513": ["Inside the suit of armor. Interact from the back or side to avoid getting hit by the mace.", []],
+		"395514": ["Inside the metal chest.", []],
+		"395515": ["Inside the metal chest.", []],
+		"395516": [
+			"**Prerequisite:** Capture all the ghosts inside the metal armor and chests in this room.\n\nUnlocks the [Pipe Room Locked Door](#loc=395576).",
+			[]
+		],
+		"395518": ["This telephone is never used. Try the other two!", []],
+		"395519": ["Answer this telephone second, after answering [the first one](#loc=395444).", []],
+		"395522": ["Behind a tattered sheet.", []],
+		"395523": ["Vacuum this to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.", []],
+		"395524": [
+			"Reveal by disrupting the four northern pots, then play his game and freeze him all seven times. Once you've done this, he'll try and fight you, which is where you can capture him.\n\nYou can also get some Bills from this Jar after defeating Jarvis.",
+			[
+				{
+					"id": 56051,
+					"title": "Ceramics Studio",
+					"file_name": "7c9dd626-79c7-4d28-91c0-4bc0c1fc414a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c9dd626-79c7-4d28-91c0-4bc0c1fc414a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"395526": ["**Health:** 200 HP", []],
+		"395527": ["Awarded for defeating [Jarvis](#loc=395524).", []],
+		"395534": ["**Health:** 300 HP", []],
+		"395535": ["Vacuum this to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.", []],
+		"395536": [
+			"**Prerequisite:** Freeze the goo and then turn the [Red Valve](#loc=395537)\n\nUnlocks the [Cold Storage Locked Door](#loc=395538).",
+			[]
+		],
+		"395537": ["To get to this, use the [Ice Source](#loc=395535) to freeze the river of goo.", []],
+		"395538": ["Unlocked with the [Cold Storage Key](#loc=395536).", []],
+		"395539": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"395540": [
+			"To reveal, light the two campfires near this spot. To expose Weston's heart, use a fire shot (click L whilst pulling the L trigger down) to instantly melt his protective ice crystal.",
+			[
+				{
+					"id": 56052,
+					"title": "Cold Storage - Weston",
+					"file_name": "1e43b028-be9b-4e5e-b27c-8f55640e8441.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e43b028-be9b-4e5e-b27c-8f55640e8441.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"395541": ["**Health:** 150 HP", []],
+		"395542": [
+			"**Prerequisite:** Capture [Weston](#loc=395540)\n\nUnlocks the [Artist's Studio Locked Door](#loc=395543).",
+			[]
+		],
+		"395543": ["Unlocked with the [Artist's Studio Key](#loc=395542).", []],
+		"395544": [
+			"Expose his heart by defeating all seven waves of ghosts that come from his paintings.",
+			[
+				{
+					"id": 56053,
+					"title": "Artist's Studio - Vincent van Gore",
+					"file_name": "94342e11-fe9c-4a8a-96bc-25fe5dc8692b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/94342e11-fe9c-4a8a-96bc-25fe5dc8692b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"395545": [
+			"**Prerequisite:** Capture [Vincent van Gore](#loc=395544)\n\nUnlocks the [Secret Altar Locked Door](#loc=395546).",
+			[]
+		],
+		"395546": ["Unlocked with the [Secret Altar Key](#loc=395545).", []],
+		"395547": ["**Health:** 300 HP", []],
+		"395548": ["**Health:** 100 HP", []],
+		"395549": ["**Health:** 300 HP", []],
+		"395550": ["**Health:** 150 HP", []],
+		"395551": [
+			"**Prerequisite:** Capture 40 Boos\n\nTo damage King Boo, suck up one of the mines, then fire it at Bowser when his mouth is open.",
+			[
+				{
+					"id": 56054,
+					"title": "Secret Altar - King Boo",
+					"file_name": "3c64259a-38e7-48e0-9595-fedb079c45c6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3c64259a-38e7-48e0-9595-fedb079c45c6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"395576": ["Unlocked with the [Pipe Room Key](#loc=395516).", []],
+		"396395": ["Inside the chair behind the desk.", []],
+		"396396": ["Inside the [Small Table](#loc=390621), but only in the 3DS Hidden Mansion.", []],
+		"396397": ["Inside the [Drawers](#loc=390810), but only in the 3DS Hidden Mansion.", []],
+		"396398": ["Inside the heater, but only in the 3DS Hidden Mansion.", []],
+		"396399": ["Inside the drawer, but only in the 3DS Hidden Mansion, and only during the blackout.", []],
+		"396400": ["Inside the wooden bucket, but only in the 3DS Hidden Mansion.", []],
+		"396401": ["Inside the music sheet stand, but only in the 3DS Hidden Mansion.", []],
+		"396402": ["Inside the fitness machine, but only in the 3DS Hidden Mansion.", []],
+		"396403": [
+			"Inside the chair at this spot, but only in the 3DS Hidden Mansion and only during the blackout.",
+			[]
+		],
+		"396404": ["Inside the sink, but only in the 3DS Hidden Mansion.", []],
+		"396405": ["Inside the cabinet, but only in the 3DS Hidden Mansion.", []],
+		"396406": ["Inside the speaker, but only in the 3DS Hidden Mansion.", []],
+		"396407": ["Inside the oil drum, but only in the 3DS Hidden Mansion, and only *BEFORE* the blackout.", []],
+		"396408": ["Inside the chair, but only in the 3DS Hidden Mansion.", []],
+		"396409": ["Inside the oil drum, but only in the 3DS Hidden Mansion.", []],
+		"396410": ["Inside the dishwasher, but only in the 3DS Hidden Mansion.", []],
+		"396411": ["Inside the [Green Chest](#loc=391607), but only in the 3DS Hidden Mansion.", []],
+		"396412": ["Inside the desk, but only in the 3DS Hidden Mansion.", []],
+		"396413": ["Inside the [Green Chest](#loc=392653), but only in the 3DS Hidden Mansion.", []],
+		"1055062": [
+			"Water the flower after each boss battle until it turns into a pod and releases a Gold Diamond, worth 20 million G.",
+			[]
+		],
+		"1055063": [
+			"Capture all 50 Boos (15 from the boss battle and 35 roaming Boos) and the last one will drop the second of two Gold Diamonds in the mansion, worth 20,000,000G.",
+			[]
+		]
+	}
+}

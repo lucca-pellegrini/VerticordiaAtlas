@@ -105,7 +105,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "country-of-the-muskateers-sora/data.compact.json"
 		},
 		{
 			"slug": "la-cite-des-cloches-sora",
@@ -122,7 +123,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "la-cite-des-cloches-sora/data.compact.json"
 		},
 		{
 			"slug": "pranksters-paradise-sora",
@@ -139,7 +141,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "pranksters-paradise-sora/data.compact.json"
 		},
 		{
 			"slug": "symphony-of-sorcery-sora",
@@ -156,7 +159,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "symphony-of-sorcery-sora/data.compact.json"
 		},
 		{
 			"slug": "the-grid-sora",
@@ -173,7 +177,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "the-grid-sora/data.compact.json"
 		},
 		{
 			"slug": "the-world-that-never-was-sora",
@@ -189,7 +194,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "the-world-that-never-was-sora/data.compact.json"
 		},
 		{
 			"slug": "traverse-town-sora",
@@ -206,7 +212,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "traverse-town-sora/data.compact.json"
 		},
 		{
 			"slug": "country-of-the-muskateers-riku",
@@ -223,7 +230,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "country-of-the-muskateers-riku/data.compact.json"
 		},
 		{
 			"slug": "la-cite-des-cloches-riku",
@@ -240,7 +248,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "la-cite-des-cloches-riku/data.compact.json"
 		},
 		{
 			"slug": "pranksters-paradise-riku",
@@ -257,7 +266,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "pranksters-paradise-riku/data.compact.json"
 		},
 		{
 			"slug": "symphony-of-sorcery-riku",
@@ -274,7 +284,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "symphony-of-sorcery-riku/data.compact.json"
 		},
 		{
 			"slug": "the-grid-riku",
@@ -291,7 +302,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "the-grid-riku/data.compact.json"
 		},
 		{
 			"slug": "the-world-that-never-was-riku",
@@ -308,7 +320,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "the-world-that-never-was-riku/data.compact.json"
 		},
 		{
 			"slug": "traverse-town-riku",
@@ -325,7 +338,8 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			]
+			],
+			"compact": "traverse-town-riku/data.compact.json"
 		}
 	]
 }

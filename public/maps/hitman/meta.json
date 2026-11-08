@@ -219,7 +219,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "ica-facility-freeform-training/data.compact.json"
 		},
 		{
 			"slug": "ica-facility-the-final-test",
@@ -236,7 +237,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "ica-facility-the-final-test/data.compact.json"
 		},
 		{
 			"slug": "paris-the-showstopper",
@@ -253,7 +255,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "paris-the-showstopper/data.compact.json"
 		},
 		{
 			"slug": "paris-holiday-hoarders",
@@ -270,7 +273,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "paris-holiday-hoarders/data.compact.json"
 		},
 		{
 			"slug": "sapienza-world-of-tomorrow",
@@ -287,7 +291,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "sapienza-world-of-tomorrow/data.compact.json"
 		},
 		{
 			"slug": "sapienza-the-icon",
@@ -304,7 +309,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "sapienza-the-icon/data.compact.json"
 		},
 		{
 			"slug": "sapienza-landslide",
@@ -321,7 +327,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "sapienza-landslide/data.compact.json"
 		},
 		{
 			"slug": "sapienza-the-author",
@@ -338,7 +345,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "sapienza-the-author/data.compact.json"
 		},
 		{
 			"slug": "marrakesh-a-gilded-cage",
@@ -355,7 +363,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "marrakesh-a-gilded-cage/data.compact.json"
 		},
 		{
 			"slug": "marrakesh-a-house-built-on-sand",
@@ -372,7 +381,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "marrakesh-a-house-built-on-sand/data.compact.json"
 		},
 		{
 			"slug": "bangkok-club-27",
@@ -389,7 +399,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "bangkok-club-27/data.compact.json"
 		},
 		{
 			"slug": "bangkok-the-source",
@@ -406,7 +417,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "bangkok-the-source/data.compact.json"
 		},
 		{
 			"slug": "colorado-freedom-fighters",
@@ -423,7 +435,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "colorado-freedom-fighters/data.compact.json"
 		},
 		{
 			"slug": "hokkaido-situs-inversus",
@@ -440,7 +453,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "hokkaido-situs-inversus/data.compact.json"
 		},
 		{
 			"slug": "hokkaido-hokkaido-snow-festival",
@@ -457,7 +471,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "hokkaido-hokkaido-snow-festival/data.compact.json"
 		},
 		{
 			"slug": "hokkaido-patient-zero",
@@ -474,7 +489,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "hokkaido-patient-zero/data.compact.json"
 		}
 	]
 }

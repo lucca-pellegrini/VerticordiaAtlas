@@ -357,7 +357,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "eastern-kingdoms/data.compact.json"
 		},
 		{
 			"slug": "kalimdor",
@@ -374,7 +375,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "kalimdor/data.compact.json"
 		},
 		{
 			"slug": "dragon-isles",
@@ -391,7 +393,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "dragon-isles/data.compact.json"
 		},
 		{
 			"slug": "outland",
@@ -408,7 +411,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "outland/data.compact.json"
 		},
 		{
 			"slug": "northrend",
@@ -425,7 +429,8 @@
 					"tileSize": 256,
 					"background": "#1e3b5d"
 				}
-			]
+			],
+			"compact": "northrend/data.compact.json"
 		},
 		{
 			"slug": "pandaria",
@@ -442,7 +447,8 @@
 					"tileSize": 256,
 					"background": "#051419"
 				}
-			]
+			],
+			"compact": "pandaria/data.compact.json"
 		},
 		{
 			"slug": "draenor",
@@ -459,7 +465,8 @@
 					"tileSize": 256,
 					"background": "#081a3e"
 				}
-			]
+			],
+			"compact": "draenor/data.compact.json"
 		},
 		{
 			"slug": "kul-tiras",
@@ -476,7 +483,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "kul-tiras/data.compact.json"
 		},
 		{
 			"slug": "zandalar",
@@ -493,7 +501,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "zandalar/data.compact.json"
 		},
 		{
 			"slug": "broken-isles",
@@ -510,7 +519,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "broken-isles/data.compact.json"
 		},
 		{
 			"slug": "shadowlands",
@@ -527,7 +537,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "shadowlands/data.compact.json"
 		},
 		{
 			"slug": "khaz-algar",
@@ -544,7 +555,8 @@
 					"tileSize": 256,
 					"background": "#150d0b"
 				}
-			]
+			],
+			"compact": "khaz-algar/data.compact.json"
 		},
 		{
 			"slug": "argus",
@@ -561,7 +573,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "argus/data.compact.json"
 		},
 		{
 			"slug": "nazjatar",
@@ -578,7 +591,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "nazjatar/data.compact.json"
 		},
 		{
 			"slug": "quelthalas",
@@ -595,7 +609,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "quelthalas/data.compact.json"
 		},
 		{
 			"slug": "azuremyst-isles",
@@ -612,7 +627,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "azuremyst-isles/data.compact.json"
 		},
 		{
 			"slug": "deepholm",
@@ -629,7 +645,8 @@
 					"tileSize": 256,
 					"background": "#010101"
 				}
-			]
+			],
+			"compact": "deepholm/data.compact.json"
 		},
 		{
 			"slug": "tol-barad",
@@ -646,7 +663,8 @@
 					"tileSize": 256,
 					"background": "#01000e"
 				}
-			]
+			],
+			"compact": "tol-barad/data.compact.json"
 		},
 		{
 			"slug": "lost-isles",
@@ -663,7 +681,8 @@
 					"tileSize": 256,
 					"background": "#150d0b"
 				}
-			]
+			],
+			"compact": "lost-isles/data.compact.json"
 		},
 		{
 			"slug": "darkmoon-island",
@@ -680,7 +699,8 @@
 					"tileSize": 256,
 					"background": "#374d40"
 				}
-			]
+			],
+			"compact": "darkmoon-island/data.compact.json"
 		}
 	]
 }

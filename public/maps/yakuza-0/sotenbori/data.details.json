@@ -1,0 +1,310 @@
+{
+	"v": 1,
+	"d": {
+		"939720": ["**Cost:** N/A - Unlocked when friendship with clerk reaches maximum level.", []],
+		"939721": ["**Cost:** ¥\t2,500,000", []],
+		"939722": ["**Cost:** ¥4,300,000", []],
+		"939723": ["**Gift:** Wallet / Wristwatch", []],
+		"939724": ["**Gift:** Ring / Necklace / Bracelet", []],
+		"939725": ["**Gift:** Coat / Scarf", []],
+		"939726": ["**Gift:** Perfume", []],
+		"939727": ["**Gift:** Handbag", []],
+		"939728": ["**Gift:** Boots / Sandals", []],
+		"939729": ["**Gift:** Leopard Print", []],
+		"939760": ["**Next:** [Nozomi Hazuki Type B](#loc=939761)", []],
+		"939761": [
+			"**Previous:** [Nozomi Hazuki Type A](#loc=939760)\n\n**Next:** [Nozomi Hazuki Type C](#loc=939762)",
+			[]
+		],
+		"939762": ["**Previous:** [Nozomi Hazuki Type B](#loc=939761)", []],
+		"939764": ["**Cost:** ¥20,000,000", []],
+		"939765": ["**Cost:** ¥56,000,000", []],
+		"939767": ["**Next:** [Mana Sakura Type B](#loc=939814)", []],
+		"939768": ["**Cost:** ¥25,000,000", []],
+		"939770": ["**Cost:** ¥87,000,000", []],
+		"939771": ["**Next:** [Iori Kogawa Type B](#loc=939847)", []],
+		"939773": ["**Cost:** ¥84,000,000", []],
+		"939775": ["**Cost:** ¥76,000,000", []],
+		"939778": ["**Next:** [Ai Haneda Type B](#loc=939842)", []],
+		"939779": ["**Cost:** ¥185,000,000", []],
+		"939780": ["**Cost:** ¥67,000,000", []],
+		"939781": ["**Previous:** [Nao Mizuki Type A](#loc=939860)\n\n**Next:** [Nao Mizuki Type C](#loc=939959)", []],
+		"939782": ["**Cost:** ¥100,000,000", []],
+		"939784": ["**Cost:** N/A - Unlocked when friendship with the Barkeep reaches its maximum level.", []],
+		"939785": ["**Previous:** [Yuki Natsume Type B](#loc=939817)", []],
+		"939786": ["**Next:** [Rina Ito Type B](#loc=939840)", []],
+		"939790": ["**Cost:** ¥55,000,000", []],
+		"939792": ["**Cost:** N/A - Unlocked when friendship with Kyoko reaches its maximum level.", []],
+		"939793": ["**Previous:** [Ai Haneda Type B](#loc=939842)", []],
+		"939794": ["**Cost:** ¥26,000,000", []],
+		"939795": ["**Next:** [Kotomi Asakura Type B](#loc=939965)", []],
+		"939796": ["**Cost:** ¥15,000,000", []],
+		"939798": ["**Cost:** ¥22,000,000", []],
+		"939801": ["**Next:** [Ai Uehara Type B](#loc=939869)", []],
+		"939804": ["**Cost:** ¥11,000,000", []],
+		"939806": ["**Cost:** ¥14,000,000", []],
+		"939808": ["**Cost:** ¥42,000,000", []],
+		"939810": ["**Previous:** [Kotomi Asakura Type B](#loc=939965)", []],
+		"939811": ["Share completed Telephone Card sets for rewards.", []],
+		"939812": ["**Cost:** ¥10,000,000", []],
+		"939813": ["**Cost:** ¥5,000,000", []],
+		"939814": [
+			"**Previous:** [Mana Sakura Type A](#loc=939767)\n\n**Next:** [Mana Sakura Type C](#loc=939865)",
+			[]
+		],
+		"939815": ["Bed of Styx - Unlocked in Chapter 12", []],
+		"939816": [
+			"**Previous:** [Ai Uehara Type B](#loc=939869)\n\nAt the top of the [Bed of Styx](#loc=939815) area, only accessible in Chapter 11 onwards, tucked into a corner.",
+			[]
+		],
+		"939817": [
+			"**Previous:** [Yuki Natsume Type A](#loc=939835)\n\n**Next:** [Yuki Natsume Type C](#loc=939785)",
+			[]
+		],
+		"939818": ["**Previous:** [Saki Hatsumi Type B](#loc=939969)", []],
+		"939820": ["**Cost:** ¥3,000,000", []],
+		"939822": ["**Previous:** [Shizuku Hasegawa Type B](#loc=939843)", []],
+		"939825": ["Only available after [55 - Calling the Future](#loc=940071)", []],
+		"939826": ["**Previous:** [Rina Ito Type B](#loc=939840)", []],
+		"939827": ["**Cost:** ¥33,000,000", []],
+		"939829": ["**Next:** [Shizuku Hasegawa Type B](#loc=939843)", []],
+		"939830": ["**Previous:** [Kyoko Maki Type A](#loc=939867)\n\n**Next:** [Kyoko Maki Type C](#loc=939856)", []],
+		"939831": ["**Cost:** ¥8,000,000", []],
+		"939832": ["**Cost:** N/A - Unlocked when friendship with the Chef reaches its maximum level.", []],
+		"939834": ["**Previous:** [Kokoa Aisu Type A](#loc=939958)\n\n**Next:** [Kokoa Aisu Type C](#loc=939846)", []],
+		"939835": ["**Next:** [Yuki Natsume Type B](#loc=939817)", []],
+		"939837": [
+			"**Previous:** [Hibiki Otsuki Type A](#loc=939964)\n\n**Next:** [Hibiki Otsuki Type C](#loc=939971)",
+			[]
+		],
+		"939839": ["**Next:** [Saki Hatsumi Type B](#loc=939969)", []],
+		"939840": ["**Previous:** [Rina Ito Type A](#loc=939786)\n\n**Next:** [Rina Ito Type C](#loc=939826)", []],
+		"939842": ["**Previous:** [Ai Haneda Type A](#loc=939778)\n\n**Next:** [Ai Haneda Type C](#loc=939793)", []],
+		"939843": [
+			"**Previous:** [Shizuku Hasegawa Type A](#loc=939829)\n\n**Next:** [Shizuku Hasegawa Type C](#loc=939822)",
+			[]
+		],
+		"939846": ["**Previous:** [Kokoa Aisu Type B](#loc=939834)", []],
+		"939847": [
+			"**Previous:** [Iori Kogawa Type A](#loc=939771)\n\n**Next:** [Iori Kogawa Type C](#loc=939968)",
+			[]
+		],
+		"939848": ["**Cost:** ¥16,000,000", []],
+		"939850": ["**Cost:** ¥2,500,000", []],
+		"939851": ["**Cost:** ¥5,000,000", []],
+		"939853": ["**Cost:** ¥8,000,000", []],
+		"939854": ["**Cost:** ¥2,800,000", []],
+		"939856": ["**Previous:** [Kyoko Maki Type B](#loc=939830)", []],
+		"939857": ["**Cost:** ¥10,000,000", []],
+		"939858": ["**Cost:** ¥2,500,000", []],
+		"939860": ["**Next:** [Nao Mizuki Type B](#loc=939781)", []],
+		"939861": ["**Cost:** ¥8,000,000", []],
+		"939864": ["**Cost:** ¥17,500,000", []],
+		"939865": ["**Previous:** [Mana Sakura Type B](#loc=939814)", []],
+		"939867": ["**Next:** [Kyoko Maki Type B](#loc=939830)", []],
+		"939868": ["**Cost:** ¥3,500,000", []],
+		"939869": ["**Previous:** [Ai Uehera Type A](#loc=939801)\n\n**Next:** [Ai Uehara Type C](#loc=939816)", []],
+		"939957": ["**Cost:** ¥1,700,000", []],
+		"939958": ["**Next:** [Kokoa Aisu Type B](#loc=939834)", []],
+		"939959": ["**Previous:** [Nao Mizuki Type B](#loc=939781)", []],
+		"939961": ["**Cost:** ¥3,600,000", []],
+		"939962": ["**Cost:** ¥1,500,000", []],
+		"939963": ["**Cost:** ¥3,000,000", []],
+		"939964": ["**Next:** [Hibiki Otsuki Type B](#loc=939837)", []],
+		"939965": [
+			"**Previous:** [Kotomi Asakura Type A](#loc=939795)\n\n**Next:** [Kotomi Asakura Type C](#loc=939810)",
+			[]
+		],
+		"939966": ["**Previous:** [Riri Kuribayashi Type B](#loc=939975)", []],
+		"939968": ["**Next:** [Iori Kogawa Type B](#loc=939847)", []],
+		"939969": [
+			"**Previous:** [Saki Hatsumi Type A](#loc=939839)\n\n**Next:** [Saki Hatsumi Type C](#loc=939818)",
+			[]
+		],
+		"939970": ["**Cost:** ¥500,000", []],
+		"939971": ["**Previous:** [Hibiki Otsuki Type B](#loc=939837)", []],
+		"939972": ["**Cost:** ¥4,500,000", []],
+		"939974": ["**Cost:** ¥4,000,000", []],
+		"939975": [
+			"**Previous:** [Riri Kuribayashi Type A](#loc=939976)\n\n**Next:** [Riri Kuribayashi Type C](#loc=939966)",
+			[]
+		],
+		"939976": ["**Next:** [Riri Kuribayashi Type B](#loc=939975)", []],
+		"939977": ["**Cost:** ¥8,000,000", []],
+		"939978": ["**Cost:** ¥13,000,000", []],
+		"939979": ["**Cost:** ¥9,500,000", []],
+		"939980": ["**Cost:** ¥3,000,000", []],
+		"939981": ["**Cost:** ¥2,000,000", []],
+		"939982": ["**Cost:** ¥1,100,000", []],
+		"939983": [
+			"**Spawns:**\n- Crayfish\n- Sweetfish\n- Snakehead\n- Arowana\n- Softshell Turtle\n- Black Bass\n- Rainbow Trout\n- Ito",
+			[]
+		],
+		"939984": [
+			"**Spawns:**\n- Crayfish\n- Crucian\n- Koi Carp\n- Eel\n- Axolotl\n- Salmon\n- Nishiki Carp\n- Ghost Koi",
+			[]
+		],
+		"940063": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style.\n\n**Reward:**\n- Secret Wallet (accessory)",
+			[]
+		],
+		"940064": [
+			"**Prerequisite:** Progress the story until your objective is to visit the Odyssey.\n\n**Tips:**\n- If you're struggling with the fight, upgrade your fighting styles.\n\n**Reward:**\n- Your money back! Yippee!",
+			[]
+		],
+		"940065": [
+			"**Prerequisite:** Progress the story until your objective is to visit the Odyssey.\n\n**Tips:**\n- If you're struggling with the fight, upgrade your fighting styles.\n\n**Reward:**\n- Your money back! Yippee!",
+			[]
+		],
+		"940066": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style.\n\n**Tips:**\n- To successfully distract the crowd, sing a song.\n\n**Reward:**\n- Staminan Royale",
+			[]
+		],
+		"940067": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style.\n\n**Tips:**\n- Be ready for a tough fight; bring some healing items.\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940068": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style.\n\n**Tips:**\n- Rewards vary based on your answers. The best answers are as follows:\n  - \"Pleased to meet you sir. I'm Goro Majima.\"\n  - \"I'm a dentist.\"\n  - \"We sat next to each other at a movie.\"\n  - \"She's so innocent and childlike.\"\n\n**Reward:**\n- Sprite Belt (accessory) - for four best answers chosen\n- Fluorite x5 (crafting material) - for two or three best answers chosen\n- Bulletproof Glass Amulet (accessory) - for one best answer chosen",
+			[]
+		],
+		"940069": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style.\n\n**Reward:**\n- Sakura Storm (weapon)",
+			[]
+		],
+		"940070": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style.\n\n**Tips:**\n- To avoid an extra fight, choose the correct actions & words:\n  - \"I want to join the Order of Munan Chohept Onast\"\n  - Call her Iori\n  - Say it with the pose\n  - \"Onast\"\n  - \"Shooreh Pippi\"\n  - \"Circle with the Left Hand, Then Bring Palms Together\"\n  - \"Munan Suzuki\"\n\n**Reward:**\n- Crystal (crafting material) - if you got the answers right\n- Traveler's Amulet (accessory)",
+			[]
+		],
+		"940071": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style, then use the [Save Point](#loc=939766)\n\n**Tips:**\n- Batteries can be purchased from [Don Quijote Sotenbori](#loc=939821)\n\n**Reward:**\n- New [Save Point](#loc=939825) available",
+			[]
+		],
+		"940072": ["Within [Club Sunshine](#loc=939955)'s office.", []],
+		"940073": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style\n\n**Tips:**\n- Rewards vary based on your answers. The best answers are as follows:\n  - \"To provide public services\"\n  - \"Tobacco\"\n  - \"Gasoline\"\n  - \"8%\"\n\n**Reward:**\n- Primeval Spirit Stone (accessory) - for picking the best answers",
+			[]
+		],
+		"940074": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style\n\n**Tips:**\n- Rewards vary based on your answers. The best answers are as follows:\n  - \"Mashed\"\n  - \"Popcorn\"\n  - \"Shoulder\"\n  - \"Soy sauce\"\n\n**Reward:**\n- Pearl x3 (crafting material) - for choosing the correct answers\n- Quality Iron (crafting material) - for choosing the wrong answers",
+			[]
+		],
+		"940078": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style\n\n**Tips:**\n- Invest in your skills to take the enemies down quickly\n\n**Reward:**\n- Encounter Finder (accessory)",
+			[]
+		],
+		"940079": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style\n\n**Reward:**\n- ¥10,000,000",
+			[]
+		],
+		"940080": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style\n\n**Tips:**\n- Medical items can be purchased from [Daikoku Drugstore](#loc=939774)\n- New shoes can be purchased from [Don Quijote Sotenbori](#loc=939821)\n\n**Reward:**\n- Erran-kun's services\n- Emi / Erranda (Hostess) - after unlocking the cabaret minigame",
+			[]
+		],
+		"940081": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style\n\n**Reward:**\n- Calming Towel (accessory)",
+			[]
+		],
+		"940083": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style\n\n**Reward:**\n- Etsuko (Hostess) - after unlocking the cabaret minigame",
+			[]
+		],
+		"940084": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style,\n\n**Tips:**\n- To progress your friendship with the girl after this substory, purchase anything from the store.\n\n**Reward:**\n- Security Wallet (accessory) - after reaching the maximum friendship level\n- Dolly (Hostess) - after unlocking the cabaret minigame",
+			[]
+		],
+		"940087": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style, then order food at [Komian](#loc=939833).\n\n**Tips:**\n- To progress your friendship with the chef after this substory, purchase food and prepare to fish up an Eel, Turtle, and Salmon.\n\n**Reward:**\n- Trouble Finder (accessory) - after reaching maximum friendship level",
+			[]
+		],
+		"940089": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style, then order a drink at [Shot Bar STIJL](#loc=939783)\n\n**Tips:**\n- To progress your friendship with the bartender after this substory, purchase anything from the bar.\n- When you're running the bar, these are the correct answers:\n  - \"Sherry casks\"\n  - \"Ballantine's\"\n  - \"Fruity aroma\"\n\n**Reward:**\n- French wallet (gift) - if you chose the correct answers\n- After reaching maximum friendship level and unlocking the cabaret minigame, speak to the bartender again to partner with [Shot Bar STIJL](#loc=939784).",
+			[]
+		],
+		"940092": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style, then watch any video at [Gandhara Sotenbori](#loc=939874)\n\n**Tips:**\n- To progress your friendship with the clerk after this substory, watch more videos.\n\n**Reward:**\n- After reaching maximum friendship level and unlocking the cabaret minigame, speak to the clerk to partner with [Gandhara](#loc=939720).",
+			[]
+		],
+		"940093": [
+			"**Prerequisite:** Progress the story until you've unlocked the Slugger fighting style, then play Space Harrier at [SEGA HI-TECH LAND Sotenbori](#loc=939791)\n\n**Tips:**\n- To progress your friendship with Kyoko after this substory, beat her high scores.\n\n**Reward:**\n- After reaching maximum friendship level and unlocking the cabaret minigame, speak to Kyoko to partner with [SEGA Hi-Tech Land](#loc=939792).",
+			[]
+		],
+		"940094": [
+			"**Prerequisite:** Progress the story until you've completed your first weapon search, then speak to Fei Hu.\n\n**Reward:**\n- Fei Hu's Slugger style training unlocked",
+			[]
+		],
+		"940097": [
+			"**Prerequisite:** Dance at [Maharaja Sotenbori](#loc=939862) three times, then speak to the woman that appears inside the club some time later.\n\n**Tips:**\n- The dance battle can be attempted on any difficulty.\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940098": [
+			"**Prerequisite:** Complete [66 - Party at Maharaja](#loc=940097), then return to Maharaja some time later.\n\n**Tips:**\n- The dance battle can be attempted on any difficulty.\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940101": [
+			"**Prerequisite:** Complete [67 - Disco Transformation](#loc=940098), then return to Maharaja some time later.\n\n**Tips:**\n- The dance battle can be attempted on any difficulty.\n- Aim for as many extra steps as possible - but keep your combo going above all else.\n\n**Reward:**\n- Isobe Fan (cosmetic; only appears while dancing)\n- Ms. Isobe (Hostess) - after unlocking the cabaret minigame",
+			[]
+		],
+		"940107": [
+			"**Prerequisite:** Encounter Mr. Libido during the main story. \n\n**Tips:**\n- To progress your friendship with Mr. Libido after this substory, watch unique videos at [Gandhara Sotenbori](#loc=939874).\n- The drink he needs can be purchased from [Daikoku Drugstore](#loc=939774)\n\n**Reward:**\n- Incomparable Habu Drink now sold at Daikoku",
+			[]
+		],
+		"940108": [
+			"**Prerequisite:** Progress the story until your objective is to visit [Hogushi Kaikan Massage](#loc=939956), then speak to Komeki.\n\n**Reward:**\n- Komeki's Thug style training unlocked",
+			[]
+		],
+		"940109": [
+			"**Prerequisite:** Progress the story until your objective is to visit [Hogushi Kaikan Massage](#loc=939956), then speak to Areshi.\n\n**Reward:**\n- Areshi's Breaker style training unlocked",
+			[]
+		],
+		"940161": ["**Prerequisite:** Complete Yuki's hostess training\n\n**Reward:**\n- N/A", []],
+		"940162": [
+			"**Prerequisite:** Complete Chika's hostess training after defeating Club Venus\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940163": [
+			"**Prerequisite:** Complete Mana's hostess training after defeating Club Moon\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940165": [
+			"**Prerequisite:** Complete Ai's hostess training after defeating Club Mars\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940167": [
+			"**Prerequisite:** Complete Hibiki's hostess training after defeating Club Mercury\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940169": [
+			"**Prerequisite:** Complete Saki's hostess training after defeating Club Jupiter\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940172": [
+			"**Prerequisite:** Unlock the Cabaret minigame, then use the [Save Point](#loc=939873).\n\n**Tips:**\n- Pistols can be acquired via [The Dragon & Tiger Sotenbori](#loc=939797)\n- To progress your friendship with the caller after this substory, acquire the weapons they ask for.\n\n**Reward:**\n- Unknown (hostess) - after reaching maximum friendship level",
+			[]
+		],
+		"940174": [
+			"**Prerequisite:** Unlock the cabaret minigame, then speak to Mr. Moneybags.\n\n**Tips:**\n- To progress your friendship with Mr. Moneybags after this substory, send more money to Kiryu.\n\n**Reward:**\n- Tax-free cash injections for Kiryu (after reaching the maximum friendship level)",
+			[]
+		],
+		"940175": [
+			"**Prerequisite:** Complete any five substories, then visit [Club Sunshine](#loc=939955)'s office.\n\n**Tips:**\n- Only some substories will get onto the radio. They include:\n  - [49 - From the Heart](#loc=940063)\n  - [52 - Be My Boyfriend!](#loc=940068)\n  - [56 - A Taxing Issue](#loc=940073)\n  - [57 - Crossed Words](#loc=940074)\n  - [62 - The ¥10 Million Drug Test](#loc=940079)\n  - [64 - Toilet Talk](#loc=940081)\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940176": [
+			"**Prerequisite:** Complete [59 - Postcard Rookie - Majima](#loc=940175)\n\n**Tips:**\n- Only some substories will get onto the radio. They include:\n  - [49 - From the Heart](#loc=940063)\n  - [52 - Be My Boyfriend!](#loc=940068)\n  - [56 - A Taxing Issue](#loc=940073)\n  - [57 - Crossed Words](#loc=940074)\n  - [62 - The ¥10 Million Drug Test](#loc=940079)\n  - [64 - Toilet Talk](#loc=940081)\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940177": [
+			"**Prerequisite:** Complete [60 - Postcard Pro - Majima](#loc=940176)\n\n**Tips:**\n- Only some substories will get onto the radio. They include:\n  - [49 - From the Heart](#loc=940063)\n  - [52 - Be My Boyfriend!](#loc=940068)\n  - [56 - A Taxing Issue](#loc=940073)\n  - [57 - Crossed Words](#loc=940074)\n  - [62 - The ¥10 Million Drug Test](#loc=940079)\n  - [64 - Toilet Talk](#loc=940081)\n\n**Reward:**\n- N/A",
+			[]
+		],
+		"940221": [
+			"**Prerequisite:** Complete all of Majima's substories.\n\n**Tips:**\n- Stock up on HP & Heat consumables\n- Bring plenty of weapons, e.g Zap Guns & Spicy Knives\n- Level up as much as you can - remember that Kiryu can send Majima money via Mr. Moneybags\n- Do not consume 'Staniman Spork' - it'll drain your health!\n\n**Reward:**\n- Amon Sunglasses (accessory)",
+			[]
+		],
+		"940288": [
+			"Spawns in random places throughout Sotenbori. To learn exactly where he is at any given time you'll need to equip the Encounter Finder accessory, obtained as part of substory [58 - Stadium Jumper Strut](#loc=940078)",
+			[]
+		]
+	}
+}

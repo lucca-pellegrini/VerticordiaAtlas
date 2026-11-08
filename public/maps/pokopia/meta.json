@@ -273,7 +273,8 @@
 					"tileSize": 256,
 					"background": "#ffffff"
 				}
-			]
+			],
+			"compact": "kanto/data.compact.json"
 		}
 	]
 }

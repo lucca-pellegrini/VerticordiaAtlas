@@ -395,7 +395,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "slums/data.compact.json"
 		},
 		{
 			"slug": "old-town",
@@ -411,7 +412,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "old-town/data.compact.json"
 		},
 		{
 			"slug": "antenna",
@@ -427,7 +429,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "antenna/data.compact.json"
 		},
 		{
 			"slug": "countryside",
@@ -444,7 +447,8 @@
 					"tileSize": 256,
 					"background": "#0d0d0d"
 				}
-			]
+			],
+			"compact": "countryside/data.compact.json"
 		}
 	]
 }

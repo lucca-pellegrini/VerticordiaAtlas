@@ -1,0 +1,177 @@
+{
+	"v": 1,
+	"d": {
+		"66581": ["**Required:** Mastery Level 17", []],
+		"66585": ["**Required:** Camera", []],
+		"66586": ["**Required:** Camera", []],
+		"66591": ["Requires a coin to dispense a Soda Can.", []],
+		"66600": ["**Required:** Crowbar", []],
+		"66604": ["**Required:** Camera", []],
+		"66619": ["**Gun Type:** Sniper Rifle", []],
+		"66620": ["**Poison Target:** Agent Tremaine", []],
+		"66639": ["**Required:** Crowbar", []],
+		"66641": ["**Required:** Mastery Level 14", []],
+		"66651": ["**Required:** Power from [Fuse Box] below", []],
+		"66667": ["**Gun Type:** Pistol", []],
+		"66668": ["Can be poisoned!", []],
+		"66677": ["**Required:** Crowbar\n\nInside a box that can be pried open with a crowbar.", []],
+		"66680": ["**Required:** Crowbar\n\nInside a box that can be pried open with a crowbar.", []],
+		"66682": ["Fumes will incapacitate people.", []],
+		"66689": ["**Required:** Screwdriver", []],
+		"66690": ["**Required:** Screwdriver", []],
+		"66813": ["**Required:** Mastery Level 8", []],
+		"66821": ["**Required:** Camera", []],
+		"66822": ["**Required:** Bus Stop Starting Location", []],
+		"66825": ["**Required:** Camera\n\nUnlocks Alien Abduction exit location.", []],
+		"66826": ["**Required:** Crowbar", []],
+		"66828": ["**Required:** Wrench", []],
+		"66832": ["**Required:** Mastery Level 2", []],
+		"66833": ["**Unlocked By:** Staff Area Key", []],
+		"66874": ["**Required:** Mastery Level 3", []],
+		"66875": ["**Required:** Wrench", []],
+		"66877": ["**Required:** Wrench", []],
+		"66878": ["**Required:** Camera", []],
+		"66883": ["**Required:** Crowbar", []],
+		"66884": ["**Required:** Staff Area Key", []],
+		"67077": ["**Required:** Shovel", []],
+		"67079": ["Shoot the bird's nest for the egg to drop.", []],
+		"67086": ["**Required:** Staff Area Key", []],
+		"67104": ["**Poison Target:** Christoph Wulf (Club Security)", []],
+		"67112": ["**Required:** Screwdriver", []],
+		"67115": ["**Required:** Wrench", []],
+		"67127": ["**Poison Target:** Agent Davenport", []],
+		"67129": ["**Required:** Lockpick or Crowbar\n\nInside a locked locker.", []],
+		"67131": ["**Required:** Mastery Level 12", []],
+		"67144": ["**Required:** Mastery Level 11", []],
+		"67148": ["**Poison Target:** Club Crew", []],
+		"67149": [
+			"**Carried By:** Club Crew\n\nThe crew member that carries this key will drink from a [beer bottle](#loc=67148) that can be poisoned.",
+			[]
+		],
+		"67150": ["**Required:** Wrench", []],
+		"67155": ["**Required:** Staff Area Key", []],
+		"67156": ["**Required:** Staff Area Key", []],
+		"67157": ["**Required:** Staff Area Key", []],
+		"67158": ["**Required:** Staff Area Key", []],
+		"67163": ["**Required:** Crowbar\n\nCrowbar is needed to break the board blocking the passage.", []],
+		"67164": ["**Required:** Wrench", []],
+		"67165": ["**Required:** Camera", []],
+		"67167": ["**Required:** Camera", []],
+		"67168": ["**Required:** Wrench", []],
+		"67189": ["Open/Close Gate", []],
+		"67192": ["**Required:** Wrench", []],
+		"67193": ["**Required:** Wrench", []],
+		"67194": ["**Required:** [Scooter Key](#loc=67251)", []],
+		"67195": ["**Required:** Scooter Key", []],
+		"67196": [
+			"**Poison Target:** Agent Lowenthal\n\nInside the scooter box, which requires the Scooter Key to open.",
+			[]
+		],
+		"67204": ["**Required:** Mastery Level 18", []],
+		"67206": ["**Gun Type:** Shotgun", []],
+		"67218": ["**Required:** [Motorcycle Key](#loc=67208)", []],
+		"67220": ["**Required:** Wrench", []],
+		"67227": ["Turn on to electrify area near water barrel.", []],
+		"67228": ["**Required:** Wrench", []],
+		"67229": ["**Required:** Wrench", []],
+		"67230": ["**Required:** Wrench", []],
+		"67231": ["**Required:** Wrench", []],
+		"67240": ["**Required:** Screwdriver", []],
+		"67242": ["**Required:** Mastery Level 9", []],
+		"67251": ["Carried by fast food delivery guy.", []],
+		"67253": ["**Required:** Crowbar", []],
+		"67261": ["**Poison Targets:** Agent Swan & Misc. NPCs\n\nServe drinks as a bartender at the Juice Bar.", []],
+		"67325": ["**Poison Target:** Club Security", []],
+		"67336": ["**Required:** Screwdriver", []],
+		"67337": ["**Required:** Screwdriver", []],
+		"67345": ["**Required:** Mastery Level 6", []],
+		"67346": ["Release to drop [Hanging Sculpture](#loc=67347) onto Projection Bar.", []],
+		"67347": ["Shoot chain or release [winch](#loc=67346)  to drop onto Projection Bar.", []],
+		"67350": ["**Required:** Mastery Level 4\n\n_Small items only._", []],
+		"67367": ["**Carried By:** Rolf Hirschmüller", []],
+		"67372": ["**Gun Type:** Shotgun", []],
+		"67374": ["**Required:** Club Keycard", []],
+		"67376": ["**Safe Code:** 1989", []],
+		"67377": ["Inside safe.", []],
+		"67378": ["Inside safe.", []],
+		"67379": [
+			"**Required:** [Rolf Hirschmüller's Phonebook](#loc=67367)\n\nScheduling meeting summons head of security to Hirschmüller's Office.",
+			[]
+		],
+		"67381": [
+			"**Required:** [Schedule Meeting](#loc=67379), using [Rolf Hirschmüller's Phonebook](#loc=67367)",
+			[]
+		],
+		"67383": ["**Poison Target:** Technician", []],
+		"67386": ["**Required:** Club Keycard", []],
+		"67401": ["**Required:** Staff Area Key", []],
+		"67410": ["**Required:** Mastery Level 16", []],
+		"67411": [
+			"**Required:** DJ Disguise\n\nInteracting with the Mixing Table as the DJ will trigger the light show climax and hype the crowd.",
+			[]
+		],
+		"67413": ["**Required:** Club Keycard", []],
+		"67414": ["**Required:** Screwdriver", []],
+		"67415": ["**Required:** Screwdriver", []],
+		"67422": ["**Required:** Mastery Level 19", []],
+		"67425": ["**Required:** Club Keycard", []],
+		"67443": ["**Required:** Staff Area Key", []],
+		"67445": ["**Required:** Mastery Level 4\n\n_Small items only._", []],
+		"67451": ["**Required:** Staff Area Key", []],
+		"67452": ["**Required:** Staff Area Key", []],
+		"67453": ["**Required:** Staff Area Key", []],
+		"69436": ["**Door Code:** 1993\n\n**Required:** [Alien Grafitti](#loc=66825) (Camera Intel)", []],
+		"153810": [
+			"Only available during the Lust Assignation escalation contract.\n\nOpens Lust Assignations safes that contain clues.",
+			[]
+		],
+		"153811": [
+			"Only available during the Lust Assignation escalation contract.\n\nA unique crossbow loaded with blinding darts.",
+			[]
+		],
+		"153812": [
+			"Only available during the Lust Assignation escalation contract.\n\nOpens Lust Assignations safes that contain clues.",
+			[]
+		],
+		"153818": [
+			"Only available during the Lust Assignation escalation contract.\n\nOpens Lust Assignations safes that contain clues.",
+			[]
+		],
+		"153820": [
+			"Only available during the Lust Assignation escalation contract.\n\nA unique crossbow loaded with blinding darts.",
+			[]
+		],
+		"153821": [
+			"Only available during the Lust Assignation escalation contract.\n\nA remotely detonated explosive crafted to look like a loosely coiled snake.",
+			[]
+		],
+		"153822": [
+			"Only available during the Lust Assignation escalation contract.\n\nA remotely detonated explosive crafted to look like a loosely coiled snake.",
+			[]
+		],
+		"153823": [
+			"Only available during the Lust Assignation escalation contract.\n\nOpens Lust Assignations safes that contain clues.",
+			[]
+		],
+		"153831": [
+			"Only available during the Lust Assignation escalation contract.\n\nOpens Lust Assignations safes that contain clues.",
+			[]
+		],
+		"153832": [
+			"Only available during the Lust Assignation escalation contract.\n\nA remotely detonated explosive crafted to look like a loosely coiled snake.",
+			[]
+		],
+		"153833": [
+			"Only available during the Lust Assignation escalation contract.\n\nA remotely detonated explosive crafted to look like a loosely coiled snake.",
+			[]
+		],
+		"153834": [
+			"Only available during the Lust Assignation escalation contract.\n\nA unique crossbow loaded with blinding darts.",
+			[]
+		],
+		"153835": [
+			"Only available during the Lust Assignation escalation contract.\n\nOpens Lust Assignations safes that contain clues.",
+			[]
+		]
+	}
+}

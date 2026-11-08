@@ -1,0 +1,1279 @@
+{
+	"v": 1,
+	"d": {
+		"492259": [
+			"",
+			[
+				{
+					"id": 104428,
+					"title": "20251103192445_1",
+					"file_name": "90b85d0e-f6f2-41ab-8c0f-359e571b9a2d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/90b85d0e-f6f2-41ab-8c0f-359e571b9a2d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"492260": [
+			"**Location:** In the building to the right after coming from the [Landing Pad](#loc=492258)\n\n**Options:**\n- Unlock \n  - [Seybold's Safe Key](#loc=492266)\n- OR\n  - Lockpick 8, Mag-Pick\n\n**Contains:**\n- Bits",
+			[
+				{
+					"id": 104431,
+					"title": "20251103192435_1",
+					"file_name": "f26aae30-051e-4641-aacc-ca95e70beeb0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f26aae30-051e-4641-aacc-ca95e70beeb0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"492261": [
+			"**Location:** On top of the slanted wall behind the large sign that reads \"ACS Free Market\", surrounded by [Loose Bits](#loc=492262)\n\n**Stat Bonus:**\n- +5 Max Health",
+			[
+				{
+					"id": 104429,
+					"title": "20251103192036_1",
+					"file_name": "eb47ade6-e703-49d4-9c1a-2e0c9ab65d26.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb47ade6-e703-49d4-9c1a-2e0c9ab65d26.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"492262": [
+			"**Location:** On top of the slanted wall behind the large sign that reads \"ACS Free Market\", around the [Pitchball Card: Jason Tucker](#loc=492261)",
+			[
+				{
+					"id": 104430,
+					"title": "20251103192411_1",
+					"file_name": "62af3b1f-7eac-4ddf-a539-3fb996ffd112.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62af3b1f-7eac-4ddf-a539-3fb996ffd112.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"492263": ["Moves here after harassing [Archivist Stallworth](#loc=492264).", []],
+		"492264": ["**Related Quests:**\n- [The Last Voyage of the ACS Free Market](#loc=492267)", []],
+		"492265": ["Stabilize it to reveal a vending machine with some unique items", []],
+		"492266": [
+			"**Location:** Carried by [Guard Seybold](#loc=492263), can be pickpocketed \n\n**Unlocks:** [Locked Safe](#loc=492260)",
+			[]
+		],
+		"492267": [
+			"**How To Begin:** Speak with [Archivist Stallworth](#loc=492264) \n\n**Reward:**\n- Bits\n- The Order of the Ascendant reputation",
+			[]
+		],
+		"492268": ["Must be opened from the inside.  Climb the crates to the left of the door for access", []],
+		"492269": [
+			"**Proprietor:** Sandra Robideaux  \n\n**Sells:**\n- Armor ([Calorie Counter](#loc=495074))\n- Mods\n- Resources",
+			[]
+		],
+		"492270": [
+			"**Proprietor:** \"Scorched\" Dowlearn  \n\n**Sells:**\n- Weapons ([Agatha](#loc=495073))\n- Mods\n- Resources",
+			[]
+		],
+		"492272": [
+			"**Location:** Propped up on the counter \n\n**Stat Bonus:**\n- +1% Critical Chance",
+			[
+				{
+					"id": 104432,
+					"title": "20251103200000_1",
+					"file_name": "a29f8990-57a4-475b-b6a6-aa3d34d11f67.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a29f8990-57a4-475b-b6a6-aa3d34d11f67.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"492273": [
+			"**Proprietor:** Doc Halvorsen  \n\n**Sells:**\n- Armor\n- Inhalers\n- Mods\n- Resources\n- Recipes",
+			[]
+		],
+		"492274": ["**Proprietor:** Otto Riesling  \n\n**Sells:**\n- Resources", []],
+		"492275": ["**Proprietor:** Chef de Mecanique  \n\n**Sells:**\n- Consumables", []],
+		"492277": ["**Proprietor:** Miguel Fuentes   \n\n**Sells:**\n- Armor", []],
+		"492278": [
+			"**Location:** Inside the [Spoon de Graisse](#loc=492275) shop stall, behind the proprietor\n\n**Options:**\n- Unlock\n  - Lockpick 5, Mag-Pick\n\n**Contains:**\n- [Glacial Age Iceberg Aged Whiskey](#loc=492280)\n- Bits",
+			[]
+		],
+		"492280": [
+			"**Related Quest:** [The Last Voyage of the ACS Free Market](#loc=492267)  \n\n**Location:** Inside the [Locked Safe](#loc=492278)",
+			[]
+		],
+		"492282": [
+			"**Options:**\n- [1] Inspect afterburn coils and interior combustion lattices \n  - Engineering 8\n\nProvides information that can be given to [Archivist Stallworth](#loc=492264) as part of [The Last Voyage of the ACS Free Market](#loc=492267).",
+			[
+				{
+					"id": 104433,
+					"title": "20251103201940_1",
+					"file_name": "cb19b690-1588-45cf-bb86-ddf5033c9c6c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb19b690-1588-45cf-bb86-ddf5033c9c6c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"492283": [
+			"**Options:**\n- [1] Force your way through\n  - Trait: Brawny\n- [2] Carefully extract the log\n  - Sneak 5",
+			[]
+		],
+		"492284": [
+			"**Location:** Pinned to the wall on the upper floor.",
+			[
+				{
+					"id": 104434,
+					"title": "20251103202417_1",
+					"file_name": "2ddbf811-4003-49b2-b5a4-7967a811cdd2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2ddbf811-4003-49b2-b5a4-7967a811cdd2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"492285": [
+			"Can only be opened by pulling the levers next to [Otto's Note](#loc=492284) in the order indicated by the screenshot above.",
+			[
+				{
+					"id": 104699,
+					"title": "unedited015090",
+					"file_name": "e9428f0d-8685-44e7-b5e6-c66fbb6de38c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9428f0d-8685-44e7-b5e6-c66fbb6de38c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493761": [
+			"**Location:** On the blanket on the ground, near the wall \n\n**Stat Bonus:**\n- +1 Gadget Energy Meter Max",
+			[
+				{
+					"id": 104640,
+					"title": "20251106021717_1",
+					"file_name": "ac3a33f6-6175-4820-abee-9306d003a0d2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac3a33f6-6175-4820-abee-9306d003a0d2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493763": [
+			"**Options:**\n- Unlock\n  - [Saloon Cellar Keycard](#loc=493820)\n- Bypass\n  - Climb through a vent in the restroom",
+			[]
+		],
+		"493764": ["**To:** [Free Market Station](#loc=493767)", []],
+		"493767": ["**To:** [Saloon - Main Level](#loc=493764)", []],
+		"493769": ["**Related Quests:**\n- [Arbitrary Measures](#loc=493811)", []],
+		"493770": ["**Related Quests:**\n- [Arbitrary Measures](#loc=493811)", []],
+		"493777": [
+			"On a metal block.",
+			[
+				{
+					"id": 104692,
+					"title": "unedited015080",
+					"file_name": "4a22bcd5-3ec6-49df-a781-ebf8317fc213.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4a22bcd5-3ec6-49df-a781-ebf8317fc213.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493778": ["Next to a [Container](#loc=493777). Must be stolen.", []],
+		"493779": [
+			"On a box, you'll find ammo that must be stolen.\n- Long Rounds (12) x2",
+			[
+				{
+					"id": 104693,
+					"title": "unedited015083",
+					"file_name": "fa383880-dc6d-4f0a-8d8d-c608626fc8b3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa383880-dc6d-4f0a-8d8d-c608626fc8b3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493780": [
+			"On the ground near a lamp.",
+			[
+				{
+					"id": 104694,
+					"title": "unedited015084",
+					"file_name": "f50d57fe-e13e-47d0-b781-308c0a5dca16.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f50d57fe-e13e-47d0-b781-308c0a5dca16.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493781": [
+			"In a cart, and on top of a nearby shelf.",
+			[
+				{
+					"id": 104696,
+					"title": "unedited015086",
+					"file_name": "d3ee5358-e560-4457-92d4-2fa11b4b5656.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d3ee5358-e560-4457-92d4-2fa11b4b5656.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 104695,
+					"title": "unedited015085",
+					"file_name": "320a0f4a-700d-4e15-8981-b571cc7b4bba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/320a0f4a-700d-4e15-8981-b571cc7b4bba.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493782": [
+			"On a box.",
+			[
+				{
+					"id": 104697,
+					"title": "unedited015087",
+					"file_name": "45bd876d-efd2-41d9-9874-f69f5006c3a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/45bd876d-efd2-41d9-9874-f69f5006c3a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493783": [
+			"**Location:** Found by digging up the [Buried Audio Log](#loc=492283). \n\nProvides information that can be given to [Archivist Stallworth](#loc=492264) as part of [The Last Voyage of the ACS Free Market](#loc=492267).",
+			[
+				{
+					"id": 104698,
+					"title": "unedited015088",
+					"file_name": "3ddb3071-fec9-4ce4-94e9-616b2744c03a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ddb3071-fec9-4ce4-94e9-616b2744c03a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493784": [
+			"**Location:** On the ground in the room behind the [Sealed Door](#loc=492285)\n\nReading it unlocks some additional dialogue with the proprietor of [Oddments & Gubbin Scrapyard Finery](#loc=492274), used to gain more information toward [The Last Voyage of the ACS Free Market](#loc=492267)",
+			[
+				{
+					"id": 104700,
+					"title": "unedited015092",
+					"file_name": "11f60016-d0af-43e6-ac45-768de2f63d9f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/11f60016-d0af-43e6-ac45-768de2f63d9f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493785": [
+			"**Location:** On top of a safe in the room behind the [Sealed Door](#loc=492285)",
+			[
+				{
+					"id": 104701,
+					"title": "unedited015093",
+					"file_name": "3e134a5a-9d73-4134-aaea-bedae5ed2d50.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e134a5a-9d73-4134-aaea-bedae5ed2d50.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493786": [
+			"**Location:** In the room behind the [Sealed Door](#loc=492285)\n\n**Containers:**\n- [Advanced Decryption Key](#loc=493787)\n- Bits",
+			[
+				{
+					"id": 104702,
+					"title": "unedited015094",
+					"file_name": "3a85722f-7df8-46ed-afc2-a08f59c1b3ad.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a85722f-7df8-46ed-afc2-a08f59c1b3ad.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493787": [
+			"**Location:** Inside the [Safe](#loc=493786) in the room behind the [Sealed Door](#loc=492285)",
+			[
+				{
+					"id": 104703,
+					"title": "unedited015094",
+					"file_name": "3a85722f-7df8-46ed-afc2-a08f59c1b3ad.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a85722f-7df8-46ed-afc2-a08f59c1b3ad.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493788": [
+			"On a countertop. Must be stolen, or purchased from [Reclaimed Imports](#loc=492269).",
+			[
+				{
+					"id": 104704,
+					"title": "unedited015097",
+					"file_name": "07e8ec6b-9025-49eb-bece-25f5d1c4873d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07e8ec6b-9025-49eb-bece-25f5d1c4873d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493789": [
+			"On a countertop. Must be stolen, or purchased from [Reclaimed Imports](#loc=492269).",
+			[
+				{
+					"id": 104705,
+					"title": "unedited015098",
+					"file_name": "e66b4a36-db8d-4b5b-938c-8304f01caa04.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e66b4a36-db8d-4b5b-938c-8304f01caa04.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493790": ["On a countertop. Must be stolen, or purchased from [Reclaimed Imports](#loc=492269).", []],
+		"493791": [
+			"On a countertop. Must be stolen, or purchased from [Reclaimed Imports](#loc=492269).",
+			[
+				{
+					"id": 104706,
+					"title": "unedited015096",
+					"file_name": "95feb58a-1e07-4729-ba5f-e0b2e6293afc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95feb58a-1e07-4729-ba5f-e0b2e6293afc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493792": [
+			"On a countertop. Must be stolen, or purchased from [Reclaimed Imports](#loc=492269).",
+			[
+				{
+					"id": 104707,
+					"title": "unedited015099",
+					"file_name": "882dc837-e241-4173-9f47-21f05b7cabfb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/882dc837-e241-4173-9f47-21f05b7cabfb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493793": [
+			"On a countertop. Must be stolen, or purchased from [Reclaimed Imports](#loc=492269).",
+			[
+				{
+					"id": 104708,
+					"title": "unedited015101",
+					"file_name": "29b01128-b5ff-477c-8583-a61058416e35.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/29b01128-b5ff-477c-8583-a61058416e35.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493794": [
+			"",
+			[
+				{
+					"id": 104709,
+					"title": "unedited015102",
+					"file_name": "b93b2a1f-962e-47ca-888a-d27bc9104dfe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b93b2a1f-962e-47ca-888a-d27bc9104dfe.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493796": [
+			"On a shelf behind Doc Halvorsen. Must be stolen or purchased from [Hal's Fairsomely Priced Farmacy](#loc=492273)",
+			[
+				{
+					"id": 104710,
+					"title": "unedited015103",
+					"file_name": "cbf1c7dc-bb1d-44ce-a0a4-cce74417e183.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cbf1c7dc-bb1d-44ce-a0a4-cce74417e183.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493797": [
+			"On a shelf behind Doc Halvorsen. Must be stolen or purchased from [Hal's Fairsomely Priced Farmacy](#loc=492273)",
+			[
+				{
+					"id": 104711,
+					"title": "unedited015104",
+					"file_name": "9f1737dd-0fd1-4ab7-a0f0-7c8eda5a32bb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9f1737dd-0fd1-4ab7-a0f0-7c8eda5a32bb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493798": ["Purchased from [Hal's Fairsomely Priced Farmacy](#loc=492273)", []],
+		"493799": ["Purchased from [Hal's Fairsomely Priced Farmacy](#loc=492273)", []],
+		"493801": [
+			"On a countertop. Must be stolen, or purchased from [Miguel's Extra-Extralegal Goods](#loc=492277)",
+			[
+				{
+					"id": 104714,
+					"title": "unedited015105",
+					"file_name": "2bb0a488-41a5-4a91-8851-14d6b1f8e471.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2bb0a488-41a5-4a91-8851-14d6b1f8e471.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493802": [
+			"On a countertop. Must be stolen, or purchased from [Miguel's Extra-Extralegal Goods](#loc=492277)",
+			[
+				{
+					"id": 104715,
+					"title": "unedited015106",
+					"file_name": "abb85341-1ae7-4004-97b7-5d0ec7b0e69d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/abb85341-1ae7-4004-97b7-5d0ec7b0e69d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493803": [
+			"On a countertop. Must be stolen, or purchased from [Miguel's Extra-Extralegal Goods](#loc=492277)",
+			[
+				{
+					"id": 104716,
+					"title": "unedited015107",
+					"file_name": "cdef2f4b-e9da-4352-bd17-4e58445df5bc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cdef2f4b-e9da-4352-bd17-4e58445df5bc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493804": [
+			"On a countertop. Must be stolen, or purchased from [Miguel's Extra-Extralegal Goods](#loc=492277)",
+			[
+				{
+					"id": 104717,
+					"title": "unedited015108",
+					"file_name": "617835b1-ad5a-437f-a297-c7e6b53de084.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/617835b1-ad5a-437f-a297-c7e6b53de084.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493806": [
+			"On a countertop",
+			[
+				{
+					"id": 104718,
+					"title": "unedited015109",
+					"file_name": "656977b0-7cf4-438b-befe-9e7938f0fdfd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/656977b0-7cf4-438b-befe-9e7938f0fdfd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493807": [
+			"On a countertop",
+			[
+				{
+					"id": 104719,
+					"title": "unedited015109",
+					"file_name": "656977b0-7cf4-438b-befe-9e7938f0fdfd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/656977b0-7cf4-438b-befe-9e7938f0fdfd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493808": ["On a countertop", []],
+		"493809": [
+			"On a shelf.",
+			[
+				{
+					"id": 104720,
+					"title": "unedited015111",
+					"file_name": "299766d6-1c86-44b0-81b1-c157815b9a81.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/299766d6-1c86-44b0-81b1-c157815b9a81.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493811": [
+			"**How To Begin:** Speak to [Tristan](#loc=493770) and convince [Barney](#loc=493769) to let him prove himself.",
+			[]
+		],
+		"493812": [
+			"In the corner. Must be stolen.",
+			[
+				{
+					"id": 104721,
+					"title": "unedited015112",
+					"file_name": "0fd451e0-6d08-4723-b5c5-13158eaa22d9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0fd451e0-6d08-4723-b5c5-13158eaa22d9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493813": [
+			"On the piano. Must be stolen.",
+			[
+				{
+					"id": 104722,
+					"title": "unedited015113",
+					"file_name": "b7a8b5bb-3b5c-494e-91e8-bc68229cfa50.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b7a8b5bb-3b5c-494e-91e8-bc68229cfa50.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493815": ["**Options:**\n- Unlock\n  - [Saloon Back Room Key](#loc=493835)", []],
+		"493816": [
+			"**Location:** On a counter between two sofas.\n\n**Stat Bonus:**\n- +1% Critical Chance",
+			[
+				{
+					"id": 104723,
+					"title": "unedited015114",
+					"file_name": "aec1260e-8a81-457a-8cc6-350808d82c83.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aec1260e-8a81-457a-8cc6-350808d82c83.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493817": [
+			"**Proprietor:** Fionna F. Walker  \n\n**Sells:**\n- Weapons ([Jackpot](#loc=495067), [Spectrum Dance Saber](#loc=493836), [Pitchball Machine](#loc=495068))\n- Armor ([A New Point of View Mk 2](#loc=495070))\n- Resources ([Trauma Kit x4](#loc=495071), [Bypass Shunt](#loc=493837))\n- [Pitchball Card: Matt Booty](#loc=495066)\n\n_Note: Only begins selling items after completing [A Collection of Rogues](#loc=493818)_",
+			[]
+		],
+		"493818": [
+			"**How To Begin:** Speak to [Fionna F. Walker](#loc=493817) \n\n**Reward:**\n- [Card-Collector's Curios](#loc=493817) opens for business",
+			[]
+		],
+		"493820": [
+			"**Location:** In the inventory of [Barney \"Bruiser\" Bass](#loc=493769).  Given to you near the end of side quest [Arbitrary Measures](#loc=493811).  Can also be pickpocketed.\n\n**Unlocks:** [Locked Door](#loc=493763)",
+			[]
+		],
+		"493822": [
+			"Connects to [Hatch](#loc=507795)",
+			[
+				{
+					"id": 104724,
+					"title": "unedited015115",
+					"file_name": "5bbffc81-a2a0-4966-b5b3-60856f536a55.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5bbffc81-a2a0-4966-b5b3-60856f536a55.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493823": [
+			"In the vents. Must be stolen.",
+			[
+				{
+					"id": 104725,
+					"title": "unedited015116",
+					"file_name": "69744574-c404-4618-971a-f69f7b411c17.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/69744574-c404-4618-971a-f69f7b411c17.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493824": [
+			"On a box. Must be stolen.",
+			[
+				{
+					"id": 104726,
+					"title": "unedited015118",
+					"file_name": "3f0d43f6-0dca-4b05-b963-07cdc9aa4d3e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f0d43f6-0dca-4b05-b963-07cdc9aa4d3e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493825": ["**To:** [Saloon - Basement](#loc=493826)", []],
+		"493826": ["**To:** [Saloon - Main Level](#loc=493825)", []],
+		"493827": ["**To:** [Saloon - Upper Level](#loc=493828)", []],
+		"493828": ["**To:** [Saloon - Main Level](#loc=493827)", []],
+		"493829": [
+			"On the banister. Must be stolen.",
+			[
+				{
+					"id": 104727,
+					"title": "unedited015119",
+					"file_name": "03dad97b-281e-4710-9d4c-f23678db568c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03dad97b-281e-4710-9d4c-f23678db568c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493830": [
+			"In the corner.",
+			[
+				{
+					"id": 104728,
+					"title": "unedited015120",
+					"file_name": "72ce5662-0f4e-469e-ae9d-49cf09cb03ef.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/72ce5662-0f4e-469e-ae9d-49cf09cb03ef.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493832": [
+			"**Related Quest:** [The Last Voyage of the ACS Free Market](#loc=492267)  \n\n**Location:** In the inventory of a Sub Rosa Cutthroat sleeping at a desk. Can be pickpocketed.",
+			[
+				{
+					"id": 104729,
+					"title": "unedited015121",
+					"file_name": "c0cbda12-78ca-4ef1-9c66-2974e7c61f96.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c0cbda12-78ca-4ef1-9c66-2974e7c61f96.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493833": [
+			"On a desk.",
+			[
+				{
+					"id": 104730,
+					"title": "unedited015122",
+					"file_name": "f5d4950a-89d1-4e87-bede-311a41442ea8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5d4950a-89d1-4e87-bede-311a41442ea8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493834": [
+			"Can be accessed with Hack 8 + Bypass Shunt or the [Reminder Note](#loc=493832).\n\nReading the notes gives more information toward [The Last Voyage of the ACS Free Market](#loc=492267)",
+			[]
+		],
+		"493835": [
+			"**Location:** In the inventory of [Fionna F. Walker](#loc=493817). Can be pickpocketed (much easier by throwing a distraction device - and the NPCs won't get upset!)\n\n**Unlocks:** [Locked Door](#loc=493815)",
+			[]
+		],
+		"493836": [
+			"In the room behind the [Locked Door](#loc=493815). Must be stolen or purchased from [Card-Collector's Curios](#loc=493817)",
+			[
+				{
+					"id": 104740,
+					"title": "unedited015123",
+					"file_name": "5b08af46-444f-46e9-ab7d-aa3273375131.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b08af46-444f-46e9-ab7d-aa3273375131.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493837": [
+			"On a shelf in the room behind the [Locked Door](#loc=493815). Must be stolen or purchased from [Card-Collector's Curios](#loc=493817)",
+			[
+				{
+					"id": 104741,
+					"title": "unedited015124",
+					"file_name": "d7d82151-dbb3-49c9-a886-a115e74a0ac4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d7d82151-dbb3-49c9-a886-a115e74a0ac4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493838": [
+			"In the room behind the [Locked Door](#loc=493815), on a table. Must be stolen.\n- Mini-Rockets (3) x2",
+			[
+				{
+					"id": 104742,
+					"title": "unedited015125",
+					"file_name": "ab6631c9-7c45-4b5c-8252-64e23c80a3e0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab6631c9-7c45-4b5c-8252-64e23c80a3e0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493839": [
+			"In an open box.",
+			[
+				{
+					"id": 104743,
+					"title": "unedited015126",
+					"file_name": "ffe82b5a-e2fa-4682-a70f-54b50b16f40a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ffe82b5a-e2fa-4682-a70f-54b50b16f40a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493840": [
+			"On a box. Must be stolen.",
+			[
+				{
+					"id": 104744,
+					"title": "unedited015127",
+					"file_name": "ecd1a41e-d8b2-4f1c-afcf-b70d9ba3fffd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ecd1a41e-d8b2-4f1c-afcf-b70d9ba3fffd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493841": [
+			"On the boxes, you'll find lots of ammo that must be stolen.\n- Heavy Rounds (3)\n- Heavy Rounds (4) x4\n- Shells (4)\n- Shells (5)\n- Shells (6)\n- Short Rounds (6)\n- Short Rounds (7)\n- Short Rounds (8)\n- Short Rounds (9)\n- Long Rounds (10)\n- Long Rounds (12)\n- Long Rounds (13)\n- Shock Rod (30)\n- Shock Rod (32)",
+			[
+				{
+					"id": 104745,
+					"title": "unedited015128",
+					"file_name": "ff3c158f-62e1-4f46-bf9a-697d4edb7f87.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff3c158f-62e1-4f46-bf9a-697d4edb7f87.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"495066": [
+			"**Location:** Sold by [Card-Collector's Curios](#loc=493817)\n\n**Stat Bonus:**\n- +1% Critical Chance",
+			[]
+		],
+		"495067": [
+			"**Location:** Sold by [Card-Collector's Curios](#loc=493817)",
+			[
+				{
+					"id": 105260,
+					"title": "unedited015399",
+					"file_name": "a7310c30-6c1e-4962-bef0-bb3ba1294967.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a7310c30-6c1e-4962-bef0-bb3ba1294967.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"495068": [
+			"**Location:** Sold by [Card-Collector's Curios](#loc=493817)",
+			[
+				{
+					"id": 105261,
+					"title": "unedited015400",
+					"file_name": "3dfb6436-043d-48fa-8f48-08f3c46e05f4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3dfb6436-043d-48fa-8f48-08f3c46e05f4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"495070": [
+			"**Location:** Sold by [Card-Collector's Curios](#loc=493817)",
+			[
+				{
+					"id": 105262,
+					"title": "unedited015401",
+					"file_name": "82ad107c-e1d2-4c01-af62-4d9317b024a8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/82ad107c-e1d2-4c01-af62-4d9317b024a8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"495071": ["Sold by [Card-Collector's Curios](#loc=493817)", []],
+		"495073": [
+			"Sold by [Not a Weapons Store](#loc=492270)",
+			[
+				{
+					"id": 105263,
+					"title": "unedited015402",
+					"file_name": "fbc09624-46f2-40d4-b0f5-7b79af3c31ff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fbc09624-46f2-40d4-b0f5-7b79af3c31ff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"495074": ["Sold by [Reclaimed Imports](#loc=492269)", []],
+		"498708": [
+			"At the edge of the area behind The Incognito, and must be stolen:\n- Lubricant\n- Gears",
+			[
+				{
+					"id": 106832,
+					"title": "unedited015800",
+					"file_name": "b4bca20c-4afc-481e-8eb3-9b1bd3fc78e8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b4bca20c-4afc-481e-8eb3-9b1bd3fc78e8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"498709": [
+			"Must be stolen.",
+			[
+				{
+					"id": 106833,
+					"title": "unedited015801",
+					"file_name": "c10633b3-10a5-4694-9cae-f3f3b4f76783.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c10633b3-10a5-4694-9cae-f3f3b4f76783.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"498713": [
+			"In the inventory of [Sandra Robideaux](#loc=492269). Must be pickpocketed or taken from her corpse.",
+			[
+				{
+					"id": 106838,
+					"title": "unedited015802",
+					"file_name": "cb74aa01-0ae7-4eec-a45c-bda4929923db.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb74aa01-0ae7-4eec-a45c-bda4929923db.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"498718": [
+			"**Related Quests:**\n- [Escape from Placid Waters!](https://mapgenie.io/the-outer-worlds-2/maps/praetor?locationIds=498468)",
+			[]
+		],
+		"498719": [
+			"Given to you by [Millie Mealing](#loc=498718) at the end of [Escape from Placid Waters!](https://mapgenie.io/the-outer-worlds-2/maps/praetor?locationIds=498468), a quest started in [Praetor.](https://mapgenie.io/the-outer-worlds-2/maps/praetor)",
+			[]
+		],
+		"498720": [
+			"Given to you by [Millie Mealing](#loc=498718) at the end of [Escape from Placid Waters!](https://mapgenie.io/the-outer-worlds-2/maps/praetor?locationIds=498468), a quest started in [Praetor.](https://mapgenie.io/the-outer-worlds-2/maps/praetor)",
+			[
+				{
+					"id": 106843,
+					"title": "unedited015803",
+					"file_name": "2f8c26af-c870-4c3d-ac82-9f3620ffa359.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f8c26af-c870-4c3d-ac82-9f3620ffa359.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507785": [
+			"Interacting with the wall sconce to the left opens the hidden door.  Only accessible during side quest [Arbitrary Measures](#loc=493811)",
+			[]
+		],
+		"507786": [
+			"**Location:** In the upper office behind then [Sub Rosa Headquarters Hidden Door](#loc=507785)\n\n**Related Quests:**\n- [Arbitrary Measures](#loc=493811)",
+			[]
+		],
+		"507787": [
+			"**Options:**\n- Unlock\n  - [Sub Rosa Headquarters Stash Room Key](#loc=507788)\n    - OR\n  - Lockpick 8, Mag-Pick",
+			[
+				{
+					"id": 110529,
+					"title": "20251215163906_1",
+					"file_name": "d497964a-800d-4c7d-82de-15f5ffbf58e4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d497964a-800d-4c7d-82de-15f5ffbf58e4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507788": [
+			"**Location:** Carried by [Francis Min](#loc=507786)\n\n**Unlocks:** [Sub Rosa Headquarters Stash](#loc=507787)",
+			[
+				{
+					"id": 110528,
+					"title": "20251215163900_1",
+					"file_name": "888c7b52-878f-4e38-b6bc-94e97525629c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/888c7b52-878f-4e38-b6bc-94e97525629c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507791": [
+			"**Location:** Inside the [Sub Rosa Headquarters Stash](#loc=507787)\n\n**Contains:** \n- Bits",
+			[
+				{
+					"id": 110533,
+					"title": "20251215164940_1",
+					"file_name": "c2bdff20-bfa2-40b1-8f77-c052424b8bbb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2bdff20-bfa2-40b1-8f77-c052424b8bbb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507792": [
+			"**Location:** Inside the [Sub Rosa Headquarters Stash](#loc=507787)",
+			[
+				{
+					"id": 110532,
+					"title": "20251215164936_1",
+					"file_name": "85352b68-7a7f-4d2f-a3f2-ffb4bc6d8b1d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/85352b68-7a7f-4d2f-a3f2-ffb4bc6d8b1d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507793": [
+			"**Location:** Inside the [Sub Rosa Headquarters Stash](#loc=507787)",
+			[
+				{
+					"id": 110531,
+					"title": "20251215164933_1",
+					"file_name": "481a9e2b-1699-4c68-944c-b62550f8a705.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/481a9e2b-1699-4c68-944c-b62550f8a705.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507794": [
+			"**Location:** Inside the [Sub Rosa Headquarters Stash](#loc=507787)",
+			[
+				{
+					"id": 110530,
+					"title": "20251215164925_1",
+					"file_name": "13d4ae82-4fce-418f-9e3e-1df118cf426f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/13d4ae82-4fce-418f-9e3e-1df118cf426f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507795": [
+			"Connects to [Hatch](#loc=493822)",
+			[
+				{
+					"id": 110527,
+					"title": "20251215165419_1",
+					"file_name": "e0c0f594-3e34-4b23-a5ad-7b061dfd095f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0c0f594-3e34-4b23-a5ad-7b061dfd095f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"511854": [
+			"A brown variant of the Canid. Can be found sleeping next to a table. \n\nShooting it, or its corpse if killed previously, with the Critter Catcher will add it as a pet.",
+			[
+				{
+					"id": 111961,
+					"title": "",
+					"file_name": "cec1ccbb-48b2-49bf-bec4-73f88cb9afe5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cec1ccbb-48b2-49bf-bec4-73f88cb9afe5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"511855": [
+			"A variant of sprats found on ships. They spawn in numerous locations. One location is here. Shooting it, or its corpse if killed previously, with the Critter Catcher will add it as a pet.",
+			[
+				{
+					"id": 111962,
+					"title": "",
+					"file_name": "d644a0f4-a077-42e9-b3da-857cdff22776.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d644a0f4-a077-42e9-b3da-857cdff22776.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"511856": [
+			"On top of the crate next to the barred door",
+			[
+				{
+					"id": 111963,
+					"title": "",
+					"file_name": "40dda2bc-e5dc-4570-a841-ee6b95dbc925.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/40dda2bc-e5dc-4570-a841-ee6b95dbc925.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"513239": ["Purchaseable from a vending machine that was caught inside the [Rift Anomaly](#loc=492265)", []],
+		"607480": ["Inside the [Rift Anomaly](#loc=492265)", []],
+		"607481": ["Located inside the [Rift Anomaly](#loc=492265)\n\nSells the [Bred Knife](#loc=513239)", []]
+	}
+}

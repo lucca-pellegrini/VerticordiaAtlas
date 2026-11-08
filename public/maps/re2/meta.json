@@ -291,7 +291,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "claire-a/data.compact.json"
 		},
 		{
 			"slug": "leon-a",
@@ -308,7 +309,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "leon-a/data.compact.json"
 		},
 		{
 			"slug": "claire-b",
@@ -325,7 +327,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "claire-b/data.compact.json"
 		},
 		{
 			"slug": "leon-b",
@@ -342,7 +345,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "leon-b/data.compact.json"
 		}
 	]
 }

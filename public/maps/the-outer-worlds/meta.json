@@ -180,7 +180,8 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "emerald-vale/data.compact.json"
 		},
 		{
 			"slug": "groundbreaker",
@@ -196,7 +197,8 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "groundbreaker/data.compact.json"
 		},
 		{
 			"slug": "byzantium",
@@ -212,7 +214,8 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "byzantium/data.compact.json"
 		},
 		{
 			"slug": "ships",
@@ -228,7 +231,8 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "ships/data.compact.json"
 		},
 		{
 			"slug": "monarch",
@@ -244,7 +248,8 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "monarch/data.compact.json"
 		},
 		{
 			"slug": "tartarus",
@@ -260,7 +265,8 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "tartarus/data.compact.json"
 		},
 		{
 			"slug": "roseway",
@@ -276,7 +282,8 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "roseway/data.compact.json"
 		},
 		{
 			"slug": "satellites",
@@ -292,7 +299,8 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "satellites/data.compact.json"
 		},
 		{
 			"slug": "scylla",
@@ -308,7 +316,8 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "scylla/data.compact.json"
 		},
 		{
 			"slug": "gorgon",
@@ -324,7 +333,8 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "gorgon/data.compact.json"
 		},
 		{
 			"slug": "olympus",
@@ -340,7 +350,8 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "olympus/data.compact.json"
 		},
 		{
 			"slug": "eridanos",
@@ -356,7 +367,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "eridanos/data.compact.json"
 		}
 	]
 }

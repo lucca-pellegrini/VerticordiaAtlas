@@ -1,0 +1,44 @@
+{
+	"v": 1,
+	"d": {
+		"74963": ["Break door to reveal treasure chest.", []],
+		"74964": ["Attack the clothing rack to reveal treasure chest.", []],
+		"74965": ["Attack the clothing rack to reveal treasure chest.", []],
+		"74966": ["Attack the pipes and vault on the wall to reveal treasure chest.", []],
+		"74977": ["Found inside a [treasure chest](#loc=74976).", []],
+		"74981": ["Found inside a [treasure chest](#loc=74980).", []],
+		"75303": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★☆☆\n\n**Bonus Objective:** Achieve victory without using △ commands!",
+			[]
+		],
+		"75304": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★☆☆\n\n**Bonus Objective:** Pull off at least 3 Flowmotion Attacks!",
+			[]
+		],
+		"75305": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★☆☆\n\n**Bonus Objective:** Land at least 10 attacks while linked!",
+			[]
+		],
+		"75306": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★★☆\n\n**Bonus Objective:** Pull off at least 3 successful counters!",
+			[]
+		],
+		"75307": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★★☆\n\n**Bonus Objective:** Pull off at least 3 Flowmotion Attacks!",
+			[]
+		],
+		"75308": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★★★\n\n**Bonus Objective:** Achieve victory in 20 seconds or less!",
+			[]
+		],
+		"75337": [
+			"**Difficulty:** ★★★★★\n\n**Boss:** [Holey Moley](#loc=75365)\n\nNote: Secret Portals are all super-powered versions of bosses from the game's plot. See the boss' map marker for strategies.",
+			[]
+		],
+		"75355": ["Clear [Special Portal 1](#loc=75303) in Country of the Muskateers as Riku.", []],
+		"75365": [
+			"The hardest part of this fight is Holey Moley constantly teleporting away from Riku. This makes close-range attacks and Keyblade combos almost impossible, so it's better to come prepared with ranged commands to close the distance between Riku and Holey Moley. \n\nDuring some of its teleports, Holey Moley will be replaced by a bunch of hands; defeat them all to make Holey Moley reappear in the fighting area.",
+			[]
+		]
+	}
+}

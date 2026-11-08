@@ -1,0 +1,502 @@
+{
+	"v": 1,
+	"d": {
+		"458696": ["Leads to: [Tunnel Entrance](#loc=458697)", []],
+		"458697": ["**Leads to:** [Tunnel Entrance](#loc=458696)", []],
+		"458698": ["**Leads to:** [Tunnel Entrance](#loc=458699)", []],
+		"458699": ["**Leads to:** [Tunnel Entrance](#loc=458698)", []],
+		"458700": ["**Leads to:** [Tunnel Entrance](#loc=458701)", []],
+		"458701": ["**Leads to:** [Tunnel Entrance](#loc=458700)", []],
+		"458759": ["**Sells:**\n- 2x Smithing Stone [6,500]", []],
+		"458765": [
+			"Inside of tower that looks like the one guarding the entrance to Stormveil in base game, near the first Crucible Knight",
+			[]
+		],
+		"458781": [
+			"**Quest Steps:**\n1. [Ironeye Remembrance #1](#loc=458793)\n2. [Ironeye Remembrance #2](#loc=459039)\n3. [Ironeye Remembrance #3](#loc=459375)",
+			[]
+		],
+		"458782": [
+			"**Quest Steps:**\n1. [Wylder Remembrance #1](#loc=458787)\n2. [Wylder Remembrance #2](#loc=458795)\n3. [Wylder Remembrance #3](#loc=459365)\n4. [Wylder Remembrance #4](#loc=459369)",
+			[]
+		],
+		"458783": [
+			"**Quest Steps:**\n1. [Guardian Remembrance #1](#loc=458794)\n2. [Guardian Remembrance #2](#loc=459037)\n3. [Guardian Remembrance #3](#loc=459370)\n4. [Guardian Remembrance #4](#loc=459371)",
+			[]
+		],
+		"458785": [
+			"**Abilities:**\n- *Passive ability: Magnificent Pose* - Attack and dodge optimally, dodging repeatedly when necessary. Reduces stamina reduction from attacks and evasive actions. Allows up to two consecutive evasive actions.  \n- *Character skill: Restage* - Stage reprisal of recent occurrences to damage nearby foes. Damage to the phantom affects the original. This skill can be used at any time  \n- *Ultimate Art: Finale* - Obscure self and surrounding allies to hide from foes. Enemies lose track of the caster, wandering aimlessly or becoming prone to leaving themselves vulnerable.  \n\n**Unlock condition:**\n- Obtain The [Old Pocketwatch](#loc=458921) item by running Expeditions (rewarded randomly).\r\n- Then speak to The Hooded Figure and give her the Pocket Watch to unlock The Duchess\n  \n**Remembrance:** [Duchess Remembrance Quest](#loc=458788)",
+			[]
+		],
+		"458786": [
+			"**Abilities:**\n- *Passive ability: Necromancy* - Raise enemy ghosts to fight as allies. Ghosts are summoned to fight, but are fleeting and dissipate after some time.  \n- *Character skill: Summon Spirit* - Play lyre to summon fallen family to rally in battle. Choose to summon Helen the agile page, Frederick the burly cook, or Sebastian the doting butler.  \n- *Ultimate Art: Immortal March* - Release vengeful ire to make self and nearby allies immortal. Revives near-death allies, and transforms family into immortal warriors.  \n\n**Unlock condition:** \n- Unlock [The Duchess](#loc=458785)\r\n- Visit the Small Jar Bazaar and purchase the Besmirched Frame for 1500 Mirk\r\n- Touch the Phantom (marked on your map with a yellow exclamation mark after purchasing the mirror)\r\n- Defeat the Night Idol  \n**Remembrance:** [Revenant Remembrance Quest](#loc=458790)",
+			[]
+		],
+		"458787": [
+			"**Remembrance:** [Wylder's Remembrance](#loc=458782)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Wylder Chapter 3.\n- Speak to [The Iron Menial](#loc=459358)\n- Begin any Expedition as Wylder while the Remembrance is active. Go to the Red Marked Mine, then find the glowing rocks deep inside. Defeat the Tunnel Crystallian that spawns in front of the objective. Collect the Slate Whetstone that drops.\n- Give the Slate Whetstone to Iron Menial back in the Roundtable Hold\n- Receive the Mended Earring. Take the Mended Earring into the study just past the Iron Menial, hold them up to the light. Return the Mended Earrings to [the Duchess](#loc=458785), then conclude Remembrance using the Journal.\n\n**Reward:** [Slate Whetstone](#loc=459015)",
+			[]
+		],
+		"458788": [
+			"**Quest Steps:**\n1. [Duchess Remembrance #1](#loc=458914)`\n2. [Duchess Remembrance #2](#loc=459040)\n3. [Duchess Remembrance #3](#loc=459383)\n4. [Duchess Remembrance #4](#loc=459384)",
+			[]
+		],
+		"458789": [
+			"**Quest Steps:**\n1. [Raider Remembrance #1](#loc=458915)\n2. [Raider Remembrance #2](#loc=459041)\n3. [Raider Remembrance #3](#loc=459388)",
+			[]
+		],
+		"458790": [
+			"**Quest Steps:**\n1. [Revenant Remembrance #1](#loc=458916)\n2. [Revenant Remembrance #2](#loc=459042)\n3. [Revenant Remembrance #3](#loc=459389)",
+			[]
+		],
+		"458791": [
+			"**Quest Steps:**\n1. [Recluse Remembrance #1](#loc=458917)\n2. [Recluse Remembrance #2](#loc=459043)\n3. [Recluse Remembrance #3](#loc=459392)\n4. [Recluse Remembrance #4](#loc=459393)",
+			[]
+		],
+		"458792": [
+			"**Quest Steps:**\n1. [Executor Remembrance #1](#loc=458918)\n2. [Executor Remembrance #2](#loc=459038)",
+			[]
+		],
+		"458793": [
+			"**Remembrance:** [Ironeye's Remembrance](#loc=458781)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Chapter 4.\n- Speak with [The Priestess](#loc=458784)\n- Begin any Expedition as Ironeye while the Remembrance is active. Go to the Red Mark west of Limveld. Defeat the Night Huntsman at the end of the road.\n- Give the Traitor's Letter to the Priestess back in the Roundtable Hold\n- Conclude the Remembrance at the nearby light stream.\n\n**Reward:** [Ironeye's Chalice](#loc=459378); [Cracked Sealing Wax](#loc=459022)",
+			[]
+		],
+		"458794": [
+			"**Remembrance:** [Guardian's Remembrance](#loc=458783)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Guardian Chapter 4.  \n- Speak with the Iron Menial and exhaust all dialogue.\n- Begin any expedition as Guardian while the Remembrance is active. Head to the red marker and interact with the fallen golem. Defeat the Cracked Golem to receive a Stone Stake.\n- Speak with the Iron Menial and exhaust all dialogue to conclude the Remembrance.\n\n**Reward:** [Stone Stake](#loc=459019)",
+			[]
+		],
+		"458795": [
+			"**Remembrance:** [Wylder's Remembrance](#loc=458782)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Wylder Chapter 5.\n- Collect all three notes ([Glowing Note](#loc=459359), [Glowing Note](#loc=459360), [Glowing Note](#loc=459361))\n- Enter the [Tomb Entrance](#loc=459362) and speak with the Iron Menial there.\n- Interact with the three nearby tombs.\n- Speak with the Duchess to conclude the Remembrance.\n\n**Reward:** [Wylder's Goblet](#loc=458922)",
+			[]
+		],
+		"458914": [
+			"**Remembrance:** [The Duchess Remembrance](#loc=458788)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Duchess Chapter 3.\n- Speak with the Raider; exhaust all dialogue.\n- Speak with Wylder; exhaust all dialogue.\n- Begin any expedition as Duchess while the Remembrance is active. Head to the marked red objective. Defeat the Guardians of the Dew to acquire the Golden Dew.\n- Return to Wylder and give him the Golden Dew to acquire the Faded Iron Coins.\n- Speak with both Raider and the Revenant, exhausting their dialogues.\n- Speak with the Iron Menial to conclude the Remembrance.\n\n**Reward:** [Golden Dew](#loc=459024)",
+			[]
+		],
+		"458915": [
+			"**Remembrance:** [Raider Remembrance](#loc=458789)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Raider Chapter 2.\n- Speak with the Iron Menial and exhaust his dialogue.\n- Touch the monument to be transported to an arena. Defeat the Onestrike Gladiator to receive the Torn Braided Cord.\n- Follow the Iron Menial's direction to conclude the Remembrance.\n\n**Reward:** [Torn Braided Cord](#loc=459027)",
+			[]
+		],
+		"458916": [
+			"**Remembrance:** [Revenant Remembrance](#loc=458790)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Revenant Chapter 1.\n- Speak with both Duchess and Guardian, exhausting their dialogues.\n- Complete either the Tricephalos or the Darkdrift Knight expedition as Revenant while the Remembrance is active. You will receive Blade of Night as an additional drop from the boss.\n- Speak with Guardian to complete the Remembrance.\n\n**Reward:** [Small Makeup Brush](#loc=459029)",
+			[]
+		],
+		"458917": [
+			"**Remembrance:** [Recluse Remembrance](#loc=458791)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Recluse Chapter 2.\n- Speak with the Iron Menial and exhaust all dialogue.\n- Begin any expedition as the Recluse while the Remembrance is active. Head to the red marker and defeat the Night-Swallowed Golden Hippopotamus to receive the Night Shard.\n- Speak with Iron Menial to complete the Remembrance.\n\n**Reward:** [Recluse's Chalice](#loc=459395)",
+			[]
+		],
+		"458918": [
+			"**Remembrance:** [Executor Remembrance](#loc=458792)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Executor Chapter 2.\n- Speak to the Guardian who is looking at a painting in the Journal room. Choose \"Affirm\", then exhaust his dialogue.\n- Speak to the Priestess and exhaust her dialogue.\n- Start any expedition as Executor while the Remembrance is actuve. Head to the red marker and defeat the Stray Bloodhound Knight to receive the Blessed Flowers. \n- Give them to the Priestess and then conclude the Remembrance from the Journal.\n\n**Reward:** [Executor's Chalice](#loc=459398); [Blessed Flowers](#loc=459033)",
+			[]
+		],
+		"458919": ["**Sells:**\n- [Besmirched Frame](#loc=458920) [1500 Mirk]\n-", []],
+		"458920": [
+			"**How To Obtain:** Purchasable from the [Small Jar Bazar](#loc=458919) after unlocking [Duchess](#loc=458785) for 1,500 Runes  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Taking attacks improves attack power\n- Faith +3",
+			[]
+		],
+		"458921": [
+			"**How to Obtain:** Randomly obtained from completing Expeditions. Also drops from defeating the Tricephalos Nightlord for the first time.  \n\n**Color:** Green\n\n**Relic Effect:** \n- FP Restoration upon Successive Attacks\n- Dexterity +3",
+			[]
+		],
+		"458922": [
+			"**How To Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 1,200 Mirk\n\n**Character:** [Wylder](#loc=459350)  \n\n**Slots:**\n- Orange\n- Green\n- Green",
+			[]
+		],
+		"458962": [
+			"**How To Obtain:** Defeat the Tricephalos Nightlord for the first time.  \n\n**Color:** Green\n\n**Relic Effect:** \n- Stamina recovers with each succesful attack +1\n- Starting armament deals fire damage",
+			[]
+		],
+		"459008": [
+			"**How To Obtain:** Defeat the Gaping Jaw Nightlord for the first time.  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Improved Critical Hits +1\n- Art gauge fills moderately upon critical hit\n- Critical Hit boosts stamina recovery speed",
+			[]
+		],
+		"459009": [
+			"**How To Obtain:** Defeat the Sentient Pest Nightlord for the first time.  \n\n**Color:** Yellow\n\n**Relic Effect:** \n- Increased maximum FP\n- Starting armament inflicts poison\n- Poison & Rot in vicinity increases Attack Power",
+			[]
+		],
+		"459010": [
+			"**How To Obtain:** Defeat the Augur Nightlord for the first time.  \n\n**Color:** Red\n\n**Relic Effect:** \n- Increased maximum HP\n- Flask also heals allies\n- Items confer effect to all nearby allies",
+			[]
+		],
+		"459011": [
+			"**How To Obtain:** Defeat the Equilibrious Beast Nightlord for the first time.  \n\n**Color:** Red\n\n**Relic Effect:** \n- Huge rune discount for shop purchases while on expedition.\n- Gesture \"Crossed Legs\" build up Madness\n- Madness continually recovers FP",
+			[]
+		],
+		"459012": [
+			"**How To Obtain:** Defeat the Darkdrift Knight Nightlord for the first time.  \n\n**Color:** Green\n\n**Relic Effect:** \n- Increased maximum stamina\n- Guard counter is given a boost based on current HP\n- HP Restoration upon Thrusting counterattack",
+			[]
+		],
+		"459013": [
+			"**How To Obtain:** Defeat the Fissure in the Fog Nightlord for the first time.  \n\n**Color:** Yellow\n\n**Relic Effect:** \n- Nearby Frostbite conceals self\n- Changes compatible armament's skill to Chilling Mist at start of expedition\n- Attacks power up when facing Frostbite-inflicted enemy",
+			[]
+		],
+		"459014": [
+			"**How To Obtain:** Defeat Fell Omen in the tutorial. If you fail to do so at first, you may retry via the [Visual Codex](#loc=459355).  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Switching weapons boosts Attack Power\n- Improved Throwing Knife damage\n- Vigor +1",
+			[]
+		],
+		"459015": [
+			"**How To Obtain:** Complete [Wylder Remembrance #1](#loc=458787) \n\n**Color:** Red\n\n**Relic Effect:** \n- Physical Attack Up\n- If equipped by [Wylder](#loc=459350): Follow-up attacks possible when using Character Skill (greatsword only)",
+			[]
+		],
+		"459016": [
+			"**How To Obtain:** Complete [Wylder Remembrance #4](#loc=459369)  \n\n**Color:** Red\n\n**Relic Effect:** \n- Stamina recovers on each successful attack\n- If equipped by [Wylder](#loc=459350): Art activation spreads fire in the area\n- If equipped by [Wylder](#loc=459350): +1 additional Character Skill use",
+			[]
+		],
+		"459017": [
+			"**How To Obtain:** Complete [Wylder Remembrance #3](#loc=459365)  \n\n**Color:** Red\n\n**Relic Effect:** \n- Ultimate Art Gauge +3\n- Arcane +3\n- If equipped by [Wylder](#loc=459350): Art gauge greatly filled when ability is activated.",
+			[]
+		],
+		"459018": [
+			"**How To Obtain:** Complete [Guardian Remembrance #3](#loc=459370)  \n\n**Color:** Red\n\n**Relic Effect:** \n- HP Restoration upon Halberd attacks\n- If equipped by [Guardian](#loc=459380): Creates whirlwind when charging halberd attacks",
+			[]
+		],
+		"459019": [
+			"**How To Obtain:** Complete [Guardian Remembrance #1](#loc=458794)  \n\n**Color:** Red\n\n**Relic Effect:** \n- Character Skill Cooldown Reduction +3\n- If equipped by [Guardian](#loc=459380): Increased duration for Character Skill",
+			[]
+		],
+		"459020": [
+			"**How To Obtain:** Complete [Guardian Remembrance #4](#loc=459371), choosing to forgive her  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Vigor +3\n- If equipped by [Guardian](#loc=459380): Slowly restores nearby allies' HP while Art is active\n- If equipped by [Guardian](#loc=459380): Reflect a portion of damaged received when ability is activated",
+			[]
+		],
+		"459021": [
+			"**How To Obtain:** Complete [Guardian Remembrance #4](#loc=459371), choosing to punish her  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Vigor +3\n- If equipped by [Guardian](#loc=459380): Slowly restores nearby allies' HP while Art is active\n- If equipped by [Guardian](#loc=459380): Reflect a portion of damaged received when ability is activated",
+			[]
+		],
+		"459022": [
+			"**How To Obtain:** Complete [Ironeye Remembrance #1](#loc=458793)  \n\n**Color:** Yellow\n\n**Relic Effect:** \n- Critical Hits earn runes\n- If equipped by [Ironeye](#loc=459381): Extends duration of weak point",
+			[]
+		],
+		"459023": [
+			"**How To Obtain:** Complete [Ironeye Remembrance #2](#loc=459039)\n\n**Color:** Yellow\n\n**Relic Effect:** \n- Starting armament deals holy damage\n- Improved Bow Attack Power\n- If equipped by [Ironeye](#loc=459381): Boosts thrusting counterattacks after executing Art",
+			[]
+		],
+		"459024": [
+			"**How To Obtain:** Complete [Duchess Remembrance #1](#loc=458914)\n\n**Color:** Yellow\n\n**Relic Effect:** \n- Boosts Attack Power of Added Affinity Attacks\n- If equipped by [Duchess](#loc=458785): Improved Character Skill Attack Power",
+			[]
+		],
+		"459025": [
+			"**How To Obtain:** Complete [Duchess Remembrance #3](#loc=459383)  \n\n**Color:** Green\n\n**Relic Effect:** \n- Improved Dagger Attack Power\n- If equipped by [Duchess](#loc=458785): Dagger chain attacks reprises event upon enemies",
+			[]
+		],
+		"459026": [
+			"**How To Obtain:** Complete [Duchess Remembrance #4](#loc=459384)  \n\n**Color:** Green\n\n**Relic Effect:** \n- Continuous HP recovery\n- Vigor +3\n- If equipped by [Duchess](#loc=458785): Defeating enemies while Art is active ups attack power",
+			[]
+		],
+		"459027": [
+			"**How To Obtain:** Complete [Raider Remembrance #1](#loc=458915)  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Strength +3\n- If equipped by [Raider](#loc=459385): Damage taken while using Character Skill improves attack power and stamina",
+			[]
+		],
+		"459028": [
+			"**How To Obtain:** Complete [Raider Remembrance #3](#loc=459388)  \n\n**Color:** Yellow\n\n**Relic Effect:** \n- Defeating enemies near Totem Stela ([Raider](#loc=459385)'s Ultimate Art) restores HP\n- Defeating enemies fills more of the Art gauge\n- Poise +3",
+			[]
+		],
+		"459029": [
+			"**How To Obtain:** Complete [Revenant Remembrance #1](#loc=458916)  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Increased rune acquisition for self and allies\n- If equipped by [Revenant](#loc=458786): Power up while fighting alongside family",
+			[]
+		],
+		"459030": [
+			"**How To Obtain:** Complete [Revenant Remembrance #3](#loc=459389)  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Defeating enemies fills more of the Art gauge\n- If equipped by [Revenant](#loc=458786): Trigger ghostflame explosion during Ultimate Art activation\n- If equipped by [Revenant](#loc=458786): Expend own HP to fully heal nearby allies when activating Art",
+			[]
+		],
+		"459031": [
+			"**How To Obtain:** Complete [Recluse Remembrance #2](#loc=459043)  \n\n**Color:** Green\n\n**Relic Effect:** \n- Magie Attack Power Up +2\n- If equipped by [Recluse](#loc=459368): Collecting affinity residue activates Terra Magica (an area of effect Strength buff)",
+			[]
+		],
+		"459032": [
+			"**How To Obtain:** Complete [Recluse Remembrance #3](#loc=459392)  \n\n**Color:** Green\n\n**Relic Effect:** \n- Intelligence +3\n- If equipped by [Recluse](#loc=459368): Activating Ultimate Art raises Max HP\n- If equipped by [Recluse](#loc=459368): Suffer blood loss and increase attack power upon Art activation",
+			[]
+		],
+		"459033": [
+			"**How To Obtain:** Complete [Executor Remembrance #1](#loc=458918)  \n\n**Color:** Green\n\n**Relic Effect:** \n- Dexterity +3\n- If equipped by [Executor](#loc=459396): WHile Character Skill is active, unlocking use of curved sword restores HP",
+			[]
+		],
+		"459034": [
+			"**How To Obtain:** Complete [Executor Remembrance #2](#loc=459038)  \n\n**Color:** Red\n\n**Relic Effect:** \n- HP Recovery from successful guarding\n- Slowly restore HP for self and nearby allies when HP is low\n- If equipped by [Executor](#loc=459396): Roaring restores HP while Art is active",
+			[]
+		],
+		"459037": [
+			"**Remembrance:** [Guardian's Remembrance](#loc=458783)  \n\n**Steps:**\n- **NOTE:** Before starting the Remembrance, make sure to have at least 6,200 Murk to spend.\n- Head to the [Journal](#loc=459356) and flip to Guardian Chapter 6.\n- Speak with the travelling merchant and exhaust all dialogue.\n- _Optional:_ Buy out the merchant's stock; this is your only chance to do so, and costs 6,200 Murk in total.\n- Head back to the Roundtable. Watch the cutscene, then speak with the Iron Menial and the Recluse, exhausting all dialogue.\n- Return to the merchant and defeat him to conclude the Remembrance.\n\n**Reward:** [Guardian's Chalice](#loc=459374)",
+			[]
+		],
+		"459038": [
+			"**Remembrance:** [Executor Remembrance](#loc=458792)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Executor Chapter 6.\n- Speak with the Priestess, exhausting all dialogue.\n- Begin any expedition as the Executor while the Remembrance is active. Head to the red marker and defeat the Erdtree Avatar to receive the Golden Sprout.\n- Speak with the Priestess to trigger a cutscene. Defeat Executor's Cry, then walk in the golden light to trigger another cutscene.\n-Speak with the Priestess and exhaust all dialogue to complete the Remembrance.\n\n**Reward:** [Golden Sprout](#loc=459034); Executor's Remembrance Outfit at [Change Garb](#loc=459353)",
+			[]
+		],
+		"459039": [
+			"**Remembrance:** [Ironeye's Remembrance](#loc=458781)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Ironeye Chapter 6.\n- Enter [The Tomb](#loc=459363) and speak with the Priestess there. Exhaust all dialogue.\n- Complete the Darkrift Knight Expedition as Wylder while the Remembrance is active. The boss will drop Edge of Order as an additional drop.\n- Give the Edge of Order to the Traitor back in the Roundtable Hold\n- Conclude the Remembrance through the light stream.\n\n**Reward:** [Edge of Order](#loc=459023)",
+			[]
+		],
+		"459040": [
+			"**Remembrance:** [The Duchess Remembrance](#loc=458788)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Duchess Chapter 6.\n- Examine the plate next to Wylder, then eat the bread.\n- Speak with Wylder to obtain the Pita Bread.\n- Speak with the Iron Menial to conclude the Remembrance.\n\n**Reward:** [Duchess' Chalice](#loc=459382)",
+			[]
+		],
+		"459041": [
+			"**Remembrance:** [Raider Remembrance](#loc=458789)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Raider Chapter 4.\n- Speak with the Iron Menial and exhaust his dialogue.\n- Touch the monument to be transported to the arena. Defeat the Blinding Elder Lion.\n- Speak with the Iron Menial and exhaust all dialogue to complete the Remembrance.#\n\n**Reward:** [Raider's Chalice](#loc=459387)",
+			[]
+		],
+		"459042": [
+			"**Remembrance:** [Revenant Remembrance](#loc=458790)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Revenant Chapter 5.\n- Speak with Duchess, choosing the \"Ask about the Night's corrosion\" and \"I'm not afraid of Night\" options.\n- Speak with Recluse, exhausting her dialogue then sitting on the bench nearby.\n- Head down the corridor and into the main room. Defeat the Corrosion enemies.\n- Speak with the doll to complete the Remembrance.\n\n**Reward:** [Revenant's Chalice](#loc=459391)",
+			[]
+		],
+		"459043": [
+			"**Remembrance:** [Recluse Remembrance](#loc=458791)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Recluse Chapter 4.\n- Read the note on the table, then speak with Iron Menial, exhausting all dialogue.\n- Interact with the glowing bed, then speak with Iron Menial to conclude the Remembrance.\n\n**Reward:** [Vestige of the Night](#loc=459031)",
+			[]
+		],
+		"459350": [
+			"**Abilities:**\n- *Passive ability: Sixth Sense* - Avoids a single fatal blow. Recharges once revived or restored at a Site of Grace.  \n- *Character skill: Claw Shot* - Use a grapple hook to pull small enemies towards you, or pull yourself towards larger enemies or the environment.  \n- *Ultimate Art: Onslaught Strike* - Chargeable area of effect attack, can stun.  \n\n**Unlock condition:** None  \n**Remembrance:** [Wylder's Remembrance Quest](#loc=458782)",
+			[]
+		],
+		"459351": ["**Utility:** Launch Expeditions and adjust Expedition settings.", []],
+		"459352": ["**Utility:** Select a different character to roam around the Roundtable Hold.", []],
+		"459353": [
+			"**Utility:** Change your character's appearance. Each character has 6 appearances, as follows:\n- *Default Outfit:* Available from the start\n- *Dawn Outfit:* Purchaseable for 14,000 Murk\n- *Darkness Outfit:* Purchaseable for 35,000 Murk\n- *Remembrance Outfit:* Unlocked after completing that character's Journal\n- *Legacy Outfits:* Purchaseable for 7,500 Murk each, after defeating the final Nightlord at least once. Each legacy outfit is modelled after bosses and enemies of previous Fromsoft games.",
+			[]
+		],
+		"459354": ["**Utility:** Change your character's relic setups.", []],
+		"459355": [
+			"**Utility:** Acts as both a written guide to the game (including past tutorials, character mechanics, etc.) and a record keeper (keeping track of past expeditions).",
+			[]
+		],
+		"459356": [
+			"**Utility:** Learn the lore behind each character. Also the start point to every character's Remebrance Quests.",
+			[]
+		],
+		"459357": ["**Utility:** Practice each character's combat mechanics and abilities.", []],
+		"459359": ["Only appears during [Wylder Remembrance #2](#loc=458795)", []],
+		"459360": ["Only appears during [Wylder Remembrance #2](#loc=458795)", []],
+		"459361": ["Only appears during [Wylder Remembrance #2](#loc=458795)", []],
+		"459362": ["Leads to [The Tomb](#loc=459363). Opens during [Wylder Remembrance #2](#loc=458795).", []],
+		"459363": ["Accessed through the [Tomb Entrance](#loc=459362)", []],
+		"459364": [
+			"**How To Obtain:** Complete [Wylder Remembrance #2](#loc=458795)  \n\n**Character:** [Wylder](#loc=459350)  \n\n**Slots:**\n- Red\n- Orange\n- White",
+			[]
+		],
+		"459365": [
+			"**Remembrance:** [Wylder's Remembrance Quest](#loc=458782)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Wylder Chapter 7.\n- Pick up the [Thief's Virtuous Key](#loc=459366)\n- In the Tomb, unlock the chest to obtain the [Torn-Out Paper Scrap](#loc=459367)\n- Speak with [The Iron Menial](#loc=459358), then [The Recluse](#loc=459368), then The Iron Menial again, exhausting all available dialogue.\n- Start an Expedition as Wylder while the \"Noklateo, The Shrouded City\" event is active. In the city, collect the Silver Tear.\n- Bring the Silver Tear to The Iron Menial and conclude the Remembrance at the Journal.\n\n**Reward:** [Silver Tear](#loc=459017); Wylder's Remembrance Outfit at [Change Garb](#loc=459353).",
+			[]
+		],
+		"459366": ["Only appears in [Wylder Remembrance #3](#loc=459365)", []],
+		"459367": ["Only appears in [Wylder Remembrance #3](#loc=459365)", []],
+		"459368": [
+			"**Abilities:**\n- *Passive ability: Elemental Defense* - Discover affinity residues that can be collected to replenish FP. Affinity attacks create affinity residues. Residues appear for allies, as well, which can also be collected.  \n- *Character skill: Magic Cocktail* - Collect the affinity residues of targets to fire an affinity-exploiting magic cocktail. Affinity residues accumulate. Collect three to wield a magic spell. Complex affinity combinations create more powerful spells.  \n- *Ultimate Art: Soulblood Song* - Unleash forbidden blood chant to brand nearby foes with blood sigils. Brands foes with short-lived Blood Sigils that increase damage taken and restore the HP and FP of caster.  \n\n**Unlock condition:** None  \n**Remembrance:** [Recluse Remembrance Quest](#loc=458791)",
+			[]
+		],
+		"459369": [
+			"**Remembrance:** [Wylder's Remembrance Quest](#loc=458782)  \n\n**Steps:**\n- Complete the Night Aspect expedition.\n- Instead of returning to the Roundtable Hold, inspect the Nightlord's corpse.\n\n**Reward:** [The Wylder's Earring](#loc=459016)",
+			[]
+		],
+		"459370": [
+			"**Remembrance:** [Guardian's Remembrance Quest](#loc=458783)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Guardian Chapter 7\n- Speak with the Iron Menial. Choose the following options:\n  - I eliminated him.\n  - It was to protect the flock.\n  - Show Merchant's Ledger\n- Begin any expedition with Guardian while the Remembrance is active. Find the Demon Merchant and purchase the tome for 10,000 Runes.\n- Speak with the Iron Menial to complete the Remembrance.\n\n**Reward:** [Third Volume](#loc=459018)",
+			[]
+		],
+		"459371": [
+			"**Remembrance:** [Guardian's Remembrance Quest](#loc=458783)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Guardian Chapter 9.\n- Interact with the glowing book.\n- Speak with the Recluse. Exhaust all dialogue, choosing either option to complete the Remembrance.\n\n**Reward:** [Witch's Brooch](#loc=459020) or [Cracked Witch's Brooch](#loc=459021) depending on dialogue option; Guardian's Remembrance Outfit at [Change Garb](#loc=459353)",
+			[]
+		],
+		"459373": [
+			"**How To Obtain:** Purchased from the [Small Jar Bazaar](#loc=458919) for 1,200 Murk.  \n\n**Character:** [Guardian](#loc=459380)  \n\n**Slots:**\n- Blue\n- Blue\n- Green",
+			[]
+		],
+		"459374": [
+			"**How To Obtain:** Complete [Guardian Remembrance #2](#loc=459037)  \n\n**Character:** [Guardian](#loc=459380)  \n\n**Slots:**\n- Blue\n- Orange\n- White",
+			[]
+		],
+		"459375": [
+			"**Remembrance:** [Ironeye's Remembrance Quest](#loc=458781)  \n\n**Steps:**\n- Complete the Night Aspect expedition.\n- Head towards the ghostly version of the Roundtable Hold.\n- Interact with the kneeling man. Choose \"Clench Dagger\".\n\n**Reward:** Ironeye's Rembrance Outfit at [Change Garb](#loc=459353)",
+			[]
+		],
+		"459377": [
+			"**How To Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 1,200 Runes  \n\n**Character:** [Ironeye](#loc=459381)  \n\n**Slots:**\n- Red\n- Blue\n- Orange",
+			[]
+		],
+		"459378": [
+			"**How To Obtain:** Complete [Ironeye Remembrance #1](#loc=458793)  \n\n**Character:** [Ironeye](#loc=459381)  \n\n**Slots:**\n- Red\n- Green\n- White",
+			[]
+		],
+		"459379": [
+			"**How To Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 1,200 Runes.  \n\n**Character:** [Duchess](#loc=458785)  \n\n**Slots:**\n- Orange\n- Orange\n- Green",
+			[]
+		],
+		"459380": [
+			"**Abilities:**\n- *Passive ability: Steel Guard* - Plant feet and brace with a shield for a more powerful guard. Greatly improves guard boost, but prevents running while holding up shield.  \n- *Character skill: Whirlwind* - Beat wing to whip up a wind-churning cyclone. Enemies caught in the cyclone are drawn toward the center. Sweeps away lightweight projectiles. Hold to enlarge range.  \n- *Ultimate Art: Wings of Salvation* - Leap up and dive back down to raise protective area. Can move briefly while in the air, and the diving attack is perfect for rescues. Hold to shield nearby allies from damage..  \n\n**Unlock condition:** None  \n**Remembrance:** [Guardian's Remembrance Quest](#loc=458783)",
+			[]
+		],
+		"459381": [
+			"**Abilities:**\n- *Passive ability: Eagle Eye* - A keenly observant eye discovers more items to obtain from foes. The effect of this ability also applies to allies.  \n- *Character skill: Marking* - Cut foe with dagger, creating temporary weak point. Inflict damage on temporary weak point to destroy it and stagger foes. Damaging weak point extends its duration.  \n- *Ultimate Art: Single Shot* - Fire powerful arrow that surpasses sound and ignores defense. Arrow pierces all types of enemies, terrains, and structures.  \n\n**Unlock condition:** None  \n**Remembrance:** [Ironeye's Remembrance Quest](#loc=458781)",
+			[]
+		],
+		"459382": [
+			"**How To Obtain:** Complete [The Duchess Remembrance #2](#loc=459040)  \n\n**Character:** [Duchess](#loc=458785)  \n\n**Slots:**\n- Blue\n- Orange\n- White",
+			[]
+		],
+		"459383": [
+			"**Remembrance:** [Duchess Remembrance Quest](#loc=458788)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Duchess Chapter 6.\n- Read the hastily-written note on the table.\n- Head to the beach and defeat Revenant and her summons.\n- Speak with Revenant and exhaust her dialogue.\n- Speak with Raider and exhaust his dialogue.\n- Begin any expedition as Duchess while the Remembrance is active. Head to the red marked message. Defeat the Fallen Mercenaries to obtain Weathervane's Words.\n- Share the message with Raider to conclude the Remembrance.\n\n**Reward:** [Crown Medal](#loc=459025)",
+			[]
+		],
+		"459384": [
+			"**Remembrance:** [Duchess Remembrance Quest](#loc=458788)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Duchess Chapter 6.\n- Bless the iron coin at the Roundtable.\n- Speak with the Iron Menial and give him the blessed coin.\n- Speak with Wylder, then Iron Menial, exhausting both their dialogues.\n- Conclude the remembrance at the glowing strand.\n\n**Reward:** [Blessed Iron Coin](#loc=459026); Duchess' Remembrance Outfit at [Change Garb](#loc=459353)",
+			[]
+		],
+		"459385": [
+			"**Abilities:**\n- *Passive ability: Fighter's Resolve* - Assume attack stance and pummel vigorously. A defensive posture which reduces incoming damage.  \n- *Character skill: Retaliate* - Taking damage boosts Retaliate potency, cannot be knocked down while using it. Remain standing with a sliver of HP even after taking heavy damage.  \n- *Ultimate Art: Totem Stela* - Drive gravekeeper's wedge into earth to summon a giant tombstone. Tombstone radiates protective aura, boosting strength of nearby allies and blocking arrows. Can also be climbed.  \n\n**Unlock condition:** None  \n**Remembrance:** [Raider Remembrance Quest](#loc=458789)",
+			[]
+		],
+		"459386": [
+			"**How To Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 1,200 Murk.  \n\n**Character:** [Raider](#loc=459385)  \n\n**Slots:**\n- Red\n- Blue\n- Orange",
+			[]
+		],
+		"459387": [
+			"**How to Obtain:** Complete [Raider Remembrance #2](#loc=459041)  \n\n**Character:** [Raider](#loc=459385)  \n\n**Slots:**\n- Red\n- Red\n- White",
+			[]
+		],
+		"459388": [
+			"**Remembrance:** [Raider Remembrance Quest](#loc=458789)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Raider Chapter 7.\n- Speak with the Iron Menial and exhaust all dialogue.\n- Head to the marked icon on your map to be transported to the arena. Defeat the White Horn to receive the Black Claw Necklace.\n- Speak with the Iron Menial and exhaust all dialogue.\n- Interact with the gravestone and \"Offer\" to complete the Remembrance.\n\n**Reward:** [Black Claw Necklace](#loc=459028); Raider's Remembrance Outfit at [Change Garb](#loc=459353)",
+			[]
+		],
+		"459389": [
+			"**Remembrance:** [Revenant Remembrance Quest](#loc=458790)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Revenant Chapter 7.\n- Speak with the Recluse and exhaust her dialogue to be transported to the hallway from the previous chapter.\n- Head back towards the main room and defeat the Contaminant.\n- Watch the cutscene and answer \"Bury the Nightlord\" to complete the Remembrance.\n\n**Reward:** Revenant's Remembrance Outfit at [Change Garb](#loc=459353)",
+			[]
+		],
+		"459390": [
+			"**How to Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 1,200 Runes  \n\n**Character:** [Revenant](#loc=458786)  \n\n**Slots:**\n- Red\n- Red\n- Green",
+			[]
+		],
+		"459391": [
+			"**How to Obtain:** Complete [Revenant Remembrance #2](#loc=459042)  \n\n**Character:** [Revenant](#loc=458786)  \n\n**Slots:**\n- Blue\n- Green\n- White",
+			[]
+		],
+		"459392": [
+			"**Remembrance:** [Recluse Remembrance Quest](#loc=458791)  \n\n**Steps:**\n- Head to the [Journal](#loc=459356) and flip to Recluse Chapter 6.\n- Find the Iron Menial in the Sparring Grounds. Attack her until she changes form, then exhaust all dialogue.\n- Head into [The Tomb](#loc=459363).\n- Interact with the Iron Menial, then speak with him, exhausting all dialogue to complete the Remembrance.\n\n**Reward:** [Bone-like Stone](#loc=459032)",
+			[]
+		],
+		"459393": [
+			"**Remembrance:** [Recluse Remembrance Quest](#loc=458791)  \n\n**Steps:**\n- Complete the Night Aspect expedition.\n- Head towards the eastern wing and interact with the infant on the bed.\n- Head to the beds again and speak with the Witch of the Wheel, exhausting all dialogue to complete the Remembrance.\n\n**Reward:** Recluse's Remembrance Outfit at [Change Garb](#loc=459353)",
+			[]
+		],
+		"459394": [
+			"**How to Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 1,200 Runes.  \n\n**Character:** [Recluse](#loc=459368)  \n\n**Slots:**\n- Red\n- Blue\n- Orange",
+			[]
+		],
+		"459395": [
+			"**How to Obtain:** Complete [Recluse Remembrance #1](#loc=458917)  \n\n**Character:** [Recluse](#loc=459368)  \n\n**Slots:**\n- Orange\n- Green\n- White",
+			[]
+		],
+		"459396": [
+			"**Abilities:**\n- *Passive ability: Tenacity* - Receive boost after recovering from status ailments. Effect boosts attack and stamina recovery speed.  \n- *Character skill: Suncatcher* - Draw the Executor's Blade that can deflect enemy attacks. Repeated deflections reveal blade, enabling powerful attacks with the living sword.  \n- *Ultimate Art: Aspects of the Crucible: Beast* - Assume the form of the primordial beast. Use unique attacks in beast form that drain the Ultimate Art gauge. Activate again to quickly undo transformation.  \n\n**Unlock condition:** None  \n**Remembrance:** [Executor Remembrance Quest](#loc=458792)",
+			[]
+		],
+		"459397": [
+			"**How to Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 1,200 Murk.  \n\n**Character:** [Executor](#loc=459396)  \n\n**Slots:**\n- Red\n- Blue\n- Green",
+			[]
+		],
+		"459398": [
+			"**How to Obtain:** Complete [Executor Remembrance #1](#loc=458918)  \n\n**Character:** [Executor](#loc=459396)  \n\n**Slots:**\n- Blue\n- Orange\n- White",
+			[]
+		],
+		"459399": [
+			"**How to Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 3,000 Murk after defeating four different Nightlords.  \n\n**Character:** All  \n\n**Slots:**\n- Green\n- Green\n- Green",
+			[]
+		],
+		"459400": [
+			"**How to Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 3,000 Murk after defeating seven different Nightlords.  \n\n**Character:** All  \n\n**Slots:**\n- Blue\n- Blue\n- Blue",
+			[]
+		],
+		"459401": [
+			"**How to Obtain:** Purchased from [Small Jar Bazaar](#loc=458919) for 3,000 Murk after defeating all eight different Nightlords.  \n\n**Character:** All  \n\n**Slots:**\n- Orange\n- Orange\n- Orange",
+			[]
+		],
+		"459402": [
+			"**How to Obtain:** Defeat the Night Aspect Nightlord for the first time.  \n\n**Color:** Blue\n\n**Relic Effect:** \n- Switching weapons adds an affinity attack\n- Boosts attack power of added affinity attacks\n- Switching weapons boosts Attack Power",
+			[]
+		],
+		"461326": ["On the parapets.", []],
+		"462269": ["Scarab", []],
+		"462272": [
+			"Underneath large crumbled ruins",
+			[
+				{
+					"id": 85545,
+					"title": "",
+					"file_name": "1f38e3ff-8312-445a-aaba-35dbd994eb19.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f38e3ff-8312-445a-aaba-35dbd994eb19.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"462273": [
+			"Behind bushes",
+			[
+				{
+					"id": 85546,
+					"title": "",
+					"file_name": "6c0c3a6c-0936-4bf4-82b0-5af7ac16938c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c0c3a6c-0936-4bf4-82b0-5af7ac16938c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"462274": [
+			"Behind bushes",
+			[
+				{
+					"id": 85547,
+					"title": "",
+					"file_name": "9e0510ba-1c8b-4161-a173-ce293dc22f63.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e0510ba-1c8b-4161-a173-ce293dc22f63.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"462275": [
+			"At the base of a large tree, near the cliff's edge",
+			[
+				{
+					"id": 85548,
+					"title": "",
+					"file_name": "972e7dc3-792b-4fd2-914e-768b3443c04b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/972e7dc3-792b-4fd2-914e-768b3443c04b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"462276": ["On the north side of some ruins, under the crumbled edges", []],
+		"462278": ["To the right of spirt stream", []],
+		"462279": ["On top of crumbled tower.", []],
+		"481519": [
+			"Under the giant fallen ruin, guarded by demi humans.",
+			[
+				{
+					"id": 97870,
+					"title": "",
+					"file_name": "bda74e83-31c9-456b-a392-1d7ffd14882e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bda74e83-31c9-456b-a392-1d7ffd14882e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

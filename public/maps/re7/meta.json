@@ -315,7 +315,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "baker-ranch/data.compact.json"
 		},
 		{
 			"slug": "end-of-zoe",
@@ -332,7 +333,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "end-of-zoe/data.compact.json"
 		},
 		{
 			"slug": "not-a-hero",
@@ -349,7 +351,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "not-a-hero/data.compact.json"
 		}
 	]
 }

@@ -145,7 +145,8 @@
 					"tileSize": 256,
 					"background": "#4f88cf"
 				}
-			]
+			],
+			"compact": "redblue/data.compact.json"
 		},
 		{
 			"slug": "yellow",
@@ -162,7 +163,8 @@
 					"tileSize": 256,
 					"background": "#7bce7c"
 				}
-			]
+			],
+			"compact": "yellow/data.compact.json"
 		}
 	]
 }

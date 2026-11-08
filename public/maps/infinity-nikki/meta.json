@@ -338,7 +338,8 @@
 					"tileSize": 256,
 					"background": "#cdc6aa"
 				}
-			]
+			],
+			"compact": "miraland/data.compact.json"
 		},
 		{
 			"slug": "firework-isles",
@@ -355,7 +356,8 @@
 					"tileSize": 256,
 					"background": "#ccc6ac"
 				}
-			]
+			],
+			"compact": "firework-isles/data.compact.json"
 		},
 		{
 			"slug": "sea-of-stars",
@@ -372,7 +374,8 @@
 					"tileSize": 256,
 					"background": "#cdc6aa"
 				}
-			]
+			],
+			"compact": "sea-of-stars/data.compact.json"
 		},
 		{
 			"slug": "serenity-island",
@@ -389,7 +392,8 @@
 					"tileSize": 256,
 					"background": "#cdc6aa"
 				}
-			]
+			],
+			"compact": "serenity-island/data.compact.json"
 		},
 		{
 			"slug": "danqing-island",
@@ -406,7 +410,8 @@
 					"tileSize": 256,
 					"background": "#ccc6ac"
 				}
-			]
+			],
+			"compact": "danqing-island/data.compact.json"
 		},
 		{
 			"slug": "danqing-realm",
@@ -423,7 +428,8 @@
 					"tileSize": 256,
 					"background": "#ccc6ac"
 				}
-			]
+			],
+			"compact": "danqing-realm/data.compact.json"
 		},
 		{
 			"slug": "wanxiang-realm",
@@ -440,7 +446,8 @@
 					"tileSize": 256,
 					"background": "#cdc6aa"
 				}
-			]
+			],
+			"compact": "wanxiang-realm/data.compact.json"
 		}
 	]
 }

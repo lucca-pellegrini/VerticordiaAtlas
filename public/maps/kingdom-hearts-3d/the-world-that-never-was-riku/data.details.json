@@ -1,0 +1,34 @@
+{
+	"v": 1,
+	"d": {
+		"75077": ["Found inside a [treasure chest](#loc=75076).", []],
+		"75080": ["Above, on a ledge inset in the wall.", []],
+		"75081": ["Above, on a ledge inset in the wall.", []],
+		"75082": ["Above, on a ledge inset in the wall.", []],
+		"75096": ["Found inside a [treasure chest](#loc=75095).", []],
+		"75324": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★★☆\n\n**Bonus Objective:** Achieve victory in 20 seconds or less!",
+			[]
+		],
+		"75325": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★★☆\n\n**Bonus Objective:** Pull off at least 3 successful counters!",
+			[]
+		],
+		"75326": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★★★\n\n**Bonus Objective:** Take damage no more than 2 times!\n\n_Note: Found in an inset ledge on the wall._",
+			[]
+		],
+		"75369": [
+			"**Warning: This is the beginning of the final boss rush for Riku's side of the story. Save before approaching, and be prepared for the long-haul!**\n\n**Recommended Level:** 40+\n\nThis fight can be extremely difficult without the proper command deck.\n\nAlmost all attacks, except for Poison Volley, can be avoided by staying in the air. Use Doubleflight and Air Slide whenever possible to stay out of reach, and use homing attacks like Dark Firaga or Triple Plasma to land hits on this slippery boss. Relying on Keyblade attacks can be frustrating and will take a lot of patience. Be careful with your timing and don't just spam attacks. The Anti Black Coat Nightmare will teleport so quickly, it can evade your Keyblade attacks mid-animation.\n\nThe biggest attack to look out for is when he'll drain your health and scatter it across the arena as green health orbs, that the Anti Black Coat Nightmare will pick up and use to heal himself. To avoid this, look for a dark line across the floor, dodging before it can touch you.\n\n_Final Boss Sequence:_\n- Anti Black Coat Nightmare\n- [Ansem](#loc=75370)\n- [Young Xehanort](#loc=75371)",
+			[]
+		],
+		"75370": [
+			"**Warning: This is part of the final boss rush for Riku's side of the story. Save before starting, and be prepared for the long-haul!**\n\n_Final Boss Sequence:_\n- [Anti Black Coat Nightmare](#loc=75369)\n- Ansem\n- [Young Xehanort](#loc=75371)",
+			[]
+		],
+		"75371": [
+			"**Warning: This is part of the final boss rush for Riku's side of the story. Save before starting, and be prepared for the long-haul!**\n\n_Final Boss Sequence:_\n- [Anti Black Coat Nightmare](#loc=75369)\n- [Ansem](#loc=75370)\n- Young Xehanort",
+			[]
+		]
+	}
+}
