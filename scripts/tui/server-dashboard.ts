@@ -238,13 +238,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	tabPillsRow.add(tabPillsList);
 
 	const tabNewBtn = new TextRenderable(renderer, {
-		content: "+ [C-n]",
+		content: "+ [^n]",
 		fg: THEME.teal,
 		bg: THEME.surface,
 	});
 
 	const tabHintText = new TextRenderable(renderer, {
-		content: "C-1..0 / Alt-j/k ⇄  [C-w] Close",
+		content: "Alt-1..0 / Alt-j/k ⇄  [^w] Close",
 		fg: THEME.textDim,
 		bg: THEME.surface,
 	});
@@ -920,7 +920,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		if (tabHintText) {
 			tabHintText.content =
-				boxW >= 105 ? "C-1..0 / Alt-j/k ⇄  [C-w] Close" : boxW >= 80 ? "C-1..0 / Alt-j/k ⇄" : "";
+				boxW >= 105 ? "Alt-1..0 / Alt-j/k ⇄  [^w] Close" : boxW >= 80 ? "Alt-1..0 / Alt-j/k ⇄" : "";
 		}
 
 		renderer.requestRender();
@@ -1083,25 +1083,25 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		const cur = tabs[activeTabIdx];
 		let hints = "";
 		const tabMax = Math.min(10, tabs.length);
-		const tabHint = `[C-1..${tabMax === 10 ? "0" : tabMax}] Tabs   [Alt-j/k] Next/Prev`;
+		const tabHint = `[Alt-1..${tabMax === 10 ? "0" : tabMax}] Tabs   [Alt-j/k] Next/Prev`;
 
 		if (cur.type === "monitor") {
-			hints = `[Tab] Focus Pane   [↑↓/jk/PgUp/PgDn] Scroll   [Esc] Follow   [C-S-c/y] Copy   [C-n] New   [^C] Quit`;
+			hints = `[Tab] Focus Pane   [↑↓/jk/PgUp/PgDn] Scroll   [Esc] Follow   [^C/y] Copy   [^n] New   [^c] Quit`;
 		} else if (cur.type === "catalog") {
 			const cat = cur.view as GamesCatalogView;
 			if (cat?.isModalOpen()) {
 				hints = `[Tab/Shift+Tab] Move   [Enter] Confirm/Save   [Esc] Cancel   ${tabHint}`;
 			} else {
-				hints = `[←↑→↓] Select   [U] Update   [P] Prune   [C] Cards   [E/Enter] Edit   [[ / ]] Reorder   [D] Delete   [/] Search   [C-n] New   ${tabHint}`;
+				hints = `[←↑→↓] Select   [U] Update   [P] Prune   [C] Cards   [E/Enter] Edit   [[ / ]] Reorder   [D] Delete   [/] Search   [^n] New   ${tabHint}`;
 			}
 		} else if (cur.type === "form") {
-			hints = `[Tab/Shift+Tab] Field   [Space] Toggle   [Enter] Start Scrape   [Esc/C-w] Close Tab   ${tabHint}`;
+			hints = `[Tab/Shift+Tab] Field   [Space] Toggle   [Enter] Start Scrape   [Esc/^w] Close Tab   ${tabHint}`;
 		} else if (cur.type === "job") {
 			const jv = cur.view as ServerJobView;
 			if (jv?.status === "running") {
-				hints = `${tabHint} (runs in background)   [C-n] New Scrape`;
+				hints = `${tabHint} (runs in background)   [^n] New Scrape`;
 			} else {
-				hints = `[C-w] Close Tab   [C-1] Monitor   [C-2] Catalog   [C-n] New Scrape   ${tabHint}`;
+				hints = `[^w] Close Tab   [Alt-1] Monitor   [Alt-2] Catalog   [^n] New Scrape   ${tabHint}`;
 			}
 		}
 
@@ -1144,7 +1144,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 		if (tabHintText) {
 			tabHintText.content =
-				boxW >= 105 ? "C-1..0 / Alt-j/k ⇄  [C-w] Close" : boxW >= 80 ? "C-1..0 / Alt-j/k ⇄" : "";
+				boxW >= 105 ? "Alt-1..0 / Alt-j/k ⇄  [^w] Close" : boxW >= 80 ? "Alt-1..0 / Alt-j/k ⇄" : "";
 		}
 
 		renderUi(true);
@@ -1226,11 +1226,11 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			return;
 		}
 
-		// C-1..C-0, Alt+1..Alt+0, or Meta+1..Meta+0 to switch directly to tabs 1 through 10
-		const isCtrlOrAltOrMeta = Boolean(
-			key.ctrl || key.option || key.meta || (key as any).alt || (key.raw && /^\x1b[0-9]$/.test(key.raw)),
+		// Alt+1..Alt+0, or Meta+1..Meta+0 to switch directly to tabs 1 through 10
+		const isAltOrMeta = Boolean(
+			key.option || key.meta || (key as any).alt || (key.raw && /^\x1b[0-9]$/.test(key.raw)),
 		);
-		if (isCtrlOrAltOrMeta) {
+		if (isAltOrMeta) {
 			let digit = key.name;
 			if (key.raw && /^\x1b[0-9]$/.test(key.raw)) {
 				digit = key.raw[1];
