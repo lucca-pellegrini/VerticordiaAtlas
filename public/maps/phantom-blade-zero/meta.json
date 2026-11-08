@@ -345,7 +345,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "weeping-creek-valley/data.compact.json"
 		},
 		{
 			"slug": "crimson-forest",
@@ -361,7 +362,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "crimson-forest/data.compact.json"
 		},
 		{
 			"slug": "village-of-lu",
@@ -377,7 +379,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "village-of-lu/data.compact.json"
 		},
 		{
 			"slug": "pangzhen",
@@ -393,7 +396,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "pangzhen/data.compact.json"
 		},
 		{
 			"slug": "the-mandates-encampment",
@@ -409,7 +413,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "the-mandates-encampment/data.compact.json"
 		},
 		{
 			"slug": "meigu-lake",
@@ -425,7 +430,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "meigu-lake/data.compact.json"
 		}
 	]
 }

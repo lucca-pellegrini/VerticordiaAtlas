@@ -1,0 +1,114 @@
+{
+	"v": 1,
+	"d": {
+		"65937": ["**Related Challenge:** House Cleaning", []],
+		"65971": ["**Related Challenge:** Magic is Real", []],
+		"65984": ["**Related Challenge:** House Cleaning", []],
+		"65987": ["**Gun Type:** Pistol", []],
+		"65988": ["**Gun Type:** Shotgun", []],
+		"65989": ["**Gun Type:** Shotgun", []],
+		"66022": ["**Required:** Crowbar\n\nMust be unlocked from above.", []],
+		"66028": ["Required to unlock the [Boat](#loc=66345) exit location.", []],
+		"66030": [
+			"**Required:** Wrench\n\n**Related Challenge:** House Cleaning\n\nAfter being repaired with a wrench, Distillation Kit can be used to turn Emetic Poison into Lethal Poison",
+			[]
+		],
+		"66037": ["**Required:** Wrench", []],
+		"66041": ["**Required:** Screwdriver", []],
+		"66043": ["**Required:** Insert Fuse Cell into nearby Fuse Box", []],
+		"66045": ["**Required:** Fuse Cell", []],
+		"66053": ["**Required:** Screwdriver", []],
+		"66054": ["**Required:** Shovel", []],
+		"66062": ["**Required:** Wrench", []],
+		"66067": ["**Required:** Camera", []],
+		"66081": ["Required to use the [Hearse](#loc=66350) exit location.", []],
+		"66084": ["**Required:** Camera", []],
+		"66086": ["**Required:** Camera", []],
+		"66092": ["**Poison Target:** Alexa Carlisle", []],
+		"66098": ["**Carried By:** Mr. Fernsby (Butler)", []],
+		"66107": ["**Required:** Wrench", []],
+		"66116": ["**Poison Target:** Edward Carlisle", []],
+		"66117": ["**Required:** Camera", []],
+		"66130": ["**Required:** Staff Locker Key\n\nInside staff locker.", []],
+		"66133": ["**Required:** Wrench", []],
+		"66134": ["**Required:** Wrench", []],
+		"66135": ["**Required:** Private Investigator Disguise", []],
+		"66136": ["**Poison Target:** Mr. Fernsby (Butler)", []],
+		"66138": ["**Related Challenge:** House Cleaning", []],
+		"66139": ["**Related Challenge:** House Cleaning", []],
+		"66145": ["**Required:** Camera Scan\n\n**Related Challenge:** House Cleaning", []],
+		"66147": ["**Related Challenge:** House Cleaning", []],
+		"66149": ["**Required:** Propane Flask", []],
+		"66150": ["**Related Challenge:** House Cleaning", []],
+		"66154": ["**Required:** Propane Flask", []],
+		"66164": ["**Required:** Walking Cane", []],
+		"66167": ["**Required:** Propane Flask", []],
+		"66173": ["**Required:** Walking Cane", []],
+		"66177": [
+			"**Related Challenge:** House Cleaning\n\nPicking up the floor plan reveals Secret Rooms on your map.",
+			[]
+		],
+		"66180": ["**Required:** Crowbar", []],
+		"66181": [
+			"**Related Challenge:** Dogs Secrets\n\n**Related Challenge:** House Cleaning\n\nInteract with the Fake Book to open a secret passage.",
+			[]
+		],
+		"66184": ["**Related Challenge:** House Cleaning", []],
+		"66185": ["**Related Challenge:** House Cleaning\n\nOne of the clues in the Zachary Carlisle mystery.", []],
+		"66186": ["**Required:** Camera Scan\n\n**Related Challenge:** House Cleaning", []],
+		"66187": ["**Required:** Camera Scan\n\n**Related Challenge:** House Cleaning", []],
+		"66189": ["**Related Challenge:** Don't Kill the Messenger\n\nInspect the lawyer's computer.", []],
+		"66200": [
+			"**Required:** Camera Scan\n\n**Related Challenge:** House Cleaning\n\nThis intel actually counts as TWO clues: one clue for the first time you interact with the notebook, and another clue after you retrieve [Zachary's Suicide Note](#loc=66185) to compare the handwriting.",
+			[]
+		],
+		"66202": ["**Related Challenge:** House Cleaning", []],
+		"66206": ["**Safe Code:** 1975", []],
+		"66217": ["**Required:** Mysterious Cane", []],
+		"66239": ["**Required:** Crowbar", []],
+		"66243": ["**Required:** Propane Flask", []],
+		"66244": ["**Required:** Mr. Fernsby's Office Key", []],
+		"66245": ["**Required:** Greenhouse Key", []],
+		"66246": ["**Required:** Greenhouse Key", []],
+		"66247": ["**Required:** Greenhouse Key", []],
+		"66248": ["**Required:** Mansion Master Key", []],
+		"66249": ["**Required:** Mansion Master Key", []],
+		"66321": ["**Required:** Mastery Level 17\n\n_Small items only._", []],
+		"66327": ["**Required:** Mastery Level 14", []],
+		"66328": ["**Required:** Mastery Level 16", []],
+		"66329": ["**Required:** Mastery Level 11", []],
+		"66330": ["**Required:** Mastery Level 12\n\n_Small items only._", []],
+		"66344": ["Available after completing first playthrough of the mission.", []],
+		"66345": ["**Required:** [Boat Key](#loc=66028)", []],
+		"66346": [
+			"**Required:** Mastery Level 8\n\nTo clarify, the difference between this and the other [Behind Mansion](#loc=66347) starting location is _when_ in the mission timeline you enter. This one starts at the very beginning of the mission and its events.",
+			[]
+		],
+		"66347": [
+			"**Required:** Mastery Level 19\n\nTo clarify, the difference between this and the other [Behind Mansion](#loc=66346) starting location is _when_ in the mission timeline you enter. This one skips time and starts after the  family meeting has begun.",
+			[]
+		],
+		"66348": ["**Required:** Mastery Level 5\n\n_Small items only._", []],
+		"66349": ["**Required:** Mastery Level 4", []],
+		"66350": [
+			"**Required:** [Hearse Key](#loc=66081)\n\nThe Hearse Key can be found nearby up the stone steps, or on the Undertaker in the Graveyard.",
+			[]
+		],
+		"66351": ["**Required:** Mastery Level 3", []],
+		"66352": ["**Required:** Mastery Level 7", []],
+		"66353": ["**Required:** Mastery Level 2\n\n_Small items only._", []],
+		"66354": ["**Required:** Mastery Level 6", []],
+		"66355": ["**Required:** Mastery Level 9", []],
+		"66356": [
+			"To clarify, the difference between this and the other [Main Road](#loc=66357) starting location is _when_ in the mission timeline you enter. This one starts at the very beginning of the mission and its events.",
+			[]
+		],
+		"66357": [
+			"**Required:** Mastery Level 18\n\nTo clarify, the difference between this and the other [Main Road](#loc=66356) starting location is _when_ in the mission timeline you enter. This one skips time and starts after the  family meeting has begun.",
+			[]
+		],
+		"152373": ["**Required:** Camera Scan\n\n**Related Challenge:** House Cleaning", []],
+		"543562": ["On crates just outside the door", []],
+		"543563": ["Only appears here in The Dartmoor Garden Show.", []]
+	}
+}

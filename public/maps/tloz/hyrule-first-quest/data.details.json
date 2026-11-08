@@ -1,0 +1,418 @@
+{
+	"v": 1,
+	"d": {
+		"465261": ["**Contains:**\n- [Wooden Sword](#loc=465263)", []],
+		"465263": ["**Location:** Inside the [Cave](#loc=465261) at the start of the game, given by the Old Man", []],
+		"465264": [
+			"**Sells:**\n- [Magical Shield](#loc=465265) - 160 Rupees\n- Bomb - 20 Rupees\n- [Arrow](#loc=465266) - 80 Rupees",
+			[]
+		],
+		"465265": ["**Location:** Sold at the [Shop](#loc=465264) for 160 Rupees", []],
+		"465266": ["**Location:** Sold at the [Shop](#loc=465264) for 80 Rupees", []],
+		"465267": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- Red Potion or [Heart Container](#loc=465270)",
+			[]
+		],
+		"465268": ["**Contains:**\n- [Shop](#loc=465264)", []],
+		"465270": [
+			"**Location:** Inside the [Secret Cave](#loc=465267), offered as a choice instead of the Red Potion",
+			[]
+		],
+		"465271": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- Red Potion or [Heart Container](#loc=465273)",
+			[]
+		],
+		"465273": [
+			"**Location:** Inside the [Secret Cave](#loc=465271), offered as a choice instead of the Red Potion",
+			[]
+		],
+		"465274": ["**Contains:**\n- [Shop](#loc=465275)", []],
+		"465275": [
+			"**Sells:**\n- [Magical Shield](#loc=465276) - 160 Rupees\n- Key - 100 Rupees\n- [Blue Candle](#loc=465277) - 60 Rupees",
+			[]
+		],
+		"465276": ["**Location:** Sold at the [Shop](#loc=465275) for 160 Rupees", []],
+		"465277": ["**Location:** Sold at the [Shop](#loc=465275) for 60 Rupees", []],
+		"465278": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- Red Potion or [Heart Container](#loc=465280)",
+			[]
+		],
+		"465280": [
+			"**Location:** Inside the [Secret Cave](#loc=465278) offered as a choice instead of the Red Potion",
+			[]
+		],
+		"465281": ["**Contains:**\n- [White Sword](#loc=465282)", []],
+		"465282": [
+			"**Location:** Inside the [Cave](#loc=465281), requiring at least five heart containers to wield",
+			[]
+		],
+		"465283": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- 30 Rupees",
+			[]
+		],
+		"465284": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- [Shop](#loc=465285)",
+			[]
+		],
+		"465285": [
+			"**Sells:**\n- [Magical Shield](#loc=465286) - 90 Rupees\n- [Food](#loc=465287) - 100 Rupees\n- Heart - 10 Rupees",
+			[]
+		],
+		"465286": ["**Location:** Sold by the [Shop](#loc=465285) for 90 Rupees", []],
+		"465287": ["**Location:** Sold by the [Shop](#loc=465285) for 100 Rupees", []],
+		"465288": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- 100 Rupees",
+			[]
+		],
+		"465289": [
+			"**Requires:** Walking through the secret passage in the wall from the lower screen\n\n**Contains:**\n- 100 Rupees",
+			[]
+		],
+		"465290": [
+			"**Requires:** Touching the Armos to move them and reveal the passageway\n\n**Contains:**\n- [Shop](#loc=465291)",
+			[]
+		],
+		"465291": [
+			"**Sells:**\n- Key - 80 Rupees\n- [Blue Ring](#loc=465292) - 250 Rupees\n- [Food](#loc=465293) - 60 Rupees",
+			[]
+		],
+		"465292": ["**Location:** Sold at the [Shop](#loc=465291) for 250 Rupees", []],
+		"465293": ["**Location:** Sold at the [Shop](#loc=465291) for 60 Rupees", []],
+		"465294": ["**Transitions to:** [Dungeon One](#loc=465295)", []],
+		"465295": ["**Transitions to:** [Dungeon One](#loc=465294)", []],
+		"465303": ["**Location:** In the area down the staircase after pushing the block to the side", []],
+		"465304": ["**Location:** Dropped by the last Goriya in the room", []],
+		"465307": ["**Location:** Given as a reward for killing [Aquamentus](#loc=465306)", []],
+		"465309": ["**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- 30 Rupees", []],
+		"465310": [
+			"**Requires:** Touching the Armos to move them and reveal the passageway\n\n**Contains:**\n- 30 Rupees",
+			[]
+		],
+		"465311": ["**Contains:**\n- [Letter](#loc=465312)", []],
+		"465312": ["**Location:** Given by the Old Man inside the [Cave](#loc=465311)", []],
+		"465313": ["**Transitions to:** [Dungeon Two](#loc=465314)", []],
+		"465314": ["**Transitions to:** [Dungeon Two](#loc=465313)", []],
+		"465320": ["**Location:** Dropped after killing every enemy in the room", []],
+		"465323": ["**Location:** Given as a reward for killing [Dodongo](#loc=465322)", []],
+		"465325": [
+			"**Requires:** Giving the Old Lady the [Letter](#loc=465312)\n\n**Sells:**\n- Blue Potion - 40 Rupees\n- Red Potion - 68 Rupees",
+			[]
+		],
+		"465326": ["**Contains:**\n- [Potion Shop](#loc=465325)", []],
+		"465327": ["**Transitions to:** [Dungeon Three](#loc=465328)", []],
+		"465328": ["**Transitions to:** [Dungeon Three](#loc=465327)", []],
+		"465333": ["**Location:** In the area down the staircase", []],
+		"465338": ["**Location:** Given as a reward for killing [Manhandla](#loc=465337)", []],
+		"465340": [
+			"**Requires:** Using the [Raft](#loc=465333) from the dock below\n\n**Transitions to:** [Dungeon Four](#loc=465341)",
+			[]
+		],
+		"465341": ["**Transitions to:** [Dungeon Four](#loc=465340)", []],
+		"465346": [
+			"**Location:** In the area down the staircase after pushing the left block to the side in the center of the room",
+			[]
+		],
+		"465350": ["**Location:** Given as a reward for killing [Gleeok](#loc=465349)", []],
+		"465352": [
+			"**Location:** On top of a platform in the water, requiring the [Stepladder](#loc=465346) to reach it",
+			[]
+		],
+		"465353": [
+			"**Requires:** Using the [Raft](#loc=465333) from the dock below\n\n**Contains:**\n- Red Potion or [Heart Container](#loc=465354)",
+			[]
+		],
+		"465354": [
+			"**Location:** Inside the [Secret Cave](#loc=465353), offered as a choice instead of the Red Potion",
+			[]
+		],
+		"465355": ["**Location:** Underneath the Armos on the ground", []],
+		"465356": [
+			"**Requires:** Pushing the gravestone to the side\n\n**Contains:**\n- [Magical Sword](#loc=465357)",
+			[]
+		],
+		"465357": [
+			"**Location:** Inside the [Secret Cave](#loc=465356), requiring at least twelve heart containers to wield",
+			[]
+		],
+		"465358": ["**Transitions to:** [Dungeon Five](#loc=465359)", []],
+		"465359": ["**Transitions to:** [Dungeon Five](#loc=465358)", []],
+		"465365": [
+			"**Location:** In the area down the staircase after pushing the block to the side in the center of the room",
+			[]
+		],
+		"465367": ["**Location:** Sold by the Old Man for 100 Rupees", []],
+		"465372": ["**Location:** Given as a reward for killing [Digdogger](#loc=465371)", []],
+		"465374": ["**Transitions to:** [Dungeon Six](#loc=465375)", []],
+		"465375": ["**Transitions to:** [Dungeon Six](#loc=465374)", []],
+		"465382": [
+			"**Location:** In the area down the staircase after pushing the left block to the side in the center of the room",
+			[]
+		],
+		"465384": ["**Location:** Given as a reward for killing [Gohma](#loc=465383)", []],
+		"465386": [
+			"**Requires:** Using the [Recorder](#loc=465365) to drain the water from the small lake\n\n**Transitions to:** [Dungeon Seven](#loc=465387)",
+			[]
+		],
+		"465387": ["**Transitions to:** [Dungeon Seven](#loc=465386)", []],
+		"465390": ["**Transitions To:** [Underground Transition](#loc=465391)", []],
+		"465391": ["**Transitions To:** [Underground Transition](#loc=465390)", []],
+		"465392": ["**Transitions To:** [Underground Transition](#loc=465393)", []],
+		"465393": ["**Transitions To:** [Underground Transition](#loc=465392)", []],
+		"465397": ["**Location:** Sold by the Old Man for 100 Rupees", []],
+		"465399": ["**Transitions To:** [Underground Transition](#loc=465400)", []],
+		"465400": ["**Transitions To:** [Underground Transition](#loc=465399)", []],
+		"465403": ["**Location:** In the area down the staircase after pushing the block to the side", []],
+		"465405": ["**Location:** Given as a reward for killing [Aquamentus](#loc=465404)", []],
+		"465407": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Transitions to:** [Dungeon Eight](#loc=465408)",
+			[]
+		],
+		"465408": ["**Transitions to:** [Dungeon Eight](#loc=465407)", []],
+		"465410": ["**Location:** In the area down the staircase after pushing the block to the side", []],
+		"465418": ["**Location:** In the area down the staircase after pushing the block to the side", []],
+		"465420": ["**Transitions To:** [Underground Transition](#loc=465421)", []],
+		"465421": ["**Transitions To:** [Underground Transition](#loc=465420)", []],
+		"465422": ["**Location:** Given as a reward for killing [Gleeok](#loc=465419)", []],
+		"465424": [
+			"**Requires:** Using a bomb on the wall to expose the dungeon\n\n**Transitions to:** [Dungeon Nine](#loc=465425)",
+			[]
+		],
+		"465425": ["**Transitions to:** [Dungeon Nine](#loc=465424)", []],
+		"465430": ["**Location:** In the area down the staircase after pushing the block to the side", []],
+		"465433": [
+			"**Location:** In the area down the staircase after pushing the center of the right blocks to the side",
+			[]
+		],
+		"465434": ["**Transitions To:** [Underground Transition](#loc=465435)", []],
+		"465435": ["**Transitions To:** [Underground Transition](#loc=465434)", []],
+		"465436": ["**Transitions To:** [Underground Transition](#loc=465437)", []],
+		"465437": ["**Transitions To:** [Underground Transition](#loc=465436)", []],
+		"465438": ["**Transitions To:** [Underground Transition](#loc=465439)", []],
+		"465439": ["**Transitions To:** [Underground Transition](#loc=465438)", []],
+		"465440": ["**Transitions To:** [Underground Transition](#loc=465441)", []],
+		"465441": ["**Transitions To:** [Underground Transition](#loc=465440)", []],
+		"465442": ["**Transitions To:** [Underground Transition](#loc=465443)", []],
+		"465443": ["**Transitions To:** [Underground Transition](#loc=465442)", []],
+		"465444": ["**Transitions To:** [Underground Transition](#loc=465445)", []],
+		"465445": ["**Transitions To:** [Underground Transition](#loc=465444)", []],
+		"465448": ["**Quote:** Thanks Link, you're the hero of Hyrule.", []],
+		"465449": [
+			"**Contains:**\n- An Old Woman who will give a hint for the Lost Woods if she is given 30 Rupees: \n   - **\"GO NORTH, WEST, SOUTH, WEST TO THE FOREST OF MAZE.\"**",
+			[]
+		],
+		"465450": ["**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- 30 Rupees", []],
+		"465456": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- 10 Rupees",
+			[]
+		],
+		"465457": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465458": [
+			"**Contains:**\n- The Old Lady, hinting for Link to meet the Old Man in the graveyard, where you can acquire the [Magical Sword](#loc=465357):\n   - **\"MEET THE OLD MAN AT THE GRAVE.\"**",
+			[]
+		],
+		"465459": ["**Contains:**\n- [Shop](#loc=465460)", []],
+		"465460": [
+			"**Sells:**\n- [Magical Shield](#loc=465461) - 130 Rupees\n- Bomb - 20 Rupees\n- [Arrow](#loc=465462) - 80 Rupees",
+			[]
+		],
+		"465461": ["**Location:** Sold at the [Shop](#loc=465460) for 130 Rupees", []],
+		"465462": ["**Location:** Sold at the [Shop](#loc=465460) for 80 Rupees", []],
+		"465463": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- [Potion Shop](#loc=465464)",
+			[]
+		],
+		"465464": [
+			"**Requires:** Giving the Old Lady the [Letter](#loc=465312)\n\n**Sells:**\n- Blue Potion - 40 Rupees\n- Red Potion - 68 Rupees",
+			[]
+		],
+		"465465": [
+			"**Requires:** Using the [Power Bracelet](#loc=465355) to move the left rock out of the way\n\n**Contains:**\n- Three staircases, acting as a warping area around the map\n\n**Warps To:**\n- [Secret Cave](#loc=465466)\n- [Secret Cave](#loc=465467)\n- [Secret Cave](#loc=465468)",
+			[]
+		],
+		"465466": [
+			"**Requires:** Using the [Power Bracelet](#loc=465355) to move the left rock out of the way\n\n**Contains:**\n- Three staircases, acting as a warping area around the map\n\n**Warps To:**\n- [Secret Cave](#loc=465465)\n- [Secret Cave](#loc=465467)\n- [Secret Cave](#loc=465468)",
+			[]
+		],
+		"465467": [
+			"**Requires:** Using the [Power Bracelet](#loc=465355) to move the rock in the center of the field\n\n**Contains:**\n- Three staircases, acting as a warping area around the map\n\n**Warps To:**\n- [Secret Cave](#loc=465465)\n- [Secret Cave](#loc=465466)\n- [Secret Cave](#loc=465468)",
+			[]
+		],
+		"465468": [
+			"**Requires:** Using the [Power Bracelet](#loc=465355) to move the rock in the center of the field\n\n**Contains:**\n- Three staircases, acting as a warping area around the map\n\n**Warps To:**\n- [Secret Cave](#loc=465465)\n- [Secret Cave](#loc=465466)\n- [Secret Cave](#loc=465467)",
+			[]
+		],
+		"465469": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465470": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- A money making game where Link can gamble his Rupees",
+			[]
+		],
+		"465471": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- [Shop](#loc=465472)",
+			[]
+		],
+		"465472": [
+			"**Sells:**\n- [Magical Shield](#loc=465473) - 90 Rupees\n- [Food](#loc=465474) - 100 Rupees\n- Heart - 10 Rupees",
+			[]
+		],
+		"465473": ["**Location:** Sold at the [Shop](#loc=465472) for 90 Rupees", []],
+		"465474": ["**Location:** Sold at the [Shop](#loc=465472) for 100 Rupees", []],
+		"465475": ["**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- 30 Rupees", []],
+		"465476": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465477": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465478": [
+			"**Requires:** Giving the Old Lady the [Letter](#loc=465312)\n\n**Sells:**\n- Blue Potion - 40 Rupees\n- Red Potion - 68 Rupees",
+			[]
+		],
+		"465479": ["**Contains:**\n- [Shop](#loc=465480)", []],
+		"465480": [
+			"**Sells:**\n- [Magical Shield](#loc=465481) - 130 Rupees\n- Bomb - 20 Rupees\n- [Arrow](#loc=465482) - 80 Rupees",
+			[]
+		],
+		"465481": ["**Location:** Sold at the [Shop](#loc=465480) for 130 Rupees", []],
+		"465482": ["**Location:** Sold at the [Shop](#loc=465480) for 80 Rupees", []],
+		"465483": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- A money making game where Link can gamble his Rupees",
+			[]
+		],
+		"465484": ["**Contains:**\n- [Shop](#loc=465485)", []],
+		"465485": [
+			"**Sells:**\n- [Magical Shield](#loc=465486) - 90 Rupees\n- [Food](#loc=465487) - 100 Rupees\n- Heart - 10 Rupees",
+			[]
+		],
+		"465486": ["**Location:** Sold at the [Shop](#loc=465485) for 90 Rupees", []],
+		"465487": ["**Location:** Sold at the [Shop](#loc=465485) for 100 Rupees", []],
+		"465488": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465489": ["**Contains:**\n- [Potion Shop](#loc=465491)", []],
+		"465490": ["**Contains:**\n- [Potion Shop](#loc=465478)", []],
+		"465491": [
+			"**Requires:** Giving the Old Lady the [Letter](#loc=465312)\n\n**Sells:**\n- Blue Potion - 40 Rupees\n- Red Potion - 68 Rupees",
+			[]
+		],
+		"465492": [
+			"**Requires:** Walking into the waterfall\n\n**Contains:**\n- An Old Woman who will give a hint for the Lost Woods if she is given 20 Rupees:\n   - **\"GO UP, UP, THE MOUNTAIN AHEAD\"**",
+			[]
+		],
+		"465493": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- 30 Rupees",
+			[]
+		],
+		"465494": ["**Contains:**\n- [Shop](#loc=465495)", []],
+		"465495": [
+			"**Sells:**\n- [Magical Shield](#loc=465496) - 160 Rupees\n- Key - 100 Rupees\n- [Blue Candle](#loc=465497) - 60 Rupees",
+			[]
+		],
+		"465496": ["**Location:** Sold at the [Shop](#loc=465495) for 160 Rupees", []],
+		"465497": ["**Location:** Sold at the [Shop](#loc=465495) for 60 Rupees", []],
+		"465498": [
+			"**Requires:** Touching the Armos to move them and reveal the passageway\n\n**Contains:**\n- The Old Man, hinting at the location of [Dungeon Eight](#loc=465407):\n   - **\"SECRET IS IN THE TREE AT THE DEAD-END.\"**",
+			[]
+		],
+		"465499": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- [Potion Shop](#loc=465500)",
+			[]
+		],
+		"465500": [
+			"**Requires:** Giving the Old Lady the [Letter](#loc=465312)\n\n**Sells:**\n- Blue Potion - 40 Rupees\n- Red Potion - 68 Rupees",
+			[]
+		],
+		"465501": ["**Contains:**\n- A money making game where Link can gamble his Rupees", []],
+		"465502": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465503": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465504": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- A money making game where Link can gamble his Rupees",
+			[]
+		],
+		"465505": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- [Shop](#loc=465506)",
+			[]
+		],
+		"465506": [
+			"**Sells:**\n- [Magical Shield](#loc=465507) - 90 Rupees\n- [Food](#loc=465508) - 100 Rupees\n- Heart - 10 Rupees",
+			[]
+		],
+		"465507": ["**Location:** Sold at the [Shop](#loc=465506) for 90 Rupees", []],
+		"465508": ["**Location:** Sold at the [Shop](#loc=465506) for 100 Rupees", []],
+		"465509": [
+			"**Requires:** Touching the Armos to move them and reveal the passageway\n\n**Contains:**\n- 10 Rupees",
+			[]
+		],
+		"465510": ["**Contains:**\n- [Shop](#loc=465511)", []],
+		"465511": [
+			"**Sells:**\n- [Magical Shield](#loc=465512) - 160 Rupees\n- Key - 100 Rupees\n- [Blue Candle](#loc=465513) - 60 Rupees",
+			[]
+		],
+		"465512": ["**Location:** Sold at the [Shop](#loc=465511) for 160 Rupees", []],
+		"465513": ["**Location:** Sold at the [Shop](#loc=465511) for 60 Rupees", []],
+		"465514": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- [Potion Shop](#loc=465515)",
+			[]
+		],
+		"465515": [
+			"**Requires:** Giving the Old Lady the [Letter](#loc=465312)\n\n**Sells:**\n- Blue Potion - 40 Rupees\n- Red Potion - 68 Rupees",
+			[]
+		],
+		"465516": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- 100 Rupees",
+			[]
+		],
+		"465517": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- 10 Rupees",
+			[]
+		],
+		"465518": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465519": ["**Contains:**\n- [Shop](#loc=465520)", []],
+		"465520": [
+			"**Sells:**\n- [Magical Shield](#loc=465521) - 130 Rupees\n- Bomb - 20 Rupees\n- [Arrow](#loc=465522) - 80 Rupees",
+			[]
+		],
+		"465521": ["**Location:** Sold at the [Shop](#loc=465520) for 130 Rupees", []],
+		"465522": ["**Location:** Sold at the [Shop](#loc=465520) for 80 Rupees", []],
+		"465523": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- 10 Rupees",
+			[]
+		],
+		"465525": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- The Old Man, who will charge you 20 Rupees for entering",
+			[]
+		],
+		"465526": [
+			"**Requires:** Using the blue or red candle to burn down the tree\n\n**Contains:**\n- [Potion Shop](#loc=465527)",
+			[]
+		],
+		"465527": [
+			"**Requires:** Giving the Old Lady the [Letter](#loc=465312)\n\n**Sells:**\n- Blue Potion - 40 Rupees\n- Red Potion - 68 Rupees",
+			[]
+		],
+		"465528": ["**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- 30 Rupees", []],
+		"465529": [
+			"**Requires:** Using a bomb on the wall to expose the cave\n\n**Contains:**\n- A money making game where Link can gamble his Rupees",
+			[]
+		],
+		"596776": ["Fairy Pond", []],
+		"596777": ["Fairy Pond", []]
+	}
+}

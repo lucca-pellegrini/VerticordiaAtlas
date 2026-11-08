@@ -157,7 +157,8 @@
 					"tileSize": 256,
 					"background": "#3e7cb7"
 				}
-			]
+			],
+			"compact": "world/data.compact.json"
 		}
 	]
 }

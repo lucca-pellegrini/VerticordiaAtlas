@@ -1,0 +1,92 @@
+{
+	"v": 1,
+	"d": {
+		"75111": [
+			"On the rooftop. Use Flowmotion to access.",
+			[
+				{
+					"id": 5610,
+					"title": "Kh_2.8 Screenshot 2021.03.31 - 00.28.00.05",
+					"file_name": "bfbb7468-c9b3-4960-a424-0b1f82a822a9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bfbb7468-c9b3-4960-a424-0b1f82a822a9.jpg",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"75112": [
+			"",
+			[
+				{
+					"id": 5611,
+					"title": "Kh_2.8 Screenshot 2021.03.31 - 00.42.53.02",
+					"file_name": "bcb9b778-276f-4a3c-9746-e74a6171d638.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bcb9b778-276f-4a3c-9746-e74a6171d638.jpg",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"75116": ["Above, on a balcony ledge.", []],
+		"75121": [
+			"Use Reality Shift on a wrapped box to knock down the box stack agains the wall and reveal the treasure chest.",
+			[]
+		],
+		"75122": [
+			"Use Reality Shift on a wrapped box to knock down the box stack agains the wall and reveal the treasure chest.",
+			[]
+		],
+		"75123": ["Above, on a higher platform.", []],
+		"75125": ["Use Reality shift to destroy the stack of boxes and reveal the treasure chest.", []],
+		"75127": ["Use Flowmotion to get onto the upper balcony.", []],
+		"75128": ["Use Flowmotion to get onto the upper level.", []],
+		"75129": ["At the very top of the fountain.", []],
+		"75255": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★☆☆☆☆\n\n**Bonus Objective:** Take damage no more than 2 times!",
+			[]
+		],
+		"75256": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★☆☆☆☆\n\n**Bonus Objective:** Achieve victory without using △ commands!",
+			[]
+		],
+		"75257": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★☆☆☆☆\n\n**Bonus Objective:** Block at least 3 enemy attacks!",
+			[]
+		],
+		"75258": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★☆☆\n\n**Bonus Objective:** Pull off at least 3 successful counters!",
+			[]
+		],
+		"75259": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★☆☆\n\n**Bonus Objective:** Achieve victory without using △ commands!",
+			[]
+		],
+		"75260": [
+			"Defeat all the spirits!\n\n**Difficulty:** ★★★★☆\n\n**Bonus Objective:** Pull off at least 3 Flowmotion Attacks!",
+			[]
+		],
+		"75327": [
+			"**Difficulty:** ★★★★★\n\n**Boss:** [Hockomonkey](#loc=75328)\n\nNote: Secret Portals are all super-powered versions of bosses from the game's plot. See the boss' map marker for strategies.",
+			[]
+		],
+		"75328": [
+			"**Weaknesses:** Fire, Poison\n\nSora's first \"true\" boss.\n\nHockomonkey has a mix of long and short-range attacks. It will either be relentless and chase Sora around the area with its claws and boxing gloves, or stay atop the main building and attack from afar.\n\nOnce it's health is low enough, Hockomonkey might warp you and smash through the glass ceiling. If the boss does this, for the rest of the fight, it will only use its claws to attack.\n\nBecause this is an early fight, Sora won't have a lot of strategic options. Do your best to land Keyblade hits when Hockomonkey is standing still. If you have them, fire and poison commands are great for chipping away health while you avoid damage.",
+			[]
+		],
+		"75339": ["Speak to Neku.", []],
+		"75342": ["Clear [Special Portal 4](#loc=75258) in Traverse Town as Sora.", []],
+		"75343": ["Clear [Special Portal 1](#loc=75255) in Traverse Town as Sora.", []],
+		"75356": [
+			"**Recommended Level:** 50+\n\nThis is a secret, post-game boss available to both Sora and Riku in the Fountain Plaza. To gain the Ultima Keyblade for both characters, you'll need to beat him twice. Although you can technically fight this boss as early as Level 40, it's highly recommended to return later with better stats, keyblades, and commands.\n\nJulius uses ground-based melee attacks: charging, grabbing, punching, etc. The key is to keep your distance. Focus on movements that keep you in the air, and use long-range commands. Be very careful about landing hits with your Keyblade. Land a few hits, retreat, wait for another opening, and repeat—be patient!\n\nKeep an eye out for when Julius is stunned and goes slack. It's a good idea to keep one, mega-powerful close-range command in your deck for this moment, like Ars Arcanum or Icebreaker.\n\nAfter getting Julius down to half health, he will gain two very powerful abilities: a lightning barrage attack, and disabling your currently selected command. The latter ability is a huge problem. Disabling a command causes it to take 4-5 times longer to reload, which effectively removes it for the rest of the battle. Do ***not*** let him disable any Cure commands in your deck.\n\n**Glitch/Cheese Method:** If you have 8 x Balloon commands and enough Dream Eaters to have 5 x Magic Haste equipped—Congratulations! You can ignore everything above. Julius has a failsafe where he'll repeat his last attack if interrupted. Balloon is a great AOE attack that will interrupt Julius, and the Magic Hastes will keep your reload time low enough that you can essentially just spam the ability. This will keep Julius in a stunned loop while your barrage of Balloon attacks whittle down his health. With this method, Julius does not enter his second phase.",
+			[]
+		]
+	}
+}

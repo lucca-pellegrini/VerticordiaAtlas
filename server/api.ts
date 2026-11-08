@@ -15,6 +15,61 @@ import crypto from "node:crypto";
 import { existsSync, mkdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { promisify } from "node:util";
+import zlib from "node:zlib";
+
+const gzipAsync = promisify(zlib.gzip);
+const brotliCompressAsync = promisify(zlib.brotliCompress);
+
+export function acceptsEncoding(req: Request): { br: boolean; gz: boolean } {
+	const accept = req.headers.get("accept-encoding") || "";
+	return {
+		br: /\bbr\b/.test(accept),
+		gz: /\bgzip\b/.test(accept),
+	};
+}
+
+export function negotiateEncoding(req: Request): "br" | "gzip" | null {
+	const { br, gz } = acceptsEncoding(req);
+	if (br) return "br";
+	if (gz) return "gzip";
+	return null;
+}
+
+export async function compressApiResponse(req: Request, res: Response, minSize = 1024): Promise<Response> {
+	const encoding = negotiateEncoding(req);
+	if (!encoding) return res;
+	if (res.headers.has("Content-Encoding")) return res;
+
+	const body = await res.arrayBuffer();
+	if (body.byteLength <= minSize) {
+		return new Response(body, { status: res.status, headers: res.headers });
+	}
+
+	const compressed: Buffer =
+		encoding === "br"
+			? await brotliCompressAsync(Buffer.from(body), {
+					params: {
+						[zlib.constants.BROTLI_PARAM_QUALITY]: 5,
+					},
+				})
+			: await gzipAsync(Buffer.from(body), { level: 6 });
+
+	const headers = new Headers(res.headers);
+	headers.set("Content-Encoding", encoding);
+	headers.set("Content-Length", String(compressed.length));
+	const existingVary = headers.get("Vary");
+	if (!existingVary) {
+		headers.set("Vary", "Accept-Encoding");
+	} else if (!/\bAccept-Encoding\b/i.test(existingVary)) {
+		headers.set("Vary", `${existingVary}, Accept-Encoding`);
+	}
+
+	if (req.method === "HEAD") {
+		return new Response(null, { status: res.status, headers });
+	}
+	return new Response(new Uint8Array(compressed), { status: res.status, headers });
+}
 
 import type { ServerWebSocket } from "bun";
 import { createRemoteJWKSet, jwtVerify } from "jose";
@@ -469,6 +524,22 @@ export function createApi({
 	}
 
 	/* ---------- sessions ---------- */
+	// Only the public user object is cached (display data; every decision uses user.id). The session row (expiry,
+	// revocation, reauth_at) is always read from the DB. Cleared after every mutating request (see handle()).
+	const USER_CACHE_TTL = 30_000;
+	const USER_CACHE_MAX = 500;
+	const userCache = new Map<string, { user: UserAccount; at: number }>();
+	function cachedPublicUser(userId: string): UserAccount | null {
+		const t = now();
+		const hit = userCache.get(userId);
+		if (hit && t - hit.at < USER_CACHE_TTL && t >= hit.at) return hit.user;
+		const user = buildPublicUser(userId);
+		userCache.delete(userId);
+		if (!user) return null;
+		if (userCache.size >= USER_CACHE_MAX) userCache.delete(userCache.keys().next().value!);
+		userCache.set(userId, { user, at: t });
+		return user;
+	}
 	function sessionFromToken(token: string): SessionInfo | null {
 		if (!token) return null;
 		const row = db
@@ -488,7 +559,7 @@ export function createApi({
 			db.prepare("DELETE FROM sessions WHERE token_hash = ?").run(row.token_hash);
 			return null;
 		}
-		const user = buildPublicUser(row.user_id);
+		const user = cachedPublicUser(row.user_id);
 		if (!user) return null;
 		return {
 			token,
@@ -677,9 +748,12 @@ export function createApi({
 		onEvent?.("sync:push", `user ${userId.slice(0, 8)}... (${items.length} items)`);
 		return res;
 	}
-	const syncPull = (userId: string): SyncItem[] =>
+	// since: only rows touched at or after that time (inclusive, so equal timestamps are never lost); 0 = every row
+	const syncPull = (userId: string, since = 0): SyncItem[] =>
 		(
-			db.prepare("SELECT key, value, updated_at FROM user_data WHERE user_id = ?").all(userId) as {
+			db
+				.prepare("SELECT key, value, updated_at FROM user_data WHERE user_id = ? AND updated_at >= ?")
+				.all(userId, since) as {
 				key: string;
 				value: string | null;
 				updated_at: number;
@@ -786,7 +860,7 @@ export function createApi({
 	}
 
 	/* ---------- HTTP route handler ---------- */
-	async function handle(req: Request, url: URL, remoteAddress?: string | null): Promise<Response | null> {
+	async function handleRoute(req: Request, url: URL, remoteAddress?: string | null): Promise<Response | null> {
 		try {
 			const route = `${req.method} ${url.pathname}`;
 			const ip = clientIp(req, remoteAddress);
@@ -2168,11 +2242,13 @@ export function createApi({
 				const cookie = touch(req, session);
 				const headers = new Headers();
 				if (cookie) headers.append("Set-Cookie", cookie);
-				const row = db.prepare("SELECT user_id FROM sessions WHERE token_hash = ?").get(session.tokenHash) as {
-					user_id: string;
-				};
-				const userId = row.user_id;
-				if (req.method === "GET") return json(200, { items: syncPull(userId) }, headers);
+				const userId = session.user.id;
+				if (req.method === "GET")
+					return json(
+						200,
+						{ items: syncPull(userId, Math.max(0, Number(url.searchParams.get("since")) || 0)) },
+						headers,
+					);
 				const body = await readJson(req, 8 * 1024 * 1024);
 				const items: unknown[] = Array.isArray(body.items) ? body.items : [];
 				if (items.length > MAX_ITEMS || !items.every(validItem)) throw httpError(400, "bad sync request");
@@ -2188,6 +2264,18 @@ export function createApi({
 			console.error("api:", e);
 			return json(500, { error: "server error" });
 		}
+	}
+
+	async function handle(req: Request, url: URL, remoteAddress?: string | null): Promise<Response | null> {
+		let res: Response | null;
+		try {
+			res = await handleRoute(req, url, remoteAddress);
+		} finally {
+			// sync only writes user_data, which is not part of the cached user
+			if (req.method !== "GET" && req.method !== "HEAD" && url.pathname !== "/api/sync") userCache.clear();
+		}
+		if (!res) return null;
+		return compressApiResponse(req, res);
 	}
 
 	// expired sessions, sign-in states, and account tokens are removed at startup and hourly

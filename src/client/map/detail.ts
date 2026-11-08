@@ -6,8 +6,8 @@
 import { esc } from "../../shared/escape.ts";
 import { packMarker } from "../../shared/share-link.ts";
 import { svgIcon } from "../icons.ts";
-import { refreshMap } from "./map-view.ts";
-import { internalRefs, renderMd } from "./markdown.ts";
+import { detailsReady, ensureDetails, invalidateMarkerSource, refreshMap } from "./map-view.ts";
+import { ensureMarked, internalRefs, renderMd } from "./markdown.ts";
 import { scheduleSave } from "./profiles.ts";
 import { endPreview, syncSearchActive } from "./search.ts";
 import { applicable, onViewChanged, updateSidebar } from "./sidebar.ts";
@@ -41,8 +41,12 @@ export function onPopState(ev: PopStateEvent): void {
 	select(s.loc, { fly: true, push: false });
 }
 
-// Markers that the description links to, and the markers that link to this one.
-export function buildLinkIndex(): void {
+let linkIndexBuilt = false;
+let linkIndexPromise: Promise<void> | null = null;
+
+function syncBuildLinkIndex(): void {
+	state.outLinks = new Map();
+	state.inLinks = new Map();
 	for (const l of state.locs) {
 		const out = internalRefs(l.desc, l.id);
 		for (const t of l.links || []) if (t !== l.id && state.byId.has(t) && !out.includes(t)) out.push(t); // user links
@@ -52,6 +56,30 @@ export function buildLinkIndex(): void {
 			state.inLinks.get(t)!.push(l.id);
 		}
 	}
+	linkIndexBuilt = true;
+}
+
+// Markers that the description links to, and the markers that link to this one.
+export function buildLinkIndex(): void {
+	if (typeof marked === "undefined" || !detailsReady()) {
+		linkIndexBuilt = false;
+		return;
+	}
+	syncBuildLinkIndex();
+}
+
+export function ensureLinkIndex(): Promise<void> {
+	if (linkIndexBuilt && typeof marked !== "undefined" && detailsReady()) return Promise.resolve();
+	if (!linkIndexPromise) {
+		linkIndexPromise = Promise.all([ensureMarked(), ensureDetails()])
+			.then(() => {
+				syncBuildLinkIndex();
+			})
+			.finally(() => {
+				linkIndexPromise = null;
+			});
+	}
+	return linkIndexPromise;
 }
 
 export function linkedLocations(l: { id: number }): any[] {
@@ -223,9 +251,7 @@ export function armCardLinks(): void {
 		under?.closest?.("a[data-loc]") && body.contains(under) ? under.closest<HTMLElement>("a[data-loc]") : null;
 }
 
-export function renderDetail(): void {
-	const l = state.byId.get(state.selected);
-	if (!l) return closeDetail();
+function populateDetail(l: any): void {
 	const cat = state.cats.get(l.cat),
 		g = state.groupOfCat.get(l.cat);
 	const ok = applicable(l),
@@ -295,6 +321,20 @@ export function renderDetail(): void {
 	);
 	armCardLinks();
 	updateLinks();
+}
+
+export function renderDetail(): void {
+	const l = state.byId.get(state.selected);
+	if (!l) return closeDetail();
+	const id = l.id;
+	populateDetail(l);
+	if (!linkIndexBuilt || typeof marked === "undefined" || !detailsReady()) {
+		ensureLinkIndex().then(() => {
+			if (state.selected !== id) return;
+			populateDetail(l);
+			refreshMap();
+		});
+	}
 }
 
 declare const __MEDIA_URL__: string | undefined;
@@ -418,6 +458,7 @@ function openCtx(x: number, y: number, { title = "", items }: { title?: string; 
 export function setFound(id: number, on: boolean): void {
 	if (on) state.found.add(id);
 	else state.found.delete(id);
+	invalidateMarkerSource();
 	scheduleSave();
 	updateSidebar();
 	refreshMap();
@@ -569,6 +610,7 @@ function showLinkFallback(url: string): void {
 
 export function toggleFound(id: number): void {
 	state.found.has(id) ? state.found.delete(id) : state.found.add(id);
+	invalidateMarkerSource();
 	scheduleSave();
 	updateSidebar();
 	refreshMap();

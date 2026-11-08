@@ -921,6 +921,32 @@ body.searching .results-bar {
 #results li.result.found .r-title {
 	color: var(--ink-dim);
 }
+#results li.results-more-row {
+	list-style: none;
+	padding: 10px 14px 14px;
+	text-align: center;
+}
+#results .results-more-btn {
+	width: 100%;
+	padding: 7px 12px;
+	border: 1px solid var(--border-soft);
+	border-radius: var(--radius-s);
+	background: var(--surface-raised);
+	color: var(--ink-dim);
+	font-family: inherit;
+	font-size: 12px;
+	font-weight: 500;
+	cursor: pointer;
+	transition:
+		background var(--anim-fast),
+		color var(--anim-fast),
+		border-color var(--anim-fast);
+}
+#results .results-more-btn:hover {
+	background: var(--surface-active);
+	color: var(--ink);
+	border-color: var(--border);
+}
 /* while searching, the list's close button is a red X that closes the search: on a desktop too (see app.js syncSideClose) */
 #side-close:not(.search-close) {
 	display: none !important;

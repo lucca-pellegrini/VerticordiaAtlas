@@ -219,7 +219,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "hawkes-bay-nightcall/data.compact.json"
 		},
 		{
 			"slug": "hawkes-bay-the-mills-reverie",
@@ -236,7 +237,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "hawkes-bay-the-mills-reverie/data.compact.json"
 		},
 		{
 			"slug": "miami-the-finish-line",
@@ -253,7 +255,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "miami-the-finish-line/data.compact.json"
 		},
 		{
 			"slug": "miami-a-silver-tongue",
@@ -270,7 +273,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "miami-a-silver-tongue/data.compact.json"
 		},
 		{
 			"slug": "santa-fortuna-three-headed-serpent",
@@ -287,7 +291,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "santa-fortuna-three-headed-serpent/data.compact.json"
 		},
 		{
 			"slug": "santa-fortuna-embrace-of-the-serpent",
@@ -304,7 +309,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "santa-fortuna-embrace-of-the-serpent/data.compact.json"
 		},
 		{
 			"slug": "mumbai-chasing-a-ghost",
@@ -321,7 +327,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "mumbai-chasing-a-ghost/data.compact.json"
 		},
 		{
 			"slug": "mumbai-illusions-of-grandeur",
@@ -338,7 +345,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "mumbai-illusions-of-grandeur/data.compact.json"
 		},
 		{
 			"slug": "whittleton-creek-another-life",
@@ -355,7 +363,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "whittleton-creek-another-life/data.compact.json"
 		},
 		{
 			"slug": "whittleton-creek-a-bitter-pill",
@@ -372,7 +381,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "whittleton-creek-a-bitter-pill/data.compact.json"
 		},
 		{
 			"slug": "isle-of-sgail-the-ark-society",
@@ -389,7 +399,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "isle-of-sgail-the-ark-society/data.compact.json"
 		},
 		{
 			"slug": "new-york-golden-handshake",
@@ -406,7 +417,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "new-york-golden-handshake/data.compact.json"
 		},
 		{
 			"slug": "haven-island-the-last-resort",
@@ -423,7 +435,8 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			]
+			],
+			"compact": "haven-island-the-last-resort/data.compact.json"
 		}
 	]
 }

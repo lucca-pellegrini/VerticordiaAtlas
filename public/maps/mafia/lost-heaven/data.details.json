@@ -1,0 +1,1743 @@
+{
+	"v": 1,
+	"d": {
+		"48370": ["On the wooden planks against the wall", []],
+		"48372": ["In the office above [Salieri's Bar](#loc=48371)", []],
+		"48373": [
+			"**Requirements:** Chapter 3: Molotov Party\n\nFound at the start of the chapter - on a table inside [Salieri's Bar](#loc=48371)",
+			[]
+		],
+		"48375": [
+			"**Requirements:** Free Roam\n\nAll 5 Post Cards are hanging on the notice board in the corner. Each of the post cards spawns a hidden car.",
+			[]
+		],
+		"48376": [
+			"**Requirements:** Collect the [Post Card](#loc=48375)\n\nIn the garage at the back of the house.",
+			[]
+		],
+		"48377": [
+			"**Requirements:** Collect the [Post Card](#loc=48375)\n\nInside a warehouse, behind some crates. You'll need to shoot the crates to break them open and pass through.\n\n**Tip:** To get out of this garage, pull the levers in this order:\n- Middle\n- Left\n- Right",
+			[]
+		],
+		"48378": ["**Requirements:** Collect the [Post Card](#loc=48375)\n\nInside the garage", []],
+		"48379": [
+			"**Requirements:** Collect the [Post Card](#loc=48375)\n\nInside a garage among the stacks of crates in the courtyard. Jump over the fence to the south-east to access.",
+			[]
+		],
+		"48380": [
+			"**Requirements:** Collect the [Post Card](#loc=48375)\n\nInside a garage. Note: You'll need to fight the owner to to steal this car.",
+			[]
+		],
+		"48381": ["Found beside the prison wall - among a heap of rubbish.", []],
+		"48382": ["In garden - climb over the wall in the parking lot to the east to access.", []],
+		"48537": [
+			"**Requirements:** Chapter 4: Ordinary Routine\n\nIn the back room of the bakery, on a table with some bags.",
+			[]
+		],
+		"48538": ["**Availability:** Chapter 5: Fair Play\n\n**Location:** Inside the building, on the table.", []],
+		"48539": [
+			"**Requirements:** Chapter 7: Better Get Used To It\n\n**Location:** Inside the building, on the long curved bar counter.",
+			[]
+		],
+		"48540": [
+			"**Requirements:** Chapter 8\n\n**Location:** Inside [Hotel Corleone](#loc=48541), on the bed in Room 104.",
+			[]
+		],
+		"48542": [
+			"**Requirements:** Chapter 8: The Saint and the Sinner\n\nOn a bench, right beside the exit of St. Michael's Church",
+			[]
+		],
+		"48543": ["**Requirements:** None\n\nOn the wall overlooking the river where the benches are.", []],
+		"48545": ["Inside [Bertone's Autoservice](#loc=48374) - on a table beside some paint cans.", []],
+		"48546": ["**Requirements:** Free Roam  \n\nOn the promenade wall - next to the tables below the bridge.", []],
+		"48552": ["In the corner by some crates - jump over the wall to the south-east to access.", []],
+		"48554": ["**Requirements:** Chapter 8: The Saint and the Sinner\n\nInside the bathroom of Room 210.", []],
+		"48555": [
+			"**Requirements:** Chapter 10: Omerta\n\nDownstairs inside the bank - on a chair at the security desk.",
+			[]
+		],
+		"48556": [
+			"**Requirements:** Chapter 3: Molotov Party  \n\nOn a table inside the garage where you pick up the Molotovs.",
+			[]
+		],
+		"48557": ["**Location:** Outside [Clark's Motel](#loc=48551) on a stack of wooden planks.", []],
+		"48558": [
+			"**Requirements:** Chapter 5: Fair Play\n\nOn a stand outside - collect this after the race, or before it by running out of bounds.",
+			[]
+		],
+		"48559": [
+			"**Available:** Chapter 7: Better Get Used to It\n\n**Location:** In the back corridor of Biff's, on a covered sofa.",
+			[]
+		],
+		"48560": [
+			"**Available:** Chapter 8: The Saint and the Sinner  \n\nInside [Hotel Corleone](#loc=48541) on the ground floor. In an office in the south-east corner, on the desk.",
+			[]
+		],
+		"48561": [
+			"**Requirements:** Chapter 8: The Saint and the Sinner  \n\nAt the end of the \"Escape over the rooftops\" objective - on a table overlooking the road.",
+			[
+				{
+					"id": 94020,
+					"title": "",
+					"file_name": "e806e5bd-f28c-45f3-a955-99c0648075d3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e806e5bd-f28c-45f3-a955-99c0648075d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48562": [
+			"**Requirements:** Chapter 8: The Saint and the Sinner  \n\nInside the church - against the wall near the back of the church.",
+			[]
+		],
+		"48563": [
+			"**Requirements:** Chapter 9: A Trip to the Country\n\nIn the back room of the barn - on a shelf.",
+			[]
+		],
+		"48564": ["On a crate beside the small building.", []],
+		"48565": [
+			"**Requirements:** Chapter 11: Visiting Rich People  \n\nInside the mansion, on the ground floor.  On a trolley in the north-eastern room.",
+			[]
+		],
+		"48568": ["On the bench at the overlook", []],
+		"48569": ["On the ground beside some tables outside.", []],
+		"48570": ["Beside some blue benches outside Moulton's City Theater.", []],
+		"48571": ["On the ground in front of the Lost Heaven Courier newspaper stand.", []],
+		"48572": ["On the ground beside a bin", []],
+		"48573": ["On the steps in the alley", []],
+		"48574": ["On the ground beside a trash can", []],
+		"48575": ["On the ground by some cardboard boxes in the alley\n\nFound in middle of alley next to tree.", []],
+		"48576": ["Next to a bench in the cemetery.", []],
+		"48577": ["In the back garden of a house - on the stone grill.", []],
+		"48578": ["On the ground beside the bin and the stone wall at the overlook.", []],
+		"48579": ["On the ground on the walkway above the beach behind the diner - beside a blue bench.", []],
+		"48580": ["On top of one of the columns by the stadium gates", []],
+		"48581": ["In a small alcove in the alley - beside the bins.", []],
+		"48582": ["On the ground beside a bin - just outside the entrance to the Autodrome.", []],
+		"48583": ["On the ground beside a bin", []],
+		"48584": ["On the ground in the narrow alley.\nInaccessible from North end of alley.", []],
+		"48585": ["On the ground on the sidewalk - under a cart.", []],
+		"48586": [
+			"On the ground in the small alley",
+			[
+				{
+					"id": 109705,
+					"title": "",
+					"file_name": "135e473c-baf0-4fb6-9b16-bc90240a265e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/135e473c-baf0-4fb6-9b16-bc90240a265e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48587": ["On the ground beside the phone booth", []],
+		"48588": [
+			"**Requirements:** Chapter 7: Better Get Used to It\n\n**Location:** On a covered couch in the alley.",
+			[]
+		],
+		"48589": ["**Requirements:** Chapter 10: Omerta  \n\nIn the airport - inside the breakroom", []],
+		"48590": ["**Requirements:** Chapter 11: Visiting Rich People\n\nOn the sunbeds by the pool.", []],
+		"48591": [
+			"**Requirements:** Chapter 9: A Trip to the Country \n\nThis will be on the ground in the barn while defending Sam. Be sure to collect it before killing all the enemies - as you will be unable to return after.",
+			[]
+		],
+		"48592": [
+			"**Requirements:** Chapter 10: Omerta\n\nInside the bar where you find Little Tony - on the counter.",
+			[]
+		],
+		"48593": [
+			"**Requirements:** Chapter 9: A Trip to the Country  \n\nDuring the gun fight with Sam - inside a shack.\n\n**Note:** Only available during the mission",
+			[
+				{
+					"id": 109706,
+					"title": "",
+					"file_name": "239a01a2-97fe-42b9-8c8a-8c23aa2d89c4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/239a01a2-97fe-42b9-8c8a-8c23aa2d89c4.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48594": [
+			"On the wooden walkway up to the building",
+			[
+				{
+					"id": 134961,
+					"title": "",
+					"file_name": "10330e4d-802f-40ae-8e98-90b3d32c6f51.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/10330e4d-802f-40ae-8e98-90b3d32c6f51.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48595": [
+			"**Requirements:** Chapter 11: Visiting Rich People\n\nInside the mansion - in a storage room on the upper floor.",
+			[
+				{
+					"id": 94018,
+					"title": "",
+					"file_name": "c2efe90d-a1f4-445d-af59-37e733955ef3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2efe90d-a1f4-445d-af59-37e733955ef3.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48596": [
+			"**Requirements:** Chapter 14: Happy Birthday\n\nOn board the steam boat - inside the room where you talk to the janitor. Behind the engine.",
+			[]
+		],
+		"48597": ["**Requirements:** Chapter 15: You Lucky...\n\nOn top of the cargo crane platform.", []],
+		"48598": [
+			"**Requirements:** Chapter 17: Election Campaign\n\nInside the Prison Guard Tower. At the very bottom of the stairs. \n\n**Note:** Be sure to collect this before you go upstairs in the tower - otherwise you won't be able to come back and get it.",
+			[]
+		],
+		"48599": [
+			"**Requirements:** Free Roam, Read the _Letter From a Friend_ note on the pool table at Salieri's Bar\n\n**Reward:** Crazy Horse (Vehicle)",
+			[]
+		],
+		"48600": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar\n\n**Reward:** Mechanic Outfit",
+			[]
+		],
+		"48601": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar\n\n**Reward:** [Boxer Outfit](#loc=48877)",
+			[]
+		],
+		"48602": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar\n\n**Reward:** [Gold Tommy Gun](#loc=48879)",
+			[]
+		],
+		"48603": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar\n\n**Reward:**\n- [Clown Outfit](#loc=48809)\n- [Gold Shotgun](#loc=48878).",
+			[]
+		],
+		"48604": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar.\n\n**Reward:** [Smith Moray](#loc=945171).",
+			[]
+		],
+		"48605": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar.\n\n**Reward:** [Waybar Concept](#loc=945172).",
+			[]
+		],
+		"48606": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar.\n\n**Reward:** [Brubaker](#loc=945183).",
+			[]
+		],
+		"48607": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar, and complete Chapter 10.\n\n**Reward:** [Gold Revolver](#loc=947545)",
+			[]
+		],
+		"48608": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar\n\n**Reward:** [Mutagen](#loc=947544)",
+			[]
+		],
+		"48609": [
+			"**Requirements:** Free Roam, Complete [The Crazy Horse](#loc=48599), Collect 10 more notes at Salieri's Bar. Complete Chapter 8.\n\n**Note:** This phone booth will only be available at night, you can change the time of day by interacting with a painting in Salieri's Bar.",
+			[]
+		],
+		"48610": [
+			"**Requirements:** Complete all other Phone Booth missions, then go back to  Salieri's Bar and collect the final note upstairs in the office.\n\n**Reward:** Herbert Baskerville Outfit",
+			[]
+		],
+		"48702": ["On the well behind the church", []],
+		"48740": ["**Requirements:** Chapter 15: You Lucky...\n\nInside the train carriage on a wooden crate.", []],
+		"48741": [
+			"**Requirements:** Chapter 20: The Death of Art  \n\nInside Paulie's apartment building - top floor. On a table in the outer hall.",
+			[]
+		],
+		"48742": ["On the wooden decking - on a chair.", []],
+		"48743": ["**Location:** On the ground by the bin in the alley.", []],
+		"48746": [
+			"On the balcony of [Clark's Motel](#loc=48551). Use the pile of logs against the wall to climb up.",
+			[]
+		],
+		"48749": [
+			"**Requirements:** Chapter 12: Great Deal\n\nIn the maintenance room where you turn on the sprinklers - on the desk.",
+			[]
+		],
+		"48752": [
+			"**Requirements:** Chapter 17: Election Campaign\n\nAfter waking up in the prison - inside the first guard office you pass.",
+			[]
+		],
+		"48754": [
+			"**Requirements:** Chapter 20: The Death of Art\n\nInside an office in the art gallery - on a desk.",
+			[]
+		],
+		"48756": ["On the pier - beside the fishing line and chair.", []],
+		"48757": ["In the corner on the wooden platform, next to the steel chair", []],
+		"48758": ["**Note:** This portion of the map is slightly different to the in-game one.", []],
+		"48759": ["On the wooden pier.", []],
+		"48760": ["On the porch of the wooden cabin.", []],
+		"48761": ["Beside a cart in the alley.", []],
+		"48762": [
+			"At the end of the jetty",
+			[
+				{
+					"id": 109694,
+					"title": "",
+					"file_name": "e3f2f216-ee8b-4400-a13d-690428bbc4e6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3f2f216-ee8b-4400-a13d-690428bbc4e6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48763": [
+			"On the ground next to a folding chair inside a fenced enclosure containing three open sheds and a garage.",
+			[
+				{
+					"id": 94021,
+					"title": "",
+					"file_name": "4f773824-9920-4d4f-a9ea-79e69510e18e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f773824-9920-4d4f-a9ea-79e69510e18e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48764": [
+			"On top of the stacks of wooden planks in the yard.",
+			[
+				{
+					"id": 109695,
+					"title": "",
+					"file_name": "2513e5c5-fa28-4216-a196-b3aa5c597033.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2513e5c5-fa28-4216-a196-b3aa5c597033.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48765": ["At the end of the pier - by the fishing gear.", []],
+		"48766": [
+			"On an armchair at the front entrance to a shack right next to the road. There's a burning oil barrel nearby too.",
+			[]
+		],
+		"48767": ["Inside a small wooden cabin on a mattress.", []],
+		"48768": ["In the small alley beside the house - next to the rubbish dumpsters.", []],
+		"48769": ["On the front porch of Oakwood Church", []],
+		"48770": ["At the front gates of the large building - by the rubbish bins in the corner.", []],
+		"48771": [
+			"**Requirements:** Chapter 3: [Molotov Party](#loc=48871)\n\nInside the garage at Salieri's Bar - on a table on the ground floor.",
+			[]
+		],
+		"48772": [
+			"**Requirements:** Chapter 13: Bon Appetit  \n\nInside the kitchen at [Pepe's Restaurant](#loc=48547). By the table near the window.",
+			[]
+		],
+		"48773": [
+			"**Requirements:** Chapter 14: Happy Birthday\n\nInside the kitchen on the boat. The kitchen is on the middle deck near the bow of the boat",
+			[]
+		],
+		"48774": [
+			"**Requirements:** Chapter 18: Just For Relaxation\n\nInside the small office in the north-eastern corner of the building.",
+			[]
+		],
+		"48775": [
+			"**Requirements:** Chapter 20: The Death of Art\n\nOn a bookshelf in the corner of the the corridor.",
+			[]
+		],
+		"48776": ["Under the pergola.", []],
+		"48777": ["On the wooden jetty - beside the chair and fishing rod.", []],
+		"48778": ["By some benches overlooking the sea.", []],
+		"48779": ["At the end of the wooden pier.", []],
+		"48780": ["Outside the outhouse to the right of the blue shed", []],
+		"48781": ["On top of the Overlook - on the wall.", []],
+		"48782": ["In the narrow alley beside the building, inside the fence - behind some black rubbish bags.", []],
+		"48783": ["Beside the lamp post with the bin.", []],
+		"48784": ["On the upper level - on the wall.", []],
+		"48785": ["Inside the loading bay", []],
+		"48786": [
+			"Go down the stairs and at the corner of the pier on your right - next to a small boat and some fishing gear.",
+			[]
+		],
+		"48787": [
+			"On a stone bench.",
+			[
+				{
+					"id": 134964,
+					"title": "",
+					"file_name": "58811884-aa38-4b44-aaf9-39d9dbaf4555.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58811884-aa38-4b44-aaf9-39d9dbaf4555.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48788": [
+			"**Requirements:** Chapter 12: Great Deal\n\nInside the small office in the parking garage, ground floor.",
+			[]
+		],
+		"48789": [
+			"**Requirements:** Chapter 14: Happy Birthday\n\nAt the docks - before boarding the boat. Up some stairs on a table.",
+			[]
+		],
+		"48790": [
+			"**Requirements:** Chapter 14: Happy Birthday\n\nTop deck of the boat - beside the enclosed shelter.",
+			[]
+		],
+		"48791": [
+			"**Requirements:** Chapter 15: You Lucky...\n\nInside the restaurant - on a table near the bar counter.",
+			[]
+		],
+		"48792": [
+			"**Requirements:** Chapter 16: Creme de la Creme\n\nIn the hangar - on the large wooden crate in the center of the room.",
+			[]
+		],
+		"48793": [
+			"**Requirements:** Chapter 17: Election Campaign\n\nInside a prison cell on the western wall of the prison, top floor. You'll need to pull a lever in the north-eastern corner of the second floor to open the cells.",
+			[]
+		],
+		"48795": [
+			"**Requirements:** Chapter 17: Election Campaign\n\nIn the library inside the prison - on a desk by the window.",
+			[]
+		],
+		"48797": [
+			"**Requirements:** Chapter 18: Just For Relaxation\n\nUpper level - in the south-eastern office. On the desk by the window.",
+			[]
+		],
+		"48799": [
+			"**Requirements:** Chapter 19: Moonlighting\n\nUpper level - in a room on the southern side of the building. On the desk.",
+			[]
+		],
+		"48801": ["**Requirements:** Chapter 20: The Death of Art\n\nIn the living room of the house.", []],
+		"48806": ["In a short alley way, on the left between the stacks of crates.", []],
+		"48807": [
+			"In a small box in the corner between railings and the building.",
+			[
+				{
+					"id": 134894,
+					"title": "",
+					"file_name": "7d6a5a1d-7140-46ea-814d-b7b1842638da.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d6a5a1d-7140-46ea-814d-b7b1842638da.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48808": ["In a box against the wall of the building (in the corner).", []],
+		"48809": ["Complete the [Pennies From Hell](#loc=48603) side mission.", []],
+		"48810": ["**Requirements:** Free Roam\n\nOn the front porch of the house.", []],
+		"48811": ["Inside the open wooden hut - on the frame bed.", []],
+		"48814": [
+			"On the rooftop of the diner. To access, drive a vehicle onto the elevated area to the east of the diner and there will be a wooden ramp that you use to drive across.",
+			[]
+		],
+		"48815": [
+			"**Requirements:** Chapter 20: The Death of Art\n\nAt the very end of the hallway - on the window sill.",
+			[]
+		],
+		"48816": ["**Requirements:** Chapter 20: The Death of Art\n\nOn a dresser in the hall inside the house.", []],
+		"48817": [
+			"**Requirements:** Chapter 19: Moonlighting\n\nIn the underground of the bank - in a small office with the medical cabinet (on the desk).",
+			[]
+		],
+		"48818": [
+			"**Requirements:** Chapter 18: Just For Relaxation\n\nInside the Federal Customs Impound building - upstairs inside the north-east office.  On the windowsill.",
+			[]
+		],
+		"48819": [
+			"**Requirements:** Chapter 17: Election Campaign\n\nInside a prison cell, after having fallen from the guard tower.",
+			[]
+		],
+		"48820": ["**Requirements:** Chapter 16: Créme de la Créme\n\nOn a stack of wooden planks in the open.", []],
+		"48821": ["**Requirements:** Chapter 10: Omerta  \n\nOn a blue barrel in the corner of the yard.", []],
+		"48822": ["**Requirements:** Chapter 9: A Trip to the Country\n\nOn a table under the wooden structure.", []],
+		"48823": [
+			"**Requirements:** Chapter 11: Visiting Rich People  \n\nInside the mansion - ground floor. On a poker table in the south-eastern room.",
+			[]
+		],
+		"48824": [
+			"**Requirements:** Chapter 14: Happy Birthday\n\nInside the building - beside the cash register.",
+			[]
+		],
+		"48825": [
+			"**Requirements:** Chapter 15: You Lucky...\n\nInside the building with the medicine cabinet - on the table.",
+			[]
+		],
+		"48826": ["Reward for completing [Alien Infiltration](#loc=48609).", []],
+		"48827": ["**Location:** Jump over wall - fox is in the corner.", []],
+		"48828": ["**Location:** Jump over wall - fox is by wooden scaffolding.", []],
+		"48829": [
+			"**Location:** On the balcony of [Clark's Motel](#loc=48551). Use the pile of logs against the wall on the opposite side of the motel to climb up.",
+			[]
+		],
+		"48830": ["**Location:** Inside shack on side of road near unmarked dirt path.", []],
+		"48831": [
+			"**Location:** On top of some rocks at the side of the road.",
+			[
+				{
+					"id": 134962,
+					"title": "",
+					"file_name": "ddc40ded-e8e7-478a-8ea8-f127b5aed364.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddc40ded-e8e7-478a-8ea8-f127b5aed364.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48832": [
+			"**Location:** On the Airport sign - climb barrel to the side to get up.",
+			[
+				{
+					"id": 134963,
+					"title": "",
+					"file_name": "8135a3ff-67e7-4ca2-995d-712c5beddcbb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8135a3ff-67e7-4ca2-995d-712c5beddcbb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48833": ["**Location:** Climb the rocks - fox is near tree.", []],
+		"48834": [
+			"Under the wooden bridge",
+			[
+				{
+					"id": 109696,
+					"title": "",
+					"file_name": "e5046422-2eaf-4184-91ee-a9cf043bb062.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5046422-2eaf-4184-91ee-a9cf043bb062.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48835": [
+			"Inside the boat with the white fox graffiti.",
+			[
+				{
+					"id": 112981,
+					"title": "",
+					"file_name": "4968e179-44ed-49bf-97e9-738a5db9b2d8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4968e179-44ed-49bf-97e9-738a5db9b2d8.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48836": [
+			"**Location:** Inside shack.",
+			[
+				{
+					"id": 134960,
+					"title": "",
+					"file_name": "c5c32e84-4046-4112-a9d1-4a4eb88b3a3f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5c32e84-4046-4112-a9d1-4a4eb88b3a3f.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48837": [
+			"**Location:** Hidden in a flower bed at the edge of the parking lot.",
+			[
+				{
+					"id": 94022,
+					"title": "",
+					"file_name": "255d48d5-a54e-4d49-bc07-0eb876115b67.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/255d48d5-a54e-4d49-bc07-0eb876115b67.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48838": ["**Location:** Jump over the wall - fox is inside shack.", []],
+		"48839": [
+			"**Location:** Jump over the fence to get under the railroad - fox is next to a tractor.",
+			[
+				{
+					"id": 94023,
+					"title": "",
+					"file_name": "de76dfe6-ed31-4bd4-b26a-6eb891d1ca07.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de76dfe6-ed31-4bd4-b26a-6eb891d1ca07.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48840": [
+			"**Location:** Jump over fence - fox is immediately to the right by a barrel",
+			[
+				{
+					"id": 109701,
+					"title": "",
+					"file_name": "59e89924-8395-4551-9f97-12bba11cd5d8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/59e89924-8395-4551-9f97-12bba11cd5d8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48841": ["**Location:** Inside the garage - in the office in the back.", []],
+		"48842": [
+			"**Location:** At the back of fenced off area.",
+			[
+				{
+					"id": 109702,
+					"title": "",
+					"file_name": "b3ddb547-21ac-4739-8738-9d5ad860ffcb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3ddb547-21ac-4739-8738-9d5ad860ffcb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48843": [
+			"**Location:** On top of the bridge - find the symbol along the path way and jump over. Be careful; the ledge is narrow.\n\n**Note:** You won't be able to get back up from here, so you will need to make your way down to the road.",
+			[
+				{
+					"id": 109692,
+					"title": "",
+					"file_name": "d6af085f-82c2-47c5-922e-4a82ecb7a18a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6af085f-82c2-47c5-922e-4a82ecb7a18a.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48844": [
+			"**Location:** Jump on pallets on to small building.",
+			[
+				{
+					"id": 109700,
+					"title": "",
+					"file_name": "1ffdfc4f-a325-40ce-a7fc-f2fbaa87e225.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ffdfc4f-a325-40ce-a7fc-f2fbaa87e225.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48845": ["**Location:** Up the lighthouse stairs - around the walkway.", []],
+		"48846": ["**Location:** At the end of the wooden pathway on the water.", []],
+		"48847": ["**Location:** Inside the shack.", []],
+		"48848": ["**Location:** Inside the fenced off area - look for fox symbol on the fence and jump over.", []],
+		"48849": ["**Location:** Jump over brick wall with fox symbol - it's under the metal structure.", []],
+		"48850": ["**Location:** Next to the wood pile.", []],
+		"48851": [
+			"**Location:** Look for the fox symbol on the brick wall and jump over. The fox is on the wood planks",
+			[]
+		],
+		"48852": [
+			"In the boat, in front of the old shack.",
+			[
+				{
+					"id": 134957,
+					"title": "",
+					"file_name": "a4366535-008f-4a06-b874-65819990fe1e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a4366535-008f-4a06-b874-65819990fe1e.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48853": ["**Location:** On top of the well in the back yard.", []],
+		"48854": [
+			"**Location:** Inside shack,",
+			[
+				{
+					"id": 94017,
+					"title": "",
+					"file_name": "40fe137a-c5db-4249-a1c0-e411981d7327.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/40fe137a-c5db-4249-a1c0-e411981d7327.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48855": [
+			"**Location:** On front porch of house.",
+			[
+				{
+					"id": 134956,
+					"title": "",
+					"file_name": "49928a73-9b06-4a4c-b657-96a0df13aa64.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49928a73-9b06-4a4c-b657-96a0df13aa64.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48856": [
+			"**Location:** In the backyard on a wood stump,",
+			[
+				{
+					"id": 94024,
+					"title": "",
+					"file_name": "326b2652-d4d8-433f-b7e9-bb4b0040394c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/326b2652-d4d8-433f-b7e9-bb4b0040394c.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48857": [
+			"**Location:** Starting at the diner go down the set of stairs on the right, then go down the next set of stairs until you reach the round section. Go down the set of stairs on the left and follow the pathway to the left until you hit some rocks - look over ledge to find fox.",
+			[]
+		],
+		"48858": [
+			"**Location:** Jump wall using the crates - next to bins.\n\n**Note:** You may need to change the weather to get the crates to spawn. To change weather go into meeting room at Saliere's Bar and interact with the paintings.",
+			[
+				{
+					"id": 109699,
+					"title": "",
+					"file_name": "18556a29-3864-437b-adb2-1c45fe63b198.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/18556a29-3864-437b-adb2-1c45fe63b198.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48859": ["**Location:** In between two pillars outside the church.", []],
+		"48860": [
+			"**Location:** At the top under an angel statue.",
+			[
+				{
+					"id": 94026,
+					"title": "",
+					"file_name": "e9467079-39f0-4819-aee4-5d1f9e136f33.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9467079-39f0-4819-aee4-5d1f9e136f33.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48861": [
+			"**Location:** Down a narrow alleyway. You may need to change the weather to make this fox spawn.",
+			[
+				{
+					"id": 94028,
+					"title": "",
+					"file_name": "3a7f7834-a3c6-4b21-aa11-6a908f6e36d3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a7f7834-a3c6-4b21-aa11-6a908f6e36d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48862": [
+			"**Location:** In the Hooverville - on a chair behind a large well-kept open air building.",
+			[
+				{
+					"id": 109698,
+					"title": "",
+					"file_name": "b2d41d9b-9670-4c21-9c19-813ba4bba9c8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b2d41d9b-9670-4c21-9c19-813ba4bba9c8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48863": [
+			"**Location:** Around the outside of the garage under a window, near the dumpsters on a car seat.",
+			[]
+		],
+		"48864": [
+			"**Location:** Inside shack.",
+			[
+				{
+					"id": 109704,
+					"title": "",
+					"file_name": "ba05ae2c-1282-4f27-b57e-b47e03d7bbae.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ba05ae2c-1282-4f27-b57e-b47e03d7bbae.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 109703,
+					"title": "",
+					"file_name": "b5ee6546-8281-49e7-a40f-7aa5bef7b4e9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b5ee6546-8281-49e7-a40f-7aa5bef7b4e9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48865": [
+			"**Location:** Jump over wall - fox is hidden behind crates at the back.",
+			[
+				{
+					"id": 134959,
+					"title": "",
+					"file_name": "641801ff-3788-4f2f-b2da-96481cd9150b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/641801ff-3788-4f2f-b2da-96481cd9150b.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48866": [
+			"**Location:** Down narrow alleyway next to bar.",
+			[
+				{
+					"id": 134958,
+					"title": "",
+					"file_name": "c2ecf37e-b8dc-4171-bdf6-9b70893fc46e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2ecf37e-b8dc-4171-bdf6-9b70893fc46e.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48867": [
+			"**Location:** Jump fence - fox is next to barrel.",
+			[
+				{
+					"id": 94029,
+					"title": "",
+					"file_name": "a536cc1c-a8ef-422e-8705-63a4ce309edf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a536cc1c-a8ef-422e-8705-63a4ce309edf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48868": [
+			"**Location:** Jump wall - fox is next to burning barrel.",
+			[
+				{
+					"id": 134955,
+					"title": "",
+					"file_name": "b9031e49-d6be-4baa-ad69-1ce8a2646167.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9031e49-d6be-4baa-ad69-1ce8a2646167.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48869": [
+			"**Location:** Jump fence - fox is under metal structure.",
+			[
+				{
+					"id": 94030,
+					"title": "",
+					"file_name": "12df0605-26ce-4792-be47-2b3093a45a29.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/12df0605-26ce-4792-be47-2b3093a45a29.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"48870": ["_Chapter 2_", []],
+		"48871": ["_Chapter 3_", []],
+		"48872": ["**Availability:** Chapter 3\n\nOn the table by the pool table.", []],
+		"48873": [
+			"Not Classy Trophy/Achievement Location. \n\nAt the end of Chapter 5 (Fair Play) after the race, bring Paulie here instead of the mission marker (his home).",
+			[]
+		],
+		"48874": ["Here you can jump on a boat as it passes and go on a tour of the sea!", []],
+		"48877": ["Reward for completing [Explosive Situation](#loc=48601).", []],
+		"48878": ["Reward for completing [Phone Booth - Pennies From Hell](#loc=48603)", []],
+		"48879": ["Reward for completing [Professional Protection](#loc=48602).", []],
+		"48880": ["Here you can climb over the railings and go upstairs to the train tracks above.", []],
+		"48885": ["Reward for completing [Moderate Velocity](#loc=48600)", []],
+		"48886": ["Reward for completing the [Curse of the Baskervilles](#loc=48610).", []],
+		"48887": [
+			"**Location:** On the front door, \n\n**Reads:** Wanted for Murder and Marriage Fraud, Kristyna Drapalova",
+			[]
+		],
+		"48896": [
+			"**Location:** On the small building in the center of the square\n\n**Reads:** Wanted for Murder",
+			[]
+		],
+		"48897": [
+			"**Location:** On the Beech Hill Lighthouse building  \n\n**Reads:** Wanted for Smuggling: Cheng-Hao Chu A.K.A. Albatross",
+			[]
+		],
+		"48898": ["**Location:** On the right wall of the main door at the rail station.", []],
+		"48899": [
+			"**Location:** On the shack.\n\n**Reads:** Wanted for Bootlegging: Dmitry Makarenko aka Two Cats",
+			[]
+		],
+		"48900": [
+			"**Reads:** Wanted for Smuggling: Lubomir Dekan A.K.A. Dee-Dee\n\n**Location:** On the wooden walkway at the waterfront - on the stone wall.",
+			[]
+		],
+		"48901": ["At the gas station", []],
+		"48903": [
+			"**Location:** On a shack beside a burning oil barrel\n\n**Reads:** Wanted for Indecent Exposure: Greg Twentyman A.K.A. Two Tens",
+			[]
+		],
+		"48912": [
+			"**Location:** Inside doorway of house.\n\n**Reads:** Wanted for Fraud & Impression of Household Goods Salesman. Thomas aka Vacuum",
+			[]
+		],
+		"49038": [
+			"Here you can see the titanic (as in Mafia 2)",
+			[
+				{
+					"id": 134954,
+					"title": "",
+					"file_name": "d9f2ea80-e326-471f-a208-447b6b864516.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9f2ea80-e326-471f-a208-447b6b864516.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"49105": [
+			"**Location:** On the front gate of The Red Flower Mansion.\n\n**Reads:** Wanted for Fraud: Lenka Snajdrhonsova A.K.A. Bunny",
+			[]
+		],
+		"49121": [
+			"**Location:** On the corner pillar of the tall column monument.\n\n**Reads:** Wanted for Money Laundering: Carlos Poriano A.K.A. Ice Box",
+			[]
+		],
+		"49122": [
+			"**Location:** On the building - in a small alcove\n\n**Reads:** Wanted for Homicide: Victoria Matthews A.K.A. Vixen",
+			[]
+		],
+		"49123": [
+			"Ramp you can use to jump across to the roof of the building to collect [Gangsters Monthly #5: The Mafia Three](#loc=48814)",
+			[]
+		],
+		"49124": [
+			"**Location:** On the door of the Home Appliances building\n\n**Reads:** Wanted for Continued Criminal Enterprise: Rafael Hayduk A.K.A. Locke",
+			[]
+		],
+		"49125": [
+			"**Location:** Under the bridge\n\n**Reads:** Wanted for Disorderly Conduct & Murder: Petr Capek A.K.A. Madhead",
+			[]
+		],
+		"49126": [
+			"**Location:** On the front gates of The Museum of History\n\n**Reads:** Wanted for Identity Theft: Pablo Artime A.K.A. The Double",
+			[]
+		],
+		"49129": [
+			"**Location:** On the wall of the Tires and Accessories building.\n\n**Reads:** Wanted for Indecent Exposure: Denby Grace A.K.A. \"D\"",
+			[]
+		],
+		"49130": [
+			"**Location:** On the front of the ruined church.  \n\n**Reads:** Wanted for Arson: Scarlett Sinclair A.K.A. Red Smoke",
+			[]
+		],
+		"49131": [
+			"**Location:** On the side of the building under the wooden roof.\n\n**Reads:** Wanted for Illegal Manufacture of Alcohol: Petr Dostal A.K.A. Liqueur",
+			[]
+		],
+		"49155": [
+			"**Location:** On the wall beside some trash cans\n\n**Reads:** Wanted for Bank Robbery: Bert Ruiter A.K.A. Kern",
+			[]
+		],
+		"49156": ["**Location:** On the wall of the building next to the wooden shack.", []],
+		"49157": ["In the gas station", []],
+		"49158": ["At the gas station", []],
+		"49159": ["**Availability:** Chapter 4\n\n**Location:** On the table in the garage.", []],
+		"49160": ["**Requirements:** Chapter 4: Ordinary Routine\n\n**Location:** On the table in the bakery.", []],
+		"49161": [
+			"**Location:** On the building\n\n**Reads:** Wanted for Teacup Poisoning: Eva Agricolova A.K.A. Lemon Lady",
+			[]
+		],
+		"49162": [
+			"**Location:** On the front of the large red brick building  \n\n**Reads:** Wanted for Bootlegging: Jaroslav Sasinka A.K.A. Beer Baron",
+			[]
+		],
+		"49163": [
+			"**Location:** On the wall  \n\n**Reads:** Wanted for Pickpocketing: Anastasia Efimova A.K.A. Dancing Fingers",
+			[]
+		],
+		"49164": ["**Location:** On the ground floor, just inside the motel, on the table.", []],
+		"49667": ["Wanted for murder", []],
+		"49668": ["Wanted for Forgery", []],
+		"49669": ["Wanted for bootlegging", []],
+		"49682": [
+			"**Location:** On the right wall next to the entry into an alleyway\n\n**Reads:** Wanted for Loitering: Theodore Hilhorst A.K.A Bobcat",
+			[]
+		],
+		"49915": ["Wanted for rum smuggling", []],
+		"51642": ["**Availability:** Mission : A Trip to the Country", []],
+		"51644": [
+			"**Availability:** Chapter 5: Fair Play\n\n**Location:** On the table in the corner to the right of the door.",
+			[]
+		],
+		"51646": ["On the window near phone booth", []],
+		"55335": ["Med kit at the gas station", []],
+		"55336": ["On the wall in a narrow alleyway", []],
+		"57188": [
+			"**Location:** On the side/corner of the building\n\n**Reads:** Wanted for car theft. Gonzalo Denis aka Little Rat",
+			[]
+		],
+		"57950": [
+			"The Grand Imperial Bank is a national bank with branch offices in both Lost Heaven and Empire Bay.",
+			[]
+		],
+		"63707": ["On the right side of the hotel in an alley", []],
+		"63708": ["On the wall of house", []],
+		"63709": ["On the start of bridge near the \"Ray`s\" and \"Steinberg Family Clothier\"", []],
+		"63804": ["At the corner under the sign \"Grand Imperial Bank\"", []],
+		"63835": ["On the wall of house", []],
+		"64500": ["On the wall", []],
+		"123455": ["Allows you to change cars during Freeride - Just like at Salieri's Garage!", []],
+		"123456": [
+			"On an old armchair after entering the old prison courtyard by climbing a ladder from the street.\n\nCan be found during Chapter 17.",
+			[]
+		],
+		"123457": [
+			"**Availability:** Chapter 17 : Election Campaign\n\nOn a table in **Salieri's Bar** after Salieri's briefing at the beginning of Chapter 17 : Election Campaign",
+			[]
+		],
+		"123458": ["At the gas station.", []],
+		"159560": ["On the wall", []],
+		"159561": ["a.k.a ZGRND", []],
+		"159562": ["a.k.a Henry", []],
+		"219733": [
+			"Wanted for Con Artistry Annya Widyaputri a.k.a. Sweet Tea",
+			[
+				{
+					"id": 27817,
+					"title": "",
+					"file_name": "88d48026-c8ac-440f-9a02-92050879bb37.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/88d48026-c8ac-440f-9a02-92050879bb37.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219734": [
+			"Wanted for Serial Murder Viliam Korbel a.k.a. Fiend",
+			[
+				{
+					"id": 27818,
+					"title": "",
+					"file_name": "64ee14c9-e97d-46f1-b492-50e779163c6f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/64ee14c9-e97d-46f1-b492-50e779163c6f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219735": [
+			"Wanted for Smuggling of Exotic Animals Samuel S Waite a.k.a. Sammy \"Seal\" Waite",
+			[
+				{
+					"id": 27819,
+					"title": "",
+					"file_name": "fde375fc-2820-438c-9cfd-7e45cf1434c3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fde375fc-2820-438c-9cfd-7e45cf1434c3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219736": [
+			"Wanted for Bank Robbery Anita Tabaczkiewicz a.k.a. Juni",
+			[
+				{
+					"id": 27820,
+					"title": "",
+					"file_name": "d3fc7258-a4ab-4a47-a75a-43eb5c08e02f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d3fc7258-a4ab-4a47-a75a-43eb5c08e02f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219737": [
+			"Wanted for Fraud, Bootlegging & Impersonating Law Inforcement Alec Salter a.k.a. The Salt",
+			[
+				{
+					"id": 27821,
+					"title": "",
+					"file_name": "752e0c40-7fdc-4101-976c-6bb022ed1317.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/752e0c40-7fdc-4101-976c-6bb022ed1317.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219738": [
+			"Wanted for Forgery Tomas Ruzicka a.k.a. Roseman",
+			[
+				{
+					"id": 27822,
+					"title": "",
+					"file_name": "e1b4248b-4fff-4c25-8eb5-59e56c9d04d5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e1b4248b-4fff-4c25-8eb5-59e56c9d04d5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219739": [
+			"Wanted for Extortion, Fraud, Fencing. Hooliganism, Smuggling, Highjacking & Robbery Ben Retan a.k.a. Jimmy Two-Face",
+			[
+				{
+					"id": 27823,
+					"title": "",
+					"file_name": "79fde4c4-4312-4df4-a76a-0a73773030ad.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79fde4c4-4312-4df4-a76a-0a73773030ad.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219740": [
+			"Wanted for Bootlegging Geert De Cnodder a.k.a. The Belgian Brewer",
+			[
+				{
+					"id": 27824,
+					"title": "",
+					"file_name": "288a0916-2034-421e-aff8-75784f5a2afa.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/288a0916-2034-421e-aff8-75784f5a2afa.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219741": [
+			"Wanted for All The Crimes Julia Radulska a.k.a. The Godmother",
+			[
+				{
+					"id": 27825,
+					"title": "",
+					"file_name": "ba8f8790-18fa-4015-83c6-1a74ee3b4465.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ba8f8790-18fa-4015-83c6-1a74ee3b4465.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219742": [
+			"Wanted for art theft Tom Pastyrik a.k.a. Pasta",
+			[
+				{
+					"id": 27826,
+					"title": "",
+					"file_name": "5c6437b9-95aa-41f1-a7d9-d12487bd97f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5c6437b9-95aa-41f1-a7d9-d12487bd97f9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219743": [
+			"Wanted for racketeering & bootlegging Keith Peters a.k.a. Colonel K",
+			[
+				{
+					"id": 27827,
+					"title": "",
+					"file_name": "1bc97d8e-b2aa-434c-8128-ecdd4243db6c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1bc97d8e-b2aa-434c-8128-ecdd4243db6c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219744": [
+			"Sam Neal a.k.a. Aces\n\nWanted for money laundering",
+			[
+				{
+					"id": 27828,
+					"title": "",
+					"file_name": "e6389aa6-fca6-4133-b03a-faa7d33bc8e4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6389aa6-fca6-4133-b03a-faa7d33bc8e4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219745": [
+			"Wanted for forgery Pavol Debnár",
+			[
+				{
+					"id": 27829,
+					"title": "",
+					"file_name": "afb66b41-e416-4555-970f-35f8a45193d0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/afb66b41-e416-4555-970f-35f8a45193d0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219746": [
+			"Wanted for pickpocketing Michaela Kramplova a.k.a. Beanie",
+			[
+				{
+					"id": 27830,
+					"title": "",
+					"file_name": "6629793a-b424-42c4-9a1b-6ee3c990a7cd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6629793a-b424-42c4-9a1b-6ee3c990a7cd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219747": [
+			"Wanted for car theft Tomas Faigl a.k.a. Gestalgor",
+			[
+				{
+					"id": 27831,
+					"title": "",
+					"file_name": "513a7634-5d14-4b47-bd5e-d3964127b6a3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/513a7634-5d14-4b47-bd5e-d3964127b6a3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219748": [
+			"Wanted for rioting Eliska Nohavicova a.k.a. Lulu",
+			[
+				{
+					"id": 27832,
+					"title": "",
+					"file_name": "66d04bf3-5a53-47db-9f21-dbfd8a7f0c6a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66d04bf3-5a53-47db-9f21-dbfd8a7f0c6a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219749": [
+			"Wanted for forgery Eric Droessiger",
+			[
+				{
+					"id": 27833,
+					"title": "",
+					"file_name": "a844707c-7770-4e07-84ed-79cd2cad4c2f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a844707c-7770-4e07-84ed-79cd2cad4c2f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219750": [
+			"Wanted for murder Monika Madr a.k.a. Sugar",
+			[
+				{
+					"id": 27834,
+					"title": "",
+					"file_name": "7a439108-6330-4afa-983f-22a55371058f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7a439108-6330-4afa-983f-22a55371058f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219751": [
+			"Wanted for arson Jan Nohavica a.k.a. Flamey",
+			[
+				{
+					"id": 27835,
+					"title": "",
+					"file_name": "e8af6592-724e-42d4-b63e-aa01649d25f4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e8af6592-724e-42d4-b63e-aa01649d25f4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219752": [
+			"Wanted for affray Petr Zavesky a.k.a. Skinny Pete",
+			[
+				{
+					"id": 27836,
+					"title": "",
+					"file_name": "ee5023c5-3cfe-4cf7-9fc0-8c605742cb32.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee5023c5-3cfe-4cf7-9fc0-8c605742cb32.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219753": [
+			"Wanted for murder Alper Isler a.k.a. Il Turco",
+			[
+				{
+					"id": 27837,
+					"title": "",
+					"file_name": "cda24645-e4be-4968-964c-4d1f3bbabe53.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cda24645-e4be-4968-964c-4d1f3bbabe53.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219754": [
+			"Wanted for bootlegging Sam Roberts Pace a.k.a. Harpy",
+			[
+				{
+					"id": 27838,
+					"title": "",
+					"file_name": "77ee3dc2-7ebf-4013-9d19-51382609cc02.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/77ee3dc2-7ebf-4013-9d19-51382609cc02.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219755": [
+			"",
+			[
+				{
+					"id": 27839,
+					"title": "",
+					"file_name": "f56cd15b-cb2b-469e-a3fa-87540c7ae95a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f56cd15b-cb2b-469e-a3fa-87540c7ae95a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219756": [
+			"",
+			[
+				{
+					"id": 27840,
+					"title": "",
+					"file_name": "fb66876a-7416-457c-923c-782f0259fa21.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fb66876a-7416-457c-923c-782f0259fa21.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219757": [
+			"On the wall at the gas refill point",
+			[
+				{
+					"id": 27841,
+					"title": "",
+					"file_name": "605d2119-77ee-4b0c-8728-780fa387c0b8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/605d2119-77ee-4b0c-8728-780fa387c0b8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219758": [
+			"",
+			[
+				{
+					"id": 27842,
+					"title": "",
+					"file_name": "50ce0f87-0101-48f4-a2c5-4e077d4534e1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50ce0f87-0101-48f4-a2c5-4e077d4534e1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"219761": [
+			"Garage",
+			[
+				{
+					"id": 31796,
+					"title": "",
+					"file_name": "de560658-5033-4300-9146-a0cc0f8356f7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de560658-5033-4300-9146-a0cc0f8356f7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"267631": [
+			"Lost Heaven Auto Supply Co.",
+			[
+				{
+					"id": 31797,
+					"title": "",
+					"file_name": "4ea97996-b3c6-46f9-896a-61fd2bab6c7e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ea97996-b3c6-46f9-896a-61fd2bab6c7e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"267632": [
+			"",
+			[
+				{
+					"id": 31798,
+					"title": "",
+					"file_name": "de13fd73-99c7-4735-954b-8ab67e9ec150.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de13fd73-99c7-4735-954b-8ab67e9ec150.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"267633": [
+			"Underside of the bridge on its support structure next to tires and boxes\n\nJakub Knapek aka The Bunny  \nwanted for Blackmail and Murder",
+			[]
+		],
+		"399637": ["**Availability:** Chapter 3\n\nOn the bar next to Luigi.", []],
+		"499366": [
+			"Chinatown garage",
+			[
+				{
+					"id": 107335,
+					"title": "",
+					"file_name": "4cd8b9a5-1724-4ad2-be4e-5b28f65276a2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4cd8b9a5-1724-4ad2-be4e-5b28f65276a2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"499367": [
+			"",
+			[
+				{
+					"id": 107336,
+					"title": "",
+					"file_name": "8fcbc500-2ef4-45e5-b357-5abeef1b4f9c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8fcbc500-2ef4-45e5-b357-5abeef1b4f9c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"499368": [
+			"Inside the warehouse on a wall near the office",
+			[
+				{
+					"id": 107337,
+					"title": "",
+					"file_name": "c34a8a55-ee4f-454e-9fd0-544aed768811.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c34a8a55-ee4f-454e-9fd0-544aed768811.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"505756": [
+			"After picking up the Mystery Fox above the tunnel, a haycart sits at the bottom of the big drop you have to make to the ground - referencing the Leaps of Faith performed by assassins in the Assassin's Creed series.\n\n (It does not save you from fall damage.)",
+			[
+				{
+					"id": 109697,
+					"title": "",
+					"file_name": "adbcb01c-dd7f-43d0-864c-5ff8ee9290be.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/adbcb01c-dd7f-43d0-864c-5ff8ee9290be.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"505757": [
+			"**Location:** Next to the door of the building left of the fountain.\n\n**Reads:** Wanted for Forgery: Susanne A. Ellingsen Dead or Alive",
+			[]
+		],
+		"595891": ["On the wall of gas station.", []],
+		"595892": [
+			"**Location:** On south side of cigar stand.\n\n**Reads:** Wanted for Murder: Rebecca Sampson A.K.A. Becky Bruiser",
+			[]
+		],
+		"945170": ["_Chapter 1_", []],
+		"945171": ["Reward for completing [Betty](#loc=48604).", []],
+		"945172": ["Reward for completing [Mister Fancy Bike](#loc=48605).", []],
+		"945173": ["_Chapter 4_", []],
+		"945174": ["_Chapter 5_", []],
+		"945175": ["_Chapter 7_", []],
+		"945176": ["_Chapter 9_", []],
+		"945177": ["_Chapter 10_", []],
+		"945178": ["_Chapter 11_", []],
+		"945179": ["_Chapter 12_", []],
+		"945180": ["_Chapter 13_", []],
+		"945181": ["_Chapter 14_", []],
+		"945182": ["Reward for completing [The Crazy Horse](#loc=48599).", []],
+		"945183": ["Reward for completing [The Old Switcheroo](#loc=48606).", []],
+		"945184": ["_Chapter 6_", []],
+		"945185": ["_Chapter 8_", []],
+		"945186": ["_Chapter 15_", []],
+		"945188": ["Available: Chapter 9\n\nMeeting room", []],
+		"945189": ["Available: Chapter 9", []],
+		"945190": ["**Available:** Chapter 8\n\n**Location:** Next to the pool table.", []],
+		"945191": ["**Available:** Chapter 8\n\n**Location:** Inside reception.", []],
+		"945192": ["**Available:** Chapter 8\n\n**Location:** Near Room 202.", []],
+		"945193": ["**Available:** Chapter 8\n\n**Location:** Inside Michelle's room, Room 208.", []],
+		"945194": ["**Available:** Chapter 8\n\n**Location:** Manager's room on the top floor.", []],
+		"945195": ["**Available:** Chapter 8\n\n**Location:** Manager's room on the top floor.", []],
+		"945196": ["Nazi Demands Met In Munich.", []],
+		"947544": ["Reward for completing [Electric Trick Track](#loc=48608).", []],
+		"947545": ["Reward for completing [Dock Block](#loc=48607).", []],
+		"947546": ["*Chapter 16*", []],
+		"947547": ["*Chapter 17*", []],
+		"947548": ["*Chapter 18*", []],
+		"947549": ["*Chapter 19*", []],
+		"947550": ["*Chapter 20*", []]
+	}
+}

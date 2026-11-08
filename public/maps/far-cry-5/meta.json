@@ -373,7 +373,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "montana/data.compact.json"
 		},
 		{
 			"slug": "vietnam",
@@ -390,7 +391,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "vietnam/data.compact.json"
 		},
 		{
 			"slug": "mars",
@@ -407,7 +409,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "mars/data.compact.json"
 		}
 	]
 }

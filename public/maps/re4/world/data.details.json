@@ -1,0 +1,755 @@
+{
+	"v": 1,
+	"d": {
+		"271825": [
+			"**Obtained in:** Chapter 1  \n**Location:** On the body of the Ganado who just attacked you, against the eastern wall.  \n**Utility:** Opens the locked door to the basement.",
+			[]
+		],
+		"271826": ["**Location:** On the bed.  \n**Note:** Read the inscription on the back of the charm.", []],
+		"271827": ["**Location:** On the floor, near the door.  \n**Note:** Read the badge's ID.", []],
+		"271829": [
+			"**Location:** On a wooden ladder, just right of the entrance.  \n**Effect:** Restores a moderate amount of Health.",
+			[]
+		],
+		"271830": [
+			"**Location:** On a tree stump, on the side of the back alley.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"271831": [
+			"**Location:** On the ground floor, in the kitchen beside the oven.  \n**Effect:** Completely restores Leon's Health.",
+			[]
+		],
+		"271832": [
+			"**Location:** At the back of a wooden cart.  \n**Effect:** Restores a moderate amount of Health.",
+			[]
+		],
+		"271833": [
+			"**Location:** At the end of the southeastern alley, beside the sheds.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"271834": [
+			"**Location:** On the second floor of the tower.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"271835": [
+			"**Location:** On the ground floor of the windmill, behind the ladder on a wooden crate.  \n**Effect:** Increases Leon's maximum Health.",
+			[]
+		],
+		"271836": ["**Location:** On the desk.", []],
+		"271837": ["**Location:** On the desk.", []],
+		"271838": [
+			"**Location:** Outside the house, against the northern corner.  \n**Associated Request:** [Destroy the Blue Medallions](#loc=271862)",
+			[]
+		],
+		"271839": [
+			"**Location:** On the back of a wooden pillar, inside the barn. Cross the barn and circle around the west side to shoot it.  \n**Associated Request:** [Destroy the Blue Medallions](#loc=271862)",
+			[]
+		],
+		"271840": [
+			"**Location:** Hidden in the rafters of the shed.  \n**Associated Request:** [Destroy the Blue Medallions](#loc=271862)",
+			[]
+		],
+		"271841": [
+			"**Location:** Hanging from the windmill's balcony. Drop down on the path behind to shoot it.  \n**Associated Request:** [Destroy the Blue Medallions](#loc=271862)",
+			[
+				{
+					"id": 110711,
+					"title": "",
+					"file_name": "d9dc4cf1-0786-47ae-ae22-003bc0634d42.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9dc4cf1-0786-47ae-ae22-003bc0634d42.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"271842": ["**Location:** Against the western wall.", []],
+		"271843": ["**Location:** On a wooden crate.", []],
+		"271844": ["**Location:** On the ground floor, in the kitchen left of the oven.", []],
+		"271845": ["**Location:** On the 2nd floor, on the bed.", []],
+		"271846": ["**Location:** On a wooden crate.", []],
+		"271847": ["**Location:** On the 2nd floor, on a wooden ladder.", []],
+		"271848": [
+			"**Location:** On the rooftop. After climbing on the 2nd floor, climb out the western window and circle around the northern walkway.  \n**Locked?:** No  \n**Value:** 2,500 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"271849": [
+			"**Location:** In the northern house, in a wooden case.  \n**Locked?:** No  \n**Value:** 3,000 Pesetas  \n**Sockets:** No",
+			[]
+		],
+		"271850": [
+			"**Location:** In a silver case, attached to a windmill. Shoot it down to drop the pendant.  \n**Locked?:** No  \n**Value:** 5,000 Pesetas  \n**Sockets:** None  \n**Note:** Make sure to shoot the case while it is to the right of the windmill. Otherwise, the case will fall in the filthy well and yield a Dirty Pearl Pendant worth 1,000 Pesetas.",
+			[]
+		],
+		"271851": [
+			"**Location:** On the path behind the windmill, in a large chest.  \n**Locked?:** No  \n**Value:** 4,000 Pesetas  \n**Sockets:** 2x Round",
+			[]
+		],
+		"271852": [
+			"**Obtained in:** Chapter 1  \n**Location:** On the ground floor, on a wooden table in the center of the barn.  \n**Utility:** Activates the Windmill Mechanism.",
+			[]
+		],
+		"271853": [
+			"**Location:** On the 2nd floor, against the western wall.  \n**Note:** Requires the [Wooden Cog](#loc=271852).",
+			[]
+		],
+		"271854": ["**Location:** On the loom, right of the entrance.  \n**Type:** Grenade", []],
+		"271855": [
+			"**Location:** Mounted on the wall, on the 2nd floor just beyond the staircase.  \n**Type:** Shotgun",
+			[]
+		],
+		"271856": ["**Location:** In the glass cabinet on the 2nd floor.  \n**Type:** Grenade", []],
+		"271857": ["**Location:** On the ground floor, on a cabinet against the wall.  \n**Type:** Melee", []],
+		"271858": [
+			"**Location:** On the ground floor, in the drawer of the desk in the southern corner.  \n**Locked?:** No  \n**Value:** 3,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"271859": ["**Location:** In the 2nd floor, in the corner.", []],
+		"271860": ["**Location:** On the ground floor, left of the barn's entrance.", []],
+		"271861": [
+			"**Location:** Hanging in the window frame of the barn, on the 2nd level.  \n**Associated Request:** [Destroy the Blue Medallions](#loc=271862)",
+			[]
+		],
+		"271862": [
+			"**Location:** On a pillar, on the right side of the barred path.  \n**Reward:** 3x Spinel  \n**Medallions:**\n- [Blue Medallion](#loc=271838)\n- [Blue Medallion](#loc=271839)\n- [Blue Medallion](#loc=271840)\n- [Blue Medallion](#loc=271841)\n- [Blue Medallion](#loc=271861)",
+			[]
+		],
+		"271863": [
+			"**Location:** Between the windmill and the barn, on a pile of wooden pallets  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"271865": ["**Location:** In the northern room, on the floor by the wooden chair.", []],
+		"271866": [
+			"**Location:** On a wooden platform near the roof; shoot it from the inside through a hole in the roof.",
+			[]
+		],
+		"271868": ["**Location:** On the table, in the middle of the room.", []],
+		"271869": ["**Location:** In the southern corner of the room.", []],
+		"271871": [
+			"**Location:** In the crate, at the end of the first hallway.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"271872": [
+			"**Location:** On a corpse, at the end of the final hallway of the basement.  \n**Type:** Melee",
+			[]
+		],
+		"271873": [
+			"**Location:** In the northern-most brick oven, against the western wall.  \n**Locked?:** No  \n**Value:** 4,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"271874": ["**Location:** In the southern-most brick oven, against the western wall.", []],
+		"271875": ["**Location:** On the wooden table, just outside the Abandonned Factory.", []],
+		"271876": ["**Location:** On the wooden table, just outside the Abandonned Factory.", []],
+		"271877": ["**Location:** On the wooden crate just beyond the Typewriter.", []],
+		"271878": [
+			"**Location:** On a boiler, just right of the Merchant himself.  \n**Request:** Exterminate all the rats (3)\n- [Rat #1](#loc=275363)\n- [Rat #2](#loc=275364)\n- [Rat #3](#loc=275368)\n   \n**Area:** Abandoned Factory  \n**Reward:** 3x Spinel",
+			[]
+		],
+		"271880": [
+			"**Location:** On the drawer, just beside the window.  \n**Effect:** Raises Leon's maximum Health.",
+			[]
+		],
+		"271881": [
+			"**Location:** In the brick oven against the back wall.  \n**Effect:** Fully restores Leon's Health.",
+			[]
+		],
+		"271882": [
+			"**Location:** In a large chest, underneath the wooden roof.  \n**Locked?:** No  \n**Value:** 3,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"271883": ["**Location:** On the side of the large metal door. Requires [Hexagonal Emblem](#loc=271884)", []],
+		"271884": [
+			"**Obtained in:** Chapter 2  \n**Location:** Slotted in a wooden frame.  \n**Utility:** Unlocks the [Hexagon-shaped Slot](#loc=271883).",
+			[]
+		],
+		"271885": ["**Location:** In a small wooden coffer, on the shelves.", []],
+		"271886": [
+			"**Location:** In the drawer, just beside the door.  \n**Locked?:** Yes - Small Key  \n**Value:** 5,000 Pesetas  \n**Sockets:** 3x Round",
+			[]
+		],
+		"272242": ["**Location:** On a metal barrel, on the side of the path.", []],
+		"272243": ["**Location:** On the cinder block, just right of the crawlspace.", []],
+		"272244": [
+			"**Location:** In a large chest, at the end of the passage beyond the crawlspace.  \n**Locked?:** No  \n**Value:** 4,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272245": [
+			"**Location:** In a silver censer, high up amidst the canopy. Shoot it to bring it down.  \n**Locked?:** No  \n**Value:** 4,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272246": ["**Location:** On the wooden table, south of the shack.", []],
+		"272247": [
+			"**Location:** On the wooden table, south of the shack.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"272248": ["**Location:** In the northeastern corner of the shack, behind a pile of hay.", []],
+		"272249": [
+			"**Location:** In a silver case, above the well. Shoot it down to drop the pendant.  \n**Locked?:** No  \n**Value:** 5,000 Pesetas  \n**Sockets:** None  \n**Note:** Make sure to shoot the wooden beam to block the well. Otherwise, the case will fall in the filthy well and yield a Dirty Pearl Pendant worth 1,000 Pesetas.",
+			[]
+		],
+		"272250": [
+			"**Location:** At the end of a hallway, in the drawer of the deck.  \n**Locked?:** No  \n**Value:** 3,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272251": ["**Location:** On pile of paper in the western corner.", []],
+		"272252": [
+			"**Location:** On top of the table, in the corner.  \n**Note:** Turn the photo around to read the writing behind it.",
+			[]
+		],
+		"272253": ["**Location:** Inside the metal oven.  \n**Effect:** Restores a small amount of Health", []],
+		"272254": ["**Location:** On the wooden shelves  \n**Type:** Grenade", []],
+		"272255": ["**Location:** On the wooden cabinet.", []],
+		"272256": ["**Location:** On a wooden table, just up the staircase.", []],
+		"272257": [
+			"**Location:** Just beside the typewriter, on the table  \n**Effect:** Restores a moderate amount of Health.",
+			[]
+		],
+		"272258": ["**Location:** On a wooden drawer in the hallway.", []],
+		"272259": ["**Location:** At the end of the hallway. Requires the [Crystal Marble](#loc=272260)", []],
+		"272260": [
+			"**Obtained in:** Chapter 2  \n**Location:** Behind the locked door; use the combination Crops, Pig and Baby, as hinted in [Illuminados 4:3](#loc=272258).  \n**Utility:** Opens the [Door with Round Slot](#loc=272259).",
+			[]
+		],
+		"272261": ["**Location:** On the altar, against the western wall.", []],
+		"272263": [
+			"**Obtained in:** Chapter 2  \n**Location:** In the drawer of the wooden desk.  \n**Utility:** Opens the [Door with Insignia](#loc=272265)  \n**Warning:** Grabbing this item will end Chapter 2; make sure you grabbed everything else before.",
+			[]
+		],
+		"272264": ["**Location:** Automatically received upon starting Chapter 3", []],
+		"272266": [
+			"**Location:** In a drawer, against the southern wall.  \n**Locked?:** Yes - Small Key  \n**Value:** 8,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272267": ["**Location:** Town Hall - Opened in Chapter 3 using the [Insignia Key](#loc=272263)", []],
+		"272268": ["**Location:** In the crate on the shelves, just left of the entrance.", []],
+		"272269": ["**Location:** At the end of the wooden table.", []],
+		"272271": ["**Location:** In a case, at the end of the table  \n**Effect:** Fully restores Leon's Health.", []],
+		"272273": ["**Location:** At the end of the wooden table, in front of the merchant.", []],
+		"272274": ["**Location:** At the end of the wooden table, in front of the merchant.", []],
+		"272275": ["**Location:** Against the wall of the Town Hall.  \n**Reward:** 4x Spinel", []],
+		"272276": ["**Location:** In a ladder, in the northeast corner.", []],
+		"272277": ["**Location:** In front of the church. Requires the [Church Insignia](#loc=272401)", []],
+		"272279": ["**Location:** On a ladder, underneath the wooden roofing.", []],
+		"272280": [
+			"**Location:** In a large chest, on a table under the roofing.  \n**Locked?:** No  \n**Value:** 7,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272282": ["**Location:** Against the wall, opposite the door.", []],
+		"272283": ["**Location:** On a wooden desk, in the corner.", []],
+		"272284": ["**Location:** On the corner of the table.  \n**Note:** Inspect the picture", []],
+		"272294": [
+			"**Location:** Dangling from a wooden beam; shoot it during Chapter 3, and retrieve it on the lower beach in Chapter 4.  \n**Locked?:** No  \n**Value:** 6,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272295": [
+			"**Location:** On the last beam of the wooden fence.  \n**Reward:** Spinel x4  \n**Medallions:**\n- [Blue Medallion](#loc=272297)\n- [Blue Medallion](#loc=272308)\n- [Blue Medallion](#loc=272313)\n- [Blue Medallion](#loc=272315)\n- [Blue Medallion](#loc=272316)",
+			[]
+		],
+		"272296": ["**Location:** On a coil of wire, on the side of the quarry's entrance.", []],
+		"272297": [
+			"**Location:** Dangling from a wooden scaffolding, high above the gate.  \n**Associated Request:** [Destroy the Blue Medallions 2](#loc=272295)",
+			[]
+		],
+		"272298": [
+			"**Location:** In a silver censor, dangling from wires above the quarry.  \n**Locked?:** No  \n**Value:** 3,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272299": ["**Location:** On cloth sacks, against the wall", []],
+		"272301": ["**Location:** On a wooden beam, left of the merchant.", []],
+		"272302": ["**Location:** On a small, round table.", []],
+		"272303": [
+			"**Obtained in:** Chapter 3  \n**Location:** In a large chest, on a wooden chest beside the stairs.  \n**Utility:** Open the [Stone Pedestal](#loc=272311)",
+			[]
+		],
+		"272304": ["**Location:** On top of the wooden crates, at the end of the dock beyond the barrel.", []],
+		"272305": ["**Location:** On a wooden table, just past the elevator", []],
+		"272306": [
+			"Use the shooting range to and beat certain scores to earn tokens. Spend those tokens to win random charms for your briefcase.",
+			[]
+		],
+		"272307": ["**Location:** On the wooden wall.", []],
+		"272308": [
+			"**Location:** Under the pier; shoot it from the higher dock to the south.  \n**Associated Request:** [Destroy the Blue Medallions 2](#loc=272295)",
+			[]
+		],
+		"272309": ["**Location:** In the desk drawer, in the corner of the shed.  \n**Type:** Melee", []],
+		"272310": ["**Location:** In the corner of the shed.  \n**Effect:** Increases Leon's maximum Health.", []],
+		"272311": [
+			"**Location:** Just north of the shed, under a stone roof.\n**Requirements:**\n- [Hexagon Piece A](#loc=272303)\n- [Hexagon Piece B](#loc=272317)\n- [Hexagon Piece C](#loc=272411)",
+			[]
+		],
+		"272312": ["**Location:** On a pile of sacks, inside the shed.  \n**Type:** Grenade", []],
+		"272313": [
+			"**Location:** Dangling from a corner, inside the shed.  \n**Associated Request:** [Destroy the Blue Medallions 2](#loc=272295)",
+			[]
+		],
+		"272314": [
+			"**Location:** In a silver censor, dangling from a wooden beam behind the shed.  \n**Locked?:** No  \n**Value:** 7,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272315": [
+			"**Location:** Past the wooden fence, near the water.  \n**Associated Request:** [Destroy the Blue Medallions 2](#loc=272295)",
+			[]
+		],
+		"272316": [
+			"**Location:** Just under the wooden bridge; after crossing, climb down and crouch back under to the right side.  \n**Associated Request:** [Destroy the Blue Medallions 2](#loc=272295)",
+			[]
+		],
+		"272317": [
+			"**Obtained in:** Chapter 3  \n**Location:** In a large wooden chest, near the water.  \n**Utility:** Open the [Stone Pedestal](#loc=272311)",
+			[]
+		],
+		"272318": ["**Location:** In the drawer of the desk, in the corner of the shed.", []],
+		"272319": ["**Location:** On the corner of the table.  \n**Effect:** Restores a small amount of Health", []],
+		"272320": [
+			"**Obtained in:** Chapter 3  \n**Location:** On a table, in the corner of the building.  \n**Utility:** Activates the [Boat](#loc=272321)",
+			[]
+		],
+		"272321": ["**Location:** At the end of the pier. Requires [Boat Fuel](#loc=272320) to function.", []],
+		"272322": [
+			"**Location:** In the southern building, in the drawer.  \n**Locked?:** Yes - Small Key \n**Value:** 8,000 Pesetas  \n**Sockets:** No",
+			[]
+		],
+		"272392": ["**Location:** At the end of the torture table.", []],
+		"272393": [
+			"**Obtained in:** Chapter 4  \n**Location:** In the wooden casket, on the candlelit altar.  \n**Utility:** Opens Wayshrine treasures.",
+			[]
+		],
+		"272394": [
+			"**Location:** Against the stone wall, just west of the dock  \n**Reward:** Spinel x3  \n**Egg location:** [Gold Chicken Egg](#loc=272406)",
+			[]
+		],
+		"272395": [
+			"**Location:** In a silver censor, hanging from the ceiling. Shoot it from the bridge and grab it from below.  \n**Locked?:** No  \n**Value:** 2,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272396": [
+			"**Location:** Beside the pile of sacks, underneath the wooden platform.  \n**Effect:** Increases Leon's maximum Health.",
+			[]
+		],
+		"272398": [
+			"**How to solve:** Look for the 3 symbols, painted in yellow around the cave. Some of them require a specific perspective to be seen.  \n**Solution:** Imagine the control panel is a clock; select the symbols at:\n- 1:00\n- 6:00\n- 11:00",
+			[]
+		],
+		"272401": [
+			"**Obtained in:** Chapter 4  \n**Location:** Against the far wall of the cavern.  \n**Utility:** Unlocks the Church Gate  \n**How to Unlock:**\n- [Apostate's Head](#loc=272402)\n- [Blasphemer's Head](#loc=272409)",
+			[]
+		],
+		"272402": [
+			"**Obtained in:** Chapter 4  \n**Location:** On a statue, against the wall of the alcove. Solve the [Symbol Lock](#loc=272398) to access.  \n**Utility:** Unlocks the [Church Insignia](#loc=272401)",
+			[]
+		],
+		"272403": [
+			"**Location:** In a Wayshrine, against the far wall.  \n**Locked?:** Yes - [Old Wayshrine Key](#loc=272393)  \n**Value:** 4,000 Pesetas  \n**Sockets:** 2x Square",
+			[]
+		],
+		"272404": [
+			"**Location:** In a wooden chest, by the ship's wheel.  \n**Locked?:** No  \n**Value:** 6,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272405": [
+			"**Location:** In a chest, at the front of the ship.  \n**Type:** Handgun  \n**Note;** This also counts as a treasure for the purposes of achievements.",
+			[]
+		],
+		"272406": ["**Location:** Behind the tree, in the corner of the coop. Part of [Egg Hunt](#loc=272394).", []],
+		"272407": [
+			"**Location:** On top of a barrel, behind the cages.  \n**Locked?:** No  \n**Value:** 2,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272408": [
+			"**How to solve:** Look for the 3 symbols, painted in yellow around the cave. Some of them require a specific perspective to be seen.  \n**Solution:** Imagine the control panel is a clock; select the symbols at:\n- 4:00\n- 8:00\n- 9:00",
+			[]
+		],
+		"272409": [
+			"**Obtained in:** Chapter 4  \n**Location:** On the statue, against the far wall. Solve the [Symbol Lock](#loc=272408) to access.  \n**Utility:** Unlocks the [Church Insignia](#loc=272401)",
+			[]
+		],
+		"272410": ["**Location:** On the floor, amidst the books.", []],
+		"272411": [
+			"**Obtained in:** Chapter 4  \n**Location:** In a leather suitcase, on the wooden table.  \n**Utility:** Unlocks the [Stone Pedestal](#loc=272311)",
+			[]
+		],
+		"272412": [
+			"**Location:** In a silver censer, hanging from the far wall of the locked room. Access from the ladder beyond the [Symbol Lock](#loc=272408).  \n**Locked?:** No  \n**Value:** 3,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272413": [
+			"**Location:** At the end of the path, beside the house.  \n**Locked?:** Yes - [Old Wayshrine Key](#loc=272393)  \n**Value:** 12,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272414": ["**Location:** On the metal door to the cavern. Opened using the [Insignia Key](#loc=272263)", []],
+		"272415": [
+			"**Location:** Against a wooden beam.  \n\n**Reward:** Spinel x4  \n\n**Fish location:** [Lunker Bass](#loc=272423)",
+			[]
+		],
+		"272416": ["**Location:** On the lower shelf, against the northern wall.", []],
+		"272417": ["**Location:** On the wooden cart, behind the barrel.", []],
+		"272418": [
+			"**Location:** On the ground, against the wooden fence.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"272419": [
+			"**Location:** Beyond the gate, on the left side. Aim from the right side of the gate for a good angle.",
+			[]
+		],
+		"272420": [
+			"**Location:** In a drawer, against the northern wall.  \n**Locked?:** Yes - Small Key  \n**Value:** 10,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272421": [
+			"**Location:** On a wooden crate, at the end of the room.  \n**Locked?:** No  \n**Value:** 6,000 Pesetas  \n**Sockets:** None  \n**Note:** This treasure becomes available in Chapter 4.",
+			[]
+		],
+		"272422": [
+			"**Location:** On the ground, where Luis used to lay.  \n**Note:** Only becomes accessible in Chapter 4.",
+			[]
+		],
+		"272423": [
+			"**Location:** Swimming in the waters around the boathouse; harpoon one to grab it. Part of [Catch Me a Big Fish](#loc=272415).",
+			[]
+		],
+		"272424": [
+			"**Location:** Within the [Stone Pedestal](#loc=272311)  \n**Locked?:** Yes - See Stone Pedestal  \n**Value:** 15,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272425": [
+			"**Location:** Within the wayshrine, against the wall.  \n**Locked?:** Yes - [Old Wayshrine Key](#loc=272393)  \n**Value:** 6,000 Pesetas  \n**Sockets:** 3x Round",
+			[]
+		],
+		"272426": ["**Location:** On the ground, amidst the rubble.", []],
+		"272427": [
+			"**Location:** On the ground, in the shack.  \n**Effect:** Restores a small amount of Health.  \n**Note:** Accessible during Chapter 4.",
+			[]
+		],
+		"272428": ["**Location:** On the ground of the shack.  \n**Note:** Accessible during Chapter 4.", []],
+		"272429": ["**Location:** On the ground of the shack.  \n**Note:** Accessible during Chapter 4.", []],
+		"272430": [
+			"**Location:** On the ground in the shack.  \n**Type:** Melee  \n**Note:** Accessible during Chapter 4.",
+			[]
+		],
+		"272431": [
+			"**Location:** On the grond, in the shack.  \n**Effect:** Restores a moderate amount of Health.  \n**Note:** Accessible during Chapter 4.",
+			[]
+		],
+		"272432": ["**Location:** On the ground, in the shack.  \n**Note:** Accessible during Chapter 4.", []],
+		"272433": ["**Location:** On the ground, in the shack.  \n**Note:** Accessible during Chapter 4.", []],
+		"272434": [
+			"**Location:** On a small chair, beside the door.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"272435": ["**Location:** On a wooden bench.", []],
+		"272436": ["**Location:** On the wooden table, right of the main altar.", []],
+		"272437": [
+			"**Obtained in:** Chapter 4  \n**Location:** In a wooden cabinet, at the end of the hallway  \n**Utility:** [Stained Glass Puzzle](#loc=272438)",
+			[]
+		],
+		"272438": [
+			"**Location:** In the alter, in the middle of the church. Reveal by pulling the lever just left of the altar.  \n**Requirements:** [Blue Dial](#loc=272437)  \n**How to solve:** Rotate each dial so the stained glass forms this image.",
+			[
+				{
+					"id": 32796,
+					"title": "",
+					"file_name": "26c46720-8585-4381-bc47-6303e951a886.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/26c46720-8585-4381-bc47-6303e951a886.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"272439": [
+			"**Location:** In a silver censor, hanging from the ceiling. Double back to this room after starting Chapter 5.  \n**Locked?:** No  \n**Value:** 7,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272440": ["**Location:** On the ground, in front of the window.", []],
+		"272441": [
+			"**Location:** In the locked drawer.  \n**Locked?:** Yes - Small Key  \n**Value:** 7,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272442": [
+			"**Location:** On the side of the door.  \n**Reward:** Spinel x8  \n**Note:** Becomes available in Chapter 5.",
+			[]
+		],
+		"272443": [
+			"**Location:** In a blue chest, in the middle of the barn. Available in Chapter 5; boost your partner up the window on the west wall to unlock it.  \n**Locked?:** No  \n**Value:** 5,000 Pesetas  \n**Sockets:** 2x Round",
+			[]
+		],
+		"272444": [
+			"**Location:** On a wooden desk, just past the doorway.  \n**Effect:** Increases Leon's maximum Health.",
+			[]
+		],
+		"272445": [
+			"**Location:** In the corner of the bedroom. Reveal it by pulling the lever hidden behind the nearby painting. Requires obtaining your partner in Chapter 5.",
+			[]
+		],
+		"272446": ["**Location:** At the edge of a wooden table.", []],
+		"272447": [
+			"**Location:** On the metal table, beside the yellow containers.  \n**Note:** Flip the picture to read behind it.",
+			[]
+		],
+		"272448": ["**Location:** On a wooden desk.  \n**Note:** Flip the picture to read behind it.", []],
+		"272449": ["**Location:** On a wooden dresser, in the small alcove.", []],
+		"272450": [
+			"**Location:** On the wooden dresser, in the small alcove.  \n**Note:** Flip the picture to read behind it.",
+			[]
+		],
+		"272451": [
+			"**Location:** On the wooden dresser, in the small alcove.  \n**Locked?:** No  \n**Value:** 10,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272452": ["**Location:** On a wooden table out of reach, behind a wooden bucket and a chessboard.", []],
+		"272453": [
+			"**Location:** In a wayshrine, just outside the windmill.  \n**Locked?:** Yes - [Old Wayshrine Key](#loc=272393)  \n**Value:** 7,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272454": ["**Location:** On the larger table in the center of the room.  \n**Type:** Melee", []],
+		"272455": [
+			"**Location:** On the larger table in the center of the room. Use to board up the Villa windows.",
+			[]
+		],
+		"272456": ["**Location:** On the stone chimney.", []],
+		"272457": ["**Location:** On the smaller table in the middle of the room.", []],
+		"272458": ["**Location:** On the smaller table in the center of the room.  \n**Type:** Grenade", []],
+		"272459": [
+			"**Location:** On the ground, in the corner by the stairs.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"272460": ["**Location:** On the wooden desk.", []],
+		"272461": ["**Location:** On a tree stump, opposite the door to the merchant.", []],
+		"272462": ["**Location:** On the wooden table beside the merchant.", []],
+		"272464": ["**Location:** On a wooden desk, against the northern wall.", []],
+		"272466": ["**Location:** On a wooden pallet.", []],
+		"272467": ["**Location:** Stuck to a broken wooden fence, on the side of the path.", []],
+		"272468": [
+			"**Location:** In a chest, at the end of a higher wooden walkway.  \n**Locked?:** No  \n**Value:** 6,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272469": ["**Location:** On some wooden crates, in the small open shed.", []],
+		"272470": ["**Location:** In the wooden shed, beside the barrels on a wooden crate.  \n**Type:** Grenade", []],
+		"272471": [
+			"**Location:** In a large chest, on a wooden table against the wall.  \n**Locked?:** No  \n**Value:** 7,000 Pesetas  \n**Sockets:** 3x Square",
+			[]
+		],
+		"272472": ["**Location:** On the ground, beside the large bonfire.", []],
+		"272504": ["**Location:** On top of a rock-filled crate.", []],
+		"272507": ["**Location:** On top of some cloth-covered boxes.", []],
+		"272513": [
+			"**Location:** At the end of the raised walkway.  \n**Effect:** Increases Leon's maximum Health.",
+			[]
+		],
+		"272515": [
+			"**Location:** On the table, in the center of the room.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"272517": ["**Location:** On the windowsill.", []],
+		"272520": [
+			"**Location:** On top of the wooden platform; access from the stairs on the opposite side of the checkpoint.  \n**Locked?:** Yes - [Old Wayshrine Key](#loc=272393)  \n**Value:** 6,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272521": [
+			"**Location:** On the table, in the center of the room.  \n**Effect:** Fully restores Leon's Health.",
+			[]
+		],
+		"272544": ["**Location:** On the wooden table in the ruined house.  \n**Type:** Grenade", []],
+		"272545": ["**Location:** On the small table in the corner.", []],
+		"272546": ["**Location:** On the small table in the corner.", []],
+		"272548": ["**Location:** On a wooden crate, just oustide the door", []],
+		"272555": ["**Location:** On the wooden table beside the merchant.", []],
+		"272557": ["**Location:** On a low wooden crate.", []],
+		"272560": [
+			"**Location:** In the corner, on the upper rafters.  \n**Effect:** Restores a moderate amount of Health.",
+			[]
+		],
+		"272565": [
+			"**Location:** In a silver censer, dangling from the branch of a dead tree.  \n**Locked?:** No  \n**Value:** 5,000 Pesetas  \n**Sockets:** None",
+			[]
+		],
+		"272961": [
+			"**Location:** At the base of the stairs.",
+			[
+				{
+					"id": 133860,
+					"title": "",
+					"file_name": "f8d0dd76-531d-4b6b-a911-bfd21c17e680.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f8d0dd76-531d-4b6b-a911-bfd21c17e680.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"272962": ["**Location:** Against the western wall.", []],
+		"272963": ["**Location:** Against the far wall.", []],
+		"272987": ["This crate is up on the ledge next to the cabin.", []],
+		"273319": ["**Location:** In the corner.", []],
+		"273324": ["**Location:** In the corner of the room.", []],
+		"273331": ["**Location:** Against the wall.", []],
+		"273359": ["**Location:** Behind a barrel in the dark tunnel", []],
+		"273503": [
+			"**Location:** On the ground, in the small passageway.  \n**Effect:** Restores a moderate amount of Health.",
+			[]
+		],
+		"273531": [
+			"**Location:** Spread out on the floor of the coop.  \n**Effect:** Restores a small amount of Health.",
+			[]
+		],
+		"273705": [
+			"**Obtained in:** Chapter 6  \n**Location:** Against the wall; picking it up will trigger a boss fight. Recover the item on the corpse of the boss.  \n**Utility:** [Crank Slot](#loc=273707)",
+			[]
+		],
+		"273707": ["**Location:** On the side of the barred door. Requires the [Checkpoint Crank](#loc=273705).", []],
+		"275326": ["**Location:** Hanging in a tree by the bear trap.", []],
+		"275331": ["**Location:** On the wooden platform", []],
+		"275354": [
+			"**How to solve:** Use the wheel around the other side of the room to raise the door and then run back to duck through opening before it closes.",
+			[]
+		],
+		"275363": [
+			"**Location:** Roaming the western corridor of the Abandoned Factory    \n\n**Related Request:** [Pest Control](#loc=271878)",
+			[]
+		],
+		"275364": [
+			"**Location:** By the blue rubble in the main room of the Abandoned Factory  \n\n**Related Request:** [Pest Control](#loc=271878)",
+			[]
+		],
+		"275368": [
+			"**Location:** By the furnaces in the Abandoned Factory    \n\n**Related Request:** [Pest Control](#loc=271878)",
+			[]
+		],
+		"275381": ["Can be used as a trap", []],
+		"275383": ["**Location:** On the walkway", []],
+		"284996": [
+			"**Location:** To the left of the log  \n**Locked?:** No  \n**Value:** 2500 Pesetas  \n**Sockets:** No",
+			[]
+		],
+		"284997": [
+			"**Location:** Left of the entrance, in a small chest  \n\n**Locked?:** No  \n\n**Value:** 6000 Pesetas  \n\n**Sockets:** None",
+			[]
+		],
+		"284998": [
+			"**Location:** On the rafters above a table\n\n**Locked?:** No  \n\n**Value:** 2500 Pesetas  \n\n**Sockets:** None",
+			[]
+		],
+		"305862": [
+			"**Location:** Inside a yellow crate on the shelf.   \n\n**Related Request:** [Viper Hunter](#loc=272275)",
+			[]
+		],
+		"305863": [
+			"**Location:** The 2 twin graves in front of the broken tree\n\n**Related Request:** [Grave Robber](#loc=567242)",
+			[
+				{
+					"id": 42266,
+					"title": "a",
+					"file_name": "c569cc67-a1c6-4fd7-972c-e4114730bd1f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c569cc67-a1c6-4fd7-972c-e4114730bd1f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"305864": [
+			"**Location:** The 2 twin graves in front of the broken tree\n\n**Related Request:** [Grave Robber](#loc=567242)",
+			[
+				{
+					"id": 42267,
+					"title": "a",
+					"file_name": "c569cc67-a1c6-4fd7-972c-e4114730bd1f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c569cc67-a1c6-4fd7-972c-e4114730bd1f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"305866": ["**Location:** Hanging from the trees    \n\n**Value:** 5000 Pesetas", []],
+		"305867": [
+			"**Location:** Lantern hanging underneath the walkway overhead.  \n**Value:** 9,000 Pesetas  \n\n**Note:** Extended Map Treasure DLC",
+			[]
+		],
+		"305868": ["**Location:** To the left of the table", []],
+		"305870": ["**Location:** Hanging from the rafters\n\nUsable in the Shooting Gallery Vending Machine.", []],
+		"305872": ["Have to jump down from the top area, on a platform to the left", []],
+		"305878": ["To the left of the entrance to the Merchant Room", []],
+		"305879": [
+			"**Location:** In the back of the truck is a small gold case containing a gold token and Hair Accessory.",
+			[]
+		],
+		"305880": [
+			"**Location:** Before heading into the castle. Turn around and look in the back of the truck. A gold case contains 2 pickups.",
+			[]
+		],
+		"305881": [
+			"**Location:** In a small case on top of a crate right next to the Green Herb.  \n\n**Value:** 11,000 Pesetas  \n\n**Sockets:** 4 Sockets (2-round, 2-Square)",
+			[]
+		],
+		"508587": ["Just outside back door to house", []],
+		"567242": [
+			"**Location:** Against the left wooden beam of the shed.  \n\n**Reward:** Spinel x2  \n\n**Note:** ??",
+			[]
+		],
+		"567243": ["**Location:** Next to a cow", []],
+		"567244": ["On the path behind the windmill", []],
+		"567245": ["Just outside the safe room outside the church", []],
+		"567295": ["On the first level of the scaffolding.", []],
+		"567296": [
+			"**Location:** On the wooden bridge/platform, there will be two small openings to the right, take the second opening and there will be a crate to break open",
+			[]
+		],
+		"567299": [
+			"**Location:** Inside a gold cage hanging in the tree.\n  \n**Value:** 4000 Pesetas  \n\n**Sockets:** None",
+			[]
+		],
+		"567301": ["Up the ladder, on top of a box.", []],
+		"567302": ["**Location:** Inside a small shed.", []],
+		"591743": [
+			"**Location:** Instead of heading straight in to the Merchant Room, take a right, climb up the stone ledge, and there at the end will be a wooden crate",
+			[]
+		],
+		"591745": ["On the platform after climbing the ladder to leave the fish farm", []],
+		"591746": ["In the back corner", []],
+		"591747": ["In the corner past the window", []],
+		"591748": [
+			"Inside a small chest sitting on green desk next to an accessory for Ashley (Glasses Wellington)",
+			[]
+		],
+		"591749": ["**Location:** Inside cabin.", []],
+		"591750": ["**Location:** Turn right when entering the shack and you will see a wooden cupboard to open", []],
+		"591751": ["**Location:** Next to the cabin door.", []],
+		"591752": [
+			"**Location:** hanging from a wooden support beam, on the side facing the barrel. You can reach it with your knife to knock it down.",
+			[]
+		],
+		"591753": ["**Location:** Inside small shack, turn left to find it.", []],
+		"591754": ["**Location:** Inside a golden cage hanging from the wooden scaffolding.", []],
+		"591755": [
+			"**Location:** Inside the church, to the right of the door (walking in) there is a cabinet against the wall",
+			[]
+		],
+		"605216": ["**Location:** Inside a cage hanging from a stalactite.", []],
+		"605217": [
+			"**Location:** Inside a gold cage hanging from the ceiling of the stone ruins\n\n**Value:** 6,000 Pesetas",
+			[]
+		],
+		"895839": ["**Location:** 2nd floor bedroom, on table near desk.", []],
+		"930918": [
+			"**The new map is here!**\n\nPlease bear with us as we move pins from old to new positions - and get ready for the Castle and Island, coming very soon!!\n\n_Aug 12, 2026_",
+			[]
+		]
+	}
+}

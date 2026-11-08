@@ -36,7 +36,7 @@
 //   --no-tiles --no-media --no-markers --no-icons --no-clean-markers
 //   --upload-media       stream/upload downloaded media directly to Cloudflare R2 / S3 and record in data/atlas.db
 //   --keep-local         when used with --upload-media, also keep local files in public/maps/<slug>/media/
-//   --no-optimize        keep the tiles as downloaded: no overview is made, and single-colour tiles are not linked
+//   --no-optimize        keep the tiles as downloaded: no overview levels (minzoom..maxzoom-3) are made, and single-colour tiles are not linked
 //                        (what prune-tiles.ts does afterwards, for any game; run it by hand later if you skip it here)
 //   --icons-only         only (re)fetch the sidebar icons of a game that was already added, and update its meta.json
 //   --no-cards           don't rebuild the social preview cards (make-cards.ts) at the end
@@ -69,6 +69,7 @@ import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
 import { AdaptiveRateController } from "./adaptive-rate.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
+import { compactEntry, refreshCompact } from "./compact-map.ts";
 import { executeLootAtlasPipeline, isLootAtlas } from "./lootatlas.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
 import { createTileDashboard } from "./tile-downloader-tui.ts";
@@ -1788,9 +1789,16 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 		const dir = path.join(outDir, ms);
 		await mkdir(dir, { recursive: true });
 		await Bun.write(path.join(dir, "data.json"), JSON.stringify(md));
+		await refreshCompact(dir, { create: true });
 		const sets = [...(md.mapConfig.tile_sets || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 		const chosen = v["all-tilesets"] ? sets : sets.slice(0, 1);
-		const entry = { slug: ms, title: md.map?.title || ms, data: `${ms}/data.json`, tilesets: [] as any[] };
+		const entry = {
+			slug: ms,
+			title: md.map?.title || ms,
+			data: `${ms}/data.json`,
+			...compactEntry(`${ms}/data.json`),
+			tilesets: [] as any[],
+		};
 		for (const ts of chosen) {
 			const key = (ts.path || "").split("/").filter(Boolean).pop() || `ts${ts.id}`;
 			const tail = ts.pattern.slice(ts.pattern.indexOf("{"));
@@ -1939,7 +1947,8 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 		info.minzoom = r.minzoom;
 		info.maxzoom = r.maxzoom;
 		if (opts.maxZoom != null) info.maxzoom = Math.min(info.maxzoom ?? 99, opts.maxZoom);
-		// the overview (lowest zoom) from the highest, single-colour tiles as links, and the colour around the map.
+		// the overview levels (minzoom through maxzoom - 3) from the highest zoom, single-colour tiles as links, and
+		// the colour around the map.
 		// A forced map keeps the whole pyramid it was asked for; prune-tiles.ts can thin it out later.
 		const split = splitTemplate(info.template);
 		if (!v["no-optimize"] && !v["no-tiles"] && split) {
@@ -1970,7 +1979,7 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 					await pruneDash.finish();
 				}
 				log(
-					`  overview: ${o.overview} tile(s) made; ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
+					`  overview: ${o.overview} tile(s) made (minzoom..maxzoom-3); ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
 				);
 				if (o.background && !info.background) info.background = o.background;
 			} finally {

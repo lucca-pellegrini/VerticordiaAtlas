@@ -6,12 +6,14 @@ import { mkdir, mkdtemp, rm } from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
 import path from "node:path";
+import zlib from "node:zlib";
 
 import { deriveTheme, extractVar, tilesCovering } from "../scripts/add-game.ts";
 import { backupDatabase } from "../scripts/backup-db.ts";
 import { buildClient, verifyAndHashPrecache } from "../scripts/build.ts";
 import { cleanDescription, cleanGameMarkers, resolveSameMapHref } from "../scripts/clean-markers.ts";
 import { resolveGameSlug } from "../scripts/download-media.ts";
+import { needsSidecar, precompressAll, precompressFile } from "../scripts/precompress.ts";
 import {
 	mimeForMedia,
 	openMediaDb,
@@ -20,7 +22,7 @@ import {
 	uploadMediaBatch,
 	validateR2Env,
 } from "../scripts/upload-media.ts";
-import { createApi, secretName } from "../server/api.ts";
+import { acceptsEncoding, compressApiResponse, createApi, negotiateEncoding, secretName } from "../server/api.ts";
 import {
 	chromePath,
 	deriveLightTheme,
@@ -42,8 +44,14 @@ import { createRateLimiter } from "../server/rate-limit.ts";
 import {
 	buildSecurityHeaders,
 	collectInlineScriptHashes,
+	dataCache,
+	games,
 	gameTilesets,
+	markerInfo,
 	parseUrl,
+	readData,
+	readDataEntry,
+	serveStatic,
 	withSecurityHeaders,
 } from "../server/server.ts";
 import { mediaUrls } from "../src/client/map/detail.ts";
@@ -434,6 +442,22 @@ describe("server/api and server/ws integration", () => {
 		const pushCamData = await pushCam.json();
 		expect(pushCamData.results[0].status).toBe("ok");
 		expect(pushCamData.results[0].updated_at).toBeGreaterThan(serverTime1);
+
+		// 6b. GET with since returns only rows touched at or after it; no parameter returns every row
+		const pullAll = await (await fetch(`${baseUrl}/api/sync`, { headers: { Cookie: cookie } })).json();
+		const pullNew = await (
+			await fetch(`${baseUrl}/api/sync?since=${pushCamData.results[0].updated_at + 1}`, {
+				headers: { Cookie: cookie },
+			})
+		).json();
+		const pullSame = await (
+			await fetch(`${baseUrl}/api/sync?since=${pushCamData.results[0].updated_at}`, {
+				headers: { Cookie: cookie },
+			})
+		).json();
+		expect(pullAll.items.length).toBe(1);
+		expect(pullNew.items).toEqual([]);
+		expect(pullSame.items.length).toBe(1);
 
 		// 7. Content change with stale base SHOULD return status: 'conflict'
 		const pushConflict = await fetch(`${baseUrl}/api/sync`, {
@@ -1020,5 +1044,388 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		expect(sets?.[0].template).toBe("world/tiles/default/{z}/{x}/{y}.jpg");
 
 		expect(await gameTilesets("village-truncated", fakePublic)).toBeNull();
+	});
+
+	test("precompress creates .br and .gz sidecars and skips up-to-date sidecars", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "precompress-test-"));
+		try {
+			const filePath = path.join(testDir, "test.json");
+			const largeContent = JSON.stringify({ data: "a".repeat(2000) });
+			await Bun.write(filePath, largeContent);
+
+			const first = precompressFile(filePath);
+			expect(first.br).toBe(true);
+			expect(first.gz).toBe(true);
+			expect(await Bun.file(`${filePath}.br`).exists()).toBe(true);
+			expect(await Bun.file(`${filePath}.gz`).exists()).toBe(true);
+
+			const second = precompressFile(filePath);
+			expect(second.br).toBe(false);
+			expect(second.gz).toBe(false);
+
+			const srcStat = await Bun.file(filePath).stat();
+			expect(needsSidecar(srcStat.mtimeMs, `${filePath}.br`)).toBe(false);
+			expect(needsSidecar(srcStat.mtimeMs, `${filePath}.gz`)).toBe(false);
+
+			// Touching source forces needsSidecar to become true
+			expect(needsSidecar(srcStat.mtimeMs + 5000, `${filePath}.br`)).toBe(true);
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	});
+
+	test("server static sidecar negotiation: br preferred, gz fallback, identity, Vary, and 304 handling", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "sidecar-serve-test-"));
+		try {
+			const publicDir = path.join(testDir, "public");
+			await mkdir(publicDir, { recursive: true });
+
+			const cssContent = "body { background: " + "blue; ".repeat(300) + "}";
+			const cssPath = path.join(publicDir, "style.css");
+			await Bun.write(cssPath, cssContent);
+
+			// Precompress to create sidecars
+			precompressFile(cssPath);
+			expect(await Bun.file(`${cssPath}.br`).exists()).toBe(true);
+			expect(await Bun.file(`${cssPath}.gz`).exists()).toBe(true);
+
+			// 1. Client accepts br and gzip -> br preferred
+			const reqBr = new Request("http://localhost/style.css", {
+				headers: { "Accept-Encoding": "gzip, deflate, br" },
+			});
+			const resBr = await serveStatic(reqBr, "style.css", "", publicDir);
+			expect(resBr.status).toBe(200);
+			expect(resBr.headers.get("Content-Encoding")).toBe("br");
+			expect(resBr.headers.get("Vary")).toBe("Accept-Encoding");
+			const etagBr = resBr.headers.get("ETag");
+			expect(etagBr).toContain("-br");
+
+			// 2. Client accepts only gzip -> gz sidecar served
+			const reqGz = new Request("http://localhost/style.css", {
+				headers: { "Accept-Encoding": "gzip, deflate" },
+			});
+			const resGz = await serveStatic(reqGz, "style.css", "", publicDir);
+			expect(resGz.status).toBe(200);
+			expect(resGz.headers.get("Content-Encoding")).toBe("gzip");
+			expect(resGz.headers.get("Vary")).toBe("Accept-Encoding");
+			const etagGz = resGz.headers.get("ETag");
+			expect(etagGz).toContain("-gz");
+
+			// 3. Client accepts neither -> uncompressed identity served with Vary header
+			const reqIdentity = new Request("http://localhost/style.css");
+			const resIdentity = await serveStatic(reqIdentity, "style.css", "", publicDir);
+			expect(resIdentity.status).toBe(200);
+			expect(resIdentity.headers.get("Content-Encoding")).toBeNull();
+			expect(resIdentity.headers.get("Vary")).toBe("Accept-Encoding");
+			const etagIdentity = resIdentity.headers.get("ETag");
+			expect(etagIdentity).not.toContain("-br");
+			expect(etagIdentity).not.toContain("-gz");
+
+			// 4. 304 Not Modified check with If-None-Match for br
+			const req304Br = new Request("http://localhost/style.css", {
+				headers: {
+					"Accept-Encoding": "br",
+					"If-None-Match": etagBr!,
+				},
+			});
+			const res304Br = await serveStatic(req304Br, "style.css", "", publicDir);
+			expect(res304Br.status).toBe(304);
+			expect(res304Br.headers.get("ETag")).toBe(etagBr);
+			expect(res304Br.headers.get("Vary")).toBe("Accept-Encoding");
+
+			// 5. If only .gz exists (remove .br), gz is used even if client accepts br
+			await rm(`${cssPath}.br`);
+			const resOnlyGz = await serveStatic(reqBr, "style.css", "", publicDir);
+			expect(resOnlyGz.status).toBe(200);
+			expect(resOnlyGz.headers.get("Content-Encoding")).toBe("gzip");
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	});
+
+	test("serveStatic cache-control headers: immutable tiles and media, mutable data.json and posters", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "static-cache-test-"));
+		try {
+			const publicDir = path.join(testDir, "public");
+
+			// 1. Stored tile file
+			const tilePath = path.join(publicDir, "maps", "game", "world", "tiles", "default", "1", "0", "0.png");
+			await mkdir(path.dirname(tilePath), { recursive: true });
+			await Bun.write(tilePath, "fake-tile-data");
+
+			// 2. Marker media file
+			const mediaPath = path.join(publicDir, "maps", "game", "media", "marker-photo.jpg");
+			await mkdir(path.dirname(mediaPath), { recursive: true });
+			await Bun.write(mediaPath, "fake-media-data");
+
+			// 3. Mutable data.json
+			const dataPath = path.join(publicDir, "maps", "game", "world", "data.json");
+			await mkdir(path.dirname(dataPath), { recursive: true });
+			await Bun.write(dataPath, JSON.stringify({ locations: [] }));
+
+			// 4. Mutable poster image
+			const posterPath = path.join(publicDir, "maps", "game", "poster-600.webp");
+			await mkdir(path.dirname(posterPath), { recursive: true });
+			await Bun.write(posterPath, "fake-poster-data");
+
+			const tileRes = await serveStatic(
+				new Request("http://localhost/maps/game/world/tiles/default/1/0/0.png"),
+				"/maps/game/world/tiles/default/1/0/0.png",
+				"",
+				publicDir,
+			);
+			expect(tileRes.status).toBe(200);
+			expect(tileRes.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
+
+			const mediaRes = await serveStatic(
+				new Request("http://localhost/maps/game/media/marker-photo.jpg"),
+				"/maps/game/media/marker-photo.jpg",
+				"",
+				publicDir,
+			);
+			expect(mediaRes.status).toBe(200);
+			expect(mediaRes.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
+
+			const dataRes = await serveStatic(
+				new Request("http://localhost/maps/game/world/data.json"),
+				"/maps/game/world/data.json",
+				"",
+				publicDir,
+			);
+			expect(dataRes.status).toBe(200);
+			expect(dataRes.headers.get("Cache-Control")).toBe("no-cache");
+			expect(dataRes.headers.get("Cache-Control")).not.toContain("immutable");
+
+			const posterRes = await serveStatic(
+				new Request("http://localhost/maps/game/poster-600.webp"),
+				"/maps/game/poster-600.webp",
+				"",
+				publicDir,
+			);
+			expect(posterRes.status).toBe(200);
+			expect(posterRes.headers.get("Cache-Control")).toBe("public, max-age=3600");
+			expect(posterRes.headers.get("Cache-Control")).not.toContain("immutable");
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	});
+
+	test("dataCache bounds to LRU of 8 entries and refreshes hit positions", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "datacache-test-"));
+		try {
+			dataCache.clear();
+			const files: string[] = [];
+			for (let i = 0; i < 10; i++) {
+				const f = path.join(testDir, `map-${i}.json`);
+				await Bun.write(f, JSON.stringify({ locations: [{ id: i * 10, title: `Loc ${i}` }] }));
+				files.push(f);
+			}
+
+			// Read first 8 files (capacity is 8)
+			for (let i = 0; i < 8; i++) {
+				const entry = await readDataEntry(files[i]);
+				expect(entry.locIndex.get(i * 10)).toEqual({ id: i * 10, title: `Loc ${i}` });
+			}
+			expect(dataCache.size).toBe(8);
+			expect(dataCache.has(files[0])).toBe(true);
+
+			// Hit file 0 to refresh its LRU position to most-recently-used
+			await readDataEntry(files[0]);
+			expect(dataCache.size).toBe(8);
+
+			// Read file 8 (9th unique file): should evict file 1 (since file 0 was refreshed)
+			await readDataEntry(files[8]);
+			expect(dataCache.size).toBe(8);
+			expect(dataCache.has(files[0])).toBe(true);
+			expect(dataCache.has(files[1])).toBe(false);
+			expect(dataCache.has(files[8])).toBe(true);
+
+			// Read file 9 (10th unique file): should evict file 2
+			await readDataEntry(files[9]);
+			expect(dataCache.size).toBe(8);
+			expect(dataCache.has(files[2])).toBe(false);
+			expect(dataCache.has(files[9])).toBe(true);
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	});
+
+	test("markerInfo location indexing matches linear find on test fixture and real map", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "markerinfo-test-"));
+		try {
+			const fixturePath = path.join(testDir, "fixture.json");
+			const fixture = {
+				locations: [
+					{ id: 101, title: "First 101", category_id: 1 },
+					{ id: "102", title: "String 102", category_id: 2 },
+					{ id: 101, title: "Duplicate 101", category_id: 3 },
+					{ id: 103, title: "Third 103", category_id: 1 },
+				],
+				categories: {
+					1: { id: 1, title: "Cat 1", group_id: 10 },
+					2: { id: 2, title: "Cat 2", group_id: 20 },
+				},
+				groups: [
+					{ id: 10, color: "#ff0000" },
+					{ id: 20, color: "00ff00" },
+				],
+			};
+			await Bun.write(fixturePath, JSON.stringify(fixture));
+
+			const entry = await readDataEntry(fixturePath);
+
+			// Linear find reference
+			const linearFind = (id: number) => (fixture.locations || []).find((l: any) => Number(l.id) === id);
+
+			for (const id of [101, 102, 103, 999]) {
+				const fromIndex = entry.locIndex.get(id);
+				const fromLinear = linearFind(id);
+				expect(fromIndex).toEqual(fromLinear);
+			}
+
+			// Verify duplicate 101 preserves the first item like Array.prototype.find
+			expect(entry.locIndex.get(101)?.title).toBe("First 101");
+
+			// Also verify against public/maps/requiem/world/data.json
+			const realMapFile = path.join(process.cwd(), "public", "maps", "requiem", "world", "data.json");
+			const realEntry = await readDataEntry(realMapFile);
+			const realJson = realEntry.json;
+			const sampleIds = [541102, 541223, 99999999];
+			for (const id of sampleIds) {
+				const indexed = realEntry.locIndex.get(id);
+				const linear = (realJson.locations || []).find((l: any) => Number(l.id) === id);
+				expect(indexed).toEqual(linear);
+			}
+
+			// Verify markerInfo() output
+			const card = await markerInfo("requiem", "world", 541102);
+			expect(card).not.toBeNull();
+			expect(card?.title).toBe("Chef");
+			expect(card?.gameSlug).toBe("requiem");
+			expect(card?.mapSlug).toBe("world");
+			expect(card?.id).toBe(541102);
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	});
+
+	test("large /api/* JSON response compresses with gzip/br and preserves auth headers", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "api-compression-test-"));
+		const api = createApi({ root: testDir, publicUrl: "http://127.0.0.1" });
+		const server = Bun.serve({
+			port: 0,
+			hostname: "127.0.0.1",
+			async fetch(req) {
+				const url = new URL(req.url);
+				const res = await api.handle(req, url);
+				return res || new Response(null, { status: 404 });
+			},
+		});
+		const baseUrl = `http://127.0.0.1:${server.port}`;
+
+		try {
+			// 1. Create a secret key account
+			const newRes = await fetch(`${baseUrl}/api/auth/secret/new`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: "{}",
+			});
+			const { secret } = await newRes.json();
+			const confirmRes = await fetch(`${baseUrl}/api/auth/secret/confirm`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ secret }),
+			});
+			const cookie = confirmRes.headers.get("set-cookie")!;
+
+			// 2. Push a large sync payload (> 1024 bytes)
+			const largeItems = [];
+			for (let i = 0; i < 20; i++) {
+				largeItems.push({
+					key: `profile:default:item-${i}`,
+					value: JSON.stringify({ id: i, payload: "x".repeat(100) }),
+					version: 1,
+				});
+			}
+			await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					Cookie: cookie,
+				},
+				body: JSON.stringify({ items: largeItems }),
+			});
+
+			// 3. GET /api/sync with Accept-Encoding: gzip
+			const resGz = await fetch(`${baseUrl}/api/sync`, {
+				headers: {
+					Cookie: cookie,
+					"Accept-Encoding": "gzip",
+				},
+			});
+			expect(resGz.status).toBe(200);
+			expect(resGz.headers.get("Content-Encoding")).toBe("gzip");
+			expect(resGz.headers.get("Vary")).toContain("Accept-Encoding");
+			expect(resGz.headers.get("Cache-Control")).toBe("no-store");
+			// Note: Bun fetch transparently decompresses gzip bodies for .json()/.text()
+			const bodyGz = await resGz.json();
+			expect(bodyGz.items.length).toBe(20);
+
+			// 4. GET /api/sync with Accept-Encoding: br
+			const resBr = await fetch(`${baseUrl}/api/sync`, {
+				headers: {
+					Cookie: cookie,
+					"Accept-Encoding": "br",
+				},
+			});
+			expect(resBr.status).toBe(200);
+			expect(resBr.headers.get("Content-Encoding")).toBe("br");
+			expect(resBr.headers.get("Vary")).toContain("Accept-Encoding");
+			const bodyBr = await resBr.json();
+			expect(bodyBr.items.length).toBe(20);
+
+			// 5. GET /api/sync with no Accept-Encoding (identity)
+			const resPlain = await fetch(`${baseUrl}/api/sync`, {
+				headers: {
+					Cookie: cookie,
+					"Accept-Encoding": "identity",
+				},
+			});
+			expect(resPlain.status).toBe(200);
+			expect(resPlain.headers.get("Content-Encoding")).toBeNull();
+			const plainJson = await resPlain.json();
+			expect(plainJson.items.length).toBe(20);
+
+			// 6. Small response (GET /api/config <= 1024 bytes) is not compressed even with Accept-Encoding: gzip
+			const resSmall = await fetch(`${baseUrl}/api/config`, {
+				headers: { "Accept-Encoding": "gzip, br" },
+			});
+			expect(resSmall.status).toBe(200);
+			expect(resSmall.headers.get("Content-Encoding")).toBeNull();
+
+			// 7. Verify byte-level compression output with compressApiResponse
+			const rawLargeJson = JSON.stringify({ items: largeItems });
+			const rawResGz = await compressApiResponse(
+				new Request("http://localhost", { headers: { "Accept-Encoding": "gzip" } }),
+				new Response(rawLargeJson, { headers: { "Content-Type": "application/json" } }),
+			);
+			expect(rawResGz.headers.get("Content-Encoding")).toBe("gzip");
+			const rawGzBytes = Buffer.from(await rawResGz.arrayBuffer());
+			expect(rawGzBytes.length).toBeLessThan(rawLargeJson.length);
+			expect(JSON.parse(zlib.gunzipSync(rawGzBytes).toString("utf-8"))).toEqual({ items: largeItems });
+
+			const rawResBr = await compressApiResponse(
+				new Request("http://localhost", { headers: { "Accept-Encoding": "br" } }),
+				new Response(rawLargeJson, { headers: { "Content-Type": "application/json" } }),
+			);
+			expect(rawResBr.headers.get("Content-Encoding")).toBe("br");
+			const rawBrBytes = Buffer.from(await rawResBr.arrayBuffer());
+			expect(rawBrBytes.length).toBeLessThan(rawLargeJson.length);
+			expect(JSON.parse(zlib.brotliDecompressSync(rawBrBytes).toString("utf-8"))).toEqual({ items: largeItems });
+		} finally {
+			server.stop(true);
+			api.close();
+			await rm(testDir, { recursive: true, force: true });
+		}
 	});
 });

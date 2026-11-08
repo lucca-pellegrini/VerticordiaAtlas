@@ -134,7 +134,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "hyrule-first-quest/data.compact.json"
 		},
 		{
 			"slug": "hyrule-second-quest",
@@ -150,7 +151,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "hyrule-second-quest/data.compact.json"
 		}
 	]
 }

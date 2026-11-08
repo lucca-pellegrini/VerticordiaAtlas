@@ -319,7 +319,8 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			]
+			],
+			"compact": "factory/data.compact.json"
 		},
 		{
 			"slug": "woods",
@@ -336,7 +337,8 @@
 					"tileSize": 256,
 					"background": "#141414"
 				}
-			]
+			],
+			"compact": "woods/data.compact.json"
 		},
 		{
 			"slug": "customs",
@@ -353,7 +355,8 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			]
+			],
+			"compact": "customs/data.compact.json"
 		},
 		{
 			"slug": "interchange",
@@ -378,7 +381,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "interchange/data.compact.json"
 		},
 		{
 			"slug": "shoreline",
@@ -403,7 +407,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "shoreline/data.compact.json"
 		},
 		{
 			"slug": "lab",
@@ -419,7 +424,8 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "lab/data.compact.json"
 		},
 		{
 			"slug": "labyrinth",
@@ -435,7 +441,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "labyrinth/data.compact.json"
 		}
 	]
 }

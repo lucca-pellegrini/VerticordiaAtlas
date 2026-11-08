@@ -1,0 +1,2019 @@
+{
+	"v": 1,
+	"d": {
+		"496358": ["**Transitions to:** [Professor Oak's Laboratory](#loc=496359)", []],
+		"496359": ["**Transitions to:** [Professor Oak's Laboratory](#loc=496358)", []],
+		"496360": ["**Location:** Given by Daisy Oak after receiving the [Pokédex](#loc=496363)", []],
+		"496361": [
+			"**This is started immediately after the player chooses a Pokémon**\n\n**Reward:** ₽175\n\n**Trainer's Pokémon:**\n- If the player chose Bulbasaur:\n   - Lv. 5 Charmander\n- If the player chose Charmander:\n   - Lv. 5 Squirtle\n- If the player chose Squirtle:\n   - Lv. 5 Bulbasaur",
+			[]
+		],
+		"496362": ["**Location:** Inside the player's room in their PC", []],
+		"496363": ["**Location:** Given by Professor Oak after delivering [Oak's Parcel](#loc=496375) to him", []],
+		"496369": ["**Location:** Given by a Pokémart Employee", []],
+		"496370": [
+			"**Requires the other seven badges to enter**\n\n**Transitions to:** [Viridian Gym](#loc=496371)",
+			[]
+		],
+		"496371": ["**Transitions to:** [Viridian Gym](#loc=496370)", []],
+		"496372": ["**Sells:**\n- Poké Ball - ₽200\n- Antidote - ₽100\n- Parlyz Heal - ₽200\n- Burn Heal - ₽250", []],
+		"496374": [
+			"**Location:** Given by the man behind the [Small Plant](#loc=496373)\n \n**Type:** Psychic  \n**Power:** 100",
+			[]
+		],
+		"496375": [
+			"**Location:** Given by the [Poké Mart](#loc=496372) clerk after entering the Poké Mart for the first time",
+			[]
+		],
+		"496378": ["**Location:** Hidden inside the [Small Plant](#loc=496377)", []],
+		"496380": [
+			"**This is optional and can be completed after delivering [Oak's Parcel](#loc=496375) but will disappear after beating [Brock](#loc=496418)**\n\n**Reward:** ₽280\n\n**Trainer's Pokémon:**\n- Lv. 9 Pidgey\n- If the player chose Bulbasaur:\n   - Lv. 8 Charmander\n- If the player chose Charmander:\n   - Lv. 8 Squirtle\n- If the player chose Squirtle:\n   - Lv. 8 Bulbasaur",
+			[]
+		],
+		"496382": [
+			"**Location:** Given by Professor Oak if the player hasn't caught any Pokémon yet, and defeated [Blue](#loc=496380) on Route 22",
+			[]
+		],
+		"496388": ["**Transitions to:** [Viridian Forest](#loc=496389)", []],
+		"496389": ["**Transitions to:** [Viridian Forest](#loc=496388)", []],
+		"496390": ["**Location:** Hidden on the bottom left of the tree", []],
+		"496391": ["**Location:** In the grass at the end of the path", []],
+		"496392": ["**Reward:** ₽60\n\n**Trainer's Pokémon:**\n- Lv. 6 Weedle\n- Lv. 6 Caterpie", []],
+		"496393": ["**Reward:** ₽70\n\n**Trainer's Pokémon:**\n- Lv. 7 Weedle\n- Lv. 7 Kakuna\n- Lv. 7 Weedle", []],
+		"496394": ["**Location:** On the left side of the path", []],
+		"496396": ["**Location:** At the end of the path next to the column of stumps", []],
+		"496397": ["**Reward:** ₽90\n\n**Trainer's Pokémon:**\n- Lv. 9 Weedle", []],
+		"496398": ["**Location:** Hidden in the grass to the left of the [Bug Catcher](#loc=496397)", []],
+		"496399": ["**Transitions to:** [Viridian Forest](#loc=496400)", []],
+		"496400": ["**Transitions to:** [Viridian Forest](#loc=496399)", []],
+		"496402": ["**Transitions to:** [Pewter Museum of Science](#loc=496403)", []],
+		"496403": ["**Transitions to:** [Pewter Museum of Science](#loc=496402)", []],
+		"496404": ["**Transitions to:** [Pewter Museum of Science](#loc=496405)", []],
+		"496405": ["**Transitions to:** [Pewter Museum of Science](#loc=496404)", []],
+		"496406": ["**Transitions to:** [2F](#loc=496407)", []],
+		"496407": ["**Transitions to:** [1F](#loc=496406)", []],
+		"496408": ["**Location:** Given by a scientist in the back room of the museum", []],
+		"496414": ["**Transitions to:** [Pewter Gym](#loc=496415)", []],
+		"496415": ["**Transitions to:** [Pewter Gym](#loc=496414)", []],
+		"496416": ["**Reward:** ₽220\n\n**Trainer's Pokémon:**\n- Lv. 11 Diglett\n- Lv. 11 Sandshrew", []],
+		"496417": [
+			"**Type:** Rock  \n**Unlocks HM Use:** [HM 05: Flash](#loc=500650)\n\n**Reward:**\n- Boulder Badge\n- ₽1,386\n- [TM 34: Bide](#loc=496418)\n\n**Pokémon:**\n- Lv. 12 Geodude\n- Lv. 14 Onix",
+			[]
+		],
+		"496418": [
+			"**Location:** Given as a reward for beating [Brock](#loc=496417)\n \n**Type:** Normal  \n**Power:** N/A",
+			[]
+		],
+		"496420": [
+			"**Sells:**\n- Poké Ball - ₽200\n- Potion - ₽300\n- Escape Rope - ₽550\n- Antidote - ₽100\n- Burn Heal - ₽250\n- Awakening - ₽200\n- Parlyz Heal - ₽200",
+			[]
+		],
+		"496421": ["**Reward:** ₽135\n\n**Trainer's Pokémon:**\n- Lv. 9 Pidgey\n- Lv. 9 Pidgey", []],
+		"496422": [
+			"**Reward:** ₽100\n\n**Trainer's Pokémon:**\n- Lv. 10 Caterpie\n- Lv. 10 Weedle\n- Lv. 10 Caterpie",
+			[]
+		],
+		"496423": ["**Reward:** ₽165\n\n**Trainer's Pokémon:**\n- Lv. 11 Rattata\n- Lv. 11 Ekans", []],
+		"496424": [
+			"**Reward:** ₽90\n\n**Trainer's Pokémon:**\n- Lv. 9 Weedle\n- Lv. 9 Kakuna\n- Lv. 9 Caterpie\n- Lv. 9 Metapod",
+			[]
+		],
+		"496425": ["**Reward:** ₽150\n\n**Trainer's Pokémon:**\n- Lv. 10 Rattata\n- Lv. 10 Nidoran♂", []],
+		"496426": ["**Reward:** ₽210\n\n**Trainer's Pokémon:**\n- Lv. 14 Spearow", []],
+		"496427": ["**Reward:** ₽110\n\n**Trainer's Pokémon:**\n- Lv. 11 Caterpie\n- Lv. 11 Metapod", []],
+		"496428": ["**Reward:** ₽210\n\n**Trainer's Pokémon:**\n- Lv. 14 Jigglypuff", []],
+		"496430": ["**Transitions to:** [Mt. Moon](#loc=496431)", []],
+		"496431": ["**Transitions to:** [Mt. Moon](#loc=496430)", []],
+		"496432": ["**Location:** On the ground in the open\n \n**Type:** Water  \n**Power:** 40", []],
+		"496433": ["**Location:** In the corner of the cave walls", []],
+		"496434": ["**Reward:** ₽110\n\n**Trainer's Pokémon:**\n- Lv. 11 Weedle\n- Lv. 11 Kakuna", []],
+		"496435": ["**Reward:** ₽210\n\n**Trainer's Pokémon:**\n- Lv. 14 Clefairy", []],
+		"496436": [
+			"**Reward:** ₽100\n\n**Trainer's Pokémon:**\n- Lv. 10 Caterpie\n- Lv. 10 Metapod\n- Lv. 10 Caterpie",
+			[]
+		],
+		"496437": ["**Reward:** ₽275\n\n**Trainer's Pokémon:**\n- Lv. 11 Magnemite\n- Lv. 11 Voltorb", []],
+		"496438": ["**Location:** In the corner of the cave walls", []],
+		"496439": ["**Location:** On the ground in the open", []],
+		"496440": ["**Location:** On the ground in the middle of the path", []],
+		"496441": ["**Reward:** ₽165\n\n**Trainer's Pokémon:**\n- Lv. 11 Oddish\n- Lv. 11 Bellsprout", []],
+		"496442": [
+			"**Reward:** ₽150\n\n**Trainer's Pokémon:**\n- Lv. 10 Rattata\n- Lv. 10 Rattata\n- Lv. 10 Zubat",
+			[]
+		],
+		"496443": ["**Reward:** ₽350\n\n**Trainer's Pokémon:**\n- Lv. 10 Geodude\n- Lv. 10 Geodude\n- Lv. 10 Onix", []],
+		"496444": ["**Location:** In the corner of the cave", []],
+		"496446": ["**Transitions to:** [B1F](#loc=496447)", []],
+		"496447": ["**Transitions to:** [1F](#loc=496446)", []],
+		"496448": ["**Transitions to:** [B2F](#loc=496449)", []],
+		"496449": ["**Transitions to:** [B1F](#loc=496448)", []],
+		"496450": ["**Transitions to:** [B1F](#loc=496451)", []],
+		"496451": ["**Transitions to:** [1F](#loc=496450)", []],
+		"496452": ["**Transitions to:** [B2F](#loc=496453)", []],
+		"496453": ["**Transitions to:** [B1F](#loc=496452)", []],
+		"496454": ["**Transitions to:** [B1F](#loc=496455)", []],
+		"496455": ["**Transitions to:** [1F](#loc=496454)", []],
+		"496456": ["**Transitions to:** [B2F](#loc=496457)", []],
+		"496457": ["**Transitions to:** [B1F](#loc=496456)", []],
+		"496459": [
+			"**Reward:** ₽330\n\n**Trainer's Pokémon:**\n- Lv. 11 Sandshrew\n- Lv. 11 Rattata\n- Lv. 11 Zubat",
+			[]
+		],
+		"496460": ["**Location:** On top of the small ledge", []],
+		"496461": ["**Reward:** ₽360\n\n**Trainer's Pokémon:**\n- Lv. 12 Zubat\n- Lv. 12 Ekans", []],
+		"496462": ["**Location:** On top of the small ledge\n \n**Type:** Normal  \n**Power:** 80", []],
+		"496463": ["**Reward:** ₽480\n\n**Trainer's Pokémon:**\n- Lv. 16 Raticate", []],
+		"496465": ["**Reward:** ₽390\n\n**Trainer's Pokémon:**\n- Lv. 13 Rattata\n- Lv. 13 Zubat", []],
+		"496466": [
+			"**Reward:** ₽300\n\n**Trainer's Pokémon:**\n- Lv. 12 Grimer\n- Lv. 12 Voltorb\n- Lv. 12 Koffing",
+			[]
+		],
+		"496467": [
+			"**Location:** On the ground, accessible after defeating the [Super Nerd](#loc=496466). Cannot be acquired if the player chooses the [Helix Fossil](#loc=496468)",
+			[]
+		],
+		"496468": [
+			"**Location:** On the ground, accessible after defeating the [Super Nerd](#loc=496466). Cannot be acquired if the player chooses the [Dome Fossil](#loc=496467)",
+			[]
+		],
+		"496469": ["**Transitions to:** [B1F](#loc=496470)", []],
+		"496470": ["**Transitions to:** [B2F](#loc=496469)", []],
+		"496471": ["**Transitions to:** [Mt. Moon](#loc=496472)", []],
+		"496472": ["**Transitions to:** [Mt. Moon](#loc=496471)", []],
+		"496473": ["**Location:** Hidden inside the rock", []],
+		"496474": ["**Location:** Hidden on the wall", []],
+		"496475": ["**Location:** Hidden on the ground in the middle of the ledge", []],
+		"496476": ["**Location:** On the ground in the middle of the ledge\n \n**Type:** Normal  \n**Power:** N/A", []],
+		"496477": ["**Transitions to:** [Cerulean Gym](#loc=496478)", []],
+		"496478": ["**Transitions to:** [Cerulean Gym](#loc=496477)", []],
+		"496479": ["**Reward:** ₽80\n\n**Trainer's Pokémon:**\n- Lv. 16 Horsea\n- Lv. 16 Shellder", []],
+		"496480": ["**Reward:** ₽380\n\n**Trainer's Pokémon:**\n- Lv. 19 Goldeen", []],
+		"496481": [
+			"**Type:** Water  \n**Unlocks HM Use:** [HM 01: Cut](#loc=497181)\n\n**Reward:**\n- Cascade Badge\n- ₽2,079\n- [TM 11: Bubble Beam](#loc=496482)\n\n**Pokémon:**\n- Lv. 18 Staryu\n- Lv. 21 Starmie",
+			[]
+		],
+		"496482": [
+			"**Location:** Given as a reward for beating [Misty](#loc=496481)\n \n**Type:** Water  \n**Power:** 65",
+			[]
+		],
+		"496485": ["**Location:** Inside the house\n\n**Player Gives:** Poliwhirl  \n**Player Receives:** Jynx", []],
+		"496488": [
+			"**Sells:**\n- Poké Ball - ₽200\n- Potion - ₽300\n- Repel - ₽350\n- Antidote - ₽100\n- Burn Heal - ₽250\n- Awakening - ₽200\n- Parlyz Heal - ₽200",
+			[]
+		],
+		"496489": [
+			"**Location:** Hidden on the ground behind the house, accessible through the door inside the house",
+			[]
+		],
+		"496490": [
+			"**This is started when walking towards Route 24 for the first time**\n\n**Reward:** ₽595\n\n**Trainer's Pokémon:**\n- Lv. 18 Pidgeotto\n- Lv. 15 Abra\n- Lv. 15 Rattata\n- If the player chose Bulbasaur:\n   - Lv. 17 Charmander\n- If the player chose Charmander:\n   - Lv. 17 Squirtle\n- If the player chose Squirtle:\n   - Lv. 17 Bulbasaur",
+			[]
+		],
+		"496491": ["**Reward:** ₽140\n\n**Trainer's Pokémon:**\n- Lv. 14 Caterpie\n- Lv. 14 Weedle", []],
+		"496492": ["**Reward:** ₽210\n\n**Trainer's Pokémon:**\n- Lv. 14 Pidgey\n- Lv. 14 Nidoran♀", []],
+		"496493": ["**Reward:** ₽210\n\n**Trainer's Pokémon:**\n- Lv. 14 Rattata\n- Lv. 14 Ekans\n- Lv. 14 Zubat", []],
+		"496494": ["**Reward:** ₽240\n\n**Trainer's Pokémon:**\n- Lv. 16 Pidgey\n- Lv. 16 Nidoran♀", []],
+		"496495": ["**Reward:** ₽360\n\n**Trainer's Pokémon:**\n- Lv. 18 Mankey", []],
+		"496496": [
+			"**Location:** Given by the [Rocket Grunt](#loc=496497) after clearing all five trainers on the path",
+			[]
+		],
+		"496497": ["**Reward:** ₽450\n\n**Trainer's Pokémon:**\n- Lv. 15 Ekans\n- Lv. 15 Zubat", []],
+		"496500": ["**Reward:** ₽280\n\n**Trainer's Pokémon:**\n- Lv. 14 Rattata\n- Lv. 14 Ekans", []],
+		"496501": ["**Location:** In the middle of the ledge\n \n**Type:** Electric  \n**Power:** N/A", []],
+		"496502": ["**Reward:** ₽525\n\n**Trainer's Pokémon:**\n- Lv. 15 Machop\n- Lv. 15 Geodude", []],
+		"496503": ["**Reward:** ₽225\n\n**Trainer's Pokémon:**\n- Lv. 15 Rattata\n- Lv. 15 Spearow", []],
+		"496504": ["**Reward:** ₽595\n\n**Trainer's Pokémon:**\n- Lv. 17 Onix", []],
+		"496505": ["**Reward:** ₽255\n\n**Trainer's Pokémon:**\n- Lv. 17 Slowpoke", []],
+		"496506": ["**Reward:** ₽225\n\n**Trainer's Pokémon:**\n- Lv. 15 Nidoran♂\n- Lv. 15 Nidoran♀", []],
+		"496507": [
+			"**Reward:** ₽455\n\n**Trainer's Pokémon:**\n- Lv. 13 Geodude\n- Lv. 13 Geodude\n- Lv. 13 Machop\n- Lv. 13 Geodude",
+			[]
+		],
+		"496509": ["**Reward:** ₽280\n\n**Trainer's Pokémon:**\n- Lv. 14 Rattata\n- Lv. 14 Ekans", []],
+		"496515": [
+			"**Location:** In the corner behind the [Small Plant](#loc=496508)\n \n**Type:** Fighting  \n**Power:** N/A",
+			[]
+		],
+		"496518": ["**Reward:** ₽210\n\n**Trainer's Pokémon:**\n- Lv. 14 Ekans\n- Lv. 14 Sandshrew", []],
+		"496519": ["**Reward:** ₽195\n\n**Trainer's Pokémon:**\n- Lv. 13 Oddish\n- Lv. 13 Pidgey\n- Lv. 13 Oddish", []],
+		"496520": ["**Transitions to:** [Sea Cottage](#loc=496522)", []],
+		"496522": ["**Transitions to:** [Sea Cottage](#loc=496520)", []],
+		"496523": ["**Location:** Given by Bill after helping him turn back into a human", []],
+		"496525": ["**Location:** Hidden on the wall", []],
+		"496526": ["**Location:** Hidden in the fence", []],
+		"496529": [
+			"**Reward:**\n- ₽510\n- [TM 28: Dig](#loc=496532)\n\n**Trainer's Pokémon:**\n- Lv. 17 Machop\n- Lv. 17 Drowzee",
+			[]
+		],
+		"496532": [
+			"**Location:** Given by the [Team Rocket Grunt](#loc=496529) after defeating them in battle\n \n**Type:** Ground  \n**Power:** 80",
+			[]
+		],
+		"496540": ["**Transitions to:** [Underground Path](#loc=496541)", []],
+		"496541": ["**Transitions to:** [Underground Path](#loc=496540)", []],
+		"496542": ["**Transitions to:** [B1F](#loc=496543)", []],
+		"496543": ["**Transitions to:** [1F](#loc=496542)", []],
+		"496545": [
+			"**Location:** In the corner of 1F on the northern side\n\n**Player Gives:** Nidoran♂  \n**Player Receives:** Nidoran♀",
+			[]
+		],
+		"496547": ["**Transitions to:** [1F](#loc=496548)", []],
+		"496548": ["**Transitions to:** [B1F](#loc=496547)", []],
+		"496550": ["**Transitions to:** [Underground Path](#loc=496551)", []],
+		"496551": ["**Transitions to:** [Underground Path](#loc=496550)", []],
+		"496553": ["**Location:** Hidden on the ground next to the [B1F](#loc=496543) stairs", []],
+		"496555": ["**Location:** Hidden on the ground in the middle of the hallway", []],
+		"496556": [
+			"**Reward:** ₽160\n\n**Trainer's Pokémon:**\n- Lv. 16 Weedle\n- Lv. 16 Caterpie\n- Lv. 16 Weedle",
+			[]
+		],
+		"496561": ["**Reward:** ₽400\n\n**Trainer's Pokémon:**\n- Lv. 20 Squirtle", []],
+		"496563": ["**Reward:** ₽320\n\n**Trainer's Pokémon:**\n- Lv. 16 Rattata\n- Lv. 16 Pikachu", []],
+		"497097": ["**Reward:** ₽200\n\n**Trainer's Pokémon:**\n- Lv. 20 Butterfree", []],
+		"497098": ["**Reward:** ₽320\n\n**Trainer's Pokémon:**\n- Lv. 16 Pidgey\n- Lv. 16 Pidgey\n- Lv. 16 Pidgey", []],
+		"497099": ["**Reward:** ₽320\n\n**Trainer's Pokémon:**\n- Lv. 16 Spearow\n- Lv. 16 Raticate", []],
+		"497101": ["**Location:** Given by the Fishing Guru inside the building", []],
+		"497103": [
+			"**Location:** Given by the Chairman inside the Pokémon Fan Club after listening to him speak about his Pokémon",
+			[]
+		],
+		"497104": [
+			"**Location:** Inside the building\n\n**Player Gives:** Spearow  \n**Player Receives:** Farfetch'd",
+			[]
+		],
+		"497105": [
+			"**Sells:**\n- Poké Ball - ₽200\n- Super Potion - ₽700\n- Ice Heal - ₽250\n- Awakening - ₽200\n- Parlyz Heal - ₽200\n- Repel - ₽350",
+			[]
+		],
+		"497108": ["**Transitions to:** [S.S. Anne](#loc=497109)", []],
+		"497109": ["**Transitions to:** [S.S. Anne](#loc=497108)", []],
+		"497110": ["**Transitions to:** [Bedroom](#loc=497111)", []],
+		"497111": ["**Transitions to:** [Bedroom](#loc=497110)", []],
+		"497112": ["**Reward:** ₽1,260\n\n**Trainer's Pokémon:**\n- Lv. 18 Growlithe\n- Lv. 18 Growlithe", []],
+		"497113": ["**Transitions to:** [Bedroom](#loc=497114)", []],
+		"497114": ["**Transitions to:** [Bedroom](#loc=497113)", []],
+		"497115": ["**Reward:** ₽1,330\n\n**Trainer's Pokémon:**\n- Lv. 19 Nidoran♂\n- Lv. 19 Nidoran♀", []],
+		"497116": ["**Transitions to:** [Bedroom](#loc=497117)", []],
+		"497117": ["**Transitions to:** [Bedroom](#loc=497116)", []],
+		"497118": ["**Transitions to:** [Bedroom](#loc=497119)", []],
+		"497119": ["**Transitions to:** [Bedroom](#loc=497118)", []],
+		"497120": ["**Transitions to:** [Bedroom](#loc=497121)", []],
+		"497121": ["**Transitions to:** [Bedroom](#loc=497120)", []],
+		"497122": ["**Transitions to:** [Bedroom](#loc=497123)", []],
+		"497123": ["**Transitions to:** [Bedroom](#loc=497122)", []],
+		"497124": ["**Reward:** ₽270\n\n**Trainer's Pokémon:**\n- Lv. 18 Pidgey\n- Lv. 18 Nidoran♀", []],
+		"497125": ["**Reward:** ₽315\n\n**Trainer's Pokémon:**\n- Lv. 21 Nidoran♂", []],
+		"497126": ["**Location:** On the ground next to the bed\n \n**Type:** Normal  \n**Power:** 85", []],
+		"497127": ["**Transitions to:** [Cafeteria](#loc=497128)", []],
+		"497128": ["**Transitions to:** [Cafeteria](#loc=497127)", []],
+		"497129": ["**Location:** Inside the trash can", []],
+		"497130": ["**Transitions to:** [B1F](#loc=497131)", []],
+		"497131": ["**Transitions to:** [1F](#loc=497130)", []],
+		"497132": ["**Transitions to:** [Bedroom](#loc=497133)", []],
+		"497133": ["**Transitions to:** [Bedroom](#loc=497132)", []],
+		"497134": ["**Transitions to:** [Bedroom](#loc=497135)", []],
+		"497135": ["**Transitions to:** [Bedroom](#loc=497134)", []],
+		"497136": ["**Transitions to:** [Bedroom](#loc=497137)", []],
+		"497137": ["**Transitions to:** [Bedroom](#loc=497136)", []],
+		"497138": ["**Transitions to:** [Bedroom](#loc=497139)", []],
+		"497139": ["**Transitions to:** [Bedroom](#loc=497138)", []],
+		"497140": ["**Transitions to:** [Bedroom](#loc=497141)", []],
+		"497141": ["**Transitions to:** [Bedroom](#loc=497140)", []],
+		"497142": ["**Location:** On the ground next to the bed", []],
+		"497143": ["**Reward:** ₽630\n\n**Trainer's Pokémon:**\n- Lv. 21 Shellder", []],
+		"497144": [
+			"**Reward:** ₽510\n\n**Trainer's Pokémon:**\n- Lv. 17 Horsea\n- Lv. 17 Shellder\n- Lv. 17 Tentacool",
+			[]
+		],
+		"497145": ["**Reward:** ₽510\n\n**Trainer's Pokémon:**\n- Lv. 17 Horsea\n- Lv. 17 Horsea\n- Lv. 17 Horsea", []],
+		"497146": ["**Location:** On the ground between the table and stool", []],
+		"497147": ["**Reward:** ₽540\n\n**Trainer's Pokémon:**\n- Lv. 17 Tentacool\n- Lv. 18 Staryu", []],
+		"497148": [
+			"**Location:** On the ground between the stool and the table\n \n**Type:** Psychic  \n**Power:** N/A",
+			[]
+		],
+		"497149": [
+			"**Reward:** ₽595\n\n**Trainer's Pokémon:**\n- Lv. 17 Tentacool\n- Lv. 17 Staryu\n- Lv. 17 Shellder",
+			[]
+		],
+		"497150": ["**Reward:** ₽600\n\n**Trainer's Pokémon:**\n- Lv. 20 Machop", []],
+		"497151": ["**Location:** Hidden on the pillow of the bed", []],
+		"497152": ["**Transitions to:** [2F](#loc=497153)", []],
+		"497153": ["**Transitions to:** [1F](#loc=497152)", []],
+		"497154": ["**Transitions to:** [3F](#loc=497155)", []],
+		"497155": ["**Transitions to:** [2F](#loc=497154)", []],
+		"497156": ["**Transitions to:** [Deck](#loc=497157)", []],
+		"497157": ["**Transitions to:** [Deck](#loc=497156)", []],
+		"497158": ["**Reward:** ₽510\n\n**Trainer's Pokémon:**\n- Lv. 17 Machop\n- Lv. 17 Tentacool", []],
+		"497159": ["**Reward:** ₽540\n\n**Trainer's Pokémon:**\n- Lv. 18 Machop\n- Lv. 18 Shellder", []],
+		"497160": ["**Transitions to:** [Bedroom](#loc=497161)", []],
+		"497161": ["**Transitions to:** [Bedroom](#loc=497160)", []],
+		"497162": ["**Transitions to:** [Bedroom](#loc=497163)", []],
+		"497163": ["**Transitions to:** [Bedroom](#loc=497162)", []],
+		"497164": ["**Transitions to:** [Bedroom](#loc=497165)", []],
+		"497165": ["**Transitions to:** [Bedroom](#loc=497164)", []],
+		"497166": ["**Transitions to:** [Bedroom](#loc=497167)", []],
+		"497167": ["**Transitions to:** [Bedroom](#loc=497166)", []],
+		"497168": ["**Transitions to:** [Bedroom](#loc=497169)", []],
+		"497169": ["**Transitions to:** [Bedroom](#loc=497168)", []],
+		"497170": ["**Transitions to:** [Bedroom](#loc=497171)", []],
+		"497171": ["**Transitions to:** [Bedroom](#loc=497170)", []],
+		"497172": [
+			"**Reward:** ₽595\n\n**Trainer's Pokémon:**\n- Lv. 17 Goldeen\n- Lv. 17 Tentacool\n- Lv. 17 Goldeen",
+			[]
+		],
+		"497173": ["**Reward:** ₽1,610\n\n**Trainer's Pokémon:**\n- Lv. 23 Pikachu", []],
+		"497174": ["**Location:** On the ground between the table and the bed", []],
+		"497175": ["**Reward:** ₽1,190\n\n**Trainer's Pokémon:**\n- Lv. 17 Growlithe\n- Lv. 17 Ponyta", []],
+		"497176": ["**Reward:** ₽270\n\n**Trainer's Pokémon:**\n- Lv. 18 Rattata\n- Lv. 18 Pikachu", []],
+		"497177": ["**Location:** On the ground between the table and the stool", []],
+		"497178": [
+			"**This is started when walking towards the stairs**\n\n**Reward:** ₽1,300\n\n**Trainer's Pokémon:**\n- Lv. 19 Pidgeotto\n- Lv. 16 Raticate\n- Lv. 18 Kadabra\n- If the player chose Bulbasaur:\n   - Lv. 20 Charmeleon\n- If the player chose Charmander:\n   - Lv. 20 Wartortle\n- If the player chose Squirtle:\n   - Lv. 20 Ivysaur",
+			[]
+		],
+		"497179": ["**Transitions to:** [3F](#loc=497180)", []],
+		"497180": ["**Transitions to:** [2F](#loc=497179)", []],
+		"497181": [
+			"**Location:** Given by the captain after rubbing his back\n \n**Ability:** Allows the user to cut down small plants outside of battle  \n**Type:** Normal  \n**Power:** 50",
+			[]
+		],
+		"497183": ["**Transitions to:** [Vermilion Gym](#loc=497184)", []],
+		"497184": ["**Transitions to:** [Vermilion Gym](#loc=497183)", []],
+		"497185": ["**Reward:** ₽630\n\n**Trainer's Pokémon:**\n- Lv. 21 Pikachu\n- Lv. 21 Pikachu", []],
+		"497186": [
+			"**Reward:** ₽500\n\n**Trainer's Pokémon:**\n- Lv. 20 Voltorb\n- Lv. 20 Magnemite\n- Lv. 20 Voltorb",
+			[]
+		],
+		"497187": ["**Reward:** ₽1,610\n\n**Trainer's Pokémon:**\n- Lv. 23 Pikachu", []],
+		"497188": [
+			"**Type:** Electric  \n**Unlocks HM Use:** [HM 02: Fly](#loc=505224)\n\n**Reward:**\n- Thunder Badge\n- ₽2,376\n- [TM 24: Thunderbolt](#loc=497189)\n\n**Pokémon:**\n- Lv. 21 Voltorb\n- Lv. 18 Pikachu\n- Lv. 24 Raichu",
+			[]
+		],
+		"497189": [
+			"**Location:** Given as a reward for beating [Lt. Surge](#loc=497188)\n \n**Type:** Electric  \n**Power:** 90",
+			[]
+		],
+		"497190": ["**Reward:** ₽315\n\n**Trainer's Pokémon:**\n- Lv. 21 Ekans", []],
+		"497191": ["**Reward:** ₽285\n\n**Trainer's Pokémon:**\n- Lv. 19 Sandshrew\n- Lv. 19 Zubat", []],
+		"497192": ["**Reward:** ₽270\n\n**Trainer's Pokémon:**\n- Lv. 18 Nidoran♂\n- Lv. 18 Nidorino", []],
+		"497193": ["**Reward:** ₽1,260\n\n**Trainer's Pokémon:**\n- Lv. 18 Bellsprout\n- Lv. 18 Oddish", []],
+		"497194": ["**Reward:** ₽1,260\n\n**Trainer's Pokémon:**\n- Lv. 18 Poliwag\n- Lv. 18 Horsea", []],
+		"497195": ["**Reward:** ₽1,260\n\n**Trainer's Pokémon:**\n- Lv. 18 Growlithe\n- Lv. 18 Vulpix", []],
+		"497196": [
+			"**Reward:** ₽255\n\n**Trainer's Pokémon:**\n- Lv. 17 Rattata\n- Lv. 17 Rattata\n- Lv. 17 Raticate",
+			[]
+		],
+		"497197": ["**Reward:** ₽1,050\n\n**Trainer's Pokémon:**\n- Lv. 21 Magnemite", []],
+		"497198": [
+			"**Reward:** ₽900\n\n**Trainer's Pokémon:**\n- Lv. 18 Magnemite\n- Lv. 18 Magnemite\n- Lv. 18 Magneton",
+			[]
+		],
+		"497199": ["**Reward:** ₽1,260\n\n**Trainer's Pokémon:**\n- Lv. 18 Voltorb\n- Lv. 18 Magnemite", []],
+		"497200": [
+			"**Location:** On the second floor of the gate near the binoculars\n\n**Player Gives:** Nidorino  \n**Player Receives:** Nidorina",
+			[]
+		],
+		"497201": [
+			"**Location:** Given by Professor Oak's assistant on the second floor of the gate if the player has registered 30 different Pokémon in their Pokédex",
+			[]
+		],
+		"497202": ["**Location:** Hidden in the tree", []],
+		"500641": ["**Transitions to:** [Diglett Cave](#loc=500642)", []],
+		"500642": ["**Transitions to:** [Diglett Cave](#loc=500641)", []],
+		"500643": ["**Transitions to:** [B1F](#loc=500644)", []],
+		"500644": ["**Transitions to:** [1F](#loc=500643)", []],
+		"500645": ["**Transitions to:** [1F](#loc=500646)", []],
+		"500646": ["**Transitions to:** [B1F](#loc=500645)", []],
+		"500647": ["**Transitions to:** [Diglett Cave](#loc=500648)", []],
+		"500648": ["**Transitions to:** [Diglett Cave](#loc=500647)", []],
+		"500649": ["**Location:** Inside the house\n\n**Player Gives:** Abra  \n**Player Receives:** Mr. Mime", []],
+		"500650": [
+			"**Location:** Given by Professor Oak's aide after catching at least 10 different Pokémon\n \n**Ability:** Allows the user to light up dark caves  \n**Type:** Normal  \n**Power:** N/A",
+			[]
+		],
+		"500651": ["**Location:** Under a ledge near a corner", []],
+		"500652": ["**Location:** In the corner of some trees", []],
+		"500653": [
+			"**Location:** Given by the employee at the Bike Shop after giving them a [Bike Voucher](#loc=497103)",
+			[]
+		],
+		"500654": [
+			"**Reward:** ₽360\n\n**Trainer's Pokémon:**\n- Lv. 18 Oddish\n- Lv. 18 Bellsprout\n- Lv. 18 Oddish\n- Lv. 18 Bellsprout",
+			[]
+		],
+		"500655": ["**Reward:** ₽700\n\n**Trainer's Pokémon:**\n- Lv. 20 Machop\n- Lv. 20 Onix", []],
+		"500656": ["**Location:** In the corner of the two cliffs\n \n**Type:** Psychic  \n**Power:** N/A", []],
+		"500657": ["**Reward:** ₽420\n\n**Trainer's Pokémon:**\n- Lv. 21 Growlithe\n- Lv. 21 Charmander", []],
+		"500658": ["**Reward:** ₽190\n\n**Trainer's Pokémon:**\n- Lv. 19 Beedrill\n- Lv. 19 Beedrill", []],
+		"500659": ["**Location:** Hidden in a tree", []],
+		"500660": ["**Reward:** ₽735\n\n**Trainer's Pokémon:**\n- Lv. 21 Geodude\n- Lv. 21 Onix", []],
+		"500661": [
+			"**Reward:** ₽200\n\n**Trainer's Pokémon:**\n- Lv. 20 Caterpie\n- Lv. 20 Weedle\n- Lv. 20 Venonat",
+			[]
+		],
+		"500662": [
+			"**Reward:** ₽380\n\n**Trainer's Pokémon:**\n- Lv. 19 Rattata\n- Lv. 19 Diglett\n- Lv. 19 Ekans\n- Lv. 19 Sandshrew",
+			[]
+		],
+		"500663": [
+			"**Reward:** ₽700\n\n**Trainer's Pokémon:**\n- Lv. 20 Geodude\n- Lv. 20 Machop\n- Lv. 20 Geodude",
+			[]
+		],
+		"500664": ["**Reward:** ₽460\n\n**Trainer's Pokémon:**\n- Lv. 23 Meowth", []],
+		"500665": ["**Reward:** ₽400\n\n**Trainer's Pokémon:**\n- Lv. 20 Pikachu\n- Lv. 20 Clefairy", []],
+		"500670": ["**Location:** Hidden on the wall next to the [Small Plant](#loc=500669)", []],
+		"500671": ["**Transitions to:** [Rock Tunnel](#loc=500672)", []],
+		"500672": ["**Transitions to:** [Rock Tunnel](#loc=500671)", []],
+		"500673": ["**Reward:** ₽1,150\n\n**Trainer's Pokémon:**\n- Lv. 23 Cubone\n- Lv. 23 Slowpoke", []],
+		"500674": ["**Transitions to:** [B2F](#loc=500675)", []],
+		"500675": ["**Transitions to:** [B1F](#loc=500674)", []],
+		"500676": ["**Reward:** ₽1,250\n\n**Trainer's Pokémon:**\n- Lv. 25 Slowpoke", []],
+		"500677": ["**Reward:** ₽440\n\n**Trainer's Pokémon:**\n- Lv. 22 Oddish\n- Lv. 22 Bulbasaur", []],
+		"500678": ["**Reward:** ₽1,100\n\n**Trainer's Pokémon:**\n- Lv. 22 Charmander\n- Lv. 22 Cubone", []],
+		"500679": ["**Reward:** ₽875\n\n**Trainer's Pokémon:**\n- Lv. 25 Geodude", []],
+		"500680": ["**Reward:** ₽700\n\n**Trainer's Pokémon:**\n- Lv. 20 Machop\n- Lv. 20 Onix", []],
+		"500681": ["**Transitions to:** [B1F](#loc=500682)", []],
+		"500682": ["**Transitions to:** [B2F](#loc=500681)", []],
+		"500683": [
+			"**Reward:** ₽665\n\n**Trainer's Pokémon:**\n- Lv. 19 Geodude\n- Lv. 19 Machop\n- Lv. 19 Geodude\n- Lv. 19 Geodude",
+			[]
+		],
+		"500684": ["**Reward:** ₽700\n\n**Trainer's Pokémon:**\n- Lv. 20 Onix\n- Lv. 20 Onix\n- Lv. 20 Geodude", []],
+		"500685": ["**Reward:** ₽735\n\n**Trainer's Pokémon:**\n- Lv. 21 Geodude\n- Lv. 21 Graveler", []],
+		"500686": ["**Transitions to:** [B2F](#loc=500687)", []],
+		"500687": ["**Transitions to:** [B1F](#loc=500686)", []],
+		"500688": [
+			"**Reward:** ₽420\n\n**Trainer's Pokémon:**\n- Lv. 21 Jigglypuff\n- Lv. 21 Pidgey\n- Lv. 21 Meowth",
+			[]
+		],
+		"500689": [
+			"**Reward:** ₽735\n\n**Trainer's Pokémon:**\n- Lv. 21 Geodude\n- Lv. 21 Geodude\n- Lv. 21 Graveler",
+			[]
+		],
+		"500690": [
+			"**Reward:** ₽1,000\n\n**Trainer's Pokémon:**\n- Lv. 20 Slowpoke\n- Lv. 20 Slowpoke\n- Lv. 20 Slowpoke",
+			[]
+		],
+		"500691": ["**Transitions to:** [B1F](#loc=500692)", []],
+		"500692": ["**Transitions to:** [B2F](#loc=500691)", []],
+		"500693": ["**Reward:** ₽440\n\n**Trainer's Pokémon:**\n- Lv. 22 Bellsprout\n- Lv. 22 Clefairy", []],
+		"500694": [
+			"**Reward:** ₽380\n\n**Trainer's Pokémon:**\n- Lv. 19 Pidgey\n- Lv. 19 Rattata\n- Lv. 19 Rattata\n- Lv. 19 Bellsprout",
+			[]
+		],
+		"500695": ["**Reward:** ₽400\n\n**Trainer's Pokémon:**\n- Lv. 20 Meowth\n- Lv. 20 Oddish\n- Lv. 20 Pidgey", []],
+		"500696": ["**Transitions to:** [Rock Tunnel](#loc=500697)", []],
+		"500697": ["**Transitions to:** [Rock Tunnel](#loc=500696)", []],
+		"500698": ["**Reward:** ₽420\n\n**Trainer's Pokémon:**\n- Lv. 21 Pidgey\n- Lv. 21 Pidgeotto", []],
+		"500699": ["**Location:** Hidden in the tree", []],
+		"500700": ["**Reward:** ₽735\n\n**Trainer's Pokémon:**\n- Lv. 21 Geodude\n- Lv. 21 Onix", []],
+		"500701": ["**Reward:** ₽665\n\n**Trainer's Pokémon:**\n- Lv. 19 Onix\n- Lv. 19 Graveler", []],
+		"500702": ["**Reward:** ₽1,000\n\n**Trainer's Pokémon:**\n- Lv. 20 Cubone\n- Lv. 20 Slowpoke", []],
+		"500704": ["Appraises your team's nicknames, and lets you change them.", []],
+		"500705": [
+			"**Sells:**\n- Great Ball - ₽600\n- Super Potion - ₽700\n- Revive - ₽1,500\n- Escape Rope - ₽550\n- Super Repel - ₽500\n- Antidote - ₽100\n- Burn Heal - ₽250\n- Ice Heal - ₽250\n- Parlyz Heal - ₽200",
+			[]
+		],
+		"501027": ["**Transitions to:** [Pokémon Tower](#loc=501028)", []],
+		"501028": ["**Transitions to:** [Pokémon Tower](#loc=501027)", []],
+		"501029": ["**Transitions to:** [2F](#loc=501030)", []],
+		"501030": ["**Transitions to:** [1F](#loc=501029)", []],
+		"501031": [
+			"**This is started immediately after the player approaches him in the Tower**\n\n**Reward:** ₽1,625\n\n**Trainer's Pokémon:**\n- Lv. 25 Pidgeotto\n- Lv. 20 Kadabra\n- If the player chose Bulbasaur:\n   - Lv. 22 Exeggcute\n   - Lv. 22 Gyarados\n   - Lv. 25 Charmeleon\n- If the player chose Charmander:\n   - Lv. 23 Growlithe\n   - Lv. 22 Exeggcute\n   - Lv. 25 Wartortle\n- If the player chose Squirtle:\n   - Lv. 22 Gyarados\n   - Lv. 23 Growlithe\n   - Lv. 25 Ivysaur",
+			[]
+		],
+		"501032": ["**Transitions to:** [3F](#loc=501033)", []],
+		"501033": ["**Transitions to:** [2F](#loc=501032)", []],
+		"501034": ["**Reward:** ₽690\n\n**Trainer's Pokémon:**\n- Lv. 23 Gastly", []],
+		"501035": ["**Location:** In the north corner", []],
+		"501036": ["**Reward:** ₽660\n\n**Trainer's Pokémon:**\n- Lv. 22 Gastly", []],
+		"501037": ["**Reward:** ₽720\n\n**Trainer's Pokémon:**\n- Lv. 24 Gastly", []],
+		"501038": ["**Transitions to:** [4F](#loc=501039)", []],
+		"501039": ["**Transitions to:** [3F](#loc=501038)", []],
+		"501040": ["**Reward:** ₽690\n\n**Trainer's Pokémon:**\n- Lv. 23 Gastly\n- Lv. 23 Gastly", []],
+		"501041": ["**Location:** At a dead end of tombstones", []],
+		"501042": ["**Location:** Surrounded by tombstones", []],
+		"501043": ["**Reward:** ₽660\n\n**Trainer's Pokémon:**\n- Lv. 22 Gastly", []],
+		"501044": ["**Location:** In the corner of the wall behind a tombstone", []],
+		"501045": ["**Reward:** ₽720\n\n**Trainer's Pokémon:**\n- Lv. 24 Gastly", []],
+		"501046": ["**Transitions to:** [5F](#loc=501047)", []],
+		"501047": ["**Transitions to:** [4F](#loc=501046)", []],
+		"501048": ["**Location:** Hidden on the wall", []],
+		"501049": ["**Reward:** ₽660\n\n**Trainer's Pokémon:**\n- Lv. 22 Gastly", []],
+		"501050": ["**Reward:** ₽690\n\n**Trainer's Pokémon:**\n- Lv. 23 Haunter", []],
+		"501051": ["**Reward:** ₽720\n\n**Trainer's Pokémon:**\n- Lv. 24 Gastly", []],
+		"501052": ["**Reward:** ₽660\n\n**Trainer's Pokémon:**\n- Lv. 22 Haunter", []],
+		"501053": ["**Location:** In the corner of the room behind a row of tombstones", []],
+		"501054": ["**Transitions to:** [6F](#loc=501055)", []],
+		"501055": ["**Transitions to:** [5F](#loc=501054)", []],
+		"501056": ["**Transitions to:** [7F](#loc=501057)", []],
+		"501057": ["**Transitions to:** [6F](#loc=501056)", []],
+		"501058": ["**Reward:** ₽720\n\n**Trainer's Pokémon:**\n- Lv. 24 Gastly", []],
+		"501059": ["**Reward:** ₽720\n\n**Trainer's Pokémon:**\n- Lv. 24 Gastly", []],
+		"501060": ["**Location:** Between two rows of tombstones", []],
+		"501061": ["**Reward:** ₽660\n\n**Trainer's Pokémon:**\n- Lv. 22 Gastly\n- Lv. 22 Gastly\n- Lv. 22 Gastly", []],
+		"501062": ["**Location:** At a dead end between a wall and a tombstone", []],
+		"501063": ["**Reward:** ₽330\n\n**Trainer's Pokémon:**\n- Lv. 22 Clefairy\n- Lv. 22 Clefairy", []],
+		"501064": ["**Reward:** ₽1,680\n\n**Trainer's Pokémon:**\n- Lv. 24 Growlithe\n- Lv. 24 Vulpix", []],
+		"501067": ["**Reward:** ₽550\n\n**Trainer's Pokémon:**\n- Lv. 22 Grimer\n- Lv. 22 Muk\n- Lv. 22 Grimer", []],
+		"501068": ["**Reward:** ₽650\n\n**Trainer's Pokémon:**\n- Lv. 26 Koffing", []],
+		"501071": ["**Reward:** ₽345\n\n**Trainer's Pokémon:**\n- Lv. 23 Nidoran♀\n- Lv. 23 Nidorina", []],
+		"501074": ["**Reward:** ₽360\n\n**Trainer's Pokémon:**\n- Lv. 24 Meowth\n- Lv. 24 Meowth\n- Lv. 24 Meowth", []],
+		"501075": [
+			"**Reward:** ₽285\n\n**Trainer's Pokémon:**\n- Lv. 19 Pidgey\n- Lv. 19 Rattata\n- Lv. 19 Nidoran♂\n- Lv. 19 Meowth\n- Lv. 19 Pikachu",
+			[]
+		],
+		"501077": [
+			"**Reward:** ₽1,540\n\n**Trainer's Pokémon:**\n- Lv. 22 Poliwag\n- Lv. 22 Poliwag\n- Lv. 22 Poliwhirl",
+			[]
+		],
+		"501081": [
+			"**Reward:** ₽500\n\n**Trainer's Pokémon:**\n- Lv. 20 Voltorb\n- Lv. 20 Koffing\n- Lv. 20 Voltorb\n- Lv. 20 Magnemite",
+			[]
+		],
+		"501085": ["**Transitions to:** [Underground Path](#loc=501086)", []],
+		"501086": ["**Transitions to:** [Underground Path](#loc=501085)", []],
+		"501087": ["**Transitions to:** [B1F](#loc=501088)", []],
+		"501088": ["**Transitions to:** [1F](#loc=501087)", []],
+		"501089": ["**Transitions to:** [1F](#loc=501090)", []],
+		"501090": ["**Transitions to:** [B1F](#loc=501089)", []],
+		"501092": ["**Location:** Hidden on the ground", []],
+		"501093": ["**Location:** Hidden on the ground, lowest section.", []],
+		"501095": ["**Transitions to:** [Underground Path](#loc=501096)", []],
+		"501096": ["**Transitions to:** [Underground Path](#loc=501095)", []],
+		"501102": ["**Transitions to:** [Celadon Dept. Store](#loc=501103)", []],
+		"501103": ["**Transitions to:** [Celadon Dept. Store](#loc=501102)", []],
+		"501105": ["**Transitions to:** [Celadon Dept. Store](#loc=501106)", []],
+		"501106": ["**Transitions to:** [Celadon Dept. Store](#loc=501105)", []],
+		"501107": ["**Transitions to:** [2F](#loc=501108)", []],
+		"501108": ["**Transitions to:** [1F](#loc=501107)", []],
+		"501110": ["**Transitions to:** [3F](#loc=501111)", []],
+		"501111": ["**Transitions to:** [2F](#loc=501110)", []],
+		"501112": ["**Transitions to:** [4F](#loc=501113)", []],
+		"501113": ["**Transitions to:** [3F](#loc=501112)", []],
+		"501116": ["**Transitions to:** [5F](#loc=501117)", []],
+		"501117": ["**Transitions to:** [4F](#loc=501116)", []],
+		"501118": ["**Transitions to:** [Rooftop](#loc=501119)", []],
+		"501119": ["**Transitions to:** [5F](#loc=501118)", []],
+		"501123": [
+			"**Location:** Given by the employee behind the counter\n \n**Type:** Fighting  \n**Power:** N/A",
+			[]
+		],
+		"501132": [
+			"**Sells:**\n- [TM 32: Double Team](#loc=501862) - ₽1,000\n- [TM 33: Reflect](#loc=501863) - ₽1,000\n- [TM 02: Razor Wind](#loc=501864) - ₽2,000\n- [TM 07: Horn Drill](#loc=501865) - ₽2,000\n- [TM 37: Egg Bomb](#loc=501866) - ₽2,000\n- [TM 01: Mega Punch](#loc=501867) - ₽3,000\n- [TM 05: Mega Kick](#loc=501868) - ₽3,000\n- [TM 09: Take Down](#loc=501869) - ₽3,000\n- [TM 17: Submission](#loc=501870) - ₽3,000",
+			[]
+		],
+		"501862": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽1,000\n \n**Type:** Normal  \n**Power:** N/A",
+			[]
+		],
+		"501863": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽1,000\n \n**Type:** Psychic  \n**Power:** N/A",
+			[]
+		],
+		"501864": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽2,000\n \n**Type:** Normal  \n**Power:** 80",
+			[]
+		],
+		"501865": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽2,000\n \n**Type:** Normal  \n**Power:** N/A",
+			[]
+		],
+		"501866": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽2,000\n \n**Type:** Normal  \n**Power:** 100",
+			[]
+		],
+		"501867": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽3,000\n \n**Type:** Normal  \n**Power:** 80",
+			[]
+		],
+		"501868": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽3,000\n \n**Type:** Normal  \n**Power:** 120",
+			[]
+		],
+		"501869": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽3,000\n \n**Type:** Normal  \n**Power:** 90",
+			[]
+		],
+		"501870": [
+			"**Location:** Sold by the [Trainer's Market Shop](#loc=501132) for ₽3,000\n \n**Type:** Fighting  \n**Power:** 80",
+			[]
+		],
+		"501871": [
+			"**Sells:**\n- Great Ball - ₽600\n- Super Potion - ₽700\n- Revive - ₽1,500\n- Super Repel - ₽500\n- Antidote - ₽100\n- Burn Heal - ₽250\n- Ice Heal - ₽250\n- Awakening - ₽200\n- Parlyz Heal - ₽200",
+			[]
+		],
+		"501872": [
+			"**Sells:**\n- Poké Doll - ₽1,000\n- Fire Stone - ₽2,100\n- Thunder Stone - ₽2,100\n- Water Stone - ₽2,100\n- Leaf Stone - ₽2,100",
+			[]
+		],
+		"501873": [
+			"**Sells:**\n- HP Up - ₽9,800\n- Protein - ₽9,800\n- Iron - ₽9,800\n- Carbos - ₽9,800\n- Calcium - ₽9,800",
+			[]
+		],
+		"501874": [
+			"**Sells:**\n- X Accuracy - ₽950\n- Guard Spec. - ₽700\n- Dire Hit - ₽650\n- X Attack - ₽500\n- X Defend - ₽550\n- X Speed - ₽350\n- X Special - ₽350",
+			[]
+		],
+		"501875": ["**Sells:**\n- Fresh Water - ₽200\n- Soda Pop - ₽300\n- Lemonade - ₽350", []],
+		"501876": ["**Sells:**\n- Fresh Water - ₽200\n- Soda Pop - ₽300\n- Lemonade - ₽350", []],
+		"501877": ["**Sells:**\n- Fresh Water - ₽200\n- Soda Pop - ₽300\n- Lemonade - ₽350", []],
+		"501878": [
+			"**Location:** Given by the girl at the table if she's given Fresh Water\n \n**Type:** Ice  \n**Power:** 90",
+			[]
+		],
+		"501879": [
+			"**Location:** Given by the girl at the table if she's given Soda Pop\n \n**Type:** Rock  \n**Power:** 75",
+			[]
+		],
+		"501880": [
+			"**Location:** Given by the girl at the table if she's given Lemonade\n \n**Type:** Normal  \n**Power:** 80",
+			[]
+		],
+		"501881": ["**Transitions to:** [Celadon Mansion](#loc=501882)", []],
+		"501882": ["**Transitions to:** [Celadon Mansion](#loc=501881)", []],
+		"501883": ["**Transitions to:** [2F](#loc=501884)", []],
+		"501884": ["**Transitions to:** [1F](#loc=501883)", []],
+		"501885": ["**Transitions to:** [3F](#loc=501886)", []],
+		"501886": ["**Transitions to:** [2F](#loc=501885)", []],
+		"501887": ["**Transitions to:** [Rooftop](#loc=501888)", []],
+		"501888": ["**Transitions to:** [3F](#loc=501887)", []],
+		"501889": [
+			"**Location:** Given by the Game Freak employee after speaking to them with a completed  Pokédex",
+			[]
+		],
+		"501890": ["**Transitions to:** [Celadon Mansion](#loc=501891)", []],
+		"501891": ["**Transitions to:** [Celadon Mansion](#loc=501890)", []],
+		"501892": ["**Transitions to:** [2F](#loc=501893)", []],
+		"501893": ["**Transitions to:** [1F](#loc=501892)", []],
+		"501894": ["**Transitions to:** [3F](#loc=501895)", []],
+		"501895": ["**Transitions to:** [2F](#loc=501894)", []],
+		"501896": ["**Transitions to:** [Rooftop](#loc=501897)", []],
+		"501897": ["**Transitions to:** [3F](#loc=501896)", []],
+		"501898": ["**Transitions to:** [Roof Room](#loc=501899)", []],
+		"501899": ["**Transitions to:** [Roof Room](#loc=501898)", []],
+		"505148": ["**Transitions to:** [Rocket Game Corner](#loc=505149)", []],
+		"505149": ["**Transitions to:** [Rocket Game Corner](#loc=505148)", []],
+		"505150": ["**Location:** Given by the man sitting at the table in the corner", []],
+		"505151": [
+			"**Location:** Sold at the third counter inside the Prize Exchange for 3,300 coins\n \n**Type:** Dragon  \n**Power:** N/A",
+			[]
+		],
+		"505152": [
+			"**Location:** Sold at the third counter inside the Prize Exchange for 5,500 coins\n \n**Type:** Normal  \n**Power:** 150",
+			[]
+		],
+		"505153": [
+			"**Location:** Sold at the third counter inside the Prize Exchange for 7,700 coins\n \n**Type:** Normal  \n**Power:** N/A",
+			[]
+		],
+		"505154": ["**Location:** Hidden on the ground", []],
+		"505155": ["**Location:** Given by the man at the slots", []],
+		"505156": ["**Location:** Given by the man at the slots", []],
+		"505157": ["**Location:** Hidden on the ground", []],
+		"505158": ["**Location:** Hidden on the ground", []],
+		"505159": ["**Location:** Hidden on the ground", []],
+		"505160": ["**Location:** Hidden on the ground", []],
+		"505161": ["**Location:** Hidden on the ground", []],
+		"505162": ["**Location:** Hidden on the ground", []],
+		"505163": ["**Location:** Hidden on the ground", []],
+		"505164": ["**Location:** Given by the man at the slots", []],
+		"505165": ["**Location:** Hidden on the ground", []],
+		"505166": ["**Location:** Hidden on the ground", []],
+		"505167": ["**Location:** Hidden on the ground between the counter and the slot machines", []],
+		"505168": ["**Reward:** ₽600\n\n**Trainer's Pokémon:**\n- Lv. 20 Raticate\n- Lv. 20 Zubat", []],
+		"505169": ["**Transitions to:** [B1F](#loc=505170)", []],
+		"505170": ["**Transitions to:** [Rocket Game Corner](#loc=505169)", []],
+		"505171": [
+			"**Location:** Given by the man on the other side of the water\n \n**Type:** Normal  \n**Power:** N/A",
+			[]
+		],
+		"505172": ["**Transitions to:** [Celadon Gym](#loc=505173)", []],
+		"505173": ["**Transitions to:** [Celadon Gym](#loc=505172)", []],
+		"505175": ["**Reward:** ₽345\n\n**Trainer's Pokémon:**\n- Lv. 23 Bellsprout\n- Lv. 23 Weepinbell", []],
+		"505176": [
+			"**Reward:** ₽1,470\n\n**Trainer's Pokémon:**\n- Lv. 21 Oddish\n- Lv. 21 Bellsprout\n- Lv. 21 Oddish\n- Lv. 21 Bellsprout",
+			[]
+		],
+		"505177": ["**Reward:** ₽1,680\n\n**Trainer's Pokémon:**\n- Lv. 24 Bellsprout\n- Lv. 24 Bellsprout", []],
+		"505180": ["**Reward:** ₽480\n\n**Trainer's Pokémon:**\n- Lv. 24 Bulbasaur\n- Lv. 24 Ivysaur", []],
+		"505181": ["**Reward:** ₽345\n\n**Trainer's Pokémon:**\n- Lv. 23 Oddish\n- Lv. 23 Gloom", []],
+		"505182": [
+			"**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 24 Weepinbell\n- Lv. 24 Gloom\n- Lv. 24 Ivysaur",
+			[]
+		],
+		"505183": ["**Reward:** ₽1,820\n\n**Trainer's Pokémon:**\n- Lv. 26 Exeggcute", []],
+		"505184": [
+			"**Type:** Grass  \n**Unlocks HM Use:** [HM 04: Strength](#loc=506774)\n\n**Reward:**\n- Rainbow Badge\n- ₽2,871\n- [TM 21: Mega Drain](#loc=505185)\n\n**Pokémon:**\n- Lv. 29 Victreebel\n- Lv. 24 Tangela\n- Lv. 29 Vileplume",
+			[]
+		],
+		"505185": [
+			"**Location:** Given as a reward for beating [Erika](#loc=505184)\n \n**Type:** Grass  \n**Power:** 40",
+			[]
+		],
+		"505186": ["**Location:** Hidden in the tree", []],
+		"505187": ["**Transitions to:** [B2F](#loc=505188)", []],
+		"505188": ["**Transitions to:** [B1F](#loc=505187)", []],
+		"505189": [
+			"**Reward:** ₽510\n\n**Trainer's Pokémon:**\n- Lv. 17 Zubat\n- Lv. 17 Koffing\n- Lv. 17 Grimer\n- Lv. 17 Zubat\n- Lv. 17 Raticate",
+			[]
+		],
+		"505190": ["**Transitions to:** [B3F](#loc=505191)", []],
+		"505191": ["**Transitions to:** [B2F](#loc=505190)", []],
+		"505192": ["**Reward:** ₽630\n\n**Trainer's Pokémon:**\n- Lv. 21 Drowzee\n- Lv. 21 Machop", []],
+		"505193": ["**Reward:** ₽630\n\n**Trainer's Pokémon:**\n- Lv. 21 Raticate\n- Lv. 21 Raticate", []],
+		"505194": ["**Location:** On the ground behind the tables", []],
+		"505195": ["**Location:** In the corner of two walls", []],
+		"505196": ["**Location:** In a dead end surrounded by walls", []],
+		"505197": ["**Location:** In a side area of a hallway\n \n**Type:** Normal  \n**Power:** N/A", []],
+		"505198": ["**Location:** In a small nook", []],
+		"505199": ["**Transitions to:** [B1F](#loc=505200)", []],
+		"505200": ["**Transitions to:** [B2F](#loc=505199)", []],
+		"505201": [
+			"**Reward:** ₽570\n\n**Trainer's Pokémon:**\n- Lv. 19 Rattata\n- Lv. 19 Raticate\n- Lv. 19 Raticate\n- Lv. 19 Rattata",
+			[]
+		],
+		"505202": ["**Location:** In the corner of the room behind a plant", []],
+		"505203": [
+			"**Reward:** ₽600\n\n**Trainer's Pokémon:**\n- Lv. 20 Grimer\n- Lv. 20 Koffing\n- Lv. 20 Koffing",
+			[]
+		],
+		"505204": ["**Reward:** ₽630\n\n**Trainer's Pokémon:**\n- Lv. 21 Machop\n- Lv. 21 Machop", []],
+		"505205": ["**Location:** In the middle of the room\n \n**Type:** Normal  \n**Power:** 100", []],
+		"505206": ["**Location:** In a dead end corner", []],
+		"505207": [
+			"**Reward:** ₽600\n\n**Trainer's Pokémon:**\n- Lv. 20 Rattata\n- Lv. 20 Raticate\n- Lv. 20 Drowzee",
+			[]
+		],
+		"505208": ["**Transitions to:** [B4F](#loc=505209)", []],
+		"505209": ["**Transitions to:** [B3F](#loc=505208)", []],
+		"505210": ["**Reward:** ₽630\n\n**Trainer's Pokémon:**\n- Lv. 21 Koffing\n- Lv. 21 Zubat", []],
+		"505211": ["**Location:** Behind a table in front of a machine\n \n**Type:** Normal  \n**Power:** 80", []],
+		"505212": [
+			"**Location:** Dropped by the [Rocket Grunt](#loc=505210) after defeating him in battle and speaking to him",
+			[]
+		],
+		"505213": ["**Location:** On top of the table", []],
+		"505214": [
+			"**Reward:** ₽660\n\nReached by taking the elevator to B1F. When defeated, the nearby door will open.\n\n**Trainer's Pokémon:**\n- Lv. 22 Grimer\n- Lv. 22 Koffing",
+			[]
+		],
+		"505215": ["**Location:** On top of the table", []],
+		"505216": [
+			"**Reward:** ₽690\n\n**Trainer's Pokémon:**\n- Lv. 23 Sandshrew\n- Lv. 23 Ekans\n- Lv. 23 Sandslash",
+			[]
+		],
+		"505217": [
+			"**Reward:** ₽690\n\n**Trainer's Pokémon:**\n- Lv. 23 Ekans\n- Lv. 23 Sandshrew\n- Lv. 23 Arbok",
+			[]
+		],
+		"505218": [
+			"**Reward:** ₽2,871\n\n**Trainer's Pokémon:**\n- Lv. 25 Onix\n- Lv. 24 Rhyhorn\n- Lv. 29 Kangaskhan",
+			[]
+		],
+		"505219": ["**Location:** Dropped by [Giovanni](#loc=505218) after defeating him in battle", []],
+		"505220": ["**Location:** Hidden in the last plant", []],
+		"505221": ["**Location:** Hidden on the ground", []],
+		"505222": ["**Location:** Hidden in the machine", []],
+		"505224": [
+			"**Location:** Given by the girl inside the building\n \n**Ability:** Allows the user to fly to any Pokémon Center they've already visited  \n**Type:** Flying  \n**Power:** 90",
+			[]
+		],
+		"505225": ["**Reward:** ₽750\n\n**Trainer's Pokémon:**\n- Lv. 25 Zubat\n- Lv. 25 Zubat\n- Lv. 25 Golbat", []],
+		"505226": ["**Reward:** ₽780\n\n**Trainer's Pokémon:**\n- Lv. 26 Koffing\n- Lv. 26 Drowzee", []],
+		"505227": [
+			"**Reward:** ₽690\n\n**Trainer's Pokémon:**\n- Lv. 23 Zubat\n- Lv. 23 Rattata\n- Lv. 23 Raticate\n- Lv. 23 Zubat",
+			[]
+		],
+		"505228": ["**Location:** Given by Mr. Fuji after rescuing him inside the [Pokémon Tower](#loc=501027)", []],
+		"506450": [
+			"**Sells:**\n- Great Ball - ₽600\n- Hyper Potion - ₽1,500\n- Max Repel - ₽700\n- Escape Rope - ₽550\n- Full Heal - ₽600\n- Revive - ₽1,500",
+			[]
+		],
+		"506451": ["**Transitions to:** [Silph Co.](#loc=506452)", []],
+		"506452": ["**Transitions to:** [Silph Co.](#loc=506451)", []],
+		"506453": ["**Transitions to:** [2F](#loc=506454)", []],
+		"506454": ["**Transitions to:** [1F](#loc=506453)", []],
+		"506455": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽750\n\n**Trainer's Pokémon:**\n- Lv. 25 Golbat\n- Lv. 25 Zubat\n- Lv. 25 Zubat\n- Lv. 25 Raticate\n- Lv. 25 Zubat",
+			[]
+		],
+		"506456": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽870\n\n**Trainer's Pokémon:**\n- Lv. 29 Cubone\n- Lv. 29 Zubat",
+			[]
+		],
+		"506457": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,400\n\n**Trainer's Pokémon:**\n- Lv. 28 Magnemite\n- Lv. 28 Voltorb\n- Lv. 28 Megneton",
+			[]
+		],
+		"506458": ["**Transitions to:** [8F](#loc=506459)", []],
+		"506459": ["**Transitions to:** [2F](#loc=506458)", []],
+		"506460": ["**Transitions to:** [8F](#loc=506461)", []],
+		"506461": ["**Transitions to:** [2F](#loc=506460)", []],
+		"506462": ["**Transitions to:** [3F](#loc=506463)", []],
+		"506463": ["**Transitions to:** [2F](#loc=506462)", []],
+		"506464": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 28 Raticate\n- Lv. 28 Hypno\n- Lv. 28 Raticate",
+			[]
+		],
+		"506465": ["**Transitions to:** [2F](#loc=506466)", []],
+		"506466": ["**Transitions to:** [3F](#loc=506465)", []],
+		"506467": ["**Transitions to:** [5F](#loc=506468)", []],
+		"506468": ["**Transitions to:** [3F](#loc=506467)", []],
+		"506469": ["**Transitions to:** [3F](#loc=506470)", []],
+		"506470": ["**Transitions to:** [3F](#loc=506469)", []],
+		"506471": ["**Transitions to:** [5F](#loc=506472)", []],
+		"506472": ["**Transitions to:** [3F](#loc=506471)", []],
+		"506473": [
+			"**Location:** Given by the woman in the corner after speaking with her\n \n**Type:** Normal  \n**Power:** 130",
+			[]
+		],
+		"506474": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,450\n\n**Trainer's Pokémon:**\n- Lv. 29 Grimer\n- Lv. 29 Electrode",
+			[]
+		],
+		"506475": ["**Transitions to:** [8F](#loc=506476)", []],
+		"506476": ["**Transitions to:** [8F](#loc=506475)", []],
+		"506477": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 28 Weezing\n- Lv. 28 Golbat\n- Lv. 28 Koffing",
+			[]
+		],
+		"506478": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽780\n\n**Trainer's Pokémon:**\n- Lv. 26 Raticate\n- Lv. 26 Zubat\n- Lv. 26 Golbat\n- Lv. 26 Rattata",
+			[]
+		],
+		"506479": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,300\n\n**Trainer's Pokémon:**\n- Lv. 26 Magneton\n- Lv. 26 Koffing\n- Lv. 26 Weezing\n- Lv. 26 Magnemite",
+			[]
+		],
+		"506480": ["**Transitions to:** [9F](#loc=506481)", []],
+		"506481": ["**Transitions to:** [5F](#loc=506480)", []],
+		"506482": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽990\n\n**Trainer's Pokémon:**\n- Lv. 33 Arbok",
+			[]
+		],
+		"506483": ["**Location:** On the ground in the middle of the hallway", []],
+		"506484": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽990\n\n**Trainer's Pokémon:**\n- Lv. 33 Hypno",
+			[]
+		],
+		"506485": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,300\n\n**Trainer's Pokémon:**\n- Lv. 26 Grimer\n- Lv. 26 Weezing\n- Lv. 26 Koffing\n- Lv. 26 Weezing",
+			[]
+		],
+		"506486": ["**Transitions to:** [6F](#loc=506487)", []],
+		"506487": ["**Transitions to:** [2F](#loc=506486)", []],
+		"506488": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽870\n\n**Trainer's Pokémon:**\n- Lv. 29 Machop\n- Lv. 29 Machoke",
+			[]
+		],
+		"506489": ["**Transitions to:** [7F](#loc=506490)", []],
+		"506490": ["**Transitions to:** [3F](#loc=506489)", []],
+		"506491": [
+			"**This is started immediately after the player heads into the center of the room**\n\n**Reward:** ₽2,600\n\n**Trainer's Pokémon:**\n- Lv. 37 Pidgeot\n- Lv. 35 Alakazam\n- If the player chose Bulbasaur:\n   - Lv. 35 Exeggcute\n   - Lv. 35 Gyarados\n   - Lv. 40 Charizard\n- If the player chose Charmander:\n   - Lv. 38 Growlithe\n   - Lv. 35 Exeggcute\n   - Lv. 40 Blastoise\n- If the player chose Squirtle:\n   - Lv. 35 Gyarados\n   - Lv. 38 Growlithe\n   - Lv. 40 Venusaur",
+			[]
+		],
+		"506492": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,450\n\n**Trainer's Pokémon:**\n- Lv. 29 Electrode\n- Lv. 29 Weezing",
+			[]
+		],
+		"506493": ["**Location:** In the corner of the room", []],
+		"506494": ["**Transitions to:** [9F](#loc=506495)", []],
+		"506495": ["**Transitions to:** [3F](#loc=506494)", []],
+		"506496": ["**Transitions to:** [4F](#loc=506497)", []],
+		"506497": ["**Transitions to:** [3F](#loc=506496)", []],
+		"506498": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 28 Ekans\n- Lv. 28 Zubat\n- Lv. 28 Cubone",
+			[]
+		],
+		"506499": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽870\n\n**Trainer's Pokémon:**\n- Lv. 29 Machop\n- Lv. 29 Drowzee",
+			[]
+		],
+		"506500": ["**Transitions to:** [10F](#loc=506501)", []],
+		"506501": ["**Transitions to:** [4F](#loc=506500)", []],
+		"506502": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,650\n\n**Trainer's Pokémon:**\n- Lv. 33 Electrode",
+			[]
+		],
+		"506503": ["**Transitions to:** [10F](#loc=506504)", []],
+		"506504": ["**Transitions to:** [4F](#loc=506503)", []],
+		"506505": ["**Transitions to:** [6F](#loc=506506)", []],
+		"506506": ["**Transitions to:** [4F](#loc=506505)", []],
+		"506507": ["**Transitions to:** [10F](#loc=506508)", []],
+		"506508": ["**Transitions to:** [4F](#loc=506507)", []],
+		"506509": ["**Location:** In the corner of some boxes", []],
+		"506510": ["**Location:** In the corner of some boxes", []],
+		"506511": ["**Location:** In a alcove of boxes", []],
+		"506512": ["**Transitions to:** [5F](#loc=506513)", []],
+		"506513": ["**Transitions to:** [4F](#loc=506512)", []],
+		"506514": ["**Transitions to:** [7F](#loc=506515)", []],
+		"506515": ["**Transitions to:** [5F](#loc=506514)", []],
+		"506516": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,015\n\n**Trainer's Pokémon:**\n- Lv. 29 Kadabra\n- Lv. 29 Mr. Mime",
+			[]
+		],
+		"506517": ["**Location:** On the ground in the middle of the room", []],
+		"506518": [
+			"**Location:** In the corner of some boxes in the center of a room\n \n**Type:** Normal  \n**Power:** 90",
+			[]
+		],
+		"506519": ["**Transitions to:** [6F](#loc=506520)", []],
+		"506520": ["**Transitions to:** [5F](#loc=506519)", []],
+		"506521": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 28 Zubat\n- Lv. 28 Zubat\n- Lv. 28 Golbat",
+			[]
+		],
+		"506522": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,250\n\n**Trainer's Pokémon:**\n- Lv. 25 Voltorb\n- Lv. 25 Koffing\n- Lv. 25 Magneton\n- Lv. 25 Magnemite\n- Lv. 25 Koffing",
+			[]
+		],
+		"506523": ["**Location:** In the corner of some boxes", []],
+		"506524": ["**Location:** In the corner of some boxes", []],
+		"506525": ["**Transitions to:** [7F](#loc=506526)", []],
+		"506526": ["**Transitions to:** [6F](#loc=506525)", []],
+		"506527": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽870\n\n**Trainer's Pokémon:**\n- Lv. 29 Cubone\n- Lv. 29 Cubone",
+			[]
+		],
+		"506528": ["**Location:** In the corner of the room\n \n**Type:** Normal  \n**Power:** N/A", []],
+		"506529": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽870\n\n**Trainer's Pokémon:**\n- Lv. 29 Sandshrew\n- Lv. 29 Sandslash",
+			[]
+		],
+		"506530": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽780\n\n**Trainer's Pokémon:**\n- Lv. 26 Raticate\n- Lv. 26 Arbok\n- Lv. 26 Koffing\n- Lv. 26 Golbat",
+			[]
+		],
+		"506531": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,450\n\n**Trainer's Pokémon:**\n- Lv. 29 Electrode\n- Lv. 29 Muk",
+			[]
+		],
+		"506532": ["**Location:** In the corner of the room next to a machine", []],
+		"506533": ["**Transitions to:** [8F](#loc=506534)", []],
+		"506534": ["**Transitions to:** [7F](#loc=506533)", []],
+		"506535": ["**Transitions to:** [9F](#loc=506536)", []],
+		"506536": ["**Transitions to:** [8F](#loc=506535)", []],
+		"506537": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,400\n\n**Trainer's Pokémon:**\n- Lv. 28 Voltorb\n- Lv. 28 Koffing\n- Lv. 28 Magneton",
+			[]
+		],
+		"506538": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 28 Golbat\n- Lv. 28 Drowzee\n- Lv. 28 Hypno",
+			[]
+		],
+		"506539": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 28 Drowzee\n- Lv. 28 Grimer\n- Lv. 28 Machop",
+			[]
+		],
+		"506540": ["**Transitions to:** [10F](#loc=506541)", []],
+		"506541": ["**Transitions to:** [9F](#loc=506540)", []],
+		"506542": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽1,450\n\n**Trainer's Pokémon:**\n- Lv. 29 Magnemite\n- Lv. 29 Koffing",
+			[]
+		],
+		"506543": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽990\n\n**Trainer's Pokémon:**\n- Lv. 33 Machoke",
+			[]
+		],
+		"506544": ["**Location:** In an alcove surrounded by boxes", []],
+		"506545": ["**Location:** In an alcove surrounded by boxes", []],
+		"506546": ["**Location:** In an alcove surrounded by boxes\n \n**Type:** Ground  \n**Power:** 100", []],
+		"506547": ["**Transitions to:** [11F](#loc=506548)", []],
+		"506548": ["**Transitions to:** [10F](#loc=506547)", []],
+		"506549": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽750\n\n**Trainer's Pokémon:**\n- Lv. 25 Rattata\n- Lv. 25 Rattata\n- Lv. 25 Zubat\n- Lv. 25 Rattata\n- Lv. 25 Ekans",
+			[]
+		],
+		"506550": ["**Location:** Hidden inside the plant", []],
+		"506551": ["**Location:** Hidden on the bed", []],
+		"506552": ["**Transitions to:** [11F](#loc=506553)", []],
+		"506553": ["**Transitions to:** [7F](#loc=506552)", []],
+		"506554": [
+			"**This trainer will disappear after defeating [Giovanni](#loc=506555) on 11F**\n\n**Reward:** ₽960\n\n**Trainer's Pokémon:**\n- Lv. 32 Cubone\n- Lv. 32 Drowzee\n- Lv. 32 Marowak",
+			[]
+		],
+		"506555": [
+			"**Reward:** ₽4,059\n\n**Trainer's Pokémon:**\n- Lv. 37 Nidorino\n- Lv. 35 Kangaskhan\n- Lv. 37 Rhyhorn\n- Lv. 41 Nidoqueen",
+			[]
+		],
+		"506556": ["**Location:** Given by the Silph Co. President after defeating [Giovanni](#loc=506555)", []],
+		"506557": ["**Transitions to:** [Fighting Dojo](#loc=506558)", []],
+		"506558": ["**Transitions to:** [Fighting Dojo](#loc=506557)", []],
+		"506559": [
+			"**Reward:** ₽775\n\n**Trainer's Pokémon:**\n- Lv. 31 Machop\n- Lv. 31 Mankey\n- Lv. 31 Primeape",
+			[]
+		],
+		"506560": ["**Reward:** ₽800\n\n**Trainer's Pokémon:**\n- Lv. 32 Machop\n- Lv. 32 Machoke", []],
+		"506561": ["**Reward:** ₽900\n\n**Trainer's Pokémon:**\n- Lv. 36 Primeape", []],
+		"506562": [
+			"**Reward:** ₽775\n\n**Trainer's Pokémon:**\n- Lv. 31 Mankey\n- Lv. 31 Mankey\n- Lv. 31 Primeape",
+			[]
+		],
+		"506563": ["**Reward:** ₽925\n\n**Trainer's Pokémon:**\n- Lv. 37 Hitmonlee\n- Lv. 37 Hitmonchan", []],
+		"506564": ["**Location:** Given by Mr. Psychic inside his house\n \n**Type:** Psychic  \n**Power:** 90", []],
+		"506566": [
+			"**Location:** Given by the Copycat on the second floor of her house after giving her a Poké Doll\n \n**Type:** Normal  \n**Power:** N/A",
+			[]
+		],
+		"506567": ["**Transitions to:** [Saffron Gym](#loc=506568)", []],
+		"506568": ["**Transitions to:** [Saffron Gym](#loc=506567)", []],
+		"506569": ["**Transitions to:** [Southeast Room](#loc=506573)", []],
+		"506570": ["**Transitions to:** [Northeast Room](#loc=506579)", []],
+		"506571": ["**Transitions to:** [East Room](#loc=506575)", []],
+		"506572": ["**Transitions to:** [Southwest Room](#loc=506595)", []],
+		"506573": ["**Transitions to:** [South Room](#loc=506569)", []],
+		"506574": ["**Transitions to:** [Northeast Room](#loc=506578)", []],
+		"506575": ["**Transitions to:** [Southeast Room](#loc=506571)", []],
+		"506576": ["**Transitions to:** [North Room](#loc=506582)", []],
+		"506577": ["**Transitions to:** [West Room](#loc=506590)", []],
+		"506578": ["**Transitions to:** [East Room](#loc=506574)", []],
+		"506579": ["**Transitions to:** [Southeast Room](#loc=506570)", []],
+		"506580": ["**Transitions to:** [Northwest Room](#loc=506586)", []],
+		"506581": ["**Transitions to:** [Southwest Room](#loc=506594)", []],
+		"506582": ["**Transitions to:** [East Room](#loc=506576)", []],
+		"506583": ["**Transitions to:** [Northwest Room](#loc=506587)", []],
+		"506584": ["**Transitions to:** [West Room](#loc=506591)", []],
+		"506585": ["**Transitions to:** [Southwest Room](#loc=506596)", []],
+		"506586": ["**Transitions to:** [Northeast Room](#loc=506580)", []],
+		"506587": ["**Transitions to:** [North Room](#loc=506583)", []],
+		"506588": ["**Transitions to:** [Center Room](#loc=506598)", []],
+		"506589": ["**Transitions to:** [West Room](#loc=506592)", []],
+		"506590": ["**Transitions to:** [East Room](#loc=506577)", []],
+		"506591": ["**Transitions to:** [North Room](#loc=506584)", []],
+		"506592": ["**Transitions to:** [Northwest Room](#loc=506589)", []],
+		"506593": ["**Transitions to:** [Southwest Room](#loc=506597)", []],
+		"506594": ["**Transitions to:** [Northeast Room](#loc=506581)", []],
+		"506595": ["**Transitions to:** [Southeast Room](#loc=506572)", []],
+		"506596": ["**Transitions to:** [North Room](#loc=506585)", []],
+		"506597": ["**Transitions to:** [West Room](#loc=506593)", []],
+		"506598": ["**Transitions to:** [Northwest Room](#loc=506588)", []],
+		"506599": [
+			"**Reward:** ₽330\n\n**Trainer's Pokémon:**\n- Lv. 33 Slowpoke\n- Lv. 33 Slowpoke\n- Lv. 33 Slowbro",
+			[]
+		],
+		"506600": ["**Reward:** ₽340\n\n**Trainer's Pokémon:**\n- Lv. 34 Mr. Mime\n- Lv. 34 Kadabra", []],
+		"506601": [
+			"**Reward:** ₽310\n\n**Trainer's Pokémon:**\n- Lv. 31 Kadabra\n- Lv. 31 Slowpoke\n- Lv. 31 Mr. Mime\n- Lv. 31 Kadabra",
+			[]
+		],
+		"506602": ["**Reward:** ₽380\n\n**Trainer's Pokémon:**\n- Lv. 38 Slowbro", []],
+		"506603": ["**Reward:** ₽1,020\n\n**Trainer's Pokémon:**\n- Lv. 34 Gastly\n- Lv. 34 Haunter", []],
+		"506604": ["**Reward:** ₽1,140\n\n**Trainer's Pokémon:**\n- Lv. 38 Haunter", []],
+		"506605": [
+			"**Reward:** ₽990\n\n**Trainer's Pokémon:**\n- Lv. 33 Gastly\n- Lv. 33 Gastly\n- Lv. 33 Haunter",
+			[]
+		],
+		"506606": [
+			"**Type:** Psychic  \n\n**Reward:**\n- Marsh Badge\n- ₽4,257\n- [TM 46: Psywave](#loc=506607)\n\n**Pokémon:**\n- Lv. 38 Kadabra\n- Lv. 37 Mr. Mime\n- Lv. 38 Venomoth\n- Lv. 43 Alakazam",
+			[]
+		],
+		"506607": [
+			"**Location:** Given as a reward for beating [Sabrina](#loc=506606)\n \n**Type:** Psychic  \n**Power:** N/A",
+			[]
+		],
+		"506608": ["**Reward:** ₽580\n\n**Trainer's Pokémon:**\n- Lv. 29 Grimer\n- Lv. 29 Koffing", []],
+		"506609": ["**Reward:** ₽700\n\n**Trainer's Pokémon:**\n- Lv. 28 Machop\n- Lv. 28 Mankey\n- Lv. 28 Machop", []],
+		"506610": ["**Reward:** ₽725\n\n**Trainer's Pokémon:**\n- Lv. 29 Mankey\n- Lv. 29 Machop", []],
+		"506611": ["**Reward:** ₽660\n\n**Trainer's Pokémon:**\n- Lv. 33 Weezing", []],
+		"506612": [
+			"**Reward:** ₽520\n\n**Trainer's Pokémon:**\n- Lv. 26 Grimer\n- Lv. 26 Grimer\n- Lv. 26 Grimer\n- Lv. 26 Grimer",
+			[]
+		],
+		"506613": ["**Reward:** ₽825\n\n**Trainer's Pokémon:**\n- Lv. 33 Machop", []],
+		"506614": [
+			"**Reward:** ₽560\n\n**Trainer's Pokémon:**\n- Lv. 28 Weezing\n- Lv. 28 Koffing\n- Lv. 28 Weezing",
+			[]
+		],
+		"506615": ["**Reward:** ₽725\n\n**Trainer's Pokémon:**\n- Lv. 29 Mankey\n- Lv. 29 Primeape", []],
+		"506616": ["**Reward:** ₽725\n\n**Trainer's Pokémon:**\n- Lv. 29 Machop\n- Lv. 29 Machoke", []],
+		"506617": ["**Reward:** ₽660\n\n**Trainer's Pokémon:**\n- Lv. 33 Muk", []],
+		"506618": ["**Location:** Hidden on the ground", []],
+		"506619": [
+			"**Reward:** ₽650\n\n**Trainer's Pokémon:**\n- Lv. 26 Mankey\n- Lv. 26 Mankey\n- Lv. 26 Machoke\n- Lv. 26 Machop",
+			[]
+		],
+		"506620": ["**Reward:** ₽580\n\n**Trainer's Pokémon:**\n- Lv. 29 Weezing\n- Lv. 29 Muk", []],
+		"506621": [
+			"**Reward:** ₽500\n\n**Trainer's Pokémon:**\n- Lv. 25 Koffing\n- Lv. 25 Weezing\n- Lv. 25 Koffing\n- Lv. 25 Koffing\n- Lv. 25 Weezing",
+			[]
+		],
+		"506622": ["**Reward:** ₽580\n\n**Trainer's Pokémon:**\n- Lv. 29 Voltorb\n- Lv. 29 Voltorb", []],
+		"506623": ["**Reward:** ₽825\n\n**Trainer's Pokémon:**\n- Lv. 33 Machoke", []],
+		"506624": ["**Reward:** ₽906\n\n**Trainer's Pokémon:**\n- Lv. 29 Primeape\n- Lv. 29 Machoke", []],
+		"506627": ["**Location:** Hidden in the grass", []],
+		"506628": ["**Location:** Hidden in the flowers", []],
+		"506629": ["**Location:** Hidden on the ground", []],
+		"506630": ["**Location:** Hidden on the ground", []],
+		"506632": [
+			"**Location:** On the second floor of the gate near the binoculars\n\n**Player Gives:** Slowbro  \n**Player Receives:** Lickitung",
+			[]
+		],
+		"506634": ["**Reward:** ₽1,006\n\n**Trainer's Pokémon:**\n- Lv. 29 Spearow\n- Lv. 29 Fearow", []],
+		"506636": [
+			"**Reward:** ₽650\n\n**Trainer's Pokémon:**\n- Lv. 26 Spearow\n- Lv. 26 Spearow\n- Lv. 26 Fearow\n- Lv. 26 Spearow",
+			[]
+		],
+		"506640": ["**Reward:** ₽850\n\n**Trainer's Pokémon:**\n- Lv. 34 Dodrio", []],
+		"506641": [
+			"**Location:** Given by Professor Oak's assistant on the second floor of the gate if the player has registered 50 different Pokémon in their Pokédex",
+			[]
+		],
+		"506643": [
+			"**Reward:** ₽580\n\n**Trainer's Pokémon:**\n- Lv. 29 Bellsprout\n- Lv. 29 Oddish\n- Lv. 29 Tangela",
+			[]
+		],
+		"506645": [
+			"**Reward:** ₽650\n\n**Trainer's Pokémon:**\n- Lv. 26 Pidgeotto\n- Lv. 26 Farfetch'd\n- Lv. 26 Doduo\n- Lv. 26 Pidgey",
+			[]
+		],
+		"506647": ["**Reward:** ₽700\n\n**Trainer's Pokémon:**\n- Lv. 28 Dodrio\n- Lv. 28 Doduo\n- Lv. 28 Doduo", []],
+		"506651": ["**Reward:** ₽2,030\n\n**Trainer's Pokémon:**\n- Lv. 29 Bulbasaur\n- Lv. 29 Ivysaur", []],
+		"506652": ["**Reward:** ₽560\n\n**Trainer's Pokémon:**\n- Lv. 28 Gloom\n- Lv. 28 Oddish\n- Lv. 28 Oddish", []],
+		"506654": [
+			"**Reward:** ₽560\n\n**Trainer's Pokémon:**\n- Lv. 28 Koffing\n- Lv. 28 Grimer\n- Lv. 28 Weezing",
+			[]
+		],
+		"506656": [
+			"**Reward:** ₽500\n\n**Trainer's Pokémon:**\n- Lv. 25 Koffing\n- Lv. 25 Koffing\n- Lv. 25 Weezing\n- Lv. 25 Koffing\n- Lv. 25 Grimer",
+			[]
+		],
+		"506657": ["**Reward:** ₽580\n\n**Trainer's Pokémon:**\n- Lv. 29 Pikachu\n- Lv. 29 Raichu", []],
+		"506658": ["**Reward:** ₽2,030\n\n**Trainer's Pokémon:**\n- Lv. 29 Pidgeotto\n- Lv. 29 Wigglytuff", []],
+		"506661": ["**Reward:** ₽725\n\n**Trainer's Pokémon:**\n- Lv. 29 Spearow\n- Lv. 29 Fearow", []],
+		"506667": ["**Reward:** ₽660\n\n**Trainer's Pokémon:**\n- Lv. 33 Clefairy", []],
+		"506668": ["**Location:** At the end of the path\n \n**Type:** Normal  \n**Power:** 20", []],
+		"506669": [
+			"**Reward:** ₽520\n\n**Trainer's Pokémon:**\n- Lv. 26 Koffing\n- Lv. 26 Koffing\n- Lv. 26 Grimer\n- Lv. 26 Koffing",
+			[]
+		],
+		"506670": ["**Reward:** ₽580\n\n**Trainer's Pokémon:**\n- Lv. 29 Koffing\n- Lv. 29 Grimer", []],
+		"506671": [
+			"**Reward:** ₽560\n\n**Trainer's Pokémon:**\n- Lv. 28 Grimer\n- Lv. 28 Grimer\n- Lv. 28 Koffing",
+			[]
+		],
+		"506674": ["**Reward:** ₽825\n\n**Trainer's Pokémon:**\n- Lv. 33 Farfetch'd", []],
+		"506675": ["**Reward:** ₽580\n\n**Trainer's Pokémon:**\n- Lv. 29 Koffing\n- Lv. 29 Muk", []],
+		"506676": ["**Reward:** ₽700\n\n**Trainer's Pokémon:**\n- Lv. 28 Spearow\n- Lv. 28 Doduo\n- Lv. 28 Fearow", []],
+		"506677": ["**Reward:** ₽725\n\n**Trainer's Pokémon:**\n- Lv. 29 Pidgeotto\n- Lv. 29 Fearow", []],
+		"506678": [
+			"**Reward:** ₽650\n\n**Trainer's Pokémon:**\n- Lv. 26 Pidgey\n- Lv. 26 Spearow\n- Lv. 26 Pidgey\n- Lv. 26 Fearow",
+			[]
+		],
+		"506679": [
+			"**Reward:** ₽560\n\n**Trainer's Pokémon:**\n- Lv. 28 Koffing\n- Lv. 28 Koffing\n- Lv. 28 Koffing",
+			[]
+		],
+		"506680": [
+			"**Reward:** ₽700\n\n**Trainer's Pokémon:**\n- Lv. 28 Pidgey\n- Lv. 28 Doduo\n- Lv. 28 Pidgeotto",
+			[]
+		],
+		"506682": [
+			"**Reward:** ₽625\n\n**Trainer's Pokémon:**\n- Lv. 25 Spearow\n- Lv. 25 Pidgey\n- Lv. 25 Pidgey\n- Lv. 25 Spearow\n- Lv. 25 Spearow",
+			[]
+		],
+		"506686": [
+			"**Reward:** ₽650\n\n**Trainer's Pokémon:**\n- Lv. 26 Pidgey\n- Lv. 26 Pidgeotto\n- Lv. 26 Spearow\n- Lv. 26 Fearow",
+			[]
+		],
+		"506687": [
+			"**Reward:** ₽540\n\n**Trainer's Pokémon:**\n- Lv. 27 Pidgey\n- Lv. 27 Meowth\n- Lv. 27 Pidgey\n- Lv. 27 Pidgeotto",
+			[]
+		],
+		"506689": ["**Reward:** ₽600\n\n**Trainer's Pokémon:**\n- Lv. 30 Poliwag\n- Lv. 30 Poliwag", []],
+		"506690": ["**Reward:** ₽2,030\n\n**Trainer's Pokémon:**\n- Lv. 29 Clefairy\n- Lv. 29 Meowth", []],
+		"506691": [
+			"**Reward:** ₽1,890\n\n**Trainer's Pokémon:**\n- Lv. 27 Rattata\n- Lv. 27 Pikachu\n- Lv. 27 Rattata",
+			[]
+		],
+		"506692": ["**Location:** Hidden in a tree", []],
+		"506693": ["**Location:** Hidden in the fence", []],
+		"506715": [
+			"**Reward:** ₽480\n\n**Trainer's Pokémon:**\n- Lv. 24 Pidgey\n- Lv. 24 Meowth\n- Lv. 24 Rattata\n- Lv. 24 Pikachu\n- Lv. 24 Meowth",
+			[]
+		],
+		"506716": ["**Reward:** ₽725\n\n**Trainer's Pokémon:**\n- Lv. 29 Pidgey\n- Lv. 29 Pidgeotto", []],
+		"506717": [
+			"**Reward:** ₽560\n\n**Trainer's Pokémon:**\n- Lv. 28 Goldeen\n- Lv. 28 Poliwag\n- Lv. 28 Horsea",
+			[]
+		],
+		"506719": ["**Reward:** ₽580\n\n**Trainer's Pokémon:**\n- Lv. 29 Nidoran♂\n- Lv. 29 Nidorino", []],
+		"506722": ["**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 24 Magikarp\n- Lv. 24 Magikarp", []],
+		"506723": ["**Location:** In the corner of two trees", []],
+		"506725": ["**Location:** Given by the fisherman inside the building", []],
+		"506727": ["**Reward:** ₽725\n\n**Trainer's Pokémon:**\n- Lv. 29 Voltorb\n- Lv. 29 Electrode", []],
+		"506728": [
+			"**Reward:** ₽735\n\n**Trainer's Pokémon:**\n- Lv. 21 Poliwag\n- Lv. 21 Shellder\n- Lv. 21 Goldeen\n- Lv. 21 Horsea",
+			[]
+		],
+		"506730": ["**Reward:** ₽945\n\n**Trainer's Pokémon:**\n- Lv. 27 Goldeen", []],
+		"506731": ["**Reward:** ₽840\n\n**Trainer's Pokémon:**\n- Lv. 24 Tentacool\n- Lv. 24 Goldeen", []],
+		"506732": [
+			"**Reward:** ₽770\n\n**Trainer's Pokémon:**\n- Lv. 22 Goldeen\n- Lv. 22 Poliwag\n- Lv. 22 Goldeen",
+			[]
+		],
+		"506733": [
+			"**Location:** Given by the woman on the second floor of the gate\n \n**Type:** Normal  \n**Power:** 60",
+			[]
+		],
+		"506734": ["**Location:** In the middle of a small island\n \n**Type:** Normal  \n**Power:** 40", []],
+		"506735": ["**Location:** Hidden in the tree", []],
+		"506743": ["**Transitions to:** [Safari Zone](#loc=506744)", []],
+		"506744": ["**Transitions to:** [Safari Zone](#loc=506743)", []],
+		"506745": ["**Transitions to:** [Safari Zone](#loc=506746)", []],
+		"506746": ["**Transitions to:** [Safari Zone](#loc=506745)", []],
+		"506747": ["**Transitions to:** [Safari Zone](#loc=506748)", []],
+		"506748": ["**Transitions to:** [Safari Zone](#loc=506747)", []],
+		"506749": ["**Transitions to:** [Safari Zone](#loc=506750)", []],
+		"506750": ["**Transitions to:** [Safari Zone](#loc=506749)", []],
+		"506751": ["**Transitions to:** [Safari Zone](#loc=506752)", []],
+		"506752": ["**Transitions to:** [Safari Zone](#loc=506751)", []],
+		"506753": ["**Transitions to:** [Safari Zone](#loc=506754)", []],
+		"506754": ["**Transitions to:** [Safari Zone](#loc=506753)", []],
+		"506755": ["**Transitions to:** [Safari Zone](#loc=506756)", []],
+		"506756": ["**Transitions to:** [Safari Zone](#loc=506755)", []],
+		"506759": ["**Location:** In the middle of a plateau", []],
+		"506760": ["**Location:** Between a bush and some grass", []],
+		"506761": [
+			"**Location:** At the end of the grass next to some water\n \n**Type:** Normal  \n**Power:** 100",
+			[]
+		],
+		"506762": ["**Location:** In the open near the water and the rest house", []],
+		"506763": ["**Location:** In the middle of three trees\n \n**Type:** Normal  \n**Power:** 130", []],
+		"506764": ["**Location:** Down a pathway next to a bush", []],
+		"506765": ["**Location:** On the ground in the middle of a path", []],
+		"506766": ["**Location:** Near the secret house next to a plateau\n \n**Type:** Normal  \n**Power:** N/A", []],
+		"506767": ["**Location:** Hidden in a statue", []],
+		"506768": [
+			"**Location:** Given by the man inside the secret house\n \n**Ability:** Allows the user to cross bodies of water   \n**Type:** Water  \n**Power:** 95",
+			[]
+		],
+		"506769": ["**Location:** In the center of a small island", []],
+		"506770": ["**Location:** In the corner under a plateau", []],
+		"506771": ["**Location:** In the grass next to a plateau", []],
+		"506774": [
+			"**Location:** Given by the Warden inside his house after returning his [Gold Teeth](#loc=506765) to him\n \n**Ability:** Allows the user to push movable boulders  \n**Type:** Normal  \n**Power:** 80",
+			[]
+		],
+		"506775": ["**Location:** Inside the Warden's house surrounded by trees behind a movable boulder", []],
+		"506776": [
+			"**Location:** On the second floor of her house on the table to the left of the flying Poké doll",
+			[]
+		],
+		"506780": ["**Location:** Given by the fisherman inside the building", []],
+		"506782": [
+			"**Sells:**\n- Ultra Ball - ₽1,200\n- Great Ball - ₽600\n- Super Potion - ₽700\n- Revive - ₽1,500\n- Full Heal - ₽600\n- Super Repel - ₽500",
+			[]
+		],
+		"506784": ["**Transitions to:** [Fuchsia Gym](#loc=506786)", []],
+		"506786": ["**Transitions to:** [Fuchsia Gym](#loc=506784)", []],
+		"506787": ["**Reward:** ₽1,330\n\n**Trainer's Pokémon:**\n- Lv. 38 Hypno", []],
+		"506789": ["**Reward:** ₽1,190\n\n**Trainer's Pokémon:**\n- Lv. 34 Drowzee\n- Lv. 34 Kadabra", []],
+		"506790": [
+			"**Reward:** ₽1,085\n\n**Trainer's Pokémon:**\n- Lv. 31 Drowzee\n- Lv. 31 Drowzee\n- Lv. 31 Kadabra\n- Lv. 31 Drowzee",
+			[]
+		],
+		"506792": [
+			"**Reward:** ₽1,320\n\n**Trainer's Pokémon:**\n- Lv. 33 Arbok\n- Lv. 33 Sandslash\n- Lv. 33 Arbok",
+			[]
+		],
+		"506793": ["**Reward:** ₽1,190\n\n**Trainer's Pokémon:**\n- Lv. 34 Drowzee\n- Lv. 34 Hypno", []],
+		"506794": ["**Reward:** ₽1,360\n\n**Trainer's Pokémon:**\n- Lv. 34 Sandslash\n- Lv. 34 Arbok", []],
+		"506795": [
+			"**Type:** Poison  \n**Unlocks HM Use:** [HM 03: Surf](#loc=506768)\n\n**Reward:**\n- Soul Badge\n- ₽4,257\n- [TM 06: Toxic](#loc=506797)\n\n**Pokémon:**\n- Lv. 37 Koffing\n- Lv. 39 Muk\n- Lv. 37 Koffing\n- Lv. 43 Weezing",
+			[]
+		],
+		"506797": [
+			"**Location:** Given as a reward for beating [Koga](#loc=506795)\n \n**Type:** Poison  \n**Power:** N/A",
+			[]
+		],
+		"506799": [
+			"**Reward:** ₽145\n\n**Trainer's Pokémon:**\n- Lv. 29 Goldeen\n- Lv. 29 Horsea\n- Lv. 29 Staryu",
+			[]
+		],
+		"506800": ["**Reward:** ₽150\n\n**Trainer's Pokémon:**\n- Lv. 30 Tentacool\n- Lv. 30 Shellder", []],
+		"506801": ["**Reward:** ₽150\n\n**Trainer's Pokémon:**\n- Lv. 30 Horsea\n- Lv. 30 Horsea", []],
+		"506802": ["**Reward:** ₽150\n\n**Trainer's Pokémon:**\n- Lv. 30 Poliwag\n- Lv. 30 Poliwhirl", []],
+		"506803": [
+			"**Reward:** ₽145\n\n**Trainer's Pokémon:**\n- Lv. 29 Goldeen\n- Lv. 29 Shellder\n- Lv. 29 Seaking",
+			[]
+		],
+		"506804": [
+			"**Reward:** ₽135\n\n**Trainer's Pokémon:**\n- Lv. 27 Horsea\n- Lv. 27 Tentacool\n- Lv. 27 Tentacool\n- Lv. 27 Goldeen",
+			[]
+		],
+		"506806": [
+			"**Reward:** ₽135\n\n**Trainer's Pokémon:**\n- Lv. 27 Tentacool\n- Lv. 27 Tentacool\n- Lv. 27 Staryu\n- Lv. 27 Horsea\n- Lv. 27 Tentacruel",
+			[]
+		],
+		"506807": [
+			"**Reward:** ₽1,890\n\n**Trainer's Pokémon:**\n- Lv. 27 Poliwag\n- Lv. 27 Goldeen\n- Lv. 27 Seaking\n- Lv. 27 Goldeen\n- Lv. 27 Poliwag",
+			[]
+		],
+		"506808": ["**Reward:** ₽2,100\n\n**Trainer's Pokémon:**\n- Lv. 30 Goldeen\n- Lv. 30 Seaking", []],
+		"506810": [
+			"**Reward:** ₽2,030\n\n**Trainer's Pokémon:**\n- Lv. 29 Staryu\n- Lv. 29 Staryu\n- Lv. 29 Staryu",
+			[]
+		],
+		"506812": ["**Reward:** ₽155\n\n**Trainer's Pokémon:**\n- Lv. 31 Shellder\n- Lv. 31 Cloyster", []],
+		"506813": [
+			"**Reward:** ₽140\n\n**Trainer's Pokémon:**\n- Lv. 28 Horsea\n- Lv. 28 Horsea\n- Lv. 28 Seadra\n- Lv. 28 Horsea",
+			[]
+		],
+		"506814": [
+			"**Reward:** ₽2,100\n\n**Trainer's Pokémon:**\n- Lv. 30 Seadra\n- Lv. 30 Horsea\n- Lv. 30 Seadra",
+			[]
+		],
+		"506815": ["**Reward:** ₽2,450\n\n**Trainer's Pokémon:**\n- Lv. 35 Seaking", []],
+		"506816": ["**Transitions to:** [Seafoam Islands](#loc=506817)", []],
+		"506817": ["**Transitions to:** [Seafoam Islands](#loc=506816)", []],
+		"506819": ["**Transitions to:** [B1F](#loc=506820)", []],
+		"506820": ["**Transitions to:** [1F](#loc=506819)", []],
+		"506822": ["**Transitions to:** [B1F](#loc=506823)", []],
+		"506823": ["**Transitions to:** [1F](#loc=506822)", []],
+		"506825": ["**Transitions to:** [B1F](#loc=506826)", []],
+		"506826": ["**Transitions from:** [1F](#loc=506825)", []],
+		"506827": ["**Transitions to:** [B1F](#loc=506828)", []],
+		"506828": ["**Transitions from:** [1F](#loc=506827)", []],
+		"506832": ["**Transitions to:** [B2F](#loc=506836)", []],
+		"506836": ["**Transitions to:** [B1F](#loc=506832)", []],
+		"506837": ["**Transitions to:** [B2F](#loc=506838)", []],
+		"506838": ["**Transitions to:** [B1F](#loc=506837)", []],
+		"506840": ["**Transitions to:** [B2F](#loc=506841)", []],
+		"506841": ["**Transitions to:** [B1F](#loc=506840)", []],
+		"506843": ["**Transitions to:** [B2F](#loc=506845)", []],
+		"506845": ["**Transitions from:** [B1F](#loc=506843)", []],
+		"506847": ["**Transitions to:** [B2F](#loc=506848)", []],
+		"506848": ["**Transitions from:** [B1F](#loc=506847)", []],
+		"506849": ["**Transitions to:** [B3F](#loc=506850)", []],
+		"506850": ["**Transitions to:** [B2F](#loc=506849)", []],
+		"506851": ["**Transitions to:** [B4F](#loc=506852)", []],
+		"506852": ["**Transitions to:** [B3F](#loc=506851)", []],
+		"506853": ["**Transitions to:** [B3F](#loc=506854)", []],
+		"506854": ["**Transitions from:** [B2F](#loc=506853)", []],
+		"506855": ["**Transitions to:** [B4F](#loc=506856)", []],
+		"506856": ["**Transitions from:** [B3F](#loc=506855)", []],
+		"506858": ["**Transitions to:** [B3F](#loc=506860)", []],
+		"506860": ["**Transitions to:** [B4F](#loc=506858)", []],
+		"506861": ["**Transitions to:** [B2F](#loc=506863)", []],
+		"506863": ["**Transitions to:** [B3F](#loc=506861)", []],
+		"506869": ["**Transitions to:** [B4F](#loc=506870)", []],
+		"506870": ["**Transitions from:** [B3F](#loc=506869)", []],
+		"506873": ["**Transitions to:** [B4F](#loc=506876)", []],
+		"506876": ["**Transitions from:** [B3F](#loc=506873)", []],
+		"506881": ["**Transitions to:** [B3F](#loc=506883)", []],
+		"506883": ["**Transitions from:** [B2F](#loc=506881)", []],
+		"506885": ["**Transitions to:** [B2F](#loc=506886)", []],
+		"506886": ["**Transitions to:** [B3F](#loc=506885)", []],
+		"506887": ["**Transitions to:** [B1F](#loc=506889)", []],
+		"506889": ["**Transitions to:** [B2F](#loc=506887)", []],
+		"506891": ["**Transitions to:** [1F](#loc=506892)", []],
+		"506892": ["**Transitions to:** [B1F](#loc=506891)", []],
+		"506893": ["**Transitions to:** [Seafoam Islands](#loc=506894)", []],
+		"506894": ["**Transitions to:** [Seafoam Islands](#loc=506893)", []],
+		"506899": ["**Location:** Hidden inside a rock", []],
+		"506902": ["**Location:** Hidden inside a rock", []],
+		"506905": ["**Location:** Hidden inside a rock", []],
+		"506909": [
+			"**Reward:** ₽600\n\n**Trainer's Pokémon:**\n- Lv. 30 Tentacool\n- Lv. 30 Horsea\n- Lv. 30 Seel",
+			[]
+		],
+		"506910": ["**Reward:** ₽175\n\n**Trainer's Pokémon:**\n- Lv. 35 Staryu", []],
+		"506912": [
+			"**Reward:** ₽750\n\n**Trainer's Pokémon:**\n- Lv. 30 Fearow\n- Lv. 30 Fearow\n- Lv. 30 Pidgeotto",
+			[]
+		],
+		"506915": [
+			"**Reward:** ₽2,100\n\n**Trainer's Pokémon:**\n- Lv. 30 Shellder\n- Lv. 30 Shellder\n- Lv. 30 Cloyster",
+			[]
+		],
+		"506916": ["**Reward:** ₽620\n\n**Trainer's Pokémon:**\n- Lv. 31 Goldeen\n- Lv. 31 Seaking", []],
+		"506917": ["**Reward:** ₽2,170\n\n**Trainer's Pokémon:**\n- Lv. 31 Poliwag\n- Lv. 31 Seaking", []],
+		"506919": [
+			"**Sells:**\n- Ultra Ball - ₽1,200\n- Great Ball - ₽600\n- Hyper Potion - ₽1,500\n- Max Repel - ₽700\n- Escape Rope - ₽550\n- Full Heal - ₽600\n- Revive - ₽1,500",
+			[]
+		],
+		"506920": ["**Transitions to:** [Pokémon Lab](#loc=506921)", []],
+		"506921": ["**Transitions to:** [Pokémon Lab](#loc=506920)", []],
+		"506922": ["**Transitions to:** [Meeting Room](#loc=506923)", []],
+		"506923": ["**Transitions to:** [Meeting Room](#loc=506922)", []],
+		"506924": [
+			"**Location:** Next to the table in the meeting room of the Pokémon Lab\n\n**Player Gives:** Raichu  \n**Player Receives:** Electrode",
+			[]
+		],
+		"506925": [
+			"**Location:** Sitting on a chair next to the table inside the meeting room of the Pokémon Lab\n\n**Player Gives:** Venonat  \n**Player Receives:** Tangela",
+			[]
+		],
+		"506926": ["**Transitions to:** [R-and-D Room](#loc=506927)", []],
+		"506927": ["**Transitions to:** [R-and-D Room](#loc=506926)", []],
+		"506928": [
+			"**Location:** Given by the scientist in the corner of the R-and-D Lab inside the Pokémon Lab\n \n**Type:** Normal  \n**Power:** N/A",
+			[]
+		],
+		"506930": ["**Transitions to:** [Testing Room](#loc=506931)", []],
+		"506931": ["**Transitions to:** [Testing Room](#loc=506930)", []],
+		"506932": [
+			"**Location:** Standing next to the table in the testing room of the Pokémon Lab\n\n**Player Gives:** Ponyta  \n**Player Receives:** Seel",
+			[]
+		],
+		"506934": ["**Can revive a Pokémon from a fossil**", []],
+		"506937": ["**Transitions to:** [Pokémon Mansion](#loc=506938)", []],
+		"506938": ["**Transitions to:** [Pokémon Mansion](#loc=506937)", []],
+		"506939": ["**Transitions to:** [2F](#loc=506940)", []],
+		"506940": ["**Transitions to:** [1F](#loc=506939)", []],
+		"506941": ["**Transitions to:** [3F](#loc=506942)", []],
+		"506942": ["**Transitions to:** [2F](#loc=506941)", []],
+		"506944": ["**Location:** In the middle of the room near two pillars", []],
+		"506946": ["**Location:** Hidden inside a pillar", []],
+		"506948": ["**Reward:** ₽3,060\n\n**Trainer's Pokémon:**\n- Lv. 34 Charmander\n- Lv. 34 Charmeleon", []],
+		"506949": ["**Transitions to:** [3F](#loc=506950)", []],
+		"506950": ["**Transitions to:** [2F](#loc=506949)", []],
+		"506952": [
+			"**Reward:** ₽1,650\n\n**Trainer's Pokémon:**\n- Lv. 33 Magnemite\n- Lv. 33 Magneton\n- Lv. 33 Voltorb",
+			[]
+		],
+		"506953": ["**Transitions to:** [2F](#loc=506954)", []],
+		"506954": ["**Transitions to:** [3F](#loc=506953)", []],
+		"506955": ["**Location:** In the middle of the room full of rubble", []],
+		"506956": ["**Transitions to:** [1F](#loc=506957)", []],
+		"506957": ["**Transitions from:** [3F](#loc=506956)", []],
+		"506958": ["**Reward:** ₽1,450\n\n**Trainer's Pokémon:**\n- Lv. 29 Electrode\n- Lv. 29 Weezing", []],
+		"506959": ["**Location:** In the middle of the room between two rows of plants", []],
+		"506960": ["**Transitions to:** [B1F](#loc=506961)", []],
+		"506961": ["**Transitions to:** [1F](#loc=506960)", []],
+		"506963": ["**Reward:** ₽3,060\n\n**Trainer's Pokémon:**\n- Lv. 34 Growlithe\n- Lv. 34 Ponyta", []],
+		"506965": [
+			"**Location:** Between a [Secret Switch](#loc=506964) and the wall\n \n**Type:** Ice  \n**Power:** 110",
+			[]
+		],
+		"506966": ["**Location:** Against the wall of a large room", []],
+		"506968": ["**Reward:** ₽1,700\n\n**Trainer's Pokémon:**\n- Lv. 34 Magnemite\n- Lv. 34 Electrode", []],
+		"506970": ["**Location:** In the corner of a room full of machines", []],
+		"506974": [
+			"**Location:** On top of the table in the center of the room\n \n**Type:** Grass  \n**Power:** 120",
+			[]
+		],
+		"506976": ["**Location:** In the middle of the room between the four groups of plants", []],
+		"506977": ["**Reward:** ₽3,420\n\n**Trainer's Pokémon:**\n- Lv. 38 Ninetales", []],
+		"506978": ["**Location:** In the corner of the room behind some rubble", []],
+		"506979": ["**Location:** Hidden in the rubble", []],
+		"506980": ["**Location:** Hidden on the floor", []],
+		"506981": ["**Transitions to:** [2F](#loc=506982)", []],
+		"506982": ["**Transitions from:** [3F](#loc=506981)", []],
+		"506983": ["**Location:** In the corner of the room behind some rubble", []],
+		"506984": ["**Transitions to:** [Pokémon Mansion](#loc=506937)", []],
+		"506985": [
+			"**Requires the [Secret Key](#loc=506976) to unlock the Gym**\n\n**Transitions to:** [Cinnabar Gym](#loc=506986)",
+			[]
+		],
+		"506986": ["**Transitions to:** [Cinnabar Gym](#loc=506985)", []],
+		"506987": [
+			"**Reward:** ₽3,240\n\n**Trainer's Pokémon:**\n- Lv. 36 Growlithe\n- Lv. 36 Vulpix\n- Lv. 36 Ninetales",
+			[]
+		],
+		"506988": [
+			"**Reward:** ₽900\n\n**Trainer's Pokémon:**\n- Lv. 36 Vulpix\n- Lv. 36 Vulpix\n- Lv. 36 Ninetales",
+			[]
+		],
+		"506989": [
+			"**Reward:** ₽850\n\n**Trainer's Pokémon:**\n- Lv. 34 Ponyta\n- Lv. 34 Charmander\n- Lv. 34 Vulpix\n- Lv. 34 Growlithe",
+			[]
+		],
+		"506990": ["**Reward:** ₽3,690\n\n**Trainer's Pokémon:**\n- Lv. 41 Ponyta", []],
+		"506991": ["**Reward:** ₽1,025\n\n**Trainer's Pokémon:**\n- Lv. 41 Rapidash", []],
+		"506992": ["**Reward:** ₽3,330\n\n**Trainer's Pokémon:**\n- Lv. 37 Vulpix\n- Lv. 37 Growlithe", []],
+		"506993": ["**Reward:** ₽925\n\n**Trainer's Pokémon:**\n- Lv. 37 Growlithe\n- Lv. 37 Vulpix", []],
+		"506994": [
+			"**Type:** Fire  \n\n**Reward:**\n- Volcano Badge\n- ₽4,653\n- [TM 38: Fire Blast](#loc=506995)\n\n**Pokémon:**\n- Lv. 42 Growlithe\n- Lv. 40 Ponyta\n- Lv. 42 Rapidash\n- Lv. 47 Arcanine",
+			[]
+		],
+		"506995": [
+			"**Location:** Given as a reward for beating [Blaine](#loc=506994)\n \n**Type:** Fire  \n**Power:** 110",
+			[]
+		],
+		"506996": ["**Reward:** ₽185\n\n**Trainer's Pokémon:**\n- Lv. 37 Starmie", []],
+		"506997": [
+			"**Reward:** ₽160\n\n**Trainer's Pokémon:**\n- Lv. 32 Poliwhirl\n- Lv. 32 Tentacool\n- Lv. 32 Seadra",
+			[]
+		],
+		"506998": ["**Reward:** ₽165\n\n**Trainer's Pokémon:**\n- Lv. 33 Staryu\n- Lv. 33 Wartortle", []],
+		"506999": ["**Reward:** ₽1,155\n\n**Trainer's Pokémon:**\n- Lv. 33 Seaking\n- Lv. 33 Goldeen", []],
+		"507000": ["**Reward:** ₽1,085\n\n**Trainer's Pokémon:**\n- Lv. 31 Shellder\n- Lv. 31 Cloyster", []],
+		"507001": ["**Reward:** ₽165\n\n**Trainer's Pokémon:**\n- Lv. 33 Seadra\n- Lv. 33 Tentacruel", []],
+		"507002": [
+			"**Reward:** ₽775\n\n**Trainer's Pokémon:**\n- Lv. 31 Tentacool\n- Lv. 31 Tentacool\n- Lv. 31 Tentacruel",
+			[]
+		],
+		"507003": [
+			"**Reward:** ₽945\n\n**Trainer's Pokémon:**\n- Lv. 27 Magikarp\n- Lv. 27 Magikarp\n- Lv. 27 Magikarp\n- Lv. 27 Magikarp\n- Lv. 27 Magikarp\n- Lv. 27 Magikarp",
+			[]
+		],
+		"507004": [
+			"**Reward:** ₽980\n\n**Trainer's Pokémon:**\n- Lv. 28 Seaking\n- Lv. 28 Goldeen\n- Lv. 28 Seaking\n- Lv. 28 Seaking",
+			[]
+		],
+		"507005": ["**Reward:** ₽1,560\n\n**Trainer's Pokémon:**\n- Lv. 39 Arbok\n- Lv. 39 Tauros", []],
+		"507006": ["**Reward:** ₽1,075\n\n**Trainer's Pokémon:**\n- Lv. 43 Machoke", []],
+		"507007": ["**Reward:** ₽1,365\n\n**Trainer's Pokémon:**\n- Lv. 39 Nidorino\n- Lv. 39 Nidoking", []],
+		"507008": ["**Reward:** ₽1,365\n\n**Trainer's Pokémon:**\n- Lv. 39 Sandslash\n- Lv. 39 Dugtrio", []],
+		"507009": ["**Reward:** ₽1,000\n\n**Trainer's Pokémon:**\n- Lv. 40 Machop\n- Lv. 40 Machoke", []],
+		"507010": ["**Reward:** ₽1,720\n\n**Trainer's Pokémon:**\n- Lv. 43 Rhyhorn", []],
+		"507011": ["**Location:** In a hallway above a spin pad", []],
+		"507012": ["**Reward:** ₽1,505\n\n**Trainer's Pokémon:**\n- Lv. 43 Rhyhorn", []],
+		"507013": [
+			"**Reward:** ₽950\n\n**Trainer's Pokémon:**\n- Lv. 38 Machoke\n- Lv. 38 Machop\n- Lv. 38 Machoke",
+			[]
+		],
+		"507014": [
+			"**Type:** Ground  \n\n**Reward:**\n- Earth Badge\n- ₽4,950\n- [TM 27: Fissure](#loc=507015)\n\n**Pokémon:**\n- Lv. 45 Rhyhorn\n- Lv. 42 Dugtrio\n- Lv. 44 Nidoqueen\n- Lv. 45 Nidoking\n- Lv. 50 Rhydon",
+			[]
+		],
+		"507015": [
+			"**Location:** Given as a reward for beating [Giovanni](#loc=507014)\n \n**Type:** Ground  \n**Power:** N/A",
+			[]
+		],
+		"507016": [
+			"**This will start automatically when walking through the route after beating all eight gyms**\n\n**Reward:** ₽3,445\n\n**Trainer's Pokémon:**\n- Lv. 47 Pidgeot\n- Lv. 45 Rhyhorn\n- Lv. 50 Alakazam\n- If the player chose Bulbasaur:\n   - Lv. 47 Exeggcute\n   - Lv. 47 Gyarados\n   - Lv. 53 Charizard\n- If the player chose Charmander:\n   - Lv. 45 Growlithe\n   - Lv. 47 Exeggcute\n   - Lv. 53 Blastoise\n- If the player chose Squirtle:\n   - Lv. 47 Gyarados\n   - Lv. 45 Growlithe\n   - Lv. 53 Venusaur",
+			[]
+		],
+		"507017": [
+			"**Location:** On the top left corner of a small island on Route 23",
+			[
+				{
+					"id": 110296,
+					"title": "image",
+					"file_name": "1fbba196-1f45-4097-b66b-434c94ddd2bb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1fbba196-1f45-4097-b66b-434c94ddd2bb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507018": [
+			"**Location:** Hidden in a tree near some grass north of the water on Route 23",
+			[
+				{
+					"id": 110298,
+					"title": "image",
+					"file_name": "1cdc491e-94fa-4116-9487-93d684e1475f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1cdc491e-94fa-4116-9487-93d684e1475f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507019": [
+			"**Location:** Hidden in a rock next to the northern-most grass on Route 23",
+			[
+				{
+					"id": 110299,
+					"title": "image",
+					"file_name": "40dfc20d-4259-43d1-b5d6-b95606e6326c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/40dfc20d-4259-43d1-b5d6-b95606e6326c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"507020": ["**Transitions to:** [Victory Road](#loc=507021)", []],
+		"507021": ["**Transitions to:** [Victory Road](#loc=507020)", []],
+		"507024": ["**Bridge:** [Boulder Bridge](#loc=507025)", []],
+		"507025": ["**Switch:** [Boulder Switch](#loc=507024)", []],
+		"507026": ["**Reward:** ₽1,540\n\n**Trainer's Pokémon:**\n- Lv. 44 Persian\n- Lv. 44 Ninetales", []],
+		"507028": ["**Location:** In an alcove in the cave wall\n \n**Type:** Flying    \n**Power:** 140", []],
+		"507029": ["**Location:** In an alcove in the cave wall", []],
+		"507030": [
+			"**Reward:** ₽1,470\n\n**Trainer's Pokémon:**\n- Lv. 42 Ivysaur\n- Lv. 42 Wartortle\n- Lv. 42 Charmeleon\n- Lv. 42 Charizard",
+			[]
+		],
+		"507031": ["**Transitions to:** [2F](#loc=507032)", []],
+		"507032": ["**Transitions to:** [1F](#loc=507031)", []],
+		"507035": ["**Bridge:** [Boulder Bridge](#loc=507036)", []],
+		"507036": ["**Switch:** [Boulder Switch](#loc=507035)", []],
+		"507037": [
+			"**Reward:** ₽1,075\n\n**Trainer's Pokémon:**\n- Lv. 43 Machoke\n- Lv. 43 Machop\n- Lv. 43 Machoke",
+			[]
+		],
+		"507038": [
+			"**Reward:** ₽1,435\n\n**Trainer's Pokémon:**\n- Lv. 41 Drowzee\n- Lv. 41 Hypno\n- Lv. 41 Kadabra\n- Lv. 41 Kadabra",
+			[]
+		],
+		"507039": ["**Location:** In the corner of a plateau and a rock\n \n**Type:** Normal  \n**Power:** 120", []],
+		"507040": ["**Bridge:** [Boulder Bridge](#loc=507051)", []],
+		"507041": ["**Reward:** ₽1,760\n\n**Trainer's Pokémon:**\n- Lv. 44 Persian\n- Lv. 44 Golduck", []],
+		"507042": ["**Location:** Next to the [Tamer](#loc=507041) in the middle of the cave", []],
+		"507043": ["**Reward:** ₽1,680\n\n**Trainer's Pokémon:**\n- Lv. 48 Mr. Mime", []],
+		"507044": [
+			"**Location:** Against a rock near a [Juggler](#loc=507043)\n \n**Type:** Fighting  \n**Power:** 80",
+			[]
+		],
+		"507045": ["**Transitions to:** [3F](#loc=507046)", []],
+		"507046": ["**Transitions to:** [2F](#loc=507045)", []],
+		"507048": [
+			"**Reward:** ₽1,505\n\n**Trainer's Pokémon:**\n- Lv. 43 Exeggutor\n- Lv. 43 Cloyster\n- Lv. 43 Arcanine",
+			[]
+		],
+		"507049": ["**Location:** In a dead end surrounded by rocks in front of the [Cool Trainer♂](#loc=507048)", []],
+		"507050": [
+			"**Location:** In an alcove between to cliffs of a plateau\n \n**Type:** Normal  \n**Power:** 170",
+			[]
+		],
+		"507051": ["**Switch:** [Boulder Switch](#loc=507040)", []],
+		"507053": [
+			"**Reward:** ₽1,505\n\n**Trainer's Pokémon:**\n- Lv. 43 Parasect\n- Lv. 43 Dewgong\n- Lv. 43 Chansey",
+			[]
+		],
+		"507054": ["**Switch:** [Boulder Switch](#loc=507055)", []],
+		"507055": ["**Bridge:** [Boulder Bridge](#loc=507054)", []],
+		"507056": ["**Transitions to:** [2F](#loc=507057)", []],
+		"507057": ["**Transitions to:** [3F](#loc=507056)", []],
+		"507058": [
+			"**Reward:** ₽2,000\n\n**Trainer's Pokémon:**\n- Lv. 40 Charmeleon\n- Lv. 40 Lapras\n- Lv. 40 Lickitung",
+			[]
+		],
+		"507059": ["**Location:** Against the wall of the cave", []],
+		"507060": [
+			"**Reward:** ₽1,505\n\n**Trainer's Pokémon:**\n- Lv. 43 Bellsprout\n- Lv. 43 Weepinbell\n- Lv. 43 Victreebel",
+			[]
+		],
+		"507061": [
+			"**Reward:** ₽1,505\n\n**Trainer's Pokémon:**\n- Lv. 43 Kingler\n- Lv. 43 Tentacruel\n- Lv. 43 Blastoise",
+			[]
+		],
+		"507064": ["**Transitions to:** [2F](#loc=507065)", []],
+		"507065": ["**Transitions from:** [3F](#loc=507064)", []],
+		"507066": ["**Transitions to:** [3F](#loc=507067)", []],
+		"507067": ["**Transitions to:** [2F](#loc=507066)", []],
+		"507068": ["**Transitions to:** [2F](#loc=507069)", []],
+		"507069": ["**Transitions to:** [3F](#loc=507068)", []],
+		"507070": ["**Location:** Hidden in a rock next to the [PokéManiac](#loc=507058)", []],
+		"507071": ["**Location:** Hidden in a rock", []],
+		"507072": ["**Transitions to:** [Victory Road](#loc=507073)", []],
+		"507073": ["**Transitions to:** [Victory Road](#loc=507072)", []],
+		"507075": [
+			"**Sells:**\n- Ultra Ball - ₽1,200\n- Great Ball - ₽600\n- Full Restore - ₽3,000\n- Max Potion - ₽2,500\n- Full Heal - ₽600\n- Revive - ₽1,500\n- Max Repel - ₽700",
+			[]
+		],
+		"507076": ["**Transitions to:** [Lorelei's Room](#loc=507077)", []],
+		"507077": ["**Transitions from:** [Reception Room](#loc=507076)", []],
+		"507078": [
+			"**Reward:** ₽5,544\n\n**Trainer's Pokémon:**\n- Lv. 54 Dewgong\n- Lv. 53 Cloyster\n- Lv. 54 Slowbro\n- Lv. 56 Jynx\n- Lv. 56 Lapras",
+			[]
+		],
+		"507079": ["**Transitions to:** [Bruno's Room](#loc=507080)", []],
+		"507080": ["**Transitions from:** [Lorelei's Room](#loc=507079)", []],
+		"507081": [
+			"**Reward:** ₽5,742\n\n**Trainer's Pokémon:**\n- Lv. 53 Onix\n- Lv. 55 Hitmonchan\n- Lv. 55 Hitmonlee\n- Lv. 56 Onix\n- Lv. 58 Machamp",
+			[]
+		],
+		"507082": ["**Transitions to:** [Agatha's Room](#loc=507083)", []],
+		"507083": ["**Transitions from:** [Bruno's Room](#loc=507082)", []],
+		"507084": [
+			"**Reward:** ₽5,940\n\n**Trainer's Pokémon:**\n- Lv. 56 Gengar\n- Lv. 56 Golbat\n- Lv. 55 Haunter\n- Lv. 58 Arbok\n- Lv. 60 Gengar",
+			[]
+		],
+		"507085": ["**Transitions to:** [Lance's Room](#loc=507086)", []],
+		"507086": ["**Transitions from:** [Agatha's Room](#loc=507085)", []],
+		"507087": [
+			"**Reward:** ₽6,138\n\n**Trainer's Pokémon:**\n- Lv. 58 Gyarados\n- Lv. 56 Dragonair\n- Lv. 56 Dragonair\n- Lv. 60 Aerodactyl\n- Lv. 62 Dragonite",
+			[]
+		],
+		"507088": ["**Transitions to:** [Champion's Room](#loc=507089)", []],
+		"507089": ["**Transitions to:** [Lance's Room](#loc=507088)", []],
+		"507090": [
+			"**This will start automatically when walking through the route after beating all eight gyms**\n\n**Reward:** ₽6,435\n\n**Trainer's Pokémon:**\n- Lv. 61 Pidgeot\n- Lv. 59 Alakazam\n- Lv. 61 Rhydon\n- If the player chose Bulbasaur:\n   - Lv. 61 Exeggutor\n   - Lv. 63 Gyarados\n   - Lv. 65 Charizard\n- If the player chose Charmander:\n   - Lv. 61 Arcanine\n   - Lv. 61 Exeggutor\n   - Lv. 65 Blastoise\n- If the player chose Squirtle:\n   - Lv. 63 Gyarados\n   - Lv. 61 Arcanine\n   - Lv. 65 Venusaur",
+			[]
+		],
+		"507091": ["**Transitions to:** [Hall of Fame](#loc=507092)", []],
+		"507092": ["**Transitions from:** [Champion's Room](#loc=507091)", []],
+		"507093": ["**Reward:** ₽465\n\n**Trainer's Pokémon:**\n- Lv. 31 Paras\n- Lv. 31 Paras\n- Lv. 31 Parasect", []],
+		"507094": ["**Opens after defeating the Elite Four**\n\n**Transitions to:** [Cerulean Cave](#loc=507095)", []],
+		"507095": ["**Transitions to:** [Cerulean Cave](#loc=507094)", []],
+		"507096": ["**Reward:** ₽1,500\n\n**Trainer's Pokémon:**\n- Lv. 30 Rhyhorn\n- Lv. 30 Lickitung", []],
+		"507097": ["**Transitions to:** [Power Plant](#loc=507098)", []],
+		"507098": ["**Transitions to:** [Power Plant](#loc=507097)", []],
+		"507099": ["**Location:** In a hallway surrounded by rubble", []],
+		"507100": ["**Location:** Hidden in the rubble", []],
+		"507101": [
+			"**Location:** In front of a machine in a room full of rubble\n \n**Type:** Psychic  \n**Power:** N/A",
+			[]
+		],
+		"507102": ["**Location:** In the corner of some boxes\n \n**Type:** Electric  \n**Power:** 110", []],
+		"507103": ["**Location:** In an alcove surrounded by boxes", []],
+		"507104": ["**Location:** Between some boxes and some rubble", []],
+		"507105": ["**Location:** Hidden inside some rubble", []],
+		"507106": ["**Transitions to:** [Power Plant](#loc=507097)", []],
+		"507110": ["**Transitions to:** [2F](#loc=507111)", []],
+		"507111": ["**Transitions to:** [1F](#loc=507110)", []],
+		"507114": ["**Transitions to:** [2F](#loc=507115)", []],
+		"507115": ["**Transitions to:** [1F](#loc=507114)", []],
+		"507116": ["**Location:** On a small piece of land next to the water", []],
+		"507118": ["**Location:** In the corner of the plateau", []],
+		"507119": ["**Transitions to:** [2F](#loc=507120)", []],
+		"507120": ["**Transitions to:** [1F](#loc=507119)", []],
+		"507122": ["**Location:** On a small piece of land next to the water", []],
+		"507123": ["**Transitions to:** [2F](#loc=507124)", []],
+		"507124": ["**Transitions to:** [1F](#loc=507123)", []],
+		"507127": ["**Transitions to:** [2F](#loc=507128)", []],
+		"507128": ["**Transitions to:** [1F](#loc=507127)", []],
+		"507129": ["**Location:** Hidden inside a rock", []],
+		"507130": ["**Location:** In an alcove surrounded by rocks", []],
+		"507131": ["**Location:** At a dead end surrounded by rocks", []],
+		"507132": ["**Location:** In a dead end surrounded by rocks", []],
+		"507141": ["**Transitions to:** [1F](#loc=507142)", []],
+		"507142": ["**Transitions to:** [2F](#loc=507141)", []],
+		"507143": ["**Transitions to:** [B1F](#loc=507144)", []],
+		"507144": ["**Transitions to:** [1F](#loc=507143)", []],
+		"507145": ["**Location:** In the middle of a small plateau", []],
+		"507146": ["**Location:** Between two plateau cliffs", []],
+		"507147": ["**Location:** Hidden inside the rock", []],
+		"507510": [
+			"**Pokemon Spawns:**\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 23 Poliwhirl\n         - Lv. 15 Slowpoke",
+			[]
+		],
+		"507511": [
+			"**Pokemon Spawns:**\n   - _Special_\n      - Lv. 25 Eevee (Found inside the roof room on a table)",
+			[]
+		],
+		"507512": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 52 Arbok (Red Only)\n      - Lv. 53 Ditto\n      - Lv. 49 Dodrio\n      - Lv. 46 Golbat\n      - Lv. 46 Hypno\n      - Lv. 49 Kadabra\n      - Lv. 46 Magneton\n      - Lv. 52 Parasect\n      - Lv. 53 Raichu\n      - Lv. 52 Sandslash (Blue Only)\n      - Lv. 49 Venomoth\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 23 Kingler\n         - Lv. 23 Seadra\n         - Lv. 23 Seaking\n         - Lv. 23 Slowbro",
+			[]
+		],
+		"507513": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 56 Chansey\n      - Lv. 60 Ditto\n      - Lv. 51 Dodrio\n      - Lv. 52 Electrode\n      - Lv. 51 Kadabra\n      - Lv. 52 Marowak\n      - Lv. 52 Rhydon\n      - Lv. 51 Venomoth\n      - Lv. 54 Wigglytuff",
+			[]
+		],
+		"507514": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 57 Arbok (Red Only)\n      - Lv. 64 Chansey\n      - Lv. 67 Ditto\n      - Lv. 55 Electrode\n      - Lv. 55 Marowak\n      - Lv. 64 Parasect\n      - Lv. 64 Raichu\n      - Lv. 55 Rhydon\n      - Lv. 57 Sandslash (Blue Only)\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 23 Kingler\n         - Lv. 23 Seadra\n         - Lv. 23 Seaking\n         - Lv. 23 Slowbro\n   - _Special_\n      - Lv. 70 Mewtwo (Found on the lower-right island)",
+			[]
+		],
+		"507515": [
+			"**Pokemon Spawns:**\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Krabby\n         - Lv. 15 Psyduck",
+			[]
+		],
+		"507516": [
+			"**Pokemon Spawns:**\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Horsea\n         - Lv. 15 Shellder\n         - Lv. 15 Staryu",
+			[]
+		],
+		"507517": [
+			"**Pokemon Spawns:**\n   - _Special_\n      - Lv. 30 Aerodactyl (Through reviving an Amber Fossil at the [Fossil Scientist](#loc=506934))\n      - Lv. 30 Kabuto (Through reviving an Dome Fossil at the [Fossil Scientist](#loc=506934))\n      - Lv. 30 Omanyte (Through reviving an Helix Fossil at the [Fossil Scientist](#loc=506934))",
+			[]
+		],
+		"507518": ["**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 22 Diglett\n      - Lv. 31 Dugtrio", []],
+		"507519": [
+			"**Pokemon Spawns:**\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Krabby\n         - Lv. 15 Magikarp\n         - Lv. 23 Seaking",
+			[]
+		],
+		"507520": ["**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 5 Pidgey\n      - Lv. 4 Rattata", []],
+		"507521": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 5 Caterpie (Blue Only)\n      - Lv. 5 Pidgey\n      - Lv. 5 Rattata\n      - Lv. 5 Weedle (Red Only)",
+			[]
+		],
+		"507522": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 7 Jigglypuff\n      - Lv. 8 Pidgey\n      - Lv. 8 Spearow\n   - _Special_\n      - Lv. 5 Magikarp (Can be bought from a man inside the [Pokémon Center](#loc=496429))",
+			[]
+		],
+		"507523": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 12 Ekans (Red Only)\n      - Lv. 12 Rattata\n      - Lv. 12 Sandshrew (Blue Only)\n      - Lv. 12 Spearow",
+			[]
+		],
+		"507524": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 16 Bellsprout (Blue Only)\n      - Lv. 16 Mankey (Red Only)\n      - Lv. 16 Meowth (Blue Only)\n      - Lv. 16 Oddish (Red Only)\n      - Lv. 16 Pidgey",
+			[]
+		],
+		"507525": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 16 Bellsprout (Blue Only)\n      - Lv. 16 Mankey (Red Only)\n      - Lv. 16 Meowth (Blue Only)\n      - Lv. 16 Oddish (Red Only)\n      - Lv. 16 Pidgey\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Krabby\n         - Lv. 15 Shellder",
+			[]
+		],
+		"507526": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 19 Ekans (Red Only)\n      - Lv. 18 Growlithe (Red Only)\n      - Lv. 20 Mankey (Red Only)\n      - Lv. 20 Meowth (Blue Only)\n      - Lv. 20 Pidgey\n      - Lv. 19 Sandshrew (Blue Only)\n      - Lv. 18 Vulpix (Blue Only)",
+			[]
+		],
+		"507527": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 22 Bellsprout (Blue Only)\n      - Lv. 20 Growlithe (Red Only)\n      - Lv. 20 Mankey (Red Only)\n      - Lv. 20 Meowth (Blue Only)\n      - Lv. 22 Oddish (Red Only)\n      - Lv. 22 Pidgey\n      - Lv. 20 Vulpix (Blue Only)",
+			[]
+		],
+		"507528": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 17 Ekans (Red Only)\n      - Lv. 17 Rattata\n      - Lv. 17 Sandshrew (Blue Only)\n      - Lv. 17 Spearow",
+			[]
+		],
+		"507529": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 17 Ekans (Red Only)\n      - Lv. 17 Sandshrew (Blue Only)\n      - Lv. 17 Spearow\n      - Lv. 17 Voltorb\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 23 Poliwhirl\n         - Lv. 15 Slowpoke",
+			[]
+		],
+		"507530": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 15 Drowzee\n      - Lv. 15 Ekans (Red Only)\n      - Lv. 15 Sandshrew (Blue Only)\n      - Lv. 17 Spearow\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Krabby\n         - Lv. 15 Shellder",
+			[]
+		],
+		"507531": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Bellsprout (Blue Only)\n      - Lv. 30 Gloom (Red Only)\n      - Lv. 26 Oddish (Red Only)\n      - Lv. 27 Pidgey\n      - Lv. 26 Venonat\n      - Lv. 30 Weepinbell (Blue Only)\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Krabby\n         - Lv. 15 Magikarp\n         - Lv. 5 Tentacool\n   - _Special_\n      - Lv. 30 Snorlax (Blocking the path in the middle of the route, requires the [Poké Flute](#loc=505228) to wake it up)",
+			[]
+		],
+		"507532": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Bellsprout (Blue Only)\n      - Lv. 25 Ditto\n      - Lv. 30 Gloom (Red Only)\n      - Lv. 26 Oddish (Red Only)\n      - Lv. 27 Pidgey\n      - Lv. 26 Venonat\n      - Lv. 30 Weepinbell (Blue Only)\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Krabby\n         - Lv. 15 Magikarp\n         - Lv. 5 Tentacool",
+			[]
+		],
+		"507533": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Bellsprout (Blue Only)\n      - Lv. 23 Ditto\n      - Lv. 30 Gloom (Red Only)\n      - Lv. 26 Oddish (Red Only)\n      - Lv. 30 Pidgeotto\n      - Lv. 26 Pidgey\n      - Lv. 26 Venonat\n      - Lv. 30 Weepinbell (Blue Only)",
+			[]
+		],
+		"507534": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Bellsprout (Blue Only)\n      - Lv. 26 Ditto\n      - Lv. 30 Gloom (Red Only)\n      - Lv. 26 Oddish (Red Only)\n      - Lv. 30 Pidgeotto\n      - Lv. 23 Pidgey\n      - Lv. 28 Venonat\n      - Lv. 30 Weepinbell (Blue Only)",
+			[]
+		],
+		"507535": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 22 Doduo\n      - Lv. 25 Raticate\n      - Lv. 22 Rattata\n      - Lv. 22 Spearow\n   - _Special_\n      - Lv. 30 Snorlax (Blocking the path in the middle of the route, requires the [Poké Flute](#loc=505228) to wake it up)",
+			[]
+		],
+		"507536": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 28 Doduo\n      - Lv. 27 Fearow\n      - Lv. 29 Raticate\n      - Lv. 22 Spearow\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Krabby\n         - Lv. 15 Magikarp\n         - Lv. 5 Tentacool",
+			[]
+		],
+		"507537": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 28 Doduo\n      - Lv. 29 Fearow\n      - Lv. 29 Raticate\n      - Lv. 22 Spearow\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Krabby\n         - Lv. 15 Magikarp\n         - Lv. 5 Tentacool",
+			[]
+		],
+		"507538": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 2-4 Nidoran♀\n      - Lv. 2-4 Nidoran♂\n      - Lv. 2 Rattata\n      - Lv. 5 Spearow\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Poliwag",
+			[]
+		],
+		"507539": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 41 Arbok (Red Only)\n      - Lv. 43 Ditto\n      - Lv. 26 Ekans (Red Only)\n      - Lv. 43 Fearow\n      - Lv. 26 Sandshrew (Blue Only)\n      - Lv. 41 Sandslash (Blue Only)\n      - Lv. 26 Spearow\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 23 Kingler\n         - Lv. 23 Seadra\n         - Lv. 23 Seaking\n         - Lv. 23 Slowbro",
+			[]
+		],
+		"507540": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 12 Abra\n      - Lv. 14 Bellsprout (Blue Only)\n      - Lv. 7 Caterpie (Blue Only)\n      - Lv. 8 Kakuna (Red Only)\n      - Lv. 8 Metapod (Blue Only)\n      - Lv. 14 Oddish (Red Only)\n      - Lv. 13 Pidgey\n      - Lv. 7 Weedle (Red Only)\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Krabby\n         - Lv. 15 Psyduck",
+			[]
+		],
+		"507541": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 10 Abra\n      - Lv. 14 Bellsprout (Blue Only)\n      - Lv. 8 Caterpie\n      - Lv. 7-9 Kakuna\n      - Lv. 7-9 Metapod\n      - Lv. 14 Oddish (Red Only)\n      - Lv. 13 Pidgey\n      - Lv. 8 Weedle\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Krabby\n         - Lv. 15 Psyduck",
+			[]
+		],
+		"507542": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Doduo\n      - Lv. 23 Exeggcute\n      - Lv. 25 Kangaskhan\n      - Lv. 24 Nidoran♀\n      - Lv. 24 Nidoran♂\n      - Lv. 33 Nidorina (Blue Only)\n      - Lv. 33 Nidorino (Red Only)\n      - Lv. 22 Paras\n      - Lv. 25 Parasect\n      - Lv. 28 Pinsir (Blue Only)\n      - Lv. 28 Scyther (Red Only)\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Dratini\n         - Lv. 15 Krabby\n         - Lv. 15 Psyduck\n         - Lv. 15 Slowpoke",
+			[]
+		],
+		"507543": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Chansey\n      - Lv. 27 Exeggcute\n      - Lv. 22 Nidoran♀ (Blue Only)\n      - Lv. 22 Nidoran♂ (Red Only)\n      - Lv. 30 Nidorina\n      - Lv. 30 Nidorino\n      - Lv. 23 Paras\n      - Lv. 26 Rhyhorn\n      - Lv. 28 Tauros\n      - Lv. 32 Venomoth\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Dratini\n         - Lv. 15 Krabby\n         - Lv. 15 Psyduck\n         - Lv. 15 Slowpoke",
+			[]
+		],
+		"507544": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Doduo\n      - Lv. 26 Exeggcute\n      - Lv. 28 Kangaskhan\n      - Lv. 25 Nidoran♀\n      - Lv. 25 Nidoran♂\n      - Lv. 33 Nidorina (Blue Only)\n      - Lv. 33 Nidorino (Red Only)\n      - Lv. 26 Tauros\n      - Lv. 31 Venomoth\n      - Lv. 23 Venonat\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Dratini\n         - Lv. 15 Krabby\n         - Lv. 15 Psyduck\n         - Lv. 15 Slowpoke",
+			[]
+		],
+		"507545": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 23 Chansey\n      - Lv. 25 Exeggcute\n      - Lv. 22 Nidoran♀ (Blue Only)\n      - Lv. 22 Nidoran♂ (Red Only)\n      - Lv. 31 Nidorina\n      - Lv. 31 Nidorino\n      - Lv. 30 Parasect\n      - Lv. 23 Pinsir (Blue Only)\n      - Lv. 25 Rhyhorn\n      - Lv. 23 Scyther (Red Only)\n      - Lv. 22 Venonat\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Dratini\n         - Lv. 15 Krabby\n         - Lv. 15 Psyduck\n         - Lv. 15 Slowpoke",
+			[]
+		],
+		"507546": [
+			"**Pokemon Spawns:**\n   - _Surfing_\n      - Lv. 40 Tentacool\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Horsea\n         - Lv. 15 Shellder\n         - Lv. 15 Staryu",
+			[]
+		],
+		"507547": [
+			"**Pokemon Spawns:**\n   - _Surfing_\n      - Lv. 40 Tentacool\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Horsea\n         - Lv. 15 Shellder\n         - Lv. 15 Staryu",
+			[]
+		],
+		"507548": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 32 Pidgeotto\n      - Lv. 21 Pidgey\n      - Lv. 30 Raticate\n      - Lv. 23 Rattata\n      - Lv. 32 Tangela\n   - _Surfing_\n      - Lv. 40 Tentacool\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Horsea\n         - Lv. 15 Shellder\n         - Lv. 15 Staryu",
+			[]
+		],
+		"507549": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Geodude\n      - Lv. 41 Golbat\n      - Lv. 41 Graveler\n      - Lv. 42 Machoke\n      - Lv. 24 Machop\n      - Lv. 43 Marowak\n      - Lv. 42 Onix\n      - Lv. 22 Zubat",
+			[]
+		],
+		"507550": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 24 Geodude\n      - Lv. 40 Golbat\n      - Lv. 43 Graveler\n      - Lv. 41 Machoke\n      - Lv. 22 Machop\n      - Lv. 40 Marowak\n      - Lv. 42 Onix\n      - Lv. 26 Zubat\n   - _Special_\n      - Lv. 50 Moltres (Found in the top-left section of 2F)",
+			[]
+		],
+		"507551": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 26 Geodude\n      - Lv. 41 Golbat\n      - Lv. 43 Graveler\n      - Lv. 45 Machoke\n      - Lv. 24 Machop\n      - Lv. 45 Onix\n      - Lv. 40 Venomoth\n      - Lv. 22 Zubat",
+			[]
+		],
+		"507552": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 8 Clefairy\n      - Lv. 10 Geodude\n      - Lv. 8 Paras\n      - Lv. 11 Zubat",
+			[]
+		],
+		"507553": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 9 Clefairy\n      - Lv. 9 Geodude\n      - Lv. 10 Paras\n      - Lv. 11 Zubat",
+			[]
+		],
+		"507554": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 12 Clefairy\n      - Lv. 10 Geodude\n      - Lv. 12 Paras\n      - Lv. 12 Zubat",
+			[]
+		],
+		"507555": [
+			"**Pokemon Spawns:**\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp 100%\n      - Good Rod:\n         - Lv. 10 Goldeen 50%\n         - Lv. 10 Poliwag  50%\n      - Super Rod:\n         - Lv. 15 Poliwag  50%\n         - Lv. 15 Tentacool  50%",
+			[]
+		],
+		"507556": [
+			"**Pokemon Spawns:**\n   - _Special_\n      - Lv. 5 Bulbasaur (Given as a starter)\n      - Lv. 5 Charmander (Given as a starter)\n      - Lv. 5 Squirtle (Given as a starter)",
+			[]
+		],
+		"507557": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 30 Grimer\n      - Lv. 34 Growlithe (Red Only)\n      - Lv. 30 Koffing\n      - Lv. 37-39 Muk\n      - Lv. 28 Ponyta\n      - Lv. 34 Vulpix (Blue Only)\n      - Lv. 37-39 Weezing",
+			[]
+		],
+		"507558": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 30 Grimer\n      - Lv. 32 Growlithe (Red Only)\n      - Lv. 30 Koffing\n      - Lv. 37-39 Muk\n      - Lv. 28 Ponyta\n      - Lv. 32 Vulpix (Blue Only)\n      - Lv. 37-39 Weezing",
+			[]
+		],
+		"507559": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 34-35 Grimer\n      - Lv. 33 Growlithe (Red Only)\n      - Lv. 34-35 Koffing\n      - Lv. 34 Magmar (Blue Only)\n      - Lv. 38-42 Muk\n      - Lv. 36 Ponyta\n      - Lv. 33 Vulpix (Blue Only)\n      - Lv. 38-42 Weezing",
+			[]
+		],
+		"507560": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 31-35 Grimer\n      - Lv. 35 Growlithe (Red Only)\n      - Lv. 31-35 Koffing\n      - Lv. 38 Magmar (Blue Only)\n      - Lv. 40-42 Muk\n      - Lv. 34 Ponyta\n      - Lv. 35 Vulpix (Blue Only)\n      - Lv. 42 Weezing",
+			[]
+		],
+		"507561": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 22 Cubone\n      - Lv. 24 Gastly\n      - Lv. 25 Haunter",
+			[]
+		],
+		"507562": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 22 Cubone\n      - Lv. 24 Gastly\n      - Lv. 25 Haunter",
+			[]
+		],
+		"507563": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 22 Cubone\n      - Lv. 24 Gastly\n      - Lv. 25 Haunter",
+			[]
+		],
+		"507564": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 24 Cubone\n      - Lv. 19 Gastly\n      - Lv. 28 Haunter",
+			[]
+		],
+		"507565": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 24 Cubone\n      - Lv. 20 Gastly\n      - Lv. 30 Haunter",
+			[]
+		],
+		"507566": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 36 Electabuzz (Red Only)\n      - Lv. 23 Magnemite\n      - Lv. 35 Magneton\n      - Lv. 24 Pikachu\n      - Lv. 36 Raichu (Blue Only)\n      - Lv. 23 Voltorb\n   - _Special_\n      - Lv. 43 Electrode (Looks like an item on the ground)\n      - Lv. 40 Voltorb (Looks like an item on the ground)\n      - Lv. 50 Zapdos (In the final room of the Power Plant)",
+			[]
+		],
+		"507567": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 16 Geodude\n      - Lv. 17 Machop\n      - Lv. 15 Onix\n      - Lv. 15 Zubat",
+			[]
+		],
+		"507568": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 18 Geodude\n      - Lv. 17 Machop\n      - Lv. 13 Onix\n      - Lv. 18 Zubat",
+			[]
+		],
+		"507569": [
+			"**Pokemon Spawns:**\n   - _Special_\n      - Lv. 30 Hitmonchan (Given as a reward for getting to the end of the Dojo)\n      - Lv. 30 Hitmonlee (Given as a reward for getting to the end of the Dojo)",
+			[]
+		],
+		"507570": [
+			"**Pokemon Spawns:**\n   - _Special_\n      - Lv. 15 Lapras (On 7F given by an employee after speaking to them in the same room [Blue](#loc=506491) is)",
+			[]
+		],
+		"507571": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 29 Golbat\n      - Lv. 38 Golduck (Red Only)\n      - Lv. 28 Horsea (Red Only)\n      - Lv. 28 Krabby (Blue Only)\n      - Lv. 28-30 Psyduck\n      - Lv. 30 Seel\n      - Lv. 28 Shellder (Red Only)\n      - Lv. 38 Slowbro (Blue Only)\n      - Lv. 28-30 Slowpoke\n      - Lv. 28 Staryu (Blue Only)\n      - Lv. 21 Zubat",
+			[]
+		],
+		"507573": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 38 Dewgong\n      - Lv. 32 Horsea (Red Only)\n      - Lv. 37 Kingler (Blue Only)\n      - Lv. 32 Krabby (Blue Only)\n      - Lv. 30 Psyduck (Blue Only)\n      - Lv. 37 Seadra (Red Only)\n      - Lv. 28 Seel\n      - Lv. 30-32 Shellder\n      - Lv. 30 Slowpoke (Red Only)\n      - Lv. 30-32 Staryu",
+			[]
+		],
+		"507575": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 30 Golbat\n      - Lv. 37 Golduck (Blue Only)\n      - Lv. 30 Horsea (Red Only)\n      - Lv. 30 Krabby (Blue Only)\n      - Lv. 32 Psyduck (Blue Only)\n      - Lv. 32 Seel\n      - Lv. 28-30 Shellder\n      - Lv. 37 Slowbro (Red Only)\n      - Lv. 32 Slowpoke (Red Only)\n      - Lv. 28-30 Staryu",
+			[]
+		],
+		"507577": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 37 Dewgong\n      - Lv. 31 Horsea (Red Only)\n      - Lv. 39 Kingler (Blue Only)\n      - Lv. 31 Krabby (Blue Only)\n      - Lv. 33 Psyduck (Blue Only)\n      - Lv. 39 Seadra (Red Only)\n      - Lv. 33 Seel\n      - Lv. 29 Shellder (Red Only)\n      - Lv. 33 Slowpoke (Red Only)\n      - Lv. 29 Staryu (Blue Only)\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Horsea\n         - Lv. 15 Shellder\n         - Lv. 15 Staryu",
+			[]
+		],
+		"507578": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 32 Golbat\n      - Lv. 39 Golduck (Blue Only)\n      - Lv. 33 Horsea (Red Only)\n      - Lv. 33 Krabby (Blue Only)\n      - Lv. 31 Psyduck (Blue Only)\n      - Lv. 29 Seel\n      - Lv. 33 Shellder (Red Only)\n      - Lv. 39 Slowbro (Red Only)\n      - Lv. 31 Slowpoke (Red Only)\n      - Lv. 33 Staryu (Blue Only)\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Goldeen\n         - Lv. 15 Horsea\n         - Lv. 15 Shellder\n         - Lv. 15 Staryu\n   - _Special_\n      - Lv. 50 Articuno (Found on a upper left island)",
+			[]
+		],
+		"507580": [
+			"**Pokemon Spawns:**\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Krabby\n         - Lv. 15 Shellder",
+			[]
+		],
+		"507581": [
+			"**Pokemon Spawns:**\n   - _Fishing_\n      - Old Rod:\n         - Lv. 5 Magikarp\n      - Good Rod:\n         - Lv. 10 Goldeen\n         - Lv. 10 Poliwag\n      - Super Rod:\n         - Lv. 15 Poliwag\n         - Lv. 15 Tentacool",
+			[]
+		],
+		"507582": [
+			"**Pokemon Spawns:**\n   - _Walking/Grass_\n      - Lv. 3-5 Caterpie\n      - Lv. 4-6 Kakuna\n      - Lv. 4-6 Metapod\n      - Lv. 5 Pikachu\n      - Lv. 3-5 Weedle",
+			[]
+		],
+		"534811": [
+			"**Location:** Behind the building. Surf to enter the water, then interact with the north-western corner.",
+			[]
+		]
+	}
+}

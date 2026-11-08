@@ -189,7 +189,8 @@
 					"tileSize": 256,
 					"background": "#010207"
 				}
-			]
+			],
+			"compact": "mexico/data.compact.json"
 		},
 		{
 			"slug": "australia",
@@ -206,7 +207,8 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			]
+			],
+			"compact": "australia/data.compact.json"
 		}
 	]
 }

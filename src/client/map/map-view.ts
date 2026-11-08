@@ -3,22 +3,34 @@
 
 /* ---------- game loading, theme application, map switcher, and MapLibre view ---------- */
 
+import { detailsPath, isCompact, locsOfCompact, type MapDetails, toCompact } from "../../shared/compact-map.ts";
 import { esc } from "../../shared/escape.ts";
 import { sanitizeGeometry } from "../../shared/geometry.ts";
 import { deriveLightTheme } from "../../shared/theme-math.ts";
 import { glyphPinImage, iconsReady } from "../icons-lib.ts";
+import { perf, perfAsync } from "../perf.ts";
 import { isLightTheme, recordGameOpen } from "../theme.ts";
 import { setupCapture } from "./capture.ts";
 import { closeCtx, closeDetail, dismiss, mapMenuAt, renderDetail, select, updateLinkHeads } from "./detail.ts";
 import { setupDrawing } from "./drawing.ts";
 import { renderMd } from "./markdown.ts";
+import { buildMarkerFilter } from "./marker-filter.ts";
 import { loadMapState, migratePresets, renderPresets } from "./presets.ts";
-import { isSavePending, loadProfiles, saveProfileNow, scheduleSave, syncTagStrict } from "./profiles.ts";
-import { runSearch } from "./search.ts";
+import {
+	isSavePending,
+	loadProfiles,
+	saveProfileNow,
+	scheduleSave,
+	scheduleViewSave,
+	syncTagStrict,
+} from "./profiles.ts";
+import { forgetText, runSearch } from "./search.ts";
 import { inSelection, setupSelection } from "./selection.ts";
 import {
 	buildSidebar,
 	endMorph,
+	invalidateLocsByCat,
+	invalidateStats,
 	rebuildUserData,
 	resetShownCounts,
 	shownOnMap,
@@ -228,7 +240,11 @@ export async function loadGame(entry: any): Promise<boolean> {
 }
 
 // everything that belongs to one map of the game: its data, categories, locations, tags, view and presets
-export async function prepareMap(info: any): Promise<void> {
+export function prepareMap(info: any): Promise<void> {
+	return perfAsync("prepareMap", () => prepareMapImpl(info));
+}
+
+async function prepareMapImpl(info: any): Promise<void> {
 	const data = await mapData(info);
 	state.mapInfo = info;
 	state.data = data;
@@ -266,24 +282,31 @@ export async function prepareMap(info: any): Promise<void> {
 	state.regions = data.regions || [];
 	state.regionById = regById;
 
-	state.locs = data.locations
-		.map((l: any) => ({
-			id: l.id,
-			cat: l.category_id,
-			region: l.region_id,
-			title: l.title || "",
-			desc: l.description || "",
-			lat: parseFloat(l.latitude),
-			lng: parseFloat(l.longitude),
-			tags: l.tags || [],
-			media: l.media || [],
-			icon: catById.get(l.category_id)?.icon,
-			features: l.features || null,
-		}))
-		.filter((l: any) => Number.isFinite(l.lat) && Number.isFinite(l.lng));
+	// a compact map brings no descriptions or media: ensureDetails() fills them in
+	state.locs = isCompact(data)
+		? locsOfCompact(data, (cat) => catById.get(cat)?.icon)
+		: data.locations
+				.map((l: any) => ({
+					id: l.id,
+					cat: l.category_id,
+					region: l.region_id,
+					title: l.title || "",
+					desc: l.description || "",
+					lat: parseFloat(l.latitude),
+					lng: parseFloat(l.longitude),
+					tags: l.tags || [],
+					media: l.media || [],
+					icon: catById.get(l.category_id)?.icon,
+					features: l.features || null,
+				}))
+				.filter((l: any) => Number.isFinite(l.lat) && Number.isFinite(l.lng));
+	detailsApplied = null;
+	const known = detailsData.get(info.slug);
+	if (known && isCompact(data)) applyDetails(known);
 	state.officialLocs = state.locs;
 	state.byId = new Map(state.locs.map((l: any) => [l.id, l]));
 	state.tags = [...(data.tags || [])].sort((a: any, b: any) => a.id - b.id);
+	invalidateLocsByCat();
 
 	await loadMapState();
 
@@ -305,19 +328,81 @@ export async function prepareMap(info: any): Promise<void> {
 	rebuildUserData(); // links, the user's markers on this map, and the sidebar when it exists
 }
 
+// the compact file when the map's meta names one (a missing, broken or foreign file is no error), else data.json
+async function fetchMapData(info: { data: string; compact?: string }): Promise<any> {
+	if (info.compact) {
+		try {
+			const c = await fetchJSON(`${state.folder}/${info.compact}`);
+			if (isCompact(c)) return c;
+		} catch {
+			/* fall through to data.json */
+		}
+	}
+	return fetchJSON(`${state.folder}/${info.data}`);
+}
+
 // map data is fetched once per map
 const mapCache = new Map<string, Promise<any>>();
-export function mapData(info: { slug: string; data: string }): Promise<any> {
+// keep=false (the all-maps index) reads a map that is not open without holding its data afterwards
+export function mapData(info: { slug: string; data: string; compact?: string }, keep = true): Promise<any> {
+	if (!keep && !mapCache.has(info.slug)) return fetchMapData(info);
 	if (!mapCache.has(info.slug)) {
 		mapCache.set(
 			info.slug,
-			fetchJSON(`${state.folder}/${info.data}`).catch((e) => {
+			fetchMapData(info).catch((e) => {
 				mapCache.delete(info.slug);
 				throw e;
 			}),
 		);
 	}
 	return mapCache.get(info.slug)!;
+}
+
+/* ---------- descriptions and media of a compact map ----------
+   They come in a second file, on the first need: a detail card, the link graph, or a search (descriptions rank
+   there). If that file cannot be had, they are read from data.json. A map read from data.json has them already. */
+const detailsData = new Map<string, MapDetails>(); // loaded, by map slug
+const detailsLoads = new Map<string, Promise<MapDetails>>();
+let detailsApplied: string | null = null; // the map whose state.locs carry descriptions and media
+
+export const detailsReady = (): boolean => !isCompact(state.data) || detailsApplied === state.mapInfo?.slug;
+
+function applyDetails(d: MapDetails): void {
+	for (const [id, [desc, media]] of Object.entries(d.d)) {
+		const l = state.byId.get(Number(id));
+		if (!l || l.user) continue;
+		l.desc = desc;
+		l.media = media;
+		forgetText(l); // its normalised text was made without the description
+	}
+	detailsApplied = state.mapInfo.slug;
+}
+
+function loadDetails(info: { slug: string; data: string }): Promise<MapDetails> {
+	let p = detailsLoads.get(info.slug);
+	if (!p) {
+		const url = `${state.folder}/${info.data}`;
+		p = fetchJSON<MapDetails>(detailsPath(url))
+			.catch(() => fetchJSON(url).then((full) => toCompact(full).details))
+			.then((d) => (detailsData.set(info.slug, d), d));
+		detailsLoads.set(info.slug, p);
+		p.catch(() => detailsLoads.delete(info.slug)); // tried again on the next need
+	}
+	return p;
+}
+
+// resolves once the open map's locations have their descriptions and media; also when they cannot be loaded (the
+// caller checks detailsReady()). A map switched away meanwhile is left alone.
+export async function ensureDetails(): Promise<void> {
+	if (detailsReady()) return;
+	const info = state.mapInfo,
+		data = state.data;
+	try {
+		const d = await loadDetails(info);
+		if (state.mapInfo === info && state.data === data) applyDetails(d);
+	} catch {
+		/* not available: markers show without them */
+	}
 }
 
 // the map switcher in the side panel: one button per map, shown when the game has more than one
@@ -1196,11 +1281,10 @@ export async function switchMap(slug: string, { remember = true } = {}): Promise
 	revealWhenSettled(state.map);
 	if (remember) rememberCamera(true);
 	applyRegionAndTextStyles(state.map, state.data?.styles);
-	refreshAll();
+	refreshAll({ immediate: true });
 	refreshRegions();
 	endMorph({ later: true }); // the tween runs its full length from the numbers this refresh set
 	renderMapSwitch();
-	updateSidebar();
 	syncMapOfflineState();
 }
 
@@ -1727,34 +1811,37 @@ export function relatedOf(id: number): Set<number> {
 	return out;
 }
 
-export function refreshMap(): void {
-	if (!state.mapReady) return;
-	const sel = state.selected,
-		rel = sel != null ? relatedOf(sel) : new Set<number>();
+let markerSourcesDirty = true;
+export function invalidateMarkerSource(): void {
+	markerSourcesDirty = true;
+}
+
+export function rebuildMarkerSource(): void {
+	if (!state.mapReady || !state.map) return;
+	const mapStyle = state.data?.styles?.mapStyle;
 	const symbolFeats: any[] = [];
 	const circleFeats: any[] = [];
 	const textFeats: any[] = [];
-	const mapStyle = state.data?.styles?.mapStyle;
 
 	for (const l of state.locs) {
-		// the card's marker and the markers it links to are always drawn: a filter (hidden category, hide found, a search)
-		// must not hide what the card is about
-		const pinned = l.id === sel || rel.has(l.id);
-		if (!pinned) {
-			if (!shownOnMap(l)) continue;
-			if (state.search.ids && !state.search.ids.has(l.id)) continue; // while searching: the matches only
-		}
 		const cat = state.cats?.get(l.cat);
 		const cStyle = circleStyleOf(cat, mapStyle);
 		const tStyle = textStyleOf(cat, l, state.data?.styles);
 		const f = state.found.has(l.id) ? 1 : 0;
+		const baseProps = {
+			id: l.id,
+			cat: l.cat,
+			tags: l.tags || [],
+			region: l.region ?? null,
+			f,
+		};
 
 		if (tStyle.isText) {
 			textFeats.push({
 				type: "Feature",
 				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
 				properties: {
-					id: l.id,
+					...baseProps,
 					title: tStyle.title || l.title || "",
 					"text-color": tStyle.textColor,
 					"text-halo-color": tStyle.haloColor,
@@ -1764,7 +1851,6 @@ export function refreshMap(): void {
 					"text-size-10": tStyle.size10,
 					"text-size-11": tStyle.size11,
 					"text-size-16": tStyle.size16,
-					f,
 				},
 			});
 		}
@@ -1774,12 +1860,11 @@ export function refreshMap(): void {
 				type: "Feature",
 				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
 				properties: {
-					id: l.id,
+					...baseProps,
 					color: cStyle.color,
 					strokeColor: cStyle.strokeColor,
 					radius: cStyle.radius,
 					opacity: cStyle.opacity,
-					f,
 				},
 			});
 		} else if (tStyle.alsoMarker) {
@@ -1787,18 +1872,67 @@ export function refreshMap(): void {
 			symbolFeats.push({
 				type: "Feature",
 				geometry: { type: "Point", coordinates: [l.lng, l.lat] },
-				properties: { id: l.id, icon, f, z: f ? 0 : 1 },
+				properties: {
+					...baseProps,
+					icon,
+					z: f ? 0 : 1,
+				},
 			});
 		}
 	}
-	state.map.getSource("locs").setData({ type: "FeatureCollection", features: symbolFeats });
+
+	const locsSrc = state.map.getSource("locs");
+	if (locsSrc) locsSrc.setData({ type: "FeatureCollection", features: symbolFeats });
 	const circleSrc = state.map.getSource("locs-circles");
 	if (circleSrc) circleSrc.setData({ type: "FeatureCollection", features: circleFeats });
 	const textSrc = state.map.getSource("locs-text");
 	if (textSrc) textSrc.setData({ type: "FeatureCollection", features: textFeats });
+	markerSourcesDirty = false;
+}
+
+export function refreshMap(): void {
+	perf("refreshMap", refreshMapImpl);
+}
+
+function refreshMapImpl(): void {
+	if (!state.mapReady) return;
+	const map = state.map;
+	if (markerSourcesDirty) {
+		rebuildMarkerSource();
+	}
+
+	const sel = state.selected,
+		rel = sel != null ? relatedOf(sel) : new Set<number>();
+	const pinnedIds = sel != null ? [sel, ...rel] : [];
+
+	let matchingRegions: number[] | null = null;
+	if (state.regionFilter != null) {
+		const rf = state.regionFilter;
+		matchingRegions = [rf];
+		for (const r of state.regions || []) {
+			if (r.parent_region_id === rf) matchingRegions.push(r.id);
+		}
+	}
+
+	const searchIds = state.search.active && !state.search.wild && state.search.ids ? state.search.ids : null;
+
+	const filter = buildMarkerFilter({
+		hiddenCats: state.view?.hidden,
+		tag: state.tag,
+		tagStrict: state.tagStrict,
+		hideFound: state.view?.hideFound,
+		matchingRegions,
+		searchIds,
+		pinnedIds,
+	});
+
+	if (map.getLayer("locs")) map.setFilter("locs", filter);
+	if (map.getLayer("locs-circles")) map.setFilter("locs-circles", filter);
+	if (map.getLayer("locs-text")) map.setFilter("locs-text", filter);
 
 	// synchronize location feature polygons & lines
 	const visibleGeomLocs = state.locs.filter((l: any) => {
+		if (!l.features || !l.features.length) return false;
 		const pinned = l.id === sel || rel.has(l.id);
 		if (pinned) return true;
 		if (!shownOnMap(l)) return false;
@@ -1806,9 +1940,9 @@ export function refreshMap(): void {
 		return true;
 	});
 	const geoms = buildLocationGeometryFeatures(visibleGeomLocs, state.data?.styles, state.cats);
-	const fillSrc = state.map.getSource("loc-fills");
+	const fillSrc = map.getSource("loc-fills");
 	if (fillSrc) fillSrc.setData(geoms.fills);
-	const lineSrc = state.map.getSource("loc-lines");
+	const lineSrc = map.getSource("loc-lines");
 	if (lineSrc) lineSrc.setData(geoms.lines);
 
 	syncRelatedRings(rel);
@@ -1846,11 +1980,112 @@ function placeRelatedRings(): void {
 	}
 }
 
-export function refreshAll(): void {
+export type FrameScheduler = {
+	schedule: () => void;
+	flush: () => void;
+	isPending: () => boolean;
+};
+
+const defaultRaf =
+	typeof requestAnimationFrame === "function" ? requestAnimationFrame : (cb: () => void) => setTimeout(cb, 0);
+
+export function createScheduler(
+	flushFn: () => void,
+	requestFrame: (cb: () => void) => any = defaultRaf,
+): FrameScheduler {
+	let scheduled = false;
+	let flushing = false;
+	let nextScheduled = false;
+
+	function run(): void {
+		scheduled = false;
+		flushing = true;
+		try {
+			flushFn();
+		} finally {
+			flushing = false;
+			if (nextScheduled) {
+				nextScheduled = false;
+				schedule();
+			}
+		}
+	}
+
+	function onFrame(): void {
+		if (!scheduled) return;
+		run();
+	}
+
+	function schedule(): void {
+		if (flushing) {
+			nextScheduled = true;
+			return;
+		}
+		if (!scheduled) {
+			scheduled = true;
+			requestFrame(onFrame);
+		}
+	}
+
+	function flush(): void {
+		if (!scheduled && !nextScheduled && !flushing) return;
+		scheduled = false;
+		nextScheduled = false;
+		run();
+	}
+
+	return {
+		schedule,
+		flush,
+		isPending: () => scheduled || nextScheduled || flushing,
+	};
+}
+
+let pendingAll = false;
+let pendingViewSave = false;
+let pendingSearch = false;
+
+function flushRefreshPass(): void {
+	const all = pendingAll;
+	const viewSave = pendingViewSave;
+	const search = pendingSearch;
+	pendingAll = false;
+	pendingViewSave = false;
+	pendingSearch = false;
+
+	if (all) {
+		invalidateMarkerSource();
+		invalidateStats();
+	}
+	if (viewSave) {
+		scheduleViewSave();
+	}
 	updateSidebar();
-	renderPresets(); // the tag and its switch change which categories count as selected
+	renderPresets();
 	refreshMap();
-	state.drawing?.render();
-	if (state.search.active) runSearch();
-	if (state.selected != null) renderDetail();
+	if (all) {
+		state.drawing?.render();
+		if (state.selected != null) renderDetail();
+	}
+	if (state.search?.active && search && !state.search.causedRefresh) {
+		runSearch();
+	}
+}
+
+export const refreshScheduler = createScheduler(flushRefreshPass);
+
+export function requestRefresh(options?: { all?: boolean; viewChange?: boolean }): void {
+	if (options?.all) pendingAll = true;
+	if (options?.viewChange) pendingViewSave = true;
+	if (!state.search?.causedRefresh) pendingSearch = true;
+	refreshScheduler.schedule();
+}
+
+export function flushRefreshNow(): void {
+	refreshScheduler.flush();
+}
+
+export function refreshAll({ immediate = false } = {}): void {
+	requestRefresh({ all: true });
+	if (immediate) flushRefreshNow();
 }

@@ -1,0 +1,3704 @@
+{
+	"v": 1,
+	"d": {
+		"385321": [
+			"The only spawn area for GumBoo. Can be found inside:\n\n- Trash bins\n- Reception drawers\n- The red toolbox",
+			[]
+		],
+		"385326": [
+			"Boo-at-Arms is one of the few Boos who can appear in *all* rooms of their floor. They'll spawn in suits of armor that you can destroy with a Suction Shot Slam.",
+			[]
+		],
+		"385328": [
+			"Can appear in the four \"TV\" Sets, as well as the Studio Entrance. Will always be hiding in a Black Box.",
+			[]
+		],
+		"385329": [
+			"Spawn area for Boones. Can be found inside:\n\n- Covered picture frames\n\nIf not in this room, check the [Lobby](#loc=387318).",
+			[]
+		],
+		"385330": [
+			"Spawn area for Anuboo. Can be found inside:\n\n- Vases\n\nIf not in this room, check the [Jewel Chamber](#loc=388336) and [Scale Chamber](#loc=388335).",
+			[]
+		],
+		"385336": ["Flash with the Strobulb to unlock.", []],
+		"385337": ["Pull down the vending machine with a Suction Shot to access a back room.", []],
+		"385338": ["Look through the crack in this wall to make a Gold Spider appear.", []],
+		"385344": ["**Prerequisite:** [Poltergust G-00](#loc=385345)", []],
+		"385345": [
+			"Search E. Gadd's old car to get this incredibly essential item!",
+			[
+				{
+					"id": 55017,
+					"title": "Item - Poltergust G-00",
+					"file_name": "916bf7f2-15af-400c-9ca9-bdff9273c675.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/916bf7f2-15af-400c-9ca9-bdff9273c675.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385346": ["**Prerequisite:** [Poltergust G-00](#loc=385345)", []],
+		"385347": ["**Prerequisite:** [Poltergust G-00](#loc=385345)", []],
+		"385348": ["**Prerequisite:** [Poltergust G-00](#loc=385345)", []],
+		"385349": [
+			"**Prerequisite:** [Poltergust G-00](#loc=385345)\n\nAfter getting the Poltergust, vacuum the sheet off the blue car parked near the red car the Pultergust was in. Flash the green light with the Strobulb to open the boot and get the Gem.",
+			[
+				{
+					"id": 54910,
+					"title": "Basement - Gem White",
+					"file_name": "16238f8e-44c6-4198-8143-316b62a88c73.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/16238f8e-44c6-4198-8143-316b62a88c73.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385352": ["**Prerequisite:** [Poltergust G-00](#loc=385345)", []],
+		"385413": ["Inside a chest under the stairs.", []],
+		"385463": ["Behind the front counter. Use a Blast with ZL + ZR to open the way back there.", []],
+		"385469": [
+			"Get behind the counter with ZL + ZR, then flash the Strobulb on the green Strobe Switch light to reveal this Gem.",
+			[
+				{
+					"id": 54943,
+					"title": "Grand Lobby - Gem Purple",
+					"file_name": "1bfd1098-1ce1-45e5-bddc-b2f06c84a999.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1bfd1098-1ce1-45e5-bddc-b2f06c84a999.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385471": [
+			"Flash the [Strobe Switch](#loc=385469) in the back-right corner of the front desk to raise the back wall.",
+			[]
+		],
+		"385478": ["Break by firing a pumpkin at it.", []],
+		"385479": ["Break by firing a pumpkin at it.", []],
+		"385480": ["Break by firing a pumpkin at it.", []],
+		"385481": ["Break by firing a pumpkin at it.", []],
+		"385484": [
+			"Vacuum the chandelier in the main hall to spin it, revealing this side area with the Red Gem on top of the table.",
+			[
+				{
+					"id": 54944,
+					"title": "Mezzanine - Gem Red A",
+					"file_name": "ad0a4a06-adb2-4efd-8935-2b82999738e2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ad0a4a06-adb2-4efd-8935-2b82999738e2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 54945,
+					"title": "Mezzanine - Gem Red B",
+					"file_name": "c734fa8f-5753-4723-8e3f-a02a62d74145.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c734fa8f-5753-4723-8e3f-a02a62d74145.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385487": [
+			"**Prerequisite:** Return E. Gadd to the Lab\n\nCan be cleared once you return E. Gadd to the Lab and gain the ability to use the Suction Shot.",
+			[]
+		],
+		"385488": [
+			"Vacuum the purple coat, then flash the safe with the Strobulb.",
+			[
+				{
+					"id": 54947,
+					"title": "Mezzanine Gem - Green",
+					"file_name": "7b7b0f8a-f103-4cfc-8b41-929206e8e959.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b7b0f8a-f103-4cfc-8b41-929206e8e959.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385490": [
+			"Flash the safe with the Strobulb to unlock the safe and get this gadget.",
+			[
+				{
+					"id": 55016,
+					"title": "Item - Dark-Light B",
+					"file_name": "64100a30-92fb-4bad-afb7-1b55213182f6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/64100a30-92fb-4bad-afb7-1b55213182f6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385494": ["On the shelf with a sheet on top of it.", []],
+		"385496": [
+			"**Prerequisite:** Acquire the [Dark-Light](#loc=385490)\n\nOnce you get the [Dark-Light](#loc=385490), shine it on this gem painting to get the real one.",
+			[
+				{
+					"id": 54948,
+					"title": "Basement Gem - Purple",
+					"file_name": "7ec205b8-51be-4edd-83c0-bfbf272b0ca9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7ec205b8-51be-4edd-83c0-bfbf272b0ca9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385499": ["Fought when you return here with Professor E. Gadd.", []],
+		"385500": [
+			"Awarded for defeating the [Steward](#loc=385499).",
+			[
+				{
+					"id": 54951,
+					"title": "Elevator Button - 1F",
+					"file_name": "620cae1f-5f2d-4228-830e-0a6a1ca5d0f9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/620cae1f-5f2d-4228-830e-0a6a1ca5d0f9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385501": [
+			"Awarded for defeating the [Steward](#loc=385499).",
+			[
+				{
+					"id": 54952,
+					"title": "Elevator Button - 5F",
+					"file_name": "b193ed79-2a82-4d99-a613-6a73ce2aba62.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b193ed79-2a82-4d99-a613-6a73ce2aba62.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385507": [
+			"**Prerequisite:** Unlock the Lab\n\nAfter unlocking the Lab, head to this spot and fire a Suction Shot onto the potted plant. Vacuum and slam the plant to release the Gem.",
+			[
+				{
+					"id": 54978,
+					"title": "Grand Lobby Gem - Green",
+					"file_name": "424117cc-d5b3-44bd-acd8-64a2c97d4dea.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/424117cc-d5b3-44bd-acd8-64a2c97d4dea.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385711": [
+			"**Prerequisite:** Return E. Gadd to the Lab\n\nAfter returning E. Gadd to the Lab, return to this spot and use your new Suction Shot on the drier. Tug on the shot's rope to free the Gem from the intense tumble-dry cycle.",
+			[
+				{
+					"id": 55018,
+					"title": "Basement Gem - Green",
+					"file_name": "58cda292-3a6c-41c4-a43d-255eeb5ed22f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58cda292-3a6c-41c4-a43d-255eeb5ed22f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385716": ["Suction Shot the Vending Machine to reveal this door.", []],
+		"385720": [
+			"From the Laundry Room, use the Suction Shot to pull down a vent panel in the back-right corner of the room to access this Gem.",
+			[
+				{
+					"id": 54985,
+					"title": "RIP Suites Gem - Blue",
+					"file_name": "62f3d0c8-6184-4881-9693-874c9ef462ab.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62f3d0c8-6184-4881-9693-874c9ef462ab.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385733": ["Inside the washing machine.", []],
+		"385738": ["Enter by vacuuming the wallpaper", []],
+		"385741": [
+			"In the mouth of the right-hand statue. To free it, vacuum the orb off the left-hand statue, then fire it at the right-hand statue.",
+			[
+				{
+					"id": 54986,
+					"title": "RIP Suites Gem - Green",
+					"file_name": "df89b9ca-2b4b-4ca1-9200-09fda589ea49.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df89b9ca-2b4b-4ca1-9200-09fda589ea49.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385748": [
+			"Use the telescope until a Gem Goob ghost shows up, then defeat it to get the Gem.",
+			[
+				{
+					"id": 54987,
+					"title": "RIP Suites Gem - White",
+					"file_name": "14dec8ad-be5a-4d66-b7be-7873c5eb6ed4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14dec8ad-be5a-4d66-b7be-7873c5eb6ed4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385750": ["Water using the red watering can, then flash with the Strobulb.", []],
+		"385754": [
+			"",
+			[
+				{
+					"id": 54988,
+					"title": "3F Button",
+					"file_name": "fab8915a-3c0f-40f5-8ddd-753f98edfd26.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fab8915a-3c0f-40f5-8ddd-753f98edfd26.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385755": ["**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi", []],
+		"385756": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nAfter you unlock Gooigi, return to this spot and use Gooigi to slip through the door. Use a Suction Shot to open the power box on the left-hand wall, then flash it with the Strobulb to release the Gem.",
+			[
+				{
+					"id": 55048,
+					"title": "Basement Gem - Red",
+					"file_name": "44161358-b9a8-486e-b960-dc34ee9df06a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44161358-b9a8-486e-b960-dc34ee9df06a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385757": [
+			"Pull open with the Suction Shot",
+			[
+				{
+					"id": 56008,
+					"title": "Basement - Vent Door",
+					"file_name": "140cc552-9ad0-4aab-af16-43d23c13fbb0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/140cc552-9ad0-4aab-af16-43d23c13fbb0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385760": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nAfter unlocking Gooigi, enter back here using the [Vent Door](#loc=385757), then climb up the ladder on the right-hand side. Switch to Gooigi and drop him down the grate in the back-left, letting you grab this Gem from behind the ladder.",
+			[
+				{
+					"id": 54992,
+					"title": "Basement Gem - Blue A",
+					"file_name": "ae0369ad-cd26-4e77-a5c7-c7a341b3aab2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae0369ad-cd26-4e77-a5c7-c7a341b3aab2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 56001,
+					"title": "Basement Gem - Blue B",
+					"file_name": "0c38a9f7-ddd1-42c4-ae40-1ba0907d66b3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c38a9f7-ddd1-42c4-ae40-1ba0907d66b3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385761": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nAfter unlocking Gooigi, get to the top of these stairs, then switch to Gooigi and have him drop through the grate in the back-left of the floor. You'll drop down to the ledge where this Gem is.",
+			[
+				{
+					"id": 55049,
+					"title": "Basement Gem - Yellow",
+					"file_name": "003f1eb0-fea1-4e93-a3dc-76aee5eae44b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/003f1eb0-fea1-4e93-a3dc-76aee5eae44b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385768": ["Pull down the [Vending Machine](#loc=385337) with a Suction Shot to access.", []],
+		"385769": ["Access via the [Hidden Door](#loc=385768).", []],
+		"385770": ["Access via the [Hidden Door](#loc=385768).", []],
+		"385771": ["Appear after using the Dark-Light on the [Painting](#loc=385769).", []],
+		"385775": ["Access this through the [Wardrobe](#loc=385776).", []],
+		"385776": ["Open using a Suction Shot on the wardrobe door.", []],
+		"385777": ["Clear the door by using a Suction Shot on the pink golf bag.", []],
+		"385778": ["Vacuum the loose section of wallpaper to reveal this and several normal Bats.", []],
+		"385781": ["Reveal this with the Dark-Light, then open it for a Pearl. Valuable!", []],
+		"385782": ["Vacuum the wallpaper!", []],
+		"385783": ["Flash with the Strobulb.", []],
+		"385785": ["**Prerequisite:** Return E. Gadd to the Lab", []],
+		"385787": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nOn either side of the main hall are two buttons (the right-hand one is covered by boxes you can blow away). Have Luigi and Gooigi stand on each one and then vacuum the chandelier, dropping this Gem onto the floor.",
+			[
+				{
+					"id": 55050,
+					"title": "Grand Lobby Gem - Yellow",
+					"file_name": "e7c58271-a982-45e6-9355-c99e8d0538dc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e7c58271-a982-45e6-9355-c99e8d0538dc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385801": [
+			"**Prerequisite:** Acquire the [Dark-Light](#loc=385490)\n\nOnce you have the Poltergust, use the Dark-Light feature to reveal the Sofa in this spot. Defeat the Gem Goob that appears, and it'll drop the White Gem.",
+			[
+				{
+					"id": 55052,
+					"title": "Grand Lobby Gem - White",
+					"file_name": "7b7e127d-5e32-4699-9a28-ac24d0ed3c50.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b7e127d-5e32-4699-9a28-ac24d0ed3c50.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385807": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nHead up the left-hand stairs to the Mezzanine, then make a U-turn to the left. Blow the end of the carpet here to reveal a [Gooigi Grate](#loc=385808). Drop down as Gooigi and walk towards the Gem: use ZL + ZR to use the Burst move and dislodge it, then go grab it!",
+			[
+				{
+					"id": 55053,
+					"title": "Grand Lobby Gem - Blue",
+					"file_name": "3bacabb0-6b0c-4db4-879f-3188d4a39176.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3bacabb0-6b0c-4db4-879f-3188d4a39176.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385811": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nClear this by using Suction Shots with both Luigi and Gooigi.",
+			[]
+		],
+		"385812": ["Use the Darklight to reveal the door to Princess Peach's room.", []],
+		"385813": [
+			"",
+			[
+				{
+					"id": 55054,
+					"title": "Screenshot 2024-07-10 23-52-18",
+					"file_name": "68b20f78-63b5-48c4-a8b5-f3886a0ca44b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68b20f78-63b5-48c4-a8b5-f3886a0ca44b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385815": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nTo get to this Gem, first clear the [Sofa barricade](#loc=385811), reveal [Princess Peach's Room 501 Door](#loc=385812) with the Dark-Light, then reveal the [Hidden Balcony Door](#loc=385813) with the Dark-Light. Once outside, head right onto the ledge and around the corner to a grotesque statue: interact with it to get the Gem!",
+			[
+				{
+					"id": 55055,
+					"title": "RIP Suites Gem - Red",
+					"file_name": "6d0f2cbc-cd26-4158-bb27-f8280ecc7e23.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6d0f2cbc-cd26-4158-bb27-f8280ecc7e23.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385816": ["Water the flowers with the red watering can, then flash them with the Strobulb.", []],
+		"385821": ["Use a Suction Shot on the cart to clear the way through this door.", []],
+		"385822": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nDrop down the drain with Gooigi, then use a Suction Shot on the wooden boards so you can vacuum the valve and redirect the water. This lets you access this Chest.",
+			[]
+		],
+		"385824": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nFor this Gem, first clear the [Sofa barricade](#loc=385811), reveal [Mario's Room 502 Hidden Door](#loc=385820), then clear the [502 Bathroom Blocked Door](#loc=385821). Here, drop down the drain as Gooigi and Suction Shot the wooden boards so you can turn the valve and redirect the water.\n\nBack up top, use Luigi to vacuum the shower curtain and then blow on the bath taps to turn the shower on. This will reveal a yellow box: Suction Shot and Slam it to get the Yellow Gem.",
+			[
+				{
+					"id": 55056,
+					"title": "RIP Suites Gem - Yellow",
+					"file_name": "7ab446d8-b312-4c7a-9060-7d76dcd6d1e3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7ab446d8-b312-4c7a-9060-7d76dcd6d1e3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385826": ["This broken window is obscured by the curtains.", []],
+		"385828": ["**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nSitting in the wall shelves.", []],
+		"385831": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nIn the 507 Bathroom, reveal the [Hidden Door](#loc=385833), then enter the secret room and clear the green suitcase with a Suction Shot. Switch to Gooigi and walk through the wooden wall to get to the Gem!",
+			[
+				{
+					"id": 55057,
+					"title": "RIP Suites Gem - Purple",
+					"file_name": "ecd4aff3-2445-43f6-81bd-b050d2f85cf5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ecd4aff3-2445-43f6-81bd-b050d2f85cf5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385833": [
+			"Vacuum the wallpaper in this corner to reveal this door.",
+			[
+				{
+					"id": 55058,
+					"title": "507 Bathroom Hidden Door",
+					"file_name": "65dbb0c0-ea3e-4be7-ba4e-9d6ef992983a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/65dbb0c0-ea3e-4be7-ba4e-9d6ef992983a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385837": [
+			"Pull the panel off this with a Suction Shot, then flash the Strobulb Switch to power the vent above the [Hidden Door](#loc=385833), shooting out lots of Bills!",
+			[]
+		],
+		"385839": [
+			"**Prerequisite:** Return E. Gadd to the Lab\n\nUse the Suction Shot on the desk below the picture of the hotel and tug on it to reveal this Gem.",
+			[
+				{
+					"id": 55059,
+					"title": "Grand Lobby Gem - Red",
+					"file_name": "7e136299-6958-40a5-9087-509025123d30.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e136299-6958-40a5-9087-509025123d30.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385960": [
+			"In the underfloor section you access via the [Hidden Gooigi Grate](#loc=385961) in the eastern Restroom.",
+			[]
+		],
+		"385961": [
+			"",
+			[
+				{
+					"id": 55073,
+					"title": "Restoom Hidden Gooigi Grate",
+					"file_name": "7e966a40-0e8d-4d49-ba6c-ad9b2b65f798.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e966a40-0e8d-4d49-ba6c-ad9b2b65f798.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385962": [
+			"Pull off the vent panel with a Suction Shot in the eastern Restroom.",
+			[
+				{
+					"id": 55075,
+					"title": "Restroom Gooigi Grate",
+					"file_name": "34bb160f-d089-49be-8f62-834f43d25556.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/34bb160f-d089-49be-8f62-834f43d25556.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385963": [
+			"Access via the Hidden Gooigi Grate and turn it to shut off the water, letting you get to the Purple Gem as Gooigi.",
+			[
+				{
+					"id": 55074,
+					"title": "Restroom Water Valve",
+					"file_name": "7bdc4fef-2221-4497-96dd-7c5078bc5cde.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7bdc4fef-2221-4497-96dd-7c5078bc5cde.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385983": [
+			"To access, reveal the [Hidden Gooigi Grate](#loc=385961) with the Dark-Light, then drop down it as Gooigi and turn the [Water Valve](#loc=385963), clearing the western Restroom. Next use a Suction Shot to reveal the [Gooigi Grate](#loc=385962) on the wall, letting you get to the western Restroom and collect this Gem.",
+			[
+				{
+					"id": 55076,
+					"title": "Hotel Shops Gem - Purple",
+					"file_name": "a115df86-9c43-49a5-9548-1632f4c2fce4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a115df86-9c43-49a5-9548-1632f4c2fce4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385985": ["Inside the toilet in this cubicle. Get it by pulling down the door with a Suction Shot.", []],
+		"385987": [
+			"Flash this vending machine six times for the Gem to pop out.",
+			[
+				{
+					"id": 55077,
+					"title": "Hotel Shops Gem - Blue",
+					"file_name": "a3631907-c3b5-48d8-9f7b-36c504a622c8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3631907-c3b5-48d8-9f7b-36c504a622c8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385988": [
+			"Open this gate with the Burst move (ZL + ZR)",
+			[
+				{
+					"id": 55079,
+					"title": "Mall Lobby Gate",
+					"file_name": "f5f45632-8a23-4a13-b150-5b770c7cc771.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5f45632-8a23-4a13-b150-5b770c7cc771.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385989": [
+			"Blast through [the upper Mall Lobby Gate](#loc=385988), then follow the path all the way to this Chest. The White Gem will be inside.",
+			[
+				{
+					"id": 55078,
+					"title": "Hotel Shops Gem - White Gem",
+					"file_name": "dbef6c82-708f-4c8e-b72a-e26362896a9a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dbef6c82-708f-4c8e-b72a-e26362896a9a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385990": ["Unlock using the Star Key.", []],
+		"385991": [
+			"Inside a Chest at the end of this upper balcony. Get up here using the [Hidden Ladder](#loc=385992).",
+			[
+				{
+					"id": 55081,
+					"title": "Hotel Shops Gem - Green",
+					"file_name": "03a8bd30-3188-41d4-b299-dea57f219784.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03a8bd30-3188-41d4-b299-dea57f219784.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385992": [
+			"",
+			[
+				{
+					"id": 55080,
+					"title": "Screenshot 2024-07-11 23-40-54",
+					"file_name": "46d74f9c-72bd-476c-8d3f-837b976b1b14.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/46d74f9c-72bd-476c-8d3f-837b976b1b14.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385994": ["Use the [Diamond Key](#loc=385986) on the cash register, then defeat the Goobs.", []],
+		"385995": [
+			"Behind the glass of this display. If you didn't smash it in your fight for the [Heart Key](#loc=385994), you can break this by Slamming a suitcase into the glass with the Suction Shot.",
+			[
+				{
+					"id": 55110,
+					"title": "Hotel Shops Gem - Yellow",
+					"file_name": "f4beda83-4cd2-496f-97e4-4fa8e27d8baf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f4beda83-4cd2-496f-97e4-4fa8e27d8baf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385996": [
+			"Pull the [Mannequin Switch](#loc=385997) with a Suction Shot to open this door and get to the Red Gem.",
+			[]
+		],
+		"385997": [
+			"Fire a Suction Shot at this and yank it to open the [Hidden Door](#loc=385996) to the Red Gem.",
+			[
+				{
+					"id": 56007,
+					"title": "Boutique Mannequin Switch",
+					"file_name": "7c0a61e0-ab99-4bea-9b0f-b7dce4ba6df6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c0a61e0-ab99-4bea-9b0f-b7dce4ba6df6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385998": [
+			"Get this by using the Suction Shot on the [Mannequin Switch](#loc=385997) in the Boutique to open a [Hidden Door](#loc=385996). Enter the room and vacuum this out of the cobwebs.",
+			[
+				{
+					"id": 55083,
+					"title": "Hotel Shops Gem - Red",
+					"file_name": "40034c2a-8c76-4968-9419-33e96febc041.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/40034c2a-8c76-4968-9419-33e96febc041.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386001": [
+			"Use the [Heart Key](#loc=385994) on the cash register, flash the Strobulb behind it, then defeat the swarm of mini Goobs.",
+			[]
+		],
+		"386004": ["Open by sucking on the two Clubs of the Barbershop sign above this door.", []],
+		"386007": ["Vacuum the Sunglasses Stand to release some mice, including several Gold Mice.", []],
+		"386008": ["Use the [Spade Key](#loc=386001) on the [Hidden Cash Register](#loc=386009).", []],
+		"386009": ["Becomes invisible when you enter here as Gooigi with the [Spade Key](#loc=386001).", []],
+		"386010": ["Inside the fridge.", []],
+		"386011": [
+			"Reveal using the Dark-Light, then use the [Club Key](#loc=386008) on it to pop out the [Star Key](#loc=386012).",
+			[]
+		],
+		"386012": ["Reveal by using the [Club Key](#loc=386008) on the [Hidden Cash Register](#loc=386011).", []],
+		"386013": ["Reveal with the Dark-Light, then open to get some cash.", []],
+		"386016": [
+			"Defeat [Kruller](#loc=386015) to acquire.",
+			[
+				{
+					"id": 55084,
+					"title": "2F Button",
+					"file_name": "41b753ac-b454-4c12-bae5-edf34adc7e87.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41b753ac-b454-4c12-bae5-edf34adc7e87.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386017": ["Open with a Suction Shot.", []],
+		"386210": ["**Prerequisite:** Return E. Gadd to the Lab\n\nUse a Suction Shot to clear this sign.", []],
+		"386211": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nUse the Poltergust with both Luigi and Gooigi to turn the fan-shaped cutlery signs flanking the door at the same time. This will drop the Yellow Gem from the ceiling.",
+			[
+				{
+					"id": 55112,
+					"title": "Mezzanine Gem - Yellow",
+					"file_name": "5f0bad3e-e93b-40ff-9a30-76bdc29247d0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f0bad3e-e93b-40ff-9a30-76bdc29247d0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386213": ["Get here using the [Gooigi Grate](#loc=386214).", []],
+		"386214": ["Behind the pink jacket on the coat rack.", []],
+		"386216": ["Open with a Suction Shot.", []],
+		"386218": [
+			"Inside a block of ice on the left-hand shelf. Vacuum it, then use the [Stoves](#loc=386219) in the Kitchen to defrost it.",
+			[
+				{
+					"id": 55113,
+					"title": "Mezzanine Gem - Blue",
+					"file_name": "17c58e65-685f-4488-9549-fcabd352fd63.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17c58e65-685f-4488-9549-fcabd352fd63.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386219": [
+			"Used to defrost the Blue Gem. If they're not active, go on their right-hand side and press X to reignite them.",
+			[
+				{
+					"id": 55114,
+					"title": "Messanine Stoves",
+					"file_name": "bf9d05e0-d170-4c84-8f67-62177655957c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf9d05e0-d170-4c84-8f67-62177655957c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386223": ["Vacuum off and cook on the [Stoves](#loc=386219).", []],
+		"386224": ["Yank the lure of the Anglerfish, then walk through its teeth as Gooigi.", []],
+		"386225": [
+			"Used to hit the Dart Board to get the [Purple Gem](#loc=386226).",
+			[
+				{
+					"id": 55115,
+					"title": "Mezzanine Swords",
+					"file_name": "26f1fe06-4b4d-4181-8db9-92978dd9f4ba.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/26f1fe06-4b4d-4181-8db9-92978dd9f4ba.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386226": [
+			"Behind the dartboard. Shoot at the dartboard with a [Wall-Mounted Sword](#loc=386225) to access it.",
+			[
+				{
+					"id": 55116,
+					"title": "Mezzanine Gem - Purple",
+					"file_name": "93ce21f3-e699-4f63-b0f7-6988bec8c056.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/93ce21f3-e699-4f63-b0f7-6988bec8c056.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386228": ["Pocket all the balls to get money and an Achievement!", []],
+		"386239": [
+			"Inside the right-hand cubicle. Access with a Suction Shot, then vacuum the floating newspaper to expose the Gem Goob.",
+			[
+				{
+					"id": 55119,
+					"title": "Mezzanine Gem - White",
+					"file_name": "2aeb36b9-2ada-4896-a78c-9711ff980d94.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2aeb36b9-2ada-4896-a78c-9711ff980d94.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386240": [
+			"Chase the mouse into the middle cubicle of this room.",
+			[
+				{
+					"id": 55118,
+					"title": "4F Elevator Button A",
+					"file_name": "e519a24b-59c6-4134-90c3-e79e798160ba.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e519a24b-59c6-4134-90c3-e79e798160ba.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386243": ["Drop the [4F Elevator Button](#loc=386240).", []],
+		"386244": [
+			"To unlock, use the [Gooigi Grate](#loc=386238) to vacuum up the food blocking this door from the other side.",
+			[]
+		],
+		"386245": ["Reveal with the Dark-Light and then interact with it to get some money.", []],
+		"386294": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nAfter you've unlocked Gooigi at E. Gadd's lab, return here and use the [Gooigi Grate](#loc=386293) to drop below the restroom. Use the green pipe, then head right to get to the chest.",
+			[]
+		],
+		"386301": [
+			"**Prerequisite:** Clear 5F - RIP Suites and unlock Gooigi\n\nAfter unlocking Gooigi at E. Gadd's Lab, drop down using the [Gooigi Grate](#loc=386302) in the Restroom to access these.",
+			[]
+		],
+		"386387": [
+			"Blow into the mouthpiece of the tuba and get the Purple Gem to reveal itself, then use Gooigi to suck the Gem off so you can collect it.",
+			[
+				{
+					"id": 55155,
+					"title": "The Great Stage Gem - Purple",
+					"file_name": "ab51ff17-e5b5-453e-b860-820187d4ecc4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab51ff17-e5b5-453e-b860-820187d4ecc4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386389": [
+			"Flash the popcorn machine with the Strobulb three times to make it overflow, releasing the Yellow Gem.",
+			[
+				{
+					"id": 55156,
+					"title": "The Great Stage Gem - Yellow",
+					"file_name": "9ad49d7c-a1a6-4995-9a92-c1688b60ea01.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9ad49d7c-a1a6-4995-9a92-c1688b60ea01.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386391": ["Destroy with a Suction Shot Slam.", []],
+		"386392": [
+			"Use the Dark-Light to reveal the right-hand faucet (which is reflected in the mirror), then use the faucet to reveal a Gem Goob with the White Gem on them.",
+			[
+				{
+					"id": 55158,
+					"title": "The Great Stage Gem - White",
+					"file_name": "79b6007b-d77b-4c40-a9d5-5ec498c51199.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79b6007b-d77b-4c40-a9d5-5ec498c51199.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386393": ["On the wall closest to the camera (visible in the reflection of the mirror)", []],
+		"386395": ["Blow into the mouthpiece to cause money to come out of the right-hand toilet.", []],
+		"386396": ["Reveal by using a Suction Shot on the square panel.", []],
+		"386397": [
+			"After passing through the [Boo Door](#loc=386398), use the vacuum on the bottles to the right of this safe to play the Luigi's Mansion theme, unlocking the safe and revealing the Blue Gem.",
+			[
+				{
+					"id": 56002,
+					"title": "The Great Stage Gem - Blue",
+					"file_name": "c03c118a-a07e-45ee-8ee5-d85b4b235ce1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c03c118a-a07e-45ee-8ee5-d85b4b235ce1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386398": [
+			"To open this door, use Gooigi and yank the toilet chain just north of the door. This lets you interact with it to get to the Concession Stand room where the [Blue Gem](#loc=386397) is.",
+			[
+				{
+					"id": 55157,
+					"title": "The Great Stage Gem - Boo Door",
+					"file_name": "6f1e3c21-105b-4d79-a87c-dfa4403a789a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6f1e3c21-105b-4d79-a87c-dfa4403a789a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386401": ["On the wall closest to the camera, and visible in the mirror.", []],
+		"386402": ["Must be destroyed during the boss fight.", []],
+		"386403": ["Drops the [6F Elevator Button](#loc=386404).", []],
+		"386404": [
+			"Dropped by [Amadeus Wolfgeist](#loc=386403)",
+			[
+				{
+					"id": 55159,
+					"title": "The Great Stage - 6F Elevator Button",
+					"file_name": "e3be344c-a0e2-4419-b1c4-97a88c68331c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3be344c-a0e2-4419-b1c4-97a88c68331c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386405": [
+			"Use the Dark-Light on the piano to reveal the missing keys, then interact with the piano.",
+			[
+				{
+					"id": 55160,
+					"title": "The Great Stage Gem - Red",
+					"file_name": "b22a3255-1340-4d11-ad1d-36fe3506023a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b22a3255-1340-4d11-ad1d-36fe3506023a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386407": ["Open the suitcase to reveal a Golden Goob.", []],
+		"386408": [
+			"",
+			[
+				{
+					"id": 55161,
+					"title": "The Great Stage - Red Toad",
+					"file_name": "d6f584db-6edf-4f93-b211-85b36490268b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6f584db-6edf-4f93-b211-85b36490268b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386417": ["Pull down the boards with a Suction Shot so Luigi can climb through the broken window.", []],
+		"386418": [
+			"Use the Dark-Light to reveal a missing block of the ledge so you can access the [Chest](#loc=386419).",
+			[]
+		],
+		"386419": ["Reach by shining the Dark-Light on the missing [Ledge Block](#loc=386418).", []],
+		"386422": ["Access by approaching from the north as Gooigi and squeezing through the fence.", []],
+		"386423": [
+			"Reveal the suit of armor with the Dark-Light, then use a Suction Shot Slam on it.",
+			[
+				{
+					"id": 55162,
+					"title": "Castle MacFrights Gem - Red",
+					"file_name": "b84e16e5-a890-4080-b4d8-90bbe04670aa.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b84e16e5-a890-4080-b4d8-90bbe04670aa.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386426": [
+			"Behind the [Suit of Armor](#loc=386425), and gives a *seriously* large amount of Gold Ingots, like holy cow.",
+			[]
+		],
+		"386428": ["To access, walk around the wooden barrels with Gooigi.", []],
+		"386429": [
+			"Use the Suction Shot on the blank section of wall to reveal a secret area with a Chest, with the Purple Gem inside.",
+			[
+				{
+					"id": 56000,
+					"title": "Castle MacFrights Gem - Purple",
+					"file_name": "44029771-4364-42e6-968a-b7e0c0755bac.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44029771-4364-42e6-968a-b7e0c0755bac.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386430": ["Use Gooigi to safely pass through the spikes.", []],
+		"386432": [
+			"Suction Shot the right-hand keg, then head inside. Go left and climb up the ladder to get to this Gem.",
+			[
+				{
+					"id": 56003,
+					"title": "Castle MacFrights Gem - Blue",
+					"file_name": "f3035d82-5ec7-47d9-bf64-e9383efb2724.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f3035d82-5ec7-47d9-bf64-e9383efb2724.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386433": [
+			"Use the Suction Shot to open up the right-hand barrel. Enter it, then move right to enter the upright barrel and climb up the ladder to get to the Gem.",
+			[
+				{
+					"id": 55163,
+					"title": "Castle MacFrights Gem - Blue",
+					"file_name": "13861ec0-e3f9-42b5-aa33-849c7cf58ad3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/13861ec0-e3f9-42b5-aa33-849c7cf58ad3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386434": [
+			"Access this area by going through the left-most barrel in the Cellar via a Suction Shot, then open the Chest at this spot.",
+			[]
+		],
+		"386435": ["Access by using the Suction Shot on the middle barrel.", []],
+		"386436": ["Unlock with the [Antechamber Key](#loc=386435).", []],
+		"386437": ["Smash with a Suction Shot Slam.", []],
+		"386438": ["Yank the ball and chain closest to the door when trying to get past the spikes.", []],
+		"386439": ["Enter the cage with Gooigi.", []],
+		"386440": [
+			"Blow on the fan up the left-hand wall to lower the cage with the Yellow Gem in it. Enter the cage with Gooigi.",
+			[
+				{
+					"id": 55164,
+					"title": "Castle MacFrights Gem - Yellow",
+					"file_name": "ffefae34-cb03-4a94-887e-8362a3189fc2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ffefae34-cb03-4a94-887e-8362a3189fc2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386441": ["Reveal this door with the Dark-Light.", []],
+		"386442": ["Inside the Chest.", []],
+		"386443": ["Unlock with the [Dungeon Key](#loc=386442).", []],
+		"386444": [
+			"Surrounded by water. To collect this, use Gooigi to pull the ball and chain next to [the Bridge Room Locked Door](#loc=386445), then collect the Key with the normal Luigi.",
+			[]
+		],
+		"386445": ["Unlock with the [Bridge Room Key](#loc=386444).", []],
+		"386446": ["Get to this by dropping down here with Gooigi, who can survive the spikes.", []],
+		"386447": [
+			"To reveal, vacuum the largest banner, then shine the Dark-Light onto the wall behind it.",
+			[
+				{
+					"id": 55165,
+					"title": "Castle MacFrights Royal Coffers Hidden Door",
+					"file_name": "e723b096-517a-43d8-8772-6b18fe1b9ca5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e723b096-517a-43d8-8772-6b18fe1b9ca5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386448": [
+			"Access this by going through the [Royal Coffers Hidden Door](#loc=386447).",
+			[
+				{
+					"id": 55166,
+					"title": "Castle MacFrights Gem - Green",
+					"file_name": "bc3b16ff-6159-47cb-9e64-f55116c8d648.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bc3b16ff-6159-47cb-9e64-f55116c8d648.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386450": [
+			"Dropped by [King MacFrights](#loc=386463).",
+			[
+				{
+					"id": 55167,
+					"title": "Castle MacFrights 1F Button",
+					"file_name": "ab9abc42-4cce-4a8f-8af6-aa8a24d688d3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab9abc42-4cce-4a8f-8af6-aa8a24d688d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386452": [
+			"In the popcorn bucket of a suit of armor. Vacuum it outta there.",
+			[
+				{
+					"id": 55168,
+					"title": "Castle MacFrights Gem - White",
+					"file_name": "1a72f6d0-e634-4c6f-9b3b-ee0f6e0edaf3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1a72f6d0-e634-4c6f-9b3b-ee0f6e0edaf3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386461": ["May sometimes appear here when returning to this floor.", []],
+		"386462": ["Destroy by firing one of the loose helmets at it.", []],
+		"386463": ["Drops the [7F Button](#loc=386450).", []],
+		"386464": ["Break by firing the Soccer Ball at it to reveal a Gold Spider.", []],
+		"386465": ["Smash by firing the Soccer Ball at it.", []],
+		"386466": ["Hidden in the hedges surrounding this tree.", []],
+		"386467": [
+			"Shine the Dark-Light under the golden forest painting to reveal this Gem on the flowers. Vacuum it to collect it!",
+			[
+				{
+					"id": 55179,
+					"title": "Garden Suites Gem - Yellow",
+					"file_name": "288d28c2-062b-40d7-ad98-655b26c97f96.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/288d28c2-062b-40d7-ad98-655b26c97f96.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386468": [
+			"Spawn area for Boosement. Can appear inside:\n\n- Green cabinets\n- Washing machines\n\nIf not in this room, check the [Service Hallway](#loc=386470) and [Garage](#loc=386469).",
+			[]
+		],
+		"386469": [
+			"Spawn area for Boosement. Can appear inside:\n\n- Green bins\n- The red toolbox\n\nIf not here, check the [Service Hallway](#loc=386470) and [Laundry Room](#loc=386468).",
+			[]
+		],
+		"386470": [
+			"Spawn area for Boosement. Can be found inside:\n\n- Red cabinets\n- Trash bins\n\nIf not in this room, check the [Garage](#loc=386469) and [Laundry Room](#loc=386468).",
+			[]
+		],
+		"386471": [
+			"Spawn area for Booigi. Can be found inside:\n\n- Trash bins\n- The billiards cabinet\n\nIf not in this room, check the [Restrooms](#loc=386472), [Dressing Room](#loc=386473), and the [Restaurant](#loc=386474).",
+			[]
+		],
+		"386472": [
+			"Spawn area for Booigi. Can be found inside:\n\n- Toilets\n\nIf not in this room, check the [Entertainment Room](#loc=386471), the [Dressing Room](#loc=386473), and the [Restaurant](#loc=386474).",
+			[]
+		],
+		"386473": [
+			"Spawn area for Booigi. Can be found inside:\n\n- Dresser drawers on the back wall\n\nIf not in this room, check the [Entertainment Room](#loc=386471), the [Dressing Room](#loc=386473), and the [Restaurant](#loc=386474).",
+			[]
+		],
+		"386474": [
+			"Spawn area for [Booigi](#loc=385322). Can be found inside:\n\n- Trash bins\n\nIf not in this room, check the [Entertainment Room](#loc=386471), the [Restrooms](#loc=386472), and the [Dressing Room](#loc=386473).",
+			[]
+		],
+		"386526": [
+			"Spawn area for Kung Boo. Can be found inside:\n\n- Trash Bins\n- Telephones on the eastern wall\n\nIf not in this room, check the [Restrooms](#loc=386527) and [Lost and Found](#loc=386528).",
+			[]
+		],
+		"386527": [
+			"Spawn area for Kung Boo. Can be found inside:\n\n- Sinks\n- Eastern toilets\n- Trash bins\n\nIf not in this room, check the [Elevator Hall](#loc=386526) and [Lost and Found](#loc=386528).",
+			[]
+		],
+		"386528": [
+			"Spawn area for Kung Boo. Can be found inside:\n\n- Cardboard boxes\n- Trash bins\n- White vase in the northwestern area\n\nIf not in this room, check the [Elevator Hall](#loc=386526) and the [Restrooms](#loc=386527).",
+			[]
+		],
+		"386529": [
+			"Spawn area for Boogie. Can be found inside:\n\n- Cardboard boxes\n- The sink\n- The cash register\n\nIf not in this room, check the [Ladies Restroom](#loc=386530) and the [Dressing Room](#loc=386531).",
+			[]
+		],
+		"386530": [
+			"Spawn area for Boogie. Can be found inside:\n\n- Right-hand toilet\n- Sink\n- Red tool drawers\n\nIf not in this room, check the [Concession Stand](#loc=386529) and the [Dressing Room](#loc=386531).",
+			[]
+		],
+		"386531": [
+			"Spawn area for Boogie. Can be found inside:\n\n- The dresser drawer\n- The food card\n- The laundry basket\n\nIf not in this room, check the [Ladies Restroom](#loc=386530) and the [Concession Stand](#loc=386529).",
+			[]
+		],
+		"386532": [
+			"Spawn area for Booldog. Can be found inside:\n\n- Bedside cabinets\n- The dresser table\n\nIf not in this room, check [Room 505](#loc=386533), [Room 506](#loc=386534), [Room 507](#loc=386535) and [Room 508](#loc=386536).",
+			[]
+		],
+		"386533": [
+			"Spawn area for Booldog. Can be found inside:\n\n- Bedside cabinets\n- The dresser table\n\nIf not in this room, check [Room 504](#loc=386532), [Room 506](#loc=386534), [Room 507](#loc=386535) and [Room 508](#loc=386536).",
+			[]
+		],
+		"386534": [
+			"Spawn area for Booldog. Can be found inside:\n\n- Bedside cabinets\n- The dresser table\n- The cardboard box\n\nIf not in this room, check [Room 504](#loc=386532), [Room 505](#loc=386533), [Room 507](#loc=386535) and [Room 508](#loc=386536).",
+			[]
+		],
+		"386535": [
+			"Spawn area for Booldog. Can be found inside:\n\n- Bedside cabinets\n- The dresser table\n\nIf not in this room, check [Room 504](#loc=386532), [Room 505](#loc=386533), [Room 506](#loc=386534), and [Room 508](#loc=386536).",
+			[]
+		],
+		"386536": [
+			"Spawn area for Booldog. Can be found inside:\n\n- Bedside cabinets\n- The dresser table\n\nIf not in this room, check [Room 504](#loc=386532), [Room 505](#loc=386533), [Room 506](#loc=386534), and [Room 507](#loc=386535).",
+			[]
+		],
+		"386538": ["Flash with the Strobulb to release some bills.", []],
+		"386540": [
+			"Use the [Hidden Gooigi Grate](#loc=386541) in the bedside cabinet to get on top of the bed. Flash the flower bulb there to release this Gem.",
+			[
+				{
+					"id": 55181,
+					"title": "Garden Suites Gem - Red",
+					"file_name": "f2320ecb-615d-4d7c-8e30-fc893d20c7eb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f2320ecb-615d-4d7c-8e30-fc893d20c7eb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386541": [
+			"Vacuum the leaves in front of the bedside cabinet, then use a Suction Shot to yank off the front panel to reveal this Gooigi Grate.",
+			[
+				{
+					"id": 55182,
+					"title": "Blooming Suite Gooigi Grate",
+					"file_name": "63bf7d60-e0a3-4996-84c0-b2fa39d1396d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/63bf7d60-e0a3-4996-84c0-b2fa39d1396d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386543": ["Hidden behind the leafy vines.", []],
+		"386547": [
+			"Under the pile of petals.",
+			[
+				{
+					"id": 55185,
+					"title": "Blooming Bathroom Gooigi Grate",
+					"file_name": "22daf328-fd56-465d-973a-74976cac563b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/22daf328-fd56-465d-973a-74976cac563b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386548": [
+			"To get this Gem, first vacuum the three petal piles in the bathtub, revealing the Gem. Next, vacuum the petal pile in the southwest corner of the room to reveal a [Gooigi Grate](#loc=386547).\n\nDrop down as Gooigi, then vacuum the leafy vines in the northeastern corner. This reveals a hidden [Gooigi Grate](#loc=386550) you can use to get up to the Gem!",
+			[
+				{
+					"id": 55183,
+					"title": "Garden Suites Gem - White A",
+					"file_name": "cacc595e-7fdf-4e8e-b14e-f18a89a8a88a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cacc595e-7fdf-4e8e-b14e-f18a89a8a88a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 55184,
+					"title": "Garden Suites Gem - White B",
+					"file_name": "b8fe21a8-1e98-4ed9-968e-b3e67b3c32df.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b8fe21a8-1e98-4ed9-968e-b3e67b3c32df.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386549": [
+			"In the space under the bathroom that you access via the Gooigi Grate. Use a Suction Shot to pull down some boards on the northern wall, then go through the doorway and then left to find it.",
+			[]
+		],
+		"386550": [
+			"Used to get up into the bathtub, but only once it's been cleared of petals.",
+			[
+				{
+					"id": 55186,
+					"title": "Blooming Bathroom Gooigi Grate 2",
+					"file_name": "8ff80c2c-4e2b-4f8b-aa8c-98db4e189adb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8ff80c2c-4e2b-4f8b-aa8c-98db4e189adb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386551": ["Under the pile of petals.", []],
+		"386552": [
+			"A pair of Gooigi Grates that sends you out the one you didn't pick, and thus are functionally useless.",
+			[]
+		],
+		"386553": ["On top of the bed. Access by chopping the bed up with the power saw.", []],
+		"386554": ["Chop up with the power saw.", []],
+		"386555": ["Chop up with the power saw.", []],
+		"386556": ["Chop up with the power saw.", []],
+		"386557": [
+			"Reveal using the Dark-Light.",
+			[
+				{
+					"id": 55187,
+					"title": "Ivy Bathroom Gooigi Grate",
+					"file_name": "55603c01-3097-4a53-9c4c-0499fe7b94cc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/55603c01-3097-4a53-9c4c-0499fe7b94cc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386558": [
+			"This Gem requires a bit of setup. First, use the Dark-Light to reveal the [Hidden Gooigi Grate](#loc=386557) in front of the toilet. Drop down as Gooigi, then shine the Dark-Light on the eastern wall to reveal a hidden section of the drainpipe.\n\nBack as Luigi, blow on the faucet of the bathtub to fill it with water. Switch back to Gooigi, and a leak in the drainpipe will water a flower. Flash it with the Strobulb to get the Gem.",
+			[
+				{
+					"id": 55188,
+					"title": "Garden Suites Gem - White A",
+					"file_name": "dc08c6f3-be2d-447c-bbdd-fb0403f9373e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dc08c6f3-be2d-447c-bbdd-fb0403f9373e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 55189,
+					"title": "Garden Suites Gem - White B",
+					"file_name": "2707b8ef-ebee-4d1c-a6b0-edc9fa701d83.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2707b8ef-ebee-4d1c-a6b0-edc9fa701d83.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386562": ["In the basement, flash the flower at this spot.", []],
+		"386563": [
+			"In the Mushroom Suite, head through the bed curtains to go down [a ramp to the basement](#loc=386565). Here, look for a [Gooigi Grate](#loc=386564) in the back wall, which will take you to a Flower Bulb with the Green Gem in it.",
+			[
+				{
+					"id": 55191,
+					"title": "Garden Suites Gem - Green B",
+					"file_name": "898e2980-4738-4081-bd8a-98cbc74de415.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/898e2980-4738-4081-bd8a-98cbc74de415.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386564": ["In the \"basement\" of the Mushroom Suite, which takes you to the [Green Gem](#loc=386563).", []],
+		"386565": [
+			"Head through the bed curtains to go down a plant ramp to the \"basement\".",
+			[
+				{
+					"id": 55190,
+					"title": "Garden Suites Gem - Green A",
+					"file_name": "5ce95030-0581-4ede-a5b1-9fe0c1ec068e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5ce95030-0581-4ede-a5b1-9fe0c1ec068e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386566": ["In the rafters of the Mushroom Suite, which gives you several bills.", []],
+		"386567": [
+			"Use the bed to get onto the pink mushroom, then use a Burst (ZL + ZR) to launch up on top of the bed where the chest is.",
+			[]
+		],
+		"386568": ["On the upper floor of the Mushroom Suite, vacuum up one of the couch cushions.", []],
+		"386570": [
+			"When you get to the top of the blue plant in the stairwell, cross to the left side and suck on the curled-up fern to unfurl it. Cross it, then vacuum the vines on the back wall to get between the bars and the glass. Head right over the ledge with coins, and you'll come at a crow's next with the Blue Gem in i.",
+			[
+				{
+					"id": 55192,
+					"title": "Garden Suites Gem - Blue A",
+					"file_name": "6e67a549-d07f-4958-b068-1a3d89109a7c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6e67a549-d07f-4958-b068-1a3d89109a7c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 55193,
+					"title": "Garden Suites Gem - Blue B",
+					"file_name": "bf8f84fa-37c8-4ce0-bde2-bad05a081033.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf8f84fa-37c8-4ce0-bde2-bad05a081033.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386571": [
+			"",
+			[
+				{
+					"id": 55194,
+					"title": "Garden Suites - 8F Elevator Button",
+					"file_name": "f0cb7eaa-a362-41c6-ae11-bef6bbbd4ddf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0cb7eaa-a362-41c6-ae11-bef6bbbd4ddf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386573": [
+			"Spawn area for Bootanist. Can be found inside:\n\n- Vases\n- Toilet (break using a Suction Shot Slam with the trash bin)\n\nIf not in this room, check the [Thorny Bathroom](#loc=386574) and the [Ivy Bathroom](#loc=386575).",
+			[]
+		],
+		"386574": [
+			"Spawn area for Bootanist. Can be found inside:\n\n- Vases\n- Toilet (break using a Suction Shot Slam with the trash bin)\n\nIf not in this room, check the [Blooming Suite](#loc=386573) and the [Ivy Bathroom](#loc=386575).",
+			[]
+		],
+		"386575": [
+			"Spawn area for Bootanist. Can be found inside:\n\n- Watermelons\n\nIf not in this room, check the [Thorny Bathroom](#loc=386574) and the [Blooming Suite](#loc=386573).",
+			[]
+		],
+		"386802": [
+			"Vacuum the blades of the helicopter to lower it, allowing the Gem to pop out of the passenger seat.",
+			[
+				{
+					"id": 55216,
+					"title": "Paranormal Productions - Purple Gem",
+					"file_name": "a4347131-3082-454c-a6a6-11263625e637.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a4347131-3082-454c-a6a6-11263625e637.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386805": ["Dispenses several Gold Trees that can be vacuumed to produce valuable treasure.", []],
+		"386806": ["On top of the poster light box", []],
+		"386807": ["On top of the glass case with the [Key](#loc=386803) inside.", []],
+		"386809": [
+			"To get this, use Luigi to pull on the brass orb on the front desk facade, popping this Gem out on the back wall. Use Gooigi to go through the barricade on the left side of the desk to get to the Gem.",
+			[
+				{
+					"id": 55217,
+					"title": "Paranormal Productions Gem - Yellow",
+					"file_name": "b4c437ca-65b5-48b4-8b8c-78cc25fdb47e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b4c437ca-65b5-48b4-8b8c-78cc25fdb47e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386812": [
+			"Use a Suction Shot Slam to destroy the potted plant, then vacuum the carpet corner it was on to reveal this Gem from the floor.",
+			[
+				{
+					"id": 55218,
+					"title": "Paranormal Productions Gem - Red",
+					"file_name": "c1894998-66b6-43d8-ab39-6e59ecbcd747.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c1894998-66b6-43d8-ab39-6e59ecbcd747.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386814": ["Hiding under the dish dome on the catering table.", []],
+		"386815": ["Suction Shot Slam this to get the money.", []],
+		"386818": ["Collect from behind the televisions", []],
+		"386819": ["Collect from behind the televisions.", []],
+		"386822": ["Inside the black box.", []],
+		"386823": ["At the base of the set wall.", []],
+		"386824": ["Has an Award Statue inside that drops Ingots after you fire it.", []],
+		"386825": ["There's treasure both on top of and inside the castle tower.", []],
+		"386834": ["Vacuum the yellow valve.", []],
+		"386835": [
+			"Vacuum the ET-like blanket wrap in the basket of the purple bicycle to reveal a Gem Goober, who'll drop the White Gem.",
+			[
+				{
+					"id": 55219,
+					"title": "Paranormal Productions Gem - White",
+					"file_name": "66a9025d-8d5a-425f-ab17-7b54a0bba8cc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66a9025d-8d5a-425f-ab17-7b54a0bba8cc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386836": ["Climb up the ladder between the two buildings.", []],
+		"386837": ["Climb up here via the [Fire Escape](#loc=386836).", []],
+		"386838": ["Inside the electric box on the wall.", []],
+		"386841": ["Make sure to head up the stairs to the upper floor!", []],
+		"386842": ["Go through the fence as Gooigi to find these.", []],
+		"386843": [
+			"Use Gooigi to squeeze inside the giant bottle to collect this Gem.",
+			[
+				{
+					"id": 55220,
+					"title": "Paranormal Productions Gem - Green",
+					"file_name": "f4882868-c05c-47bf-a733-d94a252ea432.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f4882868-c05c-47bf-a733-d94a252ea432.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386844": ["Use a Suction Shot Slam to break into collectible treasure.", []],
+		"386845": ["Use a Suction Shot Slam to break into collectible treasure.", []],
+		"386846": ["Use a Suction Shot Slam to break into collectible treasure.", []],
+		"386847": ["Use a Suction Shot Slam to break into collectible treasure.", []],
+		"386853": ["Inside the electrical box on the wall.", []],
+		"386854": [
+			"Gold Spiders and Giant Coins can be found inside the cardboard box, once you open it up while looking through the movie camera.",
+			[]
+		],
+		"386855": [
+			"On the lighting rig above the director. Before starting, make sure you have the Torch from the Castle Set and set it on fire in the Fire Set.\n\nHead to the northwest corner and have Luigi stand on the cherrypicker, then have Gooigi use the vacuum on it to raise it up. As Luigi, get the ice block down to the ground, then melt it with the Torch!",
+			[
+				{
+					"id": 55221,
+					"title": "Paranormal Productions Gem - Blue",
+					"file_name": "6de33329-d36f-414f-bc15-ac0e8deb7341.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6de33329-d36f-414f-bc15-ac0e8deb7341.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386856": [
+			"Awarded for defeating the Kaiju Boss (KaiBoo?)",
+			[
+				{
+					"id": 55222,
+					"title": "Paranormal Productions - 9F Elevator Button",
+					"file_name": "4a70b77e-bed2-4674-8c0d-1365b7911802.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4a70b77e-bed2-4674-8c0d-1365b7911802.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"386861": [
+			"The first location for the Polterkitty. Enter the middle or left-hand buildings to get her under the park bench, then flash her with the Strobulb. Once exposed, face away from Polterkitty and wait for her to cover her eyes. When she uncovers them, spin around and flash her!\n\nUnlocks [Polterkitty #A-2](#loc=386863).",
+			[]
+		],
+		"386862": [
+			"You'll have to fight this after encountering [Polterkitty](#loc=386861). Yank it down with a Suction Shot, then use the Dark-Light. Interact with it once it's defeated to get a LOT of treasure!",
+			[]
+		],
+		"386863": [
+			"Running on top of the lighting rig. Use the same method as the [White Gem](#loc=386855) to get up here and get her to come down.\n\nUnlocks [Polterkitty #A-3](#loc=386864).",
+			[]
+		],
+		"386864": [
+			"Vacuum the vines off the cabinet in this corner of the room, then open the cabinet. It will flee into the Strobe Flowers: open them and flash the kitty as it runs to engage another boss fight.\n\nUnlocks [Polterkitty #A-4](#loc=386865).",
+			[]
+		],
+		"386865": [
+			"Vacuum the petal piles one by one to drive Polterkitty out into the next room.\n\nUnlocks [Polterkitty #A-5](#loc=386866).",
+			[]
+		],
+		"386866": [
+			"Here, use both Luigi and Gooigi to Suction Shot Slam the biggest watermelon into the bathtub. Then, blow on the bath's tap to fill it with water so you can flash Polterkitty, causing her to attack. Defeat her one last time to recover the 9F Elevator Button!",
+			[
+				{
+					"id": 55223,
+					"title": "Garden Suites - 9F Elevator Button",
+					"file_name": "ccecaa6d-7140-4ef6-a846-639aa60e809e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ccecaa6d-7140-4ef6-a846-639aa60e809e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387295": ["Connects to [Micro Set Portal B](#loc=387296).", []],
+		"387296": ["Connects to [Micro Set Portal A](#loc=387295).", []],
+		"387297": ["Connects to [Fire Set Portal B](#loc=387298).", []],
+		"387298": ["Connects to [Fire Set Portal A](#loc=387297).", []],
+		"387299": ["Connects to [Castle Set Portal B](#loc=387300).", []],
+		"387300": ["Connects to [Castle Set Portal A](#loc=387299).", []],
+		"387301": ["Connects to [Horror Set Portal B](#loc=387302).", []],
+		"387302": ["Connects to [Horror Set Portal A](#loc=387301).", []],
+		"387303": [
+			"Use the vacuum to spin the chair behind the desk: this will flip the desk around, revealing a chest with this Gem in it.",
+			[
+				{
+					"id": 55506,
+					"title": "Unnatural History Museum Gem - Red",
+					"file_name": "f853133a-f9ec-4758-a75d-7358adb0eda8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f853133a-f9ec-4758-a75d-7358adb0eda8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387304": ["On top of the display case with treasure inside.", []],
+		"387305": [
+			"Vacuum the flowers in front of the column on the right-hand side of the corridor to reveal a Strobulb Light. Flash it to raise the fossil at the end of the corridor and reveal a safe. Flash the save to get a bunch of treasure and the Blue Gem!",
+			[
+				{
+					"id": 55507,
+					"title": "Unnatural History Museum Gem - Blue",
+					"file_name": "d7b2f628-4624-4601-bc9a-5d687d2f78d0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d7b2f628-4624-4601-bc9a-5d687d2f78d0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387306": [
+			"Fire Toad at this display case to smash it. If Toad is unavailable, a bone from the main skeleton hall where you fought [Ug](#loc=387314) will do just as well.",
+			[]
+		],
+		"387307": [
+			"Fire Toad at this display case to release a Gem Goob. If Toad is unavailable, a bone from the main skeleton hall where you fought [Ug](#loc=387314) will do just as well.",
+			[
+				{
+					"id": 55511,
+					"title": "Unnatural History Museum Gem - White",
+					"file_name": "495b11b1-02b8-4f37-baec-c34e00e8c93d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/495b11b1-02b8-4f37-baec-c34e00e8c93d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387308": [
+			"Shine the Dark-Light onto the missing dinosaur egg socket on the display, and it will burst to reveal three Gold Bats.",
+			[]
+		],
+		"387310": [
+			"Fire Toad at this display case to smash it. If Toad is unavailable, a bone from the main skeleton hall where you fought [Ug](#loc=387314) will do just as well.",
+			[]
+		],
+		"387311": [
+			"Fire Toad at this display case to smash it. If Toad is unavailable, a bone from the main skeleton hall where you fought [Ug](#loc=387314) will do just as well.",
+			[
+				{
+					"id": 55510,
+					"title": "Unnatural History Museum Gem - Yellow",
+					"file_name": "de7a61ff-aed9-4e06-b775-500e6ea5077f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de7a61ff-aed9-4e06-b775-500e6ea5077f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387312": [
+			"Fire Toad at this display case to smash it. If Toad is unavailable, a bone from the main skeleton hall where you fought [Ug](#loc=387314) will do just as well.",
+			[]
+		],
+		"387313": [
+			"Defeat [Ug](#loc=387314) to be able to properly free the Blue Toad.",
+			[
+				{
+					"id": 55508,
+					"title": "Unnatural History Museum - Blue Toad",
+					"file_name": "71d99136-73d3-4352-8dd2-26648b1073e5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/71d99136-73d3-4352-8dd2-26648b1073e5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387315": [
+			"Given to Luigi by the [Blue Toad](#loc=387313).",
+			[
+				{
+					"id": 55509,
+					"title": "Unnatural History Museum - B2 Elevator Button",
+					"file_name": "6dbee869-7f64-4802-ad4b-16db17381a6f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6dbee869-7f64-4802-ad4b-16db17381a6f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387316": [
+			"Fire Toad at this display case to smash it. If Toad is unavailable, a bone from the main skeleton hall where you fought [Ug](#loc=387314) will do just as well.",
+			[]
+		],
+		"387317": [
+			"Fire Toad at the Pterodactyl hanging above the elevator to release the Green Gem. If Toad is unavailable, a bone from the main skeleton hall where you fought [Ug](#loc=387314) will do just as well.",
+			[
+				{
+					"id": 55513,
+					"title": "Unnatural History Museum Gem - Green",
+					"file_name": "ed437f27-b3d1-474f-9031-df7aae740751.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed437f27-b3d1-474f-9031-df7aae740751.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387318": [
+			"Spawn area for Boones. Can be found inside:\n\n- Covered picture frames\n\nIf not in this room, check the [Main Hall](#loc=385329).",
+			[]
+		],
+		"387793": ["Will run to the right when you explore back here.", []],
+		"387794": ["Hidden behind the elevaotor", []],
+		"387795": ["Smash with a Suction Shot Slam.", []],
+		"387796": ["Smash with a Suction Shot Slam.", []],
+		"387797": ["Use a Suction Shot on this panel to release three Bats.", []],
+		"387798": ["Leads nowhere, but does give some Treasure!", []],
+		"387801": ["Connects to the [Gooigi Grate](#loc=387803) hidden behind a white sheet.", []],
+		"387802": [
+			"Leads to a grate directly *under* the [Waterworks Key](#loc=387799), and thus is functionally useless.",
+			[]
+		],
+		"387803": [
+			"Hidden behind the white sheet. Connects to the [Gooigi Grate](#loc=387801) next to the [Waterworks Key](#loc=387799).",
+			[]
+		],
+		"387804": [
+			"From the [Waterworks Key](#loc=387799), head left to go up a hidden ramp behind the wall that takes you to the Yellow Gem.",
+			[
+				{
+					"id": 55648,
+					"title": "Boilerworks Gem - Yellow",
+					"file_name": "94e7f2f4-8d13-448e-9451-e1d644ddbf51.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/94e7f2f4-8d13-448e-9451-e1d644ddbf51.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387805": ["Smash using a Suction Shot Slam.", []],
+		"387806": [
+			"Open by solving the nearby valve puzzle that lets Gooigi pass through the basement of this room.",
+			[]
+		],
+		"387807": [
+			"Lets Gooigi access the basement of this room so he can activate the [Strobulb Door](#loc=387806).",
+			[]
+		],
+		"387808": ["Smash with a Suction Shot Slam.", []],
+		"387809": ["Open with a Suction Shot Slam.", []],
+		"387810": [
+			"To get here, first use the [Gooigi Grate](#loc=387812) behind the yellow janitor's trundler to get to the main part of the Storage Room. Have Luigi turn the [Water Valve](#loc=387813) so that Gooigi can get to the next [Gooigi Grate](#loc=387819) behind the cardboard box, taking him to this room's basement.\n\nLuigi should then turn the [Water Valve](#loc=387813) back the other way, allowing Gooigi to get the Red Gem.",
+			[
+				{
+					"id": 55649,
+					"title": "Boilerworks Gem - Red",
+					"file_name": "199c9553-88d9-4913-a65d-7e9ba0f7458d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/199c9553-88d9-4913-a65d-7e9ba0f7458d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387811": [
+			"Leads to a dead-end area in this room's basement, and so is functionally useless.\n\nWhen the story takes you back here, however, you can use this to reach a [Gold Spider](#loc=389243).",
+			[]
+		],
+		"387812": [
+			"Hidden behind the yellow janitor trundler, and takes you to the left side of the storage room.",
+			[]
+		],
+		"387813": ["Turn as Luigi to help Gooigi get to the Red Gem.", []],
+		"387814": ["Turn these as Luigi to help Gooigi pass through to the Strobulb Lamp in this room's basement.", []],
+		"387815": ["Access by using the Gooigi Grate hidden behind the yellow janitor's trundler.", []],
+		"387819": [
+			"Hidden behind a cardboard box. Sends Gooigi to the [Gooigi Grate](#loc=387820) on the left-hand side of this room's basement, where the [Red Gem](#loc=387810) is.",
+			[]
+		],
+		"387820": ["Lets you access the [Red Gem](#loc=387810).", []],
+		"387822": [
+			"Shine the Dark-Light in the southwest corner of the room to reveal a part of the water system, then flash the Strobulb on the light in the northeast corner of the room. This will reveal the Blue Gem!",
+			[
+				{
+					"id": 55650,
+					"title": "Boilerworks Gem - Blue",
+					"file_name": "4562ac64-9ed8-4613-af36-75c188fcedc2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4562ac64-9ed8-4613-af36-75c188fcedc2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387824": ["Hidden in a hole in the corkboard that's covered by a calendar.", []],
+		"387826": ["Floating in the water.", []],
+		"387828": ["Connects to [Gooigi Grate 1B](#loc=387829).", []],
+		"387829": ["Connects to [Gooigi Grate 1A](#loc=387828).", []],
+		"387831": ["Connects to [Gooigi Grate 2B](#loc=387832).", []],
+		"387832": ["Connects to [Gooigi Grate 2A](#loc=387831).", []],
+		"387833": ["Knocks out a bunch of Treasure from the end of a pipe.", []],
+		"387835": ["Connects to [Gooigi Grate 4B](#loc=387837).", []],
+		"387836": ["Connects to [Gooigi Grate 5B](#loc=387839).", []],
+		"387837": ["Connects to [Gooigi Grate 4A](#loc=387835).", []],
+		"387839": ["Connects to [Gooigi Grate 5A](#loc=387836).", []],
+		"387840": ["Buried under some leaves.", []],
+		"387842": [
+			"Must be uncovered using Luigi in the rubber duck float pulling on the yellow ball chain below. Unclogs a **huge** amount of Treasure!",
+			[]
+		],
+		"387844": ["Connects to [Gooigi Grate 7B](#loc=387845).", []],
+		"387845": ["Connects to [Gooigi Grate 7A](#loc=387844).", []],
+		"387846": ["Connects to [Gooigi Grate 8B](#loc=387848).", []],
+		"387847": [
+			"**Prerequisite:** Lower the water\n\nAfter lowering the water, look for the ball and chain in this spot. Have Gooigi stand on the nearby platform, then have Luigi vacuum the ball to raise him up. This will allow Gooigi to reach the Green Gem on the ceiling with his vacuum.",
+			[
+				{
+					"id": 55771,
+					"title": "Boilerworks Gem - Green",
+					"file_name": "64c638f3-fd49-4fed-9330-ef144cd36bd5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/64c638f3-fd49-4fed-9330-ef144cd36bd5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387848": ["Connects to [Gooigi Grate 8A](#loc=387846).", []],
+		"387849": ["Connects to [Gooigi Grate 9B](#loc=387851).", []],
+		"387851": ["Connects to [Gooigi Grate 9A](#loc=387849).", []],
+		"387854": ["Connects to ??.", []],
+		"387855": ["Connects to [Gooigi Grate 10B](#loc=387854).", []],
+		"387856": ["Connects to [Gooigi Grate 11B](#loc=387857).", []],
+		"387857": ["Connects to [Gooigi Grate 11A](#loc=387856).", []],
+		"387858": ["Connects to [Gooigi Grate 12B](#loc=387859).", []],
+		"387859": ["Connects to [Gooigi Grate 12A](#loc=387858).", []],
+		"387861": ["Yank the white ball chain between the two water flows to get this Treasure!", []],
+		"387865": [
+			"Connects to [Gooigi Grate 13B](#loc=387866). To uncover this, tug on the yellow ball chain directly below as Luigi.",
+			[]
+		],
+		"387866": ["Connects to [Gooigi Grate 13A](#loc=387865).", []],
+		"387867": [
+			"Break open by firing an object at it from the water, or by using a Suction Shot after lowering the water.",
+			[]
+		],
+		"387870": ["Clog with a soccer ball to make a bunch of notes fly out from a pipe above this one.", []],
+		"387872": ["Open by flashing with the Strobulb.", []],
+		"387874": ["To get here, set the first two Water Valves to point right and the third valve to point left.", []],
+		"387879": ["There are various Trash Piles in this area that each contain a Gold Ingot.", []],
+		"387882": [
+			"Only accessible after lowering the water. Uncover with a Suction Shot.",
+			[
+				{
+					"id": 55651,
+					"title": "Purple Gem Gooigi Grate",
+					"file_name": "32fcca8b-162a-4e2e-8028-d8dd95cf7072.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/32fcca8b-162a-4e2e-8028-d8dd95cf7072.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387883": [
+			"After lowering the water, enter the submarine using the [Gooigi Grate](#loc=387882) breaking through the floor. Here, take the flaming log on the left and use it to light the stovebox on the right.",
+			[
+				{
+					"id": 55652,
+					"title": "Boilerworks Gem - Purple",
+					"file_name": "e718144b-a8ec-42a2-96f2-60cb08afbe09.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e718144b-a8ec-42a2-96f2-60cb08afbe09.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387886": ["Can be accessed with Gooigi after the water has been lowered.", []],
+		"387887": [
+			"Can be accessed after lowering the water. To defeat it, have it eat Gooigi, then shine the Dark-Light on it to un-possess it.",
+			[]
+		],
+		"387888": ["A brown pipe that can only be accessed after lowering the water.", []],
+		"387889": ["Only accessible after the water has been lowered.", []],
+		"387891": [
+			"To get to this, stand Gooigi on the middle of the rotating walkway, then turn the walkway with Luigi so that Gooigi can get here.",
+			[]
+		],
+		"387892": [
+			"To get to this, stand Gooigi on the middle of the rotating walkway, then turn the walkway with Luigi so that Gooigi can get here.",
+			[]
+		],
+		"387895": [
+			"",
+			[
+				{
+					"id": 55653,
+					"title": "Boilerworks - 10F Elevator Button",
+					"file_name": "3d02fd0e-a4c6-402b-b0ad-0edd3de53244.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3d02fd0e-a4c6-402b-b0ad-0edd3de53244.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"387897": ["Get to this by revealing and climbing up the [Hidden Ladder](#loc=387896).", []],
+		"387900": [
+			"Spawn area for Combooster. Can be found inside:\n\n- The fridge\n- The red toolbox behind the shower curtain\n- The washing machine\n\nIf not in this room, check the [Waterworks](#loc=387901) and [Observation](#loc=387902).",
+			[]
+		],
+		"387901": [
+			"Spawn area for ComBooster. Can be found inside:\n\n- The Water Valves\n\nIf not in this room, check [Observation](#loc=387902) and the [Main Tank](#loc=387900).",
+			[]
+		],
+		"387902": [
+			"Spawn area for ComBooster. Can be found inside:\n\n- The intercom button on the right-hand wall\n- The red tool box\n- The cardboard box\n\nIf not in this room, check the [Waterworks](#loc=387901) and [Main Tank](#loc=387900).",
+			[]
+		],
+		"388228": [
+			"Use Luigi to pull on a brass ball and chain (obscured by a pot between it and the camera) to open the mouth of the snake statue. The Red Gem is in its mouth, but you will have to defend yourself against three bats first.",
+			[
+				{
+					"id": 55667,
+					"title": "Tomb Suites - Red Gem",
+					"file_name": "1aee2365-d893-4681-ab2f-8c1b549cc25d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1aee2365-d893-4681-ab2f-8c1b549cc25d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388230": [
+			"Vacuum the right-hand tapestries until you expose the safe in the wall. Be careful, as the third tapestry will cause three ghosts to appear!",
+			[]
+		],
+		"388244": [
+			"Use the vacuum to excavate this buried stone snake, then use the Dark-Light to fill in the missing mid- and tail-sections so the snake will release the Gem from its mouth.",
+			[
+				{
+					"id": 55668,
+					"title": "Tomb Suites Gem - Yellow",
+					"file_name": "93bdbf0e-db30-4bcf-9aa8-994b49eb3f64.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/93bdbf0e-db30-4bcf-9aa8-994b49eb3f64.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388279": [
+			"Inside the cone-shaped sand dune. Get it by vacuuming up the sand.",
+			[
+				{
+					"id": 55669,
+					"title": "Tomb Suites Gem - Purple",
+					"file_name": "b3d19801-43db-45c0-b234-2259d67ce547.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3d19801-43db-45c0-b234-2259d67ce547.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388295": [
+			"Buried under a sand castle in the Sandy Grand Hall (and thus is NOT inside the elevator). Is guarded by multiple Mini Hammers.",
+			[]
+		],
+		"388303": [
+			"Hold up to one of the sand vents on the wall to blow out a **ton** of Treasure and a Golden Goob!",
+			[]
+		],
+		"388304": ["Hidden behind the Oasis stand-up, and guarded by a Hammer and several Mini Goobs.", []],
+		"388307": ["Will cause a bunch of bills and Gold Bats to pop out!", []],
+		"388311": ["Has several gold objects buried in the sand.", []],
+		"388313": ["Moves the palm frond fan, releasing some bills.", []],
+		"388316": [
+			"Suction shot these nesting doll-style sarcophagi until a Gem Goob bursts out.",
+			[
+				{
+					"id": 56005,
+					"title": "Tomb Suites Gem - White",
+					"file_name": "5d1507c0-034a-4dc6-aaca-58e5522df4f6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d1507c0-034a-4dc6-aaca-58e5522df4f6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388317": ["Open with a Suction Shot to release a bunch of bats.", []],
+		"388318": ["Open by pulling on the toilet paper sticking out of the right-hand side.", []],
+		"388319": ["Be careful opening this as there's a boulder switch right in front of it!", []],
+		"388320": ["Reveal by shining the Dark-Light onto the pedestal.", []],
+		"388323": [
+			"**Prerequisite:** Defeat the Smashers in this room.\n\nCan be revealed either my slamming the Hammer into it, or by using the Dark-Light after defeating them.",
+			[
+				{
+					"id": 55670,
+					"title": "Scale Room Gooigi Grate",
+					"file_name": "723fac86-717f-4ca4-afee-9cac14dc4148.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/723fac86-717f-4ca4-afee-9cac14dc4148.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388324": [
+			"**Prerequisite:** Defeat the Hammers in this room\n\nHead down this room's [Gooigi Grate](#loc=388323) to enter its basement, then head right and open the chest.",
+			[
+				{
+					"id": 55671,
+					"title": "Tomb Suites Gem - Green",
+					"file_name": "830daa52-92db-4688-813d-206037028db4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/830daa52-92db-4688-813d-206037028db4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388325": [
+			"Access by firing the [Cross Jewel](#loc=388326) into the slot on this wall.",
+			[
+				{
+					"id": 55673,
+					"title": "Tomb Suites Gem - Blue",
+					"file_name": "719177d4-c1bf-4da8-9f67-330f445f8d16.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/719177d4-c1bf-4da8-9f67-330f445f8d16.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388326": [
+			"Hidden inside a vase at this spot.",
+			[
+				{
+					"id": 55672,
+					"title": "Jewel Tomb Cross Shape",
+					"file_name": "42cde0eb-2f3c-4a61-aab4-b21d7304b640.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42cde0eb-2f3c-4a61-aab4-b21d7304b640.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388332": [
+			"",
+			[
+				{
+					"id": 55674,
+					"title": "Tomb Suites - 11F Elevator Button",
+					"file_name": "75a7b722-2a55-4c6d-9205-c9f0d15bd65a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/75a7b722-2a55-4c6d-9205-c9f0d15bd65a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"388335": [
+			"Spawn area for Anuboo. Can be found inside:\n\n- Vases\n\nIf not in this room, check the [Jewel Chamber](#loc=388336) and the [Snake Chamber](#loc=385330).",
+			[]
+		],
+		"388336": [
+			"Spawn area for AnuBoo. Can be found inside:\n\n- Vases\n\nIf not in this room, check the [Scale Chamber](#loc=388335) and [Snake Chamber](#loc=385330).",
+			[]
+		],
+		"389014": ["Roll a 6 for a bunch of bills", []],
+		"389015": ["Remove the painted sheet and then reveal this door with the Dark-Like.", []],
+		"389016": [
+			"Walk in front of the wheel to cause some ghostly swords to stab into it. Then, spin the wheel with the vacuum to get some more swords in the wheel. These will form a square shape, revealing the Gem!",
+			[
+				{
+					"id": 55732,
+					"title": "Twisted Suites - Red Gem",
+					"file_name": "f5f65b44-090e-4e11-b2e9-7d551cead05c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5f65b44-090e-4e11-b2e9-7d551cead05c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389017": [
+			"Use the suck and blow functions of the Poltergust to move the saw back and forth and open the box, revealing *two* Golden Goobs!",
+			[]
+		],
+		"389019": [
+			"Vacuum all six playing cards in this room. They can be found in the following spots:\n\n- On the blue cabinet on the back wall\n- On the floor between the two doors\n- On the rug next to the bath\n- Between the bath and the camera\n- On the window sill above the bath\n- Also on the sill above the bath\n- Pinned above the toilet by a sword",
+			[
+				{
+					"id": 55733,
+					"title": "Twisted Suites - White Gem",
+					"file_name": "ae5578d2-3d2a-4b4f-b479-5b32ab8396ce.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae5578d2-3d2a-4b4f-b479-5b32ab8396ce.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389020": [
+			"Reveal by pulling on the ball rope to the right of the southern-most door. Use Gooigi to flash the safe and open it.",
+			[]
+		],
+		"389021": ["Vacuum the curtain at this spot.", []],
+		"389023": [
+			"Use a Suction Shot Slam to knock out, then shine the Dark-Light on it. Once it's inert, interact with the bin to get the cash.",
+			[]
+		],
+		"389024": ["Held in a raised cage. Yank the ball rope in the southeastern corner here to drop the cage.", []],
+		"389025": ["Blow with the vacuum.", []],
+		"389027": [
+			"Flash the grandfather clock in the southwest corner of the room to move the bed, then shine the Dark-Like on the bit of wall (floor?) where the bed was to reveal this door.",
+			[]
+		],
+		"389029": [
+			"Inside the Possessed Chest. To defeat it, have it eat Gooigi, then shine the Dark-Light on it to un-possess it.",
+			[]
+		],
+		"389032": [
+			"Up inside this glass cabinet. Use Gooigi to flash the [Strobulb Light](#loc=389033) to briefly open it, then vacuum the Gem out.",
+			[
+				{
+					"id": 55735,
+					"title": "Twisted Suites - Green Gem",
+					"file_name": "9bc904a4-2aa7-4165-a1f6-bf3aa5422230.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9bc904a4-2aa7-4165-a1f6-bf3aa5422230.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389033": [
+			"Flash with the Strobulb to briefly open the [Green Gem's cabinet](#loc=389032), which can be vacuumed up by another player / Gooigi.",
+			[
+				{
+					"id": 55734,
+					"title": "Lounge Strobulb Switch",
+					"file_name": "4ad6a8ff-cf79-43aa-98ed-0121ab641f81.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ad6a8ff-cf79-43aa-98ed-0121ab641f81.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389034": ["Open briefly using the [Strobulb Light](#loc=389033).", []],
+		"389038": [
+			"In the basement of this floor through the Gooigi Grate. Vacuum and then fire the fish to get the cash.",
+			[]
+		],
+		"389040": [
+			"Hidden behind the painted sheet. The Spirit Balls of this door will retreat down the [Gooigi Grate](#loc=389039).",
+			[]
+		],
+		"389041": ["Reveal by pulling off the table cloth using the vacuum.", []],
+		"389042": [
+			"Yank the cloth off the aquarium box in this corner, then vacuum the fish.\n\nFun fact: the model inside the aquarium is the first mansion of Luigi's Mansion 2, the Gloomy Mansion!",
+			[]
+		],
+		"389043": ["Open the blue cabinet in this corner.", []],
+		"389045": [
+			"Inside one of the three Piggy Banks in the corners of the room. The Gem will always be in the last Piggy Bank you break open.",
+			[
+				{
+					"id": 55736,
+					"title": "Twisted Suites - Blue Gem",
+					"file_name": "88f0d002-5877-4c9c-941a-eaa70f6f69f5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/88f0d002-5877-4c9c-941a-eaa70f6f69f5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389046": ["Hidden behind the mirror below the ceiling bed. Use the vacuum to make sure you get them all.", []],
+		"389047": ["Use the vacuum to raise the table and release the cash.", []],
+		"389048": ["Turn this upside-down to get a buncha bills.", []],
+		"389049": ["Tug on the ball rope to reveal this chest.", []],
+		"389050": [
+			"Shine the Dark-Light at this spot on the wall to get the Gem (you can see the painting reflected in the northeast mirror).",
+			[
+				{
+					"id": 55737,
+					"title": "Twisted Suites - Yellow Gem",
+					"file_name": "0b1473c5-7afe-405b-89d1-59b1a4a69f49.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b1473c5-7afe-405b-89d1-59b1a4a69f49.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389052": ["After defeating this, make sure to open it for a Pearl!", []],
+		"389054": [
+			"Wear the giant top-hat in this room and use a Burst (ZL + ZR) to launch it onto the statue ghost with no top hat on. This will reveal some spectral spiral stairs leading up to a chest with this Gem in it.",
+			[
+				{
+					"id": 55738,
+					"title": "Twisted Suites - Purple Gem A",
+					"file_name": "24ef149e-b4d6-4f2e-848d-7e7b4e4f72bf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/24ef149e-b4d6-4f2e-848d-7e7b4e4f72bf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 55739,
+					"title": "Twisted Suites - Purple Gem B",
+					"file_name": "e7373a16-1b88-4e56-8f6a-813a249a775b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e7373a16-1b88-4e56-8f6a-813a249a775b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389055": ["Vacuum the books from each bookshelf column to get progressively more and more Treasure.", []],
+		"389057": ["Visible in the northeastern mirror, and can be revealed with the Dark-Light.", []],
+		"389060": ["Above the bathtub, and obscure by the hanging clothes.", []],
+		"389063": [
+			"",
+			[
+				{
+					"id": 55740,
+					"title": "Twisted Suites - 12F Elevator Button",
+					"file_name": "30491171-c1c2-43b0-b51d-b726dac0172d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/30491171-c1c2-43b0-b51d-b726dac0172d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389064": [
+			"Spawn area for Boofuddler. Can be found inside:\n\n- Bedside Drawers\n- Mirror Drawers\n\nIf not in this room, check the [Fake Bedroom](#loc=389066) and the [Trainer's Bedroom](#loc=389065).",
+			[]
+		],
+		"389065": [
+			"Spawn area for Boofuddler. When in this room, it can *only* appear in this blue cabinet, making it impossible to miss.\n\nIf not in this room, check the [Fake Bedroom](#loc=389066) or the [Bladed Bedroom](#loc=389064).",
+			[]
+		],
+		"389066": [
+			"Spawn area for Boofuddler. It can only be found in these drawers, meaning you're guaranteed to find it if they're in this room.\n\nIf not in this room, check the [Trainer's Bedroom](#loc=389065) and the [Bladed Bedroom](#loc=389064).",
+			[]
+		],
+		"389237": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389238": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389239": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389240": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389241": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389242": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389243": [
+			"Only appears in this room's basement after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch. Reach by taking [the right-hand Gooigi Grate](#loc=387811)",
+			[]
+		],
+		"389244": [
+			"Only appears in this room's basement after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.",
+			[]
+		],
+		"389245": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389246": [
+			"Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch. Once you've done this, fire Toad at this ledge above the door here to drop some Gold Ingots.",
+			[]
+		],
+		"389247": [
+			"Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch. Once you've done this, fire Toad up at the high ledge to drop the Piggy Bank and smash it open on the floor.",
+			[]
+		],
+		"389248": [
+			"Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch. Once you've done this, fire Toad at the ledge above the door to drop and smash the vase, releasing the Golden Goob.",
+			[]
+		],
+		"389249": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389250": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389251": ["Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch.", []],
+		"389252": [
+			"Can only be passed after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch. Once you do, get here with Toad and fire them into the brick wall to knock it down.",
+			[]
+		],
+		"389256": [
+			"Only appears after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch, then using the nearby [Gooigi Grate](#loc=389255).",
+			[]
+		],
+		"389257": [
+			"Only accessible after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch. Once you have, flash the nearby [Strobulb Light](#loc=389259), then fire Toad up so they rebound to the Treasure.",
+			[]
+		],
+		"389258": [
+			"Only accessible after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch. Once you have, flash the nearby [Strobulb Light](#loc=389259), then fire Toad up so they rebound to the Treasure.",
+			[]
+		],
+		"389259": ["Flash this to unlock two Upper Level spots with Treasure.", []],
+		"389260": [
+			"Only accessible after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch. Once you have, fire Toad up the vertical shaft to burst the bag full of bills.",
+			[]
+		],
+		"389261": [
+			"Crawling on the ceiling. Before flashing it, place Gooigi on the lower floor so that he can catch all the gold that falls down.",
+			[]
+		],
+		"389262": ["Crawling under the metal walkway.", []],
+		"389263": ["Literally Gold Ingots disguised as bricks under the metal walkway.", []],
+		"389264": [
+			"**Prerequisite:** Visiting E. Gadd after visiting 12F: The Spectral Catch\n\nAfter meeting the above requirement, the story will take you to this room. In this spot, fire any paint can at the brick wall to reveal a Gem Goob!",
+			[
+				{
+					"id": 55745,
+					"title": "Boilerworks Gem - White",
+					"file_name": "ce17da1a-96ee-497d-a527-7c1dd40c2411.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ce17da1a-96ee-497d-a527-7c1dd40c2411.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389265": [
+			"Accessed from the bottom floor, this alcove full of Gold Ingots is obscured from view by a brick column.",
+			[]
+		],
+		"389266": ["Smash down by firing Toad at this spot.", []],
+		"389272": ["Shine the Dark-Light on the missing chunk of the walkway to access the [Chest](#loc=389273).", []],
+		"389273": ["Reach by using the Dark-Light to reveal the [Hidden Walkway](#loc=389272).", []],
+		"389274": [
+			"Only appear after mandatorily visiting E. Gadd after visiting 12F: The Spectral Catch, then making your way through the lower waterworks areas.",
+			[]
+		],
+		"389553": ["Fire Toad at the brick wall here to reveal this Chest.", []],
+		"389554": ["Fire Toad into this red pipe to get two Gold Mice", []],
+		"389555": ["Vacuum several Gold Ingots from under the worktable.", []],
+		"389556": [
+			"Use Luigi to blow on the valve to the right to slow the spinner down, then use Gooigi to fire Toad into the pipe behind the spinner, releasing the loot.",
+			[]
+		],
+		"389557": ["Reveal by firing Toad into the brick wall at this spot.", []],
+		"389558": [
+			"Reveal the model ship circling the model island with the Dark-Light, then suck on the ship to reveal a Golden Goob!",
+			[]
+		],
+		"389559": [
+			"**Prerequisite:** Super Suction\n\nThis Gem can only be acquired once the story has you revisit B2: Boilerworks to unlock the Super Suction ability. Once you've done so, return to this floor and use the nearby Super Suction Socket in the southwest corner to tear open the carpet rug at this spot.\n\nUse a Burst (ZL + ZR) to break open the floorboards where the red X is to uncover the Gem.",
+			[
+				{
+					"id": 55772,
+					"title": "Blue Gem",
+					"file_name": "ec167bff-c5e9-4975-9b60-6c3712acf73c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec167bff-c5e9-4975-9b60-6c3712acf73c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389560": ["Connects to [this Gooigi Grate](#loc=389561) behind the counter.", []],
+		"389561": ["Connects to [this Gooigi Grate](#loc=389560) on the west side of the room.", []],
+		"389562": ["**Prerequisite:** Super Suction\n\nAccess these using the [Gooigi Grate](#loc=389560).", []],
+		"389564": [
+			"Vacuum the ship's wheel above the counter three separate times for some Coins, three Fish, and a Gold Fish.",
+			[]
+		],
+		"389565": [
+			"**Prerequisite:** Super Suction\n\nTo get this Gem, use Super Suction to reveal the [Gooigi Grate](#loc=389560) on the northwest corner of the room. Take it to get behind the front desk: vacuum the globe off the wall shelf and fire it over the counter so Luigi can use it.\n\nTake the globe and fire it at the hanging glass ball in this corner to get the Gem!",
+			[
+				{
+					"id": 55773,
+					"title": "The Spectral Catch - Yellow Gem A",
+					"file_name": "0d79ca11-9b5f-44bf-89f2-de4de7a9b83f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d79ca11-9b5f-44bf-89f2-de4de7a9b83f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 55774,
+					"title": "The Spectral Catch - Yellow Gem B",
+					"file_name": "2418d24d-b379-4cd4-94ee-0ac74c772998.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2418d24d-b379-4cd4-94ee-0ac74c772998.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389566": [
+			"Does not become available until the story takes you through B2: Boilerworks a second time.",
+			[
+				{
+					"id": 56057,
+					"title": "Screenshot 2024-07-28 02-54-23",
+					"file_name": "4b63b424-96f2-4874-95c3-c60284354c4d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4b63b424-96f2-4874-95c3-c60284354c4d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389567": [
+			"**Prerequisite:** Super Suction\n\nCan only be smashed using the globe behind the counter, which you can retrieve via the [Gooigi Grate](#loc=389560).",
+			[]
+		],
+		"389568": [
+			"Shine the Dark Light on this box to reveal a ball and rope. Yank it to raise a jolly roger that knocks this Gem out of a skull's mouth, letting you retrieve it.",
+			[
+				{
+					"id": 55775,
+					"title": "The Spectral Catch - White Gem",
+					"file_name": "4b63cd56-ddbd-4a28-840a-594a405196d3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4b63cd56-ddbd-4a28-840a-594a405196d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389569": [
+			"To defeat, have this chest chew on Gooigi, or fire a coconut at it. After doing either, shine the Dark-Light on it and vacuum the Spirit Balls.",
+			[]
+		],
+		"389572": [
+			"Buried under the pile of sand on this small island. Reach this island by revealing the [first](#loc=389570) and [second](#loc=389571) Hidden Bridges on the right-hand side of the beach.",
+			[
+				{
+					"id": 56006,
+					"title": "The Spectral Catch - Green Gem",
+					"file_name": "ec49bf06-4b45-49ac-8fd1-7f5ae83701f5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec49bf06-4b45-49ac-8fd1-7f5ae83701f5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389574": ["Vacuum the sand just in front of the galm tree.", []],
+		"389575": [
+			"Vacuum the sand on the island after the first [Hidden Bridge](#loc=389570).",
+			[
+				{
+					"id": 55776,
+					"title": "The Spectral Catch - Purple Gem",
+					"file_name": "3b5b7cfc-c13d-45cf-bf58-0197f9a6ed11.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3b5b7cfc-c13d-45cf-bf58-0197f9a6ed11.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389576": [
+			"At this spot is a little mermaid ghost statue. Destroy it with three coconuts to reveal a Gem Goob!",
+			[
+				{
+					"id": 55777,
+					"title": "The Spectral Catch - Red Gem",
+					"file_name": "8d2f7c0b-1f5f-4620-90a8-c4826ffdeac5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8d2f7c0b-1f5f-4620-90a8-c4826ffdeac5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389577": ["At the base of the palm tree.", []],
+		"389578": ["At the base of the palm tree.", []],
+		"389579": [
+			"",
+			[
+				{
+					"id": 55778,
+					"title": "The Spectral Catch - 13F Elevator Button",
+					"file_name": "cf340426-79e4-4e00-83d2-b4a1f6764b65.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cf340426-79e4-4e00-83d2-b4a1f6764b65.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389580": ["Vacuum the white sheet off the barrel. Gives directions to the [Green Gem](#loc=389572).", []],
+		"389581": ["Blow with the vacuum to drop a barrel with three Gold Fish in it.", []],
+		"389582": [
+			"",
+			[
+				{
+					"id": 55779,
+					"title": "The Spectral Catch - Yellow Toad",
+					"file_name": "fba99ba8-5007-4be8-8ce6-65f44e21870e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fba99ba8-5007-4be8-8ce6-65f44e21870e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389583": [
+			"**Prerequisite:** Free [Yellow Toad](#loc=389582)\n\nOnce you've freed Yellow Toad, fire them into this small cave in the wall where the [Possessed Chest](#loc=389569) was. Yellow Toad will walk through the cave and collect some Gold Ingots!",
+			[]
+		],
+		"389585": [
+			"Spawn area for Booccaneer. Can be found inside these Suction Shot objects:\n\n- Wooden Barrels\n\nIf not in this room, check the [Beach](#loc=389586) or the [Pirate Ship](#loc=389587).",
+			[]
+		],
+		"389586": [
+			"Spawn area for Booccaneer. Can be found inside these Suction Shot objects:\n\n- Wooden Barrels\n\nIf not in this area, check the [Pirate Ship](#loc=389587) and the [Grotto Lounge](#loc=389585).",
+			[]
+		],
+		"389587": [
+			"Spawn area for Booccaneer. Can be found inside these Suction Shot objects on both the Main Deck and the Quarter Deck where the Yellow Toad Painting was:\n\n- Wooden Boxes\n- Wooden Barrels\n\nIf not in this room, check the [Beach](#loc=389586) and the [Grotto Lounge](#loc=389585).",
+			[]
+		],
+		"389588": [
+			"**Prerequisite:** Super Suction\n\nAfter the story takes you through B2: Boilerworks a second time and getting the Super Suction upgrade, return to this spot. Defeat the Ghost Ballerinas, then use a Burst (ZL + ZR) on the dark tile of the floor to reveal a Super Suction outlet.\n\nUse it to rip down the back wall of the stage, revealing a Ghost Orchestra. Vacuum them and their platforms to reveal a TV: interact with the TV to get the Gem!",
+			[
+				{
+					"id": 55780,
+					"title": "The Great Stage Gem - Green",
+					"file_name": "1e93d2da-7649-4ab7-8bca-e7e2b76dfdda.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e93d2da-7649-4ab7-8bca-e7e2b76dfdda.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389589": [
+			"**Prerequisite:** Super Suction\n\nAfter the story takes you through B2: Boilerworks a second time and getting the Super Suction upgrade, use the [Super Suction Socket](#loc=389588) to rip down the back wall of the stage, revealing a Ghost Orchestra.\n\nVacuum them and their platforms to reveal a TV. Activate it with the Strobulb, then step through it to be taken to a balcony. Vacuum the box of popcorn here to get the Gem!",
+			[
+				{
+					"id": 55782,
+					"title": "The Great Stage Gem - Green",
+					"file_name": "4ad1152c-2acb-4a61-80b0-cfc0133cfe5e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ad1152c-2acb-4a61-80b0-cfc0133cfe5e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389606": [
+			"To get this Gem, have both Luigi and Gooigi stand on the round fresco in the Elevator Hall. This opens the trophy cabinet: vacuum the Yellow Gem from the top shelf!",
+			[
+				{
+					"id": 55783,
+					"title": "Fitness Center - Yellow Gem",
+					"file_name": "19e2c8ce-15d1-4c62-ac95-b57534b453be.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/19e2c8ce-15d1-4c62-ac95-b57534b453be.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389607": ["Open by standing on the round fresco on the floor.", []],
+		"389610": [
+			"Use the Dark-Light to reveal a bell on the table. Walk away from the table to the other side of the room, and it'll ring three times. Return to the bell and ring it three times again to reveal a Gem Goob.",
+			[
+				{
+					"id": 55784,
+					"title": "Fitness Center - White Gem",
+					"file_name": "42fc0f26-99e6-45ad-8205-14a091f5efd5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42fc0f26-99e6-45ad-8205-14a091f5efd5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389611": [
+			"As you explore this room, a water polo ball will be thrown at the window, unfogging a spot on it. Peer through this and watch the boss ghost to spawn several ghosts into the room. The last one will have the Key on them.",
+			[]
+		],
+		"389617": [
+			"Fire the soccer ball at the swimming sign to reveal the Blue Gem for this floor.",
+			[
+				{
+					"id": 55785,
+					"title": "Fitness Center - Blue Gem",
+					"file_name": "e4dd6c83-a953-41ea-ac7e-8d742d4735fa.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4dd6c83-a953-41ea-ac7e-8d742d4735fa.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389621": ["Reveal this by rolling up the rug with the vacuum.", []],
+		"389622": [
+			"In the basement of this room, accessed via the [Gooigi Grate](#loc=389621) under the rug. Located behind the baseball mitts.",
+			[]
+		],
+		"389623": [
+			"Enter here via the [Gooigi Grate](#loc=389621) under the rug, then blow up the rafters to scare the mice out. Keep Gooigi blowing and switch to Luigi to flash the Gold Mice and get the Treasure!\n\nYou'll get an Achievement for flashing **all** of the Mice!",
+			[]
+		],
+		"389624": ["Has a Piggy Bank inside.", []],
+		"389625": [
+			"To get this, have Gooigi stand on the [Scales](#loc=389626), opening a secret compartment on this column (visible in the mirror on the back wall). Use Luigi to go grab it.",
+			[
+				{
+					"id": 55786,
+					"title": "Fitness Center - Red Gem",
+					"file_name": "e441b2b8-4163-45bd-8c19-fe9120340770.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e441b2b8-4163-45bd-8c19-fe9120340770.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389626": ["Use to access the [Red Gem](#loc=389625).", []],
+		"389627": [
+			"Have both Luigi and Gooigi Suction Shot the weights on this machine to cause the giant coin above the mirror to fall and smash into gold loot. Further, several Gold Spiders will descend from the ceiling.",
+			[]
+		],
+		"389628": [
+			"Flash three times with the Strobulb to reveal a Golden Goob, a Gem Goob with the Purple Gem, and a second Golden Goob, all running on the treadmills.",
+			[]
+		],
+		"389629": [
+			"Use the [Radio](#loc=389628) three times to reveal this Gem Goob on the treadmill.",
+			[
+				{
+					"id": 55787,
+					"title": "Fitness Center - Purple Gem",
+					"file_name": "0b28d417-ad6f-41f3-87bf-84bcbb1e1a29.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b28d417-ad6f-41f3-87bf-84bcbb1e1a29.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389630": ["Crawling on the ceiling.", []],
+		"389631": ["Sitting under the bench.", []],
+		"389632": ["Sitting on top of the ceiling decoration.", []],
+		"389633": [
+			"Use Luigi and Gooigi to Suction Shot and pull the two smaller gold plates on this wall, revealing a bunch of treasure.",
+			[]
+		],
+		"389634": [
+			"Use any three pieces of gym equipment in this room (the treadmills or bikes) to reveal this Key.",
+			[]
+		],
+		"389636": ["Visible in the mirror, revealed with the Dark-Light!", []],
+		"389637": [
+			"To turn this wall, use the vacuum to roll / unroll the mats to match the examples on the wall, visible in the mirror. The solution is to have the top-left and bottom-right mats rolled up, with the other four being unfurled and flat.",
+			[]
+		],
+		"389639": [
+			"Behind the [Turning Wall](#loc=389637). Head into the right-hand side, then go right and behind the wall the mirror is on.",
+			[]
+		],
+		"389640": ["Check behind the corner whilst outside to find these.", []],
+		"389641": ["Inside the chest at the far end of the leddge.", []],
+		"389645": [
+			"Use the [Gooigi Grate](#loc=389644) to drop into this room's basement, then blow on the red valve to lower the water. This will let Gooigi pass through the grate to the Gem!",
+			[
+				{
+					"id": 55788,
+					"title": "Fitness Center - Green Gem",
+					"file_name": "744c678f-14e4-4fc1-b4e5-271cc7cb7ccf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/744c678f-14e4-4fc1-b4e5-271cc7cb7ccf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389646": ["In the basement accessed via the [Gooigi Grate](#loc=389644).", []],
+		"389647": ["In this grate of the room's basement, accessible via the [Gooigi Grate](#loc=389644).", []],
+		"389649": [
+			"",
+			[
+				{
+					"id": 55789,
+					"title": "Fitness Center - 14F Elevator Button",
+					"file_name": "50343840-819d-41ad-9ee7-7ec397cad207.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50343840-819d-41ad-9ee7-7ec397cad207.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389650": ["Suction Shot the round plate on the wall to release a HUGE amount of bills!", []],
+		"389651": ["Inside the laundry basket.\n\nUnlocks [PolterKitty #B-2](#loc=389652).", []],
+		"389652": [
+			"Fire a green boxing glove at the punching bag to reveal PolterKitty.\n\nUnlocks [PolterKitty #B-3](#loc=389654).",
+			[]
+		],
+		"389653": ["Hidden, but can be revealed with the Dark-Light.", []],
+		"389654": [
+			"On the upper ledge: flash with the Strobulb to engage a boss encounter.\n\nUnlocks [PolterKitty #B-4](#loc=389690).",
+			[]
+		],
+		"389690": [
+			"Vacuum the sand on this part of the beach to reveal the Polterkitty.\n\nUnlocks [PolterKitty #B-5](#loc=389691).",
+			[]
+		],
+		"389691": [
+			"Use a Burst (ZL + ZR) on the hat at this spot to reveal the Polterkitty.\n\nUnlocks [PolterKitty #B-6](#loc=389692).",
+			[]
+		],
+		"389692": [
+			"Inside the box of swords on the main stage. Use Suction Shot with both Luigi and Gooigi to expose the kitty. Flash her to engage the boss fight.\n\nTo defeat the PolterKitty here, only turn around when it uncovers her eyes. Turn around again and **then** flash the Strobulb to stun her.",
+			[]
+		],
+		"389693": [
+			"Dropped by finally defeating the [PolterKitty](#loc=389692).",
+			[
+				{
+					"id": 55803,
+					"title": "Screenshot 2024-07-31 02-55-54",
+					"file_name": "a6a733dd-314d-404f-8435-4799e316b7f5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a6a733dd-314d-404f-8435-4799e316b7f5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"389694": [
+			"Spawn area for Boodybuilder. Can be found inside:\n\n- Laundry baskets\n- Trash Bin\n\nIf not in this room, check the [Locker Room](#loc=389695), [Yoga Room](#loc=389696) and [Pool](#loc=389697).",
+			[]
+		],
+		"389695": [
+			"Spawn area for Boodybuilder. Can be found inside:\n\n- Laundry baskets\n\nIf not in this room, check the [Gym Lobby](#loc=389694), [Yoga Room](#loc=389696) and [Pool](#loc=389697).",
+			[]
+		],
+		"389696": [
+			"Spawn area for Boodybuilder. Can be found inside:\n\n- Laundry Baskets\n\nIf not in this room, check the [Pool](#loc=389697), [Locker Room](#loc=389695) and [Gym Lobby](#loc=389694).",
+			[]
+		],
+		"389697": [
+			"Spawn area for Boodybuilder. Can be found inside:\n\n- Laundry Baskets\n\nIf not in this room, check the [Yoga Room](#loc=389696), [Locker Room](#loc=389695) and [Gym Lobby](#loc=389694).",
+			[]
+		],
+		"390168": [
+			"Use Luigi to vacuum on the turntable on the left wall, causing a block of bricks to extend from this wall. As Gooigi, stand under the Brick Block and use the Burst move (ZL + ZR) to headbutt it. On the fifth, this Gem will appear!",
+			[
+				{
+					"id": 55817,
+					"title": "The Dance Hall - Purple Gem",
+					"file_name": "222ce802-fe33-4231-a8c6-93b6b7b643f4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/222ce802-fe33-4231-a8c6-93b6b7b643f4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390169": [
+			"Part of accessing the [Yellow Gem](#loc=390170). FIrst, walk Luigi across every unlit tile in one go to light them all up. Then, use both Luigi and Gooigi to stand on each pair of unlit tiles three times. This will reveal a staircase down to the Gem.",
+			[
+				{
+					"id": 55819,
+					"title": "The Dance Hall - Dance Floor Stairs",
+					"file_name": "9b6d33b5-4184-4cb4-915b-c9e6b3827b36.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9b6d33b5-4184-4cb4-915b-c9e6b3827b36.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390170": [
+			"Inside the Hidden Vault. Access this by solving the [Dance Floor](#loc=390169) puzzle, then walking through the jailbars as Gooigi.",
+			[
+				{
+					"id": 55818,
+					"title": "The Dance Hall - Yellow Gem",
+					"file_name": "44578af4-d865-4f64-bb2b-062b9aa8d3de.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44578af4-d865-4f64-bb2b-062b9aa8d3de.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390174": [
+			"Vacuum all six coats on the left-hand side of this room to reveal the Gem.",
+			[
+				{
+					"id": 55999,
+					"title": "The Dance Hall - Green Gem",
+					"file_name": "8915db5f-c82f-47c3-9096-9c88e8b9f03e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8915db5f-c82f-47c3-9096-9c88e8b9f03e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390175": [
+			"Use a Suction Shot Slam on the wall-mounted record to release a bunch of Spiders, including a Gold Spider, from behind the wall.",
+			[]
+		],
+		"390178": ["Defeat with a Suction Shot, then shine the Dark-Light on it.", []],
+		"390179": [
+			"Use a Suction Shot on this panel to reveal a Gooigi Grate, then go through it to reveal a bunch of treasure!",
+			[]
+		],
+		"390181": [
+			"",
+			[
+				{
+					"id": 55820,
+					"title": "The Dance Hall - Elevator Button 15F",
+					"file_name": "6e830841-d046-4baa-bfa7-b1da5885c3ac.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6e830841-d046-4baa-bfa7-b1da5885c3ac.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390182": [
+			"After defeating [DJ Phantasmagloria](#loc=390180), have Luigi and Gooigi stand on both of the dark dance floor squares to reveal this. Use the socket to vacuum down the back wall!",
+			[
+				{
+					"id": 55823,
+					"title": "The Dance Hall - Super Suction Socket",
+					"file_name": "e0cf94d3-3ca0-4ea5-8614-6b335bbcc8bd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0cf94d3-3ca0-4ea5-8614-6b335bbcc8bd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390183": [
+			"**Prerequisite:** Use the [Super Suction Socket](#loc=390182)\n\nIn the back room, shine the Dark-Light on the mannequin head that's missing a red afro. After it's revealed, vacuum the afro off to reveal the Gem.",
+			[
+				{
+					"id": 55821,
+					"title": "The Dance Hall - Blue Gem",
+					"file_name": "557435f9-0132-4b75-a1df-4ef3f1038ab4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/557435f9-0132-4b75-a1df-4ef3f1038ab4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390184": ["**Prerequisite:** Use the [Super Suction Socket](#loc=390182)", []],
+		"390185": [
+			"**Prerequisite:** Use the [Strobulb Light](#loc=390184)\n\nOn this side of the Dance Hall, shine the Dark-Light at the spot closest to the camera where a floating lamp is. This will reveal a Gem Goob with the White Gem on them.",
+			[
+				{
+					"id": 55824,
+					"title": "The Dance Hall - White Gem",
+					"file_name": "0bb76d44-e5e5-4858-a37c-1651393affe8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0bb76d44-e5e5-4858-a37c-1651393affe8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390186": [
+			"**Prerequisite:** Use the [Strobulb Light](#loc=390184)\n\nUse Mario and Gooigi to vacuum the turntables in the elevated sections flanking the dance floor. This will drop the disco ball and release the Gem.",
+			[
+				{
+					"id": 55825,
+					"title": "The Dance Hall - Red Gem",
+					"file_name": "392b2a30-4a20-494f-8901-6d9464ca2a7f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/392b2a30-4a20-494f-8901-6d9464ca2a7f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390187": [
+			"Spawn area for Boosician. Can be found inside:\n\n- Trash Bins\n\nIf not in this area, check the [Elevator Hall Shops](#loc=390189) and [Dance Floor](#loc=390188).",
+			[]
+		],
+		"390188": [
+			"Spawn area for Boosician. Can be found inside:\n\n- Trash Bins, including in the side areas. Use the [Strobulb Light](#loc=390184) to get to these areas.\n\nIf not in this room, check the [Elevator Hall](#loc=390187) and [Elevator Hall Shops](#loc=390189).",
+			[]
+		],
+		"390189": [
+			"Spawn area for Boosician. If located here, he can only be found in the Trash Bin in this corner, making him impossible to miss in this instance.\n\nIf not in this room, check the [Elevator Hall](#loc=390187) and [Dance Floor](#loc=390188).",
+			[]
+		],
+		"390190": ["Under the bench.", []],
+		"390191": [
+			"Use the [Gooigi Grate](#loc=390193) in the back-left corner of the main lounge area to get on top of the elevator shaft. Here, check the northern wall to find an alcove that drops you down to where the Purple Gem is. You may have to wiggle Gooigi around in front of the Purple Gem before you're able to pick it up.",
+			[
+				{
+					"id": 55827,
+					"title": "Master Suite - Purple Gem - Cropped",
+					"file_name": "ffc04e94-5791-4557-bb6a-41bfa7aba10b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ffc04e94-5791-4557-bb6a-41bfa7aba10b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390192": ["Access using the Gooigi Grate.", []],
+		"390193": ["Connects to [Gooigi Grate 1B](#loc=390206).", []],
+		"390194": [
+			"On top of the elevator accessed via the [Gooigi Grate](#loc=390193), found behind and on the central structure.",
+			[]
+		],
+		"390195": [
+			"On top of the elevator accessed via the [Gooigi Grate](#loc=390193). Vacuum the crack in the wall to the right of the drop-down alcove to get these.",
+			[]
+		],
+		"390196": [
+			"Have Luigi and Gooigi stand on the small tables between the couches on the east and west sides of the seating area.",
+			[
+				{
+					"id": 55828,
+					"title": "Master Suite - Green Gem",
+					"file_name": "3586df83-55b4-40b2-973f-4b5a0a9b96f3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3586df83-55b4-40b2-973f-4b5a0a9b96f3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390201": ["Suction Shot the golden panel at this spot to reveal the grate.", []],
+		"390202": ["Buried in the sand.", []],
+		"390203": ["Buried in the sand.", []],
+		"390204": ["Vacuum the sand away from the base of the tree to release the treasure.", []],
+		"390205": ["Connects to [Gooigi Grate 3B](#loc=390207).", []],
+		"390206": ["Connects to [Gooigi Grate 1A](#loc=390193).", []],
+		"390207": ["Connects to [Gooigi Grate 3A](#loc=390205).", []],
+		"390208": ["Reveal using the Dark-Light.", []],
+		"390209": [
+			"Vacuum the object to the south of this painting to case a shadow of King Boo, and then Luigi. This will reveal the Gem, and a bunch of treasure to boot!",
+			[
+				{
+					"id": 55829,
+					"title": "Master Suite - White Gem",
+					"file_name": "712d8f43-a1ad-4f18-bf07-8e1363335d34.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/712d8f43-a1ad-4f18-bf07-8e1363335d34.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390210": ["To get this, Suction Shot the [Power Box](#loc=390214) on the lower floor.", []],
+		"390211": [
+			"Take the [Book](#loc=390216) from downstairs and slot it into the empty spot here to get this Gem.",
+			[
+				{
+					"id": 55831,
+					"title": "Master Suite - Red Gem",
+					"file_name": "f7e06da4-9ba8-4fb6-9890-bdd6ddb0ad1b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f7e06da4-9ba8-4fb6-9890-bdd6ddb0ad1b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390213": ["Crawling around the spiral staircase.", []],
+		"390214": [
+			"On the bottom floor. Suction Shot this to turn off all the lasers, letting you access the [Library Key](#loc=390210).",
+			[]
+		],
+		"390215": ["Sitting in a golden bowl on the third bookshelf level.", []],
+		"390216": [
+			"On the ground floor, sitting on top of the bookshelf in the left-hand side area. Use this to collect the [Red Gem](#loc=390211)!",
+			[
+				{
+					"id": 55830,
+					"title": "Master Suite - Library Book",
+					"file_name": "4e4d1a06-933a-4a5d-8720-f8182b646b2b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e4d1a06-933a-4a5d-8720-f8182b646b2b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390217": ["Open by using a Burst (ZL + ZR).", []],
+		"390220": [
+			"Use the vacuum to turn the book's pages until you land on one with a Golden Goob. It'll pop out for real, allowing you to capture it.",
+			[]
+		],
+		"390221": ["Yank this out with a Suction Shot to access the secret room.", []],
+		"390222": ["On the ground floor, inside the secret room accessed via the [Purple Book](#loc=390221).", []],
+		"390223": ["On the ground floor, inside the secret room accessed via the [Purple Book](#loc=390221).", []],
+		"390224": ["On the ground floor, inside the secret room accessed via the [Purple Book](#loc=390221).", []],
+		"390276": ["Sitting underneath the cabinet.", []],
+		"390277": ["Smash with a Suction Shot.", []],
+		"390278": ["Sitting on the ledge next to the small King Boo statue.", []],
+		"390281": ["Inside the fireplace. To access, use Luigi to vacuum the fire away.", []],
+		"390283": [
+			"To disable, have Luigi stand in the north part of the room while Gooigi blows on the [Painting Fan](#loc=390285). When the Power Switch is visible, enter its tiny room from the back using Luigi.",
+			[]
+		],
+		"390284": [
+			"After turning off the lasers with the [Power Switch](#loc=390283), enter here with Gooigi. Make sure the use the vacuum to make sure you get all the Treasure here!",
+			[]
+		],
+		"390285": [
+			"Use this to turn the middle part of the room, letting you access the Power Switch, the Secret Passage and Chest, and the Drawing Room Key.",
+			[]
+		],
+		"390286": [
+			"After turning off the lasers with the [Power Switch](#loc=390283), head into the secret passage below the floor to get this.",
+			[]
+		],
+		"390287": [
+			"After turning off the lasers with the [Power Switch](#loc=390283), enter here with Gooigi and vacuum the sheet on top of the cardboard boxes.",
+			[]
+		],
+		"390288": [
+			"Get this by using the [Painting Fan](#loc=390285) to access and turn off the [Power Switch](#loc=390283), disabling the lasers, then using the Painting Fan again to turn the middle of the room to this Key.",
+			[]
+		],
+		"390289": [
+			"Fire the brass globe to the left of the main couch in the center of the room to smash this open.",
+			[]
+		],
+		"390290": ["Visible in the reflection of the mirror. Shine the Dark-Light on the painting to get Coins!", []],
+		"390293": [
+			"Open with the keys from each of the four main rooms:\n\n- [Library Key](#loc=390210)\n- [Drawing Room Key](#loc=390288)\n- [Master Bedroom Key](#loc=390322)\n- [Master Bathroom Key](#loc=390311)",
+			[]
+		],
+		"390295": ["Hidden behind the end of the sofa.", []],
+		"390299": [
+			"Make sure to turn off the shower so Gooigi can use this!",
+			[
+				{
+					"id": 55859,
+					"title": "Master Suite - Gooigi Grate 5",
+					"file_name": "07836938-3904-4109-991a-df3d8492bbc7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07836938-3904-4109-991a-df3d8492bbc7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390300": ["Accessed in the basement of this room using [Gooigi Grate 5](#loc=390299).", []],
+		"390301": ["Accessed in the basement of this room using [Gooigi Grate 5](#loc=390299).", []],
+		"390302": ["Accessed in the basement of this room using [Gooigi Grate 5](#loc=390299).", []],
+		"390303": ["Accessed in the basement of this room using [Gooigi Grate 5](#loc=390299).", []],
+		"390304": ["Accessed in the basement of this room using [Gooigi Grate 5](#loc=390299).", []],
+		"390305": [
+			"To get this, enter the basement of this room using [Gooigi Grate 5](#loc=390299), then use [Gooigi Grate 6A](#loc=390303) to get up to the Gem.",
+			[
+				{
+					"id": 55860,
+					"title": "Master Suite - Blue Gem",
+					"file_name": "bd1a2ee4-23ec-4274-95d8-62ad55679be5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd1a2ee4-23ec-4274-95d8-62ad55679be5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390306": [
+			"Suction Shot this to disable the lasers in the Master Bathroom so you can get the [Master Bathroom Key](#loc=390311).",
+			[]
+		],
+		"390308": ["Up on the highest shelf in this spot.", []],
+		"390309": [
+			"After using the [Power Switch](#loc=390306), interact with this to reveal [these Gold Ingots](#loc=390310).",
+			[]
+		],
+		"390310": [
+			"Found in a hidden compartment at this spot. To get them, use Gooigi to turn the taps on the [Sink](#loc=390309), then switch back to Luigi to vacuum up the Ingots.",
+			[]
+		],
+		"390311": ["Access this by turning off the Power Switch, then blowing on the bath taps with the vacuum.", []],
+		"390312": [
+			"After flipping the [Power Switch](#loc=390306), return here and grab the bucket of water. Douse the Hot Coal Box here to fog up the room and reveal two relaxing Golden Goobs. Use a Burst (ZL + ZR) to get their attention, but only do one at a time so you don't risk the other running away.",
+			[]
+		],
+		"390316": ["Inside the bedside table.", []],
+		"390317": ["Inside the elevated alcove with the light in it.", []],
+		"390319": ["Vacuum the dress then yank with a Suction Shot to reveal some shelves with treasure.", []],
+		"390320": ["Yank this with the Suction Shot to flip the floor in order to get to the Master Bedroom Key.", []],
+		"390321": [
+			"Flip this to disable all lasers in this room, letting you get to the [Master Bedroom Key](#loc=390322).",
+			[]
+		],
+		"390322": [
+			"Get to this by yanking the right-hand mannequin with a Suction Shot, then tilt the platform left and right to get to the Power Switch that disables the lasers.",
+			[]
+		],
+		"390323": [
+			"To get this, yank the mannequin switch with the Suction Shot to flip the floor into a see-saw. Walk left and right to raise it upwards: the Yellow Gem will be at the very top, behind some bars that only Gooigi can pass through.",
+			[
+				{
+					"id": 55861,
+					"title": "Master Suite - Yellow Gem",
+					"file_name": "da6a4c06-f907-43c8-85ae-619cdd8a2985.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da6a4c06-f907-43c8-85ae-619cdd8a2985.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390324": [
+			"After getting the [Master Bedroom Key](#loc=390322), ten Gold Spiders will drop onto the metal see-saw in groups of 1-2.",
+			[]
+		],
+		"390325": [
+			"**Prerequisite:** [Dark-Light](#loc=385490)\n\nReveal this Chair by shining the Dark-Light on it. Doing so will release a Golden Goob!",
+			[]
+		],
+		"390326": [
+			"**Prerequisite:** [Dark-Light](#loc=385490)\n\nReveal this Chest by shining the Dark-Light on it.",
+			[]
+		],
+		"390327": [
+			"**Prerequisite:** [Dark-Light](#loc=385490)\n\nReveal this Trash Bin by shining the Dark-Light on it.",
+			[]
+		],
+		"390328": ["You can get an achievement here for removing all of the spiders and cobwebs in this space.", []],
+		"390329": ["Vacuum the dress off this mannequin.", []],
+		"390330": ["While this can't be opened like the other mall gate, Gooigi can in fact pass through it!", []],
+		"390331": [
+			"Drops you on top of the drawer cabinet in the barbershop, letting you complete the Achievement for sucking up all merchandise in the hotel shops.",
+			[]
+		],
+		"390333": [
+			"To reach this, use the [Gooigi Grate](#loc=390330) to the left at the top of the stairs. Follow the path to drop down a second [Gooigi Grate](#loc=390331) and into the barber shop. Vacuum the items on top to clear the way to a third [Gooigi Grate](#loc=390332) that gets you behind the store. From there, head all the way right.",
+			[]
+		],
+		"390334": ["Suction Shot the side of this tree to release three Gold Bats.", []],
+		"390336": [
+			"Destroy this by firing one of the fossil chunks at it.\n\nYou'll get an Achievement for destroying **all** the exhibits on the borders of this room.",
+			[]
+		],
+		"390337": [
+			"When the story takes you to B2: Boilerworks for the second time, shine the Dark-Light on this spot to reveal a console. Interact with it to get an Achievement!",
+			[]
+		],
+		"390338": [
+			"In the sand here is a beach ball that looks like a Boo. Fire it into the tip of the pyramid to pop it and release three Gold Bats that fly down the area south of the pyramid.",
+			[]
+		],
+		"390339": ["Sitting on top of the red chair here (may be obscured by the curtains).", []],
+		"390340": [
+			"Use a Burst (ZL + ZR) to be able to suck up one of the cannonballs. Insert it into the cannon where the [Yellow Toad's Portrait](#loc=389582) was, and you'll shoot down the background moon for an Achievement.",
+			[]
+		],
+		"390341": [
+			"You can get an Achievement for flashing all of the dark purple Strobe Flowers, located in the Atrium, Blooming Suite, and the basement of the Mushroom Suite.",
+			[]
+		],
+		"390342": [
+			"Leave and return to Paranormal Productions to find the ghost director, Morty, in this room. Capture him for an Achievement!",
+			[]
+		],
+		"390343": [
+			"",
+			[
+				{
+					"id": 55862,
+					"title": "Screenshot 2024-08-02 23-09-07",
+					"file_name": "947d75a0-ab5b-4440-8778-988581d6d69f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/947d75a0-ab5b-4440-8778-988581d6d69f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390345": ["Only becomes available after you've defeated [Hellen Gravely](#loc=390344).", []],
+		"390347": ["Near the top of the stairwell you follow Mario up.", []],
+		"390348": ["Around the corner once you get onto the roof.", []],
+		"390349": [
+			"",
+			[
+				{
+					"id": 55863,
+					"title": "Screenshot 2024-08-02 23-22-24",
+					"file_name": "d1869c8a-5083-4f11-a8cf-568e8fd3a972.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d1869c8a-5083-4f11-a8cf-568e8fd3a972.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390351": [
+			"",
+			[
+				{
+					"id": 55864,
+					"title": "Screenshot 2024-08-02 23-24-12",
+					"file_name": "2a1803ad-ba8b-41bc-acb9-c1170db977ef.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2a1803ad-ba8b-41bc-acb9-c1170db977ef.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"391223": [
+			"Fire Toad at this display case to smash it. If Toad is unavailable, a bone from the main skeleton hall where you fought [Ug](#loc=387314) will do just as well.\n\nOnce it's open, use the Dark-Light to reveal the Purple Gem on one of the stands.",
+			[
+				{
+					"id": 56004,
+					"title": "Unnatural History Museum Gem - Purple",
+					"file_name": "da6f9635-611f-48ad-a2f0-0fa5d1e8c841.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da6f9635-611f-48ad-a2f0-0fa5d1e8c841.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

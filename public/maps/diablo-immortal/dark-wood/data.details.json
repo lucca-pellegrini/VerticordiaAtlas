@@ -1,0 +1,60 @@
+{
+	"v": 1,
+	"d": {
+		"181811": [
+			"**Difficulty:** 1  \n**Recommended Level:** 20  \n**Rewards:**\n- XP\n- Gold\n- Mystery Equipment",
+			[]
+		],
+		"181895": ["Spawns randomly", []],
+		"181897": ["**Requirements:** Spawns randomly", []],
+		"181923": ["**Achievement:** [Blood Rose](#loc=192006)", []],
+		"182016": ["**Requirements:** Level 60", []],
+		"182179": ["Accessible during the story", []],
+		"182185": [
+			"Trigger the zone event [Purify the Corruption](#loc=182016) and achieve 100% to spawn this elite.\n\n**Achievement:** [Shadow Clone](#loc=192000)",
+			[]
+		],
+		"182187": ["**Achievement:** [The Countess](#loc=192005)", []],
+		"191877": ["**Achievement:** [Zaerhud](#loc=192007)", []],
+		"191878": ["[Hidden Lair] Destroy 12 Demonic Effigies and Kill Damned Cultists", []],
+		"191879": [
+			"Seek the Priestess Akara and discover the cause of corruption in the Dark Wood.\n\nComplete the main story in Dark Wood.",
+			[]
+		],
+		"191880": ["Explore all of Dark Wood", []],
+		"191881": [
+			"Decipher Horadric Bestiary pages:\n- The Countess\n- Blood Rose\n- Direwolf\n- Dark Creeper\n- Bloodsworn Priestess",
+			[]
+		],
+		"191882": ["[Hidden Lair] Defeat 15 Damned Cultists Trapped in Iron Maidens", []],
+		"191883": ["Seal the Crimson Bloom to dispel the Blood Apparition", []],
+		"192000": ["[Zone Trial] Defeat your [Shadow Clone](#loc=182185) at the Tree of Inifuss", []],
+		"192005": ["[Dungeon] Kill [The Countess](#loc=182187) in the [Forgotten Tower](#loc=181811)", []],
+		"192006": ["Return to Dark Wood to kill the regrown [Blood Rose](#loc=181923)", []],
+		"192007": ["Defeat [Zaerhud](#loc=191877) in the Dark Wood", []],
+		"192275": [
+			"**Set:** Feasting Baron's Pack  \n**Type:** Ring  \n**Acquired from:** [Forgotten Tower ](#loc=181811) on Hell 4 difficulty  \n**Set Bonus:**\n- (2 items) Increases the duration of your abilities that cause loss of control by 30%.\n- (4 items) Increases damage done from all sources by 15% to enemies suffering under your loss of control effects.\n- (6 items) Unleash a nova of ice each time you defeat an enemy afflicted by your loss of control effects, dealing 2,318 damage to nearby enemies and Freezing them for 4 seconds. Cannot occur more often than once every 40 seconds.",
+			[]
+		],
+		"192288": [
+			"**Set:** Issatar Imbued  \n**Type:** Gloves  \n**Acquired from:** [Forgotten Tower ](#loc=181811) on Hell 2 difficulty  \n**Set Bonus:**\n- (2 items) Each time you defeat an enemy, you gain 30% increased Movement Speed for 2 seconds.\n- (4 items) Damage dealt increased by 2.5% for every 5% increase in your Movement Speed, up to a maximum damage increase of 25%.\n- (6 items) Each time you defeat an enemy, you have a 10% chance to gain an orbiting soul orb for 10 seconds, which deals 577 damage when it passes through an enemy. Cannot gain a soul orb more often than once every 40 seconds.",
+			[]
+		],
+		"192293": [
+			"**Set:** Shepard's Call to Wolves  \n**Type:** Ring  \n**Acquired from:** [Forgotten Tower ](#loc=181811) on Hell 4 difficulty  \n**Set Bonus:**\n- (2 items) Your summons deal 15% more damage.\n- (4 items) Critical Hit Chance increased by 3% for each of your summons, up to a maximum of 18%.\n- (6 items) Your summons enter a frenzied state for 10 seconds each time one of them critically hits. The frenzied state increases their damage and Attack Speed by 60%. Cannot occur more often than once every 40 seconds.",
+			[]
+		],
+		"192302": [
+			"**Set:** Untouchable Mountebank  \n**Type:** Boots  \n**Acquired from:** [Forgotten Tower ](#loc=181811) on Hell 1 difficulty  \n**Set Bonus:**\n- (2 items) Each time you take damage, you have a 20% chance to gain a shield that absorbs damage equal to 13% of your maximum Life. Cannot occur more often than once every 9 seconds.\n- (4 items) Shield's damage absorption increased to 33% of your maximum Life, and you can move unhindered through enemies while this shield is active.\n- (6 items) Your shield has a 25% chance when it expires to explode for 40% of your maximum Life in damage to all nearby enemies.",
+			[]
+		],
+		"192313": [
+			"**Set:** War Rags of Shal'baas  \n**Type:** Belt  \n**Acquired from:** [Forgotten Tower ](#loc=181811) on Hell 1 difficulty  \n**Set Bonus:**\n- (2 items) Primary Attack damage increased by 15%.\n- (4 items) Your Primary Attacks gradually increase your Attack Speed, up to a maximum of 25%.\n- (6 items) Your Primary Attacks have a 5% chance to increase your Attack Speed for 12 seconds, cannot occur more than once every 40 seconds.",
+			[]
+		],
+		"192315": [
+			"**Set:** Windloft Perfection  \n**Type:** Amulet  \n**Acquired from:** [Forgotten Tower ](#loc=181811) on Hell 2 difficulty  \n**Set Bonus:**\n- (2 items) Gain Thousand Winds, increasing your Movement Speed by 15%. Thousand Winds deactivates for 3 seconds if you take damage.\n- (4 items) Increases your damage done by 20% while Thousand Winds is active.\n- (6 items) Gain a shield that makes you immune to damage 5 times while Thousand Winds is active. Cannot gain this shield more often than once every 40 seconds.",
+			[]
+		]
+	}
+}

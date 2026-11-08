@@ -76,7 +76,7 @@ export const getMeta = async (k: string): Promise<any> => (await dbGet("meta", k
 
 export const setMeta = (k: string, v: any): Promise<void> => {
 	const done = dbPut("meta", { k, v });
-	if (/^presets:/.test(k)) syncNote();
+	if (/^presets:/.test(k)) syncNote([`meta:${k}`]);
 	return done;
 };
 

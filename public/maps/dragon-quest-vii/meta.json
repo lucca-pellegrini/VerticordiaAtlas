@@ -261,7 +261,8 @@
 					"tileSize": 256,
 					"background": "#0d1925"
 				}
-			]
+			],
+			"compact": "past/data.compact.json"
 		},
 		{
 			"slug": "present",
@@ -278,7 +279,8 @@
 					"tileSize": 256,
 					"background": "#0d1925"
 				}
-			]
+			],
+			"compact": "present/data.compact.json"
 		}
 	]
 }

@@ -217,7 +217,8 @@
 					"tileSize": 256,
 					"background": "#1d1d1d"
 				}
-			]
+			],
+			"compact": "commonwealth/data.compact.json"
 		},
 		{
 			"slug": "far-harbor",
@@ -234,7 +235,8 @@
 					"tileSize": 256,
 					"background": "#1d1d1d"
 				}
-			]
+			],
+			"compact": "far-harbor/data.compact.json"
 		},
 		{
 			"slug": "nuka-world",
@@ -251,7 +253,8 @@
 					"tileSize": 256,
 					"background": "#1d1d1d"
 				}
-			]
+			],
+			"compact": "nuka-world/data.compact.json"
 		},
 		{
 			"slug": "fallout-london",
@@ -268,7 +271,8 @@
 					"tileSize": 256,
 					"background": "#1d1d1d"
 				}
-			]
+			],
+			"compact": "fallout-london/data.compact.json"
 		}
 	]
 }

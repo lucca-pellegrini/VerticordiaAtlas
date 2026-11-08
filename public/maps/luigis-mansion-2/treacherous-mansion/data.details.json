@@ -1,0 +1,560 @@
+{
+	"v": 1,
+	"d": {
+		"384855": [
+			"In E-1: Front-Door Key, use the Dark-Light to reveal a grotesque statue on the railing. Flash it with the Strobulb to get some money!",
+			[]
+		],
+		"384856": ["In E-1: Front-Door Key, reveal this chest on the far left-hand side of the front porch.", []],
+		"384857": ["In E-1: Front-Door Key, suck up these loose bills inside the doghouse.", []],
+		"384858": [
+			"In E-1: Front-Door Key, look for the fake wall near [the doghouse](#loc=384857) that you can use to reach this spot. Blow out all the candles here to reveal a Golden Greenie.",
+			[]
+		],
+		"384859": ["In E-1: Front-Door Key, vacuum the fake wall to get this loot.", []],
+		"384860": ["Light these spider-webs on fire so you can vacuum three Gold Ingots from the ceiling.", []],
+		"384861": [
+			"In E-1: Front-Door Key, after fighting the suits of armor, check down the right-hand tunnel the first suit was guarding for a chest at the end.",
+			[]
+		],
+		"384862": [
+			"In the Underground Lab room, turn the valve with the Poltergust to zap the suit of armor and reveal this Boo.",
+			[
+				{
+					"id": 54789,
+					"title": "Boo - Boolldog",
+					"file_name": "0277b28a-5d4b-4307-ab46-75fcdb07ee70.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0277b28a-5d4b-4307-ab46-75fcdb07ee70.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384863": [
+			"In E-1: Front-Door Key, after revealing Boolldog in the Underground Lab, vacuum up the helmet and fire it at the glass jar on the right side of the room to get this Diamond.",
+			[
+				{
+					"id": 54794,
+					"title": "Gem - Diamond 1",
+					"file_name": "c02bf5fb-b078-4ea6-be66-c12bc6b4426f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c02bf5fb-b078-4ea6-be66-c12bc6b4426f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384864": [
+			"In E-1: Front-Door Key, in the second Hidden Catacombs, head right from the Underground Lab and then forwards toward the camera. You'll find a chest here on your right.",
+			[
+				{
+					"id": 54790,
+					"title": "Haunted Catacombs - 53 Coins",
+					"file_name": "73f5775a-215d-4a9c-9ed2-3fd6c703e6bf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/73f5775a-215d-4a9c-9ed2-3fd6c703e6bf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384865": [
+			"In the second Hidden Catacombs, from the Underground Lab's door, follow the suits of armor right, forwards to the wall, then right again. Here you'll find the Diamond behind a wall of web.\n\nTo burn it down, continue back towards the camera, right, forwards to the back wall, then right. Here you'll find a painting of a ball of web. Use the Dark-Light on it to get a real one, light it with a torch, then return to the webs with the Diamond. Set them alight to free the Diamond!",
+			[
+				{
+					"id": 54792,
+					"title": "Gem - Diamond #2b",
+					"file_name": "143cb5b4-5bd3-4214-9a51-0247842d7ef2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/143cb5b4-5bd3-4214-9a51-0247842d7ef2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 54791,
+					"title": "Gem - Diamond #2a",
+					"file_name": "b92c4dc3-6529-4852-8c78-bcc5d6b5c118.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b92c4dc3-6529-4852-8c78-bcc5d6b5c118.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384866": [
+			"From [Diamond #2](#loc=384865), head forward towards the camera as far as you can, then head right and through the door to get to the Cliffside. You'll see the Diamond on the vines above: vacuum it down!",
+			[
+				{
+					"id": 54793,
+					"title": "Gem - Diamond 3",
+					"file_name": "67b511ae-84ef-4b60-989e-c53deba65efe.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/67b511ae-84ef-4b60-989e-c53deba65efe.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384867": ["In E-1: Front-Door Key, three Gold Bats and a regular Bat will fly out as you pass by here.", []],
+		"384868": ["In E-1: Front-Door Key, open this chest for 100 Coins.", []],
+		"384869": ["Behind the fake wall portion.", []],
+		"384870": ["In E-1: Front-Door Key, flash this flower to get 100 Coins.", []],
+		"384871": [
+			"In the first Haunted Catacombs section, from the throne, head forward towards the camera all the way, then go right. On the back wall is a fake picture of a coffin: vacuum it to find a real one behind bars.\n\nTo get there, once again go all the way towards the camera and go right. Next, go forwards all the way to the back wall (past the two attacking suits of armor), then turn right to find the coffin and collect the three Gold Ingots.",
+			[
+				{
+					"id": 54798,
+					"title": "Haunted Catacombs - 60 Coins B",
+					"file_name": "e26e72cf-7930-4a3a-a6ea-b28388042c6d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e26e72cf-7930-4a3a-a6ea-b28388042c6d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 54797,
+					"title": "Haunted Catacombs - 60 Coins A",
+					"file_name": "79ac88e6-1f25-4e29-ae9a-6828283ae519.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79ac88e6-1f25-4e29-ae9a-6828283ae519.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384872": [
+			"From the location of the [60 Coins](#loc=384871), head inside the coffin for a maze minigame. The best around is to go clockwise around the area *without* crossing over in the middle.",
+			[
+				{
+					"id": 54799,
+					"title": "Haunted Catacombs - 100 Coins",
+					"file_name": "14ff0b09-44a8-4696-a62d-96baa58eca68.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14ff0b09-44a8-4696-a62d-96baa58eca68.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384873": [
+			"In E-2: Double Trouble, head to this spot and quickly flash the three Gold Crows sitting on the edge.",
+			[]
+		],
+		"384874": ["In E-2: Double Trouble, you can find three Gold Ingots here.", []],
+		"384875": [
+			"In E-2: Double Trouble, shine the Dark-Light on the right-hand grotesque statue to reveal a chain to pull. Do this to reveal a safe under the stairs: open it with the Strobulb, then defeat the Empowered Slammer so you can claim the Diamond.",
+			[
+				{
+					"id": 54800,
+					"title": "Gem - Diamond 4",
+					"file_name": "086fd72e-f309-4acc-aebf-4daf7da3fae9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/086fd72e-f309-4acc-aebf-4daf7da3fae9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384876": ["Vacuum the leaf here to reveal a chest with 95 Coins inside.", []],
+		"384877": ["Connects to [Front Entrance Portal J](#loc=384878).", []],
+		"384878": ["Connects to the [Jungle Exhibit Portal](#loc=384877).", []],
+		"384879": ["Reveal this door by shining onto it with the Dark-Light.", []],
+		"384880": ["Three Gold Ingots sit here in the Restrooms.", []],
+		"384881": ["Two Gold Ingots can be sucked out of the toilet cubicle. Ew ew ew...", []],
+		"384882": ["Vacuum the sand pile blocking these drawers, allowing you to open them for cash.", []],
+		"384883": [
+			"Yank the chain of this toilet to eject the Diamond out of the toilet. Ew...",
+			[
+				{
+					"id": 54807,
+					"title": "Gem - Diamond 5b",
+					"file_name": "bc953872-5238-4606-933d-faea1c6751d4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bc953872-5238-4606-933d-faea1c6751d4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384884": ["Two Gold Ingots can be vacuumed out of the toilet. Double ew...", []],
+		"384885": ["Connects to [Front Entrance Portal A](#loc=384886).", []],
+		"384886": ["Connects to the [Ancient Portal](#loc=384885).", []],
+		"384887": [
+			"Connects to [Front Entrance Portal D](#loc=384888), but is hidden behind the red bookcase. Reveal the Portal by opening the chest to get a red book, then putting the red book into the bookcase.",
+			[]
+		],
+		"384888": ["Connects to the [Dark Ages Portal](#loc=384887).", []],
+		"384889": [
+			"In E-2: Double Trouble, reveal some drawers at this spot with the Dark-Light, then open them to reveal a Golden Greenie.",
+			[]
+		],
+		"384890": [
+			"Get onto the Gargoyle Roof by vacuuming the [Mammoth Trunk](#loc=384891) in the Ice Age Exhibit. Here, you'll need to recover three stars and add them to the constellation:\n\n- One is on the right in front of a grotesque statue.\n- Another is in the mouth of a grotesque statue in the front-left corner. Flash it with the Strobulb.\n- The third flies over the middle of the room: use the Poltergust to knock it off-course.",
+			[
+				{
+					"id": 54802,
+					"title": "Gem - Diamond 6b",
+					"file_name": "4a1957c6-be53-4384-ba16-7d4935e57ade.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4a1957c6-be53-4384-ba16-7d4935e57ade.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384891": [
+			"Vacuum this to be flung up to Gargoyle Roof.",
+			[
+				{
+					"id": 54803,
+					"title": "Gem - Diamond 6a",
+					"file_name": "8796ba64-e97d-4d87-91cc-eec14a97809a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8796ba64-e97d-4d87-91cc-eec14a97809a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384892": ["In E-2: Double Trouble, vacuum the air conditioning unit up above this point.", []],
+		"384893": ["In E-2: Double Trouble, vacuum the snow pile in this spot for two Gold Ingots.", []],
+		"384894": ["In E-2: Double Trouble, vacuum the fish on the fishing line.", []],
+		"384895": [
+			"Shine the Dark-Light on this spot to reveal a grotesque statue. Flash it with the Strobulb to get some cash.",
+			[]
+		],
+		"384896": ["Connects to Front Entrance Portal I.", []],
+		"384897": ["Connects to the [Ice Age Portal](#loc=384896).", []],
+		"384898": ["Needs to be watered using the [Water Bucket](#loc=384900) in the Dark Age Exhibit.", []],
+		"384899": [
+			"Acquired by growing a wilted plant at this spot and then flashing it. To water it, take the [Water Bucket](#loc=384900) from the Dark Ages Exhibit, fill it with water in the Jungle Exhibit, then take it here.",
+			[
+				{
+					"id": 54804,
+					"title": "Gem - Diamond 7",
+					"file_name": "d19b00c9-a345-411c-a0fc-313c8a0dd229.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d19b00c9-a345-411c-a0fc-313c8a0dd229.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384900": [
+			"Used as a helmet by an Enhanced Greenie, this Water Bucket is key to several puzzles throughout the mansion.",
+			[]
+		],
+		"384902": [
+			"Fought mandatorily in E-2: Double Trouble.",
+			[
+				{
+					"id": 54805,
+					"title": "Hidden Boo - Boopa Troopa",
+					"file_name": "2944f820-7495-4de1-bcd0-a91e07b8906a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2944f820-7495-4de1-bcd0-a91e07b8906a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384904": ["Used to solve various puzzles throughout the mansion.", []],
+		"384906": [
+			"In E-3: A Train to Catch, reveal the missing gargoyle with the Dark-Light, then flash it with the Strobulb.",
+			[]
+		],
+		"384907": [
+			"In E-3: A Train to Catch, reveal the missing gargoyle with the Dark-Light, then flash it with the Strobulb.",
+			[]
+		],
+		"384908": [
+			"In E-3: A Train to Catch, reveal the missing gargoyle with the Dark-Light, then flash it with the Strobulb.",
+			[]
+		],
+		"384910": ["In E-3: A Train to Catch, flash the safe up on the wall to get some cash.", []],
+		"384911": [
+			"In E-3: A Train to Catch, reveal the missing gargoyle with the Dark-Light, then flash it with the Strobulb.",
+			[]
+		],
+		"384912": ["Flash the safe up the wall here to get 53 Coins.", []],
+		"385012": [
+			"In E-3: A Train to Catch, four Gold Spiders and a Gold Mouse can be found here in the West Corridor.",
+			[]
+		],
+		"385016": [
+			"In E-3: A Train to Catch, tug both of the red sand bags on the hot air balloon to uncover the Gem. Beware: tugging the first one will release two Empowered Greenies and an Empowered Hider!",
+			[
+				{
+					"id": 54808,
+					"title": "Gem - Diamond 8",
+					"file_name": "31519350-faef-46a9-973c-baeb63dd94a5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31519350-faef-46a9-973c-baeb63dd94a5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385017": ["Blow on the propeller of the plane hanging on the ceiling to move it and release some bills.", []],
+		"385018": ["Connects to [Front Entrance Portal S](#loc=385019).", []],
+		"385019": ["Connects to the [Space Portal](#loc=385018).", []],
+		"385020": ["Fought during E-3: A Train to Catch.", []],
+		"385024": [
+			"In E-3: A Train to Catch, a Golden Greenie can be found in this rocket. To get to it, take one of the [Logs](#loc=384904) from the Jungle Exhibit, light it with a torch from the Ancient Exhibit, then bring it here in the Space Exhibit to light the fuse. The rocket will take off: exit via the east door to hear it crash back down. Re-enter the room and catch the Golden Greenie!",
+			[]
+		],
+		"385026": [
+			"To open, grab one of the [Logs](#loc=384904) in the Jungle Exhibit and drop it onto the left side of the ship stern in the Nautical Exhibit. This lowers the steering wheel so you can use this door.",
+			[
+				{
+					"id": 54811,
+					"title": "Gem - Diamond 9a",
+					"file_name": "8a43c95f-1b6f-4c4c-bd8d-35813e1b3058.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a43c95f-1b6f-4c4c-bd8d-35813e1b3058.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385027": [
+			"Access by using one of the [Logs](#loc=384904) in the Jungle Exhibit to unlock the nearby [Secret Door](#loc=385026). Then, open the chest on the ship's bow.",
+			[
+				{
+					"id": 54809,
+					"title": "Gem - Diamond 9b",
+					"file_name": "179b3eda-2730-41df-a186-7e8a19a6553e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/179b3eda-2730-41df-a186-7e8a19a6553e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385029": [
+			"Connects to [Front Entrance Portal N](#loc=385030).\n\nIf you blow on the steering wheel in the south-west corner of the room, this will be moved into the Study.",
+			[]
+		],
+		"385030": ["Connects to the [Nautical Portal](#loc=385029).", []],
+		"385031": ["Used to access several Gems in E-3: A Train to Catch.", []],
+		"385033": [
+			"Used to access [Diamond #10](#loc=385037), in E-3: A Train to Catch. Float over using a [Balloon Berry](#loc=385031), then flash the grotesque statue to make it release the book.",
+			[
+				{
+					"id": 54817,
+					"title": "Gem - Diamond 10a",
+					"file_name": "b4188b77-166f-4d3e-84d2-6d63892b382c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b4188b77-166f-4d3e-84d2-6d63892b382c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385037": [
+			"In the blue bookcase in E-3: A Train toe Catch. To lower it, grab a [Balloon Berry](#loc=385031) from the Study and use it to get the [Blue Book](#loc=385033) in the Front Entrance. Take the Blue Book and [portal](#loc=384888) over to the Dark Ages Exhibit and slot it into the bookshelf to reveal the Diamond.",
+			[
+				{
+					"id": 54819,
+					"title": "Gem - Diamond 10b",
+					"file_name": "14dda979-85e4-4d35-a7e6-bc4e1de0c9cc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14dda979-85e4-4d35-a7e6-bc4e1de0c9cc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385043": [
+			"To get here, use a [Balloon Berry](#loc=385031) from the Study and float up to this extra floor of the Jungle Exhibit. Go to this spot and use the Gold Balloon Berry to collect all the Coins in time, revealing a chest with the Gem inside.",
+			[
+				{
+					"id": 54825,
+					"title": "Gem - Diamond 11",
+					"file_name": "d67b4ed7-d2d8-4b28-a253-bb4f8d15c9d9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d67b4ed7-d2d8-4b28-a253-bb4f8d15c9d9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385052": [
+			"In E-3: A Train to Catch, when you enter here from the Jungle Exhibit, three Gold Frogs can be flashed for cash.",
+			[]
+		],
+		"385053": [
+			"In E-3: A Train to Catch, open this chest for 100 Coins. Reach this by using the upper door in the Jungle Exhibit, reached via a Balloon Berry.",
+			[]
+		],
+		"385054": [
+			"In E-3: A Train to Catch, float up here using a Balloon Berry, then use the Golden Balloon Berry to grab all the Coins in time. This will spawn a chest with the Diamond in it.",
+			[
+				{
+					"id": 54826,
+					"title": "Gem - Diamond 12",
+					"file_name": "0b1baa49-67c8-473e-a509-437d25c1a1e8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b1baa49-67c8-473e-a509-437d25c1a1e8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385055": [
+			"In E-3: A Train to Catch, float up here using a Balloon Berry, then use the Golden Balloon Berry to collect all the Coins. This will reveal a chest with Booreaucrat in it.",
+			[
+				{
+					"id": 54827,
+					"title": "Hidden Boo - Boorecrat",
+					"file_name": "0107f5fd-08fa-49fb-a9eb-4b2e7c04d65d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0107f5fd-08fa-49fb-a9eb-4b2e7c04d65d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385056": [
+			"In E-3: A Train to Catch, shine the Dark-Light on the three paintings here for 20 Coins each (two of them need to have existing paintings vacuumed up).",
+			[]
+		],
+		"385057": [
+			"In E-3: A Train to Catch, use a Balloon Berry to float up here. Use the Golden Balloon Berry to collect the Coins and reveal a chest, which contains several Gold Crows.",
+			[]
+		],
+		"385058": [
+			"In E-3: A Train to Catch, float up here with a Balloon Berry and open the chest on the tiny ledge.",
+			[]
+		],
+		"385059": [
+			"In E-3: A Train to Catch, float up here with a Balloon Berry and head down the thin corridor to find three Gold Ingots.",
+			[]
+		],
+		"385060": ["To unlock this door, slot the Golden Book into the bookcase.", []],
+		"385061": [
+			"Shine the Dark-Light on the missing section of train tracks to have a train appear. Hop on it to collect the Diamond!",
+			[
+				{
+					"id": 54828,
+					"title": "Gem - Diamond 13",
+					"file_name": "eee399d0-23fb-48dd-9c8f-5a29b73c959c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eee399d0-23fb-48dd-9c8f-5a29b73c959c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385062": ["In E-3: A Train to Catch, flash the train in this corner of the room to get a buncha notes!", []],
+		"385063": [
+			"Fought and captured mandatorily as part of E-4: Ambush Maneuver",
+			[
+				{
+					"id": 54830,
+					"title": "Hidden Boo - Big Boo",
+					"file_name": "8df491c4-db87-41d4-b891-1642a2e8752d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8df491c4-db87-41d4-b891-1642a2e8752d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385064": [
+			"In E-5: Paranormal Chaos, reveal the missing hot air balloon to expose this Boo.",
+			[
+				{
+					"id": 54829,
+					"title": "Hidden Boo - Maraboo",
+					"file_name": "f84613da-1f0d-4308-ae99-331f8d646f6f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f84613da-1f0d-4308-ae99-331f8d646f6f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"385065": ["Fought in E-Boss: Stop the Knightmare", []],
+		"385066": ["Acquired in E-Boss: Stop the Knightmare", []]
+	}
+}

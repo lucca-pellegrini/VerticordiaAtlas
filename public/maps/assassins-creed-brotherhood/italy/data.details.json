@@ -1,0 +1,762 @@
+{
+	"v": 1,
+	"d": {
+		"42686": ["Leeches", []],
+		"42687": ["**Reward:** Tomatoes", []],
+		"42690": ["Reward: Rabbit's Foot", []],
+		"42691": ["**Reward:** Buddhist Prayer Beads", []],
+		"42771": [
+			"**Note:** To reach this flag you have to jump from the pillar next to it and press grab, when you're close to the ledge, otherwise you won't make the jump and fall down.",
+			[]
+		],
+		"42773": ["Top of a building on the north side of the white pillars", []],
+		"42775": ["Reward Red Jasper", []],
+		"42776": ["Reward: Jar of Leeches", []],
+		"42777": [
+			"On the southwest side of the building facing the water, on a wooden beam.",
+			[
+				{
+					"id": 58609,
+					"title": "",
+					"file_name": "582e0e3c-542d-4cb9-86d0-4bba9ca0f093.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/582e0e3c-542d-4cb9-86d0-4bba9ca0f093.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42780": ["**Reward:** Nutmeg", []],
+		"42781": ["**Reward:** Totem", []],
+		"42782": ["**Reward:** Tomatoes", []],
+		"42784": ["On top of a white pillar", []],
+		"42786": ["**Reward:** Cardinal's Purple Dye", []],
+		"42788": ["Tomatoes x 1", []],
+		"42791": ["On top of one of the pillars", []],
+		"42792": ["**Reward:** Ambergris", []],
+		"42794": [
+			"On the west side of the building next to the pigeon coop.",
+			[
+				{
+					"id": 58610,
+					"title": "",
+					"file_name": "98286ea4-0577-4e5f-a364-d2a985e7c409.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/98286ea4-0577-4e5f-a364-d2a985e7c409.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42795": ["Next to the round window.", []],
+		"42796": ["Requires Rosa in Fiore renovation to unlock.\n\nOn the north side of the building.", []],
+		"42797": ["above the entrance, on the inside of the building", []],
+		"42798": ["east side of the tower", []],
+		"42799": ["north side of the tower", []],
+		"42800": ["on the upper back of the building", []],
+		"42801": ["at the top, on the outside wall. Must climb all the way to the top then drop down onto it.", []],
+		"42802": ["east side wall on the outside", []],
+		"42803": ["east side wall, on the inside", []],
+		"42804": ["north side of the aqueduct. It must be repaired first.", []],
+		"42805": ["Atop the highest white pillar East of the closest view point", []],
+		"42806": ["Atop the crucifix on the front of the Pantheon roof", []],
+		"42808": ["Climb up wall of arches, jump to broken pillar, jump to column with feather on it.", []],
+		"42809": ["on the top level, end of the line.", []],
+		"42810": ["on top of a pillar.", []],
+		"42811": ["highest point of the building after renovating.", []],
+		"42813": ["On the church roof", []],
+		"42814": ["On roof of church", []],
+		"42815": ["**Reward:** Silver Ore", []],
+		"42816": ["Wool", []],
+		"42818": ["Jar of Leeches", []],
+		"42820": ["**Reward:** Buddhist Prayer Beads", []],
+		"42821": ["Rabbit’s Foot", []],
+		"42823": ["Wool", []],
+		"42827": ["**Reward:** Elephant Ivory", []],
+		"42831": ["Jar of leeches", []],
+		"42832": ["Wool", []],
+		"42835": ["Cardinal’s Purple Dye", []],
+		"42836": ["**Reward:** Reward is Random", []],
+		"42837": ["Alum", []],
+		"42839": ["**Reward:** Terracotta Pot", []],
+		"42840": ["Rabbit’s Foot", []],
+		"42841": ["Green Jasper", []],
+		"42842": ["**Reward:** Pomander", []],
+		"42843": ["Copper Ore", []],
+		"42844": ["Velvet", []],
+		"42845": ["Copper Ore", []],
+		"42846": ["**Reward:** Pomander", []],
+		"42849": ["**Reward:** Terracotta Pot", []],
+		"42850": ["**Reward:** Tomatoes", []],
+		"42851": ["**Reward:** Coffee Beans", []],
+		"42852": ["**Reward:** Claddagh Ring", []],
+		"42853": ["**Reward:** Copper Ore", []],
+		"42854": ["**Reward:** Pomander", []],
+		"42855": ["Reward: Coffee Beans", []],
+		"42856": ["Reward: Rabbit's Foot", []],
+		"42857": ["**Reward:** Totem", []],
+		"42858": ["**Reward:** Wool", []],
+		"42859": ["**Reward:** Wool", []],
+		"42860": ["**Reward:** Silver Ore", []],
+		"42861": ["Claddagh Ring", []],
+		"42862": ["Piper Nigrum", []],
+		"42863": ["**Reward:** Jar of Leeches", []],
+		"42864": ["**Reward:** Pomander", []],
+		"42865": ["**Reward:** Jar of Leeches", []],
+		"42866": ["Wool", []],
+		"42867": ["**Reward:** Jeweled Headdress", []],
+		"42868": ["**Reward:** Silk", []],
+		"42869": ["**Reward:** Sapphire", []],
+		"42870": ["Reward: Claddagh Ring", []],
+		"42871": ["**Reward:** Indian Diamond", []],
+		"42872": ["**Reward:** Totem", []],
+		"42873": ["Halfway down the cliffside by the water.\n\n**Reward:** Jar of Leaches", []],
+		"42874": ["**Reward:** Red Jasper\n\nHalfway down the cliffside.", []],
+		"42875": ["**Reward:** Jar of Leeches", []],
+		"42876": ["**Reward:** Tomatoes", []],
+		"42877": ["Jewelled Headdress", []],
+		"42878": ["**Reward:** Vlad the Impaler Coins", []],
+		"42879": ["**Reward:** Alum", []],
+		"42880": ["**Reward:** Vlad the Impaler Coins", []],
+		"42881": ["**Reward:** Buddhist Prayer Beads", []],
+		"42882": ["**Reward:** Red Jasper", []],
+		"42883": ["**Reward:** Velvet", []],
+		"42884": ["**Reward:** Tomatoes", []],
+		"42885": ["**Reward:** Jar of Leeches", []],
+		"42886": ["**Reward:** Vlad the Impaler Coin", []],
+		"42887": ["**Reward:** Ambergris", []],
+		"42888": ["Wool", []],
+		"42889": ["**Reward:** Silk", []],
+		"42890": ["Green Jasper", []],
+		"42891": ["**Reward:** Green Jasper x 1", []],
+		"42892": ["Gold Ingot", []],
+		"42893": ["**Reward:** Piper Nigrum", []],
+		"42894": ["**Reward:** Sapphire x1", []],
+		"42921": ["**Reward:** Saffron", []],
+		"42922": ["Red Jasper", []],
+		"42923": ["Requires aqueduct repair to access. Underground\n\n**Reward:** Elephant Ivory", []],
+		"42924": ["Requires aqueduct repair to access. Underground\n\n**Reward:** Velvet", []],
+		"42925": ["**Reward:** Terracotta Pot", []],
+		"42926": ["**Reward:** Jar of Leeches", []],
+		"42927": ["**Reward:** Red Jasper", []],
+		"42928": ["**Reward:** Jeweled Headdress", []],
+		"42929": ["**Reward:** Rabbit's Foot", []],
+		"42930": ["**Reward:** Rabbit's Foot", []],
+		"42931": ["**Reward:** Buddhist Prayer Beads", []],
+		"42932": ["**Reward:** Silk", []],
+		"42933": ["**Reward:** Elephant Ivory", []],
+		"42934": ["**Reward:** Terracotta Pot", []],
+		"42935": ["**Reward:** Wool", []],
+		"42936": ["**Reward:** Coffee Beans", []],
+		"42937": ["**Reward:** Ambergris", []],
+		"42938": ["**Reward:** Green Jasper", []],
+		"42939": ["**Reward:** Buddhist Prayer Beads", []],
+		"42940": ["Jump the broken bridge gap on horse to access the area.\n\n**Reward:** Green Jasper", []],
+		"42941": ["**Reward:** Coffee Bean", []],
+		"42942": ["**Reward:** Nutmeg", []],
+		"42943": ["**Reward:** Papaver Silvaticum", []],
+		"42944": ["**Reward:** Terracotta Pot", []],
+		"42945": ["**Reward:** Shrunken Head", []],
+		"42946": ["**Reward:** Terracotta Pot", []],
+		"42947": ["**Reward:** Rabbit's Foot", []],
+		"42948": ["**Reward:** Nutmeg. Found in a small tunnel", []],
+		"42949": ["**Reward:** Totem", []],
+		"42952": ["Underground Next To Romulus Armor", []],
+		"42953": ["Reward: Terrracotta Pot", []],
+		"42954": ["Underground Next To Romulus Armor", []],
+		"42955": ["**Reward:** Incense", []],
+		"42956": ["Reward: Rabbit's Foot", []],
+		"42958": ["**Reward:** Incense", []],
+		"42959": ["**Reward:** Incense\n\nNear the top close to the feather on a ledge", []],
+		"42960": ["**Reward:** Totem", []],
+		"42961": ["**Reward:** Indian Diamond\n\nNear the top on a window ledge", []],
+		"42962": ["On a ledge at the top of the Colosseo.\n\n**Reward:** Claddagh Ring", []],
+		"42963": ["Between two wooden dividers on the first balcony.\n\n**Reward:** Red Jasper", []],
+		"42964": ["On the ground, behind the wall next to the stairs.\n\n**Reward:** Coffee Beans", []],
+		"42965": ["**Reward:** Incense", []],
+		"42966": ["**Reward:** Totem", []],
+		"42967": ["**Reward:** Rabbit's Foot", []],
+		"42968": ["**Reward:** Papaver Silvaticum", []],
+		"42969": ["**Reward:** Tomatoes", []],
+		"42973": ["Atop the crucifix on the building", []],
+		"42975": ["on a beam", []],
+		"42976": ["On a beam", []],
+		"42978": [
+			"Between the church and the building to its east, on a concrete beam.",
+			[
+				{
+					"id": 58608,
+					"title": "",
+					"file_name": "6fc87787-72f7-4678-b29e-ee7cce94530c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6fc87787-72f7-4678-b29e-ee7cce94530c.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42979": ["Between two buildings on a wooden beam.", []],
+		"42980": [
+			"Between two buildings on a concrete beam.",
+			[
+				{
+					"id": 58607,
+					"title": "",
+					"file_name": "b8a30868-c871-4e6a-b32a-91832bc9960c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b8a30868-c871-4e6a-b32a-91832bc9960c.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42981": [
+			"On the roof",
+			[
+				{
+					"id": 150653,
+					"title": "",
+					"file_name": "c458e240-7be5-49d2-9674-241b7749d2cd.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c458e240-7be5-49d2-9674-241b7749d2cd.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42982": [
+			"ontop of the pillar ruins.",
+			[
+				{
+					"id": 44096,
+					"title": "image",
+					"file_name": "ee0e0817-e21b-48f9-8410-b7050c12f67a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee0e0817-e21b-48f9-8410-b7050c12f67a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42987": ["at the waters edge.", []],
+		"42988": ["Located at the rooftop of church", []],
+		"42989": ["Top of the aqueduct. Climb up right below it where it ends and the water begins to fall.", []],
+		"42990": ["On top of a pillar", []],
+		"42991": ["on a beam overlooking the crier's square.", []],
+		"42992": [
+			"on top of a pillar",
+			[
+				{
+					"id": 44102,
+					"title": "image",
+					"file_name": "58cdb1cc-8a47-4f6b-b215-d219f65331f8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58cdb1cc-8a47-4f6b-b215-d219f65331f8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42993": [
+			"on top of a pillar.",
+			[
+				{
+					"id": 44101,
+					"title": "image",
+					"file_name": "0bdff938-383f-4e0c-b6f3-c6c578bc3426.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0bdff938-383f-4e0c-b6f3-c6c578bc3426.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42994": [
+			"on top of a pillar.",
+			[
+				{
+					"id": 44100,
+					"title": "image",
+					"file_name": "5a2c4989-7311-4b3a-b326-f03818cca8d1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5a2c4989-7311-4b3a-b326-f03818cca8d1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42995": [
+			"on top of the pillar ruins.",
+			[
+				{
+					"id": 44097,
+					"title": "image",
+					"file_name": "c855d407-39a6-4e2e-9000-761b2b3c8fea.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c855d407-39a6-4e2e-9000-761b2b3c8fea.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42996": [
+			"on top of the pillar ruins.",
+			[
+				{
+					"id": 44099,
+					"title": "image",
+					"file_name": "de4f8dec-bf19-4873-839c-8dc0db666224.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de4f8dec-bf19-4873-839c-8dc0db666224.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42997": [
+			"on top of a pillar.",
+			[
+				{
+					"id": 44098,
+					"title": "image",
+					"file_name": "fc39dc8b-6804-4838-9910-d35fc84fb422.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc39dc8b-6804-4838-9910-d35fc84fb422.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"42998": ["On the top of the tower", []],
+		"43001": ["Found at the top of the north tower.", []],
+		"43002": [
+			"Halfway up the wall. Start climbing on the left side of the gate to get to the flag.",
+			[
+				{
+					"id": 112155,
+					"title": "",
+					"file_name": "ae9d113a-3861-4125-bbbf-0d7e7995223e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae9d113a-3861-4125-bbbf-0d7e7995223e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43007": ["Next to a boat on the moat.", []],
+		"43008": ["Top of the giant red flag.", []],
+		"43010": [
+			"On a wooden beam between buildings, closer to the ground",
+			[
+				{
+					"id": 150491,
+					"title": "",
+					"file_name": "327c4b44-1119-43cf-8ba1-e9961207f78f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/327c4b44-1119-43cf-8ba1-e9961207f78f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43011": [
+			"Ivy-covered awning on the building's west side",
+			[
+				{
+					"id": 150505,
+					"title": "",
+					"file_name": "58892b6e-9bdd-4a47-8a2c-e555fd84f32f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58892b6e-9bdd-4a47-8a2c-e555fd84f32f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43012": [
+			"On a perch near a window, overlooking the hillside.",
+			[
+				{
+					"id": 112020,
+					"title": "",
+					"file_name": "c96d0d5b-bab3-4e73-8cb9-5c3ae8cc2eae.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c96d0d5b-bab3-4e73-8cb9-5c3ae8cc2eae.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43015": ["On a rooftop, next to the small hiding spot.", []],
+		"43016": ["Climb Left side Where water drains to obtain", []],
+		"43018": ["Found on top of some ruined columns.", []],
+		"43019": ["Found on top of some ruined columns.", []],
+		"43021": [
+			"Found on top of some ruined columns.",
+			[
+				{
+					"id": 150494,
+					"title": "",
+					"file_name": "2f6a83e0-6b25-448c-9a3e-3e2caede245e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f6a83e0-6b25-448c-9a3e-3e2caede245e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43022": ["Jump the broken bridge gap on horse to access the area", []],
+		"43023": ["Need aqueduct renovated to access", []],
+		"43024": ["Found on top of some ruined columns.", []],
+		"43025": ["Found at the top of one of the tall ruined buildings.", []],
+		"43026": ["Found on top of some ruined columns.", []],
+		"43027": ["Found on some ruins at the top of some cliffs that can be climbed.", []],
+		"43028": ["Must jump from the aqueduct, it needs to be repaired first.", []],
+		"43029": ["On the roof of the highest building by the chimney.", []],
+		"43030": ["Roof of the tower.", []],
+		"43032": ["at the end of the top level.", []],
+		"43033": [
+			"on top of a pillar in Esquilino.",
+			[
+				{
+					"id": 44095,
+					"title": "image",
+					"file_name": "33844663-5784-4744-b8b5-3dfe5fd051e7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33844663-5784-4744-b8b5-3dfe5fd051e7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43034": [
+			"",
+			[
+				{
+					"id": 44094,
+					"title": "image",
+					"file_name": "f9a37fa8-b28d-412c-ad56-5711b19ce706.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f9a37fa8-b28d-412c-ad56-5711b19ce706.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43035": [
+			"",
+			[
+				{
+					"id": 44093,
+					"title": "image",
+					"file_name": "2b17c59a-6eca-4e31-ac88-0578dd66a00d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2b17c59a-6eca-4e31-ac88-0578dd66a00d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43036": [
+			"Climb up the ruins in between the two arch ruins, then jump to the pillars that leads to the ruins the flag is on.",
+			[]
+		],
+		"43038": ["On the roof of the tower", []],
+		"43039": ["Halfway up the Borgia tower.", []],
+		"43040": ["On top of some pillars amongst the ruins", []],
+		"43041": ["Climb up some broken pillars to reach. Will be by broken aqueduct.", []],
+		"43042": ["Climb up the broken house, then jump to the large columns, then to the broken pillar it is on.", []],
+		"43043": ["On top of the Arch", []],
+		"43044": ["On top of ruins, climb up from NW side by the fast travel.", []],
+		"43045": [
+			"Atop of the Tower.",
+			[
+				{
+					"id": 112021,
+					"title": "",
+					"file_name": "edae4710-94e9-4d2c-b1bd-78804cdc0651.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/edae4710-94e9-4d2c-b1bd-78804cdc0651.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"43073": [
+			"This cannot be synchronized until you have bought the Climb Leap Glove upgrade from Leonardo.\n\n**Memory Sequence 4, Memory 8**",
+			[]
+		],
+		"43081": ["Requires aqueduct repair to access.", []],
+		"43084": ["[Do not lose more than a block of health]", []],
+		"43086": ["Do not lose more than 10 health squares", []],
+		"43088": ["Kill the Overseer to find the location of [Loose Cannon](#loc=43091)", []],
+		"43089": ["Kill the Overseer to find the location of [Hell on Wheels](#loc=43090)", []],
+		"43090": ["Complete [War Plans](#loc=43089) to unlock this mission.", []],
+		"43091": ["Complete [War Plans](#loc=43088) to unlock this mission", []],
+		"43092": ["Kill the Overseer to find the location of [Flying Machine 2.0](#loc=43093)", []],
+		"43093": ["Complete [War Plans](#loc=43092) to unlock this mission", []],
+		"43097": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43098": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43101": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43103": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43105": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43106": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43112": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43113": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43114": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43118": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43119": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43159": ["One of three Borgia Flags found inside [The Sixth Day](#loc=43084) (Lair of Romulus)", []],
+		"43160": ["One of three Borgia Flags found inside [The Sixth Day](#loc=43084) (Lair of Romulus)", []],
+		"43161": ["One of three Borgia Flags found inside [The Sixth Day](#loc=43084) (Lair of Romulus)", []],
+		"43162": ["One of three Borgia Flags found inside [The Halls of Nero](#loc=43087) (Lair of Romulus)", []],
+		"43163": ["One of three Borgia Flags found inside [The Halls of Nero](#loc=43087) (Lair of Romulus)", []],
+		"43164": ["One of three Borgia Flags found inside [The Halls of Nero](#loc=43087) (Lair of Romulus)", []],
+		"43165": ["One of three Borgia Flags found inside [Wolves Among the Dead](#loc=43085) (Lair of Romulus)", []],
+		"43166": ["One of three Borgia Flags found inside [Wolves Among the Dead](#loc=43085) (Lair of Romulus)", []],
+		"43167": ["One of three Borgia Flags found inside [Wolves Among the Dead](#loc=43085) (Lair of Romulus)", []],
+		"43168": ["One of three Borgia Flags found inside [Thrown to the Wolves](#loc=43082) (Lair of Romulus)", []],
+		"43169": ["One of three Borgia Flags found inside [Thrown to the Wolves](#loc=43082) (Lair of Romulus)", []],
+		"43170": ["One of three Borgia Flags found inside [Thrown to the Wolves](#loc=43082) (Lair of Romulus)", []],
+		"43171": ["One of three Borgia Flags found inside [Leader of the Pack](#loc=43086) (Lair of Romulus)", []],
+		"43172": ["One of three Borgia Flags found inside [Leader of the Pack](#loc=43086) (Lair of Romulus)", []],
+		"43173": ["One of three Borgia Flags found inside [Leader of the Pack](#loc=43086) (Lair of Romulus)", []],
+		"43174": [
+			"One of three Borgia Flags found inside [A Wolf in Sheeps Clothing](#loc=43083) (Lair of Romulus)",
+			[]
+		],
+		"43175": [
+			"One of three Borgia Flags found inside [A Wolf in Sheeps Clothing](#loc=43083) (Lair of Romulus)",
+			[]
+		],
+		"43176": [
+			"One of three Borgia Flags found inside [A Wolf in Sheeps Clothing](#loc=43083) (Lair of Romulus)",
+			[]
+		],
+		"43179": ["**100% Sync:** Stop Santino before he beats up the courtesan.", []],
+		"43182": ["**100% Sync:** Kill only the ambassador.", []],
+		"43199": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43205": ["**100% Sync:** Save Aldo in under 2 minutes.", []],
+		"43210": ["**100% Sync:** Stay undetected while attempting to steal the contents from the lockbox.", []],
+		"43211": ["**100% Sync:** Complete the race in under 60 seconds", []],
+		"43219": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43225": ["**100% Sync:** Kill both targets in under 60 seconds.", []],
+		"43226": ["**100% Sync:** Do not let your targets call for reinforcements.", []],
+		"43227": ["**100% Sync:** Use the Assassin Recruits to assist in a diversion.", []],
+		"43228": ["**100% Sync:** Kill the targets with the hidden blade.", []],
+		"43239": ["Follows directly after the \"[Man in Red](#loc=43238)\" Copernico memory.", []],
+		"43384": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43385": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43386": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43387": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43388": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43389": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43390": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43391": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43393": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43394": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43395": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43396": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43397": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43398": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43400": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43401": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43402": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43403": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43404": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43405": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43406": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43407": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43408": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43409": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43410": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43411": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43412": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43413": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43414": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43415": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43416": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43417": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43418": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43419": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43421": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43422": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43423": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43424": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43426": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43427": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43428": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43429": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43430": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43431": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43432": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43433": [
+			"**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock. Cannot be unlocked until Sequence 7 when the corresponding Borgia Tower becomes accessible",
+			[]
+		],
+		"43434": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43435": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43437": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43438": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43439": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43441": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43442": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43443": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43451": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43454": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43457": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43463": [
+			"**Related Quest:** Renovations of the City\n\nCost: 29,000 f\n\nMust be repaired/purchased to unlock",
+			[]
+		],
+		"43465": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43468": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43469": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43470": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43474": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43475": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43476": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43478": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43479": [
+			"**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock\n\n**Cost:** 22,313f",
+			[]
+		],
+		"43480": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43481": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43482": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43485": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43486": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43488": [
+			"**Related Quest:** Renovations of the City\n\n**Cost:** 22725 f\n\nMust be repaired/purchased to unlock",
+			[]
+		],
+		"43490": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43491": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43492": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43494": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43497": [
+			"**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock - costs 28,350f",
+			[]
+		],
+		"43499": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43504": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43508": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock - 37,313 f", []],
+		"43510": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43511": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43512": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43513": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43514": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43515": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43516": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43517": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock", []],
+		"43518": ["Medical Shop Quest\n\n**Required Items:**\n- 5 x Tomatoes\n- 3 x Nutmeg\n- 1 x Aconite", []],
+		"43519": ["Blacksmith Shop Quest\n\n**Required Items:**\n- 7 x Vlad the Impaler Coin", []],
+		"43520": [
+			"Art Merchant Shop Quest\n\n**Required Items:**\n- 2 x Pomander\n- 3 x Ambergris\n- 1 x Papaver Silvaticum\n\n**Reward:**\n- Vaticano Treasure Map",
+			[]
+		],
+		"43521": [
+			"**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock\n\n**Cost: 22,650f**",
+			[]
+		],
+		"43522": [
+			"**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock\n\n**Cost:** 46200f",
+			[]
+		],
+		"43523": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock - 20250 f", []],
+		"43524": [
+			"**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock\n\n**Cost:** 20400f",
+			[]
+		],
+		"43525": [
+			"**Related Quest:** Renovations of the City\n\n**Cost:** 26250f\n\nMust be repaired/purchased to unlock",
+			[]
+		],
+		"43526": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock - 21 525 f", []],
+		"43527": ["**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock - 21 300 f", []],
+		"43528": [
+			"**Related Quest:** Renovations of the City\n\nMust be repaired/purchased to unlock\n\n**Cost:** 38100f",
+			[]
+		],
+		"43532": ["Tailor Shop Quest\n\n**Required Items:**\n- 8 x Silk\n- 5 x Cardinal's Purple Dye", []],
+		"43533": [
+			"Blacksmith Shop Quest\n\n**Required Items:**\n- 2 x Shrunken Head\n- 3 x Elephant Ivory\n- 3 x Indian Diamond",
+			[]
+		],
+		"43534": [
+			"Blacksmith Shop Quest\n\n**Required Items:**\n- 3 x Terracotta Pot\n- 2 x Totem\n- 2 x Buddhist Prayer Beads",
+			[]
+		],
+		"386738": [
+			"One of five Thirsty Harlequins. Required for the \"Clowning Around\" achievement/trophy.\nThis one is located under the bridge.",
+			[]
+		],
+		"386739": ["One of five Thirsty Harlequins. Required for the \"Clowning Around\" achievement/trophy.", []],
+		"386740": ["One of five Thirsty Harlequins. Required for the \"Clowning Around\" achievement/trophy.", []],
+		"387534": ["One of five Thirsty Harlequins. Required for the \"Clowning Around\" achievement/trophy.", []],
+		"387535": ["One of five Thirsty Harlequins. Required for the \"Clowning Around\" achievement/trophy.", []]
+	}
+}

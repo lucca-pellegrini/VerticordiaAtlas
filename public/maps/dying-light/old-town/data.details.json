@@ -1,0 +1,2987 @@
+{
+	"v": 1,
+	"d": {
+		"66903": ["Becomes available after the quest [Radio Station](#loc=70247)", []],
+		"66906": ["Door is at the top of the safe house tower", []],
+		"66907": ["**Objective:** Find all flares  \n**Difficulty:** Hard  \n**Reward:** 1000 Agility Points", []],
+		"66910": ["Break eight zombies' necks from behind", []],
+		"66912": [
+			"On the high upper floor of the tower",
+			[
+				{
+					"id": 5082,
+					"title": "20210224123457_1",
+					"file_name": "36408017-1f57-4b44-a052-3e7ba68e2692.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36408017-1f57-4b44-a052-3e7ba68e2692.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5084,
+					"title": "20210224123619_1",
+					"file_name": "da9d3f3f-fd5e-4162-9279-99c20609947c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da9d3f3f-fd5e-4162-9279-99c20609947c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"66921": ["Climb the tower before time runs out\n\nTip: Climb the other tower and jump across", []],
+		"66930": [
+			"",
+			[
+				{
+					"id": 73790,
+					"title": "",
+					"file_name": "9cd4c762-33e7-40d4-a99c-0b17753d4054.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9cd4c762-33e7-40d4-a99c-0b17753d4054.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"66940": ["**Prerequisite:** Cuisine & Cargo DLC", []],
+		"66942": ["Becomes available after the side quest [Office Outpost](#loc=70330)", []],
+		"66943": ["Becomes available after the side quest [Office Outpost](#loc=70330)", []],
+		"66944": [
+			"**Prerequisite:** Clear the [Office Outpost Safe Zone](#loc=66942) and Rocket's prior challenges in [The Slums](https://mapgenie.io/dying-light/maps/slums?locationIds=432411)",
+			[]
+		],
+		"66952": ["Start from the bottle near the ramp that leads to Troy on top of the tower", []],
+		"66953": ["Start from talking to the boy Ozan next to the store in the tower", []],
+		"66955": ["Climb the tower", []],
+		"66959": ["Hunt down 10 Volatiles", []],
+		"69354": [
+			"On the ground floor, in the workshop (open the roll up door).  On the shelf with the electronics",
+			[
+				{
+					"id": 5139,
+					"title": "20210226050458_1",
+					"file_name": "ecb12e83-4534-474a-a140-e5c8da5b5672.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ecb12e83-4534-474a-a140-e5c8da5b5672.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69355": [
+			"In the rowboat",
+			[
+				{
+					"id": 5142,
+					"title": "20210226050737_1",
+					"file_name": "f9ea3777-c98e-4a48-98be-0349f95a5fa0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f9ea3777-c98e-4a48-98be-0349f95a5fa0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69356": [
+			"In the top floor apartment - in the living room on the dresser",
+			[
+				{
+					"id": 71903,
+					"title": "",
+					"file_name": "5257770d-79c8-4251-ab7e-07fc2ac8815a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5257770d-79c8-4251-ab7e-07fc2ac8815a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69357": [
+			"Drop into the submerged manhole in the southwest corner of the sunken area.  Swim through the tunnel to the surface and climb the stairs to the right.  Open the gate and the statue is in the room following on the ground.",
+			[
+				{
+					"id": 5136,
+					"title": "20210226045107_1",
+					"file_name": "ddbdb189-094e-44f4-97c5-e273b9b815a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddbdb189-094e-44f4-97c5-e273b9b815a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5137,
+					"title": "20210226045211_1",
+					"file_name": "a1bdfb1e-470c-4d11-984e-ec119a28c420.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a1bdfb1e-470c-4d11-984e-ec119a28c420.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69358": [
+			"On the ground floor - in the back room on the desk",
+			[
+				{
+					"id": 71910,
+					"title": "",
+					"file_name": "df5dd75a-1e66-4533-baf6-35d1bd03769b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df5dd75a-1e66-4533-baf6-35d1bd03769b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69359": [
+			"In the upper floor apartment - on the shelf above the TV",
+			[
+				{
+					"id": 71904,
+					"title": "",
+					"file_name": "0f954019-cad1-4e8d-98ba-ef8c66071f7d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f954019-cad1-4e8d-98ba-ef8c66071f7d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69360": [
+			"On the roof - on the sofa outside",
+			[
+				{
+					"id": 75951,
+					"title": "",
+					"file_name": "a77d243b-778b-4c2a-a7d4-b06e8d136e2c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a77d243b-778b-4c2a-a7d4-b06e8d136e2c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69361": [
+			"In the upper floor apartment - on the dresser next to the TV.",
+			[
+				{
+					"id": 75943,
+					"title": "",
+					"file_name": "eb024816-9726-4a6f-8faa-1fe99bea427e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb024816-9726-4a6f-8faa-1fe99bea427e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69362": [
+			"In the rowboat",
+			[
+				{
+					"id": 71897,
+					"title": "IIi7dEg",
+					"file_name": "7a71e8de-ed64-4a99-923a-85759441c0f6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7a71e8de-ed64-4a99-923a-85759441c0f6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69363": [
+			"In the open airdrop chest",
+			[
+				{
+					"id": 71898,
+					"title": "",
+					"file_name": "bcc752ad-7987-4db5-89c5-4ac3b75e31b6.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bcc752ad-7987-4db5-89c5-4ac3b75e31b6.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69364": [
+			"In the safe zone - on the desk next to the laptop",
+			[
+				{
+					"id": 104128,
+					"title": "",
+					"file_name": "9950873f-338b-456c-b813-5f77f18ae0eb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9950873f-338b-456c-b813-5f77f18ae0eb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69365": [
+			"On the top floor, outside - on the table near the cushions",
+			[
+				{
+					"id": 71899,
+					"title": "",
+					"file_name": "6475171a-8bed-4d3e-8bf6-6e7355cb1711.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6475171a-8bed-4d3e-8bf6-6e7355cb1711.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69366": [
+			"On the top floor - in the closet, behind a medium lock.",
+			[
+				{
+					"id": 75941,
+					"title": "",
+					"file_name": "5fbf480d-7e82-4ffa-9c33-4f9043825791.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5fbf480d-7e82-4ffa-9c33-4f9043825791.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69367": [
+			"Grapple through the window at the wall with the \"Good Night\" mural - on the dresser by the TV",
+			[
+				{
+					"id": 5058,
+					"title": "20210224005720_1",
+					"file_name": "4b62a5e8-dcfc-4c2f-9512-e923cb59cd1a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4b62a5e8-dcfc-4c2f-9512-e923cb59cd1a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5059,
+					"title": "20210224005606_1",
+					"file_name": "04b9e824-9f32-40e5-a876-020f479ab664.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/04b9e824-9f32-40e5-a876-020f479ab664.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69368": [
+			"In the upper floor bar and grill - on the shelf behind the bar",
+			[
+				{
+					"id": 5057,
+					"title": "20210224005031_1",
+					"file_name": "7c02c925-d1f2-4e0f-9f8e-02b066df6c35.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c02c925-d1f2-4e0f-9f8e-02b066df6c35.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69369": [
+			"In the upper floor apartment - on the shelf near the round table",
+			[
+				{
+					"id": 75947,
+					"title": "",
+					"file_name": "0e370bd2-34c1-48fb-a4d7-97c00cafe006.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e370bd2-34c1-48fb-a4d7-97c00cafe006.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69370": [
+			"In the East Wind Restaurant on the ground floor - behind the bar next to the cash register",
+			[
+				{
+					"id": 71888,
+					"title": "",
+					"file_name": "50da03ea-66b1-4792-98ae-82ab2eef3ddf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50da03ea-66b1-4792-98ae-82ab2eef3ddf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69371": [
+			"**Prerequisite:** Side Quest: [Health Potion](#loc=70336)\n\nShoot the grappling hook to the open upper floor window to get inside this top level apartment.  The statue is on the bookshelf, in the living room with the static TV",
+			[
+				{
+					"id": 5020,
+					"title": "20210222122742_1",
+					"file_name": "d42ec1bc-3ece-44d8-b5d8-2772ea82d686.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d42ec1bc-3ece-44d8-b5d8-2772ea82d686.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5022,
+					"title": "20210222124245_1",
+					"file_name": "5e6c1e6d-9fc0-4583-b7c0-82283f57e90a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e6c1e6d-9fc0-4583-b7c0-82283f57e90a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69372": [
+			"Jump in the canal water and swim towards the gated area.  Dive underwater, swim under the gate and surface in the underground room on the other side.  Find the statue on the electrical panel next to the door",
+			[
+				{
+					"id": 5060,
+					"title": "20210224034346_1",
+					"file_name": "4591a5ca-39dc-4f91-bb05-cb48f1c06dde.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4591a5ca-39dc-4f91-bb05-cb48f1c06dde.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5061,
+					"title": "20210224034440_1",
+					"file_name": "d4539f6b-0f06-4e58-970c-8592e2b33100.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d4539f6b-0f06-4e58-970c-8592e2b33100.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69373": [
+			"On the pedestal with the horseman statue, near the horse's legs.",
+			[
+				{
+					"id": 71889,
+					"title": "",
+					"file_name": "f6f7fd25-63d6-443c-928b-8b075d0b663a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6f7fd25-63d6-443c-928b-8b075d0b663a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69374": [
+			"On the upper floor bar and grill - behind the medium-difficulty locked door in the closet on the floor.",
+			[
+				{
+					"id": 71892,
+					"title": "",
+					"file_name": "4c83f046-6c59-4284-b140-e006b68be0a6.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c83f046-6c59-4284-b140-e006b68be0a6.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 71893,
+					"title": "",
+					"file_name": "d0162397-6321-4865-b981-05ff4a3cff64.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d0162397-6321-4865-b981-05ff4a3cff64.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 71894,
+					"title": "",
+					"file_name": "ff1a4419-47f8-4237-acfc-304c9e3ea91c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff1a4419-47f8-4237-acfc-304c9e3ea91c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69375": [
+			"On the shelf behind the bar on the second floor. You can enter by window or through the door behind the quarantine zone.",
+			[
+				{
+					"id": 71896,
+					"title": "",
+					"file_name": "098e1f18-2862-4022-a39a-7ccad7bc2074.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/098e1f18-2862-4022-a39a-7ccad7bc2074.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69376": [
+			"Crouch under the roll up door to get inside the \"Forever Foundation\" building - on the reception desk",
+			[
+				{
+					"id": 71895,
+					"title": "",
+					"file_name": "600d53e1-0674-4924-8da3-bacfedda9e24.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/600d53e1-0674-4924-8da3-bacfedda9e24.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69377": [
+			"In the water just below the corpse",
+			[
+				{
+					"id": 71891,
+					"title": "",
+					"file_name": "5786772f-424d-4985-8423-03096941dae7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5786772f-424d-4985-8423-03096941dae7.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69378": [
+			"On the ground - next to the corpse",
+			[
+				{
+					"id": 5056,
+					"title": "20210224004131_1",
+					"file_name": "076fb8dc-0df0-4221-9421-efc4895fd90c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/076fb8dc-0df0-4221-9421-efc4895fd90c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69379": [
+			"Inside a room on the rooftop that has a Bozak poster on its wall. The statue is on top of the mechanical panel",
+			[
+				{
+					"id": 71885,
+					"title": "",
+					"file_name": "a0a59c4f-2e2a-4efc-bc2f-d23d52823fd6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a0a59c4f-2e2a-4efc-bc2f-d23d52823fd6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69380": [
+			"In the safe zone - on the shelf behind the bar",
+			[
+				{
+					"id": 83596,
+					"title": "",
+					"file_name": "aff84710-f3c3-49d2-90a1-f8ca13ee7fe2.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aff84710-f3c3-49d2-90a1-f8ca13ee7fe2.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69381": [
+			"Underwater. Inside an open crate.",
+			[
+				{
+					"id": 72139,
+					"title": "",
+					"file_name": "0b743dbe-bdca-4735-a353-ecc93f1e49b9.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b743dbe-bdca-4735-a353-ecc93f1e49b9.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69382": [
+			"In the rotunda of the south tower.",
+			[
+				{
+					"id": 5076,
+					"title": "20210224003317_1",
+					"file_name": "8441efcd-8a86-437c-974f-8856e686dba0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8441efcd-8a86-437c-974f-8856e686dba0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69383": [
+			"In the Luck Medicine building on the ground floor - behind the counter on the brown shelves",
+			[
+				{
+					"id": 75956,
+					"title": "",
+					"file_name": "124814d3-456f-4657-8d8f-ddf072747127.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/124814d3-456f-4657-8d8f-ddf072747127.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 75955,
+					"title": "",
+					"file_name": "c8f66131-2418-4220-a524-2b2812cb6d54.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8f66131-2418-4220-a524-2b2812cb6d54.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"69384": [
+			"Break the wooden barrier on the roof to find the statue below",
+			[
+				{
+					"id": 75954,
+					"title": "",
+					"file_name": "025ea834-9192-4804-aebb-40a62331125e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/025ea834-9192-4804-aebb-40a62331125e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69385": [
+			"In the apartment on the roof - on the shelf above the TV",
+			[
+				{
+					"id": 75940,
+					"title": "",
+					"file_name": "26817834-3c01-46d4-be10-dbf24f410c4c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/26817834-3c01-46d4-be10-dbf24f410c4c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 75939,
+					"title": "",
+					"file_name": "4d8e0900-0511-47d7-b8cc-092c4ca8bd12.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d8e0900-0511-47d7-b8cc-092c4ca8bd12.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"69386": [
+			"In the upper floor apartment, on the dresser next to the TV",
+			[
+				{
+					"id": 71882,
+					"title": "",
+					"file_name": "4f75dd48-58f8-4fb4-812d-3d6266661dd7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f75dd48-58f8-4fb4-812d-3d6266661dd7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69387": [
+			"In the second floor apartment - on the dining table",
+			[
+				{
+					"id": 75938,
+					"title": "",
+					"file_name": "7e5c59e2-5b92-4678-8a10-366a1dbaeaf5.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e5c59e2-5b92-4678-8a10-366a1dbaeaf5.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69388": [
+			"In the slightly open trunk of the blue car",
+			[
+				{
+					"id": 75946,
+					"title": "",
+					"file_name": "5e424bc5-0021-4b81-bf8c-92212c028b2d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e424bc5-0021-4b81-bf8c-92212c028b2d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69389": [
+			"Just inside the building - on the shelf behind a white door",
+			[
+				{
+					"id": 75953,
+					"title": "",
+					"file_name": "db2698dc-527f-48b5-a1ea-d8a097400a4a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/db2698dc-527f-48b5-a1ea-d8a097400a4a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69390": [
+			"In the upper floor apartment - near the chest on the floor",
+			[
+				{
+					"id": 75949,
+					"title": "",
+					"file_name": "904ac462-a93d-4ed2-bb10-43197bd55dfa.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/904ac462-a93d-4ed2-bb10-43197bd55dfa.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 75950,
+					"title": "",
+					"file_name": "e1171806-fad8-4a71-a752-191ecaeed2f2.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e1171806-fad8-4a71-a752-191ecaeed2f2.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69391": [
+			"On top of the white bus - in the open green suitcase",
+			[
+				{
+					"id": 73791,
+					"title": "",
+					"file_name": "77070a66-5797-4c84-b1a0-d964dd6f9589.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/77070a66-5797-4c84-b1a0-d964dd6f9589.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 73792,
+					"title": "",
+					"file_name": "197ed79a-1e63-4de7-89f7-d82d9af6ffe5.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/197ed79a-1e63-4de7-89f7-d82d9af6ffe5.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69392": [
+			"Underwater in the open yellow tool box, near the submerged blue van.",
+			[
+				{
+					"id": 71877,
+					"title": "",
+					"file_name": "cf345692-c314-4ace-a02d-d6bcc70b7c61.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cf345692-c314-4ace-a02d-d6bcc70b7c61.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 71878,
+					"title": "",
+					"file_name": "e51d6901-b6f4-4bc0-b403-5d0d876573e4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e51d6901-b6f4-4bc0-b403-5d0d876573e4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69393": [
+			"At the campsite - near the green duffel bag, under the white umbrella",
+			[
+				{
+					"id": 71906,
+					"title": "",
+					"file_name": "43981756-9c87-4cce-94fb-9016c42b972b.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/43981756-9c87-4cce-94fb-9016c42b972b.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69394": [
+			"On the ground floor - on the shelf with the hookahs",
+			[
+				{
+					"id": 83595,
+					"title": "",
+					"file_name": "61936784-c9d1-4109-9f92-0101e59a586f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61936784-c9d1-4109-9f92-0101e59a586f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69395": [
+			"In the building on the ground floor - on the wooden crate near the gas can",
+			[
+				{
+					"id": 73789,
+					"title": "",
+					"file_name": "89e5d16e-d85e-4dd0-afda-e99679c3398c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/89e5d16e-d85e-4dd0-afda-e99679c3398c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69396": [
+			"In the safe zone.  From the bottom floor, climb the beams on the wall some 3 meters up to the statue",
+			[
+				{
+					"id": 5073,
+					"title": "20210224114647_1",
+					"file_name": "bd0f70f5-2dec-4a75-9881-7c8f86cc3764.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd0f70f5-2dec-4a75-9881-7c8f86cc3764.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69397": [
+			"In the Information Center building on the ground floor.  On the desk with the computers",
+			[
+				{
+					"id": 5072,
+					"title": "20210224114007_1",
+					"file_name": "2812a848-f0e7-4b68-b461-a41240d9a70b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2812a848-f0e7-4b68-b461-a41240d9a70b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69398": [
+			"On the roof - on the white mattress",
+			[
+				{
+					"id": 5071,
+					"title": "20210224113748_1",
+					"file_name": "e99b680c-d304-4eb3-af35-e942c89ec3fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e99b680c-d304-4eb3-af35-e942c89ec3fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69399": [
+			"From the stone stairs outside to the south, enter the apartment to find the statue on the small hexagonal table near the window",
+			[
+				{
+					"id": 5062,
+					"title": "20210224042718_1",
+					"file_name": "f6cff262-b546-4872-a0f3-ceb1c511cac4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6cff262-b546-4872-a0f3-ceb1c511cac4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69400": [
+			"From the stone stairs outside to the south, enter the apartment to find the statue on the round table near the hookah",
+			[
+				{
+					"id": 83594,
+					"title": "",
+					"file_name": "e05cf28e-94f0-4631-acc3-76c0c76673a3.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e05cf28e-94f0-4631-acc3-76c0c76673a3.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69401": [
+			"In the beached rowboat",
+			[
+				{
+					"id": 71886,
+					"title": "",
+					"file_name": "59cfe1c5-19f2-4345-ba52-e54e7995e105.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/59cfe1c5-19f2-4345-ba52-e54e7995e105.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69402": [
+			"In the building on the counter beside the fridge",
+			[
+				{
+					"id": 5149,
+					"title": "20210226055228_1",
+					"file_name": "9d56424e-c438-4235-bd02-3975c33f1790.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9d56424e-c438-4235-bd02-3975c33f1790.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69403": ["On the roof", []],
+		"69404": ["On the roof", []],
+		"69409": ["In front of the white van in the North-East corner of the Parking lot", []],
+		"69410": [
+			"In the campsite near the tent",
+			[
+				{
+					"id": 5158,
+					"title": "20210226063045_1",
+					"file_name": "6a8dcb14-b204-4f41-8f6d-41e5c0d2edd6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a8dcb14-b204-4f41-8f6d-41e5c0d2edd6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69411": [
+			"In the second floor room accessed from the interior plaza courtyard below",
+			[
+				{
+					"id": 5154,
+					"title": "20210226062303_1",
+					"file_name": "0d462015-24d3-4842-b7e1-c17ab2aa4a08.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d462015-24d3-4842-b7e1-c17ab2aa4a08.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69412": ["On the second floor", []],
+		"69413": ["Under the wooden barrier on the third floor", []],
+		"69425": [
+			"Shoot the grappling hook to the open upper floor window to get inside this top level apartment.",
+			[
+				{
+					"id": 5021,
+					"title": "20210222122742_1",
+					"file_name": "3b2601d6-2116-49fc-92fe-715677182f65.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3b2601d6-2116-49fc-92fe-715677182f65.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5023,
+					"title": "20210222124231_1",
+					"file_name": "58861b5b-0a4a-406e-a3e2-ec8ef5835168.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58861b5b-0a4a-406e-a3e2-ec8ef5835168.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69426": [
+			"On the upper floor - outside, on the porch near the red door",
+			[
+				{
+					"id": 5024,
+					"title": "20210222124403_1",
+					"file_name": "14ed9b81-189f-403a-88fb-525d3b7c3c6d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14ed9b81-189f-403a-88fb-525d3b7c3c6d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69431": [
+			"Take the stairs underground as if going to [Antenna Entrance](#loc=66889).  Take a left through the gate, then a right, then another right to find the statue on the ground next to a duffel bag",
+			[
+				{
+					"id": 75957,
+					"title": "",
+					"file_name": "497d9934-6080-42f0-b3c8-4d6e2b7eabed.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/497d9934-6080-42f0-b3c8-4d6e2b7eabed.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 75958,
+					"title": "",
+					"file_name": "588f0b3d-0214-40fd-b152-09f10465e810.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/588f0b3d-0214-40fd-b152-09f10465e810.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 75959,
+					"title": "",
+					"file_name": "ebe45f11-febe-4cd9-aaa3-b4f3c4bd9491.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ebe45f11-febe-4cd9-aaa3-b4f3c4bd9491.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 75960,
+					"title": "",
+					"file_name": "520a3480-4839-4f1e-865e-7229abbb8cc4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/520a3480-4839-4f1e-865e-7229abbb8cc4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69472": ["On the roof", []],
+		"69486": ["Available during side quest [Fan Zone](#loc=70346)", []],
+		"69489": [
+			"On top of the round tower",
+			[
+				{
+					"id": 5091,
+					"title": "20210224132958_1",
+					"file_name": "da66b27b-88a5-4130-88f3-99ae12833b4f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da66b27b-88a5-4130-88f3-99ae12833b4f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5092,
+					"title": "20210224132941_1",
+					"file_name": "a339e8b5-18d6-40b1-8781-8785d18b8b2a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a339e8b5-18d6-40b1-8781-8785d18b8b2a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69490": [
+			"On the dome of the rotunda",
+			[
+				{
+					"id": 5077,
+					"title": "20210224121320_1",
+					"file_name": "17610e5c-4150-4f7d-992f-6ac4a0c756f0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17610e5c-4150-4f7d-992f-6ac4a0c756f0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5078,
+					"title": "20210224121331_1",
+					"file_name": "45b0aa38-768d-424f-be3b-038f34471d75.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/45b0aa38-768d-424f-be3b-038f34471d75.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69491": [
+			"On the corner of the roof's railing.",
+			[
+				{
+					"id": 71908,
+					"title": "",
+					"file_name": "c6d33e1b-a1e6-4a80-83ab-450891fbe91e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c6d33e1b-a1e6-4a80-83ab-450891fbe91e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69492": [
+			"On top of the radio antenna tower on the roof",
+			[
+				{
+					"id": 5093,
+					"title": "20210224132545_1",
+					"file_name": "c9d384fd-4d40-4d7e-ae8b-a078b71f8748.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c9d384fd-4d40-4d7e-ae8b-a078b71f8748.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69493": [
+			"On top of the tower",
+			[
+				{
+					"id": 5080,
+					"title": "20210224123457_1",
+					"file_name": "d38227cb-5050-40bb-a0c8-6fcd6ea0a89b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d38227cb-5050-40bb-a0c8-6fcd6ea0a89b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5081,
+					"title": "20210224123537_1",
+					"file_name": "3b0b42c5-4566-4579-ae36-36ebdf4411ad.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3b0b42c5-4566-4579-ae36-36ebdf4411ad.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69494": [
+			"On top of the pointed tower",
+			[
+				{
+					"id": 5085,
+					"title": "20210224124006_1",
+					"file_name": "f6e7fe9e-f0d0-4a7f-bc0e-8ac4b9ee6077.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6e7fe9e-f0d0-4a7f-bc0e-8ac4b9ee6077.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5086,
+					"title": "20210224123953_1",
+					"file_name": "b528476b-5a7f-4d53-a543-7b447cae4ee4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b528476b-5a7f-4d53-a543-7b447cae4ee4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69495": [
+			"On top of the highest tower in the safe zone.  Climb up the wall near the face sculpture",
+			[
+				{
+					"id": 5066,
+					"title": "20210224111245_1",
+					"file_name": "18f7f47a-6109-4f67-aaa5-c6b0c7b219bb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/18f7f47a-6109-4f67-aaa5-c6b0c7b219bb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5067,
+					"title": "20210224111305_1",
+					"file_name": "3161b187-23e0-43bc-a82b-dd6c5843a13d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3161b187-23e0-43bc-a82b-dd6c5843a13d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69496": [
+			"On top of the short radio antenna tower on the roof",
+			[
+				{
+					"id": 5089,
+					"title": "20210224131015_1",
+					"file_name": "01f167b8-d268-4a96-9d5d-4e6b3c7cefe9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/01f167b8-d268-4a96-9d5d-4e6b3c7cefe9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5090,
+					"title": "20210224131033_1",
+					"file_name": "76a8ad34-f2ab-4749-bec4-e10e91fca6e7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76a8ad34-f2ab-4749-bec4-e10e91fca6e7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69497": [
+			"On top of the square tower roof",
+			[
+				{
+					"id": 5095,
+					"title": "20210224132154_1",
+					"file_name": "49fdf5cb-cf42-49b4-b3d6-51ae2e6631a3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49fdf5cb-cf42-49b4-b3d6-51ae2e6631a3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5096,
+					"title": "20210224132139_1",
+					"file_name": "fd9f4f14-95cd-4048-a554-b91f68a06f26.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fd9f4f14-95cd-4048-a554-b91f68a06f26.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69498": [
+			"On the brick chimney on the roof",
+			[
+				{
+					"id": 5094,
+					"title": "20210224132434_1",
+					"file_name": "e67e3104-0c7d-41f0-9d01-f095b771f5ee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e67e3104-0c7d-41f0-9d01-f095b771f5ee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69499": [
+			"On top of the radio antenna tower on the roof",
+			[
+				{
+					"id": 5097,
+					"title": "20210224131942_1",
+					"file_name": "e4ea0773-6b31-4b19-9f7f-e6fddfd2be3a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4ea0773-6b31-4b19-9f7f-e6fddfd2be3a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69500": [
+			"On top of the short radio antenna tower on the roof",
+			[
+				{
+					"id": 5098,
+					"title": "20210224131811_1",
+					"file_name": "5570fc50-b288-41c0-9de7-d4adf4a2fe04.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5570fc50-b288-41c0-9de7-d4adf4a2fe04.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69503": [
+			"Found on the ledge next to the dome.  If you've already unlocked the safe zone, you can grapple up to the dome from one of the rooftops below",
+			[
+				{
+					"id": 5074,
+					"title": "20210224115535_1",
+					"file_name": "81ee1342-d07c-419c-8592-45bf8101bca1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/81ee1342-d07c-419c-8592-45bf8101bca1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5075,
+					"title": "20210224115218_1",
+					"file_name": "f805c079-2f74-4cb4-9c8a-81cf0142fb4d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f805c079-2f74-4cb4-9c8a-81cf0142fb4d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69504": [
+			"On the corner railing of the roof with the flaming barrel.",
+			[
+				{
+					"id": 5070,
+					"title": "20210224113319_1",
+					"file_name": "74b1c1cd-1885-47ab-8119-9636d081134c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/74b1c1cd-1885-47ab-8119-9636d081134c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69505": [
+			"On top of the tall tower",
+			[
+				{
+					"id": 5068,
+					"title": "20210224112551_1",
+					"file_name": "e640ea0f-729e-46a0-ad93-35ad44a26b7b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e640ea0f-729e-46a0-ad93-35ad44a26b7b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5069,
+					"title": "20210224112719_1",
+					"file_name": "5f829ea9-23b2-45fb-a8b6-322c6e5dca7d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f829ea9-23b2-45fb-a8b6-322c6e5dca7d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69509": ["On the roof", []],
+		"69510": ["On the roof", []],
+		"69511": ["On the roof", []],
+		"69512": ["On the roof", []],
+		"69514": ["On the roof", []],
+		"69517": [
+			"On top of the arch between the two towers",
+			[
+				{
+					"id": 5099,
+					"title": "20210224132126_1",
+					"file_name": "f5cd4fca-a74e-4b19-b68f-8911f93c391e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5cd4fca-a74e-4b19-b68f-8911f93c391e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69518": [
+			"**Prerequisite:** Side Quest: [Health Potion](#loc=70336)\n\nOn the ground floor - on the counter near the computer, right next to the door",
+			[
+				{
+					"id": 143488,
+					"title": "",
+					"file_name": "f61930ed-8942-4f12-a867-ee25d3d33204.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f61930ed-8942-4f12-a867-ee25d3d33204.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69525": [
+			"**Prerequisite:** Side Quest: [Fan Zone](#loc=70346)\n\nOn the standing speaker next to the red chairs in the broadcast room of the [Broadcast Offices](#loc=69486)",
+			[
+				{
+					"id": 71875,
+					"title": "",
+					"file_name": "6c1ce14d-b673-4fe4-8fb7-25bcfa6a0e82.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c1ce14d-b673-4fe4-8fb7-25bcfa6a0e82.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69530": [
+			"**Prerequisite:** Side quest [The Shadow of the King](#loc=70345)\n\nLocated inside the hotel. First, find the keycard to the reception desk on floor #1 near the stairs. Next, go to the reception desk and grab the keycard for room 101 on the floor. Finally go to room 101 and find the note on the dresser.",
+			[
+				{
+					"id": 71887,
+					"title": "",
+					"file_name": "5d9aa065-f904-4ab7-bb6a-bde9f85cc0a9.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d9aa065-f904-4ab7-bb6a-bde9f85cc0a9.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69533": [
+			"**Prerequisite:** Side quest [Chasing Past](#loc=70347)\n\nStuck in the door of room 3 in the [Southern Apartments](#loc=70354)",
+			[
+				{
+					"id": 75942,
+					"title": "",
+					"file_name": "51c11264-59c6-465f-a0e9-4fd3241753ce.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/51c11264-59c6-465f-a0e9-4fd3241753ce.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69536": [
+			"On the roof",
+			[
+				{
+					"id": 71901,
+					"title": "",
+					"file_name": "2d21efe1-da4a-4897-b99e-db5b5b5c5a82.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2d21efe1-da4a-4897-b99e-db5b5b5c5a82.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69540": [
+			"On the roof near the hatch and [Legless Spider](#loc=70351).",
+			[
+				{
+					"id": 71900,
+					"title": "",
+					"file_name": "9247cf7a-c845-4c1d-9192-016025335fd7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9247cf7a-c845-4c1d-9192-016025335fd7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69544": [
+			"On the roof next to a white chest and rooftop hatch (directly above zombie trap on the mini-map)",
+			[
+				{
+					"id": 71902,
+					"title": "",
+					"file_name": "7c5d8587-8ff8-41e7-8809-aaa602dc734a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c5d8587-8ff8-41e7-8809-aaa602dc734a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69551": [
+			"On the ground in the tunnel",
+			[
+				{
+					"id": 71911,
+					"title": "",
+					"file_name": "0e6d61f5-c969-45a8-b057-ebe6ada974f6.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e6d61f5-c969-45a8-b057-ebe6ada974f6.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69553": [
+			"In the safe zone - near the bounty board. The corpse disappears after capturing the safe zone.",
+			[
+				{
+					"id": 5126,
+					"title": "20210226040934_1",
+					"file_name": "1a228ba2-02ae-4a84-a955-45aa7f5857b2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1a228ba2-02ae-4a84-a955-45aa7f5857b2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69554": [
+			"In the upper floor apartment's bedroom, directly across from the bed on the windowsill",
+			[
+				{
+					"id": 71909,
+					"title": "",
+					"file_name": "8dc5e7ce-ad52-4f70-b7d4-103860bbb32d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8dc5e7ce-ad52-4f70-b7d4-103860bbb32d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69555": [
+			"In the workshop on the ground floor, on top of the workbench.",
+			[
+				{
+					"id": 71879,
+					"title": "",
+					"file_name": "930a9f63-5610-4e33-a0e7-8fc8927d69bc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/930a9f63-5610-4e33-a0e7-8fc8927d69bc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69595": [
+			"In the Luck Medicine - on top of the counter on the south end",
+			[
+				{
+					"id": 71880,
+					"title": "",
+					"file_name": "4d977570-3c2d-4b3c-88bc-28cb6b254ae2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d977570-3c2d-4b3c-88bc-28cb6b254ae2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69596": [
+			"In the safe zone - in the west end, on the dresser close to the window",
+			[
+				{
+					"id": 71881,
+					"title": "",
+					"file_name": "adb8f780-e55f-4a2a-b2c6-563a6144b372.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/adb8f780-e55f-4a2a-b2c6-563a6144b372.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69597": [
+			"In the second floor apartment bedroom (enter from the interior courtyard or the open window in the bedroom) - on the nightstand next to the bed",
+			[
+				{
+					"id": 5155,
+					"title": "20210226062254_1",
+					"file_name": "9bb77303-ac86-48d7-ad7e-a6f515bf0114.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9bb77303-ac86-48d7-ad7e-a6f515bf0114.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69598": [
+			"In the shop on the ground floor - in the back of the shop on the dresser",
+			[
+				{
+					"id": 85864,
+					"title": "",
+					"file_name": "473cfa1e-7eda-4d6d-aabd-daf77ca6573a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/473cfa1e-7eda-4d6d-aabd-daf77ca6573a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69599": [
+			"**Prerequisite:** Side Quest: [Health Potion](#loc=70336)\n\nInside the apartment on the top floor, entered through the window (preferably with a grappling hook) after completing the quest mentioned above. You'll then find the voicemail on the dining table.",
+			[
+				{
+					"id": 85853,
+					"title": "",
+					"file_name": "088c0460-e30a-4b65-b68f-4e1de72c809f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/088c0460-e30a-4b65-b68f-4e1de72c809f.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69600": [
+			"In the upper floor bar and grill - on the counter behind the bar",
+			[
+				{
+					"id": 85854,
+					"title": "",
+					"file_name": "a4199be0-c20d-4c82-9805-4eea2b0bb6a0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a4199be0-c20d-4c82-9805-4eea2b0bb6a0.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69601": [
+			"Inside the café on the ground floor - behind the bar near the cash register.",
+			[
+				{
+					"id": 85860,
+					"title": "",
+					"file_name": "3bda89f3-82e5-4268-88d0-243b6258738a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3bda89f3-82e5-4268-88d0-243b6258738a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69602": [
+			"In the Luck Medicine on the ground floor - on the reception counter",
+			[
+				{
+					"id": 85859,
+					"title": "",
+					"file_name": "28ed08cf-493a-4cb7-9208-112dcdf899b9.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/28ed08cf-493a-4cb7-9208-112dcdf899b9.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69603": [
+			"In the upper floor apartment - in the bedroom, behind the bed on the ground",
+			[
+				{
+					"id": 75952,
+					"title": "",
+					"file_name": "16a9d6b0-f747-454c-bf78-6d345f1cda27.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/16a9d6b0-f747-454c-bf78-6d345f1cda27.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69604": [
+			"In the Luck Medicine on the ground floor - on the counter on the east wall",
+			[
+				{
+					"id": 85856,
+					"title": "",
+					"file_name": "2f1cebd7-288c-4e80-9d52-4641073ab1d1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f1cebd7-288c-4e80-9d52-4641073ab1d1.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69605": [
+			"In the upper floor apartment - on the nightstand next to the smaller bed",
+			[
+				{
+					"id": 85855,
+					"title": "",
+					"file_name": "6bd88a15-f225-4167-b59b-6262f1544299.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6bd88a15-f225-4167-b59b-6262f1544299.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69606": [
+			"In the upper floor apartment - on the dresser with the flower vase in the hallway",
+			[
+				{
+					"id": 85858,
+					"title": "",
+					"file_name": "c4100f6c-8798-420e-a77b-4f984bf17560.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c4100f6c-8798-420e-a77b-4f984bf17560.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69607": [
+			"In the workshop on the ground floor - on the desk next to the cash register. You need to open the metal shutters first to enter.",
+			[
+				{
+					"id": 85857,
+					"title": "",
+					"file_name": "bd8140b7-4671-438b-a458-fe9830dbbee5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd8140b7-4671-438b-a458-fe9830dbbee5.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69608": [
+			"In the second floor apartment - on the dresser near the framed picture",
+			[
+				{
+					"id": 85863,
+					"title": "",
+					"file_name": "09fe212b-bed1-4be6-a462-6c72609eeb8e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/09fe212b-bed1-4be6-a462-6c72609eeb8e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69609": [
+			"In the upper floor apartment - on the dresser next to the white bowl",
+			[
+				{
+					"id": 85862,
+					"title": "",
+					"file_name": "e129ab5d-28f7-488b-b1f2-45bbb784aa82.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e129ab5d-28f7-488b-b1f2-45bbb784aa82.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69610": [
+			"In Luck Medicine on the ground floor - behind the counter on the shelf",
+			[
+				{
+					"id": 85861,
+					"title": "",
+					"file_name": "95be9583-f694-4f07-be57-6a1be2b51d32.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95be9583-f694-4f07-be57-6a1be2b51d32.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69612": [
+			"On the table under the rotunda",
+			[
+				{
+					"id": 71912,
+					"title": "",
+					"file_name": "2078b81e-8b85-441a-baba-ebbcaf39327d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2078b81e-8b85-441a-baba-ebbcaf39327d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69613": [
+			"In the safe zone - on the chair behind the table, in the corner of the room",
+			[
+				{
+					"id": 71917,
+					"title": "",
+					"file_name": "35abe151-0efe-4b19-92ef-1d8783318630.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35abe151-0efe-4b19-92ef-1d8783318630.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69614": [
+			"In the second floor apartment - on the desk with the laptop near the open window",
+			[
+				{
+					"id": 71916,
+					"title": "",
+					"file_name": "47052f86-83e2-46ca-a9f7-c87e521e61f3.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/47052f86-83e2-46ca-a9f7-c87e521e61f3.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69615": [
+			"In [Harran University](#loc=66919) - in the store room in the northwest section of the university on the desk next to the lamp",
+			[
+				{
+					"id": 5103,
+					"title": "20210225023106_1",
+					"file_name": "ef7cc94a-1ddd-405a-96d2-ec3a82913522.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ef7cc94a-1ddd-405a-96d2-ec3a82913522.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69616": [
+			"On the high upper floor of the tower",
+			[
+				{
+					"id": 5100,
+					"title": "20210225021741_1",
+					"file_name": "8a4ea3f0-0a3e-46c5-b56a-8484e701cc69.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a4ea3f0-0a3e-46c5-b56a-8484e701cc69.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69617": [
+			"Inside a toolbox in the rotunda.",
+			[
+				{
+					"id": 5101,
+					"title": "20210225021905_1",
+					"file_name": "dc4589c9-1238-4261-959f-0bfbc122679f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dc4589c9-1238-4261-959f-0bfbc122679f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69618": [
+			"In the rotunda - on the white mattress",
+			[
+				{
+					"id": 5102,
+					"title": "20210225021438_1",
+					"file_name": "f137e47c-6db6-4d88-8763-bf62ac05132e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f137e47c-6db6-4d88-8763-bf62ac05132e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69619": [
+			"**Prerequisite:** Side quest [Office Outpost](#loc=70330)\n\nOn a blue barrel near a generator under the building.",
+			[
+				{
+					"id": 71918,
+					"title": "",
+					"file_name": "5d81ac15-f77e-4217-8ee6-9a7e44b7ff62.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d81ac15-f77e-4217-8ee6-9a7e44b7ff62.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69620": [
+			"**Prerequisite:** Side quest [Chasing Past](#loc=70347)\n\nOn the workbench in the basement near a framed cat picture",
+			[
+				{
+					"id": 71919,
+					"title": "",
+					"file_name": "6fdab102-1c58-43f5-ae22-eba076be8092.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6fdab102-1c58-43f5-ae22-eba076be8092.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69621": [
+			"Next to the corpse on the couch",
+			[
+				{
+					"id": 5135,
+					"title": "20210226044709_1",
+					"file_name": "9ba76897-1c54-4e4d-8152-5ba18c33c3ba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9ba76897-1c54-4e4d-8152-5ba18c33c3ba.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69622": [
+			"Enter [World 1-1 (Mario Easter Egg)](#loc=70359).  After jumping over the fourth green pipe, start jumping into the air as you walk further.  About 5 or 6 blocks back from the gap on the floor, when you jump into the air, your head should hit an invisible block, revealing it above you.  Climb up on the revealed pink block to find the blueprint",
+			[]
+		],
+		"69623": [
+			"In the open side compartment of the semi truck",
+			[
+				{
+					"id": 71915,
+					"title": "xrmvjdf",
+					"file_name": "b1f9b45d-fde0-4abf-9650-ef4148b702d6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b1f9b45d-fde0-4abf-9650-ef4148b702d6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69624": [
+			"On top of the big square blue stage - in the yellow toolbox",
+			[
+				{
+					"id": 5145,
+					"title": "20210226053431_1",
+					"file_name": "ce5814e1-d16f-45b6-b97e-18a34df116a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ce5814e1-d16f-45b6-b97e-18a34df116a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69625": [
+			"In the back of the partially submerged yellow van, in the tunnel",
+			[
+				{
+					"id": 5144,
+					"title": "20210226053342_1",
+					"file_name": "46f0beff-6c5a-4909-836b-7aca019cbf00.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/46f0beff-6c5a-4909-836b-7aca019cbf00.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69626": [
+			"**Prerequisite:** Side quest [Rupert the Gunsmith](#loc=70335)\n\nImmediately after entering Rupert's flat in [Rupert's Apartment Building](#loc=69485), turn left and head to the opposite wall of the play room to find the pink teddy bear sitting on a pile of cushions.  Use the action key to trigger a voice response from the bear.  Repeat this action many times until the bear explodes - revealing the blueprint in its place.\n\nThe Stasis Field Projector itself is a throwable weapon that emits electricity before exploding, dealing no damage but lifting zombies into the air before slamming them back down. It does not affect Human Allies or Human Enemies.",
+			[
+				{
+					"id": 71914,
+					"title": "",
+					"file_name": "e8c34c0c-e7dc-4986-84a7-d603937892a4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e8c34c0c-e7dc-4986-84a7-d603937892a4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69627": [
+			"In the back of the yellow van",
+			[
+				{
+					"id": 71913,
+					"title": "",
+					"file_name": "6c07b279-d93a-4f92-b641-c198c161a377.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c07b279-d93a-4f92-b641-c198c161a377.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69628": [
+			"In the rotunda on the roof",
+			[
+				{
+					"id": 5128,
+					"title": "20210226041937_1",
+					"file_name": "27fe82a1-7225-4dbe-a3bc-6ccf2d2b912a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/27fe82a1-7225-4dbe-a3bc-6ccf2d2b912a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69629": [
+			"In the rotunda on the roof",
+			[
+				{
+					"id": 5127,
+					"title": "20210226042257_1",
+					"file_name": "0918d5b2-e578-49c9-a3f9-3538668fa568.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0918d5b2-e578-49c9-a3f9-3538668fa568.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69630": [
+			"**Prerequisite:** Begin side quest [Do You Believe?](#loc=70341) to gain access to this building\n\nYou must first obtain both [Right hand of gloVA piece #1](#loc=70357) and [Right hand of gloVA piece #2](#loc=70358).  Find the skull on the rock near the burning incense at this location and insert both pieces into it.  Then the final blueprint will be revealed.\n\n**Note:** The blueprint is titled Right hand of gloVA on PC, and Right ball of gloVA on console.\n\n**Note 2:** Both pieces must be gathered in the same play session.",
+			[
+				{
+					"id": 71883,
+					"title": "",
+					"file_name": "b263e540-2ae7-443a-b718-94e9bcdca697.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b263e540-2ae7-443a-b718-94e9bcdca697.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69808": ["The blue locker in the back room of the Luck Medicine shop on the ground floor", []],
+		"69809": ["The blue locker in the back room of the Luck Medicine shop on the ground floor", []],
+		"69813": [
+			"In the outside hallway on the upper floor",
+			[
+				{
+					"id": 5129,
+					"title": "20210226042134_1",
+					"file_name": "be188409-373a-4a73-8e8d-fdca051d51d7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be188409-373a-4a73-8e8d-fdca051d51d7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69814": [
+			"On the upper floor",
+			[
+				{
+					"id": 5130,
+					"title": "20210226041748_1",
+					"file_name": "b577759c-7be7-4985-8ee6-a28ef93a3f8d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b577759c-7be7-4985-8ee6-a28ef93a3f8d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69815": [
+			"In the apartment on the upper floor",
+			[
+				{
+					"id": 5131,
+					"title": "20210226041554_1",
+					"file_name": "0a6e7320-105c-43bc-b3a1-8193f9d20fc6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a6e7320-105c-43bc-b3a1-8193f9d20fc6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69816": ["On the roof", []],
+		"69817": [
+			"In the outside hallway on the third floor",
+			[
+				{
+					"id": 5132,
+					"title": "20210226043145_1",
+					"file_name": "f6625499-bcb5-4853-9181-ecab655cd000.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6625499-bcb5-4853-9181-ecab655cd000.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69818": ["On the balcony", []],
+		"69819": [
+			"On the roof",
+			[
+				{
+					"id": 5133,
+					"title": "20210226043554_1",
+					"file_name": "038cf18d-1381-488b-b2fa-c4271d3c8fe0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/038cf18d-1381-488b-b2fa-c4271d3c8fe0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69820": ["On the roof", []],
+		"69821": [
+			"On the roof",
+			[
+				{
+					"id": 5134,
+					"title": "20210226044243_1",
+					"file_name": "e375673e-f474-4715-9661-4af96055ca3e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e375673e-f474-4715-9661-4af96055ca3e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69822": ["In the underground room with the [Zombie Statue](#loc=69357)", []],
+		"69823": [
+			"In the underground room with the [Zombie Statue](#loc=69357)",
+			[
+				{
+					"id": 5138,
+					"title": "20210226045230_1",
+					"file_name": "61d53776-b99c-4ba1-b87f-2693834237ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61d53776-b99c-4ba1-b87f-2693834237ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69826": ["In the workshop", []],
+		"69827": [
+			"On the roof",
+			[
+				{
+					"id": 5140,
+					"title": "20210226050335_1",
+					"file_name": "6edcc4d1-cd22-4c61-b572-54257c978d8e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6edcc4d1-cd22-4c61-b572-54257c978d8e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69828": [
+			"On the ground next to the rowboat",
+			[
+				{
+					"id": 5141,
+					"title": "20210226050744_1",
+					"file_name": "1e2c232b-06a8-427b-b315-80e0106b790c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e2c232b-06a8-427b-b315-80e0106b790c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69829": ["On the roof", []],
+		"69832": ["On the roof", []],
+		"69833": [
+			"In the upper floor apartment.  Enter through one of the open windows",
+			[
+				{
+					"id": 5143,
+					"title": "20210226051635_1",
+					"file_name": "a19462f7-b10c-4411-a3bf-6854a12e0835.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a19462f7-b10c-4411-a3bf-6854a12e0835.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69834": ["In the upper floor apartment. Enter through one of the open windows", []],
+		"69835": ["On the roof", []],
+		"69843": [
+			"In the rooftop room",
+			[
+				{
+					"id": 5146,
+					"title": "20210226054247_1",
+					"file_name": "498cf51d-3811-4b82-a6b7-0879784061f6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/498cf51d-3811-4b82-a6b7-0879784061f6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69844": [
+			"Against the wall in the courtyard on the ground floor",
+			[
+				{
+					"id": 5147,
+					"title": "20210226054655_1",
+					"file_name": "9a2aae00-1ad3-4b83-b242-f9d65d7ce37b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a2aae00-1ad3-4b83-b242-f9d65d7ce37b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69845": [
+			"On the roof near the burning barrel",
+			[
+				{
+					"id": 5148,
+					"title": "20210226054900_1",
+					"file_name": "d85e30f7-a396-4bad-8f45-41bc3b4e224d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d85e30f7-a396-4bad-8f45-41bc3b4e224d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69846": [
+			"In the shop",
+			[
+				{
+					"id": 5150,
+					"title": "20210226055115_1",
+					"file_name": "9bef27c1-d79e-4b23-a095-6ce589d0149d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9bef27c1-d79e-4b23-a095-6ce589d0149d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69851": ["On the roof next to the rotunda", []],
+		"69852": [
+			"In the Souvenirs shop on the ground floor",
+			[
+				{
+					"id": 5151,
+					"title": "20210226060707_1",
+					"file_name": "0b3b2c59-7c66-41c1-85b8-dd5a03f143c5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b3b2c59-7c66-41c1-85b8-dd5a03f143c5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5152,
+					"title": "20210226060733_1",
+					"file_name": "55b5769b-eedb-42fa-be3c-a913019d8e04.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/55b5769b-eedb-42fa-be3c-a913019d8e04.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69853": [
+			"On the upper floor balcony",
+			[
+				{
+					"id": 5153,
+					"title": "20210226061146_1",
+					"file_name": "56eb05db-c12b-4a74-9da2-71b329402481.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/56eb05db-c12b-4a74-9da2-71b329402481.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69855": [
+			"On the upper floor balcony",
+			[
+				{
+					"id": 5156,
+					"title": "20210226061921_1",
+					"file_name": "3669c908-acb7-4fef-8cf6-b8267efc1621.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3669c908-acb7-4fef-8cf6-b8267efc1621.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69856": [
+			"On the upper floor balcony",
+			[
+				{
+					"id": 5157,
+					"title": "20210226061802_1",
+					"file_name": "398402fa-817f-4403-b51a-4045d3724cfa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/398402fa-817f-4403-b51a-4045d3724cfa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"70247": ["Speak with Savvy to begin this quest", []],
+		"70248": [
+			"Obtained automatically after exiting [Old Town Sewers Entrance](#loc=66906) for the first time during main quest [The Saviors](https://mapgenie.io/dying-light/maps/slums?locationIds=69462)",
+			[]
+		],
+		"70330": ["**Prerequisite:** [Radio Station](#loc=70247)\n\nSpeak with Savvy to begin this quest", []],
+		"70331": ["Becomes available after the side quest [Office Outpost](#loc=70330)", []],
+		"70332": [
+			"**Prerequisite:** Side quest [Gunslinger](https://mapgenie.io/dying-light/maps/slums?locationIds=70227) from The Slums\n\nDawud will contact you via the radio at some point in Old Town to begin this quest",
+			[]
+		],
+		"70333": ["Speak with Ihsan to begin this quest", []],
+		"70334": ["Speak with Troy in the uppermost tower to begin this quest", []],
+		"70335": [
+			"**Prerequisite:** Main quest [Higher Education](#loc=70334)\n\nSpeak with Fidan in [Harran University](#loc=66919) to begin this quest",
+			[]
+		],
+		"70336": [
+			"**Prerequisite:** [Rupert the Gunsmith](#loc=70335)\n\nObtained automatically after completion of prerequisite",
+			[]
+		],
+		"70337": [
+			"**Prerequisite:** [Health Potion](#loc=70336)\n\nSpeak with the little boy Kadim to begin this quest",
+			[]
+		],
+		"70338": ["**Prerequisite:** [Blocks for the Boy](#loc=70337)\n\nSpeak with Rupert to begin this quest", []],
+		"70339": [
+			"**Prerequisite:** [Dungeon](#loc=70338)\n\nSpeak with the little girl (named Girl) to begin this quest\n\n**Reward:** [Angel Sword](#loc=70340)",
+			[]
+		],
+		"70340": [
+			"Rewarded by Rupert from completion of side quest [Troll](#loc=70339) (this questline begins with [Rupert the Gunsmith](#loc=70335))",
+			[]
+		],
+		"70341": ["Speak with Mufid in [Harran University](#loc=66919) to begin this quest", []],
+		"70342": ["Becomes available after side quest [Do You Believe?](#loc=70341)", []],
+		"70343": ["Becomes available after side quest [Do You Believe?](#loc=70341)", []],
+		"70344": ["Becomes available after side quest [Do You Believe?](#loc=70341)", []],
+		"70345": [
+			"**Prerequisite:** [Do You Believe?](#loc=70341)\n\nObtained automatically after completion of the prerequisite",
+			[]
+		],
+		"70346": [
+			"**Prerequisite:** Main quest [Higher Education](#loc=70334)\n\nSpeak with Noah to begin this quest",
+			[]
+		],
+		"70347": [
+			"**Prerequisite:** Speak with Tariq initially during main quest [The Museum](#loc=70353)\n\nSpeak with Tariq in the safe zone to begin this quest",
+			[]
+		],
+		"70348": ["Speak with Mort Norris on the roof of [Harran University](#loc=66919) to begin this quest", []],
+		"70350": [
+			"**Prerequisite:** [Higher Education](#loc=70334)\n\nSpeak with Troy in the tower to begin this quest",
+			[]
+		],
+		"70351": [
+			"**Prerequisite:** Begin main quest [Public Face](#loc=70350)\n\nSavvy will contact you via the radio at some point to begin this quest",
+			[]
+		],
+		"70352": [
+			"**Prerequisite:** [Public Face](#loc=70350)\n\nObtained automatically after completion of the prerequisite",
+			[]
+		],
+		"70353": ["**Prerequisite:** [Rendezvous](#loc=70352)\n\nSpeak with Tariq to begin this quest", []],
+		"70354": ["Available during side quest [Chasing Past](#loc=70347)", []],
+		"70355": [
+			"**Prerequisite:** Side quest [Chasing Past](#loc=70347)\n\nIn the storage room of the museum, found soon after emerging from the underwater tunnel. Speak to [Tariq](#loc=66922) for the keys.",
+			[
+				{
+					"id": 71905,
+					"title": "",
+					"file_name": "4d7f3243-8d2c-4af4-becc-133798685994.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d7f3243-8d2c-4af4-becc-133798685994.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"70356": ["Available during side quest [The Shadow of the King](#loc=70345)", []],
+		"70357": [
+			"On the ledge on the northwest facing wall of the round stone tower.  Look for a small black rock that when focused upon allows you to perform action \"Unknown\".\n\nUsed alongside [piece #2](#loc=70358) to unlock the [Right Hand of gloVA](#loc=69630) blueprint.",
+			[
+				{
+					"id": 88686,
+					"title": "",
+					"file_name": "653fdd6e-8578-4db4-bec0-8b49d5b8cc36.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/653fdd6e-8578-4db4-bec0-8b49d5b8cc36.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 88687,
+					"title": "",
+					"file_name": "c6e12ae0-c5d6-4fc9-a795-a40537645e8d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c6e12ae0-c5d6-4fc9-a795-a40537645e8d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"70358": [
+			"On the shore, in the corner where the base of the cliff meets the ocean.  Look for a small black rock that when focused upon allows you to perform action \"Unknown\"\n\nUsed alongside [piece #1](#loc=70357) to unlock the [Right Hand of gloVA](#loc=69630) blueprint.",
+			[
+				{
+					"id": 71884,
+					"title": "",
+					"file_name": "60616514-1b42-4997-afe9-02e64d2f32b6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60616514-1b42-4997-afe9-02e64d2f32b6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"70359": [
+			"Look down the chimney on the roof to find a green pipe sticking out of it.  Activating it will bring you into a Super Mario minigame.  You can find the [Pyza Suit](#loc=69622) within the minigame",
+			[]
+		],
+		"70360": [
+			"**Prerequisite:** [The Museum](#loc=70353)\n\nObtained automatically from Troy after completion of the prerequisite",
+			[]
+		],
+		"70361": [
+			"**Prerequisite:** [Broadcast](#loc=70360)\n\nObtained automatically after completion of the prerequisite",
+			[]
+		],
+		"70362": [
+			"**Prerequisite:** [The Clinic](#loc=70361)\n\nObtained automatically after completion of the prerequisite",
+			[]
+		],
+		"72705": [
+			"**Prerequisite:** Side quest [The Shadow of the King](#loc=70345)\n\nIn room 107 - on the tv stand",
+			[
+				{
+					"id": 71890,
+					"title": "",
+					"file_name": "ca186905-4712-47e9-9492-3490ad42cb57.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ca186905-4712-47e9-9492-3490ad42cb57.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"82817": ["Rewarded for completing side quest [Fountain](#loc=70348)", []],
+		"84953": ["Inside Fahrat Pizza.", []],
+		"84954": [
+			"Accessed during The Bunker side quest. It will be on the second floor behind an advert for Harran University.",
+			[]
+		],
+		"84955": [
+			"Accessed during The Bunker side quest. The chest will be long your path to the main room of the bunker. There is another chest right near it",
+			[]
+		],
+		"84956": [
+			"Accessed through the The Bunker side quest, before entering the main area of the bunker turn right as it will be at corner. There is a another chest right near it",
+			[]
+		],
+		"84957": [
+			"Accessed during The Bunker side quest. Instead of heading down the stairs, go left through the doorway and continue forward until you reach a square room on your minimap. It will be on your left as you enter the file room.",
+			[]
+		],
+		"84958": ["In a room on the same floor as the very hard chest.", []],
+		"84959": ["On the roof.", []],
+		"84960": [
+			"Underground, easily accessed while doing the Fountain side quest. To reach it you must swim underwater through a small tunnel where the Toads are standing at. Turn to your right as It will be behind some breakable crates. Access to the area is southwest, near an electric fence trap.",
+			[]
+		],
+		"84961": [
+			"In an underground area where you access during the Fountain side quest. When you come to the area, look for the walkable area to your left. The chest is hidden behind breakable crates. It is easiest to use to get to when using a hook as you can grapple to the wooden platform.",
+			[]
+		],
+		"84962": ["At the beach near some boats", []],
+		"84963": ["At the bottom of the rocks, close to the water and 2 overturned cars.", []],
+		"85183": ["Inside on the ground floor.", []],
+		"85184": ["Inside on the ground floor.", []],
+		"85185": ["in the gun store ground floor", []],
+		"85186": ["In the gun store ground floor", []],
+		"85187": ["On the roof beside a wall.", []],
+		"85188": ["Inside of a closet accessible when the Family Doctor challenge is complete", []],
+		"85189": ["Along the path when you are heading towards the Antenna area.", []],
+		"85190": ["In a camp ground with 4 tents around.", []],
+		"85191": ["Inside of a building on the ground floor.", []],
+		"85192": [
+			"Inside the radio station. When you get inside continue forward until you reach a wall with pictures with a man on a drum set and another playing the trumpet. A little more forward on your right should be a small room with the chest.",
+			[]
+		],
+		"85193": ["Inside the Magic Castle. Down stairs in the room where you mercy Rupert's wife.", []],
+		"85194": [
+			"The area is accessed through the roof during the side quest The Bunker. It will be in the Mayor's room at the base of the bed.",
+			[]
+		],
+		"85195": [
+			"Underground, easily accessed when doing the Fountain side quest. When nearing the end and after dispatching Rais men. It will be near the water on a floating platform underneath the walkway where Rais men had ambushed you. Access to the area is south near the river through a doorway.",
+			[]
+		],
+		"85196": [
+			"In a locked room, that seems to open after leaving the area to open the value for the Old Town side quest Fountain. Entrance is northwest through a doorway near a car trap.",
+			[]
+		],
+		"85197": [
+			"Found in the second room after swimming underwater through a locked easy gate. It will be on your right hidden behind breakable wooden crates. Found easily when doing the Old Town side quest Fountain. Entrance is northeast through a doorway near a car trap.",
+			[]
+		],
+		"85406": ["On the roof near the radio tower", []],
+		"85407": ["In the workshop on the ground floor", []],
+		"85408": [
+			"As soon as you swim through the tunnel surface and it will be near the entrance to the zombie statue room",
+			[]
+		],
+		"85409": ["On the roof near a  wall", []],
+		"85410": ["On the roof at the base of a short radio tower", []],
+		"85411": ["In the workshop on the ground floor", []],
+		"85412": ["On the roof", []],
+		"85413": ["In the upper floor apartment same floor as the recording", []],
+		"85414": ["On the second floor at the base of a desk.", []],
+		"85416": ["In the upper floor bar and grill.", []],
+		"85417": ["On the roof", []],
+		"85418": ["In the upper floor bar and grill", []],
+		"85419": ["In the upper floor apartment bedroom.", []],
+		"85420": ["On the roof.", []],
+		"85421": ["In the upper floor bar and grill", []],
+		"149785": ["Grab 6 underwater boxes before time runs out", []],
+		"432390": ["On the roof, near some vents.", []],
+		"432391": [
+			"**Location:** On the roof.\n\n**Time Limit:** 1:55 \n\n**Difficulty:** Hard \n\n**Number of Checkpoints:** 26",
+			[
+				{
+					"id": 71907,
+					"title": "",
+					"file_name": "6a098dc7-6a60-4234-96c6-b9961113614a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a098dc7-6a60-4234-96c6-b9961113614a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"432392": ["Explode 8 zombies using only the gas tanks on their backs", []],
+		"432402": [
+			"**Prerequisite:** [The Bunker](#loc=70333)\n\nOn the top floor of the Town Hall, you will see an elevator at the end of the room. When it opens, a Clicker from The Last of Us series will come out. Kill it, loot it, and you will receive the one-of-a-kind* Clicker weapon upgrade.\n\n\n (* The upgrade is identical to the 'King' mod, but sells for twice as much.)",
+			[
+				{
+					"id": 71920,
+					"title": "",
+					"file_name": "c94ea230-2eec-4707-b292-28fec6da217d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c94ea230-2eec-4707-b292-28fec6da217d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"432403": ["On the beach next to a rock.", []],
+		"432404": ["On the roof, inside the room below the radio antenna.", []],
+		"432405": ["In the room below the radio antenna.", []],
+		"432407": ["On the roof.", []],
+		"432408": ["On the roof.", []],
+		"432409": ["Bottom floor, in the back of the pizzeria.", []],
+		"437391": ["In the bedroom on the top floor.", []],
+		"437393": ["In the bedroom on the top floor.", []],
+		"437396": ["Bottom floor, behind the counter in the pizzeria.", []],
+		"437397": ["On the roof.", []],
+		"437398": ["In the workshop on the bottom floor.", []],
+		"437399": ["On the roof.", []],
+		"437400": ["In the apartment on the top floor.", []],
+		"437402": ["On the roof, in the small cabin.", []],
+		"437412": ["On the terrace, near the [Zombie Statue](#loc=69365)", []],
+		"437415": ["On the 2nd floor balcony.", []],
+		"437418": ["On the roof.", []],
+		"437421": ["On the roof of the large apartment.", []],
+		"437422": ["In the workshop on the ground floor.", []],
+		"437429": ["On the 2nd floor balcony.", []],
+		"437432": ["On the balcony.", []],
+		"437433": ["On the terrace.", []],
+		"437434": ["Bottom floor, in the shop.", []],
+		"437435": ["On the roof.", []],
+		"437437": ["In the apartment on the top floor.", []],
+		"437438": ["In the 2nd floor bedroom.", []],
+		"437439": ["On the roof.", []],
+		"437440": ["In the room below the radio antenna.", []],
+		"437441": ["On the balcony below the roof.", []],
+		"437442": ["In the apartment on the 2nd floor.", []],
+		"437443": ["Inside the room below the radio antenna.", []],
+		"437444": ["On the roof.", []],
+		"437445": ["On the roof.", []],
+		"437446": ["On the roof.", []],
+		"437447": ["On the roof.", []],
+		"437449": ["On the tower.", []],
+		"437456": ["In the grassy garden, around the fountain (near bolter bait)", []],
+		"437458": [
+			"A dirt-filled pot and the words \"KOREK WAS HERE\" can be found on the rooftop. To get the blueprint, you must find four gasoline cans and bring them to the pot in one play session. A hand will emerge from the pot holding the blueprint for you to take.\n\nGas Can Locations:\n- [Gas Canister](#loc=437462)\n- [Gas Canister](#loc=437461)\n- [Gas Canister](#loc=437460)\n- [Gas Canister](#loc=437459)",
+			[]
+		],
+		"437459": [
+			"One of four gas cans needed to unlock the [Korek Machete V2](#loc=437458) - found on top of the round building.",
+			[]
+		],
+		"437460": [
+			"One of four gas cans needed to unlock the [Korek Machete V2](#loc=437458) - found on top of the round building.",
+			[]
+		],
+		"437461": [
+			"One of four gas cans needed to unlock the [Korek Machete V2](#loc=437458) - found on top of the round building.",
+			[]
+		],
+		"437462": ["One of four gas cans needed to unlock the [Korek Machete V2](#loc=437458)", []]
+	}
+}

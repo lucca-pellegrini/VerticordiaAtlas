@@ -1,0 +1,1594 @@
+{
+	"v": 1,
+	"d": {
+		"488603": ["**To:** [Horizon Point Station](#loc=488604)", []],
+		"488604": ["**To:** [Security Ops - Main Level](#loc=488603)", []],
+		"488605": [
+			"[Horizon Point Station](#loc=488606)",
+			[
+				{
+					"id": 103478,
+					"title": "unedited014699",
+					"file_name": "6d3ac0b7-b6ad-4583-9807-0789a5055dfc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6d3ac0b7-b6ad-4583-9807-0789a5055dfc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"488606": [
+			"[Security Ops - Lower Level](#loc=488605)\n\n**Requires:**\n- [Horizon Point: Security Ops Maintenance Key](#loc=489143)",
+			[
+				{
+					"id": 103477,
+					"title": "unedited014698",
+					"file_name": "df3039f9-ccdf-4897-a4b3-e525b2d21613.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df3039f9-ccdf-4897-a4b3-e525b2d21613.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"488612": ["**To:** [Horizon Point Station](#loc=488614)", []],
+		"488614": ["**To:** [Central Dispatch - Lower Level](#loc=488612)", []],
+		"488682": ["**To:** [Central Dispatch - Main Level](#loc=488683)", []],
+		"488683": ["**To:** [Horizon Point Station](#loc=488682)", []],
+		"488691": ["**To:** [Skip Labs - Lower Level](#loc=488693)", []],
+		"488692": ["**To:** [Skip Labs - Lower Level](#loc=488694)", []],
+		"488693": ["**To:** [Horizon Point Station](#loc=488691)", []],
+		"488694": ["**To:** [Horizon Point Station](#loc=488692)", []],
+		"489097": [
+			"",
+			[
+				{
+					"id": 103498,
+					"title": "unedited014719",
+					"file_name": "6255ba3d-e73c-4381-b542-4f9a5c4bf929.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6255ba3d-e73c-4381-b542-4f9a5c4bf929.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489098": [
+			"**To:** [Elevator - Main Level](#loc=489099)\n\nCan only be used after interacting with the [Security Operations Monitoring Station](#loc=490672).",
+			[
+				{
+					"id": 103499,
+					"title": "unedited014720",
+					"file_name": "46762e63-19e7-49e2-bc71-2e86c5995637.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/46762e63-19e7-49e2-bc71-2e86c5995637.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489099": ["**To:** [Elevator - Upper Level](#loc=489098)", []],
+		"489100": ["**To:** [Skip Labs - Main Level](#loc=489101)", []],
+		"489101": ["**To:** [Skip Labs - Lower Level](#loc=489100)", []],
+		"489102": [
+			"",
+			[
+				{
+					"id": 103491,
+					"title": "unedited014712",
+					"file_name": "e166f441-12c8-44fe-8327-e74960b4ebce.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e166f441-12c8-44fe-8327-e74960b4ebce.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489103": [
+			"**Options:**  \n- [1]  \n  - Engineering 1 \n  - Earth Directorate Propaganda Cartridge\n- [2]   \n  - Trait: Innovative\n  - Earth Directorate Propaganda Cartridge",
+			[
+				{
+					"id": 103495,
+					"title": "unedited014716",
+					"file_name": "3be59815-bbc7-400f-8cac-fce6bd87e1d1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3be59815-bbc7-400f-8cac-fce6bd87e1d1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489104": [
+			"**Options:**\r\n- Unlock\r\n  - Lockpick 1\r\n  - Mag-Pick",
+			[
+				{
+					"id": 103494,
+					"title": "unedited014715",
+					"file_name": "b651011e-6d92-4bca-871f-fbf8ebe461c2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b651011e-6d92-4bca-871f-fbf8ebe461c2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489105": [
+			"**Options:**\n- Lockpick\n  - Lockpick 1, Mag-Pick\n\nLeads to a hatch outside to the north (which is unlocked)",
+			[]
+		],
+		"489106": [
+			"Downstairs, on a desk. Only works after [restoring power to the landing pad doors.](#loc=490667)",
+			[
+				{
+					"id": 103470,
+					"title": "unedited014692",
+					"file_name": "4109a24b-ffd3-490b-bd17-57ba1f588b23.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4109a24b-ffd3-490b-bd17-57ba1f588b23.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489107": [
+			"**Options:**\n- Unlock\n  - Lockpick 1\n  - Mag-Pick",
+			[
+				{
+					"id": 103482,
+					"title": "unedited014703",
+					"file_name": "4adadba8-b720-41cb-bef5-a250d05ace1c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4adadba8-b720-41cb-bef5-a250d05ace1c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489108": [
+			"**Location:** On the cart next to the Protectorate Neophyte",
+			[
+				{
+					"id": 103484,
+					"title": "unedited014705",
+					"file_name": "c4138448-f100-49e8-a09b-5b282fbcf77d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c4138448-f100-49e8-a09b-5b282fbcf77d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103035,
+					"title": "20251024124428_1",
+					"file_name": "12a8d88d-516a-46c4-8b5b-ffc3111cb3a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/12a8d88d-516a-46c4-8b5b-ffc3111cb3a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489109": [
+			"**Location:** On the shelf at the edge of the room",
+			[
+				{
+					"id": 103487,
+					"title": "unedited014708",
+					"file_name": "a241cfc5-9e6c-4561-b811-663c7d0aa349.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a241cfc5-9e6c-4561-b811-663c7d0aa349.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103037,
+					"title": "20251024124829_1",
+					"file_name": "84b2f46c-ffdf-4b30-b0ef-50d75902ba05.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/84b2f46c-ffdf-4b30-b0ef-50d75902ba05.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489110": [
+			"**Contains:**\n- [Pumping Station Keycard](#loc=489158)",
+			[
+				{
+					"id": 103486,
+					"title": "unedited014707",
+					"file_name": "1f60b181-f310-481b-8aab-c0773294e7c0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f60b181-f310-481b-8aab-c0773294e7c0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489111": [
+			"**Location:** On the wall shelf in the restroom.",
+			[
+				{
+					"id": 103490,
+					"title": "unedited014711",
+					"file_name": "fd8388c7-2363-44ea-a82e-b88ecf5c47ea.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fd8388c7-2363-44ea-a82e-b88ecf5c47ea.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103039,
+					"title": "20251024125058_1",
+					"file_name": "1007e2c6-2b75-46fa-837c-407aa70d36b8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1007e2c6-2b75-46fa-837c-407aa70d36b8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489112": [
+			"**Location:** Hidden behind the poster.\n\nUse Observation skill to unlock",
+			[
+				{
+					"id": 103496,
+					"title": "unedited014717",
+					"file_name": "62bbdd19-60f9-45e8-8e71-98d530656cf6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62bbdd19-60f9-45e8-8e71-98d530656cf6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489113": [
+			"On the table",
+			[
+				{
+					"id": 103500,
+					"title": "unedited014721",
+					"file_name": "ff4b0e7c-8a43-4478-be4c-e85d5afc167a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff4b0e7c-8a43-4478-be4c-e85d5afc167a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103041,
+					"title": "20251024125933_1",
+					"file_name": "cb921008-e131-4f8c-9ba1-0dbcc291bd39.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb921008-e131-4f8c-9ba1-0dbcc291bd39.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489115": ["**Options:**\n- Unlock\n  - Lockpick 1, Mag-Pick\n- Explode\n  - Explosive 1", []],
+		"489117": [
+			"On the table",
+			[
+				{
+					"id": 103504,
+					"title": "unedited014725",
+					"file_name": "9534cc08-0f81-4cbb-b5a6-837e2dea715e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9534cc08-0f81-4cbb-b5a6-837e2dea715e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103043,
+					"title": "20251024131723_1",
+					"file_name": "98179dd1-f1c0-4e02-baf1-fe783cfbbb57.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/98179dd1-f1c0-4e02-baf1-fe783cfbbb57.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489118": [
+			"**Required to Unlock:**\n- Observation 1",
+			[
+				{
+					"id": 103507,
+					"title": "unedited014728",
+					"file_name": "44e822c1-12bb-41f3-b0cf-fbeefed3a3e4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44e822c1-12bb-41f3-b0cf-fbeefed3a3e4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489119": ["Request VAL to move Agent Abara back to the ship and she'll give you the rifle", []],
+		"489120": [
+			"Inside the maintenance hatch with the dead body",
+			[
+				{
+					"id": 103483,
+					"title": "unedited014704",
+					"file_name": "6453eddb-ef4a-4afc-9492-0371593bf5fb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6453eddb-ef4a-4afc-9492-0371593bf5fb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489123": [
+			"**Next:** [Recalling the Score](https://mapgenie.io/the-outer-worlds-2/maps/ships?locationIds=489272)",
+			[]
+		],
+		"489124": [
+			"Convince [Cadet 4th Class Corbin](#loc=489125) that you can revise his appraisal at [Arbiter Jackson's Terminal](#loc=489159) to keep him out of Mental Refreshment",
+			[]
+		],
+		"489125": [
+			"Can be spoken to through the window. Holds a Pumping Station Keycard that can be looted from his corpse.\n\n**Related Quests:**\n- [The Cadet's Degrading Dilemma](#loc=489124)",
+			[]
+		],
+		"489127": ["**Options:**\n- Unlock\n  - Lockpick 1, Mag-Pick", []],
+		"489128": [
+			"**Location:** Downstairs. In the corner of the room",
+			[
+				{
+					"id": 103466,
+					"title": "unedited014688",
+					"file_name": "a7da54f5-0a5c-4924-b23a-6a1a105828f5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a7da54f5-0a5c-4924-b23a-6a1a105828f5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489129": [
+			"**Options:**\n- Unlock\n  - Lockpick 1, Mag-Pick\n- OR\n    - [Pumping Station Keycard](#loc=489158) (also found [here](#loc=495762))",
+			[]
+		],
+		"489130": [
+			"**Related Quest:** [A Cause Worth Killing For](#loc=489123)  \n\n**Location:** Upstairs, on the body leaning against the railing.",
+			[
+				{
+					"id": 103467,
+					"title": "unedited014689",
+					"file_name": "19356a80-0396-45bc-963e-d57c4c13e84b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/19356a80-0396-45bc-963e-d57c4c13e84b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489131": [
+			"**Location:** Inside the workshop on the table",
+			[
+				{
+					"id": 103472,
+					"title": "unedited014694",
+					"file_name": "79b18fe2-c77d-4a9a-9c38-d56c39063e4e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79b18fe2-c77d-4a9a-9c38-d56c39063e4e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489132": [
+			"**Location:** On the table beside the [Combat Drone](#loc=489131) in the workshop",
+			[
+				{
+					"id": 103473,
+					"title": "unedited014695",
+					"file_name": "ddeb9902-10ab-41c9-afbc-f2a4432769b2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddeb9902-10ab-41c9-afbc-f2a4432769b2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489134": [
+			"",
+			[
+				{
+					"id": 103518,
+					"title": "unedited014739",
+					"file_name": "cedfa5d1-2590-4e9a-8367-7d0482dbbe79.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cedfa5d1-2590-4e9a-8367-7d0482dbbe79.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489136": [
+			"**Options:**\n- [1] Increase Flow to an Unsafe Level\n  - Science! 1\n- [2] Crank Flow to the Maximum Level\n  - Explosives 1\n- [3] Mash Buttons\n  - Trait: Lucky",
+			[
+				{
+					"id": 103520,
+					"title": "unedited014741",
+					"file_name": "df705421-7675-445e-b5c6-2a5356f9ca7d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df705421-7675-445e-b5c6-2a5356f9ca7d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489140": [
+			"**Location:** Inside the cabin, right next to the door.",
+			[
+				{
+					"id": 103474,
+					"title": "unedited014696",
+					"file_name": "2cf260f7-a6c5-4561-bb55-f55d22f94bf1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2cf260f7-a6c5-4561-bb55-f55d22f94bf1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489141": [
+			"**Related Quest:** [A Cause Worth Killing For](#loc=489123)  \n\n**Location:** On the table in the security cabin",
+			[
+				{
+					"id": 103475,
+					"title": "unedited014697",
+					"file_name": "a6e1b15b-2144-4aa0-9e54-41c151e027cd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a6e1b15b-2144-4aa0-9e54-41c151e027cd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489142": ["**Options:**\n- Unlock\n  - Lockpick 1,  Mag-Pick", []],
+		"489143": [
+			"**Location:** On the table in the cabin along with [Security Operations Maintenance Access](#loc=489141)",
+			[
+				{
+					"id": 103476,
+					"title": "unedited014697",
+					"file_name": "a6e1b15b-2144-4aa0-9e54-41c151e027cd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a6e1b15b-2144-4aa0-9e54-41c151e027cd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489144": [
+			"**Location:** Inside a container in the corner",
+			[
+				{
+					"id": 103479,
+					"title": "unedited014700",
+					"file_name": "d33f2d87-e2d0-4520-85e9-9b8a9c5bb413.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d33f2d87-e2d0-4520-85e9-9b8a9c5bb413.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489146": [
+			"**Options:**\n- Comprehend\n  - Background: Professor",
+			[
+				{
+					"id": 103519,
+					"title": "unedited014740",
+					"file_name": "51cbee0f-a3f6-4b06-a068-622ad7a1ae7f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/51cbee0f-a3f6-4b06-a068-622ad7a1ae7f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489148": ["[Security Ops - Main Level](#loc=489149)", []],
+		"489149": ["[Security Ops - Lower Level](#loc=489148)", []],
+		"489150": [
+			"**Location:** On the table in front of a chalkboard",
+			[
+				{
+					"id": 103521,
+					"title": "unedited014742",
+					"file_name": "b82ff439-1ba8-49bb-8d93-6cd332bdbedc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b82ff439-1ba8-49bb-8d93-6cd332bdbedc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103049,
+					"title": "20251024140937_1",
+					"file_name": "368d330a-4bba-4488-9119-ad1490dfc300.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/368d330a-4bba-4488-9119-ad1490dfc300.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489151": [
+			"**Location:** On the door of a locker that holds a Bypass Shunt\n\n**Stat Bonus:**\n- +5 Max Health",
+			[
+				{
+					"id": 103481,
+					"title": "unedited014702",
+					"file_name": "4c68a8dd-4e18-4ea4-8950-17da63897968.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c68a8dd-4e18-4ea4-8950-17da63897968.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489152": [
+			"**Location:** Inside the open locker closest to the ground",
+			[
+				{
+					"id": 103480,
+					"title": "unedited014701",
+					"file_name": "d42d3d83-2dd0-4d86-ba82-254d57928d4d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d42d3d83-2dd0-4d86-ba82-254d57928d4d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489153": [
+			"**Location:** On the cart next to the column",
+			[
+				{
+					"id": 103522,
+					"title": "unedited014743",
+					"file_name": "1ea806eb-7041-4539-8da7-ae895f5f5369.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ea806eb-7041-4539-8da7-ae895f5f5369.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103050,
+					"title": "20251024141300_1",
+					"file_name": "a0db81c2-06a9-48ea-ba3e-861af18d62aa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a0db81c2-06a9-48ea-ba3e-861af18d62aa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489155": [
+			"**To:** [Security Ops - Upper Level](#loc=489157)",
+			[
+				{
+					"id": 103485,
+					"title": "unedited014706",
+					"file_name": "f95825a1-5079-4524-b71a-d82cca33a1e6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f95825a1-5079-4524-b71a-d82cca33a1e6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489157": ["**To:** [Security Ops - Main Level](#loc=489155)", []],
+		"489158": [
+			"**Location:** Inside the [Security Ops Terminal](#loc=489110). Choose the 'Eject Pumping Station Access Keycard' option, then use a Bypass Shunt with Hack 1 to retrieve it.",
+			[]
+		],
+		"489159": [
+			"**Related Quest:**\n- [The Cadet's Degrading Dilemma](#loc=489124)",
+			[
+				{
+					"id": 103523,
+					"title": "unedited014744",
+					"file_name": "3d41d96c-2bed-41d6-98c8-b0903e5e0a3b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3d41d96c-2bed-41d6-98c8-b0903e5e0a3b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489160": [
+			"**Location:** On the table beside the [Automech Repair Station Terminal](#loc=489102)",
+			[
+				{
+					"id": 103492,
+					"title": "unedited014713",
+					"file_name": "fe99241a-83a3-4672-aa83-eda55137424a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fe99241a-83a3-4672-aa83-eda55137424a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489161": [
+			"**Location:** On the table in the corner",
+			[
+				{
+					"id": 103493,
+					"title": "unedited014714",
+					"file_name": "00a817dc-c3b9-43aa-9088-c0545abdb1bf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/00a817dc-c3b9-43aa-9088-c0545abdb1bf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489163": [
+			"**Location:** On the machinery inside a room",
+			[
+				{
+					"id": 103502,
+					"title": "unedited014723",
+					"file_name": "62dee28f-2382-4325-85e9-04cf4a9366f6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62dee28f-2382-4325-85e9-04cf4a9366f6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489167": [
+			"**Location:** On the shelves next to the door.",
+			[
+				{
+					"id": 103506,
+					"title": "unedited014727",
+					"file_name": "d048bb36-97bc-4283-8ac7-fbc5e075f897.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d048bb36-97bc-4283-8ac7-fbc5e075f897.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489168": [
+			"**Location:** On the shelves in the corner",
+			[
+				{
+					"id": 103505,
+					"title": "unedited014726",
+					"file_name": "79b6b1b7-1565-4647-8ce2-502c4dc1bb4f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79b6b1b7-1565-4647-8ce2-502c4dc1bb4f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489169": [
+			"On the shelves.",
+			[
+				{
+					"id": 103508,
+					"title": "unedited014729",
+					"file_name": "4064cb1c-1132-427b-855c-ccf8fdc9cace.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4064cb1c-1132-427b-855c-ccf8fdc9cace.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489171": [
+			"On top of a box.",
+			[
+				{
+					"id": 103511,
+					"title": "unedited014732",
+					"file_name": "3837f07e-2a3d-4253-9dc0-df23a7291181.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3837f07e-2a3d-4253-9dc0-df23a7291181.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489173": ["**Location:** Upper level", []],
+		"489174": [
+			"**Location:** Inside the air ducts, accessed via [Hatch](#loc=489173)",
+			[
+				{
+					"id": 103512,
+					"title": "unedited014733",
+					"file_name": "137fedcb-6c98-460b-b24d-ce2a02b1d05b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/137fedcb-6c98-460b-b24d-ce2a02b1d05b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489177": [
+			"In the side-room.",
+			[
+				{
+					"id": 103515,
+					"title": "unedited014736",
+					"file_name": "ea2854ad-b9bd-4340-95d4-120bd5d9e115.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ea2854ad-b9bd-4340-95d4-120bd5d9e115.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489178": [
+			"**Options:**\n- Lockpicking\n  - Lockpick 1\n  - Mag-Pick\n- Hacking ([Pumping Station Terminal](#loc=489177))\n    - Hack 1\n    - Bypass Shunt",
+			[
+				{
+					"id": 103516,
+					"title": "unedited014737",
+					"file_name": "86840270-7a1c-4029-a379-7bb2b404d3b1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/86840270-7a1c-4029-a379-7bb2b404d3b1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489182": [
+			"**Location:** Behind the vending machine, reached by crouching under some pipes.  \n\n**Required to Unlock:**\n- Observation 1",
+			[
+				{
+					"id": 103524,
+					"title": "unedited014745",
+					"file_name": "e5b1eb4c-b4a1-42b9-bc5a-5c7b69e358c9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5b1eb4c-b4a1-42b9-bc5a-5c7b69e358c9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489184": [
+			"",
+			[
+				{
+					"id": 103528,
+					"title": "unedited014750",
+					"file_name": "79d04c27-2a38-4b51-a027-0ea88b08e87c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79d04c27-2a38-4b51-a027-0ea88b08e87c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489185": ["**To:** [Skip Labs - Main Level](#loc=489187)", []],
+		"489186": ["**Location:** Inside the [maintenance crawlspace](#loc=489182)", []],
+		"489187": ["**To:** [Skip Labs - Lower Level](#loc=489185)", []],
+		"489192": [
+			"**Location:** On the bench",
+			[
+				{
+					"id": 103526,
+					"title": "unedited014748",
+					"file_name": "e6414a65-fcee-4c58-a78c-d26499b13f66.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6414a65-fcee-4c58-a78c-d26499b13f66.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103062,
+					"title": "20251024150413_1",
+					"file_name": "4af12f6b-67bb-43e5-a9a1-0dbf3897a5b6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4af12f6b-67bb-43e5-a9a1-0dbf3897a5b6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489196": [
+			"",
+			[
+				{
+					"id": 103525,
+					"title": "unedited014747",
+					"file_name": "930c0047-da1e-440e-9337-fed26c3d9c5d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/930c0047-da1e-440e-9337-fed26c3d9c5d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489197": [
+			"",
+			[
+				{
+					"id": 103527,
+					"title": "unedited014749",
+					"file_name": "d60918ed-b97b-4da7-b57c-3359c0c6213c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d60918ed-b97b-4da7-b57c-3359c0c6213c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489200": [
+			"**Location:** On the table",
+			[
+				{
+					"id": 103529,
+					"title": "unedited014751",
+					"file_name": "62df2b32-4aeb-4204-a372-b0a6e8db0132.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62df2b32-4aeb-4204-a372-b0a6e8db0132.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103063,
+					"title": "20251024151940_1",
+					"file_name": "f0b3b808-d509-40e1-afd9-06d8bc15628c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0b3b808-d509-40e1-afd9-06d8bc15628c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489215": [
+			"**Location:** On the crate",
+			[
+				{
+					"id": 103950,
+					"title": "unedited014855",
+					"file_name": "e8c91a7e-a4d0-4ad3-94df-c2320a1ef202.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e8c91a7e-a4d0-4ad3-94df-c2320a1ef202.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103077,
+					"title": "20251024162617_1",
+					"file_name": "f0bd6ce6-8caf-4f1e-846f-31fba3960ad4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0bd6ce6-8caf-4f1e-846f-31fba3960ad4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489217": [
+			"**Options:**\n- [1]\n  - [Transformer Manual](#loc=489218)\n- [2]\n  - Engineering 1",
+			[
+				{
+					"id": 103954,
+					"title": "unedited014859",
+					"file_name": "ec2f847f-3a94-4243-ad95-1d57449c8cc4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec2f847f-3a94-4243-ad95-1d57449c8cc4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489218": [
+			"**Related Quest:** [A Cause Worth Killing For](#loc=489123)  \n\n**Location:** Inside the middle [Locker](#loc=491251)",
+			[]
+		],
+		"489224": ["**Options:**\n- Unlock\n  - Lockpick 1, Mag-Pick\n- Explode\n  - Explosives 1", []],
+		"489227": [
+			"**Location:** On the floor",
+			[
+				{
+					"id": 103957,
+					"title": "unedited014863",
+					"file_name": "70fa5f17-7b67-4711-acad-ec11d30396d1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/70fa5f17-7b67-4711-acad-ec11d30396d1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103083,
+					"title": "20251024165104_1",
+					"file_name": "865d819a-2e10-4027-8145-1505fcb2cfa1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/865d819a-2e10-4027-8145-1505fcb2cfa1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489237": [
+			"**Location:** On the desk in the office",
+			[
+				{
+					"id": 103959,
+					"title": "unedited014865",
+					"file_name": "32235465-361b-4eb5-afab-763e87812409.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/32235465-361b-4eb5-afab-763e87812409.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 103094,
+					"title": "20251024172104_1",
+					"file_name": "0e521dbe-a523-420e-847e-b12ef84a1992.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e521dbe-a523-420e-847e-b12ef84a1992.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"489241": [
+			"**Options:**\n- [1] Remove Backup Power Core\n- [2] Unlock Media Port\n  - Hack 1 -OR- Trait: Innovative",
+			[]
+		],
+		"489247": ["[To Central Dispatch - Upper Level](#loc=489248)", []],
+		"489248": ["[To Central Dispatch - Lower Level](#loc=489247)", []],
+		"489250": ["[Central Dispatch - Upper Level](#loc=489251)", []],
+		"489251": ["[Central Dispatch - Main Level](#loc=489250)", []],
+		"489255": [
+			"**Options:**\n- Open [Door](#loc=490680)",
+			[
+				{
+					"id": 103530,
+					"title": "unedited014752",
+					"file_name": "49c73de1-da87-4a01-a190-16bc26ef6ee5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49c73de1-da87-4a01-a190-16bc26ef6ee5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"489707": [
+			"Inside a container in the corner of the restroom, behind some pipes and an open stall door.",
+			[
+				{
+					"id": 103489,
+					"title": "unedited014710",
+					"file_name": "13989825-70b1-4acb-966b-1a35cd64ccb6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/13989825-70b1-4acb-966b-1a35cd64ccb6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490665": [
+			"**Related Quest:** [A Cause Worth Killing For](#loc=489123)  \n\n**Location:** Pinned to a wall directly opposite the door to the building.",
+			[
+				{
+					"id": 103465,
+					"title": "unedited014687",
+					"file_name": "be965851-0bd3-4bca-a33d-9d441adaa55b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be965851-0bd3-4bca-a33d-9d441adaa55b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490666": [
+			"**Related Quest:** [A Cause Worth Killing For](#loc=489123)  \n\n**Location:** Upstairs, next to the body leaning against the railing.",
+			[
+				{
+					"id": 103468,
+					"title": "unedited014690",
+					"file_name": "03ef170f-68bf-4d4e-b4d9-6bb8454fb03b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03ef170f-68bf-4d4e-b4d9-6bb8454fb03b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490667": [
+			"**Options:**\n- Use [Power Fuse](#loc=490666)",
+			[
+				{
+					"id": 103469,
+					"title": "unedited014691",
+					"file_name": "a786f420-4832-4581-88dc-738f9008dcff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a786f420-4832-4581-88dc-738f9008dcff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490668": [
+			"**Options:**\n- Disable Automechanical Security Systems\n  - Hack 1, Bypass Shunt",
+			[
+				{
+					"id": 103471,
+					"title": "unedited014693",
+					"file_name": "96b2f8cc-34b6-41a1-ad89-d815afba8af9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/96b2f8cc-34b6-41a1-ad89-d815afba8af9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490669": [
+			"Given to you by Niles Abara after [restoring power to the landing pad doors.](#loc=490667)\n\nCan be used to hack the [Automechanical Dispersal Controls](#loc=490668)",
+			[]
+		],
+		"490670": [
+			"Laying on a stack of posters on top of a box.",
+			[
+				{
+					"id": 103488,
+					"title": "unedited014709",
+					"file_name": "8f2e2266-fa0b-4254-8e70-9c9d220f1806.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8f2e2266-fa0b-4254-8e70-9c9d220f1806.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490671": [
+			"On a desk next to a terminal.",
+			[
+				{
+					"id": 103497,
+					"title": "unedited014718",
+					"file_name": "fcab7ec7-5a59-4d89-9b6e-ac4d2ea14d70.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fcab7ec7-5a59-4d89-9b6e-ac4d2ea14d70.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490672": [
+			"**Options:**\n- [1]  \n    - Disable Automechanical Deployment\n- [2] \n    - Insert Targeting Module\n    - [Automechanical Repair Station](#loc=489103)",
+			[
+				{
+					"id": 103501,
+					"title": "unedited014722",
+					"file_name": "f4186a65-baa6-45e7-83ba-f835b2e34c1c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f4186a65-baa6-45e7-83ba-f835b2e34c1c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490673": [
+			"On the reception desk.",
+			[
+				{
+					"id": 103503,
+					"title": "unedited014724",
+					"file_name": "7803621e-96a1-413e-acce-88e3e5c35ff4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7803621e-96a1-413e-acce-88e3e5c35ff4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490674": [
+			"Under the table.",
+			[
+				{
+					"id": 103509,
+					"title": "unedited014730",
+					"file_name": "ab5f91e3-a65b-4707-b811-f39a9d72c6bb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab5f91e3-a65b-4707-b811-f39a9d72c6bb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490675": [
+			"On top of a box.",
+			[
+				{
+					"id": 103510,
+					"title": "unedited014731",
+					"file_name": "9a1421cf-aa31-4511-b224-da4c427f8d89.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a1421cf-aa31-4511-b224-da4c427f8d89.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490677": [
+			"Inside the ducts.",
+			[
+				{
+					"id": 103513,
+					"title": "unedited014734",
+					"file_name": "1d847ea2-fd1e-4ade-bc76-aac47e332b48.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1d847ea2-fd1e-4ade-bc76-aac47e332b48.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490678": [
+			"Reached by crossing the bridge or timing your passage through some electrified ducts behind the other [Hatch](#loc=489173).",
+			[
+				{
+					"id": 103514,
+					"title": "unedited014735",
+					"file_name": "20c903b6-d1ae-4535-8eb0-0616b25fcded.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20c903b6-d1ae-4535-8eb0-0616b25fcded.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490679": [
+			"**Options:**\n- Bypass\n  - Climb through a [Hatch](#loc=489179) in the side-room next to it.\n- Hacking ([Pumping Station Terminal](#loc=489177))\n    - Hack 1, Bypass Shunt",
+			[
+				{
+					"id": 103517,
+					"title": "unedited014738",
+					"file_name": "000a5ce9-1d5f-47e4-82a4-8bf1e54b269f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/000a5ce9-1d5f-47e4-82a4-8bf1e54b269f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"490680": ["Unlocked via [Door Switch](#loc=489255)", []],
+		"490923": [
+			"**Location:** On top of a small box, to the left of the [Locked Door](#loc=489127)",
+			[
+				{
+					"id": 103786,
+					"title": "",
+					"file_name": "790e06da-7b06-4655-928a-29f06d923233.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/790e06da-7b06-4655-928a-29f06d923233.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491249": [
+			"On a box next to the [Updated Testing Procedures](#loc=489215).",
+			[
+				{
+					"id": 103951,
+					"title": "unedited014856",
+					"file_name": "5b41e382-582d-42dd-be9d-5c3bdf54dc37.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b41e382-582d-42dd-be9d-5c3bdf54dc37.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491250": [
+			"In an open locker.",
+			[
+				{
+					"id": 103952,
+					"title": "unedited014857",
+					"file_name": "434c654e-afa2-4eb9-a3a2-109293a2b7db.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/434c654e-afa2-4eb9-a3a2-109293a2b7db.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491251": [
+			"",
+			[
+				{
+					"id": 103953,
+					"title": "unedited014858",
+					"file_name": "c005e816-d859-48e8-b2fa-2971b68a4fbd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c005e816-d859-48e8-b2fa-2971b68a4fbd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491252": [
+			"**Location:** On the open locker's door.\n\n**Stat Bonus:**\n+5 Max Health",
+			[
+				{
+					"id": 103955,
+					"title": "unedited014860",
+					"file_name": "940d106b-9f70-494d-a611-6293bfe9ebab.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/940d106b-9f70-494d-a611-6293bfe9ebab.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491253": ["On a box in the room behind the [Locked Door](#loc=489224)", []],
+		"491254": [
+			"On a desk in the lower part of the room.",
+			[
+				{
+					"id": 103956,
+					"title": "unedited014862",
+					"file_name": "ee3c68f7-31eb-4062-9303-c06816ed4eef.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee3c68f7-31eb-4062-9303-c06816ed4eef.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491255": [
+			"Beneath the desk in the side-room.",
+			[
+				{
+					"id": 103958,
+					"title": "unedited014864",
+					"file_name": "384b5c9b-8f0f-4c6e-9407-6c4095756166.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/384b5c9b-8f0f-4c6e-9407-6c4095756166.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"491256": [
+			"On the desk next to the [Private Terminal](#loc=489238).",
+			[
+				{
+					"id": 103960,
+					"title": "unedited014866",
+					"file_name": "b25654c5-3b0c-4a8d-971d-36c3c0b9d851.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b25654c5-3b0c-4a8d-971d-36c3c0b9d851.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"495760": [
+			"On the ground next to a toolbox.",
+			[
+				{
+					"id": 105564,
+					"title": "unedited015577",
+					"file_name": "88c3e58d-ca11-4bea-baa4-a6212f6347c3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/88c3e58d-ca11-4bea-baa4-a6212f6347c3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"495761": [
+			"In the room behind the [Locked Door](#loc=489115).",
+			[
+				{
+					"id": 105565,
+					"title": "unedited015578",
+					"file_name": "e2b9afd8-584c-4be0-bb62-9cf9ec1f9ced.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e2b9afd8-584c-4be0-bb62-9cf9ec1f9ced.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"495762": [
+			"**Location:** Held by [Cadet 4th Class Corbin](#loc=489125)\n\n**Unlocks:** [Pumping Station Door](#loc=489129)",
+			[
+				{
+					"id": 105566,
+					"title": "unedited015579",
+					"file_name": "999402b0-b847-4a37-ab4c-a82737154940.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/999402b0-b847-4a37-ab4c-a82737154940.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"607479": ["In the locker next to the door.", []]
+	}
+}

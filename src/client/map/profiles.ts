@@ -4,6 +4,7 @@
 /* ---------- profiles ---------- */
 
 import { esc } from "../../shared/escape.ts";
+import { perfAsync } from "../perf.ts";
 import { dbAll, dbDelete, dbPut, getMeta, setMeta } from "./db.ts";
 import { closeDetail } from "./detail.ts";
 import { refreshAll, rememberCamera, syncMapToProfile } from "./map-view.ts";
@@ -192,7 +193,11 @@ export function scheduleSave(): void {
 	saveTimer = setTimeout(saveProfileNow, 200);
 }
 
-export async function saveProfileNow(): Promise<void> {
+export function saveProfileNow(): Promise<void> {
+	return perfAsync("saveProfileNow", saveProfileNowImpl);
+}
+
+async function saveProfileNowImpl(): Promise<void> {
 	clearTimeout(saveTimer);
 	savePending = false;
 	const p = state.profile;
@@ -201,7 +206,7 @@ export async function saveProfileNow(): Promise<void> {
 	p.updated = Date.now();
 	try {
 		await dbPut("profiles", p);
-		syncNote();
+		syncNote([`profile:${p.key}`]);
 	} catch (e) {
 		console.error(e);
 		toast("Could not save progress in this browser.");

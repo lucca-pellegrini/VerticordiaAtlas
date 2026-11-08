@@ -183,7 +183,8 @@
 					"tileSize": 256,
 					"background": "#151618"
 				}
-			]
+			],
+			"compact": "ingot-isle/data.compact.json"
 		},
 		{
 			"slug": "lagoon",
@@ -200,7 +201,8 @@
 					"tileSize": 256,
 					"background": "#3db39d"
 				}
-			]
+			],
+			"compact": "lagoon/data.compact.json"
 		},
 		{
 			"slug": "hilltop",
@@ -217,7 +219,8 @@
 					"tileSize": 256,
 					"background": "#3bb489"
 				}
-			]
+			],
+			"compact": "hilltop/data.compact.json"
 		},
 		{
 			"slug": "canyon",
@@ -234,7 +237,8 @@
 					"tileSize": 256,
 					"background": "#f68f62"
 				}
-			]
+			],
+			"compact": "canyon/data.compact.json"
 		},
 		{
 			"slug": "divide",
@@ -251,7 +255,8 @@
 					"tileSize": 256,
 					"background": "#62b19e"
 				}
-			]
+			],
+			"compact": "divide/data.compact.json"
 		},
 		{
 			"slug": "freezer",
@@ -268,7 +273,8 @@
 					"tileSize": 256,
 					"background": "#b197e0"
 				}
-			]
+			],
+			"compact": "freezer/data.compact.json"
 		},
 		{
 			"slug": "forest",
@@ -285,7 +291,8 @@
 					"tileSize": 256,
 					"background": "#3cad5f"
 				}
-			]
+			],
+			"compact": "forest/data.compact.json"
 		},
 		{
 			"slug": "junction",
@@ -302,7 +309,8 @@
 					"tileSize": 256,
 					"background": "#ca5e7e"
 				}
-			]
+			],
+			"compact": "junction/data.compact.json"
 		},
 		{
 			"slug": "resort",
@@ -319,7 +327,8 @@
 					"tileSize": 256,
 					"background": "#54cfcd"
 				}
-			]
+			],
+			"compact": "resort/data.compact.json"
 		},
 		{
 			"slug": "tempest",
@@ -336,7 +345,8 @@
 					"tileSize": 256,
 					"background": "#1f89a1"
 				}
-			]
+			],
+			"compact": "tempest/data.compact.json"
 		},
 		{
 			"slug": "landfill",
@@ -353,7 +363,8 @@
 					"tileSize": 256,
 					"background": "#bd7c42"
 				}
-			]
+			],
+			"compact": "landfill/data.compact.json"
 		},
 		{
 			"slug": "racing",
@@ -370,7 +381,8 @@
 					"tileSize": 256,
 					"background": "#ddbc51"
 				}
-			]
+			],
+			"compact": "racing/data.compact.json"
 		},
 		{
 			"slug": "radiance",
@@ -387,7 +399,8 @@
 					"tileSize": 256,
 					"background": "#6fae68"
 				}
-			]
+			],
+			"compact": "radiance/data.compact.json"
 		},
 		{
 			"slug": "groove",
@@ -404,7 +417,8 @@
 					"tileSize": 256,
 					"background": "#b2b0be"
 				}
-			]
+			],
+			"compact": "groove/data.compact.json"
 		},
 		{
 			"slug": "feast",
@@ -421,7 +435,8 @@
 					"tileSize": 256,
 					"background": "#a1b53a"
 				}
-			]
+			],
+			"compact": "feast/data.compact.json"
 		},
 		{
 			"slug": "forbidden",
@@ -438,7 +453,8 @@
 					"tileSize": 256,
 					"background": "#d86471"
 				}
-			]
+			],
+			"compact": "forbidden/data.compact.json"
 		},
 		{
 			"slug": "planet-core",
@@ -454,7 +470,8 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "planet-core/data.compact.json"
 		}
 	]
 }

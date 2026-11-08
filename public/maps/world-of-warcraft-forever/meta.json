@@ -363,7 +363,8 @@
 					"tileSize": 256,
 					"background": "#011d29"
 				}
-			]
+			],
+			"compact": "azeroth/data.compact.json"
 		}
 	]
 }

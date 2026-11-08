@@ -273,7 +273,8 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			]
+			],
+			"compact": "eidos-7/data.compact.json"
 		},
 		{
 			"slug": "xion-city",
@@ -290,7 +291,8 @@
 					"tileSize": 256,
 					"background": "#131b26"
 				}
-			]
+			],
+			"compact": "xion-city/data.compact.json"
 		},
 		{
 			"slug": "wasteland",
@@ -307,7 +309,8 @@
 					"tileSize": 256,
 					"background": "#131b26"
 				}
-			]
+			],
+			"compact": "wasteland/data.compact.json"
 		},
 		{
 			"slug": "altess-levoire",
@@ -324,7 +327,8 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			]
+			],
+			"compact": "altess-levoire/data.compact.json"
 		},
 		{
 			"slug": "matrix-11",
@@ -341,7 +345,8 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			]
+			],
+			"compact": "matrix-11/data.compact.json"
 		},
 		{
 			"slug": "great-desert",
@@ -358,7 +363,8 @@
 					"tileSize": 256,
 					"background": "#131b26"
 				}
-			]
+			],
+			"compact": "great-desert/data.compact.json"
 		},
 		{
 			"slug": "abyss-levoire",
@@ -375,7 +381,8 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			]
+			],
+			"compact": "abyss-levoire/data.compact.json"
 		},
 		{
 			"slug": "eidos-9",
@@ -392,7 +399,8 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			]
+			],
+			"compact": "eidos-9/data.compact.json"
 		},
 		{
 			"slug": "spire-4",
@@ -409,7 +417,8 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			]
+			],
+			"compact": "spire-4/data.compact.json"
 		}
 	]
 }

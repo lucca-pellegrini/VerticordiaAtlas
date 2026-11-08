@@ -1,0 +1,890 @@
+{
+	"v": 1,
+	"d": {
+		"251517": ["**Sells:** Conjuration spellcrafts", []],
+		"251518": [
+			"**How to acquire:** Revelio  \n**Location:** In front of the bookcase, just left of the entrance in Scrolls & Tomes.",
+			[]
+		],
+		"251519": ["**Location:** On the table. Press it to activate the enchanted staircase.", []],
+		"251520": [
+			"**How to acquire:** Accio  \n**Location:** Flying around Scrolls & Tomes' 2nd level. Press the [Switch](#loc=251519) to access.",
+			[]
+		],
+		"251521": [
+			"**Location:** On Tomes & Scrolls' 2nd story; press the [Switch](#loc=251519) to activate the staircase.",
+			[]
+		],
+		"251522": ["**Location:** In front of the bed.", []],
+		"251523": ["**Location:** In the corner of the bedroom.  \n**Contents:** 500 galleons", []],
+		"251524": [
+			"**Location:** On the dresser, against the southern wall of the bedroom.",
+			[
+				{
+					"id": 32727,
+					"title": "",
+					"file_name": "ce7105dd-5d16-4510-bd56-ad462dd484d4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ce7105dd-5d16-4510-bd56-ad462dd484d4.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251525": [
+			"**Location:** Outside the house, against the western wall.",
+			[
+				{
+					"id": 119612,
+					"title": "",
+					"file_name": "dcf2bd65-6038-41f4-83b7-37fef06eb098.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dcf2bd65-6038-41f4-83b7-37fef06eb098.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251526": [
+			"**How to acquire:** Accio  \n**Location:** Flying outside of Tomes and Scrolls, just to the west.",
+			[]
+		],
+		"251527": ["**How to acquire:** Accio  \n**Location:** Flying around the ruined courtyard.", []],
+		"251528": [
+			"**Location:** Outside the house, against the southern wall.  \n**Contents:** 500 galleons.",
+			[
+				{
+					"id": 41105,
+					"title": "",
+					"file_name": "6158c6e4-f606-446f-b8b0-b1cc0aa6677e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6158c6e4-f606-446f-b8b0-b1cc0aa6677e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251529": [
+			"**How to acquire:** Lumos to reveal the portrait, then bring the [Moth](#loc=251530) back.  \n**Location:** Beside the Eye Chest, against the wall.",
+			[
+				{
+					"id": 41103,
+					"title": "",
+					"file_name": "4f714753-1e62-4e1d-92c7-3665fc8269ff.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f714753-1e62-4e1d-92c7-3665fc8269ff.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251530": [
+			"**Location:** On a barrel, behind the Hog's Head  \n**Corresponding portrait:** [Lumos Portrait](#loc=251529)",
+			[]
+		],
+		"251531": [
+			"**Location:** On top of a wooden crate, in the back room of the Hog's Head.",
+			[
+				{
+					"id": 32726,
+					"title": "",
+					"file_name": "e6145d64-a327-4b9a-b300-8ec63d046b85.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6145d64-a327-4b9a-b300-8ec63d046b85.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251532": [
+			"**Location:** On the floor, in the back room of the Hog's Head.",
+			[
+				{
+					"id": 149378,
+					"title": "",
+					"file_name": "16d4cf82-a082-4fad-999b-3177ff020ee4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/16d4cf82-a082-4fad-999b-3177ff020ee4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251534": ["**How to acquire:** Revelio  \n**Location:** Underneath the mounted hog's head.", []],
+		"251535": ["**Location:** On the wooden pier.", []],
+		"251536": [
+			"**Location:** At the end of the wooden pier.",
+			[
+				{
+					"id": 41110,
+					"title": "",
+					"file_name": "3edf291d-0bad-4113-b064-78d9b1234ad4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3edf291d-0bad-4113-b064-78d9b1234ad4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251537": ["**How to acquire:** Accio  \n**Location:** Flying around the alleyway behind Ollivander's.", []],
+		"251538": ["**Location:** In the house, just north of Ollivanders; on the staircase.", []],
+		"251539": ["**Location:** In the house just north of Ollivander's; in the 2nd floor bedroom.", []],
+		"251540": ["**How to acquire:** Revelio  \n**Location:** Next to the front door to Ollivanders.", []],
+		"251541": ["**Location:** Inside Ollivanders, just left of the front door.", []],
+		"251543": ["**How to acquire:** Revelio  \n**Location:** On the stairs amidst the gardens.", []],
+		"251544": [
+			"**Location:** Underneath the stone bridge.  \n**Contents:** 500 galleons.",
+			[
+				{
+					"id": 41109,
+					"title": "",
+					"file_name": "c365c5e2-a467-4b30-9715-30d6c6d159e7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c365c5e2-a467-4b30-9715-30d6c6d159e7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251545": ["**How to acquire:** Accio  \n**Location:** Flying underneath the stone bridge.", []],
+		"251546": ["**Location:** Outside the house.", []],
+		"251547": ["**Location:** Inside J. Pippin's Potions, on the right side of the shop.", []],
+		"251548": [
+			"**Sells:** Potions, potion recipes and potion ingredients.\n\n- Focus Potion Recipe\n- Thunderbrew Recipe\n- Invisibility Potion Recipe\n- Maxima Potion Recipe",
+			[
+				{
+					"id": 41111,
+					"title": "",
+					"file_name": "c2e32293-4ff2-4fca-b29a-41bccd0028fe.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2e32293-4ff2-4fca-b29a-41bccd0028fe.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251549": [
+			"**How to acquire:** Revelio  \n**Location:** Inside J. Pippin's Potions, at the back of the shop.",
+			[]
+		],
+		"251551": ["**Location:** On the floor of the bedroom.", []],
+		"251552": ["**Location:** Behind the house  \n\n**Contents:** 500 galleons", []],
+		"251553": ["**How to acquire:** Revelio  \n**Location:** Beside the front door of Zonko's.", []],
+		"251555": ["**Location:** Behind the building for Gladrags Wizardwear, just outside the back door.", []],
+		"251556": ["**Sells:** Gear", []],
+		"251557": [
+			"**Location:** On the pedestal between the two mannequins.",
+			[
+				{
+					"id": 149376,
+					"title": "",
+					"file_name": "6fc5b19e-b637-49d4-9ea9-869dc72c0f9f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6fc5b19e-b637-49d4-9ea9-869dc72c0f9f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251558": ["**How to acquire:** Revelio  \n**Location:** In front of the mannequin by the front door.", []],
+		"251559": [
+			"**Location:** On the counter, right of the \"Dervish Banges\" shop entrance. (Shares room with Gladrags Wizardwear.)",
+			[
+				{
+					"id": 41112,
+					"title": "",
+					"file_name": "bd32f0f3-788c-46c4-8fc8-e4cf4416f920.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd32f0f3-788c-46c4-8fc8-e4cf4416f920.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251560": [
+			"**How to acquire:** Revelio  \n**Location:** Inside Gladrags, in front of a table beside the side door.",
+			[]
+		],
+		"251561": ["**Location:** On the floor, beside the side door.", []],
+		"251562": ["**How to acquire:** Accio  \n**Location:** Flying in the alleyway", []],
+		"251563": ["**How to acquire:** Accio  \n**Location:** Flying in the alleyway", []],
+		"251564": ["**How to acquire:** Revelio  \n**Location:** In front of the well.", []],
+		"251565": ["**Location:** Behind the counter.", []],
+		"251566": ["**Sells:** Appearance changes", []],
+		"251567": ["**How to acquire:** Revelio  \n**Location:** In the back of Scrivenshaft's Quill Shop.", []],
+		"251568": [
+			"**Location:** Behind the counter of Scrivenshaft's Quill Shop.",
+			[
+				{
+					"id": 149241,
+					"title": "",
+					"file_name": "2e8d6ec0-5f9a-42a5-9de9-f5f47ee9c8cc.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2e8d6ec0-5f9a-42a5-9de9-f5f47ee9c8cc.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251569": [
+			"**Location:** Oustide Scrivenshaft's Quill Shop, against the back wall.  \n**Contents:** 500 galleons",
+			[
+				{
+					"id": 31786,
+					"title": "",
+					"file_name": "bc70a97e-81e3-4ce0-b027-e16969b79763.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bc70a97e-81e3-4ce0-b027-e16969b79763.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251571": [
+			"**Location:** On top of a shelf, inside the locked house. Requires Alohomora Level I.",
+			[
+				{
+					"id": 113491,
+					"title": "",
+					"file_name": "d550287a-1727-48c3-9280-3b205287f862.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d550287a-1727-48c3-9280-3b205287f862.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251572": ["**Location:** At the base of the stairs.", []],
+		"251573": ["**Location:** In the bedroom on the 2nd floor.", []],
+		"251574": ["**Location:** At the top of the staircase.", []],
+		"251575": ["**How to acquire:** Accio  \n**Location:** Flying in circles above the water.", []],
+		"251576": ["**Location:** Against the stone fence.", []],
+		"251578": ["**How to acquire:** Accio  \n**Location:** Flying around Steeply & Sons.", []],
+		"251579": [
+			"**How to acquire:** Revelio  \n**Location:** Inside Steepley & Sons, against the eastern wall.",
+			[]
+		],
+		"251580": ["**Location:** Behind the counter.", []],
+		"251581": [
+			"**Location:** At the base of the bed, on the 2nd floor of Steepley & Sons.",
+			[
+				{
+					"id": 119613,
+					"title": "",
+					"file_name": "6dbc7c38-1ecd-47b8-8547-ddfd025a4d57.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6dbc7c38-1ecd-47b8-8547-ddfd025a4d57.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251583": ["**Location:** On top of a wooden stool.", []],
+		"251584": [
+			"**How to acquire:** Revelio  \n**Location:**  \nInside Honeydukes, left after Entrance.  \nIn front of the Fizzing Whizzbees poster.",
+			[]
+		],
+		"251585": [
+			"**How to acquire:** Revelio  \n**Location:** In front of the galleon fountain, inside Honeydukes.",
+			[]
+		],
+		"251587": ["**Location:** Beside the front door of the house.", []],
+		"251589": [
+			"**Location:** On the table, in the center of the room. Requires Alohomora Level 1",
+			[
+				{
+					"id": 32722,
+					"title": "",
+					"file_name": "e75e75f7-9451-459e-9748-e374f81bf6f5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e75e75f7-9451-459e-9748-e374f81bf6f5.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251590": ["**Location:** Near the front door of the room.", []],
+		"251591": ["**Location:** On the ground, in the small alcove.", []],
+		"251592": [
+			"**Location:** Outside the house, against the wall.  \n**Contents:** 500 galleons",
+			[
+				{
+					"id": 31852,
+					"title": "",
+					"file_name": "47104ab5-8175-4320-b8ca-29fe18bf45cb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/47104ab5-8175-4320-b8ca-29fe18bf45cb.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251593": ["**Location:** Outside the house in the corner.", []],
+		"251594": ["**How to acquire:** Revelio  \n**Location:** In Hogsmeade Post, against the far wall.", []],
+		"251595": ["**Location:** Beside the post counter.", []],
+		"251596": [
+			"**How to acquire:** Accio  \n**Location:** Flying in a small circle, behind the Three Broomsticks.",
+			[]
+		],
+		"251597": ["**Location:** At the top of the stairs.", []],
+		"251598": [
+			"**How to acquire:** Revelio  \n**Location:** In the locked room on the top floor, above the table.",
+			[]
+		],
+		"251599": [
+			"**Location:** In the locked room of the Three Broomsticks, top floor, atop the table. Level 1 lock.",
+			[
+				{
+					"id": 32725,
+					"title": "",
+					"file_name": "bd72f16d-2362-473a-b246-75ffaa93514f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd72f16d-2362-473a-b246-75ffaa93514f.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251600": ["**Location:** In the locked room at the top of the stairs.", []],
+		"251601": ["**Location:** In the locked room, at the top of the stairs.", []],
+		"251602": ["**Location:** In an alcove beside the staircase.", []],
+		"251603": ["**Location:** In the alcove beside the staircase.", []],
+		"251604": ["**Sells:** Broom cosmetics and upgrades", []],
+		"251605": ["**Location:** Next to Spintwitches Sporting Needs' counter.", []],
+		"251606": ["**Location:** On the side of the curving path.", []],
+		"251607": [
+			"**How to acquire:** Lumos to reveal the portrait, then bring the [Moth](#loc=251608) back.  \n**Location:** Against the wall behind Bingle & Blatch..",
+			[]
+		],
+		"251608": [
+			"**Location:** On top of two wooden crates, beside the stone fence.  \n**Corresponding portrait:** [Lumos Portrait](#loc=251607)",
+			[]
+		],
+		"251609": [
+			"**Location:** Against the stone fence.  \n**Contents:** 500 galleons",
+			[
+				{
+					"id": 31850,
+					"title": "",
+					"file_name": "53f871db-7cc1-4b7c-9325-94cc45c20fc1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/53f871db-7cc1-4b7c-9325-94cc45c20fc1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251611": [
+			"**Location:** On the 2nd floor, on a table. Door lock level I.",
+			[
+				{
+					"id": 32723,
+					"title": "",
+					"file_name": "6c154607-acb4-400b-a85a-fc57ba1ef814.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c154607-acb4-400b-a85a-fc57ba1ef814.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251612": ["**Location:** Against the 2nd floor window", []],
+		"251614": ["**Location:** Just past the door against the northern wall.", []],
+		"251615": ["**Location:** Against the far wall of the southern-most room.", []],
+		"251616": ["**Location:** At the base of the outside staircase.", []],
+		"251617": ["**How to acquire:** Accio  \n**Location:** Flying in the courtyard", []],
+		"251618": ["**Location:** Near the counter of Ceridwen's Cauldrons", []],
+		"251620": ["**Location:** Against the 2nd floor window.", []],
+		"251621": [
+			"**Location:** By the wooden structure with the hay pile.",
+			[
+				{
+					"id": 41107,
+					"title": "",
+					"file_name": "f9e622d0-a172-4dd1-8866-7885a1f3230c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f9e622d0-a172-4dd1-8866-7885a1f3230c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251622": ["**How to acquire:** Accio  \n**Location:** Flying in circles above the field.", []],
+		"251623": [
+			"**How to acquire:** Accio  \n**Location:** Flying in circles above the plain, near the southern house.",
+			[]
+		],
+		"251624": [
+			"**Location:** Outside the watermill, in a corner.",
+			[
+				{
+					"id": 108510,
+					"title": "",
+					"file_name": "2428b5e1-ee63-40ee-b76b-300854e9893a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2428b5e1-ee63-40ee-b76b-300854e9893a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251625": ["**Location:** Inside the windmill.", []],
+		"251626": [
+			"**How to acquire:** Lumos to reveal the portrait, then bring the [Moth](#loc=251627) back.  \n**Location:** Inside the watermill.",
+			[]
+		],
+		"251627": [
+			"**Location:** On top of a lamp post.  \n**Corresponding portrait:** [Lumos Portrait](#loc=251626)",
+			[]
+		],
+		"251628": [
+			"**Location:** Outside the house, against the wall.  \n**Contents:** 500 galleons",
+			[
+				{
+					"id": 31853,
+					"title": "",
+					"file_name": "3a12b097-88e0-4fc1-a930-28967f7f2778.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a12b097-88e0-4fc1-a930-28967f7f2778.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251629": ["**How to acquire:** Accio  \n**Location:** Circling around the bridge.", []],
+		"251630": ["**How to acquire:** Accio  \n**Location:** Circling around the roof of Dogweed & Deathcap", []],
+		"251631": [
+			"**Location:** At the very top of the tower; access from the northern cliff.  \n**Contents:** 500 galleons",
+			[
+				{
+					"id": 41102,
+					"title": "",
+					"file_name": "31172ba5-febc-4812-9c14-d58fee0b79ef.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31172ba5-febc-4812-9c14-d58fee0b79ef.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251632": [
+			"**Location:** In front of Dogweed & Deathcap",
+			[
+				{
+					"id": 149242,
+					"title": "",
+					"file_name": "d1c40930-cbeb-4f19-bb35-bb30ef9b7614.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d1c40930-cbeb-4f19-bb35-bb30ef9b7614.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251633": ["**Sells:** Combat Tools and their corresponding seeds", []],
+		"251634": ["**Location:** In the western corner of Dogweed & Deathcap  \n**Contents:** 500 galleons", []],
+		"251635": ["**Location:** Behind the counter.", []],
+		"251636": [
+			"**How to acquire:** Lumos to reveal the portrait, then bring the [Moth](#loc=251637) back.  \n**Location:** Against the eastern wall of Dogweed & Deathcap",
+			[]
+		],
+		"251637": [
+			"**Location:** On top of the chimney.  \n**Corresponding portrait:** [Lumos Portrait](#loc=251636)",
+			[]
+		],
+		"251638": ["**How to acquire:** Accio  \n**Location:** Flying around the base of the cliff.", []],
+		"251639": [
+			"**Location:** In the Old Fool's House, against the western wall.",
+			[
+				{
+					"id": 41106,
+					"title": "",
+					"file_name": "b347019e-69db-4527-bc64-34b59b2d7096.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b347019e-69db-4527-bc64-34b59b2d7096.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251640": [
+			"**How to acquire:** Lumos to reveal the portrait, then bring the [Moth](#loc=251641) back.  \n**Location:** Against the wall inside the Old Fool's House.",
+			[]
+		],
+		"251641": [
+			"**Location:** On top of a wooden box, at the base of the cliff.  \n**Corresponding portrait:** [Lumos Portrait](#loc=251640)",
+			[]
+		],
+		"251642": [
+			"**Location:** In Hogsmeade Graveyard, behind a tall tombstone.  \n**Contents:** 500 galleons",
+			[
+				{
+					"id": 41108,
+					"title": "",
+					"file_name": "5d315578-d2a0-4c90-8669-77f8ebd53bf2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d315578-d2a0-4c90-8669-77f8ebd53bf2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251643": ["**Sells:** Growable potion ingredients, and their corresponding seeds.", []],
+		"251644": ["**How to acquire:** Accio  \n**Location:** Circling around the roof of The Magic Neep", []],
+		"251645": ["**How to acquire:** Revelio  \n**Location:** In front of the cart, behind Timothy.", []],
+		"251646": [
+			"**Location:** Outside the house  \n**Contents:** 500 galleons",
+			[
+				{
+					"id": 41104,
+					"title": "",
+					"file_name": "44ab4150-d48b-490c-a422-66042ef43e2e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44ab4150-d48b-490c-a422-66042ef43e2e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251647": ["**How to acquire:** Revelio  \n**Location:** In front of the fireplace.", []],
+		"251661": ["**How to acquire:** Revelio  \n**Location:** In front of the mannequin inside the shop.", []],
+		"251662": ["**How to acquire:** Revelio  \n**Location:** In front of the pile of cauldrons", []],
+		"251664": ["**Location:** On the table, in the middle of the room.", []],
+		"251665": ["**Location:** At the foot of the bed on the 2nd floor", []],
+		"251671": [
+			"**Location:** In the locked room on the 2nd floor.  Needs Alohomora II\n\n**Contents:** 500 galleons",
+			[
+				{
+					"id": 31851,
+					"title": "",
+					"file_name": "014b244e-ff93-467c-bb32-35d099045048.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/014b244e-ff93-467c-bb32-35d099045048.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251672": ["**Location:** In the locked room on the 2nd floor, on a table.", []],
+		"251673": ["**Location:** In the basement, near the One-Eyed Witch Passage.", []],
+		"251675": ["**Location:** Beside the bed.", []],
+		"251676": ["**Location:** Near the bedroom's entrance.", []],
+		"251678": ["**How to acquire:** Revelio  \n**Location:** In front of Honeydukes's front door.", []],
+		"251679": ["**How to acquire:** Revelio  \n**Location:** In front of the fountain", []],
+		"251682": ["**How to acquire:** Revelio  \n**Location:** In front of the shop's front door.", []],
+		"251683": ["**How to acquire:** Accio  \n**Location:** Flying in circles near the river.", []],
+		"251685": [
+			"**Location:** In the 2nd floor bedroom, on a dresser. Requires Alohomora level 2",
+			[
+				{
+					"id": 32728,
+					"title": "",
+					"file_name": "e0ee8c80-d9cb-4d84-989a-99c4d7296e86.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0ee8c80-d9cb-4d84-989a-99c4d7296e86.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"251686": ["**Location:** In the 2nd floor bedroom, at the foot of the bed.", []],
+		"251687": [
+			"**How to acquire:** Revelio  \n**Location:** On top of a wooden crate, in the corner of the docks.",
+			[]
+		],
+		"251689": ["**Location:** Just past the locked door.", []],
+		"251700": ["**Location:** On the landing of the staircase.", []],
+		"251704": ["**Location:** In the 2nd floor bedroom.", []],
+		"251710": ["**Location:** On top of the dresser.", []],
+		"251712": ["**Location:** In the 2nd floor bedroom, on a dresser. \n\nRequires Alohomora II.", []],
+		"251713": ["**Location:** In the 2nd floor bedroom, at the foot of the bed.", []],
+		"251714": ["**Location:** In a bag, in the 2nd floor bedroom near the bed.", []],
+		"251719": ["**Location:** In the corner of the living room.", []],
+		"251738": ["**How to acquire:** Revelio  \n**Location:** Outside and to the right of the front door.", []],
+		"252008": ["**Sells:** Magical beast byproducts", []],
+		"252009": ["**Location:** Behind the counter.", []],
+		"252744": ["The store has three different interiors, depending on which entrance you use.", []],
+		"252745": ["**Location:** Outside the southern corner of the house.", []],
+		"252746": ["**Location:** On the sewing table left of the door", []],
+		"252748": ["**Location:** Flying around some goats on the hill  \n**How to Acquire:** Accio", []],
+		"252749": [
+			"**Location:** In front of the large Red and yellow barrels, on the outside wall of The Three Broomsticks.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252751": ["**Location:** On the landing, in the locked house.", []],
+		"252752": ["**Location:** On the 2nd floor bedroom of the locked house.", []],
+		"252753": ["**Location:** Just right of Dervish and Banges' shop counter.  \n**Contents:** 500 galleons", []],
+		"252755": [
+			"**Location:** Inside Dogweed and Deathcap, to the right of the counter  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252756": ["**Location:** Flying around the meadow  \n**How to Acquire:** Accio", []],
+		"252757": [
+			"**Location:** Inside Brood and Peck, on the raised dais behind the counter, against the northern wall.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252758": [
+			"**Location:** On Zonko's 2nd floor, in front of a shelf just right of the door.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252760": [
+			"**Location:** In front of the shelf right of the Zonko's counter.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252761": ["Can only be accessed at night.", []],
+		"252762": ["**Location:** Next to a epitaph near the entrance to the graveyard", []],
+		"252763": ["**Location:** Behind the portait", []],
+		"252765": [
+			"**Location:** In front of the left pillar, on the south side of the bridge.  \n**How to Acquire:** Revelio",
+			[]
+		],
+		"252885": ["**Location:** Just inside the building.", []],
+		"253068": [
+			"**How To Begin:** Speak to Perry Pippin  \n**Rewards:**\n- 180xp\n- 300 Gold\n- Potioneer's Cap",
+			[]
+		],
+		"253069": ["**How To Begin:** Speak to Albie Weekes    \n**Rewards:**\n- Broom", []],
+		"253292": ["**Location:** Near a tombstone.", []],
+		"253375": ["**Location:** In the nest near the Eye Chest behind the house.", []],
+		"266415": [
+			"**Location:** Just past the hedge dragon, tucked into an alcove to the right as you go up the stone stairs.\n**Contents:** 500 galleons",
+			[
+				{
+					"id": 31849,
+					"title": "",
+					"file_name": "f74c7a73-d53b-4335-84ce-866aaee1aa7a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f74c7a73-d53b-4335-84ce-866aaee1aa7a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"266416": [
+			"**Location:** Past enchanted garden to stone patio. Stone bench near the railing.  \n**How to Acquire:** Revelio  \n\n**Note:** This Field Guide Page belongs to the Highlands collectible count.  The actual page location is on the World Map [here](https://mapgenie.io/hogwarts-legacy/maps/world?locationIds=252271)",
+			[]
+		],
+		"266417": [
+			"In front of the abandoned, barricaded home in the rock",
+			[
+				{
+					"id": 149243,
+					"title": "",
+					"file_name": "b57faf12-9089-448b-9513-160d6d19ee9e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b57faf12-9089-448b-9513-160d6d19ee9e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"266418": ["At the corner of the rock wall directly right of the apothecary", []],
+		"266529": ["**Location:** In the locked house, on the table on the 1st floor.", []],
+		"266531": ["**Location:** In the locked house, in the 2nd floor bedroom.", []],
+		"266533": ["**Location:** In the locked house, in the 2nd floor bedroom. Requires Alohomora Level 3", []],
+		"266542": ["**Location:** In the locked house, against the 1st floor window. Requires Alohomora Level 3", []],
+		"266548": ["**Location:** In the locked house, on the 2nd floor.", []],
+		"266552": ["**Location:** In the locked house.", []],
+		"266553": ["**Location:** In the locked house.", []],
+		"266554": ["**Location:** In the locked house.", []],
+		"266560": ["**Location:** In the locked house, on the 1st floor.", []],
+		"266565": ["**Location:** In the locked house, on the 2nd floor. Requires Level III Alohomora", []],
+		"266567": ["**Location:** In the locked house, on the 2nd floor.", []],
+		"266581": ["**Location:** In the locked house, on the 1st floor.", []],
+		"266630": ["**Location:** In the locked house, on the 2nd floor in front of the cozy chair.", []],
+		"266651": ["**Location:** In the locked house, right of the entrance. Requires Alohomora Level 3", []],
+		"266654": ["**Location:** In the far corner of the locked house.", []],
+		"266662": ["**Location:** In the locked house, on the dresser.", []],
+		"267509": [
+			"Bag containing loot next to a wooden cart.",
+			[
+				{
+					"id": 31791,
+					"title": "",
+					"file_name": "2a6fbaf2-0dc0-45b2-a1b9-9c72434b04dd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2a6fbaf2-0dc0-45b2-a1b9-9c72434b04dd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"267510": ["**Location:** Bag to the side of the Magic Neep cart", []],
+		"268352": [
+			"**How To Begin:** Speak to Clementine Willardsey.     \n\n**Rewards:**\n- 180 xp;\n- Flower Box Conjuration;\n- Large Natural Terrain Conjuration.",
+			[]
+		],
+		"268357": [
+			"**Requirements:** Level 10\n\n**How To Begin:** Speak to _Garnuff_. \n\n**Rewards:**\n- Gold\n- Appearances",
+			[]
+		],
+		"268358": ["**Location:** On the pier outside of the house.", []],
+		"268743": [
+			"**Requirements:** Available after Ranrok mission  \n**How To Begin:** Speak to Ackley Barnes  \n**Rewards:**\n- XP",
+			[]
+		],
+		"271744": ["Part of Natsai Onai's side quest \"A Basic for Blackmail\"", []],
+		"271745": [
+			"**Requirements:** \n- \"Fire and Vice\" main quest\n- \"A Dragon Debrief\" side quest \n- \"Professor Weasley's Assignment\" main quest\n\n**How To Begin:** After getting an owl from Poppy Sweeting, meet her here.  \n**Rewards:** 180 XP",
+			[]
+		],
+		"271746": [
+			"**Requirements:** Complete _Charles Rookwood’s Trial_ quest  \n**How To Begin:** Speak with Crispin Dunne in The Three Broomsticks in Hogsmeade  \n**Rewards:**\n- 180 XP;\n- Sinister Oddities Shelf Conjuration;",
+			[]
+		],
+		"271747": ["Right behind the door", []],
+		"271748": [
+			"**Requirements:** Obtain the Transformation Spell \n \n**How To Begin:** Talk to the House-Elf (Penny) outside the abandoned Shop  \n\n**Rewards:** 10% more gold when selling gear",
+			[]
+		],
+		"304057": [
+			"**Requirements:**\n- After Astronomy Class\n\n**How To Begin:** \n- Speak to Sacharissa Tugwood in Dogwood and Deathcap in Hogsmeade\n\n**Rewards:**\n- 500g\n- Bubotuber Harvesting Attire Appearance",
+			[]
+		],
+		"304059": ["**Location:** On the table to the right after coming through the door.", []],
+		"304060": [
+			"**Requirements:** Complete \"Percival Rackham's Trial\" main quest and the [Flight Test](#loc=253069) side quest\n\n**How To Begin:** Purchase broom Enhancement from Albie Weekes (1,000).\n\n**Rewards:**\n-  180 XP",
+			[]
+		],
+		"304061": [
+			"Only avaible if you accept to theif the venemous tantacula during the talk with Ackley Barnes in \"Venomous revenge\" side quest.",
+			[]
+		],
+		"304062": ["In front of the Niffler statue, just left of the Exploding BonBons.", []],
+		"304063": ["**Location:** On the bench next to [Spintwitches Sporting Needs](#loc=251604)", []],
+		"304064": [
+			"**Requirements:** Complete Third Keeper Trial    \n**How To Begin:** Speak with Betty Bugbrooke in Hogsmeade Square  \n**Rewards:**\n- 180 xp\n- Conjuration Spellcraft\n- Hazel the Unicorn",
+			[]
+		],
+		"314540": [
+			"Only appears during the day. \n\nThere are 8 papers to read in total over the course of the story, so come back often.",
+			[]
+		],
+		"390104": ["**Requirements:** Complete Sam Bakar's Trial  \n**Rewards:** The Keeper's Wand", []],
+		"390360": [
+			"**Requirements:** This quest is available exclusively for those within House Ravenclaw.  \n**Rewards:** N/A",
+			[]
+		],
+		"390366": [
+			"The Helm of Urtkot is the twenty-third main quest within Hogwarts Legacy; where you seek out a unique Goblin relic in hopes of deceiving Ranrok enough to spill information of his plans to your ally, Lodgok.",
+			[]
+		],
+		"390377": [
+			"To begin the quest, you'll need to have done Poppy's first quest, which is also part of the main story; Fire and Vice.",
+			[]
+		],
+		"390378": [
+			"To start this quest, visit Sirona Ryan at The Three Broomsticks in Hogsmeade. She'll ask you to visit a friend Dorothy Sprottle in Upper Hogsfield and pick up a box of letters, so head north to the small hamlet to find her tending to her garden.",
+			[]
+		],
+		"390379": [
+			"This is the follow-up quest to Sweeping The Competition. After completing that quest and advancing to Winter, progressing through the Stop Ranrok and Rookwood section of the main quest, Albie's second broom upgrade will finally be ready.",
+			[]
+		],
+		"527238": ["Use this lock or the one located next to it on the other door.", []],
+		"527239": ["right of Honeydukes entrance, on the window", []],
+		"527240": ["Found next to the well.", []],
+		"527241": ["**Location:** Behind the house, up against some boxes.", []],
+		"527242": ["**Location:** Back door of Steepley & Sons tea shop.", []],
+		"527243": ["In the locked house, second floor bedroom.", []]
+	}
+}

@@ -465,7 +465,8 @@
 					"tileSize": 256,
 					"background": "#112b42"
 				}
-			]
+			],
+			"compact": "north-america/data.compact.json"
 		},
 		{
 			"slug": "abstergo",
@@ -482,7 +483,8 @@
 					"tileSize": 256,
 					"background": "#263437"
 				}
-			]
+			],
+			"compact": "abstergo/data.compact.json"
 		}
 	]
 }

@@ -11,18 +11,47 @@
 import { esc } from "../../shared/escape.ts";
 import { flat, fuzzyScore, words } from "../../shared/search.ts";
 import { svgIcon } from "../icons.ts";
+import { perfAsync } from "../perf.ts";
 import { select } from "./detail.ts";
-import { mapData, placeThumb, refreshMap, switchMap } from "./map-view.ts";
-import { renderMd } from "./markdown.ts";
+import { detailsReady, ensureDetails, mapData, placeThumb, refreshMap, switchMap } from "./map-view.ts";
+import { indexedOthers, type IndexEntry, indexMap } from "./search-index.ts";
 import { applicable, iconHtml, syncRegionBanners } from "./sidebar.ts";
 import { $, fmt, isMobile, state, vivid } from "./state.ts";
 
 const SEARCH_MIN = 2,
-	SEARCH_SHOWN = 300,
+	SEARCH_SHOWN_INIT = 50,
+	SEARCH_SHOWN_MAX = 300,
 	PREVIEW_MS = 350;
+export const SEARCH_DEBOUNCE_MS = 140;
 export const HOVER_MS = 50; // the pointer must rest this long on a result or a link before the map follows it
 
 const mapName = (slug: string): string => state.meta?.maps?.find((m: any) => m.slug === slug)?.title || slug;
+
+// truncate a description to a maximum length on a word boundary without parsing markdown
+export function truncateDesc(text: string, maxLen = 160): string {
+	const clean = text.replace(/[\r\n\t]+/g, " ").trim();
+	if (clean.length <= maxLen) return clean;
+	const cut = clean.slice(0, maxLen);
+	const lastSpace = cut.lastIndexOf(" ");
+	return (lastSpace > 40 ? cut.slice(0, lastSpace) : cut) + "…";
+}
+
+let debounceTimer: ReturnType<typeof setTimeout> | undefined;
+
+export function cancelSearchDebounce(): void {
+	if (debounceTimer !== undefined) {
+		clearTimeout(debounceTimer);
+		debounceTimer = undefined;
+	}
+}
+
+export function debounceSearch(fn: () => void, delay = SEARCH_DEBOUNCE_MS): void {
+	cancelSearchDebounce();
+	debounceTimer = setTimeout(() => {
+		debounceTimer = undefined;
+		fn();
+	}, delay);
+}
 
 export interface SearchQuery {
 	phrase: string;
@@ -44,6 +73,7 @@ interface CachedLocText {
 
 // the normalised title and description of a location, cached (descriptions are long)
 const textCache = new WeakMap<object, CachedLocText>();
+export const forgetText = (l: object): void => void textCache.delete(l);
 export function textOf(l: { title?: string; desc?: string }): CachedLocText {
 	let c = textCache.get(l);
 	if (!c)
@@ -84,35 +114,33 @@ export function localEntries(): any[] {
 		.map((l: any) => ({ l, slug: cur, cat: state.cats.get(l.cat), col: state.groupOfCat.get(l.cat)?.col }));
 }
 
-// the other maps of the game, from their data (fetched once, as when a map opens). Their categories and found markers
-// are as that map's saved view has them; the tag switch of this map does not apply to them.
+// the other maps of the game, from a compact index of every map (titles, categories, tags: no descriptions) built once
+// per game on the first "All maps" search. Their categories and found markers are as that map's saved view has them;
+// the tag switch of this map does not apply to them.
+// keyed by the game's meta object, so a different game never reuses it
+let indexCache: { meta: unknown; ready: Promise<IndexEntry[]> } | null = null;
+
+function allMapsIndex(): Promise<IndexEntry[]> {
+	if (indexCache && indexCache.meta === state.meta) return indexCache.ready;
+	const cache = (indexCache = {
+		meta: state.meta,
+		ready: Promise.all(
+			state.meta.maps.map(async (info: any) => {
+				const entries = indexMap(info.slug, await mapData(info, false), vivid);
+				for (const e of entries) textOf(e.l); // normalise the titles now, not on every keystroke
+				return entries;
+			}),
+		).then((lists) => lists.flat()),
+	});
+	cache.ready.catch(() => {
+		if (indexCache === cache) indexCache = null; // a failed build is tried again next time
+	});
+	return cache.ready;
+}
+
 export async function otherEntries(): Promise<any[]> {
-	const others = state.meta.maps.filter((m: any) => m.slug !== state.mapInfo.slug);
-	const lists = await Promise.all(
-		others.map(async (info: any) => {
-			const data = await mapData(info);
-			const cats = new Map<number, any>(Object.values<any>(data.categories).map((c) => [c.id, c]));
-			const groupCol = new Map<number, string>(data.groups.map((g: any) => [g.id, vivid(g.color)]));
-			const view = state.profile?.view?.[info.slug] || {};
-			const hidden = new Set<number>(view.hidden || []);
-			const out: any[] = [];
-			for (const d of data.locations) {
-				const lat = parseFloat(d.latitude),
-					lng = parseFloat(d.longitude);
-				if (!Number.isFinite(lat) || !Number.isFinite(lng) || hidden.has(d.category_id)) continue;
-				if (view.hideFound && state.found.has(d.id)) continue;
-				const cat = cats.get(d.category_id);
-				out.push({
-					l: { id: d.id, title: d.title || "", desc: d.description || "", lat, lng },
-					slug: info.slug,
-					cat,
-					col: groupCol.get(cat?.group_id),
-				});
-			}
-			return out;
-		}),
-	);
-	return lists.flat();
+	const index = await allMapsIndex();
+	return indexedOthers(index, state.mapInfo.slug, state.profile?.view, state.found);
 }
 
 // matches, best first. Within a tier: this map before the others, then the nearest to the camera. With all maps listed
@@ -140,7 +168,11 @@ export function rankEntries(q: SearchQuery, entries: any[], { byDistance = true 
 	return hits;
 }
 
-export async function runSearch(): Promise<void> {
+export function runSearch(): Promise<void> {
+	return perfAsync("runSearch", runSearchImpl);
+}
+
+async function runSearchImpl(): Promise<void> {
 	const s = state.search;
 	endPreview({ instant: true }); // a hover move is undone first: the order is by the view the user has
 	const text = ($<HTMLInputElement>("#search")?.value || "").trim();
@@ -152,6 +184,11 @@ export async function runSearch(): Promise<void> {
 	document.body.classList.add("searching");
 	syncSideClose();
 	syncRegionBanners();
+	// descriptions rank a match and show in the rows: this goes again once they are here
+	if (!detailsReady())
+		void ensureDetails().then(() => {
+			if (my === s.run && detailsReady()) void runSearch();
+		});
 	const all = !wild && s.scope === "all" && state.meta.maps.length > 1;
 	let entries = localEntries();
 	if (all) {
@@ -169,6 +206,7 @@ export async function runSearch(): Promise<void> {
 				.sort((a, b) => a.e.l.title.localeCompare(b.e.l.title))
 		: rankEntries(queryOf(text), entries, { byDistance: !all });
 	s.rows = hits;
+	s.limit = SEARCH_SHOWN_INIT;
 	s.ids = new Set(hits.filter((h: any) => h.here).map((h: any) => h.e.l.id));
 	const selIdx = state.selected != null ? hits.findIndex((h: any) => h.here && h.e.l.id === state.selected) : -1;
 	s.idx = selIdx;
@@ -177,7 +215,12 @@ export async function runSearch(): Promise<void> {
 		const activeEl = $("#results")?.querySelector("li.result.active");
 		if (activeEl) activeEl.scrollIntoView({ block: "nearest" });
 	}
-	refreshMap();
+	state.search.causedRefresh = true;
+	try {
+		refreshMap();
+	} finally {
+		state.search.causedRefresh = false;
+	}
 }
 
 // the list's close button: "Close" (it folds the panel on a phone, and is hidden on a desktop) becomes a red X while
@@ -193,12 +236,14 @@ export function syncSideClose(): void {
 }
 
 export function leaveSearch(): void {
+	cancelSearchDebounce();
 	const s = state.search;
 	endPreview({ instant: true });
 	s.run++;
 	s.active = false;
 	s.ids = null;
 	s.rows = [];
+	s.limit = SEARCH_SHOWN_INIT;
 	s.busy = false;
 	s.wild = false;
 	s.idx = -1;
@@ -207,7 +252,12 @@ export function leaveSearch(): void {
 	syncRegionBanners();
 	const res = $("#results");
 	if (res) res.innerHTML = "";
-	refreshMap();
+	state.search.causedRefresh = true;
+	try {
+		refreshMap();
+	} finally {
+		state.search.causedRefresh = false;
+	}
 }
 
 function resultHtml(h: any, i: number): string {
@@ -216,27 +266,51 @@ function resultHtml(h: any, i: number): string {
 		found = state.found.has(l.id);
 	const icon = e.cat ? iconHtml(e.cat.icon, e.cat.color || e.col) : "";
 	const sub = [e.cat?.title, here ? "" : mapName(e.slug)].filter(Boolean).join(" · ");
+	const desc = l.desc ? truncateDesc(l.desc) : "";
 	return (
 		`<li class="result${found ? " found" : ""}${i === state.search.idx ? " active" : ""}" data-id="${l.id}" data-map="${esc(e.slug)}">` +
 		`<div class="r-head"><span class="ico-wrap">${icon}</span><span class="r-title">${esc(l.title)}</span>${found ? '<span class="r-found">found</span>' : ""}</div>` +
 		`<div class="r-sub">${esc(sub)}</div>` +
-		(l.desc ? `<div class="r-desc">${renderMd(l.desc)}</div>` : "") +
+		(desc ? `<div class="r-desc">${esc(desc)}</div>` : "") +
 		"</li>"
 	);
 }
 
+export function showMoreResults(): void {
+	const s = state.search;
+	const cap = Math.min(s.rows.length, SEARCH_SHOWN_MAX);
+	if (s.limit >= cap) return;
+	s.limit = Math.min(s.limit + SEARCH_SHOWN_INIT, cap);
+	renderResults();
+}
+
 export function renderResults(): void {
 	const s = state.search,
-		n = s.rows.length;
+		n = s.rows.length,
+		shownCap = Math.min(n, SEARCH_SHOWN_MAX),
+		limit = Math.min(s.limit || SEARCH_SHOWN_INIT, shownCap);
 	const resEl = $("#results");
-	if (resEl) resEl.innerHTML = s.rows.slice(0, SEARCH_SHOWN).map(resultHtml).join("");
+	if (resEl) {
+		let html = s.rows.slice(0, limit).map(resultHtml).join("");
+		if (shownCap > limit) {
+			const remaining = shownCap - limit;
+			const nextChunk = Math.min(remaining, SEARCH_SHOWN_INIT);
+			html +=
+				`<li class="results-more-row">` +
+				`<button type="button" id="results-more-btn" class="results-more-btn">` +
+				`Show more (${fmt(nextChunk)} more, ${fmt(remaining)} left)` +
+				`</button>` +
+				`</li>`;
+		}
+		resEl.innerHTML = html;
+	}
 	const bar = $("#results-bar");
 	if (bar) {
 		bar.querySelector(".r-count")!.textContent = s.busy
 			? "Searching the other maps…"
 			: n === 0
 				? "No matches"
-				: `${fmt(n)} result${n === 1 ? "" : "s"}${n > SEARCH_SHOWN ? `, first ${SEARCH_SHOWN} listed` : ""}`;
+				: `${fmt(n)} result${n === 1 ? "" : "s"}${n > limit ? `, ${limit} shown` : ""}`;
 	}
 	// a game with one map has nothing to choose between: the pills are not there at all
 	const scope = $("#scope-switch");
@@ -356,9 +430,14 @@ export async function openResult(li: HTMLElement | null): Promise<void> {
 		slug = li.dataset.map!;
 	syncSearchActive(id, slug);
 	endPreview({ restore: false }); // select() flies there from where the preview left the map
-	if (slug !== state.mapInfo.slug) {
-		await switchMap(slug);
-		if (state.mapInfo?.slug !== slug) return;
+	state.search.causedRefresh = true;
+	try {
+		if (slug !== state.mapInfo.slug) {
+			await switchMap(slug);
+			if (state.mapInfo?.slug !== slug) return;
+		}
+		select(id);
+	} finally {
+		state.search.causedRefresh = false;
 	}
-	select(id);
 }

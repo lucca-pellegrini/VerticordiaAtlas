@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-import { describe, expect, test } from "bun:test";
+import { afterAll, beforeAll, describe, expect, test } from "bun:test";
 import http from "node:http";
 
 import { BoxRenderable } from "@opentui/core";
@@ -34,6 +34,15 @@ import {
 	throbberTickIndex,
 	validatePosterUrl,
 } from "../scripts/tui/index.js";
+
+// non-interactive dashboards log their progress on the console; a test run only needs the harness output
+const origLog = console.log;
+beforeAll(() => {
+	if (!process.env.DEBUG) console.log = () => {};
+});
+afterAll(() => {
+	console.log = origLog;
+});
 
 describe("TUI ecosystem components & helpers", () => {
 	test("theme helpers: densityGlyph, fmtTime, fmtBytes, renderProgressBar", async () => {

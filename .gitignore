@@ -14,5 +14,8 @@ public/maps/*/card.jpg
 *.js
 !public/vendor/*.js
 
+*.br
+*.gz
+
 .env*
 !.env*.example

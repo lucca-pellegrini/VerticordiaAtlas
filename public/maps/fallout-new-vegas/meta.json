@@ -312,7 +312,8 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			]
+			],
+			"compact": "mojave-wasteland/data.compact.json"
 		},
 		{
 			"slug": "sierra-madre",
@@ -329,7 +330,8 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			]
+			],
+			"compact": "sierra-madre/data.compact.json"
 		},
 		{
 			"slug": "zion-canyon",
@@ -346,7 +348,8 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			]
+			],
+			"compact": "zion-canyon/data.compact.json"
 		},
 		{
 			"slug": "big-mt",
@@ -363,7 +366,8 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			]
+			],
+			"compact": "big-mt/data.compact.json"
 		},
 		{
 			"slug": "the-divide",
@@ -380,7 +384,8 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			]
+			],
+			"compact": "the-divide/data.compact.json"
 		}
 	]
 }

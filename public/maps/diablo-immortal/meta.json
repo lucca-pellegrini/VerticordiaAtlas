@@ -381,7 +381,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "sanctuary/data.compact.json"
 		},
 		{
 			"slug": "westmarch",
@@ -398,7 +399,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "westmarch/data.compact.json"
 		},
 		{
 			"slug": "wortham",
@@ -415,7 +417,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "wortham/data.compact.json"
 		},
 		{
 			"slug": "ashwold-cemetery",
@@ -432,7 +435,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "ashwold-cemetery/data.compact.json"
 		},
 		{
 			"slug": "dark-wood",
@@ -449,7 +453,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "dark-wood/data.compact.json"
 		},
 		{
 			"slug": "shassar-sea",
@@ -466,7 +471,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "shassar-sea/data.compact.json"
 		},
 		{
 			"slug": "library-of-zoltun-kulle",
@@ -483,7 +489,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "library-of-zoltun-kulle/data.compact.json"
 		},
 		{
 			"slug": "bilefen",
@@ -500,7 +507,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "bilefen/data.compact.json"
 		},
 		{
 			"slug": "mount-zavain",
@@ -517,7 +525,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "mount-zavain/data.compact.json"
 		},
 		{
 			"slug": "frozen-tundra",
@@ -534,7 +543,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "frozen-tundra/data.compact.json"
 		},
 		{
 			"slug": "realm-of-damnation",
@@ -551,7 +561,8 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			]
+			],
+			"compact": "realm-of-damnation/data.compact.json"
 		}
 	]
 }

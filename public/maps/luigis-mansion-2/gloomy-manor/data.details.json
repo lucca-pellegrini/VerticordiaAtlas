@@ -1,0 +1,656 @@
+{
+	"v": 1,
+	"d": {
+		"383639": [
+			"**Requires:** [Poltergust 5000](#loc=383742)\n\nVacuum up the sheet in the back-left corner of the room to reveal a Chest, with this Key inside.",
+			[
+				{
+					"id": 54642,
+					"title": "Key - Garage",
+					"file_name": "2396a80c-5b20-4893-9f9e-039020c38b3f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2396a80c-5b20-4893-9f9e-039020c38b3f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383658": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nIn A-1: Poltergust 5000, shine the Dark-Light just left of the entry door to reveal a large wheel, and this Hidden Boo.",
+			[
+				{
+					"id": 54845,
+					"title": "Hidden Boo - Boogie Woogie",
+					"file_name": "7012d1ee-3f91-4ce0-9c92-5b8e98710ae5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7012d1ee-3f91-4ce0-9c92-5b8e98710ae5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383664": [
+			"In A-3: Quiet Please, shake the right-hand suit of armor to drop these Coins.\n\nIn A-4: Visual Tricks, reveal this suit of armor with the Dark-Light for 95 Coins.",
+			[]
+		],
+		"383679": [
+			"To reveal this Key, look through the window to the left of the door. Return to the door and try to open it: a mouse will appear with the Key. Catch it to collect it.",
+			[
+				{
+					"id": 54617,
+					"title": "Key - Front Yard Key",
+					"file_name": "395e41f1-8bf5-4c1a-8fc4-51b97268dd49.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/395e41f1-8bf5-4c1a-8fc4-51b97268dd49.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383694": [
+			"**Requires:** [Poltergust 5000](#loc=383742)\n\nIn A-1: Polutergust 5000, at the base of the porch, suck up the sheet with the Poltergust to reveal two Gold Bars.",
+			[]
+		],
+		"383697": [
+			"**Requires:** [Poltergust 5000](#loc=383742)\n\nIn A-1: Polutergust 5000, use the Poltergust to suck up a dust pile, then shake the vase behind it.",
+			[]
+		],
+		"383704": [
+			"**A-1: Poltergust 5000:** On the ceiling fan. Blow the the fan with the Poltergust until the Key falls off and onto the floor.",
+			[
+				{
+					"id": 54643,
+					"title": "Key - Mudroom",
+					"file_name": "42ef3a53-d05c-48fb-b5d4-127c2e914ff3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42ef3a53-d05c-48fb-b5d4-127c2e914ff3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383709": [
+			"**Requires:** [Poltergust 5000](#loc=383742)\n\nSuck up the sheet with the door painted on it to reveal this door into the Mudroom.",
+			[]
+		],
+		"383715": [
+			"In A-1: Polutergust 5000, use the Poltergust to roll up the green rug in the middle of the room, then stand on the pressure plate to reveal these Coins.",
+			[]
+		],
+		"383741": [
+			"In A-1: Poltergust 5000, blow on the chandelier fan from the left-hand balcony to lower it to the floor below.",
+			[
+				{
+					"id": 54832,
+					"title": "Item - Strobulb",
+					"file_name": "42eac3a9-403d-4c70-ab0a-b99860e44502.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42eac3a9-403d-4c70-ab0a-b99860e44502.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383742": [
+			"In A-1: Poltergust 5000, interact with the old car to get this important item.",
+			[
+				{
+					"id": 54831,
+					"title": "Item - Poltergust 5000",
+					"file_name": "9fd88a13-24ad-4dfd-8b9d-cbb5586e247c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9fd88a13-24ad-4dfd-8b9d-cbb5586e247c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383750": ["**Requires:** [Strobulb](#loc=383741)", []],
+		"383751": ["**Requires:** [Strobulb](#loc=383741)", []],
+		"383770": [
+			"**Requires:** [Strobulb](#loc=383741)\n\nIn A-1: Polutergust 5000, flash the purple vault with the [Strobulb](#loc=383741) to open it up.",
+			[]
+		],
+		"383780": [
+			"**Requires:** [Strobulb](#loc=383741)\n\nIn A-1: Poltergust 5000, look through the window in the back-right corner of the Mudroom to see a ghost dog dig this up and toss it into the tree. Suck in its direction to dislodge the Gem.",
+			[
+				{
+					"id": 54833,
+					"title": "Gem - Amethyst 1",
+					"file_name": "edd928b1-7530-4ea6-b838-a545a8364c99.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/edd928b1-7530-4ea6-b838-a545a8364c99.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383808": [
+			"**Requires:** [Strobulb](#loc=383741)\n\nFlash this flower with the Strobulb to get the Gem.",
+			[
+				{
+					"id": 54834,
+					"title": "Gem - Amethyst 2",
+					"file_name": "bb947fac-5036-4e5f-b554-c011d0726a48.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb947fac-5036-4e5f-b554-c011d0726a48.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383818": [
+			"**Requires:** [Strobulb](#loc=383741)\n\nIn A-1: Polutergust 5000, flash this flower with the Strobulb.",
+			[]
+		],
+		"383828": [
+			"In A-1: Poltergust 5000, suck up the rug in the middle of the room for 50 Coins.\n\nIn A-2: Gear Up, suck up the rug in the middle of the room to release a Golden Genie. Flash it with the Strobulb and suck it up for 90 Coins.",
+			[]
+		],
+		"383834": ["In A-1: Polutergust 5000, suck up part of the wallpaper to unleash a flood of Coins.", []],
+		"383835": ["In A3: Quiet Please, suck up all four coats on the back wall to reveal a Golden Ghost.", []],
+		"383836": ["In A-1: Polutergust 5000, suck up the bathroom towel.", []],
+		"383842": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nIn A-4: Visual Tricks, reveal the Cheep Cheep fountain statue with the Dark-Light .",
+			[]
+		],
+		"383849": [
+			"**Requires:** [Poltergust 5000](#loc=383742)\n\nIn A-1: Polutergust 5000, look up and vacuum this on the branch of a tree.",
+			[]
+		],
+		"383853": [
+			"**Requires:** [Poltergust 5000](#loc=383742)\n\nIn A-1: Polutergust 5000, vacuum all the candles on the chandelier so they blow out.",
+			[]
+		],
+		"383860": [
+			"During A-4 Visual Tricks, walk into the middle of the garage, then attempt to leave. A Golden Ghost will appear, who'll drop 100 Coins when you catch it.",
+			[]
+		],
+		"383864": [
+			"**Requires:** [Poltergust 5000](#loc=383742)\n\nIn A-1: Polutergust 5000, vacuum up the doormat.",
+			[]
+		],
+		"383865": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nIn A-2, shine the Dark-Light on the left side of the front wall to reveal a missing table.",
+			[
+				{
+					"id": 54846,
+					"title": "Hidden Boo - BaBoon",
+					"file_name": "3e0317a2-b73e-4040-bcc3-0b08e2e4bf6e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e0317a2-b73e-4040-bcc3-0b08e2e4bf6e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383866": ["Can be unlocked in A-2: Gear Up.", []],
+		"383867": ["In A-2: Gear Up, vacuum a stack of notes on top of an end table.", []],
+		"383868": ["Vacuum the wallpaper at this spot to reveal the door.", []],
+		"383869": [
+			"In A-2: Gear Up, inside the Secret Pocket. Look up and vacuum it from some elevated pipes.",
+			[
+				{
+					"id": 54622,
+					"title": "Key - Secret Pocket",
+					"file_name": "c3e77fb3-4867-44b3-b064-c0b17f18f5f4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c3e77fb3-4867-44b3-b064-c0b17f18f5f4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383870": [
+			"Only appears in A-2: Gear Up when you try and open the [Locked Door](#loc=383866).",
+			[
+				{
+					"id": 54641,
+					"title": "Key - Foyer",
+					"file_name": "a4a9809d-9fe3-4afd-98fb-5dd7192fbbd8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a4a9809d-9fe3-4afd-98fb-5dd7192fbbd8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383871": [
+			"In A-2: Gear Up, suck up a cobweb next to the door to release four Golden Mice. Flash them with the Strobulb to turn them into Gold Bars.",
+			[]
+		],
+		"383872": ["Can be opened with a Key during A2: Gear Up.", []],
+		"383873": [
+			"In A-2: Gear Up, roll up the rug with the Poltergust to reveal three Golden Spiders. Zap them with the Strobulb to turn them into Gold Ingots.",
+			[]
+		],
+		"383874": [
+			"Flash the Strobulb at the top of the grandfather clock to reveal this.",
+			[
+				{
+					"id": 54835,
+					"title": "Gem - Amethyst 3",
+					"file_name": "9a164906-342f-4b2f-9d1a-896c5f0812f5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a164906-342f-4b2f-9d1a-896c5f0812f5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383875": ["Vacuum the rope on this wall to reveal a bed that flings you into the Study.", []],
+		"383876": ["In In A-2: Gear Up, vacuum the ceiling fan.", []],
+		"383877": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nVacuum the curtains in the back-left corner of the room, then shine the Dark-Light onto the painting.",
+			[
+				{
+					"id": 54851,
+					"title": "Gem - Amethyst 11",
+					"file_name": "671d6141-19c3-4ac6-ad10-8d82e84093ef.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/671d6141-19c3-4ac6-ad10-8d82e84093ef.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383878": ["In A-2: Gear Up, vacuum up all the yellow curtains in the room to cause these to appear.", []],
+		"383879": ["In A-2: Gear Up, vacuum the sheet off this picture frame to reveal three Gold Bars.", []],
+		"383880": [
+			"Vacuum behind the left-hand red curtains to dislodge this Gem from some spider webs. You can see this Gem more clearly by using the nearby camera to look in the mirror.",
+			[
+				{
+					"id": 54836,
+					"title": "Gem - Amethyst 4",
+					"file_name": "1652172a-61ff-4906-8dc4-dde4e961b171.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1652172a-61ff-4906-8dc4-dde4e961b171.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383881": ["In A-3: Quiet Please, suck up these cobwebs to release 48 Coins.", []],
+		"383882": [
+			"In A-3: Quiet Please!, suck up the helmet of the right-hand suit of armor, then shoot it at the portrait up the back-left corner to reveal this Gem.",
+			[
+				{
+					"id": 54837,
+					"title": "Gem - Amethyst 5",
+					"file_name": "5b519d3d-f7a5-4bf7-b841-c7b78f031770.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b519d3d-f7a5-4bf7-b841-c7b78f031770.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383883": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nIn A-3: Quiet Please, reveal the four missing suits of armor with the Dark-Light .",
+			[]
+		],
+		"383884": [
+			"In A-3: Quiet Please, vacuum the red poster to reveal a safe you can flash with the Strobulb.\n\nIn A-Boss: Confront the Source, this will have 50 Coins instead.",
+			[]
+		],
+		"383885": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nDuring A-3: Quiet Please, suck the cloth off the invisible painting, then use the Dark-Light on it to reveal this Hidden Boo.",
+			[
+				{
+					"id": 54847,
+					"title": "Hidden Boo - Boo Boo",
+					"file_name": "5eb22764-12b1-4b95-be27-9dc4bb336bd4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5eb22764-12b1-4b95-be27-9dc4bb336bd4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383886": ["In A-3: Quiet Please, several four Golden Spiders and two Golden Mice appear here.", []],
+		"383887": ["In In A-3: Quiet Please, vacuum the chandelier above the dining table.", []],
+		"383888": ["In A-3: Quiet Please, suck up all the red curtains on the back wall.", []],
+		"383889": [
+			"Use the Strobulb on a vault in the ceiling.",
+			[
+				{
+					"id": 54904,
+					"title": "Gem - Amethyst 6",
+					"file_name": "33f8deee-7ad1-4d80-b5cb-098ab49717f9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33f8deee-7ad1-4d80-b5cb-098ab49717f9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383890": [
+			"Found inside the fridge, but frozen in a block of ice. Suck it up with the Poltergust and hold it above the stove to the left to thaw it. You may have to interact with the stove to light it if it isn't already.",
+			[
+				{
+					"id": 54838,
+					"title": "Gem - Amethyst 7",
+					"file_name": "33a53e33-fcd6-42be-8736-a279cb65e382.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33a53e33-fcd6-42be-8736-a279cb65e382.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383891": [
+			"Obtained during A-4: Visual Tricks.",
+			[
+				{
+					"id": 54839,
+					"title": "Item - Darklight",
+					"file_name": "049eecbc-0e8e-4bd5-be4f-1d3509b45400.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/049eecbc-0e8e-4bd5-be4f-1d3509b45400.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383892": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nDuring A-4: Visual Tricks, use the Dark-Light on this spot on the wall to reveal a safe you can flash with the Strobulb.",
+			[]
+		],
+		"383893": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nDuring A4: Visual Tricks, suck up the red sheet on the painting, then shine the Dark-Light on it for 53 Coins. Then catch the Spirit Balls to reveal a dresser: open it for 53 more Coins.",
+			[]
+		],
+		"383894": [
+			"In A4: Visual Tricks, light up the doghouse that's meant to be in the middle of the yard. In the minigame, find the hidden Chest with the Dark-Light to win and get the loot.",
+			[]
+		],
+		"383895": ["In A-4: Visual Tricks, reveal the dresser under the window, then open it.", []],
+		"383896": ["In A-4: Visual Tricks, use the Dark-Light on the missing Cheep Cheep fountain statue.", []],
+		"383897": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nShine the Dark-Light on this spot to reveal this Secret Door.",
+			[]
+		],
+		"383898": ["**Requires:** [Dark-Light](#loc=383891)\n\nReveal with the Dark-Light to use.", []],
+		"383899": [
+			"**Requires:** [Dark-Light](#loc=383891)\n\nShine the Dark-Light on the painting of the key to turn it into a real one.",
+			[
+				{
+					"id": 54630,
+					"title": "Key - Common Hall",
+					"file_name": "43cc3885-0822-4d9a-adb6-a8a150d2d2d6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/43cc3885-0822-4d9a-adb6-a8a150d2d2d6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383900": [
+			"During A-2, A-3 or A-4, vacuum the merry-go-round for an extended period of time. Offers different amounts of Coins depending on the Mission.",
+			[]
+		],
+		"383901": [
+			"Shine the Dark-Light on the missing Cheep Cheep statue on the left side of the fountain pool.",
+			[
+				{
+					"id": 54840,
+					"title": "Gem - Amethyst 9",
+					"file_name": "9d6f5168-db18-4b71-9239-9ccf5424ec56.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9d6f5168-db18-4b71-9239-9ccf5424ec56.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383902": [
+			"Use the Dark-Light on the empty spot to reveal an E. Gadd Statue. Use the Poltergust to blow the red propeller and reveal this Key.",
+			[
+				{
+					"id": 54631,
+					"title": "Key - Patio",
+					"file_name": "46b1399a-5572-40a7-acba-5786c7bd9a3a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/46b1399a-5572-40a7-acba-5786c7bd9a3a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383903": ["Use the Dark-Light on this spot on the wall to reveal the door.", []],
+		"383904": [
+			"Using the [Foyer Secret Door](#loc=383903) to get under the stairs. Use the Strobulb on four Golden Spiders here for 80 Coins.",
+			[]
+		],
+		"383905": [
+			"Using the [Foyer Secret Door](#loc=383903), head under the stairs and through the door to get behind the aquarium. This will be a star-shaped gem on the left side of the glass to vacuum up.",
+			[
+				{
+					"id": 54841,
+					"title": "Gem - Amethyst 8",
+					"file_name": "d3e67287-9687-46b1-9679-32bfef3f218d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d3e67287-9687-46b1-9679-32bfef3f218d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383906": [
+			"In A-4: Visual Tricks, shine the Dark-Light on a globe between the book and a ladder. Blow on the globe to break it and get the Gem.",
+			[
+				{
+					"id": 54842,
+					"title": "Gem - Amethyst 10",
+					"file_name": "583911ed-7127-4736-ac80-5fc153e99003.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/583911ed-7127-4736-ac80-5fc153e99003.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383907": [
+			"Mandatorily found at the end of A-4: Visual Tricks.",
+			[
+				{
+					"id": 54844,
+					"title": "Boo - Boo B",
+					"file_name": "ef8ec009-70a2-4e16-8f00-1ad53a35695f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ef8ec009-70a2-4e16-8f00-1ad53a35695f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"383908": ["During A-2: Gear Up, suck on the wallpaper in this corner to get these coins.", []],
+		"384339": ["In A-4: Visual Tricks, shine the Dark-Light on this painting of a Coin.", []],
+		"384340": ["During A-4: Visual Tricks, shake the vase in the back-right corner of the room.", []],
+		"384341": [
+			"In A-5: Sticky Situation, light the stove on the left-hand side of the room, then vacuum the ceiling fan to spin the ball of web into the fire and burn down the web wall. Check the back-right corner of the room to find the Gem!",
+			[
+				{
+					"id": 54848,
+					"title": "Gem - Amethyst 13",
+					"file_name": "1b5cb498-56a5-4244-b1e2-4d38aaf45de2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1b5cb498-56a5-4244-b1e2-4d38aaf45de2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384342": [
+			"In A-5: Sticky Situation, shine the Dark-Light on the missing piano where the floating books and candlestick are.\n\nIn the 3DS version of the game, this Boo is called Ooga Booga, while in the HD Switch version, it's called Boothoven.",
+			[
+				{
+					"id": 54849,
+					"title": "Hidden Boo - Boothoven",
+					"file_name": "1af90d27-6cef-4e91-a09f-df5491fdf5b5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1af90d27-6cef-4e91-a09f-df5491fdf5b5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384343": ["In A-5: Sticky Situation, flash the safe on the left side of the attic.", []],
+		"384344": [
+			"In the right-hand side of the attic, on top of a cabinet mirror. Suck it off with the Poltergust.",
+			[
+				{
+					"id": 54850,
+					"title": "Gem - Amethyst 12",
+					"file_name": "5b28f053-66d2-463c-89a4-7f70562f069b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b28f053-66d2-463c-89a4-7f70562f069b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"384345": [
+			"In 1-Boss Confront the Source, shine the Dark-Light on the picture of a Coin above the stairs you slide down.",
+			[]
+		],
+		"384346": ["In a treasure chest underneath the elevator balcony.", []],
+		"384347": ["In 5-Boss: Confront the Source, defeat the Spider Queen.", []],
+		"384512": [
+			"The Grouchy Possessor is the boss waiting for you in the Gloomy Manor. Luigi must head to the Cellar to confront the source of the spider incursion and recover a piece of the Dark Moon. Your mission is here not actually to fight the Spider Queen, it's the same as it ever was - burn all of the webs.",
+			[]
+		],
+		"384552": ["Fought during A-3: Quiet Please!", []],
+		"385067": ["Cleaned up for A-5: Sticky Situation", []],
+		"385068": ["Cleaned up for A-5: Sticky Situation", []],
+		"385069": ["Cleaned up for A-5: Sticky Situation", []],
+		"385070": ["Cleaned up for A-5: Sticky Situation", []],
+		"385071": ["Cleaned up for A-5: Sticky Situation", []],
+		"385072": ["Cleaned up for A-5: Sticky Situation", []],
+		"385073": ["Cleaned up for A-5: Sticky Situation", []],
+		"385074": ["Cleaned up for A-5: Sticky Situation", []],
+		"385075": ["Cleaned up for A-5: Sticky Situation", []],
+		"385076": ["Cleaned up for A-5: Sticky Situation", []],
+		"385077": ["Cleaned up for A-5: Sticky Situation", []],
+		"385078": ["Cleaned up for A-5: Sticky Situation", []],
+		"385079": ["Cleaned up for A-5: Sticky Situation", []],
+		"385080": ["Cleaned up for A-5: Sticky Situation", []],
+		"385081": ["Cleaned up for A-5: Sticky Situation", []],
+		"385082": ["Cleaned up for A-5: Sticky Situation", []],
+		"385083": ["Cleaned up for A-5: Sticky Situation", []],
+		"385084": ["Cleaned up for A-5: Sticky Situation", []],
+		"385085": ["Cleaned up for A-5: Sticky Situation", []],
+		"385086": ["Cleaned up for A-5: Sticky Situation", []],
+		"385087": ["Cleaned up for A-5: Sticky Situation", []],
+		"385088": ["Cleaned up for A-5: Sticky Situation", []],
+		"385089": ["Cleaned up for A-5: Sticky Situation", []],
+		"385091": ["Cleaned up for A-5: Sticky Situation", []],
+		"385092": ["Cleaned up for A-5: Sticky Situation", []],
+		"385093": ["Cleaned up for A-5: Sticky Situation", []],
+		"385094": ["Cleaned up for A-5: Sticky Situation", []],
+		"385095": ["Cleaned up for A-5: Sticky Situation", []],
+		"385096": ["Cleaned up for A-5: Sticky Situation", []],
+		"385097": ["Cleaned up for A-5: Sticky Situation", []],
+		"385098": ["Cleaned up for A-5: Sticky Situation", []],
+		"385099": ["Cleaned up for A-5: Sticky Situation", []],
+		"385100": ["Cleaned up for A-5: Sticky Situation", []],
+		"385101": ["Cleaned up for A-5: Sticky Situation", []],
+		"385102": ["Cleaned up for A-5: Sticky Situation", []],
+		"385103": ["Cleaned up for A-5: Sticky Situation", []],
+		"385104": ["Cleaned up for A-5: Sticky Situation", []],
+		"385105": ["Cleaned up for A-5: Sticky Situation", []],
+		"385106": ["Cleaned up for A-5: Sticky Situation", []],
+		"385107": ["Cleaned up for A-5: Sticky Situation", []],
+		"385108": ["Cleaned up for A-5: Sticky Situation", []],
+		"385109": ["Cleaned up for A-5: Sticky Situation", []],
+		"385110": ["Cleaned up for A-5: Sticky Situation", []],
+		"385335": [
+			"**A-2: Gear Up:** Blow the fan with the Poltergust to drop four Golden Spiders. Flash them with a fully charged-up Strobulb to get them all in time.",
+			[]
+		]
+	}
+}

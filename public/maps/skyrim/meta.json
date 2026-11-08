@@ -984,7 +984,8 @@
 					"tileSize": 256,
 					"background": "#284358"
 				}
-			]
+			],
+			"compact": "skyrim/data.compact.json"
 		},
 		{
 			"slug": "solstheim",
@@ -1000,7 +1001,8 @@
 					"bounds": [-1.40625, 1.0546279422758842, -1.0546875, 1.4061088354351563],
 					"tileSize": 256
 				}
-			]
+			],
+			"compact": "solstheim/data.compact.json"
 		}
 	]
 }

@@ -1,0 +1,634 @@
+{
+	"v": 1,
+	"d": {
+		"336506": ["**Required:** Crowbar", []],
+		"336609": ["**Required:** Wrench", []],
+		"336611": ["**Required:** Public Shed Key or Crowbar/Lockpick", []],
+		"336616": ["**Required:** Mastery Level  8", []],
+		"336617": ["**Required:** Screwdriver", []],
+		"336621": ["**Required:** Mastery Level  4\n\nSmall items only", []],
+		"336625": ["**Required:** Wrench", []],
+		"336626": ["**Carried By:** Gardener", []],
+		"336627": ["**Note** Sneak up from behind to collect it", []],
+		"336628": ["**Required:** Shovel", []],
+		"336629": ["**Required:** Screwdriver", []],
+		"336632": ["**Poison Target:** ??", []],
+		"336633": ["**Poison Target:** ??", []],
+		"336635": ["**Required:** Cassidy's House Key Crowbar/Lockpick", []],
+		"336636": ["**Required:** Cassidy's House Key Crowbar/Lockpick", []],
+		"336637": ["**Required:** Cassidy's House Key Crowbar/Lockpick", []],
+		"336638": ["**Required:** Cassidy's House Key Crowbar/Lockpick", []],
+		"336639": ["**Required:** Crowbar", []],
+		"336641": ["**Required:** Crowbar", []],
+		"336647": ["**Required:** Wrench", []],
+		"336649": ["**Required:** Mastery Level  4", []],
+		"336650": ["**Required** [Food](#loc=336651)", []],
+		"336654": ["**Required:** Crowbar", []],
+		"336655": ["**Required:** Wrench", []],
+		"336659": ["**Required:** Wrench", []],
+		"336662": ["**Required:** Gardener Disguise", []],
+		"336663": ["**Required:** Wrench", []],
+		"336665": ["**Carried By:** Construction Worker", []],
+		"336666": ["**Required** [A Roadwork Gate Key](#loc=336665)", []],
+		"336667": ["**Required:** Mastery Level 11", []],
+		"336669": ["**Required:** West's House Key or Crowbar/Lockpick", []],
+		"336674": ["**Carried By:** Gardener", []],
+		"336675": ["**Required:** Garbage Man Disguise", []],
+		"336677": ["**Required:** Crowbar", []],
+		"336678": ["**Required:** Wrench", []],
+		"336680": ["**Required:** Garbage Man Disguise", []],
+		"336683": ["**Required:** Mastery Level  3\n\nSmall items only", []],
+		"336686": ["**Required:** Wrench", []],
+		"336688": ["**Required:** Garbage Man Disguise", []],
+		"336689": ["**Required:** Garbage Man Disguise", []],
+		"336694": ["**Required:** Wrench", []],
+		"336697": ["**Required:** Garbage Man Disguise", []],
+		"336698": ["**Required:** Mastery Level 9", []],
+		"336699": ["**Required:** Garbage Man Disguise", []],
+		"336702": ["**Poison Target:** ??", []],
+		"336703": ["**Required:** Wrench", []],
+		"336706": ["**Carried By:** Garbage man with a white cap", []],
+		"336708": ["**Carried By:** Garbage man without cap", []],
+		"336709": ["**Carried By:** Janus' Bodyguard", []],
+		"336710": ["**Required** Garvage Man Disguise", []],
+		"336711": ["**Required:** Crowbar", []],
+		"336716": ["**Required:** Public Shed Key or Crowbar/Lockpick", []],
+		"336719": ["**Required:** Mastery Level  2\n\nSmall items only", []],
+		"336722": ["**Required** [Paddle](#loc=337174)", []],
+		"336725": ["**Required:** Crowbar", []],
+		"336727": ["**Required** Construction Van Key", []],
+		"336728": ["**Carried By:** two Construction Workers", []],
+		"336730": ["**Required:** Crowbar", []],
+		"336734": ["**Required:** Mastery Level 4", []],
+		"336735": ["**Required:** Construction Worker Disguise", []],
+		"336736": ["**Required:** Wrench", []],
+		"336737": ["**Required:**  Crowbar or Lockpick", []],
+		"336743": ["**Required:** Garbage Man Disguise", []],
+		"336747": ["**Required:** Wrench", []],
+		"336749": ["**Required:** Wrench", []],
+		"336751": ["**Required:** Garbage Man Disguise", []],
+		"336754": ["**Required:** Wrench", []],
+		"336756": ["**Required:** Garbage Man Disguise", []],
+		"336757": ["**Required:** Wrench", []],
+		"336762": ["**Required:** Hanson's House Key or Lockpick", []],
+		"336763": ["**Required:** Hanson's House Key or Crowbar/Lockpick", []],
+		"336768": ["**Required:** Hanson's House Key or Crowbar/Lockpick", []],
+		"336772": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"336775": ["**Required:** Screwdriver", []],
+		"336777": ["**Required:** Hanson's House Key or Crowbar/Lockpick", []],
+		"336781": ["**Required:** Hanson's House Key or Crowbar/Lockpick", []],
+		"336785": ["**Required:** Wrench", []],
+		"336789": ["**Required:** Screwdriver", []],
+		"336793": ["**Carried By:** Garbage man without cap", []],
+		"336796": ["**Carried By:** Garbage Man with a white cap", []],
+		"336798": ["**Required:** Hanson's House Key or Lockpick", []],
+		"336799": ["**Required:**  Crowbar or Lockpick", []],
+		"336804": ["**Required:** Interact with [Sound System](#loc=336803)", []],
+		"336806": ["**Required:** Hanson's House Key or Crowbar/Lockpick", []],
+		"336807": ["**Required:** Mastery Level  11", []],
+		"336809": ["**Required:**  Crowbar or Lockpick", []],
+		"336828": ["**Required:** Replacing the black and white busts will open the secret door", []],
+		"336831": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"336833": ["**Required:** Gardener Disguise", []],
+		"336834": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"336839": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"336851": ["**Required:** Janus' House Key or Lockpick", []],
+		"336852": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"336853": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"336856": ["**Required:** Gardener Disguise", []],
+		"336857": ["**Required:** Screwdriver", []],
+		"336858": ["**Required:** Wrench", []],
+		"336861": ["**Required:** Screwdriver", []],
+		"336862": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"336864": ["**Required:** Gardener Disguise", []],
+		"336867": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"336868": ["**Required:** Screwdriver", []],
+		"336869": ["**Required:** Screwdriver", []],
+		"336881": ["**Required:** Gardener Disguise", []],
+		"336883": ["**Required:** Screwdriver", []],
+		"336893": ["**Poison Target:** Janus", []],
+		"336895": ["**Poison Target:** Janus", []],
+		"336898": ["**Required:** Wrench", []],
+		"336903": ["**Required:** Janus' Bodyguard Disguise", []],
+		"336910": ["**Required:** Mastery Level  14\n\nSmall items only", []],
+		"336914": ["**Required:** Janus' House Key or Lockpick", []],
+		"336924": ["**Required:** ??", []],
+		"336928": ["**Required** [Gramophone](#loc=336927)", []],
+		"336936": ["**Required:** Wrench", []],
+		"336938": ["**Poison Target:** Janus", []],
+		"336941": ["**Required:** West's House Key or Crowbar/Lockpick", []],
+		"336946": ["**Required:** West's House Key or Lockpick", []],
+		"336951": ["**Required:** West's House Key or Crowbar/Lockpick", []],
+		"336959": ["**Required:**  Crowbar or Lockpick", []],
+		"336963": ["**Required:** Gardener Disguise", []],
+		"336964": ["**Required:** Gardener Disguise", []],
+		"336975": ["**Poison Target:** Server", []],
+		"336976": ["**Required:** Wrench", []],
+		"336985": ["**Required:** Mastery Level  9\n\nSmall items only", []],
+		"336986": ["**Required:** West's House Key or Lockpick", []],
+		"336992": ["**Required:** West's House Key or Crowbar/Lockpick", []],
+		"336993": ["**Required:** West's House Key or Crowbar/Lockpick", []],
+		"337011": ["**Required:** West's House Key or Crowbar/Lockpick", []],
+		"337017": ["**Required:** West's House Key or Crowbar/Lockpick", []],
+		"337018": ["**Required:** Wrench", []],
+		"337030": ["**Required:** Janus' House Key or Crowbar/Lockpick", []],
+		"337031": ["**Required:** Lewinsky's House Key or Crowbar/Lockpick", []],
+		"337033": ["**Carried By:** Cassidy Bodyguards", []],
+		"337036": ["**Required:** Lewinsky's House Key or Crowbar/Lockpick", []],
+		"337037": ["**Required:** Lewinsky's House Key or Crowbar/Lockpick", []],
+		"337038": ["**Required:**  [Surveillance Tape](#loc=337257)", []],
+		"337040": ["**Required** [Video Player](#loc=337038)", []],
+		"337049": ["**Poison Target:** ??", []],
+		"337061": ["**Required:** Screwdriver", []],
+		"337062": ["**Required:** Screwdriver", []],
+		"337064": ["**Required:** Wrench", []],
+		"337065": ["**Poison Target:** Mailman", []],
+		"337067": ["**Required:** Propane Flask", []],
+		"337069": ["**Required:** Server Disguise", []],
+		"337070": ["**Required:** Mastery Level 14", []],
+		"337075": ["**Required:** Wrench", []],
+		"337077": ["**Poison Target:** ??", []],
+		"337078": ["**Required:** Screwdriver", []],
+		"337080": ["**Required:** Screwdriver", []],
+		"337083": ["**Required:** Frank Schmidt's House Key or Crowbar/Lockpick", []],
+		"337085": ["**Required:** Wrench", []],
+		"337086": ["**Required:** Wrench", []],
+		"337097": ["**Poison Target:** ??", []],
+		"337100": ["**Required:** Wrench", []],
+		"337101": ["**Poison Target:** ??", []],
+		"337102": ["**Poison Target:** ??", []],
+		"337109": ["**Poison Target:** ??", []],
+		"337120": ["**Required:** [Janus' Microfilm](#loc=337088)", []],
+		"337121": ["**Required** [Microfilm Projector](#loc=337120)", []],
+		"337122": ["**Required:** Screwdriver", []],
+		"337123": ["**Required:** Frank Schmidt's House Key or Crowbar/Lockpick", []],
+		"337125": ["**Required:** Frank Schmidt's House Key or Lockpick", []],
+		"337129": ["**Required:** Frank Schmidt's House Key or Crowbar/Lockpick", []],
+		"337134": ["**Required:** Frank Schmidt's House Key or Crowbar/Lockpick", []],
+		"337137": ["**Required:** Frank Schmidt's House Key or Crowbar/Lockpick", []],
+		"337140": ["**Required:** Gardener Disguise", []],
+		"337141": ["**Required:** Mastery Level  13", []],
+		"337143": ["**Required:** Screwdriver", []],
+		"337144": ["**Required:** Wrench", []],
+		"337152": ["**Required:** Screwdriver", []],
+		"337154": ["**Required:** Frank Schmidt's House Key or Crowbar/Lockpick", []],
+		"337158": ["**Required:** [Vault Keycard](#loc=337156)", []],
+		"337160": [
+			"**Required:**\n- Open [Security Door](#loc=337158)\n- Open [Garage Door](#loc=337125)\n- Ring [Doorbell](#loc=337128) 5 times",
+			[]
+		],
+		"337162": ["**Required:** Frank Schmidt's House Key or Crowbar/Lockpick", []],
+		"337167": ["**Required:** Frank Schmidt's House Key or Crowbar/Lockpick", []],
+		"337168": ["**Required:** Wrench", []],
+		"337175": ["**Required:** Frank Schmidt's House Key or Lockpick", []],
+		"337177": ["**Required:** Mastery Level  12\n\nSmall items only", []],
+		"337183": ["**Required:** Frank Schmidt's Bedroom Key\r or Crowbar/Lockpick", []],
+		"337184": ["**Required:** Frank Schmidt's Bedroom Key\r or Crowbar/Lockpick", []],
+		"337186": ["**Required:** Batty's House Key or Crowbar/Lockpick", []],
+		"337187": ["**Carried By:** Exterminator", []],
+		"337188": ["**Carried By:** Exterminator", []],
+		"337192": ["**Required:** Batty's House Key or Crowbar/Lockpick", []],
+		"337194": ["**Poison Target:** ??", []],
+		"337198": ["**Required:** Exterminator Disguise", []],
+		"337199": ["**Required:** Mastery Level 7", []],
+		"337200": ["**Required:** Screwdriver", []],
+		"337203": ["**Required:** Mastery Level  10\n\nSmall items only", []],
+		"337208": ["**Required:** Batty's House Key or Crowbar/Lockpick", []],
+		"337210": ["**Required:** Screwdriver", []],
+		"337211": ["**Required:** Screwdriver", []],
+		"337219": ["**Required:** Screwdriver", []],
+		"337220": ["**Required:** Screwdriver", []],
+		"337245": ["**Required:** Screwdriver", []],
+		"337247": ["**Poison Target:** ??", []],
+		"337258": ["**Poison Target:** Nolan Cassidy", []],
+		"337261": ["**Required:** Cassidy Bodyguard Disguise", []],
+		"337264": ["**Required:** Wrench", []],
+		"337269": ["**Required:** Cassidy Bodyguard Disguise", []],
+		"337280": ["**Required:** Mastery Level  15", []],
+		"337295": [
+			"**Location:** On a tree branch\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48824,
+					"title": "1",
+					"file_name": "c399c69b-01c5-4e1c-831e-34a0c94fea2c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c399c69b-01c5-4e1c-831e-34a0c94fea2c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337296": [
+			"**Location:** On top of the well\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48825,
+					"title": "2",
+					"file_name": "b3c0fe7b-fdf9-4a06-9de8-a09f4f6e3a49.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3c0fe7b-fdf9-4a06-9de8-a09f4f6e3a49.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337297": [
+			"**Location:** On top of the red swings\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48826,
+					"title": "3",
+					"file_name": "3cccc584-ecf1-4d7c-b41d-c90d771825a6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3cccc584-ecf1-4d7c-b41d-c90d771825a6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337298": [
+			"**Required:** On top of the AC unit\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48827,
+					"title": "4",
+					"file_name": "12e07e5e-3cb5-40c8-9daa-85ed3ded9fad.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/12e07e5e-3cb5-40c8-9daa-85ed3ded9fad.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337299": [
+			"**Location:** On a tree branch\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48828,
+					"title": "5",
+					"file_name": "b4890b55-8a5a-4a7b-a821-a3a26c91c4f0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b4890b55-8a5a-4a7b-a821-a3a26c91c4f0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337300": [
+			"**Location:**  On top of the sign\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48829,
+					"title": "6",
+					"file_name": "146fc19c-a626-4cec-b0ff-4985838abced.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/146fc19c-a626-4cec-b0ff-4985838abced.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337301": [
+			"**Location:**  On top of the porch roof\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48830,
+					"title": "7",
+					"file_name": "4f5726df-d1ac-4bcf-9c7e-f5c1f414b71b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f5726df-d1ac-4bcf-9c7e-f5c1f414b71b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337302": [
+			"**Location:** On top of the wall lamp\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48831,
+					"title": "8",
+					"file_name": "4aa31531-6cc6-4029-82dd-588c89f02a9d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4aa31531-6cc6-4029-82dd-588c89f02a9d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337303": [
+			"**Location:** On top of the garage roof\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48832,
+					"title": "9",
+					"file_name": "436edd85-a28b-4e6b-bdc6-6aa68b56df89.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/436edd85-a28b-4e6b-bdc6-6aa68b56df89.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337304": [
+			"**Location:** On top of the backboard\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48833,
+					"title": "10",
+					"file_name": "e60eaa46-caab-404a-a759-3d5f395c866b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e60eaa46-caab-404a-a759-3d5f395c866b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337305": [
+			"**Location:** On top of the garage roof\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48834,
+					"title": "11",
+					"file_name": "a80aa62b-ac78-4c93-825f-b85ac261f967.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a80aa62b-ac78-4c93-825f-b85ac261f967.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337306": [
+			"**Location:** On top of the garbage truck\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48835,
+					"title": "12",
+					"file_name": "4ea7630e-ad2e-4b31-af7b-fcf2a0344522.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ea7630e-ad2e-4b31-af7b-fcf2a0344522.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337307": [
+			"**Location:** On top of the statue\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48836,
+					"title": "13",
+					"file_name": "1743db91-4d83-4335-8359-b2bd722fcd31.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1743db91-4d83-4335-8359-b2bd722fcd31.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337308": [
+			"**Location:** On top of the lamp post\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48837,
+					"title": "14",
+					"file_name": "9e123653-d702-4854-9c75-cf7618d78cd6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e123653-d702-4854-9c75-cf7618d78cd6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337309": [
+			"**Location:** On top of the lamp post\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48838,
+					"title": "15",
+					"file_name": "5cf74478-29c9-478d-8c65-88994c07653d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5cf74478-29c9-478d-8c65-88994c07653d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337310": [
+			"**Location:** On top of the lamp post\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48839,
+					"title": "16",
+					"file_name": "7dd3d473-0207-454d-aeeb-7defb7420d24.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7dd3d473-0207-454d-aeeb-7defb7420d24.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337311": [
+			"**Location:** On the corner of the pergola structure\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48840,
+					"title": "17",
+					"file_name": "e2cd7372-5dd8-4b4d-a594-d4d687af8092.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e2cd7372-5dd8-4b4d-a594-d4d687af8092.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337312": [
+			"**Location:** On a tree branch\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48841,
+					"title": "18",
+					"file_name": "ca386858-3862-4e88-b393-f85dc0323ee0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ca386858-3862-4e88-b393-f85dc0323ee0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337313": [
+			"**Location:** On a tree branch\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48842,
+					"title": "19",
+					"file_name": "6861ecd4-3843-40d1-9bac-7528f4a2f119.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6861ecd4-3843-40d1-9bac-7528f4a2f119.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337314": [
+			"**Location:** On top of the lamp post\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48843,
+					"title": "20",
+					"file_name": "6e67cd61-8b3d-4498-b1a0-955ed960fce7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6e67cd61-8b3d-4498-b1a0-955ed960fce7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337315": [
+			"**Required:** On the powerlines\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48844,
+					"title": "21",
+					"file_name": "c359d543-cff9-4c18-84e8-29803523c83a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c359d543-cff9-4c18-84e8-29803523c83a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337316": [
+			"**Required:** On the powerlines\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48845,
+					"title": "22",
+					"file_name": "47bb5d32-0194-4086-8717-2be763a50634.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/47bb5d32-0194-4086-8717-2be763a50634.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337317": [
+			"**Required:** On the powerlines\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48846,
+					"title": "23",
+					"file_name": "a29b70e1-869d-455f-8820-5507ea2d6db0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a29b70e1-869d-455f-8820-5507ea2d6db0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337318": [
+			"**Required:** On the powerlines\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48847,
+					"title": "24",
+					"file_name": "bb73bdb7-f3c9-4567-970a-a636f8711354.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb73bdb7-f3c9-4567-970a-a636f8711354.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"337319": [
+			"**Required:** On a tree branch\n\n**Related challenge:** Due You Even Care?",
+			[
+				{
+					"id": 48848,
+					"title": "25",
+					"file_name": "0d301a0a-ff0d-4099-bcce-22e3f491b4b9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d301a0a-ff0d-4099-bcce-22e3f491b4b9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

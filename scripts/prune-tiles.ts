@@ -5,16 +5,25 @@
 
 // prune-tiles.ts: make the tiles of the games already in public/maps/ fit the tile strategy (see server/tile-service.ts).
 //
-//   bun scripts/prune-tiles.ts [game ...] [--dry-run] [--no-prune] [--out public/maps] [--concurrency 8]
+//   bun scripts/prune-tiles.ts [game ...] [--dry-run] [--no-prune] [--aggressive-prune] [--keep-below-max 3]
+//                              [--out public/maps] [--concurrency 8]
 //
 // For every tile set of every game (or just the games named):
 //   1. a tile that is a single colour (the black or grey outside a map) becomes a hard link to one stored copy of that
 //      colour, so such tiles take no space; the colour most used is saved as the tile set's "background" in meta.json
-//   2. the overview (the lowest zoom of the tile set) is made from the highest zoom, if it is missing
-//   3. the zooms between are deleted where the server can make them again, that is, where all four tiles of the next
-//      zoom exist, down to the highest one. A tile with a gap below it (the map is not a perfect rectangle) is kept, and
-//      so is every tile of a map whose highest zoom is missing.
-// --no-prune skips step 3; --dry-run only reports what would be done.
+//   2. the overview levels (minzoom through maxzoom - 3, the zooms a map is first opened at) are made from the highest
+//      zoom, where they are missing: one pass down the pyramid, so no level is ever made from a lossy copy of another
+//   3. the zooms between the overview levels and the highest one are deleted where the server can make them again, that
+//      is, where all four tiles of the next zoom exist, down to the highest one. A tile with a gap below it (the map is
+//      not a perfect rectangle) is kept, and so is every tile of a map whose highest zoom is missing.
+// --no-prune skips step 3; --dry-run only reports what would be done (without reading any pixel of a tile above 8 KB).
+// --keep-below-max N changes how many zooms below the highest are made on demand (default 3 -> zooms maxzoom-2 and
+// maxzoom-1; each costs ~1 s and ~4 s a tile to make). --aggressive-prune is the old behaviour: only minzoom is kept.
+//
+// Rollback: step 2 only adds tiles (undo: delete the zoom folders minzoom+1 .. maxzoom-3). Step 3 deletes tiles that the
+// server remakes on demand (slightly different bytes, as the pixels are shrunk again); an exact restore needs a copy of
+// the tile folder or `add-game --force-get-tiles`. Always run with --dry-run first and copy the folder of any map you
+// cannot scrape again.
 
 import { readdir, rename, rmdir, stat, unlink } from "node:fs/promises";
 import path from "node:path";
@@ -94,6 +103,8 @@ export async function optimizeTileset(o: {
 	minZ: number;
 	maxZ: number;
 	prune?: boolean;
+	keepBelowMax?: number; // the overview levels are minZ .. maxZ - keepBelowMax (default 3)
+	aggressive?: boolean; // the old behaviour: the overview is minZ alone
 	dryRun?: boolean;
 	background?: string | null;
 	concurrency?: number;
@@ -142,46 +153,60 @@ export async function optimizeTileset(o: {
 		topColors: [...colours.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4),
 	});
 
-	// 2. the overview, from the highest zoom
+	// 2. the overview levels, from the highest zoom, in one pass down the pyramid
 	const have = new Set(tiles.map((t) => `${t.z}/${t.x}/${t.y}`));
-	if (maxZ > minZ) {
-		const wanted = new Map<string, [number, number]>();
-		const deepest = Math.max(...tiles.map((t) => t.z));
+	const deepest = Math.max(...tiles.map((t) => t.z));
+	const keepTo = o.aggressive ? minZ : Math.min(Math.max(minZ, maxZ - (o.keepBelowMax ?? 3)), deepest - 1);
+	if (keepTo >= minZ) {
+		const roots = new Map<string, [number, number]>(); // the overview tiles whose subtree misses a level to keep
+		const missing = new Set<string>();
 		for (const t of tiles.filter((t) => t.z === deepest)) {
-			const s = deepest - minZ;
-			const x = t.x >> s,
-				y = t.y >> s;
-			if (!have.has(`${minZ}/${x}/${y}`)) wanted.set(`${x},${y}`, [x, y]);
+			for (let z = minZ; z <= keepTo; z++) {
+				const s = deepest - z;
+				const key = `${z}/${t.x >> s}/${t.y >> s}`;
+				if (have.has(key)) continue;
+				missing.add(key);
+				const x = t.x >> (deepest - minZ),
+					y = t.y >> (deepest - minZ);
+				roots.set(`${x},${y}`, [x, y]);
+			}
 		}
+		if (o.dryRun) r.overview = missing.size;
 		const bg = parseBackground(o.background ?? r.background);
-		await pool([...wanted.values()], Math.min(conc, 4), async ([x, y]) => {
-			const raw = await deriveRaw(minZ, x, y, {
-				maxZoom: deepest,
-				background: bg,
-				read: (z, tx, ty) =>
-					Bun.file(path.join(dir, tilePath(tail, z, tx, ty)))
-						.bytes()
-						.then((b) => Buffer.from(b))
-						.catch(() => null),
-			});
-			if (!raw) return;
+		const read = (z: number, tx: number, ty: number) =>
+			Bun.file(path.join(dir, tilePath(tail, z, tx, ty)))
+				.bytes()
+				.then((b) => Buffer.from(b))
+				.catch(() => null);
+		const put = async (z: number, x: number, y: number, raw: Buffer) => {
+			if (have.has(`${z}/${x}/${y}`)) return;
+			have.add(`${z}/${x}/${y}`);
 			r.overview++;
 			o.onProgress?.({ phase: "overview", overview: r.overview });
-			if (o.dryRun) return;
 			const sk = solidKey(raw);
 			await placeTile(
-				path.join(dir, tilePath(tail, minZ, x, y)),
+				path.join(dir, tilePath(tail, z, x, y)),
 				await encodeTile(raw, tail.ext),
 				sk ? { key: sk, dir, ext: tail.ext } : null,
 			);
-		});
+		};
+		if (!o.dryRun)
+			await pool([...roots.values()], Math.min(conc, 4), async ([x, y]) => {
+				const raw = await deriveRaw(minZ, x, y, {
+					maxZoom: deepest,
+					background: bg,
+					read,
+					store: (z, tx, ty, raw) => (z <= keepTo ? put(z, tx, ty, raw) : Promise.resolve()),
+				});
+				if (raw) await put(minZ, x, y, raw);
+			});
 	}
 
 	// 3. the zooms between, where they can be made again
-	if (o.prune !== false && maxZ - minZ > 1) {
+	if (o.prune !== false && maxZ - keepTo > 1) {
 		tiles = o.dryRun ? tiles : await listTiles(dir, tail);
 		const full = fullyCovered(tiles, minZ, maxZ);
-		const doomed = tiles.filter((t) => t.z > minZ && t.z < maxZ && full.get(t.z)?.has(`${t.x},${t.y}`));
+		const doomed = tiles.filter((t) => t.z > keepTo && t.z < maxZ && full.get(t.z)?.has(`${t.x},${t.y}`));
 		const parents = new Set<string>();
 		await pool(doomed, conc, async (t) => {
 			const st = await stat(t.file);
@@ -209,11 +234,14 @@ async function main() {
 			out: { type: "string", default: path.join(REPO, "public", "maps") },
 			"dry-run": { type: "boolean", default: false },
 			"no-prune": { type: "boolean", default: false },
+			"aggressive-prune": { type: "boolean", default: false },
+			"keep-below-max": { type: "string", default: "3" },
 			"no-tui": { type: "boolean", default: false },
 			concurrency: { type: "string", default: "8" },
 		},
 	});
 	const root = v.out!;
+	if (!/^\d+$/.test(v["keep-below-max"]!)) throw new Error("--keep-below-max takes a whole number");
 	const games = v.game
 		? [v.game]
 		: positionals.length
@@ -252,6 +280,8 @@ async function main() {
 			minZ: t.ts.minzoom ?? 0,
 			maxZ: t.ts.maxzoom ?? 0,
 			prune: !v["no-prune"],
+			aggressive: v["aggressive-prune"],
+			keepBelowMax: +v["keep-below-max"]!,
 			dryRun: v["dry-run"],
 			background: t.ts.background,
 			concurrency: +v.concurrency!,

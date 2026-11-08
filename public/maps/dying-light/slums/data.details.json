@@ -1,0 +1,2792 @@
+{
+	"v": 1,
+	"d": {
+		"67003": [
+			"",
+			[
+				{
+					"id": 143305,
+					"title": "",
+					"file_name": "e4489c68-38a2-4e93-a7f5-370a7e77a015.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4489c68-38a2-4e93-a7f5-370a7e77a015.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67007": [
+			"Find him locked in the yellow van.\n\n**Reward:** [Zappo](#loc=67920)\n\n**Note:** Protection missions are only available in single player.",
+			[]
+		],
+		"67009": [
+			"**Reward:** [Exorcist](#loc=67791)\n\n**Note:** Protection missions are only available in single player.",
+			[]
+		],
+		"67027": ["Access from the rooftop room", []],
+		"67028": ["**Prerequisite:** Main Quest [Pact With Rais](#loc=69452)", []],
+		"67043": [
+			"Speak with [Spike](#loc=67041) to begin this quest\n\n**Prerequisite:** [Awakening](#loc=69453)",
+			[]
+		],
+		"67044": [
+			"Inside the small building where you need to turn on the lights for [First Assignment](#loc=67043)",
+			[
+				{
+					"id": 85844,
+					"title": "",
+					"file_name": "0b373042-e1ff-4d86-adb4-7b20ec4cf75a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b373042-e1ff-4d86-adb4-7b20ec4cf75a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67045": [
+			"Inside the small building where you need to turn on the lights for [First Assignment](#loc=67043)",
+			[]
+		],
+		"67048": ["Becomes unavailable as a safe zone after completion of main quest [Siblings](#loc=69451)", []],
+		"67049": [
+			"Top floor of the tower",
+			[
+				{
+					"id": 144759,
+					"title": "",
+					"file_name": "40b76b87-39c5-4636-b428-2f063f7a3bec.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/40b76b87-39c5-4636-b428-2f063f7a3bec.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67051": [
+			"On the 1st floor balcony",
+			[
+				{
+					"id": 144758,
+					"title": "",
+					"file_name": "fa4f3c02-025f-4adb-b33f-46442eef68e7.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa4f3c02-025f-4adb-b33f-46442eef68e7.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67056": ["Upper level of building", []],
+		"67057": [
+			"Inside the office of the power substation",
+			[
+				{
+					"id": 88685,
+					"title": "",
+					"file_name": "8c4d4c9c-ff06-46c3-807b-79fd8a2ec5d3.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8c4d4c9c-ff06-46c3-807b-79fd8a2ec5d3.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67058": ["Inside the office of the power substation.", []],
+		"67214": ["Accessible during main quest [The Pit](#loc=69461)", []],
+		"67247": [
+			"**Prerequisite:** Main Quest [Siblings](#loc=69451)\n\n**Reward:** [GTFO](#loc=67815)\n\n**Note:** Protection missions are only available in single player.",
+			[]
+		],
+		"67248": [
+			"**Reward:** [Fire Launcher](#loc=67795)\n\n**Note:** Protection missions are only available in single player.",
+			[]
+		],
+		"67255": [
+			"**Reward:** [Puff Puff Pass](#loc=67882)\n\n**Note:** Protection missions are only available in single player.",
+			[]
+		],
+		"67272": [
+			"",
+			[
+				{
+					"id": 143311,
+					"title": "",
+					"file_name": "502daae1-ebb7-4548-b6cc-956f8f924654.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/502daae1-ebb7-4548-b6cc-956f8f924654.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67283": ["**Prerequisite:** Main Quest [\nPact With Rais](#loc=69452)", []],
+		"67290": ["**Prerequisite:** Main Quest [\nPact With Rais](#loc=69452)", []],
+		"67305": ["Accessible during and after main quest _Broadcast_", []],
+		"67307": ["**Prerequisite:** Main Quest [\nPact With Rais](#loc=69452)", []],
+		"67313": ["On the roof", []],
+		"67314": ["On the roof", []],
+		"67320": ["On the roof", []],
+		"67348": ["In the [Destiny Loot Cave](#loc=67354)", []],
+		"67354": [
+			"Dive into the pool of water and swim through the tunnel until you surface in the cave.  Beware of zombies inside",
+			[]
+		],
+		"67462": [
+			"**Requires Key:** Osman's Stash Key, acquired from completing quest _O Brother Where Art Thou?_\n\nOn the second floor.",
+			[]
+		],
+		"67463": [
+			"**Requires Key:** Osman's Stash Key, acquired from completing quest _O Brother Where Art Thou?_\n\nOn the second floor.",
+			[]
+		],
+		"67464": [
+			"**Requires Key:** Osman's Stash Key, acquired from completing quest _O Brother Where Art Thou?_\n\nOn the second floor.",
+			[]
+		],
+		"67512": [
+			"**Requires Key:** Osman's Stash Key, acquired from completing quest _O Brother Where Art Thou?_",
+			[]
+		],
+		"67513": [
+			"**Requires Key:** Osman's Stash Key, acquired from completing quest _O Brother Where Art Thou?_",
+			[]
+		],
+		"67514": [
+			"**Requires Key:** Osman's Stash Key, acquired from completing quest _O Brother Where Art Thou?_",
+			[]
+		],
+		"67517": ["On the overpass", []],
+		"67519": ["The blue locker on the ground floor", []],
+		"67524": ["On the roof\n\n(?)", []],
+		"67525": ["On the roof", []],
+		"67527": ["On the roof", []],
+		"67528": ["The blue locker on the ground floor", []],
+		"67529": ["The blue locker on the ground floor", []],
+		"67534": ["In the tent", []],
+		"67536": ["In the rooftop room", []],
+		"67537": ["Becomes a safe zone after completion of the main quest [Siblings](#loc=69451)", []],
+		"67540": ["On the house roof", []],
+		"67541": ["Under the overpass", []],
+		"67542": ["On the house roof", []],
+		"67543": ["On the house roof", []],
+		"67545": ["In the second story room", []],
+		"67546": ["In the second story room", []],
+		"67548": ["In the blue locker on the ground floor", []],
+		"67549": ["On the roof", []],
+		"67658": [
+			"On top of Zere's truck in the yellow tool box",
+			[
+				{
+					"id": 5036,
+					"title": "20210223015949_1",
+					"file_name": "16c09d4a-f330-4626-aa05-3af603eddd39.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/16c09d4a-f330-4626-aa05-3af603eddd39.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67659": [
+			"In a yellow tool box on the ground",
+			[
+				{
+					"id": 75962,
+					"title": "",
+					"file_name": "87ea0637-fe80-48f1-b446-280063a31668.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87ea0637-fe80-48f1-b446-280063a31668.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67664": [
+			"**Prerequisite:** Side quest [Goodnight Mr. Bahir](#loc=70226)\n\nGround floor on a shelf next to the fridge.",
+			[]
+		],
+		"67678": [
+			"In the tent, behind the standing whiteboard",
+			[
+				{
+					"id": 5043,
+					"title": "20210222234234_1",
+					"file_name": "cbd143b5-fdf8-494b-adbf-e0f9a97ae8f5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cbd143b5-fdf8-494b-adbf-e0f9a97ae8f5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67683": [
+			"Look for the burning barrel on top of the cliff.  The blueprint is in the chest nearby",
+			[
+				{
+					"id": 75983,
+					"title": "",
+					"file_name": "a748ff38-4fe7-4122-9a93-36852db7e340.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a748ff38-4fe7-4122-9a93-36852db7e340.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67703": [
+			"**Prerequisite:** Main Quest [\nPact With Rais](#loc=69452)\n\nOn the table against the blue wall",
+			[
+				{
+					"id": 5031,
+					"title": "20210222223434_1",
+					"file_name": "8aca3732-22b1-46bd-b833-f5e42e7d1f04.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8aca3732-22b1-46bd-b833-f5e42e7d1f04.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67719": [
+			"On a desk inside the blue shipping container",
+			[
+				{
+					"id": 75982,
+					"title": "",
+					"file_name": "a8decba7-cd84-4c43-9e12-a12c5168a199.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a8decba7-cd84-4c43-9e12-a12c5168a199.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67754": ["Becomes a safe zone after the completion of side quest [The Prodigal Son](#loc=69449)", []],
+		"67772": [
+			"Next to the TV in the motel room on the second floor, behind the locked (hard) door.",
+			[
+				{
+					"id": 5039,
+					"title": "20210222231852_1",
+					"file_name": "00551a2f-94ca-43ad-b190-c022b8b2d6a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/00551a2f-94ca-43ad-b190-c022b8b2d6a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67774": [
+			"Climb to the very top of the bridge tower via the outermost main cable (crouching helps to balance), and then up the scaffolding.  Find the blueprint in a yellow tool box",
+			[
+				{
+					"id": 143322,
+					"title": "",
+					"file_name": "7687e221-701d-4fe1-8386-81c3851da626.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7687e221-701d-4fe1-8386-81c3851da626.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67775": [
+			"Inside the building, in a toolbox on the ground floor. Can only be accessed after progressing past the introductory missions.",
+			[
+				{
+					"id": 85842,
+					"title": "",
+					"file_name": "017a7a6e-6069-4a89-b53b-1365dbeb829f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/017a7a6e-6069-4a89-b53b-1365dbeb829f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67776": [
+			"**Prerequisite:** Side quest [On the Hooks](#loc=69476)\n\nIn a yellow tool box on the ground",
+			[
+				{
+					"id": 71939,
+					"title": "",
+					"file_name": "4157f925-029f-4635-9c82-753cc5e0b80d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4157f925-029f-4635-9c82-753cc5e0b80d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67777": [
+			"**Prerequisite:** Main Quest [\nPact With Rais](#loc=69452)\n\nOn the table next to the lockers",
+			[
+				{
+					"id": 5027,
+					"title": "20210222220630_1",
+					"file_name": "c9e340e8-d38e-410d-8d42-ba384fed01e5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c9e340e8-d38e-410d-8d42-ba384fed01e5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67778": [
+			"Just inside the shack, on a shelf",
+			[
+				{
+					"id": 84538,
+					"title": "",
+					"file_name": "456c0426-f1b0-44ff-a47c-e968cc204241.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/456c0426-f1b0-44ff-a47c-e968cc204241.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67780": ["Can be purchased from the [Ground Floor Store](#loc=67654) as an Item of the Day", []],
+		"67781": ["Can be purchased from the [Upper Floor Store](#loc=67779) as an Item of the Day", []],
+		"67782": [
+			"On a desk in classroom 12, found inside the [Slums School](#loc=67027) on the top floor.",
+			[
+				{
+					"id": 71930,
+					"title": "",
+					"file_name": "f52251cf-6cb1-408f-9994-dc4e059d0ab6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f52251cf-6cb1-408f-9994-dc4e059d0ab6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67783": [
+			"On the second floor, atop a box on a shelf",
+			[
+				{
+					"id": 104127,
+					"title": "",
+					"file_name": "8ab4e6ad-379e-4d96-b733-f11809155101.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8ab4e6ad-379e-4d96-b733-f11809155101.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67784": ["Can be purchased from the any store in [The Tower](#loc=67038) as an Item of the Day", []],
+		"67785": [
+			"The part of the station on ground is overrun by zombies after the main quest [The Pit](#loc=69461)",
+			[]
+		],
+		"67786": [
+			"**Note:** This store is in the same building as [Cattle Stamp](#loc=67787) prior to completion of main quest [The Pit](#loc=69461)",
+			[]
+		],
+		"67787": [
+			"Under the roof, on the table",
+			[
+				{
+					"id": 5034,
+					"title": "20210222224810_1",
+					"file_name": "ff6621b1-830a-4129-830f-e1f6a6398686.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff6621b1-830a-4129-830f-e1f6a6398686.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67788": [
+			"In the tent, on the table near the computer",
+			[
+				{
+					"id": 75963,
+					"title": "",
+					"file_name": "f4c96803-7509-4622-afbc-561c766d40ee.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f4c96803-7509-4622-afbc-561c766d40ee.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67789": ["Rewarded for completing side quest _Electronic Parts_, obtained from The Tower job board", []],
+		"67790": [
+			"In the chest, inside the building",
+			[
+				{
+					"id": 5054,
+					"title": "20210223160308_1",
+					"file_name": "d3d54e28-2514-421d-8f68-af83f2c48971.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d3d54e28-2514-421d-8f68-af83f2c48971.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67791": ["Complete the Protect quest for [Babar](#loc=67009)", []],
+		"67792": ["Purchase from any store in The Tower as an Item of the Day after reaching level 7", []],
+		"67793": [
+			"Pull the sword out of the body by holding the action button for approximately 2-3 minutes. Once removed the body will burn, and when the burning stops, the blueprint will be revealed.",
+			[
+				{
+					"id": 71929,
+					"title": "",
+					"file_name": "b716dcd7-fc6d-4596-9f23-156daf0e00ca.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b716dcd7-fc6d-4596-9f23-156daf0e00ca.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67794": [
+			"In the locked (hard) building on the shelf",
+			[
+				{
+					"id": 5053,
+					"title": "20210223151232_1",
+					"file_name": "a89019a7-a91c-44cf-a092-947311e574a7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a89019a7-a91c-44cf-a092-947311e574a7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67795": ["Complete the Protect quest for [Faruk](#loc=67248)", []],
+		"67796": [
+			"On the driver's seat of the bus",
+			[
+				{
+					"id": 85702,
+					"title": "",
+					"file_name": "46f7ddd7-6824-485a-8ea4-a3fc02372bca.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/46f7ddd7-6824-485a-8ea4-a3fc02372bca.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67799": ["Rewarded for completing side quest _Lighter Gas_, obtained from The Tower job board", []],
+		"67815": ["Complete the Protect quest for [Omar](#loc=67247)", []],
+		"67831": [
+			"In the chest behind the hut",
+			[
+				{
+					"id": 71932,
+					"title": "",
+					"file_name": "f2f374bd-5bd6-43a8-a5a6-aab3ca4022c0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f2f374bd-5bd6-43a8-a5a6-aab3ca4022c0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67846": [
+			"Complete side quest [The Prodigal Son](#loc=69449) to unlock this building and find the blueprint under the shelf to the left",
+			[
+				{
+					"id": 75964,
+					"title": "",
+					"file_name": "fb0586df-7849-4bdf-9eac-0bda77fde6ba.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fb0586df-7849-4bdf-9eac-0bda77fde6ba.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67847": ["Rewarded from Alexei on completion of side quest [The Prodigal Son](#loc=69449)", []],
+		"67848": [
+			"Get up to the roof of the apartment building.  Look for a stack of wooden crates next to a stack of blue barrels - climb up over the crates and drop down behind them to find a blue box.  \n\n**Unlock:** Press the action button to kick the box.  You need to kick the box a total of 75 times before it will finally open.",
+			[]
+		],
+		"67854": ["Rewarded from completion of side quest [The Big Bang Thesis](#loc=70240)", []],
+		"67870": [
+			"**Prerequisite:** Main Quest [\nPact With Rais](#loc=69452)\n\nOn the white table",
+			[
+				{
+					"id": 71936,
+					"title": "",
+					"file_name": "67b49a68-9d2e-4cd3-a15e-e39b38938b3f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/67b49a68-9d2e-4cd3-a15e-e39b38938b3f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"67882": ["Complete the Protect quest for [Ahmet](#loc=67255)", []],
+		"67920": ["Complete the Protect quest for [Nick Pesto](#loc=67007)", []],
+		"67945": [
+			"On top of the Tower roof - find the checkers board on the table with the two chairs\n\n**Unlock:** Play the checkers game by pressing the action key near the board when prompted.  This completes one move.  To make the next move you need to exit the Tower zone completely and then return to the board.  Repeat the previous actions until the blueprint appears on the board.",
+			[]
+		],
+		"67946": ["Start this quest from the job board\n\n**Reward:** [Sophia's Healing Recipe](#loc=67947)", []],
+		"67947": ["Rewarded from completion of side quest [Dulse](#loc=67946)", []],
+		"67948": ["Purchase from the [store](#loc=67862) as an Item of the Day", []],
+		"67950": ["Talk with Dahlia to begin this quest\n\n**Reward:** [Dahlia's Shroom Potion](#loc=67952)", []],
+		"67951": [
+			"**Prerequisite:** Complete [Witch Queen](#loc=67950) and drink the rewarded potion\n\n**Reward:** [Dahlia's Liver Potion](#loc=67953)",
+			[]
+		],
+		"67952": ["Rewarded from completing side quest [Witch Queen](#loc=67950)", []],
+		"67953": ["Rewarded from completing side quest [Hunting Goon](#loc=67951)", []],
+		"67954": ["Rewarded from completing side quest [Kidney Punch](#loc=67956)", []],
+		"67955": ["Rewarded from completing side quest [Bring Me the Brain of Usain Bolter](#loc=67957)", []],
+		"67956": [
+			"**Prerequisite:** Complete [Hunting Goon](#loc=67951) and drink the rewarded potion\n\n**Reward:** [Dahlia's Kidney Potion](#loc=67954)",
+			[]
+		],
+		"67957": [
+			"**Prerequisite:** Complete [Kidney Punch](#loc=67956) and drink the rewarded potion\n\n**Reward:** [Dahlia's Cloak Potion](#loc=67955)",
+			[]
+		],
+		"68008": [
+			"In the boat just outside the shack",
+			[
+				{
+					"id": 75975,
+					"title": "",
+					"file_name": "dabad26f-3e78-4a4b-9b5b-cd7a6e88509b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dabad26f-3e78-4a4b-9b5b-cd7a6e88509b.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68010": [
+			"In the shack, in the closet. Break a window to get inside.",
+			[
+				{
+					"id": 85845,
+					"title": "",
+					"file_name": "d61b5d49-ed9d-46b6-90f3-d025ff64b945.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d61b5d49-ed9d-46b6-90f3-d025ff64b945.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68015": [
+			"**Prerequisite:** Side Quest [\nWhere's My Mother?](#loc=69448)\n\nOn the ground floor, on the table",
+			[
+				{
+					"id": 71935,
+					"title": "",
+					"file_name": "a2d5fa42-b72b-42b9-990a-7e027d47eddd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a2d5fa42-b72b-42b9-990a-7e027d47eddd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68016": [
+			"**Prerequisite:** Side Quest [\nWhere's My Mother?](#loc=69448)\n\nOn the second floor, on the top of the shelves",
+			[
+				{
+					"id": 88682,
+					"title": "",
+					"file_name": "cc7861d5-c8d9-4097-b851-86e07f103e52.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc7861d5-c8d9-4097-b851-86e07f103e52.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68018": [
+			"In the [Destiny Loot Cave](#loc=67354) in front of the chest on your left as you enter.",
+			[
+				{
+					"id": 71934,
+					"title": "",
+					"file_name": "fd4dd9fb-2a95-4b74-956e-106cabe28bdf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fd4dd9fb-2a95-4b74-956e-106cabe28bdf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68020": [
+			"On the sofa close to the water",
+			[
+				{
+					"id": 71933,
+					"title": "",
+					"file_name": "45fa76ce-5a0b-4294-8854-77b0f8e6ded7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/45fa76ce-5a0b-4294-8854-77b0f8e6ded7.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68021": [
+			"Close to the sunken cars and concrete debris, underwater on the ocean floor. Very close to the square of rebar.  There is also a underwater chest in this area, close to the blue car.",
+			[
+				{
+					"id": 71927,
+					"title": "",
+					"file_name": "5059ced7-a9ec-499a-ac9a-bf0e2567197c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5059ced7-a9ec-499a-ac9a-bf0e2567197c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68022": [
+			"In the trunk of the white car",
+			[
+				{
+					"id": 71937,
+					"title": "",
+					"file_name": "b68e8602-3070-42be-b950-d8229ced9eb8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b68e8602-3070-42be-b950-d8229ced9eb8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68023": [
+			"Under the bridge in a shopping cart",
+			[
+				{
+					"id": 83589,
+					"title": "",
+					"file_name": "7def0d02-5597-497f-85da-d039c24bce0a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7def0d02-5597-497f-85da-d039c24bce0a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68025": [
+			"In the bus, on a seat close to the front",
+			[
+				{
+					"id": 5035,
+					"title": "20210222225144_1",
+					"file_name": "bd4dc9f1-ffec-4d61-b34e-e51a0fee5329.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd4dc9f1-ffec-4d61-b34e-e51a0fee5329.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68029": [
+			"**Prerequisite:** Side Quest [Where's My Mother?](#loc=69448)\n\nIn the house, on the shelf next to the teddy bear",
+			[
+				{
+					"id": 85166,
+					"title": "",
+					"file_name": "9c1dfa3a-8f9b-422a-aa23-de82144d17e0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9c1dfa3a-8f9b-422a-aa23-de82144d17e0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68031": [
+			"**Prerequisite:** Side Quest [Where's My Mother?](#loc=69448)\n\nIn the bedroom of [Red Flowers Cafe & Bar](#loc=68277) on the bookshelf",
+			[
+				{
+					"id": 143308,
+					"title": "",
+					"file_name": "989f3b86-4477-431d-a4f8-2a0c9d34f3ea.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/989f3b86-4477-431d-a4f8-2a0c9d34f3ea.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68035": [
+			"On the upper floor, in the closet",
+			[
+				{
+					"id": 73483,
+					"title": "",
+					"file_name": "d741db43-9f08-4b2f-ab72-1da0564fa480.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d741db43-9f08-4b2f-ab72-1da0564fa480.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68036": [
+			"**Prerequisite:** Side Quest [A Baby is Born](#loc=70242)\n\nOn top of a table on the second floor.  Enter through the trapdoor on the roof",
+			[
+				{
+					"id": 143310,
+					"title": "",
+					"file_name": "92c96382-3369-43b8-bb07-71f214593836.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/92c96382-3369-43b8-bb07-71f214593836.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68039": [
+			"In the safe zone, just opposite the bed, on the floor near a yellow light",
+			[
+				{
+					"id": 5029,
+					"title": "20210222222251_1",
+					"file_name": "b80c44a4-d5c2-4359-b4b6-055ff6eb4a53.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b80c44a4-d5c2-4359-b4b6-055ff6eb4a53.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68041": [
+			"On the dashboard of the bus",
+			[
+				{
+					"id": 75978,
+					"title": "",
+					"file_name": "6c901ffe-3ffa-4f26-bd41-5072d67b399b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c901ffe-3ffa-4f26-bd41-5072d67b399b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68042": [
+			"In the tree fort - next to the tire",
+			[
+				{
+					"id": 75977,
+					"title": "",
+					"file_name": "433b0e8d-5e70-452d-98f6-62cb0eb5ab05.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/433b0e8d-5e70-452d-98f6-62cb0eb5ab05.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68045": [
+			"At the makeshift grave site - on the boards under the sign that reads \"LILLY\"",
+			[
+				{
+					"id": 75976,
+					"title": "",
+					"file_name": "8ffcb3bc-e803-4542-80c3-04daaee6f367.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8ffcb3bc-e803-4542-80c3-04daaee6f367.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68048": [
+			"On the ground floor - on the desk, next to the wooden crate that reads \"SALE\"",
+			[
+				{
+					"id": 75966,
+					"title": "",
+					"file_name": "9357ceee-71c9-44b0-b2ef-8f6683abe8ca.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9357ceee-71c9-44b0-b2ef-8f6683abe8ca.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68050": [
+			"Break the boards to enter the house from the street - find the statue in the dresser, next to the bed, in the top drawer",
+			[
+				{
+					"id": 75981,
+					"title": "",
+					"file_name": "a9aad33e-61b1-4506-b60b-c203b0033d79.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a9aad33e-61b1-4506-b60b-c203b0033d79.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68051": [
+			"On the upper floor patio - in the blue chest",
+			[
+				{
+					"id": 85839,
+					"title": "",
+					"file_name": "18ea99c7-0a4e-4ec7-857f-6fbe13032f62.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/18ea99c7-0a4e-4ec7-857f-6fbe13032f62.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68055": [
+			"**Prerequisite:** Side Quest [\nO Brother Where Art Thou?](#loc=70237)\n\nIn the second story room - on the shelf",
+			[
+				{
+					"id": 143307,
+					"title": "",
+					"file_name": "d82c406b-c211-434b-9bb2-c8c7e1ea79f2.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d82c406b-c211-434b-9bb2-c8c7e1ea79f2.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68057": [
+			"In the safe zone room with the bed - on the dresser next to the TV",
+			[
+				{
+					"id": 104126,
+					"title": "",
+					"file_name": "4bbe54ef-7e7a-4505-a966-131266c2b077.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4bbe54ef-7e7a-4505-a966-131266c2b077.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68060": ["On the ground floor - behind and on top the blue display case, next to the cash register", []],
+		"68062": [
+			"On the second floor (enter from the top floor) - in the living room, on top of the dresser",
+			[
+				{
+					"id": 71922,
+					"title": "",
+					"file_name": "4abc42bd-b673-4420-acd6-9ed5a7eb0891.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4abc42bd-b673-4420-acd6-9ed5a7eb0891.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68064": [
+			"In the headquarters of the Tower. Head outside on the balcony, around the corner to find the statue on the ground next to a wooden chair.",
+			[
+				{
+					"id": 83591,
+					"title": "",
+					"file_name": "1725112a-c504-404a-ba99-c57b2739f287.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1725112a-c504-404a-ba99-c57b2739f287.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68069": [
+			"Enter from the street in the west - turn right immediately after entry to find the statue inside a wall-mounted cupboard.",
+			[
+				{
+					"id": 75965,
+					"title": "",
+					"file_name": "cc3ffb58-12c5-4f15-91a1-bcc88dac644b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc3ffb58-12c5-4f15-91a1-bcc88dac644b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68071": [
+			"In the children's sandbox",
+			[
+				{
+					"id": 73482,
+					"title": "",
+					"file_name": "89239272-feb7-4560-8c82-454d754a4eb6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/89239272-feb7-4560-8c82-454d754a4eb6.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68074": [
+			"On the ground floor (enter from the top), on the shelf",
+			[
+				{
+					"id": 75979,
+					"title": "",
+					"file_name": "00d297b9-2415-4fcb-9072-5eb8daab16bf.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/00d297b9-2415-4fcb-9072-5eb8daab16bf.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68078": [
+			"In the shack, on top of the closet",
+			[
+				{
+					"id": 73480,
+					"title": "",
+					"file_name": "a98b59f4-132a-4161-94a5-e8ced9d323a6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a98b59f4-132a-4161-94a5-e8ced9d323a6.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68080": [
+			"**Prerequisite:** Side Quest [A Survivor's Guide to Zombieland](#loc=69447)\n\nOn the second floor, on the desk near the cash register",
+			[
+				{
+					"id": 143324,
+					"title": "",
+					"file_name": "49d6a29f-180b-4e44-9c5a-3744ef7031f2.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49d6a29f-180b-4e44-9c5a-3744ef7031f2.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68082": [
+			"On the third floor, on the counter under the cork board",
+			[
+				{
+					"id": 71925,
+					"title": "",
+					"file_name": "3e0a9e8e-d838-4fa3-aaed-df85d896ddc6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e0a9e8e-d838-4fa3-aaed-df85d896ddc6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68083": [
+			"**Prerequisite:** Side Quest [\nSpare Glasses](#loc=70229)\n\nOn the ground floor (enter through the roof) - on the ground, near the workbench",
+			[
+				{
+					"id": 93239,
+					"title": "",
+					"file_name": "ddac17cf-5522-40ff-ae1d-984685de2d08.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddac17cf-5522-40ff-ae1d-984685de2d08.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68088": [
+			"On the round table",
+			[
+				{
+					"id": 5044,
+					"title": "20210223023349_1",
+					"file_name": "6c9211bf-83a9-471f-9e07-a00d119c5916.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c9211bf-83a9-471f-9e07-a00d119c5916.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68090": [
+			"In the cupboard next to the stove",
+			[
+				{
+					"id": 5047,
+					"title": "20210223131120_1",
+					"file_name": "8a211179-9e3e-4bce-854b-951b05eaa69d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a211179-9e3e-4bce-854b-951b05eaa69d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68091": [
+			"On the bench near the train tracks",
+			[
+				{
+					"id": 75980,
+					"title": "",
+					"file_name": "3f5b167e-0d86-43ba-9edc-12a3fead86ff.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f5b167e-0d86-43ba-9edc-12a3fead86ff.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68092": [
+			"Inside the train car beneath the overpass.",
+			[
+				{
+					"id": 85167,
+					"title": "",
+					"file_name": "22ea8cf8-e899-45a7-92be-0d73e592fa42.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/22ea8cf8-e899-45a7-92be-0d73e592fa42.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68094": [
+			"On the arm chair in the makeshift camp.",
+			[
+				{
+					"id": 85168,
+					"title": "",
+					"file_name": "aa00d031-9641-4226-b60b-840e9d3bab23.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa00d031-9641-4226-b60b-840e9d3bab23.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68095": [
+			"**Prerequisite:** Main Quest [The Saviors](#loc=69462)\n\n**From [Old Town Sewers Entrance](https://mapgenie.io/dying-light/maps/old-town?locationIds=66906):** Run downstairs to find yourself in the large open pavilion.  The statue is on one of the tables that surround the tree in the middle.\n\n**From [Slums Sewers Entrance](#loc=68953):**  Traverse through the tunnels following the painted arrows until you need to swim through an underwater pipe to continue up a ladder and back on the ground.  \n\nIn the area following, find the gray door with the arrow painted on the wall next to it.  Head through the door and to the left through the tunnels, following the painted arrows until you get to a ladder.  \n\nClimb up the ladders and into the building basement.  Head upstairs to find yourself in a pavilion with a tree in the middle, surrounded by tables.  The statue is on one of the tables.",
+			[
+				{
+					"id": 5051,
+					"title": "20210223140318_1",
+					"file_name": "41912a35-29c9-45bd-b28a-fce993076700.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41912a35-29c9-45bd-b28a-fce993076700.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68096": [
+			"In the rooftop room, on the shelf",
+			[
+				{
+					"id": 5026,
+					"title": "20210222220201_1",
+					"file_name": "736b4ada-adf1-4439-9882-5401a39c814a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/736b4ada-adf1-4439-9882-5401a39c814a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68098": [
+			"On the side of the yellow tarped rooftop room, standing on a wooden crate",
+			[
+				{
+					"id": 85847,
+					"title": "",
+					"file_name": "acf182ff-7157-47a6-b90e-3f49f33ac64d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/acf182ff-7157-47a6-b90e-3f49f33ac64d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68100": [
+			"On the ground floor, on a shelf behind the display case",
+			[
+				{
+					"id": 71942,
+					"title": "",
+					"file_name": "a75305e5-97b8-4c39-bf77-a54a5bd47a66.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a75305e5-97b8-4c39-bf77-a54a5bd47a66.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68101": [
+			"On the roof, on a small table near the red door",
+			[
+				{
+					"id": 85163,
+					"title": "",
+					"file_name": "ec2b9149-1e22-4e40-a121-9b4220ef6e82.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec2b9149-1e22-4e40-a121-9b4220ef6e82.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68103": [
+			"In the hand of the fallen statue",
+			[
+				{
+					"id": 85846,
+					"title": "",
+					"file_name": "a5fa674c-6df4-4bc6-bf12-a4470cbb64e8.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a5fa674c-6df4-4bc6-bf12-a4470cbb64e8.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68105": [
+			"In the underground storm drain, near a corpse in the tunnel that goes to the north.",
+			[
+				{
+					"id": 71931,
+					"title": "",
+					"file_name": "4d5d27ac-4b3f-42f0-b7be-09b19280ebf1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d5d27ac-4b3f-42f0-b7be-09b19280ebf1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68941": ["On the roof", []],
+		"68942": [
+			"Go to the upper floor in the Tower.  Head up the stairs and enter room 204.  Find the statue on the shelf with a globe on top, that's next to the window, in the blue-walled play room.",
+			[
+				{
+					"id": 71938,
+					"title": "",
+					"file_name": "aeffbc18-7777-4704-97b2-e905bf0dae08.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aeffbc18-7777-4704-97b2-e905bf0dae08.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"68943": ["On the roof", []],
+		"68948": ["On the roof of the building", []],
+		"68949": ["On the overpass - at the entrance of the tunnel", []],
+		"68950": ["On the overpass", []],
+		"68951": ["On the overpass", []],
+		"68952": ["In the tunnel", []],
+		"69079": [
+			"**From [Slums Sewers Entrance](#loc=68953):**  Traverse through the tunnels following the painted arrows until you need to swim through an underwater pipe to continue up a ladder and back on the ground.  \n\nIn the area following, find the gray door with the arrow painted on the wall next to it.  Head through the door and to the right.  Go up the incline and turn left, heading down the tunnel and through the pipe.  \n\nIn the room with the water below, climb up the yellow pipes (or use the grappling hook) to the top.  Head through the pipe and out into the outdoors area.  Find the shack with the statue inside on the table to the left, immediately after entry.",
+			[
+				{
+					"id": 75971,
+					"title": "",
+					"file_name": "e955b3c3-18a0-4809-9e06-f681c329cf0a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e955b3c3-18a0-4809-9e06-f681c329cf0a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 75972,
+					"title": "",
+					"file_name": "429dc5c8-f00b-4705-a772-f56d7ac52a0c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/429dc5c8-f00b-4705-a772-f56d7ac52a0c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69080": [
+			"Go to the roof of [The Tower](#loc=67038).  The flag is on the uppermost part of the yellow crane.  Run across the crane boom and then climb up the A-frame tower",
+			[
+				{
+					"id": 71941,
+					"title": "",
+					"file_name": "625ebabc-5aae-4e27-a70a-5c976613ea65.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/625ebabc-5aae-4e27-a70a-5c976613ea65.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69081": [
+			"On the roof - on the blue bin",
+			[
+				{
+					"id": 75967,
+					"title": "",
+					"file_name": "c34eaace-78e2-4cc2-9b8e-0572483de91e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c34eaace-78e2-4cc2-9b8e-0572483de91e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69082": [
+			"From the roof, drop down into the cage.  The flag is on the table",
+			[
+				{
+					"id": 85840,
+					"title": "",
+					"file_name": "1f1f28d5-ebeb-4024-8097-111a3b2d0020.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f1f28d5-ebeb-4024-8097-111a3b2d0020.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69084": [
+			"Climb up to the very top of the tower via the yellow and black holds and the ladders.",
+			[
+				{
+					"id": 5028,
+					"title": "20210222221739_1",
+					"file_name": "4fcf3e78-b840-4c4a-ba9b-9eeb4317abea.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4fcf3e78-b840-4c4a-ba9b-9eeb4317abea.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69085": [
+			"On a wooden beam that sticks out horizontally off the roof",
+			[
+				{
+					"id": 73479,
+					"title": "",
+					"file_name": "2af7f799-a877-4f2b-9269-b4f9eab469e3.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2af7f799-a877-4f2b-9269-b4f9eab469e3.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69086": [
+			"Climb to the very top of the opposite (northern) bridge tower via the outermost main cable (crouching helps to balance), and then up the scaffolding.  Once on top, use the cable to zip line across.",
+			[
+				{
+					"id": 143320,
+					"title": "",
+					"file_name": "5076b3ea-3dff-4d26-9006-bc42e6956473.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5076b3ea-3dff-4d26-9006-bc42e6956473.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69087": [
+			"On the corner of the roof",
+			[
+				{
+					"id": 85164,
+					"title": "",
+					"file_name": "fc80dbae-de0d-4441-a9e6-a5a882dd524a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc80dbae-de0d-4441-a9e6-a5a882dd524a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69088": [
+			"Climb up to the very top of the tower via the yellow and black holds and the ladders.",
+			[
+				{
+					"id": 104125,
+					"title": "",
+					"file_name": "60314b4c-f2b4-4c13-9f7e-fb679c9f9e35.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60314b4c-f2b4-4c13-9f7e-fb679c9f9e35.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69089": [
+			"On top of the concrete pylon with the fabric sign that reads \"SAFE\"",
+			[
+				{
+					"id": 71940,
+					"title": "",
+					"file_name": "804dc18a-eb32-43b7-b62a-e45f761a98e4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/804dc18a-eb32-43b7-b62a-e45f761a98e4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69090": [
+			"Climb up to the very top of the tower via the yellow and black holds and the ladders.",
+			[
+				{
+					"id": 5025,
+					"title": "20210222160716_1",
+					"file_name": "71f4a977-fb9f-4ea5-a71b-3f3b1fc46bf4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/71f4a977-fb9f-4ea5-a71b-3f3b1fc46bf4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69091": [
+			"On the end of the beam sticking out horizontally off the roof",
+			[
+				{
+					"id": 85170,
+					"title": "",
+					"file_name": "bad738c0-1310-4a88-8e73-cdadc16430ae.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bad738c0-1310-4a88-8e73-cdadc16430ae.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69092": [
+			"On the roof of the rooftop room - on top a vertical pole that has two cables attached to it",
+			[
+				{
+					"id": 16983,
+					"title": "",
+					"file_name": "4c1c0283-012e-4ca0-aeb7-17b9449e8399.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c1c0283-012e-4ca0-aeb7-17b9449e8399.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69093": [
+			"On the metal beam sticking out horizontally from off the roof",
+			[
+				{
+					"id": 16982,
+					"title": "",
+					"file_name": "3a2c3221-e92a-43ac-bfe7-44a882d681c4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a2c3221-e92a-43ac-bfe7-44a882d681c4.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69098": ["Find the door in the tunnel wall of the highway tunnel to access this area", []],
+		"69100": ["Find the door in the tunnel wall of the highway tunnel to access this area", []],
+		"69219": ["**Requires** DLC _Cuisine & Cargo_", []],
+		"69222": [
+			"**Prerequisite:** Side Quest [Total Security](#loc=70241)\n\nOn the roof - on the bamboo sleeping mat, next to the pillow",
+			[
+				{
+					"id": 71923,
+					"title": "",
+					"file_name": "9a1afe90-2400-43d9-a3df-4ac5996abe70.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a1afe90-2400-43d9-a3df-4ac5996abe70.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69223": [
+			"**Prerequisite:** Side Quest [\nTotal Security](#loc=70241)\n\nOn top of a room on the rooftop, on the stack of blue crates next to a chair",
+			[
+				{
+					"id": 143312,
+					"title": "",
+					"file_name": "5fdc3369-089c-433c-89e4-23d66f61df2d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5fdc3369-089c-433c-89e4-23d66f61df2d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69224": [
+			"**Prerequisite:** Side Quest [O Brother Where Art Thou](#loc=70237)\n\nStuck in the door of the [Stuffed Turtle](#loc=67003) quarantine zone.",
+			[
+				{
+					"id": 143306,
+					"title": "",
+					"file_name": "e4489c68-38a2-4e93-a7f5-370a7e77a015.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4489c68-38a2-4e93-a7f5-370a7e77a015.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69225": [
+			"**Prerequisite:** Main Quest [Pact With Rais](#loc=69452)\n\nOn the table right next to the stash",
+			[
+				{
+					"id": 5038,
+					"title": "20210222231209_1",
+					"file_name": "90d6a0d7-4d5f-4bb6-842b-a34e81d8e63b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/90d6a0d7-4d5f-4bb6-842b-a34e81d8e63b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69226": [
+			"Inside the green shipping containers - inside the blue locker in the corner",
+			[
+				{
+					"id": 5042,
+					"title": "20210222233951_1",
+					"file_name": "c8d8a2b0-512e-4365-918d-c051474c3241.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8d8a2b0-512e-4365-918d-c051474c3241.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69227": [
+			"Immediately after entering the school, turn left to find the note on the table next to the laptop.\n\n*Note: May only appear after completing [Siblings](#loc=69451).*",
+			[
+				{
+					"id": 143326,
+					"title": "",
+					"file_name": "66b59a58-ae1b-41b7-8b5f-60b4994a75d1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66b59a58-ae1b-41b7-8b5f-60b4994a75d1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69228": [
+			"Immediately after entering the school, turn right to find the note on a table in a room filled with CDs.\n\n*Note: May only appear after completing [Siblings](#loc=69451).*",
+			[
+				{
+					"id": 143325,
+					"title": "",
+					"file_name": "d4899279-a9c2-4bb8-9468-8befd30d371f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d4899279-a9c2-4bb8-9468-8befd30d371f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69230": [
+			"**Prerequisite:** Side Quest [Gassed Up](#loc=69470)\n\nOn the wall in the building behind the locked (hard) door",
+			[
+				{
+					"id": 5052,
+					"title": "20210223151243_1",
+					"file_name": "b25e9d7d-99f8-4017-9c41-2c8111910e71.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b25e9d7d-99f8-4017-9c41-2c8111910e71.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69231": [
+			"**Prerequisite:** Side Quest [Tunnel Vision](#loc=69252)\n\nRight next to the bed, on a box on the floor",
+			[
+				{
+					"id": 85849,
+					"title": "",
+					"file_name": "3b900696-a5e2-4d77-b198-13448847d1d2.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3b900696-a5e2-4d77-b198-13448847d1d2.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69232": [
+			"**Prerequisite:** Side Quest [Tunnel Vision](#loc=69252)\n\nIt is found inside the car graveyard Safe Zone underneath the overpass. Located next to Ryan's house, on two bus seats next to a green bin.",
+			[
+				{
+					"id": 85850,
+					"title": "",
+					"file_name": "5c106d46-c1a1-440b-a2d1-a154d2978b7e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5c106d46-c1a1-440b-a2d1-a154d2978b7e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69233": [
+			"**Prerequisite:** [Mother's Day](#loc=69474)\n\nOn the ground floor of the house (enter through the upper floor) - in the bedroom, on the desk with the computer",
+			[]
+		],
+		"69234": [
+			"**Prerequisite:** Side Quest [Gassed Up](#loc=69470)\n\nFind the door in the tunnel wall to the northwest to get to this area.  The note is on the desk next to the computer.",
+			[
+				{
+					"id": 5048,
+					"title": "20210223133518_1",
+					"file_name": "e0e72cfa-1d79-4e58-89c3-4833c4481cd2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0e72cfa-1d79-4e58-89c3-4833c4481cd2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 5049,
+					"title": "20210223133537_1",
+					"file_name": "82d37307-7556-4995-9158-19e915af606e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/82d37307-7556-4995-9158-19e915af606e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69235": [
+			"**Prerequisite:** Side Quest [Gassed Up](#loc=69470)\n\nInside the enclosed area on a cardboard box on the ground.  Get up on the railroad bridge to the southwest and jump into the enclosed area below.  Climb up the pipes to get back out.",
+			[
+				{
+					"id": 85851,
+					"title": "",
+					"file_name": "10cdb40e-f4c2-4ce5-97b9-289d394513fc.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/10cdb40e-f4c2-4ce5-97b9-289d394513fc.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69236": [
+			"On the counter in Dahlia's room",
+			[
+				{
+					"id": 5045,
+					"title": "20210223023400_1",
+					"file_name": "3500dbf6-2d57-46f1-a3d6-d2d636200e52.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3500dbf6-2d57-46f1-a3d6-d2d636200e52.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69237": [
+			"On the table outside in the safe zone",
+			[
+				{
+					"id": 5046,
+					"title": "20210223023436_1",
+					"file_name": "83188013-3664-4063-9334-7b259862a20e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/83188013-3664-4063-9334-7b259862a20e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69238": [
+			"**Prerequisite:** Side quest [Goodnight Mr. Bahir](#loc=70226)\n\nOn the bottom floor of the building - on the counter next to the makeshift bed",
+			[]
+		],
+		"69239": [
+			"On the ground below the memorial",
+			[
+				{
+					"id": 5041,
+					"title": "20210222233147_1",
+					"file_name": "a8301e52-fa41-466e-b87d-d8efdd1b61c0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a8301e52-fa41-466e-b87d-d8efdd1b61c0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69240": [
+			"Facing the elevator in the Tower, turn left to find the note on the blue board hanging on the wall",
+			[
+				{
+					"id": 5040,
+					"title": "20210222233051_1",
+					"file_name": "97e0b63f-1c3b-4055-ace4-e910e2060fb4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/97e0b63f-1c3b-4055-ace4-e910e2060fb4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69241": [
+			"**Prerequisite:** Side quest [Voltage](#loc=69473)\n\nOn the desk with the computer, next to the bed",
+			[]
+		],
+		"69242": [
+			"**Prerequisite:** Side Quest [A Survivor's Guide to Zombieland](#loc=69447)\n\nIn the room with all the computers",
+			[
+				{
+					"id": 143323,
+					"title": "",
+					"file_name": "69a6e85e-d4bc-4fd8-a6ac-a8ac92038591.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/69a6e85e-d4bc-4fd8-a6ac-a8ac92038591.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69243": [
+			"**Prerequisite:** Side quest [Gunslinger](#loc=70227)\n\nOn the bottom floor - in the partially open drawer next to cashier",
+			[]
+		],
+		"69244": [
+			"**Prerequisite:** Side quest [Gunslinger](#loc=70227)\n\nOn the ground floor - stuck on the bottom of the cork board near the gray door.",
+			[]
+		],
+		"69245": [
+			"**Prerequisite:** Side Quest [Where's My Mother?](#loc=69448)\n\nOn the top floor of [Red Flowers Cafe & Bar](#loc=68277) - on the desk adjacent to the couch",
+			[
+				{
+					"id": 143309,
+					"title": "",
+					"file_name": "51524257-2702-47b6-a16b-209c23f0eb43.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/51524257-2702-47b6-a16b-209c23f0eb43.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69246": [
+			"**Prerequisite:** Side Quest [\nGas Mask Man](#loc=69444)\n\nOn the second floor - in the bookshelf",
+			[
+				{
+					"id": 143327,
+					"title": "",
+					"file_name": "8af3f5bd-9315-4eb0-8bd4-30f909013fb1.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8af3f5bd-9315-4eb0-8bd4-30f909013fb1.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69247": [
+			"**Prerequisite:** Main Quest [\nPact With Rais](#loc=69452)\n\nOn the white mattress of the bottom bunk bed",
+			[
+				{
+					"id": 5032,
+					"title": "20210222223603_1",
+					"file_name": "da5aba1a-9dd4-4233-8c97-16b906250551.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da5aba1a-9dd4-4233-8c97-16b906250551.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69248": [
+			"Right next to the bed in the safe zone",
+			[
+				{
+					"id": 143313,
+					"title": "",
+					"file_name": "3a594860-faa8-4db7-a463-9af22767612a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a594860-faa8-4db7-a463-9af22767612a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69249": ["On the roof", []],
+		"69252": ["Speak with Blake in the Tower to start this quest.", []],
+		"69253": ["Unlock this area as a usable safe zone by completing side quest [Tunnel Vision](#loc=69252)", []],
+		"69257": ["On the roof", []],
+		"69260": ["**Prerequisite:** [Voltage](#loc=69473)", []],
+		"69261": [
+			"On the roof - on the chair under the shade covering",
+			[
+				{
+					"id": 5033,
+					"title": "20210222223751_1",
+					"file_name": "06ad9fb0-2804-4666-904c-af0ebe12153f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/06ad9fb0-2804-4666-904c-af0ebe12153f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69262": [
+			"**From [Slums Sewers Entrance](#loc=68953):** Follow the painted arrows that take you to Old Town.  After the outside canal area, you'll come to a square room with a yellow pipe just above head level and a painted arrow pointing up and to the left.\n\nInstead of following the arrow, run straight ahead through the pipe into another square room with no other exit.  The journal is in the back left corner, on a chair next to a teddy bear.",
+			[
+				{
+					"id": 5050,
+					"title": "20210223135438_1",
+					"file_name": "1aeeacee-54ac-4193-8a51-b1655bf3aba2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1aeeacee-54ac-4193-8a51-b1655bf3aba2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69263": [
+			"On the porch of the building - on the armchair",
+			[
+				{
+					"id": 85848,
+					"title": "",
+					"file_name": "1031a1e8-ebd4-4f56-a5db-f9db6e3a88ee.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1031a1e8-ebd4-4f56-a5db-f9db6e3a88ee.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69264": [
+			"On the ground floor - on a counter top with a computer and a plant",
+			[
+				{
+					"id": 83592,
+					"title": "",
+					"file_name": "1c50bb84-c716-4b54-8916-1f44dea2f85c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1c50bb84-c716-4b54-8916-1f44dea2f85c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69265": [
+			"**Prerequisite:** Main Quest [Pact With Rais](#loc=69452)\n\nIn the building - on the desk with the computer",
+			[
+				{
+					"id": 85843,
+					"title": "",
+					"file_name": "2fb6b809-7374-4146-8ddc-37f9130ac77e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2fb6b809-7374-4146-8ddc-37f9130ac77e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69266": [
+			"On top of a bench on the ground floor",
+			[
+				{
+					"id": 83593,
+					"title": "",
+					"file_name": "223068cb-a07a-4dfa-aa6d-7e647f4e19b3.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/223068cb-a07a-4dfa-aa6d-7e647f4e19b3.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69267": [
+			"In the safe zone on top of the bed",
+			[
+				{
+					"id": 85162,
+					"title": "",
+					"file_name": "93410434-7cf9-4a29-84e0-1db6db84bd13.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/93410434-7cf9-4a29-84e0-1db6db84bd13.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69268": [
+			"On the roof next to the wooden crate, under the corpse",
+			[
+				{
+					"id": 75872,
+					"title": "",
+					"file_name": "85462fce-7cad-4793-810b-0ed3fb88b6f0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/85462fce-7cad-4793-810b-0ed3fb88b6f0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69269": [
+			"In the trunk of the car",
+			[
+				{
+					"id": 83590,
+					"title": "",
+					"file_name": "dac5b716-6454-4454-aed7-8743417f2cc9.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dac5b716-6454-4454-aed7-8743417f2cc9.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69270": [
+			"Head to the upper floors of the Tower.  Find the journal on the chair next to the bed in room 191",
+			[
+				{
+					"id": 85841,
+					"title": "",
+					"file_name": "5c75dd61-ac86-41c9-be4e-db90977d9490.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5c75dd61-ac86-41c9-be4e-db90977d9490.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69271": ["On top of the shelf to the left of the [Quartermaster](#loc=67042)", []],
+		"69272": [
+			"In the tent on a stool.  \n\nGet there by getting up to the [Bridge Safe Zone](#loc=67292) and jumping to and zip lining down one of the cables that connect across the bridge",
+			[
+				{
+					"id": 143316,
+					"title": "",
+					"file_name": "b3bc4f74-d7db-4c8e-9681-5825e560a3e0.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3bc4f74-d7db-4c8e-9681-5825e560a3e0.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69276": [
+			"",
+			[
+				{
+					"id": 143317,
+					"title": "",
+					"file_name": "c23530db-ec02-46b6-839f-934668f7e3f4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c23530db-ec02-46b6-839f-934668f7e3f4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69277": [
+			"",
+			[
+				{
+					"id": 143318,
+					"title": "",
+					"file_name": "7555013c-e993-4dcb-8cc1-0ea09285f192.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7555013c-e993-4dcb-8cc1-0ea09285f192.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69278": [
+			"",
+			[
+				{
+					"id": 143314,
+					"title": "",
+					"file_name": "cedaf75f-a69d-47c3-ae3d-142965eae664.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cedaf75f-a69d-47c3-ae3d-142965eae664.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69284": [
+			"",
+			[
+				{
+					"id": 144080,
+					"title": "",
+					"file_name": "2a7b0948-addc-49b9-829d-8ab31a6e8de7.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2a7b0948-addc-49b9-829d-8ab31a6e8de7.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69288": ["Enter the pipe at this location and follow it south to its end to find the chest", []],
+		"69289": ["The blue locker on the ground floor", []],
+		"69290": ["On the second floor balcony", []],
+		"69291": ["The blue locker on the ground floor", []],
+		"69293": [
+			"The blue locker on the ground floor",
+			[
+				{
+					"id": 144079,
+					"title": "",
+					"file_name": "38fa49d0-02e4-4299-b3bf-60eb64aa8e99.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/38fa49d0-02e4-4299-b3bf-60eb64aa8e99.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69294": ["Inside the house on the second floor", []],
+		"69295": [
+			"Just outside the shack",
+			[
+				{
+					"id": 5030,
+					"title": "20210222222557_1",
+					"file_name": "64905458-1b3c-48a0-86ad-90cea4742cfc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/64905458-1b3c-48a0-86ad-90cea4742cfc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69296": ["On the top floor balcony", []],
+		"69297": ["The blue locker on the ground floor", []],
+		"69298": ["In the shed, behind the locked (hard) door", []],
+		"69302": ["On the top floor", []],
+		"69303": ["The blue locker on the ground floor", []],
+		"69339": ["On the roof", []],
+		"69342": ["The blue locker on the ground floor", []],
+		"69438": ["Becomes accessible during main quest [Pact With Rais](#loc=69452)", []],
+		"69439": ["Accessible during via [Rais's Garrison](#loc=69438)", []],
+		"69440": ["The blue locker", []],
+		"69441": ["The blue locker", []],
+		"69442": ["Accessible during via [Rais's Garrison](#loc=69438)", []],
+		"69444": [
+			"Speak with Musa to begin this quest\n\n**Prerequisite:** [Pact With Rais](#loc=69452)\n\n**Reward:** Weapon upgrade _Champion_",
+			[]
+		],
+		"69447": ["Speak with Neil to begin this quest\n\n**Prerequisite:** [Pact With Rais](#loc=69452)", []],
+		"69448": [
+			"Speak with Meliha to begin this quest\n\n**Prerequisite:** [Pact With Rais](#loc=69452)\n\n**Reward:**  $1000",
+			[]
+		],
+		"69449": [
+			"Speak with Alexei up on the antenna to begin this quest\n\n**Prerequisite:** [Pact With Rais](#loc=69452)",
+			[]
+		],
+		"69451": ["Meet Jade at the boxcar to begin this quest\n\n**Prerequisite:** [Pact With Rais](#loc=69452)", []],
+		"69452": ["Head to [Rais's Garrison](#loc=69455)\n\n**Prerequisite:** [Airdrop](#loc=69454)", []],
+		"69453": ["Speak with \"The Boss\" in room 190 to progress the game", []],
+		"69454": [
+			"Get up on the roof of the building to begin this quest\n\n**Prerequisite:** [First Assignment](#loc=67043)",
+			[]
+		],
+		"69455": ["Becomes accessible during main quest [Pact With Rais](#loc=69452)", []],
+		"69456": [
+			"Inside [Slums School](#loc=67027)\n\n**Prerequisite:** [Siblings](#loc=69451)",
+			[
+				{
+					"id": 5037,
+					"title": "20210223014045_1",
+					"file_name": "9299d7bb-a494-4d76-98d6-7640bcdcf434.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9299d7bb-a494-4d76-98d6-7640bcdcf434.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69457": ["Accessible during main quest [Siblings](#loc=69451)", []],
+		"69458": ["Only accessible during main quest [Siblings](#loc=69451) via [Demolition Zone](#loc=69457)", []],
+		"69459": ["In the rooftop room", []],
+		"69460": ["Accessible during main quest [The Pit](#loc=69461)", []],
+		"69461": [
+			"Go to the [Courtyard](#loc=67048) to begin this quest\n\n**Prerequisite:** [Siblings](#loc=69451)",
+			[]
+		],
+		"69462": [
+			"Starts automatically after completion of prerequisite\n\n**Prerequisite:** [The Pit](#loc=69461)",
+			[]
+		],
+		"69470": [
+			"Speak with Jeff to begin this quest\n\n**Prerequisite:** [Pact With Rais](#loc=69452)\n\n**Reward:** 5000 xp (+ grab his shotgun in the wreckage *see pic)",
+			[
+				{
+					"id": 5055,
+					"title": "20210223152438_1",
+					"file_name": "91c7985e-8807-4fce-9695-282b6f7152fc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91c7985e-8807-4fce-9695-282b6f7152fc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"69471": ["Becomes unavailable as a safe zone after completion of side quest [Gassed Up](#loc=69470)", []],
+		"69473": ["Talk with Alfie to begin this quest", []],
+		"69474": ["Speak with Gazi, or to Lena at the tower after beginning [Airdrop](#loc=69454)", []],
+		"69475": [
+			"Speak with Jaffar to begin this quest\n\n**Prerequisite:** Main quest [Pact With Rais](#loc=69452)",
+			[]
+		],
+		"69476": ["First speak with _Messenger_ in [The Tower](#loc=67038), then with Fatin to begin this quest", []],
+		"69477": [
+			"Speak to Zaid to begin this quest after [Jaffar's Wheelstation](#loc=67029) becomes a usable safe zone",
+			[]
+		],
+		"70226": ["Go to room 202 on the top floor of the Tower and speak with Brijesh to begin this quest", []],
+		"70227": ["Go to room 203 on the top floor of the Tower and speak with Dawud to begin this quest", []],
+		"70228": ["Available on the blue bulletin board on the bottom floor of the tower near the elevator", []],
+		"70229": ["Available on the blue bulletin board on the bottom floor of the tower near the elevator", []],
+		"70230": ["Available on the blue bulletin board on the bottom floor of the tower near the elevator", []],
+		"70231": ["Available on the blue bulletin board on the bottom floor of the tower near the elevator", []],
+		"70232": ["Available on the blue bulletin board on the bottom floor of the tower near the elevator", []],
+		"70233": ["Available on the blue bulletin board on the bottom floor of the tower near the elevator", []],
+		"70234": ["Available on the blue bulletin board on the bottom floor of the tower near the elevator", []],
+		"70235": ["**Prerequisite:** [Voltage](#loc=69473)\n\nSpeak with Alfie after completion of prerequisite", []],
+		"70236": ["Start this quest from the job board.\n\n**Reward**: $1000", []],
+		"70237": ["Speak with Osman in his cell to begin this quest", []],
+		"70238": ["Start this quest from the job board.\n\n**Reward**: $1000", []],
+		"70239": ["Start this quest from the job board.\n\n**Reward**: $1000", []],
+		"70240": [
+			"**Prerequisite:** [Steal From a Thief](#loc=69475)\n\nSpeak with Kurt to begin this quest\n\n**Reward:** [Kurt's Bombs](#loc=67854)",
+			[]
+		],
+		"70241": ["Speak with Jaffar to begin this quest", []],
+		"70242": [
+			"Speak with Macary on the bottom floor of the house (enter through the trapdoor on the top floor) to begin this quest",
+			[]
+		],
+		"70243": [
+			"**Prerequisite:** [On the Hooks](#loc=69476)\n\nTolga and Fatin will contact you over the radio after completion of the prerequisite.  Speak with the at the school to begin this quest",
+			[]
+		],
+		"70244": ["Speak with Erol in the school to begin this quest", []],
+		"70246": [
+			"**Prerequisite:** [Assault and Batteries](#loc=70243)\n\nSpeak with Tolga and Fatin to begin this quest",
+			[]
+		],
+		"70628": ["Spawns at the rear of the bus station.", []],
+		"70629": ["On top of the bus shelter", []],
+		"82698": ["Received after completing [Firebug](#loc=69477)", []],
+		"84711": ["On the upper terrace.", []],
+		"84712": ["On the roof.", []],
+		"84713": ["On the roof.", []],
+		"84714": ["On the roof.", []],
+		"84715": ["On the roof.", []],
+		"84716": ["On the roof.", []],
+		"84717": ["On the ground floor.", []],
+		"84720": ["In the same shack as where you would find the zombie statue.", []],
+		"84722": [
+			"Continue going forward until you reach a square room with yellow pipes leading upwards. Soon after still move forward until you reach a room with a teddy bear in the corner.",
+			[]
+		],
+		"84723": [
+			"Continue going forward until you reach a square room with yellow pipes leading upwards. Soon after still move forward until you reach a room with a teddy bear in the corner.",
+			[]
+		],
+		"84724": ["On your left almost before entering the open sky space.", []],
+		"85333": ["Inside a train car in the warehouse.", []],
+		"85334": ["Inside the warehouse", []],
+		"85335": ["Inside the shack.", []],
+		"85336": [
+			"At the end of the medical installation.",
+			[
+				{
+					"id": 143315,
+					"title": "",
+					"file_name": "4d71cd01-984f-4403-806c-f30f31022d63.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d71cd01-984f-4403-806c-f30f31022d63.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"85337": ["Underneath the bridge near the shack.", []],
+		"85338": ["Outside the shack.", []],
+		"118055": [
+			"On the rooftop. You can follow arrows from the building to the south",
+			[
+				{
+					"id": 144078,
+					"title": "",
+					"file_name": "ff6f1585-b8b7-4972-935b-d5f1ed95be81.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff6f1585-b8b7-4972-935b-d5f1ed95be81.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122833": [
+			"3 chests, 2 locked, 1 unlocked",
+			[
+				{
+					"id": 10900,
+					"title": "",
+					"file_name": "3ca31175-a97e-4948-984f-7c1dfe314b72.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ca31175-a97e-4948-984f-7c1dfe314b72.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122834": ["Roof", []],
+		"122835": [
+			"roof",
+			[
+				{
+					"id": 144074,
+					"title": "",
+					"file_name": "e20a1dd9-3cdc-4df9-8f90-436a71f83abd.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e20a1dd9-3cdc-4df9-8f90-436a71f83abd.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"122836": ["Roof", []],
+		"123478": ["x2", []],
+		"123479": ["Roof", []],
+		"123480": ["Ground floor", []],
+		"123482": ["Balcony", []],
+		"123483": ["roof", []],
+		"123484": ["In the train", []],
+		"150218": [
+			"In Classroom 13 on the top floor, you can find an interactable book in a cabinet at the back of the classroom. If you interact with it, you will be able to play the guitar at [Brecken's Tower](#loc=67038) properly.",
+			[
+				{
+					"id": 104124,
+					"title": "",
+					"file_name": "188a6d2b-3288-4273-a788-3e5b47b42622.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/188a6d2b-3288-4273-a788-3e5b47b42622.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"150219": ["Given by [Spike](#loc=67041) upon completion of _First Assignment_", []],
+		"155010": [
+			"Unlocked during the sidequest _\"Mother's Day\"_. You can only enter from the roof. (Note that it is not marked on the map)",
+			[]
+		],
+		"432410": [
+			"**Location:** Near the George Romero shrine and golden cat statue beneath the overpass.\n\nMoka is the name of a cat belonging to a Techland employee. The blueprint was added as an easter egg in an update and is categorized as a developer weapon.",
+			[
+				{
+					"id": 71924,
+					"title": "",
+					"file_name": "3211077e-a318-483c-8e31-45c3dea527d3.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3211077e-a318-483c-8e31-45c3dea527d3.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"432411": [
+			"Speak to Rocket through the window to begin the challenge",
+			[
+				{
+					"id": 71928,
+					"title": "",
+					"file_name": "34e29bd1-4470-459a-bec7-84c2a49079ce.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/34e29bd1-4470-459a-bec7-84c2a49079ce.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"432412": ["On the roof of the long building", []],
+		"432413": ["Next to the Police Van.", []],
+		"434123": ["Trap", []],
+		"434124": [
+			"",
+			[
+				{
+					"id": 73481,
+					"title": "",
+					"file_name": "2f38d6be-77f3-4fd7-91e7-38e1b075724c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f38d6be-77f3-4fd7-91e7-38e1b075724c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"437488": [
+			"On the roof, by the water vat.",
+			[
+				{
+					"id": 144076,
+					"title": "",
+					"file_name": "1911b02e-4d78-4363-a4ef-454744937031.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1911b02e-4d78-4363-a4ef-454744937031.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"437491": ["Locked Chest (Medium) in a train car", []],
+		"437492": ["Locked Chest (Medium) in a train car", []],
+		"437499": ["On the roof of the building", []],
+		"437500": ["On the roof of the building", []],
+		"437502": [
+			"On top of the bridge, where the [Flag](#loc=69086) is.",
+			[
+				{
+					"id": 143321,
+					"title": "",
+					"file_name": "fc1d26db-d193-42b1-87f1-95384b76942f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc1d26db-d193-42b1-87f1-95384b76942f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"437503": ["Under the overpass, on a walkway.", []],
+		"437504": [
+			"In this location you will find a bakery named \"_Left 4 Bread_\", referencing Valve's co-op zombie shooter _Left 4 Dead_",
+			[]
+		],
+		"437506": [
+			"A plethora of items can be found inside Crane's room in the tower, including a Ray McCall figurine. Ray is the protagonist of Call of Juarez and Call of Juarez: Bound in Blood. These games were developed by Techland (who also created Dying Light.)\n\nFor an extra bit of fun, you can interact with the figurine to hear a few voice lines.",
+			[]
+		],
+		"437508": [
+			"",
+			[
+				{
+					"id": 144077,
+					"title": "",
+					"file_name": "a4418126-c804-4a76-b050-d990cffafb6d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a4418126-c804-4a76-b050-d990cffafb6d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"437509": ["On the rocks across the cliffside.", []],
+		"437516": ["On top of the rocks.", []],
+		"437517": ["In the patch of grass near the road", []],
+		"437520": ["Behind the cabin.", []],
+		"437522": [
+			"Can only be triggered while escorting [Babar](#loc=67009). Run inside the building and use an electrical panel near the door - this will summon a group of zombies that dance for a while before getting back to zombie-like behaviour.",
+			[]
+		],
+		"437523": [
+			"**Prerequisite:** [The Pit](#loc=69461)\n\n**Reward:** Repaired Weapon(s)\n\n**Note:** Protection missions are only available in single player. These repeatable missions are not guaranteed to spawn.",
+			[]
+		],
+		"437524": [
+			"**Prerequisite:** [The Pit](#loc=69461)\r\n\r\n**Reward:** Repaired Weapon(s)\r\n\r\n**Note:** Protection missions are only available in single player. These repeatable missions are not guaranteed to spawn.",
+			[]
+		],
+		"437525": [
+			"**Prerequisite:** [The Pit](#loc=69461)\r\n\r\n**Reward:** Repaired Weapon(s)\r\n\r\n**Note:** Protection missions are only available in single player. These repeatable missions are not guaranteed to spawn.",
+			[]
+		],
+		"437526": [
+			"**Prerequisite:** [The Pit](#loc=69461)\r\n\r\n**Reward:** Repaired Weapon(s)\r\n\r\n**Note:** Protection missions are only available in single player. These repeatable missions are not guaranteed to spawn.",
+			[]
+		],
+		"437527": [
+			"**Prerequisite:** [The Pit](#loc=69461)\r\n\r\n**Reward:** Repaired Weapon(s)\r\n\r\n**Note:** Protection missions are only available in single player. These repeatable missions are not guaranteed to spawn.",
+			[]
+		],
+		"437528": [
+			"**Prerequisite:** [The Pit](#loc=69461)\r\n\r\n**Reward:** Repaired Weapon(s)\r\n\r\n**Note:** Protection missions are only available in single player. These repeatable missions are not guaranteed to spawn.",
+			[]
+		],
+		"493771": [
+			"Behind the green bins.",
+			[
+				{
+					"id": 104691,
+					"title": "",
+					"file_name": "f49cec89-cd14-4629-9b25-d2f9e984220a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f49cec89-cd14-4629-9b25-d2f9e984220a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"493773": ["Hidden Shortcut leading [here](#loc=493774)", []],
+		"493774": ["Hidden Shortcut leading [here](#loc=493773)", []],
+		"505275": ["Beneath a wooden platform on the rooftop.", []],
+		"505276": ["Behind the pharmacy", []],
+		"505277": ["On the rooftop", []],
+		"505278": ["Near the safehouse.", []],
+		"512703": ["Outside on the first floor", []],
+		"928196": [
+			"",
+			[
+				{
+					"id": 143319,
+					"title": "",
+					"file_name": "f0f984a0-c8c6-4c75-9150-5c7e396c4cda.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0f984a0-c8c6-4c75-9150-5c7e396c4cda.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

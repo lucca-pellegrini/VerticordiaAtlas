@@ -195,7 +195,8 @@
 					"tileSize": 256,
 					"background": "#0b0b0b"
 				}
-			]
+			],
+			"compact": "lapis/data.compact.json"
 		}
 	],
 	"description": "Every marker on the FINAL FANTASY RESONANCE map.",

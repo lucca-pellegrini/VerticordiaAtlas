@@ -1,0 +1,282 @@
+{
+	"v": 1,
+	"d": {
+		"472927": ["**Transitions to:** [Parapa Palace](#loc=472928)", []],
+		"472928": ["**Transitions to:** [Parapa Palace](#loc=472927)", []],
+		"472929": ["**Transitions to:** [Ruto Town](#loc=472930)", []],
+		"472930": ["**Transitions to:** [Ruto Town](#loc=472929)", []],
+		"472931": ["**Transitions to:** [Midoro Palace](#loc=472932)", []],
+		"472932": ["**Transitions to:** [Midoro Palace](#loc=472931)", []],
+		"472933": ["**Transitions to:** [Island Palace](#loc=472934)", []],
+		"472934": ["**Transitions to:** [Island Palace](#loc=472933)", []],
+		"472935": ["**Transitions to:** [Maze Palace](#loc=472936)", []],
+		"472936": ["**Transitions to:** [Maze Palace](#loc=472935)", []],
+		"472937": ["**Transitions to:** [Palace on the Sea](#loc=472938)", []],
+		"472938": ["**Transitions to:** [Palace on the Sea](#loc=472937)", []],
+		"472939": [
+			"**Requires:** Using the [Flute](#loc=472951) nearby to reveal the entrance\n\n**Transitions to:** [Three-Eye Rock Palace](#loc=472940)",
+			[]
+		],
+		"472940": ["**Transitions to:** [Three-Eye Rock Palace](#loc=472939)", []],
+		"472941": ["**Transitions to:** [Great Palace](#loc=472942)", []],
+		"472942": ["**Transitions to:** [Great Palace](#loc=472941)", []],
+		"472945": ["**Contains:**\n- [Hammer](#loc=472946)", []],
+		"472946": ["**Location:** Inside the [Cave](#loc=472945)", []],
+		"472947": [
+			"**Requires:** Using the [Hammer](#loc=472946) to break the rock to reveal the hole underneath\n\n**Contains:**\n- [Magic Container](#loc=472948)",
+			[]
+		],
+		"472948": ["**Location:** Inside the [Secret Cave](#loc=472947)", []],
+		"472952": [
+			"**Location:** Speak with the old wizard in the basement of the building, hidden in the fireplace, after acquiring at least three [magic containers](https://mapgenie.io/zelda-2-the-adventure-of-link/maps/hyrule?search=category:13387)",
+			[]
+		],
+		"472953": [
+			"**Location:** Use the [Spell](#loc=472952) spell nearby to reveal the small cave containing the magic key",
+			[]
+		],
+		"472955": ["**Transitions to:** [Rauru Town](#loc=472956)", []],
+		"472956": ["**Transitions to:** [Rauru Town](#loc=472955)", []],
+		"472957": ["**Transitions to:** [Ruto Town](#loc=472929)", []],
+		"472958": ["**Transitions to:** [Rauru Town](#loc=472955)", []],
+		"472959": [
+			"**Location:** Speak with the old wizard in the basement of the house after speaking to the woman in a purple dress with a purple bowl on her head",
+			[]
+		],
+		"472962": ["**Contains:**\n- [Trophy](#loc=472963)", []],
+		"472963": [
+			"**Location:** Inside the [Cave](#loc=472962)\n\n**Used For:** Learning the [Jump](#loc=472964) spell",
+			[]
+		],
+		"472964": [
+			"**Location:** Speak with the old wizard in the basement of the house after recovering the stolen [Trophy](#loc=472963) in the [Cave](#loc=472962) and speaking to the woman in the red dress",
+			[]
+		],
+		"472965": ["**Transitions to:** [Saria Town](#loc=472966)", []],
+		"472966": ["**Transitions to:** [Saria Town](#loc=472965)", []],
+		"472967": ["**Transitions to:** [Saria Town](#loc=472968)", []],
+		"472968": ["**Transitions to:** [Saria Town](#loc=472967)", []],
+		"472969": [
+			"**Location:** Inside the house underneath the table\n\n**Used For:** Learning the [Life](#loc=472970) spell",
+			[]
+		],
+		"472970": [
+			"**Location:** Speak with the old wizard in the basement of the house after finding the [Mirror](#loc=472969) and returning it to the woman in a purple dress with a purple bowl on her head",
+			[]
+		],
+		"472971": [
+			"**Requires:** Using the [Hammer](#loc=472946) to break the rock underneath it\n\n**Contains:**\n- [Water of Life](#loc=472972)",
+			[]
+		],
+		"472972": [
+			"**Location:** Inside the [Cave](#loc=472971)\n\n**Used For:** Learning the [Fairy](#loc=472973) spell",
+			[]
+		],
+		"472973": [
+			"**Location:** Speak with the old wizard in the basement of the house after find the [Water of Life](#loc=472972) and returning it to the old woman with the sickly daughter",
+			[]
+		],
+		"472974": ["**Transitions to:** [Mido Town](#loc=472975)", []],
+		"472975": ["**Transitions to:** [Mido Town](#loc=472974)", []],
+		"472976": ["**Transitions to:** [Mido Town](#loc=472975)", []],
+		"472977": ["**Requires:** Using the [Flute](#loc=472951) to move it out of the way", []],
+		"472978": [
+			"**Location:** Given by Bagu inside [his secret house](#loc=472979)\n\n**Used For:** Crossing the river in Saria town",
+			[]
+		],
+		"472979": ["**Contains:** \n- [Bagu's Note](#loc=472978)", []],
+		"472981": [
+			"**Requires:** Link acquiring [Bagu's Note](#loc=472978) for the river man to allow access to the bridge",
+			[]
+		],
+		"472982": [
+			"**Requires:** Link acquiring [Bagu's Note](#loc=472978) for the river man to allow access to the bridge",
+			[]
+		],
+		"472988": ["**Transitions to:** [Nabooru Town](#loc=472989)", []],
+		"472989": ["**Transitions to:** [Nabooru Town](#loc=472990)", []],
+		"472990": ["**Transitions to:** [Nabooru Town](#loc=472989)", []],
+		"472991": ["**Location:** Inside the fountain\n\n**Used For:** Learning the [Fire](#loc=472993) spell", []],
+		"472992": ["**Location:** Inside the fountain\n\n**Used For:** Learning the [Fire](#loc=472993) spell", []],
+		"472993": [
+			"**Location:** Speak with the old wizard in the basement of the house after giving the woman in the red dress water from either of the fountains and acquiring at least one [magic container](https://mapgenie.io/zelda-2-the-adventure-of-link/maps/hyrule?search=category:13387)\n- [Water](#loc=472991)\n- [Water](#loc=472992)",
+			[]
+		],
+		"472994": [
+			"**Requires:** Falling down the hidden hole into a cave\n\n**Contains:**\n- [Kidnapped Child](#loc=472995)",
+			[]
+		],
+		"472995": [
+			"**Location:** Inside the [Secret Cave](#loc=472994)\n\n**Used For:** Learning the [Reflect](#loc=472999) spell",
+			[]
+		],
+		"472996": ["**Transitions to:** [Darunia Town](#loc=472997)", []],
+		"472997": ["**Transitions to:** [Darunia Town](#loc=472996)", []],
+		"472998": ["**Transitions to:** [Darunia Town](#loc=472996)", []],
+		"472999": [
+			"**Location:** Speak with the old wizard in the basement of the house after rescuing the [Kidnapped Child](#loc=472995) and returning them to the old woman and acquiring at least two [magic containers](https://mapgenie.io/zelda-2-the-adventure-of-link/maps/hyrule?search=category:13387)",
+			[]
+		],
+		"473000": [
+			"**Requires:** Using the [Hammer](#loc=472946) nearby to reveal the entrance\n\n**Transitions to:** [New Kasuto](#loc=473001)",
+			[]
+		],
+		"473001": ["**Transitions to:** [New Kasuto](#loc=473000)", []],
+		"473002": ["**Transitions to:** [Old Kasuto](#loc=473003)", []],
+		"473003": ["**Transitions to:** [Old Kasuto](#loc=473002)", []],
+		"473004": ["**Transitions to:** [Old Kasuto](#loc=473002)", []],
+		"473005": [
+			"**Location:** Speak with the old wizard in the basement of the building after acquiring all four [magic containers](https://mapgenie.io/zelda-2-the-adventure-of-link/maps/hyrule?search=category:13387)",
+			[]
+		],
+		"473006": [
+			"**Location:** Speak with the knight inside the second floor of the church, accessible by using the [Jump](#loc=472964) spell to reach the roof",
+			[]
+		],
+		"473007": [
+			"**Location:** Speak with the knight inside building, accessible by using the [Jump](#loc=472964) spell to reach the roof of the smallest building and jumping across the roofs, then going down the chimney",
+			[]
+		],
+		"473009": ["**Location:** In the [Fixed Encounter](#loc=473097)", []],
+		"473011": [
+			"**Requires:** Using the [Hammer](#loc=472946) to break the rock to the left of it\n\n**Contains:**\n- [Heart Container](#loc=473012)",
+			[]
+		],
+		"473012": ["**Location:** At the end of the [Cave](#loc=473011)", []],
+		"473015": ["**Location:** In the [Fixed Encounter](#loc=473096)", []],
+		"473016": ["**Location:** In the [Fixed Encounter](#loc=473098)", []],
+		"473020": [
+			"**Requires:** The [Candle](#loc=472943) to be able to see\n\n**Contains:**\n- [Magic Container](#loc=473022)",
+			[]
+		],
+		"473022": ["**Location:**  Inside the [Cave](#loc=473020)", []],
+		"473024": [
+			"**Requires:** Falling down the hidden hole into a cave\n\n**Contains:**\n- [Magic Container](#loc=473025)",
+			[]
+		],
+		"473025": ["**Location:** Inside the [Secret Cave](#loc=473024)", []],
+		"473027": [
+			"**Location:** In the basement of the building, accessible by speaking to the old woman after acquiring all other [magic containers](https://mapgenie.io/zelda-2-the-adventure-of-link/maps/hyrule?search=category:13387)",
+			[]
+		],
+		"473030": ["**Location:** In the [Fixed Encounter](#loc=473102)", []],
+		"473031": ["**Location:** In the [Fixed Encounter](#loc=473094)", []],
+		"473032": ["**Location:** In the [Fixed Encounter](#loc=473104)", []],
+		"473034": [
+			"**Location:** In the [Fixed Encounter](#loc=473103), requiring the [Jump](#loc=472964) spell to reach",
+			[]
+		],
+		"473094": ["**Contains:** \n- [Link Doll](#loc=473031)", []],
+		"473096": ["**Contains:** \n- [Heart Container](#loc=473015)", []],
+		"473097": ["**Contains:** \n- [Heart Container](#loc=473009)", []],
+		"473098": ["**Contains:** \n- [Heart Container](#loc=473016)", []],
+		"473100": ["**Transitions to:** [Cave](#loc=473101)", []],
+		"473101": ["**Transitions to:** [Cave](#loc=473100)", []],
+		"473102": ["**Contains:** \n- [Link Doll](#loc=473030)", []],
+		"473103": ["**Contains:** \n- [Link Doll](#loc=473034)", []],
+		"473104": ["**Contains:** \n- [Link Doll](#loc=473032)", []],
+		"473105": ["**Contains:** \n- [Treasure Bag](#loc=473106)", []],
+		"473106": ["**Location:** Inside the [Cave](#loc=473105)\n\n**Worth:** 200 EXP", []],
+		"473108": ["**Transitions to:** [Cave](#loc=473109)", []],
+		"473109": ["**Transitions to:** [Cave](#loc=473108)", []],
+		"473110": ["**Contains:** \n- [Fairy](#loc=473111)", []],
+		"473111": ["**Location:** In the [Fixed Encounter](#loc=473110)", []],
+		"473113": ["**Contains:** \n- Red Potion", []],
+		"473114": ["**Contains:** \n- Red Potion", []],
+		"473116": ["**Contains:** \n- [Treasure Bag](#loc=473117)", []],
+		"473117": ["**Location:** In the [Fixed Encounter](#loc=473116)\n\n**Worth:** 50 EXP", []],
+		"473118": ["**Contains:** \n- [Treasure Bag](#loc=473119)", []],
+		"473119": ["**Location:** In the [Fixed Encounter](#loc=473118)\n\n**Worth:** 100 EXP", []],
+		"473120": ["**Contains:** \n- [Fairy](#loc=473121)", []],
+		"473121": ["**Location:** In the [Fixed Encounter](#loc=473120)", []],
+		"473122": ["**Contains:** \n- Red Potion", []],
+		"473123": ["**Transitions to:** [Cave](#loc=473124)", []],
+		"473124": ["**Transitions to:** [Secret Cave](#loc=473123)", []],
+		"473125": ["**Transitions to:** [Cave](#loc=473126)", []],
+		"473126": ["**Transitions to:** [Cave](#loc=473125)", []],
+		"473127": ["**Transitions to:** [Cave](#loc=473128)", []],
+		"473128": ["**Transitions to:** [Cave](#loc=473127)", []],
+		"473129": ["**Transitions to:** [Cave](#loc=473130)", []],
+		"473130": ["**Transitions to:** [Cave](#loc=473129)", []],
+		"473131": ["**Transitions to:** [Cave](#loc=473132)", []],
+		"473132": ["**Transitions to:** [Cave](#loc=473131)", []],
+		"473133": ["**Transitions to:** [Cave](#loc=473134)", []],
+		"473134": ["**Transitions to:** [Cave](#loc=473133)", []],
+		"473135": ["**Transitions to:** [Cave](#loc=473136)", []],
+		"473136": ["**Transitions to:** [Cave](#loc=473135)", []],
+		"473137": ["**Transitions to:** [Cave](#loc=473138)", []],
+		"473138": ["**Transitions to:** [Cave](#loc=473137)", []],
+		"473139": ["**Transitions to:** [Cave](#loc=473141) / [Cave](#loc=473142) / [Cave](#loc=473143)", []],
+		"473141": ["**Transitions to:** [Cave](#loc=473139) / [Cave](#loc=473142) / [Cave](#loc=473143)", []],
+		"473142": ["**Transitions to:** [Cave](#loc=473139) / [Cave](#loc=473141) / [Cave](#loc=473143)", []],
+		"473143": ["**Transitions to:** [Cave](#loc=473139) / [Cave](#loc=473141) / [Cave](#loc=473142)", []],
+		"473144": ["**Transitions to:** [Cave](#loc=473145) / [Cave](#loc=473146) / [Cave](#loc=473147)", []],
+		"473145": ["**Transitions to:** [Cave](#loc=473144) / [Cave](#loc=473146) / [Cave](#loc=473147)", []],
+		"473146": ["**Transitions to:** [Cave](#loc=473144) / [Cave](#loc=473145) / [Cave](#loc=473147)", []],
+		"473147": ["**Transitions to:** [Cave](#loc=473144) / [Cave](#loc=473145) / [Cave](#loc=473146)", []],
+		"473149": ["**Transitions to:** [Cave](#loc=473150)", []],
+		"473150": ["**Transitions to:** [Cave](#loc=473149)", []],
+		"473151": ["**Transitions to:** [Cave](#loc=473152)", []],
+		"473152": ["**Transitions to:** [Cave](#loc=473151)", []],
+		"473153": ["**Transitions to:** [Cave](#loc=473154)", []],
+		"473154": ["**Transitions to:** [Cave](#loc=473153)", []],
+		"473155": ["**Transitions to:** [Cave](#loc=473156)", []],
+		"473156": ["**Transitions to:** [Cave](#loc=473155)", []],
+		"473157": ["**Transitions to:** [Cave](#loc=473158)", []],
+		"473158": ["**Transitions to:** [Cave](#loc=473157)", []],
+		"473160": ["**Transitions to:** [Cave](#loc=473161)", []],
+		"473161": ["**Transitions to:** [Cave](#loc=473160)", []],
+		"473162": ["**Transitions to:** [Cave](#loc=473163)", []],
+		"473163": ["**Transitions to:** [Cave](#loc=473162)", []],
+		"473164": ["**Transitions to:** [Cave](#loc=473165)", []],
+		"473165": ["**Transitions to:** [Cave](#loc=473164)", []],
+		"473166": ["**Transitions to:** [Cave](#loc=473168)", []],
+		"473168": ["**Transitions to:** [Cave](#loc=473166)", []],
+		"473169": ["**Contains:** \n- Red Potion", []],
+		"473171": ["**Transitions to:** [Cave](#loc=473172)", []],
+		"473172": ["**Transitions to:** [Cave](#loc=473171)", []],
+		"473173": ["**Contains:** \n- [Treasure Bag](#loc=473174)", []],
+		"473174": ["**Location:** In the [Fixed Encounter](#loc=473173)\n\n**Worth:** 200 EXP", []],
+		"473175": ["**Contains:** \n- [Fairy](#loc=473176)", []],
+		"473176": ["**Location:** In the [Fixed Encounter](#loc=473175)", []],
+		"473177": ["**Contains:** \n- Red Potion", []],
+		"473178": ["**Contains:** \n- [Treasure Bag](#loc=473179)", []],
+		"473179": ["**Location:** In the [Fixed Encounter](#loc=473178)\n\n**Worth:** 500 EXP", []],
+		"473180": ["**Contains:**\n- [Treasure Bag](#loc=473181)", []],
+		"473181": ["**Location:** Inside the [Cave](#loc=473180)\n\n**Worth:** 500 EXP", []],
+		"473182": ["**Contains:**\n- [Treasure Bag](#loc=473183)", []],
+		"473183": ["**Location:** Inside the [Cave](#loc=473182)\n\n**Worth:** 500 EXP", []],
+		"473184": ["**Transitions to:** [Cave](#loc=473185)", []],
+		"473185": ["**Transitions to:** [Cave](#loc=473184)", []],
+		"473186": ["**Transitions to:** [Cave](#loc=473187)", []],
+		"473187": ["**Transitions to:** [Cave](#loc=473186)", []],
+		"473188": ["**Contains:** \n- [Treasure Bag](#loc=473189)", []],
+		"473189": ["**Location:** In the [Fixed Encounter](#loc=473188)\n\n**Worth:** 500 EXP", []],
+		"473191": ["**Contains:** \n- Red Potion", []],
+		"473192": ["**Contains:** \n- [Treasure Bag](#loc=473193)", []],
+		"473193": ["**Location:** In the [Fixed Encounter](#loc=473192)\n\n**Worth:** 500 EXP", []],
+		"473194": ["**Transitions to:** [Cave](#loc=473195)", []],
+		"473195": ["**Transitions to:** [Cave](#loc=473194)", []],
+		"473197": ["**Worth:** 50 EXP", []],
+		"473199": ["**Worth:** 50 EXP", []],
+		"473201": ["**Worth:** 100 EXP", []],
+		"473204": ["**Worth:** 100 EXP", []],
+		"473205": ["**Worth:** 100 EXP", []],
+		"473206": ["**Worth:** 100 EXP", []],
+		"473207": ["**Worth:** 200 EXP", []],
+		"473208": ["**Worth:** 100 EXP", []],
+		"473209": ["**Worth:** 100 EXP", []],
+		"473210": ["**Worth:** 200 EXP", []],
+		"473212": ["**Worth:** 200 EXP", []],
+		"473213": ["**Worth:** 200 EXP", []],
+		"473215": ["**Worth:** 200 EXP", []],
+		"473216": ["**Worth:** 50 EXP", []],
+		"473217": ["**Worth:** 200 EXP", []],
+		"473218": ["**Worth:** 100 EXP", []],
+		"473219": ["**Worth:** 100 EXP", []],
+		"473220": ["**Worth:** 200 EXP", []],
+		"473221": ["**Worth:** 200 EXP", []],
+		"473222": ["**Worth:** 200 EXP", []],
+		"473223": ["**Worth:** 200 EXP", []]
+	}
+}

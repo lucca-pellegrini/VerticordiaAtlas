@@ -1,0 +1,2034 @@
+{
+	"v": 1,
+	"d": {
+		"545402": [
+			"**2nd Run Only**",
+			[
+				{
+					"id": 123583,
+					"title": "20260309010354_1",
+					"file_name": "443f7bcd-978d-4409-a1ec-9f5beceea363.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/443f7bcd-978d-4409-a1ec-9f5beceea363.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"552817": ["Unlocked at the start of a new game when playing as Claire.", []],
+		"552818": ["**Unlocked By:** [Bolt Cutters](#loc=552821)", []],
+		"552821": [
+			"**Unlocks:**\n- [Chained Door](#loc=552818)\n- [Chained Door](#loc=552896)\n- [Chained Door](#loc=553202)",
+			[]
+		],
+		"552822": ["**Unlocked By:** [Courtyard Key](#loc=552824)", []],
+		"552824": ["**Unlocks:** [Locked Door](#loc=552822)", []],
+		"552825": ["Uses Large-Caliber Handgun Ammo", []],
+		"552827": [
+			"**2nd Run Only**",
+			[
+				{
+					"id": 123641,
+					"title": "20260327190233_1",
+					"file_name": "ca2a49ef-9d06-47fc-990d-705c2ecfb5d0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ca2a49ef-9d06-47fc-990d-705c2ecfb5d0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"552830": [
+			"**Leon Only, or available to Claire on 2nd Run**",
+			[
+				{
+					"id": 123642,
+					"title": "20260309011449_1",
+					"file_name": "c3f144e8-b236-4243-9903-fcd9a1299604.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c3f144e8-b236-4243-9903-fcd9a1299604.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"552831": ["**Used To:** Power the [Fusebox](#loc=553151)", []],
+		"552833": ["Inside the locker.", []],
+		"552891": ["**Used On:** [Valve](#loc=553238)", []],
+		"552896": ["**Unlocked By:** [Bolt Cutters](#loc=552821)", []],
+		"552897": [
+			"**Unlocked By:** Moving the chair blocking it after getting through the [Chained Door](#loc=552896)",
+			[]
+		],
+		"552903": ["**Transition To:** [B1](#loc=552904)", []],
+		"552904": ["**Transition To:** [1F](#loc=552903)", []],
+		"552905": ["**Transition To:** [2F](#loc=553070)", []],
+		"553068": ["**Transition To:** [2F](#loc=553069)", []],
+		"553069": ["**Transition To:** [1F](#loc=553068)", []],
+		"553070": ["**Transition To:** [1F](#loc=552905)", []],
+		"553071": ["**Transition To:** [1F](#loc=553082)", []],
+		"553072": ["**Transition To:** [3F](#loc=553073)", []],
+		"553073": ["**Transition To:** [2F](#loc=553072)", []],
+		"553074": ["**Transition To:** [2F](#loc=553090)", []],
+		"553075": ["**Transition To:** [2F](#loc=553089)", []],
+		"553076": ["**Transition To:** [2F](#loc=553087)", []],
+		"553077": [
+			"These stairs are only accessible after activating a [Gear Box](#loc=553088)\n\n**Transition To:** [4F](#loc=553086)",
+			[]
+		],
+		"553078": ["**Transition To:** [2F](#loc=553079)", []],
+		"553079": ["**Transition To:** [3F](#loc=553078)", []],
+		"553080": ["**Transition To:** [2F](#loc=553081)", []],
+		"553081": ["**Transition To:** [3F](#loc=553080)", []],
+		"553082": ["**Transition To:** [2F](#loc=553071)", []],
+		"553083": ["**Transition To / From:** [Orphanage](#loc=553102)", []],
+		"553084": ["**Transition To:** [1F](#loc=553095)", []],
+		"553085": ["**Transition To:** [1F](#loc=553094)", []],
+		"553086": ["**Transition To:** [3F](#loc=553077)", []],
+		"553087": ["**Transition To:** [3F](#loc=553076)", []],
+		"553088": [
+			"Insert the [Large Gear](#loc=553362) to gain access to the upper floor.",
+			[
+				{
+					"id": 123797,
+					"title": "20260308195842_1",
+					"file_name": "c39edd5b-a495-4de8-8f50-1688a23a49ba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c39edd5b-a495-4de8-8f50-1688a23a49ba.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553089": ["**Transition From:** [3F](#loc=553075)", []],
+		"553090": ["**Transition To:** [3F](#loc=553074)", []],
+		"553091": ["**Transition To:** [1F](#loc=553096)", []],
+		"553092": ["**Transition To:** [B1](#loc=553098)", []],
+		"553093": ["**Transition To:** [Underground Facility Arrival](#loc=553135)", []],
+		"553094": ["**Transition To:** [2F](#loc=553085)", []],
+		"553095": ["**Transition To:** [2F](#loc=553084)", []],
+		"553096": ["**Transition To:** [2F](#loc=553091)", []],
+		"553097": ["**Transition To:** [Underground Facility](#loc=553146)", []],
+		"553098": ["**Transition To:** [2F](#loc=553092)", []],
+		"553099": ["**Transition To:** [2F](#loc=553101)", []],
+		"553100": ["**Transition To:** [B1](#loc=553104)", []],
+		"553101": ["**Transition To:** [1F](#loc=553099)", []],
+		"553102": ["**Transition To / From:** [Police Station 2F](#loc=553083)", []],
+		"553103": ["**Transition To:** [Sewers Arrival](#loc=553105)", []],
+		"553104": ["**Transition To:** [B1](#loc=553100)", []],
+		"553105": ["**Transition From:** [Orphanage](#loc=553103)", []],
+		"553106": [
+			"**Transition To:** [Lower Level](#loc=553107)",
+			[
+				{
+					"id": 123754,
+					"title": "20260308210707_1",
+					"file_name": "0501d036-8e51-4f5f-ae76-845175ee6040.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0501d036-8e51-4f5f-ae76-845175ee6040.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553107": ["**Transition From:** [Middle Level](#loc=553106)", []],
+		"553108": ["**Transition To:** [Upper Level](#loc=553125)", []],
+		"553109": ["**Transition From:** [Middle Level](#loc=553117)", []],
+		"553110": ["**Transition To:** [Upper Level](#loc=553123)", []],
+		"553111": ["**Transition To:** [Middle Level](#loc=553115)", []],
+		"553112": ["**Transition To:** [Middle Level](#loc=553116)", []],
+		"553113": ["**Transition To:** [Laboratory](#loc=553130)", []],
+		"553114": ["**Transition From:** [Upper Level](#loc=553124)", []],
+		"553115": ["**Transition To:** [Lower Level](#loc=553111)", []],
+		"553116": ["**Transition To:** [Lower Level](#loc=553112)", []],
+		"553117": ["**Transition To:** [Lower Level](#loc=553109)", []],
+		"553118": ["**Transition To:** [Upper Level](#loc=553120)", []],
+		"553119": ["**Transition To:** [Upper Level](#loc=553122)", []],
+		"553120": ["**Transition To:** [Middle Level](#loc=553118)", []],
+		"553121": ["**Transition To:** [Underground Facility](#loc=553140)", []],
+		"553122": ["**Transition To:** [Middle Level](#loc=553119)", []],
+		"553123": ["**Transition To:** [Lower Level](#loc=553110)", []],
+		"553124": [
+			"**Transition To:** [Middle Level](#loc=553114)",
+			[
+				{
+					"id": 123755,
+					"title": "20260308212812_1",
+					"file_name": "5129b1b5-85ac-4ca0-acf8-a19b55810579.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5129b1b5-85ac-4ca0-acf8-a19b55810579.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553125": ["**Transition To:** [Middle Level](#loc=553108)", []],
+		"553126": ["**Transition To:** [B1](#loc=553127)", []],
+		"553127": ["**Transition To:** [B2](#loc=553126)", []],
+		"553128": ["**Transition To:** [B3](#loc=553129)", []],
+		"553129": ["**Transition From:** [B1](#loc=553128)", []],
+		"553130": ["**Transition From:** [Sewers](#loc=553113)", []],
+		"553131": ["**Transition To:** [B2](#loc=553132)", []],
+		"553132": ["**Transition To:** [B1](#loc=553131)", []],
+		"553133": ["**Transition To:** [B1](#loc=553134)", []],
+		"553134": ["**Transition To:** [B2](#loc=553133)", []],
+		"553135": ["**Transition To:** [Police Station 1F](#loc=553093)", []],
+		"553136": ["**Transition To:** [Middle Level](#loc=553137)", []],
+		"553137": ["**Transition To:** [Upper Level](#loc=553136)", []],
+		"553138": ["**Transition To:** [Lower Level](#loc=553139)", []],
+		"553139": ["**Transition To:** [Middle Level](#loc=553138)", []],
+		"553140": ["**Transition To:** [Sewers](#loc=553121)", []],
+		"553141": ["**Transition From:** [Middle Level](#loc=553144)", []],
+		"553142": [
+			"Can only be used after defeating [Birkin](#loc=553145).\n\n**Transition To:** [Middle Level](#loc=553143)",
+			[]
+		],
+		"553143": ["**Transition To:** [Lower Level](#loc=553142)", []],
+		"553144": ["**Transition To:** [Lower Level](#loc=553141)", []],
+		"553146": ["**Transition To:** [Police Station B1](#loc=553097)", []],
+		"553147": ["**Unlocked By:** [Heart Key](#loc=553351)", []],
+		"553149": ["Cannot be unlocked when playing as Claire.", []],
+		"553150": ["Inside the locker.", []],
+		"553151": ["**Unlocked By:** [Fuse (Break Room Hallway)](#loc=552831)", []],
+		"553161": ["Cannot be unlocked while playing as Claire.", []],
+		"553162": [
+			"",
+			[
+				{
+					"id": 123756,
+					"title": "20260306000800_1",
+					"file_name": "e226f40b-2315-47f3-b663-c9f1ecc7cc9a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e226f40b-2315-47f3-b663-c9f1ecc7cc9a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553163": [
+			"**Used To:** Unlock the Weapons Locker",
+			[
+				{
+					"id": 123757,
+					"title": "20260306000800_1",
+					"file_name": "e226f40b-2315-47f3-b663-c9f1ecc7cc9a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e226f40b-2315-47f3-b663-c9f1ecc7cc9a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553164": ["**Unlocked By:** [Spade Key](#loc=553246)", []],
+		"553165": [
+			"**Solution:**\n- Pick up the [Statue's Left Arm](#loc=553167)\n- Combine it with the [Red Book (Art Object)](#loc=553256)\n- Attach the Left Arm with Book to the statue",
+			[]
+		],
+		"553166": [
+			"After solving the [Emperor Statue](#loc=553165) puzzle, examine the Scepter and press the switch on the backside.\r\n\r\n**Used To:** Access the S.T.A.R.S Badge",
+			[]
+		],
+		"553167": ["**Used To:** Restore the [Emperor Statue](#loc=553165) to its former glory.", []],
+		"553168": ["Inside the locker.", []],
+		"553172": [
+			"Underneath the leftmost bookcase. You'll need to move the bookcases next to it to reach the ammo.",
+			[
+				{
+					"id": 123758,
+					"title": "20260306000223_1",
+					"file_name": "6b98ac97-7954-4b09-b8a3-935fd9971502.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6b98ac97-7954-4b09-b8a3-935fd9971502.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553177": ["Underneath a body.", []],
+		"553178": ["Inside locker 109.", []],
+		"553180": ["Underneath a body.", []],
+		"553185": ["Inside a locker.", []],
+		"553187": ["In a locker.", []],
+		"553190": ["Only accessible after moving the shipping container.", []],
+		"553195": ["In a closed stall.", []],
+		"553200": ["Cannot be opened when playing as Claire.", []],
+		"553201": [
+			"",
+			[
+				{
+					"id": 123759,
+					"title": "20260305232323_1",
+					"file_name": "b7518823-f9e9-43f3-91be-0c09c9bc645d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b7518823-f9e9-43f3-91be-0c09c9bc645d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553202": ["**Unlocked By:** [Bolt Cutters](#loc=552821)", []],
+		"553203": [
+			"",
+			[
+				{
+					"id": 123760,
+					"title": "20260305232333_1",
+					"file_name": "34c29284-43ba-4720-9fcc-8a051cc5f431.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/34c29284-43ba-4720-9fcc-8a051cc5f431.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553204": [
+			"**Used To:** Detonate the [Explosive Barricade](#loc=553251), when combined with a [Battery](#loc=553285).",
+			[]
+		],
+		"553205": [
+			"",
+			[
+				{
+					"id": 123761,
+					"title": "20260306002147_1",
+					"file_name": "1cb63386-3526-4431-8808-c4dffcd164ee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1cb63386-3526-4431-8808-c4dffcd164ee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553209": [
+			"**Unlocked By:** Unlocked By: Approaching it from the western side after getting through the [Chained Door](#loc=553202)",
+			[]
+		],
+		"553210": [
+			"Climb onto the box to reach it and squeeze through into the corridor.",
+			[
+				{
+					"id": 123762,
+					"title": "20260305232426_1",
+					"file_name": "7b933bab-31a6-467a-a602-d63c5ebe30b0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b933bab-31a6-467a-a602-d63c5ebe30b0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553211": ["**Unlocked By:** [Heart Key](#loc=553351)", []],
+		"553213": [
+			"Repaired with [Spare Key](#loc=553367) + [Spare Key](#loc=553377).\n\n**Solution:**\n- [Gunpowder](#loc=553222) - Locker 102\n- [Combat Knife](#loc=553221) - Locker 103\n- [Film: \"Commemorative\"](#loc=553220) - Locker 106\n- [Large-Caliber Handgun Ammo](#loc=553178) - Locker 109\n- [Hip Pouch](#loc=553215) - Locker 203\n- [Flame Rounds](#loc=553216) - Locker 208",
+			[]
+		],
+		"553214": [
+			"",
+			[
+				{
+					"id": 123763,
+					"title": "20260306002328_1",
+					"file_name": "b89dcb68-f6e1-4747-9366-6d4cfc22537a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b89dcb68-f6e1-4747-9366-6d4cfc22537a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553215": ["Inside locker 203.", []],
+		"553216": ["Inside locker 208.", []],
+		"553217": ["**Unlocked By:** [Weapons Locker Key Card](#loc=553163)", []],
+		"553218": ["Inside the [Weapons Locker](#loc=553217)\n\nUses Grenade Rounds", []],
+		"553219": ["Inside the [Weapons Locker](#loc=553217)", []],
+		"553220": ["Inside locker 106.", []],
+		"553221": ["Inside locker 103.", []],
+		"553222": ["Inside locker 102.", []],
+		"553225": [
+			"",
+			[
+				{
+					"id": 123764,
+					"title": "20260305232629_1",
+					"file_name": "d4232c29-ca3d-47c0-928f-dcdc30dc1a97.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d4232c29-ca3d-47c0-928f-dcdc30dc1a97.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553226": ["In the right locker.", []],
+		"553227": ["In the left locker.", []],
+		"553232": [
+			"Obtained when the [Film: \"Lion Statue\"](#loc=553262) is processed in the [Darkroom Sink](#loc=553231)",
+			[]
+		],
+		"553233": [
+			"Obtained when the [Film: \"Commemorative\"](#loc=553220) is processed in the [Darkroom Sink](#loc=553231).",
+			[]
+		],
+		"553234": [
+			"Obtained when the [Film: \"3F Locker\"](#loc=553332) is processed in the [Darkroom Sink](#loc=553231).",
+			[]
+		],
+		"553235": [
+			"Obtained when the [Film: \"Hiding Place\"](#loc=553476) is processed in the [Darkroom Sink](#loc=553231).",
+			[]
+		],
+		"553236": [
+			"Obtained when the [Film: \"Rising Rookie\"](#loc=553286) is processed in the [Darkroom Sink](#loc=553231).",
+			[]
+		],
+		"553238": ["**Unlocked By:** [Valve Handle](#loc=552891)", []],
+		"553239": [
+			"**Hint:** [Locker Room Code](#loc=553205)\n\n**Unlocked By:** C-A-P\n\n**Contents:** [Flame Rounds](#loc=553240)",
+			[]
+		],
+		"553240": ["In the locker behind the [Dial Lock](#loc=553239).", []],
+		"553241": ["Inside the locker.", []],
+		"553242": [
+			"",
+			[
+				{
+					"id": 123765,
+					"title": "20260305233020_1",
+					"file_name": "734c2b6b-514b-4e8e-b97a-e7eb2c0e829e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/734c2b6b-514b-4e8e-b97a-e7eb2c0e829e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553243": [
+			"Inside the Bejeweled Box, opened via [Red Jewel](#loc=553166).\n\n**Used To:** \n- Unlock the PC when converted into a USB Dongle Key\n- Unlock the Special Weapons Case",
+			[]
+		],
+		"553244": [
+			"**Hint:** [3F Locker](#loc=553234)\n\n**Unlocked By:** D-C-M\n\n**Contents:** [Submachine Gun Ammo](#loc=553245)",
+			[]
+		],
+		"553245": ["Inside the locker with a [Dial Lock](#loc=553244).", []],
+		"553246": [
+			"**Unlocks:** \n- [Spade Door](#loc=553255)\n- [Spade Door](#loc=553164)\n- [Spade Door](#loc=553269)",
+			[]
+		],
+		"553247": [
+			"",
+			[
+				{
+					"id": 123766,
+					"title": "20260305235858_1",
+					"file_name": "7371c0bf-3263-47cb-a5b2-47b72c0ad0ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7371c0bf-3263-47cb-a5b2-47b72c0ad0ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553251": [
+			"**Unlocked By:** [Detonator (No Battery)](#loc=553204) + [Battery](#loc=553285)\n\nNote that this will make the [Closet](#loc=553250) fall.",
+			[]
+		],
+		"553252": [
+			"**Solution:**\n- Ram\n- Harp\n- Bird",
+			[
+				{
+					"id": 123767,
+					"title": "20260309014225_1",
+					"file_name": "17c04f75-fae0-44ec-97e5-af94788697f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17c04f75-fae0-44ec-97e5-af94788697f2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553253": [
+			"Inside the [Maiden Statue](#loc=553252).\n\n**Used To:** Unlock the [Goddess Statue](#loc=553821)",
+			[]
+		],
+		"553254": [
+			"",
+			[
+				{
+					"id": 123768,
+					"title": "20260305235955_1",
+					"file_name": "7cad53f2-8e3c-4141-a4e5-46dc256018bd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7cad53f2-8e3c-4141-a4e5-46dc256018bd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553255": ["**Unlocked By:** [Spade Key](#loc=553246)", []],
+		"553256": ["**Used To:** Restore the [Emperor Statue](#loc=553165) to its former glory.", []],
+		"553258": [
+			"**Solution:**\n- Couple\n- Scales\n- Small Snake",
+			[
+				{
+					"id": 123769,
+					"title": "20260309013804_1",
+					"file_name": "5a38ad17-2159-4079-8f01-6b4992abfc6d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5a38ad17-2159-4079-8f01-6b4992abfc6d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553259": [
+			"Inside the [Unicorn Statue](#loc=553258)\n\n**Used To:** Unlock the [Goddess Statue](#loc=553821)",
+			[]
+		],
+		"553260": [
+			"",
+			[
+				{
+					"id": 123770,
+					"title": "20260306000346_1",
+					"file_name": "80c4f1e4-6024-44ac-864d-2a85224799f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/80c4f1e4-6024-44ac-864d-2a85224799f2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553261": [
+			"**Unlocked By:** Approaching from the eastern side after using the [Valve Handle](#loc=552891)",
+			[]
+		],
+		"553262": [
+			"Inside a box beside the flowers. You'll need to examine the box to extract the film.",
+			[
+				{
+					"id": 123771,
+					"title": "20260328161907_1",
+					"file_name": "0a3c780a-c0c4-4006-a58c-955e360c8cf1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a3c780a-c0c4-4006-a58c-955e360c8cf1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553263": [
+			"**Solution:**\n- Crown\n- Fire\n- Bird\n\n_Revealed by the [Film: \"Lion Statue\"](#loc=553262)_",
+			[
+				{
+					"id": 123772,
+					"title": "20260316172123_1",
+					"file_name": "0cc62277-900b-4023-80ae-ebe2e0550922.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0cc62277-900b-4023-80ae-ebe2e0550922.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553264": [
+			"Inside the [Lion Statue](#loc=553263)\n\n**Used To:** Unlock the [Goddess Statue](#loc=553821)",
+			[]
+		],
+		"553266": [
+			"",
+			[
+				{
+					"id": 123774,
+					"title": "20260328162246_1",
+					"file_name": "e6cc3d01-a39c-4c6d-8bdf-7d32efd533af.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6cc3d01-a39c-4c6d-8bdf-7d32efd533af.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553267": [
+			"**Hint:** [Confiscation Report](#loc=553368)\n\n**Combination:**\n- Left 6\n- Right 2\n- Left 11\n\n**Contents:** [High-Capacity Mag. (JMB Hp3)](#loc=553268)",
+			[]
+		],
+		"553268": ["Inside the [Safe](#loc=553267).", []],
+		"553269": ["**Unlocked By:** [Spade Key](#loc=553246)", []],
+		"553270": ["**Unlocked By:** N-E-D", []],
+		"553271": ["**Unlocked By:** M-R-G", []],
+		"553273": [
+			"On Leon's desk, accessed by opening the [Left Lock](#loc=553270) and [Right Lock](#loc=553271)",
+			[]
+		],
+		"553274": [
+			"",
+			[
+				{
+					"id": 123775,
+					"title": "20260306013007_1",
+					"file_name": "ed9b280d-36df-45f5-ad12-0504b4452190.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed9b280d-36df-45f5-ad12-0504b4452190.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553276": [
+			"The extra 'L' on the desk here is a reference to Resident Evil 2 (1998), where Leon's original welcome banner was misspelled as 'Wellcome Leon'. It seems the squad purchased an extra L for this game's welcome message, but had the good sense to leave it unused.",
+			[]
+		],
+		"553279": [
+			"**Hint:** [Internal Memo](#loc=553284)\n\n**Combination:**\n- Left 9\n- Right 15\n- Left 7\n\n**Contents:** [Hip Pouch](#loc=553280)",
+			[]
+		],
+		"553280": ["Inside the [Safe](#loc=553279)", []],
+		"553285": [
+			"**Used To:** Complete the [Detonator (No Battery)](#loc=553204) and get through the [Explosive Barricade](#loc=553251)",
+			[]
+		],
+		"553286": [
+			"Beneath the box that holds the [High-Capacity Mag. (MQ 11)](#loc=553288) upgrade; there's no prompt, but you can press the interact button to pick it up.",
+			[]
+		],
+		"553288": [
+			"Inside the wooden box in a drawer that can only be accessed after viewing the [Hiding Place](#loc=553235) file.",
+			[]
+		],
+		"553290": [
+			"",
+			[
+				{
+					"id": 123777,
+					"title": "20260309013548_1",
+					"file_name": "25a79c18-5e05-4c8f-858b-3d83213cb159.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/25a79c18-5e05-4c8f-858b-3d83213cb159.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553291": [
+			"Inside the medbag hanging from the wall.",
+			[
+				{
+					"id": 123778,
+					"title": "20260304154008_1",
+					"file_name": "a241c3fc-9b91-4400-8e98-e9e325c3408f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a241c3fc-9b91-4400-8e98-e9e325c3408f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553295": [
+			"**2nd Run Only**",
+			[
+				{
+					"id": 123779,
+					"title": "20260328163835_1",
+					"file_name": "5e476678-b620-49cb-86b5-8e6551dba6e0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e476678-b620-49cb-86b5-8e6551dba6e0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553296": [
+			"**Solution:**\n- Obtain the [S.T.A.R.S Badge](#loc=553243)\n- Press a switch on the back to turn it into a USB Dongle Key\n- Insert it into the PC, then interact with the nearby computer",
+			[]
+		],
+		"553297": [
+			"",
+			[
+				{
+					"id": 123780,
+					"title": "20260308222836_1",
+					"file_name": "d9c9305e-98bc-4923-a25a-860198f5c099.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9c9305e-98bc-4923-a25a-860198f5c099.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553298": ["Uses Submachine Gun Ammo", []],
+		"553299": ["**Unlocked By:** [Diamond Key](#loc=553326)", []],
+		"553305": [
+			"**Unlocked By:** [S.T.A.R.S Badge](#loc=553243), while it's in its badge form. If it's in USB mode, press the switch on the back again.\n\n**Contents:** [Suppressor (MQ 11)](#loc=553306)",
+			[]
+		],
+		"553306": ["Inside the [Special Weapons Case](#loc=553305)", []],
+		"553307": [
+			"**Unlocked By:** Approaching from the eastern side after riding an [elevator](#loc=553121) in the sewers.",
+			[]
+		],
+		"553313": ["Inside a locker.", []],
+		"553314": [
+			"Moves the suspended walkway into position.",
+			[
+				{
+					"id": 123781,
+					"title": "20260306004324_1",
+					"file_name": "f5b07f71-3c24-4195-b56e-e55037f1c4ca.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5b07f71-3c24-4195-b56e-e55037f1c4ca.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553315": ["Inside the locker.", []],
+		"553318": ["**Unlocked By:** [Parking Garage Key Card](#loc=553393)", []],
+		"553319": ["**Unlocked By:** [Car Key](#loc=553329)\n\n**Contents:** [JMB Hp3](#loc=553320)", []],
+		"553320": ["Inside the [Car Trunk](#loc=553319).\n\nUses Handgun Ammo", []],
+		"553323": [
+			"",
+			[
+				{
+					"id": 123782,
+					"title": "20260306005616_1",
+					"file_name": "a8adc1d1-5f89-4d0a-a056-aafcb37e11bd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a8adc1d1-5f89-4d0a-a056-aafcb37e11bd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553324": [
+			"",
+			[
+				{
+					"id": 123783,
+					"title": "20260306005705_1",
+					"file_name": "eecb7328-7337-433b-bcac-a4fbf9ff108e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eecb7328-7337-433b-bcac-a4fbf9ff108e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553325": [
+			"",
+			[
+				{
+					"id": 123784,
+					"title": "20260306005627_1",
+					"file_name": "dd04fe54-65b2-44e7-8b68-390af5eb82a9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dd04fe54-65b2-44e7-8b68-390af5eb82a9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553326": [
+			"**Unlocks:**\n- [Diamond Door](#loc=553330)\n- [Diamond Door](#loc=553338)\n- [Diamond Door](#loc=553299)",
+			[]
+		],
+		"553327": ["Cannot be unlocked when playing as Claire.", []],
+		"553328": [
+			"",
+			[
+				{
+					"id": 123785,
+					"title": "20260306005129_1",
+					"file_name": "4686df27-72e5-48c1-ab71-5f832e48b375.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4686df27-72e5-48c1-ab71-5f832e48b375.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553329": [
+			"Inside the box; you'll need to examine it to extract the key.\r\n\r\n**Used To:** Unlock the [Car Trunk](#loc=553319) in the parking area by pressing the button on the back.",
+			[]
+		],
+		"553330": ["**Unlocked By:** [Diamond Key](#loc=553326)", []],
+		"553333": [
+			"",
+			[
+				{
+					"id": 123786,
+					"title": "20260304163356_1",
+					"file_name": "908cfa3f-7e91-44e1-8c34-3e348b59d7ae.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/908cfa3f-7e91-44e1-8c34-3e348b59d7ae.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553335": ["Cannot be opened when playing as Claire.", []],
+		"553336": [
+			"",
+			[
+				{
+					"id": 123787,
+					"title": "20260306004831_1",
+					"file_name": "e3155d49-d3d9-4a12-a0a2-d92988f1ff3e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3155d49-d3d9-4a12-a0a2-d92988f1ff3e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553337": [
+			"",
+			[
+				{
+					"id": 123788,
+					"title": "20260328174547_1",
+					"file_name": "c1efacb7-9e39-4d0d-bf0f-5caa4596a6b2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c1efacb7-9e39-4d0d-bf0f-5caa4596a6b2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553338": ["**Unlocked By:** [Diamond Key](#loc=553326)", []],
+		"553340": ["Inside the locker.", []],
+		"553342": ["Restores power to the [elevator](#loc=553098).", []],
+		"553344": [
+			"",
+			[
+				{
+					"id": 123789,
+					"title": "20260306010420_1",
+					"file_name": "c31798bd-e20d-4687-94e9-46b0889a90c9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c31798bd-e20d-4687-94e9-46b0889a90c9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553347": [
+			"",
+			[
+				{
+					"id": 123791,
+					"title": "20260306010557_1",
+					"file_name": "ec4b7a73-90ed-4412-916a-a5a35e00fe02.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec4b7a73-90ed-4412-916a-a5a35e00fe02.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553350": [
+			"",
+			[
+				{
+					"id": 123792,
+					"title": "20260306010727_1",
+					"file_name": "0f63942e-67b9-4cca-b88f-43bbfb22d730.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f63942e-67b9-4cca-b88f-43bbfb22d730.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553351": [
+			"Initially stuck in the relief; interact with its back side to obtain the key.\n\n**Unlocks:**\n- [Heart Door](#loc=553352)\n- [Heart Door](#loc=553357)\n- [Heart Door](#loc=553147)\n- [Heart Door](#loc=553211)",
+			[]
+		],
+		"553352": ["**Unlocked By:** [Heart Key](#loc=553351)", []],
+		"553354": [
+			"",
+			[
+				{
+					"id": 123794,
+					"title": "20260304192029_1",
+					"file_name": "89703697-2c6d-4e24-bf92-77595eac8a4c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/89703697-2c6d-4e24-bf92-77595eac8a4c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553356": ["Inside the locker.", []],
+		"553357": ["**Unlocked By:** [Heart Key](#loc=553351)", []],
+		"553359": ["**Used To:** Restore power to the [Electronically-locked Door](#loc=553392)", []],
+		"553360": [
+			"**Claire only.**",
+			[
+				{
+					"id": 123795,
+					"title": "20260306011822_1",
+					"file_name": "a54d2001-b322-4e0c-bcab-892820ed8789.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a54d2001-b322-4e0c-bcab-892820ed8789.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553362": ["**Used To:** Begin the [Clock Tower Puzzle](#loc=553390)", []],
+		"553364": [
+			"**Unlocked By:** Approaching from the western side after getting through the door on the third floor of the [library](#loc=553382).",
+			[]
+		],
+		"553365": ["Inside the locker.", []],
+		"553366": [
+			"Press the buttons in the correct order (randomised per playthrough) to receive a [Spare Key](#loc=553367)",
+			[]
+		],
+		"553367": [
+			"Inside the [Portable Safe](#loc=553366).\n\n**Used To:** Add an extra button to the [Lockers Terminal](#loc=553213).",
+			[]
+		],
+		"553368": [
+			"",
+			[
+				{
+					"id": 123796,
+					"title": "20260306011352_1",
+					"file_name": "07c886ac-f3af-4803-b142-519cf0500fdc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07c886ac-f3af-4803-b142-519cf0500fdc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553373": ["Makes the other [Water Valve Lever](#loc=553374) useable.", []],
+		"553374": ["Only works after using the other [Water Valve Lever](#loc=553373)", []],
+		"553377": [
+			"Inside the [Portable Safe](#loc=553378)\n\n**Used To:** Add a button to the [Lockers Terminal](#loc=553213)",
+			[]
+		],
+		"553378": [
+			"Press the buttons in the correct order (randomised per playthrough) to receive a [Spare Key](#loc=553377)",
+			[]
+		],
+		"553380": ["**Used To:** Interact with the [Jack](#loc=553382)", []],
+		"553382": ["**Unlocked By:** [Mechanic Jack Handle](#loc=553380)", []],
+		"553384": [
+			"",
+			[
+				{
+					"id": 123798,
+					"title": "20260308192547_1",
+					"file_name": "5d064d01-3ff1-4c79-a609-766c0e9744f3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d064d01-3ff1-4c79-a609-766c0e9744f3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553385": ["Insert the [Small Gear](#loc=553389) to get one step closer to solving the puzzle.", []],
+		"553387": [
+			"",
+			[
+				{
+					"id": 123799,
+					"title": "20260308190651_1",
+					"file_name": "571d418e-6575-4f4d-81f0-e91bdf732d68.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/571d418e-6575-4f4d-81f0-e91bdf732d68.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553388": [
+			"Insert the [Large Gear](#loc=553362) to get one step closer to solving the clock tower puzzle.",
+			[]
+		],
+		"553389": ["**Used To:** Progress the [Clock Tower Puzzle](#loc=553390)", []],
+		"553390": [
+			"**Solution:**\n- Put the [Large Gear](#loc=553362) in the [Gear Box](#loc=553088) to lower the stairs\n- Take the [Small Gear](#loc=553389) from the gear box upstairs, and put it in the [Gear Box](#loc=553385)\n- Put the Large Gear in the [Gear Box](#loc=553388) upstairs, and the [Power Panel Part](#loc=553359) will be yours!",
+			[]
+		],
+		"553391": [
+			"Obtained when the [Clock Tower Puzzle](#loc=553390) is solved.\n\n**Used To:** Restore power to the [Electronically-locked Door](#loc=553392)",
+			[]
+		],
+		"553392": [
+			"**Solution:**\n- [Power Panel Part](#loc=553359) + [Power Panel Part](#loc=553391)\n- Rotate the pieces so they resemble the screenshot above",
+			[
+				{
+					"id": 123800,
+					"title": "20260328184401_1",
+					"file_name": "ef5bf510-77ba-4459-a31a-fa0bf788e2e9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ef5bf510-77ba-4459-a31a-fa0bf788e2e9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553393": [
+			"Automatically obtained after completing the orphanage section.\r\n\r\n**Used To:** Interact with the [Card Reader](#loc=553318)",
+			[]
+		],
+		"553394": [
+			"In the back of the stuffed doll.\n\n**Used To:** Begin the [Picture Block Puzzle](#loc=553398)",
+			[]
+		],
+		"553395": ["**Unlocked By:** Scissors", []],
+		"553396": [
+			"Reward for solving the [Picture Block Puzzle](#loc=553398)\n\n**Used To:** Get through the [Cardboard](#loc=553395)",
+			[]
+		],
+		"553397": ["Cannot be unlocked.", []],
+		"553398": [
+			"This puzzle is partially random, but can be consistently solved in the same way.\r\n\r\n**Solution:**\r\n\r- Insert the [Picture Block](#loc=553394)\n- Move the second block to the left by one spot\r\n- Move the third block to the left by one spot\r\n- Rotate the blocks until they form a complete sequence, as seen in the screenshot",
+			[
+				{
+					"id": 123801,
+					"title": "20260308201802_1",
+					"file_name": "1dcc1f25-3ec7-42c4-8d28-7719ce0cf27c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1dcc1f25-3ec7-42c4-8d28-7719ce0cf27c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553399": [
+			"",
+			[
+				{
+					"id": 123802,
+					"title": "20260308201914_1",
+					"file_name": "c8d3984e-c883-432c-9812-d8b8762097f4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8d3984e-c883-432c-9812-d8b8762097f4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553400": [
+			"Can only be reached by climbing on top of a drawer after pulling it out.",
+			[
+				{
+					"id": 123803,
+					"title": "20260308202004_1",
+					"file_name": "f536f580-f64a-4ad4-aa89-2fcdca438438.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f536f580-f64a-4ad4-aa89-2fcdca438438.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553401": [
+			"",
+			[
+				{
+					"id": 123804,
+					"title": "20260308202212_1",
+					"file_name": "504e7a6b-91d5-4cdd-b745-1ba1cd2115eb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/504e7a6b-91d5-4cdd-b745-1ba1cd2115eb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553402": ["Locked after Chief Irons starts chasing you.\n\n**Unlocked By:** [Orphanage Key](#loc=553409)", []],
+		"553403": [
+			"",
+			[
+				{
+					"id": 123805,
+					"title": "20260308202632_1",
+					"file_name": "d798f258-b230-4457-b3a5-f05f6c315488.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d798f258-b230-4457-b3a5-f05f6c315488.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553404": [
+			"**Claire only.**",
+			[
+				{
+					"id": 123806,
+					"title": "20260308203048_1",
+					"file_name": "1469aa38-3ab3-46a2-9729-642ce2313352.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1469aa38-3ab3-46a2-9729-642ce2313352.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553405": ["Locked after Chief Irons starts chasing you.\n\n**Unlocked By:** [Orphanage Key](#loc=553409)", []],
+		"553406": [
+			"**Claire only.**",
+			[
+				{
+					"id": 123807,
+					"title": "20260308205543_1",
+					"file_name": "87776fdb-950b-4a24-8704-b05d566f7876.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87776fdb-950b-4a24-8704-b05d566f7876.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553409": [
+			"Sticking out of the door after successfully evading Chief Irons.\n\n**Unlocks:**\n- [Locked Door](#loc=553405)\n- [Locked Door](#loc=553410)\n- [Locked Door](#loc=553402)",
+			[]
+		],
+		"553410": ["**Unlocked By:** [Orphanage Key](#loc=553409)", []],
+		"553414": [
+			"Inside the bus, near the driver's seat.",
+			[
+				{
+					"id": 123808,
+					"title": "20260308205157_1",
+					"file_name": "4e1b6c76-58a0-42c7-bb85-151f66833d0d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e1b6c76-58a0-42c7-bb85-151f66833d0d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553415": [
+			"",
+			[
+				{
+					"id": 123809,
+					"title": "20260308205033_1",
+					"file_name": "11b44720-5260-4646-8fa0-47a5595f0725.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/11b44720-5260-4646-8fa0-47a5595f0725.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553416": [
+			"**Claire only.**\r\n\r\nInside the bus, near the driver's seat.",
+			[
+				{
+					"id": 123810,
+					"title": "20260308205114_1",
+					"file_name": "8c95818d-8379-40c3-b086-20039f701a5a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8c95818d-8379-40c3-b086-20039f701a5a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553422": [
+			"**Claire only.**",
+			[
+				{
+					"id": 123811,
+					"title": "20260308210345_1",
+					"file_name": "b62d6650-58b8-4495-ac6e-d0bdd70a7211.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b62d6650-58b8-4495-ac6e-d0bdd70a7211.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553424": ["**Unlocked By:** [T-Bar Valve Handle](#loc=553452)", []],
+		"553427": [
+			"",
+			[
+				{
+					"id": 123812,
+					"title": "20260308212638_1",
+					"file_name": "dcb3cab4-2e58-4239-b47c-4592c558bd91.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dcb3cab4-2e58-4239-b47c-4592c558bd91.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553428": [
+			"**Hint:** Jazz Festival Flyer\n\n**Unlocked By:** S-Z-F\n\n**Contents:** [Submachine Gun Ammo](#loc=553429)",
+			[]
+		],
+		"553429": ["Inside the locker with a [Dial Lock](#loc=553428)", []],
+		"553430": [
+			"",
+			[
+				{
+					"id": 123813,
+					"title": "20260308213054_1",
+					"file_name": "818c237d-5d54-4a57-9e20-69b25c85f892.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/818c237d-5d54-4a57-9e20-69b25c85f892.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553433": [
+			"",
+			[
+				{
+					"id": 123814,
+					"title": "20260328193949_1",
+					"file_name": "529406bd-5ce9-476e-a80a-e9fa47dc92ab.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/529406bd-5ce9-476e-a80a-e9fa47dc92ab.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553434": ["Used to view the [U.S.S Digital Video Cassette](#loc=553489)", []],
+		"553436": [
+			"",
+			[
+				{
+					"id": 123816,
+					"title": "20260328194417_1",
+					"file_name": "b27cc13a-b502-4ce4-9433-e5e4dfc66de1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b27cc13a-b502-4ce4-9433-e5e4dfc66de1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553437": ["**Unlocked By:** [Knight Plug](#loc=553445)", []],
+		"553438": ["**Unlocked By:** [Rook Plug](#loc=553488)", []],
+		"553439": ["**Unlocked By:** [Pawn Plug](#loc=553444)", []],
+		"553440": ["**Unlocked By:** [King Plug](#loc=553471)", []],
+		"553441": ["**Unlocked By:** [Bishop Plug](#loc=553443)", []],
+		"553442": ["**Unlocked By:** [Queen Plug](#loc=553467)", []],
+		"553443": ["**Powers:**\n- [Plug Socket 5](#loc=553441)", []],
+		"553444": ["**Powers:**\n- [Plug Socket 3](#loc=553439)", []],
+		"553445": ["**Powers:**\n- [Plug Socket 1](#loc=553437)", []],
+		"553446": [
+			"**Solution:**\n- [Knight Plug](#loc=553445) in [Plug Socket 1](#loc=553437)\n- [Rook Plug](#loc=553488) in [Plug Socket 2](#loc=553438)\n- [Pawn Plug](#loc=553444) in [Plug Socket 3](#loc=553439)\n- [King Plug](#loc=553471) in [Plug Socket 4](#loc=553440)\n- [Bishop Plug](#loc=553443) in [Plug Socket 5](#loc=553441)\n- [Queen Plug](#loc=553467) in [Plug Socket 6](#loc=553442)",
+			[]
+		],
+		"553447": ["Moves a walkway into position.", []],
+		"553448": [
+			"**Hint:** Delivery Receipt\n\n**Combination:**\n- Left 2\n- Right 12\n- Left 8\n\n**Contents:** [Reinforced Frame (SLS 60)](#loc=553449)",
+			[]
+		],
+		"553449": ["Inside the [Safe](#loc=553448).", []],
+		"553452": [
+			"**Unlocks:**\n- [T-Bar Handle Slot](#loc=553424)\n- [T-Bar Handle Slot](#loc=553457)\n- [T-Bar Handle Slot](#loc=553490)",
+			[]
+		],
+		"553453": [
+			"**2nd Run Only**",
+			[
+				{
+					"id": 123817,
+					"title": "20260328195516_1",
+					"file_name": "139ba6b7-3fce-463b-9cab-fbbddad9937a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/139ba6b7-3fce-463b-9cab-fbbddad9937a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553454": [
+			"",
+			[
+				{
+					"id": 123818,
+					"title": "20260308214729_1",
+					"file_name": "946ed83f-b0eb-4a32-884d-f656c3dc4203.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/946ed83f-b0eb-4a32-884d-f656c3dc4203.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553456": ["Lifts the bars next to it.", []],
+		"553457": ["**Unlocked By:** [T-Bar Valve Handle](#loc=553452)", []],
+		"553458": ["**Unlocks:**\n- [Locked Door](#loc=553477)\n- [Locked Door](#loc=553480)", []],
+		"553461": [
+			"",
+			[
+				{
+					"id": 123819,
+					"title": "20260308231641_1",
+					"file_name": "3f5dcaff-a9ac-46c7-9903-95f8c1e29d3e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f5dcaff-a9ac-46c7-9903-95f8c1e29d3e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553463": [
+			"**Solution:**\n- Grab the [Queen Plug](#loc=553467) and slot it into [Plug Socket 9](#loc=553468)\n- Go upstairs, grab the [King Plug](#loc=553471), then drop down.\n  - A zombie will be lurking - watch out!\n- Use the King Plug to unlock [Plug Socket 10](#loc=553472) and unlock the [One-Way Door](#loc=553473).\n  - Grab the Spark Shot if you have the space!\n- Reclaim both plugs; use them to power up [Plug Socket 8](#loc=553466) and [Plug Socket 7](#loc=553465).\n- Go through Socket 7's door to reach the Queen plug. Take it, go back through the previous door, then take the King plug. Done!",
+			[]
+		],
+		"553464": ["In a room beyond Plug Socket 10, unlocked via King Plug.\n\nUses Needle Cartridges", []],
+		"553465": ["**Unlocked By:** [King Plug](#loc=553471)", []],
+		"553466": ["**Unlocked By:** [Queen Plug](#loc=553467)", []],
+		"553467": [
+			"**Powers:**\n- [Plug Socket 8](#loc=553466)\n- [Plug Socket 9](#loc=553468)\n- [Plug Socket 6](#loc=553442)",
+			[]
+		],
+		"553468": ["Lower level.\n\n**Unlocked By:** [Queen Plug](#loc=553467)", []],
+		"553469": ["Upper level.\n\n**Unlocked By:** [King Plug](#loc=553471)", []],
+		"553471": [
+			"Inside [Plug Socket 11](#loc=553469) on the upper level.\n\n**Powers:**\n- [Plug Socket 7](#loc=553465)\n- [Plug Socket 10](#loc=553472)\n- [Plug Socket 11](#loc=553469)\n- [Plug Socket 4](#loc=553440)",
+			[]
+		],
+		"553472": ["Lower level.\n\n**Unlocked By:** [King Plug](#loc=553471)", []],
+		"553473": [
+			"**Unlocked By:** Approaching it from the eastern side after getting past [Plug Socket 10](#loc=553472) unlocked via [King Plug](#loc=553471)",
+			[]
+		],
+		"553477": ["**Unlocked By:** [Sewers Key](#loc=553458)", []],
+		"553480": ["**Unlocked By:** [Sewers Key](#loc=553458)", []],
+		"553482": ["Push it aside to reveal an elevator back to the RPD.", []],
+		"553483": [
+			"",
+			[
+				{
+					"id": 123820,
+					"title": "20260308220949_1",
+					"file_name": "f1b23b4e-8009-415b-ade3-5a00ac1e9d6e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f1b23b4e-8009-415b-ade3-5a00ac1e9d6e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553484": [
+			"**2nd Run Only**",
+			[
+				{
+					"id": 123821,
+					"title": "20260328202732_1",
+					"file_name": "0f26f582-c587-42df-8532-56fac46029d2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f26f582-c587-42df-8532-56fac46029d2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553485": [
+			"In a drawer that can only be accessed after viewing the [Hiding Place](#loc=553235) file.",
+			[
+				{
+					"id": 123822,
+					"title": "20260328203138_1",
+					"file_name": "48863dd9-bf4d-410a-95c6-539f382a2680.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/48863dd9-bf4d-410a-95c6-539f382a2680.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553487": ["**Unlocked By:** Any Plug - lowers the nearby walkway.", []],
+		"553488": ["**Powers:**\n- [Plug Socket 2](#loc=553438)", []],
+		"553489": ["Viewed via [Tape Player](#loc=553434)", []],
+		"553490": ["**Unlocked By:** [T-Bar Valve Handle](#loc=553452)", []],
+		"553493": [
+			"",
+			[
+				{
+					"id": 123823,
+					"title": "20260304163544_1",
+					"file_name": "5b8c69a3-c6f7-4d1a-8d41-fb93118e7984.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b8c69a3-c6f7-4d1a-8d41-fb93118e7984.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553494": [
+			"",
+			[
+				{
+					"id": 123824,
+					"title": "20260327172503_1",
+					"file_name": "582b493e-ddf6-4926-a82d-ca3b5a26350b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/582b493e-ddf6-4926-a82d-ca3b5a26350b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553495": [
+			"Only accessible after activating the [Circuit Breaker](#loc=553525)",
+			[
+				{
+					"id": 123825,
+					"title": "20260309002538_1",
+					"file_name": "72ee8b98-4afe-4032-b0c1-e5462b4d6762.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/72ee8b98-4afe-4032-b0c1-e5462b4d6762.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553497": ["**Unlocked By:** Approaching from the western side.", []],
+		"553499": ["Must be powered up via Switchboard.", []],
+		"553502": [
+			"**Solution:**\n- Off\n- On\n- On\n- On\n\nRestores power to the [Garbage Collection Room Lever](#loc=553499)",
+			[]
+		],
+		"553503": ["Only accessible after moving the shipping container.", []],
+		"553504": [
+			"Used to kill Birkin II after lowering his health enough.\r\n\r\nPress it once to move the shipping container into position, then again to have it swing back after a few seconds.",
+			[]
+		],
+		"553508": ["Automatically obtained when dropping Sherry off in the security room.", []],
+		"553509": [
+			"Automatically obtained when returning to Sherry after defeating [Birkin III](#loc=553597).\n\n**Used To:** Reach [Floor B3](#loc=553128)",
+			[]
+		],
+		"553510": [
+			"",
+			[
+				{
+					"id": 123826,
+					"title": "20260308233339_1",
+					"file_name": "cb5dd5a7-7fea-495f-bac5-d2548140df0b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb5dd5a7-7fea-495f-bac5-d2548140df0b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553511": [
+			"",
+			[
+				{
+					"id": 123827,
+					"title": "20260308233430_1",
+					"file_name": "4344f353-f07c-434b-a593-bb63f6a1b9aa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4344f353-f07c-434b-a593-bb63f6a1b9aa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553513": [
+			"",
+			[
+				{
+					"id": 123828,
+					"title": "20260308233501_1",
+					"file_name": "cc740894-93c1-4335-b25b-b575da63a408.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc740894-93c1-4335-b25b-b575da63a408.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553514": [
+			"",
+			[
+				{
+					"id": 123829,
+					"title": "20260308233622_1",
+					"file_name": "33e84aef-f0ed-4803-a93a-3699996ce222.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33e84aef-f0ed-4803-a93a-3699996ce222.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553517": ["**Unlocked By:** Wristband combined with [Upgrade Chip (General Staff)](#loc=553526)", []],
+		"553518": ["**Unlocked By:** Wristband combined with [Upgrade Chip (General Staff)](#loc=553526)", []],
+		"553524": ["Inside the locker.", []],
+		"553525": ["**Unlocked By:** [Signal Modulator](#loc=553561) configured to OSS.", []],
+		"553526": ["**Used To:** Unlock new doors when combined with the [ID Wristband (Visitor)](#loc=553508)", []],
+		"553527": [
+			"",
+			[
+				{
+					"id": 123830,
+					"title": "20260308234501_1",
+					"file_name": "b539c8f0-b69f-4893-8fd7-3bb978292048.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b539c8f0-b69f-4893-8fd7-3bb978292048.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553528": ["**Unlocked By:** Wristband combined with [Upgrade Chip (General Staff)](#loc=553526)", []],
+		"553530": ["**Unlocked By:** Wristband combined with [Upgrade Chip (General Staff)](#loc=553526)", []],
+		"553532": ["**Unlocked By:** Wristband combined with [Upgrade Chip (Senior Staff)](#loc=553540)", []],
+		"553533": ["**Unlocked By:** Approaching from the south side.", []],
+		"553538": ["Can only be read after obtaining [Upgrade Chip (Senior Staff)](#loc=553540)", []],
+		"553540": [
+			"Can only be reached after filling the [Solution Sprinkler System](#loc=553544) with [Herbicide](#loc=553572).\n\n**Used To:** Unlock new doors when combined with the ID Wristband.",
+			[]
+		],
+		"553543": [
+			"**[Hatch](#loc=553553) Solution:**\n- 5-8-3-1\n\n**[Solution Dispenser](#loc=553546) Solution:**\n- 2-0-4-8",
+			[
+				{
+					"id": 123835,
+					"title": "20260327175021_1",
+					"file_name": "7275bd16-8c1d-48bc-8aa0-117eed834f06.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7275bd16-8c1d-48bc-8aa0-117eed834f06.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 123834,
+					"title": "20260327180335_1",
+					"file_name": "dcfbdbd5-a929-41ec-85a3-3c02db357867.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dcfbdbd5-a929-41ec-85a3-3c02db357867.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553545": ["**Used To:** Begin the [Solution Dispenser](#loc=553546) puzzle", []],
+		"553546": [
+			"Unlocked via [Facility Control Panel](#loc=553543)\n\n**Solution:**\n- Insert the [Dispersal Cartridge](#loc=553545)\n- Blue - Red - Green\n- Blue - Red - Green\n- Blue - Red - Green",
+			[]
+		],
+		"553550": [
+			"",
+			[
+				{
+					"id": 123833,
+					"title": "20260309000100_1",
+					"file_name": "647aa196-d333-4eb0-a54c-0c3cbdafd058.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/647aa196-d333-4eb0-a54c-0c3cbdafd058.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553551": [
+			"Reward for completing the [Solution Dispenser](#loc=553546) puzzle.\n\n**Used To:** Create [Dispersal Cartridge (Herbicide)](#loc=553572)",
+			[]
+		],
+		"553553": ["**Unlocked By:** [Facility Control Panel](#loc=553543)", []],
+		"553555": [
+			"",
+			[
+				{
+					"id": 123837,
+					"title": "20260328215200_1",
+					"file_name": "622f946d-bda5-4301-88ec-575cb9185721.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/622f946d-bda5-4301-88ec-575cb9185721.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553557": ["**Unlocked By:** [Circuit Breaker](#loc=553560)", []],
+		"553560": [
+			"**Unlocked By:** [Signal Modulator](#loc=553561) configured to URF",
+			[
+				{
+					"id": 146065,
+					"title": "",
+					"file_name": "d9331ee5-7f0f-4089-9b36-8a42db503267.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9331ee5-7f0f-4089-9b36-8a42db503267.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553561": ["**Used With:**\n- [Circuit Breaker](#loc=553525)\n- [Circuit Breaker](#loc=553560)", []],
+		"553562": ["**Unlocked By:** [Circuit Breaker](#loc=553560)", []],
+		"553569": ["**Used To:** Reveal a code for use with the [Facility Control Panel](#loc=553543)", []],
+		"553570": [
+			"",
+			[
+				{
+					"id": 123840,
+					"title": "20260309001532_1",
+					"file_name": "9bf5ce22-11eb-423d-94ff-11ea0a062d45.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9bf5ce22-11eb-423d-94ff-11ea0a062d45.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553572": [
+			"Obtained when placing the [Dispersal Cartridge (Solution)](#loc=553551) into the Cooling System.\r\n\r\n**Used To:** Kill Plant 43 via [Solution Sprinkler System](#loc=553544)",
+			[]
+		],
+		"553575": [
+			"",
+			[
+				{
+					"id": 123842,
+					"title": "20260309000845_1",
+					"file_name": "29e1ac5d-5cc7-4378-9d5a-9a061a086376.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/29e1ac5d-5cc7-4378-9d5a-9a061a086376.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553576": ["Viewed via [Tape Player](#loc=553580)", []],
+		"553578": ["**Unlocked By:** [Signal Modulator](#loc=553561) configured to AWS", []],
+		"553580": ["Used to view the [Lab Digital Video Cassette](#loc=553576)", []],
+		"553581": [
+			"",
+			[
+				{
+					"id": 123843,
+					"title": "20260309002808_1",
+					"file_name": "0f8b4b1d-7954-4135-8f32-c06f3dcfc202.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f8b4b1d-7954-4135-8f32-c06f3dcfc202.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553583": ["**Unlocked By:** [Circuit Breaker](#loc=553578)", []],
+		"553598": ["Only accessible after activating the [Circuit Breaker](#loc=553525)", []],
+		"553599": [
+			"",
+			[
+				{
+					"id": 123845,
+					"title": "20260328222154_1",
+					"file_name": "19465f78-7f2c-468f-b16e-948feaf8970b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/19465f78-7f2c-468f-b16e-948feaf8970b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553611": [
+			"**Used To:** [Train Controls](#loc=553613)",
+			[
+				{
+					"id": 123848,
+					"title": "20260309004800_1",
+					"file_name": "d3125338-12a4-4ab9-9e29-a5b780b97014.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d3125338-12a4-4ab9-9e29-a5b780b97014.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553612": ["Doesn't know when to quit.\n\nAppears after powering the [Train Controls](#loc=553613)", []],
+		"553613": ["**Unlocked By:** [Joint Plug](#loc=553611)", []],
+		"553620": [
+			"",
+			[
+				{
+					"id": 123850,
+					"title": "20260328230638_1",
+					"file_name": "557c3f1f-aebf-46d8-b5b9-7c9b8bb280f0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/557c3f1f-aebf-46d8-b5b9-7c9b8bb280f0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553621": ["On the desk.", []],
+		"553766": [
+			"",
+			[
+				{
+					"id": 123942,
+					"title": "20260306001556_1",
+					"file_name": "f2bfe440-0333-46fb-9ecb-3f887323b641.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f2bfe440-0333-46fb-9ecb-3f887323b641.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553767": [
+			"",
+			[
+				{
+					"id": 123936,
+					"title": "20260306012552_1",
+					"file_name": "010a3107-d8a4-48b5-b9b4-7af4b7debbc9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/010a3107-d8a4-48b5-b9b4-7af4b7debbc9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553768": ["In the right locker.", []],
+		"553769": [
+			"",
+			[
+				{
+					"id": 123937,
+					"title": "20260306011228_1",
+					"file_name": "784d45ff-23cd-49f5-ba59-43ef134c5c5e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/784d45ff-23cd-49f5-ba59-43ef134c5c5e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553770": [
+			"",
+			[
+				{
+					"id": 123938,
+					"title": "20260306010654_1",
+					"file_name": "7c9ad5ac-afdd-406f-b283-c1d3afd7ac44.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c9ad5ac-afdd-406f-b283-c1d3afd7ac44.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553773": [
+			"In the locker.",
+			[
+				{
+					"id": 123939,
+					"title": "20260306004408_1",
+					"file_name": "0b21ef70-f824-42b7-80d2-8c163f66f908.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b21ef70-f824-42b7-80d2-8c163f66f908.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553774": [
+			"",
+			[
+				{
+					"id": 123940,
+					"title": "20260308202557_1",
+					"file_name": "57bfb2fd-9ada-404c-82db-54aec9a4cc5c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57bfb2fd-9ada-404c-82db-54aec9a4cc5c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"553821": [
+			"**Unlocked By:** [Lion Medallion](#loc=553264) + [Unicorn Medallion](#loc=553259) + [Maiden Medallion](#loc=553253)",
+			[]
+		]
+	}
+}

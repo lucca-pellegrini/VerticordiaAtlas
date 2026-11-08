@@ -44,6 +44,8 @@ import {
 	wireTagStrict,
 } from "./map/profiles.ts";
 import {
+	cancelSearchDebounce,
+	debounceSearch,
 	endPreview,
 	HOVER_MS,
 	leaveSearch,
@@ -52,6 +54,7 @@ import {
 	previewAt,
 	previewRow,
 	runSearch,
+	showMoreResults,
 } from "./map/search.ts";
 import {
 	arrangeSidebar,
@@ -67,7 +70,7 @@ import { onThemeChange, storeGameTitles } from "./theme.ts";
 
 /* ---------- accounts: sync for signed-in users (see sync.ts). The app never waits for it. ---------- */
 let syncer: ReturnType<typeof createSync> | null = null;
-setSyncNote(() => syncer?.noteLocal());
+setSyncNote((keys) => syncer?.noteLocal(keys));
 
 let accountReady: Promise<any> = Promise.resolve(null);
 
@@ -284,19 +287,34 @@ function wire(): void {
 	};
 	$("#show-all")!.onclick = () => {
 		state.view.hidden.clear();
+		for (const { rows } of state.ui?.groups.values() || []) {
+			for (const { row, cb } of rows) {
+				cb.checked = true;
+				row.classList.remove("off");
+			}
+		}
 		onViewChanged();
 	};
 	$("#hide-all")!.onclick = () => {
 		state.cats.forEach((c: any) => state.view.hidden.add(c.id));
+		for (const { rows } of state.ui?.groups.values() || []) {
+			for (const { row, cb } of rows) {
+				cb.checked = false;
+				row.classList.add("off");
+			}
+		}
 		onViewChanged();
 	};
 
 	const search = $<HTMLInputElement>("#search")!;
 	const results = $<ResultsElement>("#results")!;
 	const resultsBar = $("#results-bar")!;
-	search.oninput = () => runSearch();
+	search.oninput = () => debounceSearch(() => runSearch());
 	search.onfocus = () => {
-		if (search.value.trim()) runSearch();
+		if (search.value.trim()) {
+			cancelSearchDebounce();
+			runSearch();
+		}
 	};
 	search.onkeydown = (e) => {
 		if (e.key === "ArrowDown" || e.key === "ArrowUp") {
@@ -304,9 +322,11 @@ function wire(): void {
 			moveSearch(e.key === "ArrowDown" ? 1 : -1);
 		} else if (e.key === "Enter") {
 			e.preventDefault();
+			cancelSearchDebounce();
 			const all = results.querySelectorAll<HTMLElement>("li.result");
 			const target = state.search.idx >= 0 ? all[state.search.idx] : all[0];
 			if (target) openResult(target);
+			else if (search.value.trim()) runSearch();
 		}
 	};
 	document.addEventListener("keydown", (e) => {
@@ -331,6 +351,10 @@ function wire(): void {
 	});
 	results.onclick = (e) => {
 		const target = e.target as HTMLElement;
+		if (target.closest("#results-more-btn")) {
+			showMoreResults();
+			return;
+		}
 		const a = target.closest<HTMLElement>("a");
 		if (a) {
 			if (a.dataset.loc) {

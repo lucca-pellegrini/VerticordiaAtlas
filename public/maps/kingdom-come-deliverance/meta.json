@@ -498,7 +498,8 @@
 					"tileSize": 256,
 					"background": "#a99e82"
 				}
-			]
+			],
+			"compact": "bohemia/data.compact.json"
 		}
 	]
 }

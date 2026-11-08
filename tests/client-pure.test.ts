@@ -32,6 +32,7 @@ import {
 	buildLocationGeometryFeatures,
 	buildRegionFeatures,
 	circleStyleOf,
+	createScheduler,
 	mapLimits,
 	normalizeTextSizeExpression,
 	resolveTilesets,
@@ -40,10 +41,18 @@ import {
 	textStyleOf,
 	themeVar,
 } from "../src/client/map/map-view.ts";
-import { isCrossMapUrl, isLocalLocHref, mapgenieLocId } from "../src/client/map/markdown.ts";
+import {
+	_resetMarkedForTest,
+	ensureMarked,
+	isCrossMapUrl,
+	isLocalLocHref,
+	mapgenieLocId,
+} from "../src/client/map/markdown.ts";
+import { buildMarkerFilter } from "../src/client/map/marker-filter.ts";
 import { parseDemoPresets } from "../src/client/map/presets.ts";
 import { cleanUserData, uniqueName } from "../src/client/map/profiles.ts";
-import { matchOf, queryOf } from "../src/client/map/search.ts";
+import { indexedOthers, indexMap } from "../src/client/map/search-index.ts";
+import { matchOf, queryOf, truncateDesc } from "../src/client/map/search.ts";
 import { geomOf, insideGeom } from "../src/client/map/selection.ts";
 import {
 	_setActiveDownloadForTest,
@@ -81,6 +90,7 @@ import { createMemoryPackStore } from "../src/client/pack-store.ts";
 import { cleanSecretChars, formatSecretKey } from "../src/client/signin.ts";
 import { createSync } from "../src/client/sync.ts";
 import { deriveLightAccentSoft, describePage, normalizePath } from "../src/client/theme.ts";
+import { contentKey, sendKey } from "../src/shared/sync-rules.ts";
 
 describe("drawing pure helpers", () => {
 	test("hsvToHex and hexToHsv round-trip palette colors", () => {
@@ -327,6 +337,77 @@ describe("modularized map and home helpers", () => {
 		expect(isCrossMapUrl("https://youtu.be/abc", slugs, "velen-novigrad")).toBe(false);
 	});
 
+	test("ensureMarked caches promise and injects script tag once", async () => {
+		_resetMarkedForTest();
+		const appended: any[] = [];
+		const fakeScript: any = {};
+		const fakeDoc = {
+			createElement: (tag: string) => {
+				if (tag === "script") return fakeScript;
+				return {};
+			},
+			head: {
+				appendChild: (el: any) => {
+					appended.push(el);
+					setTimeout(() => {
+						if (el.onload) el.onload();
+					}, 0);
+				},
+			},
+		};
+		const prevDoc = (globalThis as any).document;
+		(globalThis as any).document = fakeDoc;
+		try {
+			const p1 = ensureMarked();
+			const p2 = ensureMarked();
+			expect(p1).toBe(p2);
+			await p1;
+			expect(appended.length).toBe(1);
+			expect(fakeScript.src).toContain("vendor/marked.umd.js");
+		} finally {
+			if (prevDoc === undefined) delete (globalThis as any).document;
+			else (globalThis as any).document = prevDoc;
+			_resetMarkedForTest();
+		}
+	});
+
+	test("all-maps search index keeps only searchable fields and filters by saved view", () => {
+		const data = {
+			categories: { 1: { id: 1, title: "Seeds", icon: "x", color: "#fff", group_id: 9, extra: "no" } },
+			groups: [{ id: 9, color: "#123456" }],
+			locations: [
+				{
+					id: 1,
+					title: "Golden Seed",
+					description: "long text",
+					category_id: 1,
+					tags: [3],
+					latitude: "1",
+					longitude: "2",
+					media: [1],
+				},
+				{ id: 2, title: "Élan", description: "d", category_id: 2, latitude: "1", longitude: "2" },
+				{ id: 3, title: "No point", category_id: 1, latitude: "x", longitude: "2" },
+			],
+		};
+		const idx = [...indexMap("a", data, (c) => c.toUpperCase()), ...indexMap("b", data, (c) => c)];
+		expect(idx.length).toBe(4); // the location without a point is not indexed
+		expect(idx[0].l).toEqual({ id: 1, title: "Golden Seed", desc: "", tags: [3] });
+		expect(idx[0].cat).toEqual({ id: 1, title: "Seeds", icon: "x", color: "#fff", group_id: 9 });
+		expect(idx[0].col).toBe("#123456");
+		expect(idx[1].cat).toBeUndefined();
+		// ranking runs on the index as on full data; descriptions are gone, titles still match (accents ignored)
+		expect(matchOf(queryOf("golden seed"), idx[0].l)).toEqual([0, 0]);
+		expect(matchOf(queryOf("elan"), idx[1].l)).toEqual([0, 0]);
+		expect(matchOf(queryOf("long text"), idx[0].l)).toBeNull();
+		// the current map is left out; hidden categories and found markers follow that map's saved view
+		const views = { b: { hidden: [2], hideFound: true } };
+		expect(indexedOthers(idx, "b", views, new Set()).map((e) => e.slug)).toEqual(["a", "a"]);
+		expect(indexedOthers(idx, "a", views, new Set()).map((e) => e.l.id)).toEqual([1]);
+		expect(indexedOthers(idx, "a", views, new Set([1])).length).toBe(0);
+		expect(indexedOthers(idx, "a", undefined, new Set([1])).length).toBe(2);
+	});
+
 	test("queryOf and matchOf rank exact, phrase, word, and fuzzy matches", () => {
 		const q = queryOf("Golden Seed");
 		expect(matchOf(q, { title: "Golden Seed", desc: "" })).toEqual([0, 0]);
@@ -335,6 +416,17 @@ describe("modularized map and home helpers", () => {
 		expect(matchOf(q, { title: "Goldn Seed", desc: "" })?.[0]).toBe(3);
 		expect(matchOf(q, { title: "Shrine", desc: "Contains a golden seed inside." })).toEqual([4, 0]);
 		expect(matchOf(q, { title: "Unrelated", desc: "Nothing here" })).toBeNull();
+	});
+
+	test("truncateDesc collapses whitespace and truncates on word boundaries", () => {
+		expect(truncateDesc("Short description")).toBe("Short description");
+		const longText =
+			"This is a long description with multiple sentences and lots of details about an item found inside the cave, including some tips.";
+		const truncated = truncateDesc(longText, 50);
+		expect(truncated.endsWith("…")).toBe(true);
+		expect(truncated.length).toBeLessThanOrEqual(51);
+		expect(truncated).toBe("This is a long description with multiple sentences…");
+		expect(truncateDesc("Line 1\n\nLine 2\t\tLine 3")).toBe("Line 1 Line 2 Line 3");
 	});
 
 	test("cleanUserData sanitizes untrusted imported profile fields and uniqueName avoids collisions", () => {
@@ -635,6 +727,67 @@ describe("modularized map and home helpers", () => {
 		expect(demoRes[0].id).toBe("demo-169706");
 		expect(demoRes[0].hidden.sort()).toEqual([100, 200]);
 
+		// buildMarkerFilter
+		// 1. Default / empty options returns null (no filter, all visible)
+		expect(buildMarkerFilter({})).toBeNull();
+
+		// 2. Hidden categories
+		expect(buildMarkerFilter({ hiddenCats: [10, 20] })).toEqual([
+			"!",
+			["in", ["get", "cat"], ["literal", [10, 20]]],
+		]);
+
+		// 3. Hide found
+		expect(buildMarkerFilter({ hideFound: true })).toEqual(["!=", ["get", "f"], 1]);
+
+		// 4. Tag selection: untagged
+		expect(buildMarkerFilter({ tag: "untagged" })).toEqual(["==", ["length", ["get", "tags"]], 0]);
+
+		// 5. Tag selection: numeric non-strict (matches tag OR has 0 tags)
+		expect(buildMarkerFilter({ tag: 5, tagStrict: false })).toEqual([
+			"any",
+			["in", 5, ["get", "tags"]],
+			["==", ["length", ["get", "tags"]], 0],
+		]);
+
+		// 6. Tag selection: numeric strict (only matches tag)
+		expect(buildMarkerFilter({ tag: 5, tagStrict: true })).toEqual(["in", 5, ["get", "tags"]]);
+
+		// 7. Search active with matched IDs
+		expect(buildMarkerFilter({ searchIds: [101, 102] })).toEqual(["in", ["get", "id"], ["literal", [101, 102]]]);
+
+		// 8. Search active with empty matched IDs (nothing matches search)
+		expect(buildMarkerFilter({ searchIds: [] })).toBe(false);
+
+		// 9. Pinned / selected marker kept visible even if category is hidden, search is active, or hide-found is on
+		const pinnedFilter = buildMarkerFilter({
+			pinnedIds: [999],
+			hiddenCats: [10],
+			hideFound: true,
+			searchIds: [101],
+		});
+		expect(pinnedFilter).toEqual([
+			"any",
+			["in", ["get", "id"], ["literal", [999]]],
+			[
+				"all",
+				["!", ["in", ["get", "cat"], ["literal", [10]]]],
+				["!=", ["get", "f"], 1],
+				["in", ["get", "id"], ["literal", [101]]],
+			],
+		]);
+
+		// 10. Pinned when no other filters active returns null (everything is visible anyway)
+		expect(buildMarkerFilter({ pinnedIds: [999] })).toBeNull();
+
+		// 11. Region filter
+		expect(buildMarkerFilter({ matchingRegions: [100, 101] })).toEqual([
+			"in",
+			["get", "region"],
+			["literal", [100, 101]],
+		]);
+		expect(buildMarkerFilter({ matchingRegions: [] })).toBe(false);
+
 		// normalizeTextSizeExpression
 		const interpolated = ["interpolate", ["linear"], ["zoom"], 8, 8, 12, 24];
 		expect(normalizeTextSizeExpression(interpolated)).toBe(interpolated);
@@ -739,13 +892,17 @@ describe("sync client engine (createSync)", () => {
 		};
 
 		const api = async (method: string, path: string, body?: any) => {
-			if (method === "GET" && path === "sync") {
+			if (method === "GET" && path.startsWith("sync")) {
+				env.pulls.push(path);
+				const since = Number(path.split("since=")[1] || 0);
 				return {
-					items: [...serverItems.entries()].map(([key, v]) => ({
-						key,
-						value: structuredClone(v.value),
-						updated_at: v.updated_at,
-					})),
+					items: [...serverItems.entries()]
+						.filter(([, v]) => v.updated_at >= since)
+						.map(([key, v]) => ({
+							key,
+							value: structuredClone(v.value),
+							updated_at: v.updated_at,
+						})),
 				};
 			}
 			if (method === "POST" && path === "sync") {
@@ -771,7 +928,8 @@ describe("sync client engine (createSync)", () => {
 			throw new Error(`Unexpected API call: ${method} ${path}`);
 		};
 
-		return { profiles, meta, serverItems, store, ui, api, events, tick: () => ++clock };
+		const env = { profiles, meta, serverItems, store, ui, api, events, pulls: [] as string[], tick: () => ++clock };
+		return env;
 	}
 
 	test("adopts remote profile over empty local placeholder and pushes local edits", async () => {
@@ -823,6 +981,49 @@ describe("sync client engine (createSync)", () => {
 			(globalThis as any).document = origDoc;
 		}
 	});
+
+	test("a note-driven cycle hashes only the changed profile and pulls with since", async () => {
+		const env = makeMockEnv();
+		for (const id of ["a", "b", "c"])
+			env.profiles.set(`g:${id}`, { key: `g:${id}`, id, game: "g", name: id, found: [1] });
+		let sends = 0;
+		const keys = {
+			contentKey,
+			sendKey: (k: string, v: unknown) => (sends++, sendKey(k, v)),
+		};
+		const origNav = (globalThis as any).navigator;
+		const origAdd = (globalThis as any).addEventListener;
+		const origDoc = (globalThis as any).document;
+		(globalThis as any).navigator = { onLine: true };
+		(globalThis as any).addEventListener = () => {};
+		(globalThis as any).document = { addEventListener: () => {}, visibilityState: "visible" };
+		const sync = createSync({ store: env.store, ui: env.ui, api: env.api, keys });
+		try {
+			sync.start();
+			await new Promise((r) => setTimeout(r, 30));
+			expect(env.serverItems.size).toBe(3);
+			sends = 0;
+			const a = env.profiles.get("g:a");
+			a.found.push(2);
+			sync.noteLocal(["profile:g:a"]);
+			await new Promise((r) => setTimeout(r, 1600));
+			expect(env.serverItems.get("profile:g:a")?.value.found).toEqual([1, 2]);
+			// first cycle after the note: a (changed) and nothing else beyond the one-time clean check of b and c
+			const firstRound = sends;
+			expect(firstRound).toBeLessThanOrEqual(3 + 1); // a: hash + post-push result; b, c: checked once
+			sends = 0;
+			sync.noteLocal(["profile:g:a"]);
+			await new Promise((r) => setTimeout(r, 1600));
+			expect(sends).toBeLessThanOrEqual(2); // only a is hashed again; b and c stay clean
+			expect(env.pulls[0]).toBe("sync");
+			expect(env.pulls.at(-1)).toMatch(/^sync\?since=\d+$/);
+		} finally {
+			sync.stop();
+			(globalThis as any).navigator = origNav;
+			(globalThis as any).addEventListener = origAdd;
+			(globalThis as any).document = origDoc;
+		}
+	}, 10000);
 });
 
 describe("offline maps manager (src/client/offline.ts)", () => {
@@ -1257,5 +1458,97 @@ describe("progress exports", () => {
 				{ title: "Three" },
 			]),
 		).toBe("Game: 4 of 10 markers found (40%)\nOne: 3 of 6 (50%)\nTwo: not available offline\nThree: not loaded");
+	});
+});
+
+describe("frame scheduler (createScheduler)", () => {
+	test("many schedule calls produce one flush", () => {
+		let flushes = 0;
+		const frames: (() => void)[] = [];
+		const s = createScheduler(
+			() => {
+				flushes++;
+			},
+			(cb) => frames.push(cb),
+		);
+
+		s.schedule();
+		s.schedule();
+		s.schedule();
+
+		expect(flushes).toBe(0);
+		expect(frames.length).toBe(1);
+
+		frames.shift()!();
+		expect(flushes).toBe(1);
+		expect(frames.length).toBe(0);
+	});
+
+	test("a flush scheduled during a flush runs in the next frame", () => {
+		let runCount = 0;
+		const frames: (() => void)[] = [];
+		let scheduler: any;
+		scheduler = createScheduler(
+			() => {
+				runCount++;
+				if (runCount === 1) {
+					scheduler.schedule();
+				}
+			},
+			(cb) => frames.push(cb),
+		);
+
+		scheduler.schedule();
+		expect(frames.length).toBe(1);
+
+		frames.shift()!();
+		expect(runCount).toBe(1);
+		expect(frames.length).toBe(1);
+
+		frames.shift()!();
+		expect(runCount).toBe(2);
+		expect(frames.length).toBe(0);
+	});
+
+	test("final state is flushed after rapid updates", () => {
+		let stateValue = 0;
+		let observedValue = 0;
+		const frames: (() => void)[] = [];
+		const s = createScheduler(
+			() => {
+				observedValue = stateValue;
+			},
+			(cb) => frames.push(cb),
+		);
+
+		stateValue = 1;
+		s.schedule();
+		stateValue = 2;
+		s.schedule();
+		stateValue = 3;
+		s.schedule();
+
+		expect(observedValue).toBe(0);
+		frames.shift()!();
+		expect(observedValue).toBe(3);
+	});
+
+	test("synchronous flush runs immediately and avoids duplicate frame execution", () => {
+		let runCount = 0;
+		const frames: (() => void)[] = [];
+		const s = createScheduler(
+			() => {
+				runCount++;
+			},
+			(cb) => frames.push(cb),
+		);
+
+		s.schedule();
+		expect(runCount).toBe(0);
+		s.flush();
+		expect(runCount).toBe(1);
+
+		if (frames.length > 0) frames.shift()!();
+		expect(runCount).toBe(1);
 	});
 });
