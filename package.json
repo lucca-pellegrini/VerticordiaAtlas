@@ -6,6 +6,7 @@
 		"clean": "bun scripts/clean.ts",
 		"backup": "bun scripts/backup-db.ts",
 		"typecheck": "tsc --noEmit",
+		"check:budgets": "bun scripts/check-budgets.ts",
 		"test": "bun test"
 	},
 	"dependencies": {
