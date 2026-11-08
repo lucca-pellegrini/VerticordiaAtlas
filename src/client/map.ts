@@ -70,7 +70,7 @@ import { onThemeChange, storeGameTitles } from "./theme.ts";
 
 /* ---------- accounts: sync for signed-in users (see sync.ts). The app never waits for it. ---------- */
 let syncer: ReturnType<typeof createSync> | null = null;
-setSyncNote(() => syncer?.noteLocal());
+setSyncNote((keys) => syncer?.noteLocal(keys));
 
 let accountReady: Promise<any> = Promise.resolve(null);
 

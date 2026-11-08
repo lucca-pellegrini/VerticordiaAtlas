@@ -90,6 +90,7 @@ import { createMemoryPackStore } from "../src/client/pack-store.ts";
 import { cleanSecretChars, formatSecretKey } from "../src/client/signin.ts";
 import { createSync } from "../src/client/sync.ts";
 import { deriveLightAccentSoft, describePage, normalizePath } from "../src/client/theme.ts";
+import { contentKey, sendKey } from "../src/shared/sync-rules.ts";
 
 describe("drawing pure helpers", () => {
 	test("hsvToHex and hexToHsv round-trip palette colors", () => {
@@ -891,13 +892,17 @@ describe("sync client engine (createSync)", () => {
 		};
 
 		const api = async (method: string, path: string, body?: any) => {
-			if (method === "GET" && path === "sync") {
+			if (method === "GET" && path.startsWith("sync")) {
+				env.pulls.push(path);
+				const since = Number(path.split("since=")[1] || 0);
 				return {
-					items: [...serverItems.entries()].map(([key, v]) => ({
-						key,
-						value: structuredClone(v.value),
-						updated_at: v.updated_at,
-					})),
+					items: [...serverItems.entries()]
+						.filter(([, v]) => v.updated_at >= since)
+						.map(([key, v]) => ({
+							key,
+							value: structuredClone(v.value),
+							updated_at: v.updated_at,
+						})),
 				};
 			}
 			if (method === "POST" && path === "sync") {
@@ -923,7 +928,8 @@ describe("sync client engine (createSync)", () => {
 			throw new Error(`Unexpected API call: ${method} ${path}`);
 		};
 
-		return { profiles, meta, serverItems, store, ui, api, events, tick: () => ++clock };
+		const env = { profiles, meta, serverItems, store, ui, api, events, pulls: [] as string[], tick: () => ++clock };
+		return env;
 	}
 
 	test("adopts remote profile over empty local placeholder and pushes local edits", async () => {
@@ -975,6 +981,49 @@ describe("sync client engine (createSync)", () => {
 			(globalThis as any).document = origDoc;
 		}
 	});
+
+	test("a note-driven cycle hashes only the changed profile and pulls with since", async () => {
+		const env = makeMockEnv();
+		for (const id of ["a", "b", "c"])
+			env.profiles.set(`g:${id}`, { key: `g:${id}`, id, game: "g", name: id, found: [1] });
+		let sends = 0;
+		const keys = {
+			contentKey,
+			sendKey: (k: string, v: unknown) => (sends++, sendKey(k, v)),
+		};
+		const origNav = (globalThis as any).navigator;
+		const origAdd = (globalThis as any).addEventListener;
+		const origDoc = (globalThis as any).document;
+		(globalThis as any).navigator = { onLine: true };
+		(globalThis as any).addEventListener = () => {};
+		(globalThis as any).document = { addEventListener: () => {}, visibilityState: "visible" };
+		const sync = createSync({ store: env.store, ui: env.ui, api: env.api, keys });
+		try {
+			sync.start();
+			await new Promise((r) => setTimeout(r, 30));
+			expect(env.serverItems.size).toBe(3);
+			sends = 0;
+			const a = env.profiles.get("g:a");
+			a.found.push(2);
+			sync.noteLocal(["profile:g:a"]);
+			await new Promise((r) => setTimeout(r, 1600));
+			expect(env.serverItems.get("profile:g:a")?.value.found).toEqual([1, 2]);
+			// first cycle after the note: a (changed) and nothing else beyond the one-time clean check of b and c
+			const firstRound = sends;
+			expect(firstRound).toBeLessThanOrEqual(3 + 1); // a: hash + post-push result; b, c: checked once
+			sends = 0;
+			sync.noteLocal(["profile:g:a"]);
+			await new Promise((r) => setTimeout(r, 1600));
+			expect(sends).toBeLessThanOrEqual(2); // only a is hashed again; b and c stay clean
+			expect(env.pulls[0]).toBe("sync");
+			expect(env.pulls.at(-1)).toMatch(/^sync\?since=\d+$/);
+		} finally {
+			sync.stop();
+			(globalThis as any).navigator = origNav;
+			(globalThis as any).addEventListener = origAdd;
+			(globalThis as any).document = origDoc;
+		}
+	}, 10000);
 });
 
 describe("offline maps manager (src/client/offline.ts)", () => {

@@ -732,9 +732,12 @@ export function createApi({
 		onEvent?.("sync:push", `user ${userId.slice(0, 8)}... (${items.length} items)`);
 		return res;
 	}
-	const syncPull = (userId: string): SyncItem[] =>
+	// since: only rows touched at or after that time (inclusive, so equal timestamps are never lost); 0 = every row
+	const syncPull = (userId: string, since = 0): SyncItem[] =>
 		(
-			db.prepare("SELECT key, value, updated_at FROM user_data WHERE user_id = ?").all(userId) as {
+			db
+				.prepare("SELECT key, value, updated_at FROM user_data WHERE user_id = ? AND updated_at >= ?")
+				.all(userId, since) as {
 				key: string;
 				value: string | null;
 				updated_at: number;
@@ -2227,7 +2230,12 @@ export function createApi({
 					user_id: string;
 				};
 				const userId = row.user_id;
-				if (req.method === "GET") return json(200, { items: syncPull(userId) }, headers);
+				if (req.method === "GET")
+					return json(
+						200,
+						{ items: syncPull(userId, Math.max(0, Number(url.searchParams.get("since")) || 0)) },
+						headers,
+					);
 				const body = await readJson(req, 8 * 1024 * 1024);
 				const items: unknown[] = Array.isArray(body.items) ? body.items : [];
 				if (items.length > MAX_ITEMS || !items.every(validItem)) throw httpError(400, "bad sync request");
