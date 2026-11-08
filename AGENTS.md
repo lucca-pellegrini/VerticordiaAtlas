@@ -17,6 +17,7 @@ Verticordia Atlas is a local-first, offline-capable interactive game map viewer 
 Bun is managed via `mise` (`.config/mise/config.toml`). If `bun` is not on the default `PATH`, invoke it via `mise` or `~/.local/share/mise/installs/bun/1.4.4/bin/bun`.
 
 - **Run tests**: `bun test`
+- **Performance debug (off by default)**: open any page with `?perf=1` (or `localStorage.perf = "1"`) to time `prepareMap`, `runSearch`, `refreshMap`, `updateSidebar`, `saveProfileNow` and long tasks (`src/client/perf.ts`); run `perfReport()` in the console for the table
 - **Typecheck**: `bun run typecheck` (`tsc --noEmit`)
 - **Build client bundles**: `bun run build` (runs `scripts/build.ts`)
 - **Precompress static assets**: `bun run precompress` (runs `scripts/precompress.ts`; run once at deploy, after build)

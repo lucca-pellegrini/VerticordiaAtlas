@@ -11,6 +11,7 @@
 import { esc } from "../../shared/escape.ts";
 import { flat, fuzzyScore, words } from "../../shared/search.ts";
 import { svgIcon } from "../icons.ts";
+import { perfAsync } from "../perf.ts";
 import { select } from "./detail.ts";
 import { detailsReady, ensureDetails, mapData, placeThumb, refreshMap, switchMap } from "./map-view.ts";
 import { indexedOthers, type IndexEntry, indexMap } from "./search-index.ts";
@@ -167,7 +168,11 @@ export function rankEntries(q: SearchQuery, entries: any[], { byDistance = true 
 	return hits;
 }
 
-export async function runSearch(): Promise<void> {
+export function runSearch(): Promise<void> {
+	return perfAsync("runSearch", runSearchImpl);
+}
+
+async function runSearchImpl(): Promise<void> {
 	const s = state.search;
 	endPreview({ instant: true }); // a hover move is undone first: the order is by the view the user has
 	const text = ($<HTMLInputElement>("#search")?.value || "").trim();

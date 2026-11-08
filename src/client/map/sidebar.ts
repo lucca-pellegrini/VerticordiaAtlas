@@ -8,6 +8,7 @@ import { glyphInk, iconInner, iconsReady, loadIconLibrary } from "../icons-lib.t
 import { svgIcon } from "../icons.ts";
 import { downloadOfflineGame, getGameOfflineManifests, removeOfflineGame } from "../offline.ts";
 import type { OfflineStatus } from "../offline.ts";
+import { perf } from "../perf.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
 import {
@@ -510,6 +511,10 @@ export function listCats(cats: any[]): void {
 }
 
 export function updateSidebar(): void {
+	perf("updateSidebar", updateSidebarImpl);
+}
+
+function updateSidebarImpl(): void {
 	if (!state.ui) return;
 	computeStats();
 	let total = 0,
