@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-import { afterEach, beforeEach, describe, expect, test } from "bun:test";
+import { afterEach, beforeAll, beforeEach, describe, expect, test } from "bun:test";
 import { link, mkdir, mkdtemp, readdir, rm, stat, utimes } from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
@@ -16,6 +16,7 @@ import { parseSize, TileCache } from "../server/tile-cache.ts";
 import {
 	decodeTile,
 	dedupeSolid,
+	deriveLimiter,
 	deriveRaw,
 	encodeTile,
 	ops,
@@ -28,6 +29,7 @@ import {
 	tileInBounds,
 	tilePath,
 } from "../server/tile-engine.ts";
+import type { Raw } from "../server/tile-engine.ts";
 import { createTileService } from "../server/tile-service.ts";
 import type { TilesetMeta } from "../src/shared/types.ts";
 
@@ -126,6 +128,78 @@ describe("tile engine", () => {
 		expect(solidKey(raw!)?.slice(0, 6)).toBe("323c46");
 		expect(made.length).toBe(4 + 16); // zoom 1 and 2 are made; zoom 3 is stored
 		expect(made).not.toContain("0/0/0"); // the requested tile is the caller's to store
+	});
+
+	describe("parallel derivation", () => {
+		// a 16 x 16 pyramid at zoom 4 with a hole; tiles are served from memory
+		const tiles = new Map<string, Buffer>();
+		beforeAll(async () => {
+			for (let x = 0; x < 16; x++)
+				for (let y = 0; y < 16; y++) if (x < 12 || y < 8) tiles.set(`4/${x}/${y}`, await gradient(x * 16 + y));
+		});
+		const reader = (tick?: (d: 1 | -1) => void) => async (z: number, x: number, y: number) => {
+			tick?.(1);
+			await Bun.sleep(1);
+			tick?.(-1);
+			return tiles.get(`${z}/${x}/${y}`) ?? null;
+		};
+		const run = async (fanout: number, store?: string[]) => {
+			const out = new Map<string, Raw | null>();
+			for (const [z, x, y] of [
+				[0, 0, 0],
+				[1, 1, 1],
+				[2, 3, 3], // the hole: nothing below it
+				[2, 0, 2],
+			])
+				out.set(
+					`${z}/${x}/${y}`,
+					await deriveRaw(z, x, y, {
+						maxZoom: 4,
+						read: reader(),
+						background: [9, 9, 9, 255],
+						fanout,
+						store: store && (async (sz, sx, sy) => void store.push(`${sz}/${sx}/${sy}`)),
+					}),
+				);
+			return out;
+		};
+
+		test("the parallel result is byte-identical to the sequential one, and the same tiles are stored", async () => {
+			const seqStored: string[] = [],
+				parStored: string[] = [];
+			const seq = await run(0, seqStored),
+				par = await run(2, parStored);
+			for (const [k, raw] of seq) {
+				if (raw) expect(par.get(k)!.equals(raw)).toBe(true);
+				else expect(par.get(k)).toBeNull();
+			}
+			expect(par.get("2/3/3")).toBeNull(); // missing tiles stay missing
+			expect(seq.get("0/0/0")).not.toBeNull();
+			expect(parStored.sort()).toEqual(seqStored.sort());
+		});
+
+		test("concurrent requests never exceed the global cap", async () => {
+			const cap = deriveLimiter.max;
+			deriveLimiter.max = 3;
+			deriveLimiter.peak = 0;
+			let inflight = 0,
+				peakRead = 0;
+			const read = reader((d) => {
+				inflight += d;
+				peakRead = Math.max(peakRead, inflight);
+			});
+			try {
+				const all = await Promise.all(
+					[0, 1, 2, 3, 4, 5, 6, 7].map((i) => deriveRaw(1, i % 2, (i >> 1) % 2, { maxZoom: 4, read })),
+				);
+				expect(all.every((r) => r && r.length === 256 * 256 * 4)).toBe(true);
+				expect(deriveLimiter.peak).toBe(3); // reached, never passed
+				expect(peakRead).toBeLessThanOrEqual(3);
+				expect(deriveLimiter.active).toBe(0);
+			} finally {
+				deriveLimiter.max = cap;
+			}
+		});
 	});
 
 	test("placeTile hard-links single-colour tiles to one copy and stores others as they are", async () => {

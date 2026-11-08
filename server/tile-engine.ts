@@ -126,6 +126,7 @@ export interface DeriveOptions {
 	read: (z: number, x: number, y: number) => Promise<Buffer | null>; // an existing tile (the stored or a cached one)
 	background?: [number, number, number, number] | null; // the colour of a missing quarter; transparent when absent
 	store?: (z: number, x: number, y: number, raw: Raw) => Promise<void>; // told of every tile made on the way
+	fanout?: number; // levels (from the requested tile down) whose four children are made in parallel; 0 = sequential
 }
 
 function fill(buf: Buffer, rgba: [number, number, number, number]): void {
@@ -133,21 +134,67 @@ function fill(buf: Buffer, rgba: [number, number, number, number]): void {
 	for (let n = 4; n < buf.length; n *= 2) buf.copyWithin(n, 0, Math.min(n, buf.length - n));
 }
 
-// one tile at a time, depth first: memory stays at a few tiles however many tiles lie below
-export async function deriveRaw(z: number, x: number, y: number, o: DeriveOptions, top = true): Promise<Raw | null> {
+// A counting semaphore. Shared by every deriveRaw call in the process, so the cap holds across concurrent requests.
+export function createLimiter(max: number) {
+	const queue: (() => void)[] = [];
+	const l = {
+		max,
+		active: 0,
+		peak: 0, // the most operations seen in flight at once (for tests and diagnostics)
+		async run<T>(fn: () => Promise<T>): Promise<T> {
+			if (l.active >= l.max) await new Promise<void>((res) => queue.push(res));
+			else l.active++;
+			l.peak = Math.max(l.peak, l.active);
+			try {
+				return await fn();
+			} finally {
+				const next = queue.shift();
+				if (next)
+					next(); // hand the slot over
+				else l.active--;
+			}
+		},
+	};
+	return l;
+}
+
+// Every disk read, decode, resize and store of a derivation goes through this. Only leaf work holds a slot (never a
+// recursive call), so a slot is always released and the limiter cannot deadlock.
+export const deriveLimiter = createLimiter(4);
+
+const SIBLINGS: [number, number][] = [
+	[0, 0],
+	[1, 0],
+	[0, 1],
+	[1, 1],
+];
+
+// Siblings are made in parallel for the top `fanout` levels (default 2: at most 16 chains), and one at a time below
+// that, so memory stays at a few tiles per chain however many tiles lie below. The result does not depend on the order.
+export async function deriveRaw(
+	z: number,
+	x: number,
+	y: number,
+	o: DeriveOptions,
+	top = true,
+	level = 0,
+): Promise<Raw | null> {
+	const limit = deriveLimiter.run;
 	if (!top) {
-		const have = await o.read(z, x, y);
-		if (have) return decodeTile(have);
+		const have = await limit(async () => {
+			const buf = await o.read(z, x, y);
+			return buf ? decodeTile(buf) : null;
+		});
+		if (have) return have;
 	}
 	if (z >= o.maxZoom) return null;
-	const kids: (Raw | null)[] = [];
-	for (const [dx, dy] of [
-		[0, 0],
-		[1, 0],
-		[0, 1],
-		[1, 1],
-	])
-		kids.push(await deriveRaw(z + 1, 2 * x + dx, 2 * y + dy, o, false));
+	const kid = ([dx, dy]: [number, number]) => deriveRaw(z + 1, 2 * x + dx, 2 * y + dy, o, false, level + 1);
+	let kids: (Raw | null)[];
+	if (level < (o.fanout ?? 2)) kids = await Promise.all(SIBLINGS.map(kid));
+	else {
+		kids = [];
+		for (const s of SIBLINGS) kids.push(await kid(s));
+	}
 	if (kids.every((k) => !k)) return null;
 	const big = Buffer.alloc(BYTES * 4);
 	if (kids.some((k) => !k) && o.background) fill(big, o.background);
@@ -159,11 +206,16 @@ export async function deriveRaw(z: number, x: number, y: number, o: DeriveOption
 			k.copy(big, ((top2 + r) * TILE * 2 + left) * 4, r * TILE * 4, (r + 1) * TILE * 4);
 	});
 	const sharp = await loadSharp();
-	const raw = await sharp(big, { raw: { width: TILE * 2, height: TILE * 2, channels: 4 } })
-		.resize(TILE, TILE, { kernel: "lanczos3" })
-		.raw()
-		.toBuffer();
-	if (!top && o.store) await o.store(z, x, y, raw);
+	const raw = await limit(() =>
+		sharp(big, { raw: { width: TILE * 2, height: TILE * 2, channels: 4 } })
+			.resize(TILE, TILE, { kernel: "lanczos3" })
+			.raw()
+			.toBuffer(),
+	);
+	if (!top && o.store) {
+		const store = o.store;
+		await limit(() => store(z, x, y, raw));
+	}
 	return raw;
 }
 
