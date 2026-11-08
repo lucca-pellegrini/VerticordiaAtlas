@@ -13,6 +13,7 @@ import { flat, fuzzyScore, words } from "../../shared/search.ts";
 import { svgIcon } from "../icons.ts";
 import { select } from "./detail.ts";
 import { mapData, placeThumb, refreshMap, switchMap } from "./map-view.ts";
+import { indexedOthers, type IndexEntry, indexMap } from "./search-index.ts";
 import { applicable, iconHtml, syncRegionBanners } from "./sidebar.ts";
 import { $, fmt, isMobile, state, vivid } from "./state.ts";
 
@@ -111,35 +112,33 @@ export function localEntries(): any[] {
 		.map((l: any) => ({ l, slug: cur, cat: state.cats.get(l.cat), col: state.groupOfCat.get(l.cat)?.col }));
 }
 
-// the other maps of the game, from their data (fetched once, as when a map opens). Their categories and found markers
-// are as that map's saved view has them; the tag switch of this map does not apply to them.
+// the other maps of the game, from a compact index of every map (titles, categories, tags: no descriptions) built once
+// per game on the first "All maps" search. Their categories and found markers are as that map's saved view has them;
+// the tag switch of this map does not apply to them.
+// keyed by the game's meta object, so a different game never reuses it
+let indexCache: { meta: unknown; ready: Promise<IndexEntry[]> } | null = null;
+
+function allMapsIndex(): Promise<IndexEntry[]> {
+	if (indexCache && indexCache.meta === state.meta) return indexCache.ready;
+	const cache = (indexCache = {
+		meta: state.meta,
+		ready: Promise.all(
+			state.meta.maps.map(async (info: any) => {
+				const entries = indexMap(info.slug, await mapData(info, false), vivid);
+				for (const e of entries) textOf(e.l); // normalise the titles now, not on every keystroke
+				return entries;
+			}),
+		).then((lists) => lists.flat()),
+	});
+	cache.ready.catch(() => {
+		if (indexCache === cache) indexCache = null; // a failed build is tried again next time
+	});
+	return cache.ready;
+}
+
 export async function otherEntries(): Promise<any[]> {
-	const others = state.meta.maps.filter((m: any) => m.slug !== state.mapInfo.slug);
-	const lists = await Promise.all(
-		others.map(async (info: any) => {
-			const data = await mapData(info);
-			const cats = new Map<number, any>(Object.values<any>(data.categories).map((c) => [c.id, c]));
-			const groupCol = new Map<number, string>(data.groups.map((g: any) => [g.id, vivid(g.color)]));
-			const view = state.profile?.view?.[info.slug] || {};
-			const hidden = new Set<number>(view.hidden || []);
-			const out: any[] = [];
-			for (const d of data.locations) {
-				const lat = parseFloat(d.latitude),
-					lng = parseFloat(d.longitude);
-				if (!Number.isFinite(lat) || !Number.isFinite(lng) || hidden.has(d.category_id)) continue;
-				if (view.hideFound && state.found.has(d.id)) continue;
-				const cat = cats.get(d.category_id);
-				out.push({
-					l: { id: d.id, title: d.title || "", desc: d.description || "", lat, lng },
-					slug: info.slug,
-					cat,
-					col: groupCol.get(cat?.group_id),
-				});
-			}
-			return out;
-		}),
-	);
-	return lists.flat();
+	const index = await allMapsIndex();
+	return indexedOthers(index, state.mapInfo.slug, state.profile?.view, state.found);
 }
 
 // matches, best first. Within a tier: this map before the others, then the nearest to the camera. With all maps listed

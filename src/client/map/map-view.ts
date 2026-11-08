@@ -318,7 +318,9 @@ export async function prepareMap(info: any): Promise<void> {
 
 // map data is fetched once per map
 const mapCache = new Map<string, Promise<any>>();
-export function mapData(info: { slug: string; data: string }): Promise<any> {
+// keep=false (the all-maps index) reads a map that is not open without holding its data afterwards
+export function mapData(info: { slug: string; data: string }, keep = true): Promise<any> {
+	if (!keep && !mapCache.has(info.slug)) return fetchJSON(`${state.folder}/${info.data}`);
 	if (!mapCache.has(info.slug)) {
 		mapCache.set(
 			info.slug,
