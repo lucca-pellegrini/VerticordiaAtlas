@@ -61,66 +61,82 @@ import { hasTileFixtures } from "./tile-fixtures.ts";
 const HAS_RE7_BAKER_RANCH_TILES = hasTileFixtures("re7", ["baker-ranch"]);
 
 describe("server/cards helpers", () => {
-	test("hexToHsl and hslToHex round-trip", () => {
-		const [h, s, l] = hexToHsl("#d6453b");
-		expect(hslToHex(h, s, l)).toBe("#d6453b");
-	});
+	test.concurrent(
+		"hexToHsl and hslToHex round-trip",
+		() => {
+			const [h, s, l] = hexToHsl("#d6453b");
+			expect(hslToHex(h, s, l)).toBe("#d6453b");
+		},
+		30_000,
+	);
 
-	test("deriveLightTheme, gameThemeColor, and gameFavicon compute consistent theme values", () => {
-		const darkTheme = { accent: "#d6453b", "accent-soft": "#f0877d", night: "#0b0e10" };
-		const light = deriveLightTheme(darkTheme);
-		expect(light.accent).toBe("#d6453b");
-		expect(light.night).toMatch(/^#[0-9a-f]{6}$/);
-		expect(gameThemeColor(darkTheme, false)).toBe("#0b0e10");
-		expect(gameThemeColor(darkTheme, true)).toBe(light.night!);
-		expect(gameFavicon(darkTheme, false)).toStartWith("data:image/svg+xml,");
-	});
+	test.concurrent(
+		"deriveLightTheme, gameThemeColor, and gameFavicon compute consistent theme values",
+		() => {
+			const darkTheme = { accent: "#d6453b", "accent-soft": "#f0877d", night: "#0b0e10" };
+			const light = deriveLightTheme(darkTheme);
+			expect(light.accent).toBe("#d6453b");
+			expect(light.night).toMatch(/^#[0-9a-f]{6}$/);
+			expect(gameThemeColor(darkTheme, false)).toBe("#0b0e10");
+			expect(gameThemeColor(darkTheme, true)).toBe(light.night!);
+			expect(gameFavicon(darkTheme, false)).toStartWith("data:image/svg+xml,");
+		},
+		30_000,
+	);
 
-	test("esc, socialTags, withHead, and plainText format metadata properly", () => {
-		expect(esc('A & B <"C">')).toBe("A &amp; B &lt;&quot;C&quot;&gt;");
-		const tags = socialTags({
-			title: "Elden Ring",
-			description: "The Lands Between",
-			url: "https://atlas.example.com/maps/elden-ring/",
-			image: "https://atlas.example.com/maps/elden-ring/card.jpg",
-			alt: "Key art",
-		});
-		expect(tags).toContain('<meta property="og:title" content="Elden Ring">');
+	test.concurrent(
+		"esc, socialTags, withHead, and plainText format metadata properly",
+		() => {
+			expect(esc('A & B <"C">')).toBe("A &amp; B &lt;&quot;C&quot;&gt;");
+			const tags = socialTags({
+				title: "Elden Ring",
+				description: "The Lands Between",
+				url: "https://atlas.example.com/maps/elden-ring/",
+				image: "https://atlas.example.com/maps/elden-ring/card.jpg",
+				alt: "Key art",
+			});
+			expect(tags).toContain('<meta property="og:title" content="Elden Ring">');
 
-		const html = "<!doctype html><html><head><title>Old</title></head><body></body></html>";
-		const updated = withHead(html, tags, "New Title");
-		expect(updated).toContain("<title>New Title</title>");
-		expect(updated).toContain("<!-- social:start (make-cards.mjs) -->");
+			const html = "<!doctype html><html><head><title>Old</title></head><body></body></html>";
+			const updated = withHead(html, tags, "New Title");
+			expect(updated).toContain("<title>New Title</title>");
+			expect(updated).toContain("<!-- social:start (make-cards.mjs) -->");
 
-		expect(plainText("Hello **world**! See [this link](https://example.com) and ![img](x.png).", 100)).toBe(
-			"Hello world! See this link and .",
-		);
-	});
+			expect(plainText("Hello **world**! See [this link](https://example.com) and ![img](x.png).", 100)).toBe(
+				"Hello world! See this link and .",
+			);
+		},
+		30_000,
+	);
 
-	test("officialIcon resolves font layers and image sprites", () => {
-		const fontGame = {
-			dir: "/tmp/game",
-			icons: {
-				font: "icons/font.woff",
-				glyphs: {
-					boss: [
-						{ cp: "e900", color: "#000000" },
-						{ cp: "e901", color: "#ff0000", ml: "-1em" },
-					],
+	test.concurrent(
+		"officialIcon resolves font layers and image sprites",
+		() => {
+			const fontGame = {
+				dir: "/tmp/game",
+				icons: {
+					font: "icons/font.woff",
+					glyphs: {
+						boss: [
+							{ cp: "e900", color: "#000000" },
+							{ cp: "e901", color: "#ff0000", ml: "-1em" },
+						],
+					},
 				},
-			},
-		};
-		const ic = officialIcon(fontGame, "boss", "#223344");
-		expect(ic).toEqual({
-			font: "/tmp/game/icons/font.woff",
-			color: "#223344",
-			ink: "#ffffff",
-			layers: [
-				{ cp: "e900", tint: "#ffffff", ml: "" },
-				{ cp: "e901", tint: "#ff0000", ml: "-1em" },
-			],
-		});
-	});
+			};
+			const ic = officialIcon(fontGame, "boss", "#223344");
+			expect(ic).toEqual({
+				font: "/tmp/game/icons/font.woff",
+				color: "#223344",
+				ink: "#ffffff",
+				layers: [
+					{ cp: "e900", tint: "#ffffff", ml: "" },
+					{ cp: "e901", tint: "#ff0000", ml: "-1em" },
+				],
+			});
+		},
+		30_000,
+	);
 
 	test("exists and chromePath resolve binaries and filesystem paths via Bun", async () => {
 		expect(await exists("public/index.html")).toBe(true);
@@ -134,125 +150,141 @@ describe("server/cards helpers", () => {
 			if (prevChrome !== undefined) process.env.CHROME = prevChrome;
 			else delete process.env.CHROME;
 		}
-	});
+	}, 30_000);
 });
 
 describe("scripts/add-game pure helpers", () => {
-	test("extractVar parses inline window assignments", () => {
-		const html = `<script>window.mapData = {"map":{"id":42},"mapConfig":{"initial_zoom":10},"locations":[]};</script>`;
-		expect(extractVar(html, "mapData")).toEqual({
-			map: { id: 42 },
-			mapConfig: { initial_zoom: 10 },
-			locations: [],
-		});
-	});
+	test.concurrent(
+		"extractVar parses inline window assignments",
+		() => {
+			const html = `<script>window.mapData = {"map":{"id":42},"mapConfig":{"initial_zoom":10},"locations":[]};</script>`;
+			expect(extractVar(html, "mapData")).toEqual({
+				map: { id: 42 },
+				mapConfig: { initial_zoom: 10 },
+				locations: [],
+			});
+		},
+		30_000,
+	);
 
-	test("tilesCovering and deriveTheme produce valid outputs", () => {
-		const tiles = tilesCovering([-10, -10, 10, 10], 2);
-		expect(tiles.length).toBeGreaterThan(0);
-		const theme = deriveTheme("#d6453b");
-		expect(theme.accent).toBe("#d6453b");
-		expect(theme.night).toMatch(/^#[0-9a-f]{6}$/);
-	});
+	test.concurrent(
+		"tilesCovering and deriveTheme produce valid outputs",
+		() => {
+			const tiles = tilesCovering([-10, -10, 10, 10], 2);
+			expect(tiles.length).toBeGreaterThan(0);
+			const theme = deriveTheme("#d6453b");
+			expect(theme.accent).toBe("#d6453b");
+			expect(theme.night).toMatch(/^#[0-9a-f]{6}$/);
+		},
+		30_000,
+	);
 
-	test("clean-markers rewrites same-map links to #loc=<id> and preserves cross-map and external links", () => {
-		const ctx = {
-			mapSlug: "miraland",
-			isDefaultMap: true,
-			sameMapIds: new Set([509074, 444895, 320]),
-			otherMapIds: new Set([900001]),
-			otherMapSlugs: new Set(["firework-isles"]),
-		};
-		expect(resolveSameMapHref("https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=509074", ctx)).toBe(
-			"#loc=509074",
-		);
-		expect(resolveSameMapHref("https://rdr2map.com?locationIds=320", ctx)).toBe("#loc=320");
-		expect(
-			resolveSameMapHref("https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001", ctx),
-		).toBeNull();
-		expect(resolveSameMapHref("#loc=509074", ctx)).toBeNull();
+	test.concurrent(
+		"clean-markers rewrites same-map links to #loc=<id> and preserves cross-map and external links",
+		() => {
+			const ctx = {
+				mapSlug: "miraland",
+				isDefaultMap: true,
+				sameMapIds: new Set([509074, 444895, 320]),
+				otherMapIds: new Set([900001]),
+				otherMapSlugs: new Set(["firework-isles"]),
+			};
+			expect(resolveSameMapHref("https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=509074", ctx)).toBe(
+				"#loc=509074",
+			);
+			expect(resolveSameMapHref("https://rdr2map.com?locationIds=320", ctx)).toBe("#loc=320");
+			expect(
+				resolveSameMapHref("https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001", ctx),
+			).toBeNull();
+			expect(resolveSameMapHref("#loc=509074", ctx)).toBeNull();
 
-		const desc =
-			"Find [Crank](https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=444895) or travel to [Isles](https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001).";
-		const res = cleanDescription(desc, ctx);
-		expect(res.cleaned).toBe(1);
-		expect(res.text).toBe(
-			"Find [Crank](#loc=444895) or travel to [Isles](https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001).",
-		);
+			const desc =
+				"Find [Crank](https://mapgenie.io/infinity-nikki/maps/miraland?locationIds=444895) or travel to [Isles](https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001).";
+			const res = cleanDescription(desc, ctx);
+			expect(res.cleaned).toBe(1);
+			expect(res.text).toBe(
+				"Find [Crank](#loc=444895) or travel to [Isles](https://mapgenie.io/infinity-nikki/maps/firework-isles?locationIds=900001).",
+			);
 
-		const maps = [
-			{
-				slug: "commonwealth",
-				isDefault: true,
-				data: {
-					locations: [
-						{
-							id: 10,
-							description:
-								"Go to [Key](https://fallout4map.com?locationIds=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
-						},
-						{ id: 11, description: "Plain text" },
-					],
+			const maps = [
+				{
+					slug: "commonwealth",
+					isDefault: true,
+					data: {
+						locations: [
+							{
+								id: 10,
+								description:
+									"Go to [Key](https://fallout4map.com?locationIds=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
+							},
+							{ id: 11, description: "Plain text" },
+						],
+					},
 				},
-			},
-			{
-				slug: "far-harbor",
-				isDefault: false,
-				data: {
-					locations: [
-						{
-							id: 20,
-							description:
-								"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](https://fallout4map.com/far-harbor?locationIds=20).",
-						},
-					],
+				{
+					slug: "far-harbor",
+					isDefault: false,
+					data: {
+						locations: [
+							{
+								id: 20,
+								description:
+									"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](https://fallout4map.com/far-harbor?locationIds=20).",
+							},
+						],
+					},
 				},
-			},
-		];
-		const stats = cleanGameMarkers(maps);
-		expect(stats).toEqual({ maps: 2, locationsChanged: 2, linksCleaned: 2, geometriesCleaned: 0 });
-		expect(maps[0].data.locations[0].description).toBe(
-			"Go to [Key](#loc=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
-		);
-		expect(maps[1].data.locations[0].description).toBe(
-			"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](#loc=20).",
-		);
-	});
+			];
+			const stats = cleanGameMarkers(maps);
+			expect(stats).toEqual({ maps: 2, locationsChanged: 2, linksCleaned: 2, geometriesCleaned: 0 });
+			expect(maps[0].data.locations[0].description).toBe(
+				"Go to [Key](#loc=11) or [Harbor](https://fallout4map.com/far-harbor?locationIds=20).",
+			);
+			expect(maps[1].data.locations[0].description).toBe(
+				"Back to [Commonwealth](https://fallout4map.com?locationIds=10) or [Local](#loc=20).",
+			);
+		},
+		30_000,
+	);
 
-	test("cleanGameMarkers normalizes unclosed polygon rings in regions and location features", () => {
-		const maps = [
-			{
-				slug: "the-continent",
-				data: {
-					locations: [],
-					regions: [
-						{
-							id: 1,
-							features: [
-								{
-									geometry: {
-										type: "Polygon",
-										coordinates: [
-											[
-												[0, 0],
-												[10, 0],
-												[10, 10],
-												[0, 10],
+	test.concurrent(
+		"cleanGameMarkers normalizes unclosed polygon rings in regions and location features",
+		() => {
+			const maps = [
+				{
+					slug: "the-continent",
+					data: {
+						locations: [],
+						regions: [
+							{
+								id: 1,
+								features: [
+									{
+										geometry: {
+											type: "Polygon",
+											coordinates: [
+												[
+													[0, 0],
+													[10, 0],
+													[10, 10],
+													[0, 10],
+												],
 											],
-										],
+										},
 									},
-								},
-							],
-						},
-					],
+								],
+							},
+						],
+					},
 				},
-			},
-		];
-		const stats = cleanGameMarkers(maps);
-		expect(stats.geometriesCleaned).toBe(1);
-		expect(maps[0].data.regions[0].features[0].geometry.coordinates[0]).toHaveLength(5);
-		expect(maps[0].data.regions[0].features[0].geometry.coordinates[0][4]).toEqual([0, 0]);
-	});
+			];
+			const stats = cleanGameMarkers(maps);
+			expect(stats.geometriesCleaned).toBe(1);
+			expect(maps[0].data.regions[0].features[0].geometry.coordinates[0]).toHaveLength(5);
+			expect(maps[0].data.regions[0].features[0].geometry.coordinates[0][4]).toEqual([0, 0]);
+		},
+		30_000,
+	);
 });
 
 describe("build, self-hosted fonts, and service worker precache", () => {
@@ -267,7 +299,7 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 		const swCode = await Bun.file(path.join(process.cwd(), "public", "sw.js")).text();
 		expect(swCode).toContain(swVersion);
 		expect(swCode).not.toContain("fonts.googleapis.com");
-	});
+	}, 60_000);
 
 	test("HTML pages do not load external Google Fonts and base.css declares @font-face for Instrument Sans and Instrument Serif", async () => {
 		const htmlPages = [
@@ -289,7 +321,7 @@ describe("build, self-hosted fonts, and service worker precache", () => {
 		expect(baseCss).toContain('font-family: "Instrument Sans"');
 		expect(baseCss).toContain('font-family: "Instrument Serif"');
 		expect(baseCss).toContain("./fonts/instrument-sans-latin-variable.woff2");
-	});
+	}, 30_000);
 });
 
 describe("server/api and server/ws integration", () => {
@@ -325,191 +357,195 @@ describe("server/api and server/ws integration", () => {
 		await rm(tmpDir, { recursive: true, force: true });
 	});
 
-	test("secret key creation, normalization, login, sync push/pull/conflict, and WebSocket live notifications", async () => {
-		// 1. Config & unauthenticated /api/me
-		const cfgRes = await fetch(`${baseUrl}/api/config`);
-		expect(await cfgRes.json()).toEqual({ googleClientId: "test-google-client-id" });
+	test.serial(
+		"secret key creation, normalization, login, sync push/pull/conflict, and WebSocket live notifications",
+		async () => {
+			// 1. Config & unauthenticated /api/me
+			const cfgRes = await fetch(`${baseUrl}/api/config`);
+			expect(await cfgRes.json()).toEqual({ googleClientId: "test-google-client-id" });
 
-		const meAnon = await fetch(`${baseUrl}/api/me`);
-		expect(await meAnon.json()).toEqual({ user: null });
+			const meAnon = await fetch(`${baseUrl}/api/me`);
+			expect(await meAnon.json()).toEqual({ user: null });
 
-		// 2. Create secret key account (unconfirmed secret is not registered yet)
-		const newRes = await fetch(`${baseUrl}/api/auth/secret/new`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: "{}",
-		});
-		expect(newRes.status).toBe(200);
-		expect(newRes.headers.get("set-cookie")).toBeNull();
-		const { secret } = await newRes.json();
-		expect(typeof secret).toBe("string");
+			// 2. Create secret key account (unconfirmed secret is not registered yet)
+			const newRes = await fetch(`${baseUrl}/api/auth/secret/new`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: "{}",
+			});
+			expect(newRes.status).toBe(200);
+			expect(newRes.headers.get("set-cookie")).toBeNull();
+			const { secret } = await newRes.json();
+			expect(typeof secret).toBe("string");
 
-		// Attempting to log in before confirmation fails
-		const unconfirmedLogin = await fetch(`${baseUrl}/api/auth/secret/login`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ secret }),
-		});
-		expect(unconfirmedLogin.status).toBe(401);
+			// Attempting to log in before confirmation fails
+			const unconfirmedLogin = await fetch(`${baseUrl}/api/auth/secret/login`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ secret }),
+			});
+			expect(unconfirmedLogin.status).toBe(401);
 
-		// Confirm secret key account
-		const confirmRes = await fetch(`${baseUrl}/api/auth/secret/confirm`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ secret }),
-		});
-		expect(confirmRes.status).toBe(200);
-		const setCookie = confirmRes.headers.get("set-cookie") || "";
-		const cookie = setCookie.split(";")[0];
-		expect(cookie).toStartWith("va_session=");
-		const { user } = await confirmRes.json();
-		expect(user.provider).toBe("secret");
-		expect(user.name).toBe(secretName(secret));
-		expect(user.name).not.toBe("Secret key account");
+			// Confirm secret key account
+			const confirmRes = await fetch(`${baseUrl}/api/auth/secret/confirm`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ secret }),
+			});
+			expect(confirmRes.status).toBe(200);
+			const setCookie = confirmRes.headers.get("set-cookie") || "";
+			const cookie = setCookie.split(";")[0];
+			expect(cookie).toStartWith("va_session=");
+			const { user } = await confirmRes.json();
+			expect(user.provider).toBe("secret");
+			expect(user.name).toBe(secretName(secret));
+			expect(user.name).not.toBe("Secret key account");
 
-		// 3. Login with messy secret key (lowercase, spaces, lookalike O/I/L if applicable)
-		const loginRes = await fetch(`${baseUrl}/api/auth/secret/login`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ secret: secret.toLowerCase().replace(/-/g, " ") }),
-		});
-		expect(loginRes.status).toBe(200);
-		const loginJson = await loginRes.json();
-		expect(loginJson.user.name).toBe(user.name);
+			// 3. Login with messy secret key (lowercase, spaces, lookalike O/I/L if applicable)
+			const loginRes = await fetch(`${baseUrl}/api/auth/secret/login`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ secret: secret.toLowerCase().replace(/-/g, " ") }),
+			});
+			expect(loginRes.status).toBe(200);
+			const loginJson = await loginRes.json();
+			expect(loginJson.user.name).toBe(user.name);
 
-		// Typo in the secret key fails validation with 400
-		const badSecret = secret.slice(0, -1) + (secret.endsWith("A") ? "B" : "A");
-		const badLogin = await fetch(`${baseUrl}/api/auth/secret/login`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ secret: badSecret }),
-		});
-		expect(badLogin.status).toBe(400);
+			// Typo in the secret key fails validation with 400
+			const badSecret = secret.slice(0, -1) + (secret.endsWith("A") ? "B" : "A");
+			const badLogin = await fetch(`${baseUrl}/api/auth/secret/login`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ secret: badSecret }),
+			});
+			expect(badLogin.status).toBe(400);
 
-		// 4. Connect WebSocket as client-A to listen for live sync notifications
-		const wsUrl = baseUrl.replace("http://", "ws://") + "/api/ws?c=client-A";
-		const messages: any[] = [];
-		const ws = new WebSocket(wsUrl, { headers: { Cookie: cookie } } as any);
-		await new Promise<void>((resolve, reject) => {
-			ws.onmessage = (ev) => {
-				const msg = JSON.parse(String(ev.data));
-				messages.push(msg);
-				if (msg.type === "hello") resolve();
-			};
-			ws.onerror = reject;
-		});
-		expect(messages[0]).toEqual({ type: "hello" });
+			// 4. Connect WebSocket as client-A to listen for live sync notifications
+			const wsUrl = baseUrl.replace("http://", "ws://") + "/api/ws?c=client-A";
+			const messages: any[] = [];
+			const ws = new WebSocket(wsUrl, { headers: { Cookie: cookie } } as any);
+			await new Promise<void>((resolve, reject) => {
+				ws.onmessage = (ev) => {
+					const msg = JSON.parse(String(ev.data));
+					messages.push(msg);
+					if (msg.type === "hello") resolve();
+				};
+				ws.onerror = reject;
+			});
+			expect(messages[0]).toEqual({ type: "hello" });
 
-		// 5. Push a profile from client-B
-		const push1 = await fetch(`${baseUrl}/api/sync`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json", Cookie: cookie },
-			body: JSON.stringify({
-				client: "client-B",
-				items: [
-					{
-						key: "profile:elden-ring:p1",
-						value: { name: "Run 1", found: [1, 2], updated: 100, map: "limgrave", cameras: {} },
-						base: 0,
-					},
-				],
-			}),
-		});
-		expect(push1.status).toBe(200);
-		const push1Data = await push1.json();
-		expect(push1Data.results[0].status).toBe("ok");
-		const serverTime1 = push1Data.results[0].updated_at;
+			// 5. Push a profile from client-B
+			const push1 = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-B",
+					items: [
+						{
+							key: "profile:elden-ring:p1",
+							value: { name: "Run 1", found: [1, 2], updated: 100, map: "limgrave", cameras: {} },
+							base: 0,
+						},
+					],
+				}),
+			});
+			expect(push1.status).toBe(200);
+			const push1Data = await push1.json();
+			expect(push1Data.results[0].status).toBe("ok");
+			const serverTime1 = push1Data.results[0].updated_at;
 
-		// Wait briefly for WebSocket broadcast to client-A
-		await new Promise((r) => setTimeout(r, 30));
-		expect(messages).toContainEqual({ type: "changed" });
+			// Wait briefly for WebSocket broadcast to client-A
+			await new Promise((r) => setTimeout(r, 30));
+			expect(messages).toContainEqual({ type: "changed" });
 
-		// 6. Camera-only update with stale base (base: 0) should NOT conflict because contentKey is identical
-		const pushCam = await fetch(`${baseUrl}/api/sync`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json", Cookie: cookie },
-			body: JSON.stringify({
-				client: "client-A",
-				items: [
-					{
-						key: "profile:elden-ring:p1",
-						value: { name: "Run 1", found: [1, 2], updated: 200, map: "caelid", cameras: {} },
-						base: 0,
-					},
-				],
-			}),
-		});
-		const pushCamData = await pushCam.json();
-		expect(pushCamData.results[0].status).toBe("ok");
-		expect(pushCamData.results[0].updated_at).toBeGreaterThan(serverTime1);
+			// 6. Camera-only update with stale base (base: 0) should NOT conflict because contentKey is identical
+			const pushCam = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [
+						{
+							key: "profile:elden-ring:p1",
+							value: { name: "Run 1", found: [1, 2], updated: 200, map: "caelid", cameras: {} },
+							base: 0,
+						},
+					],
+				}),
+			});
+			const pushCamData = await pushCam.json();
+			expect(pushCamData.results[0].status).toBe("ok");
+			expect(pushCamData.results[0].updated_at).toBeGreaterThan(serverTime1);
 
-		// 6b. GET with since returns only rows touched at or after it; no parameter returns every row
-		const pullAll = await (await fetch(`${baseUrl}/api/sync`, { headers: { Cookie: cookie } })).json();
-		const pullNew = await (
-			await fetch(`${baseUrl}/api/sync?since=${pushCamData.results[0].updated_at + 1}`, {
+			// 6b. GET with since returns only rows touched at or after it; no parameter returns every row
+			const pullAll = await (await fetch(`${baseUrl}/api/sync`, { headers: { Cookie: cookie } })).json();
+			const pullNew = await (
+				await fetch(`${baseUrl}/api/sync?since=${pushCamData.results[0].updated_at + 1}`, {
+					headers: { Cookie: cookie },
+				})
+			).json();
+			const pullSame = await (
+				await fetch(`${baseUrl}/api/sync?since=${pushCamData.results[0].updated_at}`, {
+					headers: { Cookie: cookie },
+				})
+			).json();
+			expect(pullAll.items.length).toBe(1);
+			expect(pullNew.items).toEqual([]);
+			expect(pullSame.items.length).toBe(1);
+
+			// 7. Content change with stale base SHOULD return status: 'conflict'
+			const pushConflict = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [
+						{
+							key: "profile:elden-ring:p1",
+							value: { name: "Run 1", found: [1, 2, 999], updated: 300, map: "caelid", cameras: {} },
+							base: 0,
+						},
+					],
+				}),
+			});
+			const conflictData = await pushConflict.json();
+			expect(conflictData.results[0].status).toBe("conflict");
+			expect(conflictData.results[0].value.found).toEqual([1, 2]);
+
+			// 8. Authenticated /api/me returns createdAt, sessions, and syncedItems
+			const meAuth = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
+			const meAuthData = await meAuth.json();
+			expect(meAuthData.user.id).toBe(user.id);
+			expect(meAuthData.user.createdAt).toBeGreaterThan(0);
+			expect(meAuthData.user.sessions).toBeGreaterThanOrEqual(1);
+			expect(meAuthData.user.syncedItems).toBe(1);
+
+			// 9. Delete account cascades user_data, sessions, and secret_accounts and closes active WebSockets
+			const wsClosed = new Promise<number>((resolve) => {
+				ws.onclose = (ev) => resolve(ev.code);
+			});
+			const delRes = await fetch(`${baseUrl}/api/auth/delete-account`, {
+				method: "POST",
 				headers: { Cookie: cookie },
-			})
-		).json();
-		const pullSame = await (
-			await fetch(`${baseUrl}/api/sync?since=${pushCamData.results[0].updated_at}`, {
-				headers: { Cookie: cookie },
-			})
-		).json();
-		expect(pullAll.items.length).toBe(1);
-		expect(pullNew.items).toEqual([]);
-		expect(pullSame.items.length).toBe(1);
+			});
+			expect(delRes.status).toBe(200);
+			expect(await delRes.json()).toEqual({ ok: true });
+			expect(await wsClosed).toBe(4401);
 
-		// 7. Content change with stale base SHOULD return status: 'conflict'
-		const pushConflict = await fetch(`${baseUrl}/api/sync`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json", Cookie: cookie },
-			body: JSON.stringify({
-				client: "client-A",
-				items: [
-					{
-						key: "profile:elden-ring:p1",
-						value: { name: "Run 1", found: [1, 2, 999], updated: 300, map: "caelid", cameras: {} },
-						base: 0,
-					},
-				],
-			}),
-		});
-		const conflictData = await pushConflict.json();
-		expect(conflictData.results[0].status).toBe("conflict");
-		expect(conflictData.results[0].value.found).toEqual([1, 2]);
+			const meAfterDel = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
+			expect(await meAfterDel.json()).toEqual({ user: null });
 
-		// 8. Authenticated /api/me returns createdAt, sessions, and syncedItems
-		const meAuth = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
-		const meAuthData = await meAuth.json();
-		expect(meAuthData.user.id).toBe(user.id);
-		expect(meAuthData.user.createdAt).toBeGreaterThan(0);
-		expect(meAuthData.user.sessions).toBeGreaterThanOrEqual(1);
-		expect(meAuthData.user.syncedItems).toBe(1);
+			const reloginAfterDel = await fetch(`${baseUrl}/api/auth/secret/login`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ secret }),
+			});
+			expect(reloginAfterDel.status).toBe(401);
+		},
+		60_000,
+	);
 
-		// 9. Delete account cascades user_data, sessions, and secret_accounts and closes active WebSockets
-		const wsClosed = new Promise<number>((resolve) => {
-			ws.onclose = (ev) => resolve(ev.code);
-		});
-		const delRes = await fetch(`${baseUrl}/api/auth/delete-account`, {
-			method: "POST",
-			headers: { Cookie: cookie },
-		});
-		expect(delRes.status).toBe(200);
-		expect(await delRes.json()).toEqual({ ok: true });
-		expect(await wsClosed).toBe(4401);
-
-		const meAfterDel = await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } });
-		expect(await meAfterDel.json()).toEqual({ user: null });
-
-		const reloginAfterDel = await fetch(`${baseUrl}/api/auth/secret/login`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ secret }),
-		});
-		expect(reloginAfterDel.status).toBe(401);
-	});
-
-	test.skipIf(!HAS_RE7_BAKER_RANCH_TILES)(
+	test.skipIf(!HAS_RE7_BAKER_RANCH_TILES).concurrent(
 		"collectMapPackItems gathers all metadata and tiles with root URLs and deduplication info",
 		async () => {
 			const items = await collectMapPackItems(
@@ -529,162 +565,175 @@ describe("server/api and server/ws integration", () => {
 				expect(item.contentType.length).toBeGreaterThan(0);
 			}
 		},
+		30_000,
 	);
 
-	test("bun:sqlite driver integration, db.transaction, and atomic rollback", async () => {
-		expect(api._db.constructor.name).toBe("Database");
+	test.serial(
+		"bun:sqlite driver integration, db.transaction, and atomic rollback",
+		async () => {
+			expect(api._db.constructor.name).toBe("Database");
 
-		// Test transaction commit and rollback directly on db.transaction
-		const txSuccess = api._db.transaction((tableName: string) => {
-			api._db
-				.prepare("INSERT INTO game_popularity (game, requests, last_requested) VALUES (?, 10, 1000)")
-				.run(tableName);
-		});
-		txSuccess.immediate("test-game-1");
-		expect(api.gamePopularity().get("test-game-1")).toBe(10);
-
-		// Rollback on throw
-		const txFail = api._db.transaction(() => {
-			api._db
-				.prepare("INSERT INTO game_popularity (game, requests, last_requested) VALUES (?, 20, 2000)")
-				.run("test-game-2");
-			throw new Error("aborted transaction");
-		});
-		expect(() => txFail.immediate()).toThrow("aborted transaction");
-		expect(api.gamePopularity().get("test-game-2")).toBeUndefined();
-	});
-
-	test("server media redirect route returns HTTP 308 when in SQLite media table and falls back when not", async () => {
-		// Insert a media record into SQLite
-		api.recordMedia({
-			game: "re2",
-			original_name: "test-cloud.jpg",
-			sha256: "abcdef123456",
-			size: 1024,
-		});
-
-		expect(api.hasMedia("re2", "test-cloud.jpg")).toBe(true);
-		expect(api.hasMedia("re2", "nonexistent.jpg")).toBe(false);
-		expect(api.getMedia("re2", "test-cloud.jpg")).toMatchObject({
-			game: "re2",
-			original_name: "test-cloud.jpg",
-			sha256: "abcdef123456",
-			size: 1024,
-		});
-
-		// Now simulate a server that handles media redirects
-		const mediaServer = Bun.serve({
-			port: 0,
-			hostname: "127.0.0.1",
-			async fetch(req) {
-				const url = new URL(req.url);
-				const mediaMatch = /^\/maps\/([^/]+)\/media\/([^/]+)$/.exec(url.pathname);
-				if (mediaMatch && api.hasMedia(mediaMatch[1], mediaMatch[2])) {
-					return new Response(null, {
-						status: 308,
-						headers: {
-							Location: `https://atlas-media.verticordia.com/v1/${encodeURIComponent(mediaMatch[1])}/${encodeURIComponent(mediaMatch[2])}`,
-							"Cache-Control": "public, max-age=31536000, immutable",
-						},
-					});
-				}
-				return new Response("Not in cloud", { status: 404 });
-			},
-		});
-
-		try {
-			const resCloud = await fetch(`http://127.0.0.1:${mediaServer.port}/maps/re2/media/test-cloud.jpg`, {
-				redirect: "manual",
+			// Test transaction commit and rollback directly on db.transaction
+			const txSuccess = api._db.transaction((tableName: string) => {
+				api._db
+					.prepare("INSERT INTO game_popularity (game, requests, last_requested) VALUES (?, 10, 1000)")
+					.run(tableName);
 			});
-			expect(resCloud.status).toBe(308);
-			expect(resCloud.headers.get("location")).toBe("https://atlas-media.verticordia.com/v1/re2/test-cloud.jpg");
-			expect(resCloud.headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
+			txSuccess.immediate("test-game-1");
+			expect(api.gamePopularity().get("test-game-1")).toBe(10);
 
-			const resLocal = await fetch(`http://127.0.0.1:${mediaServer.port}/maps/re2/media/other.jpg`, {
-				redirect: "manual",
+			// Rollback on throw
+			const txFail = api._db.transaction(() => {
+				api._db
+					.prepare("INSERT INTO game_popularity (game, requests, last_requested) VALUES (?, 20, 2000)")
+					.run("test-game-2");
+				throw new Error("aborted transaction");
 			});
-			expect(resLocal.status).toBe(404);
-		} finally {
-			mediaServer.stop(true);
-		}
-	});
+			expect(() => txFail.immediate()).toThrow("aborted transaction");
+			expect(api.gamePopularity().get("test-game-2")).toBeUndefined();
+		},
+		30_000,
+	);
+
+	test.serial(
+		"server media redirect route returns HTTP 308 when in SQLite media table and falls back when not",
+		async () => {
+			// Insert a media record into SQLite
+			api.recordMedia({
+				game: "re2",
+				original_name: "test-cloud.jpg",
+				sha256: "abcdef123456",
+				size: 1024,
+			});
+
+			expect(api.hasMedia("re2", "test-cloud.jpg")).toBe(true);
+			expect(api.hasMedia("re2", "nonexistent.jpg")).toBe(false);
+			expect(api.getMedia("re2", "test-cloud.jpg")).toMatchObject({
+				game: "re2",
+				original_name: "test-cloud.jpg",
+				sha256: "abcdef123456",
+				size: 1024,
+			});
+
+			// Now simulate a server that handles media redirects
+			const mediaServer = Bun.serve({
+				port: 0,
+				hostname: "127.0.0.1",
+				async fetch(req) {
+					const url = new URL(req.url);
+					const mediaMatch = /^\/maps\/([^/]+)\/media\/([^/]+)$/.exec(url.pathname);
+					if (mediaMatch && api.hasMedia(mediaMatch[1], mediaMatch[2])) {
+						return new Response(null, {
+							status: 308,
+							headers: {
+								Location: `https://atlas-media.verticordia.com/v1/${encodeURIComponent(mediaMatch[1])}/${encodeURIComponent(mediaMatch[2])}`,
+								"Cache-Control": "public, max-age=31536000, immutable",
+							},
+						});
+					}
+					return new Response("Not in cloud", { status: 404 });
+				},
+			});
+
+			try {
+				const resCloud = await fetch(`http://127.0.0.1:${mediaServer.port}/maps/re2/media/test-cloud.jpg`, {
+					redirect: "manual",
+				});
+				expect(resCloud.status).toBe(308);
+				expect(resCloud.headers.get("location")).toBe(
+					"https://atlas-media.verticordia.com/v1/re2/test-cloud.jpg",
+				);
+				expect(resCloud.headers.get("cache-control")).toBe("public, max-age=31536000, immutable");
+
+				const resLocal = await fetch(`http://127.0.0.1:${mediaServer.port}/maps/re2/media/other.jpg`, {
+					redirect: "manual",
+				});
+				expect(resLocal.status).toBe(404);
+			} finally {
+				mediaServer.stop(true);
+			}
+		},
+		30_000,
+	);
 });
 
 describe("Cloudflare R2 and media storage pipeline", () => {
-	let testDir: string;
+	test.concurrent(
+		"validateR2Env rejects missing or placeholder values and accepts valid configuration",
+		() => {
+			// Fails with default placeholders
+			expect(() =>
+				validateR2Env({
+					env: {
+						AWS_ACCESS_KEY_ID: "replace-me",
+						AWS_SECRET_ACCESS_KEY: "replace-me",
+						AWS_DEFAULT_REGION: "us-east-1",
+						R2_ENDPOINT: "https://replace-me.r2.cloudflarestorage.com",
+						R2_BUCKET: "replace-me",
+					},
+					root: "/tmp",
+					loadDotEnvFile: false,
+				}),
+			).toThrow("Missing or unconfigured R2 environment variable");
 
-	beforeEach(async () => {
-		testDir = await mkdtemp(path.join(os.tmpdir(), "media-test-"));
-	});
-
-	afterEach(async () => {
-		await rm(testDir, { recursive: true, force: true });
-	});
-
-	test("validateR2Env rejects missing or placeholder values and accepts valid configuration", () => {
-		// Fails with default placeholders
-		expect(() =>
-			validateR2Env({
+			// Accepts valid custom values
+			const cfg = validateR2Env({
 				env: {
-					AWS_ACCESS_KEY_ID: "replace-me",
-					AWS_SECRET_ACCESS_KEY: "replace-me",
-					AWS_DEFAULT_REGION: "us-east-1",
-					R2_ENDPOINT: "https://replace-me.r2.cloudflarestorage.com",
-					R2_BUCKET: "replace-me",
+					AWS_ACCESS_KEY_ID: "valid-key-id",
+					AWS_SECRET_ACCESS_KEY: "valid-secret-key",
+					AWS_DEFAULT_REGION: "auto",
+					R2_ENDPOINT: "https://account123.r2.cloudflarestorage.com",
+					R2_BUCKET: "my-media-bucket",
+					MEDIA_URL: "https://media.example.com",
 				},
-				root: testDir,
+				root: "/tmp",
 				loadDotEnvFile: false,
-			}),
-		).toThrow("Missing or unconfigured R2 environment variable");
+			});
+			expect(cfg).toEqual({
+				accessKeyId: "valid-key-id",
+				secretAccessKey: "valid-secret-key",
+				region: "auto",
+				endpoint: "https://account123.r2.cloudflarestorage.com",
+				bucket: "my-media-bucket",
+				mediaUrl: "https://media.example.com",
+			});
+		},
+		30_000,
+	);
 
-		// Accepts valid custom values
-		const cfg = validateR2Env({
-			env: {
-				AWS_ACCESS_KEY_ID: "valid-key-id",
-				AWS_SECRET_ACCESS_KEY: "valid-secret-key",
-				AWS_DEFAULT_REGION: "auto",
-				R2_ENDPOINT: "https://account123.r2.cloudflarestorage.com",
-				R2_BUCKET: "my-media-bucket",
-				MEDIA_URL: "https://media.example.com",
-			},
-			root: testDir,
-			loadDotEnvFile: false,
-		});
-		expect(cfg).toEqual({
-			accessKeyId: "valid-key-id",
-			secretAccessKey: "valid-secret-key",
-			region: "auto",
-			endpoint: "https://account123.r2.cloudflarestorage.com",
-			bucket: "my-media-bucket",
-			mediaUrl: "https://media.example.com",
-		});
-	});
+	test.concurrent(
+		"mimeForMedia, publicMediaUrl, and client mediaUrls resolve expected URLs and MIME types",
+		() => {
+			expect(mimeForMedia("photo.jpg")).toBe("image/jpeg");
+			expect(mimeForMedia("photo.jpeg")).toBe("image/jpeg");
+			expect(mimeForMedia("photo.png")).toBe("image/png");
+			expect(mimeForMedia("photo.webp")).toBe("image/webp");
+			expect(mimeForMedia("clip.mp4")).toBe("video/mp4");
+			expect(mimeForMedia("unknown.xyz")).toBe("application/octet-stream");
 
-	test("mimeForMedia, publicMediaUrl, and client mediaUrls resolve expected URLs and MIME types", () => {
-		expect(mimeForMedia("photo.jpg")).toBe("image/jpeg");
-		expect(mimeForMedia("photo.jpeg")).toBe("image/jpeg");
-		expect(mimeForMedia("photo.png")).toBe("image/png");
-		expect(mimeForMedia("photo.webp")).toBe("image/webp");
-		expect(mimeForMedia("clip.mp4")).toBe("video/mp4");
-		expect(mimeForMedia("unknown.xyz")).toBe("application/octet-stream");
+			expect(publicMediaUrl("https://atlas-media.verticordia.com", "re2", "item 1.jpg")).toBe(
+				"https://atlas-media.verticordia.com/v1/re2/item%201.jpg",
+			);
 
-		expect(publicMediaUrl("https://atlas-media.verticordia.com", "re2", "item 1.jpg")).toBe(
-			"https://atlas-media.verticordia.com/v1/re2/item%201.jpg",
-		);
+			const clientUrls = mediaUrls("shot.jpg", "re2", "./custom", "https://atlas-media.verticordia.com");
+			expect(clientUrls.primary).toBe("https://atlas-media.verticordia.com/v1/re2/shot.jpg");
+			expect(clientUrls.fallback).toBe("./custom/media/shot.jpg");
+		},
+		30_000,
+	);
 
-		const clientUrls = mediaUrls("shot.jpg", "re2", "./custom", "https://atlas-media.verticordia.com");
-		expect(clientUrls.primary).toBe("https://atlas-media.verticordia.com/v1/re2/shot.jpg");
-		expect(clientUrls.fallback).toBe("./custom/media/shot.jpg");
-	});
-
-	test("resolveGameSlug resolves slug or throws when missing and not inferrable", () => {
-		expect(resolveGameSlug("re2")).toBe("re2");
-		expect(resolveGameSlug(undefined, "requiem")).toBe("requiem");
-		expect(resolveGameSlug("public/maps/re2/data.json")).toBe("re2");
-		expect(resolveGameSlug("/tmp/maps/elden-ring/media")).toBe("elden-ring");
-		expect(() => resolveGameSlug(undefined)).toThrow("Game slug/id is required");
-		expect(() => resolveGameSlug("/tmp/unknown/file.json")).toThrow("Could not infer game slug/id");
-	});
+	test.concurrent(
+		"resolveGameSlug resolves slug or throws when missing and not inferrable",
+		() => {
+			expect(resolveGameSlug("re2")).toBe("re2");
+			expect(resolveGameSlug(undefined, "requiem")).toBe("requiem");
+			expect(resolveGameSlug("public/maps/re2/data.json")).toBe("re2");
+			expect(resolveGameSlug("/tmp/maps/elden-ring/media")).toBe("elden-ring");
+			expect(() => resolveGameSlug(undefined)).toThrow("Game slug/id is required");
+			expect(() => resolveGameSlug("/tmp/unknown/file.json")).toThrow("Could not infer game slug/id");
+		},
+		30_000,
+	);
 
 	test("uploadAndVerifyBuffer uploads with Cache-Control, verifies SHA-256 over public link, and retries up to 3 attempts", async () => {
 		const uploadedStore = new Map<string, Uint8Array>();
@@ -738,7 +787,7 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		} finally {
 			mockServer.stop(true);
 		}
-	});
+	}, 30_000);
 
 	test("uploadAndVerifyBuffer throws after 3 failed attempts on hash mismatch or server failure", async () => {
 		let attempts = 0;
@@ -774,9 +823,10 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		} finally {
 			mockFailingServer.stop(true);
 		}
-	});
+	}, 30_000);
 
 	test("uploadMediaBatch uploads files, records in SQLite, deletes local files, and skips files already in cloud", async () => {
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "media-test-"));
 		const mediaDb = openMediaDb(testDir);
 		const uploadedStore = new Map<string, Uint8Array>();
 
@@ -845,8 +895,9 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		} finally {
 			mockServer.stop(true);
 			mediaDb.close();
+			await rm(testDir, { recursive: true, force: true });
 		}
-	});
+	}, 30_000);
 
 	test("offline-pack and parseUrl reject path traversal slugs and out-of-root paths", async () => {
 		expect(parseUrl("/api/maps/..%2F..%2F/offline-pack")).toBeNull();
@@ -882,7 +933,7 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 			"..",
 		);
 		expect(badRes2.status).toBe(400);
-	});
+	}, 30_000);
 
 	test("streamOfflinePack enforces per-IP rate limiting and Retry-After header", async () => {
 		const rateLimiter = createRateLimiter();
@@ -914,7 +965,7 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		});
 		expect(r3.status).toBe(429);
 		expect(Number(r3.headers.get("Retry-After"))).toBeGreaterThanOrEqual(1);
-	});
+	}, 30_000);
 
 	test("buildSecurityHeaders and withSecurityHeaders emit CSP, nosniff, frame deny, and HSTS", async () => {
 		const hashes = await collectInlineScriptHashes();
@@ -945,106 +996,120 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		const jsonHeaders = buildSecurityHeaders({ isHtml: false, isHttps: false });
 		expect(jsonHeaders["X-Content-Type-Options"]).toBe("nosniff");
 		expect(jsonHeaders["Content-Security-Policy"]).toBeUndefined();
-	});
+	}, 30_000);
 
-	test("resolveSafeMediaFile blocks path traversal and confines filenames to gameDir/media", () => {
-		const gameDir = path.join(testDir, "public", "maps", "test-game");
-		expect(resolveSafeMediaFile(gameDir, "https://example.com/media/..%2F..%2Fsecret.png")).toBeNull();
-		expect(resolveSafeMediaFile(gameDir, "https://example.com/media/..")).toBeNull();
-		expect(resolveSafeMediaFile(gameDir, "https://example.com/media/.")).toBeNull();
-		expect(resolveSafeMediaFile(gameDir, "https://example.com/media/sub%5Cfile.png")).toBeNull();
+	test.concurrent(
+		"resolveSafeMediaFile blocks path traversal and confines filenames to gameDir/media",
+		() => {
+			const gameDir = path.join(os.tmpdir(), "test-game");
+			expect(resolveSafeMediaFile(gameDir, "https://example.com/media/..%2F..%2Fsecret.png")).toBeNull();
+			expect(resolveSafeMediaFile(gameDir, "https://example.com/media/..")).toBeNull();
+			expect(resolveSafeMediaFile(gameDir, "https://example.com/media/.")).toBeNull();
+			expect(resolveSafeMediaFile(gameDir, "https://example.com/media/sub%5Cfile.png")).toBeNull();
 
-		const valid = resolveSafeMediaFile(gameDir, "https://media.mapgenie.io/storage/media/shot_01.jpg");
-		expect(valid).not.toBeNull();
-		expect(valid!.name).toBe("shot_01.jpg");
-		expect(valid!.file).toBe(path.resolve(gameDir, "media", "shot_01.jpg"));
-	});
+			const valid = resolveSafeMediaFile(gameDir, "https://media.mapgenie.io/storage/media/shot_01.jpg");
+			expect(valid).not.toBeNull();
+			expect(valid!.name).toBe("shot_01.jpg");
+			expect(valid!.file).toBe(path.resolve(gameDir, "media", "shot_01.jpg"));
+		},
+		30_000,
+	);
 
 	test("backupDatabase creates online VACUUM INTO snapshots and rotates older backups", async () => {
-		const api = createApi({ root: testDir });
-		api.recordGameRequest("elden-ring");
-		api.close();
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "backup-test-"));
+		try {
+			const api = createApi({ root: testDir });
+			api.recordGameRequest("elden-ring");
+			api.close();
 
-		const dbPath = path.join(testDir, "data", "atlas.db");
-		const outDir = path.join(testDir, "backups");
+			const dbPath = path.join(testDir, "data", "atlas.db");
+			const outDir = path.join(testDir, "backups");
 
-		const b1 = await backupDatabase({
-			dbPath,
-			outDir,
-			keep: 2,
-			now: new Date("2026-04-11T10:00:00.000Z"),
-		});
-		expect(await exists(b1.backupFile)).toBe(true);
-		expect(b1.bytes).toBeGreaterThan(0);
+			const b1 = await backupDatabase({
+				dbPath,
+				outDir,
+				keep: 2,
+				now: new Date("2026-04-11T10:00:00.000Z"),
+			});
+			expect(await exists(b1.backupFile)).toBe(true);
+			expect(b1.bytes).toBeGreaterThan(0);
 
-		const b2 = await backupDatabase({
-			dbPath,
-			outDir,
-			keep: 2,
-			now: new Date("2026-04-11T11:00:00.000Z"),
-		});
-		const b3 = await backupDatabase({
-			dbPath,
-			outDir,
-			keep: 2,
-			now: new Date("2026-04-11T12:00:00.000Z"),
-		});
-		expect(b3.pruned).toEqual([b1.backupFile]);
-		expect(await exists(b1.backupFile)).toBe(false);
-		expect(await exists(b2.backupFile)).toBe(true);
-		expect(await exists(b3.backupFile)).toBe(true);
-	});
+			const b2 = await backupDatabase({
+				dbPath,
+				outDir,
+				keep: 2,
+				now: new Date("2026-04-11T11:00:00.000Z"),
+			});
+			const b3 = await backupDatabase({
+				dbPath,
+				outDir,
+				keep: 2,
+				now: new Date("2026-04-11T12:00:00.000Z"),
+			});
+			expect(b3.pruned).toEqual([b1.backupFile]);
+			expect(await exists(b1.backupFile)).toBe(false);
+			expect(await exists(b2.backupFile)).toBe(true);
+			expect(await exists(b3.backupFile)).toBe(true);
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	}, 30_000);
 
 	test("loadGames and gameTilesets survive truncated sibling meta.json without failing valid games", async () => {
-		const fakePublic = path.join(testDir, "public-corrupt-test");
-		const goodDir = path.join(fakePublic, "maps", "good-game");
-		const brokenDir = path.join(fakePublic, "maps", "village-truncated");
-		await mkdir(goodDir, { recursive: true });
-		await mkdir(brokenDir, { recursive: true });
+		const testDir = await mkdtemp(path.join(os.tmpdir(), "load-games-test-"));
+		try {
+			const fakePublic = path.join(testDir, "public-corrupt-test");
+			const goodDir = path.join(fakePublic, "maps", "good-game");
+			const brokenDir = path.join(fakePublic, "maps", "village-truncated");
+			await mkdir(goodDir, { recursive: true });
+			await mkdir(brokenDir, { recursive: true });
 
-		await Bun.write(
-			path.join(fakePublic, "maps", "index.json"),
-			JSON.stringify({ games: [{ slug: "good-game", title: "Good Game" }, { slug: "village-truncated" }] }),
-		);
-		await Bun.write(
-			path.join(goodDir, "meta.json"),
-			JSON.stringify({
-				id: "good-game",
-				title: "Good Game",
-				maps: [
-					{
-						slug: "world",
-						title: "World",
-						data: "world/data.json",
-						tilesets: [
-							{
-								name: "Default",
-								template: "world/tiles/default/{z}/{x}/{y}.jpg",
-								minzoom: 8,
-								maxzoom: 14,
-							},
-						],
-					},
-				],
-			}),
-		);
-		// Truncated JSON that triggers "SyntaxError: JSON Parse error: Expected '}'"
-		await Bun.write(
-			path.join(brokenDir, "meta.json"),
-			'{"id":"village","maps":[{"slug":"the-village","title":"The Village"',
-		);
+			await Bun.write(
+				path.join(fakePublic, "maps", "index.json"),
+				JSON.stringify({ games: [{ slug: "good-game", title: "Good Game" }, { slug: "village-truncated" }] }),
+			);
+			await Bun.write(
+				path.join(goodDir, "meta.json"),
+				JSON.stringify({
+					id: "good-game",
+					title: "Good Game",
+					maps: [
+						{
+							slug: "world",
+							title: "World",
+							data: "world/data.json",
+							tilesets: [
+								{
+									name: "Default",
+									template: "world/tiles/default/{z}/{x}/{y}.jpg",
+									minzoom: 8,
+									maxzoom: 14,
+								},
+							],
+						},
+					],
+				}),
+			);
+			// Truncated JSON that triggers "SyntaxError: JSON Parse error: Expected '}'"
+			await Bun.write(
+				path.join(brokenDir, "meta.json"),
+				'{"id":"village","maps":[{"slug":"the-village","title":"The Village"',
+			);
 
-		const loaded = await loadGames(fakePublic);
-		expect(loaded.games.map((g) => g.slug)).toEqual(["good-game"]);
-		expect(loaded.shown.map((g) => g.slug)).toEqual(["good-game"]);
+			const loaded = await loadGames(fakePublic);
+			expect(loaded.games.map((g) => g.slug)).toEqual(["good-game"]);
+			expect(loaded.shown.map((g) => g.slug)).toEqual(["good-game"]);
 
-		const sets = await gameTilesets("good-game", fakePublic);
-		expect(sets).not.toBeNull();
-		expect(sets?.length).toBe(1);
-		expect(sets?.[0].template).toBe("world/tiles/default/{z}/{x}/{y}.jpg");
+			const sets = await gameTilesets("good-game", fakePublic);
+			expect(sets).not.toBeNull();
+			expect(sets?.length).toBe(1);
+			expect(sets?.[0].template).toBe("world/tiles/default/{z}/{x}/{y}.jpg");
 
-		expect(await gameTilesets("village-truncated", fakePublic)).toBeNull();
-	});
+			expect(await gameTilesets("village-truncated", fakePublic)).toBeNull();
+		} finally {
+			await rm(testDir, { recursive: true, force: true });
+		}
+	}, 30_000);
 
 	test("precompress creates .br and .gz sidecars and skips up-to-date sidecars", async () => {
 		const testDir = await mkdtemp(path.join(os.tmpdir(), "precompress-test-"));
@@ -1072,7 +1137,7 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		} finally {
 			await rm(testDir, { recursive: true, force: true });
 		}
-	});
+	}, 30_000);
 
 	test("server static sidecar negotiation: br preferred, gz fallback, identity, Vary, and 304 handling", async () => {
 		const testDir = await mkdtemp(path.join(os.tmpdir(), "sidecar-serve-test-"));
@@ -1141,173 +1206,185 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 		} finally {
 			await rm(testDir, { recursive: true, force: true });
 		}
-	});
+	}, 30_000);
 
-	test("serveStatic cache-control headers: immutable tiles and media, mutable data.json and posters", async () => {
-		const testDir = await mkdtemp(path.join(os.tmpdir(), "static-cache-test-"));
-		try {
-			const publicDir = path.join(testDir, "public");
+	test.concurrent(
+		"serveStatic cache-control headers: immutable tiles and media, mutable data.json and posters",
+		async () => {
+			const testDir = await mkdtemp(path.join(os.tmpdir(), "static-cache-test-"));
+			try {
+				const publicDir = path.join(testDir, "public");
 
-			// 1. Stored tile file
-			const tilePath = path.join(publicDir, "maps", "game", "world", "tiles", "default", "1", "0", "0.png");
-			await mkdir(path.dirname(tilePath), { recursive: true });
-			await Bun.write(tilePath, "fake-tile-data");
+				// 1. Stored tile file
+				const tilePath = path.join(publicDir, "maps", "game", "world", "tiles", "default", "1", "0", "0.png");
+				await mkdir(path.dirname(tilePath), { recursive: true });
+				await Bun.write(tilePath, "fake-tile-data");
 
-			// 2. Marker media file
-			const mediaPath = path.join(publicDir, "maps", "game", "media", "marker-photo.jpg");
-			await mkdir(path.dirname(mediaPath), { recursive: true });
-			await Bun.write(mediaPath, "fake-media-data");
+				// 2. Marker media file
+				const mediaPath = path.join(publicDir, "maps", "game", "media", "marker-photo.jpg");
+				await mkdir(path.dirname(mediaPath), { recursive: true });
+				await Bun.write(mediaPath, "fake-media-data");
 
-			// 3. Mutable data.json
-			const dataPath = path.join(publicDir, "maps", "game", "world", "data.json");
-			await mkdir(path.dirname(dataPath), { recursive: true });
-			await Bun.write(dataPath, JSON.stringify({ locations: [] }));
+				// 3. Mutable data.json
+				const dataPath = path.join(publicDir, "maps", "game", "world", "data.json");
+				await mkdir(path.dirname(dataPath), { recursive: true });
+				await Bun.write(dataPath, JSON.stringify({ locations: [] }));
 
-			// 4. Mutable poster image
-			const posterPath = path.join(publicDir, "maps", "game", "poster-600.webp");
-			await mkdir(path.dirname(posterPath), { recursive: true });
-			await Bun.write(posterPath, "fake-poster-data");
+				// 4. Mutable poster image
+				const posterPath = path.join(publicDir, "maps", "game", "poster-600.webp");
+				await mkdir(path.dirname(posterPath), { recursive: true });
+				await Bun.write(posterPath, "fake-poster-data");
 
-			const tileRes = await serveStatic(
-				new Request("http://localhost/maps/game/world/tiles/default/1/0/0.png"),
-				"/maps/game/world/tiles/default/1/0/0.png",
-				"",
-				publicDir,
-			);
-			expect(tileRes.status).toBe(200);
-			expect(tileRes.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
+				const tileRes = await serveStatic(
+					new Request("http://localhost/maps/game/world/tiles/default/1/0/0.png"),
+					"/maps/game/world/tiles/default/1/0/0.png",
+					"",
+					publicDir,
+				);
+				expect(tileRes.status).toBe(200);
+				expect(tileRes.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
 
-			const mediaRes = await serveStatic(
-				new Request("http://localhost/maps/game/media/marker-photo.jpg"),
-				"/maps/game/media/marker-photo.jpg",
-				"",
-				publicDir,
-			);
-			expect(mediaRes.status).toBe(200);
-			expect(mediaRes.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
+				const mediaRes = await serveStatic(
+					new Request("http://localhost/maps/game/media/marker-photo.jpg"),
+					"/maps/game/media/marker-photo.jpg",
+					"",
+					publicDir,
+				);
+				expect(mediaRes.status).toBe(200);
+				expect(mediaRes.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
 
-			const dataRes = await serveStatic(
-				new Request("http://localhost/maps/game/world/data.json"),
-				"/maps/game/world/data.json",
-				"",
-				publicDir,
-			);
-			expect(dataRes.status).toBe(200);
-			expect(dataRes.headers.get("Cache-Control")).toBe("no-cache");
-			expect(dataRes.headers.get("Cache-Control")).not.toContain("immutable");
+				const dataRes = await serveStatic(
+					new Request("http://localhost/maps/game/world/data.json"),
+					"/maps/game/world/data.json",
+					"",
+					publicDir,
+				);
+				expect(dataRes.status).toBe(200);
+				expect(dataRes.headers.get("Cache-Control")).toBe("no-cache");
+				expect(dataRes.headers.get("Cache-Control")).not.toContain("immutable");
 
-			const posterRes = await serveStatic(
-				new Request("http://localhost/maps/game/poster-600.webp"),
-				"/maps/game/poster-600.webp",
-				"",
-				publicDir,
-			);
-			expect(posterRes.status).toBe(200);
-			expect(posterRes.headers.get("Cache-Control")).toBe("public, max-age=3600");
-			expect(posterRes.headers.get("Cache-Control")).not.toContain("immutable");
-		} finally {
-			await rm(testDir, { recursive: true, force: true });
-		}
-	});
-
-	test("dataCache bounds to LRU of 8 entries and refreshes hit positions", async () => {
-		const testDir = await mkdtemp(path.join(os.tmpdir(), "datacache-test-"));
-		try {
-			dataCache.clear();
-			const files: string[] = [];
-			for (let i = 0; i < 10; i++) {
-				const f = path.join(testDir, `map-${i}.json`);
-				await Bun.write(f, JSON.stringify({ locations: [{ id: i * 10, title: `Loc ${i}` }] }));
-				files.push(f);
+				const posterRes = await serveStatic(
+					new Request("http://localhost/maps/game/poster-600.webp"),
+					"/maps/game/poster-600.webp",
+					"",
+					publicDir,
+				);
+				expect(posterRes.status).toBe(200);
+				expect(posterRes.headers.get("Cache-Control")).toBe("public, max-age=3600");
+				expect(posterRes.headers.get("Cache-Control")).not.toContain("immutable");
+			} finally {
+				await rm(testDir, { recursive: true, force: true });
 			}
+		},
+		30_000,
+	);
 
-			// Read first 8 files (capacity is 8)
-			for (let i = 0; i < 8; i++) {
-				const entry = await readDataEntry(files[i]);
-				expect(entry.locIndex.get(i * 10)).toEqual({ id: i * 10, title: `Loc ${i}` });
+	test.serial(
+		"dataCache bounds to LRU of 8 entries and refreshes hit positions",
+		async () => {
+			const testDir = await mkdtemp(path.join(os.tmpdir(), "datacache-test-"));
+			try {
+				dataCache.clear();
+				const files: string[] = [];
+				for (let i = 0; i < 10; i++) {
+					const f = path.join(testDir, `map-${i}.json`);
+					await Bun.write(f, JSON.stringify({ locations: [{ id: i * 10, title: `Loc ${i}` }] }));
+					files.push(f);
+				}
+
+				// Read first 8 files (capacity is 8)
+				for (let i = 0; i < 8; i++) {
+					const entry = await readDataEntry(files[i]);
+					expect(entry.locIndex.get(i * 10)).toEqual({ id: i * 10, title: `Loc ${i}` });
+				}
+				expect(dataCache.size).toBe(8);
+				expect(dataCache.has(files[0])).toBe(true);
+
+				// Hit file 0 to refresh its LRU position to most-recently-used
+				await readDataEntry(files[0]);
+				expect(dataCache.size).toBe(8);
+
+				// Read file 8 (9th unique file): should evict file 1 (since file 0 was refreshed)
+				await readDataEntry(files[8]);
+				expect(dataCache.size).toBe(8);
+				expect(dataCache.has(files[0])).toBe(true);
+				expect(dataCache.has(files[1])).toBe(false);
+				expect(dataCache.has(files[8])).toBe(true);
+
+				// Read file 9 (10th unique file): should evict file 2
+				await readDataEntry(files[9]);
+				expect(dataCache.size).toBe(8);
+				expect(dataCache.has(files[2])).toBe(false);
+				expect(dataCache.has(files[9])).toBe(true);
+			} finally {
+				await rm(testDir, { recursive: true, force: true });
 			}
-			expect(dataCache.size).toBe(8);
-			expect(dataCache.has(files[0])).toBe(true);
+		},
+		30_000,
+	);
 
-			// Hit file 0 to refresh its LRU position to most-recently-used
-			await readDataEntry(files[0]);
-			expect(dataCache.size).toBe(8);
+	test.concurrent(
+		"markerInfo location indexing matches linear find on test fixture and real map",
+		async () => {
+			const testDir = await mkdtemp(path.join(os.tmpdir(), "markerinfo-test-"));
+			try {
+				const fixturePath = path.join(testDir, "fixture.json");
+				const fixture = {
+					locations: [
+						{ id: 101, title: "First 101", category_id: 1 },
+						{ id: "102", title: "String 102", category_id: 2 },
+						{ id: 101, title: "Duplicate 101", category_id: 3 },
+						{ id: 103, title: "Third 103", category_id: 1 },
+					],
+					categories: {
+						1: { id: 1, title: "Cat 1", group_id: 10 },
+						2: { id: 2, title: "Cat 2", group_id: 20 },
+					},
+					groups: [
+						{ id: 10, color: "#ff0000" },
+						{ id: 20, color: "00ff00" },
+					],
+				};
+				await Bun.write(fixturePath, JSON.stringify(fixture));
 
-			// Read file 8 (9th unique file): should evict file 1 (since file 0 was refreshed)
-			await readDataEntry(files[8]);
-			expect(dataCache.size).toBe(8);
-			expect(dataCache.has(files[0])).toBe(true);
-			expect(dataCache.has(files[1])).toBe(false);
-			expect(dataCache.has(files[8])).toBe(true);
+				const entry = await readDataEntry(fixturePath);
 
-			// Read file 9 (10th unique file): should evict file 2
-			await readDataEntry(files[9]);
-			expect(dataCache.size).toBe(8);
-			expect(dataCache.has(files[2])).toBe(false);
-			expect(dataCache.has(files[9])).toBe(true);
-		} finally {
-			await rm(testDir, { recursive: true, force: true });
-		}
-	});
+				// Linear find reference
+				const linearFind = (id: number) => (fixture.locations || []).find((l: any) => Number(l.id) === id);
 
-	test("markerInfo location indexing matches linear find on test fixture and real map", async () => {
-		const testDir = await mkdtemp(path.join(os.tmpdir(), "markerinfo-test-"));
-		try {
-			const fixturePath = path.join(testDir, "fixture.json");
-			const fixture = {
-				locations: [
-					{ id: 101, title: "First 101", category_id: 1 },
-					{ id: "102", title: "String 102", category_id: 2 },
-					{ id: 101, title: "Duplicate 101", category_id: 3 },
-					{ id: 103, title: "Third 103", category_id: 1 },
-				],
-				categories: {
-					1: { id: 1, title: "Cat 1", group_id: 10 },
-					2: { id: 2, title: "Cat 2", group_id: 20 },
-				},
-				groups: [
-					{ id: 10, color: "#ff0000" },
-					{ id: 20, color: "00ff00" },
-				],
-			};
-			await Bun.write(fixturePath, JSON.stringify(fixture));
+				for (const id of [101, 102, 103, 999]) {
+					const fromIndex = entry.locIndex.get(id);
+					const fromLinear = linearFind(id);
+					expect(fromIndex).toEqual(fromLinear);
+				}
 
-			const entry = await readDataEntry(fixturePath);
+				// Verify duplicate 101 preserves the first item like Array.prototype.find
+				expect(entry.locIndex.get(101)?.title).toBe("First 101");
 
-			// Linear find reference
-			const linearFind = (id: number) => (fixture.locations || []).find((l: any) => Number(l.id) === id);
+				// Also verify against public/maps/requiem/world/data.json
+				const realMapFile = path.join(process.cwd(), "public", "maps", "requiem", "world", "data.json");
+				const realEntry = await readDataEntry(realMapFile);
+				const realJson = realEntry.json;
+				const sampleIds = [541102, 541223, 99999999];
+				for (const id of sampleIds) {
+					const indexed = realEntry.locIndex.get(id);
+					const linear = (realJson.locations || []).find((l: any) => Number(l.id) === id);
+					expect(indexed).toEqual(linear);
+				}
 
-			for (const id of [101, 102, 103, 999]) {
-				const fromIndex = entry.locIndex.get(id);
-				const fromLinear = linearFind(id);
-				expect(fromIndex).toEqual(fromLinear);
+				// Verify markerInfo() output
+				const card = await markerInfo("requiem", "world", 541102);
+				expect(card).not.toBeNull();
+				expect(card?.title).toBe("Chef");
+				expect(card?.gameSlug).toBe("requiem");
+				expect(card?.mapSlug).toBe("world");
+				expect(card?.id).toBe(541102);
+			} finally {
+				await rm(testDir, { recursive: true, force: true });
 			}
-
-			// Verify duplicate 101 preserves the first item like Array.prototype.find
-			expect(entry.locIndex.get(101)?.title).toBe("First 101");
-
-			// Also verify against public/maps/requiem/world/data.json
-			const realMapFile = path.join(process.cwd(), "public", "maps", "requiem", "world", "data.json");
-			const realEntry = await readDataEntry(realMapFile);
-			const realJson = realEntry.json;
-			const sampleIds = [541102, 541223, 99999999];
-			for (const id of sampleIds) {
-				const indexed = realEntry.locIndex.get(id);
-				const linear = (realJson.locations || []).find((l: any) => Number(l.id) === id);
-				expect(indexed).toEqual(linear);
-			}
-
-			// Verify markerInfo() output
-			const card = await markerInfo("requiem", "world", 541102);
-			expect(card).not.toBeNull();
-			expect(card?.title).toBe("Chef");
-			expect(card?.gameSlug).toBe("requiem");
-			expect(card?.mapSlug).toBe("world");
-			expect(card?.id).toBe(541102);
-		} finally {
-			await rm(testDir, { recursive: true, force: true });
-		}
-	});
+		},
+		30_000,
+	);
 
 	test("large /api/* JSON response compresses with gzip/br and preserves auth headers", async () => {
 		const testDir = await mkdtemp(path.join(os.tmpdir(), "api-compression-test-"));
@@ -1427,5 +1504,5 @@ describe("Cloudflare R2 and media storage pipeline", () => {
 			api.close();
 			await rm(testDir, { recursive: true, force: true });
 		}
-	});
+	}, 30_000);
 });

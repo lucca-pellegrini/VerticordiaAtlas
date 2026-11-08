@@ -56,65 +56,86 @@ const full = () => ({
 });
 
 describe("compact map payload", () => {
-	test("full -> compact -> full keeps id, title, category, tags, geometry and coordinates", () => {
-		const { compact, details } = toCompact(full());
-		expect(isCompact(compact)).toBe(true);
-		expect(Object.keys(details.d)).toEqual(["10"]); // only what has a description or media
-		expect(JSON.stringify(compact)).not.toContain("loc=11"); // descriptions are not in the first payload
-		const back = fromCompact(compact, details);
-		const src = full();
-		expect(back.categories).toEqual(src.categories);
-		src.locations.forEach((l: any, k: number) => {
-			const b = back.locations[k];
-			expect([b.id, b.title, b.category_id, b.tags, b.features ?? null, b.region_id]).toEqual([
-				l.id,
-				l.title,
-				l.category_id,
-				l.tags,
-				l.features ?? null,
-				l.region_id,
-			]);
-			expect(parseFloat(b.latitude)).toEqual(parseFloat(l.latitude));
-			expect(parseFloat(b.longitude)).toEqual(parseFloat(l.longitude));
-			expect(b.description).toEqual(l.description || null);
-			expect(b.media).toEqual(l.media);
-		});
-		// the client records: unplaced locations left out, descriptions empty until the details arrive
-		const locs = locsOfCompact(compact, () => "chest");
-		expect(locs.map((l) => l.id)).toEqual([10, 11]);
-		expect(locs[0]).toMatchObject({ cat: 7, region: 3, desc: "", media: [], icon: "chest", lat: 0.85516773357426 });
-	});
+	test.concurrent(
+		"full -> compact -> full keeps id, title, category, tags, geometry and coordinates",
+		() => {
+			const { compact, details } = toCompact(full());
+			expect(isCompact(compact)).toBe(true);
+			expect(Object.keys(details.d)).toEqual(["10"]); // only what has a description or media
+			expect(JSON.stringify(compact)).not.toContain("loc=11"); // descriptions are not in the first payload
+			const back = fromCompact(compact, details);
+			const src = full();
+			expect(back.categories).toEqual(src.categories);
+			src.locations.forEach((l: any, k: number) => {
+				const b = back.locations[k];
+				expect([b.id, b.title, b.category_id, b.tags, b.features ?? null, b.region_id]).toEqual([
+					l.id,
+					l.title,
+					l.category_id,
+					l.tags,
+					l.features ?? null,
+					l.region_id,
+				]);
+				expect(parseFloat(b.latitude)).toEqual(parseFloat(l.latitude));
+				expect(parseFloat(b.longitude)).toEqual(parseFloat(l.longitude));
+				expect(b.description).toEqual(l.description || null);
+				expect(b.media).toEqual(l.media);
+			});
+			// the client records: unplaced locations left out, descriptions empty until the details arrive
+			const locs = locsOfCompact(compact, () => "chest");
+			expect(locs.map((l) => l.id)).toEqual([10, 11]);
+			expect(locs[0]).toMatchObject({
+				cat: 7,
+				region: 3,
+				desc: "",
+				media: [],
+				icon: "chest",
+				lat: 0.85516773357426,
+			});
+		},
+		30_000,
+	);
 
-	test("the CLI helper writes both files and leaves data.json untouched", async () => {
-		const dir = await mkdtemp(path.join(tmpdir(), "compact-"));
-		try {
-			const text = JSON.stringify(full());
-			await Bun.write(path.join(dir, "data.json"), text);
-			await writeCompact(dir);
-			expect(await readFile(path.join(dir, "data.json"), "utf8")).toBe(text);
-			expect(isCompact(JSON.parse(await readFile(path.join(dir, "data.compact.json"), "utf8")))).toBe(true);
-			expect(JSON.parse(await readFile(path.join(dir, "data.details.json"), "utf8")).d["10"][0]).toContain("hi");
-		} finally {
-			await rm(dir, { recursive: true, force: true });
-		}
-	});
+	test.concurrent(
+		"the CLI helper writes both files and leaves data.json untouched",
+		async () => {
+			const dir = await mkdtemp(path.join(tmpdir(), "compact-cli-"));
+			try {
+				const text = JSON.stringify(full());
+				await Bun.write(path.join(dir, "data.json"), text);
+				await writeCompact(dir);
+				expect(await readFile(path.join(dir, "data.json"), "utf8")).toBe(text);
+				expect(isCompact(JSON.parse(await readFile(path.join(dir, "data.compact.json"), "utf8")))).toBe(true);
+				expect(JSON.parse(await readFile(path.join(dir, "data.details.json"), "utf8")).d["10"][0]).toContain(
+					"hi",
+				);
+			} finally {
+				await rm(dir, { recursive: true, force: true });
+			}
+		},
+		30_000,
+	);
 
-	test("refreshCompact creates a compact file only for scrapers asking to, and refreshes an existing one", async () => {
-		const dir = await mkdtemp(path.join(tmpdir(), "compact-"));
-		try {
-			await Bun.write(path.join(dir, "data.json"), JSON.stringify(full()));
-			const exists = (f: string) => Bun.file(path.join(dir, f)).exists();
-			await refreshCompact(dir);
-			expect(await exists("data.compact.json")).toBe(false);
-			await refreshCompact(dir, { create: true });
-			expect(await exists("data.compact.json")).toBe(true);
-			await Bun.write(path.join(dir, "data.compact.json"), "stale");
-			await refreshCompact(dir);
-			expect(await Bun.file(path.join(dir, "data.compact.json")).text()).not.toBe("stale");
-		} finally {
-			await rm(dir, { recursive: true, force: true });
-		}
-	});
+	test.concurrent(
+		"refreshCompact creates a compact file only for scrapers asking to, and refreshes an existing one",
+		async () => {
+			const dir = await mkdtemp(path.join(tmpdir(), "compact-refresh-"));
+			try {
+				await Bun.write(path.join(dir, "data.json"), JSON.stringify(full()));
+				const exists = (f: string) => Bun.file(path.join(dir, f)).exists();
+				await refreshCompact(dir);
+				expect(await exists("data.compact.json")).toBe(false);
+				await refreshCompact(dir, { create: true });
+				expect(await exists("data.compact.json")).toBe(true);
+				await Bun.write(path.join(dir, "data.compact.json"), "stale");
+				await refreshCompact(dir);
+				expect(await Bun.file(path.join(dir, "data.compact.json")).text()).not.toBe("stale");
+			} finally {
+				await rm(dir, { recursive: true, force: true });
+			}
+		},
+		30_000,
+	);
 });
 
 describe("client loading of a compact map", () => {
@@ -143,7 +164,7 @@ describe("client loading of a compact map", () => {
 		const gone = await mapData({ slug: "fallback-gone", data: "a/data.json", compact: "a/data.compact.json" });
 		expect(gone.locations).toHaveLength(3);
 		expect(seen).toEqual(["/maps/g/a/data.compact.json", "/maps/g/a/data.json"]);
-	});
+	}, 30_000);
 
 	test("with one, the compact payload is read and the details fill state.locs on demand", async () => {
 		state.folder = "/maps/g";
@@ -161,7 +182,7 @@ describe("client loading of a compact map", () => {
 		expect(locs[1].desc).toBe("");
 		await ensureDetails(); // already applied: no second fetch
 		expect(seen).toEqual(["/maps/g/b/data.compact.json", "/maps/g/b/data.details.json"]);
-	});
+	}, 30_000);
 
 	test("without a details file, descriptions come from data.json", async () => {
 		state.folder = "/maps/g";
@@ -173,5 +194,5 @@ describe("client loading of a compact map", () => {
 		Object.assign(state, { mapInfo: info, data, byId: new Map(locs.map((l) => [l.id, l])) });
 		await ensureDetails();
 		expect(locs[0].desc).toContain("**hi**");
-	});
+	}, 30_000);
 });

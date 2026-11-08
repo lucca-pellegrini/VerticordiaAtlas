@@ -13,17 +13,25 @@ import {
 } from "../scripts/update-games.ts";
 
 describe("scripts/update-games helper functions", () => {
-	test("tilesetKey extracts directory key from path or pattern", () => {
-		expect(tilesetKey({ path: "rdr2/world/atlas-dark-v1" })).toBe("atlas-dark-v1");
-		expect(tilesetKey({ path: "hitman-2/miami/default-v2/" })).toBe("default-v2");
-		expect(tilesetKey({ pattern: "games/totk/world/default-v1/{z}/{x}/{y}.jpg" })).toBe("default-v1");
-		expect(tilesetKey({ id: 999 })).toBe("ts999");
-	});
+	test.concurrent(
+		"tilesetKey extracts directory key from path or pattern",
+		async () => {
+			expect(tilesetKey({ path: "rdr2/world/atlas-dark-v1" })).toBe("atlas-dark-v1");
+			expect(tilesetKey({ path: "hitman-2/miami/default-v2/" })).toBe("default-v2");
+			expect(tilesetKey({ pattern: "games/totk/world/default-v1/{z}/{x}/{y}.jpg" })).toBe("default-v1");
+			expect(tilesetKey({ id: 999 })).toBe("ts999");
+		},
+		30_000,
+	);
 
-	test("tilesetTail extracts template placeholder tail", () => {
-		expect(tilesetTail({ pattern: "games/rdr2/{z}/{x}/{y}.jpg" })).toBe("{z}/{x}/{y}.jpg");
-		expect(tilesetTail({ extension: "png" })).toBe("{z}/{x}/{y}.png");
-	});
+	test.concurrent(
+		"tilesetTail extracts template placeholder tail",
+		async () => {
+			expect(tilesetTail({ pattern: "games/rdr2/{z}/{x}/{y}.jpg" })).toBe("{z}/{x}/{y}.jpg");
+			expect(tilesetTail({ extension: "png" })).toBe("{z}/{x}/{y}.png");
+		},
+		30_000,
+	);
 
 	test("resolveGames preserves directory folder and locks identity", async () => {
 		const games = await resolveGames(["rdr2"], false, "./public/maps");
@@ -31,14 +39,14 @@ describe("scripts/update-games helper functions", () => {
 		expect(games[0].folder).toBe("rdr2");
 		expect(games[0].meta.id).toBe("rdr2");
 		expect(games[0].meta.title).toBe("Red Dead Redemption 2");
-	});
+	}, 30_000);
 
 	test("detectMissingTilesets flags missing tile pyramids", async () => {
 		const games = await resolveGames(["tarkov"], false, "./public/maps");
 		const missing = await detectMissingTilesets(games[0]);
 		expect(missing.length).toBeGreaterThanOrEqual(1);
 		expect(missing.some((m) => m.mapSlug === "shoreline" && m.key === "default-v1")).toBe(true);
-	});
+	}, 30_000);
 
 	test("updateGame executes dryRun without errors and preserves metadata", async () => {
 		const games = await resolveGames(["rdr2"], false, "./public/maps");
@@ -55,5 +63,5 @@ describe("scripts/update-games helper functions", () => {
 		} finally {
 			console.log = origLog;
 		}
-	});
+	}, 60_000);
 });

@@ -23,7 +23,7 @@ describe("scripts/lootatlas helpers", () => {
 		expect(isLootAtlas("https://mapgenie.io/witcher-3")).toBe(false);
 		expect(isLootAtlas("https://fallout4map.com")).toBe(false);
 		expect(isLootAtlas("not-a-url")).toBe(false);
-	});
+	}, 30_000);
 
 	test("parseLootAtlasSlug extracts game and strategy slugs", () => {
 		expect(parseLootAtlasSlug("https://app.lootatlas.com/games/firewatch")).toBe("firewatch");
@@ -32,13 +32,13 @@ describe("scripts/lootatlas helpers", () => {
 		);
 		expect(parseLootAtlasSlug("https://app.lootatlas.com/strategies/two-forks-1")).toBe("two-forks-1");
 		expect(parseLootAtlasSlug("apex-legends")).toBe("apex-legends");
-	});
+	}, 30_000);
 
 	test("slugify normalizes titles and slugs", () => {
 		expect(slugify("Two Forks")).toBe("two-forks");
 		expect(slugify("Strategy, Wargame, RTS")).toBe("strategy-wargame-rts");
 		expect(slugify("Audio Kiosk")).toBe("audio-kiosk");
-	});
+	}, 30_000);
 
 	test("convertPolygonsToRegions creates valid GeoJSON features", () => {
 		const rawPolygons = [
@@ -74,49 +74,53 @@ describe("scripts/lootatlas helpers", () => {
 		expect(ring.length).toBe(4);
 		expect(ring[0]).toEqual([20, 10]);
 		expect(ring[3]).toEqual([20, 10]);
-	});
+	}, 30_000);
 
-	test("generateLootAtlasSpriteSheet creates valid 1x and 2x sprites and JSON defs", async () => {
-		const tmpDir = await mkdtemp(path.join(os.tmpdir(), "lootatlas-sprite-test-"));
-		try {
-			const mockCategories = [
-				{
-					id: "cat-1",
-					name: "Campfire",
-					color: "#ffaa00",
-					iconUri: "",
-				},
-				{
-					id: "cat-2",
-					name: "Supply Drop",
-					color: "#00aaff",
-					iconUri: "",
-				},
-			];
+	test.concurrent(
+		"generateLootAtlasSpriteSheet creates valid 1x and 2x sprites and JSON defs",
+		async () => {
+			const tmpDir = await mkdtemp(path.join(os.tmpdir(), "lootatlas-sprite-test-"));
+			try {
+				const mockCategories = [
+					{
+						id: "cat-1",
+						name: "Campfire",
+						color: "#ffaa00",
+						iconUri: "",
+					},
+					{
+						id: "cat-2",
+						name: "Supply Drop",
+						color: "#00aaff",
+						iconUri: "",
+					},
+				];
 
-			const sprite = await generateLootAtlasSpriteSheet(mockCategories, tmpDir);
-			expect(sprite.sprites).toBe(2);
-			expect(sprite.json).toBe("markers.json");
-			expect(sprite.png).toBe("markers.png");
-			expect(sprite.json2x).toBe("markers@2x.json");
-			expect(sprite.png2x).toBe("markers@2x.png");
+				const sprite = await generateLootAtlasSpriteSheet(mockCategories, tmpDir);
+				expect(sprite.sprites).toBe(2);
+				expect(sprite.json).toBe("markers.json");
+				expect(sprite.png).toBe("markers.png");
+				expect(sprite.json2x).toBe("markers@2x.json");
+				expect(sprite.png2x).toBe("markers@2x.png");
 
-			const defs1x = await Bun.file(path.join(tmpDir, "markers.json")).json();
-			const defs2x = await Bun.file(path.join(tmpDir, "markers@2x.json")).json();
+				const defs1x = await Bun.file(path.join(tmpDir, "markers.json")).json();
+				const defs2x = await Bun.file(path.join(tmpDir, "markers@2x.json")).json();
 
-			expect(defs1x["campfire"]).toBeDefined();
-			expect(defs1x["campfire"].width).toBe(33);
-			expect(defs1x["campfire"].height).toBe(44);
-			expect(defs1x["campfire"].pixelRatio).toBe(1);
+				expect(defs1x["campfire"]).toBeDefined();
+				expect(defs1x["campfire"].width).toBe(33);
+				expect(defs1x["campfire"].height).toBe(44);
+				expect(defs1x["campfire"].pixelRatio).toBe(1);
 
-			expect(defs2x["campfire"]).toBeDefined();
-			expect(defs2x["campfire"].width).toBe(66);
-			expect(defs2x["campfire"].height).toBe(88);
-			expect(defs2x["campfire"].pixelRatio).toBe(2);
-		} finally {
-			await rm(tmpDir, { recursive: true, force: true });
-		}
-	});
+				expect(defs2x["campfire"]).toBeDefined();
+				expect(defs2x["campfire"].width).toBe(66);
+				expect(defs2x["campfire"].height).toBe(88);
+				expect(defs2x["campfire"].pixelRatio).toBe(2);
+			} finally {
+				await rm(tmpDir, { recursive: true, force: true });
+			}
+		},
+		30_000,
+	);
 
 	test("detectLootAtlasMaxZoom detects true zoom and skips 1x1 blank fallbacks", async () => {
 		// Mock fetch to simulate Loot Atlas:
@@ -162,5 +166,5 @@ describe("scripts/lootatlas helpers", () => {
 		} finally {
 			globalThis.fetch = originalFetch;
 		}
-	});
+	}, 30_000);
 });

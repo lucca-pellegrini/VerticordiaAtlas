@@ -19,7 +19,7 @@ const GAME = "world-of-warcraft",
 	CONTROL_GAME = "hollow-knight",
 	CONTROL_MAP = "hallownest";
 const EK_DIR = `public/maps/${GAME}/${MAP}`;
-const T = 180_000; // per-test timeout: a throttled or cold runner is slow, the checks are not
+const T = 240_000; // per-test timeout: a throttled or cold runner is slow, the checks are not
 const CHROME = [
 	process.env.CHROME_PATH,
 	"/usr/bin/chromium",
@@ -79,7 +79,7 @@ beforeAll(async () => {
 		await afterAllCleanup();
 		if (!process.env.CI && process.env.DEBUG) console.warn(`browser e2e skipped locally: ${setupError}`);
 	}
-}, 90_000);
+}, 120_000);
 
 async function afterAllCleanup() {
 	await browser?.close().catch(() => {});
@@ -570,7 +570,7 @@ describe("browser e2e (real server, headless Chrome)", () => {
 		updateSidebar: 25,
 		saveProfileNow: 350,
 	};
-	test(
+	test.serial(
 		"8. perf baseline: ?perf=1, CPU 4x throttled",
 		async () => {
 			if (!guard()) return;

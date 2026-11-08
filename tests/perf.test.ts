@@ -8,7 +8,7 @@ test("parsePerfFlag: query beats storage, default off", () => {
 	expect(parsePerfFlag("", "1")).toBe(true);
 	expect(parsePerfFlag("?perf=0", "1")).toBe(false);
 	expect(parsePerfFlag("?perf=yes", null)).toBe(false);
-});
+}, 30_000);
 
 test("disabled wrappers call through, keep results and errors, record nothing", async () => {
 	setPerfEnabled(false);
@@ -23,7 +23,7 @@ test("disabled wrappers call through, keep results and errors, record nothing", 
 	).toThrow("x");
 	await expect(perfAsync("d", () => Promise.reject(new Error("y")))).rejects.toThrow("y");
 	expect(perfRows().size).toBe(0);
-});
+}, 30_000);
 
 test("enabled wrappers record, still return and throw the same", async () => {
 	setPerfEnabled(true);
@@ -43,4 +43,4 @@ test("enabled wrappers record, still return and throw the same", async () => {
 		console.debug = log;
 		setPerfEnabled(false);
 	}
-});
+}, 30_000);

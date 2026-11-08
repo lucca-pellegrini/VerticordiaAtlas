@@ -522,11 +522,21 @@ export function createAddGameFormView(opts: {
 	};
 }
 
-export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | null> {
+export interface PromptAddGameTuiOptions {
+	renderer?: any;
+	createRenderer?: typeof createCliRenderer;
+}
+
+export function promptAddGameTui(
+	defaultUrl = "",
+	options: PromptAddGameTuiOptions = {},
+): Promise<AddGameFormResult | null> {
 	return new Promise(async (resolve) => {
-		const renderer = await createCliRenderer({
-			exitOnCtrlC: true,
-		});
+		const renderer =
+			options.renderer ||
+			(options.createRenderer
+				? await options.createRenderer({ exitOnCtrlC: true })
+				: await createCliRenderer({ exitOnCtrlC: true }));
 
 		let boxW = renderer.width || 80;
 		let boxH = renderer.height || 26;
@@ -539,12 +549,12 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 		const cleanup = (res: AddGameFormResult | null) => {
 			if (isCleanedUp) return;
 			isCleanedUp = true;
-			renderer.off("resize", handleResize);
-			process.stdout.off("resize", onStdoutResize);
+			renderer.off?.("resize", handleResize);
+			process.stdout.off?.("resize", onStdoutResize);
 			formView.destroy();
 			try {
-				renderer.keyInput.removeAllListeners();
-				renderer.destroy();
+				renderer.keyInput?.removeAllListeners?.();
+				renderer.destroy?.();
 			} catch {}
 			resolve(res);
 		};
@@ -560,7 +570,7 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 
 		renderer.root.add(formView.root);
 		formView.focus();
-		renderer.requestRender();
+		renderer.requestRender?.();
 
 		function handleResize(termW: number, termH: number) {
 			if (isCleanedUp) return;
@@ -569,9 +579,11 @@ export function promptAddGameTui(defaultUrl = ""): Promise<AddGameFormResult | n
 			formView.resize(boxW, boxH);
 		}
 
-		renderer.on("resize", handleResize);
+		renderer.on?.("resize", handleResize);
 		const onStdoutResize = () => handleResize(renderer.width, renderer.height);
-		process.stdout.on("resize", onStdoutResize);
+		if (!options.renderer) {
+			process.stdout.on?.("resize", onStdoutResize);
+		}
 
 		renderer.keyInput.on("keypress", (key: KeyEvent) => {
 			if (isCleanedUp) return;

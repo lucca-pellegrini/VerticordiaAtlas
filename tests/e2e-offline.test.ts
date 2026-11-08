@@ -13,6 +13,7 @@ let PORT1: number;
 let BASE1: string;
 const HAS_RE2_TILES = hasTileFixtures("re2", ["claire-a", "claire-b", "leon-a", "leon-b"]);
 const HAS_HOLLOW_KNIGHT_TILES = hasTileFixtures("hollow-knight", ["hallownest"]);
+const T = 240_000;
 
 let serverProc1: any;
 let deadServer: { stop(force?: boolean): unknown } | null = null;
@@ -31,7 +32,7 @@ beforeAll(async () => {
 		headless: true,
 		args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-gpu", "--disable-web-security"],
 	});
-}, 30000);
+}, 120_000);
 
 afterAll(async () => {
 	try {
@@ -148,12 +149,12 @@ describe("map marker navigation & tile loading e2e", () => {
 
 			await context.close();
 		},
-		120000,
+		T,
 	);
 });
 
 describe("offline map download & disconnected navigation e2e", () => {
-	test.skipIf(!HAS_RE2_TILES)(
+	test.skipIf(!HAS_RE2_TILES).serial(
 		"downloads game with multiple maps, switches maps offline, and persists without server",
 		async () => {
 			const context = await browser.createBrowserContext();

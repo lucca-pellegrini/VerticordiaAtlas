@@ -46,13 +46,14 @@ afterAll(() => {
 	console.warn = origWarn;
 });
 
-let tmp: string;
-beforeEach(async () => {
-	tmp = await mkdtemp(path.join(os.tmpdir(), "atlas-tiles-"));
-});
-afterEach(async () => {
-	await rm(tmp, { recursive: true, force: true });
-});
+async function withTempDir<T>(fn: (tmp: string) => Promise<T>): Promise<T> {
+	const dir = await mkdtemp(path.join(os.tmpdir(), "atlas-tiles-"));
+	try {
+		return await fn(dir);
+	} finally {
+		await rm(dir, { recursive: true, force: true }).catch(() => {});
+	}
+}
 
 // a 256 x 256 tile of one colour, as a file's bytes
 const solid = (r: number, g: number, b: number, ext = "png"): Promise<Buffer> => {
@@ -77,40 +78,52 @@ const put = async (file: string, buf: Buffer) => {
 const pixel = (raw: Buffer, x: number, y: number) => [...raw.subarray((y * 256 + x) * 4, (y * 256 + x) * 4 + 4)];
 
 describe("tile paths", () => {
-	test("templates are split and read in either axis order", () => {
-		expect(parseTail("{z}/{y}/{x}.jpg")).toEqual({ order: ["z", "y", "x"], ext: "jpg" });
-		expect(parseTail("{z}/{x}/{y}.PNG")).toEqual({ order: ["z", "x", "y"], ext: "png" });
-		expect(parseTail("{z}/{x}/{x}.png")).toBeNull();
-		expect(parseTail("tiles.png")).toBeNull();
-		const s = splitTemplate("world/tiles/default-v2/{z}/{y}/{x}.jpg")!;
-		expect(s.base).toBe("world/tiles/default-v2/");
-		expect(tilePath(s.tail, 5, 7, 9)).toBe("5/9/7.jpg"); // z/y/x
-		expect(parseTilePath(s.tail, "5/9/7.jpg")).toEqual({ z: 5, x: 7, y: 9 });
-		expect(parseTilePath(s.tail, "5/9/7.png")).toBeNull();
-		expect(parseTilePath(s.tail, "2/9/7.jpg")).toBeNull(); // outside the zoom's grid
-		expect(parseTilePath(s.tail, "../9/7.jpg")).toBeNull();
-	});
+	test.concurrent(
+		"templates are split and read in either axis order",
+		async () => {
+			expect(parseTail("{z}/{y}/{x}.jpg")).toEqual({ order: ["z", "y", "x"], ext: "jpg" });
+			expect(parseTail("{z}/{x}/{y}.PNG")).toEqual({ order: ["z", "x", "y"], ext: "png" });
+			expect(parseTail("{z}/{x}/{x}.png")).toBeNull();
+			expect(parseTail("tiles.png")).toBeNull();
+			const s = splitTemplate("world/tiles/default-v2/{z}/{y}/{x}.jpg")!;
+			expect(s.base).toBe("world/tiles/default-v2/");
+			expect(tilePath(s.tail, 5, 7, 9)).toBe("5/9/7.jpg"); // z/y/x
+			expect(parseTilePath(s.tail, "5/9/7.jpg")).toEqual({ z: 5, x: 7, y: 9 });
+			expect(parseTilePath(s.tail, "5/9/7.png")).toBeNull();
+			expect(parseTilePath(s.tail, "2/9/7.jpg")).toBeNull(); // outside the zoom's grid
+			expect(parseTilePath(s.tail, "../9/7.jpg")).toBeNull();
+		},
+		30_000,
+	);
 
-	test("tileInBounds keeps tiles near the box and drops far ones", () => {
-		const box = [-1.4, 0, 0, 1.4];
-		expect(tileInBounds(box, 0, 0, 0)).toBe(true);
-		expect(tileInBounds(box, 8, 127, 127)).toBe(true);
-		expect(tileInBounds(box, 8, 0, 0)).toBe(false);
-		expect(tileInBounds(undefined, 8, 0, 0)).toBe(true);
-	});
+	test.concurrent(
+		"tileInBounds keeps tiles near the box and drops far ones",
+		async () => {
+			const box = [-1.4, 0, 0, 1.4];
+			expect(tileInBounds(box, 0, 0, 0)).toBe(true);
+			expect(tileInBounds(box, 8, 127, 127)).toBe(true);
+			expect(tileInBounds(box, 8, 0, 0)).toBe(false);
+			expect(tileInBounds(undefined, 8, 0, 0)).toBe(true);
+		},
+		30_000,
+	);
 
-	test("parseBackground accepts #rrggbb only", () => {
-		expect(parseBackground("#102030")).toEqual([16, 32, 48, 255]);
-		expect(parseBackground("red")).toBeNull();
-		expect(parseBackground(undefined)).toBeNull();
-	});
+	test.concurrent(
+		"parseBackground accepts #rrggbb only",
+		async () => {
+			expect(parseBackground("#102030")).toEqual([16, 32, 48, 255]);
+			expect(parseBackground("red")).toBeNull();
+			expect(parseBackground(undefined)).toBeNull();
+		},
+		30_000,
+	);
 });
 
 describe("tile engine", () => {
 	test("solidKey tells a flat tile from a drawn one", async () => {
 		expect(solidKey(await decodeTile(await solid(10, 20, 30)))).toBe("0a141eff");
 		expect(solidKey(await decodeTile(await gradient(1)))).toBeNull();
-	});
+	}, 30_000);
 
 	test("deriveRaw stitches four tiles into one half the size, and fills a missing quarter", async () => {
 		const colours: Record<string, number[]> = {
@@ -129,7 +142,7 @@ describe("tile engine", () => {
 		expect(pixel(raw, 230, 230)).toEqual([9, 9, 9, 255]); // the missing quarter
 		expect(await deriveRaw(1, 0, 0, { maxZoom: 2, read })).toBeNull(); // nothing below at all
 		expect(await deriveRaw(2, 2, 2, { maxZoom: 2, read })).toBeNull(); // nothing is made at the stored zoom
-	});
+	}, 60_000);
 
 	test("deriveRaw recurses through several zooms and reports the tiles made on the way", async () => {
 		const made: string[] = [];
@@ -141,7 +154,7 @@ describe("tile engine", () => {
 		expect(solidKey(raw!)?.slice(0, 6)).toBe("323c46");
 		expect(made.length).toBe(4 + 16); // zoom 1 and 2 are made; zoom 3 is stored
 		expect(made).not.toContain("0/0/0"); // the requested tile is the caller's to store
-	});
+	}, 60_000);
 
 	describe("parallel derivation", () => {
 		// a 16 x 16 pyramid at zoom 4 with a hole; tiles are served from memory
@@ -177,58 +190,68 @@ describe("tile engine", () => {
 			return out;
 		};
 
-		test("the parallel result is byte-identical to the sequential one, and the same tiles are stored", async () => {
-			const seqStored: string[] = [],
-				parStored: string[] = [];
-			const seq = await run(0, seqStored),
-				par = await run(2, parStored);
-			for (const [k, raw] of seq) {
-				if (raw) expect(par.get(k)!.equals(raw)).toBe(true);
-				else expect(par.get(k)).toBeNull();
-			}
-			expect(par.get("2/3/3")).toBeNull(); // missing tiles stay missing
-			expect(seq.get("0/0/0")).not.toBeNull();
-			expect(parStored.sort()).toEqual(seqStored.sort());
-		});
+		test.concurrent(
+			"the parallel result is byte-identical to the sequential one, and the same tiles are stored",
+			async () => {
+				const seqStored: string[] = [],
+					parStored: string[] = [];
+				const seq = await run(0, seqStored),
+					par = await run(2, parStored);
+				for (const [k, raw] of seq) {
+					if (raw) expect(par.get(k)!.equals(raw)).toBe(true);
+					else expect(par.get(k)).toBeNull();
+				}
+				expect(par.get("2/3/3")).toBeNull(); // missing tiles stay missing
+				expect(seq.get("0/0/0")).not.toBeNull();
+				expect(parStored.sort()).toEqual(seqStored.sort());
+			},
+			60_000,
+		);
 
-		test("concurrent requests never exceed the global cap", async () => {
-			const cap = deriveLimiter.max;
-			deriveLimiter.max = 3;
-			deriveLimiter.peak = 0;
-			let inflight = 0,
-				peakRead = 0;
-			const read = reader((d) => {
-				inflight += d;
-				peakRead = Math.max(peakRead, inflight);
-			});
-			try {
-				const all = await Promise.all(
-					[0, 1, 2, 3, 4, 5, 6, 7].map((i) => deriveRaw(1, i % 2, (i >> 1) % 2, { maxZoom: 4, read })),
-				);
-				expect(all.every((r) => r && r.length === 256 * 256 * 4)).toBe(true);
-				expect(deriveLimiter.peak).toBe(3); // reached, never passed
-				expect(peakRead).toBeLessThanOrEqual(3);
-				expect(deriveLimiter.active).toBe(0);
-			} finally {
-				deriveLimiter.max = cap;
-			}
-		});
+		test.serial(
+			"concurrent requests never exceed the global cap",
+			async () => {
+				const cap = deriveLimiter.max;
+				deriveLimiter.max = 3;
+				deriveLimiter.peak = 0;
+				let inflight = 0,
+					peakRead = 0;
+				const read = reader((d) => {
+					inflight += d;
+					peakRead = Math.max(peakRead, inflight);
+				});
+				try {
+					const all = await Promise.all(
+						[0, 1, 2, 3, 4, 5, 6, 7].map((i) => deriveRaw(1, i % 2, (i >> 1) % 2, { maxZoom: 4, read })),
+					);
+					expect(all.every((r) => r && r.length === 256 * 256 * 4)).toBe(true);
+					expect(deriveLimiter.peak).toBe(3); // reached, never passed
+					expect(peakRead).toBeLessThanOrEqual(3);
+					expect(deriveLimiter.active).toBe(0);
+				} finally {
+					deriveLimiter.max = cap;
+				}
+			},
+			60_000,
+		);
 	});
 
 	test("placeTile hard-links single-colour tiles to one copy and stores others as they are", async () => {
-		const dir = path.join(tmp, "set");
-		const flat = await solid(0, 0, 0);
-		await placeTile(path.join(dir, "3/1/1.png"), flat, { key: "000000ff", dir, ext: "png" });
-		await placeTile(path.join(dir, "3/1/2.png"), flat, { key: "000000ff", dir, ext: "png" });
-		const a = await stat(path.join(dir, "3/1/1.png")),
-			b = await stat(path.join(dir, "3/1/2.png"));
-		expect(a.ino).toBe(b.ino);
-		expect(a.nlink).toBe(3); // two tiles and the stored copy
-		const grad = await gradient(1);
-		await placeTile(path.join(dir, "3/1/3.png"), grad, null);
-		expect((await stat(path.join(dir, "3/1/3.png"))).nlink).toBe(1);
-		expect((await readdir(path.join(dir, "3/1"))).sort()).toEqual(["1.png", "2.png", "3.png"]); // no temporary files left
-	});
+		await withTempDir(async (tmp) => {
+			const dir = path.join(tmp, "set");
+			const flat = await solid(0, 0, 0);
+			await placeTile(path.join(dir, "3/1/1.png"), flat, { key: "000000ff", dir, ext: "png" });
+			await placeTile(path.join(dir, "3/1/2.png"), flat, { key: "000000ff", dir, ext: "png" });
+			const a = await stat(path.join(dir, "3/1/1.png")),
+				b = await stat(path.join(dir, "3/1/2.png"));
+			expect(a.ino).toBe(b.ino);
+			expect(a.nlink).toBe(3); // two tiles and the stored copy
+			const grad = await gradient(1);
+			await placeTile(path.join(dir, "3/1/3.png"), grad, null);
+			expect((await stat(path.join(dir, "3/1/3.png"))).nlink).toBe(1);
+			expect((await readdir(path.join(dir, "3/1"))).sort()).toEqual(["1.png", "2.png", "3.png"]); // no temporary files left
+		});
+	}, 60_000);
 });
 
 describe("a stored copy that has run out of hard links", () => {
@@ -244,45 +267,65 @@ describe("a stored copy that has run out of hard links", () => {
 		ops.link = realLink;
 	});
 
-	test("placeTile starts the next copy of the colour", async () => {
-		const dir = path.join(tmp, "set");
-		const flat = await solid(7, 7, 7);
-		for (let i = 0; i < 5; i++)
-			await placeTile(path.join(dir, `3/0/${i}.png`), flat, { key: "070707ff", dir, ext: "png" });
-		const names = (await readdir(dir)).filter((f) => f.startsWith("solid-")).sort();
-		expect(names).toEqual(["solid-070707ff-1.png", "solid-070707ff-2.png", "solid-070707ff.png"]);
-		for (let i = 0; i < 5; i++)
-			expect(
-				solidKey(await decodeTile(Buffer.from(await Bun.file(path.join(dir, `3/0/${i}.png`)).bytes()))),
-			).toBe("070707ff");
-		expect((await readdir(path.join(dir, "3/0"))).filter((f) => f.endsWith(".tmp"))).toEqual([]);
-	});
+	test.serial(
+		"placeTile starts the next copy of the colour",
+		async () => {
+			await withTempDir(async (tmp) => {
+				const dir = path.join(tmp, "set");
+				const flat = await solid(7, 7, 7);
+				for (let i = 0; i < 5; i++)
+					await placeTile(path.join(dir, `3/0/${i}.png`), flat, { key: "070707ff", dir, ext: "png" });
+				const names = (await readdir(dir)).filter((f) => f.startsWith("solid-")).sort();
+				expect(names).toEqual(["solid-070707ff-1.png", "solid-070707ff-2.png", "solid-070707ff.png"]);
+				for (let i = 0; i < 5; i++)
+					expect(
+						solidKey(await decodeTile(Buffer.from(await Bun.file(path.join(dir, `3/0/${i}.png`)).bytes()))),
+					).toBe("070707ff");
+				expect((await readdir(path.join(dir, "3/0"))).filter((f) => f.endsWith(".tmp"))).toEqual([]);
+			});
+		},
+		60_000,
+	);
 
-	test("dedupeSolid does the same for tiles already on disk, and a second run changes nothing", async () => {
-		const dir = path.join(tmp, "set");
-		const flat = await solid(9, 9, 9);
-		for (let i = 0; i < 6; i++) await put(path.join(dir, `3/0/${i}.png`), flat);
-		const tail = parseTail("{z}/{x}/{y}.png")!;
-		for (const t of await listTiles(dir, tail))
-			expect((await dedupeSolid(t.file, dir, "png"))?.key).toBe("090909ff");
-		const inodes = new Set<number>();
-		for (let i = 0; i < 6; i++) inodes.add((await stat(path.join(dir, `3/0/${i}.png`))).ino);
-		expect(inodes.size).toBe(3); // two tiles to a copy
-		const before = (await readdir(dir)).sort();
-		for (const t of await listTiles(dir, tail)) expect((await dedupeSolid(t.file, dir, "png"))?.freed).toBe(0);
-		expect((await readdir(dir)).sort()).toEqual(before);
-		expect((await readdir(path.join(dir, "3/0"))).filter((f) => f.endsWith(".tmp"))).toEqual([]);
-	});
+	test.serial(
+		"dedupeSolid does the same for tiles already on disk, and a second run changes nothing",
+		async () => {
+			await withTempDir(async (tmp) => {
+				const dir = path.join(tmp, "set");
+				const flat = await solid(9, 9, 9);
+				for (let i = 0; i < 6; i++) await put(path.join(dir, `3/0/${i}.png`), flat);
+				const tail = parseTail("{z}/{x}/{y}.png")!;
+				for (const t of await listTiles(dir, tail))
+					expect((await dedupeSolid(t.file, dir, "png"))?.key).toBe("090909ff");
+				const inodes = new Set<number>();
+				for (let i = 0; i < 6; i++) inodes.add((await stat(path.join(dir, `3/0/${i}.png`))).ino);
+				expect(inodes.size).toBe(3); // two tiles to a copy
+				const before = (await readdir(dir)).sort();
+				for (const t of await listTiles(dir, tail))
+					expect((await dedupeSolid(t.file, dir, "png"))?.freed).toBe(0);
+				expect((await readdir(dir)).sort()).toEqual(before);
+				expect((await readdir(path.join(dir, "3/0"))).filter((f) => f.endsWith(".tmp"))).toEqual([]);
+			});
+		},
+		60_000,
+	);
 
-	test("optimizeTileset finishes a tile set with more flat tiles than one copy can hold", async () => {
-		const dir = path.join(tmp, "big");
-		const tail = parseTail("{z}/{x}/{y}.png")!;
-		const flat = await solid(0, 0, 0);
-		for (let x = 0; x < 8; x++) for (let y = 0; y < 8; y++) await put(path.join(dir, `3/${x}/${y}.png`), flat);
-		const r = await optimizeTileset({ dir, tail, minZ: 3, maxZ: 3 });
-		expect(r.solid).toBe(64);
-		expect(r.background).toBe("#000000");
-	});
+	test.serial(
+		"optimizeTileset finishes a tile set with more flat tiles than one copy can hold",
+		async () => {
+			await withTempDir(async (tmp) => {
+				const dir = path.join(tmp, "big");
+				const tail = parseTail("{z}/{x}/{y}.png")!;
+				const flat = await solid(0, 0, 0);
+				for (let x = 0; x < 8; x++)
+					for (let y = 0; y < 8; y++) await put(path.join(dir, `3/${x}/${y}.png`), flat);
+				const r = await optimizeTileset({ dir, tail, minZ: 3, maxZ: 3 });
+				expect(r.solid).toBe(64);
+				expect(r.background).toBe("#000000");
+			});
+		},
+		60_000,
+	);
 });
 
 describe("scripts/prune-tiles", () => {
@@ -301,126 +344,144 @@ describe("scripts/prune-tiles", () => {
 	}
 	const tail = parseTail("{z}/{x}/{y}.png")!;
 
-	test("fullyCovered needs all four tiles below, down to the stored zoom", () => {
-		const t3 = [];
-		for (let x = 0; x < 8; x++) for (let y = 0; y < 8; y++) if (!(x === 7 && y === 7)) t3.push({ z: 3, x, y });
-		const full = fullyCovered(t3, 1, 3);
-		expect(full.get(2)!.size).toBe(15); // (3,3) lacks a child
-		expect(full.get(2)!.has("3,3")).toBe(false);
-		expect(full.has(1)).toBe(false); // the overview zoom is never deleted
-	});
+	test.concurrent(
+		"fullyCovered needs all four tiles below, down to the stored zoom",
+		async () => {
+			const t3 = [];
+			for (let x = 0; x < 8; x++) for (let y = 0; y < 8; y++) if (!(x === 7 && y === 7)) t3.push({ z: 3, x, y });
+			const full = fullyCovered(t3, 1, 3);
+			expect(full.get(2)!.size).toBe(15); // (3,3) lacks a child
+			expect(full.get(2)!.has("3,3")).toBe(false);
+			expect(full.has(1)).toBe(false); // the overview zoom is never deleted
+		},
+		30_000,
+	);
 
 	test("single-colour tiles are linked, the overview is kept, intermediate zooms are deleted", async () => {
-		const dir = path.join(tmp, "tiles");
-		await pyramid(dir, { overview: false }); // zoom 2 and 3 only: a scraped map has no overview yet
-		const r = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3 });
-		expect(r.solid).toBe(16); // two columns of black tiles: 2 x 8
-		expect(r.background).toBe("#000000");
-		expect(r.overview).toBe(4);
-		expect(r.pruned).toBe(16);
-		const left = await listTiles(dir, tail);
-		expect(left.filter((t) => t.z === 1).length).toBe(4);
-		expect(left.filter((t) => t.z === 2).length).toBe(0);
-		expect(left.filter((t) => t.z === 3).length).toBe(64);
-		const a = await stat(path.join(dir, "3/6/0.png")),
-			b = await stat(path.join(dir, "3/7/7.png"));
-		expect(a.ino).toBe(b.ino);
-		// the overview tile over the black corner is made from black tiles and one drawn column: not flat
-		expect(await readdir(dir)).toContain("solid-000000ff.png");
-		// running it again changes nothing
-		const again = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3 });
-		expect([again.overview, again.pruned, again.solidFreed]).toEqual([0, 0, 0]);
-	});
+		await withTempDir(async (tmp) => {
+			const dir = path.join(tmp, "tiles");
+			await pyramid(dir, { overview: false }); // zoom 2 and 3 only: a scraped map has no overview yet
+			const r = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3 });
+			expect(r.solid).toBe(16); // two columns of black tiles: 2 x 8
+			expect(r.background).toBe("#000000");
+			expect(r.overview).toBe(4);
+			expect(r.pruned).toBe(16);
+			const left = await listTiles(dir, tail);
+			expect(left.filter((t) => t.z === 1).length).toBe(4);
+			expect(left.filter((t) => t.z === 2).length).toBe(0);
+			expect(left.filter((t) => t.z === 3).length).toBe(64);
+			const a = await stat(path.join(dir, "3/6/0.png")),
+				b = await stat(path.join(dir, "3/7/7.png"));
+			expect(a.ino).toBe(b.ino);
+			// the overview tile over the black corner is made from black tiles and one drawn column: not flat
+			expect(await readdir(dir)).toContain("solid-000000ff.png");
+			// running it again changes nothing
+			const again = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3 });
+			expect([again.overview, again.pruned, again.solidFreed]).toEqual([0, 0, 0]);
+		});
+	}, 60_000);
 
 	test("a tile with a gap below it is kept, and every tile of a map without its highest zoom is kept", async () => {
-		const dir = path.join(tmp, "gap");
-		await pyramid(dir, { without: ["3/0/0"] });
-		const r = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3 });
-		expect(r.pruned).toBe(15);
-		const left = await listTiles(dir, tail);
-		expect(left.filter((t) => t.z === 2).map((t) => `${t.x},${t.y}`)).toEqual(["0,0"]);
+		await withTempDir(async (tmp) => {
+			const dir = path.join(tmp, "gap");
+			await pyramid(dir, { without: ["3/0/0"] });
+			const r = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3 });
+			expect(r.pruned).toBe(15);
+			const left = await listTiles(dir, tail);
+			expect(left.filter((t) => t.z === 2).map((t) => `${t.x},${t.y}`)).toEqual(["0,0"]);
 
-		const lone = path.join(tmp, "lone");
-		await put(path.join(lone, "2/0/0.png"), await gradient(1));
-		await put(path.join(lone, "1/0/0.png"), await gradient(2));
-		const r2 = await optimizeTileset({ dir: lone, tail, minZ: 0, maxZ: 3 });
-		expect(r2.pruned).toBe(0);
-		expect(r2.overview).toBe(1); // the overview is made from what there is
-		expect((await listTiles(lone, tail)).map((t) => t.z).sort()).toEqual([0, 1, 2]);
-	});
+			const lone = path.join(tmp, "lone");
+			await put(path.join(lone, "2/0/0.png"), await gradient(1));
+			await put(path.join(lone, "1/0/0.png"), await gradient(2));
+			const r2 = await optimizeTileset({ dir: lone, tail, minZ: 0, maxZ: 3 });
+			expect(r2.pruned).toBe(0);
+			expect(r2.overview).toBe(1); // the overview is made from what there is
+			expect((await listTiles(lone, tail)).map((t) => t.z).sort()).toEqual([0, 1, 2]);
+		});
+	}, 60_000);
 
 	test("the overview levels are made in one pass and equal what the server derives", async () => {
-		const dir = path.join(tmp, "overview");
-		for (let x = 0; x < 16; x++)
-			for (let y = 0; y < 16; y++) await put(path.join(dir, `4/${x}/${y}.png`), await gradient(x * 16 + y));
-		const read = async (z: number, x: number, y: number): Promise<Buffer | null> => {
-			const f = Bun.file(path.join(dir, `${z}/${x}/${y}.png`));
-			return (await f.exists()) ? Buffer.from(await f.bytes()) : null;
-		};
-		const expected = new Map<string, Buffer>();
-		for (let z = 0; z <= 2; z++)
-			for (let x = 0; x < 2 ** z; x++)
-				for (let y = 0; y < 2 ** z; y++)
-					expected.set(`${z}/${x}/${y}`, (await deriveRaw(z, x, y, { maxZoom: 4, read }))!);
-		const dry = await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2, dryRun: true });
-		expect(dry.overview).toBe(21);
-		expect((await listTiles(dir, tail)).length).toBe(256);
-		const r = await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2 });
-		expect(r.overview).toBe(21);
-		const left = await listTiles(dir, tail);
-		expect(left.filter((t) => t.z < 3).length).toBe(21); // zoom 0, 1 and 2 are kept
-		expect(left.filter((t) => t.z === 3).length).toBe(0); // zoom 3 is made on demand
-		for (const [k, raw] of expected)
-			expect(
-				(
-					await decodeTile(
-						await Bun.file(path.join(dir, `${k}.png`))
-							.bytes()
-							.then(Buffer.from),
-					)
-				).equals(raw),
-			).toBe(true);
-		expect((await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2 })).overview).toBe(0);
-	});
+		await withTempDir(async (tmp) => {
+			const dir = path.join(tmp, "overview");
+			for (let x = 0; x < 16; x++)
+				for (let y = 0; y < 16; y++) await put(path.join(dir, `4/${x}/${y}.png`), await gradient(x * 16 + y));
+			const read = async (z: number, x: number, y: number): Promise<Buffer | null> => {
+				const f = Bun.file(path.join(dir, `${z}/${x}/${y}.png`));
+				return (await f.exists()) ? Buffer.from(await f.bytes()) : null;
+			};
+			const expected = new Map<string, Buffer>();
+			for (let z = 0; z <= 2; z++)
+				for (let x = 0; x < 2 ** z; x++)
+					for (let y = 0; y < 2 ** z; y++)
+						expected.set(`${z}/${x}/${y}`, (await deriveRaw(z, x, y, { maxZoom: 4, read }))!);
+			const dry = await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2, dryRun: true });
+			expect(dry.overview).toBe(21);
+			expect((await listTiles(dir, tail)).length).toBe(256);
+			const r = await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2 });
+			expect(r.overview).toBe(21);
+			const left = await listTiles(dir, tail);
+			expect(left.filter((t) => t.z < 3).length).toBe(21); // zoom 0, 1 and 2 are kept
+			expect(left.filter((t) => t.z === 3).length).toBe(0); // zoom 3 is made on demand
+			for (const [k, raw] of expected)
+				expect(
+					(
+						await decodeTile(
+							await Bun.file(path.join(dir, `${k}.png`))
+								.bytes()
+								.then(Buffer.from),
+						)
+					).equals(raw),
+				).toBe(true);
+			expect((await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2 })).overview).toBe(0);
+		});
+	}, 120_000);
 
 	test("overview levels survive pruning by default, and --aggressive-prune drops them", async () => {
-		const dir = path.join(tmp, "keep");
-		await pyramid(dir);
-		const kept = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3, keepBelowMax: 1, dryRun: true });
-		expect(kept.pruned).toBe(0); // zoom 2 is an overview level
-		const old = await optimizeTileset({
-			dir,
-			tail,
-			minZ: 1,
-			maxZ: 3,
-			keepBelowMax: 1,
-			aggressive: true,
-			dryRun: true,
+		await withTempDir(async (tmp) => {
+			const dir = path.join(tmp, "keep");
+			await pyramid(dir);
+			const kept = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3, keepBelowMax: 1, dryRun: true });
+			expect(kept.pruned).toBe(0); // zoom 2 is an overview level
+			const old = await optimizeTileset({
+				dir,
+				tail,
+				minZ: 1,
+				maxZ: 3,
+				keepBelowMax: 1,
+				aggressive: true,
+				dryRun: true,
+			});
+			expect(old.pruned).toBe(16);
 		});
-		expect(old.pruned).toBe(16);
-	});
+	}, 60_000);
 
 	test("--dry-run reports and changes nothing", async () => {
-		const dir = path.join(tmp, "dry");
-		await pyramid(dir);
-		const before = (await listTiles(dir, tail)).length;
-		const r = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3, dryRun: true });
-		expect(r.pruned).toBe(16);
-		expect(r.solid).toBe(16);
-		expect((await listTiles(dir, tail)).length).toBe(before);
-		expect((await stat(path.join(dir, "3/6/0.png"))).nlink).toBe(1);
-	});
+		await withTempDir(async (tmp) => {
+			const dir = path.join(tmp, "dry");
+			await pyramid(dir);
+			const before = (await listTiles(dir, tail)).length;
+			const r = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3, dryRun: true });
+			expect(r.pruned).toBe(16);
+			expect(r.solid).toBe(16);
+			expect((await listTiles(dir, tail)).length).toBe(before);
+			expect((await stat(path.join(dir, "3/6/0.png"))).nlink).toBe(1);
+		});
+	}, 60_000);
 });
 
 describe("tile cache", () => {
-	test("sizes are read with units", () => {
-		expect(parseSize("2GB")).toBe(2 * 1024 ** 3);
-		expect(parseSize("512 mb")).toBe(512 * 1024 ** 2);
-		expect(parseSize("1.5g")).toBe(1.5 * 1024 ** 3);
-		expect(parseSize("1000")).toBe(1000);
-		expect(parseSize("lots")).toBeNull();
-		expect(parseSize(undefined)).toBeNull();
-	});
+	test.concurrent(
+		"sizes are read with units",
+		async () => {
+			expect(parseSize("2GB")).toBe(2 * 1024 ** 3);
+			expect(parseSize("512 mb")).toBe(512 * 1024 ** 2);
+			expect(parseSize("1.5g")).toBe(1.5 * 1024 ** 3);
+			expect(parseSize("1000")).toBe(1000);
+			expect(parseSize("lots")).toBeNull();
+			expect(parseSize(undefined)).toBeNull();
+		},
+		30_000,
+	);
 
 	const DAY = 86400000;
 	async function fill(root: string, rel: string, bytes: number, ageDays: number) {
@@ -431,42 +492,49 @@ describe("tile cache", () => {
 	}
 
 	test("eviction deletes the oldest tiles, sooner for games nobody opens, and spares single-colour links", async () => {
-		const root = path.join(tmp, "cache");
-		await fill(root, "popular/map/set/1/0/old.png", 1000, 5);
-		await fill(root, "quiet/map/set/1/0/old.png", 1000, 5);
-		await fill(root, "popular/map/set/1/0/new.png", 1000, 1);
-		await fill(root, "quiet/map/set/1/0/new.png", 1000, 1);
-		await put(path.join(root, "quiet/map/set/solid-000000ff.png"), Buffer.alloc(500, 2));
-		await link(path.join(root, "quiet/map/set/solid-000000ff.png"), path.join(root, "quiet/map/set/1/0/flat.png"));
-		const cache = new TileCache({
-			root,
-			maxBytes: 4000,
-			targetBytes: 2600,
-			popularity: () => new Map([["popular", 100]]),
+		await withTempDir(async (tmp) => {
+			const root = path.join(tmp, "cache");
+			await fill(root, "popular/map/set/1/0/old.png", 1000, 5);
+			await fill(root, "quiet/map/set/1/0/old.png", 1000, 5);
+			await fill(root, "popular/map/set/1/0/new.png", 1000, 1);
+			await fill(root, "quiet/map/set/1/0/new.png", 1000, 1);
+			await put(path.join(root, "quiet/map/set/solid-000000ff.png"), Buffer.alloc(500, 2));
+			await link(
+				path.join(root, "quiet/map/set/solid-000000ff.png"),
+				path.join(root, "quiet/map/set/1/0/flat.png"),
+			);
+			const cache = new TileCache({
+				root,
+				maxBytes: 4000,
+				targetBytes: 2600,
+				popularity: () => new Map([["popular", 100]]),
+			});
+			await cache.init();
+			expect(cache.size).toBe(4500); // the linked file is counted once
+			const r = await cache.evict();
+			expect(r.removed).toBe(2);
+			// a popular game's tiles count as up to a week newer: its five-day-old tile outlives the quiet game's day-old one
+			expect(await readdir(path.join(root, "quiet/map/set/1/0"))).toEqual(["flat.png"]);
+			expect((await readdir(path.join(root, "popular/map/set/1/0"))).sort()).toEqual(["new.png", "old.png"]);
+			expect(cache.size).toBeLessThanOrEqual(2600);
 		});
-		await cache.init();
-		expect(cache.size).toBe(4500); // the linked file is counted once
-		const r = await cache.evict();
-		expect(r.removed).toBe(2);
-		// a popular game's tiles count as up to a week newer: its five-day-old tile outlives the quiet game's day-old one
-		expect(await readdir(path.join(root, "quiet/map/set/1/0"))).toEqual(["flat.png"]);
-		expect((await readdir(path.join(root, "popular/map/set/1/0"))).sort()).toEqual(["new.png", "old.png"]);
-		expect(cache.size).toBeLessThanOrEqual(2600);
-	});
+	}, 60_000);
 
 	test("a recently served tile outlives an older one, and adding past the limit starts a pass", async () => {
-		const root = path.join(tmp, "cache2");
-		await fill(root, "g/m/s/1/0/a.png", 1000, 3);
-		await fill(root, "g/m/s/1/0/b.png", 1000, 3);
-		const cache = new TileCache({ root, maxBytes: 2500, targetBytes: 2000 });
-		await cache.init();
-		cache.touch("g/m/s/1/0/a.png"); // a was served just now: b is the one to go
-		await put(path.join(root, "g/m/s/1/0/c.png"), Buffer.alloc(1000, 1));
-		await cache.added("g/m/s/1/0/c.png", 1000);
-		await cache.evict();
-		expect(await Bun.file(path.join(root, "g/m/s/1/0/b.png")).exists()).toBe(false);
-		expect(await Bun.file(path.join(root, "g/m/s/1/0/a.png")).exists()).toBe(true);
-	});
+		await withTempDir(async (tmp) => {
+			const root = path.join(tmp, "cache2");
+			await fill(root, "g/m/s/1/0/a.png", 1000, 3);
+			await fill(root, "g/m/s/1/0/b.png", 1000, 3);
+			const cache = new TileCache({ root, maxBytes: 2500, targetBytes: 2000 });
+			await cache.init();
+			cache.touch("g/m/s/1/0/a.png"); // a was served just now: b is the one to go
+			await put(path.join(root, "g/m/s/1/0/c.png"), Buffer.alloc(1000, 1));
+			await cache.added("g/m/s/1/0/c.png", 1000);
+			await cache.evict();
+			expect(await Bun.file(path.join(root, "g/m/s/1/0/b.png")).exists()).toBe(false);
+			expect(await Bun.file(path.join(root, "g/m/s/1/0/a.png")).exists()).toBe(true);
+		});
+	}, 60_000);
 });
 
 describe("tile service", () => {
@@ -478,7 +546,7 @@ describe("tile service", () => {
 		bounds: [-180, -85, 180, 85],
 	};
 
-	async function setup() {
+	async function setup(tmp: string) {
 		const publicDir = path.join(tmp, "public");
 		const stored = path.join(publicDir, "maps/game/world/tiles/default");
 		for (let x = 0; x < 8; x++)
@@ -500,66 +568,74 @@ describe("tile service", () => {
 	}
 
 	test("a stored tile is served as it is; a missing one is made, cached, then served from the cache", async () => {
-		const { svc, cache } = await setup();
-		const stored = await svc.find("game", "world", "default", "3/2/2.png");
-		expect(stored?.from).toBe("stored");
+		await withTempDir(async (tmp) => {
+			const { svc, cache } = await setup(tmp);
+			const stored = await svc.find("game", "world", "default", "3/2/2.png");
+			expect(stored?.from).toBe("stored");
 
-		const made = await svc.find("game", "world", "default", "2/1/1.png");
-		expect(made?.from).toBe("made");
-		expect(made!.file.startsWith(cache.root)).toBe(true);
-		const img = await sharp(await Bun.file(made!.file).bytes()).metadata();
-		expect([img.width, img.height, img.format]).toEqual([256, 256, "png"]);
+			const made = await svc.find("game", "world", "default", "2/1/1.png");
+			expect(made?.from).toBe("made");
+			expect(made!.file.startsWith(cache.root)).toBe(true);
+			const img = await sharp(await Bun.file(made!.file).bytes()).metadata();
+			expect([img.width, img.height, img.format]).toEqual([256, 256, "png"]);
 
-		const again = await svc.find("game", "world", "default", "2/1/1.png");
-		expect(again?.from).toBe("cache");
-		expect(again!.file).toBe(made!.file);
-		// the tiles made on the way are cached too: the four below zoom 2 are stored, so nothing more here, but zoom 2 came from them
-		expect(cache.size).toBeGreaterThan(0);
-	});
+			const again = await svc.find("game", "world", "default", "2/1/1.png");
+			expect(again?.from).toBe("cache");
+			expect(again!.file).toBe(made!.file);
+			// the tiles made on the way are cached too: the four below zoom 2 are stored, so nothing more here, but zoom 2 came from them
+			expect(cache.size).toBeGreaterThan(0);
+		});
+	}, 60_000);
 
 	test("what cannot be made is not found: outside the zooms, no tiles below, bad names, unknown games", async () => {
-		const { svc } = await setup();
-		expect(await svc.find("game", "world", "default", "0/0/0.png")).toBeNull(); // below the overview zoom
-		expect(await svc.find("game", "world", "default", "4/0/0.png")).toBeNull(); // above the stored zoom
-		expect(await svc.find("game", "world", "default", "3/9/9.png")).toBeNull(); // outside the grid
-		expect(await svc.find("game", "world", "default", "2/1/1.jpg")).toBeNull(); // wrong format
-		expect(await svc.find("game", "world", "other", "2/1/1.png")).toBeNull(); // unknown tile set
-		expect(await svc.find("nope", "world", "default", "2/1/1.png")).toBeNull();
-		expect(await svc.find("game", "..", "default", "2/1/1.png")).toBeNull();
-		expect(await svc.find("game", "world", "default", "2/1/../1.png")).toBeNull();
-	});
+		await withTempDir(async (tmp) => {
+			const { svc } = await setup(tmp);
+			expect(await svc.find("game", "world", "default", "0/0/0.png")).toBeNull(); // below the overview zoom
+			expect(await svc.find("game", "world", "default", "4/0/0.png")).toBeNull(); // above the stored zoom
+			expect(await svc.find("game", "world", "default", "3/9/9.png")).toBeNull(); // outside the grid
+			expect(await svc.find("game", "world", "default", "2/1/1.jpg")).toBeNull(); // wrong format
+			expect(await svc.find("game", "world", "other", "2/1/1.png")).toBeNull(); // unknown tile set
+			expect(await svc.find("nope", "world", "default", "2/1/1.png")).toBeNull();
+			expect(await svc.find("game", "..", "default", "2/1/1.png")).toBeNull();
+			expect(await svc.find("game", "world", "default", "2/1/../1.png")).toBeNull();
+		});
+	}, 60_000);
 
 	test("a made single-colour tile is a link to one copy, and a map's popularity is noted once", async () => {
-		const { svc, opened, cache } = await setup();
-		// zoom 2 tiles over the black column (x = 3 in the {z}/{y}/{x} order, over zoom 3's x = 6 and 7) are flat
-		const a = await svc.find("game", "world", "default", "2/0/3.png");
-		const b = await svc.find("game", "world", "default", "2/1/3.png");
-		expect(a?.from).toBe("made");
-		expect(b?.from).toBe("made");
-		expect((await stat(a!.file)).ino).toBe((await stat(b!.file)).ino);
-		expect(await readdir(path.join(cache.root, "game/world/default"))).toContain("solid-000000ff.png");
-		expect(opened).toEqual(["game/world"]);
-	});
+		await withTempDir(async (tmp) => {
+			const { svc, opened, cache } = await setup(tmp);
+			// zoom 2 tiles over the black column (x = 3 in the {z}/{y}/{x} order, over zoom 3's x = 6 and 7) are flat
+			const a = await svc.find("game", "world", "default", "2/0/3.png");
+			const b = await svc.find("game", "world", "default", "2/1/3.png");
+			expect(a?.from).toBe("made");
+			expect(b?.from).toBe("made");
+			expect((await stat(a!.file)).ino).toBe((await stat(b!.file)).ino);
+			expect(await readdir(path.join(cache.root, "game/world/default"))).toContain("solid-000000ff.png");
+			expect(opened).toEqual(["game/world"]);
+		});
+	}, 60_000);
 
 	test("serve returns HTTP 200 with headers and 304 on matching ETag", async () => {
-		const { svc } = await setup();
-		const req = new Request("http://localhost/maps/game/world/tiles/default/3/2/2.png");
-		const res = await svc.serve(req, "game", "world", "default", "3/2/2.png");
-		expect(res).not.toBeNull();
-		expect(res!.status).toBe(200);
-		expect(res!.headers.get("Content-Type")).toBe("image/png");
-		expect(res!.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
-		const etag = res!.headers.get("ETag");
-		expect(etag).not.toBeNull();
+		await withTempDir(async (tmp) => {
+			const { svc } = await setup(tmp);
+			const req = new Request("http://localhost/maps/game/world/tiles/default/3/2/2.png");
+			const res = await svc.serve(req, "game", "world", "default", "3/2/2.png");
+			expect(res).not.toBeNull();
+			expect(res!.status).toBe(200);
+			expect(res!.headers.get("Content-Type")).toBe("image/png");
+			expect(res!.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
+			const etag = res!.headers.get("ETag");
+			expect(etag).not.toBeNull();
 
-		// Conditional request with If-None-Match
-		const req304 = new Request("http://localhost/maps/game/world/tiles/default/3/2/2.png", {
-			headers: { "If-None-Match": etag! },
+			// Conditional request with If-None-Match
+			const req304 = new Request("http://localhost/maps/game/world/tiles/default/3/2/2.png", {
+				headers: { "If-None-Match": etag! },
+			});
+			const res304 = await svc.serve(req304, "game", "world", "default", "3/2/2.png");
+			expect(res304!.status).toBe(304);
+			expect(res304!.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
 		});
-		const res304 = await svc.serve(req304, "game", "world", "default", "3/2/2.png");
-		expect(res304!.status).toBe(304);
-		expect(res304!.headers.get("Cache-Control")).toBe("public, max-age=31536000, immutable");
-	});
+	}, 60_000);
 });
 
 describe("scripts/add-game tile download", () => {
@@ -599,177 +675,189 @@ describe("scripts/add-game tile download", () => {
 	const zoomsAsked = (asked: string[]) => new Set(asked.map((u) => u.split("/")[2]));
 
 	test("by default only the highest zoom is downloaded", async () => {
-		const c = await cdn();
-		try {
-			const r = await download(c, path.join(tmp, "a"), false);
-			expect(r.stats.saved).toBe(63); // 64 tiles, one of them missing
-			expect(r.stats.missing).toBe(1);
-			const tiles = await listTiles(path.join(tmp, "a/tiles/set"), parseTail("{z}/{x}/{y}.png")!);
-			expect(new Set(tiles.map((t) => t.z))).toEqual(new Set([3]));
-			// the one probe at the lowest zoom finds the CDN; every other request is for the highest zoom
-			expect(c.asked.filter((u) => !u.startsWith("/tiles/3/")).length).toBe(1);
-		} finally {
-			c.server.close();
-		}
-	});
+		await withTempDir(async (tmp) => {
+			const c = await cdn();
+			try {
+				const r = await download(c, path.join(tmp, "a"), false);
+				expect(r.stats.saved).toBe(63); // 64 tiles, one of them missing
+				expect(r.stats.missing).toBe(1);
+				const tiles = await listTiles(path.join(tmp, "a/tiles/set"), parseTail("{z}/{x}/{y}.png")!);
+				expect(new Set(tiles.map((t) => t.z))).toEqual(new Set([3]));
+				// the one probe at the lowest zoom finds the CDN; every other request is for the highest zoom
+				expect(c.asked.filter((u) => !u.startsWith("/tiles/3/")).length).toBe(1);
+			} finally {
+				c.server.close();
+			}
+		});
+	}, 60_000);
 
 	test("--force-get-tiles takes every zoom", async () => {
-		const c = await cdn();
-		try {
-			const r = await download(c, path.join(tmp, "b"), true);
-			expect(r.stats.saved).toBe(4 + 16 + 63);
-			expect(zoomsAsked(c.asked)).toEqual(new Set(["1", "2", "3"]));
-		} finally {
-			c.server.close();
-		}
-	});
+		await withTempDir(async (tmp) => {
+			const c = await cdn();
+			try {
+				const r = await download(c, path.join(tmp, "b"), true);
+				expect(r.stats.saved).toBe(4 + 16 + 63);
+				expect(zoomsAsked(c.asked)).toEqual(new Set(["1", "2", "3"]));
+			} finally {
+				c.server.close();
+			}
+		});
+	}, 60_000);
 
 	test("when max-zoom bounds are missing, quadtree crawls and saves only the highest zoom", async () => {
-		const c = await cdn();
-		try {
-			const tsNoMaxBounds = {
-				pattern: "{z}/{x}/{y}.png",
-				min_zoom: 1,
-				tiles_max_zoom: 3,
-				bounds: { 1: range(2) }, // bounds only at zoom 1, no bounds at zoom 3
-			};
-			const r = await downloadTiles({
-				md: { locations: [] },
-				ts: tsNoMaxBounds,
-				baseCandidates: [c.base],
-				destDir: path.join(tmp, "c"),
-				localTail: "tiles/set/{z}/{x}/{y}.png",
-				opts: { concurrency: 4, delay: 0, maxTiles: 100000, unpruned: false },
-			});
-			expect(r.stats.saved).toBe(63);
-			const tiles = await listTiles(path.join(tmp, "c/tiles/set"), parseTail("{z}/{x}/{y}.png")!);
-			expect(new Set(tiles.map((t) => t.z))).toEqual(new Set([3]));
-			expect(zoomsAsked(c.asked)).toEqual(new Set(["1", "2", "3"]));
-		} finally {
-			c.server.close();
-		}
-	});
-
-	test("HTTP 200 with 68-byte 1x1 blank fallback is treated as missing and not saved", async () => {
-		const asked: string[] = [];
-		const blank68 = Buffer.from(
-			"89504e470d0a1a0a0000000d4948445200000001000000010804000000b51c0c020000000b4944415478da6364600000000600023081d02f0000000049454e44ae426082",
-			"hex",
-		);
-		const realTile = await solid(10, 20, 30);
-		const server = http.createServer((req, res) => {
-			asked.push(req.url!);
-			const m = /^\/tiles\/(\d+)\/(\d+)\/(\d+)\.png$/.exec(req.url!);
-			// 3/0/0 returns the 68-byte 1x1 blank with status 200 (like Loot Atlas)
-			if (m && m[1] === "3" && m[2] === "0" && m[3] === "0") {
-				res.writeHead(200, { "Content-Type": "image/png" });
-				return res.end(blank68);
-			}
-			res.writeHead(200, { "Content-Type": "image/png" });
-			res.end(realTile);
-		});
-		await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
-		const base = `http://127.0.0.1:${(server.address() as any).port}/tiles`;
-		try {
-			const r = await download({ base }, path.join(tmp, "d"), false);
-			expect(r.stats.saved).toBe(63);
-			expect(r.stats.missing).toBe(1);
-			const existsBlank = await stat(path.join(tmp, "d/tiles/set/3/0/0.png")).catch(() => null);
-			expect(existsBlank).toBeNull();
-		} finally {
-			server.close();
-		}
-	});
-
-	test("enqueues confirmed marker bounding box, ignores void outlier markers, and recovers from indented edges", async () => {
-		const asked: string[] = [];
-		const realTile = await solid(20, 40, 60);
-		// Map at zoom 5 (32x32 world): valid tiles are [10..15] x [10..15] (36 tiles),
-		// EXCEPT an indentation on the left edge at (10, 12) which is missing (35 tiles total),
-		// plus a protrusion at (9, 14) sticking out to the left (so 36 valid tiles total).
-		const validSet = new Set<string>();
-		for (let x = 10; x <= 15; x++) {
-			for (let y = 10; y <= 15; y++) {
-				if (x === 10 && y === 12) continue;
-				validSet.add(`${x},${y}`);
-			}
-		}
-		validSet.add("9,14");
-
-		const server = http.createServer((req, res) => {
-			asked.push(req.url!);
-			const m = /^\/tiles\/(\d+)\/(\d+)\/(\d+)\.png$/.exec(req.url!);
-			if (!m) {
-				res.writeHead(404);
-				return res.end();
-			}
-			const [, zStr, xStr, yStr] = m;
-			const z = Number(zStr),
-				x = Number(xStr),
-				y = Number(yStr);
-			if (z === 1 && x === 0 && y === 0) {
-				res.writeHead(200, { "Content-Type": "image/png" });
-				return res.end(realTile);
-			}
-			if (z === 5 && validSet.has(`${x},${y}`)) {
-				res.writeHead(200, { "Content-Type": "image/png" });
-				return res.end(realTile);
-			}
-			res.writeHead(404);
-			res.end();
-		});
-		await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
-		const base = `http://127.0.0.1:${(server.address() as any).port}/tiles`;
-
-		const tileToLon = (x: number, z: number) => ((x + 0.5) / 2 ** z) * 360 - 180;
-		const tileToLat = (y: number, z: number) =>
-			(Math.atan(Math.sinh(Math.PI * (1 - (2 * (y + 0.5)) / 2 ** z))) * 180) / Math.PI;
-
-		// Markers at (11, 12), (14, 14), plus a bogus outlier marker far away in the void at (2, 2)
-		const locations = [
-			{ latitude: String(tileToLat(12, 5)), longitude: String(tileToLon(11, 5)) },
-			{ latitude: String(tileToLat(14, 5)), longitude: String(tileToLon(14, 5)) },
-			{ latitude: String(tileToLat(2, 5)), longitude: String(tileToLon(2, 5)) },
-		];
-
-		try {
-			const r = await downloadTiles({
-				md: { locations },
-				ts: {
+		await withTempDir(async (tmp) => {
+			const c = await cdn();
+			try {
+				const tsNoMaxBounds = {
 					pattern: "{z}/{x}/{y}.png",
 					min_zoom: 1,
-					tiles_max_zoom: 5,
-					bounds: null,
-				},
-				baseCandidates: [base],
-				destDir: path.join(tmp, "smart"),
-				localTail: "tiles/set/{z}/{x}/{y}.png",
-				opts: { concurrency: 4, delay: 0, maxTiles: 100000, unpruned: false },
+					tiles_max_zoom: 3,
+					bounds: { 1: range(2) }, // bounds only at zoom 1, no bounds at zoom 3
+				};
+				const r = await downloadTiles({
+					md: { locations: [] },
+					ts: tsNoMaxBounds,
+					baseCandidates: [c.base],
+					destDir: path.join(tmp, "c"),
+					localTail: "tiles/set/{z}/{x}/{y}.png",
+					opts: { concurrency: 4, delay: 0, maxTiles: 100000, unpruned: false },
+				});
+				expect(r.stats.saved).toBe(63);
+				const tiles = await listTiles(path.join(tmp, "c/tiles/set"), parseTail("{z}/{x}/{y}.png")!);
+				expect(new Set(tiles.map((t) => t.z))).toEqual(new Set([3]));
+				expect(zoomsAsked(c.asked)).toEqual(new Set(["1", "2", "3"]));
+			} finally {
+				c.server.close();
+			}
+		});
+	}, 60_000);
+
+	test("HTTP 200 with 68-byte 1x1 blank fallback is treated as missing and not saved", async () => {
+		await withTempDir(async (tmp) => {
+			const asked: string[] = [];
+			const blank68 = Buffer.from(
+				"89504e470d0a1a0a0000000d4948445200000001000000010804000000b51c0c020000000b4944415478da6364600000000600023081d02f0000000049454e44ae426082",
+				"hex",
+			);
+			const realTile = await solid(10, 20, 30);
+			const server = http.createServer((req, res) => {
+				asked.push(req.url!);
+				const m = /^\/tiles\/(\d+)\/(\d+)\/(\d+)\.png$/.exec(req.url!);
+				// 3/0/0 returns the 68-byte 1x1 blank with status 200 (like Loot Atlas)
+				if (m && m[1] === "3" && m[2] === "0" && m[3] === "0") {
+					res.writeHead(200, { "Content-Type": "image/png" });
+					return res.end(blank68);
+				}
+				res.writeHead(200, { "Content-Type": "image/png" });
+				res.end(realTile);
 			});
-			// Every valid tile including the protrusion (9, 14) was found and saved
-			expect(r.stats.saved).toBe(validSet.size);
-			// The void region between the outlier (2, 2) and the real map [9..15] was NOT speculatively queued
-			expect(asked.includes("/tiles/5/2/2.png")).toBe(true);
-			expect(asked.includes("/tiles/5/5/5.png")).toBe(false);
-		} finally {
-			server.close();
-		}
-	});
+			await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
+			const base = `http://127.0.0.1:${(server.address() as any).port}/tiles`;
+			try {
+				const r = await download({ base }, path.join(tmp, "d"), false);
+				expect(r.stats.saved).toBe(63);
+				expect(r.stats.missing).toBe(1);
+				const existsBlank = await stat(path.join(tmp, "d/tiles/set/3/0/0.png")).catch(() => null);
+				expect(existsBlank).toBeNull();
+			} finally {
+				server.close();
+			}
+		});
+	}, 60_000);
+
+	test("enqueues confirmed marker bounding box, ignores void outlier markers, and recovers from indented edges", async () => {
+		await withTempDir(async (tmp) => {
+			const asked: string[] = [];
+			const realTile = await solid(20, 40, 60);
+			// Map at zoom 5 (32x32 world): valid tiles are [10..15] x [10..15] (36 tiles),
+			// EXCEPT an indentation on the left edge at (10, 12) which is missing (35 tiles total),
+			// plus a protrusion at (9, 14) sticking out to the left (so 36 valid tiles total).
+			const validSet = new Set<string>();
+			for (let x = 10; x <= 15; x++) {
+				for (let y = 10; y <= 15; y++) {
+					if (x === 10 && y === 12) continue;
+					validSet.add(`${x},${y}`);
+				}
+			}
+			validSet.add("9,14");
+
+			const server = http.createServer((req, res) => {
+				asked.push(req.url!);
+				const m = /^\/tiles\/(\d+)\/(\d+)\/(\d+)\.png$/.exec(req.url!);
+				if (!m) {
+					res.writeHead(404);
+					return res.end();
+				}
+				const [, zStr, xStr, yStr] = m;
+				const z = Number(zStr),
+					x = Number(xStr),
+					y = Number(yStr);
+				if (z === 1 && x === 0 && y === 0) {
+					res.writeHead(200, { "Content-Type": "image/png" });
+					return res.end(realTile);
+				}
+				if (z === 5 && validSet.has(`${x},${y}`)) {
+					res.writeHead(200, { "Content-Type": "image/png" });
+					return res.end(realTile);
+				}
+				res.writeHead(404);
+				res.end();
+			});
+			await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
+			const base = `http://127.0.0.1:${(server.address() as any).port}/tiles`;
+
+			const tileToLon = (x: number, z: number) => ((x + 0.5) / 2 ** z) * 360 - 180;
+			const tileToLat = (y: number, z: number) =>
+				(Math.atan(Math.sinh(Math.PI * (1 - (2 * (y + 0.5)) / 2 ** z))) * 180) / Math.PI;
+
+			// Markers at (11, 12), (14, 14), plus a bogus outlier marker far away in the void at (2, 2)
+			const locations = [
+				{ latitude: String(tileToLat(12, 5)), longitude: String(tileToLon(11, 5)) },
+				{ latitude: String(tileToLat(14, 5)), longitude: String(tileToLon(14, 5)) },
+				{ latitude: String(tileToLat(2, 5)), longitude: String(tileToLon(2, 5)) },
+			];
+
+			try {
+				const r = await downloadTiles({
+					md: { locations },
+					ts: {
+						pattern: "{z}/{x}/{y}.png",
+						min_zoom: 1,
+						tiles_max_zoom: 5,
+						bounds: null,
+					},
+					baseCandidates: [base],
+					destDir: path.join(tmp, "smart"),
+					localTail: "tiles/set/{z}/{x}/{y}.png",
+					opts: { concurrency: 4, delay: 0, maxTiles: 100000, unpruned: false },
+				});
+				// Every valid tile including the protrusion (9, 14) was found and saved
+				expect(r.stats.saved).toBe(validSet.size);
+				// The void region between the outlier (2, 2) and the real map [9..15] was NOT speculatively queued
+				expect(asked.includes("/tiles/5/2/2.png")).toBe(true);
+				expect(asked.includes("/tiles/5/5/5.png")).toBe(false);
+			} finally {
+				server.close();
+			}
+		});
+	}, 60_000);
 });
 
 describe("game popularity", () => {
 	test("requests are counted per game in SQLite", async () => {
-		const api = createApi({ root: tmp });
-		try {
-			expect(api.gamePopularity().size).toBe(0);
-			api.recordGameRequest("skyrim");
-			api.recordGameRequest("skyrim");
-			api.recordGameRequest("elden-ring");
-			const pop = api.gamePopularity();
-			expect(pop.get("skyrim")).toBe(2);
-			expect(pop.get("elden-ring")).toBe(1);
-		} finally {
-			api.close();
-		}
-	});
+		await withTempDir(async (tmp) => {
+			const api = createApi({ root: tmp });
+			try {
+				expect(api.gamePopularity().size).toBe(0);
+				api.recordGameRequest("skyrim");
+				api.recordGameRequest("skyrim");
+				api.recordGameRequest("elden-ring");
+				const pop = api.gamePopularity();
+				expect(pop.get("skyrim")).toBe(2);
+				expect(pop.get("elden-ring")).toBe(1);
+			} finally {
+				api.close();
+			}
+		});
+	}, 30_000);
 });

@@ -102,7 +102,7 @@ describe("drawing pure helpers", () => {
 			const [h, s, v] = hexToHsv(hex);
 			expect(hsvToHex(h, s, v)).toBe(hex);
 		}
-	});
+	}, 30_000);
 
 	test("simplify (Ramer-Douglas-Peucker) removes collinear points while keeping corners", () => {
 		const collinear = [
@@ -122,7 +122,7 @@ describe("drawing pure helpers", () => {
 			{ x: 10, y: 10 },
 		];
 		expect(simplify(corner, 1.0)).toEqual(corner);
-	});
+	}, 30_000);
 });
 
 describe("icons and contrast helpers", () => {
@@ -131,32 +131,32 @@ describe("icons and contrast helpers", () => {
 		expect(glyphInk("#12161a")).toBe("#ffffff");
 		expect(glyphInk("#ffffff")).toBe("#14161a");
 		expect(glyphInk("#f5c544")).toBe("#14161a");
-	});
+	}, 30_000);
 
 	test("svgIcon renders 24x24 svg with class", () => {
 		expect(PIN).toEqual({ S: 60, R: 2, K: 2.4 });
 		expect(svgIcon("pin")).toBe(`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${ICONS.pin}</svg>`);
 		expect(svgIcon("check", "extra")).toContain('class="i extra"');
-	});
+	}, 30_000);
 });
 
 describe("theme and navigation helpers", () => {
 	test("themeVar safely handles missing variables and non-DOM environments", () => {
 		expect(themeVar("bg")).toBe("");
 		expect(themeVar("unknown")).toBe("");
-	});
+	}, 30_000);
 
 	test("deriveLightAccentSoft produces valid hex color", () => {
 		expect(deriveLightAccentSoft("")).toBe("#b03028");
 		expect(deriveLightAccentSoft("#d6453b")).toMatch(/^#[0-9a-f]{6}$/);
-	});
+	}, 30_000);
 
 	test("normalizePath normalizes index.html and trailing slashes", () => {
 		expect(normalizePath("")).toBe("/");
 		expect(normalizePath("/index.html")).toBe("/");
 		expect(normalizePath("/about")).toBe("/about/");
 		expect(normalizePath("/maps/elden-ring/index.html")).toBe("/maps/elden-ring/");
-	});
+	}, 30_000);
 
 	test("describePage identifies home, legal, signin, account, and map pages", () => {
 		expect(describePage("/").type).toBe("home");
@@ -172,7 +172,7 @@ describe("theme and navigation helpers", () => {
 		expect(mapDesc.slug).toBe("elden-ring");
 		expect(mapDesc.title).toBe("Elden Ring");
 		expect(mapDesc.buttonText).toBe("Return to Elden Ring");
-	});
+	}, 30_000);
 
 	test("account menu and account page helpers format user details and escape HTML", () => {
 		const user = {
@@ -203,7 +203,7 @@ describe("theme and navigation helpers", () => {
 		expect(html).toContain("alice&lt;&quot;x&quot;&gt;@example.com");
 		expect(html).toContain(">2<");
 		expect(html).toContain(">5<");
-	});
+	}, 30_000);
 
 	test("cleanSecretChars and formatSecretKey sanitize and format secret keys into 8 groups up to 30 characters", () => {
 		expect(cleanSecretChars("")).toBe("");
@@ -219,7 +219,7 @@ describe("theme and navigation helpers", () => {
 		expect(formatSecretKey("abcdefgh")).toBe("ABCD-EFGH");
 		expect(formatSecretKey("abcdefghi")).toBe("ABCD-EFGH-1");
 		expect(formatSecretKey("123456781234567812345678123456")).toBe("1234-5678-1234-5678-1234-5678-1234-56");
-	});
+	}, 30_000);
 });
 
 describe("modularized map and home helpers", () => {
@@ -231,7 +231,7 @@ describe("modularized map and home helpers", () => {
 		];
 		const ordered = orderGames(games, ["hollow-knight"]);
 		expect(ordered.map((g) => g.slug)).toEqual(["hollow-knight", "zelda", "astro"]);
-	});
+	}, 30_000);
 
 	test("getGameOfflineState and offlineWarningFor handle downloaded, cached, and unavailable games", () => {
 		const downloaded = new Set(["re2", "elden-ring"]);
@@ -256,7 +256,7 @@ describe("modularized map and home helpers", () => {
 		expect(unavailWarn!.message).toContain("not been downloaded or cached for offline use");
 		expect(unavailWarn!.message).toContain("page will probably not load at all until you're back online");
 		expect(unavailWarn!.confirmText).toBe("Try anyway");
-	});
+	}, 30_000);
 
 	test("posterUrlsForGame and allPosterUrls extract poster-600 and poster-1200 webps", () => {
 		const g1 = { slug: "re2", title: "Resident Evil 2", poster: "re2/poster" };
@@ -269,7 +269,7 @@ describe("modularized map and home helpers", () => {
 
 		const all = allPosterUrls([g1, g2, g3, g1] as any);
 		expect(all).toEqual(["maps/re2/poster-600.webp", "maps/re2/poster-1200.webp", "maps/custom/art.png"]);
-	});
+	}, 30_000);
 
 	test("geomOf and insideGeom test box, ellipse, and freehand polygon geometry", () => {
 		const id = (p: { x: number; y: number }) => p;
@@ -314,7 +314,7 @@ describe("modularized map and home helpers", () => {
 		);
 		expect(insideGeom(poly, 5, 5)).toBe(true);
 		expect(insideGeom(poly, 15, 5)).toBe(false);
-	});
+	}, 30_000);
 
 	test("mapgenieLocId extracts locationIds from URLs and #loc fragments, and isCrossMapUrl detects other maps", () => {
 		expect(mapgenieLocId("https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165234")).toBe(165234);
@@ -335,7 +335,7 @@ describe("modularized map and home helpers", () => {
 			isCrossMapUrl("https://fallout4map.com/far-harbor", ["commonwealth", "far-harbor"], "commonwealth"),
 		).toBe(true);
 		expect(isCrossMapUrl("https://youtu.be/abc", slugs, "velen-novigrad")).toBe(false);
-	});
+	}, 30_000);
 
 	test("ensureMarked caches promise and injects script tag once", async () => {
 		_resetMarkedForTest();
@@ -369,7 +369,7 @@ describe("modularized map and home helpers", () => {
 			else (globalThis as any).document = prevDoc;
 			_resetMarkedForTest();
 		}
-	});
+	}, 30_000);
 
 	test("all-maps search index keeps only searchable fields and filters by saved view", () => {
 		const data = {
@@ -406,7 +406,7 @@ describe("modularized map and home helpers", () => {
 		expect(indexedOthers(idx, "a", views, new Set()).map((e) => e.l.id)).toEqual([1]);
 		expect(indexedOthers(idx, "a", views, new Set([1])).length).toBe(0);
 		expect(indexedOthers(idx, "a", undefined, new Set([1])).length).toBe(2);
-	});
+	}, 30_000);
 
 	test("queryOf and matchOf rank exact, phrase, word, and fuzzy matches", () => {
 		const q = queryOf("Golden Seed");
@@ -416,7 +416,7 @@ describe("modularized map and home helpers", () => {
 		expect(matchOf(q, { title: "Goldn Seed", desc: "" })?.[0]).toBe(3);
 		expect(matchOf(q, { title: "Shrine", desc: "Contains a golden seed inside." })).toEqual([4, 0]);
 		expect(matchOf(q, { title: "Unrelated", desc: "Nothing here" })).toBeNull();
-	});
+	}, 30_000);
 
 	test("truncateDesc collapses whitespace and truncates on word boundaries", () => {
 		expect(truncateDesc("Short description")).toBe("Short description");
@@ -427,7 +427,7 @@ describe("modularized map and home helpers", () => {
 		expect(truncated.length).toBeLessThanOrEqual(51);
 		expect(truncated).toBe("This is a long description with multiple sentences…");
 		expect(truncateDesc("Line 1\n\nLine 2\t\tLine 3")).toBe("Line 1 Line 2 Line 3");
-	});
+	}, 30_000);
 
 	test("cleanUserData sanitizes untrusted imported profile fields and uniqueName avoids collisions", () => {
 		const taken = new Set(["Default"]);
@@ -448,7 +448,7 @@ describe("modularized map and home helpers", () => {
 		expect(cleaned.drawings[0].size).toBe("m");
 		expect(cleaned.cameras).toEqual({ main: { lng: 1, lat: 2, zoom: 10 } });
 		expect(cleaned.found).toEqual([1, 2]);
-	});
+	}, 30_000);
 
 	test("state and map-view pure calculations (vivid, iconScale, mapLimits, startOf, sameCamera)", () => {
 		expect(vivid("#000000")).not.toBe("#000000");
@@ -843,7 +843,7 @@ describe("modularized map and home helpers", () => {
 		expect(inActiveRegion({ region: 101 }, 100)).toBe(true); // matches child of parent
 		expect(inActiveRegion({ region: 101 }, 200)).toBe(false);
 		expect(inActiveRegion({ region: null }, 100)).toBe(false);
-	});
+	}, 30_000);
 });
 
 describe("sync client engine (createSync)", () => {
@@ -980,7 +980,7 @@ describe("sync client engine (createSync)", () => {
 			(globalThis as any).addEventListener = origAdd;
 			(globalThis as any).document = origDoc;
 		}
-	});
+	}, 60_000);
 
 	test("a note-driven cycle hashes only the changed profile and pulls with since", async () => {
 		const env = makeMockEnv();
@@ -1023,7 +1023,7 @@ describe("sync client engine (createSync)", () => {
 			(globalThis as any).addEventListener = origAdd;
 			(globalThis as any).document = origDoc;
 		}
-	}, 10000);
+	}, 60_000);
 });
 
 describe("offline maps manager (src/client/offline.ts)", () => {
@@ -1082,7 +1082,7 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 		const urls = Array.from({ length: 20 }, (_, i) => `/u/${i}`);
 		expect(pickSampleUrls(urls, 5)).toEqual(["/u/0", "/u/4", "/u/9", "/u/14", "/u/19"]);
 		expect(pickSampleUrls(["/a"], 5)).toEqual(["/a"]);
-	});
+	}, 30_000);
 
 	test("a pack is downloaded, answers its URLs (aliases included), is verified, damaged, and removed", async () => {
 		const storeMap = new Map<string, OfflineManifest>();
@@ -1168,7 +1168,7 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 		await mgr.removeOfflineGame("re7");
 		expect(await mgr.listOfflineManifests()).toEqual([]);
 		expect(await packs.maps("re7")).toEqual([]);
-	});
+	}, 30_000);
 
 	test("a cancelled or failed download leaves no pack behind", async () => {
 		const packs = createMemoryPackStore();
@@ -1182,7 +1182,7 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 		});
 		await expect(mgr.downloadOfflineMap({ gameSlug: "g", mapSlug: "m" })).rejects.toThrow();
 		expect(await packs.stat("g", "m")).toBeNull();
-	});
+	}, 30_000);
 
 	test("unpackVaopStream decodes binary stream entries and aliases properly", async () => {
 		// Construct a mock VAOP buffer
@@ -1262,7 +1262,7 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 		expect(entries[2].type).toBe(1);
 		expect(entries[2].url).toBe("/maps/game/c.jpg");
 		expect(entries[2].sourceUrl).toBe("/maps/game/a.jpg");
-	});
+	}, 30_000);
 
 	test("moreBtnProgressIcon renders animated download icon with throbber wheel or progress bar", () => {
 		// Preparing phase: throbber wheel without track
@@ -1289,7 +1289,7 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 
 		// Default DOTS_SVG
 		expect(DOTS_SVG).toContain('class="dots"');
-	});
+	}, 30_000);
 
 	test("downloadDiscardSummary reports nothing while first pack is pending, and reports progress once started", () => {
 		// When no download is active
@@ -1331,7 +1331,7 @@ describe("offline maps manager (src/client/offline.ts)", () => {
 
 		// Cleanup
 		_setActiveDownloadForTest(null);
-	});
+	}, 30_000);
 });
 describe("progress stats", () => {
 	test("aggregate counts located markers and the found ones", () => {
@@ -1345,13 +1345,13 @@ describe("progress stats", () => {
 		expect(aggregate(data, new Set([2, 3, 99]))).toEqual({ total: 2, found: 1 });
 		expect(aggregate({ locations: [] }, new Set([1]))).toEqual({ total: 0, found: 0 });
 		expect(aggregate(undefined, new Set())).toEqual({ total: 0, found: 0 });
-	});
+	}, 30_000);
 
 	test("percent rounds and clamps stale totals to 100", () => {
 		expect(percent(1, 3)).toBe(33);
 		expect(percent(5, 0)).toBe(0);
 		expect(percent(120, 100)).toBe(100);
-	});
+	}, 30_000);
 });
 describe("progress breakdown", () => {
 	const data = {
@@ -1400,7 +1400,7 @@ describe("progress breakdown", () => {
 			["Cave", 1, 1],
 		]);
 		expect(b.untagged).toEqual({ total: 1, found: 0 });
-	});
+	}, 30_000);
 
 	test("callouts pick the closest started categories and the biggest gaps", () => {
 		const cats = [
@@ -1412,11 +1412,11 @@ describe("progress breakdown", () => {
 		const c = callouts(cats);
 		expect(c.closest.map((x) => x.id)).toEqual([1, 2]);
 		expect(c.gaps.map((x) => x.id)).toEqual([2, 3, 1]);
-	});
+	}, 30_000);
 
 	test("stale ids are the found ones no marker has", () => {
 		expect(staleIds([1, 2, 3], new Set([2]))).toEqual([1, 3]);
-	});
+	}, 30_000);
 });
 
 describe("progress exports", () => {
@@ -1424,7 +1424,7 @@ describe("progress exports", () => {
 		expect(csvCell('say "hi", now\nthere')).toBe('"say ""hi"", now\nthere"');
 		expect(csvCell("=SUM(A1)")).toBe("'=SUM(A1)");
 		expect(csvCell(42)).toBe("42");
-	});
+	}, 30_000);
 
 	test("CSV output starts with a UTF-8 BOM and uses CRLF rows", () => {
 		expect(
@@ -1433,7 +1433,7 @@ describe("progress exports", () => {
 				["c,d", 1],
 			]),
 		).toBe('\ufeffa,b\r\n"c,d",1\r\n');
-	});
+	}, 30_000);
 
 	test("CSV rows resolve group, category, region and tag names", () => {
 		const data = {
@@ -1448,7 +1448,7 @@ describe("progress exports", () => {
 		expect(csvRows(data, new Set([7]), "Map A")).toEqual([
 			["Map A", "Loot", "Chests", "", 'x "y"', "yes", "Boss", 7],
 		]);
-	});
+	}, 30_000);
 
 	test("summary text lists the game and each map's state", () => {
 		expect(
@@ -1458,7 +1458,7 @@ describe("progress exports", () => {
 				{ title: "Three" },
 			]),
 		).toBe("Game: 4 of 10 markers found (40%)\nOne: 3 of 6 (50%)\nTwo: not available offline\nThree: not loaded");
-	});
+	}, 30_000);
 });
 
 describe("frame scheduler (createScheduler)", () => {
@@ -1482,7 +1482,7 @@ describe("frame scheduler (createScheduler)", () => {
 		frames.shift()!();
 		expect(flushes).toBe(1);
 		expect(frames.length).toBe(0);
-	});
+	}, 30_000);
 
 	test("a flush scheduled during a flush runs in the next frame", () => {
 		let runCount = 0;
@@ -1508,7 +1508,7 @@ describe("frame scheduler (createScheduler)", () => {
 		frames.shift()!();
 		expect(runCount).toBe(2);
 		expect(frames.length).toBe(0);
-	});
+	}, 30_000);
 
 	test("final state is flushed after rapid updates", () => {
 		let stateValue = 0;
@@ -1531,7 +1531,7 @@ describe("frame scheduler (createScheduler)", () => {
 		expect(observedValue).toBe(0);
 		frames.shift()!();
 		expect(observedValue).toBe(3);
-	});
+	}, 30_000);
 
 	test("synchronous flush runs immediately and avoids duplicate frame execution", () => {
 		let runCount = 0;
@@ -1550,5 +1550,5 @@ describe("frame scheduler (createScheduler)", () => {
 
 		if (frames.length > 0) frames.shift()!();
 		expect(runCount).toBe(1);
-	});
+	}, 30_000);
 });

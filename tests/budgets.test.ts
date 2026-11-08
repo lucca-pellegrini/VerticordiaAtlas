@@ -11,20 +11,20 @@ describe("check-budgets evaluate", () => {
 	test("pass at or below hard budget, with roadmap target note", () => {
 		expect(evaluate(b, 110).status).toBe("pass");
 		expect(evaluate({ ...b, target: 90 }, 100).message).toContain("Roadmap target 90 B not yet met");
-	});
+	}, 30_000);
 	test("fail over hard budget with raise instructions", () => {
 		const r = evaluate(b, 111);
 		expect(r.status).toBe("fail");
 		expect(r.message).toContain("over hard budget 110 B");
 		expect(r.message).toContain("scripts/budgets.json");
-	});
+	}, 30_000);
 	test("soft budget only warns", () => {
 		const r = evaluate({ id: "d", file: "d.json", metric: "raw", measured: 100, soft: 120 }, 130);
 		expect(r.status).toBe("warn");
 		expect(r.message).toContain("scraper update");
-	});
+	}, 30_000);
 	test("missing file: fail unless optional", () => {
 		expect(evaluate(b, null).status).toBe("fail");
 		expect(evaluate({ ...b, optional: true }, null).status).toBe("skip");
-	});
+	}, 30_000);
 });

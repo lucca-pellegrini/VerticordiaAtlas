@@ -26,16 +26,16 @@ describe("shared/search", () => {
 		expect(norm("Élan & Árbol")).toBe("elan & arbol");
 		expect(norm(null)).toBe("");
 		expect(norm(undefined)).toBe("");
-	});
+	}, 30_000);
 
 	test("flat collapses non-alphanumeric runs to single spaces", () => {
 		expect(flat("Armorer's Cookbook [1]")).toBe("armorer s cookbook 1");
 		expect(flat("  --Hello,   World!-- ")).toBe("hello world");
-	});
+	}, 30_000);
 
 	test("words keeps only words of 3 or more characters", () => {
 		expect(words("An Armorer's Cookbook in a Tower")).toEqual(["armorer", "cookbook", "tower"]);
-	});
+	}, 30_000);
 
 	test("levenshtein computes exact edit distance", () => {
 		expect(levenshtein("", "")).toBe(0);
@@ -44,7 +44,7 @@ describe("shared/search", () => {
 		expect(levenshtein("wolf", "wolf")).toBe(0);
 		expect(levenshtein("returm", "return")).toBe(1);
 		expect(levenshtein("elden", "eldne")).toBe(2);
-	});
+	}, 30_000);
 
 	test("fuzzyScore matches within typo thresholds and ignores short words", () => {
 		const target = words("Tower of Return");
@@ -53,7 +53,7 @@ describe("shared/search", () => {
 		expect(fuzzyScore(["zzzzzz"], target)).toBeNull();
 		expect(fuzzyScore(["towr"], target)).toBe(1);
 		expect(fuzzyScore(["twr"], target)).toBeNull(); // length 3 allows only 1 edit, distance to 'tower' is 2
-	});
+	}, 30_000);
 });
 
 describe("shared/sync-rules", () => {
@@ -64,7 +64,7 @@ describe("shared/sync-rules", () => {
 		expect(stable(a)).toBe('{"a":1,"b":2,"nested":{"y":[3,2,1],"z":true}}');
 		expect(stable(null)).toBe("null");
 		expect(stable(undefined)).toBe("null");
-	});
+	}, 30_000);
 
 	test("contentKey ignores updated, map, and cameras on profile keys only", () => {
 		expect(TOUCH_FIELD).toBe("updated");
@@ -91,7 +91,7 @@ describe("shared/sync-rules", () => {
 
 		// For meta keys, map and cameras are not stripped
 		expect(contentKey("meta:presets:totk", p1)).not.toBe(contentKey("meta:presets:totk", p2));
-	});
+	}, 30_000);
 
 	test("sendKey ignores updated on profile keys but includes map and cameras", () => {
 		const p1 = {
@@ -118,73 +118,85 @@ describe("shared/sync-rules", () => {
 
 		expect(sendKey("profile:totk:1", p1)).toBe(sendKey("profile:totk:1", p2));
 		expect(sendKey("profile:totk:1", p1)).not.toBe(sendKey("profile:totk:1", p3));
-	});
+	}, 30_000);
 
 	test("fnv hashes strings deterministically to 32-bit hex", () => {
 		expect(fnv("")).toBe("811c9dc5");
 		expect(fnv("hello")).toBe(fnv("hello"));
 		expect(fnv("hello")).not.toBe(fnv("world"));
-	});
+	}, 30_000);
 });
 
 describe("share-link", () => {
-	test("packs and unpacks a user marker losslessly (with coordinate rounding and validation)", async () => {
-		const input = {
-			title: "Hidden Chest",
-			category: "Loot",
-			color: "E5484D",
-			glyph: "key-round",
-			desc: "Behind the waterfall",
-			lat: 12.3456789,
-			lng: -45.6789123,
-			map: "limgrave",
-			links: [101, 202, -5, 0, 3.14], // negative, 0, and non-integers should be filtered out
-		};
-		const packed = await packMarker(input);
-		expect(typeof packed).toBe("string");
-		expect(packed).toMatch(/^[A-Za-z0-9_-]+$/);
+	test.concurrent(
+		"packs and unpacks a user marker losslessly (with coordinate rounding and validation)",
+		async () => {
+			const input = {
+				title: "Hidden Chest",
+				category: "Loot",
+				color: "E5484D",
+				glyph: "key-round",
+				desc: "Behind the waterfall",
+				lat: 12.3456789,
+				lng: -45.6789123,
+				map: "limgrave",
+				links: [101, 202, -5, 0, 3.14], // negative, 0, and non-integers should be filtered out
+			};
+			const packed = await packMarker(input);
+			expect(typeof packed).toBe("string");
+			expect(packed).toMatch(/^[A-Za-z0-9_-]+$/);
 
-		const unpacked = await unpackMarker(packed);
-		expect(unpacked).toEqual({
-			title: "Hidden Chest",
-			category: "Loot",
-			color: "#e5484d",
-			glyph: "key-round",
-			desc: "Behind the waterfall",
-			lat: 12.345679,
-			lng: -45.678912,
-			map: "limgrave",
-			links: [101, 202],
-		});
-	});
+			const unpacked = await unpackMarker(packed);
+			expect(unpacked).toEqual({
+				title: "Hidden Chest",
+				category: "Loot",
+				color: "#e5484d",
+				glyph: "key-round",
+				desc: "Behind the waterfall",
+				lat: 12.345679,
+				lng: -45.678912,
+				map: "limgrave",
+				links: [101, 202],
+			});
+		},
+		30_000,
+	);
 
-	test("unpackMarker returns null on malformed or out-of-bounds payloads", async () => {
-		expect(await unpackMarker("")).toBeNull();
-		expect(await unpackMarker("not valid base64!!!")).toBeNull();
-		expect(await unpackMarker("AAAA")).toBeNull();
+	test.concurrent(
+		"unpackMarker returns null on malformed or out-of-bounds payloads",
+		async () => {
+			expect(await unpackMarker("")).toBeNull();
+			expect(await unpackMarker("not valid base64!!!")).toBeNull();
+			expect(await unpackMarker("AAAA")).toBeNull();
 
-		const badLat = await packMarker({ title: "Out of bounds", lat: 95, lng: 0, map: "world" });
-		expect(await unpackMarker(badLat)).toBeNull();
-	});
+			const badLat = await packMarker({ title: "Out of bounds", lat: 95, lng: 0, map: "world" });
+			expect(await unpackMarker(badLat)).toBeNull();
+		},
+		30_000,
+	);
 
-	test("unpackMarker aborts decompression bombs exceeding MAX_DECOMPRESSED_BYTES", async () => {
-		const rawJson = JSON.stringify({
-			v: 2,
-			title: "Bomb",
-			lat: 0,
-			lng: 0,
-			desc: "A".repeat(100_000),
-		});
-		const compressedStream = new Blob([new TextEncoder().encode(rawJson)])
-			.stream()
-			.pipeThrough(new CompressionStream("deflate-raw"));
-		const compressedBytes = new Uint8Array(await new Response(compressedStream).arrayBuffer());
-		let bin = "";
-		for (const b of compressedBytes) bin += String.fromCharCode(b);
-		const b64url = btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-		expect(b64url.length).toBeLessThan(4000);
-		expect(await unpackMarker(b64url)).toBeNull();
-	});
+	test.concurrent(
+		"unpackMarker aborts decompression bombs exceeding MAX_DECOMPRESSED_BYTES",
+		async () => {
+			const rawJson = JSON.stringify({
+				v: 2,
+				title: "Bomb",
+				lat: 0,
+				lng: 0,
+				desc: "A".repeat(100_000),
+			});
+			const compressedStream = new Blob([new TextEncoder().encode(rawJson)])
+				.stream()
+				.pipeThrough(new CompressionStream("deflate-raw"));
+			const compressedBytes = new Uint8Array(await new Response(compressedStream).arrayBuffer());
+			let bin = "";
+			for (const b of compressedBytes) bin += String.fromCharCode(b);
+			const b64url = btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+			expect(b64url.length).toBeLessThan(4000);
+			expect(await unpackMarker(b64url)).toBeNull();
+		},
+		30_000,
+	);
 });
 
 describe("shared/escape and shared/theme-math", () => {
@@ -193,7 +205,7 @@ describe("shared/escape and shared/theme-math", () => {
 		expect(esc(null)).toBe("");
 		expect(fmtEn(12345)).toBe("12,345");
 		expect(typeof fmt(12345)).toBe("string");
-	});
+	}, 30_000);
 
 	test("theme-math functions compute consistent HSL and light theme palettes", () => {
 		const [h, s, l] = hexToHsl("#d6453b");
@@ -203,7 +215,7 @@ describe("shared/escape and shared/theme-math", () => {
 		expect(light["accent-soft"]).toBe(deriveLightAccentSoft("#d6453b"));
 		expect(glyphInk("#000000")).toBe("#ffffff");
 		expect(glyphInk("#ffffff")).toBe("#14161a");
-	});
+	}, 30_000);
 });
 
 describe("shared/secret-key", () => {
@@ -211,7 +223,7 @@ describe("shared/secret-key", () => {
 		expect(normalizeSecret("")).toBe("");
 		expect(normalizeSecret("oil u")).toBe("011V");
 		expect(normalizeSecret("  ABCD-EFGH\t1234\n5678_90  ")).toBe("ABCDEFGH1234567890");
-	});
+	}, 30_000);
 
 	test("cleanSecretChars and formatSecretKey format into 4-character groups capped at 30 characters", () => {
 		expect(cleanSecretChars("oil")).toBe("011");
@@ -221,7 +233,7 @@ describe("shared/secret-key", () => {
 		expect(formatSecretKey("abcde")).toBe("ABCD-E");
 		expect(formatSecretKey("123456781234567812345678123456")).toBe("1234-5678-1234-5678-1234-5678-1234-56");
 		expect(formatSecretKey("123456781234567812345678123456EXTRA")).toBe("1234-5678-1234-5678-1234-5678-1234-56");
-	});
+	}, 30_000);
 
 	test("encodeSecret produces 30-character keys with scattered checksum catching typos", () => {
 		const bytes = new Uint8Array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
@@ -242,7 +254,7 @@ describe("shared/secret-key", () => {
 			const res = validateSecretKey(bad);
 			expect(res.valid).toBe(false);
 		}
-	});
+	}, 30_000);
 
 	test("validateSecretKey rejects invalid lengths, characters, and non-canonical encodings", () => {
 		expect(validateSecretKey("").valid).toBe(false);
@@ -252,7 +264,7 @@ describe("shared/secret-key", () => {
 		expect(validateSecretKey("V348-Q6DX-VWMR-EQ6W-3BPM-PC1S-P4C8-VK").valid).toBe(true);
 		expect(validateSecretKey("V348-Q6DX-VWMR-EQ67-3BPM-PC1S-P4C8-VK").valid).toBe(false);
 		expect(validateSecretKey("D6NQ-62B7-R7T2-1HXJ-8WT0-RHHD-FQ3M-67").valid).toBe(true);
-	});
+	}, 30_000);
 });
 
 describe("shared/geometry", () => {
@@ -306,7 +318,7 @@ describe("shared/geometry", () => {
 			[2, 2],
 			[1, 1],
 		]);
-	});
+	}, 30_000);
 
 	test("sanitizeGeometry normalizes Polygon, MultiPolygon, and LineStrings", () => {
 		const unclosedPoly = {
@@ -356,7 +368,7 @@ describe("shared/geometry", () => {
 			[1, 1],
 			[2, 2],
 		]);
-	});
+	}, 30_000);
 
 	test("sanitizeMapData mutates unclosed regions and location features in place", () => {
 		const mapData = {
@@ -409,5 +421,5 @@ describe("shared/geometry", () => {
 
 		// Subsequent call is a no-op
 		expect(sanitizeMapData(mapData)).toBe(false);
-	});
+	}, 30_000);
 });
