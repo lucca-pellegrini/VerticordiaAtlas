@@ -7,7 +7,7 @@
 		"backup": "bun scripts/backup-db.ts",
 		"typecheck": "tsc --noEmit",
 		"check:budgets": "bun scripts/check-budgets.ts",
-		"test": "bun test"
+		"test": "bun scripts/test.ts"
 	},
 	"dependencies": {
 		"@aws-sdk/client-ses": "^3.1161.0",

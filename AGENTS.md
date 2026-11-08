@@ -16,7 +16,7 @@ Verticordia Atlas is a local-first, offline-capable interactive game map viewer 
 
 Bun is managed via `mise` (`.config/mise/config.toml`). If `bun` is not on the default `PATH`, invoke it via `mise` or `~/.local/share/mise/installs/bun/1.4.4/bin/bun`.
 
-- **Run tests**: `bun test` (runs test files sequentially); `bun test --parallel` runs test files in parallel across worker processes; `bun test --parallel --concurrent` runs tests concurrently. Tests use generous timeouts (30s default, 60s–240s for long or e2e runs) to avoid contention timeouts. Tests with shared process or server state (auth describe server lifecycle, global `dataCache`, `deriveLimiter`, monkey-patched `ops.link`, and browser CDP CPU throttling) are marked `test.serial`, while isolated tests use ephemeral ports or temporary directories and run with `test.concurrent`.
+- **Run tests**: `bun run test` (runs `scripts/test.ts` with `--parallel=<nproc/2>` and `--concurrent` by default) or `bun test` (runs test files sequentially); pass CLI flags (e.g. `bun run test -- --timeout 60000` or `bun test --parallel`) to override. Tests use generous timeouts (30s default, 60s–240s for long or e2e runs) to avoid contention timeouts. Tests with shared process or server state (auth describe server lifecycle, global `dataCache`, `deriveLimiter`, monkey-patched `ops.link`, and browser CDP CPU throttling) are marked `test.serial`, while isolated tests use ephemeral ports or temporary directories and run with `test.concurrent`.
 - **Performance debug (off by default)**: open any page with `?perf=1` (or `localStorage.perf = "1"`) to time `prepareMap`, `runSearch`, `refreshMap`, `updateSidebar`, `saveProfileNow` and long tasks (`src/client/perf.ts`); run `perfReport()` in the console for the table
 - **Typecheck**: `bun run typecheck` (`tsc --noEmit`)
 - **Build client bundles**: `bun run build` (runs `scripts/build.ts`)
@@ -92,6 +92,7 @@ server/
 	offline-pack.ts         # Streams a map's metadata and tile pyramid as a binary .vaop pack with path containment, rate limits, and concurrency caps
 	assets/fonts/           # Font files used by headless Chromium during social card generation
 scripts/
+	test.ts                 # Test runner wrapper running bun test with dynamic parallel workers (nproc/2) and concurrency
 	build.ts                # Bundles src/client/*.ts into public/ and verifies/hashes SW precache files
 	precompress.ts          # Precompresses static assets into .br and .gz sidecars for zero-overhead static serving
 	backup-db.ts            # Online SQLite backup script (VACUUM INTO backups/atlas-*.db with rotation)
