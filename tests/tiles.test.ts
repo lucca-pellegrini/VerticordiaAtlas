@@ -262,6 +262,57 @@ describe("scripts/prune-tiles", () => {
 		expect((await listTiles(lone, tail)).map((t) => t.z).sort()).toEqual([0, 1, 2]);
 	});
 
+	test("the overview levels are made in one pass and equal what the server derives", async () => {
+		const dir = path.join(tmp, "overview");
+		for (let x = 0; x < 16; x++)
+			for (let y = 0; y < 16; y++) await put(path.join(dir, `4/${x}/${y}.png`), await gradient(x * 16 + y));
+		const read = async (z: number, x: number, y: number): Promise<Buffer | null> => {
+			const f = Bun.file(path.join(dir, `${z}/${x}/${y}.png`));
+			return (await f.exists()) ? Buffer.from(await f.bytes()) : null;
+		};
+		const expected = new Map<string, Buffer>();
+		for (let z = 0; z <= 2; z++)
+			for (let x = 0; x < 2 ** z; x++)
+				for (let y = 0; y < 2 ** z; y++)
+					expected.set(`${z}/${x}/${y}`, (await deriveRaw(z, x, y, { maxZoom: 4, read }))!);
+		const dry = await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2, dryRun: true });
+		expect(dry.overview).toBe(21);
+		expect((await listTiles(dir, tail)).length).toBe(256);
+		const r = await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2 });
+		expect(r.overview).toBe(21);
+		const left = await listTiles(dir, tail);
+		expect(left.filter((t) => t.z < 3).length).toBe(21); // zoom 0, 1 and 2 are kept
+		expect(left.filter((t) => t.z === 3).length).toBe(0); // zoom 3 is made on demand
+		for (const [k, raw] of expected)
+			expect(
+				(
+					await decodeTile(
+						await Bun.file(path.join(dir, `${k}.png`))
+							.bytes()
+							.then(Buffer.from),
+					)
+				).equals(raw),
+			).toBe(true);
+		expect((await optimizeTileset({ dir, tail, minZ: 0, maxZ: 4, keepBelowMax: 2 })).overview).toBe(0);
+	});
+
+	test("overview levels survive pruning by default, and --aggressive-prune drops them", async () => {
+		const dir = path.join(tmp, "keep");
+		await pyramid(dir);
+		const kept = await optimizeTileset({ dir, tail, minZ: 1, maxZ: 3, keepBelowMax: 1, dryRun: true });
+		expect(kept.pruned).toBe(0); // zoom 2 is an overview level
+		const old = await optimizeTileset({
+			dir,
+			tail,
+			minZ: 1,
+			maxZ: 3,
+			keepBelowMax: 1,
+			aggressive: true,
+			dryRun: true,
+		});
+		expect(old.pruned).toBe(16);
+	});
+
 	test("--dry-run reports and changes nothing", async () => {
 		const dir = path.join(tmp, "dry");
 		await pyramid(dir);
