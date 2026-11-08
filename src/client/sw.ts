@@ -200,7 +200,9 @@ if (typeof self !== "undefined" && "registration" in self) {
 				const games = new Set<string>();
 				for (const req of keys) {
 					const path = new URL(req.url).pathname;
-					const m = path.match(/\/maps\/([^/]+)\/(?:meta\.json|data\.json|markers\.json|[^/]+\/data\.json)/);
+					const m = path.match(
+						/\/maps\/([^/]+)\/(?:meta\.json|data\.json|markers\.json|[^/]+\/data(?:\.compact|\.details)?\.json)/,
+					);
 					if (m) games.add(decodeURIComponent(m[1]));
 				}
 				event.source?.postMessage({
