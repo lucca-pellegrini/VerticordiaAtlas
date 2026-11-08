@@ -524,6 +524,22 @@ export function createApi({
 	}
 
 	/* ---------- sessions ---------- */
+	// Only the public user object is cached (display data; every decision uses user.id). The session row (expiry,
+	// revocation, reauth_at) is always read from the DB. Cleared after every mutating request (see handle()).
+	const USER_CACHE_TTL = 30_000;
+	const USER_CACHE_MAX = 500;
+	const userCache = new Map<string, { user: UserAccount; at: number }>();
+	function cachedPublicUser(userId: string): UserAccount | null {
+		const t = now();
+		const hit = userCache.get(userId);
+		if (hit && t - hit.at < USER_CACHE_TTL && t >= hit.at) return hit.user;
+		const user = buildPublicUser(userId);
+		userCache.delete(userId);
+		if (!user) return null;
+		if (userCache.size >= USER_CACHE_MAX) userCache.delete(userCache.keys().next().value!);
+		userCache.set(userId, { user, at: t });
+		return user;
+	}
 	function sessionFromToken(token: string): SessionInfo | null {
 		if (!token) return null;
 		const row = db
@@ -543,7 +559,7 @@ export function createApi({
 			db.prepare("DELETE FROM sessions WHERE token_hash = ?").run(row.token_hash);
 			return null;
 		}
-		const user = buildPublicUser(row.user_id);
+		const user = cachedPublicUser(row.user_id);
 		if (!user) return null;
 		return {
 			token,
@@ -2226,10 +2242,7 @@ export function createApi({
 				const cookie = touch(req, session);
 				const headers = new Headers();
 				if (cookie) headers.append("Set-Cookie", cookie);
-				const row = db.prepare("SELECT user_id FROM sessions WHERE token_hash = ?").get(session.tokenHash) as {
-					user_id: string;
-				};
-				const userId = row.user_id;
+				const userId = session.user.id;
 				if (req.method === "GET")
 					return json(
 						200,
@@ -2254,7 +2267,13 @@ export function createApi({
 	}
 
 	async function handle(req: Request, url: URL, remoteAddress?: string | null): Promise<Response | null> {
-		const res = await handleRoute(req, url, remoteAddress);
+		let res: Response | null;
+		try {
+			res = await handleRoute(req, url, remoteAddress);
+		} finally {
+			// sync only writes user_data, which is not part of the cached user
+			if (req.method !== "GET" && req.method !== "HEAD" && url.pathname !== "/api/sync") userCache.clear();
+		}
 		if (!res) return null;
 		return compressApiResponse(req, res);
 	}
