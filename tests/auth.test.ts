@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
+import { Database } from "bun:sqlite";
 import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import { mkdtemp, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 
-import { createApi } from "../server/api.ts";
+import { createApi, sha256 } from "../server/api.ts";
 import {
 	renderChangeEmailTemplate,
 	renderResetPasswordTemplate,
@@ -564,6 +565,133 @@ describe("End-to-end authentication, verification, reset, and account credential
 			headers: { Cookie: cookie },
 		});
 		expect(delOk.status).toBe(200);
+	});
+
+	describe("session user cache", () => {
+		const post = (p: string, cookie: string, body: unknown = {}) =>
+			fetch(`${baseUrl}${p}`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify(body),
+			});
+		const me = async (cookie: string) =>
+			(await (await fetch(`${baseUrl}/api/me`, { headers: { Cookie: cookie } })).json()).user;
+		const signUp = async () => {
+			const { secret } = await (await post("/api/auth/secret/new", "")).json();
+			const res = await post("/api/auth/secret/confirm", "", { secret });
+			return (res.headers.get("set-cookie") || "").split(";")[0];
+		};
+		// Counts session/user lookups (any statement get/all) made by Database instances created inside `body`.
+		const withQueryCounter = async (
+			body: (a: ReturnType<typeof createApi>, count: () => number) => Promise<void>,
+		) => {
+			const proto = Database.prototype as any;
+			const orig = proto.prepare;
+			let n = 0;
+			proto.prepare = function (this: unknown, sql: string, ...rest: unknown[]) {
+				const stmt = orig.call(this, sql, ...rest);
+				if (
+					!/COUNT\(/.test(sql) &&
+					/FROM (users|sessions|auth_identities|email_addresses|password_credentials) WHERE/.test(sql)
+				)
+					for (const m of ["get", "all"]) {
+						const f = stmt[m].bind(stmt);
+						stmt[m] = (...args: unknown[]) => (n++, f(...args));
+					}
+				return stmt;
+			};
+			const dir = await mkdtemp(path.join(os.tmpdir(), "atlas-cache-test-"));
+			let counted: ReturnType<typeof createApi> | undefined;
+			try {
+				counted = createApi({
+					root: dir,
+					publicUrl: "http://127.0.0.1",
+					argon2: { memoryCostKiB: 4096, timeCost: 1 },
+				});
+				await body(counted, () => n);
+			} finally {
+				proto.prepare = orig;
+				counted?.close();
+				await rm(dir, { recursive: true, force: true });
+			}
+		};
+		const meDirect = async (a: ReturnType<typeof createApi>, cookie: string) =>
+			(
+				await (await a.handle(
+					new Request("http://127.0.0.1/api/me", { headers: { cookie } }),
+					new URL("http://127.0.0.1/api/me"),
+				))!.json()
+			).user;
+		const signUpDirect = async (a: ReturnType<typeof createApi>) => {
+			const u = new URL("http://127.0.0.1/api/auth/secret/confirm");
+			const secret = a.newSecret();
+			const res = await a.handle(
+				new Request(u, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ secret }),
+				}),
+				u,
+			);
+			return (res!.headers.get("set-cookie") || "").split(";")[0];
+		};
+
+		test("a repeated /api/me skips the user queries but still reads the session row", async () => {
+			await withQueryCounter(async (a, count) => {
+				const cookie = await signUpDirect(a);
+				const before = count();
+				await meDirect(a, cookie);
+				const cold = count() - before;
+				const mid = count();
+				await meDirect(a, cookie);
+				expect(cold).toBe(1 + 4); // session row + users, identities, emails, password
+				expect(count() - mid).toBe(1); // session row only
+			});
+		});
+
+		test("expiry and logout are honoured immediately even while the user is cached", async () => {
+			const cookie = await signUp();
+			const user = await me(cookie);
+			expect(user.id).toBeTruthy();
+			api._db.prepare("UPDATE sessions SET expires_at = ? WHERE user_id = ?").run(Date.now() - 1, user.id);
+			expect(await me(cookie)).toBeNull();
+
+			const cookie2 = await signUp();
+			expect((await me(cookie2)).id).toBeTruthy();
+			await post("/api/auth/logout", cookie2);
+			expect(await me(cookie2)).toBeNull();
+		});
+
+		test("logout-all revokes other cached sessions; profile changes show up immediately", async () => {
+			const a = await signUp();
+			const user = await me(a);
+			// second session for the same account via a fresh token row
+			api._db
+				.prepare(
+					"INSERT INTO sessions (token_hash, user_id, created_at, expires_at, last_used) VALUES (?, ?, ?, ?, ?)",
+				)
+				.run(sha256("other-token"), user.id, Date.now(), Date.now() + 60_000, Date.now());
+			expect((await me("va_session=other-token")).id).toBe(user.id);
+			await post("/api/auth/logout-all", a);
+			expect(await me("va_session=other-token")).toBeNull();
+
+			const b = await signUp();
+			await me(b);
+			const prof = await post("/api/account/profile", b, { displayName: "Renamed Person" });
+			expect(prof.status).toBe(200);
+			expect((await me(b)).displayName).toBe("Renamed Person");
+		});
+
+		test("the cache is bounded: the oldest user is evicted past 500 entries", async () => {
+			await withQueryCounter(async (a, count) => {
+				const first = await signUpDirect(a);
+				await meDirect(a, first);
+				for (let i = 0; i < 500; i++) await meDirect(a, await signUpDirect(a));
+				const before = count();
+				await meDirect(a, first);
+				expect(count() - before).toBe(5);
+			});
+		});
 	});
 
 	test("resolveClientIp ignores spoofed X-Forwarded-For unless trustProxy is enabled", () => {
