@@ -727,13 +727,13 @@ export async function executeLootAtlasPipeline(
 
 		dataMaps.push(md);
 		await Bun.write(path.join(mapDir, "data.json"), JSON.stringify(md));
-		await refreshCompact(mapDir);
+		await refreshCompact(mapDir, { create: true });
 
 		const metaEntry = {
 			slug: ms,
 			title: m.name || ms,
 			data: `${ms}/data.json`,
-			...(await compactEntry(mapDir, `${ms}/data.json`)),
+			...compactEntry(`${ms}/data.json`),
 			tilesets: [
 				{
 					name: "Default",

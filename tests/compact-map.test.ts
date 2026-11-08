@@ -6,7 +6,7 @@ import { mkdtemp, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
-import { writeCompact } from "../scripts/compact-map.ts";
+import { refreshCompact, writeCompact } from "../scripts/compact-map.ts";
 import { ensureDetails, mapData } from "../src/client/map/map-view.ts";
 import { state } from "../src/client/map/state.ts";
 import { fromCompact, isCompact, locsOfCompact, toCompact } from "../src/shared/compact-map.ts";
@@ -94,6 +94,23 @@ describe("compact map payload", () => {
 			expect(await readFile(path.join(dir, "data.json"), "utf8")).toBe(text);
 			expect(isCompact(JSON.parse(await readFile(path.join(dir, "data.compact.json"), "utf8")))).toBe(true);
 			expect(JSON.parse(await readFile(path.join(dir, "data.details.json"), "utf8")).d["10"][0]).toContain("hi");
+		} finally {
+			await rm(dir, { recursive: true, force: true });
+		}
+	});
+
+	test("refreshCompact creates a compact file only for scrapers asking to, and refreshes an existing one", async () => {
+		const dir = await mkdtemp(path.join(tmpdir(), "compact-"));
+		try {
+			await Bun.write(path.join(dir, "data.json"), JSON.stringify(full()));
+			const exists = (f: string) => Bun.file(path.join(dir, f)).exists();
+			await refreshCompact(dir);
+			expect(await exists("data.compact.json")).toBe(false);
+			await refreshCompact(dir, { create: true });
+			expect(await exists("data.compact.json")).toBe(true);
+			await Bun.write(path.join(dir, "data.compact.json"), "stale");
+			await refreshCompact(dir);
+			expect(await Bun.file(path.join(dir, "data.compact.json")).text()).not.toBe("stale");
 		} finally {
 			await rm(dir, { recursive: true, force: true });
 		}

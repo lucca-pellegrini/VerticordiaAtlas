@@ -40,15 +40,13 @@ async function listCompact(mapDir: string): Promise<void> {
 	await Bun.write(metaFile, JSON.stringify(meta, null, "\t") + "\n");
 }
 
-// for the scrapers' meta.json entries: { compact } when the map has a compact file, so a rebuilt entry keeps it
-export async function compactEntry(mapDir: string, dataRel: string): Promise<{ compact?: string }> {
-	return (await exists(compactPath(path.join(mapDir, "data.json")))) ? { compact: compactPath(dataRel) } : {};
-}
+// for the scrapers' meta.json entries: the compact file written by refreshCompact({ create: true })
+export const compactEntry = (dataRel: string): { compact: string } => ({ compact: compactPath(dataRel) });
 
 // for the scrapers: a map that already has a compact file gets it made again from its new data.json, so the client
-// never reads a stale one. A map without one stays without (the client then reads data.json).
-export async function refreshCompact(mapDir: string): Promise<void> {
-	if (await exists(compactPath(path.join(mapDir, "data.json")))) await writeCompact(mapDir);
+// never reads a stale one. `create` also makes one for a map that has none (new or newly scraped games).
+export async function refreshCompact(mapDir: string, { create = false } = {}): Promise<void> {
+	if (create || (await exists(compactPath(path.join(mapDir, "data.json"))))) await writeCompact(mapDir);
 }
 
 if (import.meta.main) {

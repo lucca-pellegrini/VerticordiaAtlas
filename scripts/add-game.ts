@@ -1789,14 +1789,14 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 		const dir = path.join(outDir, ms);
 		await mkdir(dir, { recursive: true });
 		await Bun.write(path.join(dir, "data.json"), JSON.stringify(md));
-		await refreshCompact(dir);
+		await refreshCompact(dir, { create: true });
 		const sets = [...(md.mapConfig.tile_sets || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 		const chosen = v["all-tilesets"] ? sets : sets.slice(0, 1);
 		const entry = {
 			slug: ms,
 			title: md.map?.title || ms,
 			data: `${ms}/data.json`,
-			...(await compactEntry(dir, `${ms}/data.json`)),
+			...compactEntry(`${ms}/data.json`),
 			tilesets: [] as any[],
 		};
 		for (const ts of chosen) {
