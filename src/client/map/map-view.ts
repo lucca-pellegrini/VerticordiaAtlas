@@ -8,6 +8,7 @@ import { esc } from "../../shared/escape.ts";
 import { sanitizeGeometry } from "../../shared/geometry.ts";
 import { deriveLightTheme } from "../../shared/theme-math.ts";
 import { glyphPinImage, iconsReady } from "../icons-lib.ts";
+import { perf, perfAsync } from "../perf.ts";
 import { isLightTheme, recordGameOpen } from "../theme.ts";
 import { setupCapture } from "./capture.ts";
 import { closeCtx, closeDetail, dismiss, mapMenuAt, renderDetail, select, updateLinkHeads } from "./detail.ts";
@@ -239,7 +240,11 @@ export async function loadGame(entry: any): Promise<boolean> {
 }
 
 // everything that belongs to one map of the game: its data, categories, locations, tags, view and presets
-export async function prepareMap(info: any): Promise<void> {
+export function prepareMap(info: any): Promise<void> {
+	return perfAsync("prepareMap", () => prepareMapImpl(info));
+}
+
+async function prepareMapImpl(info: any): Promise<void> {
 	const data = await mapData(info);
 	state.mapInfo = info;
 	state.data = data;
@@ -1886,6 +1891,10 @@ export function rebuildMarkerSource(): void {
 }
 
 export function refreshMap(): void {
+	perf("refreshMap", refreshMapImpl);
+}
+
+function refreshMapImpl(): void {
 	if (!state.mapReady) return;
 	const map = state.map;
 	if (markerSourcesDirty) {
