@@ -551,10 +551,10 @@ describe("TUI ecosystem components & helpers", () => {
 			alt: true,
 		} as any);
 
-		// Switch to tab 1 (Monitor) via Ctrl+1
+		// Switch to tab 1 (Monitor) via Alt+1
 		testEnv.renderer.keyInput.emit("keypress", {
 			name: "1",
-			ctrl: true,
+			alt: true,
 		} as any);
 
 		// Press Ctrl+C and verify onExit hook is triggered without throwing
@@ -590,7 +590,7 @@ describe("TUI ecosystem components & helpers", () => {
 		expect(frame).toContain("▌ 1  Live Monitor");
 		expect(frame).toContain("2  Games Catalog");
 		expect(frame).not.toContain("3  Add Game");
-		expect(frame).toContain("+ [C-n]");
+		expect(frame).toContain("+ [^n]");
 
 		// Type random characters while in Live Monitor (tab 1)
 		testEnv.renderer.keyInput.emit("keypress", { name: "x", sequence: "x" } as any);
