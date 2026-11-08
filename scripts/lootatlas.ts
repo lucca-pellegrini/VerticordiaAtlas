@@ -22,6 +22,7 @@ import {
 	expandHome,
 	posterVariants,
 } from "./add-game.ts";
+import { compactEntry, refreshCompact } from "./compact-map.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
 import { createPruneDashboard } from "./tui/prune-dashboard.js";
 import { createR2Client, openMediaDb, validateR2Env } from "./upload-media.ts";
@@ -726,11 +727,13 @@ export async function executeLootAtlasPipeline(
 
 		dataMaps.push(md);
 		await Bun.write(path.join(mapDir, "data.json"), JSON.stringify(md));
+		await refreshCompact(mapDir);
 
 		const metaEntry = {
 			slug: ms,
 			title: m.name || ms,
 			data: `${ms}/data.json`,
+			...(await compactEntry(mapDir, `${ms}/data.json`)),
 			tilesets: [
 				{
 					name: "Default",

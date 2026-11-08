@@ -12,7 +12,7 @@ import { esc } from "../../shared/escape.ts";
 import { flat, fuzzyScore, words } from "../../shared/search.ts";
 import { svgIcon } from "../icons.ts";
 import { select } from "./detail.ts";
-import { mapData, placeThumb, refreshMap, switchMap } from "./map-view.ts";
+import { detailsReady, ensureDetails, mapData, placeThumb, refreshMap, switchMap } from "./map-view.ts";
 import { indexedOthers, type IndexEntry, indexMap } from "./search-index.ts";
 import { applicable, iconHtml, syncRegionBanners } from "./sidebar.ts";
 import { $, fmt, isMobile, state, vivid } from "./state.ts";
@@ -72,6 +72,7 @@ interface CachedLocText {
 
 // the normalised title and description of a location, cached (descriptions are long)
 const textCache = new WeakMap<object, CachedLocText>();
+export const forgetText = (l: object): void => void textCache.delete(l);
 export function textOf(l: { title?: string; desc?: string }): CachedLocText {
 	let c = textCache.get(l);
 	if (!c)
@@ -178,6 +179,11 @@ export async function runSearch(): Promise<void> {
 	document.body.classList.add("searching");
 	syncSideClose();
 	syncRegionBanners();
+	// descriptions rank a match and show in the rows: this goes again once they are here
+	if (!detailsReady())
+		void ensureDetails().then(() => {
+			if (my === s.run && detailsReady()) void runSearch();
+		});
 	const all = !wild && s.scope === "all" && state.meta.maps.length > 1;
 	let entries = localEntries();
 	if (all) {

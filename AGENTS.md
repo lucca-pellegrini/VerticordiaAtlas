@@ -37,6 +37,7 @@ src/
 		search.ts           # Diacritic-insensitive normalization and Levenshtein fuzzy matching
 		share-link.ts       # URL-safe deflate-raw marker packing/unpacking (?tm=...) with bounded decompression
 		theme-math.ts       # HSL color conversions and light-theme palette derivation
+		compact-map.ts      # Versioned compact client map payload (data.compact.json + lazy data.details.json) <-> data.json conversion
 		escape.ts           # HTML escaping (esc) and number/byte formatting (fmt, fmtEn, formatBytes)
 	client/                 # Browser TypeScript sources (bundled into public/ by scripts/build.ts)
 		map.ts              # Map viewer entrypoint: boot sequence, sync wiring, and top-level DOM events
@@ -89,6 +90,7 @@ scripts/
 	update-games.ts         # Incrementally updates existing MapGenie games (markers, media, and optionally tiles)
 	lootatlas.ts            # Scrapes LootAtlas games/maps into public/maps/<slug>/
 	gamemaps-br.ts          # Scrapes GameMaps.com.br games/maps into public/maps/<slug>/
+	compact-map.ts          # Writes data.compact.json/data.details.json beside a map's data.json (the scrapers refresh existing ones; the client falls back to data.json without them)
 	clean-markers.ts        # Rewrites intra-map MapGenie locationIds URLs in data.json to "#loc=<id>" fragments
 	prune-tiles.ts          # Links single-colour tiles, makes missing overviews, deletes intermediate zooms the server can remake (--dry-run)
 	download-tiles.ts       # Downloads map raster tiles into public/maps/<slug>/<map>/tiles/

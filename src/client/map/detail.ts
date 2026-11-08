@@ -6,7 +6,7 @@
 import { esc } from "../../shared/escape.ts";
 import { packMarker } from "../../shared/share-link.ts";
 import { svgIcon } from "../icons.ts";
-import { invalidateMarkerSource, refreshMap } from "./map-view.ts";
+import { detailsReady, ensureDetails, invalidateMarkerSource, refreshMap } from "./map-view.ts";
 import { ensureMarked, internalRefs, renderMd } from "./markdown.ts";
 import { scheduleSave } from "./profiles.ts";
 import { endPreview, syncSearchActive } from "./search.ts";
@@ -61,7 +61,7 @@ function syncBuildLinkIndex(): void {
 
 // Markers that the description links to, and the markers that link to this one.
 export function buildLinkIndex(): void {
-	if (typeof marked === "undefined") {
+	if (typeof marked === "undefined" || !detailsReady()) {
 		linkIndexBuilt = false;
 		return;
 	}
@@ -69,9 +69,9 @@ export function buildLinkIndex(): void {
 }
 
 export function ensureLinkIndex(): Promise<void> {
-	if (linkIndexBuilt && typeof marked !== "undefined") return Promise.resolve();
+	if (linkIndexBuilt && typeof marked !== "undefined" && detailsReady()) return Promise.resolve();
 	if (!linkIndexPromise) {
-		linkIndexPromise = ensureMarked()
+		linkIndexPromise = Promise.all([ensureMarked(), ensureDetails()])
 			.then(() => {
 				syncBuildLinkIndex();
 			})
@@ -328,7 +328,7 @@ export function renderDetail(): void {
 	if (!l) return closeDetail();
 	const id = l.id;
 	populateDetail(l);
-	if (!linkIndexBuilt || typeof marked === "undefined") {
+	if (!linkIndexBuilt || typeof marked === "undefined" || !detailsReady()) {
 		ensureLinkIndex().then(() => {
 			if (state.selected !== id) return;
 			populateDetail(l);

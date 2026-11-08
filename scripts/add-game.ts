@@ -69,6 +69,7 @@ import { hexToHsl, hslToHex } from "../src/shared/theme-math.ts";
 import type { ThemePalette } from "../src/shared/types.ts";
 import { AdaptiveRateController } from "./adaptive-rate.ts";
 import { cleanGameMarkers } from "./clean-markers.ts";
+import { compactEntry, refreshCompact } from "./compact-map.ts";
 import { executeLootAtlasPipeline, isLootAtlas } from "./lootatlas.ts";
 import { optimizeTileset } from "./prune-tiles.ts";
 import { createTileDashboard } from "./tile-downloader-tui.ts";
@@ -1788,9 +1789,16 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 		const dir = path.join(outDir, ms);
 		await mkdir(dir, { recursive: true });
 		await Bun.write(path.join(dir, "data.json"), JSON.stringify(md));
+		await refreshCompact(dir);
 		const sets = [...(md.mapConfig.tile_sets || [])].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 		const chosen = v["all-tilesets"] ? sets : sets.slice(0, 1);
-		const entry = { slug: ms, title: md.map?.title || ms, data: `${ms}/data.json`, tilesets: [] as any[] };
+		const entry = {
+			slug: ms,
+			title: md.map?.title || ms,
+			data: `${ms}/data.json`,
+			...(await compactEntry(dir, `${ms}/data.json`)),
+			tilesets: [] as any[],
+		};
 		for (const ts of chosen) {
 			const key = (ts.path || "").split("/").filter(Boolean).pop() || `ts${ts.id}`;
 			const tail = ts.pattern.slice(ts.pattern.indexOf("{"));

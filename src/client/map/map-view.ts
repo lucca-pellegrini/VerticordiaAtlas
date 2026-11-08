@@ -3,6 +3,7 @@
 
 /* ---------- game loading, theme application, map switcher, and MapLibre view ---------- */
 
+import { detailsPath, isCompact, locsOfCompact, type MapDetails, toCompact } from "../../shared/compact-map.ts";
 import { esc } from "../../shared/escape.ts";
 import { sanitizeGeometry } from "../../shared/geometry.ts";
 import { deriveLightTheme } from "../../shared/theme-math.ts";
@@ -22,7 +23,7 @@ import {
 	scheduleViewSave,
 	syncTagStrict,
 } from "./profiles.ts";
-import { runSearch } from "./search.ts";
+import { forgetText, runSearch } from "./search.ts";
 import { inSelection, setupSelection } from "./selection.ts";
 import {
 	buildSidebar,
@@ -276,21 +277,27 @@ export async function prepareMap(info: any): Promise<void> {
 	state.regions = data.regions || [];
 	state.regionById = regById;
 
-	state.locs = data.locations
-		.map((l: any) => ({
-			id: l.id,
-			cat: l.category_id,
-			region: l.region_id,
-			title: l.title || "",
-			desc: l.description || "",
-			lat: parseFloat(l.latitude),
-			lng: parseFloat(l.longitude),
-			tags: l.tags || [],
-			media: l.media || [],
-			icon: catById.get(l.category_id)?.icon,
-			features: l.features || null,
-		}))
-		.filter((l: any) => Number.isFinite(l.lat) && Number.isFinite(l.lng));
+	// a compact map brings no descriptions or media: ensureDetails() fills them in
+	state.locs = isCompact(data)
+		? locsOfCompact(data, (cat) => catById.get(cat)?.icon)
+		: data.locations
+				.map((l: any) => ({
+					id: l.id,
+					cat: l.category_id,
+					region: l.region_id,
+					title: l.title || "",
+					desc: l.description || "",
+					lat: parseFloat(l.latitude),
+					lng: parseFloat(l.longitude),
+					tags: l.tags || [],
+					media: l.media || [],
+					icon: catById.get(l.category_id)?.icon,
+					features: l.features || null,
+				}))
+				.filter((l: any) => Number.isFinite(l.lat) && Number.isFinite(l.lng));
+	detailsApplied = null;
+	const known = detailsData.get(info.slug);
+	if (known && isCompact(data)) applyDetails(known);
 	state.officialLocs = state.locs;
 	state.byId = new Map(state.locs.map((l: any) => [l.id, l]));
 	state.tags = [...(data.tags || [])].sort((a: any, b: any) => a.id - b.id);
@@ -316,21 +323,81 @@ export async function prepareMap(info: any): Promise<void> {
 	rebuildUserData(); // links, the user's markers on this map, and the sidebar when it exists
 }
 
+// the compact file when the map's meta names one (a missing, broken or foreign file is no error), else data.json
+async function fetchMapData(info: { data: string; compact?: string }): Promise<any> {
+	if (info.compact) {
+		try {
+			const c = await fetchJSON(`${state.folder}/${info.compact}`);
+			if (isCompact(c)) return c;
+		} catch {
+			/* fall through to data.json */
+		}
+	}
+	return fetchJSON(`${state.folder}/${info.data}`);
+}
+
 // map data is fetched once per map
 const mapCache = new Map<string, Promise<any>>();
 // keep=false (the all-maps index) reads a map that is not open without holding its data afterwards
-export function mapData(info: { slug: string; data: string }, keep = true): Promise<any> {
-	if (!keep && !mapCache.has(info.slug)) return fetchJSON(`${state.folder}/${info.data}`);
+export function mapData(info: { slug: string; data: string; compact?: string }, keep = true): Promise<any> {
+	if (!keep && !mapCache.has(info.slug)) return fetchMapData(info);
 	if (!mapCache.has(info.slug)) {
 		mapCache.set(
 			info.slug,
-			fetchJSON(`${state.folder}/${info.data}`).catch((e) => {
+			fetchMapData(info).catch((e) => {
 				mapCache.delete(info.slug);
 				throw e;
 			}),
 		);
 	}
 	return mapCache.get(info.slug)!;
+}
+
+/* ---------- descriptions and media of a compact map ----------
+   They come in a second file, on the first need: a detail card, the link graph, or a search (descriptions rank
+   there). If that file cannot be had, they are read from data.json. A map read from data.json has them already. */
+const detailsData = new Map<string, MapDetails>(); // loaded, by map slug
+const detailsLoads = new Map<string, Promise<MapDetails>>();
+let detailsApplied: string | null = null; // the map whose state.locs carry descriptions and media
+
+export const detailsReady = (): boolean => !isCompact(state.data) || detailsApplied === state.mapInfo?.slug;
+
+function applyDetails(d: MapDetails): void {
+	for (const [id, [desc, media]] of Object.entries(d.d)) {
+		const l = state.byId.get(Number(id));
+		if (!l || l.user) continue;
+		l.desc = desc;
+		l.media = media;
+		forgetText(l); // its normalised text was made without the description
+	}
+	detailsApplied = state.mapInfo.slug;
+}
+
+function loadDetails(info: { slug: string; data: string }): Promise<MapDetails> {
+	let p = detailsLoads.get(info.slug);
+	if (!p) {
+		const url = `${state.folder}/${info.data}`;
+		p = fetchJSON<MapDetails>(detailsPath(url))
+			.catch(() => fetchJSON(url).then((full) => toCompact(full).details))
+			.then((d) => (detailsData.set(info.slug, d), d));
+		detailsLoads.set(info.slug, p);
+		p.catch(() => detailsLoads.delete(info.slug)); // tried again on the next need
+	}
+	return p;
+}
+
+// resolves once the open map's locations have their descriptions and media; also when they cannot be loaded (the
+// caller checks detailsReady()). A map switched away meanwhile is left alone.
+export async function ensureDetails(): Promise<void> {
+	if (detailsReady()) return;
+	const info = state.mapInfo,
+		data = state.data;
+	try {
+		const d = await loadDetails(info);
+		if (state.mapInfo === info && state.data === data) applyDetails(d);
+	} catch {
+		/* not available: markers show without them */
+	}
 }
 
 // the map switcher in the side panel: one button per map, shown when the game has more than one
