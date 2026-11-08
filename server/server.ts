@@ -1120,5 +1120,5 @@ if (import.meta.main) {
 	process.on("SIGINT", () => void shutdown());
 	process.on("SIGTERM", () => void shutdown());
 
-	console.log(`Verticordia Atlas on http://${HOST}:${PORT}/`);
+	console.log(`Verticordia Atlas on http://${HOST}:${server.port}/`);
 }

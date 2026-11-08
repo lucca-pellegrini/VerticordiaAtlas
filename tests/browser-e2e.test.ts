@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 // Headless-browser checks of the map viewer's load, detail card, search, toggles, All-maps search, offline reload,
-// homepage posters and a perf baseline. Starts the real server on a free port and reads public/maps/ (never writes it).
+// homepage posters and a perf baseline. Starts the real server on an ephemeral port and reads public/maps/ (never writes it).
 // Needs Chrome and the tracked data of world-of-warcraft and hollow-knight. Missing prerequisites FAIL when CI is set
 // and skip with a warning locally, so a green CI run always means the checks ran.
 
@@ -11,6 +11,7 @@ import { existsSync, readFileSync } from "node:fs";
 
 import puppeteer, { type Browser, type BrowserContext, type Page } from "puppeteer";
 
+import { spawnServer } from "./spawn-server.ts";
 import { hasTileFixtures } from "./tile-fixtures.ts";
 
 const GAME = "world-of-warcraft",
@@ -38,30 +39,7 @@ let ek: { id: number; title: string; link: number };
 let hk: { id: number; title: string; link: number };
 let setupError: string | null = null; // why the tests cannot run; thrown by guard() on CI, a skip otherwise
 
-function freePort(): number {
-	const s = Bun.serve({ port: 0, hostname: "127.0.0.1", fetch: () => new Response("") });
-	const p = s.port!;
-	void s.stop(true);
-	return p;
-}
-
 // `bun run start` is `bun server/server.ts`; spawned directly so that kill() reaches the server itself
-async function startServer(): Promise<typeof server> {
-	const port = freePort();
-	const proc = Bun.spawn(["bun", "server/server.ts", "--no-tui", "--port", String(port)], {
-		stdout: "ignore",
-		stderr: "inherit",
-	});
-	const base = `http://127.0.0.1:${port}`;
-	for (let i = 0; i < 150; i++) {
-		try {
-			if ((await fetch(`${base}/`)).ok) return { base, proc };
-		} catch {}
-		await sleep(200);
-	}
-	proc.kill(9);
-	throw new Error("server did not start on " + port);
-}
 
 // a location with a description that links another location of the same map: the detail card has a link graph
 function pickLinked(file: string, kind: "details" | "data"): { id: number; title: string; link: number } {
@@ -90,7 +68,7 @@ beforeAll(async () => {
 		if (!chrome) throw new Error("browser e2e needs Chrome: set CHROME_PATH or install chromium");
 		ek = pickLinked(`${EK_DIR}/data.details.json`, "details");
 		hk = pickLinked(need[2]!, "data");
-		server = await startServer();
+		server = await spawnServer();
 		browser = await puppeteer.launch({
 			executablePath: chrome,
 			headless: true,
@@ -99,7 +77,7 @@ beforeAll(async () => {
 	} catch (e: any) {
 		setupError = e?.message ?? String(e);
 		await afterAllCleanup();
-		if (!process.env.CI) console.warn(`browser e2e skipped locally: ${setupError}`);
+		if (!process.env.CI && process.env.DEBUG) console.warn(`browser e2e skipped locally: ${setupError}`);
 	}
 }, 90_000);
 
@@ -367,7 +345,7 @@ describe("browser e2e (real server, headless Chrome)", () => {
 			const afterMore = await resultCount();
 			await ctx.close();
 
-			console.log(`search: "gold"+Enter rows after ${enterMs} ms; "herb" ${nRows} rows`);
+			if (process.env.DEBUG) console.log(`search: "gold"+Enter rows after ${enterMs} ms; "herb" ${nRows} rows`);
 			expect(t.errors).toEqual([]);
 			expect(debounced).toBe(1);
 			expect(nRows).toBeGreaterThan(0);
@@ -481,7 +459,8 @@ describe("browser e2e (real server, headless Chrome)", () => {
 				second = newData(mid, t.urls.length);
 			await ctx.close();
 			const n = (f: string[], end: string) => f.filter((x) => x.endsWith(end)).length;
-			console.log(`All maps "herb": ${firstMs} ms to the count; compact x${n(first, ".compact.json")}`);
+			if (process.env.DEBUG)
+				console.log(`All maps "herb": ${firstMs} ms to the count; compact x${n(first, ".compact.json")}`);
 			expect(n(first, ".compact.json")).toBeGreaterThan(1);
 			expect(n(first, "/data.json")).toBe(0); // never the full data of every map
 			expect(second).toEqual([]);
@@ -496,7 +475,7 @@ describe("browser e2e (real server, headless Chrome)", () => {
 		"6. offline: reload from the Service Worker serves the shell and the detail card",
 		async () => {
 			if (!guard()) return;
-			const offline = await startServer();
+			const offline = await spawnServer();
 			try {
 				const ctx = await browser.createBrowserContext();
 				const t = await track(ctx); // service worker on
@@ -569,7 +548,8 @@ describe("browser e2e (real server, headless Chrome)", () => {
 			const page = new Set(the(t.urls, /poster/).filter(isPoster));
 			const sw = new Set(swUrls.filter(isPoster));
 			await ctx.close();
-			console.log(`homepage: ${cards} cards, ${within3} within 4 viewports, ${page.size} posters fetched`);
+			if (process.env.DEBUG)
+				console.log(`homepage: ${cards} cards, ${within3} within 4 viewports, ${page.size} posters fetched`);
 			expect(cards).toBeGreaterThan(within3); // otherwise the bound below says nothing
 			expect(page.size).toBeLessThanOrEqual(within3 + 2); // lazy: what is near the viewport, not every card
 			// the SW's own fetches are the page's requests passing through it: a prefetch would add posters the page never asked for
@@ -630,7 +610,8 @@ describe("browser e2e (real server, headless Chrome)", () => {
 			await cdp.send("Emulation.setCPUThrottlingRate", { rate: 1 });
 			await ctx.close();
 			const table = t.tables[0] as Record<string, { count: number; meanMs: number; maxMs: number }>;
-			console.log("perfReport() at 4x CPU throttle (limit = mean ms):\n" + JSON.stringify(table, null, 1));
+			if (process.env.DEBUG)
+				console.log("perfReport() at 4x CPU throttle (limit = mean ms):\n" + JSON.stringify(table, null, 1));
 			expect(t.errors).toEqual([]);
 			expect(Object.keys(table)).toEqual(expect.arrayContaining(Object.keys(LIMITS)));
 			expect(table.prepareMap!.count).toBe(1);

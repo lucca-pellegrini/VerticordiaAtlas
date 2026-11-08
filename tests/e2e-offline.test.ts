@@ -6,10 +6,11 @@ import path from "node:path";
 
 import puppeteer, { type Browser, type Page } from "puppeteer";
 
+import { spawnServer } from "./spawn-server.ts";
 import { hasTileFixtures } from "./tile-fixtures.ts";
 
-const PORT1 = 11791;
-const BASE1 = `http://127.0.0.1:${PORT1}`;
+let PORT1: number;
+let BASE1: string;
 const HAS_RE2_TILES = hasTileFixtures("re2", ["claire-a", "claire-b", "leon-a", "leon-b"]);
 const HAS_HOLLOW_KNIGHT_TILES = hasTileFixtures("hollow-knight", ["hallownest"]);
 
@@ -20,24 +21,10 @@ let browser: Browser;
 beforeAll(async () => {
 	if (!HAS_RE2_TILES && !HAS_HOLLOW_KNIGHT_TILES) return;
 
-	serverProc1 = Bun.spawn(["bun", "server/server.ts", "--port", String(PORT1)], {
-		stdout: "ignore",
-		stderr: "inherit",
-	});
-
-	// Wait for server 1 to listen
-	let up = false;
-	for (let i = 0; i < 30; i++) {
-		try {
-			const res = await fetch(`${BASE1}/`);
-			if (res.ok) {
-				up = true;
-				break;
-			}
-		} catch {}
-		await new Promise((r) => setTimeout(r, 200));
-	}
-	if (!up) throw new Error("Server failed to start on port " + PORT1);
+	const s = await spawnServer();
+	serverProc1 = s.proc;
+	PORT1 = s.port;
+	BASE1 = s.base;
 
 	browser = await puppeteer.launch({
 		executablePath: "/usr/bin/chromium",

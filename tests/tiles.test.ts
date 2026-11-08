@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-import { afterEach, beforeAll, beforeEach, describe, expect, test } from "bun:test";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test } from "bun:test";
 import { link, mkdir, mkdtemp, readdir, rm, stat, utimes } from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
@@ -32,6 +32,19 @@ import {
 import type { Raw } from "../server/tile-engine.ts";
 import { createTileService } from "../server/tile-service.ts";
 import type { TilesetMeta } from "../src/shared/types.ts";
+
+// the tile cache and the downloader report progress on the console; a test run only needs the harness output
+const origLog = console.log,
+	origWarn = console.warn;
+beforeAll(() => {
+	if (process.env.DEBUG) return;
+	console.log = () => {};
+	console.warn = () => {};
+});
+afterAll(() => {
+	console.log = origLog;
+	console.warn = origWarn;
+});
 
 let tmp: string;
 beforeEach(async () => {

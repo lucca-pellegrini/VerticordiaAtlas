@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
-import { describe, expect, test } from "bun:test";
+import { afterAll, beforeAll, describe, expect, test } from "bun:test";
 import { mkdir, rm } from "node:fs/promises";
 import http from "node:http";
 import os from "node:os";
@@ -9,6 +9,15 @@ import path from "node:path";
 
 import { diveForSeed, findSiblingTiles } from "../scripts/add-game.ts";
 import { createTileDashboard } from "../scripts/tile-downloader-tui.ts";
+
+// the downloader reports progress on the console; a test run only needs the harness output
+const origLog = console.log;
+beforeAll(() => {
+	if (!process.env.DEBUG) console.log = () => {};
+});
+afterAll(() => {
+	console.log = origLog;
+});
 
 describe("tile downloader helper functions", () => {
 	test("findSiblingTiles scans existing sibling tile directories at max zoom", async () => {

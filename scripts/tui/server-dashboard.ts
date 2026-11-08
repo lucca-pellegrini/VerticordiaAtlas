@@ -124,7 +124,6 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	const isInteractive = Boolean(opts.renderer) || isInteractiveTty(opts.noTui);
 
 	if (!isInteractive) {
-		console.log(`Verticordia Atlas on http://${opts.host}:${opts.port}/`);
 		return {
 			onRequest(ev) {
 				totalRequests++;
