@@ -48,7 +48,9 @@ You can maintain separate profiles for different playthroughs without
 artificial limits, and export or import your progress as plain JSON whenever
 you wish. Custom markers with markdown notes, freehand pen and highlighter
 strokes, and polygon selection tools let you plan routes and update
-collectibles in bulk.
+collectibles in bulk. A built-in completion statistics dashboard breaks down
+progress per map and category, exports summaries to CSV or clipboard, and
+identifies stale or deleted markers across game updates.
 
 An account is strictly optional. Progress can be synchronized between devices
 in the background using interchangeable sign-in methods—Email/Username +
@@ -96,8 +98,11 @@ bun run start
 # Typecheck the entire repository
 bun run typecheck
 
-# Run the test suite
-bun test
+# Run the test suite (runs in parallel and concurrent across CPU cores)
+bun run test
+
+# Run tests directly or pass custom filters
+bun test [files]
 
 # Snapshot and rotate a live SQLite backup of data/atlas.db
 bun run backup
