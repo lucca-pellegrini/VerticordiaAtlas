@@ -16,7 +16,7 @@ Verticordia Atlas is a local-first, offline-capable interactive game map viewer 
 
 Bun is managed via `mise` (`.config/mise/config.toml`). If `bun` is not on the default `PATH`, invoke it via `mise` or `~/.local/share/mise/installs/bun/1.4.4/bin/bun`.
 
-- **Run tests**: `bun test`
+- **Run tests**: `bun test` (runs test files sequentially); `bun test --parallel` runs test files in parallel across worker processes; `bun test --parallel --concurrent` runs tests concurrently. Tests use generous timeouts (30s default, 60s–240s for long or e2e runs) to avoid contention timeouts. Tests with shared process or server state (auth describe server lifecycle, global `dataCache`, `deriveLimiter`, monkey-patched `ops.link`, and browser CDP CPU throttling) are marked `test.serial`, while isolated tests use ephemeral ports or temporary directories and run with `test.concurrent`.
 - **Performance debug (off by default)**: open any page with `?perf=1` (or `localStorage.perf = "1"`) to time `prepareMap`, `runSearch`, `refreshMap`, `updateSidebar`, `saveProfileNow` and long tasks (`src/client/perf.ts`); run `perfReport()` in the console for the table
 - **Typecheck**: `bun run typecheck` (`tsc --noEmit`)
 - **Build client bundles**: `bun run build` (runs `scripts/build.ts`)
@@ -35,6 +35,7 @@ Bun is managed via `mise` (`.config/mise/config.toml`). If `bun` is not on the d
 src/
 	shared/                 # Isomorphic TypeScript shared by client, server, and CLI scripts
 		types.ts            # Canonical domain interfaces (Profile, UserMarker, DrawingItem, GameMeta, etc.)
+		geometry.ts         # GeoJSON polygon ring closure, vertex deduplication, and bounds calculation
 		sync-rules.ts       # Deterministic JSON canonicalization (contentKey, sendKey) and FNV-1a hashing
 		secret-key.ts       # 128-bit Base32 secret key encoding, scattered checksum validation, and formatting
 		search.ts           # Diacritic-insensitive normalization and Levenshtein fuzzy matching
@@ -46,6 +47,8 @@ src/
 		map.ts              # Map viewer entrypoint: boot sequence, sync wiring, and top-level DOM events
 		home.ts             # Homepage entrypoint: game grid, fuzzy search, and "Continue" resume card
 		theme.ts            # Theme mode (light/auto/dark), game accent tinting, and navigation trail
+		features.ts         # Homepage progressive enhancement and device capability detection
+		perf.ts             # Opt-in client performance instrumentation (?perf=1, perfReport())
 		account.ts          # Account pill UI, session checks, and API client wrapper
 		account-page.ts     # Account page entrypoint (/account/): profile, emails, credentials, step-up reauth, offline maps, and account deletion
 		offline.ts          # Device-local "Keep offline" coordinator, streaming .vaop pack unpacker, and repair/removal
@@ -61,11 +64,14 @@ src/
 			state.ts        # Shared viewer state singleton and core UI/dialog helpers
 			db.ts           # IndexedDB wrapper (profiles and meta stores) and syncStore adapter
 			map-view.ts     # MapLibre GL setup, raster tile layers, map switcher, and camera persistence
+			marker-filter.ts # Dynamic MapLibre setFilter marker visibility toggles without rebuilding layers
 			sidebar.ts      # Category/group tree, morphing progress bar, row menus, and session summary
+			stats.ts        # Completion statistics aggregation, breakdown, CSV export, and stale marker cleanup
 			profiles.ts     # Profile CRUD, veil transitions, JSON export/import, and data sanitization
 			presets.ts      # Category visibility presets, dirty state detection, and per-game migration
 			detail.ts       # Marker detail card, bidirectional link graph, arrowheads, and history stack
 			search.ts       # Tiered location search (current map & all maps) and hover ring preview
+			search-index.ts # Lazy background search index for cross-map and all-game location queries
 			selection.ts    # Box, ellipse, and freehand polygon marker selection tool
 			drawing.ts      # Freehand pen, highlighter, line, arrow, shape, and text annotations
 			usermarkers.ts  # Custom user markers, temporary markers, and category editor
@@ -87,23 +93,23 @@ server/
 	assets/fonts/           # Font files used by headless Chromium during social card generation
 scripts/
 	build.ts                # Bundles src/client/*.ts into public/ and verifies/hashes SW precache files
+	precompress.ts          # Precompresses static assets into .br and .gz sidecars for zero-overhead static serving
 	backup-db.ts            # Online SQLite backup script (VACUUM INTO backups/atlas-*.db with rotation)
-	clean.ts                # Removes generated client bundles and temporary caches
+	clean.ts                # Removes client bundles, public/sw.js and .br/.gz sidecars
 	add-game.ts             # Scrapes a MapGenie game/map into public/maps/<slug>/ (only the highest zoom of tiles; --force-get-tiles <map> takes every zoom)
 	update-games.ts         # Incrementally updates existing MapGenie games (markers, media, and optionally tiles)
 	lootatlas.ts            # Scrapes LootAtlas games/maps into public/maps/<slug>/
-	gamemaps-br.ts          # Scrapes GameMaps.com.br games/maps into public/maps/<slug>/
 	compact-map.ts          # Writes data.compact.json/data.details.json beside a map's data.json (add-game and lootatlas always write them for the games they add or update; clean-markers refreshes existing ones; the client falls back to data.json without them)
 	clean-markers.ts        # Rewrites intra-map MapGenie locationIds URLs in data.json to "#loc=<id>" fragments
 	prune-tiles.ts          # Links single-colour tiles, generates overview zooms (minzoom to maxzoom-3, kept by default), deletes only the top zooms the server can remake (--dry-run; --aggressive-prune restores the old deletion)
 	check-budgets.ts        # Measures client bundles and the largest map payload against scripts/budgets.json (run by CI)
-	clean.ts                # Removes client bundles, public/sw.js and the .br/.gz sidecars (regenerated by build and precompress)
 	download-tiles.ts       # Downloads map raster tiles into public/maps/<slug>/<map>/tiles/
 	download-media.ts       # Downloads marker screenshot media into public/maps/<slug>/media/
 	upload-media.ts         # Uploads marker media to Cloudflare R2 / S3, verifies SHA-256 via public URL, and records in SQLite media table
 	make-cards.ts           # Pre-renders OpenGraph card.jpg images for games
 	make-screenshots.ts     # Generates promotional screenshots in public/screenshots/
 	adaptive-rate.ts        # AIMD adaptive concurrency and delay controller for scrapers
+	tile-downloader-tui.ts  # OpenTUI dashboard for standalone tile downloader monitoring
 	tui/                    # OpenTUI terminal dashboards for server monitoring, game catalog, scraping, tile pruning, media, and cards
 public/                     # Static web root served by server/server.ts
 	index.html              # Homepage
@@ -122,12 +128,17 @@ tests/
 	server-and-scripts.test.ts # Integration tests for server/api.ts, server/server.ts, cards.ts, offline-pack.ts, backup-db.ts, and scripts/build.ts
 	ws-e2e.test.ts          # End-to-end WebSocket tests for authentication, origin security, limits, and sync notifications
 	tiles.test.ts           # Tile engine, cache eviction, tile service, parallel derivation limiter, scripts/prune-tiles.ts, and add-game's tile download
+	tile-downloader.test.ts # Unit tests for tile downloader queue, deduplication, and retry logic
+	update-games.test.ts    # Tests for incremental MapGenie game and marker sync
 	compact-map.test.ts     # Compact map round trip, CLI output, refreshCompact, and client loading with lazy details
 	perf.test.ts            # Opt-in performance instrumentation: flag parsing and wrapper behaviour
 	budgets.test.ts         # Budget evaluation (pass, warn, fail, skip) and message text
 	tui.test.ts             # Unit and integration tests for adaptive rate controller and OpenTUI dashboards
 	lootatlas.test.ts       # Unit tests for LootAtlas scraper transforms and coordinate conversion
+	browser-e2e.test.ts     # Puppeteer end-to-end browser verification of search, filters, cards, and perf baselines
 	e2e-offline.test.ts     # End-to-end Puppeteer test verifying offline map pack downloads and disconnected navigation
+	spawn-server.ts         # Ephemeral port server test fixture with SQLite in-memory/temp database
+	tile-fixtures.ts        # Minimal 1x1 / 2x2 PNG and JPEG tile fixtures for image downsampling tests
 ```
 
 ---
@@ -154,6 +165,14 @@ tests/
 
 4. **Testability of Client Modules**:
     - Guard top-level browser DOM side effects (`document`, `window`, `marked`, `matchMedia`) in client modules when they export pure functions or state helpers, so `bun test` can import and test them directly in a non-DOM environment.
+
+5. **Static Precompression & Lazy Vendor Assets**:
+    - `scripts/precompress.ts` generates Brotli (`.br`) and gzip (`.gz`) sidecars beside static bundles and assets; `server/server.ts` serves precompressed sidecars directly when supported by the client.
+    - Vendor Markdown parsing (`public/vendor/marked.umd.js`) is lazy-loaded on demand via `ensureMarked()` in `src/client/map/markdown.ts` to keep initial map boot lightweight and out of the critical rendering path.
+
+6. **Test Concurrency & Isolation**:
+    - Tests intended to run under `bun test --parallel --concurrent` must isolate filesystem paths (`withTempDir` or `mkdtemp`) and HTTP servers (ephemeral port 0 via `spawnTestServer`).
+    - Use `test.serial` strictly for tests that mutate process-global singletons (`dataCache`, `deriveLimiter`), monkey-patch global APIs or module exports, or throttle hardware (browser CDP CPU throttle). Isolated or pure tests should run with `test.concurrent`.
 
 ---
 
