@@ -1,0 +1,96 @@
+[
+	{
+		"id": "app-gzip",
+		"file": "public/app.js",
+		"metric": "gzip",
+		"measured": 77413,
+		"hard": 80000,
+		"target": 65000,
+		"note": "Roadmap target is ~65 KB gzip; not yet met. Hard limit is measured + ~3%."
+	},
+	{
+		"id": "app-brotli",
+		"file": "public/app.js",
+		"metric": "brotli",
+		"measured": 65369,
+		"hard": 67500,
+		"note": "br11."
+	},
+	{
+		"id": "home-gzip",
+		"file": "public/home.js",
+		"metric": "gzip",
+		"measured": 17814,
+		"hard": 18400
+	},
+	{
+		"id": "theme-gzip",
+		"file": "public/theme.js",
+		"metric": "gzip",
+		"measured": 5175,
+		"hard": 5400
+	},
+	{
+		"id": "sw-gzip",
+		"file": "public/sw.js",
+		"metric": "gzip",
+		"measured": 3377,
+		"hard": 3600
+	},
+	{
+		"id": "signin-gzip",
+		"file": "public/signin/signin.js",
+		"metric": "gzip",
+		"measured": 7837,
+		"hard": 8100
+	},
+	{
+		"id": "account-gzip",
+		"file": "public/account/account.js",
+		"metric": "gzip",
+		"measured": 13946,
+		"hard": 14400
+	},
+	{
+		"id": "legal-gzip",
+		"file": "public/legal/legal.js",
+		"metric": "gzip",
+		"measured": 434,
+		"hard": 500
+	},
+	{
+		"id": "ek-compact-gzip",
+		"file": "public/maps/world-of-warcraft/eastern-kingdoms/data.compact.json",
+		"metric": "gzip",
+		"measured": 937186,
+		"hard": 970000,
+		"optional": true,
+		"note": "Largest map (world-of-warcraft/eastern-kingdoms)."
+	},
+	{
+		"id": "ek-compact-brotli",
+		"file": "public/maps/world-of-warcraft/eastern-kingdoms/data.compact.json",
+		"metric": "brotli",
+		"measured": 688995,
+		"hard": 710000,
+		"optional": true
+	},
+	{
+		"id": "ek-details-gzip",
+		"file": "public/maps/world-of-warcraft/eastern-kingdoms/data.details.json",
+		"metric": "gzip",
+		"measured": 119508,
+		"hard": 125000,
+		"optional": true,
+		"note": "Lazy-loaded details file."
+	},
+	{
+		"id": "ek-data-raw",
+		"file": "public/maps/world-of-warcraft/eastern-kingdoms/data.json",
+		"metric": "raw",
+		"measured": 15499318,
+		"soft": 16300000,
+		"optional": true,
+		"note": "Warning only: scraper updates legitimately grow data.json."
+	}
+]

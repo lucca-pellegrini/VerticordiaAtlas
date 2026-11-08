@@ -23,8 +23,11 @@ jobs:
             - name: Build client bundles
               run: bun run build
 
+            - name: Check bundle and payload budgets
+              run: bun run check:budgets
+
             - name: Typecheck
               run: bun run typecheck
 
             - name: Run unit and integration tests
-              run: bun test tests/shared.test.ts tests/client-pure.test.ts tests/auth.test.ts tests/oauth.test.ts tests/server-and-scripts.test.ts tests/ws-e2e.test.ts tests/tiles.test.ts tests/tui.test.ts tests/lootatlas.test.ts
+              run: bun test tests/shared.test.ts tests/client-pure.test.ts tests/auth.test.ts tests/oauth.test.ts tests/server-and-scripts.test.ts tests/ws-e2e.test.ts tests/tiles.test.ts tests/tui.test.ts tests/lootatlas.test.ts tests/budgets.test.ts
