@@ -135,6 +135,7 @@ tests/
 	perf.test.ts            # Opt-in performance instrumentation: flag parsing and wrapper behaviour
 	budgets.test.ts         # Budget evaluation (pass, warn, fail, skip) and message text
 	tui.test.ts             # Unit and integration tests for adaptive rate controller and OpenTUI dashboards
+	quit-confirm.test.ts    # Unit tests for TUI quit confirmation modal, wave color math, and key handling
 	lootatlas.test.ts       # Unit tests for LootAtlas scraper transforms and coordinate conversion
 	browser-e2e.test.ts     # Puppeteer end-to-end browser verification of search, filters, cards, and perf baselines
 	e2e-offline.test.ts     # End-to-end Puppeteer test verifying offline map pack downloads and disconnected navigation

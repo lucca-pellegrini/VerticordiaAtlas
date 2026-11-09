@@ -557,10 +557,13 @@ describe("TUI ecosystem components & helpers", () => {
 			alt: true,
 		} as any);
 
-		// Press Ctrl+C and verify onExit hook is triggered without throwing
+		// Press Ctrl+C and Enter to confirm exit without throwing
 		testEnv.renderer.keyInput.emit("keypress", {
 			name: "c",
 			ctrl: true,
+		} as any);
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "return",
 		} as any);
 		expect(exitTriggered).toBe(true);
 
@@ -795,6 +798,83 @@ describe("TUI ecosystem components & helpers", () => {
 		expect(dashboard.getLastCopiedText?.()).toContain("/maps/req-21");
 		expect(copiedTexts.some((t) => t.includes("/maps/req-21"))).toBe(true);
 		expect(mockClipboardWrites.some((w) => w.text.includes("/maps/req-21"))).toBe(true);
+
+		await dashboard.destroy();
+		testEnv.dispose();
+	}, 60_000);
+
+	test("server-dashboard Ctrl+C shows quit confirmation overlay and handles cancel and confirm keys", async () => {
+		const testEnv = await createTestRenderer({ width: 120, height: 35, exitOnCtrlC: false });
+		let exitCalls = 0;
+		const dashboard = await createServerDashboard({
+			host: "127.0.0.1",
+			port: 8080,
+			renderer: testEnv.renderer,
+			onExit: () => {
+				exitCalls++;
+			},
+		});
+
+		await testEnv.renderOnce();
+
+		// a) Pressing Ctrl+C does not immediately quit; displays the quit confirmation overlay
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "c",
+			ctrl: true,
+		} as any);
+		await testEnv.renderOnce();
+		expect(exitCalls).toBe(0);
+		let frame = testEnv.captureCharFrame();
+		expect(frame).toContain("QUIT SERVER DASHBOARD");
+		expect(frame).toContain("[ Auto-cancel in");
+
+		// b) Pressing a non-confirming key (like 'escape') dismisses the popup and cancels quit
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "escape",
+		} as any);
+		await testEnv.renderOnce();
+		expect(exitCalls).toBe(0);
+		frame = testEnv.captureCharFrame();
+		expect(frame).not.toContain("QUIT SERVER DASHBOARD");
+
+		// Pressing another non-confirming key (like 'a') also dismisses without calling onExit
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "c",
+			ctrl: true,
+		} as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("QUIT SERVER DASHBOARD");
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "a",
+		} as any);
+		await testEnv.renderOnce();
+		expect(exitCalls).toBe(0);
+		expect(testEnv.captureCharFrame()).not.toContain("QUIT SERVER DASHBOARD");
+
+		// c) Pressing Ctrl+C then Enter confirms and calls onExit
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "c",
+			ctrl: true,
+		} as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("QUIT SERVER DASHBOARD");
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "return",
+		} as any);
+		expect(exitCalls).toBe(1);
+
+		// d) Pressing Ctrl+C then Ctrl+C again confirms and calls onExit
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "c",
+			ctrl: true,
+		} as any);
+		await testEnv.renderOnce();
+		expect(testEnv.captureCharFrame()).toContain("QUIT SERVER DASHBOARD");
+		testEnv.renderer.keyInput.emit("keypress", {
+			name: "c",
+			ctrl: true,
+		} as any);
+		expect(exitCalls).toBe(2);
 
 		await dashboard.destroy();
 		testEnv.dispose();

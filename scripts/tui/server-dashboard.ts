@@ -19,6 +19,7 @@ import { runAddGamePipeline } from "../add-game.js";
 import { resolveGames, updateGame } from "../update-games.js";
 import { CatalogGame, createGamesCatalogView, GamesCatalogView } from "./games-catalog.js";
 import { AddGameFormResult, AddGameFormView, createAddGameFormView } from "./input-form.js";
+import { createQuitConfirmOverlay } from "./quit-confirm.js";
 import { createServerJobView, ServerJobView } from "./server-job.js";
 import {
 	clearAndRedrawTerminal,
@@ -92,6 +93,7 @@ export interface ServerDashboard {
 	setWsCount(count: number): void;
 	getLastCopiedText?(): string;
 	destroy(): void | Promise<void>;
+	stop?(): void | Promise<void>;
 }
 
 interface TabItem {
@@ -160,6 +162,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				return lastCopiedText;
 			},
 			destroy() {},
+			stop() {},
 		};
 	}
 
@@ -173,11 +176,24 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			exitOnCtrlC: false,
 			exitSignals: [],
 		}));
+	// Server dashboard manages its own Ctrl+C confirmation modal and shutdown lifecycle
+	(renderer as any).exitOnCtrlC = false;
+
+	const quitConfirmOverlay = createQuitConfirmOverlay(renderer, {
+		onConfirm: () => {
+			if (opts.onExit) opts.onExit();
+			else process.kill(process.pid, "SIGINT");
+		},
+		onCancel: () => {
+			renderUi(true);
+		},
+	});
 
 	renderer.on?.("destroy", () => {
 		isDestroyed = true;
 		if (ticker) clearInterval(ticker);
 		throbber?.stop();
+		quitConfirmOverlay.destroy();
 	});
 
 	let { boxW, boxH } = computeResponsiveBox(renderer.width || 80, renderer.height || 24, 250, 120);
@@ -1112,6 +1128,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 	function handleResize(termW: number, termH: number) {
 		if (isDestroyed) return;
+		quitConfirmOverlay.handleResize(termW, termH);
 		const next = computeResponsiveBox(termW || renderer.width, termH || renderer.height, 250, 120);
 		boxW = next.boxW;
 		boxH = next.boxH;
@@ -1158,6 +1175,11 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	renderer.keyInput.on("keypress", (key: KeyEvent) => {
 		if (isDestroyed) return;
 
+		if (quitConfirmOverlay.isActive()) {
+			quitConfirmOverlay.handleKey(key);
+			return;
+		}
+
 		// Ctrl+Shift+C, Meta+C, Super+C, or 'y' (when selection exists and not in form) copies selected text
 		const isCopyShortcut =
 			(key.ctrl && key.shift && (key.name === "c" || key.name === "C")) ||
@@ -1182,11 +1204,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		if (isCtrlC) {
 			key.preventDefault?.();
 			key.stopPropagation?.();
-			if (opts.onExit) {
-				opts.onExit();
-			} else {
-				process.kill(process.pid, "SIGINT");
-			}
+			quitConfirmOverlay.show();
 			return;
 		}
 
@@ -1417,9 +1435,13 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		getLastCopiedText() {
 			return lastCopiedText;
 		},
+		stop() {
+			return (this as ServerDashboard).destroy();
+		},
 		async destroy() {
 			if (ticker) clearInterval(ticker);
 			throbber?.stop();
+			quitConfirmOverlay.destroy();
 			console.log = origLog;
 			console.info = origInfo;
 			console.warn = origWarn;
