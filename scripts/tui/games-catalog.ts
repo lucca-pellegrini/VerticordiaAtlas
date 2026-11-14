@@ -30,13 +30,24 @@ export interface CatalogGame {
 	defaultTag?: string | null;
 }
 
+export interface UpdateGameFormOptions {
+	redownloadTiles: boolean;
+	noTiles: boolean;
+	downloadMedia: boolean;
+	uploadMedia: boolean;
+	keepLocal: boolean;
+	videos: boolean;
+	renderCards: boolean;
+}
+
 export interface GamesCatalogOptions {
 	renderer: any;
 	width: number;
 	height: number;
 	indexPath?: string;
 	mapsDir?: string;
-	onUpdate?: (game: CatalogGame, overwriteTiles: boolean) => void;
+	onUpdate?: (game: CatalogGame, options: UpdateGameFormOptions) => void;
+	onUpdateAll?: (options: UpdateGameFormOptions) => void;
 	onPrune?: (game: CatalogGame) => void;
 	onCards?: (game: CatalogGame) => void;
 	onNewScrape?: () => void;
@@ -69,9 +80,18 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 	let toastMessage = "";
 	let toastTimer: any = null;
 
-	// Modal states: null | "edit" | "delete" | "search"
-	let modalState: "edit" | "delete" | "search" | "update" | null = null;
-	let updateOverwriteTiles = false;
+	// Modal states
+	let modalState: "edit" | "delete" | "search" | "update" | "updateAll" | null = null;
+	let updateFocusIdx = 0;
+	let updateOptions: UpdateGameFormOptions = {
+		redownloadTiles: false,
+		noTiles: false,
+		downloadMedia: true,
+		uploadMedia: false,
+		keepLocal: false,
+		videos: false,
+		renderCards: false,
+	};
 	let searchQuery = "";
 
 	const rootBox = new BoxRenderable(renderer, {
@@ -506,27 +526,61 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		showToast(`✓ Saved changes to "${game.title}"`);
 	}
 
-	function openUpdateModal() {
-		const game = displayedGames[selectedIdx];
-		if (!game) return;
-		modalState = "update";
-		updateOverwriteTiles = false;
+	const updateFields: { key: keyof UpdateGameFormOptions; label: string }[] = [
+		{ key: "redownloadTiles", label: "Force overwrite all tiles (atomic staging via cache)" },
+		{ key: "noTiles", label: "Skip downloading tiles" },
+		{ key: "downloadMedia", label: "Download missing media" },
+		{ key: "uploadMedia", label: "Upload media directly to R2 / S3" },
+		{ key: "keepLocal", label: "Keep local media copies when uploading" },
+		{ key: "videos", label: "Include video media" },
+		{ key: "renderCards", label: "Re-render OpenGraph preview cards" },
+	];
+
+	function resetUpdateOptions() {
+		updateFocusIdx = 0;
+		updateOptions = {
+			redownloadTiles: false,
+			noTiles: false,
+			downloadMedia: true,
+			uploadMedia: false,
+			keepLocal: false,
+			videos: false,
+			renderCards: false,
+		};
+	}
+
+	function openUpdateModal(all = false) {
+		if (!all) {
+			const game = displayedGames[selectedIdx];
+			if (!game) return;
+		}
+		modalState = all ? "updateAll" : "update";
+		resetUpdateOptions();
 		editBox.visible = false;
 		deleteMsg.visible = true;
 		searchBox.visible = false;
-		modalTitle.content = "UPDATE GAME FROM MAPGENIE";
-		renderUpdateModalText(game);
+		renderUpdateModalText();
 		if (!modalOverlay.parent) rootBox.add(modalOverlay);
 		renderer.requestRender();
 	}
 
-	function renderUpdateModalText(game: CatalogGame) {
-		const check = updateOverwriteTiles ? "[X]" : "[ ]";
-		deleteMsg.content =
-			`Re-run add-game on "${game.title}" (${game.slug}) to refresh markers & metadata.\n\n` +
-			`  ${check} Force overwrite all tiles (atomic staging via cache)\n\n` +
-			`Preserves original slug, title, id, description, and poster.`;
-		modalHint.content = " [Space] Toggle Overwrite Tiles   [Enter] Start Update   [Esc] Cancel";
+	function renderUpdateModalText() {
+		const all = modalState === "updateAll";
+		const game = all ? null : displayedGames[selectedIdx];
+		const title = all
+			? `Update all ${allGames.length} game(s) from MapGenie`
+			: `Update "${game?.title || ""}" (${game?.slug || ""}) from MapGenie`;
+		modalTitle.content = all ? "UPDATE ALL GAMES" : "UPDATE GAME FROM MAPGENIE";
+		const lines = [title, "", "Options:"];
+		for (let i = 0; i < updateFields.length; i++) {
+			const f = updateFields[i];
+			const checked = updateOptions[f.key] ? "[X]" : "[ ]";
+			const focus = i === updateFocusIdx ? "▶" : " ";
+			lines.push(` ${focus} ${checked} ${f.label}`);
+		}
+		lines.push("", "Preserves original slug, title, id, description, and poster.");
+		deleteMsg.content = lines.join("\n");
+		modalHint.content = " [↑↓/Tab] Move   [Space] Toggle   [Enter] Start   [Esc] Cancel";
 	}
 
 	function openDeleteModal() {
@@ -700,29 +754,49 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 				return true;
 			}
 
-			if (modalState === "update") {
+			if (modalState === "update" || modalState === "updateAll") {
 				if (key.name === "escape") {
 					key.preventDefault?.();
 					key.stopPropagation?.();
 					closeModal();
 					return true;
 				}
+				if (key.name === "up" || key.name === "k" || (key.name === "tab" && key.shift)) {
+					key.preventDefault?.();
+					key.stopPropagation?.();
+					updateFocusIdx = (updateFocusIdx - 1 + updateFields.length) % updateFields.length;
+					renderUpdateModalText();
+					renderer.requestRender();
+					return true;
+				}
+				if (key.name === "down" || key.name === "j" || key.name === "tab") {
+					key.preventDefault?.();
+					key.stopPropagation?.();
+					updateFocusIdx = (updateFocusIdx + 1) % updateFields.length;
+					renderUpdateModalText();
+					renderer.requestRender();
+					return true;
+				}
 				if (key.name === "space") {
 					key.preventDefault?.();
 					key.stopPropagation?.();
-					updateOverwriteTiles = !updateOverwriteTiles;
-					const game = displayedGames[selectedIdx];
-					if (game) renderUpdateModalText(game);
+					const field = updateFields[updateFocusIdx].key;
+					updateOptions[field] = !updateOptions[field];
+					renderUpdateModalText();
 					renderer.requestRender();
 					return true;
 				}
 				if (key.name === "return") {
 					key.preventDefault?.();
 					key.stopPropagation?.();
-					const game = displayedGames[selectedIdx];
+					const all = modalState === "updateAll";
+					const game = all ? null : displayedGames[selectedIdx];
+					const chosen = { ...updateOptions };
 					closeModal();
-					if (game && opts.onUpdate) {
-						opts.onUpdate(game, updateOverwriteTiles);
+					if (all) {
+						opts.onUpdateAll?.(chosen);
+					} else if (game && opts.onUpdate) {
+						opts.onUpdate(game, chosen);
 					}
 					return true;
 				}
@@ -849,10 +923,16 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			}
 
 			// Actions
+			if ((key.name === "u" || key.name === "U") && key.ctrl) {
+				key.preventDefault?.();
+				key.stopPropagation?.();
+				openUpdateModal(true);
+				return true;
+			}
 			if (key.name === "u" || key.name === "U") {
 				key.preventDefault?.();
 				key.stopPropagation?.();
-				openUpdateModal();
+				openUpdateModal(false);
 				return true;
 			}
 			if (key.name === "p" || key.name === "P") {

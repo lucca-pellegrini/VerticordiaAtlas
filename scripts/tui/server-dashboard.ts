@@ -17,7 +17,7 @@ import {
 import { fmt } from "../../src/shared/escape.js";
 import { runAddGamePipeline } from "../add-game.js";
 import { resolveGames, updateGame } from "../update-games.js";
-import { CatalogGame, createGamesCatalogView, GamesCatalogView } from "./games-catalog.js";
+import { CatalogGame, createGamesCatalogView, GamesCatalogView, type UpdateGameFormOptions } from "./games-catalog.js";
 import { AddGameFormResult, AddGameFormView, createAddGameFormView } from "./input-form.js";
 import { createQuitConfirmOverlay } from "./quit-confirm.js";
 import { createServerJobView, ServerJobView } from "./server-job.js";
@@ -568,8 +568,11 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		renderer,
 		width: boxW - 4,
 		height: boxH - 5,
-		onUpdate(game: CatalogGame, overwriteTiles: boolean) {
-			startUpdateJob(game, overwriteTiles);
+		onUpdate(game: CatalogGame, options: UpdateGameFormOptions) {
+			startUpdateJob(game, options);
+		},
+		onUpdateAll(options: UpdateGameFormOptions) {
+			startUpdateAllJob(options);
 		},
 		onPrune(game: CatalogGame) {
 			startPruneJob(game);
@@ -771,7 +774,19 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		})();
 	}
 
-	function startUpdateJob(game: CatalogGame, overwriteTiles: boolean) {
+	function toUpdateOpts(options: UpdateGameFormOptions) {
+		return {
+			redownloadTiles: options.redownloadTiles,
+			noTiles: options.noTiles,
+			noMedia: !options.downloadMedia,
+			uploadMedia: options.uploadMedia,
+			keepLocal: options.keepLocal,
+			videos: options.videos,
+			noCards: !options.renderCards,
+		};
+	}
+
+	function startUpdateJob(game: CatalogGame, options: UpdateGameFormOptions) {
 		const newTab: TabItem = {
 			id: `update_${Date.now()}`,
 			label: `Update: ${game.slug}`,
@@ -801,7 +816,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		switchTab(tabs.length - 1);
 
 		(async () => {
-			jobView.setStage(overwriteTiles ? "Updating & Overwriting Tiles" : "Updating Markers, Tiles & Media");
+			const uopts = toUpdateOpts(options);
+			jobView.setStage(
+				uopts.redownloadTiles ? "Updating & Overwriting Tiles" : "Updating Markers, Tiles & Media",
+			);
 			try {
 				const mapsDir = path.resolve(
 					path.dirname(fileURLToPath(import.meta.url)),
@@ -813,7 +831,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				const games = await resolveGames([game.slug], false, mapsDir);
 				if (!games.length) throw new Error(`Game not found: ${game.slug}`);
 				await updateGame(games[0], {
-					redownloadTiles: overwriteTiles,
+					...uopts,
 					container: jobView.stageContainer,
 					renderer,
 					onLog: (line) => jobView.addLog(line),
@@ -821,6 +839,88 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				});
 				jobView.finish(true);
 				catalogView.reload();
+			} catch (err: any) {
+				jobView.finish(false, err.message);
+				newTab.statusBadge = "(✗)";
+				updateTabBar();
+			}
+		})();
+	}
+
+	function startUpdateAllJob(options: UpdateGameFormOptions) {
+		const newTab: TabItem = {
+			id: `update_all_${Date.now()}`,
+			label: "Update: all games",
+			type: "job",
+			jobSlug: "all",
+			statusBadge: "(RUNNING)",
+		};
+		const jobView = createServerJobView({
+			renderer,
+			width: boxW - 4,
+			height: boxH - 5,
+			jobId: newTab.id,
+			jobType: "scrape",
+			title: "All games",
+			slug: "all",
+			onCompleted() {
+				newTab.statusBadge = "(✓)";
+				catalogView.reload();
+				updateTabBar();
+			},
+			onCloseTab() {
+				closeTab(tabs.indexOf(newTab));
+			},
+		});
+		newTab.view = jobView;
+		tabs.push(newTab);
+		switchTab(tabs.length - 1);
+
+		(async () => {
+			const uopts = toUpdateOpts(options);
+			try {
+				const mapsDir = path.resolve(
+					path.dirname(fileURLToPath(import.meta.url)),
+					"..",
+					"..",
+					"public",
+					"maps",
+				);
+				const games = await resolveGames([], true, mapsDir);
+				if (!games.length) throw new Error("No games found to update");
+				let ok = 0;
+				let failed = 0;
+				for (let i = 0; i < games.length; i++) {
+					const g = games[i];
+					const slug = g.folder;
+					const title = g.meta?.title || slug;
+					jobView.setStage(`[${i + 1}/${games.length}] Updating ${title} (${slug})`);
+					jobView.addLog(`==> [${i + 1}/${games.length}] ${title} (${slug})`);
+					try {
+						await updateGame(g, {
+							...uopts,
+							container: jobView.stageContainer,
+							renderer,
+							onLog: (line) => jobView.addLog(line),
+							onStage: (stage) => jobView.setStage(`[${i + 1}/${games.length}] ${slug}: ${stage}`),
+						});
+						ok++;
+						jobView.addLog(`✓ Updated ${slug}`);
+					} catch (err: any) {
+						failed++;
+						jobView.addLog(`[ERROR] ${slug}: ${err?.message || err}`);
+					}
+					catalogView.reload();
+				}
+				if (failed > 0) {
+					jobView.finish(false, `Completed: ${ok} ok, ${failed} failed`);
+					newTab.statusBadge = "(✗)";
+				} else {
+					jobView.finish(true, `Updated ${ok} game(s)`);
+					newTab.statusBadge = "(✓)";
+				}
+				catalogView.reload();
+				updateTabBar();
 			} catch (err: any) {
 				jobView.finish(false, err.message);
 				newTab.statusBadge = "(✗)";
@@ -1106,9 +1206,9 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		} else if (cur.type === "catalog") {
 			const cat = cur.view as GamesCatalogView;
 			if (cat?.isModalOpen()) {
-				hints = `[Tab/Shift+Tab] Move   [Enter] Confirm/Save   [Esc] Cancel   ${tabHint}`;
+				hints = `[↑↓/Tab] Move   [Space] Toggle   [Enter] Confirm   [Esc] Cancel   ${tabHint}`;
 			} else {
-				hints = `[←↑→↓] Select   [U] Update   [P] Prune   [C] Cards   [E/Enter] Edit   [[ / ]] Reorder   [D] Delete   [/] Search   [^n] New   ${tabHint}`;
+				hints = `[←↑→↓] Select   [U] Update   [^U] Update All   [P] Prune   [C] Cards   [E/Enter] Edit   [[ / ]] Reorder   [D] Delete   [/] Search   [^n] New   ${tabHint}`;
 			}
 		} else if (cur.type === "form") {
 			hints = `[Tab/Shift+Tab] Field   [Space] Toggle   [Enter] Start Scrape   [Esc/^w] Close Tab   ${tabHint}`;
