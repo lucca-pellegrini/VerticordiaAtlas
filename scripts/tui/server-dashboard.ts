@@ -840,7 +840,8 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				jobView.finish(true);
 				catalogView.reload();
 			} catch (err: any) {
-				jobView.finish(false, err.message);
+				const msg = err?.message || String(err);
+				jobView.finish(false, msg, { summary: `Failed: ${msg}`, failures: [`${game.slug}: ${msg}`] });
 				newTab.statusBadge = "(✗)";
 				updateTabBar();
 			}
@@ -889,7 +890,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 				const games = await resolveGames([], true, mapsDir);
 				if (!games.length) throw new Error("No games found to update");
 				let ok = 0;
-				let failed = 0;
+				const failures: string[] = [];
 				for (let i = 0; i < games.length; i++) {
 					const g = games[i];
 					const slug = g.folder;
@@ -907,22 +908,25 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 						ok++;
 						jobView.addLog(`✓ Updated ${slug}`);
 					} catch (err: any) {
-						failed++;
-						jobView.addLog(`[ERROR] ${slug}: ${err?.message || err}`);
+						const msg = err?.message || String(err);
+						failures.push(`${slug}: ${msg}`);
+						jobView.addLog(`[ERROR] ${slug}: ${msg}`);
 					}
 					catalogView.reload();
 				}
-				if (failed > 0) {
-					jobView.finish(false, `Completed: ${ok} ok, ${failed} failed`);
+				const summary = `Completed: ${ok} ok, ${failures.length} failed (${games.length} total)`;
+				if (failures.length > 0) {
+					jobView.finish(false, summary, { summary, failures });
 					newTab.statusBadge = "(✗)";
 				} else {
-					jobView.finish(true, `Updated ${ok} game(s)`);
+					jobView.finish(true, summary, { summary, failures: [] });
 					newTab.statusBadge = "(✓)";
 				}
 				catalogView.reload();
 				updateTabBar();
 			} catch (err: any) {
-				jobView.finish(false, err.message);
+				const msg = err?.message || String(err);
+				jobView.finish(false, msg, { summary: `Failed: ${msg}`, failures: [msg] });
 				newTab.statusBadge = "(✗)";
 				updateTabBar();
 			}

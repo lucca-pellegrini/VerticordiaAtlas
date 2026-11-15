@@ -1,9 +1,18 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
+import { mkdir, writeFile } from "node:fs/promises";
+import path from "node:path";
+
 import { BoxRenderable, type KeyEvent, TextRenderable } from "@opentui/core";
 
 import { fmtTime, RGBA_THEME, startThrobber, THEME, throbberFrame } from "./theme.js";
+
+export interface ServerJobReport {
+	summary?: string;
+	failures?: string[];
+	details?: string[];
+}
 
 export interface ServerJobOptions {
 	renderer: any;
@@ -13,6 +22,7 @@ export interface ServerJobOptions {
 	jobType: "scrape" | "prune" | "cards";
 	title: string;
 	slug: string;
+	logFile?: string;
 	onCompleted?: () => void;
 	onCloseTab?: () => void;
 }
@@ -23,14 +33,21 @@ export interface ServerJobView {
 	status: "running" | "completed" | "failed";
 	slug: string;
 	title: string;
+	logFile: string;
 	setStage(stageName: string): void;
 	addLog(line: string): void;
-	finish(success: boolean, message?: string): void;
+	finish(success: boolean, message?: string, report?: ServerJobReport): void;
 	handleKey(key: KeyEvent): boolean;
 	resize(width: number, height: number): void;
 	focus?(): void;
 	blur?(): void;
 	destroy(): void;
+}
+
+function defaultLogFile(opts: ServerJobOptions): string {
+	const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+	const safeId = (opts.jobId || `${opts.jobType}-${opts.slug}`).replace(/[^a-zA-Z0-9._-]+/g, "_");
+	return path.join(process.cwd(), "cache", "job-logs", `${stamp}-${safeId}.log`);
 }
 
 export function createServerJobView(opts: ServerJobOptions): ServerJobView {
@@ -45,6 +62,9 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	let activeThrobberFrame = throbberFrame(0);
 	const logs: string[] = [];
 	let isDestroyed = false;
+	let reportVisible = false;
+	let reportLogFile = opts.logFile || defaultLogFile(opts);
+	let reportLines: { text: string; fg?: string }[] = [];
 
 	const rootBox = new BoxRenderable(renderer, {
 		width: boxW,
@@ -103,11 +123,29 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	rootBox.add(headerBox);
 
 	// Dedicated Container for Embedded Stage TUIs (Tile, Media, Prune, Cards)
-	const logBoxH = Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
-	const stageH = Math.max(8, boxH - 4 - logBoxH - 1);
+	const reportBox = new BoxRenderable(renderer, {
+		width: boxW - 4,
+		height: 6,
+		border: true,
+		borderColor: RGBA_THEME.borderDim,
+		flexDirection: "column",
+		paddingX: 1,
+		paddingY: 0,
+		visible: false,
+	});
+	const reportTitle = new TextRenderable(renderer, {
+		content: "FINAL REPORT",
+		fg: THEME.textDim,
+	});
+	reportBox.add(reportTitle);
+	const reportTextLines: TextRenderable[] = [];
+
+	const logBoxHBase = () => Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
+	const reportBoxH = () => (reportVisible ? Math.max(6, Math.min(12, 3 + reportLines.length)) : 0);
+	const stageBoxH = () => Math.max(6, boxH - 4 - logBoxHBase() - reportBoxH() - (reportVisible ? 1 : 0));
 	const stageContainer = new BoxRenderable(renderer, {
 		width: boxW - 4,
-		height: stageH,
+		height: stageBoxH(),
 		flexDirection: "column",
 		alignItems: "center",
 		justifyContent: "center",
@@ -144,7 +182,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	// Streaming Log Pane
 	const logBox = new BoxRenderable(renderer, {
 		width: boxW - 4,
-		height: logBoxH,
+		height: logBoxHBase(),
 		border: true,
 		borderColor: RGBA_THEME.borderDim,
 		flexDirection: "column",
@@ -157,16 +195,65 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	});
 	logBox.add(logTitle);
 
-	const maxLogLines = Math.max(2, logBoxH - 2);
-	const logLinesPool: TextRenderable[] = [];
-	for (let i = 0; i < maxLogLines; i++) {
-		const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim });
-		logLinesPool.push(line);
-		logBox.add(line);
+	let logLinesPool: TextRenderable[] = [];
+	function ensureLogLines() {
+		const want = Math.max(2, logBox.height - 2);
+		while (logLinesPool.length < want) {
+			const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim });
+			logLinesPool.push(line);
+			logBox.add(line);
+		}
+		while (logLinesPool.length > want) {
+			const line = logLinesPool.pop()!;
+			try {
+				logBox.remove(line);
+			} catch {}
+		}
 	}
+	ensureLogLines();
 	rootBox.add(logBox);
+	rootBox.add(reportBox);
+
+	function ensureReportLines() {
+		while (reportTextLines.length < reportLines.length) {
+			const line = new TextRenderable(renderer, { content: "", fg: THEME.text });
+			reportTextLines.push(line);
+			reportBox.add(line);
+		}
+		while (reportTextLines.length > reportLines.length) {
+			const line = reportTextLines.pop()!;
+			try {
+				reportBox.remove(line);
+			} catch {}
+		}
+	}
+
+	function renderReport() {
+		ensureReportLines();
+		const maxCol = Math.max(20, boxW - 8);
+		for (let i = 0; i < reportLines.length; i++) {
+			const src = reportLines[i];
+			const txt = src.text.length > maxCol ? src.text.slice(0, maxCol - 1) + "…" : src.text;
+			reportTextLines[i].content = txt;
+			reportTextLines[i].fg = src.fg || THEME.text;
+		}
+	}
+
+	function applyLayout() {
+		const rH = reportBoxH();
+		reportBox.visible = reportVisible;
+		reportBox.width = boxW - 4;
+		reportBox.height = rH || 6;
+		logBox.width = boxW - 4;
+		logBox.height = logBoxHBase();
+		stageContainer.width = boxW - 4;
+		stageContainer.height = stageBoxH();
+		ensureLogLines();
+		renderReport();
+	}
 
 	function updateLogDisplay() {
+		ensureLogLines();
 		const display = logs.slice(-logLinesPool.length);
 		const maxCol = Math.max(20, boxW - 8);
 		for (let i = 0; i < logLinesPool.length; i++) {
@@ -189,6 +276,26 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 			}
 		}
 		renderer.requestRender();
+	}
+
+	async function writeLogFile(success: boolean, message?: string, report?: ServerJobReport) {
+		try {
+			await mkdir(path.dirname(reportLogFile), { recursive: true });
+			const payload = {
+				jobId: opts.jobId,
+				type: opts.jobType,
+				title: opts.title,
+				slug: opts.slug,
+				success,
+				message: message || null,
+				startedAt: new Date(startTime).toISOString(),
+				endedAt: new Date(endTime || Date.now()).toISOString(),
+				stage: currentStage,
+				report: report || null,
+				logs,
+			};
+			await writeFile(reportLogFile, JSON.stringify(payload, null, 2) + "\n", "utf8");
+		} catch {}
 	}
 
 	const ticker = setInterval(() => {
@@ -219,6 +326,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		},
 		slug: opts.slug,
 		title: opts.title,
+		logFile: reportLogFile,
 		setStage(stageName: string) {
 			currentStage = stageName;
 			stageText.content = `Stage: ${stageName}`;
@@ -235,7 +343,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 			if (logs.length > 1000) logs.shift();
 			updateLogDisplay();
 		},
-		finish(success: boolean, message?: string) {
+		finish(success: boolean, message?: string, report?: ServerJobReport) {
 			endTime = Date.now();
 			jobStatus = success ? "completed" : "failed";
 			throbber.stop();
@@ -249,8 +357,28 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 				statusBadge.fg = THEME.red;
 				stageText.content = `Stage: Error ✗ ${message || ""}`;
 			}
+
+			const failures = report?.failures || [];
+			reportLines = [];
+			if (report?.summary) reportLines.push({ text: report.summary, fg: success ? THEME.green : THEME.red });
+			if (failures.length) {
+				reportLines.push({ text: `Failed (${failures.length}):`, fg: THEME.red });
+				for (const f of failures.slice(0, 20)) reportLines.push({ text: ` - ${f}`, fg: THEME.red });
+				if (failures.length > 20)
+					reportLines.push({ text: ` - … +${failures.length - 20} more`, fg: THEME.red });
+			} else if (!success && message) {
+				reportLines.push({ text: `Failure: ${message}`, fg: THEME.red });
+			} else {
+				reportLines.push({ text: "No failures.", fg: THEME.green });
+			}
+			reportLines.push({ text: `Log: ${reportLogFile}`, fg: THEME.textDim });
+			reportVisible = true;
+			applyLayout();
+			void writeLogFile(success, message, report);
+
 			pendingTitle.visible = false;
 			pendingStage.visible = false;
+			updateLogDisplay();
 			renderer.requestRender();
 		},
 		handleKey(key: KeyEvent): boolean {
@@ -268,11 +396,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 			headerBox.width = boxW - 4;
 			titleRow.width = boxW - 8;
 			subRow.width = boxW - 8;
-			const nextLogBoxH = Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
-			logBox.width = boxW - 4;
-			logBox.height = nextLogBoxH;
-			stageContainer.width = boxW - 4;
-			stageContainer.height = Math.max(8, boxH - 4 - nextLogBoxH - 1);
+			applyLayout();
 			pendingStage.content = `Stage: ${truncateStage(currentStage)}`;
 			updateLogDisplay();
 		},
