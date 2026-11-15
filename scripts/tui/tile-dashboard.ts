@@ -829,9 +829,9 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			if (!isDestroyed) {
 				isDestroyed = true;
 				clearTimeout(renderTimer);
+				renderer.off("resize", handleResize);
+				process.stdout.off("resize", onStdoutResize);
 				if (!opts.renderer) {
-					renderer.off("resize", handleResize);
-					process.stdout.off("resize", onStdoutResize);
 					if (renderer.keyInput) {
 						try {
 							renderer.keyInput.off("keypress", onKeypress);
@@ -861,9 +861,9 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 			if (!isDestroyed) {
 				isDestroyed = true;
 				clearTimeout(renderTimer);
+				renderer.off("resize", handleResize);
+				process.stdout.off("resize", onStdoutResize);
 				if (!opts.renderer) {
-					renderer.off("resize", handleResize);
-					process.stdout.off("resize", onStdoutResize);
 					if (renderer.keyInput) {
 						try {
 							renderer.keyInput.off("keypress", onKeypress);

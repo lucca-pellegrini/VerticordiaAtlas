@@ -431,9 +431,9 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 			await new Promise((r) => setTimeout(r, 120));
 			if (!isDestroyed) {
 				isDestroyed = true;
+				renderer.off("resize", handleResize);
+				process.stdout.off("resize", onStdoutResize);
 				if (!opts.renderer) {
-					renderer.off("resize", handleResize);
-					process.stdout.off("resize", onStdoutResize);
 					if (renderer.keyInput) {
 						try {
 							renderer.keyInput.off("keypress", onKeypress);
@@ -461,9 +461,9 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 			throbber.stop();
 			if (!isDestroyed) {
 				isDestroyed = true;
+				renderer.off("resize", handleResize);
+				process.stdout.off("resize", onStdoutResize);
 				if (!opts.renderer) {
-					renderer.off("resize", handleResize);
-					process.stdout.off("resize", onStdoutResize);
 					if (renderer.keyInput) {
 						try {
 							renderer.keyInput.off("keypress", onKeypress);

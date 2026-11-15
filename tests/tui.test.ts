@@ -1361,4 +1361,50 @@ describe("TUI ecosystem components & helpers", () => {
 		}
 		await new Promise((r) => setTimeout(r, 450));
 	}, 60_000);
+
+	test("embedded dashboards remove resize listeners on finish/destroy without leaking", async () => {
+		const testEnv = await createTestRenderer({ width: 100, height: 30 });
+		const container = new BoxRenderable(testEnv.renderer, { width: 96, height: 24 });
+		testEnv.renderer.root.add(container);
+
+		const baseRendererListeners = testEnv.renderer.listenerCount("resize");
+		const baseStdoutListeners = process.stdout.listenerCount("resize");
+
+		try {
+			for (let i = 0; i < 6; i++) {
+				const td = await createTileDashboard({
+					gameTitle: "Test",
+					gameSlug: "test",
+					mapSlug: "map",
+					tilesetName: "default",
+					zoom: 4,
+					pattern: "{z}/{x}/{y}.jpg",
+					destDir: "/tmp/t",
+					container,
+					renderer: testEnv.renderer,
+				});
+				td.destroy();
+
+				const md = await createMediaDashboard({
+					game: "test",
+					totalExpected: 1,
+					container,
+					renderer: testEnv.renderer,
+				});
+				md.destroy();
+
+				const pd = await createPruneDashboard({
+					totalTilesets: 1,
+					container,
+					renderer: testEnv.renderer,
+				});
+				pd.destroy();
+			}
+
+			expect(testEnv.renderer.listenerCount("resize")).toBe(baseRendererListeners);
+			expect(process.stdout.listenerCount("resize")).toBe(baseStdoutListeners);
+		} finally {
+			testEnv.dispose();
+		}
+	}, 60_000);
 });
