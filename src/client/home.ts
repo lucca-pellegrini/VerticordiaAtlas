@@ -167,7 +167,7 @@ function card(g: GameManifestEntry, i: number): string {
 				`loading="${i === 0 ? "eager" : "lazy"}" decoding="async"${eager}></div>`;
 	const stats = (g.stats || []).map((s) => `<li><b>${fmt(s.value)}</b> ${esc(s.label)}</li>`).join("");
 	return (
-		`<li class="card-li" style="--i:${i + 3}"><a class="card" href="${href}" data-slug="${esc(g.slug)}"${accent}>${img}` +
+		`<li class="card-li"><a class="card" href="${href}" data-slug="${esc(g.slug)}"${accent}>${img}` +
 		`<div class="card-body"><h3>${esc(g.title)}</h3>` +
 		(g.description ? `<p>${esc(g.description)}</p>` : "") +
 		`<div class="card-offline-tag" hidden></div>` +
@@ -376,7 +376,103 @@ async function main(): Promise<void> {
 
 	await syncOfflineCardStates();
 
+	setupCardReveal(list);
+	setupCardTilt(list, document.getElementById("partial-list"));
 	setupSearch(list);
+}
+
+function revealCardImmediate(li: HTMLElement): void {
+	if (!li.classList.contains("is-revealed")) {
+		li.style.setProperty("--i", "0");
+		li.classList.add("is-revealed", "is-instant");
+	}
+}
+
+function setupCardReveal(list: HTMLElement): void {
+	const items = Array.from(list.querySelectorAll<HTMLElement>(".card-li"));
+	if (!items.length) return;
+	if (typeof IntersectionObserver === "undefined" || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		for (const li of items) revealCardImmediate(li);
+		return;
+	}
+	const observer = new IntersectionObserver(
+		(entries) => {
+			const visible = entries
+				.filter((e) => e.isIntersecting && !(e.target as HTMLElement).hidden)
+				.sort(
+					(a, b) =>
+						a.boundingClientRect.top - b.boundingClientRect.top ||
+						a.boundingClientRect.left - b.boundingClientRect.left,
+				);
+			for (let idx = 0; idx < visible.length; idx++) {
+				const li = visible[idx].target as HTMLElement;
+				li.style.setProperty("--i", String(Math.min(idx, 6)));
+				li.classList.add("is-revealed");
+				observer.unobserve(li);
+			}
+		},
+		{ rootMargin: "240px 0px" },
+	);
+	for (const li of items) observer.observe(li);
+}
+
+function setupCardTilt(...containers: (HTMLElement | null)[]): void {
+	if (typeof window === "undefined") return;
+	if (!matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+	if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+	let rafId = 0;
+	let pendingCard: HTMLElement | null = null;
+	let lastX = 0;
+	let lastY = 0;
+
+	const applyTilt = () => {
+		rafId = 0;
+		const cardEl = pendingCard;
+		if (!cardEl) return;
+		const rect = cardEl.getBoundingClientRect();
+		if (rect.width <= 0 || rect.height <= 0) return;
+		const px = Math.max(0, Math.min(1, (lastX - rect.left) / rect.width));
+		const py = Math.max(0, Math.min(1, (lastY - rect.top) / rect.height));
+		cardEl.style.setProperty("--mx", `${(px * 100).toFixed(1)}%`);
+		cardEl.style.setProperty("--my", `${(py * 100).toFixed(1)}%`);
+		cardEl.style.setProperty("--rx", `${((0.5 - py) * 7).toFixed(2)}deg`);
+		cardEl.style.setProperty("--ry", `${((px - 0.5) * 9).toFixed(2)}deg`);
+		cardEl.classList.add("is-tilting");
+	};
+
+	const resetTilt = (cardEl: HTMLElement) => {
+		if (pendingCard === cardEl) {
+			pendingCard = null;
+			if (rafId) {
+				cancelAnimationFrame(rafId);
+				rafId = 0;
+			}
+		}
+		cardEl.classList.remove("is-tilting");
+		cardEl.style.removeProperty("--rx");
+		cardEl.style.removeProperty("--ry");
+	};
+
+	for (const root of containers) {
+		if (!root) continue;
+		root.addEventListener("pointermove", (e) => {
+			if (e.pointerType !== "mouse") return;
+			const cardEl = (e.target as HTMLElement | null)?.closest<HTMLElement>("a.card");
+			if (!cardEl) return;
+			pendingCard = cardEl;
+			lastX = e.clientX;
+			lastY = e.clientY;
+			if (!rafId) rafId = requestAnimationFrame(applyTilt);
+		});
+		root.addEventListener("pointerout", (e) => {
+			const cardEl = (e.target as HTMLElement | null)?.closest<HTMLElement>("a.card");
+			if (!cardEl) return;
+			const related = e.relatedTarget as Node | null;
+			if (related && cardEl.contains(related)) return;
+			resetTilt(cardEl);
+		});
+	}
 }
 
 // Search: a card matches by its title or description, exactly or with typos (shared/search.ts).
@@ -410,6 +506,7 @@ function setupSearch(list: HTMLElement): void {
 			const text = norm(cardText(li));
 			if (text.includes(q)) {
 				li.hidden = false;
+				revealCardImmediate(li);
 				exact++;
 				continue;
 			}
@@ -424,6 +521,7 @@ function setupSearch(list: HTMLElement): void {
 			...fuzzy.map(({ li }) => {
 				const copy = li.cloneNode(true) as HTMLElement;
 				copy.hidden = false;
+				revealCardImmediate(copy);
 				return copy;
 			}),
 		);
