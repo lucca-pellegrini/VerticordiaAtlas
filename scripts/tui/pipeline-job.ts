@@ -618,6 +618,8 @@ export async function createPipelineJobView(opts: PipelineJobOptions): Promise<P
 		const logTitle = new TextRenderable(renderer, {
 			content: `STREAMING LOGS (${PIPELINE_STAGES[i].shortTitle})`,
 			fg: THEME.textDim,
+			height: 1,
+			flexShrink: 0,
 		});
 		logBox.add(logTitle);
 		const logLines: TextRenderable[] = [];
@@ -647,9 +649,9 @@ export async function createPipelineJobView(opts: PipelineJobOptions): Promise<P
 
 	function ensureLogLines(paneIdx: number) {
 		const p = activePanes[paneIdx];
-		const want = Math.max(2, p.logBox.height - 2);
+		const want = Math.max(1, p.logBox.height - 3);
 		while (p.logLines.length < want) {
-			const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim });
+			const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim, height: 1, flexShrink: 0 });
 			p.logLines.push(line);
 			p.logBox.add(line);
 		}

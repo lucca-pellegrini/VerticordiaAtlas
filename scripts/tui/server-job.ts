@@ -141,7 +141,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	reportBox.add(reportTitle);
 	const reportTextLines: TextRenderable[] = [];
 
-	const logBoxHBase = () => Math.max(4, Math.min(8, Math.floor(boxH * 0.22)));
+	const logBoxHBase = () => Math.max(5, Math.min(8, Math.floor(boxH * 0.22)));
 	const reportBoxH = () => (reportVisible ? Math.max(6, Math.min(12, 3 + reportLines.length)) : 0);
 	const stageBoxH = () => Math.max(6, boxH - 4 - logBoxHBase() - reportBoxH() - (reportVisible ? 1 : 0));
 	const stageContainer = new BoxRenderable(renderer, {
@@ -193,14 +193,16 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 	const logTitle = new TextRenderable(renderer, {
 		content: "STREAMING LOGS",
 		fg: THEME.textDim,
+		height: 1,
+		flexShrink: 0,
 	});
 	logBox.add(logTitle);
 
 	let logLinesPool: TextRenderable[] = [];
 	function ensureLogLines() {
-		const want = Math.max(2, logBox.height - 2);
+		const want = Math.max(1, logBox.height - 3);
 		while (logLinesPool.length < want) {
-			const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim });
+			const line = new TextRenderable(renderer, { content: "  ·", fg: THEME.textDim, height: 1, flexShrink: 0 });
 			logLinesPool.push(line);
 			logBox.add(line);
 		}
