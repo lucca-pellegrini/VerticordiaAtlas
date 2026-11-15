@@ -92,9 +92,6 @@ Building and running Atlas requires [Bun](https://bun.sh/), managed via
 # Build client bundles into public/
 bun run build
 
-# Start the local server (HTTP static server, tile engine, and sync API)
-bun run start
-
 # Typecheck the entire repository
 bun run typecheck
 
@@ -110,6 +107,16 @@ bun run backup
 # Format code
 bun fmt
 ```
+
+## Running the server
+
+`bun run start` builds the client bundles, then starts `server/server.ts`
+(the HTTP static server, tile engine, and sync API). On an interactive
+terminal it also opens a dashboard for live request, tile, card, and sync
+monitoring, browsing the game catalog, and running scrape, update, prune, and
+card jobs in background tabs. Pass `--no-tui` to run without the dashboard.
+
+<img alt="Server dashboard TUI showing the games catalog" src="public/screenshots/dashboard-tui-catalog.jpg" width="720">
 
 ## License
 
