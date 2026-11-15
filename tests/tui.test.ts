@@ -685,9 +685,9 @@ describe("TUI ecosystem components & helpers", () => {
 
 		await testEnv.renderOnce();
 		let frame = testEnv.captureCharFrame();
-		// Verify timestamps are rendered (14:23:xx) and newest item (/maps/req-20) appears BELOW older items (/maps/req-19)
-		expect(frame).toContain("14:23:25 [GET 200] /maps/req-20");
-		expect(frame).toContain("14:23:24 [GET 200] /maps/req-19");
+		// Verify timestamps are rendered (14:23:xx.mmm) and newest item (/maps/req-20) appears BELOW older items (/maps/req-19)
+		expect(frame).toContain("14:23:25.000 [GET 200] /maps/req-20");
+		expect(frame).toContain("14:23:24.000 [GET 200] /maps/req-19");
 		const idx19 = frame.indexOf("/maps/req-19");
 		const idx20 = frame.indexOf("/maps/req-20");
 		expect(idx19).toBeGreaterThan(0);
