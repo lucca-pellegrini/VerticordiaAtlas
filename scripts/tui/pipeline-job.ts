@@ -24,6 +24,7 @@ import {
 	runPipelineStageOptimize,
 } from "../add-game.js";
 import { type GameInfo, gameToPipelineOptions, type UpdateGameOptions } from "../update-games.js";
+import { createLockedLogWriter } from "./log-lock.js";
 import { hslToRgbInts } from "./quit-confirm.js";
 import { fmtBytes, fmtTime, RGBA_THEME, startThrobber, THEME, throbberFrame } from "./theme.js";
 
@@ -684,18 +685,20 @@ export async function createPipelineJobView(opts: PipelineJobOptions): Promise<P
 		}
 	}
 
+	const stageLogWriters = stageStates.map((st, idx) =>
+		createLockedLogWriter({
+			logs: st.logs,
+			maxLines: 500,
+			onFlush: () => {
+				if (selectedStageIdx === idx) {
+					updatePaneLogs(idx);
+				}
+			},
+		}),
+	);
+
 	function addStageLog(stageIdx: number, line: string) {
-		const trimmed = line.trim();
-		if (!trimmed) return;
-		const d = new Date();
-		const ts = `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(d.getSeconds()).padStart(2, "0")}`;
-		const entry = /^\d{2}:\d{2}:\d{2}\b/.test(trimmed) ? trimmed : `${ts} ${trimmed}`;
-		const logs = stageStates[stageIdx].logs;
-		logs.push(entry);
-		if (logs.length > 500) logs.shift();
-		if (selectedStageIdx === stageIdx) {
-			updatePaneLogs(stageIdx);
-		}
+		stageLogWriters[stageIdx]?.push(line);
 	}
 
 	function triggerPulse(stageIdx: number, kind: PulseKind, durationMs = 650) {

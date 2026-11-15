@@ -6,6 +6,7 @@ import path from "node:path";
 
 import { BoxRenderable, type KeyEvent, TextRenderable } from "@opentui/core";
 
+import { createLockedLogWriter } from "./log-lock.js";
 import { fmtTime, RGBA_THEME, startThrobber, THEME, throbberFrame } from "./theme.js";
 
 export interface ServerJobReport {
@@ -278,6 +279,12 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 		renderer.requestRender();
 	}
 
+	const logWriter = createLockedLogWriter({
+		logs,
+		maxLines: 1000,
+		onFlush: () => updateLogDisplay(),
+	});
+
 	async function writeLogFile(success: boolean, message?: string, report?: ServerJobReport) {
 		try {
 			await mkdir(path.dirname(reportLogFile), { recursive: true });
@@ -334,14 +341,7 @@ export function createServerJobView(opts: ServerJobOptions): ServerJobView {
 			renderer.requestRender();
 		},
 		addLog(line: string) {
-			const trimmed = line.trim();
-			if (!trimmed) return;
-			const d = new Date();
-			const ts = `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(d.getSeconds()).padStart(2, "0")}`;
-			const entry = /^\d{2}:\d{2}:\d{2}\b/.test(trimmed) ? trimmed : `${ts} ${trimmed}`;
-			logs.push(entry);
-			if (logs.length > 1000) logs.shift();
-			updateLogDisplay();
+			logWriter.push(line);
 		},
 		finish(success: boolean, message?: string, report?: ServerJobReport) {
 			endTime = Date.now();

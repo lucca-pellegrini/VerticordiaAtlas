@@ -19,6 +19,7 @@ import { runAddGamePipeline } from "../add-game.js";
 import { resolveGames, updateGame } from "../update-games.js";
 import { CatalogGame, createGamesCatalogView, GamesCatalogView, type UpdateGameFormOptions } from "./games-catalog.js";
 import { AddGameFormResult, AddGameFormView, createAddGameFormView } from "./input-form.js";
+import { createLineStreamBuffer, formatLogTimestamp } from "./log-lock.js";
 import { createPipelineJobView, type PipelineJobView } from "./pipeline-job.js";
 import { createQuitConfirmOverlay } from "./quit-confirm.js";
 import { createServerJobView, ServerJobView } from "./server-job.js";
@@ -37,11 +38,7 @@ import {
 export const MONITOR_SCROLLBACK_LIMIT = 1000;
 
 export function fmtClock(ms: number): string {
-	const d = new Date(ms);
-	const hh = String(d.getHours()).padStart(2, "0");
-	const mm = String(d.getMinutes()).padStart(2, "0");
-	const ss = String(d.getSeconds()).padStart(2, "0");
-	return `${hh}:${mm}:${ss}`;
+	return formatLogTimestamp(ms);
 }
 
 function fitLine(str: string, maxCols: number): string {
@@ -702,19 +699,16 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 			if (!stream) return;
 			const reader = stream.getReader();
 			const decoder = new TextDecoder();
-			let buffer = "";
+			const lineBuf = createLineStreamBuffer((line) => onLine(line, isErr));
 			try {
 				while (true) {
 					const { done, value } = await reader.read();
 					if (done) break;
-					buffer += decoder.decode(value, { stream: true });
-					const lines = buffer.split("\n");
-					buffer = lines.pop() || "";
-					for (const line of lines) {
-						if (line.trim()) onLine(line, isErr);
-					}
+					lineBuf.pushChunk(decoder.decode(value, { stream: true }));
 				}
-				if (buffer.trim()) onLine(buffer, isErr);
+				const rem = decoder.decode();
+				if (rem) lineBuf.pushChunk(rem);
+				lineBuf.flush();
 			} catch {}
 		}
 

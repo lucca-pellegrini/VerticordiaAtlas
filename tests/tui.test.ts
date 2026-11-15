@@ -34,6 +34,12 @@ import {
 	throbberTickIndex,
 	validatePosterUrl,
 } from "../scripts/tui/index.js";
+import {
+	createLineStreamBuffer,
+	createLockedLogWriter,
+	formatLogTimestamp,
+	sanitizeLogLines,
+} from "../scripts/tui/log-lock.js";
 
 // non-interactive dashboards log their progress on the console; a test run only needs the harness output
 const origLog = console.log;
@@ -1407,4 +1413,49 @@ describe("TUI ecosystem components & helpers", () => {
 			testEnv.dispose();
 		}
 	}, 60_000);
+
+	test("log-lock formats millisecond timestamps, sanitizes ANSI/CR, and serializes re-entrant flushes", () => {
+		const ts = formatLogTimestamp(new Date(2026, 0, 1, 14, 8, 21, 47).getTime());
+		expect(ts).toBe("14:08:21.047");
+
+		expect(sanitizeLogLines("\x1b[32mLine 1\x1b[0m\nold\rLine 2\r\nLine 3")).toEqual([
+			"Line 1",
+			"Line 2",
+			"Line 3",
+		]);
+
+		const logs: string[] = [];
+		const flushSnapshots: string[][] = [];
+		let reentered = false;
+		const writer = createLockedLogWriter({
+			logs,
+			maxLines: 3,
+			onFlush: (cur) => {
+				flushSnapshots.push([...cur]);
+				if (!reentered) {
+					reentered = true;
+					writer.push("reentrant line");
+				}
+			},
+		});
+
+		writer.push("first line\nsecond line");
+		expect(writer.isLocked).toBe(false);
+		expect(logs.length).toBe(3);
+		expect(logs[0]).toMatch(/^\d{2}:\d{2}:\d{2}\.\d{3} first line$/);
+		expect(logs[1]).toMatch(/^\d{2}:\d{2}:\d{2}\.\d{3} second line$/);
+		expect(logs[2]).toMatch(/^\d{2}:\d{2}:\d{2}\.\d{3} reentrant line$/);
+		expect(flushSnapshots.length).toBe(2);
+		expect(flushSnapshots[0].length).toBe(2);
+		expect(flushSnapshots[1].length).toBe(3);
+
+		const streamed: string[] = [];
+		const lineBuf = createLineStreamBuffer((l) => streamed.push(l));
+		lineBuf.pushChunk("partial ");
+		expect(streamed).toEqual([]);
+		lineBuf.pushChunk("line\nnext");
+		expect(streamed).toEqual(["partial line"]);
+		lineBuf.flush();
+		expect(streamed).toEqual(["partial line", "next"]);
+	});
 });

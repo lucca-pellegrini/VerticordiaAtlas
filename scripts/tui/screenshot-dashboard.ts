@@ -4,6 +4,7 @@
 import { BoxRenderable, createCliRenderer, TextRenderable } from "@opentui/core";
 
 import { fmt } from "../../src/shared/escape.js";
+import { formatLogTimestamp } from "./log-lock.js";
 import {
 	clearAndRedrawTerminal,
 	computeResponsiveBox,
@@ -62,8 +63,7 @@ export async function createScreenshotDashboard(opts: ScreenshotDashboardOptions
 	const isInteractive = isInteractiveTty(opts.noTui);
 
 	function timeStr(): string {
-		const d = new Date();
-		return `${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}:${String(d.getSeconds()).padStart(2, "0")}`;
+		return formatLogTimestamp();
 	}
 
 	if (!isInteractive) {
