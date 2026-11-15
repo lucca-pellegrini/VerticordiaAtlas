@@ -10,6 +10,7 @@ import { ICONS, svgIcon } from "../icons.ts";
 // in this tab. They are drawn as a ping in their category colour, can hold notes (markdown), and link to any
 // other marker the same way official markers link to each other. Export and import carry the profile's copy.
 import { PALETTE } from "./drawing.ts";
+import { applyFoundChange } from "./found.ts";
 
 export const TEMP_CAT_ID = -1;
 export const TEMP_CAT: UserCategory = {
@@ -198,7 +199,7 @@ export function setupUserMarkers({
 		const gone = new Set(ids);
 		state.profile.userMarkers = profileMarkers().filter((m) => !gone.has(m.id));
 		state.tempMarkers = state.tempMarkers.filter((m: UserMarker) => !gone.has(m.id));
-		for (const id of ids) state.found.delete(id);
+		applyFoundChange(ids, false, { recordUndo: false });
 		for (const m of [...state.profile.userMarkers, ...state.tempMarkers]) {
 			if (m.links?.length) m.links = m.links.filter((x: number) => !gone.has(x));
 		}

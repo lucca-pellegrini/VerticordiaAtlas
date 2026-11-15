@@ -8,6 +8,7 @@
 import { svgIcon } from "../icons.ts";
 import { CAPTURE_CONTROL_HTML } from "./capture.ts";
 import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML } from "./drawing.ts";
+import { applyFoundChange, notifyFoundChange } from "./found.ts";
 import { refreshAll } from "./map-view.ts";
 import { saveProfileNow } from "./profiles.ts";
 import { closeRowMenu, shownOnMap } from "./sidebar.ts";
@@ -259,10 +260,17 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 			return;
 		}
 		const found = b.dataset.act === "found";
-		for (const l of markersInSelection()) found ? state.found.add(l.id) : state.found.delete(l.id);
+		const rec = applyFoundChange(
+			markersInSelection().map((l: any) => l.id),
+			found,
+		);
 		closeToolMenus();
 		saveProfileNow();
 		refreshAll();
+		notifyFoundChange(rec, () => {
+			saveProfileNow();
+			refreshAll();
+		});
 	};
 
 	// the tool stack folds away to the right: the hand is already on, so tapping it again (or Esc) does this.

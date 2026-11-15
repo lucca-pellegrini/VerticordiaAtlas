@@ -67,6 +67,7 @@ export const state: Record<string, any> = {
 	profiles: [],
 	profile: null,
 	found: new Set<number>(),
+	foundAt: new Map<number, number>(),
 	tag: null,
 	tagStrict: false,
 	view: { hidden: new Set<number>(), hideFound: false, collapsed: new Set<string | number>() },
@@ -121,16 +122,42 @@ export function syncNote(keys?: string[]): void {
 	syncNoteFn?.(keys);
 }
 
+export interface ToastAction {
+	label: string;
+	onClick: () => void;
+}
+
 let toastTimer: ReturnType<typeof setTimeout> | undefined;
-export function toast(msg: string, ms = 2600): void {
+export function toast(msg: string, ms = 2600, action?: ToastAction): void {
 	const t = $("#toast");
 	if (!t) return;
-	t.textContent = msg;
-	t.hidden = false;
 	clearTimeout(toastTimer);
-	toastTimer = setTimeout(() => {
+	const hide = () => {
+		if (t.contains(document.activeElement) && document.activeElement instanceof HTMLElement) {
+			document.activeElement.blur();
+		}
 		t.hidden = true;
-	}, ms);
+		t.textContent = "";
+	};
+	t.textContent = "";
+	if (action) {
+		const span = document.createElement("span");
+		span.textContent = msg;
+		const btn = document.createElement("button");
+		btn.type = "button";
+		btn.className = "toast-action";
+		btn.textContent = action.label;
+		btn.onclick = () => {
+			clearTimeout(toastTimer);
+			hide();
+			action.onClick();
+		};
+		t.append(span, btn);
+	} else {
+		t.textContent = msg;
+	}
+	t.hidden = false;
+	toastTimer = setTimeout(hide, ms);
 }
 
 export interface AskDialogOptions {

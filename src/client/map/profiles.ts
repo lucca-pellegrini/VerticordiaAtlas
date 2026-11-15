@@ -7,6 +7,7 @@ import { esc } from "../../shared/escape.ts";
 import { perfAsync } from "../perf.ts";
 import { dbAll, dbDelete, dbPut, getMeta, setMeta } from "./db.ts";
 import { closeDetail } from "./detail.ts";
+import { applyFoundChange, loadFoundFromProfile, notifyFoundChange, writeFoundToProfile } from "./found.ts";
 import { refreshAll, rememberCamera, syncMapToProfile } from "./map-view.ts";
 import { loadMapState, renderPresets, savePresets, tagOnly, tagSwitchUsable } from "./presets.ts";
 import { easeInOutCubic, endMorph, rebuildUserData, startMorph } from "./sidebar.ts";
@@ -157,6 +158,21 @@ export function cleanUserData<T extends Record<string, any>>(p: T): T {
 	(p as any).cameras = cams;
 	(p as any).map = clip(p.map, 80) || null;
 	(p as any).found = list(p.found).filter((id) => finite(id) !== undefined);
+	const foundSet = new Set<number>((p as any).found);
+	const nowSec = Math.floor(Date.now() / 1000);
+	const cleanedAt: Record<string, number> = {};
+	let atCount = 0;
+	if (p.foundAt && typeof p.foundAt === "object" && !Array.isArray(p.foundAt)) {
+		for (const [k, raw] of Object.entries<any>(p.foundAt)) {
+			const id = Number(k);
+			if (!Number.isFinite(id) || !foundSet.has(id)) continue;
+			if (typeof raw !== "number" || !Number.isInteger(raw) || raw <= 0) continue;
+			cleanedAt[String(id)] = raw > nowSec ? nowSec : raw;
+			atCount++;
+		}
+	}
+	if (atCount > 0) (p as any).foundAt = cleanedAt;
+	else delete (p as any).foundAt;
 	return p;
 }
 
@@ -171,7 +187,7 @@ export function applyProfile(p: any): void {
 	}
 	rebuildUserData(); // the profile's own categories and markers
 	state.drawing?.reset(); // drawings belong to the profile: each one has its own undo history
-	state.found = new Set(p.found || []);
+	loadFoundFromProfile(p);
 	renderProfileSelect();
 	syncTagStrict();
 }
@@ -202,7 +218,7 @@ async function saveProfileNowImpl(): Promise<void> {
 	savePending = false;
 	const p = state.profile;
 	if (!p) return;
-	p.found = [...state.found];
+	writeFoundToProfile(p);
 	p.updated = Date.now();
 	try {
 		await dbPut("profiles", p);
@@ -330,9 +346,13 @@ export async function profileAction(act: string): Promise<void> {
 			danger: true,
 		});
 		if (!ok) return;
-		state.found.clear();
+		const rec = applyFoundChange([...state.found], false);
 		await saveProfileNow();
 		refreshAll();
+		notifyFoundChange(rec, () => {
+			void saveProfileNow();
+			refreshAll();
+		});
 	} else if (act === "delete") {
 		const ok = await askDialog({
 			title: "Delete profile?",
@@ -364,11 +384,25 @@ export async function profileAction(act: string): Promise<void> {
 			game: state.entry.id,
 			exported: new Date().toISOString(),
 			profiles: state.profiles.map(
-				({ id, name, tag, found, created, updated, map, cameras, drawings, userCats, userMarkers }: any) => ({
+				({
 					id,
 					name,
 					tag,
 					found,
+					foundAt,
+					created,
+					updated,
+					map,
+					cameras,
+					drawings,
+					userCats,
+					userMarkers,
+				}: any) => ({
+					id,
+					name,
+					tag,
+					found,
+					...(foundAt && Object.keys(foundAt).length ? { foundAt } : {}),
 					created,
 					updated,
 					map: map ?? null,
@@ -450,6 +484,7 @@ export async function importFile(file: File): Promise<void> {
 				name: clip(name, 60) || "Imported",
 				tag: typeof q.tag === "string" ? q.tag : null,
 				found: q.found,
+				foundAt: q.foundAt,
 				drawings: q.drawings,
 				userCats: q.userCats,
 				userMarkers: q.userMarkers,
