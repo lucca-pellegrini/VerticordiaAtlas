@@ -43,7 +43,7 @@ export async function compressApiResponse(req: Request, res: Response, minSize =
 
 	const body = await res.arrayBuffer();
 	if (body.byteLength <= minSize) {
-		return new Response(body, { status: res.status, headers: res.headers });
+		return new Response(req.method === "HEAD" ? null : body, { status: res.status, headers: res.headers });
 	}
 
 	const compressed: Buffer =
@@ -865,7 +865,7 @@ export function createApi({
 			const route = `${req.method} ${url.pathname}`;
 			const ip = clientIp(req, remoteAddress);
 
-			if (route === "GET /api/config") return json(200, { googleClientId });
+			if (route === "GET /api/config" || route === "HEAD /api/config") return json(200, { googleClientId });
 
 			if (route === "GET /api/me") {
 				const session = sessionFrom(req);

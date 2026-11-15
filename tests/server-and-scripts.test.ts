@@ -364,6 +364,10 @@ describe("server/api and server/ws integration", () => {
 			const cfgRes = await fetch(`${baseUrl}/api/config`);
 			expect(await cfgRes.json()).toEqual({ googleClientId: "test-google-client-id" });
 
+			const cfgHead = await fetch(`${baseUrl}/api/config`, { method: "HEAD" });
+			expect(cfgHead.status).toBe(200);
+			expect(await cfgHead.text()).toBe("");
+
 			const meAnon = await fetch(`${baseUrl}/api/me`);
 			expect(await meAnon.json()).toEqual({ user: null });
 
