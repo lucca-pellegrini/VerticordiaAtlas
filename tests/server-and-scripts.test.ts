@@ -497,6 +497,58 @@ describe("server/api and server/ws integration", () => {
 			expect(pullNew.items).toEqual([]);
 			expect(pullSame.items.length).toBe(1);
 
+			// 6c. foundAt-only update with stale base (base: 0) should NOT conflict because contentKey strips foundAt
+			const pushAt = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [
+						{
+							key: "profile:elden-ring:p1",
+							value: {
+								name: "Run 1",
+								found: [1, 2],
+								foundAt: { "1": 1700000001, "2": 1700000002 },
+								updated: 250,
+								map: "caelid",
+								cameras: {},
+							},
+							base: 0,
+						},
+					],
+				}),
+			});
+			const pushAtData = await pushAt.json();
+			expect(pushAtData.results[0].status).toBe("ok");
+			expect(pushAtData.results[0].same).toBeUndefined();
+
+			// Identical foundAt push returns same: true
+			const pushAtSame = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [
+						{
+							key: "profile:elden-ring:p1",
+							value: {
+								name: "Run 1",
+								found: [1, 2],
+								foundAt: { "1": 1700000001, "2": 1700000002 },
+								updated: 260,
+								map: "caelid",
+								cameras: {},
+							},
+							base: 0,
+						},
+					],
+				}),
+			});
+			const pushAtSameData = await pushAtSame.json();
+			expect(pushAtSameData.results[0].status).toBe("ok");
+			expect(pushAtSameData.results[0].same).toBe(true);
+
 			// 7. Content change with stale base SHOULD return status: 'conflict'
 			const pushConflict = await fetch(`${baseUrl}/api/sync`, {
 				method: "POST",
@@ -523,6 +575,34 @@ describe("server/api and server/ws integration", () => {
 			expect(meAuthData.user.createdAt).toBeGreaterThan(0);
 			expect(meAuthData.user.sessions).toBeGreaterThanOrEqual(1);
 			expect(meAuthData.user.syncedItems).toBe(1);
+
+			// 8b. 30,000-marker profile with foundAt fits comfortably under MAX_VALUE (2,000,000 bytes)
+			const bigFound = Array.from({ length: 30_000 }, (_, i) => 100_000 + i);
+			const bigFoundAt: Record<string, number> = {};
+			for (let i = 0; i < bigFound.length; i++) bigFoundAt[String(bigFound[i])] = 1_763_229_000 + i;
+			const pushBig = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [
+						{
+							key: "profile:elden-ring:p30k",
+							value: {
+								name: "30k",
+								found: bigFound,
+								foundAt: bigFoundAt,
+								updated: 300,
+								map: "caelid",
+								cameras: {},
+							},
+							base: 0,
+						},
+					],
+				}),
+			});
+			const pushBigData = await pushBig.json();
+			expect(pushBigData.results[0].status).toBe("ok");
 
 			// 9. Delete account cascades user_data, sessions, and secret_accounts and closes active WebSockets
 			const wsClosed = new Promise<number>((resolve) => {

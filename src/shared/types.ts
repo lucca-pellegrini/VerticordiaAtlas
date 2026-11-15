@@ -94,6 +94,9 @@ export interface Profile {
 	tag: TagFilterValue | string;
 	tagStrict?: boolean;
 	found: number[];
+	// Epoch SECONDS (not ms — unlike `created` and `updated` which are ms) mapping marker id to when it was found.
+	// `found` is the source of truth; `foundAt` is advisory metadata and may be absent for legacy finds.
+	foundAt?: Record<string, number>;
 	created: number;
 	updated: number;
 	map?: string | null;
@@ -234,7 +237,8 @@ export interface SessionSummary {
 	total: number;
 	groups: { t: string; c: string; f: number; n: number }[];
 	near: { t: string; c: string | null; f: number; n: number }[];
-	recent: { t: string; cat: string; c: string | null }[];
+	recent: { t: string; cat: string; c: string | null; at?: number }[];
+	session?: { found: number; start: number; end: number };
 	userMarkers: number;
 	drawings: number;
 	presets: number;

@@ -4,6 +4,16 @@
 import { describe, expect, test } from "bun:test";
 
 import { esc, fmt, fmtEn } from "../src/shared/escape.ts";
+import {
+	computePace,
+	computeSessions,
+	dailyCounts,
+	detectBatchTimestamps,
+	extractStampedFinds,
+	latestSession,
+	localDayKey,
+	recentFeed,
+} from "../src/shared/found-log.ts";
 import { closeRing, sanitizeGeometry, sanitizeMapData } from "../src/shared/geometry.ts";
 import { flat, fuzzyScore, levenshtein, norm, words } from "../src/shared/search.ts";
 import {
@@ -117,6 +127,17 @@ describe("shared/sync-rules", () => {
 		};
 
 		expect(sendKey("profile:totk:1", p1)).toBe(sendKey("profile:totk:1", p2));
+		expect(sendKey("profile:totk:1", p1)).not.toBe(sendKey("profile:totk:1", p3));
+	}, 30_000);
+
+	test("contentKey ignores foundAt on profile keys while sendKey includes it", () => {
+		const p1 = { name: "Main", found: [1, 2], foundAt: { "1": 1000, "2": 2000 }, updated: 1000 };
+		const p2 = { name: "Main", found: [1, 2], foundAt: { "1": 1500, "2": 2500 }, updated: 2000 };
+		const p3 = { name: "Main", found: [1, 2], updated: 2000 };
+
+		expect(contentKey("profile:totk:1", p1)).toBe(contentKey("profile:totk:1", p2));
+		expect(contentKey("profile:totk:1", p1)).toBe(contentKey("profile:totk:1", p3));
+		expect(sendKey("profile:totk:1", p1)).not.toBe(sendKey("profile:totk:1", p2));
 		expect(sendKey("profile:totk:1", p1)).not.toBe(sendKey("profile:totk:1", p3));
 	}, 30_000);
 
@@ -422,4 +443,139 @@ describe("shared/geometry", () => {
 		// Subsequent call is a no-op
 		expect(sanitizeMapData(mapData)).toBe(false);
 	}, 30_000);
+});
+
+describe("shared/found-log", () => {
+	test("detectBatchTimestamps requires at least 8 finds at an identical timestamp", () => {
+		const found: number[] = [];
+		const foundAt: Record<string, number> = {};
+		// 7 finds at t=1000 -> NOT a batch
+		for (let i = 1; i <= 7; i++) {
+			found.push(i);
+			foundAt[String(i)] = 1000;
+		}
+		// 8 finds at t=2000 -> IS a batch
+		for (let i = 10; i < 18; i++) {
+			found.push(i);
+			foundAt[String(i)] = 2000;
+		}
+		const entries = extractStampedFinds(found, foundAt);
+		const batches = detectBatchTimestamps(entries);
+		expect(batches.has(1000)).toBe(false);
+		expect(batches.has(2000)).toBe(true);
+	});
+
+	test("computeSessions excludes batches and splits on >= 45 minute gaps", () => {
+		const found = [1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 16, 17];
+		const foundAt: Record<string, number> = {
+			"1": 1000,
+			"2": 2000, // +1000s (< 2700s) -> same session
+			"3": 4699, // +2699s (< 2700s) -> same session
+			"4": 7399, // +2700s (>= 2700s) -> new session
+			"5": 7500,
+			// 8-marker batch in the middle should be ignored
+			"10": 5000,
+			"11": 5000,
+			"12": 5000,
+			"13": 5000,
+			"14": 5000,
+			"15": 5000,
+			"16": 5000,
+			"17": 5000,
+		};
+		const entries = extractStampedFinds(found, foundAt);
+		const batches = detectBatchTimestamps(entries);
+		const sessions = computeSessions(entries, batches);
+		expect(sessions).toHaveLength(2);
+		expect(sessions[0]).toEqual({ start: 1000, end: 4699, count: 3, ids: [1, 2, 3] });
+		expect(sessions[1]).toEqual({ start: 7399, end: 7500, count: 2, ids: [4, 5] });
+
+		expect(latestSession(sessions, 7500 + 2699)?.active).toBe(true);
+		expect(latestSession(sessions, 7500 + 2700)?.active).toBe(false);
+	});
+
+	test("dailyCounts and localDayKey bucket by timezone offset and exclude batches", () => {
+		// 2026-06-15T01:30:00Z -> in UTC it's June 15; in UTC-3 (-180 min) it's June 14 22:30
+		const sec = Math.floor(Date.UTC(2026, 5, 15, 1, 30, 0) / 1000);
+		expect(localDayKey(sec, 0)).toBe("2026-06-15");
+		expect(localDayKey(sec, -180)).toBe("2026-06-14");
+
+		const found = [1, 2, 10, 11, 12, 13, 14, 15, 16, 17];
+		const foundAt: Record<string, number> = {
+			"1": sec,
+			"2": sec - 86400,
+			"10": sec,
+			"11": sec,
+			"12": sec,
+			"13": sec,
+			"14": sec,
+			"15": sec,
+			"16": sec,
+			"17": sec,
+		};
+		// Note: id 1 is also at `sec`, so `sec` has 9 finds total -> batch!
+		const entries = extractStampedFinds(found, foundAt);
+		const batches = detectBatchTimestamps(entries);
+		const counts = dailyCounts(entries, batches, sec, 0, 3);
+		expect(counts.map((c) => [c.dayKey, c.count])).toEqual([
+			["2026-06-13", 0],
+			["2026-06-14", 1],
+			["2026-06-15", 0], // batch at `sec` excluded
+		]);
+	});
+
+	test("computePace enforces >= 20 non-batch finds and >= 3 distinct active days over trailing 14 days", () => {
+		const day0 = Math.floor(Date.UTC(2026, 5, 15, 12, 0, 0) / 1000);
+		const found: number[] = [];
+		const foundAt: Record<string, number> = {};
+		// 19 finds across 3 days -> below 20 threshold -> null
+		for (let i = 0; i < 19; i++) {
+			found.push(i + 1);
+			foundAt[String(i + 1)] = day0 - (i % 3) * 86400 + i;
+		}
+		let entries = extractStampedFinds(found, foundAt);
+		expect(computePace(entries, detectBatchTimestamps(entries), 50, day0, 0)).toBeNull();
+
+		// 20th find on day0 -> 20 finds across 3 days -> 20/3 = 6.67/day -> ceil(50 / 6.666...) = 8
+		found.push(20);
+		foundAt["20"] = day0 + 100;
+		entries = extractStampedFinds(found, foundAt);
+		const pace = computePace(entries, detectBatchTimestamps(entries), 50, day0, 0);
+		expect(pace).not.toBeNull();
+		expect(pace!.finds).toBe(20);
+		expect(pace!.activeDays).toBe(3);
+		expect(pace!.estimatedDays).toBe(8);
+
+		// 20 finds across only 2 distinct days -> null
+		const twoDays: Record<string, number> = {};
+		for (let i = 0; i < 20; i++) twoDays[String(i + 1)] = day0 - (i % 2) * 86400 + i;
+		const entries2 = extractStampedFinds(found, twoDays);
+		expect(computePace(entries2, detectBatchTimestamps(entries2), 50, day0, 0)).toBeNull();
+
+		// Remaining <= 0 -> null
+		expect(computePace(entries, detectBatchTimestamps(entries), 0, day0, 0)).toBeNull();
+	});
+
+	test("recentFeed collapses each batch into one entry and respects limit", () => {
+		const found = [1, 2, 10, 11, 12, 13, 14, 15, 16, 17];
+		const foundAt: Record<string, number> = {
+			"1": 100,
+			"2": 300,
+			"10": 200,
+			"11": 200,
+			"12": 200,
+			"13": 200,
+			"14": 200,
+			"15": 200,
+			"16": 200,
+			"17": 200,
+		};
+		const entries = extractStampedFinds(found, foundAt);
+		const feed = recentFeed(entries, detectBatchTimestamps(entries), 10);
+		expect(feed).toHaveLength(3);
+		expect(feed[0]).toEqual({ kind: "single", id: 2, at: 300 });
+		expect(feed[1]?.kind).toBe("batch");
+		if (feed[1]?.kind === "batch") expect(feed[1].ids).toHaveLength(8);
+		expect(feed[2]).toEqual({ kind: "single", id: 1, at: 100 });
+	});
 });
