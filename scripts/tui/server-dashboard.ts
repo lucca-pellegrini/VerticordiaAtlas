@@ -849,36 +849,10 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 	}
 
 	function startUpdateAllJob(options: UpdateGameFormOptions) {
-		const newTab: TabItem = {
-			id: `update_all_${Date.now()}`,
-			label: "Update: all games",
-			type: "job",
-			jobSlug: "all",
-			statusBadge: "(RUNNING)",
-		};
-		const jobView = createServerJobView({
-			renderer,
-			width: boxW - 4,
-			height: boxH - 5,
-			jobId: newTab.id,
-			jobType: "scrape",
-			title: "All games",
-			slug: "all",
-			onCompleted() {
-				newTab.statusBadge = "(✓)";
-				catalogView.reload();
-				updateTabBar();
-			},
-			onCloseTab() {
-				closeTab(tabs.indexOf(newTab));
-			},
-		});
-		newTab.view = jobView;
-		tabs.push(newTab);
-		switchTab(tabs.length - 1);
+		const uopts = toUpdateOpts(options);
+		const jobs = Math.max(1, Math.floor(options.jobs || 1));
 
 		(async () => {
-			const uopts = toUpdateOpts(options);
 			try {
 				const mapsDir = path.resolve(
 					path.dirname(fileURLToPath(import.meta.url)),
@@ -888,47 +862,97 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 					"maps",
 				);
 				const games = await resolveGames([], true, mapsDir);
-				if (!games.length) throw new Error("No games found to update");
-				let ok = 0;
-				const failures: string[] = [];
-				for (let i = 0; i < games.length; i++) {
-					const g = games[i];
-					const slug = g.folder;
-					const title = g.meta?.title || slug;
-					jobView.setStage(`[${i + 1}/${games.length}] Updating ${title} (${slug})`);
-					jobView.addLog(`==> [${i + 1}/${games.length}] ${title} (${slug})`);
-					try {
-						await updateGame(g, {
-							...uopts,
-							container: jobView.stageContainer,
-							renderer,
-							onLog: (line) => jobView.addLog(line),
-							onStage: (stage) => jobView.setStage(`[${i + 1}/${games.length}] ${slug}: ${stage}`),
-						});
-						ok++;
-						jobView.addLog(`✓ Updated ${slug}`);
-					} catch (err: any) {
-						const msg = err?.message || String(err);
-						failures.push(`${slug}: ${msg}`);
-						jobView.addLog(`[ERROR] ${slug}: ${msg}`);
+				if (!games.length) {
+					logApi("error", "No games found to update");
+					return;
+				}
+				const ordered = [...games];
+				if (options.shuffle) {
+					for (let i = ordered.length - 1; i > 0; i--) {
+						const j = Math.floor(Math.random() * (i + 1));
+						[ordered[i], ordered[j]] = [ordered[j], ordered[i]];
 					}
-					catalogView.reload();
 				}
-				const summary = `Completed: ${ok} ok, ${failures.length} failed (${games.length} total)`;
-				if (failures.length > 0) {
-					jobView.finish(false, summary, { summary, failures });
-					newTab.statusBadge = "(✗)";
-				} else {
-					jobView.finish(true, summary, { summary, failures: [] });
-					newTab.statusBadge = "(✓)";
+				const n = Math.min(jobs, ordered.length);
+				const buckets: (typeof ordered)[] = Array.from({ length: n }, () => []);
+				for (let i = 0; i < ordered.length; i++) buckets[i % n].push(ordered[i]);
+
+				const workerCount = buckets.filter((b) => b.length > 0).length;
+				for (let w = 0; w < buckets.length; w++) {
+					const bucket = buckets[w];
+					if (!bucket.length) continue;
+					const label =
+						workerCount === 1 ? "Update: all games" : `Update: all games (${w + 1}/${workerCount})`;
+					const newTab: TabItem = {
+						id: `update_all_${Date.now()}_${w}`,
+						label,
+						type: "job",
+						jobSlug: "all",
+						statusBadge: "(RUNNING)",
+					};
+					const jobView = createServerJobView({
+						renderer,
+						width: boxW - 4,
+						height: boxH - 5,
+						jobId: newTab.id,
+						jobType: "scrape",
+						title: workerCount === 1 ? "All games" : `All games (worker ${w + 1}/${workerCount})`,
+						slug: workerCount === 1 ? "all" : `all-${w + 1}`,
+						onCompleted() {
+							if (newTab.statusBadge === "(RUNNING)") newTab.statusBadge = "(✓)";
+							catalogView.reload();
+							updateTabBar();
+						},
+						onCloseTab() {
+							closeTab(tabs.indexOf(newTab));
+						},
+					});
+					newTab.view = jobView;
+					tabs.push(newTab);
+					if (w === 0) switchTab(tabs.length - 1);
+					else updateTabBar();
+
+					void (async () => {
+						let ok = 0;
+						const failures: string[] = [];
+						for (let i = 0; i < bucket.length; i++) {
+							const g = bucket[i];
+							const slug = g.folder;
+							const title = g.meta?.title || slug;
+							jobView.setStage(`[${i + 1}/${bucket.length}] Updating ${title} (${slug})`);
+							jobView.addLog(`==> [${i + 1}/${bucket.length}] ${title} (${slug})`);
+							try {
+								await updateGame(g, {
+									...uopts,
+									container: jobView.stageContainer,
+									renderer,
+									onLog: (line) => jobView.addLog(line),
+									onStage: (stage) =>
+										jobView.setStage(`[${i + 1}/${bucket.length}] ${slug}: ${stage}`),
+								});
+								ok++;
+								jobView.addLog(`✓ Updated ${slug}`);
+							} catch (err: any) {
+								const msg = err?.message || String(err);
+								failures.push(`${slug}: ${msg}`);
+								jobView.addLog(`[ERROR] ${slug}: ${msg}`);
+							}
+							catalogView.reload();
+						}
+						const summary = `Completed: ${ok} ok, ${failures.length} failed (${bucket.length} in queue, ${ordered.length} total)`;
+						if (failures.length > 0) {
+							jobView.finish(false, summary, { summary, failures });
+							newTab.statusBadge = "(✗)";
+						} else {
+							jobView.finish(true, summary, { summary, failures: [] });
+							newTab.statusBadge = "(✓)";
+						}
+						catalogView.reload();
+						updateTabBar();
+					})();
 				}
-				catalogView.reload();
-				updateTabBar();
 			} catch (err: any) {
-				const msg = err?.message || String(err);
-				jobView.finish(false, msg, { summary: `Failed: ${msg}`, failures: [msg] });
-				newTab.statusBadge = "(✗)";
-				updateTabBar();
+				logApi("error", err?.message || String(err));
 			}
 		})();
 	}
@@ -987,22 +1011,31 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 	// Tab pills pool
 	const tabPillTexts: TextRenderable[] = [];
+	let tabScrollStart = 0;
+	const tabLeftOverflow = new TextRenderable(renderer, { content: " ‹ ", fg: THEME.textDim, bg: THEME.surface });
+	const tabRightOverflow = new TextRenderable(renderer, { content: " › ", fg: THEME.textDim, bg: THEME.surface });
+
+	function pillWidth(content: string) {
+		return Bun.stringWidth(content);
+	}
 
 	function updateTabBar() {
-		if (tabNewBtn.parent) {
-			tabPillsList.remove(tabNewBtn);
+		// detach all managed children; we re-add visible ones in order
+		for (const child of [...tabPillsList.getChildren()]) {
+			try {
+				tabPillsList.remove(child);
+			} catch {}
 		}
 
 		while (tabPillTexts.length < tabs.length) {
 			const pill = new TextRenderable(renderer, { content: "", fg: THEME.textDim, bg: THEME.surface });
 			tabPillTexts.push(pill);
-			tabPillsList.add(pill);
 		}
 		while (tabPillTexts.length > tabs.length) {
-			const pill = tabPillTexts.pop()!;
-			tabPillsList.remove(pill);
+			tabPillTexts.pop();
 		}
 
+		const labels: string[] = [];
 		for (let i = 0; i < tabs.length; i++) {
 			const t = tabs[i];
 			const isAct = i === activeTabIdx;
@@ -1014,34 +1047,139 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 
 			if (isAct) {
 				const spinner = isRunning ? `${activeThrobberFrame} ` : "";
-				tabPillTexts[i].content = ` ${spinner}▌ ${i + 1}  ${t.label}${badge}${closeMark} `;
+				labels[i] = ` ${spinner}▌ ${i + 1}  ${t.label}${badge}${closeMark} `;
 				tabPillTexts[i].fg = THEME.peach;
 				tabPillTexts[i].bg = THEME.surfaceLight;
 			} else if (isRunning) {
-				tabPillTexts[i].content = ` ${activeThrobberFrame} ${i + 1}  ${t.label} (RUNNING)${closeMark} `;
+				labels[i] = ` ${activeThrobberFrame} ${i + 1}  ${t.label} (RUNNING)${closeMark} `;
 				tabPillTexts[i].fg = THEME.yellow;
 				tabPillTexts[i].bg = THEME.surface;
 			} else if (t.statusBadge?.includes("✓")) {
-				tabPillTexts[i].content = ` ✓ ${i + 1}  ${t.label}${closeMark} `;
+				labels[i] = ` ✓ ${i + 1}  ${t.label}${closeMark} `;
 				tabPillTexts[i].fg = THEME.green;
 				tabPillTexts[i].bg = THEME.surface;
 			} else if (t.statusBadge?.includes("✗")) {
-				tabPillTexts[i].content = ` ✗ ${i + 1}  ${t.label}${closeMark} `;
+				labels[i] = ` ✗ ${i + 1}  ${t.label}${closeMark} `;
 				tabPillTexts[i].fg = THEME.red;
 				tabPillTexts[i].bg = THEME.surface;
 			} else {
-				tabPillTexts[i].content = `   ${i + 1}  ${t.label}${closeMark} `;
+				labels[i] = `   ${i + 1}  ${t.label}${closeMark} `;
 				tabPillTexts[i].fg = THEME.textDim;
 				tabPillTexts[i].bg = THEME.surface;
 			}
+			tabPillTexts[i].content = labels[i];
 		}
-
-		tabPillsList.add(tabNewBtn);
 
 		if (tabHintText) {
 			tabHintText.content =
 				boxW >= 105 ? "Alt-1..0 / Alt-j/k ⇄  [^w] Close" : boxW >= 80 ? "Alt-1..0 / Alt-j/k ⇄" : "";
 		}
+
+		const rowW = Math.max(10, boxW - 4);
+		const hintW = pillWidth(String(tabHintText?.content || ""));
+		const newW = pillWidth(String(tabNewBtn.content));
+		const gap = 1;
+		const leftMarkW = pillWidth(String(tabLeftOverflow.content));
+		const rightMarkW = pillWidth(String(tabRightOverflow.content));
+		let avail = rowW - hintW - newW - gap * 2; // space for pills area + gaps before btn/hint
+
+		if (tabs.length === 0) tabScrollStart = 0;
+		tabScrollStart = Math.max(0, Math.min(tabScrollStart, Math.max(0, tabs.length - 1)));
+		if (activeTabIdx < tabScrollStart) tabScrollStart = activeTabIdx;
+
+		const compute = (start: number) => {
+			let w = avail;
+			let overflowLeft = start > 0;
+			let overflowRight = false;
+			if (overflowLeft) w -= leftMarkW + gap;
+			let end = start;
+			for (; end < tabs.length; end++) {
+				const need = pillWidth(labels[end]) + (end > start ? gap : 0);
+				const reserveRight = end < tabs.length - 1 ? rightMarkW + gap : 0;
+				if (end > start && w < need + reserveRight) {
+					overflowRight = true;
+					break;
+				}
+				if (w < need) {
+					if (end === start) {
+						end++; // always show at least active/first in window
+					}
+					overflowRight = end < tabs.length;
+					break;
+				}
+				w -= need;
+			}
+			if (end <= start && start < tabs.length) end = start + 1;
+			// if we have extra space and there is left overflow, try to include earlier tabs
+			if (overflowLeft) {
+				while (start > 0) {
+					const need = pillWidth(labels[start - 1]) + gap;
+					const leftReserve = start - 1 > 0 ? leftMarkW + gap : 0;
+					if (w < need + (leftReserve ? leftReserve - (leftMarkW + gap) : -(leftMarkW + gap))) break;
+					// recompute simply by shifting start left
+					break;
+				}
+			}
+			return { start, end, overflowLeft, overflowRight };
+		};
+
+		let win = compute(tabScrollStart);
+		// ensure active tab visible
+		while (activeTabIdx >= win.end && win.end < tabs.length) {
+			tabScrollStart++;
+			win = compute(tabScrollStart);
+		}
+		while (activeTabIdx < win.start && tabScrollStart > 0) {
+			tabScrollStart--;
+			win = compute(tabScrollStart);
+		}
+		// if still not fitting (active very wide), force window starting at active
+		if (activeTabIdx < win.start || activeTabIdx >= win.end) {
+			tabScrollStart = activeTabIdx;
+			win = compute(tabScrollStart);
+		}
+		// fill from left when there's room at right edge
+		while (win.start > 0) {
+			const test = compute(win.start - 1);
+			if (
+				activeTabIdx >= test.start &&
+				activeTabIdx < test.end &&
+				!test.overflowRight &&
+				test.end === tabs.length
+			) {
+				tabScrollStart = test.start;
+				win = test;
+			} else if (activeTabIdx >= test.start && activeTabIdx < test.end) {
+				// try expanding left if widths allow
+				const tryWin = compute(win.start - 1);
+				if (tryWin.end >= win.end && activeTabIdx < tryWin.end) {
+					// accept if it still fits (compute enforces fit)
+					let fits = true;
+					let ww =
+						avail -
+						(tryWin.overflowLeft ? leftMarkW + gap : 0) -
+						(tryWin.overflowRight ? rightMarkW + gap : 0);
+					for (let i = tryWin.start; i < tryWin.end; i++)
+						ww -= pillWidth(labels[i]) + (i > tryWin.start ? gap : 0);
+					if (ww < 0) fits = false;
+					if (fits) {
+						tabScrollStart = tryWin.start;
+						win = tryWin;
+						continue;
+					}
+				}
+				break;
+			} else {
+				break;
+			}
+		}
+		// final clamp
+		tabScrollStart = win.start;
+
+		if (win.overflowLeft) tabPillsList.add(tabLeftOverflow);
+		for (let i = win.start; i < win.end; i++) tabPillsList.add(tabPillTexts[i]);
+		if (win.overflowRight) tabPillsList.add(tabRightOverflow);
+		tabPillsList.add(tabNewBtn);
 
 		renderer.requestRender();
 	}

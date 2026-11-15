@@ -38,6 +38,8 @@ export interface UpdateGameFormOptions {
 	keepLocal: boolean;
 	videos: boolean;
 	renderCards: boolean;
+	shuffle: boolean;
+	jobs: number;
 }
 
 export interface GamesCatalogOptions {
@@ -91,6 +93,8 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		keepLocal: false,
 		videos: false,
 		renderCards: false,
+		shuffle: false,
+		jobs: 1,
 	};
 	let searchQuery = "";
 
@@ -526,14 +530,16 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		showToast(`✓ Saved changes to "${game.title}"`);
 	}
 
-	const updateFields: { key: keyof UpdateGameFormOptions; label: string }[] = [
-		{ key: "redownloadTiles", label: "Force overwrite all tiles (atomic staging via cache)" },
-		{ key: "noTiles", label: "Skip downloading tiles" },
-		{ key: "downloadMedia", label: "Download missing media" },
-		{ key: "uploadMedia", label: "Upload media directly to R2 / S3" },
-		{ key: "keepLocal", label: "Keep local media copies when uploading" },
-		{ key: "videos", label: "Include video media" },
-		{ key: "renderCards", label: "Re-render OpenGraph preview cards" },
+	const updateFields: { key: keyof UpdateGameFormOptions; label: string; type: "bool" | "number" }[] = [
+		{ key: "redownloadTiles", label: "Force overwrite all tiles (atomic staging via cache)", type: "bool" },
+		{ key: "noTiles", label: "Skip downloading tiles", type: "bool" },
+		{ key: "downloadMedia", label: "Download missing media", type: "bool" },
+		{ key: "uploadMedia", label: "Upload media directly to R2 / S3", type: "bool" },
+		{ key: "keepLocal", label: "Keep local media copies when uploading", type: "bool" },
+		{ key: "videos", label: "Include video media", type: "bool" },
+		{ key: "renderCards", label: "Re-render OpenGraph preview cards", type: "bool" },
+		{ key: "shuffle", label: "Shuffle game order", type: "bool" },
+		{ key: "jobs", label: "Parallel update tabs (update all, interleaved)", type: "number" },
 	];
 
 	function resetUpdateOptions() {
@@ -546,6 +552,8 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			keepLocal: false,
 			videos: false,
 			renderCards: false,
+			shuffle: false,
+			jobs: 1,
 		};
 	}
 
@@ -574,13 +582,18 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		const lines = [title, "", "Options:"];
 		for (let i = 0; i < updateFields.length; i++) {
 			const f = updateFields[i];
-			const checked = updateOptions[f.key] ? "[X]" : "[ ]";
 			const focus = i === updateFocusIdx ? "▶" : " ";
-			lines.push(` ${focus} ${checked} ${f.label}`);
+			if (f.type === "number") {
+				const val = String(updateOptions.jobs).padStart(2, " ");
+				lines.push(` ${focus} [${val}] ${f.label}  (←/→ adjust)`);
+			} else {
+				const checked = updateOptions[f.key] ? "[X]" : "[ ]";
+				lines.push(` ${focus} ${checked} ${f.label}`);
+			}
 		}
 		lines.push("", "Preserves original slug, title, id, description, and poster.");
 		deleteMsg.content = lines.join("\n");
-		modalHint.content = " [↑↓/Tab] Move   [Space] Toggle   [Enter] Start   [Esc] Cancel";
+		modalHint.content = " [↑↓/Tab] Move   [←→] Jobs   [Space] Toggle   [Enter] Start   [Esc] Cancel";
 	}
 
 	function openDeleteModal() {
@@ -777,11 +790,31 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 					renderer.requestRender();
 					return true;
 				}
+				const focused = updateFields[updateFocusIdx];
+				if (focused.type === "number" && (key.name === "left" || key.name === "h")) {
+					key.preventDefault?.();
+					key.stopPropagation?.();
+					updateOptions.jobs = Math.max(1, updateOptions.jobs - 1);
+					renderUpdateModalText();
+					renderer.requestRender();
+					return true;
+				}
+				if (focused.type === "number" && (key.name === "right" || key.name === "l")) {
+					key.preventDefault?.();
+					key.stopPropagation?.();
+					updateOptions.jobs = Math.min(32, updateOptions.jobs + 1);
+					renderUpdateModalText();
+					renderer.requestRender();
+					return true;
+				}
 				if (key.name === "space") {
 					key.preventDefault?.();
 					key.stopPropagation?.();
-					const field = updateFields[updateFocusIdx].key;
-					updateOptions[field] = !updateOptions[field];
+					if (focused.type === "number") {
+						updateOptions.jobs = Math.min(32, updateOptions.jobs + 1);
+					} else {
+						(updateOptions as any)[focused.key] = !(updateOptions as any)[focused.key];
+					}
 					renderUpdateModalText();
 					renderer.requestRender();
 					return true;
