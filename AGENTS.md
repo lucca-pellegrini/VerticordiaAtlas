@@ -42,6 +42,7 @@ src/
 		share-link.ts       # URL-safe deflate-raw marker packing/unpacking (?tm=...) with bounded decompression
 		theme-math.ts       # HSL color conversions and light-theme palette derivation
 		compact-map.ts      # Versioned compact client map payload (data.compact.json + lazy data.details.json) <-> data.json conversion
+		found-log.ts        # Pure per-marker find timestamp analytics: batch detection, sessions, 30-day timeline, and pace
 		escape.ts           # HTML escaping (esc) and number/byte formatting (fmt, fmtEn, formatBytes)
 	client/                 # Browser TypeScript sources (bundled into public/ by scripts/build.ts)
 		map.ts              # Map viewer entrypoint: boot sequence, sync wiring, and top-level DOM events
@@ -68,6 +69,7 @@ src/
 			sidebar.ts      # Category/group tree, morphing progress bar, row menus, and session summary
 			stats.ts        # Completion statistics aggregation, breakdown, CSV export, and stale marker cleanup
 			profiles.ts     # Profile CRUD, veil transitions, JSON export/import, and data sanitization
+			found.ts        # Single mutation path for state.found/state.foundAt and in-memory undo stack
 			presets.ts      # Category visibility presets, dirty state detection, and per-game migration
 			detail.ts       # Marker detail card, bidirectional link graph, arrowheads, and history stack
 			search.ts       # Tiered location search (current map & all maps) and hover ring preview
@@ -155,8 +157,8 @@ tests/
 
 2. **Sync Hashing & Conflict Rules (`src/shared/sync-rules.ts`)**:
     - Both client (`src/client/sync.ts`) and server (`server/api.ts`) must use `contentKey` and `sendKey` from `src/shared/sync-rules.ts`.
-    - `contentKey` strips `updated`, `map`, and `cameras` from profile records so camera movements and timestamps alone never trigger a conflict dialog between devices.
-    - `sendKey` strips only `updated` so camera changes are still replicated to other devices when no content conflict exists.
+    - `contentKey` strips `updated`, `map`, `cameras`, and `foundAt` from profile records so camera movements, timestamps, and advisory per-marker find dates never trigger a conflict dialog between devices.
+    - `sendKey` strips only `updated` so camera changes and `foundAt` metadata are still replicated to other devices when no content conflict exists.
 
 3. **Security & Untrusted Data Sanitization**:
     - Profile imports and synced records can contain arbitrary JSON; always pass profile data through `cleanUserData()` (`src/client/map/profiles.ts`).

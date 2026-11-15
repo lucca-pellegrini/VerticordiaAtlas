@@ -625,4 +625,47 @@ describe("browser e2e (real server, headless Chrome)", () => {
 		},
 		T,
 	);
+
+	test(
+		"6. found toggle, toast undo, and Recently found in stats dialog",
+		async () => {
+			if (!guard()) return;
+			const ctx = await browser.createBrowserContext();
+			const t = await track(ctx, { bypassSW: true });
+			await t.page.goto(mapUrl(GAME, MAP, `&loc=${ek.id}`), { waitUntil: "domcontentloaded" });
+			await t.page.waitForSelector("body.detail-open .found-btn", { timeout: 60000 });
+			await ready(t.page);
+
+			// Mark found -> toast with Undo appears
+			await t.page.click(".found-btn");
+			await t.page.waitForSelector("#toast:not([hidden]) .toast-action", { timeout: 5000 });
+			expect(await t.page.$eval("#toast", (e) => e.textContent || "")).toContain("Marked as found");
+			expect(await t.page.$eval(".found-btn", (e) => e.getAttribute("aria-pressed"))).toBe("true");
+
+			// Click Undo -> reverts found state
+			await t.page.click("#toast .toast-action");
+			await t.page.waitForFunction(
+				() => document.querySelector(".found-btn")?.getAttribute("aria-pressed") === "false",
+				{ timeout: 5000 },
+			);
+
+			// Mark found again -> open Progress & stats -> verify Recently found lists the marker
+			await t.page.click(".found-btn");
+			await t.page.waitForSelector("#toast:not([hidden]) .toast-action", { timeout: 5000 });
+			await t.page.evaluate(() => document.getElementById("side-stats-btn")?.click());
+			await t.page.waitForSelector("dialog.stats-dlg[open] .sd-recent-row", { timeout: 10000 });
+			const recentText = await t.page.$eval(".sd-recent", (e) => e.textContent || "");
+			expect(recentText.length).toBeGreaterThan(0);
+
+			// Mark not found from Recently found -> Undo restores it
+			await t.page.click(".sd-recent-row .sd-unfind");
+			await t.page.waitForFunction(() => document.querySelectorAll(".sd-recent-row").length === 0, {
+				timeout: 5000,
+			});
+
+			await ctx.close();
+			expect({ errors: t.errors, failed: t.failed }).toEqual({ errors: [], failed: [] });
+		},
+		T,
+	);
 });

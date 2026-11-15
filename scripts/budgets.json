@@ -3,8 +3,8 @@
 		"id": "app-gzip",
 		"file": "public/app.js",
 		"metric": "gzip",
-		"measured": 77413,
-		"hard": 80000,
+		"measured": 80699,
+		"hard": 83200,
 		"target": 65000,
 		"note": "Roadmap target is ~65 KB gzip; not yet met. Hard limit is measured + ~3%."
 	},
@@ -12,16 +12,16 @@
 		"id": "app-brotli",
 		"file": "public/app.js",
 		"metric": "brotli",
-		"measured": 65369,
-		"hard": 67500,
+		"measured": 68026,
+		"hard": 70100,
 		"note": "br11."
 	},
 	{
 		"id": "home-gzip",
 		"file": "public/home.js",
 		"metric": "gzip",
-		"measured": 17814,
-		"hard": 18400
+		"measured": 18452,
+		"hard": 19000
 	},
 	{
 		"id": "theme-gzip",

@@ -29,6 +29,13 @@ import {
 	simplify,
 } from "../src/client/map/drawing.ts";
 import {
+	applyFoundChange,
+	clearFoundUndo,
+	loadFoundFromProfile,
+	undoFoundChange,
+	writeFoundToProfile,
+} from "../src/client/map/found.ts";
+import {
 	buildLocationGeometryFeatures,
 	buildRegionFeatures,
 	circleStyleOf,
@@ -448,6 +455,70 @@ describe("modularized map and home helpers", () => {
 		expect(cleaned.drawings[0].size).toBe("m");
 		expect(cleaned.cameras).toEqual({ main: { lng: 1, lat: 2, zoom: 10 } });
 		expect(cleaned.found).toEqual([1, 2]);
+		expect("foundAt" in cleaned).toBe(false);
+
+		const nowSec = Math.floor(Date.now() / 1000);
+		const withAt = cleanUserData({
+			found: [1, 2],
+			foundAt: {
+				"1": 1700000000,
+				"2": nowSec + 999999, // future -> clamped to nowSec
+				"999": 1700000000, // orphan -> pruned
+				"1b": 1700000000, // non-finite key -> pruned
+			},
+		} as any);
+		expect(withAt.foundAt?.["1"]).toBe(1700000000);
+		expect(withAt.foundAt?.["2"]).toBeLessThanOrEqual(nowSec + 1);
+		expect(withAt.foundAt?.["2"]).toBeGreaterThanOrEqual(nowSec - 1);
+		expect(withAt.foundAt?.["999"]).toBeUndefined();
+
+		const allInvalid = cleanUserData({ found: [1], foundAt: { "1": -5, "2": 100, bad: 1.5 } } as any);
+		expect("foundAt" in allInvalid).toBe(false);
+	}, 30_000);
+
+	test("found.ts central mutation, bulk stamping, undo restoring old stamps, and legacy tolerance", () => {
+		loadFoundFromProfile({ found: [1, 2], foundAt: { "1": 1000 } });
+		expect([...state.found]).toEqual([1, 2]);
+		expect(state.foundAt.get(1)).toBe(1000);
+		expect(state.foundAt.has(2)).toBe(false); // legacy unstamped id tolerated
+
+		// Marking already-found id is a no-op and does not overwrite its timestamp
+		expect(applyFoundChange([1], true, { nowSec: 5000 })).toBeNull();
+		expect(state.foundAt.get(1)).toBe(1000);
+
+		// Bulk mark 3 and 4 with one shared timestamp
+		const r1 = applyFoundChange([3, 4], true, { nowSec: 2000 });
+		expect(r1?.ids).toEqual([3, 4]);
+		expect(state.foundAt.get(3)).toBe(2000);
+		expect(state.foundAt.get(4)).toBe(2000);
+
+		// Unmark 1 (had stamp 1000) and 2 (unstamped)
+		const r2 = applyFoundChange([1, 2], false, { nowSec: 3000 });
+		expect(r2?.ids).toEqual([1, 2]);
+		expect(state.found.has(1)).toBe(false);
+		expect(state.foundAt.has(1)).toBe(false);
+
+		// Undo unmark restores id 1's original stamp (1000) and leaves id 2 unstamped
+		const u2 = undoFoundChange();
+		expect(u2?.ids).toEqual([1, 2]);
+		expect(state.found.has(1)).toBe(true);
+		expect(state.found.has(2)).toBe(true);
+		expect(state.foundAt.get(1)).toBe(1000);
+		expect(state.foundAt.has(2)).toBe(false);
+
+		// Undo bulk mark removes 3 and 4 and their stamps
+		undoFoundChange();
+		expect(state.found.has(3)).toBe(false);
+		expect(state.foundAt.has(3)).toBe(false);
+
+		// writeFoundToProfile omits foundAt when empty
+		loadFoundFromProfile({ found: [9] });
+		const legacyOut: any = { found: [] };
+		writeFoundToProfile(legacyOut);
+		expect(legacyOut.found).toEqual([9]);
+		expect("foundAt" in legacyOut).toBe(false);
+
+		clearFoundUndo();
 	}, 30_000);
 
 	test("state and map-view pure calculations (vivid, iconScale, mapLimits, startOf, sameCamera)", () => {
@@ -1446,7 +1517,10 @@ describe("progress exports", () => {
 			],
 		};
 		expect(csvRows(data, new Set([7]), "Map A")).toEqual([
-			["Map A", "Loot", "Chests", "", 'x "y"', "yes", "Boss", 7],
+			["Map A", "Loot", "Chests", "", 'x "y"', "yes", "Boss", 7, ""],
+		]);
+		expect(csvRows(data, new Set([7]), "Map A", new Map([[7, 1700000000]]))).toEqual([
+			["Map A", "Loot", "Chests", "", 'x "y"', "yes", "Boss", 7, "2023-11-14T22:13:20.000Z"],
 		]);
 	}, 30_000);
 
