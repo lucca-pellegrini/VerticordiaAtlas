@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 1,
@@ -35,16 +36,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "hitman-3",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/hitman-3/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 530,
 			"game_id": 53,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 10,
 			"color": "436B96",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -250,10 +258,17 @@
 		{
 			"id": 531,
 			"game_id": 53,
+			"section_id": null,
 			"title": "Weapons & Tools",
 			"order": 10,
 			"color": "894F9E",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -459,10 +474,17 @@
 		{
 			"id": 532,
 			"game_id": 53,
+			"section_id": null,
 			"title": "Navigation",
 			"order": 10,
 			"color": "54A6B3",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -638,6 +660,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"2365": {
 			"id": 2365,
@@ -1235,7 +1258,8 @@
 								[-0.9932529564659043, 0.7401953261613151],
 								[-0.9630405541221543, 0.5623657002009234],
 								[-1.3008701439659043, 0.5788443751168949],
-								[-1.2665378685752793, 0.7271501311123704]
+								[-1.2665378685752793, 0.7271501311123704],
+								[-0.9932529564659043, 0.7401953261613151]
 							]
 						]
 					},
@@ -1262,7 +1286,8 @@
 								[-0.7044057167340045, 0.733510896341838],
 								[-0.703719071226192, 0.6346410027960296],
 								[-0.8334950722027545, 0.6215955221276894],
-								[-0.8060292518902545, 0.7376304298787302]
+								[-0.8060292518902545, 0.7376304298787302],
+								[-0.7044057167340045, 0.733510896341838]
 							]
 						]
 					},
@@ -1289,7 +1314,8 @@
 								[-0.2503735080385372, 0.712496242886166],
 								[-0.2483135715150997, 0.6438365059891911],
 								[-0.3416973605775997, 0.6307910484423892],
-								[-0.3327709689760372, 0.7131828352522647]
+								[-0.3327709689760372, 0.7131828352522647],
+								[-0.2503735080385372, 0.712496242886166]
 							]
 						]
 					},
@@ -1304,6 +1330,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [],
@@ -1316,7 +1343,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "neu-haas-grotesk-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/hitman-3/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

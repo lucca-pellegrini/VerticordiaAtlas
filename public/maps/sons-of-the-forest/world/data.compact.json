@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -41,6 +42,7 @@
 		{
 			"id": 1450,
 			"game_id": 145,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "455D66",
@@ -340,6 +342,7 @@
 		{
 			"id": 1451,
 			"game_id": 145,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "B65C40",
@@ -611,6 +614,7 @@
 		{
 			"id": 1452,
 			"game_id": 145,
+			"section_id": null,
 			"title": "Items",
 			"order": 18,
 			"color": "588084",
@@ -1162,6 +1166,7 @@
 		{
 			"id": 1453,
 			"game_id": 145,
+			"section_id": null,
 			"title": "Natives",
 			"order": 20,
 			"color": "865058",
@@ -1209,6 +1214,7 @@
 		{
 			"id": 1454,
 			"game_id": 145,
+			"section_id": null,
 			"title": "Wildlife",
 			"order": 25,
 			"color": "8B9E65",
@@ -1424,6 +1430,7 @@
 		{
 			"id": 1457,
 			"game_id": 145,
+			"section_id": null,
 			"title": "Materials",
 			"order": 25,
 			"color": "9E8A6B",
@@ -1779,6 +1786,7 @@
 		{
 			"id": 1455,
 			"game_id": 145,
+			"section_id": null,
 			"title": "Other",
 			"order": 35,
 			"color": "865058",
@@ -2048,6 +2056,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"8392": {
 			"id": 8392,

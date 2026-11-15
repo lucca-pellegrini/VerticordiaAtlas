@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 15,
@@ -41,6 +42,7 @@
 		{
 			"id": 1510,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "2C3F52",
@@ -536,6 +538,7 @@
 		{
 			"id": 1511,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Services",
 			"order": 10,
 			"color": "5AAB95",
@@ -919,6 +922,7 @@
 		{
 			"id": 1516,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 15,
 			"color": "7468A1",
@@ -1246,6 +1250,7 @@
 		{
 			"id": 1512,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Loot",
 			"order": 20,
 			"color": "4D96B9",
@@ -1629,6 +1634,7 @@
 		{
 			"id": 1513,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Quests",
 			"order": 25,
 			"color": "AA8F54",
@@ -1788,6 +1794,7 @@
 		{
 			"id": 1514,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 30,
 			"color": "A83148",
@@ -2255,6 +2262,7 @@
 		{
 			"id": 1515,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Other",
 			"order": 40,
 			"color": "32574D",
@@ -2666,6 +2674,7 @@
 		{
 			"id": 1518,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Ore Deposits",
 			"order": 50,
 			"color": "798E91",
@@ -2797,6 +2806,7 @@
 		{
 			"id": 1517,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Materials",
 			"order": 60,
 			"color": "498C97",
@@ -3768,6 +3778,7 @@
 		{
 			"id": 1519,
 			"game_id": 151,
+			"section_id": null,
 			"title": "Creatures",
 			"order": 70,
 			"color": "1FA37F",
@@ -4765,6 +4776,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"8977": {
 			"id": 8977,

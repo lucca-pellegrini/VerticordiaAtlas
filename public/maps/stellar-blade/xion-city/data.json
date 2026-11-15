@@ -13,7 +13,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 1820,
 			"game_id": 182,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "434B60",
@@ -92,7 +94,7 @@
 					"area_config": null,
 					"ign_enabled": true,
 					"ign_visible": true,
-					"suggestion_locked": false,
+					"suggestion_locked": true,
 					"suggestion_add_locked": false,
 					"featured": false,
 					"visible": true,
@@ -273,6 +275,7 @@
 		{
 			"id": 1821,
 			"game_id": 182,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "AC64CE",
@@ -684,6 +687,7 @@
 		{
 			"id": 1825,
 			"game_id": 182,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "5E7FB9",
@@ -774,7 +778,7 @@
 					"area_config": null,
 					"ign_enabled": true,
 					"ign_visible": true,
-					"suggestion_locked": false,
+					"suggestion_locked": true,
 					"suggestion_add_locked": false,
 					"featured": false,
 					"visible": true,
@@ -843,6 +847,7 @@
 		{
 			"id": 1822,
 			"game_id": 182,
+			"section_id": null,
 			"title": "Missions",
 			"order": 20,
 			"color": "CF9045",
@@ -974,6 +979,7 @@
 		{
 			"id": 1823,
 			"game_id": 182,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 20,
 			"color": "BA4A4F",
@@ -1021,6 +1027,7 @@
 		{
 			"id": 1824,
 			"game_id": 182,
+			"section_id": null,
 			"title": "Other",
 			"order": 20,
 			"color": "4BB47A",
@@ -1066,6 +1073,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"10954": {
 			"id": 10954,
@@ -1143,7 +1151,7 @@
 			"area_config": null,
 			"ign_enabled": true,
 			"ign_visible": true,
-			"suggestion_locked": false,
+			"suggestion_locked": true,
 			"suggestion_add_locked": false,
 			"featured": false,
 			"visible": true,
@@ -1955,7 +1963,7 @@
 			"area_config": null,
 			"ign_enabled": true,
 			"ign_visible": true,
-			"suggestion_locked": false,
+			"suggestion_locked": true,
 			"suggestion_add_locked": false,
 			"featured": false,
 			"visible": true,

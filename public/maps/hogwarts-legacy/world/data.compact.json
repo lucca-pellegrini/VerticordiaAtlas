@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 504,
@@ -48,7 +49,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -59,16 +61,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "hogwarts-legacy",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/hogwarts-legacy/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1430,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "23353d",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -526,10 +535,17 @@
 		{
 			"id": 1431,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "533b61",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -819,10 +835,17 @@
 		{
 			"id": 1432,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "e7bb66",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -916,10 +939,17 @@
 		{
 			"id": 1433,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "285471",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1041,10 +1071,17 @@
 		{
 			"id": 1434,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Creatures & Enemies",
 			"order": 10,
 			"color": "9E2C4D",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1082,10 +1119,17 @@
 		{
 			"id": 1436,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "3a6374",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1261,6 +1305,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"8255": {
 			"id": 8255,
@@ -2550,6 +2595,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [],
@@ -2562,7 +2608,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "columna-com-solid",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/hogwarts-legacy/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -35,12 +36,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "assassins-creed-black-flag-resynced",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/assassins-creed-black-flag-resynced/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 3000,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "223034",
@@ -424,6 +426,7 @@
 		{
 			"id": 3001,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Shops",
 			"order": 10,
 			"color": "5A8A95",
@@ -492,7 +495,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 26
+					"locations_count": 27
 				},
 				{
 					"id": 16505,
@@ -527,6 +530,7 @@
 		{
 			"id": 3002,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "A43D37",
@@ -623,7 +627,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 157
+					"locations_count": 159
 				},
 				{
 					"id": 16555,
@@ -931,7 +935,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 71
+					"locations_count": 77
 				},
 				{
 					"id": 16515,
@@ -994,6 +998,7 @@
 		{
 			"id": 3008,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "8A8A8A",
@@ -1062,7 +1067,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 25
+					"locations_count": 30
 				},
 				{
 					"id": 16567,
@@ -1146,7 +1151,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 75
+					"locations_count": 79
 				},
 				{
 					"id": 16560,
@@ -1202,13 +1207,14 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 24
+					"locations_count": 25
 				}
 			]
 		},
 		{
 			"id": 3003,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "C8A865",
@@ -1480,6 +1486,7 @@
 		{
 			"id": 3004,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Hunting",
 			"order": 20,
 			"color": "72996B",
@@ -1863,6 +1870,7 @@
 		{
 			"id": 3005,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Harpooning",
 			"order": 20,
 			"color": "5F94BA",
@@ -1959,7 +1967,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 4
+					"locations_count": 3
 				},
 				{
 					"id": 16541,
@@ -2022,6 +2030,7 @@
 		{
 			"id": 3006,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Naval Exploration",
 			"order": 20,
 			"color": "7E5A81",
@@ -2062,7 +2071,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 44
+					"locations_count": 45
 				},
 				{
 					"id": 16547,
@@ -2153,6 +2162,7 @@
 		{
 			"id": 3007,
 			"game_id": 300,
+			"section_id": null,
 			"title": "Other",
 			"order": 20,
 			"color": "8A8A8A",
@@ -2305,7 +2315,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 19
+					"locations_count": 22
 				},
 				{
 					"id": 16549,
@@ -2361,7 +2371,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 15
+					"locations_count": 16
 				},
 				{
 					"id": 16551,
@@ -2389,11 +2399,12 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 72
+					"locations_count": 74
 				}
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"16486": {
 			"id": 16486,
@@ -2757,7 +2768,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 19
+			"locations_count": 22
 		},
 		"16504": {
 			"id": 16504,
@@ -2869,7 +2880,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 26
+			"locations_count": 27
 		},
 		"16508": {
 			"id": 16508,
@@ -2897,7 +2908,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 157
+			"locations_count": 159
 		},
 		"16509": {
 			"id": 16509,
@@ -2981,7 +2992,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 71
+			"locations_count": 77
 		},
 		"16512": {
 			"id": 16512,
@@ -3737,7 +3748,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 4
+			"locations_count": 3
 		},
 		"16541": {
 			"id": 16541,
@@ -3905,7 +3916,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 44
+			"locations_count": 45
 		},
 		"16549": {
 			"id": 16549,
@@ -3989,7 +4000,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 72
+			"locations_count": 74
 		},
 		"16552": {
 			"id": 16552,
@@ -4185,7 +4196,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 25
+			"locations_count": 30
 		},
 		"16559": {
 			"id": 16559,
@@ -4297,7 +4308,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 15
+			"locations_count": 16
 		},
 		"16563": {
 			"id": 16563,
@@ -4325,7 +4336,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 24
+			"locations_count": 25
 		},
 		"16564": {
 			"id": 16564,
@@ -4381,7 +4392,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 75
+			"locations_count": 79
 		},
 		"16566": {
 			"id": 16566,
@@ -4768,8 +4779,8 @@
 								[-1.07878733869267, 0.79162807836103],
 								[-1.20840766135807, 0.81737609909576],
 								[-1.40632762781326, 0.92757687483347],
-								[-1.40651251358365, 1.39601834129943],
-								[-0.67337996496726, 1.39586250554833],
+								[-1.4062547832645578, 1.4061026635087188],
+								[-0.6741308112712829, 1.4060222923734642],
 								[-0.64605274527784, 1.13449107743411],
 								[-0.61756496132585, 1.05187244462566],
 								[-0.62623967047847, 0.99423979836153],
@@ -4798,14 +4809,14 @@
 					"geometry": {
 						"coordinates": [
 							[
-								[-0.67337996496726, 1.39586250554833],
+								[-0.6741308112712829, 1.4060222923734642],
 								[-0.64605274527784, 1.13449107743411],
 								[-0.61756496132585, 1.05187244462566],
 								[-0.62623967047847, 0.99423979836153],
 								[-0.33937810137183, 0.9498078569745],
 								[0.00066163229971, 0.98832892648533],
-								[0.00062768792176, 1.39578580134176],
-								[-0.67337996496726, 1.39586250554833]
+								[-0.00018030704808325027, 1.4059821070485299],
+								[-0.6741308112712829, 1.4060222923734642]
 							]
 						],
 						"type": "Polygon"
@@ -4840,7 +4851,6 @@
 								[-0.71292618055666, 0.73619174545616],
 								[-0.46142653441571, 0.62114237338506],
 								[-0.36558747880096, 0.58457416243707],
-								[-0.2231012971136, 0.595583383642],
 								[-0.2231012971136, 0.595583383642]
 							]
 						],
@@ -4866,7 +4876,7 @@
 					"geometry": {
 						"coordinates": [
 							[
-								[0.0007110869062, 0.0098505864518],
+								[0.00006906502764536526, 0.00011194451468554689],
 								[0.00073071042741, 0.25897978444546],
 								[-0.23213661407441, 0.27341058471729],
 								[-0.47634181290864, 0.444491140466],
@@ -4874,8 +4884,9 @@
 								[-0.4970058476797, 0.32404126435608],
 								[-0.57293391475928, 0.27825555243841],
 								[-0.60601224541086, 0.04456118043994],
-								[-0.56150744814924, 0.00995888862196],
-								[0.0007110869062, 0.0098505864518]
+								[-0.5546273612665118, 0.0002763269513081923],
+								[0.00006906502764536526, -0.00004344522240273818],
+								[0.00006906502764536526, 0.00011194451468554689]
 							]
 						],
 						"type": "Polygon"
@@ -4909,10 +4920,6 @@
 								[-0.36558747880096, 0.58457416243707],
 								[-0.2231012971136, 0.595583383642],
 								[-0.16513649871409, 0.58323609719501],
-								[0.00062278914665, 0.58366215623073],
-								[0.00062278914665, 0.58366215623073],
-								[0.00062278914665, 0.58366215623073],
-								[0.00062278914665, 0.58366215623073],
 								[0.00062278914665, 0.58366215623073]
 							]
 						],
@@ -4943,8 +4950,8 @@
 								[-1.27155504928503, 0.18253342363218],
 								[-1.28086738993027, 0.16930788342183],
 								[-1.40620783824947, 0.09106322321572],
-								[-1.40621773432037, 0.01023096771083],
-								[-0.56150744814924, 0.00995888862196],
+								[-1.4058205077763262, 0.00026144101639147266],
+								[-0.5546273612665118, 0.0002763269513081923],
 								[-0.60601224541086, 0.04456118043994],
 								[-0.72694972393036, 0.07036479395691],
 								[-0.86526822129185, 0.38431222982954],
@@ -4965,7 +4972,32 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
-	"coordinateAreas": [],
+	"coordinateAreas": [
+		{
+			"id": 18,
+			"name": "Caribbean Sea",
+			"space": null,
+			"bounds": [-1.4061984145402, 0.0012918470808643, -0.00946312388038, 1.3961289406919],
+			"priority": 0,
+			"transform": [
+				[945.764255224404, 0, -120111.46567479952],
+				[0, -963.2557885698156, 123295.86050204615]
+			],
+			"format": "{x}, {y}"
+		},
+		{
+			"id": 19,
+			"name": "Princípe",
+			"space": null,
+			"bounds": [-0.066731055477021, 0.58512022629237, -0.011757874893959, 0.62799969459384],
+			"priority": 0,
+			"transform": [
+				[869.7422905656263, 0, -111194.74114188108],
+				[0, -787.0458596986904, 100419.38598360214]
+			],
+			"format": "{x}, {y}"
+		}
+	],
 	"locations": [
 		{
 			"id": 894575,
@@ -5030,8 +5062,8 @@
 			"category_id": 16491,
 			"title": "Andreas Island",
 			"description": "**Locations:**\n- 1 Viewpoint\n- [Tavern - Andreas Island](#loc=895347)\n\n**Side Activities:**\n- Assassins Contracts: \n   - [A Slaver's Business](#loc=894735)\n   - [The Poachers](#loc=894736)\n\n**Collectibles:**\n- 2 Chests\n\n**Secrets:**\n- [Special Chest - Andreas Island](#loc=895351)\n- [Letter - \"A Curiouse Incident At Sea\"](#loc=895350)\n- [Treasure Map - Andreas Island](#loc=895353)\n\n**Hunting:**\n- [Iguana](#loc=895348)",
-			"latitude": "1.02738535177570",
-			"longitude": "-0.59419319472178",
+			"latitude": "1.02738119678730",
+			"longitude": "-0.59419512748829",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -5211,8 +5243,8 @@
 			"category_id": 16501,
 			"title": "Great Inagua",
 			"description": "**Locations:**\n- 1 Viewpoint\n- [Tavern - Great Inagua](#loc=895787)\n- [Mayan Stela - Great Inagua](#loc=894756)\n\n**Side Activities:**\n- Naval Contracts:\n  - [A Spanish Plague](#loc=894726)\n  - [Eye For An Eye](#loc=894727)\n  - [Blind Justice](#loc=900751)\n  - [Papers, Please](#loc=900805)\n  - [The Final Contract](#loc=900824)\n\n**Collectibles:**\n- 3 Chests\n- 2 Shanties:\n  - [Shanty - Whiskey Johnny](#loc=895400)\n  - [Shanty - The Wild Goose](#loc=895399)\n\n**Secrets:**\n- [Treasure Map - Great Inagua](#loc=895788)\n- [Underwater Special Chest - Great Inagua](#loc=895786)\n- [Special Chest - Great Inagua](#loc=895790)\n- [Special Chest - Great Inagua](#loc=895781)\n- [Special Chest - Great Inagua](#loc=895785)\n- [Letter - \"On My Name and Origin\"](#loc=895784)\n\n**Hunting:**\n- [White Jaguar](#loc=895396)\n- [Iguana](#loc=895397)\n- [Wild Pig](#loc=895398)",
-			"latitude": "0.65858733895163",
-			"longitude": "-0.18888045974117",
+			"latitude": "0.65858582744872",
+			"longitude": "-0.18888115882993",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -5460,8 +5492,8 @@
 			"category_id": 16490,
 			"title": "Castillo de Jagua",
 			"description": "**Naval Fort Defenses - 6**\n\n**Reward:**\n- [Split Blood Sails](#loc=898415)\n- 6,000**R**\n- Resources\n  - 150 Wood\n  - 300 Metal\n  - 80 Cloth",
-			"latitude": "0.78228398828964",
-			"longitude": "-0.91820456398493",
+			"latitude": "0.78227950433885",
+			"longitude": "-0.91821670532136",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -5613,8 +5645,8 @@
 			"category_id": 16496,
 			"title": "Cape Bonavista",
 			"description": "**Locations:**\n- 2 Viewpoints\n-  [Mayan Stela - Cape Bonavista](#loc=895223)\n\n**Collectibles:**\n- 2 Chests\n- [Shanty - So Early in The Morning](#loc=894775)\n\n\n**Secrets:**\n- [Underwater Special Chest](#loc=894768)\n- [Letter - \"The Observatorie\"](#loc=894770)\n\n**Hunting:**\n- [Howler Monkey](#loc=894875)\n- [Jaguar](#loc=894873)\n- [Wild Pig](#loc=894874)",
-			"latitude": "0.85858691751255",
-			"longitude": "-1.17421205131190",
+			"latitude": "0.85859661358218",
+			"longitude": "-1.17420673370440",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -8703,6 +8735,20 @@
 			"description": "",
 			"latitude": "0.79162770539751",
 			"longitude": "-1.16849531539980",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1059006,
+			"map_id": 963,
+			"region_id": 4832,
+			"category_id": 16507,
+			"title": "Harbourmaster",
+			"description": null,
+			"latitude": "0.84023261007164",
+			"longitude": "-1.07421002789720",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -13166,7 +13212,7 @@
 			"region_id": 4839,
 			"category_id": 16508,
 			"title": "Underwater Chest - Ambergris Key",
-			"description": "**Location:** 27,161\n\n**Loot:**\n- 1,050**R**",
+			"description": "**Location:** 27,161\n\nAt the bottom of the air pocket in the underwater tunnel.\n\n**Loot:**\n\n- 1,050**R**",
 			"latitude": "0.22928153775126",
 			"longitude": "-1.36671556041020",
 			"features": null,
@@ -14288,8 +14334,8 @@
 			"category_id": 16508,
 			"title": "Underwater Chest - Caribbean Sea",
 			"description": "**Location:** ??\n\n**Loot:**\n- 1,000**R**\n\nPart of the [Smelly Sailors](#loc=900917) Local Event",
-			"latitude": "1.02409905121590",
-			"longitude": "-0.87617062292044",
+			"latitude": "1.02407724480040",
+			"longitude": "-0.87615966796852",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -14363,6 +14409,60 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1058429,
+			"map_id": 963,
+			"region_id": 4842,
+			"category_id": 16508,
+			"title": "Chest - Ipswich Wreck",
+			"description": "**Required:** Complete [A World Without Gold](#loc=899118) \n\n**Loot:**\n- 1,000**R**",
+			"latitude": "0.08867111242829",
+			"longitude": "-0.55911719799013",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157676,
+					"title": "image",
+					"file_name": "482be8f5-3d0d-4e26-b40c-80ccba5bcdd3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/482be8f5-3d0d-4e26-b40c-80ccba5bcdd3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1058436,
+			"map_id": 963,
+			"region_id": 4842,
+			"category_id": 16508,
+			"title": "Chest - Ipswich Wreck",
+			"description": "**Required:** Complete [A World Without Gold](#loc=899118) \n\n**Loot:**\n- 1,000**R**",
+			"latitude": "0.08793618802984",
+			"longitude": "-0.55699288844903",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157683,
+					"title": "image",
+					"file_name": "8961747e-9a86-4a1f-ace6-fb46f0235e63.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8961747e-9a86-4a1f-ace6-fb46f0235e63.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 894807,
@@ -18609,7 +18709,7 @@
 			"region_id": 4832,
 			"category_id": 16511,
 			"title": "Special Chest - Havana",
-			"description": "**Location:** ??\n\n**Loot:**\n- [Manuscript - \"Voynich Manuscript\" - Folio 34v](#loc=894838)",
+			"description": "**Location:** Inside the [Castillo](#loc=894836)'s northern corner, accessible by climbing down the outside wall from the top.\n\n**Loot:**\n\n- [Manuscript - \"Voynich Manuscript\" - Folio 34v](#loc=894838)",
 			"latitude": "0.86979431278695",
 			"longitude": "-1.07187039687470",
 			"features": null,
@@ -20338,8 +20438,8 @@
 			"category_id": 16511,
 			"title": "Underwater Special Chest - Caribbean Sea",
 			"description": "**Location:** 421, 939\n\n**Loot:**\n- 4,000**R**",
-			"latitude": "1.37036289511690",
-			"longitude": "-0.77800362316083",
+			"latitude": "1.37036012126660",
+			"longitude": "-0.77800154685823",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -20406,6 +20506,168 @@
 					"url": "https://media.mapgenie.io/storage/media/c3184dc6-fd68-456b-8184-6fce9c710ea2.jpeg",
 					"type": "image",
 					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1058434,
+			"map_id": 963,
+			"region_id": 4842,
+			"category_id": 16511,
+			"title": "Special Chest - Ipswich Wreck",
+			"description": "**Required:** Complete [A World Without Gold](#loc=899118) \n\n**Loot:**\n- [Ipswich Figurehead](#loc=1058438)\n- [Ipswich Hull](#loc=1058441)\n- [Ipswich Wheel](#loc=1058443)\n- [Ipswich Sails](#loc=1058444)",
+			"latitude": "0.08837338758205",
+			"longitude": "-0.55734425783044",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157678,
+					"title": "image",
+					"file_name": "fd665ff5-9145-40ec-99f3-6b8605849692.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fd665ff5-9145-40ec-99f3-6b8605849692.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1058449,
+			"map_id": 963,
+			"region_id": 4832,
+			"category_id": 16511,
+			"title": "Underwater Special Chest - Caribbean Sea",
+			"description": "**Location:** On a small island north of Cape Bonavista\n\n**Loot:**\n- [Simple Sailor Clothing](#loc=1058450)",
+			"latitude": "0.91804867413188",
+			"longitude": "-1.18113756179890",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157687,
+					"title": "image",
+					"file_name": "343ee29d-ff4a-4f70-a2bc-6e9573379e2b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/343ee29d-ff4a-4f70-a2bc-6e9573379e2b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1058451,
+			"map_id": 963,
+			"region_id": 4834,
+			"category_id": 16511,
+			"title": "Underwater Special Chest - Caribbean Sea",
+			"description": "**Required:** Shoot 6 dummies on the island to make a chest appear after a lightning strike\n\n**Location:** On a small island north of Great Inagua\n\n**Loot:**\n- [Blackbeard's Classic Outfit](#loc=1058452)",
+			"latitude": "0.76934171419919",
+			"longitude": "-0.19600510597081",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157688,
+					"title": "image",
+					"file_name": "e977b723-ff69-4c7c-b71b-711e2fb4911a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e977b723-ff69-4c7c-b71b-711e2fb4911a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1058999,
+			"map_id": 963,
+			"region_id": null,
+			"category_id": 16511,
+			"title": "Underwater Special Chest - Caribbean Sea",
+			"description": "**Location:** Underwater in the narrow inlet, south of La Dama Negra Legendary Ship\n\n**Loot:**\n- [Underwater Togs](#loc=1059000)",
+			"latitude": "0.00811100003358",
+			"longitude": "-1.03749990463110",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157689,
+					"title": "image",
+					"file_name": "5ddb3058-6fcf-4edb-9e23-70d8966dd48f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5ddb3058-6fcf-4edb-9e23-70d8966dd48f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1059001,
+			"map_id": 963,
+			"region_id": 4832,
+			"category_id": 16511,
+			"title": "Special Chest - Caribbean Sea",
+			"description": "**Required:** Beware of **Bacon Boarpole, Ragin Pig God**\n\n**Location:** On a small archipelago west of Andreas Island\n\n**Loot:**\n- Wild Pig Hide x5\n- [Marooned Rags](#loc=1059002) - after defeating **Bacon Boarpole, Ragin Pig God**",
+			"latitude": "1.05168337427660",
+			"longitude": "-0.63787624239802",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157690,
+					"title": "image",
+					"file_name": "8a2f4976-4a41-4865-9d95-d220382b6fd3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a2f4976-4a41-4865-9d95-d220382b6fd3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1059003,
+			"map_id": 963,
+			"region_id": 4834,
+			"category_id": 16511,
+			"title": "Underwater Special Chest - Principe",
+			"description": "**Location:** Underwater, north of the Principe area, between the reefs\n\n**Loot:**\n- [Theater Formalwear](#loc=1059004)",
+			"latitude": "0.62325261718144",
+			"longitude": "-0.04394799470978",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157692,
+					"title": "image",
+					"file_name": "a12fef59-0be9-4f03-8c8a-e3a8f53ccf65.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a12fef59-0be9-4f03-8c8a-e3a8f53ccf65.png",
+					"type": "image",
+					"mime_type": "image/png",
 					"meta": null,
 					"order": 10,
 					"spoiler": false
@@ -23027,6 +23289,89 @@
 			"media": []
 		},
 		{
+			"id": 1058450,
+			"map_id": 963,
+			"region_id": 4832,
+			"category_id": 16558,
+			"title": "Simple Sailor Clothing",
+			"description": "**Common Outfit**\n\n**Location:** In the [Special Chest](#loc=1058449) on an island north of Cape Bonavista",
+			"latitude": "0.91848581805540",
+			"longitude": "-1.18113219738040",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1058452,
+			"map_id": 963,
+			"region_id": 4834,
+			"category_id": 16558,
+			"title": "Blackbeard's Classic Outfit",
+			"description": "**Legendary Outfit**\n\n**Location:** In the [Special Chest](#loc=1058451) on a small island north of Great Inagua",
+			"latitude": "0.76973998631507",
+			"longitude": "-0.19600376486659",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1059000,
+			"map_id": 963,
+			"region_id": 4840,
+			"category_id": 16558,
+			"title": "Underwater Togs",
+			"description": "**Common Outfit**\n\n**Location:** In the [Underwater Special Chest](#loc=1058999) in the narrow inlet, south of La Dama Negra Legendary Ship",
+			"latitude": "0.00854352810886",
+			"longitude": "-1.03750719681130",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1059002,
+			"map_id": 963,
+			"region_id": 4832,
+			"category_id": 16558,
+			"title": "Marooned Rags",
+			"description": "**Common Outfit**\n\n**Location:** On a small archipelago west of Andreas Island, after defeating **Bacon Boarpole, Ragin Pig God**",
+			"latitude": "1.05217279492450",
+			"longitude": "-0.63787221908410",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157691,
+					"title": "image",
+					"file_name": "58e53e69-86a3-4dbf-a6bc-e06905ceb33d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58e53e69-86a3-4dbf-a6bc-e06905ceb33d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1059004,
+			"map_id": 963,
+			"region_id": 4834,
+			"category_id": 16558,
+			"title": "Theater Formalwear",
+			"description": "**Rare Outfit**\n\n**Location:** In the [Underwater Special Chest](#loc=1059003) north of Principe",
+			"latitude": "0.62374007980789",
+			"longitude": "-0.04395402967947",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 895395,
 			"map_id": 963,
 			"region_id": 4834,
@@ -24475,8 +24820,64 @@
 			"category_id": 16565,
 			"title": "Guardian Beast Figurehead",
 			"description": "**Legendary Figurehead**\n\n**Location:** In the [Special Chest](#loc=917053) in the Caribbean Sea",
-			"latitude": "0.24616336679065",
-			"longitude": "-0.66527032723120",
+			"latitude": "0.24736327574807",
+			"longitude": "-0.66527366638260",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1058438,
+			"map_id": 963,
+			"region_id": 4842,
+			"category_id": 16565,
+			"title": "Ipswich Figurehead",
+			"description": "**Legendary Figurehead**\n\n**Location:** In the [Special Chest](#loc=1058434) at the Ipswich Shipwreck",
+			"latitude": "0.08877170389559",
+			"longitude": "-0.55789010414358",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1058441,
+			"map_id": 963,
+			"region_id": 4842,
+			"category_id": 16565,
+			"title": "Ipswich Hull",
+			"description": "**Legendary Hull**\n\n**Location:** In the [Special Chest](#loc=1058434) at the Ipswich Shipwreck",
+			"latitude": "0.08877170389559",
+			"longitude": "-0.55754071076382",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1058443,
+			"map_id": 963,
+			"region_id": 4842,
+			"category_id": 16565,
+			"title": "Ipswich Wheel",
+			"description": "**Legendary Ship's Wheel**\n\n**Location:** In the [Special Chest](#loc=1058434) at the Ipswich Shipwreck",
+			"latitude": "0.08877170389559",
+			"longitude": "-0.55718665078470",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1058444,
+			"map_id": 963,
+			"region_id": 4842,
+			"category_id": 16565,
+			"title": "Ipswich Sails",
+			"description": "**Legendary Sails**\n\n**Location:** In the [Special Chest](#loc=1058434) at the Ipswich Shipwreck",
+			"latitude": "0.08877170389559",
+			"longitude": "-0.55683259290259",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -25192,6 +25593,33 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1059005,
+			"map_id": 963,
+			"region_id": 4837,
+			"category_id": 16563,
+			"title": "Sole of the Caribbean",
+			"description": "**Rare Trinket**\n\n**Location:** On a ledge of the rock, directly south of Castillo de Jagua; position the Jackdaw below to climb onto the ledge\n\n**Perk:** Movement does not produce any noise, except when sprinting",
+			"latitude": "0.67953781556837",
+			"longitude": "-0.92031955719091",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157693,
+					"title": "image",
+					"file_name": "3fae8461-fe13-4feb-8fc3-7a00ab0623fd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3fae8461-fe13-4feb-8fc3-7a00ab0623fd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 897968,
@@ -27172,8 +27600,8 @@
 			"category_id": 16552,
 			"title": "No Box Dark Enough",
 			"description": "**Prerequisite:**\n- Complete [...Everything is Permitted](#loc=897588) Quest\n\n\n**Previous Quests:**\n- [I Just Want to Talk](#loc=899026) \n- [Not Our Natural Allies](#loc=899030)\n\n**Next Quest:** [All Love Must End](#loc=899177)",
-			"latitude": "0.65168166261962",
-			"longitude": "-0.18332572212267",
+			"latitude": "0.65168227276631",
+			"longitude": "-0.18332630395622",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -28591,9 +29019,9 @@
 			"region_id": 4834,
 			"category_id": 16542,
 			"title": "Bull Shark",
-			"description": null,
-			"latitude": "0.70608734308635",
-			"longitude": "-0.32997062937751",
+			"description": "",
+			"latitude": "0.70606828729174",
+			"longitude": "-0.32997608184849",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -28622,20 +29050,6 @@
 			"description": "",
 			"latitude": "0.08067055575682",
 			"longitude": "-0.94016072716582",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 895380,
-			"map_id": 963,
-			"region_id": 4834,
-			"category_id": 16539,
-			"title": "Hammerhead Shark",
-			"description": null,
-			"latitude": "0.93577921661953",
-			"longitude": "-0.09920711459037",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -29384,14 +29798,14 @@
 			"media": []
 		},
 		{
-			"id": 900025,
+			"id": 1059008,
 			"map_id": 963,
-			"region_id": 4842,
-			"category_id": 16547,
-			"title": "Air Pocket",
-			"description": "",
-			"latitude": "0.17982706706336",
-			"longitude": "-0.30864313244763",
+			"region_id": 4834,
+			"category_id": 16548,
+			"title": "Air Barrel",
+			"description": null,
+			"latitude": "0.93063464298017",
+			"longitude": "-0.51149527522890",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -29448,6 +29862,20 @@
 			"description": "",
 			"latitude": "0.48850078612814",
 			"longitude": "-0.72991892695384",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1059009,
+			"map_id": 963,
+			"region_id": 4836,
+			"category_id": 16547,
+			"title": "Air Pocket",
+			"description": "",
+			"latitude": "0.48539965958774",
+			"longitude": "-0.72904256478145",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -29528,8 +29956,8 @@
 			"category_id": 16546,
 			"title": "La Dama Negra",
 			"description": "**Reward:**\n- 12,000**R**\n- [La Dama Negra Sails](#loc=900101)\n- [La Dama Negra Figurehead](#loc=900102)\n- [La Dama Negra Hull](#loc=900103)\n- [La Dama Negra Wheel](#loc=900105)\n\n**Prerequisite:**\n- Capture [Serranilla](#loc=894665) Fort",
-			"latitude": "0.09497410261708",
-			"longitude": "-1.02414884873360",
+			"latitude": "0.09497161330997",
+			"longitude": "-1.02415323257360",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -32159,6 +32587,48 @@
 			"media": []
 		},
 		{
+			"id": 1059012,
+			"map_id": 963,
+			"region_id": 4833,
+			"category_id": 16503,
+			"title": "Local Officer",
+			"description": null,
+			"latitude": "1.10858426964540",
+			"longitude": "-0.37316023955151",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1059013,
+			"map_id": 963,
+			"region_id": 4841,
+			"category_id": 16503,
+			"title": "Local Officer",
+			"description": null,
+			"latitude": "0.36280590729899",
+			"longitude": "-0.74769258499262",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1059014,
+			"map_id": 963,
+			"region_id": 4832,
+			"category_id": 16503,
+			"title": "Local Officer",
+			"description": null,
+			"latitude": "1.05930432217530",
+			"longitude": "-1.07369079725000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 898838,
 			"map_id": 963,
 			"region_id": 4841,
@@ -32517,10 +32987,24 @@
 			"map_id": 963,
 			"region_id": 4834,
 			"category_id": 16562,
-			"title": "About the Puppy",
+			"title": "Regarding the Whelp",
 			"description": "Only appears if the [Dog](#loc=945618) was adopted.",
 			"latitude": "0.64899816789500",
 			"longitude": "-0.17488263950807",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1059007,
+			"map_id": 963,
+			"region_id": 4833,
+			"category_id": 16562,
+			"title": "To Whomever this Reaches",
+			"description": null,
+			"latitude": "1.02263346587520",
+			"longitude": "-0.48103720781435",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -33533,6 +34017,34 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1059010,
+			"map_id": 963,
+			"region_id": 4839,
+			"category_id": 16551,
+			"title": "Rowboat",
+			"description": null,
+			"latitude": "0.34992464616921",
+			"longitude": "-1.38771807675810",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1059011,
+			"map_id": 963,
+			"region_id": 4840,
+			"category_id": 16551,
+			"title": "Rowboat",
+			"description": null,
+			"latitude": "0.12772132309230",
+			"longitude": "-0.79428803967747",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
 		}
 	],
 	"heatmapGroups": [],
@@ -33547,7 +34059,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "orpheus",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/assassins-creed-black-flag-resynced/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

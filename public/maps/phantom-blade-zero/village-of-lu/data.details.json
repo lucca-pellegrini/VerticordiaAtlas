@@ -1301,7 +1301,7 @@
 			]
 		],
 		"1060818": [
-			"**How to Begin:** Read [Bai Chilian's Notes](#loc=1060711)\n\n**Pipa Pieces:**\n\n- [Illusory Pipa Head](#loc=1061722)\n- ??",
+			"**How to Begin:** Read [Bai Chilian's Notes](#loc=1060711)\n\n**Pipa Pieces:**\n\n- [Illusory Pipa Head](#loc=1061722)\n- [Illusory Pipa's Backplate](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064381) (Mandate Encampment)\n- [Illusory Pipa Strings](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064793) (Meigu Lake)",
 			[]
 		],
 		"1060821": [
@@ -1400,7 +1400,7 @@
 			]
 		],
 		"1061308": [
-			"**How to Begin:** Pick up any of Firefly's Memory Flowers\n\n**Firefly's Memory Flowers:**\n\n- [Firefly's Memory Flower 1](#loc=1060759)\n- [Firefly's Memory Flower 2](#loc=1061307)\n- [Firefly's Memory Flower 3](#loc=1060800)\n- [Firefly's Memory Flower 4](#loc=1061655)\n- [Firefly's Memory Flower 5](#loc=1060811)\n- [Firefly's Memory Flower 6](#loc=1061312)",
+			"**How to Begin:** Pick up any of Firefly's Memory Flowers\n\n**Firefly's Memory Flowers:**\n\n- [Firefly's Memory Flower 1](#loc=1060759)\n- [Firefly's Memory Flower 2](#loc=1061307)\n- [Firefly's Memory Flower 3](#loc=1060800)\n- [Firefly's Memory Flower 4](#loc=1061655)\n- [Firefly's Memory Flower 5](#loc=1060811)\n- [Firefly's Memory Flower 6](#loc=1061312)\n\n**Acolyte Masks:**\n- [Yanru's Blazing Mask](#loc=1061726)\n- [Leiting's Thunder Mask](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1063604)\n- [Guhe's Venom Mask](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064895)\n- [Hansui's Frost Mask](https://mapgenie.io/phantom-blade-zero/maps/weeping-creek-valley?locationIds=1066539)\n\n**Reward:**\n- [Violet Blossom](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1067041)",
 			[]
 		],
 		"1061309": [
@@ -3291,7 +3291,7 @@
 			]
 		],
 		"1061672": [
-			"**How to Begin:** Speak to the Sleeping Flower-Masked Hunter\n\n**Tips:**\n\n- Progress to Pangzheng and search for the **Pond of Fading Song Bell**\n- Along the back wall of a nearby house, you'll find the sleepy [Dahuang](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1062777)\n\n**Rewards:**\n\n- Remnant Dust",
+			"**How to Begin:** Speak to the Sleeping Flower-Masked Hunter\n\n**Tips:**\n\n- Progress to Pangzheng and search for the **Pond of Fading Song** bell\n- Along the back wall of a nearby house, you'll find the sleepy [Dahuang](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1062777)\n\n**Rewards:**\n\n- Remnant Dust",
 			[]
 		],
 		"1061673": [
@@ -3710,7 +3710,10 @@
 				}
 			]
 		],
-		"1061726": ["Looted from [Acolyte Yanru](#loc=1061725)\n\n**Quest:** ??", []],
+		"1061726": [
+			"Looted from [Acolyte Yanru](#loc=1061725)\n\n**Quest:** [Secrets at the Heart of the Lake](#loc=1061308)",
+			[]
+		],
 		"1061727": [
 			"Reached via [Smuggler's Tunnel Entrance](#loc=1060765)",
 			[
@@ -3800,7 +3803,7 @@
 			]
 		],
 		"1061814": [
-			"**How to Begin:** Speak to the little girl puppet.\n\n**Tips:**\n\n- Her grandfather is in the Mountain of Imprisonment\n- Her parents are in Mount Soulrend\n\n**Rewards:**\n\n- ??",
+			"**How to Begin:** Speak to the little girl puppet.\n\n**Tips:**\n\n- Her grandfather is on the [Mountain of Imprisonment](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1064990)\n- Her parents are on [Mount Soulrend](https://mapgenie.io/phantom-blade-zero/maps/mount-soulrend?locationIds=1083945)\n\n**Rewards:**\n\n- [Baishan Headband](https://mapgenie.io/phantom-blade-zero/maps/mount-soulrend?locationIds=1083970)",
 			[
 				{
 					"id": 158364,
@@ -3919,7 +3922,7 @@
 			]
 		],
 		"1061821": [
-			"**How to Begin:** Interact with any Portal.\n\n**Portals:**\n\n- [Portal](#loc=1061820)\n- [Portal](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064384) (Mandate's Encampment)\n- ??",
+			"**How to Begin:** Interact with any Portal.\n\n**Portals:**\n\n- [Portal](#loc=1061820)\n- [Portal](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064384) (Mandate's Encampment)\n- [Portal](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1066513) (Mountain of Imprisonment)",
 			[]
 		],
 		"1061822": [
@@ -3958,7 +3961,7 @@
 		],
 		"1061824": ["Reached via [Elevator](#loc=1061823)", []],
 		"1061825": [
-			"**Loot:**\n\n- [Wild Oriole Sword](#loc=1061830)\n- [Puppet No. 44's Eye](#loc=1061827)\n- [TianMiao](#loc=1061858) (NG+ Only)\n\nHas an additional phase - and grants progress towards a secret ending - if you completed the [Young Mistress](#loc=1060826) quest prior to the fight.",
+			"**Loot:**\n\n- [Wild Oriole Sword](#loc=1061830)\n- [Puppet No. 44's Eye](#loc=1061827)\n\nHas an additional phase - and grants progress towards a secret ending - if you completed the [Young Mistress](#loc=1060826) quest prior to the fight.",
 			[]
 		],
 		"1061826": [
@@ -4373,25 +4376,8 @@
 				}
 			]
 		],
-		"1061858": [
-			"New Game Plus / Cycle 2  \n\nTurns [Wild Oriole](#loc=1061830) into Dual Swords",
-			[
-				{
-					"id": 158396,
-					"title": "",
-					"file_name": "60c80df0-9c71-47ec-bd7d-26bdc4b874e3.png",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/60c80df0-9c71-47ec-bd7d-26bdc4b874e3.png",
-					"type": "image",
-					"mime_type": "image/png",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		],
 		"1061859": [
-			"**Requires:** Tiger Cannon",
+			"**Requires:** [Tiger Cannon](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1083902)",
 			[
 				{
 					"id": 158412,
@@ -4668,6 +4654,7 @@
 			"[Crimson Forest](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1061881)",
 			[]
 		],
+		"1061992": ["[Acolyte Yanru](#loc=1061725)", []],
 		"1063274": [
 			"In a room to the right after burning through the [Brambles](#loc=1060792).",
 			[
@@ -4793,6 +4780,61 @@
 		],
 		"1063849": [
 			"[Mandate Encampment](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1062825)",
+			[]
+		],
+		"1083910": [
+			"Beyond the [Fragile Wall](#loc=1061859)",
+			[
+				{
+					"id": 161006,
+					"title": "003333",
+					"file_name": "d01a0ab3-addb-4468-8157-eaf6f32b2854.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d01a0ab3-addb-4468-8157-eaf6f32b2854.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083911": [
+			"Beyond the [Fragile Wall](#loc=1061859)",
+			[
+				{
+					"id": 161008,
+					"title": "003333",
+					"file_name": "76f0af6d-3e13-46a4-bf11-a9083f43190d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76f0af6d-3e13-46a4-bf11-a9083f43190d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083912": [
+			"Inside a chest beyond the [Fragile Wall](#loc=1061859)\n\n**Wolfjaw**",
+			[
+				{
+					"id": 161007,
+					"title": "003333",
+					"file_name": "76e23dd5-e97f-47e9-b64b-4eb5a19f452e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76e23dd5-e97f-47e9-b64b-4eb5a19f452e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083997": [
+			"**How to Begin:** Talk to the lady sitting on the bed.\n\n**Tips:**\n- The quest will be missed if you kill the puppet that drops Mother's Talisman before beginning it.\n\n**Reward:**\n- [Mother's Talisman](#loc=1060784)",
 			[]
 		]
 	}

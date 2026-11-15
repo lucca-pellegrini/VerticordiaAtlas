@@ -13,7 +13,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -30,6 +31,7 @@
 		{
 			"id": 130,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "636373",
@@ -273,6 +275,7 @@
 		{
 			"id": 131,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Services",
 			"order": 10,
 			"color": "6591C7",
@@ -376,6 +379,7 @@
 		{
 			"id": 132,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "C49E06",
@@ -479,6 +483,7 @@
 		{
 			"id": 133,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "B3473B",
@@ -582,6 +587,7 @@
 		{
 			"id": 134,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "A17142",
@@ -627,6 +633,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"597": {
 			"id": 597,

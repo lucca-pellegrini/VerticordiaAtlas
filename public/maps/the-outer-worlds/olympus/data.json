@@ -22,7 +22,8 @@
 					"13": { "x": { "max": 287, "min": 256 }, "y": { "max": 287, "min": 256 } },
 					"14": { "x": { "max": 575, "min": 512 }, "y": { "max": 575, "min": 512 } },
 					"15": { "x": { "max": 1151, "min": 1024 }, "y": { "max": 1093, "min": 1024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -39,6 +40,7 @@
 		{
 			"id": 120,
 			"game_id": 12,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "386150",
@@ -142,6 +144,7 @@
 		{
 			"id": 122,
 			"game_id": 12,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "2db3b9",
@@ -273,6 +276,7 @@
 		{
 			"id": 123,
 			"game_id": 12,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "9c3443",
@@ -376,6 +380,7 @@
 		{
 			"id": 121,
 			"game_id": 12,
+			"section_id": null,
 			"title": "Quests",
 			"order": 50,
 			"color": "453A49",
@@ -423,6 +428,7 @@
 		{
 			"id": 124,
 			"game_id": 12,
+			"section_id": null,
 			"title": "Other",
 			"order": 60,
 			"color": "386150",
@@ -524,6 +530,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"568": {
 			"id": 568,

@@ -20,7 +20,8 @@
 					"11": { "x": { "max": 1023, "min": 1016 }, "y": { "max": 1023, "min": 1016 } },
 					"12": { "x": { "max": 2047, "min": 2032 }, "y": { "max": 2047, "min": 2032 } },
 					"13": { "x": { "max": 4095, "min": 4064 }, "y": { "max": 4095, "min": 4064 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -37,6 +38,7 @@
 		{
 			"id": 27042,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 1,
 			"color": "34362C",
@@ -88,7 +90,7 @@
 					"icon_color": null,
 					"info": null,
 					"template": null,
-					"order": 1,
+					"order": 2,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -144,7 +146,35 @@
 					"icon_color": null,
 					"info": null,
 					"template": null,
-					"order": 6,
+					"order": 4,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
+				},
+				{
+					"id": 28444,
+					"group_id": 27042,
+					"title": "Miscellaneous",
+					"icon": "miscellaneous",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 5,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -168,6 +198,7 @@
 		{
 			"id": 27054,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Key Items",
 			"order": 2,
 			"color": "582359",
@@ -497,7 +528,7 @@
 					"icon": "soul_tempering_material",
 					"color": null,
 					"icon_color": null,
-					"info": "Used to Soul Temper specific Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
+					"info": "Used to Soul Temper specific Weapons and Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
 					"template": null,
 					"order": 12,
 					"has_heatmap": false,
@@ -516,13 +547,14 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 1
+					"locations_count": 2
 				}
 			]
 		},
 		{
 			"id": 27044,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Items",
 			"order": 3,
 			"color": "1F526B",
@@ -626,6 +658,7 @@
 		{
 			"id": 27047,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Characters",
 			"order": 4,
 			"color": "631813",
@@ -673,6 +706,7 @@
 		{
 			"id": 27045,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Quests",
 			"order": 5,
 			"color": "428C7F",
@@ -748,6 +782,7 @@
 		{
 			"id": 27055,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Materials",
 			"order": 6,
 			"color": "807358",
@@ -844,7 +879,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 4
+					"locations_count": 5
 				},
 				{
 					"id": 28368,
@@ -900,7 +935,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 2
+					"locations_count": 3
 				},
 				{
 					"id": 28369,
@@ -1040,7 +1075,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 7
+					"locations_count": 8
 				},
 				{
 					"id": 28495,
@@ -1247,7 +1282,7 @@
 					"icon_color": null,
 					"info": "Required to upgrade Medicine to Lv. 2",
 					"template": null,
-					"order": 30,
+					"order": 31,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -1275,7 +1310,7 @@
 					"icon_color": "d6eb37",
 					"info": "Required to upgrade Medicine from Lv. 2-4",
 					"template": null,
-					"order": 31,
+					"order": 32,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -1303,7 +1338,7 @@
 					"icon_color": "50d352",
 					"info": "Required to upgrade Medicine from Lv. 4 to max level.",
 					"template": null,
-					"order": 32,
+					"order": 33,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -1323,55 +1358,9 @@
 					"locations_count": 2
 				}
 			]
-		},
-		{
-			"id": 27046,
-			"game_id": 345,
-			"title": "Other",
-			"order": 7,
-			"color": "5C5A5A",
-			"icon_color": null,
-			"display_type": null,
-			"circle_color": null,
-			"circle_stroke_color": null,
-			"circle_opacity": null,
-			"circle_radius": null,
-			"area_config": null,
-			"expandable": false,
-			"featured": false,
-			"featured_icon": null,
-			"categories": [
-				{
-					"id": 28444,
-					"group_id": 27046,
-					"title": "Miscellaneous",
-					"icon": "miscellaneous",
-					"color": null,
-					"icon_color": null,
-					"info": null,
-					"template": null,
-					"order": 1,
-					"has_heatmap": false,
-					"features_enabled": false,
-					"display_type": "marker",
-					"circle_color": null,
-					"circle_stroke_color": null,
-					"circle_opacity": null,
-					"circle_radius": null,
-					"area_config": null,
-					"ign_enabled": true,
-					"ign_visible": true,
-					"suggestion_locked": false,
-					"suggestion_add_locked": false,
-					"featured": false,
-					"visible": true,
-					"description": null,
-					"premium": false,
-					"locations_count": 1
-				}
-			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"28306": {
 			"id": 28306,
@@ -1662,7 +1651,7 @@
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 1,
+			"order": 2,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -1802,7 +1791,7 @@
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 6,
+			"order": 4,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2075,14 +2064,14 @@
 		},
 		"28444": {
 			"id": 28444,
-			"group_id": 27046,
+			"group_id": 27042,
 			"title": "Miscellaneous",
 			"icon": "miscellaneous",
 			"color": null,
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 1,
+			"order": 5,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2166,7 +2155,7 @@
 			"icon_color": null,
 			"info": "Required to upgrade Medicine to Lv. 2",
 			"template": null,
-			"order": 30,
+			"order": 31,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2388,7 +2377,7 @@
 			"icon": "soul_tempering_material",
 			"color": null,
 			"icon_color": null,
-			"info": "Used to Soul Temper specific Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
+			"info": "Used to Soul Temper specific Weapons and Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
 			"template": null,
 			"order": 12,
 			"has_heatmap": false,
@@ -2407,7 +2396,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 1
+			"locations_count": 2
 		},
 		"28551": {
 			"id": 28551,
@@ -2435,7 +2424,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 2
+			"locations_count": 3
 		},
 		"28552": {
 			"id": 28552,
@@ -2463,7 +2452,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 7
+			"locations_count": 8
 		},
 		"28553": {
 			"id": 28553,
@@ -2519,7 +2508,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 4
+			"locations_count": 5
 		},
 		"28555": {
 			"id": 28555,
@@ -2530,7 +2519,7 @@
 			"icon_color": "d6eb37",
 			"info": "Required to upgrade Medicine from Lv. 2-4",
 			"template": null,
-			"order": 31,
+			"order": 32,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2558,7 +2547,7 @@
 			"icon_color": "50d352",
 			"info": "Required to upgrade Medicine from Lv. 4 to max level.",
 			"template": null,
-			"order": 32,
+			"order": 33,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -3242,7 +3231,7 @@
 			"region_id": null,
 			"category_id": 28353,
 			"title": "Statue",
-			"description": "**Required:** Flying Guillotine",
+			"description": "**Required:** [Flying Guillotine](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1066492)",
 			"latitude": "0.85999069257052",
 			"longitude": "-0.38589526121450",
 			"features": null,
@@ -3365,13 +3354,40 @@
 			"region_id": null,
 			"category_id": 28355,
 			"title": "Challenge",
-			"description": null,
+			"description": "[The Banyan's Heart](#loc=1062872)",
 			"latitude": "0.41247820291032",
 			"longitude": "-1.08511107262070",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1064384,
+			"map_id": 1069,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Portal",
+			"description": "**Quest:** [The Herald's Illusion](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1061821)",
+			"latitude": "1.17011114585890",
+			"longitude": "-0.79155374404922",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 159620,
+					"title": "002564",
+					"file_name": "0a28ff20-640e-4322-a80c-535c07d58960.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a28ff20-640e-4322-a80c-535c07d58960.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1064340,
@@ -4277,7 +4293,7 @@
 			"region_id": null,
 			"category_id": 28360,
 			"title": "The Banyan's Heart",
-			"description": "Reward for interacting with the human-faced tree, then defeating waves of enemies - including a rematch with Stone Hand Iron Fever & Iron Fiend, Young Mistress's Guardian\n\n**Quest:** \\[Heart of the Banyan\\]([https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058393](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058393))",
+			"description": "Reward for interacting with the human-faced tree, then defeating waves of enemies - including a rematch with Stone Hand Iron Fever & Iron Fiend, Young Mistress's Guardian\n\n**Quest:** [Heart of the Banyan]([https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058393](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058393))",
 			"latitude": "0.41460650475636",
 			"longitude": "-1.07047446382550",
 			"features": null,
@@ -4359,7 +4375,7 @@
 			"region_id": null,
 			"category_id": 28360,
 			"title": "Illusory Pipa's Backplate",
-			"description": "Inside a building accessible after defeating [Yubi, No. 21 Swordfighter Puppet](#loc=1064339)\n\n**Quest:** Illusory Pipa",
+			"description": "Inside a building accessible after defeating [Yubi, No. 21 Swordfighter Puppet](#loc=1064339)\n\n**Quest:** [Illusory Pipa](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1060818)",
 			"latitude": "1.13457537133420",
 			"longitude": "-0.75225441262890",
 			"features": null,
@@ -5439,6 +5455,33 @@
 					"file_name": "053e4470-80a5-4f35-a88f-102056ca0557.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/053e4470-80a5-4f35-a88f-102056ca0557.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067154,
+			"map_id": 1069,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Enhanced Chainsaw",
+			"description": "In a secret basement beyond the [Statue](#loc=1064287).\n\n**Flying Guillotine**",
+			"latitude": "0.85336131327452",
+			"longitude": "-0.38403295158517",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160579,
+					"title": "003171",
+					"file_name": "57f9f74d-bbcf-4576-9d27-a3afc3ac9e8c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57f9f74d-bbcf-4576-9d27-a3afc3ac9e8c.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -7248,6 +7291,33 @@
 			]
 		},
 		{
+			"id": 1067157,
+			"map_id": 1069,
+			"region_id": null,
+			"category_id": 28554,
+			"title": "Flawless Forged Metal x6",
+			"description": "In a secret basement beyond the [Statue](#loc=1064287).",
+			"latitude": "0.85593594746868",
+			"longitude": "-0.36222812215559",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160582,
+					"title": "003171",
+					"file_name": "3ab9422b-5cb0-47d3-86f7-44df89972799.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ab9422b-5cb0-47d3-86f7-44df89972799.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1062854,
 			"map_id": 1069,
 			"region_id": null,
@@ -7347,6 +7417,33 @@
 					"file_name": "df6d7bc1-3424-4912-85a3-c73c23dbde06.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/df6d7bc1-3424-4912-85a3-c73c23dbde06.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067156,
+			"map_id": 1069,
+			"region_id": null,
+			"category_id": 28551,
+			"title": "Flawless Twinned Metal x8",
+			"description": "In a secret basement beyond the [Statue](#loc=1064287).",
+			"latitude": "0.85473445172344",
+			"longitude": "-0.36995424282352",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160581,
+					"title": "003171",
+					"file_name": "194ed9d9-42fb-463b-a3aa-7b181a81e79c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/194ed9d9-42fb-463b-a3aa-7b181a81e79c.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -8022,6 +8119,33 @@
 					"file_name": "b3349268-e076-4993-a97a-dccc5db837aa.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/b3349268-e076-4993-a97a-dccc5db837aa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067155,
+			"map_id": 1069,
+			"region_id": null,
+			"category_id": 28552,
+			"title": "Universal Solvent x6",
+			"description": "In a secret basement beyond the [Statue](#loc=1064287).",
+			"latitude": "0.85421952486077",
+			"longitude": "-0.37716528877897",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160580,
+					"title": "003171",
+					"file_name": "b3073baa-a1b2-425f-85e9-e6e1bdb6d107.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3073baa-a1b2-425f-85e9-e6e1bdb6d107.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -8934,39 +9058,42 @@
 					"spoiler": false
 				}
 			]
-		},
-		{
-			"id": 1064384,
-			"map_id": 1069,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Portal",
-			"description": "**Quest:** [The Herald's Illusion](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1061821)",
-			"latitude": "1.17011114585890",
-			"longitude": "-0.79155374404922",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 159620,
-					"title": "002564",
-					"file_name": "0a28ff20-640e-4322-a80c-535c07d58960.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/0a28ff20-640e-4322-a80c-535c07d58960.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
 		}
 	],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
-	"tags": [],
-	"tagsById": [],
+	"tags": [
+		{
+			"id": 318,
+			"game_id": 345,
+			"order": 1,
+			"title": "Phantom Illusionist Ruins",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{ "id": 319, "game_id": 345, "order": 2, "title": "Lake", "icon": null, "color": null, "icon_color": null }
+	],
+	"tagsById": {
+		"318": {
+			"id": 318,
+			"game_id": 345,
+			"order": 1,
+			"title": "Phantom Illusionist Ruins",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"319": {
+			"id": 319,
+			"game_id": 345,
+			"order": 2,
+			"title": "Lake",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
+	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
 	"presets": [],

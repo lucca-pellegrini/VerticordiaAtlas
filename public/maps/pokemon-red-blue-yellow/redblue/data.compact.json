@@ -13,7 +13,8 @@
 				"max_zoom": 17,
 				"tiles_max_zoom": 15,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 917,
@@ -26,7 +27,8 @@
 				"max_zoom": 17,
 				"tiles_max_zoom": 15,
 				"order": 2,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -43,6 +45,7 @@
 		{
 			"id": 2460,
 			"game_id": 246,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "38344C",
@@ -174,6 +177,7 @@
 		{
 			"id": 2461,
 			"game_id": 246,
+			"section_id": null,
 			"title": "NPC's",
 			"order": 20,
 			"color": "336FD1",
@@ -277,6 +281,7 @@
 		{
 			"id": 2462,
 			"game_id": 246,
+			"section_id": null,
 			"title": "Items",
 			"order": 30,
 			"color": "DAB13E",
@@ -408,6 +413,7 @@
 		{
 			"id": 2463,
 			"game_id": 246,
+			"section_id": null,
 			"title": "Obstacles",
 			"order": 30,
 			"color": "39634A",
@@ -483,6 +489,7 @@
 		{
 			"id": 2464,
 			"game_id": 246,
+			"section_id": null,
 			"title": "Battles",
 			"order": 40,
 			"color": "C42508",
@@ -586,6 +593,7 @@
 		{
 			"id": 2466,
 			"game_id": 246,
+			"section_id": null,
 			"title": "Other",
 			"order": 60,
 			"color": "8C38A8",
@@ -631,6 +639,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"14038": {
 			"id": 14038,

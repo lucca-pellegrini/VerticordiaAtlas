@@ -13,7 +13,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 13,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 1830,
 			"game_id": 183,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "493952",
@@ -79,7 +81,7 @@
 					"icon": "gordo_slime",
 					"color": null,
 					"icon_color": null,
-					"info": "Gordo Slimes are very large slimes that contain a variety of items. Gordos require 50 of a specific food to burst, but their favorite types of food counts for 2!",
+					"info": "Huge slimes that contain a variety of items. Gordos require 50 of a specific food to burst, but their favorite types of food counts for 2!",
 					"template": "**Food Requirement:** ??\n\n**Location:** ??\n\n**Drops:**  \n- ??\n\n**Unlocks:**\n- ??",
 					"order": 1,
 					"has_heatmap": false,
@@ -245,6 +247,7 @@
 		{
 			"id": 1831,
 			"game_id": 183,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "CB3E67",
@@ -294,7 +297,7 @@
 					"icon": "hobsons_note",
 					"color": null,
 					"icon_color": null,
-					"info": "Hobson's Note are notes left behind by the previous owner of the ranch, Hobson Twillgers. Read them all to understand the full story!",
+					"info": "Left behind by the previous owner of the ranch, Hobson Twillgers. Read them all to understand the full story!",
 					"template": "**Location:** ??",
 					"order": 1,
 					"has_heatmap": false,
@@ -350,7 +353,7 @@
 					"icon": "treasure_pod",
 					"color": null,
 					"icon_color": null,
-					"info": "Treasure Pods are pods scattered around the map filled with a wide variety of items. To unlock them, a certain upgrade is needed: Treasure Cracker MKI to open Treasure Pod MK1, Treasure Cracker MKII to open Treasure Pod MKII, and Treasure Cracker MKIII to open Treasure Pod MKIII.",
+					"info": "To unlock them, upgrades are required: Treasure Cracker MKI to open MK1 Treasure Pods, and so on.",
 					"template": "**Location:** ??\n\n**Contents:**\n- ??",
 					"order": 1,
 					"has_heatmap": false,
@@ -370,10 +373,39 @@
 					"description": null,
 					"premium": false,
 					"locations_count": 88
+				},
+				{
+					"id": 28675,
+					"group_id": 1831,
+					"title": "Style Pod",
+					"icon": "style_pod",
+					"color": null,
+					"icon_color": null,
+					"info": "Secret Style DLC Required",
+					"template": null,
+					"order": 2,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 17
 				}
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"10987": {
 			"id": 10987,
@@ -494,7 +526,7 @@
 			"icon": "gordo_slime",
 			"color": null,
 			"icon_color": null,
-			"info": "Gordo Slimes are very large slimes that contain a variety of items. Gordos require 50 of a specific food to burst, but their favorite types of food counts for 2!",
+			"info": "Huge slimes that contain a variety of items. Gordos require 50 of a specific food to burst, but their favorite types of food counts for 2!",
 			"template": "**Food Requirement:** ??\n\n**Location:** ??\n\n**Drops:**  \n- ??\n\n**Unlocks:**\n- ??",
 			"order": 1,
 			"has_heatmap": false,
@@ -522,7 +554,7 @@
 			"icon": "hobsons_note",
 			"color": null,
 			"icon_color": null,
-			"info": "Hobson's Note are notes left behind by the previous owner of the ranch, Hobson Twillgers. Read them all to understand the full story!",
+			"info": "Left behind by the previous owner of the ranch, Hobson Twillgers. Read them all to understand the full story!",
 			"template": "**Location:** ??",
 			"order": 1,
 			"has_heatmap": false,
@@ -550,7 +582,7 @@
 			"icon": "treasure_pod",
 			"color": null,
 			"icon_color": null,
-			"info": "Treasure Pods are pods scattered around the map filled with a wide variety of items. To unlock them, a certain upgrade is needed: Treasure Cracker MKI to open Treasure Pod MK1, Treasure Cracker MKII to open Treasure Pod MKII, and Treasure Cracker MKIII to open Treasure Pod MKIII.",
+			"info": "To unlock them, upgrades are required: Treasure Cracker MKI to open MK1 Treasure Pods, and so on.",
 			"template": "**Location:** ??\n\n**Contents:**\n- ??",
 			"order": 1,
 			"has_heatmap": false,
@@ -682,6 +714,34 @@
 			"description": null,
 			"premium": false,
 			"locations_count": 74
+		},
+		"28675": {
+			"id": 28675,
+			"group_id": 1831,
+			"title": "Style Pod",
+			"icon": "style_pod",
+			"color": null,
+			"icon_color": null,
+			"info": "Secret Style DLC Required",
+			"template": null,
+			"order": 2,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 17
 		}
 	},
 	"routes": [],
@@ -1996,7 +2056,7 @@
 			"region_id": 2640,
 			"category_id": 10987,
 			"title": "Slime Gate",
-			"description": "Note: To open this gate, you will have to insert the correct plort into each statue around the area, which are the [Tabby Slime Statue](#loc=355311), [Phosphor Slime Statue](#loc=355313), [Boom Slime Statue](#loc=355310), [Honey Slime Statue](#loc=355312), [Rad Slime Statue](#loc=355314), and [Rock Slime Statue](#loc=355315).",
+			"description": "Note: To open this gate, you will have to insert the correct plort into each statue around the area.\n- [Tabby Slime Statue](#loc=355311)\n- [Phosphor Slime Statue](#loc=355313)\n- [Boom Slime Statue](#loc=355310)\n- [Honey Slime Statue](#loc=355312)\n- [Rad Slime Statue](#loc=355314)\n- [Rock Slime Statue](#loc=355315)",
 			"latitude": "0.73473347096014",
 			"longitude": "-0.79389095306513",
 			"features": null,
@@ -2799,7 +2859,7 @@
 			"region_id": 2635,
 			"category_id": 10989,
 			"title": "The Ranch Teleporter",
-			"description": "Note: This teleporter only receives teleports from other teleporters and cannot be used to teleport out of The Ranch.",
+			"description": "_Only receives teleports from other teleporters and cannot be used to teleport out of The Ranch._",
 			"latitude": "0.58418866281107",
 			"longitude": "-0.79006877926855",
 			"features": null,
@@ -4853,8 +4913,8 @@
 			"category_id": 11015,
 			"title": "Dry Reef Map Node",
 			"description": "**Location:** On a ledge between two cliffs over the water",
-			"latitude": "0.64086897394928",
-			"longitude": "-0.82834472478487",
+			"latitude": "0.64086829400178",
+			"longitude": "-0.82165069785830",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -7353,6 +7413,452 @@
 					"spoiler": false
 				}
 			]
+		},
+		{
+			"id": 1083293,
+			"map_id": 619,
+			"region_id": 2636,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Among crystals on the path towards [Tabby Gordo](#loc=355178)\n\n**Contents:**\n- Heavy Metal Slime (Rock Slime Secret Style)",
+			"latitude": "0.64659119550011",
+			"longitude": "-0.84056507324630",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160805,
+					"title": "",
+					"file_name": "390c2fcc-5e5d-448e-8064-460f409ba082.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/390c2fcc-5e5d-448e-8064-460f409ba082.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083294,
+			"map_id": 619,
+			"region_id": 2637,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Top of Ring Island near Vault Entrance\n\n**Contents:**\n- Gilded Slime (Golden Slime Secret Style)",
+			"latitude": "0.56732781675628",
+			"longitude": "-0.92540272321679",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160806,
+					"title": "",
+					"file_name": "764249ef-c963-4fee-8bec-676a902a5cd9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/764249ef-c963-4fee-8bec-676a902a5cd9.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083295,
+			"map_id": 619,
+			"region_id": 2636,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Behind the [Pink Gordo](#loc=355247)\n\n**Contents:**\n- Sparkly Slime (Pink Slime Secret Style)",
+			"latitude": "0.61597570014050",
+			"longitude": "-0.82697082638373",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160807,
+					"title": "",
+					"file_name": "952f25a6-17ec-4074-a2bc-61442c926bbc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/952f25a6-17ec-4074-a2bc-61442c926bbc.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083296,
+			"map_id": 619,
+			"region_id": 2636,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Near [Tabby Gordo](#loc=355182), past The Overgrowth\n\n**Contents:**\n- Tiger Slime (Tabby Slime Secret Style)",
+			"latitude": "0.58178166450310",
+			"longitude": "-0.85930154576096",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160808,
+					"title": "",
+					"file_name": "b75e71b8-9413-4db9-a6f1-bbe244fcb9ca.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b75e71b8-9413-4db9-a6f1-bbe244fcb9ca.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083297,
+			"map_id": 619,
+			"region_id": 2641,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Ash Isle on a flower patch\n\n**Contents:**\n- Ruby Red Slime (Crystal Slime Secret Style)",
+			"latitude": "0.76550729791943",
+			"longitude": "-0.70092760967174",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160809,
+					"title": "",
+					"file_name": "765f919e-48ae-4d3f-8313-41df0e1be6e7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/765f919e-48ae-4d3f-8313-41df0e1be6e7.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083298,
+			"map_id": 619,
+			"region_id": 2638,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Next to water where Puddle Slimes spawn\n\n**Contents:**\n- Lilypad Slime (Puddle Slime Secret Style)",
+			"latitude": "0.67189738845644",
+			"longitude": "-0.71632597351424",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160810,
+					"title": "",
+					"file_name": "111a9ae0-456b-4891-8cb0-57512672b073.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/111a9ae0-456b-4891-8cb0-57512672b073.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083299,
+			"map_id": 619,
+			"region_id": 2639,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Near Slime Door to Ancient Ruins\n\n**Contents:**\n- Arcane Slime (Boom Slime Secret Style)",
+			"latitude": "0.70991278038439",
+			"longitude": "-0.81745324515845",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160811,
+					"title": "",
+					"file_name": "03cdade0-3283-4ff0-b65b-b9827198f980.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03cdade0-3283-4ff0-b65b-b9827198f980.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083300,
+			"map_id": 619,
+			"region_id": 2638,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Beyond The Grotto\n\n**Contents:**\n- Angelic Slime (Phosphor Slime Secret Style)",
+			"latitude": "0.60851377878141",
+			"longitude": "-0.71320917434988",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160812,
+					"title": "",
+					"file_name": "68d0a551-2265-43b6-84bb-39aaab731305.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68d0a551-2265-43b6-84bb-39aaab731305.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083301,
+			"map_id": 619,
+			"region_id": 2639,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- On island next to a bridge\n\n**Contents:**\n- Cheshire Slime (Hunter Slime Secret Style)",
+			"latitude": "0.75229566345816",
+			"longitude": "-0.88267424396471",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160813,
+					"title": "",
+					"file_name": "79ce3fe2-8672-48e0-9477-6bc55fe54e3a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79ce3fe2-8672-48e0-9477-6bc55fe54e3a.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083302,
+			"map_id": 619,
+			"region_id": 2639,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Behind Teleporter\n\n**Contents:**\n- Royal Jelly Slime (Honey Slime Secret Style)",
+			"latitude": "0.78007967087622",
+			"longitude": "-0.82914748057340",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160814,
+					"title": "",
+					"file_name": "4c064eb0-fbd9-4ead-a4c0-91757030c03d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c064eb0-fbd9-4ead-a4c0-91757030c03d.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083303,
+			"map_id": 619,
+			"region_id": 2640,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- In a corner on top level\n\n**Contents:**\n- Guardian Slime (Lucky Slime Secret Style)",
+			"latitude": "0.78237256844152",
+			"longitude": "-0.79808000370019",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160815,
+					"title": "",
+					"file_name": "425aaa56-3d72-422a-b676-2b2813b2dabb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/425aaa56-3d72-422a-b676-2b2813b2dabb.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083304,
+			"map_id": 619,
+			"region_id": 2640,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- In structure leading to Glass Desert Teleporter\n\n**Contents:**\n- Monochrome Slime (Quantum Slime Secret Style)",
+			"latitude": "0.84006953301802",
+			"longitude": "-0.78436019804465",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160816,
+					"title": "",
+					"file_name": "bd5c14bd-e3e6-4f92-9a98-3ff99453e00c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd5c14bd-e3e6-4f92-9a98-3ff99453e00c.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083305,
+			"map_id": 619,
+			"region_id": 2634,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- Below platform with Oasis Bud\n\n**Contents:**\n- Nebula Slime (Dervish Slime Secret Style)",
+			"latitude": "0.67321104004161",
+			"longitude": "-0.52670613544080",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160817,
+					"title": "",
+					"file_name": "ff7acd3e-c311-4cce-ac50-8f1ef613407c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff7acd3e-c311-4cce-ac50-8f1ef613407c.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083306,
+			"map_id": 619,
+			"region_id": 2634,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- On top of a cliff\n\n**Contents:**\n- Devilish Slime (Fire Slime Secret Style)",
+			"latitude": "0.71873565306626",
+			"longitude": "-0.48823728886151",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160818,
+					"title": "",
+					"file_name": "145c2766-008d-429b-add2-a67d85504825.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/145c2766-008d-429b-add2-a67d85504825.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083307,
+			"map_id": 619,
+			"region_id": 2634,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- On the island, off the path with Feral Largos\n\n**Contents:**\n- Shattered Slime (Mosaic Slime Secret Style)",
+			"latitude": "0.69299741386676",
+			"longitude": "-0.54991452322088",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160819,
+					"title": "",
+					"file_name": "6a42acec-2791-47ed-8124-ed06cc3de0ba.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a42acec-2791-47ed-8124-ed06cc3de0ba.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083308,
+			"map_id": 619,
+			"region_id": 2634,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** \n- At top of path entering desert ruins\n\n**Contents:**\n- Nightshade Slime (Tangle Slime Secret Style)",
+			"latitude": "0.73872680639873",
+			"longitude": "-0.51582550874861",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160820,
+					"title": "",
+					"file_name": "68c3deb7-4111-470d-9c98-07a4dac85b92.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68c3deb7-4111-470d-9c98-07a4dac85b92.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083309,
+			"map_id": 619,
+			"region_id": 2638,
+			"category_id": 28675,
+			"title": "Style Pod",
+			"description": "**Location:** In a cave, behind a rock pillar.\n\n**Contents:**\n- Radiant Slime (Rad Slime Secret Style)",
+			"latitude": "0.69921052550337",
+			"longitude": "-0.79143280660315",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
 		}
 	],
 	"heatmapGroups": [],

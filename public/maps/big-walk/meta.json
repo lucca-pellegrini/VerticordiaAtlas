@@ -196,6 +196,7 @@
 			"slug": "island",
 			"title": "Island",
 			"data": "island/data.json",
+			"compact": "island/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -207,8 +208,7 @@
 					"tileSize": 256,
 					"background": "#316685"
 				}
-			],
-			"compact": "island/data.compact.json"
+			]
 		}
 	]
 }

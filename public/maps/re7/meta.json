@@ -304,6 +304,7 @@
 			"slug": "baker-ranch",
 			"title": "Baker Ranch",
 			"data": "baker-ranch/data.json",
+			"compact": "baker-ranch/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -315,13 +316,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "baker-ranch/data.compact.json"
+			]
 		},
 		{
 			"slug": "end-of-zoe",
 			"title": "End of Zoe",
 			"data": "end-of-zoe/data.json",
+			"compact": "end-of-zoe/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -333,13 +334,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "end-of-zoe/data.compact.json"
+			]
 		},
 		{
 			"slug": "not-a-hero",
 			"title": "Not a Hero",
 			"data": "not-a-hero/data.json",
+			"compact": "not-a-hero/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -351,8 +352,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "not-a-hero/data.compact.json"
+			]
 		}
 	]
 }

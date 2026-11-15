@@ -1373,7 +1373,7 @@
 			]
 		],
 		"894835": [
-			"**Location:** ??\n\n**Loot:**\n- [Manuscript - \"Voynich Manuscript\" - Folio 34v](#loc=894838)",
+			"**Location:** Inside the [Castillo](#loc=894836)'s northern corner, accessible by climbing down the outside wall from the top.\n\n**Loot:**\n\n- [Manuscript - \"Voynich Manuscript\" - Folio 34v](#loc=894838)",
 			[
 				{
 					"id": 138831,
@@ -9076,7 +9076,7 @@
 		"900188": ["**Rare Ship's Wheel**\n\n**Location:** In the [Buried Chest](#loc=900186) on Florida island", []],
 		"900189": ["**Rare Crew Attire**\n\n**Location:** In the [Buried Chest](#loc=900186) on Florida island", []],
 		"900190": [
-			"**Location:** 27,161\n\n**Loot:**\n- 1,050**R**",
+			"**Location:** 27,161\n\nAt the bottom of the air pocket in the underwater tunnel.\n\n**Loot:**\n\n- 1,050**R**",
 			[
 				{
 					"id": 140445,
@@ -11570,6 +11570,208 @@
 			"Update 1.0.7 or later - Petting the dog in this location will send it to your hideout at Great Inagua (in the bedroom of the manor).",
 			[]
 		],
-		"945620": ["Only appears if the [Dog](#loc=945618) was adopted.", []]
+		"945620": ["Only appears if the [Dog](#loc=945618) was adopted.", []],
+		"1058429": [
+			"**Required:** Complete [A World Without Gold](#loc=899118) \n\n**Loot:**\n- 1,000**R**",
+			[
+				{
+					"id": 157676,
+					"title": "image",
+					"file_name": "482be8f5-3d0d-4e26-b40c-80ccba5bcdd3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/482be8f5-3d0d-4e26-b40c-80ccba5bcdd3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058434": [
+			"**Required:** Complete [A World Without Gold](#loc=899118) \n\n**Loot:**\n- [Ipswich Figurehead](#loc=1058438)\n- [Ipswich Hull](#loc=1058441)\n- [Ipswich Wheel](#loc=1058443)\n- [Ipswich Sails](#loc=1058444)",
+			[
+				{
+					"id": 157678,
+					"title": "image",
+					"file_name": "fd665ff5-9145-40ec-99f3-6b8605849692.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fd665ff5-9145-40ec-99f3-6b8605849692.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058436": [
+			"**Required:** Complete [A World Without Gold](#loc=899118) \n\n**Loot:**\n- 1,000**R**",
+			[
+				{
+					"id": 157683,
+					"title": "image",
+					"file_name": "8961747e-9a86-4a1f-ace6-fb46f0235e63.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8961747e-9a86-4a1f-ace6-fb46f0235e63.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058438": [
+			"**Legendary Figurehead**\n\n**Location:** In the [Special Chest](#loc=1058434) at the Ipswich Shipwreck",
+			[]
+		],
+		"1058441": [
+			"**Legendary Hull**\n\n**Location:** In the [Special Chest](#loc=1058434) at the Ipswich Shipwreck",
+			[]
+		],
+		"1058443": [
+			"**Legendary Ship's Wheel**\n\n**Location:** In the [Special Chest](#loc=1058434) at the Ipswich Shipwreck",
+			[]
+		],
+		"1058444": [
+			"**Legendary Sails**\n\n**Location:** In the [Special Chest](#loc=1058434) at the Ipswich Shipwreck",
+			[]
+		],
+		"1058449": [
+			"**Location:** On a small island north of Cape Bonavista\n\n**Loot:**\n- [Simple Sailor Clothing](#loc=1058450)",
+			[
+				{
+					"id": 157687,
+					"title": "image",
+					"file_name": "343ee29d-ff4a-4f70-a2bc-6e9573379e2b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/343ee29d-ff4a-4f70-a2bc-6e9573379e2b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058450": [
+			"**Common Outfit**\n\n**Location:** In the [Special Chest](#loc=1058449) on an island north of Cape Bonavista",
+			[]
+		],
+		"1058451": [
+			"**Required:** Shoot 6 dummies on the island to make a chest appear after a lightning strike\n\n**Location:** On a small island north of Great Inagua\n\n**Loot:**\n- [Blackbeard's Classic Outfit](#loc=1058452)",
+			[
+				{
+					"id": 157688,
+					"title": "image",
+					"file_name": "e977b723-ff69-4c7c-b71b-711e2fb4911a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e977b723-ff69-4c7c-b71b-711e2fb4911a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058452": [
+			"**Legendary Outfit**\n\n**Location:** In the [Special Chest](#loc=1058451) on a small island north of Great Inagua",
+			[]
+		],
+		"1058999": [
+			"**Location:** Underwater in the narrow inlet, south of La Dama Negra Legendary Ship\n\n**Loot:**\n- [Underwater Togs](#loc=1059000)",
+			[
+				{
+					"id": 157689,
+					"title": "image",
+					"file_name": "5ddb3058-6fcf-4edb-9e23-70d8966dd48f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5ddb3058-6fcf-4edb-9e23-70d8966dd48f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1059000": [
+			"**Common Outfit**\n\n**Location:** In the [Underwater Special Chest](#loc=1058999) in the narrow inlet, south of La Dama Negra Legendary Ship",
+			[]
+		],
+		"1059001": [
+			"**Required:** Beware of **Bacon Boarpole, Ragin Pig God**\n\n**Location:** On a small archipelago west of Andreas Island\n\n**Loot:**\n- Wild Pig Hide x5\n- [Marooned Rags](#loc=1059002) - after defeating **Bacon Boarpole, Ragin Pig God**",
+			[
+				{
+					"id": 157690,
+					"title": "image",
+					"file_name": "8a2f4976-4a41-4865-9d95-d220382b6fd3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a2f4976-4a41-4865-9d95-d220382b6fd3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1059002": [
+			"**Common Outfit**\n\n**Location:** On a small archipelago west of Andreas Island, after defeating **Bacon Boarpole, Ragin Pig God**",
+			[
+				{
+					"id": 157691,
+					"title": "image",
+					"file_name": "58e53e69-86a3-4dbf-a6bc-e06905ceb33d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58e53e69-86a3-4dbf-a6bc-e06905ceb33d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1059003": [
+			"**Location:** Underwater, north of the Principe area, between the reefs\n\n**Loot:**\n- [Theater Formalwear](#loc=1059004)",
+			[
+				{
+					"id": 157692,
+					"title": "image",
+					"file_name": "a12fef59-0be9-4f03-8c8a-e3a8f53ccf65.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a12fef59-0be9-4f03-8c8a-e3a8f53ccf65.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1059004": [
+			"**Rare Outfit**\n\n**Location:** In the [Underwater Special Chest](#loc=1059003) north of Principe",
+			[]
+		],
+		"1059005": [
+			"**Rare Trinket**\n\n**Location:** On a ledge of the rock, directly south of Castillo de Jagua; position the Jackdaw below to climb onto the ledge\n\n**Perk:** Movement does not produce any noise, except when sprinting",
+			[
+				{
+					"id": 157693,
+					"title": "image",
+					"file_name": "3fae8461-fe13-4feb-8fc3-7a00ab0623fd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3fae8461-fe13-4feb-8fc3-7a00ab0623fd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
 	}
 }

@@ -12,26 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "hyrule",
-			"title": "Hyrule",
-			"data": "hyrule/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "hyrule/tiles/default-v1/{z}/{x}/{y}.jpg",
-					"minzoom": 9,
-					"maxzoom": 17,
-					"viewMaxzoom": 17,
-					"bounds": [-1.6597394975946897, -0.05623923401136993, 0.2500184332273799, 1.4543676709221498],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			],
-			"compact": "hyrule/data.compact.json"
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -408,5 +388,25 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "hyrule",
+			"title": "Hyrule",
+			"data": "hyrule/data.json",
+			"compact": "hyrule/data.compact.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hyrule/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 17,
+					"viewMaxzoom": 17,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
 }

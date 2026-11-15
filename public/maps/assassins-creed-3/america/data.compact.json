@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -35,12 +36,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "assassins-creed-3",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1200,
 			"game_id": 120,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "2C3F52",
@@ -172,6 +174,7 @@
 		{
 			"id": 1201,
 			"game_id": 120,
+			"section_id": null,
 			"title": "Shops",
 			"order": 15,
 			"color": "498C97",
@@ -247,6 +250,7 @@
 		{
 			"id": 1202,
 			"game_id": 120,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "AA2C44",
@@ -378,6 +382,7 @@
 		{
 			"id": 1203,
 			"game_id": 120,
+			"section_id": null,
 			"title": "Memories",
 			"order": 20,
 			"color": "CDC060",
@@ -565,6 +570,7 @@
 		{
 			"id": 1204,
 			"game_id": 120,
+			"section_id": null,
 			"title": "Citizen Requests",
 			"order": 25,
 			"color": "7468A1",
@@ -724,6 +730,7 @@
 		{
 			"id": 1205,
 			"game_id": 120,
+			"section_id": null,
 			"title": "Other",
 			"order": 25,
 			"color": "6F7985",
@@ -797,6 +804,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"6334": {
 			"id": 6334,
@@ -1464,7 +1472,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

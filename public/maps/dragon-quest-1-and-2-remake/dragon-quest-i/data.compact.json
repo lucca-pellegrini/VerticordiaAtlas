@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 2520,
 			"game_id": 252,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "393939",
@@ -273,6 +275,7 @@
 		{
 			"id": 2521,
 			"game_id": 252,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "807035",
@@ -376,6 +379,7 @@
 		{
 			"id": 2522,
 			"game_id": 252,
+			"section_id": null,
 			"title": "Items",
 			"order": 30,
 			"color": "498C97",
@@ -647,6 +651,7 @@
 		{
 			"id": 2523,
 			"game_id": 252,
+			"section_id": null,
 			"title": "Quests",
 			"order": 30,
 			"color": "498C97",
@@ -722,6 +727,7 @@
 		{
 			"id": 2524,
 			"game_id": 252,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 40,
 			"color": "7B2E25",
@@ -797,6 +803,7 @@
 		{
 			"id": 2525,
 			"game_id": 252,
+			"section_id": null,
 			"title": "Other",
 			"order": 60,
 			"color": "5D5285",
@@ -898,6 +905,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"14203": {
 			"id": 14203,

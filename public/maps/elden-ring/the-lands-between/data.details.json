@@ -3195,7 +3195,20 @@
 		],
 		"164433": [
 			"**Location:** In the prologue area  \n**Loot:** \n- [Ornamental Straight Sword](#loc=168832)\n- [Golden Beast Crest Shield](#loc=168831)",
-			[]
+			[
+				{
+					"id": 157044,
+					"title": "",
+					"file_name": "cbfa3d80-972f-4665-9498-ebfa30086d44.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cbfa3d80-972f-4665-9498-ebfa30086d44.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"164434": [
 			"**Location:** [Stranded Graveyard](#loc=163931)  - just before the [Soldier of Godrick](#loc=164420)",
@@ -3361,6 +3374,18 @@
 					"url": "https://www.youtube.com/watch?v=WRdsHbD8yn8",
 					"type": "youtube",
 					"mime_type": "mp4",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 157134,
+					"title": "",
+					"file_name": "2de88b3b-306c-4265-9b55-b39b541dd2e7.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2de88b3b-306c-4265-9b55-b39b541dd2e7.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
 					"meta": null,
 					"order": 10,
 					"spoiler": false
@@ -5691,7 +5716,7 @@
 			]
 		],
 		"164751": ["**Loot:** \n- Toxic Mushrooms", []],
-		"164753": ["On the large chunk of collapsed ruin", []],
+		"164753": ["On the large chunk of collapsed ruin. Can respawn", []],
 		"164754": [
 			"**Location:** On a small wooden ledge, accessed by a nearby staircase.",
 			[
@@ -15760,7 +15785,7 @@
 			]
 		],
 		"166615": [
-			"**Location:** East of the Minor Erdtree  \n**Loot:** \n- [Opaline Hardtear](#loc=167335)\n- [Stonebarb Cracked Tear](#loc=167334)",
+			"**Location:** East of the Minor Erdtree  \n**Loot:** \n\n- [Opaline Hardtear](#loc=167335)\n- [Stonebarb Cracked Tear](#loc=167334)\n- Rune x91,000",
 			[]
 		],
 		"166616": [
@@ -16184,7 +16209,20 @@
 		],
 		"166660": [
 			"**Location:** Located at the bottom floor of the Divine Tower of Caelid, outside the boss room for the Godskin Apostle",
-			[]
+			[
+				{
+					"id": 160688,
+					"title": "",
+					"file_name": "10ddaa74-96cb-4d6a-9dc1-a8070309826f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/10ddaa74-96cb-4d6a-9dc1-a8070309826f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"166661": [
 			"**Location:** Inside [Tombsward Cave](#loc=165742) - on a corpse guarded by rats  \n**Recipes:**\n- Poison Grease\n- Dawnstring Poison Grease",
@@ -20947,6 +20985,7 @@
 			]
 		],
 		"167472": ["**Note:** Many items in this area are only found after entering the city of Nokron", []],
+		"167479": ["Available after defeating the boss", []],
 		"167480": [
 			"**Note:** Accessible via the [Portal to Ainsel River Main](#loc=170219) or [coffin in deeproot depths](#loc=168432)",
 			[]
@@ -23768,7 +23807,7 @@
 			]
 		],
 		"167916": [
-			"**Location:** [Dragonbarrow Cave](#loc=166188). One fights with a cleaver, while the other uses throwing knives.\n\n**Loot:**\n- [Flamedrake Talisman +2](#loc=167917)\n- Rune x78,000",
+			"**Location:** [Dragonbarrow Cave](#loc=166188). One fights with a cleaver, while the other uses throwing knives.\n\n**Loot:**\n\n- [Flamedrake Talisman +2](#loc=167917)\n- Rune x65,000",
 			[]
 		],
 		"167917": ["**Location:** Dropped by [Beastman of Farum Azula](#loc=167916)", []],
@@ -40537,7 +40576,7 @@
 			]
 		],
 		"175532": [
-			"**Location:** Given by [Patches](#loc=164504) under the following conditions:\n1. Befriend him by sparing his life. Doing so will reward you with [Grovel For Mercy](#loc=165136).\n2. Reinitiate the fight by attacking him 3 times.\n3. Let yourself get hit. When your HP is low enough, Patches will offer you to surrender.\n4. Perform the Grovel for Mercy gesture you obtained earlier. Doing so will grant you Extreme Repentance. Use it to end the fight.",
+			"**Location:** Given by [Patches](#loc=164504) under the following conditions:\n\n1. Befriend him by sparing his life during the first encounter. Let the fight end completely. Doing so will reward you with [Grovel for Mercy](#loc=165136).\n2. Reinitiate the fight by attacking him a few times.\n3. Let Patches attack you until your HP drops low enough (approximately below 50%). He will then offer to accept your surrender, automatically granting you **Extreme Repentance**.\n4. Perform the newly obtained gesture while your HP is still low to make Patches stop attacking and become friendly again.\n\n**Note:** Performing Grovel for Mercy is not required to obtain Extreme Repentance, as the gesture is awarded automatically when Patches offers you the chance to surrender.",
 			[]
 		],
 		"175533": [
@@ -45110,6 +45149,7 @@
 			]
 		],
 		"191580": ["You'll find 4 on the top, and 1 down a slight drop off the ledge.", []],
+		"191581": ["On a clifftop overlooking the valley.", []],
 		"191590": [
 			"**Location:** Randomly dropped by Fallen Hawks Soldiers. Look for those wielding this weapon.  \n**Type:** Spear  \n**Weapon Skill:** Charge Forth",
 			[
@@ -48815,6 +48855,40 @@
 				}
 			]
 		],
-		"1043868": ["In the more open area between the main part of the town and the south-eastern tower", []]
+		"1043868": ["In the more open area between the main part of the town and the south-eastern tower", []],
+		"1056295": [
+			"Interacting with this will summon a spirit who will walk to [Mistwood Ruins](#loc=164003) if you haven’t discovered it already.",
+			[
+				{
+					"id": 157338,
+					"title": "",
+					"file_name": "b03d57f8-f53b-4f75-a20d-26ecf8be7441.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b03d57f8-f53b-4f75-a20d-26ecf8be7441.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1056296": [
+			"**Location:** Inside the Caelid Colosseum  \n\n**Type:** Thrusting Shield\n\n**Skill:** Shield Strike\n\n**Only available in the Tarnished Pack DLC**",
+			[
+				{
+					"id": 157339,
+					"title": "",
+					"file_name": "fa6e8a95-6bd2-49ed-9063-d0da40db6e49.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa6e8a95-6bd2-49ed-9063-d0da40db6e49.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
 	}
 }

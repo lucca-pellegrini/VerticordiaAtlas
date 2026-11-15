@@ -13,7 +13,8 @@
 				"max_zoom": 17,
 				"tiles_max_zoom": 17,
 				"order": 2,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -24,12 +25,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "final-fantasy-vii-rebirth",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1710,
 			"game_id": 171,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "313D59",
@@ -245,6 +247,7 @@
 		{
 			"id": 1711,
 			"game_id": 171,
+			"section_id": null,
 			"title": "Shops",
 			"order": 20,
 			"color": "6BAB68",
@@ -544,6 +547,7 @@
 		{
 			"id": 1712,
 			"game_id": 171,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 30,
 			"color": "BF9F4E",
@@ -647,6 +651,7 @@
 		{
 			"id": 1713,
 			"game_id": 171,
+			"section_id": null,
 			"title": "Items",
 			"order": 40,
 			"color": "9460B6",
@@ -918,6 +923,7 @@
 		{
 			"id": 1716,
 			"game_id": 171,
+			"section_id": null,
 			"title": "World Intel",
 			"order": 45,
 			"color": "4482C1",
@@ -1189,6 +1195,7 @@
 		{
 			"id": 1714,
 			"game_id": 171,
+			"section_id": null,
 			"title": "Quests & Activities",
 			"order": 50,
 			"color": "202E3D",
@@ -1376,6 +1383,7 @@
 		{
 			"id": 1715,
 			"game_id": 171,
+			"section_id": null,
 			"title": "Other",
 			"order": 60,
 			"color": "6B7691",
@@ -1589,6 +1597,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"10454": {
 			"id": 10454,
@@ -6011,7 +6020,7 @@
 			"region_id": null,
 			"category_id": 10512,
 			"title": "Pirate King's Grotto α",
-			"description": "**Prerequisite:** Begin [The Pirate King's Treasure](#loc=349224) side quest\n\nApproximate location of Pirate King's Grotto α..",
+			"description": "**Prerequisite:** Begin [The Pirate King's Treasure](#loc=349224) side quest\n\nApproximate location of Pirate King's Grotto α",
 			"latitude": "0.49465757031153",
 			"longitude": "-0.77834486961387",
 			"features": null,
@@ -35466,7 +35475,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

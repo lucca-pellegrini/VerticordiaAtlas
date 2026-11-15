@@ -12,26 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "great-sea",
-			"title": "Great Sea",
-			"data": "great-sea/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "great-sea/tiles/default-v4/{z}/{y}/{x}.jpg",
-					"minzoom": 9,
-					"maxzoom": 16,
-					"viewMaxzoom": 16,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#0763e2"
-				}
-			],
-			"compact": "great-sea/data.compact.json"
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -240,5 +220,25 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "great-sea",
+			"title": "Great Sea",
+			"data": "great-sea/data.json",
+			"compact": "great-sea/data.compact.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "great-sea/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#0763e2"
+				}
+			]
+		}
+	]
 }

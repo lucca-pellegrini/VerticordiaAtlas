@@ -23,7 +23,8 @@
 					"14": { "x": { "max": 8191, "min": 8128 }, "y": { "max": 8191, "min": 8128 } },
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -40,6 +41,7 @@
 		{
 			"id": 3010,
 			"game_id": 301,
+			"section_id": null,
 			"title": "Landmarks",
 			"order": 10,
 			"color": "000000",
@@ -563,6 +565,7 @@
 		{
 			"id": 3011,
 			"game_id": 301,
+			"section_id": null,
 			"title": "Activities",
 			"order": 10,
 			"color": "37ac22",
@@ -834,6 +837,7 @@
 		{
 			"id": 3012,
 			"game_id": 301,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "00a3f0",
@@ -1021,6 +1025,7 @@
 		{
 			"id": 3013,
 			"game_id": 301,
+			"section_id": null,
 			"title": "Other",
 			"order": 20,
 			"color": "8A8A8A",
@@ -1122,6 +1127,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"16648": {
 			"id": 16648,

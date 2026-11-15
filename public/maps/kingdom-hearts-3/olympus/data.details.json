@@ -214,22 +214,10 @@
 			]
 		],
 		"387294": ["**#08**\n\nAt the top of the mosaic wall; wall-run up to reach it.", []],
-		"387413": [
-			"On your first visit in Olympus, Sora and Hercules team up to save Thebes from the Titan's destruction.\n\nDefeat all the Heartless, then speak with the Citizen for a reward.\n\n**Reward:** Potion",
-			[]
-		],
-		"387414": [
-			"On your first visit in Olympus, Sora and Hercules team up to save Thebes from the Titan's destruction.\n\nDefeat all the Heartless, then speak with the Citizen for a reward.\n\n**Reward:** Hi-Potion",
-			[]
-		],
-		"387415": [
-			"On your first visit in Olympus, Sora and Hercules team up to save Thebes from the Titan's destruction.\n\nDefeat all the Heartless, then speak with the Citizen for a reward.\n\n**Reward:** Potion",
-			[]
-		],
-		"387416": [
-			"On your first visit in Olympus, Sora and Hercules team up to save Thebes from the Titan's destruction.\n\nDefeat all the Heartless, then speak with the Citizen for a reward.\n\n**Reward:** Ether",
-			[]
-		],
+		"387413": ["**Reward:** Potion", []],
+		"387414": ["**Reward:** Hi-Potion", []],
+		"387415": ["**Reward:** Potion", []],
+		"387416": ["**Reward:** Ether", []],
 		"387426": [
 			"Attack the heel for the statue to crumble and destroy the neighboring walls. Required to loot the nearby [Treasure Chest](#loc=385598)",
 			[]
@@ -358,7 +346,7 @@
 			[]
 		],
 		"387706": [
-			"**#04**\n\nOn the wall between potted bushes.",
+			"**#04**\n\nOn the wall between potted shrubs.",
 			[
 				{
 					"id": 55636,
@@ -374,46 +362,17 @@
 				}
 			]
 		],
-		"387711": [
-			"Collect all five figures and return them to the [Golden Herc Collector](#loc=387717) in Thebes for a reward.\n\n_Only available after the Thebes reconstruction._",
-			[]
-		],
-		"387712": [
-			"Collect all five figures and return them to the [Golden Herc Collector](#loc=387717) in Thebes for a reward.\n\n_Only available after the Thebes reconstruction._",
-			[]
-		],
-		"387713": [
-			"Collect all five figures and return them to the [Golden Herc Collector](#loc=387717) in Thebes for a reward.\n\n_Only available after the Thebes reconstruction._",
-			[]
-		],
-		"387714": [
-			"Collect all five figures and return them to the [Golden Herc Collector](#loc=387717) in Thebes for a reward.\n\n_Only available after the Thebes reconstruction._",
-			[]
-		],
-		"387715": [
-			"Collect all five figures and return them to the [Golden Herc Collector](#loc=387717) in Thebes for a reward.\n\n_Only available after the Thebes reconstruction._",
-			[]
-		],
 		"387717": [
-			"After the Thebes reconstruction, you can find a boy in town collecting Golden Herc Figures. Find the five figures hidden around Thebes and return them to the boy for a reward.\n\n**Reward:** Hero Belt",
+			"After the Thebes reconstruction, there's a boy in town collecting Golden Herc Figures. Find the five figures hidden around Thebes and return them for a reward.\n\n**Reward:** Hero Belt",
 			[]
 		],
 		"387745": [
 			"**Loot Source:** Food Basket (Attack)\n\n**Spawn Probability:** 100%\n\nOnly available after the Thebes reconstruction.",
 			[]
 		],
-		"387746": [
-			"After saving Thebes from the terror of Titans, return after reconstruction begins and speak to citizens Sora helped during the crisis. They will give you another reward.\n\n**Reward:** Mythril Stone",
-			[]
-		],
-		"387747": [
-			"After saving Thebes from the terror of Titans, return after reconstruction begins and speak to citizens Sora helped during the crisis. They will give you another reward.\n\n**Reward:** Mythril Gem",
-			[]
-		],
-		"387748": [
-			"After saving Thebes from the terror of Titans, return after reconstruction begins and speak to citizens Sora helped during the crisis. They will give you another reward.\n\n**Reward:** Lucid Gem",
-			[]
-		],
+		"387746": ["**Reward:** Mythril Stone", []],
+		"387747": ["**Reward:** Mythril Gem", []],
+		"387748": ["**Reward:** Lucid Gem", []],
 		"387749": [
 			"**Loot Source:** Food Basket (Attack)\n\n**Spawn Probability:** ??%\n\nOnly available after the Thebes reconstruction.",
 			[]
@@ -422,9 +381,6 @@
 			"**Loot Source:** Food Basket (Attack)\n\n**Spawn Probability:** ??%\n\nOnly available after the Thebes reconstruction.",
 			[]
 		],
-		"387751": [
-			"After saving Thebes from the terror of Titans, return after reconstruction begins and speak to citizens Sora helped during the crisis. They will give you another reward.\n\n**Reward:** Lucid Gem",
-			[]
-		]
+		"387751": ["**Reward:** Lucid Gem", []]
 	}
 }

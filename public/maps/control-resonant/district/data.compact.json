@@ -22,7 +22,8 @@
 					"13": { "x": { "max": 4095, "min": 4064 }, "y": { "max": 4095, "min": 4064 } },
 					"14": { "x": { "max": 8191, "min": 8128 }, "y": { "max": 8191, "min": 8128 } },
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -39,6 +40,7 @@
 		{
 			"id": 26986,
 			"game_id": 317,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 1,
 			"color": "5270ad",
@@ -450,6 +452,7 @@
 		{
 			"id": 26985,
 			"game_id": 317,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 2,
 			"color": "ff392e",
@@ -665,6 +668,7 @@
 		{
 			"id": 26990,
 			"game_id": 317,
+			"section_id": null,
 			"title": "Quests",
 			"order": 3,
 			"color": "9e9e9e",
@@ -796,6 +800,7 @@
 		{
 			"id": 26989,
 			"game_id": 317,
+			"section_id": null,
 			"title": "Miniquest",
 			"order": 4,
 			"color": "489951",
@@ -1067,6 +1072,7 @@
 		{
 			"id": 26987,
 			"game_id": 317,
+			"section_id": null,
 			"title": "Loot",
 			"order": 5,
 			"color": "814f9c",
@@ -1170,6 +1176,7 @@
 		{
 			"id": 26988,
 			"game_id": 317,
+			"section_id": null,
 			"title": "Other",
 			"order": 6,
 			"color": "de8621",
@@ -1273,6 +1280,7 @@
 		{
 			"id": 27029,
 			"game_id": 317,
+			"section_id": null,
 			"title": "Resources",
 			"order": 16,
 			"color": "47d7e1",
@@ -1346,6 +1354,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"27929": {
 			"id": 27929,

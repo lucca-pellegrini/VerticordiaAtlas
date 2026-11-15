@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -41,6 +42,7 @@
 		{
 			"id": 1170,
 			"game_id": 117,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3E4256",
@@ -86,6 +88,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"6152": {
 			"id": 6152,

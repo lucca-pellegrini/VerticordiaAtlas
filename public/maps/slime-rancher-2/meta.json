@@ -88,6 +88,7 @@
 			"slug": "rainbow-island",
 			"title": "Rainbow Island",
 			"data": "rainbow-island/data.json",
+			"compact": "rainbow-island/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -98,8 +99,7 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "rainbow-island/data.compact.json"
+			]
 		}
 	]
 }

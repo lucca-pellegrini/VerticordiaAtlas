@@ -88,6 +88,7 @@
 			"slug": "far-far-range",
 			"title": "Far, Far Range",
 			"data": "far-far-range/data.json",
+			"compact": "far-far-range/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -98,8 +99,7 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "far-far-range/data.compact.json"
+			]
 		}
 	]
 }

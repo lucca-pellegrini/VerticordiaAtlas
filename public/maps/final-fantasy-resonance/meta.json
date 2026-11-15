@@ -184,6 +184,7 @@
 			"slug": "lapis",
 			"title": "Lapis",
 			"data": "lapis/data.json",
+			"compact": "lapis/data.compact.json",
 			"tilesets": [
 				{
 					"name": "default-1",
@@ -195,12 +196,7 @@
 					"tileSize": 256,
 					"background": "#0b0b0b"
 				}
-			],
-			"compact": "lapis/data.compact.json"
+			]
 		}
-	],
-	"description": "Every marker on the FINAL FANTASY RESONANCE map.",
-	"theme": {
-		"accent": "#a1322b"
-	}
+	]
 }

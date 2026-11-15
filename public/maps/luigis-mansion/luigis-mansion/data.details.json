@@ -18,7 +18,7 @@
 				}
 			]
 		],
-		"390577": ["Unlocked with the [Parlor Key](#loc=390576).", []],
+		"390577": ["Unlocked with the [Parlor Key](#loc=390576) that spawns after you try to open it.", []],
 		"390578": ["**Prerequisite:** Enter the [Parlor](#loc=390577).", []],
 		"390619": [
 			"Blow out the purple candles on the north wall, then defeat the ghosts to reveal a Chest with this Key inside.\n\nUnlocks the [Anteroom Locked Door](#loc=390620).",
@@ -41,6 +41,23 @@
 					"file_name": "61a226b5-120c-4865-88ee-90eb5098798b.png",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/61a226b5-120c-4865-88ee-90eb5098798b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"390778": [
+			"",
+			[
+				{
+					"id": 158852,
+					"title": "1000104002",
+					"file_name": "9ac55e2c-fa18-419c-a505-7c77904e1a42.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9ac55e2c-fa18-419c-a505-7c77904e1a42.png",
 					"type": "image",
 					"mime_type": "image/png",
 					"meta": null,
@@ -127,15 +144,31 @@
 		],
 		"390912": ["Unlocked with the [Storage Room Key](#loc=390911).", []],
 		"390913": ["Inside the chair.", []],
-		"390916": ["Press this to reveal the western side of the Storage Room.", []],
+		"390916": [
+			"Press this to reveal the western side of the Storage Room.",
+			[
+				{
+					"id": 159238,
+					"title": "1000104004",
+					"file_name": "e3afe68f-d8fb-4fb1-8859-819e5cdc954a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3afe68f-d8fb-4fb1-8859-819e5cdc954a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"390917": ["Behind the poster. Press this to release the Boos from the [Boo Vault](#loc=390918).", []],
 		"390918": ["Open this with the [Button](#loc=390917) to release the 50 Boos across the mansion.", []],
 		"390919": ["**Health:** 30 HP", []],
 		"390920": ["**Health:** 50 HP", []],
 		"390921": ["**Health:** 30 HP", []],
 		"390922": ["**Health:** 60 HP", []],
-		"390923": ["**Health:** 40 HP", []],
-		"390924": ["**Health:** 60 HP", []],
+		"390923": ["**Health:** 30 HP", []],
+		"390924": ["**Health:** 50 HP", []],
 		"390925": ["**Health:** 60 HP", []],
 		"390926": ["**Health:** 50 HP", []],
 		"390927": ["Unlocked by capturing 5 Boos.", []],
@@ -300,7 +333,20 @@
 		"391236": ["Inside the dishes cabinet.", []],
 		"391239": [
 			"Reveal by Searching the piece of cheese at this spot with the Game Boy Horror Camera, **before** capturing the ghosts in this room.",
-			[]
+			[
+				{
+					"id": 159636,
+					"title": "1000104005",
+					"file_name": "cf50b52d-5e81-4418-9269-b435ee5a3d88.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cf50b52d-5e81-4418-9269-b435ee5a3d88.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"391245": ["**Prerequisite:** Capture [Mr. Luggs](#loc=391235)", []],
 		"391246": ["**Health:** 80 HP", []],
@@ -414,7 +460,7 @@
 		"391613": ["Unlocked with the [Rec Room Key](#loc=391611).", []],
 		"391615": ["**Prerequisite:** Run on this treadmill.\n\nUnlocks [1F Hallway Locked Door B](#loc=391616).", []],
 		"391616": ["Unlocked with [1F Hallway Key B](#loc=391615)", []],
-		"391619": ["Inside the southern yellow bicycle.", []],
+		"391619": ["Inside the southernmost yellow bicycle.", []],
 		"391620": [
 			"To expose Biff's heart, press A on the punching bags to whack him with it. Do this two more times to expose the heart and attempt a capture.",
 			[
@@ -437,13 +483,26 @@
 		"391624": ["Unlock this door by dousing it with water.", []],
 		"391625": [
 			"Reveal by Searching the piece of cheese at this spot with the Game Boy Horror Camera, **before** capturing the ghosts in this room.",
-			[]
+			[
+				{
+					"id": 159638,
+					"title": "1000104007",
+					"file_name": "6188cce6-5772-4e3c-affc-ccf17c1a87b2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6188cce6-5772-4e3c-affc-ccf17c1a87b2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"391626": ["Has a random chance of appearing when you enter this room.", []],
 		"391627": ["**Health:** 50 HP", []],
 		"391629": ["To reveal, defeat the Grabbing Ghosts in this room.", []],
 		"392610": ["Has a small chance of appearing here.", []],
-		"392616": ["Revealed for defeating the Temper Terror in the toiler using water.", []],
+		"392616": ["Revealed for defeating the Temper Terror in the toilet using water.", []],
 		"392618": ["Inside the right-hand armchair.", []],
 		"392620": [
 			"To expose her heart, knock over her basket of yarn balls with the A button, then fire them at her three times.",
@@ -633,13 +692,22 @@
 		"394208": ["Water this for Treasure.", []],
 		"394210": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to spew fire with the L trigger.", []],
 		"394211": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to spew fire with the L trigger.", []],
-		"394212": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot Ice with the L trigger.", []],
-		"394213": ["Vacuum this to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.", []],
+		"394212": [
+			"Vacuum the toilet to get a Water Spirit, allowing the Poltergust to shoot Ice with the L trigger.",
+			[]
+		],
+		"394213": [
+			"Vacuum the bucket to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.",
+			[]
+		],
 		"394214": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.", []],
 		"394215": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.", []],
 		"394216": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
 		"394217": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
-		"394218": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.", []],
+		"394218": [
+			"Vacuum the kitchen sink to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.",
+			[]
+		],
 		"394219": ["Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.", []],
 		"394220": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
 		"394221": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
@@ -700,7 +768,10 @@
 		],
 		"395444": ["Use this telephone to talk with Toad, then move on to [the second one](#loc=395519)", []],
 		"395446": ["Inside the piano bench, but only during the [blackout](#loc=394235).", []],
-		"395447": ["Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.", []],
+		"395447": [
+			"Vacuum the candle to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.",
+			[]
+		],
 		"395448": ["Inside this red chest, but only during the [blackout](#loc=394235).", []],
 		"395449": ["Inside the crib, but only during the [blackout](#loc=394235).", []],
 		"395450": [
@@ -972,6 +1043,44 @@
 		],
 		"1055063": [
 			"Capture all 50 Boos (15 from the boss battle and 35 roaming Boos) and the last one will drop the second of two Gold Diamonds in the mansion, worth 20,000,000G.",
+			[]
+		],
+		"1063461": [
+			"",
+			[
+				{
+					"id": 159237,
+					"title": "1000104003",
+					"file_name": "f7aff468-22a8-4bf3-a48c-57307da5ef22.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f7aff468-22a8-4bf3-a48c-57307da5ef22.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064404": [
+			"Far eastern side of the room; can be activated from within the mouth of the stone lion.",
+			[
+				{
+					"id": 159637,
+					"title": "1000104006",
+					"file_name": "3421ef4a-3afa-4fcb-a416-24d2410759a9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3421ef4a-3afa-4fcb-a416-24d2410759a9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064405": [
+			"After opening the Fridge, Vacuum it to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.",
 			[]
 		]
 	}

@@ -43,7 +43,23 @@
 			[]
 		],
 		"19380": ["Claywich", []],
-		"19381": ["Moves to [Claywich](#loc=19507) when saved.\n\nGuarded by Lv. 5 Bandits.", []],
+		"19381": [
+			"Moves to [Claywich](#loc=19507) when saved.\n\nGuarded by Lv. 5 Bandits.",
+			[
+				{
+					"id": 158020,
+					"title": "",
+					"file_name": "c8d3aae4-9ebe-48f1-8117-cdaa184e9e29.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8d3aae4-9ebe-48f1-8117-cdaa184e9e29.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"19382": [
 			"**Level:** 4\n\n**Monsters:** Drowners, Level 10\n\n**Quest Item(s):** Water-Damaged Letter\n\n**Rewards:** Random Loot",
 			[]
@@ -1614,7 +1630,7 @@
 		"20398": ["Herbalist", []],
 		"20399": ["Bandit Camp part of **From Ofier's Distant Shores** hidden quest", []],
 		"20403": [
-			"Part of the **Hearts of Stone** DLC.\n\n**Given By:** Noticeboard (Contract: Apprentice Gone Missing!)\n\n**Level:** 32  \n\n**Reward:**\n- XP\n- 200 Crowns",
+			"**Given By:** Noticeboard (Contract: Apprentice Gone Missing!)\n\n**Level:** 32  \n\n**Reward:**\n\n- XP\n- 200 Crowns",
 			[]
 		],
 		"20405": [
@@ -2043,7 +2059,6 @@
 		"214236": ["**Monsters:** Brown Bear (34)  \n**Loot:**\n- ??", []],
 		"214237": ["**Level:** 34", []],
 		"214238": ["**Level:** 33", []],
-		"214240": ["**Hearts of Stone DLC Required**", []],
 		"214241": [
 			"**Guest Giver:** Adela, after leaving the building during [Evil's Soft First Touches](#loc=20085)\n  \n**Level:** 33 \n\n**Rewards:** \n- ??",
 			[]
@@ -2210,7 +2225,7 @@
 				}
 			]
 		],
-		"215916": ["[Local Map](#loc=562393)\n\nVisited as part of the Hearts of Stone DLC.", []],
+		"215916": ["[Local Map](#loc=562393)", []],
 		"215917": ["[Local Map](#loc=562392)", []],
 		"215918": ["Inside a chest in the cave, near a large stone column.", []],
 		"215920": [
@@ -2291,15 +2306,15 @@
 			[]
 		],
 		"216191": [
-			"**Hearts of Stone DLC Required** - Purchased from [Dulla kh'Amanni](#loc=216190)\n\n***Card Information:***     \n**Deck:** Monsters    \n**Row:** Leader   \n**Strength:** N/A    \n**Special Ability:** Doubles the strength of all spy cards (affects both players).",
+			"Purchased from [Dulla kh'Amanni](#loc=216190)\n\n**_Card Information:_**  \n**Deck:** Monsters  \n**Row:** Leader  \n**Strength:** N/A  \n**Special Ability:** Doubles the strength of all spy cards (affects both players).",
 			[]
 		],
 		"216192": [
-			"**Hearts of Stone DLC Required** - Purchased from [Dulla kh'Amanni](#loc=216190)\n\n***Card Information:***     \n**Deck:** Neutral    \n**Row:** Ranged Combat    \n**Strength:** 4    \n**Special Ability:** Muster - Find any cards with the same name in your deck and play them instantly.",
+			"Purchased from [Dulla kh'Amanni](#loc=216190)\n\n**_Card Information:_**  \n**Deck:** Neutral  \n**Row:** Ranged Combat  \n**Strength:** 4  \n**Special Ability:** Muster - Find any cards with the same name in your deck and play them instantly.",
 			[]
 		],
 		"216193": [
-			"**Hearts of Stone DLC Required** - Purchased from [Dulla kh'Amanni](#loc=216190)\n\n***Card Information:***     \n**Deck:** Scoia'tael    \n**Row:** Leader   \n**Strength:** N/A    \n**Special Ability:** Move agile units to whichever valid row maximizes their strength (don't move units already in optimal row).",
+			"Purchased from [Dulla kh'Amanni](#loc=216190)\n\n**_Card Information:_**  \n**Deck:** Scoia'tael  \n**Row:** Leader  \n**Strength:** N/A  \n**Special Ability:** Move agile units to whichever valid row maximizes their strength (don't move units already in optimal row).",
 			[]
 		],
 		"216195": ["Destroy both Nekker nests nearby to restore the Abandoned Site.", []],
@@ -2417,7 +2432,7 @@
 		"248613": ["On Top of the Observation Tower", []],
 		"248614": ["On a table in the house.", []],
 		"248615": [
-			"**Level:** 33\n**Enemy's:** 6x Fallen Knights\n\n**Treasure:**\n- Ofieri Trousers Diagram\n\nPart of **From Ofier's Distant Shores** hidden quest",
+			"**Level:** 33\n\n**Enemy's:** 6x Fallen Knights\n\n**Treasure:**\n\n- Ofieri Trousers Diagram\n\nPart of **From Ofier's Distant Shores** hidden quest",
 			[]
 		],
 		"248616": [
@@ -2551,7 +2566,7 @@
 		],
 		"249438": ["On the beach", []],
 		"249439": [
-			"**Hearts of Stone DLC Required** -\n On the upper floor of the barn during or after the wedding. Use Witcher senses to have an easier time finding it.  \n\n***Cow Card Information:***     \n**Deck:** Neutral    \n**Row:** Ranged Combat   \n**Strength:** 0    \n**Special Ability:** Summons the Bovine Defense Force when removed from the battlefield (e.g by a round ending)\n\n***Bovine Defense Force Card Information:***     \n**Deck:** Neutral    \n**Row:** Melee Combat   \n**Strength:** 8    \n**Special Ability:** None",
+			"On the upper floor of the barn during or after the wedding. Use Witcher senses to have an easier time finding it.  \n\n**_Cow Card Information:_**  \n**Deck:** Neutral  \n**Row:** Ranged Combat  \n**Strength:** 0  \n**Special Ability:** Summons the Bovine Defense Force when removed from the battlefield (e.g by a round ending)\n\n**_Bovine Defense Force Card Information:_**  \n**Deck:** Neutral  \n**Row:** Melee Combat  \n**Strength:** 8  \n**Special Ability:** None",
 			[]
 		],
 		"249440": ["Half buried in the muck, in the tall bushes.", []],
@@ -2651,11 +2666,11 @@
 		],
 		"267622": ["**Level:** 25\n\nNote: Part of **Of Swords And Dumplings** secondary quest", []],
 		"267623": [
-			"**Quest Giver:** Runewright, after completing [Enchanting: Start-up Costs](#loc=267624)\n\n**Level:** 32  \n\n**Rewards:** \n- XP",
+			"**Quest Giver:** Runewright, after completing [Enchanting: Start-up Costs](#loc=267624)\n\n**Level:** 32\n\n**Objectives:**\n\n- Find a pickaxe.\n- Acquire a hunk of jade for the Ofieri runewright.\n- Take the hunk of jade to the Ofieri runewright.\n\n**Rewards:** \n\n- XP",
 			[]
 		],
 		"267624": [
-			"**Quest Giver:** [The Runewright](#loc=216188), or [A Runewright Upon Your Shores Has Landed](#loc=563806)\n\n**Level:** 32\n\n**Rewards:** \n- None",
+			"**Quest Giver:** [The Runewright](#loc=216188), or [A Runewright Upon Your Shores Has Landed](#loc=563806)\n\n**Level:** 32\n\n**Objectives:**\n\n- Acquire 5000 crowns for the Ofieri runewright.\n- Give 5000 crowns to the Ofieri runewright.\n\n**Rewards:** \n\n- None",
 			[]
 		],
 		"267625": ["In back right of bandit tent", []],
@@ -2889,7 +2904,7 @@
 			[]
 		],
 		"425991": [
-			"**Guest Giver:** The Pellar  \n**Level:** 7\n\n_During his travels through No Man's Land Geralt ran into the pellar once more. The strange fellow had a favor to ask of the witcher. He wanted Geralt to help him perform a cherished local peasant rite known as Forefathers' Eve. During this ritual, he explained, lost spirits are summoned and their deeds judged - fantastic material, by the way, for a poet looking to make his name with an atmospheric ballad. This Forefathers' Eve was set to be held at midnight on Fyke Isle, and Geralt, having no other plans and his curiosity piqued, promised to attend._\n\n**Rewards:**\n- ??",
+			"**Quest Giver:** The Pellar  \n**Level:** 7\n\n_During his travels through No Man's Land Geralt ran into the pellar once more. The strange fellow had a favor to ask of the witcher. He wanted Geralt to help him perform a cherished local peasant rite known as Forefathers' Eve. During this ritual, he explained, lost spirits are summoned and their deeds judged - fantastic material, by the way, for a poet looking to make his name with an atmospheric ballad. This Forefathers' Eve was set to be held at midnight on Fyke Isle, and Geralt, having no other plans and his curiosity piqued, promised to attend._\n\n**Rewards:**\n\n- ??",
 			[]
 		],
 		"425992": [
@@ -2921,7 +2936,7 @@
 		"426132": ["On the notice board.", []],
 		"426133": ["For Moo-rderer feat", []],
 		"426134": [
-			"**Hearts of Stone DLC Required** - Reward for defeating Olgierd von Everec in a game of Gwent. After completing [Evil's Soft First Touches](#loc=20085), he can be found inside The Alchemy and challenged at any time before the end of the DLC storyline. Afterwards, the card can be found on a table.\n\n***Opponent Information:***      \n**Deck:** Monsters      \n**Leader Card:** The Treacherous - Doubles the strength of all spy cards (affects both players).    \n\n***Card Information:***     \n**Deck:** Monsters    \n**Row:** Ranged Combat   \n**Strength:** 7    \n**Special Ability:** Scorch Ranged - Destroy your enemy's strongest Ranged Combat unit(s) if the combined strength of all their Ranged Combat units is 10 or more.",
+			"Reward for defeating Olgierd von Everec in a game of Gwent. After completing [Evil's Soft First Touches](#loc=20085), he can be found inside The Alchemy and challenged at any time before the end of the DLC storyline. Afterwards, the card can be found on a table.\n\n**_Opponent Information:_**  \n**Deck:** Monsters  \n**Leader Card:** The Treacherous - Doubles the strength of all spy cards (affects both players).    \n\n**_Card Information:_**  \n**Deck:** Monsters  \n**Row:** Ranged Combat  \n**Strength:** 7  \n**Special Ability:** Scorch Ranged - Destroy your enemy's strongest Ranged Combat unit(s) if the combined strength of all their Ranged Combat units is 10 or more.",
 			[]
 		],
 		"426135": [
@@ -4081,7 +4096,7 @@
 			[]
 		],
 		"555897": ["On the shipwreck - not underwater.", []],
-		"555898": ["_Hearts of Stone DLC_\n\n**Related Quest:** [Rose on a Red Field](#loc=214241)", []],
+		"555898": ["**Related Quest:** [Rose on a Red Field](#loc=214241)", []],
 		"555900": ["In a small ravine.", []],
 		"555902": ["Small chest, hidden in a bush behind some trees, use Witcher Senses to find.", []],
 		"555904": ["At the foot of a tree with an axe stuck in its trunk", []],
@@ -4118,7 +4133,6 @@
 		"555924": ["Underwater.", []],
 		"555926": ["The key is on a corpse around the north-western part of the island, next to a large skeleton.", []],
 		"555927": ["Out in the open field next to a group of trees.\n\nContains various coins.", []],
-		"556140": ["Contains various coins.", []],
 		"556740": [
 			"**Quest Giver:** Gaetan, if his life was spared during [Where the Cat and Wolf Play...](#loc=556741)\n\n**Level:** 25\n\n**Rewards:** \n- 250 Crowns\n- Teigr",
 			[]
@@ -6315,11 +6329,8 @@
 		"562460": ["[World Map](#loc=19786)", []],
 		"562461": ["Underwater.", []],
 		"562462": ["Underwater.", []],
-		"562463": [
-			"_Hearts of Stone DLC_\n\n**Location:** On the wagon\n\n**Related Quest:** [Rose on a Red Field](#loc=214241)",
-			[]
-		],
-		"562464": ["_Hearts of Stone DLC_\n\n**Related Quest:** [Rose on a Red Field](#loc=214241)", []],
+		"562463": ["**Location:** On the wagon\n\n**Related Quest:** [Rose on a Red Field](#loc=214241)", []],
+		"562464": ["**Related Quest:** [Rose on a Red Field](#loc=214241)", []],
 		"562465": ["[World Map](#loc=19791)", []],
 		"562483": ["[World Map](#loc=19805)", []],
 		"562484": [
@@ -7186,7 +7197,7 @@
 				}
 			]
 		],
-		"563317": ["_Hearts of Stone DLC Required_\n\nDropped by one of the Ofieri enemies.", []],
+		"563317": ["Dropped by one of the Ofieri enemies.", []],
 		"563676": [
 			"On a balcony. Can only be reached via rooftops.",
 			[
@@ -7205,11 +7216,11 @@
 			]
 		],
 		"563729": [
-			"_Hearts of Stone DLC Required_\n\n**Location:** Given to you by Gaunter O'Dimm at the end of [Evil's Soft First Touches](#loc=20085)\n\n**Related Quest:** [Dead Man's Party](#loc=426136)",
+			"**Location:** Given to you by Gaunter O'Dimm at the end of [Evil's Soft First Touches](#loc=20085)\n\n**Related Quest:** [Dead Man's Party](#loc=426136)",
 			[]
 		],
 		"563730": [
-			"_Hearts of Stone DLC Required_\n\nNext to the trapdoor on the ground floor of Shani's Clinic.",
+			"Next to the trapdoor on the ground floor of Shani's Clinic.",
 			[
 				{
 					"id": 128362,
@@ -7226,7 +7237,7 @@
 			]
 		],
 		"563731": [
-			"_Hearts of Stone DLC Required_\n\nIn a bookshelf on the upper floor of Shani's Clinic.",
+			"In a bookshelf on the upper floor of Shani's Clinic.",
 			[
 				{
 					"id": 128363,
@@ -7243,7 +7254,7 @@
 			]
 		],
 		"563732": [
-			"_Hearts of Stone DLC Required_\n\nNext to the bed on the upper floor of Shani's Clinic.",
+			"Next to the bed on the upper floor of Shani's Clinic.",
 			[
 				{
 					"id": 128364,
@@ -7263,7 +7274,7 @@
 			"**Location:** Given to you by Shani when you meet her here.\n\n**Related Quest:** [Dead Man's Party](#loc=426136)",
 			[]
 		],
-		"563753": ["[World Map](#loc=214272)\n\n_Hearts of Stone DLC Required_", []],
+		"563753": ["[World Map](#loc=214272)", []],
 		"563791": ["Unlocked by [Crypt key](#loc=563795)", []],
 		"563792": ["Inside a stone coffin.", []],
 		"563794": ["Use Aard to break it.", []],
@@ -7363,7 +7374,7 @@
 			"Reward for defeating Zoltan in a game of Gwent.\n\n***Opponent Information:***      \n**Deck:** Scoia'tael      \n**Leader Card:** Daisy of the Valley - Draw an extra card at the beginning of the battle.        \n\n***Card Information:***     \n**Deck:** Scoia'tael        \n**Row:** Ranged Combat   \n**Strength:** 10    \n**Special Ability:** Hero - Not affected by any Special Cards or abilities.",
 			[]
 		],
-		"917843": ["In chest.\n\nHearts of Stone DLC Required", []],
+		"917843": ["In chest.", []],
 		"932509": [
 			"**Prerequisite:** Acquire the ornate key during the auction in [Open Sesame!](#loc=426135)\n\n**Level:** 39\n\n**Monsters:** Ancient Leshen, Level 37\n\n**Quest Items:**\n- Count Romilly's Figurine\n- Count Romilly's will\n- Ornate key hidden\n\n**Rewards:**\n- Random gear\n- Up to two crafting blueprints",
 			[]

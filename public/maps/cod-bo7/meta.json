@@ -1,0 +1,538 @@
+{
+	"id": "cod-black-ops-7",
+	"title": "Call of Duty: Black Ops 7",
+	"slug": "cod-black-ops-7",
+	"source": "https://mapgenie.io/cod-black-ops-7",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"aether_crystal": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"ammo_cache": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"armor_wall_buy": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"arsenal": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"artifact": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"audio_log": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"cat": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"chompy": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"crafting_table": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"der_wunderfizz": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"dig_spot": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"document": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"door_buy": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg_item": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg_location": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"exfil": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"fishing_spot": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"gobblegum_machine": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"headphones": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"mannequin": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"mouse_toy": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"mystery_box": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"obstruction": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"olafs_cod_cranker": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"pack_a_punch": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"perk_machine": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"power_door": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"power_pump": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"power_switch": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"rampage_inducer": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"spore_plant": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"statue": [
+				{
+					"cp": "e923",
+					"color": "#efbf04"
+				}
+			],
+			"tedd_tasks": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"teleport_pad": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"trap": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"vehicle_summon_station": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"void_pedestal": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_wall_buy": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"workbench": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"ziplineascender": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "zombies-ashes-of-the-damned",
+			"title": "Zombies: Ashes of the Damned",
+			"data": "zombies-ashes-of-the-damned/data.json",
+			"compact": "zombies-ashes-of-the-damned/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v2",
+					"template": "zombies-ashes-of-the-damned/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-astra-malorum",
+			"title": "Zombies: Astra Malorum",
+			"data": "zombies-astra-malorum/data.json",
+			"compact": "zombies-astra-malorum/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v3",
+					"template": "zombies-astra-malorum/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-paradox-junction",
+			"title": "Zombies: Paradox Junction",
+			"data": "zombies-paradox-junction/data.json",
+			"compact": "zombies-paradox-junction/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v4",
+					"template": "zombies-paradox-junction/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-totenreich",
+			"title": "Zombies: Totenreich",
+			"data": "zombies-totenreich/data.json",
+			"compact": "zombies-totenreich/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v4",
+					"template": "zombies-totenreich/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "kowakujo",
+			"title": "Zombies: Kowakujō",
+			"data": "kowakujo/data.json",
+			"compact": "kowakujo/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v4",
+					"template": "kowakujo/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-rex-infernus",
+			"title": "Zombies: Rex Infernus",
+			"data": "zombies-rex-infernus/data.json",
+			"compact": "zombies-rex-infernus/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v2",
+					"template": "zombies-rex-infernus/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-vandorn-farm",
+			"title": "Zombies: Vandorn Farm",
+			"data": "zombies-vandorn-farm/data.json",
+			"compact": "zombies-vandorn-farm/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v4",
+					"template": "zombies-vandorn-farm/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-exit-115",
+			"title": "Zombies: Exit 115",
+			"data": "zombies-exit-115/data.json",
+			"compact": "zombies-exit-115/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v4",
+					"template": "zombies-exit-115/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-zarya-cosmodrome",
+			"title": "Zombies: Zarya Cosmodrome",
+			"data": "zombies-zarya-cosmodrome/data.json",
+			"compact": "zombies-zarya-cosmodrome/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v4",
+					"template": "zombies-zarya-cosmodrome/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-mars",
+			"title": "Zombies: Mars",
+			"data": "zombies-mars/data.json",
+			"compact": "zombies-mars/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v4",
+					"template": "zombies-mars/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-ashwood",
+			"title": "Zombies: Ashwood",
+			"data": "zombies-ashwood/data.json",
+			"compact": "zombies-ashwood/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v4",
+					"template": "zombies-ashwood/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-nuked",
+			"title": "Zombies: Nuked",
+			"data": "zombies-nuked/data.json",
+			"compact": "zombies-nuked/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v6",
+					"template": "zombies-nuked/tiles/default-v6/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-eidskallen-lighthouse",
+			"title": "Zombies: Eidskallen Lighthouse",
+			"data": "zombies-eidskallen-lighthouse/data.json",
+			"compact": "zombies-eidskallen-lighthouse/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v6",
+					"template": "zombies-eidskallen-lighthouse/tiles/default-v6/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		},
+		{
+			"slug": "zombies-tenshu",
+			"title": "Zombies: Tenshu",
+			"data": "zombies-tenshu/data.json",
+			"compact": "zombies-tenshu/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v2",
+					"template": "zombies-tenshu/tiles/default-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#16161e"
+				}
+			]
+		}
+	]
+}

@@ -42,7 +42,7 @@
 			"ash3": [
 				{
 					"cp": "e904",
-					"color": "#ffffff"
+					"color": "#50d352"
 				}
 			],
 			"bell": [
@@ -334,6 +334,7 @@
 			"slug": "weeping-creek-valley",
 			"title": "Weeping Creek Valley",
 			"data": "weeping-creek-valley/data.json",
+			"compact": "weeping-creek-valley/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v1",
@@ -345,13 +346,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "weeping-creek-valley/data.compact.json"
+			]
 		},
 		{
 			"slug": "crimson-forest",
 			"title": "Crimson Forest",
 			"data": "crimson-forest/data.json",
+			"compact": "crimson-forest/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v1",
@@ -362,13 +363,13 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "crimson-forest/data.compact.json"
+			]
 		},
 		{
 			"slug": "village-of-lu",
 			"title": "Village of Lu",
 			"data": "village-of-lu/data.json",
+			"compact": "village-of-lu/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v1",
@@ -379,13 +380,13 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "village-of-lu/data.compact.json"
+			]
 		},
 		{
 			"slug": "pangzhen",
 			"title": "Pangzhen",
 			"data": "pangzhen/data.json",
+			"compact": "pangzhen/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v1",
@@ -396,13 +397,13 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "pangzhen/data.compact.json"
+			]
 		},
 		{
 			"slug": "the-mandates-encampment",
 			"title": "Mandate Encampment",
 			"data": "the-mandates-encampment/data.json",
+			"compact": "the-mandates-encampment/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v1",
@@ -413,25 +414,58 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "the-mandates-encampment/data.compact.json"
+			]
 		},
 		{
 			"slug": "meigu-lake",
 			"title": "Meigu Lake",
 			"data": "meigu-lake/data.json",
+			"compact": "meigu-lake/data.compact.json",
+			"tilesets": [
+				{
+					"name": "Meigu Lake",
+					"template": "meigu-lake/tiles/v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		},
+		{
+			"slug": "mountain-of-imprisonment",
+			"title": "Mountain of Imprisonment",
+			"data": "mountain-of-imprisonment/data.json",
+			"compact": "mountain-of-imprisonment/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v1",
-					"template": "meigu-lake/tiles/v1/{z}/{y}/{x}.jpg",
+					"template": "mountain-of-imprisonment/tiles/v1/{z}/{y}/{x}.jpg",
 					"minzoom": 8,
 					"maxzoom": 13,
 					"viewMaxzoom": 13,
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "meigu-lake/data.compact.json"
+			]
+		},
+		{
+			"slug": "mount-soulrend",
+			"title": "Mount Soulrend",
+			"data": "mount-soulrend/data.json",
+			"compact": "mount-soulrend/data.compact.json",
+			"tilesets": [
+				{
+					"name": "v1",
+					"template": "mount-soulrend/tiles/v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
 		}
 	]
 }

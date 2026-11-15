@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 14,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -30,6 +31,7 @@
 		{
 			"id": 2650,
 			"game_id": 265,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "498C97",
@@ -217,6 +219,7 @@
 		{
 			"id": 2651,
 			"game_id": 265,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "5D5285",
@@ -488,6 +491,7 @@
 		{
 			"id": 2652,
 			"game_id": 265,
+			"section_id": null,
 			"title": "Pickups",
 			"order": 30,
 			"color": "807035",
@@ -759,6 +763,7 @@
 		{
 			"id": 2653,
 			"game_id": 265,
+			"section_id": null,
 			"title": "Consumables & Crafting",
 			"order": 30,
 			"color": "393939",
@@ -946,6 +951,7 @@
 		{
 			"id": 2654,
 			"game_id": 265,
+			"section_id": null,
 			"title": "Other",
 			"order": 40,
 			"color": "E0BE5D",
@@ -1103,6 +1109,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"14873": {
 			"id": 14873,

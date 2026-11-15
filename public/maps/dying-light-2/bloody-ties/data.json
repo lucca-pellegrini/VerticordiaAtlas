@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -41,6 +42,7 @@
 		{
 			"id": 1070,
 			"game_id": 107,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "0DA36E",
@@ -116,6 +118,7 @@
 		{
 			"id": 1071,
 			"game_id": 107,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "CC454E",
@@ -191,6 +194,7 @@
 		{
 			"id": 1073,
 			"game_id": 107,
+			"section_id": null,
 			"title": "Missions",
 			"order": 10,
 			"color": "BEAB74",
@@ -266,6 +270,7 @@
 		{
 			"id": 1076,
 			"game_id": 107,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "646464",
@@ -367,6 +372,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"5287": {
 			"id": 5287,

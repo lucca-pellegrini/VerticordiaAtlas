@@ -262,6 +262,7 @@
 			"slug": "kanto",
 			"title": "Kanto",
 			"data": "kanto/data.json",
+			"compact": "kanto/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v5",
@@ -273,8 +274,7 @@
 					"tileSize": 256,
 					"background": "#ffffff"
 				}
-			],
-			"compact": "kanto/data.compact.json"
+			]
 		}
 	]
 }

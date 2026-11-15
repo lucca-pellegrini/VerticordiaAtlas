@@ -262,6 +262,7 @@
 			"slug": "paldea-region",
 			"title": "Paldea Region",
 			"data": "paldea-region/data.json",
+			"compact": "paldea-region/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -273,13 +274,13 @@
 					"tileSize": 256,
 					"background": "#193050"
 				}
-			],
-			"compact": "paldea-region/data.compact.json"
+			]
 		},
 		{
 			"slug": "kitakami-region",
 			"title": "Kitakami Region",
 			"data": "kitakami-region/data.json",
+			"compact": "kitakami-region/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -291,13 +292,13 @@
 					"tileSize": 256,
 					"background": "#1e5d4c"
 				}
-			],
-			"compact": "kitakami-region/data.compact.json"
+			]
 		},
 		{
 			"slug": "terrarium",
 			"title": "Terrarium",
 			"data": "terrarium/data.json",
+			"compact": "terrarium/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -309,8 +310,7 @@
 					"tileSize": 256,
 					"background": "#2e5d89"
 				}
-			],
-			"compact": "terrarium/data.compact.json"
+			]
 		}
 	]
 }

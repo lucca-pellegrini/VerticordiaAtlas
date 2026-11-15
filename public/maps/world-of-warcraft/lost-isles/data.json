@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 2740,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 10,
 			"color": "38344C",
@@ -77,6 +79,7 @@
 		{
 			"id": 2741,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "336FD1",
@@ -152,6 +155,7 @@
 		{
 			"id": 2742,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 30,
 			"color": "C9692F",
@@ -199,6 +203,7 @@
 		{
 			"id": 26891,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Herbs",
 			"order": 40,
 			"color": "4CAF50",
@@ -302,6 +307,7 @@
 		{
 			"id": 26892,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Ore Veins",
 			"order": 50,
 			"color": "8D6E63",
@@ -347,6 +353,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"15488": {
 			"id": 15488,

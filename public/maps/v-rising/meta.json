@@ -322,6 +322,7 @@
 			"slug": "vardoran",
 			"title": "Vardoran",
 			"data": "vardoran/data.json",
+			"compact": "vardoran/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V4",
@@ -332,8 +333,7 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "vardoran/data.compact.json"
+			]
 		}
 	]
 }

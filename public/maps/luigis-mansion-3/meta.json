@@ -124,6 +124,7 @@
 			"slug": "the-last-resort",
 			"title": "The Last Resort",
 			"data": "the-last-resort/data.json",
+			"compact": "the-last-resort/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -135,8 +136,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "the-last-resort/data.compact.json"
+			]
 		}
 	]
 }

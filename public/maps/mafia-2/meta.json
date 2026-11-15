@@ -12,126 +12,13 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"icons": {
-		"font": "icons/icons.woff",
-		"glyphs": {
-			"bruskis_scrapyard": [
-				{
-					"cp": "e900"
-				}
-			],
-			"character": [
-				{
-					"cp": "e901"
-				}
-			],
-			"easter_egg": [
-				{
-					"cp": "e902"
-				}
-			],
-			"gas_station": [
-				{
-					"cp": "e903"
-				}
-			],
-			"giuseppes_shop": [
-				{
-					"cp": "e904"
-				}
-			],
-			"gun_shop": [
-				{
-					"cp": "e905"
-				}
-			],
-			"job": [
-				{
-					"cp": "e906"
-				}
-			],
-			"main_mission": [
-				{
-					"cp": "e907"
-				}
-			],
-			"miscellaneous": [
-				{
-					"cp": "e908"
-				}
-			],
-			"playboy_magazine": [
-				{
-					"cp": "e909"
-				}
-			],
-			"point_of_interest": [
-				{
-					"cp": "e90a"
-				}
-			],
-			"stunt_jump": [
-				{
-					"cp": "e90b"
-				}
-			],
-			"vehicle": [
-				{
-					"cp": "e90c"
-				}
-			],
-			"wanted_poster": [
-				{
-					"cp": "e90d"
-				}
-			],
-			"weapon": [
-				{
-					"cp": "e90e"
-				}
-			],
-			"food_and_drink": [
-				{
-					"cp": "e90f"
-				}
-			],
-			"dereks_office": [
-				{
-					"cp": "e910"
-				}
-			],
-			"bar": [
-				{
-					"cp": "e911"
-				}
-			],
-			"home": [
-				{
-					"cp": "e912"
-				}
-			],
-			"clothing_store": [
-				{
-					"cp": "e913"
-				}
-			],
-			"telephone": [
-				{
-					"cp": "e914"
-				}
-			],
-			"body_shop": [
-				{
-					"cp": "e915"
-				}
-			]
-		}
-	},
+	"icons": null,
 	"maps": [
 		{
 			"slug": "empire-bay",
 			"title": "Empire Bay",
 			"data": "empire-bay/data.json",
+			"compact": "empire-bay/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -143,8 +30,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "empire-bay/data.compact.json"
+			]
 		}
 	]
 }

@@ -208,6 +208,7 @@
 			"slug": "streets-of-paris",
 			"title": "Streets of Paris",
 			"data": "streets-of-paris/data.json",
+			"compact": "streets-of-paris/data.compact.json",
 			"tilesets": [
 				{
 					"name": "streets-paris_v3",
@@ -215,11 +216,10 @@
 					"minzoom": 8,
 					"maxzoom": 14,
 					"viewMaxzoom": 15,
-					"bounds": [-2.2479391279360996, 0.010018147990690007, 0.8291266387077999, 1.37928083027959],
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "streets-of-paris/data.compact.json"
+			]
 		}
 	]
 }

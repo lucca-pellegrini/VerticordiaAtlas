@@ -1,0 +1,2398 @@
+{
+	"v": 1,
+	"d": {
+		"948206": ["**Powered by:** Turning on the Pack-A-Punch machine", []],
+		"948207": ["**Powered by:** Turning on the Pack-A-Punch machine", []],
+		"948210": ["**Cost:** 2,500  \n\n**Effect:** Drink to recover health and revive allies faster", []],
+		"948211": ["**Cost:** 2,000", []],
+		"948212": ["**Powered by:** Turning on the Pack-A-Punch machine", []],
+		"948213": ["**Cost:** 2,000", []],
+		"948214": ["**Teleports to:** [Aether Elevator](#loc=948220)", []],
+		"948215": ["**Teleports to:** [Aether Elevator](#loc=948234)", []],
+		"948216": ["**Teleports to:** [Teleporter](#loc=948302)", []],
+		"948217": ["**Cost:** \n- Uncommon: 750\n- Rare: 1,750\n- Epic: 2,750\n- Legendary: 5,250", []],
+		"948220": ["**Teleports to:** [Aether Elevator](#loc=948214)", []],
+		"948221": ["**Cost:** 2,250", []],
+		"948222": ["**Cost:** \n- Uncommon: 1,250\n- Rare: 2,250\n- Epic: 3,250\n- Legendary: 5,750", []],
+		"948225": ["**Cost:** 2,250", []],
+		"948226": ["**Cost:** 2,250", []],
+		"948227": ["**Cost:** 2,500  \n\n**Effect:** Drink to improve ADS precision and increase critical damage", []],
+		"948229": ["**Cost:** \n- Uncommon: 1,000\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 5,500", []],
+		"948230": [
+			"**Cost:** 2,500  \n\n**Effect:** Drink to explode when diving and become immune to your explosive damage",
+			[]
+		],
+		"948233": ["**Teleports to:** [Anti-Grav Personnel Launcher](#loc=948248)", []],
+		"948234": ["**Teleports to:** [Aether Elevator](#loc=948215)", []],
+		"948235": ["**Cost:** 2,250", []],
+		"948236": [
+			"**Cost:** 500/850/1,250/1,550\n\n**Effect:** Cognitive (and) Adaptive System (for) Target Elimination (and) Reinforcement",
+			[]
+		],
+		"948237": ["**Cost:** 2,500  \n\n**Effect:** Drink to replace weapon gun butt with a deadly punch", []],
+		"948238": ["**Cost:** \n- Uncommon: 1,250\n- Rare: 2,250\n- Epic: 3,250\n- Legendary: 5,750", []],
+		"948241": ["**Cost:** 2,250", []],
+		"948244": ["**Cost:** \n- Uncommon: 1,000\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 5,500", []],
+		"948246": ["**Cost:** 2,500  \n\n**Effect:** Drink to reload weapons and replate armor faster", []],
+		"948247": ["**Teleports to:** [Anti-Grav Personnel Launcher](#loc=948248)", []],
+		"948248": [
+			"**Teleports to:** [Anti-Grav Personnel Launcher](#loc=948247) / [Anti-Grav Personnel Launcher](#loc=948233)",
+			[]
+		],
+		"948250": ["**Cost:** 4,000", []],
+		"948253": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase weapon fire rate", []],
+		"948254": ["**Cost:** 2,500", []],
+		"948255": ["**Teleports to:** [Aether Elevator](#loc=948258)", []],
+		"948256": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 6,250", []],
+		"948258": ["**Teleports to:** [Aether Elevator](#loc=948255)", []],
+		"948265": [
+			"**Requires:** Interacting with the scanner after using the [Fowler-Mangler Injector](#loc=956139) during the [Reckoning Main Easter Egg](#loc=956126)",
+			[]
+		],
+		"948266": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 6,250", []],
+		"948267": [
+			"**Cost:** 500/850/1,250/1,550\n\n**Effect:** Cognitive (and) Adaptive System (for) Target Elimination (and) Reinforcement",
+			[]
+		],
+		"948269": [
+			"**Cost:** 500/850/1,250/1,550\n\n**Effect:** Cognitive (and) Adaptive System (for) Target Elimination (and) Reinforcement",
+			[]
+		],
+		"948270": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase movement speed", []],
+		"948271": ["**Teleports to:** [Anti-Grav Personnel Launcher](#loc=948272)", []],
+		"948272": ["**Teleports to:** [Anti-Grav Personnel Launcher](#loc=948271)", []],
+		"948274": ["**Cost:** \n- Uncommon: 1,500\n- Rare: 2,500\n- Epic: 3,500\n- Legendary: 6,000", []],
+		"948280": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase maximum health", []],
+		"948283": ["**Cost:** 2,750", []],
+		"948284": ["**Cost:** \n- Uncommon: 2,000\n- Rare: 3,000\n- Epic: 4,000\n- Legendary: 6,500", []],
+		"948292": ["**Cost:** 2,750", []],
+		"948302": ["**Teleports to:** [Teleporter](#loc=948216)", []],
+		"948303": ["**Cost:** 2,500  \n\n**Effect:** Drink to make attacks trigger random Ammo Mods", []],
+		"948304": ["**Powered by:** Pressing the button on top of the desk", []],
+		"948305": ["**Teleports to:** [Teleporter](#loc=948306)", []],
+		"948306": ["**Teleports to:** [Teleporter](#loc=948305)", []],
+		"948308": ["**Cost:** \n- Uncommon: 2,250\n- Rare: 3,250\n- Epic: 4,250\n- Legendary: 6,750", []],
+		"948309": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase the variety of loot dropped from enemies", []],
+		"948311": ["**Cost:** \n- Without Tier 2: 14,000\n- With Tier 2: 10,000", []],
+		"948313": ["**Teleports to:** [Teleporter](#loc=948315)", []],
+		"948315": ["**Teleports to:** [Teleporter](#loc=948313)", []],
+		"948317": ["**Teleports to:** [Teleporter](#loc=948318)", []],
+		"948318": ["**Teleports to:** [Teleporter](#loc=948317)", []],
+		"948322": ["**Teleports to:** [Teleporter](#loc=959481)", []],
+		"956123": [
+			"**Steps:**\n- After turning on the [Pack-A-Punch Machine](#loc=948314), head to the Mutant Research Facility in Tower 1.\n- They'll be two monitors that are displaying static and flashing a word:\n   - [Monitor](#loc=956127)\n   - [Monitor](#loc=956128)\n- Take the first letter of each word and head over to the [Periodic Table](#loc=956129).\n- Find an element with those two letters as its Atomic Symbol.\n   - If only one monitor is flashing a word, only one letter is needed for the element.\n- Remember the Atomic Number for the element and head up to the [Keypad](#loc=956130) and enter in the number.\n   - If the number is only one or two digits, add a zero to the front to make it three.\n- Head inside and head next to the [Cyst Container](#loc=956131).\n- Next to it, damage three vermin until they are sucked inside one at a time, then do the same with three zombies.\n- Interact with the Cyst Container to acquire [The Cyst](#loc=956137).\n- Head to the Quantum Computer Core in Tower 1 and stand near the Aetheric Flora in three different areas of the floor:\n   - [Aetheric Flora](#loc=956138)\n   - [Aetheric Flora](#loc=956140)\n   - [Aetheric Flora](#loc=956141)\n- Head to the Dark Entity Containment level in Tower 2. There will be four computers that say Power Surge on the monitors.\n- Interact with one and quickly interact with the other three:\n   - [Power Surge Computer](#loc=956142)\n   - [Power Surge Computer](#loc=956143)\n   - [Power Surge Computer](#loc=956144)\n   - [Power Surge Computer](#loc=956145)\n- After interacting with all of the computers, an Uber Klaus will spawn.\n- Shoot the shoulders on the Uber Klaus and have him stand on the [Electrical Pad](#loc=956146).\n- The Forsaken inside the machine will combine with the Uber Klaus.\n- Kill the Forsaken and interact with the orb that spawn to get the wonder weapon.",
+			[]
+		],
+		"956124": [
+			"**Steps:**\n- First, acquire the [Gorgofex](#loc=956147) from the [Gorgofex Wonder Weapon Easter Egg](#loc=956123).\n- Head to the Executive Suite in Tower 1 and interact with the [Metal Door](#loc=956149).\n- Head next to the Project Janus Reception level in Tower 1 and interact with the [Button](#loc=956148) next to the Portal.\n   - Interacting with the button will lock you out of getting Gorgofex N.\n- Protect the Maintenance Klaus until it finishes the Shutdown Sequence.\n- One of the elevator shafts in the room will turn off.\n- Head up to the Quantum Computing Core in Tower 1 and look down the broken elevator shaft to see three buttons.\n- Jump down and, while falling, interact with all three buttons.\n- If done correctly, you'll appear back int he Quantum Computer Core.\n- Panos will speak as an electrified orb, then split apart.\n- He will enter different zombies nearby. Shoot the electrified zombies with the Gorgofex to kill them.\n- Once all are killed, Panos will appear. Interact with Panos to receive the Gorgofex C.",
+			[]
+		],
+		"956125": [
+			"**Steps:**\n- First, acquire the [Gorgofex](#loc=956147) from the [Gorgofex Wonder Weapon Easter Egg](#loc=956123).\n- Head to the Executive Suite in Tower 1 and interact with the [Metal Door](#loc=956149).\n- Head next to the Quantum Computer Core level in Tower 1 and pick up the [Strauss Counter](#loc=959473).\n   - Acquiring the Strauss Counter will lock you out of getting Gorgofex C.\n- Use the Strauss Counter to find the location in the map with a level of 9 or more.\n   - If it says Out of Range, head to the other tower.\n- Use a charged Gorgofex shot at the spot that is the highest to receive the [Life Drain Serum](#loc=959474).\n- Then, head around the map and pick up three items:\n   - [Clean Hood](#loc=959477)\n   - [Tubing](#loc=959476)\n   - [PC Fan](#loc=959475)\n- Bring them all to the [Workbench](#loc=959478) next to the [Metal Door](#loc=956149) in the Executive Suite in Tower 1.\n- Assemble the Essence Extractor and defend it during the lockdown.\n- Once complete, pick up the essence and bring it to the Bioweapons Lab in Tower 1 and place both the Gorgofex and the Essence into the [Gorgofex N Container](#loc=959480).\n- Hold interact on it to infuse it to receive the Gorgofex N.",
+			[]
+		],
+		"956126": [
+			"**Steps:**\n- Head into the T1 Mutant Research Test Area and kill the Geneticist that spawns.\n- Pick up the [Keycard](#loc=956132) it drops.\n- Using the Keycard, head to the nearby [Freezer](#loc=956133) and open it, then grab the [DNA Vial](#loc=956134) inside.\n- Next, head over to the Genome Sequencer and interact with it to acquire the [Syringe](#loc=956135).\n- Head to the T2 Sublevel 10 level and, after turning on the [Pack-A-Punch Machine](#loc=948314), jump into the beam.\n- You'll turn into a ball of light. Dodge the objects and run into the zombie floating in the beam.\n- Interact with the zombie with the Syringe to get a [Blood Sample](#loc=956136).\n- Place the Syringe back in the Genome Sequencer to spawn the Fowler-Mangler HVT out of the nearby chamber.\n- Kill the Fowler-Mangler, then pick up the [Fowler-Mangler Injector](#loc=956139) it drops.\n- Head up to the Dark Entity Containment level in Tower 2 and walk up to the [Scanner](#loc=956150).\n- Use the Fowler-Mangler Injector, then interact with the skin.\n- This will open up a teleporter to the Teleportation Lab in Tower 2.\n- Next, find and interact with four special folders with images in them. There are seven locations that they could spawn:\n   - [Folder Spawn](#loc=956153)\n   - [Folder Spawn](#loc=956152)\n   - [Folder Spawn](#loc=956151)\n   - [Folder Spawn](#loc=956154)\n   - [Folder Spawn](#loc=956155)\n   - [Folder Spawn](#loc=956156)\n   - [Folder Spawn](#loc=956157)\n- Each are dated and have a number attached to them.\n- Right down the number of the files in chronological order to receive a 4 number code.\n- Head to the Teleportation Lab in Tower 2 and input the code in the [Code Computer](#loc=956158).\n- Next, obtain either the [Gorgofex](#loc=956147), the Gorgofex C, or the Gorgofex N.\n- Head to Sublevel 10 in Tower 2 and interact with the [Button](#loc=956159) on the computers.\n- This will cause the Particle Accelerator to act up for a period.\n- While the Particle Accelerator is overpowered, kill five of the special Vermin that spawn with the Gorgofex.\n- Head back to the computer and interact with the [Electrified Orb](#loc=956160) to overcharge the Gorgofex.\n- Without shooting the Gorgofex, head back to the Teleportation Lab in Tower 2.\n- Using the Gorgofex' charged attack, shoot the crystals around the [Teleporter](#loc=948322) to break them.\n   - Do not head into the teleporter at this state, as it will instantly kill you.\n- Head to the Quantum Computer Core and shoot the hole in the wall with a charged Gorgofex shot to knock down the [Fungal Head](#loc=956161).\n- Pick it up, then head to one of the mop buckets located in three locations:\n   - [Mop Bucket](#loc=956163)\n   - [Mop Bucket](#loc=956163)\n   - [Mop Bucket](#loc=956164)\n- Melee the Mop Bucket until it's underneath the nearby sprinklers, then wait until the sprinklers turn on and fill it with water.\n   - You can also trigger the sprinklers by throwing a grenade underneath a nearby smoke detector in the three areas.\n- Place the Fungal Head into the bucket, then kill zombies near the bucket until the eyes in the head change color.\n- Pick up the Fungal Head and head to the Teleporation Lab in Tower 2.\n- Place the head into the Teleporter that is now open.\n- Next, you'll need to build a Klaus robot. There are four pieces that are needed:\n   - Two [Klaus Arms](#loc=956165) are required, which are dropped by the Kommando Klaus robots during the special rounds. Only one arm will drop per special round.\n   - Two Klaus Legs:\n      - [Klaus Leg Spawn](#loc=956168)\n      - [Klaus Leg Spawn](#loc=956166)\n      - [Klaus Leg Spawn](#loc=956169)\n      - [Klaus Leg Spawn](#loc=956167)\n- Head over to the [Franken-Klaus](#loc=956170) and place each part onto it, then wait until an Uber Klaus spawns.\n- Get the Uber Klaus to attack nearby to activate the Franken-Klaus.\n- Once it is powered on, it'll head to a nearby computer.\n- Flip rounds, then bring it to the Dark Entity Containment level in Tower 2.\n- Take it to the area underneath the Forsaken bot, then activate the nearby S.A.M. trial.\n- Wait for it to hack the S.A.M. trial, then lead it to the Teleportation Lab in Tower 2.\n- Head back to the Quantum Computer Core in Tower 1 and, with the [Melee Macchiato](#loc=948237) perk, melee the [Brain Container](#loc=956172), then interact and grab the purple brain inside.\n- Quickly bring it back to the Teleportation Lab in Tower Two and place it into the [Brain Container](#loc=956173) next to Franken-Klaus.\n- Doing this will unlock the Project Janus Safes around the map:\n   - [Project Janus Safe](#loc=956175)\n   - [Project Janus Safe](#loc=956176)\n   - [Project Janus Safe](#loc=956177)\n   - [Project Janus Safe](#loc=956178)\n   - [Project Janus Safe](#loc=956179)\n- Interact with them until you receive a Vacuum-Seal Device.\n- Around the map, purple floating objects will appear.\n- Throw the Vacuum-Seal Device at the purple floating object to collect it.\n- Repeat the capturing of the items three more times.\n- Once you've received four items, head back to the Teleportation Lab in Tower 2 and place them in the [Vacuum-Seal Machine](#loc=956174) in front of the Teleporter.\n- A lock down will start and there are five levers around the room. They will light red one at a time.\n- Pull four of the levers to end the lockdown and fix the teleporter:\n   - [Lever](#loc=956180)\n   - [Lever](#loc=956181)\n   - [Lever](#loc=956182)\n   - [Lever](#loc=956183)\n   - [Lever](#loc=956184)\n- Head through the teleporter and interact with the Sentinel Artifact, then choose which person to side with.\n- Head up the lift and you'll find three L.T.G.s around the area:\n   - [L.T.G.](#loc=956186)\n   - [L.T.G.](#loc=956187)\n   - [L.T.G.](#loc=956188)\n- Kill zombies around each to fill them up, then head back to the lift.\n- On the next floor, Aether Crystals will spawn on the walls around the area.\n- Shoot all the Aether Crystals, then head back to the lift to start the boss fight.",
+			[]
+		],
+		"956127": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153202,
+					"title": "20260929214705_1",
+					"file_name": "cfcf2aba-fc89-45e6-b7eb-3ef6796f8113.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cfcf2aba-fc89-45e6-b7eb-3ef6796f8113.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956128": ["**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)", []],
+		"956129": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153203,
+					"title": "20260929214914_1",
+					"file_name": "afc4218d-ba55-4ec0-97d9-cf721f22c015.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/afc4218d-ba55-4ec0-97d9-cf721f22c015.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956130": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153204,
+					"title": "20260929215145_1",
+					"file_name": "8ec454df-2878-4750-996b-1db1a653dc41.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8ec454df-2878-4750-996b-1db1a653dc41.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956131": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153205,
+					"title": "20260929215329_1",
+					"file_name": "36184270-6af0-4132-bf6d-dab29dfe3cb1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36184270-6af0-4132-bf6d-dab29dfe3cb1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956132": [
+			"**Location:** Dropped by the Geneticist inside the T1 Mutant Research Test Area\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153206,
+					"title": "20260929214849_1",
+					"file_name": "aa8647ac-5f71-4aeb-a187-954c76400405.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa8647ac-5f71-4aeb-a187-954c76400405.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956133": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153207,
+					"title": "20260929215642_1",
+					"file_name": "95f59704-adfe-4003-85a7-2410ff90e3c8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95f59704-adfe-4003-85a7-2410ff90e3c8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956134": [
+			"**Location:** Inside the [Freezer](#loc=956133) after using the [Keycard](#loc=956132) to open it\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153208,
+					"title": "20260929215807_1",
+					"file_name": "d521522d-4386-402c-b9d7-fc1e0ccf98d0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d521522d-4386-402c-b9d7-fc1e0ccf98d0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956135": [
+			"**Location:** Inside the Genome Sequencer on the cart against the wall\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153209,
+					"title": "20260929215941_1",
+					"file_name": "072bbf2f-7c51-4e4e-aa52-91b77a25a618.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/072bbf2f-7c51-4e4e-aa52-91b77a25a618.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956136": [
+			"**Location:** Given automatically after interacting with the zombie with the [Syringe](#loc=956135) after hitting it while being a ball of light in the beam\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153210,
+					"title": "20260929220347_1",
+					"file_name": "162c4a79-5674-41ed-9315-29b6b5b506c8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/162c4a79-5674-41ed-9315-29b6b5b506c8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956137": [
+			"**Location:** Inside the [Cyst Container](#loc=956131) after feeding it three vermin and three zombies\n\n**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153211,
+					"title": "image",
+					"file_name": "ac46f2ba-ece1-491b-9cd8-739a1cb00c7b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac46f2ba-ece1-491b-9cd8-739a1cb00c7b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956138": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153212,
+					"title": "20260929221833_1",
+					"file_name": "11b377a0-56f7-40a3-b24b-d3e0f92628d9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/11b377a0-56f7-40a3-b24b-d3e0f92628d9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956139": [
+			"**Location:** Dropped by the Fowler-Mangler after using the [Blood Sample](#loc=956136) on the Genome Sequencer\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153213,
+					"title": "20260929220942_1",
+					"file_name": "316438d5-7a5d-4519-938f-f67ab4017db6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/316438d5-7a5d-4519-938f-f67ab4017db6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956140": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153214,
+					"title": "20260929222012_1",
+					"file_name": "dcd62592-bc19-45db-bc51-e7983aded43d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dcd62592-bc19-45db-bc51-e7983aded43d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956141": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153215,
+					"title": "20260929222104_1",
+					"file_name": "718731d6-f08c-4621-9cd8-a5663bc91e0a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/718731d6-f08c-4621-9cd8-a5663bc91e0a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956142": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153216,
+					"title": "20260929222224_1",
+					"file_name": "182de27a-ae77-4ab6-838e-6edd9bd89866.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/182de27a-ae77-4ab6-838e-6edd9bd89866.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956143": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153217,
+					"title": "20260929222407_1",
+					"file_name": "de1e34dc-4f77-4ac6-a767-51476bae0375.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de1e34dc-4f77-4ac6-a767-51476bae0375.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956144": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153218,
+					"title": "20260929222424_1",
+					"file_name": "ced8cbd2-57d3-4035-88ba-389541155d12.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ced8cbd2-57d3-4035-88ba-389541155d12.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956145": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153219,
+					"title": "20260929222441_1",
+					"file_name": "5c2ce81c-02d0-4a02-88cf-9f0ffd279609.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5c2ce81c-02d0-4a02-88cf-9f0ffd279609.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956146": [
+			"**Related Easter Egg:** [Gorgofex Wonder Weapon Easter Egg](#loc=956123)",
+			[
+				{
+					"id": 153220,
+					"title": "20260929222815_1",
+					"file_name": "0a34cbdb-8680-49e3-a6d7-761076176d12.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a34cbdb-8680-49e3-a6d7-761076176d12.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956147": [
+			"**Location:** Given at the end of the [Gorgofex Wonder Weapon Easter Egg](#loc=956123) after defeating the Forsaken and fusing the orb with [The Cyst](#loc=956137)",
+			[]
+		],
+		"956148": [
+			"**Related Easter Egg:** [Gorgofex C Easter Egg](#loc=956124)",
+			[
+				{
+					"id": 153221,
+					"title": "20260929223512_1",
+					"file_name": "5b810142-d6bf-4de7-ab47-5de0e16b0de2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b810142-d6bf-4de7-ab47-5de0e16b0de2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956149": [
+			"**Related Easter Egg:** [Gorgofex C Easter Egg](#loc=956124) / [Gorgofex N Easter Egg](#loc=956125)",
+			[
+				{
+					"id": 153222,
+					"title": "20260929223931_1",
+					"file_name": "61b82cde-e192-40cf-a2e2-6ad887a9b76b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61b82cde-e192-40cf-a2e2-6ad887a9b76b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956150": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153223,
+					"title": "20260929225148_1",
+					"file_name": "73b3db26-47c4-4114-87c6-9576213959bd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/73b3db26-47c4-4114-87c6-9576213959bd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956151": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153224,
+					"title": "20260929230033_1",
+					"file_name": "fc79cb52-18ab-41b0-82a0-563731166508.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc79cb52-18ab-41b0-82a0-563731166508.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956152": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153225,
+					"title": "20260929230139_1",
+					"file_name": "61474fa2-495a-4964-8f88-7129ab9c4a20.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61474fa2-495a-4964-8f88-7129ab9c4a20.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956153": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153226,
+					"title": "20260929230213_1",
+					"file_name": "7769580d-331c-4a9c-a70c-3558e73b47c4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7769580d-331c-4a9c-a70c-3558e73b47c4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956154": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153227,
+					"title": "20260929230349_1",
+					"file_name": "87e291b7-295b-4732-8fec-88927e93a421.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87e291b7-295b-4732-8fec-88927e93a421.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956155": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153228,
+					"title": "20260929230528_1",
+					"file_name": "54fd877f-218e-4a74-af9e-5d33556cd8da.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/54fd877f-218e-4a74-af9e-5d33556cd8da.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956156": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153229,
+					"title": "20260929230622_1",
+					"file_name": "e205ced3-e2fd-4a3a-9140-01dd0051a883.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e205ced3-e2fd-4a3a-9140-01dd0051a883.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956157": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153230,
+					"title": "20260929230648_1",
+					"file_name": "ccbe13ad-1ef5-4ec4-afce-ead71169d4af.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ccbe13ad-1ef5-4ec4-afce-ead71169d4af.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956158": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153231,
+					"title": "20260929231532_1",
+					"file_name": "71037704-b11d-4de2-985c-51f1e4b54749.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/71037704-b11d-4de2-985c-51f1e4b54749.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956159": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153232,
+					"title": "20260929231828_1",
+					"file_name": "2cbe443e-4785-44d3-bbf8-fabecdfc39df.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2cbe443e-4785-44d3-bbf8-fabecdfc39df.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956160": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153233,
+					"title": "20260929232307_1",
+					"file_name": "f4bdb631-d64d-4c5d-9dab-96bcc21fa634.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f4bdb631-d64d-4c5d-9dab-96bcc21fa634.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956161": [
+			"**Location:** On the ground after shooting the hole in the wall with a charged [Gorgofex](#loc=956147) shot to knock it down\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153234,
+					"title": "20260929232634_1",
+					"file_name": "71a2a38b-52bc-4318-ada0-dd84ef8b354f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/71a2a38b-52bc-4318-ada0-dd84ef8b354f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 153235,
+					"title": "20260929232644_1",
+					"file_name": "20f28151-d8c9-4705-93be-abef24f1908f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20f28151-d8c9-4705-93be-abef24f1908f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956162": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153236,
+					"title": "20260929232923_1",
+					"file_name": "d5a383e1-68c5-41c5-868b-dc48fa639d39.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d5a383e1-68c5-41c5-868b-dc48fa639d39.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956163": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153237,
+					"title": "20260929233050_1",
+					"file_name": "9aec20c6-10e1-4373-96ff-2d55f8520664.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9aec20c6-10e1-4373-96ff-2d55f8520664.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956164": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153238,
+					"title": "20260929233148_1",
+					"file_name": "21b0364e-80ef-43e2-9e53-7971691c43c7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/21b0364e-80ef-43e2-9e53-7971691c43c7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956165": [
+			"**Location:** Dropped by a Kommando Klaus during the special rounds\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[]
+		],
+		"956166": [
+			"**Location:** On the top of a shelf in the corner of the side room in the T2 Android Assembly\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153239,
+					"title": "20260929234214_1",
+					"file_name": "680e460d-a3c9-479e-918c-c5188044b781.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/680e460d-a3c9-479e-918c-c5188044b781.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956167": [
+			"**Location:** Behind a broken mirror on top of some rubble in the T2 Android Assembly\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153240,
+					"title": "20260929234323_1",
+					"file_name": "7b3fea6b-d26c-471b-ac6f-869496fc932b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b3fea6b-d26c-471b-ac6f-869496fc932b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 153242,
+					"title": "20260929234507_1",
+					"file_name": "6db61088-b1e3-423b-8322-afed13667203.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6db61088-b1e3-423b-8322-afed13667203.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956168": [
+			"**Location:** On top of a pile of Klaus parts coming out of a crate in the T2 Android Assembly\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153241,
+					"title": "20260929234416_1",
+					"file_name": "1c30c634-aef9-46e9-a896-28cc415f133d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1c30c634-aef9-46e9-a896-28cc415f133d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956169": [
+			"**Location:** Between a door and a server rack in the wall near the [Anti-Grav Personnel Launcher](#loc=948248) in T2 Android Assembly\n\n**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[]
+		],
+		"956170": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153243,
+					"title": "20260929234552_1",
+					"file_name": "7e26cd63-22d4-4e7f-8f24-4ac0d571de9c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e26cd63-22d4-4e7f-8f24-4ac0d571de9c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956172": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153244,
+					"title": "20260930000444_1",
+					"file_name": "68df887f-1075-4109-8d2f-3e4ae917169c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68df887f-1075-4109-8d2f-3e4ae917169c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956173": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153245,
+					"title": "20260930000658_1",
+					"file_name": "dcb5c7ec-8021-4552-8f72-55e7cfe4e7f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dcb5c7ec-8021-4552-8f72-55e7cfe4e7f9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956174": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153246,
+					"title": "20260930001106_1",
+					"file_name": "18b15d30-1b27-401a-ab65-5d57883ae1c5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/18b15d30-1b27-401a-ab65-5d57883ae1c5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956175": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153247,
+					"title": "20260930001206_1",
+					"file_name": "f3614490-3080-41d6-9737-d9824c64b8ff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f3614490-3080-41d6-9737-d9824c64b8ff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956176": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153248,
+					"title": "20260930001605_1",
+					"file_name": "43fe4aca-c540-499f-b3d7-d4bbc49d9084.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/43fe4aca-c540-499f-b3d7-d4bbc49d9084.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956177": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153249,
+					"title": "20260930001651_1",
+					"file_name": "9a8ac477-3e62-457a-8786-3aba3ac2c99f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a8ac477-3e62-457a-8786-3aba3ac2c99f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956178": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153250,
+					"title": "20260930001938_1",
+					"file_name": "7f8a623a-262e-485e-808a-5f892b54b407.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7f8a623a-262e-485e-808a-5f892b54b407.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956179": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153251,
+					"title": "20260930002024_1",
+					"file_name": "bcc25980-d6ad-4703-a6b0-48249b91f239.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bcc25980-d6ad-4703-a6b0-48249b91f239.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956180": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153252,
+					"title": "20260930002406_1",
+					"file_name": "55ab1a19-7dca-4a19-99b6-d80444384830.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/55ab1a19-7dca-4a19-99b6-d80444384830.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956181": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153253,
+					"title": "20260930002522_1",
+					"file_name": "b3a48a8c-56f3-488c-9874-9b2d37739086.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3a48a8c-56f3-488c-9874-9b2d37739086.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956182": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153254,
+					"title": "20260930002537_1",
+					"file_name": "9065bdd5-4ed5-42c8-a48b-e28cb3e8b330.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9065bdd5-4ed5-42c8-a48b-e28cb3e8b330.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956183": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153255,
+					"title": "20260930002549_1",
+					"file_name": "727dba92-b520-489c-b5ed-e5a71f268fa7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/727dba92-b520-489c-b5ed-e5a71f268fa7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956184": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153256,
+					"title": "20260930002602_1",
+					"file_name": "50f3aae5-5620-43ab-ad67-81fc2380d75e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50f3aae5-5620-43ab-ad67-81fc2380d75e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956186": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153257,
+					"title": "20260930003509_1",
+					"file_name": "180b6f2b-b86c-4fa6-8e02-64121a22ae0d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/180b6f2b-b86c-4fa6-8e02-64121a22ae0d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956187": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153258,
+					"title": "20260930003611_1",
+					"file_name": "97cb6ecd-bb91-49ee-b3ca-a50f620b4e5b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/97cb6ecd-bb91-49ee-b3ca-a50f620b4e5b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956188": [
+			"**Related Easter Egg:** [Reckoning Main Easter Egg](#loc=956126)",
+			[
+				{
+					"id": 153259,
+					"title": "20260930003633_1",
+					"file_name": "4d36056a-1963-4149-9cde-41dd0c57f454.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d36056a-1963-4149-9cde-41dd0c57f454.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"956201": [
+			"**Location:** On top of a table against a rooftop exit on the Rooftop of Tower 3 during the boss fight",
+			[
+				{
+					"id": 153949,
+					"title": "20260930005056_1",
+					"file_name": "7452a8cb-3c5e-4361-b69c-450dc5bdb9ff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7452a8cb-3c5e-4361-b69c-450dc5bdb9ff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959421": [
+			"**Location:** In the hand of a dead scientist leaning against the wall",
+			[
+				{
+					"id": 153904,
+					"title": "20261003175512_1",
+					"file_name": "03823442-31be-4284-bc50-eb58ac2fc62e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03823442-31be-4284-bc50-eb58ac2fc62e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959422": [
+			"**Location:** Wrapped around the neck of a dead scientist underneath a monitor in the lower area",
+			[
+				{
+					"id": 153905,
+					"title": "20261003175719_1",
+					"file_name": "f0287191-edf4-4655-ac55-b880b1269f3f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0287191-edf4-4655-ac55-b880b1269f3f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959423": [
+			"**Location:** Inside a shelf behind the shelf door behind the Director's desk",
+			[
+				{
+					"id": 153906,
+					"title": "20261003175915_1",
+					"file_name": "96d0fdff-09b6-4573-9f1a-85045689294f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/96d0fdff-09b6-4573-9f1a-85045689294f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959424": [
+			"**Steps:**\n- Around the map, there are three headphones that need to be interacted with:\n   - [Headphones](#loc=959421)\n   - [Headphones](#loc=959422)\n   - [Headphones](#loc=959423)",
+			[]
+		],
+		"959425": [
+			"**Steps:**\n- First, activate the [Pack-A-Punch Machine](#loc=948314) then head back to Project Janus Reception in Tower 1.\n- There will be three metal detectors in the spawn room.\n- With your back to the door, walk through the metal detectors in this order to play the song:\n   - Left\n   - Right\n   - Center\n   - Left\n   - Right\n   - Center\n   - Left\n   - Right\n   - Center\n   - Left\n   - Right\n   - Center",
+			[]
+		],
+		"959426": [
+			"**Steps:**\n- First, activate the [Pack-A-Punch Machine](#loc=948314) and acquire an ARC-XD scorestreak.\n- Head down to Dark Entity Containment floor in Tower 2 and use the ARC-XD to go through the [Hole](#loc=959428) underneath the Forsaken.\n- At the end of the hole there will be an Aether Crystal that will need to be blown up.\n- Aether Crystals will start to spawn around the room. Destroy them all to acquire the [Safe Key](#loc=959429).\n- Now, three paintings will spawn around the map that need to be grabbed:\n   - [Left Painting](#loc=959437)\n   - [Middle Painting](#loc=959438)\n   - [Right Painting](#loc=959430)\n- Bring them to the [Painting Wall](#loc=959434) in the Director's Office in Tower 1 and place them down.\n- Next, head behind the desk in the Director's Office and use the Mr. Peeks Field Upgrade to knock the painting down, revealing the [Safe](#loc=959439).\n- Interact with the Safe and kill the Elder Disciple that spawns to unlock the Aether Blade inside the safe.",
+			[]
+		],
+		"959427": [
+			"**Steps:**\n- Activate any of the [C.A.S.T.E.R. Turret](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-reckoning?search=c.a.s.t.e.r._turret%20%26%26%20category%3A27396) traps around the map five times.\n- Once done, a special zombie will spawn and drop a Hard Drive.\n- Pick it up and place the Hard Drive into the [Brain Container](#loc=956172).\n   - If you haven't opened the Brain Container yet, melee it with [Melee Macchiato](#loc=948237) equipped.\n- Defend the Hard Drive until it is complete.\n- The traps are now upgraded to 2.0\n- The traps can be upgraded an additional two times, with 10 more triggers required for 3.0 and 15 more for 4.0.",
+			[]
+		],
+		"959428": [
+			"**Related Easter Egg:** [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153907,
+					"title": "20261003181501_1",
+					"file_name": "abad12ed-65fb-492c-aa3e-a868f5dca47b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/abad12ed-65fb-492c-aa3e-a868f5dca47b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959429": [
+			"**Location:** Dropped by the final Aether Crystal that spawns in the T2 Dark Entity Containment level\n\n**Related Easter Egg:** [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153908,
+					"title": "20261003181628_1",
+					"file_name": "a22d4cb7-0508-4249-806f-dae88107da62.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a22d4cb7-0508-4249-806f-dae88107da62.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959430": [
+			"**Location:** Behind the left door in the Teleporter room leaning against the wall\n\n**Related Easter Egg:** [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153910,
+					"title": "20261003181827_1",
+					"file_name": "9b617ebc-a877-49c1-a47a-84aa5548dad8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9b617ebc-a877-49c1-a47a-84aa5548dad8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959431": [
+			"**Related Easter Egg:** [Vending Machine Easter Egg](#loc=959432)",
+			[
+				{
+					"id": 153911,
+					"title": "20261003182026_1",
+					"file_name": "639e3a5b-286b-4e14-aea9-276835dfc475.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/639e3a5b-286b-4e14-aea9-276835dfc475.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959432": [
+			"**Steps:**\n- Once per round, you can crouch and melee the [Vending Machine](#loc=959431) in the Android Assembly in Tower 2 to get free loot.\n   - If you melee it with Melee Macchiato, the vending machine will permanently break.",
+			[]
+		],
+		"959433": [
+			"**Location:** On top of a shelf next to a coffee machine in the Director's Office in Tower 1",
+			[
+				{
+					"id": 153912,
+					"title": "20261003182348_1",
+					"file_name": "f5537d53-452f-4dbd-b6f6-4c2533440eb1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5537d53-452f-4dbd-b6f6-4c2533440eb1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959434": [
+			"**Related Easter Egg:** [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153913,
+					"title": "20261003182531_1",
+					"file_name": "bb1fb296-6908-4239-bb6a-b87c8e92dd7f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb1fb296-6908-4239-bb6a-b87c8e92dd7f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959435": [
+			"**Related Easter Egg:** [Pool Easter Egg](#loc=959436)",
+			[
+				{
+					"id": 153914,
+					"title": "20261003182930_1",
+					"file_name": "99ba78eb-e356-4d79-9f94-e847a5db34bf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/99ba78eb-e356-4d79-9f94-e847a5db34bf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959436": [
+			"**Steps:**\n- Head to the [Pool Table](#loc=959435) in the Director's Office in Tower 1 and shoot the Pool Balls to get a free 100 essence.",
+			[]
+		],
+		"959437": [
+			"**Location:** Behind a wet floor sign leaning against a pillar next to the [Anti-Grav Personnel Launcher](#loc=948248)\n\n**Related Easter Egg:** [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153915,
+					"title": "20261003183146_1",
+					"file_name": "1e80abcd-e49f-4f6d-9c94-4ab8122f21f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e80abcd-e49f-4f6d-9c94-4ab8122f21f9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959438": [
+			"**Location:** Leaning against the wall behind a crate in Sublevel 10 in Tower 2\n\n**Related Easter Egg:** [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153916,
+					"title": "20261003183338_1",
+					"file_name": "e5977c5a-edfb-4000-a5ad-7a3001e5ce5a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5977c5a-edfb-4000-a5ad-7a3001e5ce5a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959439": [
+			"**Related Easter Egg:** [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153917,
+					"title": "20261003183532_1",
+					"file_name": "6aa2cbc2-8100-49ff-a1ab-a2e457eb6673.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6aa2cbc2-8100-49ff-a1ab-a2e457eb6673.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959440": [
+			"**Location:** Inside the [Safe](#loc=959439) behind the painting in the Director's Office in Tower 1 after completing the [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153919,
+					"title": "20261003183721_1",
+					"file_name": "7bc48602-2d54-40d1-9e0e-9e4f7d3d7cd2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7bc48602-2d54-40d1-9e0e-9e4f7d3d7cd2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959441": [
+			"**Location:** Inside the [Safe](#loc=959439) behind the painting in the Director's Office in Tower 1 after completing the [Aether Blade Easter Egg](#loc=959426)",
+			[
+				{
+					"id": 153918,
+					"title": "20261003183721_1",
+					"file_name": "83ae4b64-f23d-419b-872b-4df7a8720c3c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/83ae4b64-f23d-419b-872b-4df7a8720c3c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959442": [
+			"**Steps:**\n- First, acquire a LT-53 Kazimir and head to the Executive Suite in Tower 1.\n- Throw the Kazimir into the middle of the [Project Janus Statue](#loc=959443) from the balcony. If done correctly, the middle should light up.\n- Kill zombies nearby to fill the new soul box until it drops a free Kazimir.\n   - This can be done every round.",
+			[]
+		],
+		"959443": [
+			"**Related Easter Egg:** [Free Kazimirs Easter Egg](#loc=959442)",
+			[
+				{
+					"id": 153920,
+					"title": "20261003184401_1",
+					"file_name": "7efa3c64-d649-4582-b950-2b7bb527d1e8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7efa3c64-d649-4582-b950-2b7bb527d1e8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959444": [
+			"**Steps:**\n- Around the map, there are eight trash cans that can be interacted with for loot, though only four will give loot in a game:\n   - [Trash Can](#loc=959446)\n   - [Trash Can](#loc=959447)\n   - [Trash Can](#loc=959448)\n   - [Trash Can](#loc=959449)\n   - [Trash Can](#loc=959450)\n   - [Trash Can](#loc=959451)\n   - [Trash Can](#loc=959452)\n   - [Trash Can](#loc=959453)\n- After the four have paid out their loot, head back to the spawn in Project Janus Reception in Tower 1 and interact with the [Gold Trash Can](#loc=959454) for a variety of loot.",
+			[]
+		],
+		"959446": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153921,
+					"title": "20261003184724_1",
+					"file_name": "9c3478bc-634d-4a12-8ee8-3dd1fbd64ca4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9c3478bc-634d-4a12-8ee8-3dd1fbd64ca4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959447": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153923,
+					"title": "20261003184823_1",
+					"file_name": "d9d530c1-c2bf-45a3-9aa2-027a29001e14.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9d530c1-c2bf-45a3-9aa2-027a29001e14.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959448": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153924,
+					"title": "20261003184855_1",
+					"file_name": "f466936f-4e26-4a25-823c-7552bf7b73ca.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f466936f-4e26-4a25-823c-7552bf7b73ca.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959449": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153925,
+					"title": "20261003184941_1",
+					"file_name": "f579ae70-e2b3-4921-94b4-c2a1a462919e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f579ae70-e2b3-4921-94b4-c2a1a462919e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959450": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153926,
+					"title": "20261003185009_1",
+					"file_name": "bea112dc-fcfa-4bd8-81cc-3ad6888fc2c4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bea112dc-fcfa-4bd8-81cc-3ad6888fc2c4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959451": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153927,
+					"title": "20261003185039_1",
+					"file_name": "d127e398-726e-48f5-9662-d75712c69dbc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d127e398-726e-48f5-9662-d75712c69dbc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959452": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153928,
+					"title": "20261003185123_1",
+					"file_name": "621712ed-d6c7-4bce-a6e0-1ef77621cabd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/621712ed-d6c7-4bce-a6e0-1ef77621cabd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959453": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153929,
+					"title": "20261003185151_1",
+					"file_name": "0cfe1182-12f7-49e9-ad0d-bd32ca1f3fdf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0cfe1182-12f7-49e9-ad0d-bd32ca1f3fdf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959454": [
+			"**Related Easter Egg:** [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153930,
+					"title": "20261003185217_1",
+					"file_name": "85306f39-ea9a-4242-a717-7e112168b7ee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/85306f39-ea9a-4242-a717-7e112168b7ee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959455": [
+			"**Location:** On the ground in front of the [Gold Trash Can](#loc=959454) at the end of the [Golden Trash Easter Egg](#loc=959444)",
+			[
+				{
+					"id": 153931,
+					"title": "20261003185412_1",
+					"file_name": "06e51b03-2a4d-4f29-990f-5980a53beff2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/06e51b03-2a4d-4f29-990f-5980a53beff2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959456": [
+			"**Steps:**\n- First, head to the Executive Suite in Tower 1 and look down the large hole in the center of the room.\n- Find [Mr. Peeks](#loc=959464) and shoot him, which will cause him to fly to the top of the hole.\n- Interact with him, then parachute through the rings he creates down the hole all the way to Project Janus Reception.\n- If all are passed through, a Free Perk Power-Up will spawn.",
+			[]
+		],
+		"959457": [
+			"**Steps:**\n- Progress the [Reckoning Main Easter Egg](#loc=956126) until the step where you will need to overcharge the Particle Accelerator.\n- Above the [Electrified Orb](#loc=956160) is a counter.\n- Finish the Particle Accelerator by killing Quantum Vermin and Quantum Zombies with a score of 2,000 of higher to gain a Free Perk Power-Up.",
+			[]
+		],
+		"959458": [
+			"**Steps:**\n- Head up to the Director's Office in Tower 1.\n- Against the wall is a [Pool Ball Rack](#loc=959465).\n- First, shoot the Yellow ball on the top row with the 1.\n- Next, shoot the Yellow ball on the second row with the 1.\n- Finally, shoot the red ball with the 5 on the bottom row.\n- Once all are shot, the song will play and a Self-Revive Kit will spawn on top of the [Pool Table](#loc=959435).",
+			[]
+		],
+		"959459": [
+			"**Steps:**\n- Head to the Mutant Research Test Area in Tower 1.\n- While standing next to the [Stack of Crates](#loc=959467), shoot the two dummies in the [Shooting Range](#loc=959466) until an activation sound plays.\n- Turn around and five [Cans](#loc=959468) will appear on the yellow scaffolding up the side of the building.\n- Shoot all five without missing to receive a free Deadshot Daiquiri perk.",
+			[]
+		],
+		"959460": [
+			"**Steps:**\n- First, turn on the [Pack-A-Punch Machine](#loc=948314) and head down to Project Janus Reception in Tower 1.\n- Stand on top of the [Project Janus Logo](#loc=959469) and shoot the [Television](#loc=959470) behind the desk.\n- Targets will start appearing around the room. Shoot them until completion to receive a random Ammo Mod.\n- Flip the round and shoot the Television again. This will spawn two targets at a time around the room.\n- Shoot them until completion to receive an Aether Tool.\n- Flip the round and shoo the Television a final time. This will spawn moving targets around the room.\n- Shoot them until completion to receive an Aetherium Crystal.",
+			[]
+		],
+		"959461": [
+			"**Steps:**\n- Head to the Executive Suite in Tower 1 and throw an explosive at the [Chicken Bucket](#loc=959471) on the shelf behind the bar.\n- Find and pick up the six chicken wings around the room, then interact with the bucket to place it on your head.",
+			[]
+		],
+		"959462": [
+			"**Steps:**\n- Head to the Executive Suite in Tower 1 and head towards the [Anti-Grav Personnel Launcher](#loc=948272).\n- Stand to the left of the Launcher where there is the hole in the fence and ADS towards the [Picnic Basket](#loc=959472).\n- If done correctly, a jumpscare will occur.",
+			[]
+		],
+		"959463": [
+			"**Steps:**\n- First, turn on the [Pack-A-Punch Machine](#loc=948314).\n- Then, head to the Project Janus Reception in Tower 1 and use a spray on the [Bathroom Stall](#loc=959506) behind the zombie window to open the stall door.\n- Obtain the [Gorgofex](#loc=956147) from the [Gorgofex Wonder Weapon Easter Egg](#loc=956123) or its variants and use a charged shot on the figurine to have it start following you.\n- Head to the Particle Accelerator in the Sublevel 10 level of Tower 2 and jump into the beam.\n- Get out of the beam and the figurine will stay inside of it.\n- Head back into the beam and run into the figurine to have it follow you again.\n- This will cause the figurine to start shooting zombies around you automatically.",
+			[]
+		],
+		"959464": [
+			"**Related Easter Egg:** [Mr. Peeks Perk Easter Egg](#loc=959456)",
+			[
+				{
+					"id": 153932,
+					"title": "20261003190910_1",
+					"file_name": "89d52748-68e1-4977-bb12-3c63e205eafc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/89d52748-68e1-4977-bb12-3c63e205eafc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959465": [
+			"**Related Easter Egg:** [Samantha's Soul Song Easter Egg](#loc=959458)",
+			[
+				{
+					"id": 153933,
+					"title": "20261003191521_1",
+					"file_name": "888e5fb3-bd33-41f8-9058-654d0266e82d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/888e5fb3-bd33-41f8-9058-654d0266e82d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959466": [
+			"**Related Easter Egg:** [Deadshot Daiquiri](#loc=948227)",
+			[
+				{
+					"id": 153934,
+					"title": "20261003191905_1",
+					"file_name": "c9b34c19-5544-4db8-b94b-fb73e4cb201b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c9b34c19-5544-4db8-b94b-fb73e4cb201b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959467": [
+			"**Related Easter Egg:** [Deadshot Daiquiri](#loc=948227)",
+			[
+				{
+					"id": 153935,
+					"title": "20261003192107_1",
+					"file_name": "fe361940-533e-4c0d-8adf-ffdd412a4a96.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fe361940-533e-4c0d-8adf-ffdd412a4a96.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959468": [
+			"**Related Easter Egg:** [Free Deadshot Easter Egg](#loc=959459)",
+			[
+				{
+					"id": 153936,
+					"title": "20261003192138_1",
+					"file_name": "da3c70e6-ccbf-4b63-9fd0-03f523366955.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/da3c70e6-ccbf-4b63-9fd0-03f523366955.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959469": [
+			"**Related Easter Egg:** [Aim Trainer Easter Egg](#loc=959460)",
+			[
+				{
+					"id": 153937,
+					"title": "20261003193148_1",
+					"file_name": "0987ce73-d539-42dd-a92f-94ca2168c7a7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0987ce73-d539-42dd-a92f-94ca2168c7a7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959470": [
+			"**Related Easter Egg:** [Aim Trainer Easter Egg](#loc=959460)",
+			[
+				{
+					"id": 153940,
+					"title": "20261003193241_1",
+					"file_name": "bcd66792-d949-4e2d-8474-6f004ff45d44.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bcd66792-d949-4e2d-8474-6f004ff45d44.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959471": [
+			"**Related Easter Egg:** [Chicken Bucket Helmet Easter Egg](#loc=959461)",
+			[
+				{
+					"id": 153939,
+					"title": "20261003193557_1",
+					"file_name": "d30f5566-516c-45e8-93bd-1bc17d1ca062.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d30f5566-516c-45e8-93bd-1bc17d1ca062.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959472": [
+			"**Related Easter Egg:** [Jumpscare Easter Egg](#loc=959462)",
+			[
+				{
+					"id": 153941,
+					"title": "20261003193952_1",
+					"file_name": "f75dbb7a-fd28-416a-8b8a-d8fc97bda98e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f75dbb7a-fd28-416a-8b8a-d8fc97bda98e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959473": [
+			"**Location:** On top of one of the terminals around the center of the Quantum Computer Core in Tower 1\n\n**Related Easter Egg:** [Gorgofex N Easter Egg](#loc=956125)",
+			[
+				{
+					"id": 153942,
+					"title": "20261003200724_1",
+					"file_name": "42ab5358-3f86-48a7-b2c9-288e46adefe5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42ab5358-3f86-48a7-b2c9-288e46adefe5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959474": [
+			"**Location:** On the ground after using a Gorgofex charged shot when the Strauss Counter is at its highest\n\n**Related Easter Egg:** [Gorgofex N Easter Egg](#loc=956125)",
+			[
+				{
+					"id": 153943,
+					"title": "20261003201649_1",
+					"file_name": "4ed89ed7-99f5-4b3f-892c-b35e1b7cd0f7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ed89ed7-99f5-4b3f-892c-b35e1b7cd0f7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959475": [
+			"**Location:** In the fallen over server against the wall in the Dark Entity Containment level in Tower 2\n\n**Related Easter Egg:** [Gorgofex N Easter Egg](#loc=956125)",
+			[
+				{
+					"id": 153944,
+					"title": "20261003201809_1",
+					"file_name": "77bd3c02-8dc2-4633-a791-9cc861b083b6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/77bd3c02-8dc2-4633-a791-9cc861b083b6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959476": [
+			"**Location:** In the corner of the outside area next to a stack of crates in the Quantum Computer Lab in Tower 1\n\n**Related Easter Egg:** [Gorgofex N Easter Egg](#loc=956125)",
+			[
+				{
+					"id": 153945,
+					"title": "20261003201947_1",
+					"file_name": "b0a59750-2a79-4ef7-b084-6a547b98fbcb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b0a59750-2a79-4ef7-b084-6a547b98fbcb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959477": [
+			"**Location:** Against the wall next to a set of computers in the Bioweapons Lab in Tower 1\n\n**Related Easter Egg:** [Gorgofex N Easter Egg](#loc=956125)",
+			[
+				{
+					"id": 153946,
+					"title": "20261003202130_1",
+					"file_name": "92618d8b-74c1-44ac-a531-f2861ef176ef.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/92618d8b-74c1-44ac-a531-f2861ef176ef.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959479": [
+			"**Location:** On the bottom level of a small shelf in the corner of the Bioweapons Lab in Tower 1",
+			[
+				{
+					"id": 153947,
+					"title": "20261003202648_1",
+					"file_name": "ffbc733e-6e5b-4b90-9f68-9f6a4bd1e7f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ffbc733e-6e5b-4b90-9f68-9f6a4bd1e7f9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959480": [
+			"**Related Easter Egg:** [Gorgofex N Easter Egg](#loc=956125)",
+			[
+				{
+					"id": 153948,
+					"title": "20261003202616_1",
+					"file_name": "8b0f9f1e-57d4-4948-b7c4-cfc7d267d4f8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8b0f9f1e-57d4-4948-b7c4-cfc7d267d4f8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959481": ["**Teleports to:** Nowhere, you can't go back!", []],
+		"959482": [
+			"**Location:** On top of a TV stand underneath at television in the Executive Suite in Tower 1",
+			[
+				{
+					"id": 153950,
+					"title": "20261003204819_1",
+					"file_name": "2bc2bdbd-653a-4843-b3c2-be9aba356077.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2bc2bdbd-653a-4843-b3c2-be9aba356077.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959483": [
+			"**Location:** On top of a chair in the corner of the Quantum Computer Lab in Tower 1",
+			[
+				{
+					"id": 153951,
+					"title": "20261003210051_1",
+					"file_name": "1579d10a-306d-40c4-a222-fc2ca4a4637d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1579d10a-306d-40c4-a222-fc2ca4a4637d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959484": [
+			"**Location:** On top of a crate underneath an electrical box next to the [Shooting Range](#loc=959466) in the Mutant Research Test Area in Tower 1",
+			[
+				{
+					"id": 153952,
+					"title": "20261003210444_1",
+					"file_name": "a7d40fcd-4047-4e2e-88ef-f9463c806289.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a7d40fcd-4047-4e2e-88ef-f9463c806289.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959485": [
+			"**Location:** On top of the fallen elevator shaft in the wall of Sublevel 10 in Tower 2, accessible during low gravity",
+			[
+				{
+					"id": 153953,
+					"title": "20261003210633_1",
+					"file_name": "156200da-e571-494f-85fc-e6e79422c4b7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/156200da-e571-494f-85fc-e6e79422c4b7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959486": [
+			"**Location:** In a small shelf next to the large conveyor belt in the Android Assembly level in Tower 2",
+			[
+				{
+					"id": 153954,
+					"title": "20261003210803_1",
+					"file_name": "845c1f06-1193-425e-ac3d-d77671cc5377.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/845c1f06-1193-425e-ac3d-d77671cc5377.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959487": [
+			"**Location:** On the seat of a forklift near the middle of the Dark Entity Container in Tower 2",
+			[
+				{
+					"id": 153955,
+					"title": "20261003210921_1",
+					"file_name": "95b8ce65-6b6a-4b63-9a53-562f5ac7b4b1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95b8ce65-6b6a-4b63-9a53-562f5ac7b4b1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959488": [
+			"**Location:** On top of an electrical box near the [Teleporter](#loc=948322) in the Teleportation Lab in Tower 2",
+			[
+				{
+					"id": 153956,
+					"title": "20261003211021_1",
+					"file_name": "79d31f97-5076-4d67-8d1f-fb23bbe506c4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79d31f97-5076-4d67-8d1f-fb23bbe506c4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959489": [
+			"**Location:** On top of the reception desk at the end in Project Janus Reception in Tower 1",
+			[
+				{
+					"id": 153957,
+					"title": "20261003211141_1",
+					"file_name": "2b6f60aa-c1f7-406c-8534-bca5e2a6d53b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2b6f60aa-c1f7-406c-8534-bca5e2a6d53b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959490": [
+			"**Location:** On top of the machine next to the door after talking to Sam as Weaver in the same location in the Mutant Research Test Area in Tower 1",
+			[
+				{
+					"id": 153958,
+					"title": "20261003211337_1",
+					"file_name": "54af26b7-f625-4a25-aa35-39d3ff05a0f1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/54af26b7-f625-4a25-aa35-39d3ff05a0f1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959491": [
+			"**Location:** On the ground under the projector after jumping and interacting with it inside the Director's Office in Tower 1",
+			[
+				{
+					"id": 153959,
+					"title": "20261003211555_1",
+					"file_name": "0832eedf-11d6-4810-91cf-4b490ff5c0c4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0832eedf-11d6-4810-91cf-4b490ff5c0c4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959492": [
+			"**Location:** Between the Mutant Research Lab and the Quantum Computing Core next to a large flora bulb in the wall in Tower 1",
+			[
+				{
+					"id": 153960,
+					"title": "20261003212042_1",
+					"file_name": "0af0774e-8c58-4b7d-92a6-df7bf58dae81.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0af0774e-8c58-4b7d-92a6-df7bf58dae81.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959493": [
+			"**Location:** Under a stack of papers under a machine on the upper level of the Mutant Research Lab in Tower 1",
+			[
+				{
+					"id": 153961,
+					"title": "20261003212227_1",
+					"file_name": "531cf82b-c8c1-430f-b6c0-42a524c60498.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/531cf82b-c8c1-430f-b6c0-42a524c60498.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959494": [
+			"**Location:** On the ground next to the three Klaus bots after shooting open the briefcase one of them holds in the Android Assembly level in Tower 2",
+			[
+				{
+					"id": 153962,
+					"title": "20261003212409_1",
+					"file_name": "7ddc38e1-f39e-4655-ab3b-5daf6dc39c31.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7ddc38e1-f39e-4655-ab3b-5daf6dc39c31.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959495": [
+			"**Location:** On top of the central machine in the room in the place of a broken railing in the Dark Aether Elements Vault 2 in Tower 3",
+			[]
+		],
+		"959496": [
+			"**Location:** Given automatically when interacting with the snowglobe on the corner of the desk that opens the door to the [Teleporter](#loc=948305)",
+			[
+				{
+					"id": 153963,
+					"title": "20261003212706_1",
+					"file_name": "e1b759c2-41db-4596-be8d-dd594ac230b2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e1b759c2-41db-4596-be8d-dd594ac230b2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959497": [
+			"**Location:** On the ground after using the nearby [C.A.S.T.E.R. Turret](#loc=948269) to kill a zombie near the pile on the ground to reveal it in the Dark Entity Containment level in Tower 2",
+			[
+				{
+					"id": 153964,
+					"title": "20261003213118_1",
+					"file_name": "f0d11a26-ba0a-4c4a-bf53-f1c88d6405cd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0d11a26-ba0a-4c4a-bf53-f1c88d6405cd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959498": [
+			"**Location:** On top of a tank in the courtyard outside of Project Janus Reception in Tower 1",
+			[
+				{
+					"id": 153965,
+					"title": "20261003213357_1",
+					"file_name": "052c85e5-1e45-476a-9a34-0f0e9513c607.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/052c85e5-1e45-476a-9a34-0f0e9513c607.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959499": [
+			"**Location:** On the side of a metal beam coming out of the central machine in the Mutant Research Lab in Tower 1",
+			[
+				{
+					"id": 153966,
+					"title": "20261003213457_1",
+					"file_name": "8683cdd5-0c12-434f-b7cd-d34bdd51511b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8683cdd5-0c12-434f-b7cd-d34bdd51511b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959500": [
+			"**Location:** Inside of a server rack on the middle large machine in the Quantum Computing Core in Tower 1",
+			[
+				{
+					"id": 153967,
+					"title": "20261003213720_1",
+					"file_name": "074c3b7d-4119-4684-b612-1e6e2ea87469.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/074c3b7d-4119-4684-b612-1e6e2ea87469.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959501": [
+			"**Location:** On the side of the antenna of Tower 1 when viewed through a skylight in the Executive Suite",
+			[
+				{
+					"id": 153968,
+					"title": "20261003213846_1",
+					"file_name": "6ef5afcd-584e-4db7-9324-0e73a795af60.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6ef5afcd-584e-4db7-9324-0e73a795af60.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959502": [
+			"**Location:** On top of an electrical box on the wall near the [Anti-Grav Personnel Launcher](#loc=948248) in the Android Assembly floor in Tower 2",
+			[
+				{
+					"id": 153969,
+					"title": "20261003214003_1",
+					"file_name": "b0954a53-8937-41ff-92c3-4a1acc18f42e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b0954a53-8937-41ff-92c3-4a1acc18f42e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959503": [
+			"**Location:** In the corner of the room behind the zombie window on top of a radio rack in the Dark Entity Containment floor in Tower 2",
+			[
+				{
+					"id": 153970,
+					"title": "20261003214107_1",
+					"file_name": "50ac42c9-b24e-4713-b069-7e734c27af0f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50ac42c9-b24e-4713-b069-7e734c27af0f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959504": [
+			"**Location:** Behind a set of pipes on the wall in a caged off room in Sublevel 10 in Tower 2",
+			[
+				{
+					"id": 153971,
+					"title": "20261003214602_1",
+					"file_name": "8c5b4f32-d7ec-42a4-beb1-664f18594b22.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8c5b4f32-d7ec-42a4-beb1-664f18594b22.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959505": [
+			"**Location:** Inside the fire in a fallen server rack in the back of the burning room behind the zombie window in the Project Janus Reception in Tower 1",
+			[
+				{
+					"id": 153972,
+					"title": "20261003214700_1",
+					"file_name": "a2c0b75d-b691-4de1-a21a-ba904725ea6b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a2c0b75d-b691-4de1-a21a-ba904725ea6b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959506": [
+			"**Related Easter Egg:** [Aetherella Easter Egg](#loc=959463)",
+			[
+				{
+					"id": 153973,
+					"title": "20261003214813_1",
+					"file_name": "b6873ac3-429f-49cd-9760-7c872287a942.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b6873ac3-429f-49cd-9760-7c872287a942.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959592": [
+			"",
+			[
+				{
+					"id": 154050,
+					"title": "20261004012917_1",
+					"file_name": "5f279ae0-a0e7-4821-9182-eb85b5acc113.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f279ae0-a0e7-4821-9182-eb85b5acc113.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959593": [
+			"",
+			[
+				{
+					"id": 154051,
+					"title": "20261004013013_1",
+					"file_name": "82ace264-ff0e-4fad-8895-54d5ef00ad84.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/82ace264-ff0e-4fad-8895-54d5ef00ad84.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959594": [
+			"",
+			[
+				{
+					"id": 154052,
+					"title": "20261004013639_1",
+					"file_name": "210880b9-d8fd-4d68-8eeb-840c0b904262.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/210880b9-d8fd-4d68-8eeb-840c0b904262.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959595": [
+			"",
+			[
+				{
+					"id": 154053,
+					"title": "20261004014525_1",
+					"file_name": "61485d57-2bd4-4c0f-8f12-42ca47fb6201.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61485d57-2bd4-4c0f-8f12-42ca47fb6201.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959596": [
+			"",
+			[
+				{
+					"id": 154054,
+					"title": "20261004015049_1",
+					"file_name": "f0906332-1772-4761-baa8-8e97df678221.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0906332-1772-4761-baa8-8e97df678221.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959598": [
+			"",
+			[
+				{
+					"id": 154055,
+					"title": "20261004015541_1",
+					"file_name": "a3a46ec7-0ebf-442c-bad2-b5ad5eb5068d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3a46ec7-0ebf-442c-bad2-b5ad5eb5068d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

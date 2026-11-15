@@ -244,6 +244,7 @@
 			"slug": "district",
 			"title": "Manhattan",
 			"data": "district/data.json",
+			"compact": "district/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v9",
@@ -255,8 +256,7 @@
 					"tileSize": 256,
 					"background": "#090f1b"
 				}
-			],
-			"compact": "district/data.compact.json"
+			]
 		}
 	]
 }

@@ -12,26 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "cvstodia",
-			"title": "Cvstodia",
-			"data": "cvstodia/data.json",
-			"tilesets": [
-				{
-					"name": "V2",
-					"template": "cvstodia/tiles/default-v4/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 14,
-					"viewMaxzoom": 16,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			],
-			"compact": "cvstodia/data.compact.json"
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -402,5 +382,25 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "cvstodia",
+			"title": "Cvstodia",
+			"data": "cvstodia/data.json",
+			"compact": "cvstodia/data.compact.json",
+			"tilesets": [
+				{
+					"name": "V2",
+					"template": "cvstodia/tiles/default-v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 16,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
 }

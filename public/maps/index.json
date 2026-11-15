@@ -125,7 +125,7 @@
 			},
 			"stats": [
 				{
-					"value": 7576,
+					"value": 7578,
 					"label": "markers"
 				},
 				{
@@ -314,7 +314,7 @@
 			},
 			"stats": [
 				{
-					"value": 987,
+					"value": 986,
 					"label": "markers"
 				},
 				{
@@ -652,7 +652,7 @@
 		{
 			"id": "re4",
 			"slug": "re4",
-			"title": "Resident Evil 4 (WIP)",
+			"title": "Resident Evil 4",
 			"description": "Clockwork Castellans, Merchant requests, treasures, and puzzles in the Village, Castle, and Island.",
 			"poster": "re4/poster",
 			"theme": {
@@ -673,8 +673,7 @@
 					"label": "categories"
 				}
 			],
-			"tagLabel": "Filter",
-			"defaultTag": null
+			"tagLabel": "Filter"
 		},
 		{
 			"id": "re5",
@@ -800,11 +799,11 @@
 			},
 			"stats": [
 				{
-					"value": 3305,
+					"value": 3332,
 					"label": "markers"
 				},
 				{
-					"value": 218,
+					"value": 222,
 					"label": "categories"
 				}
 			],
@@ -881,7 +880,7 @@
 			},
 			"stats": [
 				{
-					"value": 7790,
+					"value": 7802,
 					"label": "markers"
 				},
 				{
@@ -962,7 +961,7 @@
 			},
 			"stats": [
 				{
-					"value": 6153,
+					"value": 6165,
 					"label": "markers"
 				},
 				{
@@ -1074,7 +1073,7 @@
 					"label": "markers"
 				},
 				{
-					"value": 223,
+					"value": 224,
 					"label": "categories"
 				}
 			],
@@ -1178,11 +1177,11 @@
 			},
 			"stats": [
 				{
-					"value": 283,
+					"value": 300,
 					"label": "markers"
 				},
 				{
-					"value": 11,
+					"value": 12,
 					"label": "categories"
 				}
 			],
@@ -1232,11 +1231,11 @@
 			},
 			"stats": [
 				{
-					"value": 11354,
+					"value": 15539,
 					"label": "markers"
 				},
 				{
-					"value": 117,
+					"value": 128,
 					"label": "categories"
 				}
 			],
@@ -1448,7 +1447,7 @@
 			},
 			"stats": [
 				{
-					"value": 1501,
+					"value": 1526,
 					"label": "markers"
 				},
 				{
@@ -1583,7 +1582,7 @@
 			},
 			"stats": [
 				{
-					"value": 1312,
+					"value": 1314,
 					"label": "markers"
 				},
 				{
@@ -1668,7 +1667,7 @@
 					"label": "markers"
 				},
 				{
-					"value": 82,
+					"value": 85,
 					"label": "categories"
 				}
 			],
@@ -1691,7 +1690,7 @@
 			},
 			"stats": [
 				{
-					"value": 1537,
+					"value": 1560,
 					"label": "markers"
 				},
 				{
@@ -1880,7 +1879,7 @@
 			},
 			"stats": [
 				{
-					"value": 5545,
+					"value": 5557,
 					"label": "markers"
 				},
 				{
@@ -1988,7 +1987,7 @@
 			},
 			"stats": [
 				{
-					"value": 589,
+					"value": 592,
 					"label": "markers"
 				},
 				{
@@ -2069,7 +2068,7 @@
 			},
 			"stats": [
 				{
-					"value": 2298,
+					"value": 2297,
 					"label": "markers"
 				},
 				{
@@ -2339,11 +2338,11 @@
 			},
 			"stats": [
 				{
-					"value": 5866,
+					"value": 6110,
 					"label": "markers"
 				},
 				{
-					"value": 17,
+					"value": 18,
 					"label": "categories"
 				}
 			],
@@ -2609,7 +2608,7 @@
 			},
 			"stats": [
 				{
-					"value": 4866,
+					"value": 6054,
 					"label": "markers"
 				},
 				{
@@ -2987,7 +2986,7 @@
 			},
 			"stats": [
 				{
-					"value": 390,
+					"value": 395,
 					"label": "markers"
 				},
 				{
@@ -3068,7 +3067,7 @@
 			},
 			"stats": [
 				{
-					"value": 656,
+					"value": 658,
 					"label": "markers"
 				},
 				{
@@ -3095,11 +3094,11 @@
 			},
 			"stats": [
 				{
-					"value": 613,
+					"value": 2674,
 					"label": "markers"
 				},
 				{
-					"value": 29,
+					"value": 71,
 					"label": "categories"
 				}
 			],
@@ -3122,11 +3121,119 @@
 			},
 			"stats": [
 				{
-					"value": 1653,
+					"value": 2680,
 					"label": "markers"
 				},
 				{
-					"value": 245,
+					"value": 370,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "croc-legend-of-gobbos",
+			"slug": "croc-legend-of-gobbos",
+			"title": "Croc: The Legend of the Gobbos",
+			"description": "Every marker on the Croc: The Legend of the Gobbos map.",
+			"poster": "croc-legend-of-gobbos/poster",
+			"theme": {
+				"accent": "#3494cb",
+				"accent-soft": "#8dc3e2",
+				"night": "#060a0c",
+				"panel": "#0c1216",
+				"panel-2": "#111a1f",
+				"line": "#212e36"
+			},
+			"stats": [
+				{
+					"value": 2322,
+					"label": "markers"
+				},
+				{
+					"value": 77,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "call-of-duty-vanguard",
+			"slug": "cod-vanguard",
+			"title": "Call of Duty: Vanguard",
+			"description": "Every marker on the Call of Duty: Vanguard map.",
+			"poster": "cod-vanguard/poster",
+			"theme": {
+				"accent": "#a78248",
+				"accent-soft": "#cfb790",
+				"night": "#0c0a06",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 507,
+					"label": "markers"
+				},
+				{
+					"value": 69,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "cod-black-ops-7",
+			"slug": "cod-bo7",
+			"title": "Call of Duty: Black Ops 7",
+			"description": "Every marker on the Call of Duty: Black Ops 7 map.",
+			"poster": "cod-bo7/poster",
+			"theme": {
+				"accent": "#aa4d18",
+				"accent-soft": "#e08652",
+				"night": "#0c0806",
+				"panel": "#160f0c",
+				"panel-2": "#1f1611",
+				"line": "#362821"
+			},
+			"stats": [
+				{
+					"value": 1594,
+					"label": "markers"
+				},
+				{
+					"value": 284,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "call-of-duty-black-ops-6",
+			"slug": "cod-bo6",
+			"title": "Call of Duty: Black Ops 6",
+			"description": "Every marker on the Call of Duty: Black Ops 6 map.",
+			"poster": "cod-bo6/poster",
+			"theme": {
+				"accent": "#b5771a",
+				"accent-soft": "#e2ad5d",
+				"night": "#0c0906",
+				"panel": "#16120c",
+				"panel-2": "#1f1a11",
+				"line": "#362e21"
+			},
+			"stats": [
+				{
+					"value": 1404,
+					"label": "markers"
+				},
+				{
+					"value": 161,
 					"label": "categories"
 				}
 			],

@@ -1,0 +1,172 @@
+{
+	"id": "croc-legend-of-gobbos",
+	"title": "Croc: The Legend of the Gobbos",
+	"slug": "croc-legend-of-gobbos",
+	"source": "https://mapgenie.io/croc-legend-of-gobbos",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"boss": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"cage": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"crystal": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"entry": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"gobbo": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"heart": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"jigsaw_piece": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"key": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"red_button": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"smash_box": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "forest-island",
+			"title": "Forest Island",
+			"data": "forest-island/data.json",
+			"compact": "forest-island/data.compact.json",
+			"tilesets": [
+				{
+					"name": "v7",
+					"template": "forest-island/tiles/v7/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0d0d0d"
+				}
+			]
+		},
+		{
+			"slug": "ice-island",
+			"title": "Ice Island",
+			"data": "ice-island/data.json",
+			"compact": "ice-island/data.compact.json",
+			"tilesets": [
+				{
+					"name": "v4",
+					"template": "ice-island/tiles/v4/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0d0d0d"
+				}
+			]
+		},
+		{
+			"slug": "desert-island",
+			"title": "Desert Island",
+			"data": "desert-island/data.json",
+			"compact": "desert-island/data.compact.json",
+			"tilesets": [
+				{
+					"name": "v2",
+					"template": "desert-island/tiles/v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0d0d0d"
+				}
+			]
+		},
+		{
+			"slug": "castle-island",
+			"title": "Castle Island",
+			"data": "castle-island/data.json",
+			"compact": "castle-island/data.compact.json",
+			"tilesets": [
+				{
+					"name": "v2",
+					"template": "castle-island/tiles/v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0d0d0d"
+				}
+			]
+		},
+		{
+			"slug": "crystal-island",
+			"title": "Crystal Island",
+			"data": "crystal-island/data.json",
+			"compact": "crystal-island/data.compact.json",
+			"tilesets": [
+				{
+					"name": "v2",
+					"template": "crystal-island/tiles/v2/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0d0d0d"
+				}
+			]
+		}
+	]
+}

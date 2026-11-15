@@ -280,6 +280,7 @@
 			"slug": "claire-a",
 			"title": "Claire [A]",
 			"data": "claire-a/data.json",
+			"compact": "claire-a/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -291,13 +292,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "claire-a/data.compact.json"
+			]
 		},
 		{
 			"slug": "leon-a",
 			"title": "Leon [A]",
 			"data": "leon-a/data.json",
+			"compact": "leon-a/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -309,13 +310,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "leon-a/data.compact.json"
+			]
 		},
 		{
 			"slug": "claire-b",
 			"title": "Claire [B]",
 			"data": "claire-b/data.json",
+			"compact": "claire-b/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -327,13 +328,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "claire-b/data.compact.json"
+			]
 		},
 		{
 			"slug": "leon-b",
 			"title": "Leon [B]",
 			"data": "leon-b/data.json",
+			"compact": "leon-b/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -345,8 +346,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "leon-b/data.compact.json"
+			]
 		}
 	]
 }

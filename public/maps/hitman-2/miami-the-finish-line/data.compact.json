@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -35,16 +36,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "hitman-3",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/hitman-3/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 530,
 			"game_id": 53,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 10,
 			"color": "436B96",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -474,10 +482,17 @@
 		{
 			"id": 531,
 			"game_id": 53,
+			"section_id": null,
 			"title": "Weapons & Tools",
 			"order": 10,
 			"color": "894F9E",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -683,10 +698,17 @@
 		{
 			"id": 532,
 			"game_id": 53,
+			"section_id": null,
 			"title": "Navigation",
 			"order": 10,
 			"color": "54A6B3",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -862,6 +884,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"2364": {
 			"id": 2364,
@@ -1684,7 +1707,8 @@
 								[-1.1204867527996498, 0.8412101264524543],
 								[-1.1204867527996498, 0.5651996886633441],
 								[-1.3628726170574623, 0.5651996886633441],
-								[-1.3628726170574623, 0.8412101264524543]
+								[-1.3628726170574623, 0.8412101264524543],
+								[-1.1204867527996498, 0.8412101264524543]
 							]
 						]
 					},
@@ -1712,7 +1736,8 @@
 								[-0.8530383275066811, 0.8406608671159589],
 								[-0.8530383275066811, 0.5636204785251683],
 								[-1.093364255241056, 0.5636204785251683],
-								[-1.093364255241056, 0.8406608671159589]
+								[-1.093364255241056, 0.8406608671159589],
+								[-0.8530383275066811, 0.8406608671159589]
 							]
 						]
 					},
@@ -1740,7 +1765,8 @@
 								[-0.5804400609051186, 0.8399399647743423],
 								[-0.5804400609051186, 0.5666759002982381],
 								[-0.8207659886394936, 0.5666759002982381],
-								[-0.8207659886394936, 0.8399399647743423]
+								[-0.8207659886394936, 0.8399399647743423],
+								[-0.5804400609051186, 0.8399399647743423]
 							]
 						]
 					},
@@ -1768,7 +1794,8 @@
 								[-0.31127502184261857, 0.8400772770219976],
 								[-0.31127502184261857, 0.564066772303025],
 								[-0.5526309178387123, 0.564066772303025],
-								[-0.5526309178387123, 0.8400772770219976]
+								[-0.5526309178387123, 0.8400772770219976],
+								[-0.31127502184261857, 0.8400772770219976]
 							]
 						]
 					},
@@ -1796,7 +1823,8 @@
 								[-0.042968289664884196, 0.8405578750888714],
 								[-0.042968289664884196, 0.5638607865340859],
 								[-0.28432418566097795, 0.5638607865340859],
-								[-0.28432418566097795, 0.8405578750888714]
+								[-0.28432418566097795, 0.8405578750888714],
+								[-0.042968289664884196, 0.8405578750888714]
 							]
 						]
 					},
@@ -1811,6 +1839,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [],
@@ -1823,7 +1852,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "neu-haas-grotesk-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/hitman-3/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

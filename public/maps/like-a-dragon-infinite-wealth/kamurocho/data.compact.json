@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 13,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -30,6 +31,7 @@
 		{
 			"id": 2600,
 			"game_id": 260,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3F4D52",
@@ -329,6 +331,7 @@
 		{
 			"id": 2601,
 			"game_id": 260,
+			"section_id": null,
 			"title": "Substories",
 			"order": 20,
 			"color": "59B1A8",
@@ -376,6 +379,7 @@
 		{
 			"id": 2602,
 			"game_id": 260,
+			"section_id": null,
 			"title": "Sujimon",
 			"order": 20,
 			"color": "7C59B1",
@@ -423,6 +427,7 @@
 		{
 			"id": 2603,
 			"game_id": 260,
+			"section_id": null,
 			"title": "Items",
 			"order": 30,
 			"color": "D4A663",
@@ -694,6 +699,7 @@
 		{
 			"id": 2604,
 			"game_id": 260,
+			"section_id": null,
 			"title": "Other",
 			"order": 40,
 			"color": "505E79",
@@ -823,6 +829,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"14588": {
 			"id": 14588,

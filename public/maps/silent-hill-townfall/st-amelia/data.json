@@ -22,7 +22,8 @@
 					"13": { "x": { "max": 4095, "min": 4064 }, "y": { "max": 4095, "min": 4064 } },
 					"14": { "x": { "max": 8191, "min": 8128 }, "y": { "max": 8191, "min": 8128 } },
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -39,6 +40,7 @@
 		{
 			"id": 26960,
 			"game_id": 315,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "597698",
@@ -142,6 +144,7 @@
 		{
 			"id": 26961,
 			"game_id": 315,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "A77387",
@@ -413,6 +416,7 @@
 		{
 			"id": 26962,
 			"game_id": 315,
+			"section_id": null,
 			"title": "Pickups",
 			"order": 30,
 			"color": "4D7787",
@@ -712,6 +716,7 @@
 		{
 			"id": 26964,
 			"game_id": 315,
+			"section_id": null,
 			"title": "Other",
 			"order": 50,
 			"color": "1C2133",
@@ -869,6 +874,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"27458": {
 			"id": 27458,

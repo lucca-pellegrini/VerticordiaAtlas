@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -24,16 +25,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "blasphemous-2",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/blasphemous-2/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 2550,
 			"game_id": 255,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3F4D52",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -463,10 +471,17 @@
 		{
 			"id": 2551,
 			"game_id": 255,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "59B1A8",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -952,10 +967,17 @@
 		{
 			"id": 2552,
 			"game_id": 255,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 30,
 			"color": "505E79",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1273,10 +1295,17 @@
 		{
 			"id": 2553,
 			"game_id": 255,
+			"section_id": null,
 			"title": "Quests",
 			"order": 30,
 			"color": "D4A663",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1314,10 +1343,17 @@
 		{
 			"id": 2554,
 			"game_id": 255,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 40,
 			"color": "9C305A",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1355,10 +1391,17 @@
 		{
 			"id": 2555,
 			"game_id": 255,
+			"section_id": null,
 			"title": "Other",
 			"order": 60,
 			"color": "B37665",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1730,6 +1773,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"14296": {
 			"id": 14296,
@@ -3545,7 +3589,6 @@
 								[-0.3900729880142819, 0.6427556842043032],
 								[-0.4064836777142773, 0.6426089073045773],
 								[-0.40650741056623474, 0.6262337038029386],
-								[-0.43400395078572274, 0.6262521464693975],
 								[-0.43400395078572274, 0.6262521464693975]
 							]
 						],
@@ -3673,7 +3716,6 @@
 								[-0.527374101264428, 0.6372474755686852],
 								[-0.5273613742823784, 0.6317089298411105],
 								[-0.5108352969841121, 0.6317213637733374],
-								[-0.5108784375115931, 0.6261695515494097],
 								[-0.5108784375115931, 0.6261695515494097]
 							]
 						],
@@ -3722,7 +3764,6 @@
 								[-0.7031756991400187, 0.6427853002731467],
 								[-0.7031307829593629, 0.6482428233817075],
 								[-0.7031121765247406, 0.6536865818026598],
-								[-0.6921767128297347, 0.6537057186499027],
 								[-0.6921767128297347, 0.6537057186499027]
 							]
 						],
@@ -4159,7 +4200,6 @@
 								[-0.5931723372231659, 0.5712989146797298],
 								[-0.5822776152547533, 0.5713558033505137],
 								[-0.5822411154553606, 0.5383135585771157],
-								[-0.5438620589504524, 0.5383681843778305],
 								[-0.5438620589504524, 0.5383681843778305]
 							]
 						],
@@ -4447,7 +4487,6 @@
 								[-0.796490846828334, 0.6481127717049731],
 								[-0.8237471984746207, 0.6481885987871863],
 								[-0.823838487979873, 0.645368245694649],
-								[-0.8239188598500959, 0.6428851886103786],
 								[-0.8239188598500959, 0.6428851886103786]
 							]
 						],
@@ -4858,7 +4897,6 @@
 								[-0.3737046740450012, 0.6044672822413446],
 								[-0.4008043051411221, 0.6045626981680954],
 								[-0.4008035973080723, 0.6207992721918066],
-								[-0.4065026635295185, 0.6208030808161107],
 								[-0.4065026635295185, 0.6208030808161107]
 							]
 						],
@@ -5087,7 +5125,6 @@
 								[-0.3186499224618267, 0.6568114555184201],
 								[-0.3185018051124757, 0.635550581000544],
 								[-0.31844077042035224, 0.6284709874348806],
-								[-0.31856201782463245, 0.6096338656921745],
 								[-0.31856201782463245, 0.6096338656921745]
 							]
 						],
@@ -5212,6 +5249,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 597394,
@@ -42078,9 +42116,27 @@
 	],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
-	"tags": [{ "id": 104, "game_id": 255, "title": "Mea Culpa DLC", "icon": null, "color": null, "icon_color": null }],
+	"tags": [
+		{
+			"id": 104,
+			"game_id": 255,
+			"order": 0,
+			"title": "Mea Culpa DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
+	],
 	"tagsById": {
-		"104": { "id": 104, "game_id": 255, "title": "Mea Culpa DLC", "icon": null, "color": null, "icon_color": null }
+		"104": {
+			"id": 104,
+			"game_id": 255,
+			"order": 0,
+			"title": "Mea Culpa DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -42090,7 +42146,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "fff-majestica-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/blasphemous-2/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

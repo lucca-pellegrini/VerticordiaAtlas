@@ -1,0 +1,3255 @@
+{
+	"v": 1,
+	"d": {
+		"1065650": [
+			"**Prerequisites:**\n- All 6 Gobbos in [The Tower of Power](#loc=1065658)\n- All 6 Gobbos in [Hassle in the Castle](#loc=1065693)\n- All 6 Gobbos in [Dungeon of Defright](#loc=1065749)\n\n**Leads to:** [Smash and See](#loc=1066067)",
+			[]
+		],
+		"1065651": [
+			"**Prerequisites:**\n- All 6 Gobbos in [Ballistic Meg's Fairway](#loc=1065837)\n- All 6 Gobbos in [Swipe Swiftly's Wicked Ride](#loc=1065890)\n- All 6 Gobbos in [Panic at Platform Pete's Lair](#loc=1066011)\n\n**Leads to:** [Jailhouse Croc](#loc=1066117)",
+			[]
+		],
+		"1065652": [
+			"**Location:** On the lower platform you need to drop down to from above.",
+			[
+				{
+					"id": 160181,
+					"title": "screenshot-1794252999552",
+					"file_name": "7d380eee-a61e-4b2e-ac7e-498aee03dff0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d380eee-a61e-4b2e-ac7e-498aee03dff0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065653": [
+			"**Location:** On the lower platform you need to drop down to from above.",
+			[
+				{
+					"id": 160182,
+					"title": "screenshot-1794253005021",
+					"file_name": "83c39c70-a6a7-4a80-b1e7-adff1295484b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/83c39c70-a6a7-4a80-b1e7-adff1295484b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065655": [
+			"**Location:** Inside a wooden smash box on the lower platform you need to drop down to from above.",
+			[
+				{
+					"id": 160183,
+					"title": "screenshot-1794253010161",
+					"file_name": "c84da849-24b2-4d2e-84df-eeebe4627de3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c84da849-24b2-4d2e-84df-eeebe4627de3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065656": [
+			"**Location:** Inside a wooden smash box on the lower platform you need to drop down to from above.\n\n**Opens:** [Crystal Door](#loc=1065678)",
+			[
+				{
+					"id": 160180,
+					"title": "screenshot-1794252991174",
+					"file_name": "e6d3c3e3-5ba1-4bd0-a17b-f59c0e732cbe.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6d3c3e3-5ba1-4bd0-a17b-f59c0e732cbe.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065657": [
+			"**Leads to:** [Room 2](#loc=1065666)",
+			[
+				{
+					"id": 160184,
+					"title": "screenshot-1794253050214",
+					"file_name": "0d7fd7ff-e562-44d1-bfee-9a119f9797ca.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d7fd7ff-e562-44d1-bfee-9a119f9797ca.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065659": [
+			"**Leads to:** [Room 3](#loc=1066176)",
+			[
+				{
+					"id": 160201,
+					"title": "screenshot-1794254219523",
+					"file_name": "a32ef8d0-c2f3-4fed-806f-9ee7df1691e0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a32ef8d0-c2f3-4fed-806f-9ee7df1691e0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065665": [
+			"**Location:** Disguised as a normal crystal on the middle floating red platform leading out of the area.\n\n**Opens:** [Crystal Door](#loc=1065678)",
+			[
+				{
+					"id": 160200,
+					"title": "screenshot-1794254209257",
+					"file_name": "502b23bc-afc9-4aef-9c08-ec9b7dee9c23.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/502b23bc-afc9-4aef-9c08-ec9b7dee9c23.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065666": [
+			"**Note:** You cannot go back through this door.",
+			[
+				{
+					"id": 160187,
+					"title": "screenshot-1794253330681",
+					"file_name": "dc7f3946-1196-4973-bb46-bae2670895a2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dc7f3946-1196-4973-bb46-bae2670895a2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065667": [
+			"**Location:** Inside a wooden smash box on the platform after crossing the monkey bars, avoiding the flying dantini.\n\n**Opens:** [Crystal Door](#loc=1065678)",
+			[
+				{
+					"id": 160203,
+					"title": "screenshot-1794254304303",
+					"file_name": "9a180b34-4721-47b5-9796-088669718b2d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a180b34-4721-47b5-9796-088669718b2d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065668": [
+			"**Leads to:** [Room 4](#loc=1066177)",
+			[
+				{
+					"id": 160206,
+					"title": "screenshot-1794254414970",
+					"file_name": "6dbd72cd-9d7d-4adf-b669-6931925122db.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6dbd72cd-9d7d-4adf-b669-6931925122db.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065669": [
+			"**Leads to:** [Room 5](#loc=1066178)",
+			[
+				{
+					"id": 160216,
+					"title": "screenshot-1794254709277",
+					"file_name": "5562dcf4-766d-437b-b4f1-0cc0680c02e6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5562dcf4-766d-437b-b4f1-0cc0680c02e6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065670": [
+			"**Location:** Inside a wooden smash box on the upper platform.\n\n**Opens:** [Crystal Door](#loc=1065678)",
+			[
+				{
+					"id": 160210,
+					"title": "screenshot-1794254499160",
+					"file_name": "bc767ead-f2fe-4b0b-9c07-bfb729fe7bf6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bc767ead-f2fe-4b0b-9c07-bfb729fe7bf6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065673": [
+			"**Location:** Inside a wooden smash box at the end of the monkey bars, past the swinging ball.",
+			[
+				{
+					"id": 160221,
+					"title": "screenshot-1794256143021",
+					"file_name": "e99a5c58-0e74-4cef-abce-5cbb80dd2bec.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e99a5c58-0e74-4cef-abce-5cbb80dd2bec.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065674": [
+			"**Location:** Inside a wooden smash box after bouncing on the jelly at the end of the monkey bars.\n\n**Opens:** [Crystal Door](#loc=1065678)",
+			[
+				{
+					"id": 160222,
+					"title": "screenshot-1794256174998",
+					"file_name": "a584e222-402e-4478-a7b6-162a70d536e4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a584e222-402e-4478-a7b6-162a70d536e4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065676": [
+			"**Leads to:** [Room 6](#loc=1066179)",
+			[
+				{
+					"id": 160223,
+					"title": "screenshot-1794256215637",
+					"file_name": "ae18b1b6-4e5f-444e-9fde-0207c60ec4f3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae18b1b6-4e5f-444e-9fde-0207c60ec4f3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065677": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160230,
+					"title": "screenshot-1794256579315",
+					"file_name": "af315c92-f5e5-48ec-a4a3-37bf6858e11e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/af315c92-f5e5-48ec-a4a3-37bf6858e11e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065678": [
+			"**Prerequisites:**\n\n- {{c-red width=16}} [Red Crystal](#loc=1065656)\n- {{c-green width=16}} [Green Crystal](#loc=1065665)\n- {{c-blue width=16}} [Blue Crystal](#loc=1065667)\n- {{c-yellow width=16}} [Yellow Crystal](#loc=1065670)\n- {{c-purple width=16}} [Purple Crystal](#loc=1065674)\n\n**Leads to:** [Room 7](#loc=1065683)",
+			[
+				{
+					"id": 160231,
+					"title": "screenshot-1794256588050",
+					"file_name": "70f6964f-bb5c-4f02-93be-3e58d759b141.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/70f6964f-bb5c-4f02-93be-3e58d759b141.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065679": [
+			"**Location:** Inside a wooden smash box in the first dungeon cell. Press the left [Red Button](#loc=1066478) to unlock this cell.",
+			[
+				{
+					"id": 160224,
+					"title": "screenshot-1794256318759",
+					"file_name": "c882ad5c-4d3e-40d9-bb22-bdab87db56ec.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c882ad5c-4d3e-40d9-bb22-bdab87db56ec.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065680": [
+			"**Location:** Inside a wooden smash box inside the third dungeon cell. Press the right [Red Button](#loc=1066480) to unlock this cell.",
+			[
+				{
+					"id": 160229,
+					"title": "screenshot-1794256567379",
+					"file_name": "384371e4-9d68-4609-b6ab-a8c1eb6c08d5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/384371e4-9d68-4609-b6ab-a8c1eb6c08d5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065681": [
+			"**Location:** Inside a wooden smash box in the second dungeon cell. Press the middle [Red Button](#loc=1066479) to unlock this cell.",
+			[
+				{
+					"id": 160225,
+					"title": "screenshot-1794256345254",
+					"file_name": "7a68d218-bc5d-45ac-ae1a-c93d05abb5cd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7a68d218-bc5d-45ac-ae1a-c93d05abb5cd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065682": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160234,
+					"title": "screenshot-1794256685232",
+					"file_name": "e4ee03ab-7bb4-4e2a-9226-c1f00860d5ac.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4ee03ab-7bb4-4e2a-9226-c1f00860d5ac.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065683": [
+			"**Leads to:** [Room 6](#loc=1065678)",
+			[
+				{
+					"id": 160232,
+					"title": "screenshot-1794256606324",
+					"file_name": "7f352387-c8e5-47ff-bca0-0c1833aa9502.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7f352387-c8e5-47ff-bca0-0c1833aa9502.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065684": [
+			"**Location:** Carried by the kidnapping Dantini. Hit him to free the Gobbo.",
+			[
+				{
+					"id": 160233,
+					"title": "image",
+					"file_name": "77c5cc4a-af7f-4e2b-b6de-cb24798d57d1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/77c5cc4a-af7f-4e2b-b6de-cb24798d57d1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065685": [
+			"**Location:** Inside a wooden smash box on the platform in the center of the three rotating platforms.",
+			[
+				{
+					"id": 160241,
+					"title": "screenshot-1794256930743",
+					"file_name": "b120db06-7f71-4bef-8c3e-ecf1d95f4270.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b120db06-7f71-4bef-8c3e-ecf1d95f4270.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065686": [
+			"**Leads to:** [Room 2](#loc=1066180)",
+			[
+				{
+					"id": 160242,
+					"title": "screenshot-1794256961783",
+					"file_name": "5d7623e3-27ee-464a-8448-9e30b3008891.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d7623e3-27ee-464a-8448-9e30b3008891.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065692": [
+			"**Location:** Disguised as a normal crystal on the second red carpet platform.\n\n**Opens:** [Crystal Door](#loc=1065731)",
+			[
+				{
+					"id": 160235,
+					"title": "screenshot-1794256768467",
+					"file_name": "cb420d40-778d-4824-88b9-3d0fbf7953bb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb420d40-778d-4824-88b9-3d0fbf7953bb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065694": [
+			"**Location:** Inside a wooden smash box on the first platform in the area.",
+			[
+				{
+					"id": 160243,
+					"title": "screenshot-1794256988523",
+					"file_name": "be0d629d-613d-4241-bc84-9042ed8c6083.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be0d629d-613d-4241-bc84-9042ed8c6083.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065695": [
+			"**Leads to:** [Room 3](#loc=1066181)",
+			[
+				{
+					"id": 160245,
+					"title": "screenshot-1794257041871",
+					"file_name": "d07e7eb2-1afe-4bfd-96db-910b4f677c8b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d07e7eb2-1afe-4bfd-96db-910b4f677c8b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065705": [
+			"**Location:** Disguised as a normal crystal at the end of the red carpet, before exiting the area.\n\n**Opens:** [Crystal Door](#loc=1065731)",
+			[
+				{
+					"id": 160244,
+					"title": "screenshot-1794257035639",
+					"file_name": "353795d9-2da3-4341-846d-a14809fc5df7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/353795d9-2da3-4341-846d-a14809fc5df7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065706": [
+			"**Location:** In the platform in between four electric pylons.",
+			[
+				{
+					"id": 160247,
+					"title": "screenshot-1794257154099",
+					"file_name": "996a9b1f-90de-4e4e-9e52-6960997af748.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/996a9b1f-90de-4e4e-9e52-6960997af748.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065707": [
+			"**Leads to:** [Room 4](#loc=1066182)",
+			[
+				{
+					"id": 160248,
+					"title": "screenshot-1794257162428",
+					"file_name": "5f0ff71d-1e5d-4c9c-8148-b4ab86ec8f79.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f0ff71d-1e5d-4c9c-8148-b4ab86ec8f79.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065708": [
+			"**Location:** Disguised as a normal crystal on the red carpet at the top of the stairs.\n\n**Opens:** [Crystal Door](#loc=1065731)",
+			[
+				{
+					"id": 160246,
+					"title": "screenshot-1794257117873",
+					"file_name": "e501016e-fdf8-4dc7-a3ac-072e2fdeb1ab.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e501016e-fdf8-4dc7-a3ac-072e2fdeb1ab.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065711": [
+			"**Leads to:** [Room 5](#loc=1066183)",
+			[
+				{
+					"id": 160251,
+					"title": "screenshot-1794257230463",
+					"file_name": "f9f71960-89cb-4c49-82b5-51624893d431.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f9f71960-89cb-4c49-82b5-51624893d431.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065712": [
+			"**Location:** Inside a wooden smash box in the corner of the platform over the first bridge.\n\n**Opens:** [Crystal Door](#loc=1065731)",
+			[
+				{
+					"id": 160249,
+					"title": "screenshot-1794257207807",
+					"file_name": "cac2ef8b-0a76-4162-8efb-ee1d9e87f677.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cac2ef8b-0a76-4162-8efb-ee1d9e87f677.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065713": [
+			"**Location:** Inside a wooden smash box in the corner of the platform over the second bridge.",
+			[
+				{
+					"id": 160250,
+					"title": "screenshot-1794257220611",
+					"file_name": "913a04ca-77be-4b63-9602-27c0b5640b95.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/913a04ca-77be-4b63-9602-27c0b5640b95.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065726": [
+			"**Location:** Inside wooden smash box left of the [Red Button](#loc=1066208) after crossing the cog platform.",
+			[
+				{
+					"id": 160252,
+					"title": "screenshot-1794257302346",
+					"file_name": "ae12f13c-5ada-45d7-b58a-c2bb33df23dd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae12f13c-5ada-45d7-b58a-c2bb33df23dd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065727": [
+			"**Location:** Inside the wooden smash box to the right of the [Red Button](#loc=1066208) after crossing the cog platform.\n\n**Opens:** [Crystal Door](#loc=1065731)",
+			[
+				{
+					"id": 160253,
+					"title": "screenshot-1794257310654",
+					"file_name": "690af2ff-6ff4-4be9-8665-40aaab38218e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/690af2ff-6ff4-4be9-8665-40aaab38218e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065730": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160255,
+					"title": "screenshot-1794257405546",
+					"file_name": "f55d8f56-506e-4dc1-ac88-711bd76dae68.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f55d8f56-506e-4dc1-ac88-711bd76dae68.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065731": [
+			"**Prerequisites:**\n\n- {{c-red width=16}} [Red Crystal](#loc=1065692)\n- {{c-green width=16}} [Green Crystal](#loc=1065705)\n- {{c-blue width=16}} [Blue Crystal](#loc=1065708)\n- {{c-yellow width=16}} [Yellow Crystal](#loc=1065712)\n- {{c-purple width=16}} [Purple Crystal](#loc=1065727)\n\n**Leads to:** [Room 6](#loc=1066184)",
+			[
+				{
+					"id": 160256,
+					"title": "screenshot-1794257412569",
+					"file_name": "636e409a-0556-4366-8764-a2b9d29841d1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/636e409a-0556-4366-8764-a2b9d29841d1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065732": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160260,
+					"title": "screenshot-1794257686427",
+					"file_name": "92547e20-29d6-4b11-a6d6-3c6e02e135f2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/92547e20-29d6-4b11-a6d6-3c6e02e135f2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065733": [
+			"**Location:** Inside a wooden smash box with a dantini on top of it.",
+			[
+				{
+					"id": 160259,
+					"title": "screenshot-1794257677388",
+					"file_name": "ec7438ee-657c-4629-b6e7-86e122966a97.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec7438ee-657c-4629-b6e7-86e122966a97.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065735": [
+			"",
+			[
+				{
+					"id": 160237,
+					"title": "screenshot-1794256822624",
+					"file_name": "e3aa2ff0-756f-4fcf-9562-34ee53ce2584.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3aa2ff0-756f-4fcf-9562-34ee53ce2584.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065736": [
+			"",
+			[
+				{
+					"id": 160238,
+					"title": "screenshot-1794256842568",
+					"file_name": "44bc8438-4e7c-44c4-99c3-f1678527577e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44bc8438-4e7c-44c4-99c3-f1678527577e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065737": [
+			"",
+			[
+				{
+					"id": 160239,
+					"title": "screenshot-1794256860699",
+					"file_name": "d6725783-5162-4c5f-a762-40a58eda1b3e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6725783-5162-4c5f-a762-40a58eda1b3e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065738": [
+			"**Leads to:** [Room 1](#loc=1066175)",
+			[
+				{
+					"id": 160240,
+					"title": "screenshot-1794256869522",
+					"file_name": "1444a0c3-7412-433c-8ce2-e6a00395c646.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1444a0c3-7412-433c-8ce2-e6a00395c646.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065739": [
+			"**Prerequisite:** [Door Key](#loc=1065740)\n\n**Leads to:** [Room 2](#loc=1065750)",
+			[
+				{
+					"id": 160261,
+					"title": "screenshot-1794257759700",
+					"file_name": "7462fa05-279c-4faa-aa0e-c75a6f92ccb2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7462fa05-279c-4faa-aa0e-c75a6f92ccb2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065740": [
+			"**Location:** On the metal grate guarded by a spider from above, surrounding by crystals.\n\n**Opens:** [Locked Door](#loc=1065739)",
+			[
+				{
+					"id": 160262,
+					"title": "screenshot-1794257780379",
+					"file_name": "48f51d89-e306-46aa-a41a-942f50a48875.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/48f51d89-e306-46aa-a41a-942f50a48875.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065748": [
+			"**Location:** Disguised as a normal crystal behind the [Door Key](#loc=1065740).\n\n**Opens:** [Crystal Door](#loc=1065779)",
+			[
+				{
+					"id": 160263,
+					"title": "screenshot-1794257807187",
+					"file_name": "61a838fe-e368-4e57-a218-8f5f586eee7c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61a838fe-e368-4e57-a218-8f5f586eee7c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065750": [
+			"**Note:** You cannot pass through this door.",
+			[
+				{
+					"id": 160265,
+					"title": "screenshot-1794257898732",
+					"file_name": "0c4db06f-99e9-414c-981d-e7a29935fb3a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c4db06f-99e9-414c-981d-e7a29935fb3a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065751": [
+			"**Leads to:** [Room 3](#loc=1065753)",
+			[
+				{
+					"id": 160266,
+					"title": "screenshot-1794257905354",
+					"file_name": "091587a0-b5f1-4b69-8c13-d0a776d414c0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/091587a0-b5f1-4b69-8c13-d0a776d414c0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065752": [
+			"**Location:** Hidden under one of the three smash boxes which get shuffled when you enter the room.",
+			[
+				{
+					"id": 160264,
+					"title": "screenshot-1794257878234",
+					"file_name": "d64a5fdd-171d-4673-b40d-eabcf964c003.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d64a5fdd-171d-4673-b40d-eabcf964c003.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065753": [
+			"**Note:** You cannot pass through this door.",
+			[
+				{
+					"id": 160267,
+					"title": "screenshot-1794257952422",
+					"file_name": "a9ec8112-7b33-4fed-8437-66f641f3c3da.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a9ec8112-7b33-4fed-8437-66f641f3c3da.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065754": [
+			"**Leads to:** [Room 4](#loc=1065756)",
+			[
+				{
+					"id": 160269,
+					"title": "screenshot-1794257988102",
+					"file_name": "101a6d26-7fe6-4fd1-974c-5d80eb80757b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/101a6d26-7fe6-4fd1-974c-5d80eb80757b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065755": [
+			"**Location:** Inside the running smash box. Catch it to release the Gobbo.",
+			[
+				{
+					"id": 160268,
+					"title": "screenshot-1794257959209",
+					"file_name": "8ba0155e-8ceb-4d28-843c-8c374d24af70.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8ba0155e-8ceb-4d28-843c-8c374d24af70.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065756": [
+			"**Note:** You cannot pass back through this door.",
+			[
+				{
+					"id": 160271,
+					"title": "screenshot-1794258706888",
+					"file_name": "f779a2ab-b2cb-4014-aee4-b17904463476.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f779a2ab-b2cb-4014-aee4-b17904463476.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065757": [
+			"**Leads to:** [Room 5](#loc=1065759)",
+			[
+				{
+					"id": 160272,
+					"title": "screenshot-1794258712725",
+					"file_name": "fa4b3db1-88b1-4a84-a2df-b775faf4a4a7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa4b3db1-88b1-4a84-a2df-b775faf4a4a7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065758": [
+			"**Location:** Appears after winning the crystal catching minigame.",
+			[
+				{
+					"id": 160270,
+					"title": "screenshot-1794258018189",
+					"file_name": "4bb4267f-d16e-45f1-b51f-0d1915b35f2b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4bb4267f-d16e-45f1-b51f-0d1915b35f2b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065759": [
+			"**Note:** You cannot go back through this door.",
+			[
+				{
+					"id": 160277,
+					"title": "screenshot-1794258809028",
+					"file_name": "184685c4-3521-49a1-bcd7-49254cdc710c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/184685c4-3521-49a1-bcd7-49254cdc710c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065760": [
+			"**Leads to:** [Room 6](#loc=1065762)",
+			[
+				{
+					"id": 160276,
+					"title": "screenshot-1794258794962",
+					"file_name": "aa3d832e-04f3-4d8f-8090-dd7953bf5d32.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa3d832e-04f3-4d8f-8090-dd7953bf5d32.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065761": [
+			"**Location:** Appears after winning the popping minigame.",
+			[
+				{
+					"id": 160274,
+					"title": "screenshot-1794258742152",
+					"file_name": "ab912478-aaf8-439e-ba22-074219013093.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab912478-aaf8-439e-ba22-074219013093.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 160275,
+					"title": "screenshot-1794258784733",
+					"file_name": "44700a9b-34a6-4152-aaee-eea3713d83e3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44700a9b-34a6-4152-aaee-eea3713d83e3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065762": [
+			"**Note:** You cannot pass back through this door.",
+			[
+				{
+					"id": 160278,
+					"title": "screenshot-1794259895497",
+					"file_name": "8f0d10d7-6a1a-4bd1-8af5-9ed5e406b16b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8f0d10d7-6a1a-4bd1-8af5-9ed5e406b16b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065768": [
+			"**Note:** Move Balloon Man into position in front of the door and then use the balloon pump to pop him, opening the door.\n\nSolution: ||This is the wrong door. If you go through this door, you will not be able to complete the level.||\n\n**Leads to:** [Room 7](#loc=1065772)",
+			[
+				{
+					"id": 160279,
+					"title": "screenshot-1794259938577",
+					"file_name": "7687cf06-df5f-4d85-a8d1-06996cc7ebcd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7687cf06-df5f-4d85-a8d1-06996cc7ebcd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065769": [
+			"**Note:** Move Balloon Man into position in front of the door and then use the balloon pump to pop him, opening the door.\n\nSolution: ||This is the right door. If you go through this door, you will be able to complete the level.||\n\n**Leads to:** [Room 8](#loc=1065780)",
+			[
+				{
+					"id": 160281,
+					"title": "screenshot-1794259953566",
+					"file_name": "cb6928c3-6b2c-4fa8-85f7-6b91a9789877.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb6928c3-6b2c-4fa8-85f7-6b91a9789877.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065770": [
+			"**Note:** Move Balloon Man into position in front of the door and then use the balloon pump to pop him, opening the door.\n\nSolution: ||This is the wrong door. If you go through this door, you will not be able to complete the level.||\n\n**Leads to:** [Room 9](#loc=1065786)",
+			[
+				{
+					"id": 160280,
+					"title": "screenshot-1794259943712",
+					"file_name": "56ef4972-12e8-4b15-afed-b039ae6da708.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/56ef4972-12e8-4b15-afed-b039ae6da708.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065771": ["**Note:** Ring the gong to finish the level.", []],
+		"1065772": ["**Note:** You cannot pass back through this door.", []],
+		"1065773": [
+			"",
+			[
+				{
+					"id": 160282,
+					"title": "screenshot-1794259979839",
+					"file_name": "4d590726-eaa5-4421-8a5a-267e3322944d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d590726-eaa5-4421-8a5a-267e3322944d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065774": [
+			"",
+			[
+				{
+					"id": 160285,
+					"title": "screenshot-1794259996556",
+					"file_name": "facc99ea-9ec3-434c-80b8-408c22f478b2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/facc99ea-9ec3-434c-80b8-408c22f478b2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065775": [
+			"",
+			[
+				{
+					"id": 160286,
+					"title": "screenshot-1794260002535",
+					"file_name": "795ddd9f-afa7-47f9-94b6-df168bcf8489.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/795ddd9f-afa7-47f9-94b6-df168bcf8489.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065776": [
+			"",
+			[
+				{
+					"id": 160284,
+					"title": "screenshot-1794259990649",
+					"file_name": "febf93a5-8d49-4bf1-abab-54b1093fa031.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/febf93a5-8d49-4bf1-abab-54b1093fa031.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065777": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160290,
+					"title": "screenshot-1794260030224",
+					"file_name": "5cdfcd35-29c1-4ae2-be11-9bfce089da30.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5cdfcd35-29c1-4ae2-be11-9bfce089da30.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065778": [
+			"",
+			[
+				{
+					"id": 160283,
+					"title": "screenshot-1794259984790",
+					"file_name": "217bdeb3-938e-4f05-8187-04c5dc8481d3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/217bdeb3-938e-4f05-8187-04c5dc8481d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065779": [
+			"**Prerequisites:**\n\n- {{c-red width=16}} [Red Crystal](#loc=1065748)\n- {{c-green width=16}} [Green Crystal](#loc=1065782)\n- {{c-blue width=16}} [Blue Crystal](#loc=1065783)\n- {{c-yellow width=16}} [Yellow Crystal](#loc=1065784)\n- {{c-purple width=16}} [Purple Crystal](#loc=1065781)\n\n**Leads to:** [Room 10](#loc=1065791)",
+			[
+				{
+					"id": 160291,
+					"title": "screenshot-1794260042059",
+					"file_name": "714cefee-3492-456f-b657-17a2ace0e133.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/714cefee-3492-456f-b657-17a2ace0e133.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065780": [
+			"**Note:** You cannot pass back through this door.",
+			[
+				{
+					"id": 160293,
+					"title": "screenshot-1794260056931",
+					"file_name": "3a160cd9-a3c3-460f-8ee7-476406ac2ed5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a160cd9-a3c3-460f-8ee7-476406ac2ed5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065781": [
+			"**Location:** Inside a wooden smash box.\n\n**Opens:** [Crystal Door](#loc=1065779)",
+			[
+				{
+					"id": 160287,
+					"title": "screenshot-1794260009092",
+					"file_name": "d943e491-8b3f-4657-aab6-557155886661.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d943e491-8b3f-4657-aab6-557155886661.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065782": [
+			"**Location:** Inside a wooden smash box.\n\n**Opens:** [Crystal Door](#loc=1065779)",
+			[
+				{
+					"id": 160288,
+					"title": "screenshot-1794260016296",
+					"file_name": "3fff6355-b5dc-43bc-b4ab-f4e3b093770a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3fff6355-b5dc-43bc-b4ab-f4e3b093770a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065783": [
+			"**Location:** Inside a wooden smash box.\n\n**Opens:** [Crystal Door](#loc=1065779)",
+			[
+				{
+					"id": 160289,
+					"title": "screenshot-1794260023728",
+					"file_name": "a4329a91-3e17-46d8-9a90-e2b64e3bc9a9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a4329a91-3e17-46d8-9a90-e2b64e3bc9a9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065784": [
+			"**Location:** Inside a wooden smash box.\n\n**Opens:** [Crystal Door](#loc=1065779)",
+			[
+				{
+					"id": 160292,
+					"title": "screenshot-1794260047625",
+					"file_name": "1c22c899-1a52-45b4-811b-21ef23f9716e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1c22c899-1a52-45b4-811b-21ef23f9716e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065785": ["**Note:** Ring the gong to finish the level.", []],
+		"1065786": ["**Note:** You cannot pass back through this door.", []],
+		"1065787": [
+			"**Location:** Locked in a cage at the end of the left side of the dungeon.\n\n**Prerequisite:** [Cage Key](#loc=1065792)",
+			[
+				{
+					"id": 160297,
+					"title": "screenshot-1794260286542",
+					"file_name": "e359c61b-6826-493b-8d6e-a3f5a18d8fb0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e359c61b-6826-493b-8d6e-a3f5a18d8fb0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065791": [
+			"**Note:** You cannot pass back through this door.",
+			[
+				{
+					"id": 160294,
+					"title": "screenshot-1794260221125",
+					"file_name": "2bede033-73f1-48dc-a884-4776493af1d1.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2bede033-73f1-48dc-a884-4776493af1d1.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065792": [
+			"**Location:** At the end of the right side of the dungeon, guarded by a dantini.\n\n**Opens:** [Gobbo](#loc=1065787)",
+			[
+				{
+					"id": 160296,
+					"title": "screenshot-1794260264641",
+					"file_name": "e7820334-50e8-46ed-80de-7fe8341b95a3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e7820334-50e8-46ed-80de-7fe8341b95a3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065802": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160295,
+					"title": "screenshot-1794260225914",
+					"file_name": "fedd5551-ee13-4610-b8f4-c5a8dbd9ca46.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fedd5551-ee13-4610-b8f4-c5a8dbd9ca46.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065812": [
+			"**Location:** Inside a wooden smash box on the left balcony halfway across the shrinking platforms.",
+			[
+				{
+					"id": 160575,
+					"title": "screenshot-1794339073332",
+					"file_name": "5b4385b5-3770-426b-bc7c-5f82d0101020.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b4385b5-3770-426b-bc7c-5f82d0101020.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065814": [
+			"**Leads to:** [Room 2](#loc=1066185)",
+			[
+				{
+					"id": 160576,
+					"title": "screenshot-1794339089770",
+					"file_name": "4bdb6bfc-cd90-4dcd-bb04-7e8191607bc4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4bdb6bfc-cd90-4dcd-bb04-7e8191607bc4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065830": [
+			"**Leads to:** [Room 3](#loc=1066186)",
+			[
+				{
+					"id": 160577,
+					"title": "screenshot-1794339152992",
+					"file_name": "9a0a932b-5401-4382-815b-8f0db7442949.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a0a932b-5401-4382-815b-8f0db7442949.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065831": [
+			"**Leads to:** [Room 2](#loc=1065839)",
+			[
+				{
+					"id": 160595,
+					"title": "screenshot-1794341341881",
+					"file_name": "8600e99d-bdc7-4495-a108-36323ce6479b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8600e99d-bdc7-4495-a108-36323ce6479b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065834": [
+			"**Location:** Disguised as a normal crystal on top of the last spiked platform you rotate using the red buttons.\n\n**Opens:** [Crystal Door](#loc=1065862)",
+			[
+				{
+					"id": 160594,
+					"title": "screenshot-1794341335469",
+					"file_name": "fe5f0ad8-2184-4381-907c-a992d5074f16.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fe5f0ad8-2184-4381-907c-a992d5074f16.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065836": [
+			"**Location:** Inside a wooden smash box in the corner of the path after avoiding Ballistic Meg for the first time.",
+			[
+				{
+					"id": 160590,
+					"title": "screenshot-1794341278785",
+					"file_name": "974f0682-8d88-43c5-ae3a-97c632eeae2b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/974f0682-8d88-43c5-ae3a-97c632eeae2b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065838": [
+			"**Leads to:** [Room 3](#loc=1065853)",
+			[
+				{
+					"id": 160600,
+					"title": "screenshot-1794341516680",
+					"file_name": "0a2da495-1463-454b-bef0-5b60dfd6a2bc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a2da495-1463-454b-bef0-5b60dfd6a2bc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065839": [
+			"**Leads to:** [Room 1](#loc=1065831)",
+			[
+				{
+					"id": 160596,
+					"title": "screenshot-1794341425357",
+					"file_name": "d9423818-e71e-454c-adf1-2b8e91dc8f27.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9423818-e71e-454c-adf1-2b8e91dc8f27.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065840": [
+			"**Prerequisite:** [Door Key](#loc=1065854)\n\n**Leads to:** [Room 5](#loc=1065863)",
+			[
+				{
+					"id": 160599,
+					"title": "screenshot-1794341503074",
+					"file_name": "53d0f648-d49d-4ea0-a20e-b29a0b1b4638.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/53d0f648-d49d-4ea0-a20e-b29a0b1b4638.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065850": [
+			"**Location:** Disguised as a normal crystal on the left underside end of the monkey bars after avoiding Ballistic Meg.\n\n**Opens:** [Crystal Door](#loc=1065862)",
+			[
+				{
+					"id": 160598,
+					"title": "screenshot-1794341483775",
+					"file_name": "3fc603ca-043b-4576-8c25-441765b204df.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3fc603ca-043b-4576-8c25-441765b204df.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065851": [
+			"**Location:** Inside a wooden smash box on the left immediately after starting the area, before using the balloon.",
+			[
+				{
+					"id": 160597,
+					"title": "screenshot-1794341431582",
+					"file_name": "4e5ca786-0cee-46c3-b80c-b05688bb3d2a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e5ca786-0cee-46c3-b80c-b05688bb3d2a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065852": [
+			"**Location:** Locked in a cage on the first platform in the area.\n\n**Prerequisite:** [Cage Key](#loc=1065855)",
+			[
+				{
+					"id": 160602,
+					"title": "screenshot-1794341578574",
+					"file_name": "b4c17b57-6c48-4b9e-9993-4a95eb186103.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b4c17b57-6c48-4b9e-9993-4a95eb186103.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065853": [
+			"**Leads to:** [Room 2](#loc=1065838)",
+			[
+				{
+					"id": 160601,
+					"title": "screenshot-1794341566498",
+					"file_name": "ac838068-9aa3-4d12-9d9f-202a93966e81.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac838068-9aa3-4d12-9d9f-202a93966e81.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065854": [
+			"**Location:** On the fifth platform in the area.\n\n**Opens:** [Locked Door](#loc=1065840)",
+			[
+				{
+					"id": 160604,
+					"title": "screenshot-1794341647340",
+					"file_name": "e58038c9-e708-4a60-af5e-afa6586547ae.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e58038c9-e708-4a60-af5e-afa6586547ae.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065855": [
+			"**Location:** On the seventh platform in the area.\n\n**Opens:** [Gobbo](#loc=1065852)",
+			[
+				{
+					"id": 160605,
+					"title": "screenshot-1794341690742",
+					"file_name": "f482af6d-20f6-444a-86ca-cf5b20687034.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f482af6d-20f6-444a-86ca-cf5b20687034.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065856": [
+			"**Location:** Inside a wooden smash box on the third platform in the area.\n\n**Opens:** [Crystal Door](#loc=1065862)",
+			[
+				{
+					"id": 160603,
+					"title": "screenshot-1794341607006",
+					"file_name": "4635b72e-f113-4e62-b662-1f3d9ea6d5b5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4635b72e-f113-4e62-b662-1f3d9ea6d5b5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065858": [
+			"**Leads to:** [Room 5](#loc=1065864)",
+			[
+				{
+					"id": 160610,
+					"title": "screenshot-1794342035062",
+					"file_name": "2f4b4050-e2f6-4982-afdb-55d2a034625c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f4b4050-e2f6-4982-afdb-55d2a034625c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065859": [
+			"**Location:** Inside a wooden smash box after avoiding Ballistic Meg and crossing the two volatile platforms.",
+			[
+				{
+					"id": 160611,
+					"title": "screenshot-1794342055768",
+					"file_name": "6ef64d0c-2dc0-4e0c-bb03-651e75ab0581.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6ef64d0c-2dc0-4e0c-bb03-651e75ab0581.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065860": [
+			"**Location:** Inside a wooden smash box after avoiding Ballistic Meg and crossing the two volatile platforms.\n\n**Opens:** [Crystal Door](#loc=1065862)",
+			[
+				{
+					"id": 160612,
+					"title": "screenshot-1794342064299",
+					"file_name": "91c8300b-f7b4-486a-960b-7d2f31d17813.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91c8300b-f7b4-486a-960b-7d2f31d17813.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065861": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160613,
+					"title": "screenshot-1794342093697",
+					"file_name": "270a90f5-b069-45f7-aa48-e86f04887098.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/270a90f5-b069-45f7-aa48-e86f04887098.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065862": [
+			"**Prerequisites:**\n\n- {{c-red width=16}} [Red Crystal](#loc=1065834)\n- {{c-green width=16}} [Green Crystal](#loc=1065850)\n- {{c-blue width=16}} [Blue Crystal](#loc=1065856)\n- {{c-yellow width=16}} [Yellow Crystal](#loc=1065881)\n- {{c-purple width=16}} [Purple Crystal](#loc=1065860)\n\n**Leads to:** [Room 6](#loc=1066187)",
+			[
+				{
+					"id": 160614,
+					"title": "screenshot-1794342097889",
+					"file_name": "30764cd7-5b12-49e0-9585-4ee8996bef33.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/30764cd7-5b12-49e0-9585-4ee8996bef33.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065863": [
+			"**Leads to:** [Room 2](#loc=1065840)",
+			[
+				{
+					"id": 160606,
+					"title": "screenshot-1794341777386",
+					"file_name": "7331ef57-a80d-48b0-8691-5ff884235787.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7331ef57-a80d-48b0-8691-5ff884235787.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065864": [
+			"**Leads to:** [Room 4](#loc=1065858)",
+			[
+				{
+					"id": 160609,
+					"title": "screenshot-1794341914995",
+					"file_name": "f9a94d91-2c1f-4f5c-992c-dfa551a49376.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f9a94d91-2c1f-4f5c-992c-dfa551a49376.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065881": [
+			"**Location:** Disguised as a normal crystal on the underside of the fourth set of monkey bars.\n\n**Opens:** [Crystal Door](#loc=1065862)",
+			[
+				{
+					"id": 160607,
+					"title": "screenshot-1794341893492",
+					"file_name": "4ec1bfac-0c15-420f-abb3-f87c059b3b00.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ec1bfac-0c15-420f-abb3-f87c059b3b00.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065882": [
+			"**Location:** Inside a wooden smash box after the fourth set of monkey bars, in front of the [Door](#loc=1065864).",
+			[
+				{
+					"id": 160608,
+					"title": "screenshot-1794341908475",
+					"file_name": "f06b8e8f-e842-4d76-b575-161e7c4128c2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f06b8e8f-e842-4d76-b575-161e7c4128c2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065883": [
+			"**Location:** Inside a wooden smash box on the second platform to the right of the log rafts.",
+			[
+				{
+					"id": 160615,
+					"title": "screenshot-1794342179872",
+					"file_name": "db2691a8-fe34-4cba-88b4-c8c8d783369d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/db2691a8-fe34-4cba-88b4-c8c8d783369d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065885": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160616,
+					"title": "screenshot-1794342249666",
+					"file_name": "a6cfe0bb-14c5-4232-a9fc-c8358a57a010.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a6cfe0bb-14c5-4232-a9fc-c8358a57a010.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065886": [
+			"**Leads to:** [Room 2](#loc=1066188)",
+			[
+				{
+					"id": 160619,
+					"title": "screenshot-1794342533994",
+					"file_name": "e0e0b46f-4578-4543-8c61-d18ec4c700be.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0e0b46f-4578-4543-8c61-d18ec4c700be.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065887": [
+			"**Location:** Inside the wooden smash box on the left in front of the [Door](#loc=1065886) after defeating the Swipe Swiftly enemies.",
+			[
+				{
+					"id": 160618,
+					"title": "screenshot-1794342523520",
+					"file_name": "dc20cefd-8d6f-4f02-8de7-2008b88aa576.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dc20cefd-8d6f-4f02-8de7-2008b88aa576.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065889": [
+			"**Location:** Disguised as a normal crystal at the start of the level.\n\n**Note:** The platform below this will drop as soon as you land on it, so make sure you grab the crystal quickly.\n\n**Opens:** [Crystal Door](#loc=1065951)",
+			[
+				{
+					"id": 160617,
+					"title": "screenshot-1794342368995",
+					"file_name": "796df883-f1dc-4aba-a2cd-35e2cceb752c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/796df883-f1dc-4aba-a2cd-35e2cceb752c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065892": [
+			"**Location:** Inside a wooden smash box on the last stationary platform.",
+			[
+				{
+					"id": 160620,
+					"title": "screenshot-1794342808600",
+					"file_name": "84e5b6a0-a6bf-452a-9925-87643d5778b0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/84e5b6a0-a6bf-452a-9925-87643d5778b0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065895": [
+			"**Leads to:** [Room 3](#loc=1066189)",
+			[
+				{
+					"id": 160629,
+					"title": "screenshot-1794343358336",
+					"file_name": "f43f9e81-f8da-4656-bfe9-79ac9d4d9b9e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f43f9e81-f8da-4656-bfe9-79ac9d4d9b9e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065896": [
+			"**Location:** Disguised as a normal crystal on the lower platform.\n\n**Note:** As soon as you jump on this platform, it will begin falling. Be sure to grab the crystal quickly.\n\n**Opens:** [Crystal Door](#loc=1065951)",
+			[
+				{
+					"id": 160628,
+					"title": "image",
+					"file_name": "91eefa3b-a6ac-4410-9c0d-600321b39d2d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91eefa3b-a6ac-4410-9c0d-600321b39d2d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065897": [
+			"**Location:** Stomp three times on the stationary platform at the end of the moving platforms.\n\n**Leads to:** [Room 7](#loc=1066190)",
+			[]
+		],
+		"1065898": [
+			"**Location:** Inside a wooden smash box on the stationary platform inside the moving one.\n\n**Opens:** [Crystal Door](#loc=1065951)",
+			[
+				{
+					"id": 160630,
+					"title": "screenshot-1794343401303",
+					"file_name": "38f7bd1a-970b-4bbc-a76e-d901d6018cd8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/38f7bd1a-970b-4bbc-a76e-d901d6018cd8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065915": [
+			"**Location:** Inside a wooden smash box on the corner platform.",
+			[
+				{
+					"id": 160631,
+					"title": "screenshot-1794343453346",
+					"file_name": "38154b65-1f76-4c5d-9bfd-0221f84d012d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/38154b65-1f76-4c5d-9bfd-0221f84d012d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065916": [
+			"**Leads to:** [Room 4](#loc=1066191)",
+			[
+				{
+					"id": 160632,
+					"title": "screenshot-1794343478579",
+					"file_name": "3f0bf2e1-88d5-450e-aa39-3b35bdf401e9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f0bf2e1-88d5-450e-aa39-3b35bdf401e9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065917": [
+			"**Leads to:** [Room 5](#loc=1066192)",
+			[
+				{
+					"id": 160635,
+					"title": "screenshot-1794343585992",
+					"file_name": "c5cebbd9-6eca-49bd-a4f6-c1a24f05d2fc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5cebbd9-6eca-49bd-a4f6-c1a24f05d2fc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065919": [
+			"**Location:** Inside a wooden smash box.",
+			[
+				{
+					"id": 160633,
+					"title": "screenshot-1794343539676",
+					"file_name": "57482c78-22c6-46d1-b49b-f3bdf23597e7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57482c78-22c6-46d1-b49b-f3bdf23597e7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065938": [
+			"**Location:** Disguised as a normal crystal in a row of crystals on the moving platforms before the [Door](#loc=1065917).\n\n**Opens:** [Crystal Door](#loc=1065951)",
+			[
+				{
+					"id": 160634,
+					"title": "screenshot-1794343569931",
+					"file_name": "90abcfa2-a162-4dac-a3bc-efceab024808.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/90abcfa2-a162-4dac-a3bc-efceab024808.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065943": [
+			"**Location:** Disguised as a normal crystal on the first row of crystals in the area.\n\n**Opens:** [Crystal Door](#loc=1065951)",
+			[
+				{
+					"id": 160636,
+					"title": "screenshot-1794343755132",
+					"file_name": "fe7ad76d-3db2-4678-b4e0-0e692e57d103.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fe7ad76d-3db2-4678-b4e0-0e692e57d103.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065950": [
+			"**Location:** Inside a wooden smash box on the corner platform guarded by a dantini.",
+			[
+				{
+					"id": 160637,
+					"title": "screenshot-1794343766723",
+					"file_name": "51ba5a44-9b76-485b-9676-485022fb2067.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/51ba5a44-9b76-485b-9676-485022fb2067.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065951": [
+			"**Prerequisites:**\n\n- {{c-red width=16}} [Red Crystal](#loc=1065889)\n- {{c-green width=16}} [Green Crystal](#loc=1065896)\n- {{c-blue width=16}} [Blue Crystal](#loc=1065898)\n- {{c-yellow width=16}} [Yellow Crystal](#loc=1065938)\n- {{c-purple width=16}} [Purple Crystal](#loc=1065943)\n\n**Leads to:** [Room 6](#loc=1066193)",
+			[
+				{
+					"id": 160639,
+					"title": "screenshot-1794343797992",
+					"file_name": "0bb8f382-1846-4acb-9fc3-df0fe5f4fc0d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0bb8f382-1846-4acb-9fc3-df0fe5f4fc0d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065952": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160638,
+					"title": "screenshot-1794343777355",
+					"file_name": "5b90bc68-e95c-40cf-922c-c02dcc17f63a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b90bc68-e95c-40cf-922c-c02dcc17f63a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065953": [
+			"**Location:** Inside a wooden smash box on the platform after the shrinking platforms.",
+			[
+				{
+					"id": 160640,
+					"title": "screenshot-1794343862931",
+					"file_name": "a258b44e-5c95-4bbe-9b60-cf7b49d9ead6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a258b44e-5c95-4bbe-9b60-cf7b49d9ead6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065954": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160641,
+					"title": "screenshot-1794343870720",
+					"file_name": "53c60a9e-3c80-45c3-96e2-b42ac5b6d3d8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/53c60a9e-3c80-45c3-96e2-b42ac5b6d3d8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066001": [
+			"",
+			[
+				{
+					"id": 160621,
+					"title": "screenshot-1794343141720",
+					"file_name": "80599a69-fffc-4e51-a3ee-f2b6c48e2fe5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/80599a69-fffc-4e51-a3ee-f2b6c48e2fe5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066002": [
+			"",
+			[
+				{
+					"id": 160622,
+					"title": "image",
+					"file_name": "aac0b805-a643-41ae-aba9-2193d8b2040d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aac0b805-a643-41ae-aba9-2193d8b2040d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066003": [
+			"",
+			[
+				{
+					"id": 160623,
+					"title": "image",
+					"file_name": "728222a8-c61a-46be-9d07-9fd2ef98d9b5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/728222a8-c61a-46be-9d07-9fd2ef98d9b5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066004": [
+			"",
+			[
+				{
+					"id": 160624,
+					"title": "image",
+					"file_name": "1cb7ffb0-479c-4aed-9a42-ccead737e641.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1cb7ffb0-479c-4aed-9a42-ccead737e641.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066005": [
+			"",
+			[
+				{
+					"id": 160625,
+					"title": "image",
+					"file_name": "30a56b75-384d-4c8e-8660-664914e2a08d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/30a56b75-384d-4c8e-8660-664914e2a08d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066006": [
+			"**Leads to:** [Room 2](#loc=1066194)",
+			[
+				{
+					"id": 160626,
+					"title": "screenshot-1794343171338",
+					"file_name": "58e2a507-7bb6-43a0-b20e-3dbfb6171073.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/58e2a507-7bb6-43a0-b20e-3dbfb6171073.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066009": [
+			"**Leads to:** [Room 2](#loc=1066013)",
+			[
+				{
+					"id": 160644,
+					"title": "screenshot-1794345020154",
+					"file_name": "a99d021f-e860-4545-93df-b184530ade24.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a99d021f-e860-4545-93df-b184530ade24.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066010": [
+			"**Location:** Inside a wooden smash box on the back right platform.\n\n**Opens:** [Crystal Door](#loc=1066022)",
+			[
+				{
+					"id": 160643,
+					"title": "screenshot-1794345002414",
+					"file_name": "afc87b49-1f3b-4e9b-a2fd-270a20935a4a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/afc87b49-1f3b-4e9b-a2fd-270a20935a4a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066013": [
+			"**Leads to:** [Room 1](#loc=1066009)",
+			[
+				{
+					"id": 160645,
+					"title": "screenshot-1794345050565",
+					"file_name": "2616ddf9-7352-4f10-82ca-542e0f8c9690.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2616ddf9-7352-4f10-82ca-542e0f8c9690.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066014": [
+			"**Location:** Inside a wooden smash box on the second platform in the area.\n\n**Opens:** [Crystal Door](#loc=1066022)",
+			[
+				{
+					"id": 160646,
+					"title": "screenshot-1794345119626",
+					"file_name": "25572d1f-a005-4783-a4e8-7abea7128ed0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/25572d1f-a005-4783-a4e8-7abea7128ed0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066015": [
+			"**Leads to:** [Room 3](#loc=1066016)",
+			[
+				{
+					"id": 160647,
+					"title": "screenshot-1794345138851",
+					"file_name": "a130d665-9451-49a6-a43b-858708153bcb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a130d665-9451-49a6-a43b-858708153bcb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066016": [
+			"**Leads to:** [Room 2](#loc=1066015)",
+			[
+				{
+					"id": 160648,
+					"title": "screenshot-1794345179273",
+					"file_name": "8b5c26cc-e575-4b85-9e72-60c307942d49.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8b5c26cc-e575-4b85-9e72-60c307942d49.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066017": [
+			"**Leads to:** [Room 4](#loc=1066020)",
+			[
+				{
+					"id": 160650,
+					"title": "screenshot-1794345240147",
+					"file_name": "72b3c26a-5b39-40eb-b001-5c12dc1beb2e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/72b3c26a-5b39-40eb-b001-5c12dc1beb2e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066018": [
+			"**Location:** Inside a wooden smash box on the second platform.\n\n**Opens:** [Crystal Door](#loc=1066022)",
+			[
+				{
+					"id": 160649,
+					"title": "screenshot-1794345224775",
+					"file_name": "53d0b14d-b376-4907-83e3-8979c3e316d4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/53d0b14d-b376-4907-83e3-8979c3e316d4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066019": [
+			"**Location:** Inside a wooden smash box.\n\n**Opens:** [Crystal Door](#loc=1066022)",
+			[
+				{
+					"id": 160652,
+					"title": "screenshot-1794345350284",
+					"file_name": "edb07887-b6e5-413c-a47b-2548c5815c43.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/edb07887-b6e5-413c-a47b-2548c5815c43.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066020": [
+			"**Leads to:** [Room 3](#loc=1066017)",
+			[
+				{
+					"id": 160651,
+					"title": "screenshot-1794345271139",
+					"file_name": "95f56012-66ec-4ff3-a0e6-972589700391.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95f56012-66ec-4ff3-a0e6-972589700391.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066021": [
+			"**Leads to:** [Room 5](#loc=1066195)",
+			[
+				{
+					"id": 160653,
+					"title": "screenshot-1794345370034",
+					"file_name": "7b2432ef-40f1-486e-bd02-5f9a9f590b90.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b2432ef-40f1-486e-bd02-5f9a9f590b90.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066022": [
+			"**Prerequisites:**\n\n- {{c-red width=16}} [Red Crystal](#loc=1066010)\n- {{c-green width=16}} [Green Crystal](#loc=1066014)\n- {{c-blue width=16}} [Blue Crystal](#loc=1066018)\n- {{c-yellow width=16}} [Yellow Crystal](#loc=1066019)\n- {{c-purple width=16}} [Purple Crystal](#loc=1066024)\n\n**Leads to:** [Room 6](#loc=1066032)",
+			[
+				{
+					"id": 160656,
+					"title": "screenshot-1794345690179",
+					"file_name": "a5d1df55-1fcf-42e5-9d02-61f9e245026f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a5d1df55-1fcf-42e5-9d02-61f9e245026f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066023": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160655,
+					"title": "screenshot-1794345684743",
+					"file_name": "2608129e-72e7-4424-8bb9-c44e333163ac.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2608129e-72e7-4424-8bb9-c44e333163ac.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066024": [
+			"**Location:** On the highest platform in front of the [Crystal Door](#loc=1066022) and [Level Exit](#loc=1066023) gong.\n\n**Opens:** [Crystal Door](#loc=1066022)",
+			[
+				{
+					"id": 160654,
+					"title": "screenshot-1794345677520",
+					"file_name": "e2cc5d2d-9c17-48f7-a151-0d601932e87a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e2cc5d2d-9c17-48f7-a151-0d601932e87a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066025": [
+			"**Location:** Inside a wooden smash box.",
+			[
+				{
+					"id": 160658,
+					"title": "screenshot-1794345737024",
+					"file_name": "9a8fc3e2-5227-4c6e-8deb-a66378206619.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a8fc3e2-5227-4c6e-8deb-a66378206619.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066026": [
+			"**Location:** Inside a wooden smash box.",
+			[
+				{
+					"id": 160660,
+					"title": "screenshot-1794345765881",
+					"file_name": "b15eaa09-dcba-4d64-a3b5-06e6f8aa8658.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b15eaa09-dcba-4d64-a3b5-06e6f8aa8658.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066027": [
+			"**Location:** Inside a wooden smash box.",
+			[
+				{
+					"id": 160659,
+					"title": "screenshot-1794345748152",
+					"file_name": "8d1c0233-00bb-4a7b-8c62-004d824ed6b5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8d1c0233-00bb-4a7b-8c62-004d824ed6b5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066028": [
+			"**Location:** Inside a wooden smash box.",
+			[
+				{
+					"id": 160662,
+					"title": "screenshot-1794345853086",
+					"file_name": "a188d735-bc15-4fc2-b7de-7ba3c4ac50ad.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a188d735-bc15-4fc2-b7de-7ba3c4ac50ad.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066029": [
+			"**Location:** Inside a wooden smash box.",
+			[
+				{
+					"id": 160661,
+					"title": "screenshot-1794345837679",
+					"file_name": "864e615b-6a2b-47d3-958a-cc2bc4c944db.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/864e615b-6a2b-47d3-958a-cc2bc4c944db.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066030": [
+			"**Location:** Inside a wooden smash box.",
+			[
+				{
+					"id": 160663,
+					"title": "screenshot-1794345882303",
+					"file_name": "4e661cba-5e3a-4323-a480-88ba41820c26.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e661cba-5e3a-4323-a480-88ba41820c26.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066031": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 160664,
+					"title": "screenshot-1794345892990",
+					"file_name": "a799043b-acd6-4d37-87d6-3d5d7e9a9519.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a799043b-acd6-4d37-87d6-3d5d7e9a9519.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066032": [
+			"**Leads to:** [Room 5](#loc=1066022)",
+			[
+				{
+					"id": 160657,
+					"title": "screenshot-1794345722451",
+					"file_name": "2e3caae6-e0fc-4079-bc65-71571ce046bc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2e3caae6-e0fc-4079-bc65-71571ce046bc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066038": [
+			"**Leads to:** [Room 2](#loc=1066196)",
+			[
+				{
+					"id": 161355,
+					"title": "screenshot-1794666298997",
+					"file_name": "03fcf684-3f02-4c4d-9e38-c5689d51b528.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03fcf684-3f02-4c4d-9e38-c5689d51b528.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066061": [
+			"**Leads to:** [Room 3](#loc=1066197)",
+			[
+				{
+					"id": 161356,
+					"title": "screenshot-1794666413874",
+					"file_name": "0517c98e-4ea3-4c10-b3b6-faec4758596d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0517c98e-4ea3-4c10-b3b6-faec4758596d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066065": [
+			"**Location:** Appears in front of the [Locked Door](#loc=1066066) after causing the four spiked dantinis patrolling the area to fall to their death by stomping on the boxes in their path.\n\n**Opens:** [Locked Door](#loc=1066066)",
+			[
+				{
+					"id": 160583,
+					"title": "screenshot-1794340555763",
+					"file_name": "2207f9c2-d1a9-4835-bb50-6ce29efe35ff.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2207f9c2-d1a9-4835-bb50-6ce29efe35ff.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066066": [
+			"**Prerequisite:** [Door Key](#loc=1066065)\n\n**Leads to:** [Room 2](#loc=1066198)",
+			[
+				{
+					"id": 160584,
+					"title": "screenshot-1794340563596",
+					"file_name": "0f90b83f-5887-4981-b1ba-9feb1098c651.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f90b83f-5887-4981-b1ba-9feb1098c651.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066068": [
+			"**Location:** Appears in front of the [Locked Door](#loc=1066069) after causing the five spiked dantinis patrolling the area to fall to their death by stomping on the boxes in their path.\n\n**Opens:** [Locked Door](#loc=1066069)",
+			[
+				{
+					"id": 160585,
+					"title": "screenshot-1794340952572",
+					"file_name": "56d3ccb3-7e84-48aa-bf3a-81e53db7fd42.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/56d3ccb3-7e84-48aa-bf3a-81e53db7fd42.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066069": [
+			"**Prerequisite:** [Door Key](#loc=1066068)\n\n**Leads to:** [Room 3](#loc=1066199)",
+			[
+				{
+					"id": 160586,
+					"title": "screenshot-1794340957443",
+					"file_name": "6285168f-0dc9-40b2-b56b-3171251f9d55.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6285168f-0dc9-40b2-b56b-3171251f9d55.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066070": [
+			"**Location:** Appears in front of the [Locked Door](#loc=1066071) after causing the four spiked dantinis patrolling the area to fall to their death by stomping on the boxes in their path.\n\n**Opens:** [Locked Door](#loc=1066071)",
+			[
+				{
+					"id": 160587,
+					"title": "screenshot-1794341118753",
+					"file_name": "865bfbb0-3e5d-497b-bf19-213558a2295a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/865bfbb0-3e5d-497b-bf19-213558a2295a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066071": [
+			"**Prerequisite:** [Door Key](#loc=1066070)\n\n**Leads to:** [Room 4](#loc=1066200)",
+			[
+				{
+					"id": 160588,
+					"title": "screenshot-1794341125376",
+					"file_name": "4f3d319b-1b53-4106-a76a-4564149b19a6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f3d319b-1b53-4106-a76a-4564149b19a6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066072": [
+			"**Location:** On the last platform after avoiding the spiked dantinis.",
+			[
+				{
+					"id": 160589,
+					"title": "screenshot-1794341197345",
+					"file_name": "7cc227be-033b-4490-b8d1-6ace730db574.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7cc227be-033b-4490-b8d1-6ace730db574.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066116": [
+			"**Leads to:** [Room 4](#loc=1066171)",
+			[
+				{
+					"id": 161359,
+					"title": "screenshot-1794667411944",
+					"file_name": "0a8d6eb5-12ab-4062-a8e4-503f578f11a0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a8d6eb5-12ab-4062-a8e4-503f578f11a0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066135": [
+			"**Leads to:** [Room 5](#loc=1066173)",
+			[
+				{
+					"id": 161363,
+					"title": "screenshot-1794667478950",
+					"file_name": "c78288e9-54dd-43bc-b345-13d117efbfd6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c78288e9-54dd-43bc-b345-13d117efbfd6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066136": [
+			"**Leads to:** [Room 4](#loc=1066172)",
+			[
+				{
+					"id": 161362,
+					"title": "screenshot-1794667461733",
+					"file_name": "49f62b99-4a43-4e2d-81a5-29136915daa0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49f62b99-4a43-4e2d-81a5-29136915daa0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066137": [
+			"**Leads to:** [Room 5](#loc=1066174)",
+			[
+				{
+					"id": 161366,
+					"title": "screenshot-1794667519427",
+					"file_name": "f31d2d53-1688-403d-a154-f6a34f1957ef.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f31d2d53-1688-403d-a154-f6a34f1957ef.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066138": [
+			"**Location:** At the very end of the level in the last room.",
+			[
+				{
+					"id": 161367,
+					"title": "screenshot-1794667545054",
+					"file_name": "7bc1cd81-a51b-4a2c-87a2-2d2f5243d997.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7bc1cd81-a51b-4a2c-87a2-2d2f5243d997.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066171": [
+			"**Leads to:** [Room 1](#loc=1066116)",
+			[
+				{
+					"id": 161360,
+					"title": "screenshot-1794667431021",
+					"file_name": "b37a0980-d924-42b3-9a77-644e2e05240e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b37a0980-d924-42b3-9a77-644e2e05240e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066172": [
+			"**Leads to:** [Room 2](#loc=1066136)",
+			[
+				{
+					"id": 161361,
+					"title": "screenshot-1794667449013",
+					"file_name": "4c5fee57-1a2e-42d8-81df-9aab31fd5bca.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c5fee57-1a2e-42d8-81df-9aab31fd5bca.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066173": [
+			"**Leads to:** [Room 2](#loc=1066135)",
+			[
+				{
+					"id": 161364,
+					"title": "screenshot-1794667489022",
+					"file_name": "b4f834af-ed62-4039-ae5a-6b326c812ae6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b4f834af-ed62-4039-ae5a-6b326c812ae6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066174": [
+			"**Leads to:** [Room 3](#loc=1066137)",
+			[
+				{
+					"id": 161365,
+					"title": "screenshot-1794667507821",
+					"file_name": "cbfb31ad-b9d4-494d-a263-6b2e1cbb03c4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cbfb31ad-b9d4-494d-a263-6b2e1cbb03c4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066175": [
+			"**Location:** At the end of the red carpet before the monkey bars, run and jump off the edge to land on a sparkling star platform.\n\n**Leads to:** [Room 7](#loc=1066201)",
+			[
+				{
+					"id": 160236,
+					"title": "screenshot-1794256787507",
+					"file_name": "bf7ccaad-b1ab-4475-b4bd-e2e1b0233064.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf7ccaad-b1ab-4475-b4bd-e2e1b0233064.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066176": ["**Note:** This is the entrance from the [Door](#loc=1065659).", []],
+		"1066177": ["**Note:** This is the entrance from the [Passage](#loc=1065668).", []],
+		"1066178": ["**Note:** This is the entrance from the [Door](#loc=1065669).", []],
+		"1066179": ["**Note:** This is the entrance from the [Tower Hatch](#loc=1065676).", []],
+		"1066180": ["**Note:** This is the entrance from the [Door](#loc=1065686).", []],
+		"1066181": ["**Note:** This is the entrance from the [Door](#loc=1065695).", []],
+		"1066182": ["**Note:** This is the entrance from the [Door](#loc=1065707).", []],
+		"1066183": ["**Note:** This is the entrance from the [Door](#loc=1065711).", []],
+		"1066184": ["**Note:** This is the entrance from the [Crystal Door](#loc=1065731).", []],
+		"1066185": ["**Note:** This is the entrance from the [Door](#loc=1065814).", []],
+		"1066186": ["**Note:** This is the entrance from the [Door](#loc=1065830).", []],
+		"1066187": ["**Note:** This is the entrance from the [Crystal Door](#loc=1065862).", []],
+		"1066188": ["**Note:** This is the entrance from the [Door](#loc=1065886).", []],
+		"1066189": ["**Note:** This is the entrance from the [Door](#loc=1065895).", []],
+		"1066190": ["**Note:** This is where you exit from the [Secret Area](#loc=1065897).", []],
+		"1066191": ["**Note:** This is the entrance from the [Door](#loc=1065916).", []],
+		"1066192": ["**Note:** This is the entrance from the [Door](#loc=1065917).", []],
+		"1066193": ["**Note:** This is the entrance from the [Crystal Door](#loc=1065951).", []],
+		"1066194": ["**Note:** This is the entrance from the [Warp](#loc=1066006).", []],
+		"1066195": ["**Note:** This is the entrance from the [Door](#loc=1066021).", []],
+		"1066196": ["**Note:** This is the entrance from the [Door](#loc=1066038).", []],
+		"1066197": ["**Note:** This is the entrance from the [Door](#loc=1066061).", []],
+		"1066198": ["**Note:** This is the entrance from the [Locked Door](#loc=1066066).", []],
+		"1066199": ["**Note:** This is the entrance from the [Locked Door](#loc=1066069).", []],
+		"1066200": ["**Note:** This is the entrance from the [Locked Door](#loc=1066071).", []],
+		"1066201": ["**Note:** This is where you exit from the [Secret Area](#loc=1066175).", []],
+		"1066202": [
+			"**Solution:** ||Wait for him to throw one of his minions at you, then bait them into a trapdoor which will fling them at Fosley. Repeat this three times.||",
+			[
+				{
+					"id": 160578,
+					"title": "screenshot-1794339164929",
+					"file_name": "3ebbe98c-abe6-4a16-81fc-7a59480f7946.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ebbe98c-abe6-4a16-81fc-7a59480f7946.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066203": [
+			"**Solution:** ||\n\n- **Phase 1**: Avoid his shockwave attacks by jumping, then run in and tail swipe him in the face while he's crying. Repeat this three times, you big meanie.\n- **Phase 2**: Dodge out of the way as he charges into the wall, then while he's hurt go and tail swipe him in the face. Repeat this three times. Again, quite mean.\n- **Phase 3**: Run in circles to avoid his lightning zaps, then run up and tail swipe him in the face after he lands. Repeat this three times.||",
+			[
+				{
+					"id": 161358,
+					"title": "screenshot-1794666489865",
+					"file_name": "51796e1a-3f42-4179-9171-67999ea072f0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/51796e1a-3f42-4179-9171-67999ea072f0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066206": [
+			"**Location:** On the upper platform. Press the [Red Button](#loc=1066207) on the lower level and use the moveable boxes that appear to reach this.",
+			[
+				{
+					"id": 160191,
+					"title": "screenshot-1794253549466",
+					"file_name": "3542b4fb-15fa-4972-ac0f-eddaa8a0c82b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3542b4fb-15fa-4972-ac0f-eddaa8a0c82b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066207": [
+			"**Note:** Summons moveable boxes which you can use to climb up to the upper platform.",
+			[
+				{
+					"id": 160190,
+					"title": "screenshot-1794253528446",
+					"file_name": "0e657280-5b51-4dca-9a5b-5addb736c53b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e657280-5b51-4dca-9a5b-5addb736c53b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066208": [
+			"",
+			[
+				{
+					"id": 160254,
+					"title": "screenshot-1794257322739",
+					"file_name": "acd5db92-82f9-4646-8a16-f6a9570de828.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/acd5db92-82f9-4646-8a16-f6a9570de828.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066209": [
+			"",
+			[
+				{
+					"id": 160257,
+					"title": "screenshot-1794257635228",
+					"file_name": "e4dff90a-4ee1-4646-b9f5-bdab50895cb8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e4dff90a-4ee1-4646-b9f5-bdab50895cb8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066210": [
+			"",
+			[
+				{
+					"id": 160258,
+					"title": "screenshot-1794257662422",
+					"file_name": "9fa401a3-2712-4901-91d3-6322c3c667cc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9fa401a3-2712-4901-91d3-6322c3c667cc.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066211": [
+			"**Note:** Alternates the direction of the spiked platforms.",
+			[
+				{
+					"id": 160591,
+					"title": "screenshot-1794341298113",
+					"file_name": "c5a196c1-9d5a-4f94-b93e-f9b87b068d5c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5a196c1-9d5a-4f94-b93e-f9b87b068d5c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066212": [
+			"**Note:** Alternates the direction of the spiked platforms.",
+			[
+				{
+					"id": 160593,
+					"title": "screenshot-1794341328406",
+					"file_name": "6eae86c3-612e-446b-89ca-f6ac9aaacbea.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6eae86c3-612e-446b-89ca-f6ac9aaacbea.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066213": [
+			"**Note:** Alternates the direction of the spiked platforms.",
+			[
+				{
+					"id": 160592,
+					"title": "screenshot-1794341310125",
+					"file_name": "b029f1aa-2b7b-45ba-993a-91a4afb8b70a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b029f1aa-2b7b-45ba-993a-91a4afb8b70a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066467": [
+			"**Note:** Break this to spawn one of the three cog pieces needed to reach the area exit.",
+			[
+				{
+					"id": 160213,
+					"title": "screenshot-1794254661964",
+					"file_name": "17237bc3-75c9-4ebf-a5b6-b4b9a992035b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17237bc3-75c9-4ebf-a5b6-b4b9a992035b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066468": [
+			"**Note:** Break this to spawn one of the three cog pieces needed to reach the area exit.",
+			[
+				{
+					"id": 160214,
+					"title": "screenshot-1794254680477",
+					"file_name": "9e4e31e6-2648-4fc5-b6c2-f0da082d8151.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e4e31e6-2648-4fc5-b6c2-f0da082d8151.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066469": [
+			"**Note:** Break this to spawn one of the three cog pieces needed to reach the area exit.",
+			[
+				{
+					"id": 160215,
+					"title": "screenshot-1794254696639",
+					"file_name": "c325986f-a47a-4b05-9a27-870fe761c95f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c325986f-a47a-4b05-9a27-870fe761c95f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066478": [
+			"**Note:** Opens the first dungeon cell to access [Gobbo](#loc=1065679).",
+			[
+				{
+					"id": 160226,
+					"title": "screenshot-1794256467225",
+					"file_name": "3527a0a2-f79a-4f45-b43f-fb80adc8437a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3527a0a2-f79a-4f45-b43f-fb80adc8437a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066479": [
+			"**Note:** Opens the second dungeon cell to access [Gobbo](#loc=1065681).",
+			[
+				{
+					"id": 160227,
+					"title": "image",
+					"file_name": "02dac855-5652-433e-81ae-7d29cf968b8a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/02dac855-5652-433e-81ae-7d29cf968b8a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066480": [
+			"**Note:** Opens the third dungeon cell to access [Gobbo](#loc=1065680).",
+			[
+				{
+					"id": 160228,
+					"title": "image",
+					"file_name": "4c0654cd-5a0a-4af3-bde8-93c8645c41b8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c0654cd-5a0a-4af3-bde8-93c8645c41b8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

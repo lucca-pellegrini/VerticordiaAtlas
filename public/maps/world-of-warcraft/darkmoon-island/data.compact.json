@@ -13,7 +13,8 @@
 				"max_zoom": 13,
 				"tiles_max_zoom": 13,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -30,6 +31,7 @@
 		{
 			"id": 2741,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "336FD1",
@@ -105,6 +107,7 @@
 		{
 			"id": 2742,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 30,
 			"color": "C9692F",
@@ -150,6 +153,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"15488": {
 			"id": 15488,

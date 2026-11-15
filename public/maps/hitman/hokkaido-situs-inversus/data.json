@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -35,16 +36,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "hitman-3",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/hitman-3/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 540,
 			"game_id": 54,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 10,
 			"color": "436B96",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -474,10 +482,17 @@
 		{
 			"id": 541,
 			"game_id": 54,
+			"section_id": null,
 			"title": "Weapons & Tools",
 			"order": 10,
 			"color": "894F9E",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -711,10 +726,17 @@
 		{
 			"id": 542,
 			"game_id": 54,
+			"section_id": null,
 			"title": "Navigation",
 			"order": 10,
 			"color": "54A6B3",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -890,6 +912,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"2404": {
 			"id": 2404,
@@ -1846,6 +1869,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 369004,
@@ -8132,7 +8156,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "neu-haas-grotesk-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/hitman-3/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

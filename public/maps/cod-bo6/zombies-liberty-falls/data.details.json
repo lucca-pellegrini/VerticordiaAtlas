@@ -1,0 +1,1523 @@
+{
+	"v": 1,
+	"d": {
+		"942193": ["**Cost:** 1,000\n\n**Effect:** Dissolve Zombies with Dark Aether energy", []],
+		"942195": ["**Cost:** \n- Uncommon: 1,500\n- Rare: 2,500\n- Epic: 3,500\n- Legendary: 6,000", []],
+		"942197": ["**Cost:** \n- Uncommon: 750\n- Rare: 1,750\n- Epic: 2,750\n- Legendary: 5,250", []],
+		"942198": ["**Cost:** 1,750", []],
+		"942199": ["**Cost:** 1,750", []],
+		"942200": ["**Cost:** 1,750", []],
+		"942201": ["**Cost:** 1,750", []],
+		"942204": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase movement speed", []],
+		"942205": ["**Cost:** \n- Uncommon: 1,000\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 5,500", []],
+		"942208": ["**Cost:** 2,000", []],
+		"942212": ["**Cost:** \n- Uncommon: 1,250\n- Rare: 2,250\n- Epic: 3,250\n- Legendary: 5,750", []],
+		"942214": ["**Cost:** 4,000", []],
+		"942216": ["**Cost:** 1,000", []],
+		"942218": [
+			"**Cost:** 2,500  \n\n**Effect:** Drink to explode when diving and become immune to your explosive damage",
+			[]
+		],
+		"942219": ["**Cost:** 2,250", []],
+		"942220": ["**Cost:** 2,250", []],
+		"942222": ["**Cost:** 2,500  \n\n**Effect:** Drink to replace weapon gun butt with a deadly punch", []],
+		"942223": ["**Cost:** 2,500", []],
+		"942225": ["**Cost:** 2,500", []],
+		"942226": ["**Cost:** \n- Without Tier 2: 14,000\n- With Tier 2: 10,000", []],
+		"942228": ["**Cost:** \n- Uncommon: 2,250\n- Rare: 3,250\n- Epic: 4,250\n- Legendary: 6,750", []],
+		"942231": ["**Cost:** 2,250", []],
+		"942232": ["**Cost:** 2,250", []],
+		"942239": ["**Powered by:** [Locked Door](#loc=942231)\n\n**Transitions to:** [Zipline](#loc=942258)", []],
+		"942242": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 6,250", []],
+		"942244": ["**Cost:** 1,000\n\n**Effect:** Dissolve Zombies with Dark Aether energy", []],
+		"942246": ["**Cost:** 2,500  \n\n**Effect:** Drink to reload weapons and replate armor faster", []],
+		"942247": ["**Cost:** 1,000", []],
+		"942248": ["**Cost:** 2,000", []],
+		"942251": ["**Cost:** \n- Uncommon: 2,000\n- Rare: 3,000\n- Epic: 4,000\n- Legendary: 6,500", []],
+		"942256": ["**Cost:** 750", []],
+		"942257": ["**Cost:** 2,250", []],
+		"942258": ["**Powered by:** [Locked Door](#loc=942257)\n\n**Transitions to:** [Zipline](#loc=942239)", []],
+		"942259": ["**Powered by:** [Locked Door](#loc=942256)\n\n**Transitions to:** [Zipline](#loc=942261)", []],
+		"942260": ["**Cost:** 750", []],
+		"942261": ["**Powered by:** [Locked Door](#loc=942260)\n\n**Transitions to:** [Zipline](#loc=942259)", []],
+		"942262": ["**Cost:** 750", []],
+		"942263": ["**Powered by:** [Locked Door](#loc=942262)", []],
+		"942264": ["**Cost:** 2,000", []],
+		"942265": ["**Cost:** 750", []],
+		"942266": ["**Cost:** 1,750", []],
+		"942267": ["**Cost:** \n- Uncommon: 1,000\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 5,500", []],
+		"942269": ["**Cost:** 1,000", []],
+		"942271": ["**Powered by:** [Locked Door](#loc=942269)\n\n**Transitions to:** [Zipline](#loc=942273)", []],
+		"942272": ["**Requires:** [Locked Door](#loc=942269)", []],
+		"942273": ["**Powered by:** [Locked Door](#loc=942272)\n\n**Transitions to:** [Zipline](#loc=942271)", []],
+		"942291": ["**Cost:** 750", []],
+		"942293": ["**Cost:** 750", []],
+		"942294": ["**Cost:** 2,500  \n\n**Effect:** Drink to recover health and revive allies faster", []],
+		"942295": ["**Cost:** 4,000", []],
+		"942297": ["**Cost:** 1,500\n\n**Effect:** Zap zombies with Aetherella's lasers", []],
+		"942301": ["**Cost:** \n- Uncommon: 1,250\n- Rare: 2,250\n- Epic: 3,250\n- Legendary: 5,750", []],
+		"942303": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase maximum health", []],
+		"942305": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 6,250", []],
+		"942306": ["**Cost:** 750", []],
+		"942309": ["**Requires:** [Locked Door](#loc=942306)", []],
+		"942669": [
+			"**Steps:**\n- You'll need to gather three items around the map to build the Thrustodyne M23:\n   - [Water Pressure Gauge](#loc=942682)\n      - First, head to Washington Ave. and grab the [Water Valve](#loc=942681). \n      - Then, head to Fuller's Liberty Lanes and place it into the [Pressure Gauge](#loc=942675) on the wall.\n      - Hold interact on it until the bar fills up fully while defending against zombies.\n      - Once full, the Water Pressure Gauge will pop out onto the floor.\n   - [Electrical Wires](#loc=942685)\n      - Acquire a Mangler Cannon and use it to blast open the doors to Radio House.\n      - Interact with the trash piles until you come across the one containing the Electrical Wires.\n   - [Handbrake](#loc=942683)\n      - Head to the Cemetery and kill zombies until the Groundskeeper spawns.\n      - Kill the Groundskeeper and pick up the [Toolshed Key](#loc=942679).\n      - Head to the Groundskeeper's Yard and open the shed to acquire the Handbrake.\n- Once all three are collected, head to the [Workbench](#loc=942202) in the Motor Lodge to build the Thrustodyne M23.",
+			[]
+		],
+		"942670": [
+			"**Steps:**\n- To build the L.T.G., you must first complete the [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669) and interact with the [Generator](#loc=942684) in the Dark Aether.\n- Then, use the wonder weapon to pull in three different parts around the map:\n   - [L.T.G. Part](#loc=942689)\n   - [L.T.G. Part](#loc=942699)\n   - [L.T.G. Part](#loc=942687)\n- After all parts are collected, you can build the L.T.G. at the [Workbench](#loc=942253) on top of the Savings & Loan building.",
+			[]
+		],
+		"942672": [
+			"**Steps:**\n- First, complete both the [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669) and the [L.T.G. Easter Egg](#loc=942670).\n- Head back to the [Generator](#loc=942684) and pick up the [Aether Canister](#loc=942711).\n- Bring it to the [Dark Aether Field Generator](#loc=942244) and place it on one of the trap's generators.\n- Head to the Cemetery and place the L.T.G. under the [Aether Cloud](#loc=942728) and defend it until an HVT spawns.\n- Bring the HVT to the Dark Aether Field Generator and kill it inside the trap next to the canister.\n- Bring the canister back to the Generator and place it inside, then grab the [Strauss Counter](#loc=942712).\n- Head to the three projectors around the map and set them to a color depending on what the Strauss Counter has for the value (Green value = Red projector, Red value = Green projector, Yellow value = Yellow projector):\n   - [Projector](#loc=942716)\n   - [Projector](#loc=942714)\n   - [Projector](#loc=942713)\n- After all are set, head to East Main Street and grab the [Aether Canister](#loc=942717) there.\n- Head to the [Dark Aether Field Generator](#loc=942193) and place it next to one of their generators.\n- Take the L.T.G. and place it under the [Aether Cloud](#loc=942715) again, then defend it.\n- Bring the HVT and kill it in the trap next to the canister.\n- Finally, place it back into the generator to start the final boss fight.",
+			[]
+		],
+		"942675": [
+			"**Related Easter Egg:** [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669)",
+			[
+				{
+					"id": 149300,
+					"title": "20260906163109_1",
+					"file_name": "7339be4d-71e9-4add-af88-35ef1481d804.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7339be4d-71e9-4add-af88-35ef1481d804.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942679": [
+			"**Location:** Dropped by the Groundskeeper who spawns randomly in the Cemetery\n\n**Related Easter Egg:** [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669)",
+			[
+				{
+					"id": 149303,
+					"title": "20260906163512_1",
+					"file_name": "8cf300b5-6e13-4d91-855d-51d5e85ee713.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8cf300b5-6e13-4d91-855d-51d5e85ee713.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942681": [
+			"**Location:** On top of the hose coming out of Lily's Flowerpot store\n\n**Related Easter Egg:** [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669)",
+			[
+				{
+					"id": 149304,
+					"title": "20260906163724_1",
+					"file_name": "f9abe346-cbc8-4836-9974-d0b9dc8f5fbd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f9abe346-cbc8-4836-9974-d0b9dc8f5fbd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942682": [
+			"**Location:** On the ground after placing the [Water Valve](#loc=942681) inside the [Pressure Gauge](#loc=942675) and completing the lockdown\n\n**Related Easter Egg:** [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669)",
+			[
+				{
+					"id": 149307,
+					"title": "20260906164002_1",
+					"file_name": "13a56ed6-0772-406f-845c-c3f6a3e96233.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/13a56ed6-0772-406f-845c-c3f6a3e96233.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942683": [
+			"**Location:** On top of the table in the toolshed after unlocking it with the [Toolshed Key](#loc=942679)\n\n**Related Easter Egg:** [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669)",
+			[
+				{
+					"id": 149308,
+					"title": "20260906164123_1",
+					"file_name": "33cb1015-0755-4c1f-b6e9-2de90df316de.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33cb1015-0755-4c1f-b6e9-2de90df316de.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942684": [
+			"**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149334,
+					"title": "20260906164934_1",
+					"file_name": "654ae72b-956a-49c8-a15c-8abe2767646c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/654ae72b-956a-49c8-a15c-8abe2767646c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942685": [
+			"**Location:** Inside a trash pile in the Radio House store after blowing open the doors with the Mangler Cannon\n\n**Related Easter Egg:** [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669)",
+			[
+				{
+					"id": 149340,
+					"title": "20260906165237_1",
+					"file_name": "457710a6-9e6e-4d9d-a62d-b422a3189ba2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/457710a6-9e6e-4d9d-a62d-b422a3189ba2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942687": [
+			"**Location:** Floating above the second floor of the Dark Aether Church\n\n**Related Easter Egg:** [L.T.G. Easter Egg](#loc=942670)",
+			[
+				{
+					"id": 149357,
+					"title": "20260906165935_1",
+					"file_name": "6ee09695-1139-4548-8fa6-1c01dedfdba9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6ee09695-1139-4548-8fa6-1c01dedfdba9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942689": [
+			"**Location:** Floating in the broken ceiling of Olly's Comics\n\n**Related Easter Egg:** [L.T.G. Easter Egg](#loc=942670)",
+			[
+				{
+					"id": 149363,
+					"title": "20260906170101_1",
+					"file_name": "cc0ae749-513f-4f4c-a372-09884a707239.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc0ae749-513f-4f4c-a372-09884a707239.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942699": [
+			"**Location:** In the second story window of Buzz's Cuts, accessible by standing on the truck in the middle of the street\n\n**Related Easter Egg:** [L.T.G. Easter Egg](#loc=942670)",
+			[
+				{
+					"id": 149367,
+					"title": "20260906170301_1",
+					"file_name": "f2f5a1ac-8e64-4b23-a775-457e2b9d19e0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f2f5a1ac-8e64-4b23-a775-457e2b9d19e0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942711": [
+			"**Location:** On the front of the [Generator](#loc=942684) after completing the [L.T.G. Easter Egg](#loc=942670)\n\n**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149370,
+					"title": "image",
+					"file_name": "755ff96a-2b1b-4a77-98bc-0dad6e5798af.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/755ff96a-2b1b-4a77-98bc-0dad6e5798af.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942712": [
+			"**Location:** Inside the [Generator](#loc=942684) after killing the first HVT and filling the [Aether Canister](#loc=942711)\n\n**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149372,
+					"title": "20260906171405_1",
+					"file_name": "d9f03888-e1ee-4f04-a2cc-886629e0a4cd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d9f03888-e1ee-4f04-a2cc-886629e0a4cd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942713": [
+			"**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149373,
+					"title": "20260906171616_1",
+					"file_name": "60c9a68c-1477-4984-835e-6ef358119e9d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60c9a68c-1477-4984-835e-6ef358119e9d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942714": [
+			"**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149374,
+					"title": "20260906171659_1",
+					"file_name": "3b32f0d3-3d5b-4df2-b43f-c837ab3745bc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3b32f0d3-3d5b-4df2-b43f-c837ab3745bc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942715": [
+			"**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149375,
+					"title": "20260906171734_1",
+					"file_name": "ab884f7e-a596-431c-85fa-326d63ccd3fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab884f7e-a596-431c-85fa-326d63ccd3fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942716": [
+			"**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149377,
+					"title": "20260906171826_1",
+					"file_name": "3f45d340-11e7-4c7a-b69d-bb72277d135c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f45d340-11e7-4c7a-b69d-bb72277d135c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942717": [
+			"**Location:** In the middle of a machine after setting all three projectors correctly during the [Liberty Falls Main Easter Egg](#loc=942672)\n\n**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149379,
+					"title": "20260906171922_1",
+					"file_name": "76dc2031-4681-41af-b6d0-50094b6d3f98.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76dc2031-4681-41af-b6d0-50094b6d3f98.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942721": [
+			"**Location:** On the corner of the upper walkway in the Motor Lodge Alley",
+			[
+				{
+					"id": 149383,
+					"title": "20260906173921_1",
+					"file_name": "3713715e-f12b-4667-8cd9-96e70122d9c7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3713715e-f12b-4667-8cd9-96e70122d9c7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942722": [
+			"**Related Easter Egg:** [Pool Easter Egg](#loc=942724)",
+			[
+				{
+					"id": 149384,
+					"title": "20260906174013_1",
+					"file_name": "76152d8d-95f7-462d-a5ef-7c03d97f09c6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76152d8d-95f7-462d-a5ef-7c03d97f09c6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942723": [
+			"**Related Easter Egg:** [Bank Vault Easter Egg](#loc=942737)",
+			[
+				{
+					"id": 149385,
+					"title": "20260906174105_1",
+					"file_name": "f18aa56e-a9c6-4d0c-bd21-8db7d8dae3be.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f18aa56e-a9c6-4d0c-bd21-8db7d8dae3be.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942724": [
+			"**Steps:**\n- Head to the [Pool Table](#loc=942722) in Fuller's Liberty Lanes and shoot the Pool Balls to get a free 100 essence.",
+			[]
+		],
+		"942725": [
+			"**Related Easter Egg:** [Vending Machine Easter Egg](#loc=942726)",
+			[
+				{
+					"id": 149386,
+					"title": "20260906174217_1",
+					"file_name": "00d774a9-8e35-49e8-b47f-8809db9cb412.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/00d774a9-8e35-49e8-b47f-8809db9cb412.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942726": [
+			"**Steps:**\n- Once per round, you can crouch and melee the [Vending Machine](#loc=942725) next to the Motor Lodge to get free loot.\n   - If you melee it with Melee Macchiato, the vending machine will permanently break.",
+			[]
+		],
+		"942727": [
+			"**Steps:**\n- Around the map, there are three headphones that need to be interacted with:\n   - [Headphones](#loc=942721)\n   - [Headphones](#loc=942729)\n   - [Headphones](#loc=942731)",
+			[]
+		],
+		"942728": [
+			"**Related Easter Egg:** [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149391,
+					"title": "20260906174518_1",
+					"file_name": "cd1c2383-8eb2-43f4-b390-888fe31a816a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cd1c2383-8eb2-43f4-b390-888fe31a816a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942729": [
+			"**Location:** Inside the Dark Aether Church on top of a pew",
+			[
+				{
+					"id": 149394,
+					"title": "20260906174730_1",
+					"file_name": "2817125f-47f3-4d18-89f5-c5fff3b83d82.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2817125f-47f3-4d18-89f5-c5fff3b83d82.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942730": [
+			"**Related Easter Egg:** [Mr. Peeks Car Easter Egg](#loc=942734)",
+			[
+				{
+					"id": 149395,
+					"title": "20260906174846_1",
+					"file_name": "719e0c4a-98d4-4768-adcf-ffaa52896026.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/719e0c4a-98d4-4768-adcf-ffaa52896026.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942731": [
+			"**Location:** On the ground on the side of a road under a bench",
+			[
+				{
+					"id": 149396,
+					"title": "20260906174928_1",
+					"file_name": "54bcd575-384c-4c37-95ef-bf7045e02186.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/54bcd575-384c-4c37-95ef-bf7045e02186.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942732": [
+			"**Related Easter Egg:** [Mr. Peeks Car Easter Egg](#loc=942734)",
+			[
+				{
+					"id": 149398,
+					"title": "20260906175035_1",
+					"file_name": "21802ef3-0749-42ca-ad7e-4fb69f306851.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/21802ef3-0749-42ca-ad7e-4fb69f306851.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942733": [
+			"**Related Easter Egg:** [Mr. Peeks Car Easter Egg](#loc=942734)",
+			[
+				{
+					"id": 149400,
+					"title": "20260906175228_1",
+					"file_name": "787782b2-3636-4fca-b7c1-56ee25d0799c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/787782b2-3636-4fca-b7c1-56ee25d0799c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942734": [
+			"**Steps:**\n- Around the map are three cars which can contain Mr. Peeks in the back seat:\n   - [Mr. Peeks Car](#loc=942733)\n   - [Mr. Peeks Car](#loc=942730)\n   - [Mr. Peeks Car](#loc=942732)\n- If shot with a mangler cannon to destroy the car, loot will pop out.\n   - Mr. Peeks will show up in another car if his is destroyed five rounds later.",
+			[]
+		],
+		"942735": [
+			"**Related Easter Egg:** [Bank Vault Easter Egg](#loc=942737)",
+			[
+				{
+					"id": 149404,
+					"title": "20260906175423_1",
+					"file_name": "ed45ad97-ebf0-4dac-a44b-be96edef62f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed45ad97-ebf0-4dac-a44b-be96edef62f9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942736": [
+			"**Related Easter Egg:** [Bank Vault Easter Egg](#loc=942737)",
+			[
+				{
+					"id": 149405,
+					"title": "20260906175518_1",
+					"file_name": "0a6ac753-19c6-4bfd-ad9c-094e1f856cd0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a6ac753-19c6-4bfd-ad9c-094e1f856cd0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942737": [
+			"**Steps:**\n- Around the map, there are three Sticky Notes that have codes on them:\n   - Savings & Loan: [Sticky Note](#loc=942736)\n   - Olly's Comics: [Sticky Note](#loc=942735)\n   - Fuller's Liberty Lanes: [Sticky Note](#loc=942723)\n- Input these in that specific order into the vault to open the vault.\n   - The vault contains lockboxes that can be opened every round with the keys that drop after killing HVTs.\n   - You can only enter the vault once per round.",
+			[]
+		],
+		"942738": [
+			"**Related Easter Egg:** [Bowling Easter Egg](#loc=942763)",
+			[
+				{
+					"id": 149408,
+					"title": "20260906175846_1",
+					"file_name": "136166ae-a306-448b-b082-bbe37aa99d98.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/136166ae-a306-448b-b082-bbe37aa99d98.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942739": [
+			"**Related Easter Egg:** [Bowling Easter Egg](#loc=942763)",
+			[
+				{
+					"id": 149409,
+					"title": "20260906175929_1",
+					"file_name": "522b94f2-b44c-4af4-b697-fb39ab527aeb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/522b94f2-b44c-4af4-b697-fb39ab527aeb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942740": [
+			"**Related Easter Egg:** [Bowling Easter Egg](#loc=942763)",
+			[
+				{
+					"id": 149410,
+					"title": "20260906180033_1",
+					"file_name": "fb55c0b1-bdd2-4f65-bc03-4fc8e12d9a87.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fb55c0b1-bdd2-4f65-bc03-4fc8e12d9a87.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942741": [
+			"**Related Easter Egg:** [Bowling Easter Egg](#loc=942763)",
+			[
+				{
+					"id": 149411,
+					"title": "20260906180339_1",
+					"file_name": "1c0722c3-bd8d-4b67-8594-ddd427c7387b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1c0722c3-bd8d-4b67-8594-ddd427c7387b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942742": [
+			"**Related Easter Egg:** [Bowling Easter Egg](#loc=942763)",
+			[
+				{
+					"id": 149412,
+					"title": "20260906180426_1",
+					"file_name": "a60e15ed-cd10-4f6b-842c-4772da9ba554.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a60e15ed-cd10-4f6b-842c-4772da9ba554.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942743": [
+			"**Related Easter Egg:** [Dancing Easter Egg](#loc=942837)",
+			[
+				{
+					"id": 149415,
+					"title": "20260906180939_1",
+					"file_name": "237ca9b5-e086-461c-8a32-a3b8a7e029e6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/237ca9b5-e086-461c-8a32-a3b8a7e029e6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942744": [
+			"**Related Easter Egg:** [Dancing Easter Egg](#loc=942837)",
+			[
+				{
+					"id": 149416,
+					"title": "20260906180954_1",
+					"file_name": "064af94d-8f45-4500-803c-20a8c595c9b9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/064af94d-8f45-4500-803c-20a8c595c9b9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942746": [
+			"**Location:** On top of the counter in the corner of Olly's Comics\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149418,
+					"title": "20260906182200_1",
+					"file_name": "d8522b83-90e0-4f4a-972d-46b6e09a646e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d8522b83-90e0-4f4a-972d-46b6e09a646e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942747": [
+			"**Location:** In a cabinet on the wall of Olly's Comics above the [Quick Revive](#loc=942294) perk machine\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149419,
+					"title": "20260906182244_1",
+					"file_name": "43bbf33e-efb7-466f-9e4b-cd5bde5637bf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/43bbf33e-efb7-466f-9e4b-cd5bde5637bf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942748": [
+			"**Location:** On top of the windowsill in Olly's Comics\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149420,
+					"title": "20260906182338_1",
+					"file_name": "91da80a2-c9f2-44ec-a5ca-8930530fdc8a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91da80a2-c9f2-44ec-a5ca-8930530fdc8a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942749": [
+			"**Location:** On top of a shelf next to the [Aetherella Trap](#loc=942297) in Olly's Comics\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149421,
+					"title": "20260906182410_1",
+					"file_name": "c785d487-4993-4c97-a275-6423c5d3df4e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c785d487-4993-4c97-a275-6423c5d3df4e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942750": [
+			"**Location:** On top of an AC unit on a window above the street\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149422,
+					"title": "20260906182506_1",
+					"file_name": "b9719bd6-aba5-4184-b2d5-3cbe08fa40e1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9719bd6-aba5-4184-b2d5-3cbe08fa40e1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942751": [
+			"**Location:** On top of the external windowsill of a high up window of the Dark Aether Church\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149423,
+					"title": "20260906182554_1",
+					"file_name": "374858da-05a9-4c61-a1b9-23963d9e0eb6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/374858da-05a9-4c61-a1b9-23963d9e0eb6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942752": [
+			"**Location:** On top of the ledge under the Fuller's Liberty Lanes sign\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149424,
+					"title": "20260906182648_1",
+					"file_name": "f84e6052-7475-41ec-9a1a-5813b442cc77.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f84e6052-7475-41ec-9a1a-5813b442cc77.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942753": [
+			"**Location:** On top of the Fastfoward building behind an AC unit on the roof\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149426,
+					"title": "20260906182752_1",
+					"file_name": "cb4ddbb2-922a-4d0f-8848-cb0dc7812b0c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb4ddbb2-922a-4d0f-8848-cb0dc7812b0c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942754": [
+			"**Location:** On top of the Motel sign on the side of the Motor Lodge\n\n**Related Easter Egg:** [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149429,
+					"title": "20260906182853_1",
+					"file_name": "ef2e3a87-7059-4fef-b6df-0b06a1295974.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ef2e3a87-7059-4fef-b6df-0b06a1295974.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942755": [
+			"**Steps:**\n- After completing the [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669), use the wonder weapon to collect 9 Aetherella figurines around the map:\n   - [Aetherella Figurine](#loc=942749)\n   - [Aetherella Figurine](#loc=942748)\n   - [Aetherella Figurine](#loc=942746)\n   - [Aetherella Figurine](#loc=942747)\n   - [Aetherella Figurine](#loc=942753)\n   - [Aetherella Figurine](#loc=942754)\n   - [Aetherella Figurine](#loc=942750)\n   - [Aetherella Figurine](#loc=942752)\n   - [Aetherella Figurine](#loc=942751)\n- Once all are collected, you will turn into Aetherella for a limited time.\n   - While Aetherella, you can interact with the [Aetherella Trap](#loc=942297) to get a speed boost.",
+			[]
+		],
+		"942756": [
+			"**Related Easter Egg:** [Shooting Cans Easter Egg](#loc=942757)",
+			[
+				{
+					"id": 149453,
+					"title": "20260906183733_1",
+					"file_name": "295a3059-5c08-4643-aa98-3b5195ab8be2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/295a3059-5c08-4643-aa98-3b5195ab8be2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942757": [
+			"**Steps:**\n- Outside the Cemetery window, there is a line of [Cans](#loc=942756).\n- Without missing and in under 20 seconds, shoot every can to receive a free Deadshot Daquiri perk.",
+			[]
+		],
+		"942758": [
+			"**Related Easter Egg:** [Raining Zombies Easter Egg](#loc=942759)",
+			[
+				{
+					"id": 149455,
+					"title": "20260906184021_1",
+					"file_name": "cb8e3953-9860-4229-90ed-91f27ccaedb4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb8e3953-9860-4229-90ed-91f27ccaedb4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942759": [
+			"**Steps:**\n- On top of the church is a [Mangler Head](#loc=942758).\n- Shoot the Mangler Head with any sort of an explosion to make it explode.\n- Zombies will come raining from the sky, each dropping a variety of loot.",
+			[]
+		],
+		"942760": ["**Related Easter Egg:** [Unrest in Peace Easter Egg](#loc=942764)", []],
+		"942761": [
+			"**Location:** Drops out of the [Barrel](#loc=942760) after shooting the barrel with a Chopper Gunner kill streak\n\n**Related Easter Egg:** [Unrest in Peace Easter Egg](#loc=942764)",
+			[
+				{
+					"id": 149463,
+					"title": "20260906185117_1",
+					"file_name": "d26c1833-a0aa-4a0d-9a34-3aa9adc4a3b4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d26c1833-a0aa-4a0d-9a34-3aa9adc4a3b4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942762": [
+			"**Related Easter Egg:** [Bowling Easter Egg](#loc=942763)",
+			[
+				{
+					"id": 149464,
+					"title": "20260906185221_1",
+					"file_name": "a35fa9f8-c081-4b6f-a0ea-e5d1714d2f14.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a35fa9f8-c081-4b6f-a0ea-e5d1714d2f14.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942763": [
+			"**Steps:**\n- Around the map, there are five sets of shoes that must be shot:\n   - [Shoes](#loc=942738)\n   - [Shoes](#loc=942739)\n   - [Shoes](#loc=942741)\n   - [Shoes](#loc=942742)\n   - [Shoes](#loc=942740)\n- After all five are shot, you'll be transported into Fuller's Liberty Lanes for a bowling minigame.\n   - Every five rounds after completing the easter egg, another set of [Shoes](#loc=942762) will spawn that, when shot, will instantly start the minigame.",
+			[]
+		],
+		"942764": [
+			"**Steps:**\n- First, get a Chopper Gunner Kill Streak and, while using it, destroy the [Barrel](#loc=942760) next to Washington Ave. Rooftops.\n- Pick up the [Shovel](#loc=942761) on the ground nearby.\n- Head to the Cemetery and you can use it to dig up the graves there, giving a variety of loot.",
+			[]
+		],
+		"942768": [
+			"**Related Easter Egg:** [Blood Pool Easter Egg](#loc=942847)",
+			[
+				{
+					"id": 149465,
+					"title": "20260906190422_1",
+					"file_name": "0f996aeb-2518-4443-af49-2b166cadef24.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f996aeb-2518-4443-af49-2b166cadef24.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942776": [
+			"**Location:** On top of the back roof of the Dark Aether Church",
+			[
+				{
+					"id": 149466,
+					"title": "20260906190612_1",
+					"file_name": "8371fd6c-f545-413f-b518-2b8300c0dad4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8371fd6c-f545-413f-b518-2b8300c0dad4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942781": [
+			"**Location:** On top of the AC unit on the side of the window of Olly's Comics",
+			[
+				{
+					"id": 149467,
+					"title": "20260906190714_1",
+					"file_name": "2932bd77-c7ef-4f82-82ae-bcd7eaee8dfe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2932bd77-c7ef-4f82-82ae-bcd7eaee8dfe.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942797": [
+			"**Location:** Inside the chandelier in the middle of Savings & Loan",
+			[
+				{
+					"id": 149468,
+					"title": "20260906190855_1",
+					"file_name": "20c06d47-7b77-47a0-b4a6-f4925a391f42.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20c06d47-7b77-47a0-b4a6-f4925a391f42.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942820": [
+			"**Location:** Underneath a burning car at the end of the road",
+			[
+				{
+					"id": 149469,
+					"title": "20260906191712_1",
+					"file_name": "369d9316-c1ae-44c5-9e10-ef8a575cf8a7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/369d9316-c1ae-44c5-9e10-ef8a575cf8a7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942823": [
+			"**Location:** On the bottom shelf of a serving stand in the back of the room behind the window",
+			[
+				{
+					"id": 149470,
+					"title": "20260906191826_1",
+					"file_name": "22798f6e-24b1-471c-bde9-68a0c74201cf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/22798f6e-24b1-471c-bde9-68a0c74201cf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942833": [
+			"**Location:** On the first layer down on the water tower on top of a beam",
+			[
+				{
+					"id": 149471,
+					"title": "20260906192135_1",
+					"file_name": "cf693017-1bbb-4f70-93cc-945609ff9762.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cf693017-1bbb-4f70-93cc-945609ff9762.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942834": [
+			"**Location:** On top of the bridge behind Pump & Pay where the arch of the bridge starts",
+			[
+				{
+					"id": 149472,
+					"title": "20260906192255_1",
+					"file_name": "d8c9bc18-1f35-4f36-b33f-aeeac68d3421.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d8c9bc18-1f35-4f36-b33f-aeeac68d3421.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942837": [
+			"**Steps:**\n- With two people, head to each of the Viewfinders overlooking the mountain:\n   - [Viewfinder](#loc=942743)\n   - [Viewfinder](#loc=942744)\n- Aim both viewfinders at the dancing zombie on the cliff and watch it until lights appear behind it.\n- Every zombie on the map will teleport into the bus behind the viewfinders and start to dance.",
+			[]
+		],
+		"942847": [
+			"**Steps:**\n- On a Vermin round, head to the [Pool](#loc=942768) and quickly throw three semtex inside.\n- An orb will spawn and drop a variety of loot.",
+			[]
+		],
+		"942848": [
+			"**Location:** Given automatically after building the L.T.G. at the [Workbench](#loc=942253) during the [L.T.G. Easter Egg](#loc=942670)",
+			[]
+		],
+		"942849": [
+			"**Location:** Given automatically after collecting one of the [Aetherella Statues](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-liberty-falls?search=aetherella_figurine%20%26%26%20category%3A27411) around the map",
+			[]
+		],
+		"942850": ["**Location:** Given automatically during the [Bowling Easter Egg](#loc=942763)", []],
+		"942851": [
+			"**Location:** Given automatically after building the Jet Gun at the [Workbench](#loc=942202) during the [Thustodyne M23 Wonder Weapon Easter Egg](#loc=942669)",
+			[]
+		],
+		"942852": [
+			"**Location:** Given automatically after shooting one of the [Shoes](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-liberty-falls?search=shoes%20%26%26%20category%3A27416) around the map",
+			[]
+		],
+		"942853": [
+			"**Location:** Inside the trunk of the car that's destroyed where Mr. Peeks is during the [Mr. Peeks Car Easter Egg](#loc=942734)",
+			[
+				{
+					"id": 149482,
+					"title": "image",
+					"file_name": "fb6682d7-2ec3-4adf-a5b4-5c3e12742e3e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fb6682d7-2ec3-4adf-a5b4-5c3e12742e3e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942854": [
+			"**Location:** Randomly inside one of the Safe Deposit Boxes in the Bank Vault, accessible after completing the [Bank Vault Easter Egg](#loc=942737)",
+			[
+				{
+					"id": 149487,
+					"title": "image",
+					"file_name": "0e7a1ac0-f296-462b-a522-7fdc322ac5a0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e7a1ac0-f296-462b-a522-7fdc322ac5a0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942855": [
+			"**Location:** On the ground inside the Bank Vault in the corner, accessible after completing the [Bank Vault Easter Egg](#loc=942737)",
+			[
+				{
+					"id": 149486,
+					"title": "image",
+					"file_name": "b01da422-3c18-4dca-9d64-d98aa9989118.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b01da422-3c18-4dca-9d64-d98aa9989118.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942856": [
+			"**Location:** On top of the windowsill inside Olly's Comics",
+			[
+				{
+					"id": 149475,
+					"title": "20260906204934_1",
+					"file_name": "65c20e49-efb8-4e1a-a315-6884a610257c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/65c20e49-efb8-4e1a-a315-6884a610257c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942857": [
+			"**Location:** On top of a round table in the corner next to [Speed Cola](#loc=942246)",
+			[
+				{
+					"id": 149476,
+					"title": "20260906205136_1",
+					"file_name": "762ecf1e-9bcf-4321-bd26-13e26ba088ee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/762ecf1e-9bcf-4321-bd26-13e26ba088ee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942858": [
+			"**Location:** On top of a barrel on the side of the Groundskeeper's Yard after interacting with the [Generator](#loc=942684) during the [Liberty Falls Main Easter Egg](#loc=942672)",
+			[
+				{
+					"id": 149477,
+					"title": "20260906205417_1",
+					"file_name": "99281f76-51ea-4daf-bf7e-856d265ee4d7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/99281f76-51ea-4daf-bf7e-856d265ee4d7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942859": [
+			"**Location:** On top of the stone part of the fence in the back part of the Cemetery",
+			[
+				{
+					"id": 149478,
+					"title": "20260906205600_1",
+					"file_name": "9d2ea796-49f3-44bb-9e88-bb54782e64b1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9d2ea796-49f3-44bb-9e88-bb54782e64b1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942860": [
+			"**Location:** On top of the dresser behind the [Workbench](#loc=942202) in the second floor motel room in the Motor Lodge",
+			[
+				{
+					"id": 149479,
+					"title": "image",
+					"file_name": "986281e3-37b4-45b1-8cb7-19e0f5dea755.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/986281e3-37b4-45b1-8cb7-19e0f5dea755.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942861": [
+			"**Location:** On top of a trash can in the corner of the street behind the bus",
+			[
+				{
+					"id": 149480,
+					"title": "20260906210038_1",
+					"file_name": "34e3a432-3ef3-4d8e-956d-cd3a4dfafd5d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/34e3a432-3ef3-4d8e-956d-cd3a4dfafd5d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942862": [
+			"**Location:** On top of a pew next to a bundle of flowers in the Dark Aether Church",
+			[
+				{
+					"id": 149481,
+					"title": "20260906210140_1",
+					"file_name": "e851d43d-7e31-433e-a256-5e4832614d72.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e851d43d-7e31-433e-a256-5e4832614d72.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942863": [
+			"**Location:** On the ground in front of the window after shooting all three VHS tapes on the shelf behind the window",
+			[
+				{
+					"id": 149483,
+					"title": "20260906211020_1",
+					"file_name": "b3df176e-7969-49c8-8b2d-97f8e2a6780d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3df176e-7969-49c8-8b2d-97f8e2a6780d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942864": [
+			"**Location:** On the ground in the corner of Olly's Comics after interacting with the white box",
+			[
+				{
+					"id": 149484,
+					"title": "20260906211108_1",
+					"file_name": "6ce9b730-4ae2-4745-b96d-ddbb6b00e5de.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6ce9b730-4ae2-4745-b96d-ddbb6b00e5de.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"942865": [
+			"**Location:** On top of the table in the corner of Olly's Comics after completing the [Aetherella Easter Egg](#loc=942755)",
+			[
+				{
+					"id": 149485,
+					"title": "20260906212256_1",
+					"file_name": "64507a26-c296-41de-9e87-11b5799d9f0b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/64507a26-c296-41de-9e87-11b5799d9f0b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"945711": [
+			"**Related Easter Egg:** [Fire Bomb Easter Egg](#loc=945718)",
+			[
+				{
+					"id": 150457,
+					"title": "20260913202332_1",
+					"file_name": "f7925bdf-bdcc-4551-8e6b-52e0604bda46.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f7925bdf-bdcc-4551-8e6b-52e0604bda46.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"945712": [
+			"**Related Easter Egg:** [Fire Bomb Easter Egg](#loc=945718)",
+			[
+				{
+					"id": 150459,
+					"title": "20260913202352_1",
+					"file_name": "9f12eb58-1669-412d-a585-0f212b3b68fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9f12eb58-1669-412d-a585-0f212b3b68fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"945718": [
+			"**Steps:**\n- Inside the Dark Aether Church are two sets of candles:\n   - [Candles](#loc=945711)\n   - [Candles](#loc=945712)\n- When both are shot with a gun upgraded with the Napalm Burst upgrade, they will light and blue fire molotovs will drop and light up the ground inside the church, once a game.",
+			[]
+		],
+		"948338": [
+			"**Location:** Inside the trashcan in the corner of the area after collecting every other statue",
+			[
+				{
+					"id": 150793,
+					"title": "20260916223059_1",
+					"file_name": "0c84f431-2fe0-488f-b029-801408178e58.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c84f431-2fe0-488f-b029-801408178e58.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959507": [
+			"",
+			[
+				{
+					"id": 153974,
+					"title": "20261003223111_1",
+					"file_name": "963071dc-e687-43f9-be02-3ab982853fc3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/963071dc-e687-43f9-be02-3ab982853fc3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959508": [
+			"",
+			[
+				{
+					"id": 153975,
+					"title": "20261003223132_1",
+					"file_name": "141c5c89-b9c4-4706-808e-b5de27653354.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/141c5c89-b9c4-4706-808e-b5de27653354.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959509": [
+			"",
+			[
+				{
+					"id": 153976,
+					"title": "20261003223149_1",
+					"file_name": "34faeca5-63b5-4483-8e8a-2907c3bdb5c7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/34faeca5-63b5-4483-8e8a-2907c3bdb5c7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959510": [
+			"",
+			[
+				{
+					"id": 153977,
+					"title": "20261003223214_1",
+					"file_name": "7292541a-839f-455f-b445-1fde44c77be2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7292541a-839f-455f-b445-1fde44c77be2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959511": [
+			"",
+			[
+				{
+					"id": 153978,
+					"title": "20261003223233_1",
+					"file_name": "f8d2b2ae-a602-46ce-8fe5-daa8ae07e5eb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f8d2b2ae-a602-46ce-8fe5-daa8ae07e5eb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959512": [
+			"",
+			[
+				{
+					"id": 153979,
+					"title": "20261003223252_1",
+					"file_name": "36ee8786-6553-4339-8f70-b6e6f945d3c5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36ee8786-6553-4339-8f70-b6e6f945d3c5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959513": [
+			"",
+			[
+				{
+					"id": 153980,
+					"title": "20261003223306_1",
+					"file_name": "f89d46ca-ed7a-4056-b820-d7162c263749.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f89d46ca-ed7a-4056-b820-d7162c263749.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959514": [
+			"",
+			[
+				{
+					"id": 153981,
+					"title": "20261003223323_1",
+					"file_name": "a589fb6d-1c00-48bc-9408-c7ee48373981.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a589fb6d-1c00-48bc-9408-c7ee48373981.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

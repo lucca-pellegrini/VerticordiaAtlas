@@ -250,6 +250,7 @@
 			"slug": "vice-city",
 			"title": "Vice City",
 			"data": "vice-city/data.json",
+			"compact": "vice-city/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Radar",
@@ -281,8 +282,7 @@
 					"tileSize": 256,
 					"background": "#99d0f7"
 				}
-			],
-			"compact": "vice-city/data.compact.json"
+			]
 		}
 	]
 }

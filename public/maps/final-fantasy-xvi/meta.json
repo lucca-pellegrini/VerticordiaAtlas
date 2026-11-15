@@ -178,6 +178,7 @@
 			"slug": "valisthea",
 			"title": "Valisthea",
 			"data": "valisthea/data.json",
+			"compact": "valisthea/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -189,8 +190,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "valisthea/data.compact.json"
+			]
 		}
 	]
 }

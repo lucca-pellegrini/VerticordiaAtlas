@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 130,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "636373",
@@ -93,7 +95,7 @@
 					"ign_enabled": true,
 					"ign_visible": true,
 					"suggestion_locked": false,
-					"suggestion_add_locked": false,
+					"suggestion_add_locked": true,
 					"featured": false,
 					"visible": true,
 					"description": null,
@@ -163,7 +165,7 @@
 					"icon": "monster_nest",
 					"color": null,
 					"icon_color": null,
-					"info": "Nests are localized infestations of a single monster type. Destroy the nests with Grapeshot, Dancing Star, or Samum bombs. Often, a stronger \"boss\" variation of the monster will spawn after the nest is destroyed, which can be killed for bonus XP rewards.\n\n\n**Rewards:**\n- 20 XP\n- Random Nest Loot",
+					"info": "Nests are localized infestations of a single monster type. Destroy the nests with Grapeshot, Dancing Star, or Samum bombs. Often, a stronger \"boss\" variation of the monster will spawn after the nest is destroyed, which can be killed for additional rewards.\n\n\n**Rewards:**\n- 20 XP\n- Random Nest Loot",
 					"template": "**Monsters:** ??",
 					"order": 1,
 					"has_heatmap": false,
@@ -177,7 +179,7 @@
 					"ign_enabled": true,
 					"ign_visible": true,
 					"suggestion_locked": false,
-					"suggestion_add_locked": false,
+					"suggestion_add_locked": true,
 					"featured": false,
 					"visible": true,
 					"description": null,
@@ -385,6 +387,7 @@
 		{
 			"id": 131,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Services",
 			"order": 10,
 			"color": "6591C7",
@@ -600,6 +603,7 @@
 		{
 			"id": 132,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "C49E06",
@@ -731,6 +735,7 @@
 		{
 			"id": 133,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "B3473B",
@@ -1030,6 +1035,7 @@
 		{
 			"id": 134,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "A17142",
@@ -1075,6 +1081,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"595": {
 			"id": 595,
@@ -1125,7 +1132,7 @@
 			"ign_enabled": true,
 			"ign_visible": true,
 			"suggestion_locked": false,
-			"suggestion_add_locked": false,
+			"suggestion_add_locked": true,
 			"featured": false,
 			"visible": true,
 			"description": null,
@@ -1195,7 +1202,7 @@
 			"icon": "monster_nest",
 			"color": null,
 			"icon_color": null,
-			"info": "Nests are localized infestations of a single monster type. Destroy the nests with Grapeshot, Dancing Star, or Samum bombs. Often, a stronger \"boss\" variation of the monster will spawn after the nest is destroyed, which can be killed for bonus XP rewards.\n\n\n**Rewards:**\n- 20 XP\n- Random Nest Loot",
+			"info": "Nests are localized infestations of a single monster type. Destroy the nests with Grapeshot, Dancing Star, or Samum bombs. Often, a stronger \"boss\" variation of the monster will spawn after the nest is destroyed, which can be killed for additional rewards.\n\n\n**Rewards:**\n- 20 XP\n- Random Nest Loot",
 			"template": "**Monsters:** ??",
 			"order": 1,
 			"has_heatmap": false,
@@ -1209,7 +1216,7 @@
 			"ign_enabled": true,
 			"ign_visible": true,
 			"suggestion_locked": false,
-			"suggestion_add_locked": false,
+			"suggestion_add_locked": true,
 			"featured": false,
 			"visible": true,
 			"description": null,

@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 110,
@@ -48,7 +49,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 111,
@@ -72,7 +74,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -89,6 +92,7 @@
 		{
 			"id": 290,
 			"game_id": 29,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "B88368",
@@ -556,6 +560,7 @@
 		{
 			"id": 291,
 			"game_id": 29,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "499BA5",
@@ -771,6 +776,7 @@
 		{
 			"id": 294,
 			"game_id": 29,
+			"section_id": null,
 			"title": "Activities",
 			"order": 30,
 			"color": "9C6091",
@@ -846,6 +852,7 @@
 		{
 			"id": 293,
 			"game_id": 29,
+			"section_id": null,
 			"title": "Items",
 			"order": 40,
 			"color": "92A767",
@@ -914,7 +921,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 15
+					"locations_count": 17
 				},
 				{
 					"id": 1341,
@@ -949,6 +956,7 @@
 		{
 			"id": 292,
 			"game_id": 29,
+			"section_id": null,
 			"title": "Other",
 			"order": 50,
 			"color": "445A67",
@@ -1017,7 +1025,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 84
+					"locations_count": 85
 				},
 				{
 					"id": 1337,
@@ -1106,6 +1114,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"1307": {
 			"id": 1307,
@@ -1917,7 +1926,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 84
+			"locations_count": 85
 		},
 		"1349": {
 			"id": 1349,
@@ -1973,7 +1982,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 15
+			"locations_count": 17
 		},
 		"1351": {
 			"id": 1351,
@@ -2063,7 +2072,8 @@
 								[-1.4587867875525, 1.3759973231369],
 								[-1.6017807145545, 1.3242557883144],
 								[-1.6536224503943, 1.3400443664774],
-								[-1.680401625199, 1.354116709095]
+								[-1.680401625199, 1.354116709095],
+								[-1.6909696136715, 1.3744672177738]
 							]
 						]
 					},
@@ -2138,7 +2148,8 @@
 								[-1.4788167774981, 0.87650086934583],
 								[-1.4867132008379, 0.88405307851086],
 								[-1.4980428517168, 0.89023214731732],
-								[-1.5235354529523, 0.9392469903823]
+								[-1.5235354529523, 0.9392469903823],
+								[-1.5664845502156, 1.0205880056752]
 							]
 						]
 					},
@@ -2185,7 +2196,8 @@
 								[-1.5164285710803, 1.1607793426483],
 								[-1.4872461369982, 1.2163856595931],
 								[-1.4683633855334, 1.2366370610286],
-								[-1.458750348424, 1.3096621414266]
+								[-1.458750348424, 1.3096621414266],
+								[-1.4225933076257, 1.3376022802109]
 							]
 						]
 					},
@@ -2225,7 +2237,8 @@
 								[-1.349363117292, 1.5734889897659],
 								[-1.3661859322334, 1.5625067754385],
 								[-1.411504535749, 1.561133994602],
-								[-1.4341638375068, 1.5631931655204]
+								[-1.4341638375068, 1.5631931655204],
+								[-1.4478447158754, 1.5597034671191]
 							]
 						]
 					},
@@ -2261,7 +2274,8 @@
 								[-1.2247484495588, 1.6299274869926],
 								[-1.244363076599, 1.6210926821595],
 								[-1.2704556058959, 1.6173176398447],
-								[-1.2872784208373, 1.602903777459]
+								[-1.2872784208373, 1.602903777459],
+								[-1.3119976591186, 1.5944081933194]
 							]
 						]
 					},
@@ -2322,7 +2336,8 @@
 								[-1.390389414918, 1.8160630595785],
 								[-1.3951959334727, 1.8304753148903],
 								[-1.419571849, 1.842828584407],
-								[-1.4436044417735, 1.8435148746505]
+								[-1.4436044417735, 1.8435148746505],
+								[-1.4740292464537, 1.862834644045]
 							]
 						]
 					},
@@ -2366,7 +2381,8 @@
 								[-1.2704103758283, 1.6808896361102],
 								[-1.2822550108381, 1.6685352963309],
 								[-1.2946146299787, 1.7277324594527],
-								[-1.2843149473615, 1.730820957005]
+								[-1.2843149473615, 1.730820957005],
+								[-1.2784784605451, 1.7960213838177]
 							]
 						]
 					},
@@ -2409,7 +2425,8 @@
 								[-1.3484543736449, 1.1820433301198],
 								[-1.3676933839109, 1.1942286674313],
 								[-1.3795824155911, 1.223200445724],
-								[-1.3831873045071, 1.2429369325367]
+								[-1.3831873045071, 1.2429369325367],
+								[-1.3758597708891, 1.3008353550633]
 							]
 						]
 					},
@@ -2448,11 +2465,9 @@
 								[-1.5664845502156, 1.0205880056752],
 								[-1.5708452275744, 1.0487053176039],
 								[-1.5799054665836, 1.0538938521579],
-								[-1.5799054665836, 1.0538938521579],
-								[-1.5799054665836, 1.0538938521579],
-								[-1.5799054665836, 1.0538938521579],
 								[-1.6931367328713, 1.1073774432106],
-								[-1.849645896746, 1.2745394461789]
+								[-1.849645896746, 1.2745394461789],
+								[-1.9189638241677, 1.2617230559682]
 							]
 						]
 					},
@@ -2501,7 +2516,8 @@
 								[-1.0373789474199, 1.2748755856203],
 								[-1.0146200787699, 1.2964680132522],
 								[-0.99573732730505, 1.3304480348879],
-								[-0.9874975812113, 1.3829616889233]
+								[-0.9874975812113, 1.3829616889233],
+								[-0.96438996114625, 1.4186882975401]
 							]
 						]
 					},
@@ -2541,7 +2557,8 @@
 								[-0.96597369331107, 1.7122190803811],
 								[-0.96648867744193, 1.6682070956571],
 								[-0.97713168281302, 1.6536220089371],
-								[-0.96889193671927, 1.6316583822957]
+								[-0.96889193671927, 1.6316583822957],
+								[-0.97146318268574, 1.5117012232725]
 							]
 						]
 					},
@@ -4076,13 +4093,26 @@
 			"region_id": 127,
 			"category_id": 1309,
 			"title": "Thrift Mart",
-			"description": null,
+			"description": "",
 			"latitude": "1.40674413039767",
 			"longitude": "-1.66606388204127",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160552,
+					"title": "",
+					"file_name": "bcbdf2e1-c75c-4c56-9783-90e5e0ca652d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bcbdf2e1-c75c-4c56-9783-90e5e0ca652d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35674,
@@ -4936,7 +4966,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 159997,
+					"title": "",
+					"file_name": "97a8fbba-5f23-492b-9519-5ca51f242d28.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/97a8fbba-5f23-492b-9519-5ca51f242d28.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35718,
@@ -5224,13 +5267,26 @@
 			"region_id": 127,
 			"category_id": 1333,
 			"title": "Communist Propaganda",
-			"description": null,
+			"description": "",
 			"latitude": "1.36758713152270",
 			"longitude": "-1.67731067068190",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160555,
+					"title": "",
+					"file_name": "a3621294-9e79-4217-b240-5d8e159f5934.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3621294-9e79-4217-b240-5d8e159f5934.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35638,
@@ -5644,13 +5700,26 @@
 			"region_id": null,
 			"category_id": 1332,
 			"title": "Hot Rod Magazine - January 1966",
-			"description": null,
+			"description": "",
 			"latitude": "1.42814900565680",
 			"longitude": "-1.69808149037990",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160561,
+					"title": "",
+					"file_name": "6bdb247d-7cd4-4c2b-a445-78028636491f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6bdb247d-7cd4-4c2b-a445-78028636491f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35641,
@@ -5854,13 +5923,26 @@
 			"region_id": null,
 			"category_id": 1335,
 			"title": "Junction Box",
-			"description": null,
+			"description": "",
 			"latitude": "1.35907533975880",
 			"longitude": "-1.67331630726580",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160557,
+					"title": "",
+					"file_name": "f08f6e0d-2839-4608-b710-1d6546821f51.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f08f6e0d-2839-4608-b710-1d6546821f51.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35954,
@@ -5882,13 +5964,26 @@
 			"region_id": null,
 			"category_id": 1335,
 			"title": "Junction Box",
-			"description": null,
+			"description": "",
 			"latitude": "1.41705687329170",
 			"longitude": "-1.66664584500290",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160565,
+					"title": "",
+					"file_name": "d054c636-30ae-4c08-a30f-833bd892385f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d054c636-30ae-4c08-a30f-833bd892385f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35956,
@@ -5910,13 +6005,26 @@
 			"region_id": null,
 			"category_id": 1335,
 			"title": "Junction Box",
-			"description": null,
+			"description": "",
 			"latitude": "1.51540071396040",
 			"longitude": "-1.63748710978730",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160574,
+					"title": "",
+					"file_name": "8945dac8-95fa-4b7e-9fba-62485f5adfdf.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8945dac8-95fa-4b7e-9fba-62485f5adfdf.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35958,
@@ -7184,13 +7292,26 @@
 			"region_id": 127,
 			"category_id": 1329,
 			"title": "Playboy: September 1963",
-			"description": null,
+			"description": "",
 			"latitude": "1.42617275151820",
 			"longitude": "-1.64872608296900",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160157,
+					"title": "",
+					"file_name": "eb916498-6ea0-4f83-9d38-94d56438bd37.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb916498-6ea0-4f83-9d38-94d56438bd37.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35633,
@@ -9139,6 +9260,60 @@
 			"media": []
 		},
 		{
+			"id": 1067152,
+			"map_id": 103,
+			"region_id": 127,
+			"category_id": 1350,
+			"title": "Medicine Cabinet",
+			"description": null,
+			"latitude": "1.36587903793390",
+			"longitude": "-1.68013210848220",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160554,
+					"title": "",
+					"file_name": "0c043199-585a-454f-8e59-d71610a78c15.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c043199-585a-454f-8e59-d71610a78c15.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067153,
+			"map_id": 103,
+			"region_id": 127,
+			"category_id": 1350,
+			"title": "Medicine Cabinet",
+			"description": null,
+			"latitude": "1.41488475272290",
+			"longitude": "-1.65624835233460",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160564,
+					"title": "",
+					"file_name": "eadef1bd-2996-4454-8955-49f2f68283d6.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eadef1bd-2996-4454-8955-49f2f68283d6.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 35608,
 			"map_id": 103,
 			"region_id": 126,
@@ -10068,13 +10243,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.51050921925070",
 			"longitude": "-1.57943357422950",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160568,
+					"title": "",
+					"file_name": "1b175e79-7281-45f7-9a6d-4115b06da4a4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1b175e79-7281-45f7-9a6d-4115b06da4a4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044291,
@@ -10082,13 +10270,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.51243679625970",
 			"longitude": "-1.59633410009510",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160569,
+					"title": "",
+					"file_name": "1ea49551-a95d-49d9-b151-66b49b4f856d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ea49551-a95d-49d9-b151-66b49b4f856d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044292,
@@ -10096,13 +10297,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.49780984572410",
 			"longitude": "-1.60177856480350",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160567,
+					"title": "",
+					"file_name": "01ea0b81-d0d2-4170-b016-16e93882992e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/01ea0b81-d0d2-4170-b016-16e93882992e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044293,
@@ -10110,13 +10324,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.48068825252560",
 			"longitude": "-1.59814892166460",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160566,
+					"title": "",
+					"file_name": "76cc50c8-965b-4ff6-8c4b-df9c8906cf0d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76cc50c8-965b-4ff6-8c4b-df9c8906cf0d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044294,
@@ -10124,13 +10351,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.52502269810490",
 			"longitude": "-1.61992678050260",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160572,
+					"title": "",
+					"file_name": "a6edea50-29ab-47d4-bdf2-eb023987ebac.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a6edea50-29ab-47d4-bdf2-eb023987ebac.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044295,
@@ -10138,13 +10378,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.51186986205470",
 			"longitude": "-1.63954953872240",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160573,
+					"title": "",
+					"file_name": "1493ef4b-652e-4315-a173-3be5572b854f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1493ef4b-652e-4315-a173-3be5572b854f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044296,
@@ -10152,13 +10405,26 @@
 			"region_id": null,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.54271086799660",
 			"longitude": "-1.63342451592540",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160571,
+					"title": "",
+					"file_name": "a4844861-8aaf-4755-86f7-ba6b616e40ad.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a4844861-8aaf-4755-86f7-ba6b616e40ad.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044297,
@@ -10166,13 +10432,26 @@
 			"region_id": null,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.55257536051150",
 			"longitude": "-1.64261205012080",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160570,
+					"title": "",
+					"file_name": "a61c0999-4f06-4318-a9fe-8cf460a1a052.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a61c0999-4f06-4318-a9fe-8cf460a1a052.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044298,
@@ -10180,13 +10459,26 @@
 			"region_id": null,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.44944439629130",
 			"longitude": "-1.68909337345670",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160558,
+					"title": "",
+					"file_name": "ae3baceb-fab8-4059-b746-761f46c0a833.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae3baceb-fab8-4059-b746-761f46c0a833.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044299,
@@ -10194,13 +10486,26 @@
 			"region_id": null,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.44707757648680",
 			"longitude": "-1.70604521843070",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160559,
+					"title": "",
+					"file_name": "c0bfc709-791f-4bbf-9b14-dd07a96d432c.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c0bfc709-791f-4bbf-9b14-dd07a96d432c.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044300,
@@ -10208,13 +10513,26 @@
 			"region_id": null,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.43145650402170",
 			"longitude": "-1.70926512194520",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160560,
+					"title": "",
+					"file_name": "07337f71-a473-47f9-ae75-80962a11eff4.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07337f71-a473-47f9-ae75-80962a11eff4.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044301,
@@ -10222,13 +10540,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.46695878569680",
 			"longitude": "-1.66323944230630",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160155,
+					"title": "",
+					"file_name": "909612c1-15a7-45ea-ad30-8d9e2d8e5883.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/909612c1-15a7-45ea-ad30-8d9e2d8e5883.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044302,
@@ -10236,13 +10567,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.44632019364610",
 			"longitude": "-1.66011424185210",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160154,
+					"title": "",
+					"file_name": "3898be34-f5bc-4b7b-b563-2a5cbbb262f8.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3898be34-f5bc-4b7b-b563-2a5cbbb262f8.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044303,
@@ -10250,13 +10594,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.42208380940300",
 			"longitude": "-1.67943366293880",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160562,
+					"title": "",
+					"file_name": "e3659712-1357-4cac-9acd-507770e201ed.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3659712-1357-4cac-9acd-507770e201ed.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044304,
@@ -10264,13 +10621,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.42899499197740",
 			"longitude": "-1.66513350321290",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160156,
+					"title": "",
+					"file_name": "2e8898b3-7899-43b1-a7a1-1d325dbfa4d7.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2e8898b3-7899-43b1-a7a1-1d325dbfa4d7.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044305,
@@ -10278,13 +10648,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.42094772261310",
 			"longitude": "-1.65632612006950",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160563,
+					"title": "",
+					"file_name": "365bc8a1-d174-48fb-8f63-be48fddf1b57.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/365bc8a1-d174-48fb-8f63-be48fddf1b57.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044306,
@@ -10292,13 +10675,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.40431173610120",
 			"longitude": "-1.64683803631080",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160551,
+					"title": "",
+					"file_name": "b465ad42-7147-487e-b82a-35e430939ec5.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b465ad42-7147-487e-b82a-35e430939ec5.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044307,
@@ -10306,13 +10702,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.38655005271400",
 			"longitude": "-1.65499195171600",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160550,
+					"title": "",
+					"file_name": "263678c7-fad9-486c-ae38-fe833ca523ec.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/263678c7-fad9-486c-ae38-fe833ca523ec.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044308,
@@ -10320,13 +10729,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.37311469360260",
 			"longitude": "-1.64436588377510",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160549,
+					"title": "",
+					"file_name": "4f88ecaa-19ad-487d-b7d8-b5c521d4cd2e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f88ecaa-19ad-487d-b7d8-b5c521d4cd2e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044309,
@@ -10334,13 +10756,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.35149147380450",
 			"longitude": "-1.66024456114310",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160553,
+					"title": "",
+					"file_name": "bc3defdb-dec9-4a28-9e06-59e3a1498b7a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bc3defdb-dec9-4a28-9e06-59e3a1498b7a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044310,
@@ -10348,13 +10783,26 @@
 			"region_id": 127,
 			"category_id": 1344,
 			"title": "TL-49 Fuse",
-			"description": null,
+			"description": "",
 			"latitude": "1.36680708623370",
 			"longitude": "-1.67541556293230",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160556,
+					"title": "",
+					"file_name": "32652a07-95ed-4b36-9a47-21de3ffcddcc.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/32652a07-95ed-4b36-9a47-21de3ffcddcc.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1044311,
@@ -10593,6 +11041,33 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1065102,
+			"map_id": 103,
+			"region_id": 131,
+			"category_id": 1344,
+			"title": "TL-49 Fuse",
+			"description": null,
+			"latitude": "1.32357059979140",
+			"longitude": "-1.18263940277840",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 159996,
+					"title": "",
+					"file_name": "29e5b163-b2a9-471d-a4ec-afa0698a7f17.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/29e5b163-b2a9-471d-a4ec-afa0698a7f17.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 35747,

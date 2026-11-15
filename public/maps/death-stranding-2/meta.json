@@ -178,6 +178,7 @@
 			"slug": "mexico",
 			"title": "Mexico",
 			"data": "mexico/data.json",
+			"compact": "mexico/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -189,13 +190,13 @@
 					"tileSize": 256,
 					"background": "#010207"
 				}
-			],
-			"compact": "mexico/data.compact.json"
+			]
 		},
 		{
 			"slug": "australia",
 			"title": "Australia",
 			"data": "australia/data.json",
+			"compact": "australia/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -207,8 +208,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "australia/data.compact.json"
+			]
 		}
 	]
 }

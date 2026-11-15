@@ -112,6 +112,7 @@
 			"slug": "gloomy-manor",
 			"title": "Gloomy Manor",
 			"data": "gloomy-manor/data.json",
+			"compact": "gloomy-manor/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -123,13 +124,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "gloomy-manor/data.compact.json"
+			]
 		},
 		{
 			"slug": "haunted-towers",
 			"title": "Haunted Towers",
 			"data": "haunted-towers/data.json",
+			"compact": "haunted-towers/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -141,13 +142,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "haunted-towers/data.compact.json"
+			]
 		},
 		{
 			"slug": "old-clockworks",
 			"title": "Old Clockworks",
 			"data": "old-clockworks/data.json",
+			"compact": "old-clockworks/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -159,13 +160,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "old-clockworks/data.compact.json"
+			]
 		},
 		{
 			"slug": "secret-mine",
 			"title": "Secret Mine",
 			"data": "secret-mine/data.json",
+			"compact": "secret-mine/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -177,13 +178,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "secret-mine/data.compact.json"
+			]
 		},
 		{
 			"slug": "treacherous-mansion",
 			"title": "Treacherous Mansion",
 			"data": "treacherous-mansion/data.json",
+			"compact": "treacherous-mansion/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -195,8 +196,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "treacherous-mansion/data.compact.json"
+			]
 		}
 	]
 }

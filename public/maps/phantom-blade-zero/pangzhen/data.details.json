@@ -517,7 +517,23 @@
 				}
 			]
 		],
-		"1061930": ["**Required:** Illusory Pipa", []],
+		"1061930": [
+			"**Required:** [Illusory Pipa](#loc=1064794)",
+			[
+				{
+					"id": 159770,
+					"title": "002663",
+					"file_name": "b5d98d0c-b40d-40d6-af9a-d99aa76ea82b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b5d98d0c-b40d-40d6-af9a-d99aa76ea82b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"1061931": [
 			"",
 			[
@@ -1503,7 +1519,7 @@
 			]
 		],
 		"1062136": [
-			"**How to Begin:** Talk to Purple Wolf\n\n**Tips:**\n\n- This quest continues in the Mandate's Encampment\n- Return once you've defeated [Chief Disciple of the Seven-Stars Formation](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064266) to receive [Shattered \"Hero's Courage\"](#loc=1064398), allowing you to collect: \n  - [Memory Flower of Mandate Leaders 1](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1063637) (Mandate's Encampment)\n  - [Memory Flower of Mandate Leaders 2](#loc=1063578)\n  - [Memory Flower of Mandate Leaders 3](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1063682) (Mandate's Encampment)\n  - [Memory Flower of Mandate Leaders 4](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064294) (Mandate's Encampment)\n  - [Memory Flower of Mandate Leaders 5](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064357) (Mandate's Encampment)\n  - [Memory Flower of Mandate Leaders 6](#loc=1063594)\n\n**Rewards:**\n\n- [Hero's Courage](#loc=1063611)",
+			"**How to Begin:** Talk to Purple Wolf\n\n**Tips:**\n\n- This quest continues in the Mandate's Encampment.\n- **BUG WARNING** - The flower-dropping enemies in this area ( #2 and #6) will not drop a flower unless you have the [Shattered \"Hero's Courage\"](#loc=1064398)\n- Return once you've defeated [Chief Disciple of the Seven-Stars Formation](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064266) to receive [Shattered \"Hero's Courage\"](#loc=1064398), allowing you to collect: \n  - [Memory Flower of Mandate Leaders 1](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1063637) (Mandate's Encampment)\n  - [Memory Flower of Mandate Leaders 2](#loc=1063578)\n  - [Memory Flower of Mandate Leaders 3](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1063682) (Mandate's Encampment)\n  - [Memory Flower of Mandate Leaders 4](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064294) (Mandate's Encampment)\n  - [Memory Flower of Mandate Leaders 5](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064357) (Mandate's Encampment)\n  - [Memory Flower of Mandate Leaders 6](#loc=1063594)\n\n**Rewards:**\n\n- [Hero's Courage](#loc=1063611)",
 			[]
 		],
 		"1062137": [
@@ -1553,7 +1569,7 @@
 			]
 		],
 		"1062143": [
-			"**How to Begin:** Talk to the Fisherman in the large room beyond the Myst's Tavern bell.\n\n**Tips:**\n\n- The quest continues at Meigu Lake\n- ??\n\n**Reward:**\n- ??",
+			"**How to Begin:** Talk to the Fisherman in the large room beyond the Myst's Tavern bell.\n\n**Cube Fragments:**\n- [Remnant Spark Cube Fragment: Tenon](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064481)\n- [Remnant Spark Cube Fragment: Mortise](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064821)\n\n**Reward:**\n- [Remnant Spark Cube](#loc=1065075)",
 			[]
 		],
 		"1062144": [
@@ -3855,7 +3871,7 @@
 		"1063117": ["Given by the [Apprentice Healer](#loc=1063118)", []],
 		"1063118": ["Unlocks medicine upgrading.", []],
 		"1063119": [
-			"**How to Begin:** Try to open the snake door, or find [An Unsigned Poem](#loc=1063613)\n\n**Tips:**\n\n- Read [The Four Serpent Houses](#loc=1063122) book to learn where the keys are.\n- ??",
+			"**How to Begin:** Try to open the snake door, or find [An Unsigned Poem](#loc=1063613)\n\n**Tips:**\n\n- Read [The Four Serpent Houses](#loc=1063122) book to learn where the keys are.\n- Gather the [Loong Emblem (Yin)](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1063284) + [Loong Emblem (Yang)](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1063281) to unlock a [door in Meigu Lake](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064939)\n- Unlock the snake door with:\n  - [Red Serpent Tongue](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1063288)\n  - [Black Serpent Fang](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1063276)\n  - [White Serpent Eye](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064953)",
 			[]
 		],
 		"1063120": [
@@ -4272,7 +4288,7 @@
 			]
 		],
 		"1063147": [
-			"**How to Begin:** Pick up the [Memory Flower: Bitter Kin](#loc=1063146)\n\n**Tips:**\n\n- ??\n- ??\n\n**Rewards:**\n\n- ??",
+			"**How to Begin:** Pick up the [Memory Flower: Bitter Kin](#loc=1063146)\n\n**Tips:**\n\n- The second flower is found in the Meigu Lake region.\n\n**Rewards:**\n\n- [Longevity Tonic](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064835)",
 			[]
 		],
 		"1063148": [
@@ -4312,7 +4328,7 @@
 		"1063150": ["**Loot:**\n\n- [You Loong's Deluge](#loc=1063151)", []],
 		"1063151": ["Looted from [You Loong, Leader of the Blackwater Crew](#loc=1063150)", []],
 		"1063152": [
-			"",
+			"[The Banyan's Heart](#loc=1063153)",
 			[
 				{
 					"id": 159024,
@@ -4712,7 +4728,7 @@
 			[]
 		],
 		"1063185": ["Crane Bell", []],
-		"1063186": ["**Required:** Illusory Pipa", []],
+		"1063186": ["**Required:** [Illusory Pipa](#loc=1064794)", []],
 		"1063187": [
 			"",
 			[
@@ -5058,7 +5074,7 @@
 			[]
 		],
 		"1063208": [
-			"**How to Begin:** Speak to Shopkeeper Niu after finding [Memory Flower: Reunion with Brother](#loc=1062184)\n\n**Tips:**\n\n- ??\n- ??",
+			"**How to Begin:** Speak to Shopkeeper Niu after finding [Memory Flower: Reunion with Brother](#loc=1062184)\n\n**Reward:**\n\n- [Rouge Box](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1065064)",
 			[]
 		],
 		"1063209": ["Reward for completing [The Sword and The Way](#loc=1062125)\n\n**Kuye Temple Prayer Beads**", []],
@@ -6581,7 +6597,10 @@
 			]
 		],
 		"1063597": ["Climb the ladder near the [Remnant Dust](#loc=1063596) to unlock it.", []],
-		"1063598": ["**Required:** Backstreet Courtyard Key", []],
+		"1063598": [
+			"**Required:** [Backstreet Courtyard Key](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1065646)",
+			[]
+		],
 		"1063599": [
 			"",
 			[
@@ -6621,7 +6640,7 @@
 			]
 		],
 		"1063602": [
-			"",
+			"[Acolyte Lei Ting](#loc=1063603)",
 			[
 				{
 					"id": 159281,
@@ -6637,7 +6656,10 @@
 				}
 			]
 		],
-		"1063603": ["**Loot:**\n\n- Leiting's Thunder Mask\n\n\n\nFought when you interact with the scarecrow.", []],
+		"1063603": [
+			"**Loot:**\n\n- [Leiting's Thunder Mask](#loc=1063604)\n\n\n\nFought when you interact with the scarecrow.",
+			[]
+		],
 		"1063604": ["Drops from [Acolyte Lei Ting](#loc=1063603)\n\n**Quest:** Secret at the Heart of the Lake", []],
 		"1063605": [
 			"",
@@ -6770,6 +6792,3680 @@
 		"1064398": [
 			"Reward for completing the first half of [The Undying Heroic Spirit](#loc=1062136).\n\n\n\nAllows you to interact with certain memory flowers.\n\n- [Memory Flower of Mandate Leaders 1](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1063637) (Mandate's Encampment)\n- [Memory Flower of Mandate Leaders 2](#loc=1063578)\n- [Memory Flower of Mandate Leaders 3](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1063682) (Mandate's Encampment)\n- [Memory Flower of Mandate Leaders 4](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064294) (Mandate's Encampment)\n- [Memory Flower of Mandate Leaders 5](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064357) (Mandate's Encampment)\n- [Memory Flower of Mandate Leaders 6](#loc=1063594)",
 			[]
-		]
+		],
+		"1064794": [
+			"Obtained by presenting [Myst](#loc=1062126) with all of the Pipa's pieces.\n\n**Pipa Pieces:**\n\n- [Illusory Pipa Head](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1061722) (Village of Lu)\n- [Illusory Pipa's Backplate](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064381) (Mandate Encampment)\n- [Illusory Pipa Strings](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064793) (Meigu Lake)",
+			[]
+		],
+		"1064795": [
+			"Ground floor of the building beyond the [Mist Barrier](#loc=1061930)",
+			[
+				{
+					"id": 159771,
+					"title": "002664",
+					"file_name": "07337416-28df-4691-a348-5fa11d3392b8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07337416-28df-4691-a348-5fa11d3392b8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064796": [
+			"Ground floor of the building beyond the [Mist Barrier](#loc=1061930)",
+			[
+				{
+					"id": 159772,
+					"title": "002665",
+					"file_name": "f69a4524-8b44-465b-b189-85af379b0310.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f69a4524-8b44-465b-b189-85af379b0310.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064797": [
+			"Middle floor of the building beyond the [Mist Barrier](#loc=1061930)",
+			[
+				{
+					"id": 159773,
+					"title": "002666",
+					"file_name": "21be204e-cbe4-42a4-a9b5-3406138f13bf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/21be204e-cbe4-42a4-a9b5-3406138f13bf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064798": [
+			"Middle floor of the building beyond the [Mist Barrier](#loc=1061930).\n\nUnlocked by climbing down a ladder on the floor above.",
+			[]
+		],
+		"1064799": [
+			"Middle floor of the building beyond the [Mist Barrier](#loc=1061930)",
+			[
+				{
+					"id": 159774,
+					"title": "002667",
+					"file_name": "3357d0e4-1cd3-4f9a-b931-f86acfa8f660.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3357d0e4-1cd3-4f9a-b931-f86acfa8f660.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064800": [
+			"Inside a chest behind the [One-Way Door](#loc=1064798), on the middle floor of the building beyond the [Mist Barrier](#loc=1061930).\n\n**Thunder Spear**",
+			[
+				{
+					"id": 159775,
+					"title": "002668",
+					"file_name": "0ca37cc4-1de5-4917-9bba-d75b94a1d48c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0ca37cc4-1de5-4917-9bba-d75b94a1d48c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064801": [
+			"Top floor of the building beyond the [Mist Barrier](#loc=1061930)",
+			[
+				{
+					"id": 159776,
+					"title": "002669",
+					"file_name": "cc119701-637c-42b3-a96f-b5d77aab7b0f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc119701-637c-42b3-a96f-b5d77aab7b0f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064802": [
+			"Top floor of the building beyond the [Mist Barrier](#loc=1061930)",
+			[
+				{
+					"id": 159777,
+					"title": "002670",
+					"file_name": "960424ba-2f55-44e0-aaf4-6754cf5b0060.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/960424ba-2f55-44e0-aaf4-6754cf5b0060.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064803": [
+			"**How to Begin:** Speak to the woman on the top floor of the building beyond the [Mist Barrier](#loc=1061930).\n\n**Tips:**\n- Rescue the [Ailing Man](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1065603) from the Mountain of Imprisonment\n- Grab the [Letter to Yu Ling](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1065619), then return\n\n**Rewards:**\n- [Ultimate Talisman](#loc=1065638)",
+			[]
+		],
+		"1064804": [
+			"Top floor of the building beyond the [Mist Barrier](#loc=1061930)",
+			[
+				{
+					"id": 159778,
+					"title": "002672",
+					"file_name": "ed37a6ac-ad2d-4e8c-8d86-43e3d2d227c7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed37a6ac-ad2d-4e8c-8d86-43e3d2d227c7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064805": [
+			"Beyond the [Mist Barrier](#loc=1063186)\n\n**Increases Fire damage dealt to enemies by 20%. Ignite inflicted by attacks spreads to nearby enemies.**",
+			[
+				{
+					"id": 159780,
+					"title": "002673",
+					"file_name": "fa99f9d3-1f98-4ca4-b436-d10a0594e90c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa99f9d3-1f98-4ca4-b436-d10a0594e90c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064806": [
+			"Beyond the [Mist Barrier](#loc=1063186)",
+			[
+				{
+					"id": 159779,
+					"title": "002673",
+					"file_name": "e9e80d29-3264-4161-a738-cf070b63d189.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9e80d29-3264-4161-a738-cf070b63d189.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1064807": [
+			"Obtained by examining the red signs.",
+			[
+				{
+					"id": 159781,
+					"title": "002674",
+					"file_name": "469e408e-7dda-4bfe-a01a-c00920921199.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/469e408e-7dda-4bfe-a01a-c00920921199.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065074": [
+			"**Wulin Tales**\n\nGiven by the fisherman after presenting him with the two halves of the cube.",
+			[]
+		],
+		"1065075": [
+			"Given by [Myst](#loc=1062126) as part of [The Cube](#loc=1062143)\n\n**Increases the damage of all Phantom Edges by 12%**",
+			[]
+		],
+		"1065637": [
+			"",
+			[
+				{
+					"id": 160152,
+					"title": "002939",
+					"file_name": "dabced5d-9857-42e9-b818-24704a78700e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dabced5d-9857-42e9-b818-24704a78700e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1065638": [
+			"Reward for completing [Don't Forget Me](#loc=1064803)\n\n**Power Surge deals 20% more damage to Guard Broken enemies.**",
+			[]
+		],
+		"1066426": [
+			"In an area beyond the [Locked Door](#loc=1063598).",
+			[
+				{
+					"id": 160185,
+					"title": "002946",
+					"file_name": "76833eb2-1923-42d8-ae0b-5c1748524086.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76833eb2-1923-42d8-ae0b-5c1748524086.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066427": [
+			"In an area beyond the [Locked Door](#loc=1063598); appears after placing a necklace on the woman in the bed as part of [Bai Xue](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1065647)",
+			[
+				{
+					"id": 160186,
+					"title": "002948",
+					"file_name": "a10cf1b5-2637-4d45-aa79-ebf98276d612.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a10cf1b5-2637-4d45-aa79-ebf98276d612.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066428": [
+			"In an area beyond the [Locked Door](#loc=1063598)\n\n2. A Sincere Repentance",
+			[
+				{
+					"id": 160188,
+					"title": "002949",
+					"file_name": "8467773e-5759-41c3-8845-0b00412992ef.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8467773e-5759-41c3-8845-0b00412992ef.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066429": [
+			"Obtained when interacting with a tree after finding both Bai Xue'er Memory Flowers.\n- [Memory Flower: Bai Xue'er 1](#loc=1066427)\n- [Memory Flower: Bai Xue'er 2](#loc=1066428)\n\n**When a nearby enemy is Bleeding, damage dealt to enemies increases by 10%. Enemies also take 20% more Bleeding damage while attacking.**",
+			[]
+		],
+		"1066430": [
+			"In an area beyond the [Locked Door](#loc=1063598)",
+			[
+				{
+					"id": 160192,
+					"title": "002950",
+					"file_name": "26bb1c3e-f5a2-425b-bb5b-1db57eb7470d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/26bb1c3e-f5a2-425b-bb5b-1db57eb7470d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066431": [
+			"In an area beyond the [Locked Door](#loc=1063598)",
+			[
+				{
+					"id": 160193,
+					"title": "002951",
+					"file_name": "b05973fc-1427-4f05-a003-6b38b2a409f5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b05973fc-1427-4f05-a003-6b38b2a409f5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066432": [
+			"In an area beyond the [Locked Door](#loc=1063598)",
+			[
+				{
+					"id": 160194,
+					"title": "002952",
+					"file_name": "b03be08f-d7c1-4446-a9d1-45210f9e306d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b03be08f-d7c1-4446-a9d1-45210f9e306d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066551": [
+			"**How to Begin:** Unlock the Snake Door\n\n**Tips:**\n- Entering the Mirage Estate marks the point of no return.\n- Doing so turns the Crimson Forest into its 'snow' variant.",
+			[]
+		],
+		"1067042": [
+			"Past the point of no return.",
+			[
+				{
+					"id": 160450,
+					"title": "003086",
+					"file_name": "ab6ac7b2-3f08-4e75-b413-21e0b3a6e935.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab6ac7b2-3f08-4e75-b413-21e0b3a6e935.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067043": [
+			"1. Struggle",
+			[
+				{
+					"id": 160451,
+					"title": "003087",
+					"file_name": "ff14fb78-8851-4349-81e2-f894ca6ffeca.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff14fb78-8851-4349-81e2-f894ca6ffeca.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067044": [
+			"Inside a chest beside [Yu'er's Memory Flower](#loc=1067043)",
+			[
+				{
+					"id": 160452,
+					"title": "003088",
+					"file_name": "6274b488-f989-4678-9ece-e52083e4f343.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6274b488-f989-4678-9ece-e52083e4f343.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067045": [
+			"Inside a chest beside [Yu'er's Memory Flower](#loc=1067043)",
+			[
+				{
+					"id": 160453,
+					"title": "003088",
+					"file_name": "5b7035f6-1d29-4c3d-8381-95d16bd0bd03.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b7035f6-1d29-4c3d-8381-95d16bd0bd03.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067046": [
+			"Behind the boxes.",
+			[
+				{
+					"id": 160454,
+					"title": "003089",
+					"file_name": "74f64ba3-c15c-4ba1-8fd4-e5c5ec2062ba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/74f64ba3-c15c-4ba1-8fd4-e5c5ec2062ba.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067047": [
+			"Inside a chest behind boxes.",
+			[
+				{
+					"id": 160455,
+					"title": "003090",
+					"file_name": "b9d65aab-af23-4834-b8bf-2cc479358ca3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9d65aab-af23-4834-b8bf-2cc479358ca3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067048": [
+			"Inside a chest behind boxes.",
+			[
+				{
+					"id": 160456,
+					"title": "003090",
+					"file_name": "09027a64-bfb7-47d9-8899-5a8945cb264a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/09027a64-bfb7-47d9-8899-5a8945cb264a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067049": [
+			"",
+			[
+				{
+					"id": 160457,
+					"title": "003091",
+					"file_name": "39587ae4-15b5-4ee1-8be8-1c9d39712f39.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/39587ae4-15b5-4ee1-8be8-1c9d39712f39.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067050": [
+			"",
+			[
+				{
+					"id": 160458,
+					"title": "003092",
+					"file_name": "00464d78-2389-4ce5-b77f-90abb6a4def9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/00464d78-2389-4ce5-b77f-90abb6a4def9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067051": [
+			"1. Abnormality",
+			[
+				{
+					"id": 160459,
+					"title": "003093",
+					"file_name": "896cc75d-6810-42ab-b224-b47774eeeb06.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/896cc75d-6810-42ab-b224-b47774eeeb06.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067052": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160460,
+					"title": "003094",
+					"file_name": "f328275e-0f1d-4056-a471-9d0c22414f46.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f328275e-0f1d-4056-a471-9d0c22414f46.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067053": [
+			"",
+			[
+				{
+					"id": 160461,
+					"title": "003095",
+					"file_name": "3272673b-eb1b-47d7-bd27-75daf025347a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3272673b-eb1b-47d7-bd27-75daf025347a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067054": [
+			"Just beyond the [Nuo Mask Altar](#loc=1067053) bell.",
+			[
+				{
+					"id": 160462,
+					"title": "003096",
+					"file_name": "36999614-6e8e-4455-ab70-483cf30bf825.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36999614-6e8e-4455-ab70-483cf30bf825.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067055": [
+			"Top of the tower, reached by climbing the cliff behind it.",
+			[
+				{
+					"id": 160463,
+					"title": "003097",
+					"file_name": "f0a4b15e-7e2d-4c2f-aa0e-ae9aca45b447.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0a4b15e-7e2d-4c2f-aa0e-ae9aca45b447.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067056": [
+			"Top of the tower, reached by climbing the cliff behind it.",
+			[
+				{
+					"id": 160464,
+					"title": "003097",
+					"file_name": "27821d50-1fd6-453b-bd51-a6abe839fc13.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/27821d50-1fd6-453b-bd51-a6abe839fc13.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067057": [
+			"Top of the tower, reached by climbing the cliff behind it.",
+			[
+				{
+					"id": 160465,
+					"title": "003098",
+					"file_name": "7b7f8b71-de6d-405f-8e5a-759d5b5745b4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7b7f8b71-de6d-405f-8e5a-759d5b5745b4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067058": [
+			"Reached by riding a zipline from the top of the tower.",
+			[
+				{
+					"id": 160466,
+					"title": "003099",
+					"file_name": "c623714f-a1de-4eb8-b1bd-125ce1c7019d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c623714f-a1de-4eb8-b1bd-125ce1c7019d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067059": [
+			"Inside a building. Open a door to get inside.\n\n1. Thread-Binding Sect",
+			[
+				{
+					"id": 160467,
+					"title": "003100",
+					"file_name": "d61389bd-c3ce-4de1-b1f7-2a222d3f65c8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d61389bd-c3ce-4de1-b1f7-2a222d3f65c8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067060": [
+			"Inside a building. Open a door to get inside.",
+			[
+				{
+					"id": 160468,
+					"title": "003101",
+					"file_name": "2436a0d7-cd74-46a6-bb79-4cfa0e4fc276.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2436a0d7-cd74-46a6-bb79-4cfa0e4fc276.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067061": [
+			"Inside a building. Open a door to get inside.",
+			[
+				{
+					"id": 160469,
+					"title": "003102",
+					"file_name": "36a1a1b6-f9ee-45f1-b1d5-3f3464cd7486.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36a1a1b6-f9ee-45f1-b1d5-3f3464cd7486.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067062": [
+			"On a floor of the tower reached by sliding down a rope.",
+			[
+				{
+					"id": 160470,
+					"title": "003103",
+					"file_name": "29dec602-96bb-4603-8aa8-14a9e7a15858.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/29dec602-96bb-4603-8aa8-14a9e7a15858.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067063": [
+			"Ground floor of the tower; open a door to get inside.\n\n**Increases Ice, Fire, and Lightning damage dealt to enemies by 20%**",
+			[
+				{
+					"id": 160471,
+					"title": "003104",
+					"file_name": "d014c9a5-9161-4ca9-bdfe-b1769a7caa3c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d014c9a5-9161-4ca9-bdfe-b1769a7caa3c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067064": [
+			"Ground floor of the tower; open a door to get inside.",
+			[
+				{
+					"id": 160472,
+					"title": "003105",
+					"file_name": "c9d1a7ed-aa4e-4792-b84b-36e3b42d8ef7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c9d1a7ed-aa4e-4792-b84b-36e3b42d8ef7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067065": [
+			"",
+			[
+				{
+					"id": 160473,
+					"title": "003106",
+					"file_name": "80f59775-7281-4373-b304-db5656d6fca4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/80f59775-7281-4373-b304-db5656d6fca4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083713": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160827,
+					"title": "003173",
+					"file_name": "0b313381-4030-4bc4-ab00-3f12b98de394.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b313381-4030-4bc4-ab00-3f12b98de394.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083714": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160828,
+					"title": "003173",
+					"file_name": "f9ea6520-061d-47d2-bc42-e452debba0f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f9ea6520-061d-47d2-bc42-e452debba0f2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083715": [
+			"",
+			[
+				{
+					"id": 160829,
+					"title": "003174",
+					"file_name": "4cc8e209-a609-42f0-945b-4ac823d45602.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4cc8e209-a609-42f0-945b-4ac823d45602.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083716": [
+			"",
+			[
+				{
+					"id": 160830,
+					"title": "003175",
+					"file_name": "8472f580-d761-4876-b1a3-04c000d16a03.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8472f580-d761-4876-b1a3-04c000d16a03.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083717": [
+			"",
+			[
+				{
+					"id": 160831,
+					"title": "003176",
+					"file_name": "bdd2edc2-4282-47eb-8e04-e4587e472a7f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bdd2edc2-4282-47eb-8e04-e4587e472a7f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083718": [
+			"On a shrine.",
+			[
+				{
+					"id": 160832,
+					"title": "003177",
+					"file_name": "b3f3fbea-6ed0-43c7-8776-6ce17c6fe986.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3f3fbea-6ed0-43c7-8776-6ce17c6fe986.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083719": [
+			"",
+			[
+				{
+					"id": 160833,
+					"title": "003178",
+					"file_name": "116b16fd-0d8f-4179-be3c-6adfb5e7588c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/116b16fd-0d8f-4179-be3c-6adfb5e7588c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083720": [
+			"Inside a chest at the end of the walkway.",
+			[
+				{
+					"id": 160834,
+					"title": "003179",
+					"file_name": "f924b151-179f-483b-9000-e8aa0c3885da.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f924b151-179f-483b-9000-e8aa0c3885da.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083721": [
+			"Inside a chest at the end of the walkway.",
+			[
+				{
+					"id": 160835,
+					"title": "003179",
+					"file_name": "8d8c865b-1eb0-4641-919c-62fa6bef2956.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8d8c865b-1eb0-4641-919c-62fa6bef2956.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083722": [
+			"",
+			[
+				{
+					"id": 160836,
+					"title": "003180",
+					"file_name": "296583f8-6ae1-4594-b87a-e7baff30eac5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/296583f8-6ae1-4594-b87a-e7baff30eac5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083723": [
+			"",
+			[
+				{
+					"id": 160837,
+					"title": "003181",
+					"file_name": "437bd97a-a221-41c1-973d-450c37e2237e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/437bd97a-a221-41c1-973d-450c37e2237e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083724": [
+			"",
+			[
+				{
+					"id": 160838,
+					"title": "003182",
+					"file_name": "3c4edcc3-f67a-49a5-b1c5-0f1133447a13.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3c4edcc3-f67a-49a5-b1c5-0f1133447a13.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083725": [
+			"On a shrine surrounded by faces.\n\nOne part of the [Nuo Mask](#loc=1083874).",
+			[
+				{
+					"id": 160839,
+					"title": "003183",
+					"file_name": "ac3c4e7d-f42f-4ad4-8286-ff0e217ffafc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac3c4e7d-f42f-4ad4-8286-ff0e217ffafc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083726": [
+			"Inside a chest surrounded by faces.",
+			[
+				{
+					"id": 160840,
+					"title": "003183",
+					"file_name": "d928d771-f401-43da-bd12-7c53e85c3f42.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d928d771-f401-43da-bd12-7c53e85c3f42.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083728": [
+			"",
+			[
+				{
+					"id": 160841,
+					"title": "003185",
+					"file_name": "79c33f48-f7ee-464c-a4ea-ebbd4f05d582.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79c33f48-f7ee-464c-a4ea-ebbd4f05d582.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083729": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160843,
+					"title": "003186",
+					"file_name": "aa0d4933-4198-4bac-a00f-31949734bbf9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa0d4933-4198-4bac-a00f-31949734bbf9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083730": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160844,
+					"title": "003186",
+					"file_name": "8f01e2d1-7c5c-4ce2-af21-6f6d6b12f28e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8f01e2d1-7c5c-4ce2-af21-6f6d6b12f28e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083731": [
+			"2. Gone Without a Trace",
+			[
+				{
+					"id": 160845,
+					"title": "003188",
+					"file_name": "9036c234-30a2-4ea9-8b2d-a6f107cde1cb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9036c234-30a2-4ea9-8b2d-a6f107cde1cb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083732": [
+			"",
+			[
+				{
+					"id": 160846,
+					"title": "003189",
+					"file_name": "a0255d79-5ea1-4036-9970-380547f015d4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a0255d79-5ea1-4036-9970-380547f015d4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083733": [
+			"On the covered walkway.",
+			[
+				{
+					"id": 160847,
+					"title": "003190",
+					"file_name": "e0297f44-d0a1-442b-9f6e-f3efb47bca54.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0297f44-d0a1-442b-9f6e-f3efb47bca54.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083734": [
+			"Upper floor.",
+			[
+				{
+					"id": 160848,
+					"title": "003191",
+					"file_name": "0db2ec14-de68-43ae-9e63-a84d3b765906.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0db2ec14-de68-43ae-9e63-a84d3b765906.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083735": [
+			"Inside a chest on the ground floor.",
+			[
+				{
+					"id": 160849,
+					"title": "003192",
+					"file_name": "2bbb9e7a-a28c-4fd1-8623-3cb3e2eb5e20.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2bbb9e7a-a28c-4fd1-8623-3cb3e2eb5e20.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083736": [
+			"Inside a chest on the ground floor.",
+			[
+				{
+					"id": 160850,
+					"title": "003192",
+					"file_name": "ce22fa19-c2e8-4889-b893-c2bf750d0ffe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ce22fa19-c2e8-4889-b893-c2bf750d0ffe.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083737": [
+			"",
+			[
+				{
+					"id": 160851,
+					"title": "003194",
+					"file_name": "104a9d12-0656-4d53-a980-070c1d91f554.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/104a9d12-0656-4d53-a980-070c1d91f554.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083738": [
+			"",
+			[
+				{
+					"id": 160852,
+					"title": "003195",
+					"file_name": "22323a7e-23ad-436c-b1b6-3238c444265a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/22323a7e-23ad-436c-b1b6-3238c444265a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083739": [
+			"",
+			[
+				{
+					"id": 160853,
+					"title": "003196",
+					"file_name": "44e4a334-6459-40ca-a45d-50f088ccab97.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44e4a334-6459-40ca-a45d-50f088ccab97.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083740": ["**Quick Hand Zhang's Relic List**", []],
+		"1083741": [
+			"**How to Begin:** Speak to [Quick Hand Zhang](#loc=1083739) in the Mirage Estate.\n\n**Treasures:**\n- [General's Bronze Mirror](#loc=1083802)\n- [Gold-and-Silver Sachet](#loc=1083808)\n- [Golden Cloud-Moon Hairpin](#loc=1083890)\n\n**Rewards:**\n- [Thundermoon Lantern](#loc=1083893)",
+			[]
+		],
+		"1083742": [
+			"Reward for completing [The Wily Hare's Three Dens](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058294)\n\n**Goldblaze**",
+			[]
+		],
+		"1083743": [
+			"Inside a chest behind [Quick Hand Zhang](#loc=1083739)",
+			[
+				{
+					"id": 160854,
+					"title": "003197",
+					"file_name": "fbed5ea6-8a16-4ff7-b80a-89c9d1f0b8c9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fbed5ea6-8a16-4ff7-b80a-89c9d1f0b8c9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083744": [
+			"Inside a chest behind [Quick Hand Zhang](#loc=1083739)",
+			[
+				{
+					"id": 160855,
+					"title": "003197",
+					"file_name": "0f4bfc9f-25be-45e0-a8f9-5d04d7a26cc8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f4bfc9f-25be-45e0-a8f9-5d04d7a26cc8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083745": [
+			"Inside a chest behind [Quick Hand Zhang](#loc=1083739)",
+			[
+				{
+					"id": 160856,
+					"title": "003197",
+					"file_name": "2a0c018b-24a7-4d38-8784-62157d591019.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2a0c018b-24a7-4d38-8784-62157d591019.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083746": [
+			"Inside a chest in the corner of the courtyard.",
+			[
+				{
+					"id": 160858,
+					"title": "003193",
+					"file_name": "87548ecd-5a03-4d90-a948-351722b156c5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87548ecd-5a03-4d90-a948-351722b156c5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083747": [
+			"Inside a chest in the corner of the courtyard.",
+			[
+				{
+					"id": 160859,
+					"title": "003193",
+					"file_name": "97f47496-f174-4fca-8059-3f99954aa753.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/97f47496-f174-4fca-8059-3f99954aa753.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083748": [
+			"Inside a chest in the corner of the courtyard.",
+			[
+				{
+					"id": 160860,
+					"title": "003193",
+					"file_name": "3da34edc-c1f2-45b3-b8fe-2a20e31df0c2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3da34edc-c1f2-45b3-b8fe-2a20e31df0c2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083750": [
+			"",
+			[
+				{
+					"id": 160861,
+					"title": "003200",
+					"file_name": "37a90f9d-747d-4515-b894-92653ff6e7ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37a90f9d-747d-4515-b894-92653ff6e7ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083752": ["Other side is reached after defeating [Yuding, No. 12, Crescent Blade Puppet](#loc=1083761)", []],
+		"1083753": [
+			"",
+			[
+				{
+					"id": 160862,
+					"title": "003202",
+					"file_name": "f81a0a4f-ef0a-42e0-822c-42f44a97a1dc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f81a0a4f-ef0a-42e0-822c-42f44a97a1dc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083754": [
+			"",
+			[
+				{
+					"id": 160863,
+					"title": "003203",
+					"file_name": "02f37bcc-983a-45d4-b799-66cb69dc3ed5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/02f37bcc-983a-45d4-b799-66cb69dc3ed5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083755": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160864,
+					"title": "003204",
+					"file_name": "b71d5a10-51f9-43c9-8f43-10d48a17077e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b71d5a10-51f9-43c9-8f43-10d48a17077e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083756": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160865,
+					"title": "003204",
+					"file_name": "538f035f-5461-418f-bd9e-55700f1ac353.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/538f035f-5461-418f-bd9e-55700f1ac353.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083757": [
+			"",
+			[
+				{
+					"id": 160866,
+					"title": "003206",
+					"file_name": "b8f135cd-a2cd-47a0-9ac9-8f49df7ce867.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b8f135cd-a2cd-47a0-9ac9-8f49df7ce867.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083758": [
+			"",
+			[
+				{
+					"id": 160867,
+					"title": "003207",
+					"file_name": "c9c3f6b3-706b-4e6a-ad1b-0b6f7c9c1103.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c9c3f6b3-706b-4e6a-ad1b-0b6f7c9c1103.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083759": [
+			"",
+			[
+				{
+					"id": 160868,
+					"title": "003210",
+					"file_name": "e96a8aea-e6ec-4bb7-b478-8bdb3032ec6d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e96a8aea-e6ec-4bb7-b478-8bdb3032ec6d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083760": [
+			"**The Mirage Estate's Past**",
+			[
+				{
+					"id": 160869,
+					"title": "003211",
+					"file_name": "91e598f1-ff6d-4e88-934a-77c04d1776c7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91e598f1-ff6d-4e88-934a-77c04d1776c7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083761": ["**Loot:**\n- [Crescent Blade](#loc=1083762)", []],
+		"1083762": ["Looted from [Yuding, No. 12, Crescent Blade Puppet](#loc=1083761)", []],
+		"1083763": [
+			"Guarded by [Yuding, No. 12, Crescent Blade Puppet](#loc=1083761)\n\n**Unlocks:**\n- [Opera House Door](#loc=1083806)",
+			[]
+		],
+		"1083764": [
+			"1. The Wandering Healer",
+			[
+				{
+					"id": 160870,
+					"title": "003213",
+					"file_name": "37035f1b-02aa-4fd7-b513-eaabc2424c38.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37035f1b-02aa-4fd7-b513-eaabc2424c38.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083765": [
+			"Inside a chest overlooking the training ground.",
+			[
+				{
+					"id": 160871,
+					"title": "003214",
+					"file_name": "faee12bb-37f3-4a4b-a955-409dbda76d01.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/faee12bb-37f3-4a4b-a955-409dbda76d01.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083766": [
+			"Inside a chest overlooking the training ground.",
+			[
+				{
+					"id": 160872,
+					"title": "003214",
+					"file_name": "f5cbf027-c502-4a3b-97e6-eb7b5ddf2d0a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5cbf027-c502-4a3b-97e6-eb7b5ddf2d0a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083767": [
+			"Inside a chest overlooking the training ground.",
+			[
+				{
+					"id": 160873,
+					"title": "003214",
+					"file_name": "09a053a7-c814-4506-82c4-3eb6a247954b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/09a053a7-c814-4506-82c4-3eb6a247954b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083768": [
+			"Upper floor.\n\n2. Criticism",
+			[
+				{
+					"id": 160874,
+					"title": "003216",
+					"file_name": "50d5bf46-a696-44d9-90e1-478e3ec6fae3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50d5bf46-a696-44d9-90e1-478e3ec6fae3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083769": [
+			"",
+			[
+				{
+					"id": 160875,
+					"title": "003217",
+					"file_name": "96f3bff5-9797-4414-a047-8658e5620600.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/96f3bff5-9797-4414-a047-8658e5620600.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083770": [
+			"Inside a chest beside the red threads.",
+			[
+				{
+					"id": 160876,
+					"title": "003218",
+					"file_name": "eb880878-738e-488a-9889-def42ce3163d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb880878-738e-488a-9889-def42ce3163d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083771": [
+			"Inside a chest beside the red threads.",
+			[
+				{
+					"id": 160877,
+					"title": "003218",
+					"file_name": "8574d8ee-83da-41e7-b182-d1a39a90ebab.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8574d8ee-83da-41e7-b182-d1a39a90ebab.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083772": [
+			"Beside a campfire.",
+			[
+				{
+					"id": 160878,
+					"title": "003219",
+					"file_name": "9e38e86f-ceb3-471e-ab3e-a30f25985270.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e38e86f-ceb3-471e-ab3e-a30f25985270.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083773": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160879,
+					"title": "003220",
+					"file_name": "6e471174-2727-4833-8a00-72a13160b132.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6e471174-2727-4833-8a00-72a13160b132.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083774": [
+			"On a table surrounded by faces; drop off a ledge near the [Sha-Chi Amber Shard](#loc=1083773) to reach it.\n\nOne part of the [Nuo Mask](#loc=1083874).",
+			[
+				{
+					"id": 160880,
+					"title": "003221",
+					"file_name": "3f34d81b-b35f-4337-bf41-71b0b6ff1c5c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f34d81b-b35f-4337-bf41-71b0b6ff1c5c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083775": [
+			"",
+			[
+				{
+					"id": 160881,
+					"title": "003222",
+					"file_name": "20342db0-752f-4345-aa77-4dd5838554aa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20342db0-752f-4345-aa77-4dd5838554aa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083776": [
+			"Inside a chest above the watery area.",
+			[
+				{
+					"id": 160882,
+					"title": "003223",
+					"file_name": "7c54a528-d953-4415-8fec-a9fa8f41007f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c54a528-d953-4415-8fec-a9fa8f41007f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083777": [
+			"Inside the [Blackstone Shard](#loc=1083776) chest.",
+			[
+				{
+					"id": 160883,
+					"title": "003223",
+					"file_name": "3cbd99dd-24c2-455c-a677-0e4f389be4ff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3cbd99dd-24c2-455c-a677-0e4f389be4ff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083778": [
+			"On a corpse reached by hopping over a log near the [Blackstone Shard](#loc=1083776).",
+			[
+				{
+					"id": 160891,
+					"title": "003229",
+					"file_name": "d67840a8-4957-4bd8-a78b-9c1bc6f6c642.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d67840a8-4957-4bd8-a78b-9c1bc6f6c642.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 160884,
+					"title": "003224",
+					"file_name": "fc671a09-e2c5-4a99-8727-7012eedb2e0e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc671a09-e2c5-4a99-8727-7012eedb2e0e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 20,
+					"spoiler": false
+				}
+			]
+		],
+		"1083779": [
+			"Underground, beside a short river. Drop off near the [Remnant Dust](#loc=1083778) to reach it.\n\n**Increases Burn, Paralysis, Freeze, and Bleed buildup rate by 50% for 15% seconds, and restores 20% HP.**",
+			[
+				{
+					"id": 160887,
+					"title": "003225",
+					"file_name": "a65c5dc8-7c45-49c0-8356-7902987c4e2b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a65c5dc8-7c45-49c0-8356-7902987c4e2b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083780": [
+			"Reached by swinging on a chain near [Remnant Dust](#loc=1083778)",
+			[
+				{
+					"id": 160885,
+					"title": "003226",
+					"file_name": "0c91bf71-7ab5-4b37-a753-988d57fe46e7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c91bf71-7ab5-4b37-a753-988d57fe46e7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083781": [
+			"Inside a chest reached by swinging on a chain near [Remnant Dust](#loc=1083778)\n\n**Executing an enemy reduces main weapon switch cooldown by 1 second.**",
+			[
+				{
+					"id": 160886,
+					"title": "003227",
+					"file_name": "8a225a8d-f4e5-4beb-bf69-e1064ff742aa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a225a8d-f4e5-4beb-bf69-e1064ff742aa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083782": [
+			"Inside a chest at the end of a short river. Drop off near the [Remnant Dust](#loc=1083778) to reach it.",
+			[
+				{
+					"id": 160888,
+					"title": "003228",
+					"file_name": "6c826e9e-7747-47e1-a0b1-c409706d1fd9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c826e9e-7747-47e1-a0b1-c409706d1fd9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083783": [
+			"Inside a chest at the end of a short river. Drop off near the [Remnant Dust](#loc=1083778) to reach it.",
+			[
+				{
+					"id": 160889,
+					"title": "003228",
+					"file_name": "79b742c1-abcc-4b8b-8ca3-c7deb7277b6a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79b742c1-abcc-4b8b-8ca3-c7deb7277b6a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083784": [
+			"Inside a chest at the end of a short river. Drop off near the [Remnant Dust](#loc=1083778) to reach it.",
+			[
+				{
+					"id": 160890,
+					"title": "003228",
+					"file_name": "6834f1a3-bd3b-4fdb-8d71-1eea76c088de.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6834f1a3-bd3b-4fdb-8d71-1eea76c088de.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083785": [
+			"",
+			[
+				{
+					"id": 160892,
+					"title": "003230",
+					"file_name": "41c50c96-0ded-4ef6-b611-974e1417ed48.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41c50c96-0ded-4ef6-b611-974e1417ed48.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083786": [
+			"Inside a chest",
+			[
+				{
+					"id": 160894,
+					"title": "003231",
+					"file_name": "f84d9eaa-bf8a-41d1-b231-bec99d2e27c3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f84d9eaa-bf8a-41d1-b231-bec99d2e27c3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083787": [
+			"Inside a chest",
+			[
+				{
+					"id": 160893,
+					"title": "003231",
+					"file_name": "51bad518-ee59-4aa0-9483-ec6222e09d06.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/51bad518-ee59-4aa0-9483-ec6222e09d06.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083788": [
+			"On a corpse in the Mirage Estate.",
+			[
+				{
+					"id": 160895,
+					"title": "003233",
+					"file_name": "042a6485-a19f-4b27-a089-d9a6b435514e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/042a6485-a19f-4b27-a089-d9a6b435514e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083789": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160896,
+					"title": "003234",
+					"file_name": "35b27aeb-106f-4274-8267-168781e8077c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35b27aeb-106f-4274-8267-168781e8077c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083790": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160897,
+					"title": "003234",
+					"file_name": "041b8e9c-52cc-4eba-a7b8-33b7a7db8893.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/041b8e9c-52cc-4eba-a7b8-33b7a7db8893.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083791": [
+			"",
+			[
+				{
+					"id": 160898,
+					"title": "003235",
+					"file_name": "aa640dbc-b352-4c7a-8007-648218e595bf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa640dbc-b352-4c7a-8007-648218e595bf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083792": [
+			"",
+			[
+				{
+					"id": 160899,
+					"title": "003236",
+					"file_name": "ad1ff2ec-6cd8-45e7-b083-478903aa8d67.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ad1ff2ec-6cd8-45e7-b083-478903aa8d67.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083793": [
+			"Inside a chest beyond the [Blazing Darkfire Charcoal x10](#loc=1083792)",
+			[
+				{
+					"id": 160900,
+					"title": "003237",
+					"file_name": "42cb36e7-534d-4454-94b7-9709594329ea.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42cb36e7-534d-4454-94b7-9709594329ea.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083794": [
+			"",
+			[
+				{
+					"id": 160901,
+					"title": "003238",
+					"file_name": "37517cac-be34-4679-bc99-308db043f357.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37517cac-be34-4679-bc99-308db043f357.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083795": [
+			"",
+			[
+				{
+					"id": 160902,
+					"title": "003239",
+					"file_name": "c5be2b68-3b4f-4841-bb3c-ea8de063b6a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5be2b68-3b4f-4841-bb3c-ea8de063b6a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083796": [
+			"**Pillars of Kunlun**",
+			[
+				{
+					"id": 160903,
+					"title": "003240",
+					"file_name": "b0105813-c69f-4fdf-8381-4215d26d94ff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b0105813-c69f-4fdf-8381-4215d26d94ff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083797": [
+			"Upper floor, in a chest.",
+			[
+				{
+					"id": 160905,
+					"title": "003241",
+					"file_name": "cdf92408-a967-4d5b-a15e-9a981504001a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cdf92408-a967-4d5b-a15e-9a981504001a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083798": [
+			"Upper floor, in a chest.",
+			[
+				{
+					"id": 160904,
+					"title": "003241",
+					"file_name": "68383b6f-65e9-4f4a-bcbc-47ce75f99694.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68383b6f-65e9-4f4a-bcbc-47ce75f99694.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083799": [
+			"Upper floor, on the balcony.\n\n2. The Radiant Heart Experiment",
+			[
+				{
+					"id": 160906,
+					"title": "003244",
+					"file_name": "0350a382-fdf7-4f0c-a5bc-8e53d0b8842f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0350a382-fdf7-4f0c-a5bc-8e53d0b8842f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083800": [
+			"Ground floor.",
+			[
+				{
+					"id": 160907,
+					"title": "003245",
+					"file_name": "7cb147a8-5d1c-454f-83e0-3b8fe0af18e7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7cb147a8-5d1c-454f-83e0-3b8fe0af18e7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083801": [
+			"Ground floor.",
+			[
+				{
+					"id": 160908,
+					"title": "003246",
+					"file_name": "bd24c81e-5847-45ce-9e7d-badf0d457162.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd24c81e-5847-45ce-9e7d-badf0d457162.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083802": [
+			"Ground floor.",
+			[
+				{
+					"id": 160909,
+					"title": "003247",
+					"file_name": "ea20727b-7624-4b11-83c5-a0c575f4aced.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ea20727b-7624-4b11-83c5-a0c575f4aced.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083803": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160912,
+					"title": "003248",
+					"file_name": "485256d1-cda7-4394-8db9-b7602eaa3ad1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/485256d1-cda7-4394-8db9-b7602eaa3ad1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083804": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160911,
+					"title": "003248",
+					"file_name": "3c06c09e-3356-410e-84d3-9e56d2101e4c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3c06c09e-3356-410e-84d3-9e56d2101e4c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083805": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160910,
+					"title": "003248",
+					"file_name": "76fbf17a-8764-4ea2-8f8f-9a02f94fe505.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76fbf17a-8764-4ea2-8f8f-9a02f94fe505.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083806": ["**Required:** [Opera Ticket](#loc=1083763)", []],
+		"1083807": [
+			"**Mystery of the Lady**",
+			[
+				{
+					"id": 160913,
+					"title": "003250",
+					"file_name": "6a4ed1c7-97bb-4ab0-bfc5-fd3ca3bb60cb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a4ed1c7-97bb-4ab0-bfc5-fd3ca3bb60cb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083808": [
+			"Inside the opera house.",
+			[
+				{
+					"id": 160914,
+					"title": "003251",
+					"file_name": "6668c50f-a868-4cfa-a99f-9c0ce20602fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6668c50f-a868-4cfa-a99f-9c0ce20602fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083809": [
+			"At the end of the Opera House.\n\n**Seamless Death**",
+			[
+				{
+					"id": 160915,
+					"title": "003252",
+					"file_name": "7a0e9692-d4d8-4bf9-9634-bc6e0971659c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7a0e9692-d4d8-4bf9-9634-bc6e0971659c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083810": [
+			"**Required:** [Tiger Cannon](#loc=1083902)",
+			[
+				{
+					"id": 160999,
+					"title": "003328",
+					"file_name": "6102ab73-2594-4852-acc8-f2f244baf0e4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6102ab73-2594-4852-acc8-f2f244baf0e4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083811": [
+			"**Reflections**",
+			[
+				{
+					"id": 160916,
+					"title": "003253",
+					"file_name": "5679fc1a-d5a6-4cb5-991e-d1ddeb375934.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5679fc1a-d5a6-4cb5-991e-d1ddeb375934.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083813": [
+			"",
+			[
+				{
+					"id": 160917,
+					"title": "003254",
+					"file_name": "24529703-6fb1-4d39-b32e-49e3aeed1a2f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/24529703-6fb1-4d39-b32e-49e3aeed1a2f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083814": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160918,
+					"title": "003255",
+					"file_name": "f0f7e4a6-05cb-423f-8304-1971cf7a6e00.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0f7e4a6-05cb-423f-8304-1971cf7a6e00.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083815": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160919,
+					"title": "003255",
+					"file_name": "940b38c9-c726-4938-b85e-4efd6a5e5bf6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/940b38c9-c726-4938-b85e-4efd6a5e5bf6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083816": ["Inside a chest.", []],
+		"1083817": [
+			"Inside a chest.",
+			[
+				{
+					"id": 160921,
+					"title": "003255",
+					"file_name": "95ca093b-eb22-431e-b47a-9e85ee4cb969.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95ca093b-eb22-431e-b47a-9e85ee4cb969.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083818": ["**Loot:**\n- [Wraith Mask](#loc=1083819)", []],
+		"1083819": [
+			"Looted from [Qiu Feng, the Crimson Boneblade](#loc=1083818)\n\n**Triggering \"Ghoststep\" with a Parry or Perfect Dodge creates 3 Wraith Masks that automatically attack nearby enemies**",
+			[]
+		],
+		"1083820": [
+			"2. Frost and Chaos",
+			[
+				{
+					"id": 160922,
+					"title": "003259",
+					"file_name": "86cdc3c6-ee31-4ea1-8e03-a7f68f2a9c6f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/86cdc3c6-ee31-4ea1-8e03-a7f68f2a9c6f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083821": [
+			"",
+			[
+				{
+					"id": 160923,
+					"title": "003260",
+					"file_name": "ea7028dd-e385-4db7-a3b4-b8d3f262584f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ea7028dd-e385-4db7-a3b4-b8d3f262584f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083822": [
+			"",
+			[
+				{
+					"id": 160924,
+					"title": "003261",
+					"file_name": "78fa6f41-90e4-49f5-8bd2-698143b20acc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/78fa6f41-90e4-49f5-8bd2-698143b20acc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083823": [
+			"3. The Herald's True Form...?",
+			[
+				{
+					"id": 160925,
+					"title": "003262",
+					"file_name": "21c64ea7-e768-43b9-81a0-24b30ba33eab.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/21c64ea7-e768-43b9-81a0-24b30ba33eab.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083824": [
+			"",
+			[
+				{
+					"id": 160926,
+					"title": "003263",
+					"file_name": "7e428b41-d8e5-4030-b4e9-f75f875e7966.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e428b41-d8e5-4030-b4e9-f75f875e7966.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083825": [
+			"",
+			[
+				{
+					"id": 160927,
+					"title": "003264",
+					"file_name": "1632ed69-6101-46c7-aa53-a9b23f878e1e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1632ed69-6101-46c7-aa53-a9b23f878e1e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083826": [
+			"In the water.",
+			[
+				{
+					"id": 160928,
+					"title": "003265",
+					"file_name": "04c7fce0-dcbc-4ecf-93f2-25c9435519cb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/04c7fce0-dcbc-4ecf-93f2-25c9435519cb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083827": [
+			"",
+			[
+				{
+					"id": 160929,
+					"title": "003266",
+					"file_name": "41f1b2b6-7372-4ec5-80d2-551ed6e4bac6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41f1b2b6-7372-4ec5-80d2-551ed6e4bac6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083828": [
+			"",
+			[
+				{
+					"id": 160930,
+					"title": "003266",
+					"file_name": "1416fe85-c66e-4f30-8d9b-3143c9761117.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1416fe85-c66e-4f30-8d9b-3143c9761117.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083829": [
+			"",
+			[
+				{
+					"id": 160931,
+					"title": "003267",
+					"file_name": "eb61fa93-6131-43fc-96e8-a716333a2df5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb61fa93-6131-43fc-96e8-a716333a2df5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083830": [
+			"",
+			[
+				{
+					"id": 160932,
+					"title": "003268",
+					"file_name": "755f9e38-4b69-451d-94c8-50a18de8e6ee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/755f9e38-4b69-451d-94c8-50a18de8e6ee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083831": [
+			"",
+			[
+				{
+					"id": 160933,
+					"title": "003269",
+					"file_name": "9a358780-e1d2-4ae2-92ee-9feadd8d3c54.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a358780-e1d2-4ae2-92ee-9feadd8d3c54.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083832": [
+			"",
+			[
+				{
+					"id": 160934,
+					"title": "003270",
+					"file_name": "a7c42ef0-c1ee-4a02-9352-b1cdb8f84b82.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a7c42ef0-c1ee-4a02-9352-b1cdb8f84b82.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083833": [
+			"",
+			[
+				{
+					"id": 160935,
+					"title": "003271",
+					"file_name": "9f2cb516-60e7-40ac-96fe-1b8bc3482f68.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9f2cb516-60e7-40ac-96fe-1b8bc3482f68.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083834": [
+			"Inside a chest",
+			[
+				{
+					"id": 160937,
+					"title": "003272",
+					"file_name": "9875ca6a-1ea9-4304-b650-f01d7c30734e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9875ca6a-1ea9-4304-b650-f01d7c30734e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083835": [
+			"Inside a chest",
+			[
+				{
+					"id": 160938,
+					"title": "003272",
+					"file_name": "7d0d80a8-d86b-4413-aba6-21c2f493560a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d0d80a8-d86b-4413-aba6-21c2f493560a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083836": [
+			"Inside a chest",
+			[
+				{
+					"id": 160936,
+					"title": "003272",
+					"file_name": "1ed5cddd-e1cf-4646-9190-eb3bf2793cec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ed5cddd-e1cf-4646-9190-eb3bf2793cec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083837": [
+			"",
+			[
+				{
+					"id": 160939,
+					"title": "003274",
+					"file_name": "e0024127-5582-485b-87b3-4b9a1c313469.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0024127-5582-485b-87b3-4b9a1c313469.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083838": [
+			"",
+			[
+				{
+					"id": 160940,
+					"title": "003275",
+					"file_name": "cb83b4fd-3867-438e-947e-caab3d640fc4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb83b4fd-3867-438e-947e-caab3d640fc4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083839": [
+			"**The Herald**",
+			[
+				{
+					"id": 160942,
+					"title": "003276",
+					"file_name": "ac45c50c-7ad3-43d2-9a29-f19b4e0bbc76.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac45c50c-7ad3-43d2-9a29-f19b4e0bbc76.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083840": [
+			"**The Herald**",
+			[
+				{
+					"id": 160941,
+					"title": "003276",
+					"file_name": "ea1cf6b6-872d-4eab-831a-7dd73a27b836.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ea1cf6b6-872d-4eab-831a-7dd73a27b836.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083841": [
+			"Inside a chest",
+			[
+				{
+					"id": 160943,
+					"title": "003277",
+					"file_name": "537fb37f-92df-4165-821b-e43efd775da3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/537fb37f-92df-4165-821b-e43efd775da3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083842": [
+			"**Required:** Hunter's Chain Sickle\n\nNear [Flawless Twinned Metal x5](#loc=1083837)",
+			[
+				{
+					"id": 160944,
+					"title": "003278",
+					"file_name": "72eb6d8d-c657-4a97-b8e2-1a58bd2164e5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/72eb6d8d-c657-4a97-b8e2-1a58bd2164e5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083843": [
+			"Reached via [Grapple](#loc=1083842)",
+			[
+				{
+					"id": 160945,
+					"title": "003279",
+					"file_name": "95ae36e0-b191-4e07-a93e-5451d13eff08.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/95ae36e0-b191-4e07-a93e-5451d13eff08.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083844": [
+			"**Required:** Hunter's Chain Sickle\n\n\n\nReached via [Grapple](#loc=1083842)",
+			[
+				{
+					"id": 160946,
+					"title": "003280",
+					"file_name": "f6e57d46-c6c3-4052-8021-ee87b7426336.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6e57d46-c6c3-4052-8021-ee87b7426336.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083845": [
+			"Reached via [Grapple](#loc=1083844)",
+			[
+				{
+					"id": 160947,
+					"title": "003281",
+					"file_name": "bbfbfb78-69d4-4a30-9d5b-3a032e40391d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bbfbfb78-69d4-4a30-9d5b-3a032e40391d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083846": ["[Mó Yuan, Leader of the Bastion of Mó](#loc=1083847)", []],
+		"1083847": ["**Loot:**\n- [Bastion of Mó Mask](#loc=1083848)", []],
+		"1083848": ["Looted from [Mó Yuan, Leader of the Bastion of Mó](#loc=1083847)\n\n**Sanguine**", []],
+		"1083849": [
+			"Inside a chest on the cliffside beyond the [Mirage Estate Lóng Pillar](#loc=1083845).",
+			[
+				{
+					"id": 160951,
+					"title": "003282",
+					"file_name": "39f11c2f-fe2d-4527-9cb7-b4c585834d35.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/39f11c2f-fe2d-4527-9cb7-b4c585834d35.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083850": [
+			"Inside a chest on the cliffside beyond the [Mirage Estate Lóng Pillar](#loc=1083845).",
+			[
+				{
+					"id": 160950,
+					"title": "003282",
+					"file_name": "20c27d64-892c-4af4-ac19-f67b5ea0ea48.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20c27d64-892c-4af4-ac19-f67b5ea0ea48.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083851": [
+			"Inside a chest on the cliffside beyond the [Mirage Estate Lóng Pillar](#loc=1083845).",
+			[
+				{
+					"id": 160949,
+					"title": "003282",
+					"file_name": "91cdf524-590c-457c-b012-9e575bd06967.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91cdf524-590c-457c-b012-9e575bd06967.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083852": [
+			"Inside a chest on the cliffside beyond the [Mirage Estate Lóng Pillar](#loc=1083845).",
+			[
+				{
+					"id": 160948,
+					"title": "003282",
+					"file_name": "ead37204-61ce-4d74-be02-98970f5cfcf0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ead37204-61ce-4d74-be02-98970f5cfcf0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083853": [
+			"",
+			[
+				{
+					"id": 160952,
+					"title": "003284",
+					"file_name": "1cd685a2-f5d2-4ee7-8d10-f53f2d76861e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1cd685a2-f5d2-4ee7-8d10-f53f2d76861e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083854": [
+			"",
+			[
+				{
+					"id": 160953,
+					"title": "003285",
+					"file_name": "7c574d38-f5c5-45fd-b1ac-56b7a7537858.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c574d38-f5c5-45fd-b1ac-56b7a7537858.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083855": [
+			"",
+			[
+				{
+					"id": 160954,
+					"title": "003285",
+					"file_name": "07848d92-c01b-4a73-9dc2-86d6c4bfe312.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07848d92-c01b-4a73-9dc2-86d6c4bfe312.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083856": [
+			"",
+			[
+				{
+					"id": 160955,
+					"title": "003287",
+					"file_name": "cb141583-d694-47ca-b075-bd8314df53c7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb141583-d694-47ca-b075-bd8314df53c7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083857": [
+			"",
+			[
+				{
+					"id": 160956,
+					"title": "003287",
+					"file_name": "8e291231-2209-4437-8005-92b10a75d1dc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8e291231-2209-4437-8005-92b10a75d1dc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083858": [
+			"Inside a chest",
+			[
+				{
+					"id": 160957,
+					"title": "003288",
+					"file_name": "d7910632-dd71-4f25-824e-cfb41f1f4bae.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d7910632-dd71-4f25-824e-cfb41f1f4bae.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083859": [
+			"Inside a chest",
+			[
+				{
+					"id": 160958,
+					"title": "003288",
+					"file_name": "dbd57647-28a9-4c8a-aa3f-7e2681cab2b6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dbd57647-28a9-4c8a-aa3f-7e2681cab2b6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083860": [
+			"At the end of a path with two floating heads.",
+			[
+				{
+					"id": 160959,
+					"title": "003290",
+					"file_name": "62005e6b-9a94-44da-9737-ce46a8cfe828.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62005e6b-9a94-44da-9737-ce46a8cfe828.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083861": [
+			"Inside a chest",
+			[
+				{
+					"id": 160960,
+					"title": "003291",
+					"file_name": "31404fc3-5827-446a-8a25-d31eb059a72f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31404fc3-5827-446a-8a25-d31eb059a72f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083862": [
+			"Inside a chest",
+			[
+				{
+					"id": 160961,
+					"title": "003291",
+					"file_name": "18f1314d-6df2-4ef2-b8cc-7b3135dfada4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/18f1314d-6df2-4ef2-b8cc-7b3135dfada4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083863": [
+			"",
+			[
+				{
+					"id": 160962,
+					"title": "003293",
+					"file_name": "1a87f4f6-c65a-43e2-bb7e-06f3e79bec34.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1a87f4f6-c65a-43e2-bb7e-06f3e79bec34.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083864": ["Looted from the last enemy killed in the courtyard.\n\n**One-Eyed Bow**", []],
+		"1083865": [
+			"",
+			[
+				{
+					"id": 160963,
+					"title": "003295",
+					"file_name": "e24ef192-1a40-4845-b24b-cac4f0dcc688.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e24ef192-1a40-4845-b24b-cac4f0dcc688.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083866": [
+			"4. The Herald's True Form",
+			[
+				{
+					"id": 160964,
+					"title": "003294",
+					"file_name": "9c3870eb-ff32-4d1b-8e02-3ee5a79efd58.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9c3870eb-ff32-4d1b-8e02-3ee5a79efd58.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083867": [
+			"",
+			[
+				{
+					"id": 160965,
+					"title": "003294",
+					"file_name": "1d96a9bb-0e7a-4210-8449-9853ae014ea9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1d96a9bb-0e7a-4210-8449-9853ae014ea9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083868": [
+			"",
+			[
+				{
+					"id": 160966,
+					"title": "003296",
+					"file_name": "14e457bf-fa1a-43ba-88e7-0d8272e99cc6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/14e457bf-fa1a-43ba-88e7-0d8272e99cc6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083869": ["On a table surrounded by masks.\n\nOne part of the [Nuo Mask](#loc=1083874).", []],
+		"1083870": [
+			"",
+			[
+				{
+					"id": 160967,
+					"title": "003298",
+					"file_name": "4cb33649-db94-48ad-850f-988fce54fb23.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4cb33649-db94-48ad-850f-988fce54fb23.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083871": [
+			"",
+			[
+				{
+					"id": 160968,
+					"title": "003299",
+					"file_name": "ed33c3e8-b5ac-43f5-b54e-eecddd62fd44.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed33c3e8-b5ac-43f5-b54e-eecddd62fd44.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083872": [
+			"Inside a chest at the edge of the courtyard.",
+			[
+				{
+					"id": 160969,
+					"title": "003300",
+					"file_name": "87bd0e35-9717-4e16-9fdf-53ef80ed0fa5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87bd0e35-9717-4e16-9fdf-53ef80ed0fa5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083873": [
+			"3. The Perfect Vessel",
+			[
+				{
+					"id": 160970,
+					"title": "003301",
+					"file_name": "79fa8521-415b-49d0-8440-9b2dde015f90.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79fa8521-415b-49d0-8440-9b2dde015f90.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083874": [
+			"Obtained when speaking to the old man after acquiring:\n- [Nuo Mask Fragment: Sorrow](#loc=1083725)\n- [Nuo Mask Fragment: Wrath](#loc=1083774)\n- [Nuo Mask Fragment: Joy](#loc=1083869)\n\n**Reduces the Remnant Spark cost of Summon type Phantom Edges by 1. Summons gain Berserk, slightly increasing their damage while active.**",
+			[]
+		],
+		"1083875": [
+			"Ground floor, on the right side.",
+			[
+				{
+					"id": 160971,
+					"title": "003302",
+					"file_name": "15c19d14-77d6-4dac-811b-a6639e33f1fe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/15c19d14-77d6-4dac-811b-a6639e33f1fe.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083876": [
+			"3. Possession\n\nGround floor, on the right side.",
+			[
+				{
+					"id": 160972,
+					"title": "003303",
+					"file_name": "c1386e26-1d40-4da9-acc6-4d0d52c520e9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c1386e26-1d40-4da9-acc6-4d0d52c520e9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083877": [
+			"Inside a chest on the ground floor, on the right side.",
+			[
+				{
+					"id": 160973,
+					"title": "003304",
+					"file_name": "fef8fca7-61e9-45e4-8062-eade0519fda7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fef8fca7-61e9-45e4-8062-eade0519fda7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083878": [
+			"Inside a chest on the ground floor, on the right side.",
+			[
+				{
+					"id": 160974,
+					"title": "003304",
+					"file_name": "d33e2e3f-6b60-4677-aaeb-67455c58426a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d33e2e3f-6b60-4677-aaeb-67455c58426a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083879": [
+			"Inside a chest on the ground floor, on the right side.",
+			[
+				{
+					"id": 160975,
+					"title": "003304",
+					"file_name": "f024ac25-891c-437b-bd0e-4e5e387d2624.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f024ac25-891c-437b-bd0e-4e5e387d2624.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083880": [
+			"Ground floor, middle.\n\n**Mystery of the Lady**",
+			[
+				{
+					"id": 160976,
+					"title": "003307",
+					"file_name": "72d66a0c-cfc2-46df-a7e9-ec2e101630e2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/72d66a0c-cfc2-46df-a7e9-ec2e101630e2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083881": [
+			"Ground floor, left side.",
+			[
+				{
+					"id": 160977,
+					"title": "003308",
+					"file_name": "53f1004b-8ec2-4a54-bba0-21a887ad3afa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/53f1004b-8ec2-4a54-bba0-21a887ad3afa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083882": [
+			"Upper floor.",
+			[
+				{
+					"id": 160978,
+					"title": "003309",
+					"file_name": "7eef5bde-4ad0-48e0-986a-cafdcd6f0861.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7eef5bde-4ad0-48e0-986a-cafdcd6f0861.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083883": [
+			"Upper floor.",
+			[
+				{
+					"id": 160979,
+					"title": "003310",
+					"file_name": "a2268a60-d022-4abc-bca9-7263a6104997.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a2268a60-d022-4abc-bca9-7263a6104997.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083884": [
+			"**The Herald**\n\nUpper floor",
+			[
+				{
+					"id": 160980,
+					"title": "003311",
+					"file_name": "29afee53-a883-4fda-9f02-ef34d76a47b5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/29afee53-a883-4fda-9f02-ef34d76a47b5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083885": [
+			"3. Three Souls as One\n\nUpper floor, at the end of a corridor.",
+			[
+				{
+					"id": 160981,
+					"title": "003312",
+					"file_name": "5bf8c9e0-1940-465e-97f0-a2d77918159c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5bf8c9e0-1940-465e-97f0-a2d77918159c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083886": [
+			"**Armybreaker**",
+			[
+				{
+					"id": 160982,
+					"title": "003313",
+					"file_name": "eb3f8e1b-42fb-4bd3-82b1-89bb52f743ce.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb3f8e1b-42fb-4bd3-82b1-89bb52f743ce.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083887": [
+			"**The Herald's Experiment Notes**",
+			[
+				{
+					"id": 160983,
+					"title": "003314",
+					"file_name": "693da277-92eb-4e83-8e6a-13bc0cfe45fb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/693da277-92eb-4e83-8e6a-13bc0cfe45fb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083888": [
+			"**Freezing Chaos**",
+			[
+				{
+					"id": 160984,
+					"title": "003315",
+					"file_name": "1ef92743-7a0c-4efa-b817-455bdacd9ed4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ef92743-7a0c-4efa-b817-455bdacd9ed4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083889": [
+			"",
+			[
+				{
+					"id": 160985,
+					"title": "003316",
+					"file_name": "5e8d07c2-11aa-4b9d-9478-ed242451e94f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e8d07c2-11aa-4b9d-9478-ed242451e94f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083890": [
+			"",
+			[
+				{
+					"id": 160986,
+					"title": "003317",
+					"file_name": "9942e0d0-dc19-4b3d-8393-c8e6a0f966a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9942e0d0-dc19-4b3d-8393-c8e6a0f966a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083891": [
+			"",
+			[
+				{
+					"id": 160987,
+					"title": "003318",
+					"file_name": "5889db2d-4c86-49c8-8ef5-aecbe766e9f5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5889db2d-4c86-49c8-8ef5-aecbe766e9f5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083892": [
+			"",
+			[
+				{
+					"id": 160988,
+					"title": "003319",
+					"file_name": "475a6604-fcd8-419e-9e6e-7f801ff3a1be.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/475a6604-fcd8-419e-9e6e-7f801ff3a1be.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083893": [
+			"Reward for completing [Quick Hand's Request](#loc=1083741)\n\n**Inflicting a Thunderstrike Effect on an enemy automatically triggers Lightning Strikes on enemies within a certain radius.**",
+			[]
+		],
+		"1083894": [
+			"",
+			[
+				{
+					"id": 160989,
+					"title": "003320",
+					"file_name": "cfa32ee8-a074-43fe-a0ab-fabd0ee2a3e5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cfa32ee8-a074-43fe-a0ab-fabd0ee2a3e5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083895": [
+			"",
+			[
+				{
+					"id": 160990,
+					"title": "003321",
+					"file_name": "5aa16173-45cf-4b28-84bd-8a93d84eeed3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5aa16173-45cf-4b28-84bd-8a93d84eeed3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083896": [
+			"Inside a chest beside the stairs.",
+			[
+				{
+					"id": 160992,
+					"title": "003322",
+					"file_name": "4e8e773d-b3d6-46ce-a95b-84534795e2a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e8e773d-b3d6-46ce-a95b-84534795e2a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083897": [
+			"Inside a chest beside the stairs.",
+			[
+				{
+					"id": 160991,
+					"title": "003322",
+					"file_name": "17e0ad93-7da6-4ee3-b272-0b3edd3d11ef.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17e0ad93-7da6-4ee3-b272-0b3edd3d11ef.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083898": [
+			"Inside a chest beside the stairs.",
+			[
+				{
+					"id": 160994,
+					"title": "003324",
+					"file_name": "116c2065-1fbd-47b3-b8ae-f7c306146aee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/116c2065-1fbd-47b3-b8ae-f7c306146aee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083899": [
+			"Inside a chest beside the stairs.",
+			[
+				{
+					"id": 160995,
+					"title": "003324",
+					"file_name": "12e4e089-7424-4f97-90a6-0dd265382276.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/12e4e089-7424-4f97-90a6-0dd265382276.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083900": [
+			"Inside a chest beside the stairs.",
+			[
+				{
+					"id": 160996,
+					"title": "003324",
+					"file_name": "2fdf3dcc-257a-408b-a07e-e51d38bb7bea.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2fdf3dcc-257a-408b-a07e-e51d38bb7bea.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083901": ["**Loot:**\n- [Tiger Cannon](#loc=1083902)", []],
+		"1083902": ["Looted from [Lei Dang, the Tiger Cannon](#loc=1083901)", []],
+		"1083903": [
+			"4. Vessel of the Radiant Heart",
+			[
+				{
+					"id": 160997,
+					"title": "003326",
+					"file_name": "c65b58c8-1f1c-48d0-8a4b-631dcd340db1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c65b58c8-1f1c-48d0-8a4b-631dcd340db1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083904": [
+			"6. Rift of Bones",
+			[
+				{
+					"id": 160998,
+					"title": "003327",
+					"file_name": "f8d8a8cd-4a26-4050-8c09-cec59dbe9d17.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f8d8a8cd-4a26-4050-8c09-cec59dbe9d17.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083905": [
+			"",
+			[
+				{
+					"id": 161000,
+					"title": "003329",
+					"file_name": "cee45e3a-271d-4d12-a006-c4fff7b17f18.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cee45e3a-271d-4d12-a006-c4fff7b17f18.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083917": [
+			"[Mount Soulrend](https://mapgenie.io/phantom-blade-zero/maps/mount-soulrend?locationIds=1083916)",
+			[]
+		],
+		"1084010": ["Upper floor; jump from the top of the stairs to get to it.", []]
 	}
 }

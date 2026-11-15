@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -24,16 +25,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "animal-well",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1840,
 			"game_id": 184,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "497F79",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -183,10 +191,17 @@
 		{
 			"id": 1841,
 			"game_id": 184,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "BDA0CD",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -308,10 +323,17 @@
 		{
 			"id": 1842,
 			"game_id": 184,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "AA5FAA",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -461,10 +483,17 @@
 		{
 			"id": 1843,
 			"game_id": 184,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "A6A9C2",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -724,6 +753,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"11024": {
 			"id": 11024,
@@ -1378,6 +1408,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 355528,
@@ -7398,7 +7429,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

@@ -196,6 +196,7 @@
 			"slug": "constantinople",
 			"title": "Constantinople",
 			"data": "constantinople/data.json",
+			"compact": "constantinople/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -206,8 +207,7 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "constantinople/data.compact.json"
+			]
 		}
 	]
 }

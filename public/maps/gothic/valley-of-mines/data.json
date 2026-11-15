@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 2810,
 			"game_id": 281,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3E3D40",
@@ -133,6 +135,7 @@
 		{
 			"id": 2811,
 			"game_id": 281,
+			"section_id": null,
 			"title": "Items",
 			"order": 20,
 			"color": "445B87",
@@ -432,6 +435,7 @@
 		{
 			"id": 2815,
 			"game_id": 281,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 20,
 			"color": "5C5851",
@@ -619,6 +623,7 @@
 		{
 			"id": 2812,
 			"game_id": 281,
+			"section_id": null,
 			"title": "NPCs",
 			"order": 30,
 			"color": "9D4C3C",
@@ -834,6 +839,7 @@
 		{
 			"id": 2813,
 			"game_id": 281,
+			"section_id": null,
 			"title": "Quests",
 			"order": 30,
 			"color": "759C60",
@@ -965,6 +971,7 @@
 		{
 			"id": 2816,
 			"game_id": 281,
+			"section_id": null,
 			"title": "Crafting Stations",
 			"order": 30,
 			"color": "876C4D",
@@ -1208,6 +1215,7 @@
 		{
 			"id": 2814,
 			"game_id": 281,
+			"section_id": null,
 			"title": "Other",
 			"order": 50,
 			"color": "E4AE3E",
@@ -1393,6 +1401,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"15864": {
 			"id": 15864,

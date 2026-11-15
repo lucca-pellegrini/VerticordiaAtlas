@@ -118,6 +118,7 @@
 			"slug": "costa-rica",
 			"title": "Costa Rica",
 			"data": "costa-rica/data.json",
+			"compact": "costa-rica/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v3",
@@ -129,8 +130,7 @@
 					"tileSize": 256,
 					"background": "#2a2a2a"
 				}
-			],
-			"compact": "costa-rica/data.compact.json"
+			]
 		}
 	]
 }

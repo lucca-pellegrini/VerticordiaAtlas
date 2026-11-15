@@ -51443,7 +51443,7 @@
 			]
 		],
 		"933277": [
-			"**Previous:** [A Vain Desire, A Reflection Bound](#loc=933251)\n\n_A millennium of conspiracies fades into the wind, and every story has reached its final chapter. Witness the return of the Golden City. Bid farewell to yesterday and pay tribute to what has been lost. Then, move forward. A thousand years later, those standing here will know the journey was worth every step._\n\n**Rewards:**\n- Mira EXP x800\n- Diamonds x50\n- Shiny Bubbles x80\n- Thread of Purity x80\n- Blings x10K\n- [Dustbound Wilderness](#loc=933284) (sketch)\n- [Dawnward Hope](#loc=933287) (sketch)\n- [Everlit Form](#loc=933291) (sketch)\n- [Veins of Energy](#loc=933295) (sketch)\n- [Heartfire Awakened](#loc=933298) (sketch)\n- [Concealed Edge](#loc=933300) (sketch)\n- [Era of Gears](#loc=933302) (sketch)\n- [Sunken Past](#loc=933305) (sketch)",
+			"**Previous:** [A Vain Desire, A Reflection Bound](#loc=933251)\n\n_A millennium of conspiracies fades into the wind, and every story has reached its final chapter. Witness the return of the Golden City. Bid farewell to yesterday and pay tribute to what has been lost. Then, move forward. A thousand years later, those standing here will know the journey was worth every step._\n\n**Rewards:**\n- Mira EXP x800\n- Diamonds x50\n- Shiny Bubbles x80\n- Thread of Purity x80\n- Blings x10K\n- [Dustbound Wilderness](#loc=933284) (sketch)\n- [Dawnward Hope](#loc=933287) (sketch)\n- [Everlit Form](#loc=933291) (sketch)\n- [Veins of Energy](#loc=933295) (sketch)\n- [Heartfire Awakened](#loc=933298) (sketch)\n- [Concealed Edge](#loc=933300) (sketch)\n- [Era of Gears](#loc=933302) (sketch)\n- [Sunken Past](#loc=933305) (sketch)\n\n**Next:** Itzaland: The End \"[Reunion with Yesterday](#loc=1057666)\"",
 			[]
 		],
 		"933284": [
@@ -55868,6 +55868,45 @@
 		"949232": ["**Location:** On a rock at the water's edge.", []],
 		"949236": ["**Location:** On the stack of boxes on the side of the wooden staircase.", []],
 		"949315": ["**Location:** On the edge of the wooden balcony in front of the large Mechwarden.", []],
-		"949316": ["**Location:** On a box under the triangular cloth roof.", []]
+		"949316": ["**Location:** On a box under the triangular cloth roof.", []],
+		"1057418": ["**Location:** On a stone bench in front of the mural at the bottom of the curved stairs.", []],
+		"1057666": [
+			"**Previous:** [All for You, Across a Millennium](#loc=933277)\n\n_Under the guidance of meditation, memories deep within the soul begin to stir. A promise spanning a thousand years is waiting to be awakened once more._\n\n**Rewards:**\n- Resonite Crystal x1\n- Shiny Bubbles x120\n- Blings x20K\n- Riftstar Emblem x24\n- [Threads of Reunion](#loc=1057719) (Miracle Outfit sketch)",
+			[]
+		],
+		"1057672": [
+			"**Prerequisite:** Begin \"[Reunion with Yesterday](#loc=1057666)\"\n\n**Location:** Inside the [Home of the Saintess](#loc=508521), on the wooden table on the right-hand side of the main room.",
+			[]
+		],
+		"1057674": [
+			"**Location:** Inside the [Home of the Saintess](#loc=508521), on the small table on your left when entering.\n\n**Album:** ??",
+			[]
+		],
+		"1057693": [
+			"**Prerequisite:** Progress \"[Reunion with Yesterday](#loc=1057666)\"\n\n**Location:** On a large wooden box on the ground level.",
+			[]
+		],
+		"1057694": [
+			"**Prerequisite:** Progress \"[Reunion with Yesterday](#loc=1057666)\"\n\n**Location:** On a large wooden box at the ground level.",
+			[]
+		],
+		"1057719": [
+			"**Wardrobe Type:** Full Miracle Outfit\n\n**How to get:** Complete \"[Reunion with Yesterday](#loc=1057666)\", then unlock in the Wishfield Heart of Infinity.\n\n**Crafting Requirements:**\n- Whimstar x2\n- Riftstar Emblem x12\n- Sunny Orchid x12\n- Heritage Feather x6\n- Blue Windbell x5\n- Wind Glider Fluff Essence x5\n- Candleglow Cluster Essence x7\n- Terra Gem: Sweet x110\n- Chimecada x4\n- Wreath Fluff x4\n- Hooded Feather x3\n- Clip Beetle x5\n- Brush Beaver Fur x5\n- Skirt Tail Fluff x4\n- Needlpistil Daffodil x5\n- Carver Fish 5.0kg\n- Starsilk Fish 5.0kg\n- Plumeveil Feather x4\n- Emberpaw Furball x5\n- Umbrellabloom x5\n- Gilded Axiswing x5\n- Seed Pearl Essence x5\n- Tailor Beetle Essence x5\n- Knotted Fern Essence x10\n- Pearl Bloom Essence x4\n- Leatherbag Beetle Essence x5\n- Daisy x15\n- Stallion Locks x4\n- Pearl Wings x15\n- Glimmerdrop x5\n- Thread of Purity x1,589\n- Blings x151.9K",
+			[]
+		],
+		"1057720": [
+			"**Wardrobe Type:** Full Makeup Set\n\n**How to get:** Unlock [Threads of Reunion](#loc=1057719), then unlock in the Wishfield Heart of Infinity.\n\n**Crafting Requirements:**\n- Whimstar x2\n- Pearl Drop Beetle x5\n- Sweet Dust x6\n- Honeybunny Fluff x5\n- Floral Fleece x5\n- Glimmergrass x4\n- Scarfmoth Essence x4\n- Boneflame Bloom x4\n- Emberpaw Furball x5\n- Ocarina Beetle x5\n- Cloak Fluff x4\n- Sapphire Beetle x3\n- Core Fruit Essence x3\n- Wisteriasol x4\n- Mani Beetle x3\n- Windbloom Essence x3\n- Terra Gem: Sweet x50\n- Thread of Purity x840\n- Blings x66.3K",
+			[]
+		],
+		"1057721": ["**Available Fish:**\n- Starsilk Fish\n- Carver Fish\n- Brusher", []],
+		"1057722": ["**Available Fish:**\n- Flarefin\n- Starsilk Fish\n- Bow Fish", []],
+		"1060801": [
+			"**Prerequisite:** Clear all previous Heaven's Reach Styling Challenges again as part of the \"Practical Challenge\".\n\n_Soufflele has been devoting herself to Machine Control technology and seems to have found new inspiration. She looks forward to teaming up with her partner again to recreate the splendor of the Theater of Lament._\n\n**Perfect Clear Score:** 58,010\n\n**Rewards:**\n- Resonite Crystal x2\n- Shiny Bubbles x300\n- Diamonds x20\n- Sweetheart Stripes (Photo Prop)",
+			[]
+		],
+		"1060802": [
+			"**Previous:** ??\n\n**Challenger:** Soufflele\n\n**Faction:** Sovereign of Sweet\n\n**Style:** Sweet, Cool, Classical & Ballroom\n\n**Perfect Score:** Approx. ??",
+			[]
+		]
 	}
 }

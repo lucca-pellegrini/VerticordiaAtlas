@@ -310,6 +310,7 @@
 			"slug": "valley-of-mines",
 			"title": "Valley of Mines",
 			"data": "valley-of-mines/data.json",
+			"compact": "valley-of-mines/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -321,8 +322,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "valley-of-mines/data.compact.json"
+			]
 		}
 	]
 }

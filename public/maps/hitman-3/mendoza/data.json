@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -35,16 +36,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "hitman-3",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/hitman-3/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 520,
 			"game_id": 52,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 10,
 			"color": "393A42",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -502,10 +510,17 @@
 		{
 			"id": 521,
 			"game_id": 52,
+			"section_id": null,
 			"title": "Weapons & Tools",
 			"order": 10,
 			"color": "C4212E",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -711,10 +726,17 @@
 		{
 			"id": 522,
 			"game_id": 52,
+			"section_id": null,
 			"title": "Navigation",
 			"order": 10,
 			"color": "8FA2B0",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -918,6 +940,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"2324": {
 			"id": 2324,
@@ -1788,7 +1811,8 @@
 								[-1.182705597995, 0.80299627402317],
 								[-1.182705597995, 0.60663061312294],
 								[-1.3248412181122, 0.60663061312294],
-								[-1.3248412181122, 0.80299627402317]
+								[-1.3248412181122, 0.80299627402317],
+								[-1.182705597995, 0.80299627402317]
 							]
 						]
 					},
@@ -1815,7 +1839,8 @@
 								[-0.99937124740904, 0.80024996080545],
 								[-0.99937124740904, 0.60731722010126],
 								[-1.1367003489715, 0.60731722010126],
-								[-1.1367003489715, 0.80024996080545]
+								[-1.1367003489715, 0.80024996080545],
+								[-0.99937124740904, 0.80024996080545]
 							]
 						]
 					},
@@ -1842,7 +1867,8 @@
 								[-0.81800165409663, 0.7975775718688],
 								[-0.81800165409663, 0.60464472083162],
 								[-0.95670404667476, 0.60464472083162],
-								[-0.95670404667476, 0.7975775718688]
+								[-0.95670404667476, 0.7975775718688],
+								[-0.81800165409663, 0.7975775718688]
 							]
 						]
 					},
@@ -1869,7 +1895,8 @@
 								[-0.63260736698726, 0.80238362192464],
 								[-0.63260736698726, 0.60807775611141],
 								[-0.77268305058101, 0.60807775611141],
-								[-0.77268305058101, 0.80238362192464]
+								[-0.77268305058101, 0.80238362192464],
+								[-0.63260736698726, 0.80238362192464]
 							]
 						]
 					},
@@ -1896,7 +1923,8 @@
 								[-0.44995966190913, 0.8037567780479],
 								[-0.44995966190913, 0.60876436290578],
 								[-0.59415521854976, 0.60876436290578],
-								[-0.59415521854976, 0.8037567780479]
+								[-0.59415521854976, 0.8037567780479],
+								[-0.44995966190913, 0.8037567780479]
 							]
 						]
 					},
@@ -1923,7 +1951,8 @@
 								[-0.26740055561663, 0.8003238868758],
 								[-0.26740055561663, 0.60601793520473],
 								[-0.40678959370257, 0.60601793520473],
-								[-0.40678959370257, 0.8003238868758]
+								[-0.40678959370257, 0.8003238868758],
+								[-0.26740055561663, 0.8003238868758]
 							]
 						]
 					},
@@ -1950,7 +1979,8 @@
 								[-0.084752850538507, 0.79620441367769],
 								[-0.084752850538507, 0.60601793520473],
 								[-0.22757511616351, 0.60601793520473],
-								[-0.22757511616351, 0.79620441367769]
+								[-0.22757511616351, 0.79620441367769],
+								[-0.084752850538507, 0.79620441367769]
 							]
 						]
 					},
@@ -1965,6 +1995,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 68537,
@@ -13963,7 +13994,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "neu-haas-grotesk-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/hitman-3/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

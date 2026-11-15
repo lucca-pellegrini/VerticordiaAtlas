@@ -13,7 +13,8 @@
 				"max_zoom": 18,
 				"tiles_max_zoom": 16,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 2740,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 10,
 			"color": "38344C",
@@ -581,6 +583,7 @@
 		{
 			"id": 2743,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Travel",
 			"order": 15,
 			"color": "DAB13E",
@@ -684,6 +687,7 @@
 		{
 			"id": 2741,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "336FD1",
@@ -843,6 +847,7 @@
 		{
 			"id": 2742,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 30,
 			"color": "C9692F",
@@ -946,6 +951,7 @@
 		{
 			"id": 26896,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Holiday",
 			"order": 35,
 			"color": "e50c0c",
@@ -1021,6 +1027,7 @@
 		{
 			"id": 26891,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Herbs",
 			"order": 40,
 			"color": "4CAF50",
@@ -2104,6 +2111,7 @@
 		{
 			"id": 26892,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Ore Veins",
 			"order": 50,
 			"color": "8D6E63",
@@ -2571,6 +2579,7 @@
 		{
 			"id": 26893,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Fishing Schools",
 			"order": 60,
 			"color": "2196F3",
@@ -3262,6 +3271,7 @@
 		{
 			"id": 26894,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Lumber",
 			"order": 70,
 			"color": "795548",
@@ -3365,6 +3375,7 @@
 		{
 			"id": 26895,
 			"game_id": 274,
+			"section_id": null,
 			"title": "Archaeology Digsites",
 			"order": 80,
 			"color": "807035",
@@ -3522,6 +3533,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"15483": {
 			"id": 15483,

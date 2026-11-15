@@ -13,7 +13,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 746,
@@ -26,7 +27,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -37,16 +39,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "hollow-knight",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 2020,
 			"game_id": 202,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 10,
 			"color": "597698",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -168,10 +177,17 @@
 		{
 			"id": 2021,
 			"game_id": 202,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "1C2133",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -349,10 +365,17 @@
 		{
 			"id": 2022,
 			"game_id": 202,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "A83148",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -586,10 +609,17 @@
 		{
 			"id": 2023,
 			"game_id": 202,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "A77387",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -683,10 +713,17 @@
 		{
 			"id": 2024,
 			"game_id": 202,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "8E58A1",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -808,10 +845,17 @@
 		{
 			"id": 2026,
 			"game_id": 202,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 20,
 			"color": "D05148",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -933,10 +977,17 @@
 		{
 			"id": 2027,
 			"game_id": 202,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "F0A084",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1030,10 +1081,17 @@
 		{
 			"id": 2025,
 			"game_id": 202,
+			"section_id": null,
 			"title": "Other",
 			"order": 30,
 			"color": "4D7787",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1209,6 +1267,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"11851": {
 			"id": 11851,
@@ -2383,7 +2442,6 @@
 								[-0.5737992453497611, 0.7837013912604505],
 								[-0.5726834463994237, 0.7732310137764955],
 								[-0.6141396689335181, 0.7679099923501411],
-								[-0.6401463675415187, 0.7687682220617091],
 								[-0.6401463675415187, 0.7687682220617091]
 							]
 						],
@@ -3700,7 +3758,6 @@
 								[-0.47611881444152004, 0.8271357609195746],
 								[-0.4770629520145633, 0.8061093782018247],
 								[-0.49560238072544394, 0.8043929339646922],
-								[-0.5198066348755503, 0.804650400646409],
 								[-0.5198066348755503, 0.804650400646409]
 							]
 						],
@@ -3994,6 +4051,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 428546,
@@ -7448,7 +7506,7 @@
 			"region_id": 3227,
 			"category_id": 11861,
 			"title": "Captive Grub",
-			"description": null,
+			"description": "Can be reached by striking the spikes while above them, or for an easier time, with the Mothwing Cloak and Monarch Wings",
 			"latitude": "0.79376900096497",
 			"longitude": "-0.68351268768237",
 			"features": null,
@@ -20209,7 +20267,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

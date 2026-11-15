@@ -226,6 +226,7 @@
 			"slug": "dragon-quest-i",
 			"title": "Dragon Quest I",
 			"data": "dragon-quest-i/data.json",
+			"compact": "dragon-quest-i/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -237,8 +238,7 @@
 					"tileSize": 256,
 					"background": "#7a8780"
 				}
-			],
-			"compact": "dragon-quest-i/data.compact.json"
+			]
 		}
 	]
 }

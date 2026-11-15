@@ -12,164 +12,13 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"icons": {
-		"font": "icons/icons.woff",
-		"glyphs": {
-			"door": [
-				{
-					"cp": "e900",
-					"color": "#fbeac2"
-				}
-			],
-			"equipment": [
-				{
-					"cp": "e901",
-					"color": "#fbeac2"
-				}
-			],
-			"unique_equipment": [
-				{
-					"cp": "e902",
-					"color": "#fbeac2"
-				}
-			],
-			"companion_quest": [
-				{
-					"cp": "e903",
-					"color": "#fbeac2"
-				}
-			],
-			"faction_quest": [
-				{
-					"cp": "e904",
-					"color": "#fbeac2"
-				}
-			],
-			"fast_travel": [
-				{
-					"cp": "e905",
-					"color": "#fbeac2"
-				}
-			],
-			"item": [
-				{
-					"cp": "e906",
-					"color": "#fbeac2"
-				}
-			],
-			"main_quest": [
-				{
-					"cp": "e907",
-					"color": "#fbeac2"
-				}
-			],
-			"miscellaneous": [
-				{
-					"cp": "e908",
-					"color": "#fbeac2"
-				}
-			],
-			"point_of_interest": [
-				{
-					"cp": "e909",
-					"color": "#fbeac2"
-				}
-			],
-			"quest_item": [
-				{
-					"cp": "e90a",
-					"color": "#fbeac2"
-				}
-			],
-			"side_quest": [
-				{
-					"cp": "e90b",
-					"color": "#fbeac2"
-				}
-			],
-			"task": [
-				{
-					"cp": "e90c",
-					"color": "#fbeac2"
-				}
-			],
-			"vending_machine": [
-				{
-					"cp": "e90d",
-					"color": "#fbeac2"
-				}
-			],
-			"vendor": [
-				{
-					"cp": "e90e",
-					"color": "#fbeac2"
-				}
-			],
-			"weapon": [
-				{
-					"cp": "e90f",
-					"color": "#fbeac2"
-				}
-			],
-			"unique_weapon": [
-				{
-					"cp": "e910",
-					"color": "#fbeac2"
-				}
-			],
-			"workbench": [
-				{
-					"cp": "e911",
-					"color": "#fbeac2"
-				}
-			],
-			"transition": [
-				{
-					"cp": "e912"
-				}
-			],
-			"decoration": [
-				{
-					"cp": "e913"
-				}
-			],
-			"keycard": [
-				{
-					"cp": "e914"
-				}
-			],
-			"loot": [
-				{
-					"cp": "e915"
-				}
-			],
-			"terminal": [
-				{
-					"cp": "e916"
-				}
-			],
-			"codex": [
-				{
-					"cp": "e917"
-				}
-			],
-			"mega_creature": [
-				{
-					"cp": "e918"
-				}
-			],
-			"npc": [
-				{
-					"cp": "e919"
-				}
-			]
-		}
-	},
+	"icons": null,
 	"maps": [
 		{
 			"slug": "emerald-vale",
 			"title": "Emerald Vale",
 			"data": "emerald-vale/data.json",
+			"compact": "emerald-vale/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -178,15 +27,16 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#e3af5c"
 				}
-			],
-			"compact": "emerald-vale/data.compact.json"
+			]
 		},
 		{
 			"slug": "groundbreaker",
 			"title": "Groundbreaker",
 			"data": "groundbreaker/data.json",
+			"compact": "groundbreaker/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -195,15 +45,16 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 15,
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#a76c41"
 				}
-			],
-			"compact": "groundbreaker/data.compact.json"
+			]
 		},
 		{
 			"slug": "byzantium",
 			"title": "Byzantium",
 			"data": "byzantium/data.json",
+			"compact": "byzantium/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -214,13 +65,13 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			],
-			"compact": "byzantium/data.compact.json"
+			]
 		},
 		{
 			"slug": "ships",
 			"title": "Ships",
 			"data": "ships/data.json",
+			"compact": "ships/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -231,13 +82,13 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			],
-			"compact": "ships/data.compact.json"
+			]
 		},
 		{
 			"slug": "monarch",
 			"title": "Monarch",
 			"data": "monarch/data.json",
+			"compact": "monarch/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -246,15 +97,16 @@
 					"maxzoom": 16,
 					"viewMaxzoom": 16,
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#eddfad"
 				}
-			],
-			"compact": "monarch/data.compact.json"
+			]
 		},
 		{
 			"slug": "tartarus",
 			"title": "Tartarus",
 			"data": "tartarus/data.json",
+			"compact": "tartarus/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -265,13 +117,13 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			],
-			"compact": "tartarus/data.compact.json"
+			]
 		},
 		{
 			"slug": "roseway",
 			"title": "Roseway",
 			"data": "roseway/data.json",
+			"compact": "roseway/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -282,13 +134,13 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			],
-			"compact": "roseway/data.compact.json"
+			]
 		},
 		{
 			"slug": "satellites",
 			"title": "Satellites",
 			"data": "satellites/data.json",
+			"compact": "satellites/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -297,15 +149,16 @@
 					"maxzoom": 14,
 					"viewMaxzoom": 14,
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#7a3e2e"
 				}
-			],
-			"compact": "satellites/data.compact.json"
+			]
 		},
 		{
 			"slug": "scylla",
 			"title": "Scylla",
 			"data": "scylla/data.json",
+			"compact": "scylla/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -314,15 +167,16 @@
 					"maxzoom": 14,
 					"viewMaxzoom": 14,
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#7a3e2e"
 				}
-			],
-			"compact": "scylla/data.compact.json"
+			]
 		},
 		{
 			"slug": "gorgon",
 			"title": "Gorgon",
 			"data": "gorgon/data.json",
+			"compact": "gorgon/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -331,15 +185,16 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#523f44"
 				}
-			],
-			"compact": "gorgon/data.compact.json"
+			]
 		},
 		{
 			"slug": "olympus",
 			"title": "Olympus",
 			"data": "olympus/data.json",
+			"compact": "olympus/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -350,13 +205,13 @@
 					"bounds": [-168.75, 83.82994542398042, -167.34375, 83.97925949886206],
 					"tileSize": 256
 				}
-			],
-			"compact": "olympus/data.compact.json"
+			]
 		},
 		{
 			"slug": "eridanos",
 			"title": "Eridanos",
 			"data": "eridanos/data.json",
+			"compact": "eridanos/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -365,10 +220,10 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#4f3b3f"
 				}
-			],
-			"compact": "eridanos/data.compact.json"
+			]
 		}
 	]
 }

@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 383,
@@ -48,7 +49,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -59,12 +61,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "bully",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1080,
 			"game_id": 108,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "468558",
@@ -364,6 +367,7 @@
 		{
 			"id": 1081,
 			"game_id": 108,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "395E99",
@@ -579,6 +583,7 @@
 		{
 			"id": 1082,
 			"game_id": 108,
+			"section_id": null,
 			"title": "Activities",
 			"order": 10,
 			"color": "DD9C26",
@@ -822,6 +827,7 @@
 		{
 			"id": 1083,
 			"game_id": 108,
+			"section_id": null,
 			"title": "Missions",
 			"order": 10,
 			"color": "A63636",
@@ -953,6 +959,7 @@
 		{
 			"id": 1084,
 			"game_id": 108,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "374B52",
@@ -1138,6 +1145,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"5354": {
 			"id": 5354,
@@ -14126,7 +14134,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

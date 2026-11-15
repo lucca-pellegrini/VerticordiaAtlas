@@ -12,202 +12,13 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"icons": {
-		"font": "icons/icons.woff",
-		"glyphs": {
-			"blend_in": [
-				{
-					"cp": "e900",
-					"color": "#fff"
-				}
-			],
-			"hiding_spot": [
-				{
-					"cp": "e901",
-					"color": "#fff"
-				}
-			],
-			"non_lethal_melee": [
-				{
-					"cp": "e902",
-					"color": "#fff"
-				}
-			],
-			"stairs": [
-				{
-					"cp": "e903",
-					"color": "#fff"
-				}
-			],
-			"agency_pickup": [
-				{
-					"cp": "e904",
-					"color": "#fff"
-				}
-			],
-			"alarm": [
-				{
-					"cp": "e905",
-					"color": "#fff"
-				}
-			],
-			"ammo": [
-				{
-					"cp": "e906",
-					"color": "#fff"
-				}
-			],
-			"conceal_item": [
-				{
-					"cp": "e907",
-					"color": "#fff"
-				}
-			],
-			"discovery": [
-				{
-					"cp": "e908",
-					"color": "#fff"
-				}
-			],
-			"disguise": [
-				{
-					"cp": "e909",
-					"color": "#fff"
-				}
-			],
-			"distraction": [
-				{
-					"cp": "e90a",
-					"color": "#fff"
-				}
-			],
-			"exit": [
-				{
-					"cp": "e90b",
-					"color": "#fff"
-				}
-			],
-			"explosive": [
-				{
-					"cp": "e90c",
-					"color": "#fff"
-				}
-			],
-			"firearm": [
-				{
-					"cp": "e90d",
-					"color": "#fff"
-				}
-			],
-			"food_drink": [
-				{
-					"cp": "e90e",
-					"color": "#fff"
-				}
-			],
-			"intel": [
-				{
-					"cp": "e90f",
-					"color": "#fff"
-				}
-			],
-			"interaction": [
-				{
-					"cp": "e910",
-					"color": "#fff"
-				}
-			],
-			"key": [
-				{
-					"cp": "e911",
-					"color": "#fff"
-				}
-			],
-			"lethal_melee": [
-				{
-					"cp": "e912",
-					"color": "#fff"
-				}
-			],
-			"location": [
-				{
-					"cp": "e913",
-					"color": "#fff"
-				}
-			],
-			"locked_door": [
-				{
-					"cp": "e914",
-					"color": "#fff"
-				}
-			],
-			"passage": [
-				{
-					"cp": "e915",
-					"color": "#fff"
-				}
-			],
-			"persistent_shortcut": [
-				{
-					"cp": "e916",
-					"color": "#fff"
-				}
-			],
-			"poison": [
-				{
-					"cp": "e917",
-					"color": "#fff"
-				}
-			],
-			"sabotage": [
-				{
-					"cp": "e918",
-					"color": "#fff"
-				}
-			],
-			"security_camera": [
-				{
-					"cp": "e919",
-					"color": "#fff"
-				}
-			],
-			"security_check": [
-				{
-					"cp": "e91a",
-					"color": "#fff"
-				}
-			],
-			"security_footage": [
-				{
-					"cp": "e91b",
-					"color": "#fff"
-				}
-			],
-			"starting_location": [
-				{
-					"cp": "e91c",
-					"color": "#fff"
-				}
-			],
-			"tool": [
-				{
-					"cp": "e91d",
-					"color": "#fff"
-				}
-			],
-			"vertical_traversal": [
-				{
-					"cp": "e91e",
-					"color": "#fff"
-				}
-			]
-		}
-	},
+	"icons": null,
 	"maps": [
 		{
 			"slug": "hawkes-bay-nightcall",
 			"title": "Hawke's Bay: Nightcall",
 			"data": "hawkes-bay-nightcall/data.json",
+			"compact": "hawkes-bay-nightcall/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -219,13 +30,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "hawkes-bay-nightcall/data.compact.json"
+			]
 		},
 		{
 			"slug": "hawkes-bay-the-mills-reverie",
 			"title": "Hawke's Bay: The Mills Reverie",
 			"data": "hawkes-bay-the-mills-reverie/data.json",
+			"compact": "hawkes-bay-the-mills-reverie/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -237,13 +48,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "hawkes-bay-the-mills-reverie/data.compact.json"
+			]
 		},
 		{
 			"slug": "miami-the-finish-line",
 			"title": "Miami: The Finish Line",
 			"data": "miami-the-finish-line/data.json",
+			"compact": "miami-the-finish-line/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -255,13 +66,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "miami-the-finish-line/data.compact.json"
+			]
 		},
 		{
 			"slug": "miami-a-silver-tongue",
 			"title": "Miami: A Silver Tongue",
 			"data": "miami-a-silver-tongue/data.json",
+			"compact": "miami-a-silver-tongue/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -273,13 +84,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "miami-a-silver-tongue/data.compact.json"
+			]
 		},
 		{
 			"slug": "santa-fortuna-three-headed-serpent",
 			"title": "Santa Fortuna: Three-Headed Serpent",
 			"data": "santa-fortuna-three-headed-serpent/data.json",
+			"compact": "santa-fortuna-three-headed-serpent/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -291,13 +102,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "santa-fortuna-three-headed-serpent/data.compact.json"
+			]
 		},
 		{
 			"slug": "santa-fortuna-embrace-of-the-serpent",
 			"title": "Santa Fortuna: Embrace of the Serpent",
 			"data": "santa-fortuna-embrace-of-the-serpent/data.json",
+			"compact": "santa-fortuna-embrace-of-the-serpent/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -309,13 +120,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "santa-fortuna-embrace-of-the-serpent/data.compact.json"
+			]
 		},
 		{
 			"slug": "mumbai-chasing-a-ghost",
 			"title": "Mumbai: Chasing a Ghost",
 			"data": "mumbai-chasing-a-ghost/data.json",
+			"compact": "mumbai-chasing-a-ghost/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -327,13 +138,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "mumbai-chasing-a-ghost/data.compact.json"
+			]
 		},
 		{
 			"slug": "mumbai-illusions-of-grandeur",
 			"title": "Mumbai: Illusions of Grandeur",
 			"data": "mumbai-illusions-of-grandeur/data.json",
+			"compact": "mumbai-illusions-of-grandeur/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -345,13 +156,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "mumbai-illusions-of-grandeur/data.compact.json"
+			]
 		},
 		{
 			"slug": "whittleton-creek-another-life",
 			"title": "Whittleton Creek: Another Life",
 			"data": "whittleton-creek-another-life/data.json",
+			"compact": "whittleton-creek-another-life/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -363,13 +174,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "whittleton-creek-another-life/data.compact.json"
+			]
 		},
 		{
 			"slug": "whittleton-creek-a-bitter-pill",
 			"title": "Whittleton Creek: A Bitter Pill",
 			"data": "whittleton-creek-a-bitter-pill/data.json",
+			"compact": "whittleton-creek-a-bitter-pill/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -381,13 +192,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "whittleton-creek-a-bitter-pill/data.compact.json"
+			]
 		},
 		{
 			"slug": "isle-of-sgail-the-ark-society",
 			"title": "Isle of Sgàil: The Ark Society",
 			"data": "isle-of-sgail-the-ark-society/data.json",
+			"compact": "isle-of-sgail-the-ark-society/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -399,13 +210,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "isle-of-sgail-the-ark-society/data.compact.json"
+			]
 		},
 		{
 			"slug": "new-york-golden-handshake",
 			"title": "New York: Golden Handshake",
 			"data": "new-york-golden-handshake/data.json",
+			"compact": "new-york-golden-handshake/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -417,13 +228,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "new-york-golden-handshake/data.compact.json"
+			]
 		},
 		{
 			"slug": "haven-island-the-last-resort",
 			"title": "Haven Island: The Last Resort",
 			"data": "haven-island-the-last-resort/data.json",
+			"compact": "haven-island-the-last-resort/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -435,8 +246,7 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "haven-island-the-last-resort/data.compact.json"
+			]
 		}
 	]
 }

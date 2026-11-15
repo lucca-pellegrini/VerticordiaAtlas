@@ -1,0 +1,43 @@
+{
+	"v": 1,
+	"d": {
+		"570103": ["**Cost:** 2,000\n\n**Effect:** Draws in nearby zombies and slices them apart", []],
+		"570105": ["**Cost:** 2,000", []],
+		"570106": ["**Cost:** \n- Uncommon: 1,550\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 4,750", []],
+		"570107": ["**Cost:** 2,000", []],
+		"570108": ["**Transitions to:** [Zipline](#loc=570109)", []],
+		"570109": ["**Transitions to:** [Zipline](#loc=570108)", []],
+		"570110": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 3,000\n- Epic: 4,000\n- Legendary: 5,000", []],
+		"570114": ["**Cost:** 2,000", []],
+		"570115": ["**Cost:** 2,000", []],
+		"570116": ["**Cost:** 2,000", []],
+		"570117": ["**Cost:** 2,000", []],
+		"570118": ["**Cost:** 2,000", []],
+		"570119": ["**Cost:** 2,000", []],
+		"570121": ["**Cost:** \n- Uncommon: 1,450\n- Rare: 2,650\n- Epic: 3,650\n- Legendary: 4,650", []],
+		"570122": ["**Cost:** 2,000", []],
+		"570125": ["**Cost:** 2,000", []],
+		"570126": ["**Cost:** 2,000", []],
+		"570127": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase the variety of loot dropped from enemies.", []],
+		"570128": ["**Cost:** 2,000", []],
+		"570129": ["**Cost:** 2,000", []],
+		"570131": ["**Cost:** \n- Uncommon: 750\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 4,000", []],
+		"959402": [
+			"**Location:** In the window of the bell tower in the church",
+			[
+				{
+					"id": 153847,
+					"title": "image",
+					"file_name": "e5462cec-20ad-42a2-ab2d-f08480980f8a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5462cec-20ad-42a2-ab2d-f08480980f8a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

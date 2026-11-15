@@ -973,6 +973,7 @@
 			"slug": "skyrim",
 			"title": "Skyrim",
 			"data": "skyrim/data.json",
+			"compact": "skyrim/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -984,13 +985,13 @@
 					"tileSize": 256,
 					"background": "#284358"
 				}
-			],
-			"compact": "skyrim/data.compact.json"
+			]
 		},
 		{
 			"slug": "solstheim",
 			"title": "Solstheim",
 			"data": "solstheim/data.json",
+			"compact": "solstheim/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -1001,8 +1002,7 @@
 					"bounds": [-1.40625, 1.0546279422758842, -1.0546875, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "solstheim/data.compact.json"
+			]
 		}
 	]
 }

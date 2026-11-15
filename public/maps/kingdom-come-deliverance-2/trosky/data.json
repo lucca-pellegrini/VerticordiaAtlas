@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 15,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -24,12 +25,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "medieval-dynasty",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/medieval-dynasty/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 2060,
 			"game_id": 206,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3E3D40",
@@ -385,6 +387,7 @@
 		{
 			"id": 2061,
 			"game_id": 206,
+			"section_id": null,
 			"title": "Services",
 			"order": 20,
 			"color": "445B87",
@@ -1188,6 +1191,7 @@
 		{
 			"id": 2062,
 			"game_id": 206,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "9D4C3C",
@@ -1319,6 +1323,7 @@
 		{
 			"id": 2063,
 			"game_id": 206,
+			"section_id": null,
 			"title": "Items",
 			"order": 20,
 			"color": "759C60",
@@ -1562,6 +1567,7 @@
 		{
 			"id": 2064,
 			"game_id": 206,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "E4AE3E",
@@ -1665,6 +1671,7 @@
 		{
 			"id": 2065,
 			"game_id": 206,
+			"section_id": null,
 			"title": "Other",
 			"order": 30,
 			"color": "5C5851",
@@ -1824,6 +1831,7 @@
 		{
 			"id": 2066,
 			"game_id": 206,
+			"section_id": null,
 			"title": "Resources",
 			"order": 30,
 			"color": "876C4D",
@@ -2177,6 +2185,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"12048": {
 			"id": 12048,
@@ -30334,7 +30343,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "kingthings-petrock",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/medieval-dynasty/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

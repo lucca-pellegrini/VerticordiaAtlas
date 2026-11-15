@@ -4904,6 +4904,7 @@
 		],
 		"238002": ["[Leaf-Marked Stump](#loc=516736)", []],
 		"238003": ["Shoot the acorn inside the tree.", []],
+		"238004": ["Shoot the three balloons", []],
 		"238005": [
 			"Pinwheel Korok. Ontop of the big stump; one to the North below line of sight, below. One to the south, below line of sight. One to the west, covered by banana leaves, line of sight.",
 			[]
@@ -5416,6 +5417,7 @@
 				}
 			]
 		],
+		"238041": ["Throw a rock into the circle", []],
 		"238042": [
 			"**Location:** On a small hill, beside the road.  \n**Puzzle:** Matching Trees - Grab or shoot the apples off the trees until they all match to reveal the Korok. In this case, leave the 2nd apple from the top.",
 			[
@@ -6365,6 +6367,7 @@
 			]
 		],
 		"238121": ["Follow the Flower", []],
+		"238122": ["Rock lift. Rock formation with breakable rocks", []],
 		"238123": [
 			"In between Hawa Koth Shrine and Tho Kayu Shrine, there is a cactus puzzle. Make them match to reveal the Korok.",
 			[]
@@ -6873,6 +6876,7 @@
 			[]
 		],
 		"238160": ["**Location:** ??  \n**Puzzle:** Follow the [Yellow Flower](#loc=503521)", []],
+		"238161": ["Magnesis puzzle", []],
 		"238162": ["Follow the flowers", []],
 		"238163": [
 			"**Location:** On the eastern end of the bridge, on the wall.  \n**Puzzle:** Cube Puzzle - Magnesis the nearby cube (on the middle of the bridge), and complete the structure to reveal the Korok. The cube goes to the right of the lone cube, in the center.",
@@ -7539,6 +7543,7 @@
 		"238220": ["Pick up the rock on top of the tree.", []],
 		"238222": ["Destroy the acorn dangling from a chain beneath the rock formation", []],
 		"238223": ["Get the boulder into the crater", []],
+		"238224": ["Rock lift on small ledge", []],
 		"238226": ["At the end of the wooden path. Pick up the rock.", []],
 		"238227": ["On top of the column", []],
 		"238228": ["climb the statue and lift the rock that is on the top of its head", []],
@@ -11248,6 +11253,7 @@
 			"**Location:** On a stump on the north side of the bridge     \n**Puzzle:** Follow the yellow flowers across the river",
 			[]
 		],
+		"238485": ["Match the hearty durian on the three trees", []],
 		"238486": ["Lift the rock at the edge of the cliff.", []],
 		"238487": [
 			"**Location:** Nestled in the cliffside, against the southern wall.  \n**Puzzle:** Rock Lift (Rock Pile) - Use a bomb to blow the rock pile, then lift the rock underneath to reveal the Korok.",
@@ -11925,6 +11931,7 @@
 			]
 		],
 		"238526": ["Follow the [Yellow Flower](#loc=516749).", []],
+		"238527": ["Sparkle trail", []],
 		"238528": [
 			"**Location:** Under a tree that is located above a tunnel south of Koto Pond\n\n**Puzzle:** Rock lift. Lift rock on south side of tree.",
 			[]
@@ -14518,6 +14525,7 @@
 			"If you give the dog some food (such as an apple or meat) a few times, it will reveal the location of the box. The treasure chest will not appear until the dog gives you directions.",
 			[]
 		],
+		"244503": ["Won't spawn until you befriend the dog near the fruit store by feeding him meat.", []],
 		"244506": [
 			"Feed the dog next to the stable a few times, it will lead you to the treasure chest.\nThe treasure chest will not appear until the dog leads you there.",
 			[]

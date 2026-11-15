@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16324, "min": 16272 }, "y": { "max": 16315, "min": 16272 } },
 					"16": { "x": { "max": 32649, "min": 32544 }, "y": { "max": 32630, "min": 32544 } },
 					"17": { "x": { "max": 65298, "min": 65088 }, "y": { "max": 65261, "min": 65088 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 1331,
@@ -48,7 +49,8 @@
 					"15": { "x": { "max": 16324, "min": 16272 }, "y": { "max": 16315, "min": 16272 } },
 					"16": { "x": { "max": 32649, "min": 32544 }, "y": { "max": 32630, "min": 32544 } },
 					"17": { "x": { "max": 65298, "min": 65088 }, "y": { "max": 65261, "min": 65088 } }
-				}
+				},
+				"filter": { "tag_id": 57, "region_id": null, "strict": false }
 			}
 		],
 		"initial_zoom": 12,
@@ -59,12 +61,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "new-world",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/new-world/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1770,
 			"game_id": 177,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "34362C",
@@ -280,6 +283,7 @@
 		{
 			"id": 1777,
 			"game_id": 177,
+			"section_id": null,
 			"title": "Facilities",
 			"order": 8,
 			"color": "4A88B5",
@@ -663,6 +667,7 @@
 		{
 			"id": 1771,
 			"game_id": 177,
+			"section_id": null,
 			"title": "Key Items",
 			"order": 10,
 			"color": "844796",
@@ -838,7 +843,7 @@
 					"ign_enabled": true,
 					"ign_visible": true,
 					"suggestion_locked": false,
-					"suggestion_add_locked": false,
+					"suggestion_add_locked": true,
 					"featured": true,
 					"visible": true,
 					"description": null,
@@ -899,13 +904,14 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 5
+					"locations_count": 13
 				}
 			]
 		},
 		{
 			"id": 1772,
 			"game_id": 177,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "39634A",
@@ -1065,6 +1071,7 @@
 		{
 			"id": 1773,
 			"game_id": 177,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "235E7A",
@@ -1105,7 +1112,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 441
+					"locations_count": 443
 				},
 				{
 					"id": 10746,
@@ -1189,7 +1196,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 597
+					"locations_count": 599
 				},
 				{
 					"id": 10745,
@@ -1252,6 +1259,7 @@
 		{
 			"id": 1774,
 			"game_id": 177,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "CE9866",
@@ -1327,6 +1335,7 @@
 		{
 			"id": 1775,
 			"game_id": 177,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 10,
 			"color": "631813",
@@ -1402,6 +1411,7 @@
 		{
 			"id": 1776,
 			"game_id": 177,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "4D859F",
@@ -1531,6 +1541,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"10723": {
 			"id": 10723,
@@ -1861,7 +1872,7 @@
 			"ign_enabled": true,
 			"ign_visible": true,
 			"suggestion_locked": false,
-			"suggestion_add_locked": false,
+			"suggestion_add_locked": true,
 			"featured": true,
 			"visible": true,
 			"description": null,
@@ -2202,7 +2213,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 441
+			"locations_count": 443
 		},
 		"10748": {
 			"id": 10748,
@@ -2818,7 +2829,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 597
+			"locations_count": 599
 		},
 		"28304": {
 			"id": 28304,
@@ -2846,7 +2857,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 5
+			"locations_count": 13
 		}
 	},
 	"routes": [],
@@ -3564,7 +3575,6 @@
 								[-1.16019447206042, 1.21176745971992],
 								[-1.16449771197902, 1.21416777131872],
 								[-1.16616964757208, 1.21240015163194],
-								[-1.16616964757208, 1.21240015163194],
 								[-1.16868585665153, 1.21212663241086]
 							]
 						],
@@ -3731,7 +3741,6 @@
 								[-1.1248646570304754, 0.8716590837797],
 								[-1.1282278431251955, 0.87417991231919],
 								[-1.1346267473260854, 0.87376116479312],
-								[-1.1385235295307754, 0.87569403003484],
 								[-1.1385235295307754, 0.87569403003484]
 							]
 						],
@@ -4308,7 +4317,6 @@
 								[-1.019646530939977, 0.8732291845494229],
 								[-1.0246207658413968, 0.865817316289823],
 								[-1.025974302017257, 0.861358951473213],
-								[-1.025093546699117, 0.8593557354143829],
 								[-1.025093546699117, 0.8593557354143829]
 							]
 						],
@@ -4343,7 +4351,6 @@
 								[-0.8667518373304348, 1.0938385583718466],
 								[-0.8706814997631248, 1.0884494350273066],
 								[-0.8732367798302448, 1.0870795117962067],
-								[-0.8737598908540248, 1.0827536983027566],
 								[-0.8737598908540248, 1.0827536983027566]
 							]
 						],
@@ -4761,7 +4768,6 @@
 								[-0.9616470589343962, 0.8526866956056561],
 								[-0.9565953940323061, 0.8575210709759561],
 								[-0.9568627181623761, 0.8780634794402361],
-								[-1.0004768234093762, 0.8779511758213662],
 								[-1.0004768234093762, 0.8779511758213662]
 							]
 						],
@@ -4833,7 +4839,6 @@
 								[-0.8209517247060634, 1.150420070142877],
 								[-0.8319293544207934, 1.150699390726787],
 								[-0.8343547541076034, 1.1581995086589871],
-								[-0.8378924220092033, 1.1627050917689872],
 								[-0.8378924220092033, 1.1627050917689872]
 							]
 						],
@@ -4974,7 +4979,6 @@
 								[-0.8628885201190318, 1.1120630889961276],
 								[-0.8724327151768818, 1.1120152860267076],
 								[-0.8727607334087418, 1.1050069864142076],
-								[-0.8711981745097518, 1.1031729887687776],
 								[-0.8711981745097518, 1.1031729887687776]
 							]
 						],
@@ -5712,7 +5716,6 @@
 								[-0.8765163960975311, 1.0283681473851343],
 								[-0.8774131299860211, 1.0386649444496443],
 								[-0.872139197806381, 1.0457364394867243],
-								[-0.865331770068931, 1.0494350934151342],
 								[-0.865331770068931, 1.0494350934151342]
 							]
 						],
@@ -6191,7 +6194,6 @@
 								[-0.8552584910413057, 1.0712381634874117],
 								[-0.8558338519630456, 1.0657539794615116],
 								[-0.8573817799701456, 1.0629173987458016],
-								[-0.8566713159709857, 1.0485168646721317],
 								[-0.8566713159709857, 1.0485168646721317]
 							]
 						],
@@ -6257,7 +6259,6 @@
 								[-0.8158458503946431, 1.0466829393675077],
 								[-0.8161358707971931, 1.0510748642597978],
 								[-0.827552477668853, 1.0570975132377578],
-								[-0.834234108825403, 1.0575214159811177],
 								[-0.834234108825403, 1.0575214159811177]
 							]
 						],
@@ -6357,7 +6358,6 @@
 								[-0.8535804139599132, 1.091452721370167],
 								[-0.8543988377034132, 1.088921619739627],
 								[-0.8537815813048232, 1.0834333066769468],
-								[-0.8609222784862732, 1.0805632492816568],
 								[-0.8609222784862732, 1.0805632492816568]
 							]
 						],
@@ -7004,7 +7004,6 @@
 								[-0.8307985297736911, 1.142370039727922],
 								[-0.833424316422771, 1.125508376387612],
 								[-0.836040184664101, 1.124137448518752],
-								[-0.836246101727061, 1.108842827481592],
 								[-0.836246101727061, 1.108842827481592]
 							]
 						],
@@ -7040,7 +7039,6 @@
 								[-0.876741376913668, 1.1529966695981373],
 								[-0.8720442740349381, 1.1481769540594973],
 								[-0.8682324805281381, 1.1370725558435473],
-								[-0.8648502761676181, 1.1322619582840374],
 								[-0.8648502761676181, 1.1322619582840374]
 							]
 						],
@@ -11102,7 +11100,7 @@
 			"region_id": 5277,
 			"category_id": 10733,
 			"title": "Underhill Passage",
-			"description": "**Transitions to:** [Underhill Passage](#loc=1044922)",
+			"description": "**Transitions to:** [Underhill Passage](#loc=1044922). This passage has gate that requires entry elsewhere to unlock.",
 			"latitude": "1.08623515504170",
 			"longitude": "-1.12358722686770",
 			"features": null,
@@ -30989,7 +30987,7 @@
 			"region_id": 2439,
 			"category_id": 10735,
 			"title": "Seeker's Token",
-			"description": "**Location:** On top of the eastern's wall battlements.",
+			"description": "**Location:** On top of the eastern's wall battlements.\n\nIf you don't have levitate, there is another wall segment to the left with barrels beneath it. Climb up on the barrels and drop off the ledge onto a cliff on the otherside. There's a ladder that will lead you back up onto the wall where the token is.",
 			"latitude": "1.03823754274960",
 			"longitude": "-0.94700755682076",
 			"features": null,
@@ -32957,9 +32955,9 @@
 			"region_id": null,
 			"category_id": 10735,
 			"title": "Seeker's Token",
-			"description": "**Location:** At the top of the tower at the end of the archway",
-			"latitude": "0.92816530219049",
-			"longitude": "-1.13045082091440",
+			"description": "**Location:** Dragonsbreath Tower - At the top of the tower at the end of the archway",
+			"latitude": "0.97495051982462",
+			"longitude": "-1.19139447248700",
 			"features": null,
 			"ign_page_id": "Wyrmsblood_Forest_Seeker%27s_Token_7",
 			"tags": [],
@@ -37348,6 +37346,118 @@
 			"description": "**Location:** On the edge of the cliff past the chest",
 			"latitude": "1.08551191958050",
 			"longitude": "-1.12525751572320",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1084000,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 28304,
+			"title": "Norgan Ducat",
+			"description": "Next to the fortified wall on a scaffold inside the village.",
+			"latitude": "1.08762049665400",
+			"longitude": "-1.11982194265110",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1084001,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 28304,
+			"title": "Norgan Ducat",
+			"description": "Next to the waterfall.",
+			"latitude": "1.11295708762770",
+			"longitude": "-1.11853802958570",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1084002,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 28304,
+			"title": "Norgan Ducat",
+			"description": "In the ravine. There is a Hook Tether post just to the south to assist in decending/ascending.",
+			"latitude": "1.11216415560070",
+			"longitude": "-1.11860093460350",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1084003,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 28304,
+			"title": "Norgan Ducat",
+			"description": "Inside the cave to the north of the location and to the right of where you initially spawn in.",
+			"latitude": "1.07288402159640",
+			"longitude": "-1.12398013766620",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1084004,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 28304,
+			"title": "Norgan Ducat",
+			"description": "Next to the Archery Obelisk.",
+			"latitude": "1.10409662317340",
+			"longitude": "-1.12315648020160",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1084005,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 28304,
+			"title": "Norgan Ducat",
+			"description": "Outside of the cave near the cliff edge.",
+			"latitude": "1.10100564148370",
+			"longitude": "-1.11779330697340",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1084006,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 28304,
+			"title": "Norgan Ducat",
+			"description": "Near the edge of the cliff.",
+			"latitude": "1.09723685090600",
+			"longitude": "-1.12246827490720",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1084007,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 28304,
+			"title": "Norgan Ducat",
+			"description": "In the river underneath the bridge.",
+			"latitude": "1.10605528219620",
+			"longitude": "-1.11355152725590",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -42526,7 +42636,7 @@
 			"region_id": 2446,
 			"category_id": 10740,
 			"title": "Favored Canopy",
-			"description": "**Location:** Inside a chest, at the end of the cave.  \n**Vocation(s):** Mage",
+			"description": "**Location:** Inside a [Chest](#loc=1067374), at the end of the cave.  \n**Vocation(s):** Mage",
 			"latitude": "1.21350814411940",
 			"longitude": "-1.04697321897040",
 			"features": null,
@@ -50886,6 +50996,34 @@
 			"description": "**Location:** Up the cliff, next to a ladder  \n**Contents:** 300 RC",
 			"latitude": "1.08514365885630",
 			"longitude": "-1.12428976489390",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067374,
+			"map_id": 599,
+			"region_id": 2446,
+			"category_id": 10747,
+			"title": "Chest",
+			"description": "**Location:** At the end of the cave, guarded by a Cyclops  \n**Contents:** [Favored Canopy](#loc=331666)",
+			"latitude": "1.21362744238950",
+			"longitude": "-1.04698667325780",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067383,
+			"map_id": 599,
+			"region_id": 5277,
+			"category_id": 10747,
+			"title": "Early level spoils.",
+			"description": "\"Chest-filled house located just outside the southeast corner of the _Bjorkan stronghold\"_\n\n_Building houses  3 chests ._",
+			"latitude": "1.10037102530630",
+			"longitude": "-1.12766540735010",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -77981,6 +78119,47 @@
 			"media": []
 		},
 		{
+			"id": 1067346,
+			"map_id": 599,
+			"region_id": 5240,
+			"category_id": 10772,
+			"title": "Loot pile behind ice",
+			"description": "Break the ice",
+			"latitude": "0.91203957175647",
+			"longitude": "-0.84465705140104",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067348,
+			"map_id": 599,
+			"region_id": 5240,
+			"category_id": 10772,
+			"title": "Loot Pile",
+			"description": "**Location:** ??",
+			"latitude": "0.90859534373219",
+			"longitude": "-0.84757918503902",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160780,
+					"title": "",
+					"file_name": "f5cea631-d490-4bf9-bc55-938e404c3cb3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5cea631-d490-4bf9-bc55-938e404c3cb3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 328458,
 			"map_id": 599,
 			"region_id": 2439,
@@ -98285,9 +98464,27 @@
 	],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
-	"tags": [{ "id": 57, "game_id": 177, "title": "Unmoored World", "icon": null, "color": null, "icon_color": null }],
+	"tags": [
+		{
+			"id": 57,
+			"game_id": 177,
+			"order": 0,
+			"title": "Unmoored World",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
+	],
 	"tagsById": {
-		"57": { "id": 57, "game_id": 177, "title": "Unmoored World", "icon": null, "color": null, "icon_color": null }
+		"57": {
+			"id": 57,
+			"game_id": 177,
+			"order": 0,
+			"title": "Unmoored World",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -98306,7 +98503,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "caslon-antique-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/new-world/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": true,
@@ -98365,6 +98562,7 @@
 		"polygonStyles": {},
 		"polygonStylesByTag": {},
 		"frontendConfig": {
+			"tag_filters": [{ "name": "Enable Unmoored World Items", "default": true, "tag_ids": [57] }],
 			"image_overlays": { "by_map": [] },
 			"icon_size_groups": [],
 			"icon_size_categories": [],

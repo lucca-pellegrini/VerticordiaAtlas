@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -35,16 +36,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "resident-evil-village",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/resident-evil-village/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 680,
 			"game_id": 68,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "424242",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -306,10 +314,17 @@
 		{
 			"id": 681,
 			"game_id": 68,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "C9B57D",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -571,10 +586,17 @@
 		{
 			"id": 682,
 			"game_id": 68,
+			"section_id": null,
 			"title": "Pickups",
 			"order": 20,
 			"color": "647D64",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -836,10 +858,17 @@
 		{
 			"id": 683,
 			"game_id": 68,
+			"section_id": null,
 			"title": "Animals",
 			"order": 30,
 			"color": "647D64",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -989,10 +1018,17 @@
 		{
 			"id": 684,
 			"game_id": 68,
+			"section_id": null,
 			"title": "Other",
 			"order": 40,
 			"color": "7C9FA5",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1028,6 +1064,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"3017": {
 			"id": 3017,
@@ -1962,6 +1999,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [],
@@ -1974,7 +2012,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "really-2-medium-italic",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/resident-evil-village/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

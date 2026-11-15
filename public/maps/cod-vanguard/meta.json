@@ -1,0 +1,90 @@
+{
+	"id": "call-of-duty-vanguard",
+	"title": "Call of Duty: Vanguard",
+	"slug": "call-of-duty-vanguard",
+	"source": "https://mapgenie.io/call-of-duty-vanguard",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": null,
+	"maps": [
+		{
+			"slug": "zombies-der-anfang",
+			"title": "Zombies: Der Anfang",
+			"data": "zombies-der-anfang/data.json",
+			"compact": "zombies-der-anfang/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-der-anfang/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0c0c0c"
+				}
+			]
+		},
+		{
+			"slug": "zombies-terra-maledicta",
+			"title": "Zombies: Terra Maledicta",
+			"data": "zombies-terra-maledicta/data.json",
+			"compact": "zombies-terra-maledicta/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-terra-maledicta/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0c0c0c"
+				}
+			]
+		},
+		{
+			"slug": "zombies-shi-no-numa",
+			"title": "Zombies: Shi No Numa",
+			"data": "zombies-shi-no-numa/data.json",
+			"compact": "zombies-shi-no-numa/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-shi-no-numa/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0c0c0c"
+				}
+			]
+		},
+		{
+			"slug": "zombies-the-archon",
+			"title": "Zombies: The Archon",
+			"data": "zombies-the-archon/data.json",
+			"compact": "zombies-the-archon/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-the-archon/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#0c0c0c"
+				}
+			]
+		}
+	]
+}

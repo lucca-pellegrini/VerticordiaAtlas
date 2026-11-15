@@ -1,0 +1,2529 @@
+{
+	"map": { "id": 1030, "title": "Zombies: Der Anfang", "slug": "zombies-der-anfang" },
+	"mapConfig": {
+		"tile_sets": [
+			{
+				"id": 1305,
+				"map_id": 1030,
+				"name": "default-v1",
+				"path": "call-of-duty-vanguard/zombies-der-anfang/default-v1",
+				"extension": "jpg",
+				"pattern": "call-of-duty-vanguard/zombies-der-anfang/default-v1/{z}/{y}/{x}.jpg",
+				"min_zoom": 8,
+				"max_zoom": 14,
+				"tiles_max_zoom": 13,
+				"order": 0,
+				"bounds": {
+					"8": { "x": { "max": 127, "min": 127 }, "y": { "max": 127, "min": 127 } },
+					"9": { "x": { "max": 255, "min": 254 }, "y": { "max": 255, "min": 254 } },
+					"10": { "x": { "max": 511, "min": 508 }, "y": { "max": 511, "min": 508 } },
+					"11": { "x": { "max": 1023, "min": 1016 }, "y": { "max": 1023, "min": 1016 } },
+					"12": { "x": { "max": 2047, "min": 2032 }, "y": { "max": 2047, "min": 2032 } },
+					"13": { "x": { "max": 4095, "min": 4064 }, "y": { "max": 4095, "min": 4064 } }
+				},
+				"filter": null
+			}
+		],
+		"initial_zoom": 11,
+		"start_lat": 0.69049534923516,
+		"start_lng": -0.77408383533736,
+		"overlay": null,
+		"overzoom": false,
+		"circle_locations_interactive": true,
+		"coordinate_grid": null,
+		"glyphs_font_slug": "default",
+		"glyphs_url": "/fonts/default/pbf/{fontstack}/{range}.pbf"
+	},
+	"groups": [
+		{
+			"id": 27078,
+			"game_id": 320,
+			"section_id": null,
+			"title": "Locations",
+			"order": 10,
+			"color": "223034",
+			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"expandable": false,
+			"featured": false,
+			"featured_icon": null,
+			"categories": [
+				{
+					"id": 28646,
+					"group_id": 27078,
+					"title": "Challenge Portal",
+					"icon": "challenge_portal",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 2,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 8
+				},
+				{
+					"id": 28599,
+					"group_id": 27078,
+					"title": "Crafting Table",
+					"icon": "crafting_table",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 4,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
+				},
+				{
+					"id": 28601,
+					"group_id": 27078,
+					"title": "Exfil",
+					"icon": "exfil",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 6,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
+				}
+			]
+		},
+		{
+			"id": 27079,
+			"game_id": 320,
+			"section_id": null,
+			"title": "Purchasables",
+			"order": 20,
+			"color": "5A8A95",
+			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"expandable": false,
+			"featured": false,
+			"featured_icon": null,
+			"categories": [
+				{
+					"id": 28644,
+					"group_id": 27079,
+					"title": "Altar of Covenant",
+					"icon": "altar_of_covenant",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 1,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
+				},
+				{
+					"id": 28609,
+					"group_id": 27079,
+					"title": "Ammo Cache",
+					"icon": "ammo_cache",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 2,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": true,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 15
+				},
+				{
+					"id": 28613,
+					"group_id": 27079,
+					"title": "Mystery Box",
+					"icon": "mystery_box",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 6,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
+				},
+				{
+					"id": 28614,
+					"group_id": 27079,
+					"title": "Pack-A-Punch",
+					"icon": "pack_a_punch",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 7,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 2
+				},
+				{
+					"id": 28615,
+					"group_id": 27079,
+					"title": "Perk Fountain",
+					"icon": "perk_machine",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": "**Cost:** ??  \n\n**Effect:** ??",
+					"order": 8,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 5
+				},
+				{
+					"id": 28645,
+					"group_id": 27079,
+					"title": "Tome of Rituals",
+					"icon": "tome_of_rituals",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 9,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
+				}
+			]
+		},
+		{
+			"id": 27080,
+			"game_id": 320,
+			"section_id": null,
+			"title": "Intel",
+			"order": 30,
+			"color": "A43D37",
+			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"expandable": false,
+			"featured": false,
+			"featured_icon": null,
+			"categories": [
+				{
+					"id": 28618,
+					"group_id": 27080,
+					"title": "Radio",
+					"icon": "audio_log",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": "**Location:** ??",
+					"order": 2,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": true,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 12
+				},
+				{
+					"id": 28619,
+					"group_id": 27080,
+					"title": "Ancient Tablet",
+					"icon": "ancient_tablet",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": "**Location:** ??",
+					"order": 3,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": true,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 7
+				}
+			]
+		},
+		{
+			"id": 27082,
+			"game_id": 320,
+			"section_id": null,
+			"title": "Other",
+			"order": 50,
+			"color": "7E5A81",
+			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"expandable": false,
+			"featured": false,
+			"featured_icon": null,
+			"categories": [
+				{
+					"id": 28625,
+					"group_id": 27082,
+					"title": "Aether Crystal",
+					"icon": "aether_crystal",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 1,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 18
+				}
+			]
+		}
+	],
+	"sections": [],
+	"categories": {
+		"28599": {
+			"id": 28599,
+			"group_id": 27078,
+			"title": "Crafting Table",
+			"icon": "crafting_table",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 4,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
+		},
+		"28601": {
+			"id": 28601,
+			"group_id": 27078,
+			"title": "Exfil",
+			"icon": "exfil",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 6,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
+		},
+		"28609": {
+			"id": 28609,
+			"group_id": 27079,
+			"title": "Ammo Cache",
+			"icon": "ammo_cache",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 2,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": true,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 15
+		},
+		"28613": {
+			"id": 28613,
+			"group_id": 27079,
+			"title": "Mystery Box",
+			"icon": "mystery_box",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 6,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
+		},
+		"28614": {
+			"id": 28614,
+			"group_id": 27079,
+			"title": "Pack-A-Punch",
+			"icon": "pack_a_punch",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 7,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 2
+		},
+		"28615": {
+			"id": 28615,
+			"group_id": 27079,
+			"title": "Perk Fountain",
+			"icon": "perk_machine",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": "**Cost:** ??  \n\n**Effect:** ??",
+			"order": 8,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 5
+		},
+		"28618": {
+			"id": 28618,
+			"group_id": 27080,
+			"title": "Radio",
+			"icon": "audio_log",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": "**Location:** ??",
+			"order": 2,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": true,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 12
+		},
+		"28619": {
+			"id": 28619,
+			"group_id": 27080,
+			"title": "Ancient Tablet",
+			"icon": "ancient_tablet",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": "**Location:** ??",
+			"order": 3,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": true,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 7
+		},
+		"28625": {
+			"id": 28625,
+			"group_id": 27082,
+			"title": "Aether Crystal",
+			"icon": "aether_crystal",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 1,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 18
+		},
+		"28644": {
+			"id": 28644,
+			"group_id": 27079,
+			"title": "Altar of Covenant",
+			"icon": "altar_of_covenant",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 1,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
+		},
+		"28645": {
+			"id": 28645,
+			"group_id": 27079,
+			"title": "Tome of Rituals",
+			"icon": "tome_of_rituals",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 9,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
+		},
+		"28646": {
+			"id": 28646,
+			"group_id": 27078,
+			"title": "Challenge Portal",
+			"icon": "challenge_portal",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 2,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 8
+		}
+	},
+	"routes": [],
+	"sharedNotes": {},
+	"searchQuery": null,
+	"maps": [
+		{ "id": 1030, "title": "Zombies: Der Anfang", "slug": "zombies-der-anfang" },
+		{ "id": 1031, "title": "Zombies: Terra Maledicta", "slug": "zombies-terra-maledicta" },
+		{ "id": 1032, "title": "Zombies: Shi No Numa", "slug": "zombies-shi-no-numa" },
+		{ "id": 1033, "title": "Zombies: The Archon", "slug": "zombies-the-archon" }
+	],
+	"regions": [
+		{
+			"id": 5412,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Apartments",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5412,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5630486404200497, 0.6811668856377082],
+								[-0.5750918917948411, 0.6812889639354722],
+								[-0.5749202304182006, 0.6788858739552666],
+								[-0.5854774051009599, 0.6789716986178291],
+								[-0.5854774051009599, 0.6811173146902547],
+								[-0.6014419131570605, 0.6812031393131548],
+								[-0.6013560824687545, 0.6629224604007788],
+								[-0.5743194155980973, 0.6632657601631848],
+								[-0.5741477542214568, 0.6564855854685447],
+								[-0.5707145266821954, 0.6565714105221616],
+								[-0.5708861880598022, 0.6520226806458709],
+								[-0.5651355319312472, 0.6519368555144354],
+								[-0.5653071933088256, 0.6563997604124836],
+								[-0.5583549075419683, 0.6563997604124836],
+								[-0.5580355637436014, 0.6625693740031693],
+								[-0.557984629799904, 0.6810810610131739],
+								[-0.5630486404200497, 0.6811668856377082]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5412 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5416,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Back Alley",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5416,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5812122307858658, 0.7454789237221462],
+								[-0.5813924301160114, 0.7549370264359254],
+								[-0.6097165573133054, 0.7548512031972336],
+								[-0.6098023880016115, 0.7493585123945792],
+								[-0.622333668519417, 0.7494443357413019],
+								[-0.6232778060928013, 0.745496460047022],
+								[-0.6225053298960574, 0.7431792270121917],
+								[-0.6216470230119455, 0.7430934035422467],
+								[-0.6140080917376167, 0.7378581687802495],
+								[-0.6079141128558376, 0.7379439923505942],
+								[-0.606884144593181, 0.7393171692532547],
+								[-0.5996743667614055, 0.7394888163358644],
+								[-0.5998460281389839, 0.7453248131976125],
+								[-0.5812122307858658, 0.7454789237221462]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5416 }
+				}
+			],
+			"center_x": "-0.59847273712307",
+			"center_y": "0.74987345245064",
+			"order": 50
+		},
+		{
+			"id": 5427,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Balcony Stairs",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5427,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.9469454838264824, 0.7135212046852644],
+								[-0.9410890019557883, 0.7134353702034633],
+								[-0.9410890019557883, 0.7075326827768436],
+								[-0.9413137679856719, 0.7040715449331779],
+								[-0.9441989017959713, 0.7045096724248481],
+								[-0.9445422245497923, 0.7005617575510996],
+								[-0.9467738224502114, 0.7006475818226221],
+								[-0.9469454838264824, 0.7135212046852644]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5427 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5417,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Boiler Room",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5417,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.622333668519417, 0.7494443357413019],
+								[-0.6225053298960574, 0.7739897431847851],
+								[-0.6092874038707805, 0.7739897431847851],
+								[-0.6093732345590865, 0.7702993587204077],
+								[-0.5907479751604399, 0.7702993587204077],
+								[-0.5906621444711675, 0.7675530240216943],
+								[-0.5819457242849637, 0.7677764488823868],
+								[-0.5813924301160114, 0.7549370264359254],
+								[-0.6097165573133054, 0.7548512031972336],
+								[-0.6098023880016115, 0.7493585123945792],
+								[-0.622333668519417, 0.7494443357413019]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5417 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5420,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Command Post",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5420,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5597141600590874, 0.7737875013633726],
+								[-0.561666095109473, 0.7779820669566959],
+								[-0.5421825288248385, 0.7882807874807725],
+								[-0.5275913117845903, 0.7817582674187804],
+								[-0.531924704775804, 0.7719728449047665],
+								[-0.5352140688706299, 0.7733338373211041],
+								[-0.5395217774822925, 0.7754932057136301],
+								[-0.5398651002365114, 0.7738625716903726],
+								[-0.5422683595140825, 0.7697430724233527],
+								[-0.5463024018725093, 0.7692281347347603],
+								[-0.5503364442309078, 0.7714595309367382],
+								[-0.5519672273117635, 0.7751499143923297],
+								[-0.5597141600590874, 0.7737875013633726]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5420 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5411,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Courtyard",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5411,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.557984629799904, 0.6810810610131739],
+								[-0.5580355637436014, 0.6625693740031693],
+								[-0.5536581986309557, 0.6623977241012824],
+								[-0.5532290451893687, 0.6704652630519234],
+								[-0.5401827805407322, 0.6708085622873767],
+								[-0.5400979916244717, 0.6832767069343773],
+								[-0.5536072646872867, 0.6832266761475267],
+								[-0.557984629799904, 0.6810810610131739]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5411 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5425,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Cowshed",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5425,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5900367423962791, 1.0354285324745263],
+								[-0.5900367423962791, 1.0335405650979652],
+								[-0.5917533561665493, 1.0333689316450432],
+								[-0.5915816947890278, 1.0285631911864215],
+								[-0.5901225730856083, 1.0288206417521053],
+								[-0.5901225730856083, 1.02744757182883],
+								[-0.5775912925671207, 1.027619205601951],
+								[-0.5775054618789852, 1.037059048849244],
+								[-0.5830844566305871, 1.037059048849244],
+								[-0.58282696456493, 1.0353427158002688],
+								[-0.5900367423962791, 1.0354285324745263]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5425 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5421,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Dormitory / Infirmary",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5421,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.9410890019557883, 0.7232384744038995],
+								[-0.9267552769804865, 0.7232384744038995],
+								[-0.9267552769804865, 0.7075326827768436],
+								[-0.9410890019557883, 0.7075326827768436],
+								[-0.9410890019557883, 0.7232384744038995]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5421 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5440,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Employee Access",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5440,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5513283695067059, 0.34761190959055455],
+								[-0.5515800826221096, 0.32378408085939725],
+								[-0.5592190138966373, 0.3232691049379781],
+								[-0.5589615218309802, 0.32910549716937965],
+								[-0.5590473525191442, 0.3333111306356642],
+								[-0.5554424636034412, 0.33356861833972573],
+								[-0.5554424636034412, 0.337345103904255],
+								[-0.5599056594042509, 0.3375167623048725],
+								[-0.5605385838797758, 0.3471469812339194],
+								[-0.5513283695067059, 0.34761190959055455]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5440 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5439,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Employee Terrace",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5439,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5589615218309802, 0.32910549716937965],
+								[-0.5592190138966373, 0.3232691049379781],
+								[-0.5594765059622944, 0.31494365728771356],
+								[-0.590118061748484, 0.3152869748492009],
+								[-0.5896030776171415, 0.32258247033624343],
+								[-0.5969845168260122, 0.3222391530180033],
+								[-0.5973278395798047, 0.33365444757414764],
+								[-0.5756985060833983, 0.3338261060383303],
+								[-0.5752693526414134, 0.33991997958598574],
+								[-0.5666004531054796, 0.3400916379410006],
+								[-0.5666004531054796, 0.32893383862342773],
+								[-0.5589615218309802, 0.32910549716937965]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5439 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5445,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Enlisted Mess",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5445,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5872319596009662, 0.3679911874483472],
+								[-0.5974658428220323, 0.3675598738966528],
+								[-0.5977233348871493, 0.39030450876040845],
+								[-0.5730040966058993, 0.38996119396456663],
+								[-0.5724891124744431, 0.3885021059300726],
+								[-0.5697425304440173, 0.38833044849778275],
+								[-0.5690558849358069, 0.39330851261803446],
+								[-0.5668242870355868, 0.39330851261803446],
+								[-0.5669959484123694, 0.3846398128587367],
+								[-0.5693992076893153, 0.38472564161257594],
+								[-0.5693992076893153, 0.3722804633722774],
+								[-0.5779822765377673, 0.37176549009765836],
+								[-0.5872519908932077, 0.37133634567804563],
+								[-0.5872319596009662, 0.3679911874483472]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5445 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5430,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Excavation Overlook",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5430,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.9444581861810092, 0.7134847500510321],
+								[-0.9439414097303143, 0.7263947915233189],
+								[-0.9314959599011843, 0.7263947915233189],
+								[-0.9316676207668978, 0.7232384744038995],
+								[-0.9410890019557883, 0.7232384744038995],
+								[-0.9410890019557883, 0.7134353702034633],
+								[-0.9444581861810092, 0.7134847500510321]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5430 }
+				}
+			],
+			"center_x": "-0.93930655255201",
+			"center_y": "0.72605149634740",
+			"order": 50
+		},
+		{
+			"id": 5424,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Flogger Courtyard",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5424,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.9419473088408097, 0.6943157458457421],
+								[-0.9410890019557883, 0.7075326827768436],
+								[-0.9267552769804865, 0.7075326827768436],
+								[-0.926926938357127, 0.6936291507041403],
+								[-0.9298451817655575, 0.6944015702313067],
+								[-0.9419473088408097, 0.6943157458457421]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5424 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5428,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Flogger Overlook",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5428,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.9410890019557883, 0.7075326827768436],
+								[-0.9267552769804865, 0.7075326827768436],
+								[-0.926926938357127, 0.6936291507041403],
+								[-0.9298451817655575, 0.6944015702313067],
+								[-0.9297793461320794, 0.7039089029864272],
+								[-0.9413137679856719, 0.7040715449331779],
+								[-0.9410890019557883, 0.7075326827768436]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5428 }
+				}
+			],
+			"center_x": "-0.93244009747445",
+			"center_y": "0.70596868359850",
+			"order": 50
+		},
+		{
+			"id": 5407,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Fountain Square",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5407,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.567617034748281, 0.7035989138458092],
+								[-0.5678705510360942, 0.7438542700456878],
+								[-0.5662397679552669, 0.7465147963536793],
+								[-0.5437521275738959, 0.7466006197560233],
+								[-0.5437521275738959, 0.7034312408790555],
+								[-0.567617034748281, 0.7035989138458092]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5407 }
+				}
+			],
+			"center_x": "-0.55503886310825",
+			"center_y": "0.73110946865685",
+			"order": 50
+		},
+		{
+			"id": 5431,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Front Roof",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5431,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5513283695067059, 0.34761190959055455],
+								[-0.5514142001948414, 0.35782556796610265],
+								[-0.5489251102287938, 0.3579972259931594],
+								[-0.5484101260986449, 0.3667517811119012],
+								[-0.5515858615723346, 0.3665801232494914],
+								[-0.5515000308830054, 0.37584964304073765],
+								[-0.5448052371818051, 0.3761929584010488],
+								[-0.5451485599355976, 0.37112905547310504],
+								[-0.542573639281386, 0.37112905547310504],
+								[-0.542230316527565, 0.3540490905464253],
+								[-0.5450627292474621, 0.3535341162328791],
+								[-0.5448910678711343, 0.34778356780603303],
+								[-0.5513283695067059, 0.34761190959055455]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5431 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5434,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Garden",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5434,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5469329077614873, 1.0643532432357716],
+								[-0.548392029466072, 1.0369778572308945],
+								[-0.536976547898405, 1.0365487740451158],
+								[-0.5362040717025991, 1.061864581728031],
+								[-0.5410964209453937, 1.0643532432357716],
+								[-0.5469329077614873, 1.0643532432357716]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5434 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5426,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Livestock Pen",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5426,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5893500968886372, 1.0420364094245116],
+								[-0.583427779384408, 1.0418647764325755],
+								[-0.5832561180069149, 1.0431520236487302],
+								[-0.5775912925671207, 1.04289457424737],
+								[-0.5739005729633107, 1.0368874155868326],
+								[-0.5722697898823981, 1.0180077001791972],
+								[-0.5720981285048765, 1.014660829944063],
+								[-0.5769904777488648, 1.0080528965052622],
+								[-0.5803378745988539, 1.0114855908794738],
+								[-0.5882342979390387, 1.0144891954802517],
+								[-0.5938132926894468, 1.0194665912455037],
+								[-0.5976879916701989, 1.0236348760195568],
+								[-0.6005204043901244, 1.0305860447259647],
+								[-0.5982888064897054, 1.0365073986984044],
+								[-0.5939114413770312, 1.0407982279966177],
+								[-0.5893500968886372, 1.0420364094245116]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5426 }
+				}
+			],
+			"center_x": "-0.58344009738383",
+			"center_y": "1.02251925494540",
+			"order": 50
+		},
+		{
+			"id": 5415,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Main Street",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5415,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.583145802034835, 0.7112344047841077],
+								[-0.5812122307858658, 0.7130375518547254],
+								[-0.5812122307858658, 0.7454789237221462],
+								[-0.5710842095456599, 0.7453072768711024],
+								[-0.5678705510360942, 0.7438542700456878],
+								[-0.567617034748281, 0.7035989138458092],
+								[-0.5804850506923458, 0.7081447370282348],
+								[-0.583145802034835, 0.7112344047841077]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5415 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5423,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Mess Hall / Storage Vault",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5423,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.9267552769804865, 0.7075326827768436],
+								[-0.926926938357127, 0.6936291507041403],
+								[-0.9133656895785975, 0.6932000286897022],
+								[-0.9135373509552096, 0.7072752103372864],
+								[-0.9267552769804865, 0.7075326827768436]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5423 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5444,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Monitor Post",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5444,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5871661602048448, 0.35700291026725495],
+								[-0.5872519908932077, 0.37133634567804563],
+								[-0.5779822765377673, 0.37176549009765836],
+								[-0.5779736913585576, 0.3533380101861968],
+								[-0.5872519908932077, 0.353741406841678],
+								[-0.5871661602048448, 0.35700291026725495]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5444 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5446,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Occulte Terrace",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5446,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5977233348871493, 0.39030450876040845],
+								[-0.5974210794857697, 0.40468460184017374],
+								[-0.5982793863707343, 0.40468460184017374],
+								[-0.5983652170590972, 0.41283830973345914],
+								[-0.5901254709653756, 0.4125808243483391],
+								[-0.5899538095886214, 0.41172253966985295],
+								[-0.557166486590404, 0.41163671119701917],
+								[-0.5572523172787953, 0.41309579511026584],
+								[-0.5498708780700099, 0.41266665281095527],
+								[-0.5497850473816186, 0.40434128764306365],
+								[-0.551587491839939, 0.4045129447434306],
+								[-0.5515604044565805, 0.39518709975483546],
+								[-0.5595426584849008, 0.39518709975483546],
+								[-0.5668242870355868, 0.39330851261803446],
+								[-0.5690558849358069, 0.39330851261803446],
+								[-0.5697425304440173, 0.38833044849778275],
+								[-0.5724891124744431, 0.3885021059300726],
+								[-0.5730040966058993, 0.38996119396456663],
+								[-0.5977233348871493, 0.39030450876040845]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5446 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5413,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Office",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5413,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5892397809166425, 0.7046259462428424],
+								[-0.583145802034835, 0.7112344047841077],
+								[-0.5804850506923458, 0.7081447370282348],
+								[-0.586235706819906, 0.7016220983470731],
+								[-0.5892397809166425, 0.7046259462428424]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5413 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5443,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Officer's Mess",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5443,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5973278395798047, 0.33365444757414764],
+								[-0.5971225200673302, 0.3569170812446032],
+								[-0.5871661602048448, 0.35700291026725495],
+								[-0.5872519908932077, 0.353741406841678],
+								[-0.5694850383777066, 0.35296894533662737],
+								[-0.569295265591403, 0.3400382762569149],
+								[-0.5752693526414134, 0.33991997958598574],
+								[-0.5756985060833983, 0.3338261060383303],
+								[-0.5973278395798047, 0.33365444757414764]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5443 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5436,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Paddock",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5436,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5773096619226408, 1.0545505348316624],
+								[-0.5727606354336672, 1.0546363509811556],
+								[-0.5698423920256062, 1.0566101217726214],
+								[-0.5474215429391304, 1.0551856895207463],
+								[-0.548392029466072, 1.0369778572308945],
+								[-0.5481345374004434, 1.0182697766297935],
+								[-0.5482130585291998, 1.0094967341527052],
+								[-0.5493288574800204, 1.004261870583747],
+								[-0.5507879791834398, 0.9981688221047733],
+								[-0.5534487305269806, 0.9957659266396064],
+								[-0.5593710480312382, 0.995251020239877],
+								[-0.5622034607511068, 0.9964524683800136],
+								[-0.5669241486175736, 0.9949935670098711],
+								[-0.5680399475672004, 0.9971390099773032],
+								[-0.5729322968111603, 0.9993702691797637],
+								[-0.5748205719565647, 1.0064931249356732],
+								[-0.5769904777488648, 1.0080528965052622],
+								[-0.5720981285048765, 1.014660829944063],
+								[-0.5739005729633107, 1.0368874155868326],
+								[-0.5775912925671207, 1.04289457424737],
+								[-0.5773096619226408, 1.0545505348316624]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5436 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5418,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Panzer Column East",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5418,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5819457242849637, 0.7677764488823868],
+								[-0.577181817665263, 0.7684569458150889],
+								[-0.5691285469507363, 0.7681166973616769],
+								[-0.5635706558945799, 0.7692508587660001],
+								[-0.5615289816289533, 0.7728801732303197],
+								[-0.5597141600590874, 0.7737875013633726],
+								[-0.5565382223121844, 0.7669825356563251],
+								[-0.5534757109143982, 0.769137442639348],
+								[-0.5507534785602388, 0.7669825356563251],
+								[-0.5474641144654981, 0.7659617898654858],
+								[-0.544061324022806, 0.7657349574347734],
+								[-0.5424733551487009, 0.7661886222842043],
+								[-0.5395242700988376, 0.7673227841999903],
+								[-0.5371423167883052, 0.7697045232436324],
+								[-0.5352140688706299, 0.7733338373211041],
+								[-0.531924704775804, 0.7719728449047665],
+								[-0.5289756197259408, 0.7694776910102092],
+								[-0.5278413562445792, 0.7666422870868246],
+								[-0.5295427514665789, 0.7646007950987865],
+								[-0.5298830305101774, 0.7604043918556869],
+								[-0.5307904412957498, 0.7577958148089436],
+								[-0.5295427514665789, 0.7559811515884576],
+								[-0.5217163334477846, 0.7567750668404329],
+								[-0.5146838998666681, 0.7558677351122043],
+								[-0.5119616675125087, 0.7533725718812718],
+								[-0.5107924635469214, 0.7497561627319702],
+								[-0.5281558107871547, 0.7490779650123756],
+								[-0.5437521275738959, 0.7466006197560233],
+								[-0.5662397679552669, 0.7465147963536793],
+								[-0.5678705510360942, 0.7438542700456878],
+								[-0.5710842095456599, 0.7453072768711024],
+								[-0.5812122307858658, 0.7454789237221462],
+								[-0.5819457242849637, 0.7677764488823868]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5418 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5414,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Panzer Column West",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5414,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5804850506923458, 0.7081447370282348],
+								[-0.567617034748281, 0.7035989138458092],
+								[-0.5641643853445049, 0.7035746558017925],
+								[-0.5630486404200497, 0.6811668856377082],
+								[-0.5750918917948411, 0.6812889639354722],
+								[-0.5749202304182006, 0.6788858739552666],
+								[-0.5854774051009599, 0.6789716986178291],
+								[-0.5854774051009599, 0.6811173146902547],
+								[-0.6014419131570605, 0.6812031393131548],
+								[-0.6014144874473658, 0.6753618650234063],
+								[-0.6046034741535777, 0.6751881546305611],
+								[-0.6082083630695081, 0.6811958819341299],
+								[-0.6142165112629812, 0.6836847953409801],
+								[-0.6168772626054988, 0.6859162338498805],
+								[-0.6170489239830772, 0.6964726403294321],
+								[-0.6158472943438085, 0.7005063829229528],
+								[-0.612242405427935, 0.7021370438377943],
+								[-0.5919863629474946, 0.7019653953475284],
+								[-0.5892397809166425, 0.7046259462428424],
+								[-0.586235706819906, 0.7016220983470731],
+								[-0.5804850506923458, 0.7081447370282348]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5414 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5441,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Pergola Lounge",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5441,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5595426584849008, 0.39518709975483546],
+								[-0.5515604044565805, 0.39518709975483546],
+								[-0.5515604044565805, 0.3799095867444322],
+								[-0.554959589128174, 0.37847455405149333],
+								[-0.5579636632255358, 0.37821706760092866],
+								[-0.5599718119281079, 0.3804245595384259],
+								[-0.5597143198624224, 0.3872908605152787],
+								[-0.5570535685188531, 0.3878058328647853],
+								[-0.5568819071425537, 0.39235475392729313],
+								[-0.5596284891730647, 0.3921830965729072],
+								[-0.5595426584849008, 0.39518709975483546]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5441 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5432,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Société terrace",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5432,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5605385838797758, 0.3471469812339194],
+								[-0.5513283695067059, 0.34761190959055455],
+								[-0.5514142001948414, 0.35782556796610265],
+								[-0.5489251102287938, 0.3579972259931594],
+								[-0.5484101260986449, 0.3667517811119012],
+								[-0.5515858615723346, 0.3665801232494914],
+								[-0.5515000308830054, 0.37584964304073765],
+								[-0.554959589128174, 0.37847455405149333],
+								[-0.5579636632255358, 0.37821706760092866],
+								[-0.5608819066335968, 0.375728031509567],
+								[-0.5618260442068674, 0.3729815081030523],
+								[-0.5613110600755533, 0.3686042346566296],
+								[-0.5606244145679398, 0.3642269590576035],
+								[-0.5586503087332062, 0.3638836432342458],
+								[-0.5582211552900276, 0.3601929973088005],
+								[-0.5612252293874178, 0.35942053634465765],
+								[-0.5605385838797758, 0.3471469812339194]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5432 }
+				}
+			],
+			"center_x": "-0.55633288014704",
+			"center_y": "0.36843257682385",
+			"order": 50
+		},
+		{
+			"id": 5429,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "South Balcony",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5429,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.9165614201059782, 0.6905203069473771],
+								[-0.9167155395826598, 0.6933060288380134],
+								[-0.926926938357127, 0.6936291507041403],
+								[-0.9298451817655575, 0.6944015702313067],
+								[-0.9287493778694511, 0.6908636047558048],
+								[-0.9266894413465536, 0.6897478867870319],
+								[-0.9165614201059782, 0.6905203069473771]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5429 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5433,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Stables",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5433,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.548392029466072, 1.0369778572308945],
+								[-0.5481345374004434, 1.0182697766297935],
+								[-0.5417830664530356, 1.0178406909314788],
+								[-0.5420405585186643, 1.0160385303731942],
+								[-0.537234039964062, 1.0158668959825548],
+								[-0.536976547898405, 1.0365487740451158],
+								[-0.548392029466072, 1.0369778572308945]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5433 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5438,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Stockyard",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5438,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5481345374004434, 1.0182697766297935],
+								[-0.5482130585291998, 1.0094967341527052],
+								[-0.5507879791834398, 0.9981688221047733],
+								[-0.5534487305269806, 0.9957659266396064],
+								[-0.5471090604077347, 0.9883966835582498],
+								[-0.5322502088078807, 0.9881698646079968],
+								[-0.5264654650547413, 0.9910051003720923],
+								[-0.5270325967954079, 1.0364819456169272],
+								[-0.536976547898405, 1.0365487740451158],
+								[-0.537234039964062, 1.0158668959825548],
+								[-0.5420405585186643, 1.0160385303731942],
+								[-0.5417830664530356, 1.0178406909314788],
+								[-0.5481345374004434, 1.0182697766297935]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5438 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5419,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Store",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5419,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5597141600590874, 0.7737875013633726],
+								[-0.5519672273117635, 0.7751499143923297],
+								[-0.5503364442309078, 0.7714595309367382],
+								[-0.5463024018725093, 0.7692281347347603],
+								[-0.5422683595140825, 0.7697430724233527],
+								[-0.5398651002365114, 0.7738625716903726],
+								[-0.5395217774822925, 0.7754932057136301],
+								[-0.5352140688706299, 0.7733338373211041],
+								[-0.5371423167883052, 0.7697045232436324],
+								[-0.5395242700988376, 0.7673227841999903],
+								[-0.5424733551487009, 0.7661886222842043],
+								[-0.544061324022806, 0.7657349574347734],
+								[-0.5474641144654981, 0.7659617898654858],
+								[-0.5507534785602388, 0.7669825356563251],
+								[-0.5534757109143982, 0.769137442639348],
+								[-0.5565382223121844, 0.7669825356563251],
+								[-0.5597141600590874, 0.7737875013633726]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5419 }
+				}
+			],
+			"center_x": "-0.54561575636410",
+			"center_y": "0.76828408214411",
+			"order": 50
+		},
+		{
+			"id": 5409,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Theater",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5409,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5281558107871547, 0.7490779650123756],
+								[-0.5061831545375526, 0.7499361984598636],
+								[-0.5061831545375526, 0.7159500272970689],
+								[-0.512706286861885, 0.7158642033087546],
+								[-0.512706286861885, 0.7003300351278767],
+								[-0.5280699800988202, 0.7006733322230332],
+								[-0.5280699800988202, 0.7088266308053335],
+								[-0.5287566256063201, 0.7092557513873459],
+								[-0.529185779048845, 0.7137186030755913],
+								[-0.529700763179676, 0.7156925553272799],
+								[-0.5281558107871547, 0.7155209073384867],
+								[-0.5281558107871547, 0.7490779650123756]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5409 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5408,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Theater Promenade",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5408,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5437521275738959, 0.7466006197560233],
+								[-0.5281558107871547, 0.7490779650123756],
+								[-0.5281558107871547, 0.7155209073384867],
+								[-0.529700763179676, 0.7156925553272799],
+								[-0.529185779048845, 0.7137186030755913],
+								[-0.5287566256063201, 0.7092557513873459],
+								[-0.5280699800988202, 0.7088266308053335],
+								[-0.5280699800988202, 0.7006733322230332],
+								[-0.5437521275738959, 0.7034312408790555],
+								[-0.5437521275738959, 0.7466006197560233]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5408 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5435,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Tractor Lot",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5435,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5760312885308565, 1.072257201144609],
+								[-0.5707956165330472, 1.092166368821026],
+								[-0.5638433307673836, 1.1022067181597777],
+								[-0.5587793201470674, 1.1034939399924326],
+								[-0.5563760608691837, 1.1019492737262766],
+								[-0.5534578174611227, 1.1034081252211791],
+								[-0.5469346851374155, 1.0994606430576255],
+								[-0.5469329077614873, 1.0643532432357716],
+								[-0.5668474048635517, 1.0639330709628183],
+								[-0.5682206958788356, 1.0677089678599572],
+								[-0.5710531085987043, 1.0707125188983184],
+								[-0.5740571826960945, 1.0719997541574458],
+								[-0.5760312885308565, 1.072257201144609]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5435 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5410,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Trolleys",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5410,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5641643853445049, 0.7035746558017925],
+								[-0.5630486404200497, 0.6811668856377082],
+								[-0.557984629799904, 0.6810810610131739],
+								[-0.5536072646872867, 0.6832266761475267],
+								[-0.5304329787984159, 0.6833125007327823],
+								[-0.5251114761133522, 0.6881186750639188],
+								[-0.5211632644432598, 0.6915516537669362],
+								[-0.5203614860639719, 0.7005010882469668],
+								[-0.5280699800988202, 0.7006733322230332],
+								[-0.5437521275738959, 0.7034312408790555],
+								[-0.5641643853445049, 0.7035746558017925]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5410 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5422,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "War Room / Storage Vault",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5422,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.9267552769804865, 0.7232384744038995],
+								[-0.9135373509552096, 0.7228951789884093],
+								[-0.9135373509552096, 0.7072752103372864],
+								[-0.9267552769804865, 0.7075326827768436],
+								[-0.9267552769804865, 0.7232384744038995]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5422 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		},
+		{
+			"id": 5437,
+			"map_id": 1030,
+			"parent_region_id": null,
+			"title": "Windmill",
+			"subtitle": null,
+			"features": [
+				{
+					"id": 5437,
+					"type": "Feature",
+					"geometry": {
+						"coordinates": [
+							[
+								[-0.5668474048635517, 1.0639330709628183],
+								[-0.5675476001671598, 1.0594991048696158],
+								[-0.5698423920256062, 1.0566101217726214],
+								[-0.5474215429391304, 1.0551856895207463],
+								[-0.5469329077614873, 1.0643532432357716],
+								[-0.5668474048635517, 1.0639330709628183]
+							]
+						],
+						"type": "Polygon"
+					},
+					"properties": { "id": 5437 }
+				}
+			],
+			"center_x": null,
+			"center_y": null,
+			"order": 50
+		}
+	],
+	"roads": [],
+	"roadStyles": [],
+	"roadsVisible": true,
+	"coordinateAreas": [],
+	"heatmapGroups": [],
+	"heatmapCategories": [],
+	"tags": [],
+	"tagsById": [],
+	"distanceToolConfig": null,
+	"proCategoryLocationCounts": [],
+	"presets": [],
+	"images": {},
+	"styles": {
+		"mapStyle": {
+			"bounds": [-1.4, 0, 0, 1.4],
+			"fontName": "open-sans-semibold",
+			"glyphsUrl": "/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"locationPolygonsEnabled": false,
+			"locationLinesEnabled": false,
+			"subregionsEnabled": false,
+			"showRegionTitles": true,
+			"showRegionPolygons": false,
+			"showRegionPolygonBorders": false,
+			"showPersistentRegionHighlights": false,
+			"showSubregionPolygonBorders": false,
+			"showSubregionPolygons": false,
+			"regionHoverEnabled": false,
+			"subregionHoverEnabled": false,
+			"regionBorderPaint": {},
+			"regionFillPaint": {},
+			"regionHighlightFillPaint": {},
+			"regionTitlesPaint": {
+				"text-color": "#ffffff",
+				"text-halo-blur": 0.5,
+				"text-halo-color": "#1E222B",
+				"text-halo-width": 0.5
+			},
+			"regionTitlesLayout": {
+				"text-size": ["interpolate", ["linear"], ["zoom"], 8, 8, 14, 16],
+				"text-transform": "uppercase"
+			},
+			"subregionTitlesLayout": {},
+			"subregionTitlesPaint": {},
+			"subregionBorderPaint": {},
+			"subregionFillPaint": {},
+			"locationTitlesLayout": { "text-size": 12 },
+			"locationTitlesPaint": { "text-color": "#FFFFFF" },
+			"locationLinesConfig": {},
+			"locationLinesPaint": { "line-dasharray": [2] },
+			"accentColor": "#FFFFFF",
+			"geometryTolerance": 0.375,
+			"markerAnchor": "bottom",
+			"popupOffset": [0, -44],
+			"tooltipOffset": [14, -28],
+			"noteMarkersConfig": { "imagePath": "images/games/rdr2/pins", "pixelRatio": 2, "width": 33, "height": 44 },
+			"circleLocationsPaint": { "circle-radius": 6 },
+			"heatmapPaint": {}
+		},
+		"textStyles": {},
+		"lineStyles": {},
+		"regionStyles": {},
+		"shapeStyles": {},
+		"polygonStyles": {},
+		"polygonStylesByTag": {},
+		"frontendConfig": {
+			"image_overlays": { "by_map": [] },
+			"icon_size_groups": [],
+			"icon_size_categories": [],
+			"category_filter_on_type": false
+		}
+	},
+	"v": 1,
+	"locs": {
+		"i": [
+			1065321, 1065322, 1065324, 1065378, 1065379, 1065391, 1065437, 1065449, 1065308, 1065403, 1065304, 1065309,
+			1065361, 1065400, 1065401, 1065402, 1065412, 1065418, 1065451, 1065452, 1065453, 1065459, 1065464, 1065466,
+			1065467, 1065477, 1065310, 1065311, 1065398, 1065344, 1065371, 1065419, 1065430, 1065450, 1065306, 1065326,
+			1065331, 1065334, 1065337, 1065341, 1065357, 1065377, 1065422, 1065455, 1065465, 1065476, 1067176, 1065374,
+			1065392, 1065397, 1065456, 1065460, 1065461, 1065463, 1065314, 1065346, 1065369, 1065389, 1065390, 1065405,
+			1065406, 1065407, 1065423, 1065425, 1065436, 1065445, 1065447, 1065448, 1065454, 1065457, 1065458, 1065462
+		],
+		"c": [
+			28646, 28646, 28646, 28646, 28646, 28646, 28646, 28646, 28599, 28601, 28644, 28609, 28609, 28609, 28609,
+			28609, 28609, 28609, 28609, 28609, 28609, 28609, 28609, 28609, 28609, 28609, 28613, 28614, 28614, 28615,
+			28615, 28615, 28615, 28615, 28645, 28618, 28618, 28618, 28618, 28618, 28618, 28618, 28618, 28618, 28618,
+			28618, 28618, 28619, 28619, 28619, 28619, 28619, 28619, 28619, 28625, 28625, 28625, 28625, 28625, 28625,
+			28625, 28625, 28625, 28625, 28625, 28625, 28625, 28625, 28625, 28625, 28625, 28625
+		],
+		"r": [
+			5408, 5407, 5407, 5417, 5420, 5420, 5414, 5415, 5407, 5407, 5407, 5407, 5409, 5421, 5421, 5427, 5432, 5417,
+			5412, 5412, 5412, 5426, 5435, 5438, 5438, 5439, 5407, 5407, 5422, 5409, 5418, 5417, 5413, 5412, 5407, 5407,
+			5407, 5407, 5407, 5422, 5409, 5419, 5417, 5412, 5436, 5439, 5443, 5416, 5421, 5422, 5412, 5426, 5446, 5435,
+			5415, 5415, 5418, 5419, 5420, 5416, 5409, 5408, 5418, 5409, 5414, 5410, 5412, 5414, 5412, 5412, 5417, 5409
+		],
+		"t": [
+			"Challenge Portal",
+			"Challenge Portal",
+			"Challenge Portal",
+			"Challenge Portal",
+			"Challenge Portal",
+			"Challenge Portal",
+			"Challenge Portal",
+			"Challenge Portal",
+			"Crafting Table",
+			"Exfil",
+			"Altar of Covenant",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Ammo Cache",
+			"Mystery Box",
+			"Pack-A-Punch Machine",
+			"Pack-A-Punch Machine",
+			"Aethereal Haste",
+			"Venomous Vigor",
+			"Demonic Frenzy",
+			"Fiendish Fortitude",
+			"Diabolical Damage",
+			"Tome of Rituals",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Radio",
+			"Ancient Tablet",
+			"Ancient Tablet",
+			"Ancient Tablet",
+			"Ancient Tablet",
+			"Ancient Tablet",
+			"Ancient Tablet",
+			"Ancient Tablet",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest",
+			"Aether Crystal or Chest"
+		],
+		"y": [
+			0.72417178788817, 0.74622846774173, 0.70606293228698, 0.76564009317546, 0.77465150131587, 0.78103118643419,
+			0.68119861958667, 0.72617383644447, 0.7125987413154, 0.72109732061911, 0.7301526322881, 0.70624775723273,
+			0.72035690074833, 0.72162925612868, 0.70909675191547, 0.7052346651173, 0.37591226297258, 0.76060753194602,
+			0.67416694147103, 0.68034631931876, 0.67030482632916, 1.0313957240777, 1.0811820166032, 0.99100510037209,
+			1.02622024796, 0.32815467138177, 0.71731906165583, 0.73877500136028, 0.72154343224727, 0.74728099018527,
+			0.76646356253312, 0.76352551723139, 0.70703676640154, 0.66635688325758, 0.74298035349442, 0.71207061138777,
+			0.71172732414433, 0.73885300336585, 0.72985916495665, 0.7215806105436, 0.73146859152098, 0.77013583646186,
+			0.75365585318491, 0.66232311206711, 0.99894858618656, 0.32344000696301, 0.34405024712669, 0.7500526672943,
+			0.72180265751076, 0.70952744086161, 0.67338403836733, 1.0302801057123, 0.40565916256499, 1.0808369560587,
+			0.74109223670379, 0.71843454350581, 0.75761857607036, 0.7690139892709, 0.77322001069632, 0.74178083089869,
+			0.7144888762211, 0.73809041904784, 0.767504134086, 0.72029362178331, 0.68163274830536, 0.68987946650063,
+			0.66026477908814, 0.70033981885072, 0.67957389751957, 0.6780110676243, 0.76784448048649, 0.74719516679694
+		],
+		"x": [
+			-0.54364085197298, -0.55548671027219, -0.56578639289026, -0.58571377607547, -0.54563204859633,
+			-0.54464641246565, -0.59382169097955, -0.58071927865561, -0.54510470579694, -0.55516070036651,
+			-0.55521190166618, -0.54493304441945, -0.51485451856897, -0.92933714389898, -0.92710634983945,
+			-0.94247004307783, -0.55960907300252, -0.58749266239317, -0.58951445262264, -0.59105940501541,
+			-0.57097502391176, -0.58651632699602, -0.54993875923364, -0.53780809986418, -0.53641938803528,
+			-0.56297588604107, -0.56647654722772, -0.56012507628031, -0.92573225498214, -0.52121449996054,
+			-0.56935147724099, -0.62122412296372, -0.58500796885005, -0.59715338389717, -0.54596301268208,
+			-0.56080698967031, -0.54930690070432, -0.54928958416042, -0.5450918178752, -0.92273488921035,
+			-0.52734029853895, -0.5535190245098, -0.62122412296372, -0.55988765408165, -0.56288512782473,
+			-0.57724345847529, -0.58442115783467, -0.60905253928721, -0.93439903652799, -0.91448713686327,
+			-0.58614714508013, -0.59097952279683, -0.57402828503643, -0.57251223030426, -0.57445880125604,
+			-0.57635658400795, -0.55132442869188, -0.55606938786605, -0.54035710398691, -0.61713921475945,
+			-0.52059376113186, -0.52951895603931, -0.5306856472055, -0.5175054073334, -0.60689479441095,
+			-0.52472280297206, -0.57192742824398, -0.61398824461443, -0.56488104503006, -0.58361305723776,
+			-0.5975058625171, -0.52535003845668
+		],
+		"g": [
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[],
+			[]
+		],
+		"f": [
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null,
+			null
+		]
+	}
+}

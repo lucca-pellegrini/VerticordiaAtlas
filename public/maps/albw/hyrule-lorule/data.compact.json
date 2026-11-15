@@ -23,7 +23,8 @@
 					"14": { "x": { "max": 8191, "min": 8128 }, "y": { "max": 8191, "min": 8128 } },
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -40,6 +41,7 @@
 		{
 			"id": 1270,
 			"game_id": 127,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "2674F5",
@@ -255,6 +257,7 @@
 		{
 			"id": 1271,
 			"game_id": 127,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "E9AB00",
@@ -442,6 +445,7 @@
 		{
 			"id": 1272,
 			"game_id": 127,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 30,
 			"color": "8A23AD",
@@ -573,6 +577,7 @@
 		{
 			"id": 1274,
 			"game_id": 127,
+			"section_id": null,
 			"title": "Other",
 			"order": 50,
 			"color": "776B7B",
@@ -618,6 +623,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"6925": {
 			"id": 6925,

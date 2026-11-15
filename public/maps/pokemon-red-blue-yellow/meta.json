@@ -124,6 +124,7 @@
 			"slug": "redblue",
 			"title": "Red/Blue",
 			"data": "redblue/data.json",
+			"compact": "redblue/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Red",
@@ -145,13 +146,13 @@
 					"tileSize": 256,
 					"background": "#4f88cf"
 				}
-			],
-			"compact": "redblue/data.compact.json"
+			]
 		},
 		{
 			"slug": "yellow",
 			"title": "Yellow",
 			"data": "yellow/data.json",
+			"compact": "yellow/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Yellow",
@@ -163,8 +164,7 @@
 					"tileSize": 256,
 					"background": "#7bce7c"
 				}
-			],
-			"compact": "yellow/data.compact.json"
+			]
 		}
 	]
 }

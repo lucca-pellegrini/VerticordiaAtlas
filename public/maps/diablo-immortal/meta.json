@@ -12,364 +12,13 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"icons": {
-		"font": "icons/icons.woff",
-		"glyphs": {
-			"achievement": [
-				{
-					"cp": "e900",
-					"color": "#fff"
-				}
-			],
-			"haunted_altar": [
-				{
-					"cp": "e901",
-					"color": "#fff"
-				}
-			],
-			"lost_guard": [
-				{
-					"cp": "e902",
-					"color": "#fff"
-				}
-			],
-			"set_armor": [
-				{
-					"cp": "e903",
-					"color": "#fff"
-				}
-			],
-			"hidden_lair": [
-				{
-					"cp": "e904",
-					"color": "#a9dcef"
-				}
-			],
-			"achievement_item": [
-				{
-					"cp": "e905",
-					"color": "#fff"
-				}
-			],
-			"apprentice_jeweler": [
-				{
-					"cp": "e906",
-					"color": "#fff"
-				}
-			],
-			"area": [
-				{
-					"cp": "e907",
-					"color": "#fff"
-				}
-			],
-			"armory": [
-				{
-					"cp": "e908",
-					"color": "#fff"
-				}
-			],
-			"bestiary": [
-				{
-					"cp": "e909",
-					"color": "#fff"
-				}
-			],
-			"blacksmith": [
-				{
-					"cp": "e90a",
-					"color": "#fff"
-				}
-			],
-			"bone_pile": [
-				{
-					"cp": "e90b",
-					"color": "#fff"
-				}
-			],
-			"boss": [
-				{
-					"cp": "e90c",
-					"color": "#fff"
-				}
-			],
-			"bounty_board": [
-				{
-					"cp": "e90d",
-					"color": "#fff"
-				}
-			],
-			"bounty": [
-				{
-					"cp": "e90e",
-					"color": "#fff"
-				}
-			],
-			"challenge_rift": [
-				{
-					"cp": "e90f",
-					"color": "#fff"
-				}
-			],
-			"charm_craftsman": [
-				{
-					"cp": "e910",
-					"color": "#fff"
-				}
-			],
-			"chest": [
-				{
-					"cp": "e911",
-					"color": "#fff"
-				}
-			],
-			"crest_merchant": [
-				{
-					"cp": "e912",
-					"color": "#fff"
-				}
-			],
-			"crystal_merchant": [
-				{
-					"cp": "e913",
-					"color": "#fff"
-				}
-			],
-			"dead_cultist": [
-				{
-					"cp": "e914",
-					"color": "#fff"
-				}
-			],
-			"dungeon": [
-				{
-					"cp": "e915",
-					"color": "#d7a65e"
-				}
-			],
-			"dust_exchange": [
-				{
-					"cp": "e916",
-					"color": "#fff"
-				}
-			],
-			"dusty_tome": [
-				{
-					"cp": "e917",
-					"color": "#fff"
-				}
-			],
-			"easter_egg": [
-				{
-					"cp": "e918",
-					"color": "#fff"
-				}
-			],
-			"elder_rift": [
-				{
-					"cp": "e919",
-					"color": "#fff"
-				}
-			],
-			"enemy_mob": [
-				{
-					"cp": "e91a",
-					"color": "#fff"
-				}
-			],
-			"essence_transfer": [
-				{
-					"cp": "e91b",
-					"color": "#fff"
-				}
-			],
-			"fading_ember_trader": [
-				{
-					"cp": "e91c",
-					"color": "#fff"
-				}
-			],
-			"ferry": [
-				{
-					"cp": "e91d",
-					"color": "#fff"
-				}
-			],
-			"glorious_chest": [
-				{
-					"cp": "e91e",
-					"color": "#fff"
-				}
-			],
-			"helliquary_boss": [
-				{
-					"cp": "e91f",
-					"color": "#fff"
-				}
-			],
-			"hilts_trader": [
-				{
-					"cp": "e920",
-					"color": "#fff"
-				}
-			],
-			"honor_merchant": [
-				{
-					"cp": "e921",
-					"color": "#fff"
-				}
-			],
-			"identifier": [
-				{
-					"cp": "e922",
-					"color": "#fff"
-				}
-			],
-			"lost_page": [
-				{
-					"cp": "e923",
-					"color": "#fff"
-				}
-			],
-			"main_quest": [
-				{
-					"cp": "e924",
-					"color": "#d7a65e"
-				}
-			],
-			"market": [
-				{
-					"cp": "e925",
-					"color": "#fff"
-				}
-			],
-			"master_jeweler": [
-				{
-					"cp": "e926",
-					"color": "#fff"
-				}
-			],
-			"merchant": [
-				{
-					"cp": "e927",
-					"color": "#fff"
-				}
-			],
-			"miscellaneous": [
-				{
-					"cp": "e928",
-					"color": "#fff"
-				}
-			],
-			"nephalem_cache": [
-				{
-					"cp": "e929",
-					"color": "#fff"
-				}
-			],
-			"npc": [
-				{
-					"cp": "e92a",
-					"color": "#fff"
-				}
-			],
-			"point_of_interest": [
-				{
-					"cp": "e92b",
-					"color": "#fff"
-				}
-			],
-			"portal": [
-				{
-					"cp": "e92c",
-					"color": "#fff"
-				}
-			],
-			"potion_merchant": [
-				{
-					"cp": "e92d",
-					"color": "#fff"
-				}
-			],
-			"quest_item": [
-				{
-					"cp": "e92e",
-					"color": "#fff"
-				}
-			],
-			"rare_elite": [
-				{
-					"cp": "e92f",
-					"color": "#fff"
-				}
-			],
-			"reforge_stone_vendor": [
-				{
-					"cp": "e930",
-					"color": "#fff"
-				}
-			],
-			"shrine": [
-				{
-					"cp": "e931",
-					"color": "#fff"
-				}
-			],
-			"side_quest": [
-				{
-					"cp": "e932",
-					"color": "#cad6fc"
-				}
-			],
-			"skill_upgrade": [
-				{
-					"cp": "e933",
-					"color": "#fff"
-				}
-			],
-			"smithing_materials": [
-				{
-					"cp": "e934",
-					"color": "#fff"
-				}
-			],
-			"stash": [
-				{
-					"cp": "e935",
-					"color": "#fff"
-				}
-			],
-			"treasure_goblin": [
-				{
-					"cp": "e936",
-					"color": "#fff"
-				}
-			],
-			"unique_elite": [
-				{
-					"cp": "e937",
-					"color": "#b778ff"
-				}
-			],
-			"waypoint": [
-				{
-					"cp": "e938",
-					"color": "#fff"
-				}
-			],
-			"zone_event": [
-				{
-					"cp": "e939",
-					"color": "#f89ab1"
-				}
-			]
-		}
-	},
+	"icons": null,
 	"maps": [
 		{
 			"slug": "sanctuary",
 			"title": "Sanctuary",
 			"data": "sanctuary/data.json",
+			"compact": "sanctuary/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -381,13 +30,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "sanctuary/data.compact.json"
+			]
 		},
 		{
 			"slug": "westmarch",
 			"title": "Westmarch",
 			"data": "westmarch/data.json",
+			"compact": "westmarch/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -399,13 +48,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "westmarch/data.compact.json"
+			]
 		},
 		{
 			"slug": "wortham",
 			"title": "Wortham",
 			"data": "wortham/data.json",
+			"compact": "wortham/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -417,13 +66,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "wortham/data.compact.json"
+			]
 		},
 		{
 			"slug": "ashwold-cemetery",
 			"title": "Ashwold Cemetery",
 			"data": "ashwold-cemetery/data.json",
+			"compact": "ashwold-cemetery/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -435,13 +84,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "ashwold-cemetery/data.compact.json"
+			]
 		},
 		{
 			"slug": "dark-wood",
 			"title": "Dark Wood",
 			"data": "dark-wood/data.json",
+			"compact": "dark-wood/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -453,13 +102,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "dark-wood/data.compact.json"
+			]
 		},
 		{
 			"slug": "shassar-sea",
 			"title": "Shassar Sea",
 			"data": "shassar-sea/data.json",
+			"compact": "shassar-sea/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -471,13 +120,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "shassar-sea/data.compact.json"
+			]
 		},
 		{
 			"slug": "library-of-zoltun-kulle",
 			"title": "Library of Zoltun Kulle",
 			"data": "library-of-zoltun-kulle/data.json",
+			"compact": "library-of-zoltun-kulle/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -489,13 +138,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "library-of-zoltun-kulle/data.compact.json"
+			]
 		},
 		{
 			"slug": "bilefen",
 			"title": "Bilefen",
 			"data": "bilefen/data.json",
+			"compact": "bilefen/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -507,13 +156,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "bilefen/data.compact.json"
+			]
 		},
 		{
 			"slug": "mount-zavain",
 			"title": "Mount Zavain",
 			"data": "mount-zavain/data.json",
+			"compact": "mount-zavain/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -525,13 +174,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "mount-zavain/data.compact.json"
+			]
 		},
 		{
 			"slug": "frozen-tundra",
 			"title": "Frozen Tundra",
 			"data": "frozen-tundra/data.json",
+			"compact": "frozen-tundra/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -543,13 +192,13 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "frozen-tundra/data.compact.json"
+			]
 		},
 		{
 			"slug": "realm-of-damnation",
 			"title": "Realm of Damnation",
 			"data": "realm-of-damnation/data.json",
+			"compact": "realm-of-damnation/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -561,8 +210,7 @@
 					"tileSize": 256,
 					"background": "#b6ab97"
 				}
-			],
-			"compact": "realm-of-damnation/data.compact.json"
+			]
 		}
 	]
 }

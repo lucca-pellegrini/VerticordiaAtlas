@@ -22,7 +22,8 @@
 					"13": { "x": { "max": 4095, "min": 4064 }, "y": { "max": 4095, "min": 4064 } },
 					"14": { "x": { "max": 8191, "min": 8128 }, "y": { "max": 8191, "min": 8128 } },
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -39,6 +40,7 @@
 		{
 			"id": 2690,
 			"game_id": 269,
+			"section_id": null,
 			"title": "Locations",
 			"order": 1,
 			"color": "38344C",
@@ -226,6 +228,7 @@
 		{
 			"id": 2691,
 			"game_id": 269,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 2,
 			"color": "336FD1",
@@ -609,6 +612,7 @@
 		{
 			"id": 2695,
 			"game_id": 269,
+			"section_id": null,
 			"title": "Pokémon",
 			"order": 3,
 			"color": "000000",
@@ -796,6 +800,7 @@
 		{
 			"id": 2692,
 			"game_id": 269,
+			"section_id": null,
 			"title": "Items",
 			"order": 4,
 			"color": "DAB13E",
@@ -1149,6 +1154,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"15130": {
 			"id": 15130,

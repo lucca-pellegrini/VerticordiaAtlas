@@ -21,7 +21,8 @@
 					"5": { "x": { "max": 10, "min": 0 }, "y": { "max": 10, "min": 0 } },
 					"6": { "x": { "max": 21, "min": 0 }, "y": { "max": 21, "min": 0 } },
 					"7": { "x": { "max": 42, "min": 0 }, "y": { "max": 42, "min": 0 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 29,
@@ -42,7 +43,8 @@
 					"5": { "x": { "max": 10, "min": 0 }, "y": { "max": 10, "min": 0 } },
 					"6": { "x": { "max": 21, "min": 0 }, "y": { "max": 21, "min": 0 } },
 					"7": { "x": { "max": 42, "min": 0 }, "y": { "max": 42, "min": 0 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 30,
@@ -63,7 +65,8 @@
 					"5": { "x": { "max": 10, "min": 0 }, "y": { "max": 10, "min": 0 } },
 					"6": { "x": { "max": 21, "min": 0 }, "y": { "max": 21, "min": 0 } },
 					"7": { "x": { "max": 42, "min": 0 }, "y": { "max": 42, "min": 0 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 31,
@@ -84,7 +87,8 @@
 					"5": { "x": { "max": 10, "min": 0 }, "y": { "max": 10, "min": 0 } },
 					"6": { "x": { "max": 21, "min": 0 }, "y": { "max": 21, "min": 0 } },
 					"7": { "x": { "max": 42, "min": 0 }, "y": { "max": 42, "min": 0 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 5,
@@ -101,6 +105,7 @@
 		{
 			"id": 90,
 			"game_id": 10,
+			"section_id": null,
 			"title": "Locations",
 			"order": 1,
 			"color": "000000",
@@ -596,6 +601,7 @@
 		{
 			"id": 91,
 			"game_id": 10,
+			"section_id": null,
 			"title": "Activities",
 			"order": 2,
 			"color": "000000",
@@ -895,6 +901,7 @@
 		{
 			"id": 97,
 			"game_id": 10,
+			"section_id": null,
 			"title": "Missions",
 			"order": 3,
 			"color": "000000",
@@ -998,6 +1005,7 @@
 		{
 			"id": 94,
 			"game_id": 10,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 4,
 			"color": "000000",
@@ -1409,6 +1417,7 @@
 		{
 			"id": 96,
 			"game_id": 10,
+			"section_id": null,
 			"title": "Items",
 			"order": 5,
 			"color": "000000",
@@ -1568,6 +1577,7 @@
 		{
 			"id": 98,
 			"game_id": 10,
+			"section_id": null,
 			"title": "Online",
 			"order": 6,
 			"color": "68d7df",
@@ -2203,6 +2213,7 @@
 		{
 			"id": 100,
 			"game_id": 10,
+			"section_id": null,
 			"title": "Other",
 			"order": 8,
 			"color": "000000",
@@ -2271,7 +2282,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 140
+					"locations_count": 139
 				},
 				{
 					"id": 3869,
@@ -2304,6 +2315,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"459": {
 			"id": 459,
@@ -3115,7 +3127,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 140
+			"locations_count": 139
 		},
 		"488": {
 			"id": 488,
@@ -41647,8 +41659,8 @@
 			"map_id": 27,
 			"region_id": null,
 			"category_id": 487,
-			"title": "Stunt Jump into Military Base",
-			"description": "Take a sports car and jump over the fence to get into the military base. This gives you some time to get to a helicopter or jet. You will get the four stars after a couple of seconds.\r\n\r\n*Note:* Not one of the official \"Stunt Jump\" locations.",
+			"title": "Jump into Military Base",
+			"description": "Take a sports car and jump over the fence to get into the military base. This gives you some time to get to a helicopter or jet. You will get four stars after a couple of seconds.",
 			"latitude": "78.45212683187500",
 			"longitude": "-149.80957031250000",
 			"features": null,
@@ -41867,20 +41879,6 @@
 			"media": []
 		},
 		{
-			"id": 13260,
-			"map_id": 27,
-			"region_id": null,
-			"category_id": 487,
-			"title": "Hidden Garage ",
-			"description": "A hidden garage to hid from the Police! Enjoy!",
-			"latitude": "67.00957300000000",
-			"longitude": "-137.69714400000000",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 13291,
 			"map_id": 27,
 			"region_id": null,
@@ -41969,8 +41967,8 @@
 			"map_id": 27,
 			"region_id": null,
 			"category_id": 487,
-			"title": "Sunken/wrecked military submarine",
-			"description": "",
+			"title": "Wrecked Military Submarine",
+			"description": null,
 			"latitude": "83.34361200000000",
 			"longitude": "-98.87146000000000",
 			"features": null,

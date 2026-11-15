@@ -1,6 +1,6 @@
 {
 	"id": "re4",
-	"title": "Resident Evil 4 (Remake)",
+	"title": "Resident Evil 4",
 	"slug": "resident-evil-4-remake",
 	"source": "https://mapgenie.io/resident-evil-4-remake",
 	"poster": "poster.jpg",
@@ -214,6 +214,7 @@
 			"slug": "world",
 			"title": "World",
 			"data": "world/data.json",
+			"compact": "world/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Village",
@@ -225,8 +226,11 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "world/data.compact.json"
+			]
 		}
-	]
+	],
+	"description": "Clockwork Castellans, Merchant requests, treasures, and puzzles in the Village, Castle, and Island.",
+	"theme": {
+		"accent": "#3a6788"
+	}
 }

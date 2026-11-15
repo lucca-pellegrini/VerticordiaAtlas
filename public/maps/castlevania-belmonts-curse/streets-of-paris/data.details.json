@@ -2967,7 +2967,7 @@
 			]
 		],
 		"960109": [
-			"**Required:** Destroy all Haunted Coffins in the area\n- [Haunted Coffin - Mass Grave](#loc=960143)\n- [Haunted Coffin - Pillaged Tombs](#loc=960104)\n- [Haunted Coffin - Cemetery Entrance](#loc=960142)\n- [Haunted Coffin - Ossuary of the Innocents](#loc=960159)\n- [Haunted Coffin - Ancient Sewers](#loc=1043402)\n\n**Location:** Upper area of the [Serpents' Lair](#loc=960108)\n\n**Effect:** A bat pet follows rose as she moves",
+			"**Required:** Destroy all Haunted Coffins in the area\n- [Haunted Coffin - Mass Grave](#loc=960143)\n- [Haunted Coffin - Pillaged Tombs](#loc=960104)\n- [Haunted Coffin - Cemetery Entrance](#loc=960142)\n- [Haunted Coffin - Ossuary of the Innocents](#loc=960159)\n- [Haunted Coffin - Ancient Sewers](#loc=1043402)\n\n**Location:** Upper area of the [Serpents' Lair](#loc=960108), accessible by jumping in the center of the [Fountain of the Lost](#loc=960150)\n\n**Effect:** A bat pet follows Rose as she moves",
 			[
 				{
 					"id": 154230,
@@ -3801,7 +3801,7 @@
 			[]
 		],
 		"975193": [
-			"**Required:** [Aerial Rush](#loc=995701) and [Double Jump](#loc=1041529)",
+			"**Required:** [Aerial Rush](#loc=995701) and [Double Jump](#loc=1041529) - or just throw a spear.",
 			[
 				{
 					"id": 155874,
@@ -8089,7 +8089,7 @@
 			]
 		],
 		"975589": [
-			"**Unlocked By:** Hitting the barricade from the western side",
+			"**Unlocked By:** Hitting the barricade from the eastern side",
 			[
 				{
 					"id": 155806,
@@ -8106,7 +8106,7 @@
 			]
 		],
 		"975591": [
-			"**Unlocked By:** Hitting the barricade from the western side",
+			"**Unlocked By:** Hitting the barricade from the eastern side",
 			[
 				{
 					"id": 155807,
@@ -10591,7 +10591,7 @@
 			[]
 		],
 		"1011785": [
-			"**Required:** [Deactivate the spell](#loc=1011781) to reacg The Zealot\n\n**Reward:**\n- [Chronomantic Dive](#loc=1043131)\n- [Chauve-Souris](#loc=1043132)",
+			"**Required:** [Deactivate the spell](#loc=1011781) to reach The Zealot\n\n**Reward:**\n\n- [Chronomantic Dive](#loc=1043131)\n- [Chauve-Souris](#loc=1043132)",
 			[
 				{
 					"id": 155585,
@@ -16409,7 +16409,7 @@
 			]
 		],
 		"1043168": [
-			"**Required:** After acquiring [Double Jump](#loc=1041529), pull the [Lever](#loc=1011800) below the book to lift the platform up and circle around the area to get to the ledge",
+			"**Required:** Using a Whip to hit the [Lever](#loc=1011800) below the book to lift the platform up and circle around the area to get to the ledge",
 			[
 				{
 					"id": 155627,

@@ -45,164 +45,200 @@
 					"color": "#ffffff"
 				}
 			],
-			"dungeon_map": [
+			"dungeon_entrance": [
 				{
 					"cp": "e905",
 					"color": "#ffffff"
 				}
 			],
-			"enemy": [
+			"dungeon_map": [
 				{
 					"cp": "e906",
 					"color": "#ffffff"
 				}
 			],
-			"equipment": [
+			"enemy": [
 				{
 					"cp": "e907",
 					"color": "#ffffff"
 				}
 			],
-			"fairy_fountain": [
+			"equipment": [
 				{
 					"cp": "e908",
 					"color": "#ffffff"
 				}
 			],
-			"gold_skulltula": [
+			"fairy_fountain": [
 				{
 					"cp": "e909",
 					"color": "#ffffff"
 				}
 			],
-			"gossip_stone": [
+			"fairy_thought": [
 				{
 					"cp": "e90a",
 					"color": "#ffffff"
 				}
 			],
-			"heart_piece": [
+			"gold_skulltula": [
 				{
 					"cp": "e90b",
 					"color": "#ffffff"
 				}
 			],
-			"item": [
+			"gossip_stone": [
 				{
 					"cp": "e90c",
 					"color": "#ffffff"
 				}
 			],
-			"key": [
+			"heart_piece": [
 				{
 					"cp": "e90d",
 					"color": "#ffffff"
 				}
 			],
-			"minigame": [
+			"item": [
 				{
 					"cp": "e90e",
 					"color": "#ffffff"
 				}
 			],
-			"npc": [
+			"item_drop": [
 				{
 					"cp": "e90f",
 					"color": "#ffffff"
 				}
 			],
-			"objective": [
+			"key": [
 				{
 					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"ladder": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"minigame": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"objective": [
+				{
+					"cp": "e914",
 					"color": "#343444"
 				},
 				{
-					"cp": "e911",
+					"cp": "e915",
 					"color": "#ffffff",
 					"ml": "-1em"
 				}
 			],
 			"obstacle": [
 				{
-					"cp": "e912",
+					"cp": "e916",
 					"color": "#ffffff"
 				}
 			],
 			"point_of_interest": [
 				{
-					"cp": "e913",
+					"cp": "e917",
 					"color": "#ffffff"
 				}
 			],
 			"recovery_item": [
 				{
-					"cp": "e914",
+					"cp": "e918",
 					"color": "#ffffff"
 				}
 			],
 			"rupee": [
 				{
-					"cp": "e915",
+					"cp": "e919",
 					"color": "#ffffff"
 				}
 			],
 			"shield": [
 				{
-					"cp": "e916",
+					"cp": "e91a",
 					"color": "#ffffff"
 				}
 			],
 			"shop": [
 				{
-					"cp": "e917",
-					"color": "#ffffff"
-				}
-			],
-			"soft_soil": [
-				{
-					"cp": "e918",
-					"color": "#ffffff"
-				}
-			],
-			"song": [
-				{
-					"cp": "e919",
-					"color": "#ffffff"
-				}
-			],
-			"switch": [
-				{
-					"cp": "e91a",
-					"color": "#ffffff"
-				}
-			],
-			"torch": [
-				{
 					"cp": "e91b",
 					"color": "#ffffff"
 				}
 			],
-			"transition": [
+			"shortcut": [
 				{
 					"cp": "e91c",
 					"color": "#ffffff"
 				}
 			],
-			"tunic": [
+			"soft_soil": [
 				{
 					"cp": "e91d",
 					"color": "#ffffff"
 				}
 			],
-			"upgrade": [
+			"song": [
 				{
 					"cp": "e91e",
 					"color": "#ffffff"
 				}
 			],
-			"weapon": [
+			"switch": [
 				{
 					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"torch": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"transition": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"tunic": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"upgrade": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"vine": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e925",
 					"color": "#ffffff"
 				}
 			]
@@ -213,10 +249,11 @@
 			"slug": "child-past",
 			"title": "Child (Past)",
 			"data": "child-past/data.json",
+			"compact": "child-past/data.compact.json",
 			"tilesets": [
 				{
-					"name": "default-v1",
-					"template": "child-past/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"name": "default-v2",
+					"template": "child-past/tiles/default-v2/{z}/{y}/{x}.jpg",
 					"minzoom": 8,
 					"maxzoom": 16,
 					"viewMaxzoom": 16,
@@ -224,17 +261,17 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "child-past/data.compact.json"
+			]
 		},
 		{
 			"slug": "adult-future",
 			"title": "Adult (Future)",
 			"data": "adult-future/data.json",
+			"compact": "adult-future/data.compact.json",
 			"tilesets": [
 				{
-					"name": "default-v1",
-					"template": "adult-future/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"name": "default-v2",
+					"template": "adult-future/tiles/default-v2/{z}/{y}/{x}.jpg",
 					"minzoom": 8,
 					"maxzoom": 16,
 					"viewMaxzoom": 16,
@@ -242,8 +279,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "adult-future/data.compact.json"
+			]
 		}
 	]
 }

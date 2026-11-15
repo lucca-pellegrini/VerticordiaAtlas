@@ -15,790 +15,916 @@
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
-			"witchs_hideout": [
+			"abyss_artifact": [
 				{
 					"cp": "e900",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"well": [
+			"abyss_cresset": [
 				{
 					"cp": "e901",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"weapon": [
+			"abyss_enemy": [
 				{
 					"cp": "e902",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"walker": [
+			"abyss_gear": [
 				{
 					"cp": "e903",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"wagon_fence": [
+			"abyss_nexus": [
 				{
 					"cp": "e904",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"treasure_map_solution": [
+			"accessory": [
 				{
 					"cp": "e905",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"treasure_map": [
+			"alchemy_recipe": [
 				{
 					"cp": "e906",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"treasure_chest": [
+			"ambergris": [
 				{
 					"cp": "e907",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"tool_blueprint": [
+			"anvil": [
 				{
 					"cp": "e908",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"tool": [
+			"area": [
 				{
 					"cp": "e909",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"timber_warehouse": [
+			"armor": [
 				{
 					"cp": "e90a",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"tannery": [
+			"artillery_unit": [
 				{
 					"cp": "e90b",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"tailors_shop": [
+			"artwork_shop": [
 				{
 					"cp": "e90c",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"stronghold": [
+			"azurite": [
 				{
 					"cp": "e90d",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"street_shop": [
+			"back_alley_shop": [
 				{
 					"cp": "e90e",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"stone": [
+			"bag": [
 				{
 					"cp": "e90f",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"stable": [
+			"bank": [
 				{
 					"cp": "e910",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"spire": [
+			"barber": [
 				{
 					"cp": "e911",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"spider_web": [
+			"barracks": [
 				{
 					"cp": "e912",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"smithy": [
+			"bell": [
 				{
 					"cp": "e913",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"skyroot": [
+			"bismuth": [
 				{
 					"cp": "e914",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"silver_ore": [
+			"black_market_trading": [
 				{
 					"cp": "e915",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"shadow_sanctum": [
+			"black_market_trading_post": [
 				{
 					"cp": "e916",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"secret_space": [
+			"bloodstone": [
 				{
 					"cp": "e917",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"secret_shop": [
+			"bond_shop": [
 				{
 					"cp": "e918",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"sealed_abyss_artifact": [
+			"bonfire": [
 				{
 					"cp": "e919",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"scolecite_ore": [
+			"bookshop": [
 				{
 					"cp": "e91a",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"saddlery": [
+			"boss": [
 				{
 					"cp": "e91b",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"rubber": [
+			"brimstone": [
 				{
 					"cp": "e91c",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"royal_trading_post": [
+			"butchery": [
 				{
 					"cp": "e91d",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"resource_3": [
+			"cauldron": [
 				{
 					"cp": "e91e",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"resource_2": [
+			"cave": [
 				{
 					"cp": "e91f",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"resource_1": [
+			"chest": [
 				{
 					"cp": "e920",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"research_institute": [
+			"common_equipment": [
 				{
 					"cp": "e921",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"red_seaweed": [
+			"confessional": [
 				{
 					"cp": "e922",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"recipe": [
+			"constellation": [
 				{
 					"cp": "e923",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"reading_material": [
+			"contribution_shop": [
 				{
 					"cp": "e924",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"ranchers_shop": [
+			"copper": [
 				{
 					"cp": "e925",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"puzzle_clue": [
+			"coral_mushroom": [
 				{
 					"cp": "e926",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"provisioners_shop": [
+			"cotton": [
 				{
 					"cp": "e927",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"produce": [
+			"decorative_stone_shop": [
 				{
 					"cp": "e928",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"prey_animal": [
+			"diamond": [
 				{
 					"cp": "e929",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"predator": [
+			"donation_box": [
 				{
 					"cp": "e92a",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"point_of_interest": [
+			"dye": [
 				{
 					"cp": "e92b",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"pine_mushroom": [
+			"dyehouse": [
 				{
 					"cp": "e92c",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"pet_shop": [
+			"easter_egg": [
 				{
 					"cp": "e92d",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"pet": [
+			"elite_enemy": [
 				{
 					"cp": "e92e",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"palmar_leaf": [
+			"elixir": [
 				{
 					"cp": "e92f",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"pack": [
+			"epidote": [
 				{
 					"cp": "e930",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"oakwood_mushroom": [
+			"equipment_blueprint": [
 				{
 					"cp": "e931",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"npc": [
+			"equipment_shop": [
 				{
 					"cp": "e932",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"notice_board": [
+			"faction_quest": [
 				{
 					"cp": "e933",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"mysterious_creature": [
+			"fishing_shop": [
 				{
 					"cp": "e934",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"mount": [
+			"furniture_shop": [
 				{
 					"cp": "e935",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"money": [
+			"garnet": [
 				{
 					"cp": "e936",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"miscellaneous": [
+			"ginseng": [
 				{
 					"cp": "e937",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"minigame": [
+			"glowing_mushroom": [
 				{
 					"cp": "e938",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"mineral_shop": [
+			"gold": [
 				{
 					"cp": "e939",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"mercury": [
+			"golden_coral": [
 				{
 					"cp": "e93a",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"memory_fragment": [
+			"green_algae": [
 				{
 					"cp": "e93b",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"main_quest": [
+			"greymane_shrine": [
 				{
 					"cp": "e93c",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"locked_treasure": [
+			"grindstone": [
 				{
 					"cp": "e93d",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"livestock_fence": [
+			"grocers_shop": [
 				{
 					"cp": "e93e",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"legendary_animal": [
+			"guard_station": [
 				{
 					"cp": "e93f",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"learn_skill": [
+			"herb": [
 				{
 					"cp": "e940",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"kuku_shop": [
+			"hericium": [
 				{
 					"cp": "e941",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"kuku_pot_item": [
+			"hidden_passage": [
 				{
 					"cp": "e942",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"key_item": [
+			"honey": [
 				{
 					"cp": "e943",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"key": [
+			"horse_black_market": [
 				{
 					"cp": "e944",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"iron_ore": [
+			"hydrothermal_mineral": [
 				{
 					"cp": "e945",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"inn": [
+			"icon": [
 				{
 					"cp": "e946",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
 			"infirmary": [
 				{
 					"cp": "e947",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"horse_black_market": [
+			"inn": [
 				{
 					"cp": "e948",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"honey": [
+			"iron": [
 				{
 					"cp": "e949",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"hidden_passage": [
+			"key": [
 				{
 					"cp": "e94a",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"herb": [
+			"key_item": [
 				{
 					"cp": "e94b",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"guard_station": [
+			"kuku_pot_item": [
 				{
 					"cp": "e94c",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"grocers_shop": [
+			"kuku_shop": [
 				{
 					"cp": "e94d",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"grindstone": [
+			"learn_skill": [
 				{
 					"cp": "e94e",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"greymane_shrine": [
+			"legendary_animal": [
 				{
 					"cp": "e94f",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"green_algae": [
+			"livestock_fence": [
 				{
 					"cp": "e950",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"gold_ore": [
+			"llapidarist": [
 				{
 					"cp": "e951",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"ginseng": [
+			"locked_treasure": [
 				{
 					"cp": "e952",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"garnet": [
+			"main_quest": [
 				{
 					"cp": "e953",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"furniture_shop": [
+			"malachite": [
 				{
 					"cp": "e954",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"fishing_shop": [
+			"manganese": [
 				{
 					"cp": "e955",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"faction_quest": [
+			"memory_fragment": [
 				{
 					"cp": "e956",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"equipment_shop": [
+			"mercury": [
 				{
 					"cp": "e957",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"equipment_blueprint": [
+			"mineral_shop": [
 				{
 					"cp": "e958",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"epidote": [
+			"minigame": [
 				{
 					"cp": "e959",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"elixir": [
+			"miscellaneous": [
 				{
 					"cp": "e95a",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"elite_enemy": [
+			"money": [
 				{
 					"cp": "e95b",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"easter_egg": [
+			"mount": [
 				{
 					"cp": "e95c",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"dyehouse": [
+			"mysterious_creature": [
 				{
 					"cp": "e95d",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"dye": [
+			"natural_pearl": [
 				{
 					"cp": "e95e",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"diamond": [
+			"notice_board": [
 				{
 					"cp": "e95f",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"decorative_stone_shop": [
+			"npc": [
 				{
 					"cp": "e960",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"coral_mushroom": [
+			"oakwood_mushroom": [
 				{
 					"cp": "e961",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"copper_ore": [
+			"obsidian": [
 				{
 					"cp": "e962",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"contribution_shop": [
+			"pack": [
 				{
 					"cp": "e963",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"constellation": [
+			"palmar_leaf": [
 				{
 					"cp": "e964",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"confessional": [
+			"pet": [
 				{
 					"cp": "e965",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"common_equipment": [
+			"pet_shop": [
 				{
 					"cp": "e966",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"chest": [
+			"pine_mushroom": [
 				{
 					"cp": "e967",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"cave": [
+			"point_of_interest": [
 				{
 					"cp": "e968",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"cauldron": [
+			"predator": [
 				{
 					"cp": "e969",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"butchery": [
+			"prey_animal": [
 				{
 					"cp": "e96a",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"brimstone": [
+			"produce": [
 				{
 					"cp": "e96b",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"boss": [
+			"provisioners_shop": [
 				{
 					"cp": "e96c",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"bonfire": [
+			"puzzle_clue": [
 				{
 					"cp": "e96d",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"bloodstone": [
+			"ranchers_shop": [
 				{
 					"cp": "e96e",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"black_market_trading": [
+			"raven": [
 				{
 					"cp": "e96f",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"bismuth_ore": [
+			"reading_material": [
 				{
 					"cp": "e970",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"bell": [
+			"recipe": [
 				{
 					"cp": "e971",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"barracks": [
+			"red_seaweed": [
 				{
 					"cp": "e972",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"bank": [
+			"research_institute": [
 				{
 					"cp": "e973",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"back_alley_shop": [
+			"resource_1": [
 				{
 					"cp": "e974",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"azurite": [
+			"resource_2": [
 				{
 					"cp": "e975",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"artwork_shop": [
+			"resource_3": [
 				{
 					"cp": "e976",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"artillery_unit": [
+			"royal_trading_post": [
 				{
 					"cp": "e977",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"armor": [
+			"rubber": [
 				{
 					"cp": "e978",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"area": [
+			"saddlery": [
 				{
 					"cp": "e979",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"anvil": [
+			"scolecite_ore": [
 				{
 					"cp": "e97a",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"alchemy_recipe": [
+			"sea_fan_coral": [
 				{
 					"cp": "e97b",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"accessory": [
+			"sealed_abyss_artifact": [
 				{
 					"cp": "e97c",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"abyss_nexus": [
+			"secret_shop": [
 				{
 					"cp": "e97d",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"abyss_gear": [
+			"secret_space": [
 				{
 					"cp": "e97e",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"abyss_enemy": [
+			"shadow_sanctum": [
 				{
 					"cp": "e97f",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"abyss_cresset": [
+			"silver": [
 				{
 					"cp": "e980",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"abyss_artifact": [
+			"skyroot": [
 				{
 					"cp": "e981",
-					"color": "#fff"
+					"color": "#ffffff"
 				}
 			],
-			"untitled": [
+			"smithy": [
 				{
 					"cp": "e982",
-					"color": "#fff"
+					"color": "#ffffff"
+				}
+			],
+			"spider_web": [
+				{
+					"cp": "e983",
+					"color": "#ffffff"
+				}
+			],
+			"spire": [
+				{
+					"cp": "e984",
+					"color": "#ffffff"
+				}
+			],
+			"stable": [
+				{
+					"cp": "e985",
+					"color": "#ffffff"
+				}
+			],
+			"stone": [
+				{
+					"cp": "e986",
+					"color": "#ffffff"
+				}
+			],
+			"street_shop": [
+				{
+					"cp": "e987",
+					"color": "#ffffff"
+				}
+			],
+			"stronghold": [
+				{
+					"cp": "e988",
+					"color": "#ffffff"
+				}
+			],
+			"tailors_shop": [
+				{
+					"cp": "e989",
+					"color": "#ffffff"
+				}
+			],
+			"tannery": [
+				{
+					"cp": "e98a",
+					"color": "#ffffff"
+				}
+			],
+			"tavern": [
+				{
+					"cp": "e98b",
+					"color": "#ffffff"
+				}
+			],
+			"timber_warehouse": [
+				{
+					"cp": "e98c",
+					"color": "#ffffff"
+				}
+			],
+			"token_exchange": [
+				{
+					"cp": "e98d",
+					"color": "#ffffff"
+				}
+			],
+			"tool": [
+				{
+					"cp": "e98e",
+					"color": "#ffffff"
+				}
+			],
+			"tool_blueprint": [
+				{
+					"cp": "e98f",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_chest": [
+				{
+					"cp": "e990",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_map": [
+				{
+					"cp": "e991",
+					"color": "#ffffff"
+				}
+			],
+			"treasure_map_solution": [
+				{
+					"cp": "e992",
+					"color": "#ffffff"
+				}
+			],
+			"wagon_fence": [
+				{
+					"cp": "e993",
+					"color": "#ffffff"
+				}
+			],
+			"walker": [
+				{
+					"cp": "e994",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e995",
+					"color": "#ffffff"
+				}
+			],
+			"well": [
+				{
+					"cp": "e996",
+					"color": "#ffffff"
+				}
+			],
+			"witchs_hideout": [
+				{
+					"cp": "e997",
+					"color": "#ffffff"
 				}
 			]
 		}
@@ -808,19 +934,18 @@
 			"slug": "pywel",
 			"title": "Pywel",
 			"data": "pywel/data.json",
+			"compact": "pywel/data.compact.json",
 			"tilesets": [
 				{
 					"name": "World Map",
-					"template": "pywel/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"template": "pywel/tiles/v5/{z}/{y}/{x}.jpg",
 					"minzoom": 8,
 					"maxzoom": 17,
-					"viewMaxzoom": 19,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
+					"viewMaxzoom": 17,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
 				}
-			],
-			"compact": "pywel/data.compact.json"
+			]
 		}
 	]
 }

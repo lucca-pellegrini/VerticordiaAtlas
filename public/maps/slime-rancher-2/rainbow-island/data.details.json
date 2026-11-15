@@ -206,7 +206,7 @@
 			]
 		],
 		"355799": [
-			"**Activates:** [Rainbow Fields Teleporter](#loc=355800) / [Starlight Strand Teleporter](#loc=355801)",
+			"**Activates:**\n- [Rainbow Fields Teleporter](#loc=355800)\n- [Starlight Strand Teleporter](#loc=355801)",
 			[]
 		],
 		"355800": [
@@ -252,7 +252,7 @@
 			]
 		],
 		"355807": [
-			"**Food Requirement:** 30 Veggies (Water Lettuce Counts as 2 Fruit)\n\n**Location:** Covering a whole at the top of a hill\n\n**Drops:**  \n- x12 Cotton Slimes\n- x1 Jar\n\n**Unlocks:**\n- The path to the [Teleporter Activator](#loc=355799)",
+			"**Food Requirement:** 30 Veggies (Water Lettuce Counts as 2 Veggies)\n\n**Location:** Covering a hole at the top of a hill\n\n**Drops:**  \n\n- x12 Cotton Slimes\n- x1 Jar\n\n**Unlocks:**\n\n- The path to the [Teleporter Activator](#loc=355799)",
 			[
 				{
 					"id": 51700,
@@ -337,7 +337,7 @@
 			]
 		],
 		"355812": [
-			"**Food Requirement:** 30 Fruit (Cuberry Counts as 2 Fruit)\n\n**Location:** Inside a cave covering one of the cave doors\n\n**Drops:**  \n- x12 Phosphor Slimes\n- x1 Jar\n\n**Unlocks:**\n- The path to the [Tabby Plort Door](#loc=355813)",
+			"**Food Requirement:** 30 Fruit (Cuberry counts as 2 Fruit)\n\n**Location:** Inside a cave covering one of the cave doors\n\n**Drops:**  \n- x12 Phosphor Slimes\n- x1 Jar\n\n**Unlocks:**\n- The path to the [Tabby Plort Door](#loc=355813)",
 			[
 				{
 					"id": 51707,
@@ -354,7 +354,7 @@
 			]
 		],
 		"355813": [
-			"**Required Plort:** Tabby Plort\n\n**Location:** Underground inside a cave behind the [Phosphor Gordo](#loc=355812)\n\n**Unlocks:** The path to the [Treasure Pod](#loc=355820)",
+			"**Required Plort:** Tabby Plort x1\n\n**Location:** Underground inside a cave behind the [Phosphor Gordo](#loc=355812)\n\n**Unlocks:** The path to the [Treasure Pod](#loc=355820)",
 			[
 				{
 					"id": 51709,
@@ -3104,7 +3104,7 @@
 			]
 		],
 		"425000": [
-			"**Location:** In the cave near the [Tabby Plort Door](#loc=355813)\n\n**Contents:**\n- Coastal Rock",
+			"**Location:** In the cave near the [Tabby Plort Door](#loc=355813)\n\n**Contents:**\n- Blueprint: Coastal Rock",
 			[
 				{
 					"id": 68536,

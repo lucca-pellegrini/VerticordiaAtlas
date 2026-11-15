@@ -130,6 +130,7 @@
 			"slug": "north-america",
 			"title": "North America",
 			"data": "north-america/data.json",
+			"compact": "north-america/data.compact.json",
 			"tilesets": [
 				{
 					"name": "1_61",
@@ -141,8 +142,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "north-america/data.compact.json"
+			]
 		}
 	]
 }

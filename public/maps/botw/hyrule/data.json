@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -35,16 +36,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "zelda-breath-of-the-wild",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/zelda-breath-of-the-wild/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1190,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "2C3F52",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -446,10 +454,17 @@
 		{
 			"id": 1191,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Services",
 			"order": 10,
 			"color": "5AAB95",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -711,10 +726,17 @@
 		{
 			"id": 1196,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 15,
 			"color": "7468A1",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -808,10 +830,17 @@
 		{
 			"id": 1192,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Treasure",
 			"order": 20,
 			"color": "4D96B9",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1045,10 +1074,17 @@
 		{
 			"id": 1193,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Quests",
 			"order": 25,
 			"color": "AA8F54",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1170,10 +1206,17 @@
 		{
 			"id": 1194,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 30,
 			"color": "A83148",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1491,10 +1534,17 @@
 		{
 			"id": 1195,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Other",
 			"order": 40,
 			"color": "414141",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1700,10 +1750,17 @@
 		{
 			"id": 1198,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Ore Deposits",
 			"order": 50,
 			"color": "798E91",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": true,
 			"featured": false,
 			"featured_icon": null,
@@ -1769,10 +1826,17 @@
 		{
 			"id": 1197,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Materials",
 			"order": 60,
 			"color": "498C97",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": true,
 			"featured": false,
 			"featured_icon": null,
@@ -2762,10 +2826,17 @@
 		{
 			"id": 1199,
 			"game_id": 119,
+			"section_id": null,
 			"title": "Creatures",
 			"order": 70,
 			"color": "1FA37F",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": true,
 			"featured": false,
 			"featured_icon": null,
@@ -4705,6 +4776,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"6812": {
 			"id": 6812,
@@ -9996,7 +10068,8 @@
 								[-0.5296483824693832, 0.7539634328391296],
 								[-0.5303886721574935, 0.7533626699970777],
 								[-0.531075317665306, 0.7525902605070244],
-								[-0.5311933348619613, 0.7518393067050084]
+								[-0.5311933348619613, 0.7518393067050084],
+								[-0.5328432019415774, 0.7509987890273809]
 							]
 						]
 					},
@@ -10474,7 +10547,8 @@
 								[-0.7354883901014397, 0.5990421271407183],
 								[-0.7351515798616615, 0.5985366124951786],
 								[-0.7338855772066322, 0.599974197894621],
-								[-0.733241847043058, 0.6005964362340191]
+								[-0.733241847043058, 0.6005964362340191],
+								[-0.7328126936006751, 0.6014546958962548]
 							]
 						]
 					},
@@ -11354,7 +11428,8 @@
 								[-0.7530721737183188, 0.552694769849566],
 								[-0.7525571895874594, 0.5528986082470636],
 								[-0.751495034817562, 0.5527805965441023],
-								[-0.750894219998226, 0.5529522499294471]
+								[-0.750894219998226, 0.5529522499294471],
+								[-0.7503653282358602, 0.5530694445107109]
 							]
 						]
 					},
@@ -11926,7 +12001,6 @@
 								[-0.4150312892217145, 0.9596956180998434],
 								[-0.41490254318899966, 0.9604465311921079],
 								[-0.4144519320744977, 0.9612403534245427],
-								[-0.4144519320744977, 0.9612403534245427],
 								[-0.41407600925584376, 0.9620281901633619],
 								[-0.6339966428839716, 0.9620190720554892],
 								[-0.6337762257052226, 0.9589877971369934],
@@ -12423,7 +12497,8 @@
 								[-0.5917440181388933, 0.7506102983156471],
 								[-0.5915611104838714, 0.7493327426401896],
 								[-0.5912065414519163, 0.7486774060040154],
-								[-0.5914844563054666, 0.7483322454321065]
+								[-0.5914844563054666, 0.7483322454321065],
+								[-0.5916737112964254, 0.7477697401768274]
 							]
 						]
 					},
@@ -12883,7 +12958,8 @@
 								[-0.6375890893365677, 0.5573365407526565],
 								[-0.6378465814019973, 0.5582806335827095],
 								[-0.6377178353692825, 0.559396379459111],
-								[-0.6377178353692825, 0.5606194083491337]
+								[-0.6377178353692825, 0.5606194083491337],
+								[-0.638194769135263, 0.5611809684488379]
 							]
 						]
 					},
@@ -13677,7 +13753,8 @@
 								[-0.9752300374890099, 0.7036011194431325],
 								[-0.976077615537716, 0.7035152952255106],
 								[-0.9768715494061242, 0.7028287014277551],
-								[-0.9775474660778771, 0.7033631734027189]
+								[-0.9775474660778771, 0.7033631734027189],
+								[-0.9778714341807415, 0.7041059453667561]
 							]
 						]
 					},
@@ -13928,7 +14005,8 @@
 								[-0.7349017339768404, 0.5960599877334344],
 								[-0.7346013265671725, 0.5965105744456219],
 								[-0.7353446989107337, 0.5980216564394898],
-								[-0.7351515798616615, 0.5985366124951786]
+								[-0.7351515798616615, 0.5985366124951786],
+								[-0.7354883901014397, 0.5990421271407183]
 							]
 						]
 					},
@@ -14570,7 +14648,8 @@
 								[-0.5624654922736116, 0.5469220663224743],
 								[-0.5628624592078157, 0.5470508064882948],
 								[-0.5633023414862581, 0.5469113379751964],
-								[-0.5634096298468538, 0.5461388969209369]
+								[-0.5634096298468538, 0.5461388969209369],
+								[-0.5636262956019911, 0.5456297521571992]
 							]
 						]
 					},
@@ -15217,7 +15296,8 @@
 								[-0.8417743420664414, 0.8131314241830481],
 								[-0.8408623910013779, 0.8133459792901866],
 								[-0.8403903222147568, 0.8135712621403994],
-								[-0.8398753380838975, 0.8136463564210134]
+								[-0.8398753380838975, 0.8136463564210134],
+								[-0.839374172088414, 0.8140550588688779]
 							]
 						]
 					},
@@ -15306,7 +15386,6 @@
 								[-0.7842175116511108, 0.49735704149909027],
 								[-0.7840243926020385, 0.4960052589482172],
 								[-0.7826511015864135, 0.49458910550358953],
-								[-0.7818357100458861, 0.493172951756771],
 								[-0.7818357100458861, 0.493172951756771],
 								[-0.7807628264399291, 0.49276527107680473],
 								[-0.7797340494000553, 0.4919725576115157],
@@ -15782,7 +15861,8 @@
 								[-0.7803265508531521, 0.5506456053388379],
 								[-0.7817856725572536, 0.5506241486576278],
 								[-0.783673947703738, 0.5498302513983888],
-								[-0.785197442424197, 0.549272377585491]
+								[-0.785197442424197, 0.549272377585491],
+								[-0.7862646390283845, 0.5492120451043798]
 							]
 						]
 					},
@@ -16647,7 +16727,8 @@
 								[-0.5888696767052459, 0.6534052279841707],
 								[-0.588569269295578, 0.6541776538902372],
 								[-0.5882903195580291, 0.654928623407132],
-								[-0.5880542851647186, 0.6554650301360269]
+								[-0.5880542851647186, 0.6554650301360269],
+								[-0.5877600349749246, 0.6557747776167828]
 							]
 						]
 					},
@@ -16713,7 +16794,6 @@
 								[-0.7903373829378268, 0.7879885178439546],
 								[-0.7907665363802097, 0.7889540216601377],
 								[-0.7919896236910007, 0.7898980696193324],
-								[-0.793105422641196, 0.7900911703118385],
 								[-0.793105422641196, 0.7900911703118385],
 								[-0.794628917361655, 0.7900911703118385],
 								[-0.7953370205415866, 0.7895762351118737],
@@ -17418,7 +17498,8 @@
 								[-0.7714561791176155, 0.7617938768393283],
 								[-0.7692349270109067, 0.7667032618820704],
 								[-0.7655871227506528, 0.7706511182418602],
-								[-0.7622826412443051, 0.7733116280738436]
+								[-0.7622826412443051, 0.7733116280738436],
+								[-0.7572644442325749, 0.7765010353903719]
 							]
 						]
 					},
@@ -18131,7 +18212,8 @@
 								[-0.8876689934441573, 0.7995570814565296],
 								[-0.8866819405266768, 0.7998896429768708],
 								[-0.8865102791497237, 0.8001578377317158],
-								[-0.8860489391991622, 0.8003402101549821]
+								[-0.8860489391991622, 0.8003402101549821],
+								[-0.8855750722531797, 0.8014705059154134]
 							]
 						]
 					},
@@ -18820,7 +18902,8 @@
 								[-1.0246159728064552, 0.5707269775709721],
 								[-1.0255364400581946, 0.5703461303550685],
 								[-1.0253302666813435, 0.4455665701514577],
-								[-0.7278802160353239, 0.44557257431894653]
+								[-0.7278802160353239, 0.44557257431894653],
+								[-0.7279842981150009, 0.4457642733277128]
 							]
 						]
 					},
@@ -19127,7 +19210,6 @@
 								[-0.6357289883180539, 0.845313580452618],
 								[-0.6353630199949478, 0.8455842931486255],
 								[-0.6352104404959524, 0.8459111651542967],
-								[-0.6352486042518879, 0.8467365517188414],
 								[-0.6352486042518879, 0.8467365517188414],
 								[-0.6347884899607603, 0.8474218348070484],
 								[-0.6351342640335544, 0.8474621706998742],
@@ -19691,7 +19773,8 @@
 								[-0.6287608765690278, 0.7565364406490793],
 								[-0.6273875855534028, 0.7540261111357889],
 								[-0.6251716422603626, 0.7512954193403186],
-								[-0.6234335708187122, 0.7496218644803162]
+								[-0.6234335708187122, 0.7496218644803162],
+								[-0.6204864519832598, 0.7476561111626867]
 							]
 						]
 					},
@@ -19706,6 +19789,20 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [
+		{
+			"id": 13,
+			"name": null,
+			"space": null,
+			"bounds": [-0.97039970671407, 0.4652423064145, -0.38689213516034, 0.94762017371378],
+			"priority": 0,
+			"transform": [
+				[21846.50315000444, 0, -2785428.6412453745],
+				[0, 21843.05649055363, -2784990.976990138]
+			],
+			"format": "{x}, {y}"
+		}
+	],
 	"locations": [
 		{
 			"id": 246052,
@@ -38131,7 +38228,7 @@
 			"region_id": 1527,
 			"category_id": 6836,
 			"title": "Korok Seed",
-			"description": null,
+			"description": "Shoot the three balloons",
 			"latitude": "0.48098299133865",
 			"longitude": "-0.59160707658390",
 			"features": null,
@@ -39026,7 +39123,7 @@
 			"region_id": 1527,
 			"category_id": 6836,
 			"title": "Korok Seed",
-			"description": null,
+			"description": "Throw a rock into the circle",
 			"latitude": "0.53409333319279",
 			"longitude": "-0.56801162770764",
 			"features": null,
@@ -40862,7 +40959,7 @@
 			"region_id": 1525,
 			"category_id": 6836,
 			"title": "Korok Seed",
-			"description": null,
+			"description": "Rock lift. Rock formation with breakable rocks",
 			"latitude": "0.45680324357031",
 			"longitude": "-0.97097073327803",
 			"features": null,
@@ -41785,7 +41882,7 @@
 			"region_id": 1525,
 			"category_id": 6836,
 			"title": "Korok Seed",
-			"description": null,
+			"description": "Magnesis puzzle",
 			"latitude": "0.55657680995211",
 			"longitude": "-0.91900551633313",
 			"features": null,
@@ -43161,7 +43258,7 @@
 			"region_id": 1525,
 			"category_id": 6836,
 			"title": "Korok Seed",
-			"description": null,
+			"description": "Rock lift on small ledge",
 			"latitude": "0.53866650558293",
 			"longitude": "-0.85500504983455",
 			"features": null,
@@ -49610,7 +49707,7 @@
 			"region_id": 1527,
 			"category_id": 6836,
 			"title": "Korok Seed",
-			"description": null,
+			"description": "Match the hearty durian on the three trees",
 			"latitude": "0.50938313862695",
 			"longitude": "-0.57805140881095",
 			"features": null,
@@ -50717,7 +50814,7 @@
 			"region_id": 1527,
 			"category_id": 6836,
 			"title": "Korok Seed",
-			"description": null,
+			"description": "Sparkle trail",
 			"latitude": "0.54145457000041",
 			"longitude": "-0.54843608220960",
 			"features": null,
@@ -80662,7 +80759,7 @@
 			"region_id": 1525,
 			"category_id": 6830,
 			"title": "Treasure Chest [Knight's Bow]",
-			"description": "",
+			"description": "Won't spawn until you befriend the dog near the fruit store by feeding him meat.",
 			"latitude": "0.53596792187524",
 			"longitude": "-0.91150191126027",
 			"features": null,
@@ -256330,7 +256427,7 @@
 			"map_id": 446,
 			"region_id": 1532,
 			"category_id": 7833,
-			"title": "Animal_Insect_EP",
+			"title": "Sunset Firefly",
 			"description": "",
 			"latitude": "0.80319723351766",
 			"longitude": "-0.78360783238014",
@@ -261411,10 +261508,26 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 36, "game_id": 119, "title": "Master Mode Only", "icon": null, "color": null, "icon_color": null }
+		{
+			"id": 36,
+			"game_id": 119,
+			"order": 0,
+			"title": "Master Mode Only",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	],
 	"tagsById": {
-		"36": { "id": 36, "game_id": 119, "title": "Master Mode Only", "icon": null, "color": null, "icon_color": null }
+		"36": {
+			"id": 36,
+			"game_id": 119,
+			"order": 0,
+			"title": "Master Mode Only",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -261433,7 +261546,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-semibold",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/zelda-breath-of-the-wild/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": true,
 			"subregionsEnabled": true,
@@ -261555,6 +261668,14 @@
 		"polygonStyles": {},
 		"polygonStylesByTag": {},
 		"frontendConfig": {
+			"tag_filters": [
+				{
+					"name": "Enable Master Mode Items",
+					"default": true,
+					"tag_ids": [36],
+					"category_ids": [6830, 6831, 6833, 6868, 7848]
+				}
+			],
 			"image_overlays": { "by_map": [] },
 			"icon_size_groups": {
 				"1197": {

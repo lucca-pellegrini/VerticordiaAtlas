@@ -20,7 +20,8 @@
 					"11": { "x": { "max": 1023, "min": 1016 }, "y": { "max": 1023, "min": 1016 } },
 					"12": { "x": { "max": 2047, "min": 2032 }, "y": { "max": 2047, "min": 2032 } },
 					"13": { "x": { "max": 4095, "min": 4064 }, "y": { "max": 4095, "min": 4064 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -37,6 +38,7 @@
 		{
 			"id": 27042,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 1,
 			"color": "34362C",
@@ -88,7 +90,7 @@
 					"icon_color": null,
 					"info": null,
 					"template": null,
-					"order": 1,
+					"order": 2,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -144,7 +146,7 @@
 					"icon_color": null,
 					"info": null,
 					"template": null,
-					"order": 6,
+					"order": 4,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -162,12 +164,41 @@
 					"description": null,
 					"premium": false,
 					"locations_count": 1
+				},
+				{
+					"id": 28444,
+					"group_id": 27042,
+					"title": "Miscellaneous",
+					"icon": "miscellaneous",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 5,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 13
 				}
 			]
 		},
 		{
 			"id": 27054,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Key Items",
 			"order": 2,
 			"color": "582359",
@@ -208,7 +239,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 4
+					"locations_count": 3
 				},
 				{
 					"id": 28308,
@@ -273,7 +304,7 @@
 					"icon": "treasure",
 					"color": null,
 					"icon_color": null,
-					"info": null,
+					"info": "Find every treasure in an area and bring them to Quick Hand Zhang for a unique reward.",
 					"template": null,
 					"order": 3,
 					"has_heatmap": false,
@@ -497,7 +528,7 @@
 					"icon": "soul_tempering_material",
 					"color": null,
 					"icon_color": null,
-					"info": "Used to Soul Temper specific Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
+					"info": "Used to Soul Temper specific Weapons and Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
 					"template": null,
 					"order": 12,
 					"has_heatmap": false,
@@ -516,13 +547,14 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 4
+					"locations_count": 5
 				}
 			]
 		},
 		{
 			"id": 27044,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Items",
 			"order": 3,
 			"color": "1F526B",
@@ -626,6 +658,7 @@
 		{
 			"id": 27047,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Characters",
 			"order": 4,
 			"color": "631813",
@@ -757,6 +790,7 @@
 		{
 			"id": 27045,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Quests",
 			"order": 5,
 			"color": "428C7F",
@@ -853,7 +887,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 6
+					"locations_count": 7
 				},
 				{
 					"id": 28317,
@@ -888,6 +922,7 @@
 		{
 			"id": 27055,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Materials",
 			"order": 6,
 			"color": "807358",
@@ -985,6 +1020,34 @@
 					"description": null,
 					"premium": false,
 					"locations_count": 5
+				},
+				{
+					"id": 28554,
+					"group_id": 27055,
+					"title": "Flawless Forged Metal",
+					"icon": "metal3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Required to upgrade One-Handed weapons from Lv. 20 to max level.",
+					"template": null,
+					"order": 4,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
 				},
 				{
 					"id": 28368,
@@ -1096,7 +1159,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 6
+					"locations_count": 7
 				},
 				{
 					"id": 28366,
@@ -1491,55 +1554,9 @@
 					"locations_count": 3
 				}
 			]
-		},
-		{
-			"id": 27046,
-			"game_id": 345,
-			"title": "Other",
-			"order": 7,
-			"color": "5C5A5A",
-			"icon_color": null,
-			"display_type": null,
-			"circle_color": null,
-			"circle_stroke_color": null,
-			"circle_opacity": null,
-			"circle_radius": null,
-			"area_config": null,
-			"expandable": false,
-			"featured": false,
-			"featured_icon": null,
-			"categories": [
-				{
-					"id": 28444,
-					"group_id": 27046,
-					"title": "Miscellaneous",
-					"icon": "miscellaneous",
-					"color": null,
-					"icon_color": null,
-					"info": null,
-					"template": null,
-					"order": 1,
-					"has_heatmap": false,
-					"features_enabled": false,
-					"display_type": "marker",
-					"circle_color": null,
-					"circle_stroke_color": null,
-					"circle_opacity": null,
-					"circle_radius": null,
-					"area_config": null,
-					"ign_enabled": true,
-					"ign_visible": true,
-					"suggestion_locked": false,
-					"suggestion_add_locked": false,
-					"featured": false,
-					"visible": true,
-					"description": null,
-					"premium": false,
-					"locations_count": 13
-				}
-			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"28305": {
 			"id": 28305,
@@ -1595,7 +1612,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 4
+			"locations_count": 3
 		},
 		"28307": {
 			"id": 28307,
@@ -1716,7 +1733,7 @@
 			"icon": "treasure",
 			"color": null,
 			"icon_color": null,
-			"info": null,
+			"info": "Find every treasure in an area and bring them to Quick Hand Zhang for a unique reward.",
 			"template": null,
 			"order": 3,
 			"has_heatmap": false,
@@ -1819,7 +1836,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 6
+			"locations_count": 7
 		},
 		"28317": {
 			"id": 28317,
@@ -1886,7 +1903,7 @@
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 1,
+			"order": 2,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2026,7 +2043,7 @@
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 6,
+			"order": 4,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2523,14 +2540,14 @@
 		},
 		"28444": {
 			"id": 28444,
-			"group_id": 27046,
+			"group_id": 27042,
 			"title": "Miscellaneous",
 			"icon": "miscellaneous",
 			"color": null,
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 1,
+			"order": 5,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2771,7 +2788,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 6
+			"locations_count": 7
 		},
 		"28497": {
 			"id": 28497,
@@ -2892,7 +2909,7 @@
 			"icon": "soul_tempering_material",
 			"color": null,
 			"icon_color": null,
-			"info": "Used to Soul Temper specific Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
+			"info": "Used to Soul Temper specific Weapons and Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
 			"template": null,
 			"order": 12,
 			"has_heatmap": false,
@@ -2911,7 +2928,35 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 4
+			"locations_count": 5
+		},
+		"28554": {
+			"id": 28554,
+			"group_id": 27055,
+			"title": "Flawless Forged Metal",
+			"icon": "metal3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade One-Handed weapons from Lv. 20 to max level.",
+			"template": null,
+			"order": 4,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
 		}
 	},
 	"routes": [],
@@ -3824,7 +3869,7 @@
 			"region_id": null,
 			"category_id": 28353,
 			"title": "Fragile Wall",
-			"description": "**Requires:** Tiger Cannon",
+			"description": "**Requires:** [Tiger Cannon](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1083902)",
 			"latitude": "0.18069056234783",
 			"longitude": "-0.61979872420770",
 			"features": null,
@@ -3864,10 +3909,270 @@
 			"map_id": 1067,
 			"region_id": null,
 			"category_id": 28355,
-			"title": "Scarecrow",
-			"description": "",
+			"title": "Challenge",
+			"description": "[Acolyte Yanru](#loc=1061725)",
 			"latitude": "1.09959527480670",
 			"longitude": "-0.47128555859518",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1060761,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Ribbon",
+			"description": "Examined as part of [Young Mistress](#loc=1060826)",
+			"latitude": "0.52806735914851",
+			"longitude": "-0.65183172517808",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157973,
+					"title": "001697",
+					"file_name": "566f312e-4775-45fe-96be-48f4e58d693a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/566f312e-4775-45fe-96be-48f4e58d693a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1060765,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Smuggler's Tunnel Entrance",
+			"description": "Unlocked as part of [Heartless Remnants](#loc=1060764). To open it:\n- Kill [Master Bi Yuan of the Tianxuan Sect](#loc=1061503)\n- Kill [Master Bi Hai of Kuye Temple](#loc=1061589)\n- Kill [Sect Leader](#loc=1061647)",
+			"latitude": "0.53795799833010",
+			"longitude": "-0.84062209456124",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061311,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Ribbon",
+			"description": "Examined as part of [Young Mistress](#loc=1060826)",
+			"latitude": "0.71788696966532",
+			"longitude": "-0.55341910846519",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157983,
+					"title": "001704",
+					"file_name": "448b7eb8-9257-4761-9dff-e8e3e4c92220.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/448b7eb8-9257-4761-9dff-e8e3e4c92220.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1061314,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Mist Barrier",
+			"description": "Disappears after finding all of Firefly's memory flowers as part of [Secrets at the Heart of the Lake](#loc=1061308)",
+			"latitude": "0.71679195811883",
+			"longitude": "-0.47992310163309",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157989,
+					"title": "001707",
+					"file_name": "13da3f51-e56d-4b3e-b6f5-e2c4e1a93c4e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/13da3f51-e56d-4b3e-b6f5-e2c4e1a93c4e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1061346,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Red Thread Enemy",
+			"description": "Defeat it to dispel the [Red Thread Barrier](#loc=1061347)",
+			"latitude": "0.86172821211935",
+			"longitude": "-0.86505572489341",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061347,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Red Thread Barrier",
+			"description": "Dispelled by defeating the [Red Thread Enemy](#loc=1061346)",
+			"latitude": "0.71056591723686",
+			"longitude": "-0.88790105459520",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061476,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Ribbon",
+			"description": "Examined as part of [Young Mistress](#loc=1060826)",
+			"latitude": "0.79164010740392",
+			"longitude": "-0.78100541040698",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 158223,
+					"title": "001793",
+					"file_name": "2289f5ed-628a-4171-b7ea-eae42dca4649.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2289f5ed-628a-4171-b7ea-eae42dca4649.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1061507,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Ribbon",
+			"description": "Automatically examined after ringing [The Lady Grounds](#loc=1061506) bell.\n\nPart of [Young Mistress](#loc=1060826)",
+			"latitude": "0.95772491985703",
+			"longitude": "-0.55571192390562",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061647,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Sect Leader",
+			"description": "One of three that must be killed to unlock the [Smuggler's Tunnel Entrance](#loc=1060765)",
+			"latitude": "1.10946546091960",
+			"longitude": "-0.42015506900000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061809,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Ribbon",
+			"description": "Examined as part of [Young Mistress](#loc=1060826)",
+			"latitude": "0.21238363927742",
+			"longitude": "-1.00383168336800",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 158362,
+					"title": "001907",
+					"file_name": "c5fb33ef-817a-4ffe-93ec-fce4185ef4f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5fb33ef-817a-4ffe-93ec-fce4185ef4f2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1061820,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Portal",
+			"description": "**Quest:** [The Herald's Illusion](#loc=1061821)",
+			"latitude": "0.20290833626234",
+			"longitude": "-0.81686891989989",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 158370,
+					"title": "001913",
+					"file_name": "debc216a-bc69-4dd3-9ab5-8c478b6b2a20.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/debc216a-bc69-4dd3-9ab5-8c478b6b2a20.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1061835,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Red Thread Enemy",
+			"description": "Defeat it to dispel the [Red Thread Barrier](#loc=1061836)",
+			"latitude": "0.06283352752952",
+			"longitude": "-0.91677929091222",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061836,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Red Thread Barrier",
+			"description": "Defeat the [Red Thread Enemy](#loc=1061835) to dispel it.",
+			"latitude": "0.14025239619234",
+			"longitude": "-0.81299415872863",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -3922,33 +4227,6 @@
 					"url": "https://media.mapgenie.io/storage/media/a1e66a75-5a53-4335-abcc-7433344d3d4f.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 1061858,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28306,
-			"title": "TianMiao",
-			"description": "New Game Plus / Cycle 2  \n\nTurns [Wild Oriole](#loc=1061830) into Dual Swords",
-			"latitude": "1.04921079317620",
-			"longitude": "-1.23797893524130",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 158396,
-					"title": "",
-					"file_name": "60c80df0-9c71-47ec-bd7d-26bdc4b874e3.png",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/60c80df0-9c71-47ec-bd7d-26bdc4b874e3.png",
-					"type": "image",
-					"mime_type": "image/png",
 					"meta": null,
 					"order": 10,
 					"spoiler": false
@@ -5048,7 +5326,7 @@
 			"region_id": null,
 			"category_id": 28360,
 			"title": "Yanru's Blazing Mask",
-			"description": "Looted from [Acolyte Yanru](#loc=1061725)\n\n**Quest:** ??",
+			"description": "Looted from [Acolyte Yanru](#loc=1061725)\n\n**Quest:** [Secrets at the Heart of the Lake](#loc=1061308)",
 			"latitude": "1.10571263920220",
 			"longitude": "-0.46473214064150",
 			"features": null,
@@ -5963,6 +6241,33 @@
 			]
 		},
 		{
+			"id": 1083912,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Border Poems",
+			"description": "Inside a chest beyond the [Fragile Wall](#loc=1061859)\n\n**Wolfjaw**",
+			"latitude": "0.18297082792331",
+			"longitude": "-0.58173992146988",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 161007,
+					"title": "003333",
+					"file_name": "76e23dd5-e97f-47e9-b64b-4eb5a19f452e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76e23dd5-e97f-47e9-b64b-4eb5a19f452e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1060714,
 			"map_id": 1067,
 			"region_id": null,
@@ -6416,7 +6721,7 @@
 			"region_id": null,
 			"category_id": 28357,
 			"title": "Mu Xiaokui, Young Mistress of the Order",
-			"description": "**Loot:**\n\n- [Wild Oriole Sword](#loc=1061830)\n- [Puppet No. 44's Eye](#loc=1061827)\n- [TianMiao](#loc=1061858) (NG+ Only)\n\nHas an additional phase - and grants progress towards a secret ending - if you completed the [Young Mistress](#loc=1060826) quest prior to the fight.",
+			"description": "**Loot:**\n\n- [Wild Oriole Sword](#loc=1061830)\n- [Puppet No. 44's Eye](#loc=1061827)\n\nHas an additional phase - and grants progress towards a secret ending - if you completed the [Young Mistress](#loc=1060826) quest prior to the fight.",
 			"latitude": "1.02738500692730",
 			"longitude": "-1.10812731587270",
 			"features": null,
@@ -6608,7 +6913,7 @@
 			"region_id": null,
 			"category_id": 28361,
 			"title": "Illusory Pipa",
-			"description": "**How to Begin:** Read [Bai Chilian's Notes](#loc=1060711)\n\n**Pipa Pieces:**\n\n- [Illusory Pipa Head](#loc=1061722)\n- ??",
+			"description": "**How to Begin:** Read [Bai Chilian's Notes](#loc=1060711)\n\n**Pipa Pieces:**\n\n- [Illusory Pipa Head](#loc=1061722)\n- [Illusory Pipa's Backplate](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064381) (Mandate Encampment)\n- [Illusory Pipa Strings](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064793) (Meigu Lake)",
 			"latitude": "0.20914434396126",
 			"longitude": "-0.13630622214967",
 			"features": null,
@@ -6622,7 +6927,7 @@
 			"region_id": null,
 			"category_id": 28361,
 			"title": "Secrets at the Heart of the Lake",
-			"description": "**How to Begin:** Pick up any of Firefly's Memory Flowers\n\n**Firefly's Memory Flowers:**\n\n- [Firefly's Memory Flower 1](#loc=1060759)\n- [Firefly's Memory Flower 2](#loc=1061307)\n- [Firefly's Memory Flower 3](#loc=1060800)\n- [Firefly's Memory Flower 4](#loc=1061655)\n- [Firefly's Memory Flower 5](#loc=1060811)\n- [Firefly's Memory Flower 6](#loc=1061312)",
+			"description": "**How to Begin:** Pick up any of Firefly's Memory Flowers\n\n**Firefly's Memory Flowers:**\n\n- [Firefly's Memory Flower 1](#loc=1060759)\n- [Firefly's Memory Flower 2](#loc=1061307)\n- [Firefly's Memory Flower 3](#loc=1060800)\n- [Firefly's Memory Flower 4](#loc=1061655)\n- [Firefly's Memory Flower 5](#loc=1060811)\n- [Firefly's Memory Flower 6](#loc=1061312)\n\n**Acolyte Masks:**\n- [Yanru's Blazing Mask](#loc=1061726)\n- [Leiting's Thunder Mask](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1063604)\n- [Guhe's Venom Mask](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064895)\n- [Hansui's Frost Mask](https://mapgenie.io/phantom-blade-zero/maps/weeping-creek-valley?locationIds=1066539)\n\n**Reward:**\n- [Violet Blossom](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1067041)",
 			"latitude": "0.61637903155473",
 			"longitude": "-0.71116745702406",
 			"features": null,
@@ -6636,7 +6941,7 @@
 			"region_id": null,
 			"category_id": 28361,
 			"title": "The Herald's Illusion",
-			"description": "**How to Begin:** Interact with any Portal.\n\n**Portals:**\n\n- [Portal](#loc=1061820)\n- [Portal](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064384) (Mandate's Encampment)\n- ??",
+			"description": "**How to Begin:** Interact with any Portal.\n\n**Portals:**\n\n- [Portal](#loc=1061820)\n- [Portal](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1064384) (Mandate's Encampment)\n- [Portal](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1066513) (Mountain of Imprisonment)",
 			"latitude": "0.19526696720088",
 			"longitude": "-0.81685648158992",
 			"features": null,
@@ -6706,7 +7011,7 @@
 			"region_id": null,
 			"category_id": 28316,
 			"title": "Dahuang",
-			"description": "**How to Begin:** Speak to the Sleeping Flower-Masked Hunter\n\n**Tips:**\n\n- Progress to Pangzheng and search for the **Pond of Fading Song Bell**\n- Along the back wall of a nearby house, you'll find the sleepy [Dahuang](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1062777)\n\n**Rewards:**\n\n- Remnant Dust",
+			"description": "**How to Begin:** Speak to the Sleeping Flower-Masked Hunter\n\n**Tips:**\n\n- Progress to Pangzheng and search for the **Pond of Fading Song** bell\n- Along the back wall of a nearby house, you'll find the sleepy [Dahuang](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1062777)\n\n**Rewards:**\n\n- Remnant Dust",
 			"latitude": "0.95324599835909",
 			"longitude": "-0.37428886999803",
 			"features": null,
@@ -6720,7 +7025,7 @@
 			"region_id": null,
 			"category_id": 28316,
 			"title": "Cui",
-			"description": "**How to Begin:** Speak to the little girl puppet.\n\n**Tips:**\n\n- Her grandfather is in the Mountain of Imprisonment\n- Her parents are in Mount Soulrend\n\n**Rewards:**\n\n- ??",
+			"description": "**How to Begin:** Speak to the little girl puppet.\n\n**Tips:**\n\n- Her grandfather is on the [Mountain of Imprisonment](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1064990)\n- Her parents are on [Mount Soulrend](https://mapgenie.io/phantom-blade-zero/maps/mount-soulrend?locationIds=1083945)\n\n**Rewards:**\n\n- [Baishan Headband](https://mapgenie.io/phantom-blade-zero/maps/mount-soulrend?locationIds=1083970)",
 			"latitude": "0.18267183058197",
 			"longitude": "-0.89886386202977",
 			"features": null,
@@ -6740,6 +7045,20 @@
 					"spoiler": false
 				}
 			]
+		},
+		{
+			"id": 1083997,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28316,
+			"title": "A Dream of Motherhood",
+			"description": "**How to Begin:** Talk to the lady sitting on the bed.\n\n**Tips:**\n- The quest will be missed if you kill the puppet that drops Mother's Talisman before beginning it.\n\n**Reward:**\n- [Mother's Talisman](#loc=1060784)",
+			"latitude": "0.53239118892513",
+			"longitude": "-0.55966688953973",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
 		},
 		{
 			"id": 1060826,
@@ -9012,6 +9331,33 @@
 			]
 		},
 		{
+			"id": 1083911,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28554,
+			"title": "Flawless Forged Metal x12",
+			"description": "Beyond the [Fragile Wall](#loc=1061859)",
+			"latitude": "0.18206253854133",
+			"longitude": "-0.59506776861423",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 161008,
+					"title": "003333",
+					"file_name": "76f0af6d-3e13-46a4-bf11-a9083f43190d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76f0af6d-3e13-46a4-bf11-a9083f43190d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1060778,
 			"map_id": 1067,
 			"region_id": null,
@@ -9732,6 +10078,33 @@
 					"file_name": "3e62a9cd-0e8f-4865-98c0-248c2aadc05c.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/3e62a9cd-0e8f-4865-98c0-248c2aadc05c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083910,
+			"map_id": 1067,
+			"region_id": null,
+			"category_id": 28496,
+			"title": "Polished Broadplate Metal x12",
+			"description": "Beyond the [Fragile Wall](#loc=1061859)",
+			"latitude": "0.18115424911358",
+			"longitude": "-0.60627527643990",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 161006,
+					"title": "003333",
+					"file_name": "d01a0ab3-addb-4468-8157-eaf6f32b2854.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d01a0ab3-addb-4468-8157-eaf6f32b2854.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -10995,272 +11368,42 @@
 					"spoiler": false
 				}
 			]
-		},
-		{
-			"id": 1060761,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Ribbon",
-			"description": "Examined as part of [Young Mistress](#loc=1060826)",
-			"latitude": "0.52806735914851",
-			"longitude": "-0.65183172517808",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 157973,
-					"title": "001697",
-					"file_name": "566f312e-4775-45fe-96be-48f4e58d693a.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/566f312e-4775-45fe-96be-48f4e58d693a.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 1060765,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Smuggler's Tunnel Entrance",
-			"description": "Unlocked as part of [Heartless Remnants](#loc=1060764). To open it:\n- Kill [Master Bi Yuan of the Tianxuan Sect](#loc=1061503)\n- Kill [Master Bi Hai of Kuye Temple](#loc=1061589)\n- Kill [Sect Leader](#loc=1061647)",
-			"latitude": "0.53795799833010",
-			"longitude": "-0.84062209456124",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 1061311,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Ribbon",
-			"description": "Examined as part of [Young Mistress](#loc=1060826)",
-			"latitude": "0.71788696966532",
-			"longitude": "-0.55341910846519",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 157983,
-					"title": "001704",
-					"file_name": "448b7eb8-9257-4761-9dff-e8e3e4c92220.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/448b7eb8-9257-4761-9dff-e8e3e4c92220.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 1061314,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Mist Barrier",
-			"description": "Disappears after finding all of Firefly's memory flowers as part of [Secrets at the Heart of the Lake](#loc=1061308)",
-			"latitude": "0.71679195811883",
-			"longitude": "-0.47992310163309",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 157989,
-					"title": "001707",
-					"file_name": "13da3f51-e56d-4b3e-b6f5-e2c4e1a93c4e.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/13da3f51-e56d-4b3e-b6f5-e2c4e1a93c4e.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 1061346,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Red Thread Enemy",
-			"description": "Defeat it to dispel the [Red Thread Barrier](#loc=1061347)",
-			"latitude": "0.86172821211935",
-			"longitude": "-0.86505572489341",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 1061347,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Red Thread Barrier",
-			"description": "Dispelled by defeating the [Red Thread Enemy](#loc=1061346)",
-			"latitude": "0.71056591723686",
-			"longitude": "-0.88790105459520",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 1061476,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Ribbon",
-			"description": "Examined as part of [Young Mistress](#loc=1060826)",
-			"latitude": "0.79164010740392",
-			"longitude": "-0.78100541040698",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 158223,
-					"title": "001793",
-					"file_name": "2289f5ed-628a-4171-b7ea-eae42dca4649.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/2289f5ed-628a-4171-b7ea-eae42dca4649.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 1061507,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Ribbon",
-			"description": "Automatically examined after ringing [The Lady Grounds](#loc=1061506) bell.\n\nPart of [Young Mistress](#loc=1060826)",
-			"latitude": "0.95772491985703",
-			"longitude": "-0.55571192390562",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 1061647,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Sect Leader",
-			"description": "One of three that must be killed to unlock the [Smuggler's Tunnel Entrance](#loc=1060765)",
-			"latitude": "1.10946546091960",
-			"longitude": "-0.42015506900000",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 1061809,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Ribbon",
-			"description": "Examined as part of [Young Mistress](#loc=1060826)",
-			"latitude": "0.21238363927742",
-			"longitude": "-1.00383168336800",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 158362,
-					"title": "001907",
-					"file_name": "c5fb33ef-817a-4ffe-93ec-fce4185ef4f2.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/c5fb33ef-817a-4ffe-93ec-fce4185ef4f2.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 1061820,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Portal",
-			"description": "**Quest:** [The Herald's Illusion](#loc=1061821)",
-			"latitude": "0.20290833626234",
-			"longitude": "-0.81686891989989",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 158370,
-					"title": "001913",
-					"file_name": "debc216a-bc69-4dd3-9ab5-8c478b6b2a20.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/debc216a-bc69-4dd3-9ab5-8c478b6b2a20.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 1061835,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Red Thread Enemy",
-			"description": "Defeat it to dispel the [Red Thread Barrier](#loc=1061836)",
-			"latitude": "0.06283352752952",
-			"longitude": "-0.91677929091222",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 1061836,
-			"map_id": 1067,
-			"region_id": null,
-			"category_id": 28444,
-			"title": "Red Thread Barrier",
-			"description": "Defeat the [Red Thread Enemy](#loc=1061835) to dispel it.",
-			"latitude": "0.14025239619234",
-			"longitude": "-0.81299415872863",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
 		}
 	],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
-	"tags": [],
-	"tagsById": [],
+	"tags": [
+		{
+			"id": 318,
+			"game_id": 345,
+			"order": 1,
+			"title": "Phantom Illusionist Ruins",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{ "id": 319, "game_id": 345, "order": 2, "title": "Lake", "icon": null, "color": null, "icon_color": null }
+	],
+	"tagsById": {
+		"318": {
+			"id": 318,
+			"game_id": 345,
+			"order": 1,
+			"title": "Phantom Illusionist Ruins",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"319": {
+			"id": 319,
+			"game_id": 345,
+			"order": 2,
+			"title": "Lake",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
+	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
 	"presets": [],

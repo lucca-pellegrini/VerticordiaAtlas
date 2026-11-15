@@ -13,7 +13,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 13,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 1027,
@@ -26,7 +27,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -37,16 +39,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "genshin-impact",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/genshin-impact/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 2050,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "324B60",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -196,10 +205,17 @@
 		{
 			"id": 2051,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Activities",
 			"order": 20,
 			"color": "6082a0",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -293,10 +309,17 @@
 		{
 			"id": 2052,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "A37EEE",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -418,10 +441,17 @@
 		{
 			"id": 2053,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Items",
 			"order": 20,
 			"color": "6191B4",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -571,10 +601,17 @@
 		{
 			"id": 2054,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "C49E06",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -640,10 +677,17 @@
 		{
 			"id": 2055,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Other",
 			"order": 30,
 			"color": "628b7c",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -763,6 +807,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"11943": {
 			"id": 11943,
@@ -1503,6 +1548,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 427312,
@@ -9363,7 +9409,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "cronos-pro",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/genshin-impact/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": true,
 			"subregionsEnabled": true,

@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -35,12 +36,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "assassins-creed-brotherhood",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 360,
 			"game_id": 36,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "342F2B",
@@ -284,6 +286,7 @@
 		{
 			"id": 361,
 			"game_id": 36,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "BF5756",
@@ -415,6 +418,7 @@
 		{
 			"id": 363,
 			"game_id": 36,
+			"section_id": null,
 			"title": "Missions",
 			"order": 25,
 			"color": "599C4E",
@@ -742,6 +746,7 @@
 		{
 			"id": 362,
 			"game_id": 36,
+			"section_id": null,
 			"title": "Vendors",
 			"order": 30,
 			"color": "6A8A93",
@@ -929,6 +934,7 @@
 		{
 			"id": 364,
 			"game_id": 36,
+			"section_id": null,
 			"title": "Other",
 			"order": 50,
 			"color": "5F5749",
@@ -974,6 +980,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"1494": {
 			"id": 1494,
@@ -1874,7 +1881,8 @@
 								[-0.5255186634538278, 0.4685564393207298],
 								[-0.37891984753585906, 0.5159332295081064],
 								[-0.3524839954850778, 0.54614433384645],
-								[-0.37411332898117156, 0.6051928643491905]
+								[-0.37411332898117156, 0.6051928643491905],
+								[-0.3904953407413214, 0.6167870655949504]
 							]
 						]
 					},
@@ -1951,7 +1959,8 @@
 								[-0.5793498617544035, 0.8907590940367192],
 								[-0.6081889730825285, 0.9058634385372559],
 								[-0.6172870260610441, 0.9461985925474476],
-								[-0.6382297140493254, 0.950832814626666]
+								[-0.6382297140493254, 0.950832814626666],
+								[-0.6499483696277841, 0.9437555201619635]
 							]
 						]
 					},
@@ -2032,7 +2041,8 @@
 								[-0.6410219780262216, 0.9017039376010946],
 								[-0.6463434807117685, 0.9069389574668775],
 								[-0.6462576500232919, 0.9121739697607647],
-								[-0.6499483696277841, 0.9152634816422381]
+								[-0.6499483696277841, 0.9152634816422381],
+								[-0.6499483696277841, 0.9437555201619635]
 							]
 						]
 					},
@@ -2081,7 +2091,8 @@
 								[-0.9181127473617057, 0.97048063821853],
 								[-0.9218892976546744, 0.913496765659446],
 								[-0.8364019319320182, 0.9286010149844028],
-								[-0.7849035188460807, 0.9364963924217014]
+								[-0.7849035188460807, 0.9364963924217014],
+								[-0.7187185918049077, 0.9450019501669293]
 							]
 						]
 					},
@@ -2216,7 +2227,7 @@
 			"region_id": 2241,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Valentino da Siena",
 			"latitude": "0.60040748690376",
 			"longitude": "-0.80577163740315",
 			"features": null,
@@ -2230,7 +2241,7 @@
 			"region_id": 2241,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": null,
+			"description": "Belardino da Verona",
 			"latitude": "0.72446331448875",
 			"longitude": "-0.76530238874057",
 			"features": null,
@@ -2244,7 +2255,7 @@
 			"region_id": 2241,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Pietro da Siena",
 			"latitude": "0.81263730671054",
 			"longitude": "-0.78326962278152",
 			"features": null,
@@ -2258,7 +2269,7 @@
 			"region_id": 2241,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Iacopo de Grassi",
 			"latitude": "0.83855846946910",
 			"longitude": "-0.68550234303711",
 			"features": null,
@@ -2272,7 +2283,7 @@
 			"region_id": 2241,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Domenico da Padova",
 			"latitude": "0.77238955142690",
 			"longitude": "-0.64859514699219",
 			"features": null,
@@ -2286,7 +2297,7 @@
 			"region_id": 2239,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": null,
+			"description": "Ippolito di Foligno",
 			"latitude": "0.55563108043645",
 			"longitude": "-0.49286633646386",
 			"features": null,
@@ -2300,7 +2311,7 @@
 			"region_id": 2239,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Tommaso di Viterbo",
 			"latitude": "0.55229153197785",
 			"longitude": "-0.73027682456700",
 			"features": null,
@@ -2314,7 +2325,7 @@
 			"region_id": 2239,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Prospero da Siena",
 			"latitude": "0.63678653872697",
 			"longitude": "-0.68443718295703",
 			"features": null,
@@ -2328,7 +2339,7 @@
 			"region_id": 2240,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": null,
+			"description": "Ferdinando di Napoli",
 			"latitude": "0.65032981141342",
 			"longitude": "-0.44074926180826",
 			"features": null,
@@ -2342,7 +2353,7 @@
 			"region_id": 2240,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Battista Borgia",
 			"latitude": "0.71893309536071",
 			"longitude": "-0.52772026567413",
 			"features": null,
@@ -2356,7 +2367,7 @@
 			"region_id": 2240,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Antonio da Fiorentino",
 			"latitude": "0.85165443795917",
 			"longitude": "-0.48629176363261",
 			"features": null,
@@ -2370,7 +2381,7 @@
 			"region_id": 2240,
 			"category_id": 1508,
 			"title": "Borgia Tower",
-			"description": "",
+			"description": "Francesco da Velletri",
 			"latitude": "0.77064506080644",
 			"longitude": "-0.56783663690567",
 			"features": null,
@@ -9916,7 +9927,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

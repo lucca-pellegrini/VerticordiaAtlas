@@ -298,6 +298,7 @@
 			"slug": "factory",
 			"title": "Factory",
 			"data": "factory/data.json",
+			"compact": "factory/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Light",
@@ -319,13 +320,13 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			],
-			"compact": "factory/data.compact.json"
+			]
 		},
 		{
 			"slug": "woods",
 			"title": "Woods",
 			"data": "woods/data.json",
+			"compact": "woods/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Light",
@@ -337,13 +338,13 @@
 					"tileSize": 256,
 					"background": "#141414"
 				}
-			],
-			"compact": "woods/data.compact.json"
+			]
 		},
 		{
 			"slug": "customs",
 			"title": "Customs",
 			"data": "customs/data.json",
+			"compact": "customs/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Light",
@@ -355,13 +356,13 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			],
-			"compact": "customs/data.compact.json"
+			]
 		},
 		{
 			"slug": "interchange",
 			"title": "Interchange",
 			"data": "interchange/data.json",
+			"compact": "interchange/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Light",
@@ -370,7 +371,8 @@
 					"maxzoom": 16,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#dadada"
 				},
 				{
 					"name": "Old",
@@ -381,13 +383,13 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "interchange/data.compact.json"
+			]
 		},
 		{
 			"slug": "shoreline",
 			"title": "Shoreline",
 			"data": "shoreline/data.json",
+			"compact": "shoreline/data.compact.json",
 			"tilesets": [
 				{
 					"name": "0.14",
@@ -396,7 +398,8 @@
 					"maxzoom": 15,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#0e0e0e"
 				},
 				{
 					"name": "0.13",
@@ -407,13 +410,13 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "shoreline/data.compact.json"
+			]
 		},
 		{
 			"slug": "lab",
 			"title": "The Lab",
 			"data": "lab/data.json",
+			"compact": "lab/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Light",
@@ -424,13 +427,13 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "lab/data.compact.json"
+			]
 		},
 		{
 			"slug": "labyrinth",
 			"title": "The Labyrinth",
 			"data": "labyrinth/data.json",
+			"compact": "labyrinth/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -441,8 +444,7 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "labyrinth/data.compact.json"
+			]
 		}
 	]
 }

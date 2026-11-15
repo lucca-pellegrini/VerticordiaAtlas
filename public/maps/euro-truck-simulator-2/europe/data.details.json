@@ -141,6 +141,10 @@
 		"595205": [
 			"A secret road running along the dutch beach in the Zeeland region, in between dunes. Connects to the N57.",
 			[]
-		]
+		],
+		"1084020": ["Ferry to [Stykkisholmur Port](#loc=1084047)", []],
+		"1084047": ["Ferry to [Brjanslaekur Port](#loc=1084020)", []],
+		"1084063": ["Ferry to ??", []],
+		"1084122": ["Ferry to ??", []]
 	}
 }

@@ -13,7 +13,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 73,
@@ -37,7 +38,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -54,6 +56,7 @@
 		{
 			"id": 200,
 			"game_id": 20,
+			"section_id": null,
 			"title": "Loot",
 			"order": 10,
 			"color": "386150",
@@ -549,6 +552,7 @@
 		{
 			"id": 201,
 			"game_id": 20,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 10,
 			"color": "9c3443",
@@ -624,6 +628,7 @@
 		{
 			"id": 202,
 			"game_id": 20,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "453A49",
@@ -865,6 +870,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"941": {
 			"id": 941,

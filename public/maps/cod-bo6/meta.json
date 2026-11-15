@@ -1,0 +1,376 @@
+{
+	"id": "call-of-duty-black-ops-6",
+	"title": "Call of Duty: Black Ops 6",
+	"slug": "call-of-duty-black-ops-6",
+	"source": "https://mapgenie.io/call-of-duty-black-ops-6",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": {
+		"font": "icons/icons.woff",
+		"glyphs": {
+			"aether_crystal": [
+				{
+					"cp": "e900",
+					"color": "#ffffff"
+				}
+			],
+			"ammo_cache": [
+				{
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"armor_wall_buy": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"arsenal": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"artifact": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"audio_log": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"chompy": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"crafting_table": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"der_wunderfizz": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"dig_spot": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"document": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"door_buy": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg_item": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg_location": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"exfil": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"fast_travel": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"gobblegum_machine": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"headphones": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"mannequin": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"mystery_box": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"obstruction": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"pack_a_punch": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"perk_machine": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"power_door": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"power_pump": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"power_switch": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"rampage_inducer": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"shovel": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"spore_plant": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"statue": [
+				{
+					"cp": "e920",
+					"color": "#efbf04"
+				}
+			],
+			"tedd_tasks": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"teleport_pad": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"trap": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"vehicle_summon_station": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"weapon_wall_buy": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"wooden_box": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"workbench": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"ziplineascender": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			]
+		}
+	},
+	"maps": [
+		{
+			"slug": "zombies-liberty-falls",
+			"title": "Zombies: Liberty Falls",
+			"data": "zombies-liberty-falls/data.json",
+			"compact": "zombies-liberty-falls/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-liberty-falls/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 12,
+					"viewMaxzoom": 13,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#15120b"
+				}
+			]
+		},
+		{
+			"slug": "zombies-terminus",
+			"title": "Zombies: Terminus",
+			"data": "zombies-terminus/data.json",
+			"compact": "zombies-terminus/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-terminus/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#15120b"
+				}
+			]
+		},
+		{
+			"slug": "zombies-citadelle-des-morts",
+			"title": "Zombies: Citadelle des Morts",
+			"data": "zombies-citadelle-des-morts/data.json",
+			"compact": "zombies-citadelle-des-morts/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-citadelle-des-morts/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#15120b"
+				}
+			]
+		},
+		{
+			"slug": "zombies-the-tomb",
+			"title": "Zombies: The Tomb",
+			"data": "zombies-the-tomb/data.json",
+			"compact": "zombies-the-tomb/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-the-tomb/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#15120b"
+				}
+			]
+		},
+		{
+			"slug": "zombies-shattered-veil",
+			"title": "Zombies: Shattered Veil",
+			"data": "zombies-shattered-veil/data.json",
+			"compact": "zombies-shattered-veil/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-shattered-veil/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 13,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#15120b"
+				}
+			]
+		},
+		{
+			"slug": "zombies-reckoning",
+			"title": "Zombies: Reckoning",
+			"data": "zombies-reckoning/data.json",
+			"compact": "zombies-reckoning/data.compact.json",
+			"tilesets": [
+				{
+					"name": "default-v1",
+					"template": "zombies-reckoning/tiles/default-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#15120b"
+				}
+			]
+		}
+	]
+}

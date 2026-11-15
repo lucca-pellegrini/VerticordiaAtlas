@@ -20,7 +20,8 @@
 					"11": { "x": { "max": 1023, "min": 1016 }, "y": { "max": 1023, "min": 1016 } },
 					"12": { "x": { "max": 2047, "min": 2032 }, "y": { "max": 2047, "min": 2032 } },
 					"13": { "x": { "max": 4095, "min": 4064 }, "y": { "max": 4095, "min": 4064 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -37,6 +38,7 @@
 		{
 			"id": 26949,
 			"game_id": 314,
+			"section_id": null,
 			"title": "Locations",
 			"order": 1,
 			"color": "3F4D52",
@@ -224,6 +226,7 @@
 		{
 			"id": 26959,
 			"game_id": 314,
+			"section_id": null,
 			"title": "MesuKing",
 			"order": 2,
 			"color": "7C59B1",
@@ -299,6 +302,7 @@
 		{
 			"id": 26950,
 			"game_id": 314,
+			"section_id": null,
 			"title": "Substories",
 			"order": 3,
 			"color": "59B1A8",
@@ -542,6 +546,7 @@
 		{
 			"id": 26951,
 			"game_id": 314,
+			"section_id": null,
 			"title": "Other",
 			"order": 4,
 			"color": "505E79",
@@ -615,6 +620,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"27351": {
 			"id": 27351,

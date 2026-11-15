@@ -6,6 +6,7 @@
 			"Located underground. To get to it you enter [the cave to the north](#loc=29673) where the Father knows Worst quest is.  In the cave there is a wall you must blast with Aard to reach it.",
 			[]
 		],
+		"29655": ["Previously named Vintner's Contract: Griffin-in-the-Vines.", []],
 		"29658": ["Speak to the injured merchant", []],
 		"29665": [
 			"Endregas\n\nDestroy nest after killing the endregas.\n\nSolves a problem for Wine Wars: Belgaard",
@@ -271,7 +272,7 @@
 			[]
 		],
 		"426013": [
-			"**Note:** Only available after main quest \" La Cage au Fou\" and before finishing the next main quest \"Where Children Toil, Toys Waste Away\"  \n\n**Guest Giver:** Proximity to location  \n**Level:** 42  \n**Rewards:** \n- 400 XP",
+			"**Note:** Only available after main quest [\" La Cage au Fou\"](#loc=1064352) and before finishing the next main quest \"Where Children Toil, Toys Waste Away\"  \n\n**Guest Giver:** Proximity to location  \n**Level:** 42  \n**Rewards:** \n- 400 XP",
 			[]
 		],
 		"426014": ["**Quest Giver:** ??  \n**Level:** ??  \n\n**Rewards:**  \n- ??", []],
@@ -398,13 +399,16 @@
 			"**Quest Giver:** Matilda of Vermentino   \n\n**Level:** 37\n\n**Rewards:** \n- 525 - 875 Crowns\n- 100 XP",
 			[]
 		],
-		"956487": ["**Level:** 47\n\n**Rewards:** 3,000 XP", []],
+		"956487": [
+			"Next [The Night of the Long Fangs](#loc=959755) | Previous [The Man from Cintra](#loc=1064366)\n\n**Level:** 47\n\n**Rewards:** 3,000 XP",
+			[]
+		],
 		"959755": [
-			"**Level:** 47\n\nDescription: Make your choice to either find Damien to track down Syanna, or see Orianna to find the Unseen Elder.\n\n**Rewards:**\n- 200 XP\n- 200 XP for finding Damien\n- 200 XP for speaking to Orianna",
+			"Next [Blood Simple](#loc=959758) | Previous [Capture the Castle](#loc=956487)\n\n**Level:** 47\n\nDescription: Make your choice to either find Damien to track down Syanna, or see Orianna to find the Unseen Elder.\n\n**Rewards:**\n- 200 XP\n- 200 XP for finding Damien\n- 200 XP for speaking to Orianna",
 			[]
 		],
 		"959758": [
-			"**Level:** 47\n\nSpeak to Orianna during The Night of the Long Fangs to track down the Unseen Elder.\n\n**Rewards:**\n- 1,000 XP\n- Garkain Trophy\n- Magic Key (quest item)",
+			"Next | Previous [The Night of the Long Fangs](#loc=959755)\n\n**Level:** 47\n\nSpeak to Orianna during The Night of the Long Fangs to track down the Unseen Elder.\n\n**Rewards:**\n- 1,000 XP\n- Garkain Trophy\n- Magic Key (quest item)",
 			[]
 		],
 		"1052960": [
@@ -424,6 +428,21 @@
 				}
 			]
 		],
-		"1052961": ["[Chucote Cave](#loc=215991)", []]
+		"1052961": ["[Chucote Cave](#loc=215991)", []],
+		"1064352": ["Next | Previous [Blood Run](#loc=426131)\n\n**Level:** 39", []],
+		"1064356": [
+			"Next [Wine is Sacred](#loc=1064362) | Previous [La Cage au Fou](#loc=1064352)\n\n**Level:** 42",
+			[]
+		],
+		"1064362": [
+			"Next [The Man from Cintra](#loc=1064366) | Previous [Where Children Toil, Toys Waste Away](#loc=1064356)\n\n**Level:** 42",
+			[]
+		],
+		"1064366": ["Next | Previous [Wine is Sacred](#loc=1064362)\n\n**Level:** 43", []],
+		"1064369": [
+			"Next [Tesham Mutna](#loc=1064373) | Previous [The Night of the Long Fangs](#loc=959755)\n\n**Level:** 47",
+			[]
+		],
+		"1064373": ["Next | Previous [Beyond Hill and Dale](#loc=1064369)\n\n**Level:** 49", []]
 	}
 }

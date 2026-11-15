@@ -184,6 +184,7 @@
 			"slug": "lumiose-city",
 			"title": "Lumiose City",
 			"data": "lumiose-city/data.json",
+			"compact": "lumiose-city/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Day",
@@ -205,8 +206,7 @@
 					"tileSize": 256,
 					"background": "#191a2c"
 				}
-			],
-			"compact": "lumiose-city/data.compact.json"
+			]
 		}
 	]
 }

@@ -12,106 +12,13 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"icons": {
-		"font": "icons/icons.woff",
-		"glyphs": {
-			"outfit": [
-				{
-					"cp": "e900"
-				}
-			],
-			"stunt_jump": [
-				{
-					"cp": "e901"
-				}
-			],
-			"wanted_poster": [
-				{
-					"cp": "e902"
-				}
-			],
-			"character": [
-				{
-					"cp": "e903"
-				}
-			],
-			"comic": [
-				{
-					"cp": "e904"
-				}
-			],
-			"easter_egg": [
-				{
-					"cp": "e905"
-				}
-			],
-			"hidden_car": [
-				{
-					"cp": "e906"
-				}
-			],
-			"miscellaneous": [
-				{
-					"cp": "e907"
-				}
-			],
-			"mystery_fox": [
-				{
-					"cp": "e908"
-				}
-			],
-			"point_of_interest": [
-				{
-					"cp": "e909"
-				}
-			],
-			"post_card": [
-				{
-					"cp": "e90a"
-				}
-			],
-			"pulp": [
-				{
-					"cp": "e90b"
-				}
-			],
-			"story_mission": [
-				{
-					"cp": "e90c"
-				}
-			],
-			"cigarette_card": [
-				{
-					"cp": "e90d"
-				}
-			],
-			"gas_station": [
-				{
-					"cp": "e90e"
-				}
-			],
-			"note": [
-				{
-					"cp": "e90f"
-				}
-			],
-			"meds": [
-				{
-					"cp": "e910"
-				}
-			],
-			"side_mission": [
-				{
-					"cp": "e911"
-				}
-			]
-		}
-	},
+	"icons": null,
 	"maps": [
 		{
 			"slug": "lost-heaven",
 			"title": "Lost Heaven",
 			"data": "lost-heaven/data.json",
+			"compact": "lost-heaven/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -123,8 +30,7 @@
 					"tileSize": 256,
 					"background": "#20302d"
 				}
-			],
-			"compact": "lost-heaven/data.compact.json"
+			]
 		}
 	]
 }

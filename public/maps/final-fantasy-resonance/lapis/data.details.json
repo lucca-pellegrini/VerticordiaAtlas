@@ -8628,6 +8628,11 @@
 		"1054880": [
 			"**Location:** Turns the [Ancient Tome](#loc=1054866) into Last Resort after defeating the [Lv.50 Elnath](#loc=1054879)\n\n**Usable by:** Nichol  \n**Stats:**\n\n- {{phys-atk width=16}} Physical Attack: 112\n- {{mag-atk width=16}} Magical Attack: 193\n- {{sanctity width=16}} Sanctity: 124\n- Fills the LB gauge by 10% when performing an action without dealing damage\n- Increases the duration of buffs applied by the wielder by 1 turn",
 			[]
+		],
+		"1084381": ["**Location:** Behind container obscured from view", []],
+		"1084382": [
+			"**Location:** After crate-puzzle: Inside treasure chest in hidden room.\n\n**Usable by:** Nichol  \n\n**Stats:**\n\n- Phys. Atk. 35 | Mag. Atk. 93\n\n- Increases damage dealt by Water attacks by 30%",
+			[]
 		]
 	}
 }

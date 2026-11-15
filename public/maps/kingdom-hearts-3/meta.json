@@ -130,6 +130,7 @@
 			"slug": "twilight-town",
 			"title": "Twilight Town",
 			"data": "twilight-town/data.json",
+			"compact": "twilight-town/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -140,13 +141,13 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "twilight-town/data.compact.json"
+			]
 		},
 		{
 			"slug": "kingdom-of-corona",
 			"title": "Kingdom of Corona",
 			"data": "kingdom-of-corona/data.json",
+			"compact": "kingdom-of-corona/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -157,13 +158,13 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "kingdom-of-corona/data.compact.json"
+			]
 		},
 		{
 			"slug": "monstropolis",
 			"title": "Monstropolis",
 			"data": "monstropolis/data.json",
+			"compact": "monstropolis/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -174,13 +175,13 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "monstropolis/data.compact.json"
+			]
 		},
 		{
 			"slug": "olympus",
 			"title": "Olympus",
 			"data": "olympus/data.json",
+			"compact": "olympus/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -191,13 +192,13 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "olympus/data.compact.json"
+			]
 		},
 		{
 			"slug": "the-caribbean",
 			"title": "The Caribbean",
 			"data": "the-caribbean/data.json",
+			"compact": "the-caribbean/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -208,13 +209,13 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "the-caribbean/data.compact.json"
+			]
 		},
 		{
 			"slug": "toy-box",
 			"title": "Toy Box",
 			"data": "toy-box/data.json",
+			"compact": "toy-box/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -225,13 +226,13 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "toy-box/data.compact.json"
+			]
 		},
 		{
 			"slug": "keyblade-graveyard",
 			"title": "Keyblade Graveyard",
 			"data": "keyblade-graveyard/data.json",
+			"compact": "keyblade-graveyard/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -243,13 +244,13 @@
 					"tileSize": 256,
 					"background": "#614440"
 				}
-			],
-			"compact": "keyblade-graveyard/data.compact.json"
+			]
 		},
 		{
 			"slug": "san-fransokyo",
 			"title": "San Fransokyo",
 			"data": "san-fransokyo/data.json",
+			"compact": "san-fransokyo/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -261,13 +262,13 @@
 					"tileSize": 256,
 					"background": "#40279c"
 				}
-			],
-			"compact": "san-fransokyo/data.compact.json"
+			]
 		},
 		{
 			"slug": "arendelle",
 			"title": "Arendelle",
 			"data": "arendelle/data.json",
+			"compact": "arendelle/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -278,13 +279,13 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "arendelle/data.compact.json"
+			]
 		},
 		{
 			"slug": "remind",
 			"title": "Re:Mind",
 			"data": "remind/data.json",
+			"compact": "remind/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -296,8 +297,7 @@
 					"tileSize": 256,
 					"background": "#614440"
 				}
-			],
-			"compact": "remind/data.compact.json"
+			]
 		}
 	]
 }

@@ -12,71 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "world",
-			"title": "World",
-			"data": "world/data.json",
-			"tilesets": [
-				{
-					"name": "V1",
-					"template": "world/tiles/low-res-v1/{z}/{x}/{y}.jpg",
-					"minzoom": 9,
-					"maxzoom": 15,
-					"viewMaxzoom": 15,
-					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
-					"tileSize": 256,
-					"background": "#2c3039"
-				},
-				{
-					"name": "V2",
-					"template": "world/tiles/default-v2/{z}/{x}/{y}.jpg",
-					"minzoom": 9,
-					"maxzoom": 15,
-					"viewMaxzoom": 14,
-					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
-					"tileSize": 256,
-					"background": "#2c3039"
-				}
-			],
-			"compact": "world/data.compact.json"
-		},
-		{
-			"slug": "hogwarts",
-			"title": "Hogwarts",
-			"data": "hogwarts/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "hogwarts/tiles/default-v1/{z}/{x}/{y}.jpg",
-					"minzoom": 9,
-					"maxzoom": 15,
-					"viewMaxzoom": 15,
-					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
-					"tileSize": 256,
-					"background": "#968662"
-				}
-			],
-			"compact": "hogwarts/data.compact.json"
-		},
-		{
-			"slug": "hogsmeade",
-			"title": "Hogsmeade",
-			"data": "hogsmeade/data.json",
-			"tilesets": [
-				{
-					"name": "Default",
-					"template": "hogsmeade/tiles/derp-v1/{z}/{x}/{y}.jpg",
-					"minzoom": 9,
-					"maxzoom": 14,
-					"viewMaxzoom": 14,
-					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
-					"tileSize": 256
-				}
-			],
-			"compact": "hogsmeade/data.compact.json"
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -381,5 +316,70 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "world",
+			"title": "World",
+			"data": "world/data.json",
+			"compact": "world/data.compact.json",
+			"tilesets": [
+				{
+					"name": "V1",
+					"template": "world/tiles/low-res-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#2c3039"
+				},
+				{
+					"name": "V2",
+					"template": "world/tiles/default-v2/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#2c3039"
+				}
+			]
+		},
+		{
+			"slug": "hogwarts",
+			"title": "Hogwarts",
+			"data": "hogwarts/data.json",
+			"compact": "hogwarts/data.compact.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hogwarts/tiles/default-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 15,
+					"viewMaxzoom": 15,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256,
+					"background": "#968662"
+				}
+			]
+		},
+		{
+			"slug": "hogsmeade",
+			"title": "Hogsmeade",
+			"data": "hogsmeade/data.json",
+			"compact": "hogsmeade/data.compact.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "hogsmeade/tiles/derp-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
+					"tileSize": 256
+				}
+			]
+		}
+	]
 }

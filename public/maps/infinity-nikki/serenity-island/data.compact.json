@@ -13,7 +13,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 1029,
@@ -26,7 +27,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 1030,
@@ -39,7 +41,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 2,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 1031,
@@ -52,7 +55,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 3,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 1032,
@@ -65,7 +69,8 @@
 				"max_zoom": 14,
 				"tiles_max_zoom": 14,
 				"order": 4,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -76,16 +81,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "genshin-impact",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/genshin-impact/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 2050,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "324B60",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -207,10 +219,17 @@
 		{
 			"id": 2051,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Activities",
 			"order": 20,
 			"color": "6082a0",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -304,10 +323,17 @@
 		{
 			"id": 2052,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "A37EEE",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -457,10 +483,17 @@
 		{
 			"id": 2053,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Items",
 			"order": 20,
 			"color": "6191B4",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -582,10 +615,17 @@
 		{
 			"id": 2054,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "C49E06",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -679,10 +719,17 @@
 		{
 			"id": 2055,
 			"game_id": 205,
+			"section_id": null,
 			"title": "Other",
 			"order": 30,
 			"color": "628b7c",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -744,6 +791,34 @@
 					"locations_count": 1
 				},
 				{
+					"id": 14364,
+					"group_id": 2055,
+					"title": "Journey of Discovery",
+					"icon": "journey_of_discovery",
+					"color": null,
+					"icon_color": null,
+					"info": "A weekly Starlit Pursuit. Follow the Blings to collect Starlit Crystals that you can use to purchase items in the Starlit Shop.",
+					"template": "_A strange phenomenon has appeared ?? the ??. You might be able to collect starlight spilling out of the Sea of Stars there._",
+					"order": 1,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
+				},
+				{
 					"id": 11974,
 					"group_id": 2055,
 					"title": "Miscellaneous",
@@ -770,34 +845,6 @@
 					"description": null,
 					"premium": false,
 					"locations_count": 11
-				},
-				{
-					"id": 14364,
-					"group_id": 2055,
-					"title": "Placeholder 5",
-					"icon": "placeholder_5",
-					"color": null,
-					"icon_color": null,
-					"info": "A weekly Starlit Pursuit. Follow the Blings to collect Starlit Crystals that you can use to purchase items in the Starlit Shop.",
-					"template": "_A strange phenomenon has appeared ?? the ??. You might be able to collect starlight spilling out of the Sea of Stars there._",
-					"order": 1,
-					"has_heatmap": false,
-					"features_enabled": false,
-					"display_type": "marker",
-					"circle_color": null,
-					"circle_stroke_color": null,
-					"circle_opacity": null,
-					"circle_radius": null,
-					"area_config": null,
-					"ign_enabled": true,
-					"ign_visible": true,
-					"suggestion_locked": false,
-					"suggestion_add_locked": false,
-					"featured": false,
-					"visible": true,
-					"description": null,
-					"premium": false,
-					"locations_count": 1
 				},
 				{
 					"id": 12902,
@@ -830,6 +877,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"11943": {
 			"id": 11943,
@@ -1478,8 +1526,8 @@
 		"14364": {
 			"id": 14364,
 			"group_id": 2055,
-			"title": "Placeholder 5",
-			"icon": "placeholder_5",
+			"title": "Journey of Discovery",
+			"icon": "journey_of_discovery",
 			"color": null,
 			"icon_color": null,
 			"info": "A weekly Starlit Pursuit. Follow the Blings to collect Starlit Crystals that you can use to purchase items in the Starlit Shop.",
@@ -1587,6 +1635,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [],
@@ -1599,7 +1648,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "cronos-pro",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/genshin-impact/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": true,
 			"subregionsEnabled": true,
@@ -1700,8 +1749,8 @@
 			454845, 456674, 456677, 456683, 456685, 456989, 456996, 456997, 457005, 457012, 457022, 457031, 457034,
 			498325, 454481, 454483, 456510, 456527, 450318, 455823, 455824, 455825, 455826, 456358, 456373, 456375,
 			456988, 457018, 457029, 457039, 449573, 450510, 455631, 456371, 457027, 457040, 457041, 457046, 506322,
-			457043, 456686, 457016, 455873, 449568, 450511, 450516, 450517, 450518, 454482, 454485, 454493, 456882,
-			457001, 457024, 483523, 455846, 455862, 455863, 455886, 456339, 456355, 456374, 456509, 456524, 456879,
+			457043, 456686, 457016, 455873, 483523, 449568, 450511, 450516, 450517, 450518, 454482, 454485, 454493,
+			456882, 457001, 457024, 455846, 455862, 455863, 455886, 456339, 456355, 456374, 456509, 456524, 456879,
 			456880, 457023, 457049
 		],
 		"c": [
@@ -1726,7 +1775,7 @@
 			11967, 11967, 11967, 11967, 11967, 11967, 11967, 11967, 11967, 11967, 11967, 11967, 11967, 11967, 11967,
 			11967, 11967, 11979, 11979, 11979, 11979, 11970, 11970, 11970, 11970, 11970, 11970, 11970, 11970, 11970,
 			11970, 11970, 11970, 11971, 11971, 11971, 11971, 11971, 11971, 11971, 11971, 11971, 11969, 12018, 12018,
-			11978, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 14364, 12902, 12902,
+			11978, 14364, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 11974, 12902, 12902,
 			12902, 12902, 12902, 12902, 12902, 12902, 12902, 12902, 12902, 12902, 12902
 		],
 		"r": [
@@ -2389,6 +2438,7 @@
 			"Competitive Belt",
 			"Thing in the Mist",
 			"Fishing Spot",
+			"Journey of Discovery",
 			"Grand Patch Stage",
 			"Gifty: Thuddy Squash Forever",
 			"Gifty: Joyful Tunes",
@@ -2400,7 +2450,6 @@
 			"Gifty: Pink Crystal Salt",
 			"Competitive Belt",
 			"Giftie: So Big, So Shiny",
-			"Journey of Discovery",
 			"Springbloom",
 			"Springbloom",
 			"Springbloom",
@@ -2468,9 +2517,9 @@
 			0.73205148167258, 0.71248363965809, 0.70387977040718, 0.64683851429031, 0.6437166209956, 0.63340684988371,
 			0.73580626622632, 0.6484048242951, 0.6457013300154, 0.70488820478633, 0.74195337810293, 0.6443173978607,
 			0.71176486316286, 0.66582730809799, 0.64772895086053, 0.73671814199825, 0.63176543801309, 0.63340684988371,
-			0.74449589832668, 0.62078513030421, 0.63935025843847, 0.56744959127239, 0.71394264831855, 0.73990434175582,
-			0.71638863238599, 0.7323518645516, 0.71089589441719, 0.70947979684681, 0.63245740582826, 0.66590776893383,
-			0.64993358530079, 0.56714383443187, 0.6536026098306, 0.6498906727185, 0.69520615297807, 0.71038631390225,
+			0.74449589832668, 0.62078513030421, 0.63935025843847, 0.56744959127239, 0.6498906727185, 0.71394264831855,
+			0.73990434175582, 0.71638863238599, 0.7323518645516, 0.71089589441719, 0.70947979684681, 0.63245740582826,
+			0.66590776893383, 0.64993358530079, 0.56714383443187, 0.6536026098306, 0.69520615297807, 0.71038631390225,
 			0.72186527179413, 0.74299398782115, 0.71224225950714, 0.62865962786093, 0.70481310861476, 0.62353155041046,
 			0.58225463980746, 0.62602049239314, 0.60765378956849, 0.69342529695693, 0.73588136188282
 		],
@@ -2538,9 +2587,9 @@
 			-0.73890566825796, -0.7649123668655, -0.74749946594233, -0.74772477150103, -0.73339104652297,
 			-0.70183753967356, -0.67602396011185, -0.7499778270726, -0.77358126640203, -0.74389457702583,
 			-0.7499992847435, -0.78496456145899, -0.68227887153932, -0.71330130100262, -0.78242182731714,
-			-0.72966277599338, -0.74874937534409, -0.73588013649078, -0.72446465492291, -0.72318255901413,
-			-0.70147275924666, -0.66836893558352, -0.69152712822137, -0.7471722364422, -0.78398287296099,
-			-0.79001247882749, -0.78360199928412, -0.74470996856829, -0.76599597931013, -0.75825512409253,
+			-0.72966277599338, -0.74470996856829, -0.74874937534409, -0.73588013649078, -0.72446465492291,
+			-0.72318255901413, -0.70147275924666, -0.66836893558352, -0.69152712822137, -0.7471722364422,
+			-0.78398287296099, -0.79001247882749, -0.78360199928412, -0.76599597931013, -0.75825512409253,
 			-0.73326230049187, -0.65858960151556, -0.65786004066462, -0.69725632667493, -0.70782959461343,
 			-0.84764778613953, -0.82293391227699, -0.79290926456571, -0.75316965580058, -0.81372857093839,
 			-0.75228452682424

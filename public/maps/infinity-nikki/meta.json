@@ -15,299 +15,406 @@
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
-			"world_quest": [
+			"2d_graffiti_entrance": [
 				{
-					"cp": "e900"
-				}
-			],
-			"whimstar": [
-				{
-					"cp": "e901"
-				}
-			],
-			"whimcycle_rental": [
-				{
-					"cp": "e902"
-				}
-			],
-			"whim_jade": [
-				{
-					"cp": "e903"
-				}
-			],
-			"whim_bubble": [
-				{
-					"cp": "e904"
-				}
-			],
-			"whim_balloon": [
-				{
-					"cp": "e905"
-				}
-			],
-			"warp_spire": [
-				{
-					"cp": "e906"
-				}
-			],
-			"warp_nexus": [
-				{
-					"cp": "e907"
-				}
-			],
-			"wardrobe": [
-				{
-					"cp": "e908"
-				}
-			],
-			"violin_performance": [
-				{
-					"cp": "e909"
-				}
-			],
-			"valuable": [
-				{
-					"cp": "e90a"
-				}
-			],
-			"upgrade_material": [
-				{
-					"cp": "e90b"
-				}
-			],
-			"surprise_o_matic": [
-				{
-					"cp": "e90c"
-				}
-			],
-			"styling_challenge": [
-				{
-					"cp": "e90d"
-				}
-			],
-			"stray_hatty": [
-				{
-					"cp": "e90e"
-				}
-			],
-			"starlit_crystal": [
-				{
-					"cp": "e90f"
-				}
-			],
-			"springbloom": [
-				{
-					"cp": "e910"
-				}
-			],
-			"sky_monarch": [
-				{
-					"cp": "e911"
-				}
-			],
-			"sketch": [
-				{
-					"cp": "e912"
-				}
-			],
-			"serenity_dewdrop": [
-				{
-					"cp": "e913"
-				}
-			],
-			"recycling": [
-				{
-					"cp": "e914"
-				}
-			],
-			"record": [
-				{
-					"cp": "e915"
-				}
-			],
-			"random_quest": [
-				{
-					"cp": "e916"
-				}
-			],
-			"quest_item": [
-				{
-					"cp": "e917"
-				}
-			],
-			"power_box": [
-				{
-					"cp": "e918"
-				}
-			],
-			"miscellaneous": [
-				{
-					"cp": "e919"
-				}
-			],
-			"mini_game": [
-				{
-					"cp": "e91a"
-				}
-			],
-			"main_quest": [
-				{
-					"cp": "e91b"
-				}
-			],
-			"lore_item": [
-				{
-					"cp": "e91c"
-				}
-			],
-			"inkrealm_scroll": [
-				{
-					"cp": "e91d"
-				}
-			],
-			"house": [
-				{
-					"cp": "e91e"
-				}
-			],
-			"greedy_pouch": [
-				{
-					"cp": "e91f"
-				}
-			],
-			"gliding_station": [
-				{
-					"cp": "e920"
-				}
-			],
-			"general_store": [
-				{
-					"cp": "e921"
-				}
-			],
-			"fishing_spot": [
-				{
-					"cp": "e922"
-				}
-			],
-			"firework_launcher": [
-				{
-					"cp": "e923"
-				}
-			],
-			"expedition_photo": [
-				{
-					"cp": "e924"
-				}
-			],
-			"exclusive_quest": [
-				{
-					"cp": "e925"
-				}
-			],
-			"eureka": [
-				{
-					"cp": "e926"
-				}
-			],
-			"ethereal_star": [
-				{
-					"cp": "e927"
-				}
-			],
-			"enemy": [
-				{
-					"cp": "e928"
-				}
-			],
-			"easter_egg": [
-				{
-					"cp": "e929"
-				}
-			],
-			"dig_spot": [
-				{
-					"cp": "e92a"
-				}
-			],
-			"dew_of_inspiration": [
-				{
-					"cp": "e92b"
-				}
-			],
-			"dew_of_firework": [
-				{
-					"cp": "e92c"
-				}
-			],
-			"danqing_jade_soul": [
-				{
-					"cp": "e92d"
-				}
-			],
-			"curio_domain": [
-				{
-					"cp": "e92e"
-				}
-			],
-			"consumable": [
-				{
-					"cp": "e92f"
-				}
-			],
-			"chest_primary": [
-				{
-					"cp": "e930"
-				}
-			],
-			"chest_intermediate": [
-				{
-					"cp": "e931"
-				}
-			],
-			"chest_advanced": [
-				{
-					"cp": "e932"
-				}
-			],
-			"cavern": [
-				{
-					"cp": "e933"
-				}
-			],
-			"catapult_seal": [
-				{
-					"cp": "e934"
-				}
-			],
-			"box_game": [
-				{
-					"cp": "e935"
-				}
-			],
-			"boutique": [
-				{
-					"cp": "e936"
-				}
-			],
-			"boss": [
-				{
-					"cp": "e937"
-				}
-			],
-			"bling_esseling": [
-				{
-					"cp": "e938"
-				}
-			],
-			"bling": [
-				{
-					"cp": "e939"
+					"cp": "e900",
+					"color": "#ffffff"
 				}
 			],
 			"area": [
 				{
-					"cp": "e93a"
+					"cp": "e901",
+					"color": "#ffffff"
+				}
+			],
+			"bling": [
+				{
+					"cp": "e902",
+					"color": "#ffffff"
+				}
+			],
+			"bling_esseling": [
+				{
+					"cp": "e903",
+					"color": "#ffffff"
+				}
+			],
+			"boss": [
+				{
+					"cp": "e904",
+					"color": "#ffffff"
+				}
+			],
+			"bounce_board": [
+				{
+					"cp": "e905",
+					"color": "#ffffff"
+				}
+			],
+			"boutique": [
+				{
+					"cp": "e906",
+					"color": "#ffffff"
+				}
+			],
+			"box_game": [
+				{
+					"cp": "e907",
+					"color": "#ffffff"
+				}
+			],
+			"catapult_seal": [
+				{
+					"cp": "e908",
+					"color": "#ffffff"
+				}
+			],
+			"cavern": [
+				{
+					"cp": "e909",
+					"color": "#ffffff"
+				}
+			],
+			"chest_advanced": [
+				{
+					"cp": "e90a",
+					"color": "#ffffff"
+				}
+			],
+			"chest_intermediate": [
+				{
+					"cp": "e90b",
+					"color": "#ffffff"
+				}
+			],
+			"chest_primary": [
+				{
+					"cp": "e90c",
+					"color": "#ffffff"
+				}
+			],
+			"consumable": [
+				{
+					"cp": "e90d",
+					"color": "#ffffff"
+				}
+			],
+			"curio_domain": [
+				{
+					"cp": "e90e",
+					"color": "#ffffff"
+				}
+			],
+			"danqing_jade_soul": [
+				{
+					"cp": "e90f",
+					"color": "#ffffff"
+				}
+			],
+			"dew_of_firework": [
+				{
+					"cp": "e910",
+					"color": "#ffffff"
+				}
+			],
+			"dew_of_inspiration": [
+				{
+					"cp": "e911",
+					"color": "#ffffff"
+				}
+			],
+			"dig_spot": [
+				{
+					"cp": "e912",
+					"color": "#ffffff"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e913",
+					"color": "#ffffff"
+				}
+			],
+			"enemy": [
+				{
+					"cp": "e914",
+					"color": "#ffffff"
+				}
+			],
+			"ethereal_star": [
+				{
+					"cp": "e915",
+					"color": "#ffffff"
+				}
+			],
+			"eureka": [
+				{
+					"cp": "e916",
+					"color": "#ffffff"
+				}
+			],
+			"exclusive_quest": [
+				{
+					"cp": "e917",
+					"color": "#ffffff"
+				}
+			],
+			"expedition_photo": [
+				{
+					"cp": "e918",
+					"color": "#ffffff"
+				}
+			],
+			"firework_launcher": [
+				{
+					"cp": "e919",
+					"color": "#ffffff"
+				}
+			],
+			"fishing_spot": [
+				{
+					"cp": "e91a",
+					"color": "#ffffff"
+				}
+			],
+			"general_store": [
+				{
+					"cp": "e91b",
+					"color": "#ffffff"
+				}
+			],
+			"giftie": [
+				{
+					"cp": "e91c",
+					"color": "#ffffff"
+				}
+			],
+			"gliding_station": [
+				{
+					"cp": "e91d",
+					"color": "#ffffff"
+				}
+			],
+			"greedy_pouch": [
+				{
+					"cp": "e91e",
+					"color": "#ffffff"
+				}
+			],
+			"house": [
+				{
+					"cp": "e91f",
+					"color": "#ffffff"
+				}
+			],
+			"inkrealm_scroll": [
+				{
+					"cp": "e920",
+					"color": "#ffffff"
+				}
+			],
+			"journey_of_discovery": [
+				{
+					"cp": "e921",
+					"color": "#ffffff"
+				}
+			],
+			"lore_item": [
+				{
+					"cp": "e922",
+					"color": "#ffffff"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e923",
+					"color": "#ffffff"
+				}
+			],
+			"mini_game": [
+				{
+					"cp": "e924",
+					"color": "#ffffff"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e925",
+					"color": "#ffffff"
+				}
+			],
+			"power_box": [
+				{
+					"cp": "e926",
+					"color": "#ffffff"
+				}
+			],
+			"quest_item": [
+				{
+					"cp": "e927",
+					"color": "#ffffff"
+				}
+			],
+			"random_quest": [
+				{
+					"cp": "e928",
+					"color": "#ffffff"
+				}
+			],
+			"record": [
+				{
+					"cp": "e929",
+					"color": "#ffffff"
+				}
+			],
+			"recycling": [
+				{
+					"cp": "e92a",
+					"color": "#ffffff"
+				}
+			],
+			"serenity_dewdrop": [
+				{
+					"cp": "e92b",
+					"color": "#ffffff"
+				}
+			],
+			"sketch": [
+				{
+					"cp": "e92c",
+					"color": "#ffffff"
+				}
+			],
+			"sky_monarch": [
+				{
+					"cp": "e92d",
+					"color": "#ffffff"
+				}
+			],
+			"springbloom": [
+				{
+					"cp": "e92e",
+					"color": "#ffffff"
+				}
+			],
+			"starlit_crystal": [
+				{
+					"cp": "e92f",
+					"color": "#ffffff"
+				}
+			],
+			"stray_hatty": [
+				{
+					"cp": "e930",
+					"color": "#ffffff"
+				}
+			],
+			"styling_challenge": [
+				{
+					"cp": "e931",
+					"color": "#ffffff"
+				}
+			],
+			"surprise_o_matic": [
+				{
+					"cp": "e932",
+					"color": "#ffffff"
+				}
+			],
+			"upgrade_material": [
+				{
+					"cp": "e933",
+					"color": "#ffffff"
+				}
+			],
+			"valuable": [
+				{
+					"cp": "e934",
+					"color": "#ffffff"
+				}
+			],
+			"violin_performance": [
+				{
+					"cp": "e935",
+					"color": "#ffffff"
+				}
+			],
+			"wanxiang_bell": [
+				{
+					"cp": "e936",
+					"color": "#ffffff"
+				}
+			],
+			"wanxiang_record": [
+				{
+					"cp": "e937",
+					"color": "#ffffff"
+				}
+			],
+			"wardrobe": [
+				{
+					"cp": "e938",
+					"color": "#ffffff"
+				}
+			],
+			"warp_nexus": [
+				{
+					"cp": "e939",
+					"color": "#ffffff"
+				}
+			],
+			"warp_spire": [
+				{
+					"cp": "e93a",
+					"color": "#ffffff"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e93b",
+					"color": "#ffffff"
+				}
+			],
+			"whim_balloon": [
+				{
+					"cp": "e93c",
+					"color": "#ffffff"
+				}
+			],
+			"whim_bubble": [
+				{
+					"cp": "e93d",
+					"color": "#ffffff"
+				}
+			],
+			"whim_jade": [
+				{
+					"cp": "e93e",
+					"color": "#ffffff"
+				}
+			],
+			"whim_lantern": [
+				{
+					"cp": "e93f",
+					"color": "#ffffff"
+				}
+			],
+			"whimcycle_rental": [
+				{
+					"cp": "e940",
+					"color": "#ffffff"
+				}
+			],
+			"whimstar": [
+				{
+					"cp": "e941",
+					"color": "#ffffff"
+				}
+			],
+			"world_quest": [
+				{
+					"cp": "e942",
+					"color": "#ffffff"
 				}
 			]
 		}
@@ -317,6 +424,7 @@
 			"slug": "miraland",
 			"title": "Miraland",
 			"data": "miraland/data.json",
+			"compact": "miraland/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Base",
@@ -337,14 +445,34 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256,
 					"background": "#cdc6aa"
+				},
+				{
+					"name": "2F",
+					"template": "miraland/tiles/2F-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 18,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#cdc6aa"
+				},
+				{
+					"name": "3F",
+					"template": "miraland/tiles/3F-v2/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 16,
+					"viewMaxzoom": 18,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#cdc6aa"
 				}
-			],
-			"compact": "miraland/data.compact.json"
+			]
 		},
 		{
 			"slug": "firework-isles",
 			"title": "Firework Isles",
 			"data": "firework-isles/data.json",
+			"compact": "firework-isles/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Base",
@@ -355,14 +483,24 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256,
 					"background": "#ccc6ac"
+				},
+				{
+					"name": "Styleshaped Balloons",
+					"template": "firework-isles/tiles/2f-v1/{z}/{x}/{y}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#ccc6ac"
 				}
-			],
-			"compact": "firework-isles/data.compact.json"
+			]
 		},
 		{
 			"slug": "sea-of-stars",
 			"title": "Sea of Stars",
 			"data": "sea-of-stars/data.json",
+			"compact": "sea-of-stars/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V3",
@@ -374,13 +512,13 @@
 					"tileSize": 256,
 					"background": "#cdc6aa"
 				}
-			],
-			"compact": "sea-of-stars/data.compact.json"
+			]
 		},
 		{
 			"slug": "serenity-island",
 			"title": "Serenity Island",
 			"data": "serenity-island/data.json",
+			"compact": "serenity-island/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Base",
@@ -391,14 +529,54 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256,
 					"background": "#cdc6aa"
+				},
+				{
+					"name": "1F",
+					"template": "serenity-island/tiles/1F-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#cdc6aa"
+				},
+				{
+					"name": "2F",
+					"template": "serenity-island/tiles/2F-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#cdc6aa"
+				},
+				{
+					"name": "3F",
+					"template": "serenity-island/tiles/3F-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#cdc6aa"
+				},
+				{
+					"name": "4F",
+					"template": "serenity-island/tiles/4F-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#cdc6aa"
 				}
-			],
-			"compact": "serenity-island/data.compact.json"
+			]
 		},
 		{
 			"slug": "danqing-island",
 			"title": "Danqing Island",
 			"data": "danqing-island/data.json",
+			"compact": "danqing-island/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -410,13 +588,13 @@
 					"tileSize": 256,
 					"background": "#ccc6ac"
 				}
-			],
-			"compact": "danqing-island/data.compact.json"
+			]
 		},
 		{
 			"slug": "danqing-realm",
 			"title": "Danqing Realm",
 			"data": "danqing-realm/data.json",
+			"compact": "danqing-realm/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -428,13 +606,13 @@
 					"tileSize": 256,
 					"background": "#ccc6ac"
 				}
-			],
-			"compact": "danqing-realm/data.compact.json"
+			]
 		},
 		{
 			"slug": "wanxiang-realm",
 			"title": "Wanxiang Realm",
 			"data": "wanxiang-realm/data.json",
+			"compact": "wanxiang-realm/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -446,8 +624,7 @@
 					"tileSize": 256,
 					"background": "#cdc6aa"
 				}
-			],
-			"compact": "wanxiang-realm/data.compact.json"
+			]
 		}
 	]
 }

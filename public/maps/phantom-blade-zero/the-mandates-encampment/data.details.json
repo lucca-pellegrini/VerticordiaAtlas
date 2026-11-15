@@ -543,8 +543,9 @@
 				}
 			]
 		],
+		"1062871": ["[The Banyan's Heart](#loc=1062872)", []],
 		"1062872": [
-			"Reward for interacting with the human-faced tree, then defeating waves of enemies - including a rematch with Stone Hand Iron Fever & Iron Fiend, Young Mistress's Guardian\n\n**Quest:** \\[Heart of the Banyan\\]([https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058393](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058393))",
+			"Reward for interacting with the human-faced tree, then defeating waves of enemies - including a rematch with Stone Hand Iron Fever & Iron Fiend, Young Mistress's Guardian\n\n**Quest:** [Heart of the Banyan]([https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058393](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058393))",
 			[]
 		],
 		"1063620": [
@@ -2342,7 +2343,7 @@
 			]
 		],
 		"1064287": [
-			"**Required:** Flying Guillotine",
+			"**Required:** [Flying Guillotine](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1066492)",
 			[
 				{
 					"id": 159468,
@@ -3488,7 +3489,7 @@
 			]
 		],
 		"1064381": [
-			"Inside a building accessible after defeating [Yubi, No. 21 Swordfighter Puppet](#loc=1064339)\n\n**Quest:** Illusory Pipa",
+			"Inside a building accessible after defeating [Yubi, No. 21 Swordfighter Puppet](#loc=1064339)\n\n**Quest:** [Illusory Pipa](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1060818)",
 			[
 				{
 					"id": 159616,
@@ -3721,6 +3722,74 @@
 					"file_name": "f7394393-4108-4398-a1f9-f48ae289b41e.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/f7394393-4108-4398-a1f9-f48ae289b41e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067154": [
+			"In a secret basement beyond the [Statue](#loc=1064287).\n\n**Flying Guillotine**",
+			[
+				{
+					"id": 160579,
+					"title": "003171",
+					"file_name": "57f9f74d-bbcf-4576-9d27-a3afc3ac9e8c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57f9f74d-bbcf-4576-9d27-a3afc3ac9e8c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067155": [
+			"In a secret basement beyond the [Statue](#loc=1064287).",
+			[
+				{
+					"id": 160580,
+					"title": "003171",
+					"file_name": "b3073baa-a1b2-425f-85e9-e6e1bdb6d107.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3073baa-a1b2-425f-85e9-e6e1bdb6d107.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067156": [
+			"In a secret basement beyond the [Statue](#loc=1064287).",
+			[
+				{
+					"id": 160581,
+					"title": "003171",
+					"file_name": "194ed9d9-42fb-463b-a3aa-7b181a81e79c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/194ed9d9-42fb-463b-a3aa-7b181a81e79c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067157": [
+			"In a secret basement beyond the [Statue](#loc=1064287).",
+			[
+				{
+					"id": 160582,
+					"title": "003171",
+					"file_name": "3ab9422b-5cb0-47d3-86f7-44df89972799.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ab9422b-5cb0-47d3-86f7-44df89972799.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,

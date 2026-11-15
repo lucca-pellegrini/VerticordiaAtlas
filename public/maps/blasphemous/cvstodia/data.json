@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 16,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -24,16 +25,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "blasphemous",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/blasphemous/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 830,
 			"game_id": 83,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3F4D52",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -295,10 +303,17 @@
 		{
 			"id": 831,
 			"game_id": 83,
+			"section_id": null,
 			"title": "Items",
 			"order": 20,
 			"color": "59B1A8",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -476,10 +491,17 @@
 		{
 			"id": 835,
 			"game_id": 83,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 30,
 			"color": "505E79",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -629,10 +651,17 @@
 		{
 			"id": 832,
 			"game_id": 83,
+			"section_id": null,
 			"title": "Quests",
 			"order": 40,
 			"color": "D4A663",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -754,10 +783,17 @@
 		{
 			"id": 833,
 			"game_id": 83,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 40,
 			"color": "9C305A",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -823,10 +859,17 @@
 		{
 			"id": 834,
 			"game_id": 83,
+			"section_id": null,
 			"title": "Other",
 			"order": 40,
 			"color": "B37665",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1030,6 +1073,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"3792": {
 			"id": 3792,
@@ -1981,7 +2025,8 @@
 								[-0.8144952326525834, 0.6949923303129457],
 								[-0.8470817757477067, 0.6949815410785285],
 								[-0.846939232896724, 0.7031456387994977],
-								[-0.8467675715197709, 0.7158476067460167]
+								[-0.8467675715197709, 0.7158476067460167],
+								[-0.8462234688629411, 0.7207287823626334]
 							]
 						]
 					},
@@ -2118,7 +2163,8 @@
 								[-0.9791006145937953, 0.6780417403031066],
 								[-0.9790147839053187, 0.6681718922675978],
 								[-1.0669912395937953, 0.668601016509635],
-								[-1.0649313030703578, 0.746872626581106]
+								[-1.0649313030703578, 0.746872626581106],
+								[-0.9466566143496546, 0.7479025072165824]
 							]
 						]
 					},
@@ -2315,8 +2361,6 @@
 								[-0.830983576090091, 0.6124471058436285],
 								[-0.8307770374813117, 0.6211212248080074],
 								[-0.8225154931102168, 0.6289003828858029],
-								[-0.8142272139207023, 0.6453875686585349],
-								[-0.8142272139207023, 0.6453875686585349],
 								[-0.8142272139207023, 0.6453875686585349]
 							]
 						],
@@ -2862,7 +2906,8 @@
 								[-0.9129834905023171, 0.7031264956180134],
 								[-0.9131097793579102, 0.6950398682575961],
 								[-0.94641700084106, 0.695078154686364],
-								[-0.94641700084106, 0.7152468387795695]
+								[-0.94641700084106, 0.7152468387795695],
+								[-0.8467675715197709, 0.7158476067460167]
 							]
 						]
 					},
@@ -3067,6 +3112,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 118573,
@@ -15997,7 +16043,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "fff-majestica-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/blasphemous/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

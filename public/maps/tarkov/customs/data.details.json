@@ -103,23 +103,6 @@
 				}
 			]
 		],
-		"29973": [
-			"Behind the armored transport, in front of the sand bags.\n\n**Always Open:** ✔    \n**Single Use:** ✘  \n**Requirements:** \n- Searchlight must be lit",
-			[
-				{
-					"id": 16169,
-					"title": "2022-01-11[13-14]_-11.6, 1.5, -122.4_0.0, -1.0, 0.0, 0.1_19.74 (0)",
-					"file_name": "25db8462-8a58-4762-b5a8-65f20a5bb928.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/25db8462-8a58-4762-b5a8-65f20a5bb928.png",
-					"type": "image",
-					"mime_type": "image/png",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		],
 		"29974": [
 			"In the basement of the small building.\n\n**Always Open:** ✘  \n**Single Use:** ✘  \n**Requirements:** \n- When green flares are present, extraction is available.",
 			[
@@ -1618,7 +1601,7 @@
 		],
 		"43358": ["On the table upstairs in the portacabin", []],
 		"43359": [
-			"**Key Locations:** \n- [Factory Exit Key](#loc=30090) \n- [Factory Exit Key](#loc=30122)",
+			"**ZB-013 Key** - randomly appears in jackets / on scavs.",
 			[
 				{
 					"id": 16164,
@@ -3850,6 +3833,23 @@
 				}
 			]
 		],
-		"1044567": ["**Location:** Power Station\n\n**Spawn Chance:** ??  \n\n**Followers:** 3", []]
+		"1044567": ["**Location:** Power Station\n\n**Spawn Chance:** ??  \n\n**Followers:** 3", []],
+		"1080264": [
+			"**Always Open:** ✔  \n**Single Use:** ✘  \n**Requirements:** -",
+			[
+				{
+					"id": 160804,
+					"title": "",
+					"file_name": "b6e7285e-1444-4d8f-913f-6981176b4889.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b6e7285e-1444-4d8f-913f-6981176b4889.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
 	}
 }

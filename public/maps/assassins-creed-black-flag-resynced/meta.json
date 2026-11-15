@@ -544,6 +544,7 @@
 			"slug": "caribbean-sea",
 			"title": "Caribbean Sea",
 			"data": "caribbean-sea/data.json",
+			"compact": "caribbean-sea/data.compact.json",
 			"tilesets": [
 				{
 					"name": "v5",
@@ -555,8 +556,7 @@
 					"tileSize": 256,
 					"background": "#0b3a44"
 				}
-			],
-			"compact": "caribbean-sea/data.compact.json"
+			]
 		}
 	]
 }

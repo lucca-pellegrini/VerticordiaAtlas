@@ -262,6 +262,7 @@
 			"slug": "eidos-7",
 			"title": "Eidos 7",
 			"data": "eidos-7/data.json",
+			"compact": "eidos-7/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -273,13 +274,13 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			],
-			"compact": "eidos-7/data.compact.json"
+			]
 		},
 		{
 			"slug": "xion-city",
 			"title": "Xion City",
 			"data": "xion-city/data.json",
+			"compact": "xion-city/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -291,13 +292,13 @@
 					"tileSize": 256,
 					"background": "#131b26"
 				}
-			],
-			"compact": "xion-city/data.compact.json"
+			]
 		},
 		{
 			"slug": "wasteland",
 			"title": "Wasteland",
 			"data": "wasteland/data.json",
+			"compact": "wasteland/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -309,13 +310,13 @@
 					"tileSize": 256,
 					"background": "#131b26"
 				}
-			],
-			"compact": "wasteland/data.compact.json"
+			]
 		},
 		{
 			"slug": "altess-levoire",
 			"title": "Altess Levoire",
 			"data": "altess-levoire/data.json",
+			"compact": "altess-levoire/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -327,13 +328,13 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			],
-			"compact": "altess-levoire/data.compact.json"
+			]
 		},
 		{
 			"slug": "matrix-11",
 			"title": "Matrix 11",
 			"data": "matrix-11/data.json",
+			"compact": "matrix-11/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -345,13 +346,13 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			],
-			"compact": "matrix-11/data.compact.json"
+			]
 		},
 		{
 			"slug": "great-desert",
 			"title": "Great Desert",
 			"data": "great-desert/data.json",
+			"compact": "great-desert/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -363,13 +364,13 @@
 					"tileSize": 256,
 					"background": "#131b26"
 				}
-			],
-			"compact": "great-desert/data.compact.json"
+			]
 		},
 		{
 			"slug": "abyss-levoire",
 			"title": "Abyss Levoire",
 			"data": "abyss-levoire/data.json",
+			"compact": "abyss-levoire/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -381,13 +382,13 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			],
-			"compact": "abyss-levoire/data.compact.json"
+			]
 		},
 		{
 			"slug": "eidos-9",
 			"title": "Eidos 9",
 			"data": "eidos-9/data.json",
+			"compact": "eidos-9/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -399,13 +400,13 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			],
-			"compact": "eidos-9/data.compact.json"
+			]
 		},
 		{
 			"slug": "spire-4",
 			"title": "Spire 4",
 			"data": "spire-4/data.json",
+			"compact": "spire-4/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -417,8 +418,7 @@
 					"tileSize": 256,
 					"background": "#141b25"
 				}
-			],
-			"compact": "spire-4/data.compact.json"
+			]
 		}
 	]
 }

@@ -15,283 +15,334 @@
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
-			"weapon_mod": [
+			"armor": [
 				{
-					"cp": "e900"
-				}
-			],
-			"weapon": [
-				{
-					"cp": "e901"
-				}
-			],
-			"warhead": [
-				{
-					"cp": "e902"
-				}
-			],
-			"vault": [
-				{
-					"cp": "e903"
-				}
-			],
-			"urban_ruins": [
-				{
-					"cp": "e904"
-				}
-			],
-			"unmarked_quest": [
-				{
-					"cp": "e905"
-				}
-			],
-			"unique_weapon": [
-				{
-					"cp": "e906"
-				}
-			],
-			"unique_armor": [
-				{
-					"cp": "e907"
-				}
-			],
-			"underground": [
-				{
-					"cp": "e908"
-				}
-			],
-			"survival_cache": [
-				{
-					"cp": "e909"
-				}
-			],
-			"star_bottle_cap": [
-				{
-					"cp": "e90a"
-				}
-			],
-			"snow_globe": [
-				{
-					"cp": "e90b"
-				}
-			],
-			"sm_vending_machine": [
-				{
-					"cp": "e90c"
-				}
-			],
-			"skill_magazine": [
-				{
-					"cp": "e90d"
-				}
-			],
-			"skill_book": [
-				{
-					"cp": "e90e"
-				}
-			],
-			"side_quest": [
-				{
-					"cp": "e90f"
-				}
-			],
-			"settlement": [
-				{
-					"cp": "e910"
-				}
-			],
-			"schematic": [
-				{
-					"cp": "e911"
-				}
-			],
-			"safehouse": [
-				{
-					"cp": "e912"
-				}
-			],
-			"ruins": [
-				{
-					"cp": "e913"
-				}
-			],
-			"reloading_bench": [
-				{
-					"cp": "e914"
-				}
-			],
-			"ralphie_poster": [
-				{
-					"cp": "e915"
-				}
-			],
-			"quest_item": [
-				{
-					"cp": "e916"
-				}
-			],
-			"point_of_interest": [
-				{
-					"cp": "e917"
-				}
-			],
-			"other_quest": [
-				{
-					"cp": "e918"
-				}
-			],
-			"office": [
-				{
-					"cp": "e919"
-				}
-			],
-			"npc": [
-				{
-					"cp": "e91a"
-				}
-			],
-			"note": [
-				{
-					"cp": "e91b"
-				}
-			],
-			"natural_landmark": [
-				{
-					"cp": "e91c"
-				}
-			],
-			"monument": [
-				{
-					"cp": "e91d"
-				}
-			],
-			"miscellaneous": [
-				{
-					"cp": "e91e"
-				}
-			],
-			"military": [
-				{
-					"cp": "e91f"
-				}
-			],
-			"metro": [
-				{
-					"cp": "e920"
-				}
-			],
-			"merchant": [
-				{
-					"cp": "e921"
-				}
-			],
-			"main_quest": [
-				{
-					"cp": "e922"
-				}
-			],
-			"landmark": [
-				{
-					"cp": "e923"
-				}
-			],
-			"keypassword": [
-				{
-					"cp": "e924"
-				}
-			],
-			"key": [
-				{
-					"cp": "e925"
-				}
-			],
-			"holotape": [
-				{
-					"cp": "e926"
-				}
-			],
-			"hollow_rock": [
-				{
-					"cp": "e927"
-				}
-			],
-			"factory": [
-				{
-					"cp": "e928"
-				}
-			],
-			"eyebot_upgrade": [
-				{
-					"cp": "e929"
-				}
-			],
-			"encampment": [
-				{
-					"cp": "e92a"
-				}
-			],
-			"easter_egg": [
-				{
-					"cp": "e92b"
-				}
-			],
-			"doctor": [
-				{
-					"cp": "e92c"
-				}
-			],
-			"dlc_quest": [
-				{
-					"cp": "e92d"
-				}
-			],
-			"dean_stash": [
-				{
-					"cp": "e92e"
-				}
-			],
-			"companion_quest": [
-				{
-					"cp": "e92f"
-				}
-			],
-			"companion": [
-				{
-					"cp": "e930"
-				}
-			],
-			"city": [
-				{
-					"cp": "e931"
-				}
-			],
-			"cave": [
-				{
-					"cp": "e932"
-				}
-			],
-			"card": [
-				{
-					"cp": "e933"
-				}
-			],
-			"caravan_player": [
-				{
-					"cp": "e934"
+					"cp": "e900",
+					"color": "#000000"
 				}
 			],
 			"campfire": [
 				{
-					"cp": "e935"
+					"cp": "e901",
+					"color": "#000000"
 				}
 			],
-			"armor": [
+			"caravan_player": [
 				{
-					"cp": "e936"
-				},
+					"cp": "e902",
+					"color": "#000000"
+				}
+			],
+			"card": [
 				{
-					"cp": "e937",
-					"ml": "-1em"
+					"cp": "e903",
+					"color": "#000000"
+				}
+			],
+			"cave": [
+				{
+					"cp": "e904",
+					"color": "#000000"
+				}
+			],
+			"city": [
+				{
+					"cp": "e905",
+					"color": "#000000"
+				}
+			],
+			"companion": [
+				{
+					"cp": "e906",
+					"color": "#000000"
+				}
+			],
+			"companion_quest": [
+				{
+					"cp": "e907",
+					"color": "#000000"
+				}
+			],
+			"dean_stash": [
+				{
+					"cp": "e908",
+					"color": "#000000"
+				}
+			],
+			"dlc_quest": [
+				{
+					"cp": "e909",
+					"color": "#000000"
+				}
+			],
+			"doctor": [
+				{
+					"cp": "e90a",
+					"color": "#000000"
+				}
+			],
+			"easter_egg": [
+				{
+					"cp": "e90b",
+					"color": "#000000"
+				}
+			],
+			"encampment": [
+				{
+					"cp": "e90c",
+					"color": "#000000"
+				}
+			],
+			"eyebot_upgrade": [
+				{
+					"cp": "e90d",
+					"color": "#000000"
+				}
+			],
+			"factory": [
+				{
+					"cp": "e90e",
+					"color": "#000000"
+				}
+			],
+			"hollow_rock": [
+				{
+					"cp": "e90f",
+					"color": "#000000"
+				}
+			],
+			"holotape": [
+				{
+					"cp": "e910",
+					"color": "#000000"
+				}
+			],
+			"key": [
+				{
+					"cp": "e911",
+					"color": "#000000"
+				}
+			],
+			"keypassword": [
+				{
+					"cp": "e912",
+					"color": "#000000"
+				}
+			],
+			"landmark": [
+				{
+					"cp": "e913",
+					"color": "#000000"
+				}
+			],
+			"main_quest": [
+				{
+					"cp": "e914",
+					"color": "#000000"
+				}
+			],
+			"merchant": [
+				{
+					"cp": "e915",
+					"color": "#000000"
+				}
+			],
+			"metro": [
+				{
+					"cp": "e916",
+					"color": "#000000"
+				}
+			],
+			"military": [
+				{
+					"cp": "e917",
+					"color": "#000000"
+				}
+			],
+			"miscellaneous": [
+				{
+					"cp": "e918",
+					"color": "#000000"
+				}
+			],
+			"monument": [
+				{
+					"cp": "e919",
+					"color": "#000000"
+				}
+			],
+			"natural_landmark": [
+				{
+					"cp": "e91a",
+					"color": "#000000"
+				}
+			],
+			"note": [
+				{
+					"cp": "e91b",
+					"color": "#000000"
+				}
+			],
+			"npc": [
+				{
+					"cp": "e91c",
+					"color": "#000000"
+				}
+			],
+			"office": [
+				{
+					"cp": "e91d",
+					"color": "#000000"
+				}
+			],
+			"other_quest": [
+				{
+					"cp": "e91e",
+					"color": "#000000"
+				}
+			],
+			"point_of_interest": [
+				{
+					"cp": "e91f",
+					"color": "#000000"
+				}
+			],
+			"quest_item": [
+				{
+					"cp": "e920",
+					"color": "#000000"
+				}
+			],
+			"ralphie_poster": [
+				{
+					"cp": "e921",
+					"color": "#000000"
+				}
+			],
+			"reloading_bench": [
+				{
+					"cp": "e922",
+					"color": "#000000"
+				}
+			],
+			"ruins": [
+				{
+					"cp": "e923",
+					"color": "#000000"
+				}
+			],
+			"safehouse": [
+				{
+					"cp": "e924",
+					"color": "#000000"
+				}
+			],
+			"schematic": [
+				{
+					"cp": "e925",
+					"color": "#000000"
+				}
+			],
+			"settlement": [
+				{
+					"cp": "e926",
+					"color": "#000000"
+				}
+			],
+			"side_quest": [
+				{
+					"cp": "e927",
+					"color": "#000000"
+				}
+			],
+			"skill_book": [
+				{
+					"cp": "e928",
+					"color": "#000000"
+				}
+			],
+			"skill_magazine": [
+				{
+					"cp": "e929",
+					"color": "#000000"
+				}
+			],
+			"sm_vending_machine": [
+				{
+					"cp": "e92a",
+					"color": "#000000"
+				}
+			],
+			"snow_globe": [
+				{
+					"cp": "e92b",
+					"color": "#000000"
+				}
+			],
+			"star_bottle_cap": [
+				{
+					"cp": "e92c",
+					"color": "#000000"
+				}
+			],
+			"survival_cache": [
+				{
+					"cp": "e92d",
+					"color": "#000000"
+				}
+			],
+			"underground": [
+				{
+					"cp": "e92e",
+					"color": "#000000"
+				}
+			],
+			"unique_armor": [
+				{
+					"cp": "e92f",
+					"color": "#000000"
+				}
+			],
+			"unique_weapon": [
+				{
+					"cp": "e930",
+					"color": "#000000"
+				}
+			],
+			"unmarked_quest": [
+				{
+					"cp": "e931",
+					"color": "#000000"
+				}
+			],
+			"urban_ruins": [
+				{
+					"cp": "e932",
+					"color": "#000000"
+				}
+			],
+			"vault": [
+				{
+					"cp": "e933",
+					"color": "#000000"
+				}
+			],
+			"warhead": [
+				{
+					"cp": "e934",
+					"color": "#000000"
+				}
+			],
+			"weapon": [
+				{
+					"cp": "e935",
+					"color": "#000000"
+				}
+			],
+			"weapon_mod": [
+				{
+					"cp": "e936",
+					"color": "#000000"
 				}
 			]
 		}
@@ -301,6 +352,7 @@
 			"slug": "mojave-wasteland",
 			"title": "Mojave Wasteland",
 			"data": "mojave-wasteland/data.json",
+			"compact": "mojave-wasteland/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Pip-Boy",
@@ -312,13 +364,13 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			],
-			"compact": "mojave-wasteland/data.compact.json"
+			]
 		},
 		{
 			"slug": "sierra-madre",
 			"title": "Sierra Madre",
 			"data": "sierra-madre/data.json",
+			"compact": "sierra-madre/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -330,13 +382,13 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			],
-			"compact": "sierra-madre/data.compact.json"
+			]
 		},
 		{
 			"slug": "zion-canyon",
 			"title": "Zion Canyon",
 			"data": "zion-canyon/data.json",
+			"compact": "zion-canyon/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -348,13 +400,13 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			],
-			"compact": "zion-canyon/data.compact.json"
+			]
 		},
 		{
 			"slug": "big-mt",
 			"title": "Big MT",
 			"data": "big-mt/data.json",
+			"compact": "big-mt/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -366,13 +418,13 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			],
-			"compact": "big-mt/data.compact.json"
+			]
 		},
 		{
 			"slug": "the-divide",
 			"title": "The Divide",
 			"data": "the-divide/data.json",
+			"compact": "the-divide/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -384,8 +436,7 @@
 					"tileSize": 256,
 					"background": "#0e0e0e"
 				}
-			],
-			"compact": "the-divide/data.compact.json"
+			]
 		}
 	]
 }

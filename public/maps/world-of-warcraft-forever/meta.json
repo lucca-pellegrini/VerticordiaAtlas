@@ -352,6 +352,7 @@
 			"slug": "azeroth",
 			"title": "Azeroth",
 			"data": "azeroth/data.json",
+			"compact": "azeroth/data.compact.json",
 			"tilesets": [
 				{
 					"name": "azeroth2",
@@ -361,10 +362,9 @@
 					"viewMaxzoom": 18,
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256,
-					"background": "#011d29"
+					"background": "#000000"
 				}
-			],
-			"compact": "azeroth/data.compact.json"
+			]
 		}
 	]
 }

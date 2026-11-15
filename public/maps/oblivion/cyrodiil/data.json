@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -24,16 +25,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "oblivion",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 2150,
 			"game_id": 215,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "eadda6",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -519,10 +527,17 @@
 		{
 			"id": 2151,
 			"game_id": 215,
+			"section_id": null,
 			"title": "Services",
 			"order": 10,
 			"color": "EFAE51",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -812,10 +827,17 @@
 		{
 			"id": 2152,
 			"game_id": 215,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "A4C987",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -909,10 +931,17 @@
 		{
 			"id": 2153,
 			"game_id": 215,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "AC92E0",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1118,10 +1147,17 @@
 		{
 			"id": 2154,
 			"game_id": 215,
+			"section_id": null,
 			"title": "Resources",
 			"order": 10,
 			"color": "99907D",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1157,6 +1193,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"12560": {
 			"id": 12560,
@@ -2234,6 +2271,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 440552,
@@ -25743,12 +25781,36 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 71, "game_id": 215, "title": "Fast Travel", "icon": null, "color": null, "icon_color": null },
-		{ "id": 82, "game_id": 215, "title": "Remaster", "icon": null, "color": null, "icon_color": null }
+		{
+			"id": 71,
+			"game_id": 215,
+			"order": 0,
+			"title": "Fast Travel",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{ "id": 82, "game_id": 215, "order": 0, "title": "Remaster", "icon": null, "color": null, "icon_color": null }
 	],
 	"tagsById": {
-		"71": { "id": 71, "game_id": 215, "title": "Fast Travel", "icon": null, "color": null, "icon_color": null },
-		"82": { "id": 82, "game_id": 215, "title": "Remaster", "icon": null, "color": null, "icon_color": null }
+		"71": {
+			"id": 71,
+			"game_id": 215,
+			"order": 0,
+			"title": "Fast Travel",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"82": {
+			"id": 82,
+			"game_id": 215,
+			"order": 0,
+			"title": "Remaster",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -25758,7 +25820,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

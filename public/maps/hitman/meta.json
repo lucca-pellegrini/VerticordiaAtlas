@@ -12,202 +12,13 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"icons": {
-		"font": "icons/icons.woff",
-		"glyphs": {
-			"blend_in": [
-				{
-					"cp": "e900",
-					"color": "#fff"
-				}
-			],
-			"hiding_spot": [
-				{
-					"cp": "e901",
-					"color": "#fff"
-				}
-			],
-			"non_lethal_melee": [
-				{
-					"cp": "e902",
-					"color": "#fff"
-				}
-			],
-			"stairs": [
-				{
-					"cp": "e903",
-					"color": "#fff"
-				}
-			],
-			"agency_pickup": [
-				{
-					"cp": "e904",
-					"color": "#fff"
-				}
-			],
-			"alarm": [
-				{
-					"cp": "e905",
-					"color": "#fff"
-				}
-			],
-			"ammo": [
-				{
-					"cp": "e906",
-					"color": "#fff"
-				}
-			],
-			"conceal_item": [
-				{
-					"cp": "e907",
-					"color": "#fff"
-				}
-			],
-			"discovery": [
-				{
-					"cp": "e908",
-					"color": "#fff"
-				}
-			],
-			"disguise": [
-				{
-					"cp": "e909",
-					"color": "#fff"
-				}
-			],
-			"distraction": [
-				{
-					"cp": "e90a",
-					"color": "#fff"
-				}
-			],
-			"exit": [
-				{
-					"cp": "e90b",
-					"color": "#fff"
-				}
-			],
-			"explosive": [
-				{
-					"cp": "e90c",
-					"color": "#fff"
-				}
-			],
-			"firearm": [
-				{
-					"cp": "e90d",
-					"color": "#fff"
-				}
-			],
-			"food_drink": [
-				{
-					"cp": "e90e",
-					"color": "#fff"
-				}
-			],
-			"intel": [
-				{
-					"cp": "e90f",
-					"color": "#fff"
-				}
-			],
-			"interaction": [
-				{
-					"cp": "e910",
-					"color": "#fff"
-				}
-			],
-			"key": [
-				{
-					"cp": "e911",
-					"color": "#fff"
-				}
-			],
-			"lethal_melee": [
-				{
-					"cp": "e912",
-					"color": "#fff"
-				}
-			],
-			"location": [
-				{
-					"cp": "e913",
-					"color": "#fff"
-				}
-			],
-			"locked_door": [
-				{
-					"cp": "e914",
-					"color": "#fff"
-				}
-			],
-			"passage": [
-				{
-					"cp": "e915",
-					"color": "#fff"
-				}
-			],
-			"persistent_shortcut": [
-				{
-					"cp": "e916",
-					"color": "#fff"
-				}
-			],
-			"poison": [
-				{
-					"cp": "e917",
-					"color": "#fff"
-				}
-			],
-			"sabotage": [
-				{
-					"cp": "e918",
-					"color": "#fff"
-				}
-			],
-			"security_camera": [
-				{
-					"cp": "e919",
-					"color": "#fff"
-				}
-			],
-			"security_check": [
-				{
-					"cp": "e91a",
-					"color": "#fff"
-				}
-			],
-			"security_footage": [
-				{
-					"cp": "e91b",
-					"color": "#fff"
-				}
-			],
-			"starting_location": [
-				{
-					"cp": "e91c",
-					"color": "#fff"
-				}
-			],
-			"tool": [
-				{
-					"cp": "e91d",
-					"color": "#fff"
-				}
-			],
-			"vertical_traversal": [
-				{
-					"cp": "e91e",
-					"color": "#fff"
-				}
-			]
-		}
-	},
+	"icons": null,
 	"maps": [
 		{
 			"slug": "ica-facility-freeform-training",
 			"title": "ICA Facility: Freeform Training",
 			"data": "ica-facility-freeform-training/data.json",
+			"compact": "ica-facility-freeform-training/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -219,13 +30,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "ica-facility-freeform-training/data.compact.json"
+			]
 		},
 		{
 			"slug": "ica-facility-the-final-test",
 			"title": "ICA Facility: The Final Test",
 			"data": "ica-facility-the-final-test/data.json",
+			"compact": "ica-facility-the-final-test/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -237,13 +48,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "ica-facility-the-final-test/data.compact.json"
+			]
 		},
 		{
 			"slug": "paris-the-showstopper",
 			"title": "Paris: The Showstopper",
 			"data": "paris-the-showstopper/data.json",
+			"compact": "paris-the-showstopper/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -255,13 +66,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "paris-the-showstopper/data.compact.json"
+			]
 		},
 		{
 			"slug": "paris-holiday-hoarders",
 			"title": "Paris: Holiday Hoarders",
 			"data": "paris-holiday-hoarders/data.json",
+			"compact": "paris-holiday-hoarders/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -273,13 +84,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "paris-holiday-hoarders/data.compact.json"
+			]
 		},
 		{
 			"slug": "sapienza-world-of-tomorrow",
 			"title": "Sapienza: World of Tomorrow",
 			"data": "sapienza-world-of-tomorrow/data.json",
+			"compact": "sapienza-world-of-tomorrow/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -291,13 +102,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "sapienza-world-of-tomorrow/data.compact.json"
+			]
 		},
 		{
 			"slug": "sapienza-the-icon",
 			"title": "Sapienza: The Icon",
 			"data": "sapienza-the-icon/data.json",
+			"compact": "sapienza-the-icon/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -309,13 +120,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "sapienza-the-icon/data.compact.json"
+			]
 		},
 		{
 			"slug": "sapienza-landslide",
 			"title": "Sapienza: Landslide",
 			"data": "sapienza-landslide/data.json",
+			"compact": "sapienza-landslide/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -327,13 +138,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "sapienza-landslide/data.compact.json"
+			]
 		},
 		{
 			"slug": "sapienza-the-author",
 			"title": "Sapienza: The Author",
 			"data": "sapienza-the-author/data.json",
+			"compact": "sapienza-the-author/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -345,13 +156,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "sapienza-the-author/data.compact.json"
+			]
 		},
 		{
 			"slug": "marrakesh-a-gilded-cage",
 			"title": "Marrakesh: A Gilded Cage",
 			"data": "marrakesh-a-gilded-cage/data.json",
+			"compact": "marrakesh-a-gilded-cage/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -363,13 +174,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "marrakesh-a-gilded-cage/data.compact.json"
+			]
 		},
 		{
 			"slug": "marrakesh-a-house-built-on-sand",
 			"title": "Marrakesh: A House Built On Sand",
 			"data": "marrakesh-a-house-built-on-sand/data.json",
+			"compact": "marrakesh-a-house-built-on-sand/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -381,13 +192,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "marrakesh-a-house-built-on-sand/data.compact.json"
+			]
 		},
 		{
 			"slug": "bangkok-club-27",
 			"title": "Bangkok: Club 27",
 			"data": "bangkok-club-27/data.json",
+			"compact": "bangkok-club-27/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -399,13 +210,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "bangkok-club-27/data.compact.json"
+			]
 		},
 		{
 			"slug": "bangkok-the-source",
 			"title": "Bangkok: The Source",
 			"data": "bangkok-the-source/data.json",
+			"compact": "bangkok-the-source/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -417,13 +228,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "bangkok-the-source/data.compact.json"
+			]
 		},
 		{
 			"slug": "colorado-freedom-fighters",
 			"title": "Colorado: Freedom Fighters",
 			"data": "colorado-freedom-fighters/data.json",
+			"compact": "colorado-freedom-fighters/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -435,13 +246,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "colorado-freedom-fighters/data.compact.json"
+			]
 		},
 		{
 			"slug": "hokkaido-situs-inversus",
 			"title": "Hokkaido: Situs Inversus",
 			"data": "hokkaido-situs-inversus/data.json",
+			"compact": "hokkaido-situs-inversus/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -453,13 +264,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "hokkaido-situs-inversus/data.compact.json"
+			]
 		},
 		{
 			"slug": "hokkaido-hokkaido-snow-festival",
 			"title": "Hokkaido: Hokkaido Snow Festival",
 			"data": "hokkaido-hokkaido-snow-festival/data.json",
+			"compact": "hokkaido-hokkaido-snow-festival/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -471,13 +282,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "hokkaido-hokkaido-snow-festival/data.compact.json"
+			]
 		},
 		{
 			"slug": "hokkaido-patient-zero",
 			"title": "Hokkaido: Patient Zero",
 			"data": "hokkaido-patient-zero/data.json",
+			"compact": "hokkaido-patient-zero/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -489,8 +300,7 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "hokkaido-patient-zero/data.compact.json"
+			]
 		}
 	]
 }

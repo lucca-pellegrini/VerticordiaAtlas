@@ -18,6 +18,7 @@
 			"slug": "aerial-map",
 			"title": "Aerial Map",
 			"data": "aerial-map/data.json",
+			"compact": "aerial-map/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -29,8 +30,7 @@
 					"tileSize": 256,
 					"background": "#154b67"
 				}
-			],
-			"compact": "aerial-map/data.compact.json"
+			]
 		}
 	]
 }

@@ -20,7 +20,8 @@
 					"11": { "x": { "max": 1023, "min": 1016 }, "y": { "max": 1023, "min": 1016 } },
 					"12": { "x": { "max": 2047, "min": 2032 }, "y": { "max": 2047, "min": 2032 } },
 					"13": { "x": { "max": 4095, "min": 4064 }, "y": { "max": 4095, "min": 4064 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -37,6 +38,7 @@
 		{
 			"id": 27031,
 			"game_id": 324,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 1,
 			"color": "2674F5",
@@ -140,6 +142,7 @@
 		{
 			"id": 27041,
 			"game_id": 324,
+			"section_id": null,
 			"title": "Missions",
 			"order": 2,
 			"color": "45aa31",
@@ -243,6 +246,7 @@
 		{
 			"id": 27032,
 			"game_id": 324,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 3,
 			"color": "E9AB00",
@@ -318,6 +322,7 @@
 		{
 			"id": 27033,
 			"game_id": 324,
+			"section_id": null,
 			"title": "Other",
 			"order": 4,
 			"color": "8A23AD",
@@ -386,7 +391,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 41
+					"locations_count": 43
 				},
 				{
 					"id": 28248,
@@ -503,6 +508,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"28245": {
 			"id": 28245,
@@ -586,7 +592,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 41
+			"locations_count": 43
 		},
 		"28248": {
 			"id": 28248,
@@ -8936,9 +8942,9 @@
 			"region_id": 5222,
 			"category_id": 28280,
 			"title": "M16A1 (STG)",
-			"description": null,
-			"latitude": "1.04396859522770",
-			"longitude": "-0.26429100178490",
+			"description": "",
+			"latitude": "1.04397063110670",
+			"longitude": "-0.26428878307246",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [217],
@@ -10066,9 +10072,9 @@
 			"region_id": 5222,
 			"category_id": 28246,
 			"title": "Anest.(S) x8",
-			"description": null,
-			"latitude": "1.05244931999020",
-			"longitude": "-0.26719597401416",
+			"description": "",
+			"latitude": "1.05245035673960",
+			"longitude": "-0.26719629764597",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [217],
@@ -10191,9 +10197,9 @@
 			"region_id": 5220,
 			"category_id": 28247,
 			"title": "Ration x3",
-			"description": null,
-			"latitude": "1.15145074405510",
-			"longitude": "-1.25951636562490",
+			"description": "",
+			"latitude": "1.15085073525330",
+			"longitude": "-1.25925958156610",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [140],
@@ -10358,8 +10364,8 @@
 			"category_id": 28247,
 			"title": "Ration x3",
 			"description": "",
-			"latitude": "1.04285769893830",
-			"longitude": "-0.26804924011435",
+			"latitude": "1.04285769893900",
+			"longitude": "-0.26804924011375",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [155],
@@ -10567,9 +10573,9 @@
 			"region_id": 5220,
 			"category_id": 28247,
 			"title": "Ration x3",
-			"description": null,
-			"latitude": "1.15120482401410",
-			"longitude": "-1.25925244243210",
+			"description": "",
+			"latitude": "1.15090433273810",
+			"longitude": "-1.25925153493930",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [170],
@@ -10596,8 +10602,8 @@
 			"category_id": 28247,
 			"title": "Ration x3",
 			"description": "",
-			"latitude": "1.04290060717430",
-			"longitude": "-0.26799291372538",
+			"latitude": "1.04290060717400",
+			"longitude": "-0.26799291372527",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [187],
@@ -10637,9 +10643,9 @@
 			"region_id": 5220,
 			"category_id": 28247,
 			"title": "Ration x3",
-			"description": null,
-			"latitude": "1.15079180661640",
-			"longitude": "-1.25767449650830",
+			"description": "",
+			"latitude": "1.15079145156060",
+			"longitude": "-1.25917643308670",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [206],
@@ -10789,9 +10795,9 @@
 			"region_id": 5222,
 			"category_id": 28247,
 			"title": "Ration x3",
-			"description": null,
-			"latitude": "1.04227815095380",
-			"longitude": "-0.26829808877653",
+			"description": "",
+			"latitude": "1.04270752010950",
+			"longitude": "-0.26799827814165",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [227],
@@ -10809,6 +10815,34 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [227],
+			"media": []
+		},
+		{
+			"id": 1083591,
+			"map_id": 1062,
+			"region_id": 5222,
+			"category_id": 28247,
+			"title": "Ration x3",
+			"description": null,
+			"latitude": "1.04252134587950",
+			"longitude": "-0.26803749690797",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [217],
+			"media": []
+		},
+		{
+			"id": 1083712,
+			"map_id": 1062,
+			"region_id": 5222,
+			"category_id": 28247,
+			"title": "Ration x3",
+			"description": null,
+			"latitude": "1.10472123968950",
+			"longitude": "-0.16227779943131",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [217],
 			"media": []
 		},
 		{

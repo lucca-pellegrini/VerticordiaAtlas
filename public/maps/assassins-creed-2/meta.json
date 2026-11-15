@@ -136,6 +136,7 @@
 			"slug": "italy",
 			"title": "Italy",
 			"data": "italy/data.json",
+			"compact": "italy/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -147,8 +148,7 @@
 					"tileSize": 256,
 					"background": "#fefefe"
 				}
-			],
-			"compact": "italy/data.compact.json"
+			]
 		}
 	]
 }

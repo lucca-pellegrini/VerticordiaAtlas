@@ -1,0 +1,801 @@
+{
+	"v": 1,
+	"d": {
+		"1066215": [
+			"**Location:** Behind a rock on your right as soon as you start the level.\n\n**Opens:** [Cage](#loc=1066220)",
+			[
+				{
+					"id": 161368,
+					"title": "screenshot-1794667676537",
+					"file_name": "d03b594a-5493-4657-a1d7-c75ce15270ac.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d03b594a-5493-4657-a1d7-c75ce15270ac.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066216": [
+			"**Leads to:** [Room 2](#loc=1066413)",
+			[
+				{
+					"id": 161369,
+					"title": "screenshot-1794667708226",
+					"file_name": "f77e0e7b-c312-485f-bb78-14fd9a10bd4e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f77e0e7b-c312-485f-bb78-14fd9a10bd4e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066217": [
+			"**Prerequisites:**\n- [Jigsaw Piece](https://mapgenie.io/croc-legend-of-gobbos/maps/forest-island?locationIds=CART_493) in [The Curvy Caverns](https://mapgenie.io/croc-legend-of-gobbos/maps/forest-island?locationIds=CART_432)\n- [Jigsaw Piece](https://mapgenie.io/croc-legend-of-gobbos/maps/forest-island?locationIds=CART_526) in [The Twisty Tunnels](https://mapgenie.io/croc-legend-of-gobbos/maps/forest-island?locationIds=CART_504)\n- [Jigsaw Piece](https://mapgenie.io/croc-legend-of-gobbos/maps/ice-island?locationIds=CART_932) in [Clouds of Ice](https://mapgenie.io/croc-legend-of-gobbos/maps/ice-island?locationIds=CART_921)\n- [Jigsaw Piece](https://mapgenie.io/croc-legend-of-gobbos/maps/ice-island?locationIds=CART_1004) in [Ice Bridge to Eternity](https://mapgenie.io/croc-legend-of-gobbos/maps/ice-island?locationIds=CART_944)\n- [Jigsaw Piece](https://mapgenie.io/croc-legend-of-gobbos/maps/desert-island?locationIds=CART_1447) in [Arabian Heights](https://mapgenie.io/croc-legend-of-gobbos/maps/desert-island?locationIds=CART_1405)\n- [Jigsaw Piece](https://mapgenie.io/croc-legend-of-gobbos/maps/desert-island?locationIds=CART_1461) in [Defeato Burrito](https://mapgenie.io/croc-legend-of-gobbos/maps/desert-island?locationIds=CART_1460)\n- [Jigsaw Piece](https://mapgenie.io/croc-legend-of-gobbos/maps/castle-island?locationIds=CART_1905) in [Smash and See](https://mapgenie.io/croc-legend-of-gobbos/maps/castle-island?locationIds=CART_1900)\n- [Jigsaw Piece](https://mapgenie.io/croc-legend-of-gobbos/maps/castle-island?locationIds=CART_1971) in [Jailhouse Croc](https://mapgenie.io/croc-legend-of-gobbos/maps/castle-island?locationIds=CART_1950)",
+			[]
+		],
+		"1066219": [
+			"**Leads to:** [Room 3](#loc=1066232)",
+			[
+				{
+					"id": 161373,
+					"title": "screenshot-1794667853985",
+					"file_name": "0fe2b2c1-faa4-4c83-9c0e-b214e1a9bc68.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0fe2b2c1-faa4-4c83-9c0e-b214e1a9bc68.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066220": [
+			"**Note:** Holds a [Red Button](#loc=1066424).\n\n**Prerequisite:** [Cage Key](#loc=1066215)",
+			[
+				{
+					"id": 161370,
+					"title": "screenshot-1794667730358",
+					"file_name": "7d5fe21e-ba54-4dbf-af89-732def1d7604.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d5fe21e-ba54-4dbf-af89-732def1d7604.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066221": [
+			"**Location:** On top of the platform that appears after pressing the [Red Button](#loc=1066424).",
+			[
+				{
+					"id": 161372,
+					"title": "screenshot-1794667787524",
+					"file_name": "86625bbb-574d-4513-9130-798d988225c7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/86625bbb-574d-4513-9130-798d988225c7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066231": [
+			"**Leads to:** [Room 4](#loc=1066233)",
+			[
+				{
+					"id": 161375,
+					"title": "screenshot-1794667884326",
+					"file_name": "5f4a90ae-c8d9-43b8-8a29-c86373631702.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f4a90ae-c8d9-43b8-8a29-c86373631702.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066232": [
+			"**Leads to:** [Room 2](#loc=1066219)",
+			[
+				{
+					"id": 161374,
+					"title": "screenshot-1794667865683",
+					"file_name": "23d1dffd-cf67-4bb7-9a52-c1abddfd52d3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/23d1dffd-cf67-4bb7-9a52-c1abddfd52d3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066233": [
+			"**Leads to:** [Room 3](#loc=1066231)",
+			[
+				{
+					"id": 161376,
+					"title": "screenshot-1794667896968",
+					"file_name": "9f06a7fb-bb55-484b-adff-4bb10ace68de.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9f06a7fb-bb55-484b-adff-4bb10ace68de.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066234": [
+			"**Leads to:** [Room 5](#loc=1066246)",
+			[
+				{
+					"id": 161377,
+					"title": "screenshot-1794667972118",
+					"file_name": "2f81af30-0aac-4223-ad89-483576b5b335.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f81af30-0aac-4223-ad89-483576b5b335.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066246": [
+			"**Leads to:** [Room 4](#loc=1066234)",
+			[
+				{
+					"id": 161378,
+					"title": "screenshot-1794667982652",
+					"file_name": "c229bda5-8041-420b-90f8-3f0bf2ba3977.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c229bda5-8041-420b-90f8-3f0bf2ba3977.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066247": [
+			"**Leads to:** [Room 6](#loc=1066252)",
+			[
+				{
+					"id": 161379,
+					"title": "screenshot-1794667997554",
+					"file_name": "dae5dfdf-c747-4979-a1ce-57b1486725bd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dae5dfdf-c747-4979-a1ce-57b1486725bd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066252": [
+			"**Leads to:** [Room 5](#loc=1066247)",
+			[
+				{
+					"id": 161380,
+					"title": "screenshot-1794668007926",
+					"file_name": "4021f2a7-dab4-4433-85c0-e23cc9a97cd7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4021f2a7-dab4-4433-85c0-e23cc9a97cd7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066253": [
+			"**Location:** Inside a red smash box at the top of the cliff.",
+			[
+				{
+					"id": 161381,
+					"title": "screenshot-1794668048003",
+					"file_name": "6167a515-fc8b-4817-9fa1-3d493f90c0d8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6167a515-fc8b-4817-9fa1-3d493f90c0d8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066259": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 161382,
+					"title": "screenshot-1794668116601",
+					"file_name": "36133cc3-7836-414c-91b8-d7e425fc770f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36133cc3-7836-414c-91b8-d7e425fc770f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066260": [
+			"**Leads to:** [Room 2](#loc=1066263)",
+			[
+				{
+					"id": 161384,
+					"title": "screenshot-1794668163627",
+					"file_name": "dc7e2d8f-9e99-4409-8e25-34f2ffa3547a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dc7e2d8f-9e99-4409-8e25-34f2ffa3547a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066261": [
+			"**Location:** Underneath the monkeybars the dantini is standing on. Use the moving floating platform to reach it.",
+			[
+				{
+					"id": 161383,
+					"title": "screenshot-1794668152237",
+					"file_name": "4d2e9ca8-5bed-47e1-9278-7a0d9c177bcb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4d2e9ca8-5bed-47e1-9278-7a0d9c177bcb.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066263": [
+			"**Leads to:** [Room 1](#loc=1066260)",
+			[
+				{
+					"id": 161385,
+					"title": "screenshot-1794668199430",
+					"file_name": "0d0e14cd-9baf-4500-b7a0-320d9644375b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d0e14cd-9baf-4500-b7a0-320d9644375b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066264": [
+			"**Leads to:** [Room 3](#loc=1066270)",
+			[
+				{
+					"id": 161386,
+					"title": "screenshot-1794668301482",
+					"file_name": "b31294e8-0c6a-4837-ac69-f60dd109f8e6.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b31294e8-0c6a-4837-ac69-f60dd109f8e6.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066270": [
+			"**Leads to:** [Room 2](#loc=1066264)",
+			[
+				{
+					"id": 161387,
+					"title": "screenshot-1794668312532",
+					"file_name": "c1647b83-3774-49e8-a55c-a4f219ddef24.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c1647b83-3774-49e8-a55c-a4f219ddef24.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066275": [
+			"**Leads to:** [Room 4](#loc=1066277)",
+			[
+				{
+					"id": 161388,
+					"title": "screenshot-1794668350374",
+					"file_name": "3f147dc2-10eb-485a-aadd-961ef1f209dd.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f147dc2-10eb-485a-aadd-961ef1f209dd.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066277": [
+			"**Leads to:** [Room 3](#loc=1066275)",
+			[
+				{
+					"id": 161389,
+					"title": "screenshot-1794668362285",
+					"file_name": "1818b78b-9be5-45c1-8b79-ac10184d65c8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1818b78b-9be5-45c1-8b79-ac10184d65c8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066278": [
+			"**Leads to:** [Room 5](#loc=1066282)",
+			[
+				{
+					"id": 161390,
+					"title": "screenshot-1794668394980",
+					"file_name": "20b99653-1117-4fb9-895f-6f5161b9471b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20b99653-1117-4fb9-895f-6f5161b9471b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066282": [
+			"**Leads to:** [Room 4](#loc=1066278)",
+			[
+				{
+					"id": 161391,
+					"title": "screenshot-1794668412138",
+					"file_name": "53b1d9ee-8505-4c97-9006-774984f23a44.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/53b1d9ee-8505-4c97-9006-774984f23a44.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066283": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 161392,
+					"title": "screenshot-1794668446705",
+					"file_name": "76035ef7-9d1f-44c9-bc39-6599ccb220e3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/76035ef7-9d1f-44c9-bc39-6599ccb220e3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066284": [
+			"**Prerequisite:** [Door Key](#loc=1066285)\n\n**Leads to:** [Room 2](#loc=1066414)",
+			[
+				{
+					"id": 161393,
+					"title": "screenshot-1794668466534",
+					"file_name": "87c6cb67-d3d7-4110-a6cf-96a556a89fd8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87c6cb67-d3d7-4110-a6cf-96a556a89fd8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066285": [
+			"**Location:** At the bottom of the falling platforms guarded by two dantinis.\n\n**Opens:** [Locked Door](#loc=1066284)",
+			[
+				{
+					"id": 161394,
+					"title": "image",
+					"file_name": "963c4bc2-2a85-4f12-97ef-b9830d1c1b7b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/963c4bc2-2a85-4f12-97ef-b9830d1c1b7b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066301": [
+			"**Location:** Inside the second beige smash box after crossing the two sets of rotating platforms.",
+			[
+				{
+					"id": 161395,
+					"title": "screenshot-1794668657522",
+					"file_name": "ab5ebf56-de3d-4d65-b953-abb3f7f820e0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab5ebf56-de3d-4d65-b953-abb3f7f820e0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066303": [
+			"**Leads to:** [Room 3](#loc=1066415)",
+			[
+				{
+					"id": 161396,
+					"title": "screenshot-1794668693031",
+					"file_name": "d33ef3fa-6e70-4f53-a70d-2bc9926c74e0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d33ef3fa-6e70-4f53-a70d-2bc9926c74e0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066308": [
+			"**Leads to:** [Room 4](#loc=1066311)",
+			[
+				{
+					"id": 161397,
+					"title": "screenshot-1794668736230",
+					"file_name": "29b7ec7d-deac-494f-a4c2-7640f95282ba.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/29b7ec7d-deac-494f-a4c2-7640f95282ba.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066311": [
+			"**Leads to:** [Room 3](#loc=1066308)",
+			[
+				{
+					"id": 161398,
+					"title": "screenshot-1794668746720",
+					"file_name": "b63319b2-81c6-45a9-bc8f-f07e5e27fa4f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b63319b2-81c6-45a9-bc8f-f07e5e27fa4f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066312": [
+			"**Note:** You must press the [Red Button](#loc=1066425) in the same area to remove the cork in order to use this.\n\n**Leads to:** [Room 5](#loc=1066416)",
+			[
+				{
+					"id": 161400,
+					"title": "screenshot-1794668797472",
+					"file_name": "7886cdd3-2dd9-4de3-ad26-98041d3197b8.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7886cdd3-2dd9-4de3-ad26-98041d3197b8.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066322": [
+			"**Location:** On top of the monkeybars. Use the jelly on the opposite side of the monkeybars to reach it.",
+			[
+				{
+					"id": 161401,
+					"title": "screenshot-1794668917221",
+					"file_name": "8aa0d20b-2a87-4a6e-a21e-43873b848951.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8aa0d20b-2a87-4a6e-a21e-43873b848951.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066347": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 161403,
+					"title": "screenshot-1794669001098",
+					"file_name": "cc319753-3e85-46e2-88b0-9a4d82d65385.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc319753-3e85-46e2-88b0-9a4d82d65385.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066353": [
+			"**Leads to:** [Room 2](#loc=1066417)",
+			[
+				{
+					"id": 161404,
+					"title": "screenshot-1794669041245",
+					"file_name": "de7e6b5d-281d-4f9a-acd1-f00d6853ff84.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de7e6b5d-281d-4f9a-acd1-f00d6853ff84.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066355": [
+			"**Leads to:** [Room 3](#loc=1066367)",
+			[
+				{
+					"id": 161405,
+					"title": "screenshot-1794669075696",
+					"file_name": "b604dc92-eecb-458d-9c7a-5aa923886f60.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b604dc92-eecb-458d-9c7a-5aa923886f60.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066367": [
+			"**Note:** You cannot pass back through this door.",
+			[
+				{
+					"id": 161406,
+					"title": "screenshot-1794669087233",
+					"file_name": "ac893ef2-3ac9-4f3c-8e5c-4802188e3b16.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac893ef2-3ac9-4f3c-8e5c-4802188e3b16.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066368": [
+			"**Note:** To access this door, push the Balloon Man over to it and then use the pump to make him explode.\n\n**Leads to:** [Room 4](#loc=1066418)",
+			[
+				{
+					"id": 161407,
+					"title": "screenshot-1794669245136",
+					"file_name": "1d057b37-b9bf-42c8-88b3-af18966bfa3c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1d057b37-b9bf-42c8-88b3-af18966bfa3c.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066369": [
+			"**Note:** To access this door, push the Balloon Man over to it and then use the pump to make him explode.\n\n**Leads to:** [Room 5](#loc=1066419)",
+			[
+				{
+					"id": 161408,
+					"title": "screenshot-1794669250485",
+					"file_name": "170313df-fbb6-40b2-88be-a5ded0e23239.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/170313df-fbb6-40b2-88be-a5ded0e23239.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066370": [
+			"**Leads to:** [Room 6](#loc=1066420)",
+			[
+				{
+					"id": 161409,
+					"title": "screenshot-1794669315698",
+					"file_name": "67fa1b02-8585-4a55-8b36-d89f974237db.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/67fa1b02-8585-4a55-8b36-d89f974237db.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066380": [
+			"**Leads to:** [Room 7](#loc=1066421)",
+			[
+				{
+					"id": 161411,
+					"title": "screenshot-1794669538191",
+					"file_name": "f8ef0360-946d-4529-a158-5a3917f44384.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f8ef0360-946d-4529-a158-5a3917f44384.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066391": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 161410,
+					"title": "screenshot-1794669417755",
+					"file_name": "7e5f9a73-116e-42ce-bbd1-a84083fdd42b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e5f9a73-116e-42ce-bbd1-a84083fdd42b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066402": [
+			"**Note:** Ring the gong to finish the level.",
+			[
+				{
+					"id": 161412,
+					"title": "screenshot-1794669575390",
+					"file_name": "132c55b0-b74d-4142-bae8-8d02a422a104.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/132c55b0-b74d-4142-bae8-8d02a422a104.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066412": [
+			"**Leads to:** [Room 6](#loc=1066422)",
+			[
+				{
+					"id": 161402,
+					"title": "screenshot-1794668929733",
+					"file_name": "f000e357-2cce-48ca-946a-d00722a848c4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f000e357-2cce-48ca-946a-d00722a848c4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066413": ["**Note:** This is the entrance from the [Well](#loc=1066216).", []],
+		"1066414": ["**Note:** This is the entrance from the [Locked Door](#loc=1066284).", []],
+		"1066415": ["**Note:** This is the entrance from the [Well](#loc=1066303).", []],
+		"1066416": ["**Note:** This is the entrance from the [Well](#loc=1066312).", []],
+		"1066417": ["**Note:** This is the entrance from the [Passage](#loc=1066353).", []],
+		"1066418": ["**Note:** This is the entrance from the [Passage](#loc=1066368).", []],
+		"1066419": ["**Note:** This is the entrance from the [Passage](#loc=1066369).", []],
+		"1066420": ["**Note:** This is the entrance from the [Door](#loc=1066370).", []],
+		"1066421": ["**Note:** This is the entrance from the [Door](#loc=1066380).", []],
+		"1066422": ["**Note:** This is the entrance from the [Well](#loc=1066412).", []],
+		"1066423": [
+			"**Solution:** ||Tailswipe each of the four gongs around the room to damage him. This must be done quickly as he heals every time he attacks. The same gong cannot be used more than once.||",
+			[
+				{
+					"id": 161414,
+					"title": "screenshot-1794669599167",
+					"file_name": "28251618-4e30-4271-ac14-cd7fcfb1fc03.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/28251618-4e30-4271-ac14-cd7fcfb1fc03.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066424": [
+			"**Location:** Locked in the [Cage](#loc=1066220) at the start of the area after dropping through the well.",
+			[
+				{
+					"id": 161371,
+					"title": "screenshot-1794667747039",
+					"file_name": "243e5f4d-d8ac-4797-b772-c6307701dbb2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/243e5f4d-d8ac-4797-b772-c6307701dbb2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066425": [
+			"**Note:** Pressing this button removes the cork from the [Well](#loc=1066312) at the end of the area.",
+			[
+				{
+					"id": 161399,
+					"title": "screenshot-1794668775520",
+					"file_name": "12d6b692-f1c5-40d2-8679-99c539ea0e42.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/12d6b692-f1c5-40d2-8679-99c539ea0e42.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		]
+	}
+}

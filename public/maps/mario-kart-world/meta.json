@@ -136,6 +136,7 @@
 			"slug": "world",
 			"title": "World",
 			"data": "world/data.json",
+			"compact": "world/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Icons",
@@ -157,8 +158,7 @@
 					"tileSize": 256,
 					"background": "#3e7cb7"
 				}
-			],
-			"compact": "world/data.compact.json"
+			]
 		}
 	]
 }

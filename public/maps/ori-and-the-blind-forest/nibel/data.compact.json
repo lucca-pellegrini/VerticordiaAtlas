@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -24,12 +25,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "ori-and-the-blind-forest",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 2720,
 			"game_id": 272,
+			"section_id": null,
 			"title": "Landmarks",
 			"order": 10,
 			"color": "597698",
@@ -273,6 +275,7 @@
 		{
 			"id": 2721,
 			"game_id": 272,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "A83148",
@@ -488,6 +491,7 @@
 		{
 			"id": 2722,
 			"game_id": 272,
+			"section_id": null,
 			"title": "Other",
 			"order": 30,
 			"color": "8E58A1",
@@ -897,6 +901,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"15368": {
 			"id": 15368,
@@ -2234,7 +2239,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 16,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 2320,
 			"game_id": 232,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "336FD1",
@@ -161,6 +163,7 @@
 		{
 			"id": 2321,
 			"game_id": 232,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "DAB13E",
@@ -404,6 +407,7 @@
 		{
 			"id": 2322,
 			"game_id": 232,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 10,
 			"color": "C42508",
@@ -451,6 +455,7 @@
 		{
 			"id": 2323,
 			"game_id": 232,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "8C38A8",
@@ -552,6 +557,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"13375": {
 			"id": 13375,

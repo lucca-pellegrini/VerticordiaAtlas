@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 15,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -30,6 +31,7 @@
 		{
 			"id": 200,
 			"game_id": 20,
+			"section_id": null,
 			"title": "Loot",
 			"order": 10,
 			"color": "386150",
@@ -665,6 +667,7 @@
 		{
 			"id": 201,
 			"game_id": 20,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 10,
 			"color": "9c3443",
@@ -705,7 +708,35 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 7
+					"locations_count": 6
+				},
+				{
+					"id": 4737,
+					"group_id": 201,
+					"title": "Cultists",
+					"icon": "cultist",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 1,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
 				},
 				{
 					"id": 950,
@@ -796,6 +827,7 @@
 		{
 			"id": 202,
 			"game_id": 20,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "453A49",
@@ -1093,6 +1125,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"941": {
 			"id": 941,
@@ -1400,7 +1433,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 7
+			"locations_count": 6
 		},
 		"952": {
 			"id": 952,
@@ -1989,6 +2022,34 @@
 			"description": null,
 			"premium": false,
 			"locations_count": 11
+		},
+		"4737": {
+			"id": 4737,
+			"group_id": 201,
+			"title": "Cultists",
+			"icon": "cultist",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 1,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
 		},
 		"4740": {
 			"id": 4740,
@@ -12974,20 +13035,6 @@
 			"media": []
 		},
 		{
-			"id": 74926,
-			"map_id": 67,
-			"region_id": null,
-			"category_id": 951,
-			"title": "Cultists (4-6)",
-			"description": "A Cultist Priest and 3-5 Cultist Warriors may spawn around the ZB-1013 Fortress building.\n\n**Note:** Cultists spawn between 22:00 and 6:00",
-			"latitude": "0.96178176078009",
-			"longitude": "-0.77199304359411",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 194848,
 			"map_id": 67,
 			"region_id": null,
@@ -13051,6 +13098,20 @@
 			"description": "**Location:** Power Station\n\n**Spawn Chance:** ??  \n\n**Followers:** 3",
 			"latitude": "0.66925039933675",
 			"longitude": "-1.07197323262970",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 74926,
+			"map_id": 67,
+			"region_id": null,
+			"category_id": 4737,
+			"title": "Cultists (4-6)",
+			"description": "A Cultist Priest and 3-5 Cultist Warriors may spawn around the ZB-1013 Fortress building.\n\n**Note:** Cultists spawn between 22:00 and 6:00",
+			"latitude": "0.96178176078009",
+			"longitude": "-0.77199304359411",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -13595,33 +13656,6 @@
 			]
 		},
 		{
-			"id": 29973,
-			"map_id": 67,
-			"region_id": null,
-			"category_id": 954,
-			"title": "RUAF Roadblock [ALL]",
-			"description": "Behind the armored transport, in front of the sand bags.\n\n**Always Open:** ✔    \n**Single Use:** ✘  \n**Requirements:** \n- Searchlight must be lit",
-			"latitude": "0.93848574343632",
-			"longitude": "-0.52864453478620",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 16169,
-					"title": "2022-01-11[13-14]_-11.6, 1.5, -122.4_0.0, -1.0, 0.0, 0.1_19.74 (0)",
-					"file_name": "25db8462-8a58-4762-b5a8-65f20a5bb928.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/25db8462-8a58-4762-b5a8-65f20a5bb928.png",
-					"type": "image",
-					"mime_type": "image/png",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
 			"id": 29974,
 			"map_id": 67,
 			"region_id": null,
@@ -14081,6 +14115,33 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1080264,
+			"map_id": 67,
+			"region_id": null,
+			"category_id": 954,
+			"title": "Gate Near Medblock [SCAV]",
+			"description": "**Always Open:** ✔  \n**Single Use:** ✘  \n**Requirements:** -",
+			"latitude": "0.97684662941292",
+			"longitude": "-0.60573782762305",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160804,
+					"title": "",
+					"file_name": "b6e7285e-1444-4d8f-913f-6981176b4889.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b6e7285e-1444-4d8f-913f-6981176b4889.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 32092,
@@ -14913,8 +14974,8 @@
 			"map_id": 67,
 			"region_id": null,
 			"category_id": 957,
-			"title": "ZB-013 Gate (Factory)",
-			"description": "**Key Locations:** \n- [Factory Exit Key](#loc=30090) \n- [Factory Exit Key](#loc=30122)",
+			"title": "ZB-013 Gate",
+			"description": "**ZB-013 Key** - randomly appears in jackets / on scavs.",
 			"latitude": "1.04375407151070",
 			"longitude": "-0.60317981870256",
 			"features": null,

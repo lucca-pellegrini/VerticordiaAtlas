@@ -23,7 +23,8 @@
 					"14": { "x": { "max": 8191, "min": 8128 }, "y": { "max": 8191, "min": 8128 } },
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 14,
@@ -40,6 +41,7 @@
 		{
 			"id": 27036,
 			"game_id": 331,
+			"section_id": null,
 			"title": "Locations",
 			"order": 1,
 			"color": "313D59",
@@ -171,6 +173,7 @@
 		{
 			"id": 27037,
 			"game_id": 331,
+			"section_id": null,
 			"title": "Items",
 			"order": 2,
 			"color": "9460B6",
@@ -211,7 +214,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 162
+					"locations_count": 163
 				},
 				{
 					"id": 28271,
@@ -330,6 +333,7 @@
 		{
 			"id": 27040,
 			"game_id": 331,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 3,
 			"color": "0a9b9e",
@@ -370,7 +374,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 82
+					"locations_count": 83
 				},
 				{
 					"id": 28269,
@@ -461,6 +465,7 @@
 		{
 			"id": 27039,
 			"game_id": 331,
+			"section_id": null,
 			"title": "NPCs",
 			"order": 4,
 			"color": "6BAB68",
@@ -648,6 +653,7 @@
 		{
 			"id": 27035,
 			"game_id": 331,
+			"section_id": null,
 			"title": "Quests",
 			"order": 5,
 			"color": "202E3D",
@@ -723,6 +729,7 @@
 		{
 			"id": 27038,
 			"game_id": 331,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 6,
 			"color": "7B2E25",
@@ -854,6 +861,7 @@
 		{
 			"id": 27034,
 			"game_id": 331,
+			"section_id": null,
 			"title": "Other",
 			"order": 7,
 			"color": "6B7691",
@@ -955,6 +963,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"28259": {
 			"id": 28259,
@@ -1206,7 +1215,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 162
+			"locations_count": 163
 		},
 		"28268": {
 			"id": 28268,
@@ -1234,7 +1243,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 82
+			"locations_count": 83
 		},
 		"28269": {
 			"id": 28269,
@@ -8916,6 +8925,20 @@
 			"media": []
 		},
 		{
+			"id": 1084381,
+			"map_id": 1055,
+			"region_id": 5307,
+			"category_id": 28267,
+			"title": "Eye Drops x3",
+			"description": "**Location:** Behind container obscured from view",
+			"latitude": "0.84439850518599",
+			"longitude": "-0.78823994735154",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1043587,
 			"map_id": 1055,
 			"region_id": null,
@@ -15587,6 +15610,20 @@
 			"media": []
 		},
 		{
+			"id": 1084382,
+			"map_id": 1055,
+			"region_id": null,
+			"category_id": 28268,
+			"title": "R'lyeh Text",
+			"description": "**Location:** After crate-puzzle: Inside treasure chest in hidden room.\n\n**Usable by:** Nichol  \n\n**Stats:**\n\n- Phys. Atk. 35 | Mag. Atk. 93\n\n- Increases damage dealt by Water attacks by 30%",
+			"latitude": "0.74549888637698",
+			"longitude": "-0.97479766655394",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1043713,
 			"map_id": 1055,
 			"region_id": 5302,
@@ -16652,8 +16689,8 @@
 			"category_id": 28270,
 			"title": "Power Wristbands",
 			"description": "**Location:** Inside a treasure chest on a secret path behind some rocks\n\n**Stats:**\n- {{phys-atk width=16}} Physical Attack: 10",
-			"latitude": "0.85022259031160",
-			"longitude": "-0.85847738665271",
+			"latitude": "0.84981469623831",
+			"longitude": "-0.86469992995285",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],

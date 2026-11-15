@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 15,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 1160,
 			"game_id": 116,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "2C3F52",
@@ -189,6 +191,7 @@
 		{
 			"id": 1161,
 			"game_id": 116,
+			"section_id": null,
 			"title": "Items",
 			"order": 5,
 			"color": "498C97",
@@ -348,6 +351,7 @@
 		{
 			"id": 1164,
 			"game_id": 116,
+			"section_id": null,
 			"title": "Bosses",
 			"order": 10,
 			"color": "AA2C44",
@@ -423,6 +427,7 @@
 		{
 			"id": 1162,
 			"game_id": 116,
+			"section_id": null,
 			"title": "Creatures",
 			"order": 15,
 			"color": "AA2C44",
@@ -582,6 +587,7 @@
 		{
 			"id": 1163,
 			"game_id": 116,
+			"section_id": null,
 			"title": "Resources",
 			"order": 20,
 			"color": "7468A1",
@@ -1189,6 +1195,7 @@
 		{
 			"id": 1165,
 			"game_id": 116,
+			"section_id": null,
 			"title": "Other",
 			"order": 30,
 			"color": "414141",
@@ -1262,6 +1269,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"6047": {
 			"id": 6047,

@@ -13,7 +13,8 @@
 				"max_zoom": 17,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 130,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "636373",
@@ -93,7 +95,7 @@
 					"ign_enabled": true,
 					"ign_visible": true,
 					"suggestion_locked": false,
-					"suggestion_add_locked": false,
+					"suggestion_add_locked": true,
 					"featured": false,
 					"visible": true,
 					"description": null,
@@ -247,7 +249,7 @@
 					"icon": "monster_nest",
 					"color": null,
 					"icon_color": null,
-					"info": "Nests are localized infestations of a single monster type. Destroy the nests with Grapeshot, Dancing Star, or Samum bombs. Often, a stronger \"boss\" variation of the monster will spawn after the nest is destroyed, which can be killed for bonus XP rewards.\n\n\n**Rewards:**\n- 20 XP\n- Random Nest Loot",
+					"info": "Nests are localized infestations of a single monster type. Destroy the nests with Grapeshot, Dancing Star, or Samum bombs. Often, a stronger \"boss\" variation of the monster will spawn after the nest is destroyed, which can be killed for additional rewards.\n\n\n**Rewards:**\n- 20 XP\n- Random Nest Loot",
 					"template": "**Monsters:** ??",
 					"order": 1,
 					"has_heatmap": false,
@@ -261,7 +263,7 @@
 					"ign_enabled": true,
 					"ign_visible": true,
 					"suggestion_locked": false,
-					"suggestion_add_locked": false,
+					"suggestion_add_locked": true,
 					"featured": false,
 					"visible": true,
 					"description": null,
@@ -525,6 +527,7 @@
 		{
 			"id": 131,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Services",
 			"order": 10,
 			"color": "6591C7",
@@ -761,7 +764,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 2
+					"locations_count": 4
 				},
 				{
 					"id": 627,
@@ -880,6 +883,7 @@
 		{
 			"id": 132,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "C49E06",
@@ -951,6 +955,34 @@
 					"locations_count": 8
 				},
 				{
+					"id": 634,
+					"group_id": 132,
+					"title": "Gwent Quest",
+					"icon": "gwent_quest",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 1,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
+				},
+				{
 					"id": 636,
 					"group_id": 132,
 					"title": "Horse Race",
@@ -1004,7 +1036,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 26
+					"locations_count": 25
 				},
 				{
 					"id": 633,
@@ -1032,7 +1064,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 116
+					"locations_count": 113
 				},
 				{
 					"id": 637,
@@ -1089,12 +1121,41 @@
 					"description": null,
 					"premium": false,
 					"locations_count": 5
+				},
+				{
+					"id": 28345,
+					"group_id": 132,
+					"title": "Blood and Wine",
+					"icon": "quest_blood_and_wine",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 3,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 1
 				}
 			]
 		},
 		{
 			"id": 133,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "B3473B",
@@ -1163,7 +1224,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 323
+					"locations_count": 322
 				},
 				{
 					"id": 641,
@@ -1359,7 +1420,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 102
+					"locations_count": 103
 				},
 				{
 					"id": 27035,
@@ -1387,7 +1448,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 49
+					"locations_count": 54
 				},
 				{
 					"id": 27036,
@@ -1422,6 +1483,7 @@
 		{
 			"id": 134,
 			"game_id": 13,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "A17142",
@@ -1495,6 +1557,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"595": {
 			"id": 595,
@@ -1545,7 +1608,7 @@
 			"ign_enabled": true,
 			"ign_visible": true,
 			"suggestion_locked": false,
-			"suggestion_add_locked": false,
+			"suggestion_add_locked": true,
 			"featured": false,
 			"visible": true,
 			"description": null,
@@ -1699,7 +1762,7 @@
 			"icon": "monster_nest",
 			"color": null,
 			"icon_color": null,
-			"info": "Nests are localized infestations of a single monster type. Destroy the nests with Grapeshot, Dancing Star, or Samum bombs. Often, a stronger \"boss\" variation of the monster will spawn after the nest is destroyed, which can be killed for bonus XP rewards.\n\n\n**Rewards:**\n- 20 XP\n- Random Nest Loot",
+			"info": "Nests are localized infestations of a single monster type. Destroy the nests with Grapeshot, Dancing Star, or Samum bombs. Often, a stronger \"boss\" variation of the monster will spawn after the nest is destroyed, which can be killed for additional rewards.\n\n\n**Rewards:**\n- 20 XP\n- Random Nest Loot",
 			"template": "**Monsters:** ??",
 			"order": 1,
 			"has_heatmap": false,
@@ -1713,7 +1776,7 @@
 			"ign_enabled": true,
 			"ign_visible": true,
 			"suggestion_locked": false,
-			"suggestion_add_locked": false,
+			"suggestion_add_locked": true,
 			"featured": false,
 			"visible": true,
 			"description": null,
@@ -2222,7 +2285,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 2
+			"locations_count": 4
 		},
 		"627": {
 			"id": 627,
@@ -2362,7 +2425,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 26
+			"locations_count": 25
 		},
 		"633": {
 			"id": 633,
@@ -2390,7 +2453,35 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 116
+			"locations_count": 113
+		},
+		"634": {
+			"id": 634,
+			"group_id": 132,
+			"title": "Gwent Quest",
+			"icon": "gwent_quest",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 1,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
 		},
 		"635": {
 			"id": 635,
@@ -2530,7 +2621,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 323
+			"locations_count": 322
 		},
 		"641": {
 			"id": 641,
@@ -2782,7 +2873,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 102
+			"locations_count": 103
 		},
 		"27035": {
 			"id": 27035,
@@ -2810,7 +2901,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 49
+			"locations_count": 54
 		},
 		"27036": {
 			"id": 27036,
@@ -2867,6 +2958,34 @@
 			"description": null,
 			"premium": false,
 			"locations_count": 5
+		},
+		"28345": {
+			"id": 28345,
+			"group_id": 132,
+			"title": "Blood and Wine",
+			"icon": "quest_blood_and_wine",
+			"color": null,
+			"icon_color": null,
+			"info": null,
+			"template": null,
+			"order": 3,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 1
 		}
 	},
 	"routes": [],
@@ -4610,12 +4729,12 @@
 			"region_id": null,
 			"category_id": 596,
 			"title": "Bandit Camp",
-			"description": "**Level:** 33\n**Enemy's:** 6x Fallen Knights\n\n**Treasure:**\n- Ofieri Trousers Diagram\n\nPart of **From Ofier's Distant Shores** hidden quest",
+			"description": "**Level:** 33\n\n**Enemy's:** 6x Fallen Knights\n\n**Treasure:**\n\n- Ofieri Trousers Diagram\n\nPart of **From Ofier's Distant Shores** hidden quest",
 			"latitude": "83.93148619630000",
 			"longitude": "-167.97465188834000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -5125,12 +5244,12 @@
 			"region_id": null,
 			"category_id": 597,
 			"title": "Wyvern Cave - Entrance",
-			"description": "[Local Map](#loc=562393)\n\nVisited as part of the Hearts of Stone DLC.",
+			"description": "[Local Map](#loc=562393)",
 			"latitude": "83.89667492329800",
 			"longitude": "-167.95041739941000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -6215,12 +6334,12 @@
 			"region_id": 4303,
 			"category_id": 597,
 			"title": "Von Everec Family Crypt - Exit",
-			"description": "[World Map](#loc=214272)\n\n_Hearts of Stone DLC Required_",
+			"description": "[World Map](#loc=214272)",
 			"latitude": "83.94641001210600",
 			"longitude": "-167.68962664429000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -7798,7 +7917,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 158020,
+					"title": "",
+					"file_name": "c8d3aae4-9ebe-48f1-8117-cdaa184e9e29.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8d3aae4-9ebe-48f1-8117-cdaa184e9e29.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 19815,
@@ -8602,12 +8734,12 @@
 			"region_id": null,
 			"category_id": 608,
 			"title": "Fisstech Laboratory",
-			"description": "_Hearts of Stone DLC_\n\n**Related Quest:** [Rose on a Red Field](#loc=214241)",
+			"description": "**Related Quest:** [Rose on a Red Field](#loc=214241)",
 			"latitude": "83.93079496469700",
 			"longitude": "-167.92400058286000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -8784,12 +8916,12 @@
 			"region_id": null,
 			"category_id": 608,
 			"title": "Former Fisstech Laboratory",
-			"description": "_Hearts of Stone DLC_\n\n**Related Quest:** [Rose on a Red Field](#loc=214241)",
+			"description": "**Related Quest:** [Rose on a Red Field](#loc=214241)",
 			"latitude": "83.93005749198300",
 			"longitude": "-168.00493665446000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -11659,6 +11791,34 @@
 			"media": []
 		},
 		{
+			"id": 425993,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 625,
+			"title": "Gwent: Velen Players",
+			"description": "**Guest Giver:** Bloody Baron\n\nA quest to play the best players",
+			"latitude": "83.89790405641800",
+			"longitude": "-168.16481307149000",
+			"features": null,
+			"ign_page_id": "Gwent:_Velen_Players",
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 425994,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 625,
+			"title": "Gwent: Old Pals",
+			"description": "**Guest Giver:** Zoltan Chivay, after beating him at Gwent\n\n**Level:** ??  \n\n_Gwent is played for pleasure, a pleasure that is highest when playing in good company - and the best company of all is that of old and true friends. Geralt thus sought out some of his long-time companions for a hand or two of gwent - and the chance to win powerful cards from each of them._\n\n**Rewards:** \n- ??",
+			"latitude": "83.91803464889100",
+			"longitude": "-168.09571321772000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 19384,
 			"map_id": 44,
 			"region_id": null,
@@ -12508,7 +12668,7 @@
 			"longitude": "-167.87732516946000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -13127,6 +13287,20 @@
 			"media": []
 		},
 		{
+			"id": 20038,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 634,
+			"title": "Gwent: Big City Players",
+			"description": null,
+			"latitude": "83.91954497905000",
+			"longitude": "-168.11505675316000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 19706,
 			"map_id": 44,
 			"region_id": null,
@@ -13165,7 +13339,7 @@
 			"longitude": "-167.87733079552000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -13261,20 +13435,6 @@
 			"description": "**Given By:** Ciri  \n**Level:** 28  \n**Reward:**\n- 300 XP",
 			"latitude": "83.91808903192400",
 			"longitude": "-168.09314087878000",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 214245,
-			"map_id": 44,
-			"region_id": null,
-			"category_id": 632,
-			"title": "Envoys, Wineboys",
-			"description": "_Beginning of the Blood and Wine DLC_\n\nNext\n\n**Level:** 34\n\n**Rewards:**\n- ??",
-			"latitude": "83.91788332563400",
-			"longitude": "-168.05591076269000",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -13855,20 +14015,6 @@
 			"media": []
 		},
 		{
-			"id": 20038,
-			"map_id": 44,
-			"region_id": null,
-			"category_id": 633,
-			"title": "Gwent: Big City Players",
-			"description": "",
-			"latitude": "83.91954497905000",
-			"longitude": "-168.11505675316000",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 20044,
 			"map_id": 44,
 			"region_id": null,
@@ -14000,12 +14146,12 @@
 			"region_id": null,
 			"category_id": 633,
 			"title": "Without a Trace",
-			"description": "Part of the **Hearts of Stone** DLC.\n\n**Given By:** Noticeboard (Contract: Apprentice Gone Missing!)\n\n**Level:** 32  \n\n**Reward:**\n- XP\n- 200 Crowns",
+			"description": "**Given By:** Noticeboard (Contract: Apprentice Gone Missing!)\n\n**Level:** 32  \n\n**Reward:**\n\n- XP\n- 200 Crowns",
 			"latitude": "83.92768704172900",
 			"longitude": "-167.90924549103000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -14326,8 +14472,8 @@
 			"latitude": "83.92872223034900",
 			"longitude": "-167.95722976207000",
 			"features": null,
-			"ign_page_id": null,
-			"tags": [],
+			"ign_page_id": "Rose_on_a_Red_Field_Walkthrough",
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -14770,12 +14916,12 @@
 			"region_id": null,
 			"category_id": 633,
 			"title": "Enchanting: Quality Has Its Price",
-			"description": "**Quest Giver:** Runewright, after completing [Enchanting: Start-up Costs](#loc=267624)\n\n**Level:** 32  \n\n**Rewards:** \n- XP",
+			"description": "**Quest Giver:** Runewright, after completing [Enchanting: Start-up Costs](#loc=267624)\n\n**Level:** 32\n\n**Objectives:**\n\n- Find a pickaxe.\n- Acquire a hunk of jade for the Ofieri runewright.\n- Take the hunk of jade to the Ofieri runewright.\n\n**Rewards:** \n\n- XP",
 			"latitude": "83.92744379870200",
 			"longitude": "-167.87614540639000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -14784,12 +14930,12 @@
 			"region_id": null,
 			"category_id": 633,
 			"title": "Enchanting: Start-up Costs",
-			"description": "**Quest Giver:** [The Runewright](#loc=216188), or [A Runewright Upon Your Shores Has Landed](#loc=563806)\n\n**Level:** 32\n\n**Rewards:** \n- None",
+			"description": "**Quest Giver:** [The Runewright](#loc=216188), or [A Runewright Upon Your Shores Has Landed](#loc=563806)\n\n**Level:** 32\n\n**Objectives:**\n\n- Acquire 5000 crowns for the Ofieri runewright.\n- Give 5000 crowns to the Ofieri runewright.\n\n**Rewards:** \n\n- None",
 			"latitude": "83.92744107705600",
 			"longitude": "-167.87658636264000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -14966,7 +15112,7 @@
 			"region_id": null,
 			"category_id": 633,
 			"title": "Forefather's Eve",
-			"description": "**Guest Giver:** The Pellar  \n**Level:** 7\n\n_During his travels through No Man's Land Geralt ran into the pellar once more. The strange fellow had a favor to ask of the witcher. He wanted Geralt to help him perform a cherished local peasant rite known as Forefathers' Eve. During this ritual, he explained, lost spirits are summoned and their deeds judged - fantastic material, by the way, for a poet looking to make his name with an atmospheric ballad. This Forefathers' Eve was set to be held at midnight on Fyke Isle, and Geralt, having no other plans and his curiosity piqued, promised to attend._\n\n**Rewards:**\n- ??",
+			"description": "**Quest Giver:** The Pellar  \n**Level:** 7\n\n_During his travels through No Man's Land Geralt ran into the pellar once more. The strange fellow had a favor to ask of the witcher. He wanted Geralt to help him perform a cherished local peasant rite known as Forefathers' Eve. During this ritual, he explained, lost spirits are summoned and their deeds judged - fantastic material, by the way, for a poet looking to make his name with an atmospheric ballad. This Forefathers' Eve was set to be held at midnight on Fyke Isle, and Geralt, having no other plans and his curiosity piqued, promised to attend._\n\n**Rewards:**\n\n- ??",
 			"latitude": "83.89401731538700",
 			"longitude": "-168.21671505706000",
 			"features": null,
@@ -14983,34 +15129,6 @@
 			"description": "**Guest Giver:** Merchant  \n**Level:** 9\n\nA Novigrad merchant told Geralt about a mage named Aeramas. The poor man had, like so many of his colleagues, met a gruesome death on a pyre. With no surviving heirs, his expansive rural residence was now abandoned - and, if the rumors about this eccentric sorcerer were true, inside it awaited a great many curiosities and valuable secrets...\n\n**Rewards:** \n- ??",
 			"latitude": "83.92176273395200",
 			"longitude": "-168.10019870797000",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 425993,
-			"map_id": 44,
-			"region_id": null,
-			"category_id": 633,
-			"title": "Gwent: Velen Players",
-			"description": "**Guest Giver:** Bloody Baron\n\nA quest to play the best players",
-			"latitude": "83.89790405641800",
-			"longitude": "-168.16481307149000",
-			"features": null,
-			"ign_page_id": "Gwent:_Velen_Players",
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 425994,
-			"map_id": 44,
-			"region_id": null,
-			"category_id": 633,
-			"title": "Gwent: Old Pals",
-			"description": "**Guest Giver:** Zoltan Chivay, after beating him at Gwent\n\n**Level:** ??  \n\n_Gwent is played for pleasure, a pleasure that is highest when playing in good company - and the best company of all is that of old and true friends. Geralt thus sought out some of his long-time companions for a hand or two of gwent - and the chance to win powerful cards from each of them._\n\n**Rewards:** \n- ??",
-			"latitude": "83.91803464889100",
-			"longitude": "-168.09571321772000",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -15083,7 +15201,7 @@
 			"longitude": "-167.90682314384000",
 			"features": null,
 			"ign_page_id": "A_Midnight_Clear",
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -15487,7 +15605,7 @@
 			"latitude": "83.91507122383000",
 			"longitude": "-167.88279790747000",
 			"features": null,
-			"ign_page_id": null,
+			"ign_page_id": "A_Surprise_Inheritance",
 			"tags": [],
 			"media": []
 		},
@@ -15558,7 +15676,7 @@
 			"longitude": "-167.87604944794000",
 			"features": null,
 			"ign_page_id": "From_Ofier%27s_Distant_Shores",
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -15698,6 +15816,20 @@
 			"features": null,
 			"ign_page_id": "Whatsoever_a_Man_Soweth",
 			"tags": [302],
+			"media": []
+		},
+		{
+			"id": 214245,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 28345,
+			"title": "Envoys, Wineboys",
+			"description": "_Beginning of the Blood and Wine DLC_\n\nNext\n\n**Level:** 34\n\n**Rewards:**\n- ??",
+			"latitude": "83.91788332563400",
+			"longitude": "-168.05591076269000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [303],
 			"media": []
 		},
 		{
@@ -18878,12 +19010,12 @@
 			"region_id": null,
 			"category_id": 642,
 			"title": "Letter from an Ofieri merchant",
-			"description": "_Hearts of Stone DLC Required_\n\nDropped by one of the Ofieri enemies.",
+			"description": "Dropped by one of the Ofieri enemies.",
 			"latitude": "83.92745097077600",
 			"longitude": "-168.15062820911000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -18892,12 +19024,12 @@
 			"region_id": null,
 			"category_id": 642,
 			"title": "Prescription",
-			"description": "_Hearts of Stone DLC Required_\n\nNext to the trapdoor on the ground floor of Shani's Clinic.",
+			"description": "Next to the trapdoor on the ground floor of Shani's Clinic.",
 			"latitude": "83.90818338883400",
 			"longitude": "-167.97928104291000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": [
 				{
 					"id": 128362,
@@ -18919,12 +19051,12 @@
 			"region_id": null,
 			"category_id": 642,
 			"title": "Famous Redanian Dynasties",
-			"description": "_Hearts of Stone DLC Required_\n\nIn a bookshelf on the upper floor of Shani's Clinic.",
+			"description": "In a bookshelf on the upper floor of Shani's Clinic.",
 			"latitude": "83.90814240031700",
 			"longitude": "-167.97893772016000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": [
 				{
 					"id": 128363,
@@ -18946,12 +19078,12 @@
 			"region_id": null,
 			"category_id": 642,
 			"title": "Wedding invitation",
-			"description": "_Hearts of Stone DLC Required_\n\nNext to the bed on the upper floor of Shani's Clinic.",
+			"description": "Next to the bed on the upper floor of Shani's Clinic.",
 			"latitude": "83.90804789796700",
 			"longitude": "-167.97974238287000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": [
 				{
 					"id": 128364,
@@ -19001,12 +19133,12 @@
 			"region_id": null,
 			"category_id": 642,
 			"title": "Notes from the ealdorman of Mohrin",
-			"description": "In chest.\n\nHearts of Stone DLC Required",
+			"description": "In chest.",
 			"latitude": "83.92730808504100",
 			"longitude": "-167.99548554013000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -22688,20 +22820,6 @@
 			"media": []
 		},
 		{
-			"id": 555913,
-			"map_id": 44,
-			"region_id": null,
-			"category_id": 639,
-			"title": "Diagram Chest",
-			"description": "Near a tent.",
-			"latitude": "83.88728514472600",
-			"longitude": "-168.26047715869000",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 555914,
 			"map_id": 44,
 			"region_id": null,
@@ -25582,12 +25700,12 @@
 			"region_id": null,
 			"category_id": 641,
 			"title": "Eredin Bréacc Glas: The Treacherous",
-			"description": "**Hearts of Stone DLC Required** - Purchased from [Dulla kh'Amanni](#loc=216190)\n\n***Card Information:***     \n**Deck:** Monsters    \n**Row:** Leader   \n**Strength:** N/A    \n**Special Ability:** Doubles the strength of all spy cards (affects both players).",
+			"description": "Purchased from [Dulla kh'Amanni](#loc=216190)\n\n**_Card Information:_**  \n**Deck:** Monsters  \n**Row:** Leader  \n**Strength:** N/A  \n**Special Ability:** Doubles the strength of all spy cards (affects both players).",
 			"latitude": "83.92715944152100",
 			"longitude": "-167.87732696116000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -25596,12 +25714,12 @@
 			"region_id": null,
 			"category_id": 641,
 			"title": "Gaunter O'Dimm: Darkness",
-			"description": "**Hearts of Stone DLC Required** - Purchased from [Dulla kh'Amanni](#loc=216190)\n\n***Card Information:***     \n**Deck:** Neutral    \n**Row:** Ranged Combat    \n**Strength:** 4    \n**Special Ability:** Muster - Find any cards with the same name in your deck and play them instantly.",
+			"description": "Purchased from [Dulla kh'Amanni](#loc=216190)\n\n**_Card Information:_**  \n**Deck:** Neutral  \n**Row:** Ranged Combat  \n**Strength:** 4  \n**Special Ability:** Muster - Find any cards with the same name in your deck and play them instantly.",
 			"latitude": "83.92716185734000",
 			"longitude": "-167.87807196693000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -25610,12 +25728,12 @@
 			"region_id": null,
 			"category_id": 641,
 			"title": "Francesca Findabair: Hope of the Aen Seidhe",
-			"description": "**Hearts of Stone DLC Required** - Purchased from [Dulla kh'Amanni](#loc=216190)\n\n***Card Information:***     \n**Deck:** Scoia'tael    \n**Row:** Leader   \n**Strength:** N/A    \n**Special Ability:** Move agile units to whichever valid row maximizes their strength (don't move units already in optimal row).",
+			"description": "Purchased from [Dulla kh'Amanni](#loc=216190)\n\n**_Card Information:_**  \n**Deck:** Scoia'tael  \n**Row:** Leader  \n**Strength:** N/A  \n**Special Ability:** Move agile units to whichever valid row maximizes their strength (don't move units already in optimal row).",
 			"latitude": "83.92715468093300",
 			"longitude": "-167.87664937775000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -25736,12 +25854,12 @@
 			"region_id": null,
 			"category_id": 641,
 			"title": "Cow / Bovine Defense Force",
-			"description": "**Hearts of Stone DLC Required** -\n On the upper floor of the barn during or after the wedding. Use Witcher senses to have an easier time finding it.  \n\n***Cow Card Information:***     \n**Deck:** Neutral    \n**Row:** Ranged Combat   \n**Strength:** 0    \n**Special Ability:** Summons the Bovine Defense Force when removed from the battlefield (e.g by a round ending)\n\n***Bovine Defense Force Card Information:***     \n**Deck:** Neutral    \n**Row:** Melee Combat   \n**Strength:** 8    \n**Special Ability:** None",
+			"description": "On the upper floor of the barn during or after the wedding. Use Witcher senses to have an easier time finding it.  \n\n**_Cow Card Information:_**  \n**Deck:** Neutral  \n**Row:** Ranged Combat  \n**Strength:** 0  \n**Special Ability:** Summons the Bovine Defense Force when removed from the battlefield (e.g by a round ending)\n\n**_Bovine Defense Force Card Information:_**  \n**Deck:** Neutral  \n**Row:** Melee Combat  \n**Strength:** 8  \n**Special Ability:** None",
 			"latitude": "83.92837832714200",
 			"longitude": "-167.90955934413000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -25946,12 +26064,12 @@
 			"region_id": null,
 			"category_id": 641,
 			"title": "Toad",
-			"description": "**Hearts of Stone DLC Required** - Reward for defeating Olgierd von Everec in a game of Gwent. After completing [Evil's Soft First Touches](#loc=20085), he can be found inside The Alchemy and challenged at any time before the end of the DLC storyline. Afterwards, the card can be found on a table.\n\n***Opponent Information:***      \n**Deck:** Monsters      \n**Leader Card:** The Treacherous - Doubles the strength of all spy cards (affects both players).    \n\n***Card Information:***     \n**Deck:** Monsters    \n**Row:** Ranged Combat   \n**Strength:** 7    \n**Special Ability:** Scorch Ranged - Destroy your enemy's strongest Ranged Combat unit(s) if the combined strength of all their Ranged Combat units is 10 or more.",
+			"description": "Reward for defeating Olgierd von Everec in a game of Gwent. After completing [Evil's Soft First Touches](#loc=20085), he can be found inside The Alchemy and challenged at any time before the end of the DLC storyline. Afterwards, the card can be found on a table.\n\n**_Opponent Information:_**  \n**Deck:** Monsters  \n**Leader Card:** The Treacherous - Doubles the strength of all spy cards (affects both players).    \n\n**_Card Information:_**  \n**Deck:** Monsters  \n**Row:** Ranged Combat  \n**Strength:** 7  \n**Special Ability:** Scorch Ranged - Destroy your enemy's strongest Ranged Combat unit(s) if the combined strength of all their Ranged Combat units is 10 or more.",
 			"latitude": "83.90869303618800",
 			"longitude": "-167.97469139099000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -27494,12 +27612,12 @@
 			"region_id": null,
 			"category_id": 646,
 			"title": "Letter - Orders to Attack Bowdon",
-			"description": "_Hearts of Stone DLC_\n\n**Location:** On the wagon\n\n**Related Quest:** [Rose on a Red Field](#loc=214241)",
+			"description": "**Location:** On the wagon\n\n**Related Quest:** [Rose on a Red Field](#loc=214241)",
 			"latitude": "83.93158058143300",
 			"longitude": "-167.97569420745000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -27741,12 +27859,12 @@
 			"region_id": null,
 			"category_id": 646,
 			"title": "Von Everec Blood",
-			"description": "_Hearts of Stone DLC Required_\n\n**Location:** Given to you by Gaunter O'Dimm at the end of [Evil's Soft First Touches](#loc=20085)\n\n**Related Quest:** [Dead Man's Party](#loc=426136)",
+			"description": "**Location:** Given to you by Gaunter O'Dimm at the end of [Evil's Soft First Touches](#loc=20085)\n\n**Related Quest:** [Dead Man's Party](#loc=426136)",
 			"latitude": "83.92798544392900",
 			"longitude": "-167.95456779101000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -27801,7 +27919,7 @@
 			"longitude": "-167.87348966216000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		},
 		{
@@ -29733,6 +29851,20 @@
 			"media": []
 		},
 		{
+			"id": 555913,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 27034,
+			"title": "Diagram Chest",
+			"description": "Near a tent.",
+			"latitude": "83.88728514472600",
+			"longitude": "-168.26047715869000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 555915,
 			"map_id": 44,
 			"region_id": null,
@@ -31362,7 +31494,7 @@
 			"region_id": null,
 			"category_id": 27035,
 			"title": "Tree Stump",
-			"description": "Contains various coins.",
+			"description": null,
 			"latitude": "83.88811430488800",
 			"longitude": "-168.25456155952000",
 			"features": null,
@@ -31728,6 +31860,76 @@
 			"description": null,
 			"latitude": "83.89305541033900",
 			"longitude": "-167.98070735924000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061323,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 27035,
+			"title": "Hollowed Out Log",
+			"description": null,
+			"latitude": "83.88912658391600",
+			"longitude": "-168.26648586552000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061324,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 27035,
+			"title": "Tree Stump",
+			"description": null,
+			"latitude": "83.88874702602700",
+			"longitude": "-168.27231224220000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061325,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 27035,
+			"title": "Tree Stump",
+			"description": null,
+			"latitude": "83.89012142918100",
+			"longitude": "-168.26979454940000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061326,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 27035,
+			"title": "Tree Stump",
+			"description": null,
+			"latitude": "83.89618150426500",
+			"longitude": "-168.22642485231000",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1061327,
+			"map_id": 44,
+			"region_id": null,
+			"category_id": 27035,
+			"title": "Tree Stump",
+			"description": null,
+			"latitude": "83.89772268055300",
+			"longitude": "-168.23736455868000",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -33042,12 +33244,12 @@
 			"region_id": null,
 			"category_id": 649,
 			"title": "Olgierd von Everec",
-			"description": "**Hearts of Stone DLC Required**",
+			"description": null,
 			"latitude": "83.92895901017800",
 			"longitude": "-167.95826013687000",
 			"features": null,
 			"ign_page_id": null,
-			"tags": [],
+			"tags": [302],
 			"media": []
 		}
 	],

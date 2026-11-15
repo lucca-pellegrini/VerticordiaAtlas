@@ -202,6 +202,7 @@
 			"slug": "sicili",
 			"title": "Sicili",
 			"data": "sicili/data.json",
+			"compact": "sicili/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Buildings",
@@ -223,8 +224,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "sicili/data.compact.json"
+			]
 		}
 	]
 }

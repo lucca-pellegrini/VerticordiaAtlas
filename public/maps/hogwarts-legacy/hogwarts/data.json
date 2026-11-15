@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -35,16 +36,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "hogwarts-legacy",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/hogwarts-legacy/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1430,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "23353d",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -138,10 +146,17 @@
 		{
 			"id": 1431,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "533b61",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -319,10 +334,17 @@
 		{
 			"id": 1432,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "e7bb66",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -444,10 +466,17 @@
 		{
 			"id": 1433,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "285471",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -597,10 +626,17 @@
 		{
 			"id": 1436,
 			"game_id": 143,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "3a6374",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -804,6 +840,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"8256": {
 			"id": 8256,
@@ -1518,6 +1555,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 252551,
@@ -7068,7 +7106,7 @@
 			"region_id": null,
 			"category_id": 8281,
 			"title": "The Hall of Herodiana",
-			"description": "**Requirements:**\n- The Helm of Urtkot\n- Beasts Class\n- The Caretaker's Lunar Lament\n- Depulso (Professor Sharp's assignment 1)\n\n**How To Begin:** Talk to Sophronia Franklin at the study area near Charm Classroom  \n**Rewards:**\n- 180 XP\n- Herodiana's Cape\n- Herodiana's Attire\n- Herodiana's Cap",
+			"description": "**Requirements:**\n\n- The Helm of Urtkot\n- Beasts Class\n- The Caretaker's Lunar Lament\n- Depulso (Professor Sharp's assignment 1)\n\n**How To Begin:** Talk to Sophronia Franklin at the study area near Charms Classroom  \n**Rewards:**\n\n- 180 XP\n- Herodiana's Cape\n- Herodiana's Attire\n- Herodiana's Cap",
 			"latitude": "0.72989427922495",
 			"longitude": "-0.75084566476815",
 			"features": null,
@@ -12161,7 +12199,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "columna-com-solid",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/hogwarts-legacy/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

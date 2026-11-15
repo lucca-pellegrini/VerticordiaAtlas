@@ -13,7 +13,8 @@
 				"max_zoom": 13,
 				"tiles_max_zoom": 13,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -30,6 +31,7 @@
 		{
 			"id": 1910,
 			"game_id": 191,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "5A81DB",
@@ -154,7 +156,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 13
+					"locations_count": 16
 				},
 				{
 					"id": 11357,
@@ -189,6 +191,7 @@
 		{
 			"id": 1911,
 			"game_id": 191,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "BF6A9E",
@@ -292,6 +295,7 @@
 		{
 			"id": 1913,
 			"game_id": 191,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "5EAB4B",
@@ -416,7 +420,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 5
+					"locations_count": 6
 				},
 				{
 					"id": 11375,
@@ -528,7 +532,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 134
+					"locations_count": 135
 				},
 				{
 					"id": 11379,
@@ -561,6 +565,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"11357": {
 			"id": 11357,
@@ -644,7 +649,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 13
+			"locations_count": 16
 		},
 		"11360": {
 			"id": 11360,
@@ -840,7 +845,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 134
+			"locations_count": 135
 		},
 		"11372": {
 			"id": 11372,
@@ -1036,7 +1041,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 5
+			"locations_count": 6
 		}
 	},
 	"routes": [],
@@ -1501,7 +1506,7 @@
 			"region_id": null,
 			"category_id": 11360,
 			"title": "Parlor Locked Door",
-			"description": "Unlocked with the [Parlor Key](#loc=390576).",
+			"description": "Unlocked with the [Parlor Key](#loc=390576) that spawns after you try to open it.",
 			"latitude": "0.77060760254106",
 			"longitude": "-0.70436954498442",
 			"features": null,
@@ -2111,6 +2116,74 @@
 			"media": []
 		},
 		{
+			"id": 1063461,
+			"map_id": 654,
+			"region_id": null,
+			"category_id": 11359,
+			"title": "Mirror",
+			"description": null,
+			"latitude": "0.39238278747891",
+			"longitude": "-0.67577167123463",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 159237,
+					"title": "1000104003",
+					"file_name": "f7aff468-22a8-4bf3-a48c-57307da5ef22.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f7aff468-22a8-4bf3-a48c-57307da5ef22.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1064404,
+			"map_id": 654,
+			"region_id": null,
+			"category_id": 11359,
+			"title": "Mirror",
+			"description": "Far eastern side of the room; can be activated from within the mouth of the stone lion.",
+			"latitude": "0.48019654451100",
+			"longitude": "-0.67878680340843",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 159637,
+					"title": "1000104006",
+					"file_name": "3421ef4a-3afa-4fcb-a416-24d2410759a9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3421ef4a-3afa-4fcb-a416-24d2410759a9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1064406,
+			"map_id": 654,
+			"region_id": null,
+			"category_id": 11359,
+			"title": "Mirror",
+			"description": null,
+			"latitude": "0.90265163027534",
+			"longitude": "-0.62503325959204",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 390578,
 			"map_id": 654,
 			"region_id": null,
@@ -2228,7 +2301,7 @@
 			"region_id": null,
 			"category_id": 11366,
 			"title": "Boolicious",
-			"description": "**Health:** 40 HP",
+			"description": "**Health:** 30 HP",
 			"latitude": "0.77780782657723",
 			"longitude": "-0.78099489212062",
 			"features": null,
@@ -2242,7 +2315,7 @@
 			"region_id": null,
 			"category_id": 11366,
 			"title": "TurBoo",
-			"description": "**Health:** 60 HP",
+			"description": "**Health:** 50 HP",
 			"latitude": "0.73572044261006",
 			"longitude": "-0.78120946884169",
 			"features": null,
@@ -3627,7 +3700,7 @@
 			"region_id": null,
 			"category_id": 11378,
 			"title": "Fire Source",
-			"description": "Vacuum this to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.",
+			"description": "Vacuum the candle to get a Fire Spirit, allowing the Poltergust to shoot fire with the L trigger.",
 			"latitude": "0.55892057865806",
 			"longitude": "-0.79170227050810",
 			"features": null,
@@ -3689,7 +3762,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 158852,
+					"title": "1000104002",
+					"file_name": "9ac55e2c-fa18-419c-a505-7c77904e1a42.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9ac55e2c-fa18-419c-a505-7c77904e1a42.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 390836,
@@ -3731,7 +3817,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 159636,
+					"title": "1000104005",
+					"file_name": "cf50b52d-5e81-4418-9269-b435ee5a3d88.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cf50b52d-5e81-4418-9269-b435ee5a3d88.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 391248,
@@ -3759,7 +3858,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 159638,
+					"title": "1000104007",
+					"file_name": "6188cce6-5772-4e3c-affc-ccf17c1a87b2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6188cce6-5772-4e3c-affc-ccf17c1a87b2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 391626,
@@ -3823,7 +3935,7 @@
 			"region_id": null,
 			"category_id": 11380,
 			"title": "Ice Source",
-			"description": "Vacuum this to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.",
+			"description": "Vacuum the bucket to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.",
 			"latitude": "0.85218148461095",
 			"longitude": "-0.63574790954539",
 			"features": null,
@@ -3888,6 +4000,20 @@
 			"media": []
 		},
 		{
+			"id": 1064405,
+			"map_id": 654,
+			"region_id": null,
+			"category_id": 11380,
+			"title": "Ice Source",
+			"description": "After opening the Fridge, Vacuum it to get an Ice Spirit, allowing the Poltergust to shoot ice with the L trigger.",
+			"latitude": "0.60976138382333",
+			"longitude": "-0.75688156640663",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 390712,
 			"map_id": 654,
 			"region_id": null,
@@ -3927,7 +4053,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 159238,
+					"title": "1000104004",
+					"file_name": "e3afe68f-d8fb-4fb1-8859-819e5cdc954a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3afe68f-d8fb-4fb1-8859-819e5cdc954a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 390917,
@@ -3990,7 +4129,7 @@
 			"map_id": 654,
 			"region_id": null,
 			"category_id": 11375,
-			"title": "Shivers Candles",
+			"title": "Shivers' Candles",
 			"description": "Grab some fire from the wall candles, then light the floating candles on fire to reveal Shivers. He'll float back to the Butler Room for [his boss battle](#loc=390955).",
 			"latitude": "0.65144088956164",
 			"longitude": "-0.70166587829556",
@@ -4619,7 +4758,7 @@
 			"region_id": null,
 			"category_id": 11374,
 			"title": "Speedy Spirit",
-			"description": "Inside the southern yellow bicycle.",
+			"description": "Inside the southernmost yellow bicycle.",
 			"latitude": "0.66075290869290",
 			"longitude": "-0.61381816864096",
 			"features": null,
@@ -5935,7 +6074,7 @@
 			"region_id": null,
 			"category_id": 11371,
 			"title": "Green Chest",
-			"description": "Revealed for defeating the Temper Terror in the toiler using water.",
+			"description": "Revealed for defeating the Temper Terror in the toilet using water.",
 			"latitude": "0.83305403863191",
 			"longitude": "-0.74611544608968",
 			"features": null,
@@ -6868,12 +7007,26 @@
 			"media": []
 		},
 		{
+			"id": 1063462,
+			"map_id": 654,
+			"region_id": null,
+			"category_id": 11371,
+			"title": "Ceiling Light",
+			"description": null,
+			"latitude": "0.40118043650007",
+			"longitude": "-0.67845462563679",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 394212,
 			"map_id": 654,
 			"region_id": null,
 			"category_id": 11379,
 			"title": "Water Source",
-			"description": "Vacuum this to get a Water Spirit, allowing the Poltergust to shoot Ice with the L trigger.",
+			"description": "Vacuum the toilet to get a Water Spirit, allowing the Poltergust to shoot Ice with the L trigger.",
 			"latitude": "0.83295748931043",
 			"longitude": "-0.76003074645985",
 			"features": null,
@@ -6915,7 +7068,7 @@
 			"region_id": null,
 			"category_id": 11379,
 			"title": "Water Source",
-			"description": "Vacuum this to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.",
+			"description": "Vacuum the kitchen sink to get a Water Spirit, allowing the Poltergust to shoot water with the L trigger.",
 			"latitude": "0.60912892136346",
 			"longitude": "-0.77367782592864",
 			"features": null,

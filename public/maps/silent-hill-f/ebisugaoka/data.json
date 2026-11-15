@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 15,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 2380,
 			"game_id": 238,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "597698",
@@ -133,6 +135,7 @@
 		{
 			"id": 2381,
 			"game_id": 238,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "A77387",
@@ -292,6 +295,7 @@
 		{
 			"id": 2382,
 			"game_id": 238,
+			"section_id": null,
 			"title": "Pickups",
 			"order": 10,
 			"color": "4D7787",
@@ -423,6 +427,7 @@
 		{
 			"id": 2383,
 			"game_id": 238,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 10,
 			"color": "A83148",
@@ -470,6 +475,7 @@
 		{
 			"id": 2384,
 			"game_id": 238,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "1C2133",
@@ -627,6 +633,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"13653": {
 			"id": 13653,
@@ -30649,26 +30656,26 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 86, "game_id": 238, "order": 0, "title": "Story", "icon": null, "color": null, "icon_color": null },
-		{ "id": 87, "game_id": 238, "order": 0, "title": "Hard", "icon": null, "color": null, "icon_color": null },
+		{ "id": 86, "game_id": 238, "order": 1, "title": "Story", "icon": null, "color": null, "icon_color": null },
+		{ "id": 87, "game_id": 238, "order": 2, "title": "Hard", "icon": null, "color": null, "icon_color": null },
 		{
 			"id": 88,
 			"game_id": 238,
-			"order": 0,
+			"order": 3,
 			"title": "Lost in the Fog",
 			"icon": null,
 			"color": null,
 			"icon_color": null
 		},
-		{ "id": 89, "game_id": 238, "order": 0, "title": "NG+", "icon": null, "color": null, "icon_color": null },
-		{ "id": 90, "game_id": 238, "order": 0, "title": "NG", "icon": null, "color": null, "icon_color": null },
-		{ "id": 91, "game_id": 238, "order": 0, "title": "NG++", "icon": null, "color": null, "icon_color": null }
+		{ "id": 90, "game_id": 238, "order": 4, "title": "NG", "icon": null, "color": null, "icon_color": null },
+		{ "id": 89, "game_id": 238, "order": 5, "title": "NG+", "icon": null, "color": null, "icon_color": null },
+		{ "id": 91, "game_id": 238, "order": 6, "title": "NG++", "icon": null, "color": null, "icon_color": null }
 	],
 	"tagsById": {
 		"86": {
 			"id": 86,
 			"game_id": 238,
-			"order": 0,
+			"order": 1,
 			"title": "Story",
 			"icon": null,
 			"color": null,
@@ -30677,7 +30684,7 @@
 		"87": {
 			"id": 87,
 			"game_id": 238,
-			"order": 0,
+			"order": 2,
 			"title": "Hard",
 			"icon": null,
 			"color": null,
@@ -30686,15 +30693,15 @@
 		"88": {
 			"id": 88,
 			"game_id": 238,
-			"order": 0,
+			"order": 3,
 			"title": "Lost in the Fog",
 			"icon": null,
 			"color": null,
 			"icon_color": null
 		},
-		"89": { "id": 89, "game_id": 238, "order": 0, "title": "NG+", "icon": null, "color": null, "icon_color": null },
-		"90": { "id": 90, "game_id": 238, "order": 0, "title": "NG", "icon": null, "color": null, "icon_color": null },
-		"91": { "id": 91, "game_id": 238, "order": 0, "title": "NG++", "icon": null, "color": null, "icon_color": null }
+		"89": { "id": 89, "game_id": 238, "order": 5, "title": "NG+", "icon": null, "color": null, "icon_color": null },
+		"90": { "id": 90, "game_id": 238, "order": 4, "title": "NG", "icon": null, "color": null, "icon_color": null },
+		"91": { "id": 91, "game_id": 238, "order": 6, "title": "NG++", "icon": null, "color": null, "icon_color": null }
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],

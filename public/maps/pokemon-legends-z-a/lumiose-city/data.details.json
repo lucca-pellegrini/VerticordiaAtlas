@@ -8885,7 +8885,23 @@
 			[]
 		],
 		"487997": ["**Location:** On top of the archway; make your way from this [Colorful Screw](#loc=487996).", []],
-		"487998": ["**Location:** On top of a scaffolding.", []],
+		"487998": [
+			"**Location:** On top of a scaffolding.",
+			[
+				{
+					"id": 157562,
+					"title": "",
+					"file_name": "6f0fdacc-a665-4615-b859-c0708f899659.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6f0fdacc-a665-4615-b859-c0708f899659.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"487999": ["**Location:** At the top of the scaffolding maze.", []],
 		"488000": ["**Location:** On top of a small building on the roof.", []],
 		"488001": [
@@ -9206,7 +9222,20 @@
 		"488048": ["**Location:** At the top of the scaffolding.", []],
 		"488049": [
 			"**Location:** On top of the roof.\n\nGo to the roof via [this Holovator](#loc=485208), then Rotoglide across in the south-east corner of that roof. Once over, you can use the [ladder nearby](#loc=491417) to get to this screw.",
-			[]
+			[
+				{
+					"id": 158546,
+					"title": "",
+					"file_name": "b5bc7c1e-88c6-403e-8778-5d7b5d81ac7d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b5bc7c1e-88c6-403e-8778-5d7b5d81ac7d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"488050": [
 			"**Location:** Beside the shed on the roof.\n\nEasy access via [this Holovator](#loc=485255), then just running across the roof and ladders.",

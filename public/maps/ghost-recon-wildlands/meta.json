@@ -304,6 +304,7 @@
 			"slug": "bolivia",
 			"title": "Bolivia",
 			"data": "bolivia/data.json",
+			"compact": "bolivia/data.compact.json",
 			"tilesets": [
 				{
 					"name": "default-v3",
@@ -315,13 +316,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "bolivia/data.compact.json"
+			]
 		},
 		{
 			"slug": "narco-road-fallen-ghosts",
 			"title": "Narco Road & Fallen Ghosts",
 			"data": "narco-road-fallen-ghosts/data.json",
+			"compact": "narco-road-fallen-ghosts/data.compact.json",
 			"tilesets": [
 				{
 					"name": "bolivia-dlc-v1",
@@ -333,8 +334,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "narco-road-fallen-ghosts/data.compact.json"
+			]
 		}
 	]
 }

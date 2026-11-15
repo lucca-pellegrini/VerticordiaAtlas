@@ -190,6 +190,7 @@
 			"slug": "africa",
 			"title": "Africa",
 			"data": "africa/data.json",
+			"compact": "africa/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -201,13 +202,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "africa/data.compact.json"
+			]
 		},
 		{
 			"slug": "lost-in-nightmares",
 			"title": "Lost in Nightmares",
 			"data": "lost-in-nightmares/data.json",
+			"compact": "lost-in-nightmares/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -219,13 +220,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "lost-in-nightmares/data.compact.json"
+			]
 		},
 		{
 			"slug": "desperate-escape",
 			"title": "Desperate Escape",
 			"data": "desperate-escape/data.json",
+			"compact": "desperate-escape/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -237,8 +238,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "desperate-escape/data.compact.json"
+			]
 		}
 	]
 }

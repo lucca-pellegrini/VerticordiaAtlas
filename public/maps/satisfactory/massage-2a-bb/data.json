@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 14,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 2560,
 			"game_id": 256,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "BA8E23",
@@ -77,6 +79,7 @@
 		{
 			"id": 2561,
 			"game_id": 256,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "59B1A8",
@@ -208,6 +211,7 @@
 		{
 			"id": 2562,
 			"game_id": 256,
+			"section_id": null,
 			"title": "Power Slugs",
 			"order": 20,
 			"color": "3F4D52",
@@ -311,6 +315,7 @@
 		{
 			"id": 2563,
 			"game_id": 256,
+			"section_id": null,
 			"title": "Resources: Pure",
 			"order": 30,
 			"color": "29AF34",
@@ -694,6 +699,7 @@
 		{
 			"id": 2564,
 			"game_id": 256,
+			"section_id": null,
 			"title": "Resources: Normal",
 			"order": 30,
 			"color": "2347BD",
@@ -1105,6 +1111,7 @@
 		{
 			"id": 2565,
 			"game_id": 256,
+			"section_id": null,
 			"title": "Resources: Impure",
 			"order": 40,
 			"color": "8E0500",
@@ -1486,6 +1493,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"14371": {
 			"id": 14371,

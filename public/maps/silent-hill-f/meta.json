@@ -142,6 +142,7 @@
 			"slug": "ebisugaoka",
 			"title": "Ebisugaoka",
 			"data": "ebisugaoka/data.json",
+			"compact": "ebisugaoka/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -153,8 +154,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "ebisugaoka/data.compact.json"
+			]
 		}
 	]
 }

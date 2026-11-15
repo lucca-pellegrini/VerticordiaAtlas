@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 14,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 2360,
 			"game_id": 236,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 10,
 			"color": "597698",
@@ -273,6 +275,7 @@
 		{
 			"id": 2362,
 			"game_id": 236,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "A83148",
@@ -628,6 +631,7 @@
 		{
 			"id": 2363,
 			"game_id": 236,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "A77387",
@@ -871,6 +875,7 @@
 		{
 			"id": 2364,
 			"game_id": 236,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "8E58A1",
@@ -1030,6 +1035,7 @@
 		{
 			"id": 2366,
 			"game_id": 236,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 20,
 			"color": "D05148",
@@ -1133,6 +1139,7 @@
 		{
 			"id": 2367,
 			"game_id": 236,
+			"section_id": null,
 			"title": "Quests",
 			"order": 20,
 			"color": "F0A084",
@@ -1236,6 +1243,7 @@
 		{
 			"id": 2365,
 			"game_id": 236,
+			"section_id": null,
 			"title": "Other",
 			"order": 30,
 			"color": "4D7787",
@@ -1533,6 +1541,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"13523": {
 			"id": 13523,

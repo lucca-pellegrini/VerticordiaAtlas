@@ -51,7 +51,7 @@
 			[]
 		],
 		"251798": [
-			"**Location:** In a small alcove, on the top floor of the house beyond the bridge.",
+			"**Location:** In a small alcove, on the top floor of the house beyond the bridge. Requires Alohomora III",
 			[
 				{
 					"id": 31718,
@@ -131,7 +131,10 @@
 			[]
 		],
 		"252020": ["**Location:** In the [Treasure Vault](#loc=252019)", []],
-		"252021": ["**Required spell:** Confringo  \n**Reward:** [Chest](#loc=252022); [Large Chest](#loc=252023)", []],
+		"252021": [
+			"**Required spell:** Confringo or Depulso  \n**Reward:** [Chest](#loc=252022); [Large Chest](#loc=252023)",
+			[]
+		],
 		"252022": ["**Location:** In the [Treasure Vault](#loc=252021), by the entrance.", []],
 		"252023": ["**Location:** At the end of the [Treasure Vault](#loc=252021)", []],
 		"252024": [
@@ -334,7 +337,7 @@
 			"**Required Spell:** Accio (to bring the nearby cube on the plate), then Incendio to activate it.  \n**Reward:** [Large Chest](#loc=268092)",
 			[]
 		],
-		"252136": ["**Required Spell:** Depulso  \n**Reward:** [Large Chest](#loc=268391)", []],
+		"252136": ["**Required Spell:** Depulso/Accio  \n**Reward:** [Large Chest](#loc=268391)", []],
 		"252137": ["**Required Spell:** Alohomora III  \n**Reward:** [Large Chest](#loc=268393)", []],
 		"252140": ["**Reward:** [Trait](#loc=268394)", []],
 		"252141": [
@@ -1095,7 +1098,7 @@
 			]
 		],
 		"252439": [
-			"**Location:** In a clearing, by an abandonned tent.  \n**Required Spell(s):** Lumos  \n**Solution:** Using Lumos, bring the glowing butterflies in all 3 lanterns surrounding the platform. The butterflies are:\n1. In front of the tent;\n2. Under the northwestern tree;\n3. At the base of the northern cliff;",
+			"**Location:** In a clearing, by an abandoned tent.  \n**Required Spell(s):** Lumos  \n**Solution:** Using Lumos, bring the glowing butterflies in all 3 lanterns surrounding the platform. The butterflies are:\n\n1. In front of the tent;\n2. Under the northwestern tree;\n3. At the base of the northern cliff;",
 			[]
 		],
 		"252440": ["**Location:** On the observation platform, around the corner.  \n**Contents:** 500 galleons", []],
@@ -1265,7 +1268,7 @@
 				}
 			]
 		],
-		"252945": ["**Required Spell:** Confringo  \n**Reward:** [Large Chest](#loc=268376)", []],
+		"252945": ["**Required Spell:** Confringo or Depulso  \n**Reward:** [Large Chest](#loc=268376)", []],
 		"252946": [
 			"**Location:** In the middle of the clearing, beside the train track.\n**Required Spell(s):** Confringo   \n**Solution:** Destroy the five stone pillars by shooting Confringo at them",
 			[]
@@ -1814,7 +1817,7 @@
 			]
 		],
 		"267683": [
-			"**Location:** In front of the lone gravestone  \n**Bubbles locations:**\n- On the 1st floor, behind the metal grate. Use Depulso on the switch behind the boxes to open.\n- Climb on the boxes in the southwestern corner to climb up the rafters. Then, use Depulso on the switch to raise the pillar all the way up to the bubble.\n- From the same rafters, head to the northern side of the building. Use Reparo on the planks to repair the scaffolding and acces the final bubble.",
+			"**Location:** In front of the lone gravestone  \n**Bubbles locations:**\n\n- On the 1st floor, behind the metal grate. Use Depulso on the switch behind the boxes to open.\n- Climb on the boxes in the southwestern corner to climb up the rafters. Then, use Depulso on the switch to raise the pillar all the way up to the bubble.\n- From the same rafters, head to the northern side of the building. Use Reparo on the planks to repair the scaffolding and access the final bubble.",
 			[]
 		],
 		"267684": ["**Required Spell:** ??  \n**Reward:** ??", []],
@@ -2223,13 +2226,16 @@
 			"**Location:** On a high plain, on the side of the path.  \n**Required Spell(s):** Confringo  \n**Solution:** Use Confringo to destroy each of the large stones surrounding the area.",
 			[]
 		],
-		"268108": ["**Required Spell:** Confringo  \n**Reward:** [Large Chest](#loc=268109)", []],
+		"268108": ["**Required Spell:** Confringo or Depulso  \n**Reward:** [Large Chest](#loc=268109)", []],
 		"268109": ["**Location:** At the end of the [Treasure Vault](#loc=268108)", []],
 		"268112": ["**Location:** Right next to the painter", []],
 		"268113": ["**Location:** At the end of the [Treasure Vault](#loc=252937)", []],
 		"268114": ["**Location:** Behind the spun spider web. Use a fire spell to destroy the web.", []],
 		"268115": ["**Location:** In the southern tower; burn away the web to enter.", []],
-		"268117": ["**Location:** In a small hill, behind a pile of boulders. Use Confringo to blow them away.", []],
+		"268117": [
+			"**Location:** In a small hill, behind a pile of boulders. Use Confringo or Depulso to blow them away.",
+			[]
+		],
 		"268118": ["Floating along a long east-west line. \n\nPart of \"Madam Kogawa's Assignment 2\".", []],
 		"268119": ["**Location:**\n\nOn the body of the healer laying on the ground in the campsite.", []],
 		"268120": ["**Location:** At the end of the [Treasure Vault](#loc=253040)", []],
@@ -2440,7 +2446,10 @@
 			"**Required Spell:** Reparo (to repair the stone archway in the northern ruins and access the vault)  \n**Reward:** [Large Chest](#loc=268317)",
 			[]
 		],
-		"268316": ["**Location:** In the ruins, underneath a pile of boulders; use Confringo to blow them away.", []],
+		"268316": [
+			"**Location:** In the ruins, underneath a pile of boulders; use Confringo or Depulso to blow them away.",
+			[]
+		],
 		"268317": ["**Location:** At the end of the [Treasure Vault](#loc=268315)", []],
 		"268318": ["**Reward:** [Trait](#loc=268321)", []],
 		"268319": ["**Location:** At the top of the tower.", []],
@@ -2450,7 +2459,7 @@
 		"268323": ["**Reward:** [Trait](#loc=268324)", []],
 		"268324": ["**Location:** [Medium Bandit Camp](#loc=268323)", []],
 		"268325": [
-			"**Location:** Underneath a pile of boulders, behind the ruins; use Confringo to blow them away.",
+			"**Location:** Underneath a pile of boulders, behind the ruins; use Confringo or Depulso to blow them away.",
 			[]
 		],
 		"268326": ["**Location:** In the middle of the island.", []],
@@ -2521,7 +2530,7 @@
 		"268383": ["**Location:** At the top of the ruins.", []],
 		"268384": ["**Location:** At the end of the [Treasure Vault](#loc=252239)", []],
 		"268385": ["In a straight line, from the southwest to the northeast.", []],
-		"268386": ["**Required Spell:** Confringo  \n**Reward:** [Large Chest](#loc=268387)", []],
+		"268386": ["**Required Spell:** Confringo/Depulso  \n**Reward:** [Large Chest](#loc=268387)", []],
 		"268387": ["**Location:** At the end of the [Treasure Vault](#loc=268386)", []],
 		"268388": ["**Location:** ??", []],
 		"268389": [
@@ -2633,7 +2642,7 @@
 			"**Sells:** \n- Ingredients:\n    - 2x Dittany Leaves (100)\n    - 2x Fluxweed Stem (150)\n    - 1x Knotgrass Sprig (150)\n    - 1x Mallowsweet Leaves (100)\n    - 1x Shrivelfig Fruit (150)\n- 1x of each Combat Tool:\n    - Chinese Chomping Cabbage (300)\n    - Mandrake (500)\n    - Venomous Tentacula (600)",
 			[]
 		],
-		"268509": ["**Location:** In the locked house,", []],
+		"268509": ["**Location:** In the locked house.", []],
 		"268511": [
 			"**Location:** In the locked house.",
 			[

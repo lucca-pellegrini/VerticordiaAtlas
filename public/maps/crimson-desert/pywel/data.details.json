@@ -1056,7 +1056,23 @@
 				}
 			]
 		],
-		"544384": ["On the table of the Tailors' shop.", []],
+		"544384": [
+			"On the table of the Tailors' shop.",
+			[
+				{
+					"id": 160686,
+					"title": "",
+					"file_name": "415ea570-0dc9-4fe2-b699-64aa656a9973.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/415ea570-0dc9-4fe2-b699-64aa656a9973.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"544385": [
 			"Sold by [Rhett](#loc=543991)  \nSwords\n- Glenmore Sword\n\nAxes\n- Timberham Axe\n\nDaggers\n- Pailunese Riteblade\n- Bekker Dagger\n\nClubs\n- Balton Mace\n- Crude Club\n- Balton Hammer\n- Bekker Hammer\n\nRapiers\n- Grace Rapier",
 			[]
@@ -4250,7 +4266,7 @@
 			]
 		],
 		"546422": [
-			"[Next](#loc=546423) | [Previous](#loc=546418)\n\n_Chapter 9: The Sage of the Desert_  \n_Six Pensive Statues and the Evil Spirit_\n\n**Quest Steps:**\n- Go to the pagoda atop the peak\n- Go through the [Jijeong Temple Pagoda](#loc=547417) to enter the Abyss\n- Achieve enlightenment",
+			"[Next](#loc=546423) | [Previous](#loc=546418)\n\n_Chapter 9: The Sage of the Desert_  \n_Six Statues and the Beast_\n\n**Quest Steps:**\n\n- Go to the pagoda atop the peak\n- Go through the [Jijeong Temple Pagoda](#loc=547417) to enter the Abyss\n- Achieve enlightenment",
 			[]
 		],
 		"546423": [
@@ -16597,7 +16613,23 @@
 				}
 			]
 		],
-		"551769": ["A fragment containing the memory of a pitiful man addicted to Dreamer's Bliss.", []],
+		"551769": [
+			"A fragment containing the memory of a pitiful man addicted to Dreamer's Bliss.",
+			[
+				{
+					"id": 157461,
+					"title": "20261029162438_1",
+					"file_name": "48c79a06-e5c0-43b0-8a18-18da3a952206.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/48c79a06-e5c0-43b0-8a18-18da3a952206.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"551771": [
 			"**Location:** In the same alcove as the [Treasure Chest](#loc=545822), leaning against a barrel behind and to the left of the chest.",
 			[
@@ -27153,7 +27185,7 @@
 			[]
 		],
 		"554829": [
-			"**Location:** Inside the [Hidden Cave](#loc=547419).  Unlocked by progressing faction quest [The Witch of Humility](#loc=554828)\n\nSells [Alchemy Formula: Meliara's Greater Elixir](#loc=560902) at 100 Trust",
+			"**Location:** Inside the [Hidden Cave](#loc=547419).  Unlocked by progressing faction quest [The Witch of Humility](#loc=554828)\n\nSells [Alchemy Formula: Meliara's Greater Elixir](#loc=560902) at 60 Trust",
 			[
 				{
 					"id": 126972,
@@ -44194,7 +44226,7 @@
 			]
 		],
 		"563404": [
-			"**Location:** On the ground within [Lonely Island Herth](#loc=560541)",
+			"**Location:** On the ground within the unmarked camp",
 			[
 				{
 					"id": 128069,
@@ -47030,7 +47062,7 @@
 			]
 		],
 		"596574": [
-			"Narrow entrance to the cave",
+			"Pass through the narrow entrance to the cave",
 			[
 				{
 					"id": 135196,
@@ -47936,7 +47968,7 @@
 			[]
 		],
 		"895606": [
-			"_**Demeniss > Demeniss Commissions > Tales of the Demenissian Residents**_\n\n**Requirements:** ??\n\n**Reward:**\n- Medium Bag x1\n\n**Quest Steps:**\n- Talk to the man\n- Deliver the News to the wife",
+			"**_Demeniss > Demeniss Commissions > Tales of the Demenissian Residents_**\n\n**Requirements:** Complete [A Promise Beyond the Shadows](#loc=942167)\n\n**Reward:**\n\n- Medium Bag x1\n\n**Quest Steps:**\n\n- Talk to the man\n- Deliver the News to the wife",
 			[]
 		],
 		"895607": [
@@ -48648,7 +48680,23 @@
 			]
 		],
 		"942151": ["Can be learned during the fight against [Kailok, the Hornsplitter](#loc=544578)", []],
-		"942154": ["Bookshelf behind Sylvia. Second shelf from the bottom, in the middle", []],
+		"942154": [
+			"Bookshelf behind Sylvia. Second shelf from the bottom, in the middle",
+			[
+				{
+					"id": 160687,
+					"title": "",
+					"file_name": "1f1cd4b3-3461-4e4a-b93e-2e8029a6477a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f1cd4b3-3461-4e4a-b93e-2e8029a6477a.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"942155": ["Scattered around Moss Hollow Cabin", []],
 		"942161": [
 			"_**Demeniss > Silvermoon Trade Group > The Day the Moonlight Waned**_\n\n**Requirements:** Complete the mission quests under The Dark Justiciar for House Byron\n\n**Quest Steps:**\n- Talk to the merchant looking concerned\n- Talk to the merchant at the [Smugglers' Dock](#loc=547363)\n- Examine the [Hunter's Cabin](#loc=556065)\n- Talk to the injured merchant",
@@ -53167,6 +53215,5453 @@
 					"url": "https://media.mapgenie.io/storage/media/a2fd80a2-d2e4-4e18-a82e-b550c391c547.png",
 					"type": "image",
 					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057622": [
+			"**_Greymanes > Charting the Unknown > Renewed Vitality_**\n\n**Quest Steps:**\n\n- Go to the notice board\n- Check the poster \"Timberham Sawmill Management Notice\"",
+			[]
+		],
+		"1057623": [
+			"**_Greymanes > Charting the Unknown > Renewed Vitality_**\n\n**Requirements:** Complete [The Stilled Saw](#loc=1057622)\n\n**Quest Steps:**\n\n- Sign a lease for Timberham Sawmill\n- Head to Timberham Sawmill\n- Manage Timberham Sawmill\n- Open the Timberham Sawmill Shop\n- Reach Timberham Sawmill Popularity Lv. 1",
+			[]
+		],
+		"1057624": [
+			"Next | Previous\n\n_Charting the Unknown_  \n_Beyond the Margins_\n\n**Quest Steps:**\n\n- Head to the tavern",
+			[]
+		],
+		"1057625": [
+			"Next | Previous\n\n_Charting the Unknown_  \n_From the Ashes_\n\n**Reward:**\n\n- ??\n\n**Quest Steps:**\n\n- Assess the situation in Demeniss",
+			[]
+		],
+		"1057626": [
+			"Next | Previous\n\n_Charting the Unknown_  \n_Forged Resolve_\n\n**Reward:**\n\n- ??\n\n**Quest Steps:**\n\n- Research equipment in the workshop",
+			[]
+		],
+		"1057627": [
+			"**_Greymanes > Charting the Unknown > A Wider World_**\n\n**Requirements:** Requires _Charting the Unknown_ DLC\n\n**Quest Steps:**\n\n- Speak with your comrades\n- Visit Vellua\n- Dispatch workers to the small ship building mission in Vellua\n- Build a small ship",
+			[]
+		],
+		"1057628": [
+			"Next | [Previous](#loc=1057624)\n\n_Charting the Unknown_  \n_Beyond the Margins_\n\n**Reward:**\n\n- Greymane Apprentice Combat Armor\n\n**Quest Steps:**\n\n- Return to Pailune\n- Return to your comrades \n- Duel with [Matthias](#loc=1057629)\n- Return to Andrew",
+			[]
+		],
+		"1057629": ["Appears again during _Charting the Unknown_ quest [Familiar Faces](#loc=1057628)", []],
+		"1057630": [
+			"**_Greymanes > Charting the Unknown > A Wider World_**\n\n**Requirements:** Complete [A Call from Beyond the Horizon](#loc=1057627)\n\n**Reward:**\n\n- Harpoon Gun\n\n**Quest Steps:**\n\n- Examine the Harbor Notice Board\n- Examine the supplies",
+			[]
+		],
+		"1057631": [
+			"Next | [Previous](#loc=1057628)\n\n_Charting the Unknown_  \n_Beyond the Margins_\n\n**Quest Steps:**\n\n- Head to Jijeong Temple",
+			[]
+		],
+		"1057632": [
+			"**_Greymanes > Charting the Unknown > A Wider World_**\n\n**Requirements:** Complete [Where the Wind Blows](#loc=1057630)\n\n**Quest Steps:**\n\n- Discover an uncharted island\n- Land on the uncharted island",
+			[]
+		],
+		"1057633": [
+			"**_Greymanes > Charting the Unknown > A Wider World_**\n\n**Requirements:** Complete [A Beginning Beyond the Waves](#loc=1057632)\n\n**Quest Steps:**\n\n- Examine the area around Auronui Island",
+			[]
+		],
+		"1057634": [
+			"**_Greymanes > Charting the Unknown > A Wider World_**\n\n**Requirements:** Complete [A Beginning Beyond the Waves](#loc=1057632)\n\n**Quest Steps:**\n\n- Dispatch Auronui Island Pioneering Mission \n- Pioneer Auronui Island",
+			[]
+		],
+		"1057643": [
+			"**Location:** On Satyros Island, within the ruins  \n**Solution:** Step on all of the symbols on the floor tiles in order (avoid the red tiles until all blue symbol tiles are activated) without stepping on the same tile twice  \n\n**Related Challenge:** Ties of the Waves - Ocean Ruins  \n**Reward:** \n\n- Abyss Artifact\n- Ancient Relic x3",
+			[
+				{
+					"id": 157462,
+					"title": "satyros island abyss cresset puzzle",
+					"file_name": "03e9f20f-68a1-4749-ad15-3b08da9f4815.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03e9f20f-68a1-4749-ad15-3b08da9f4815.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057644": [
+			"**Location:** On Auronui Island, on the stone altar at the top of the stairs \n\n**Challenges:** Into the Deep - Swimming  \n\n- Dive for at least 5 minutes continuously\n\n**Reward:**\n\n- Abyss Artifact\n- Aptitude II\n- Ancient Relic x1",
+			[
+				{
+					"id": 157465,
+					"title": "20261029183958_1",
+					"file_name": "6a5c6588-860e-4047-8bb1-26b75ca7853e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a5c6588-860e-4047-8bb1-26b75ca7853e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057645": [
+			"**Location:** On the ground behind the [Abyss Cresset](#loc=1057643)  \n\n**Solution:** ??",
+			[
+				{
+					"id": 157463,
+					"title": "20261029202410_1",
+					"file_name": "a3e42116-dc35-4244-b5f0-4de3c806b7db.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3e42116-dc35-4244-b5f0-4de3c806b7db.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 157464,
+					"title": "20261029202429_1",
+					"file_name": "510529b0-251a-4d20-9f56-d30afccad9fa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/510529b0-251a-4d20-9f56-d30afccad9fa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057646": [
+			"",
+			[
+				{
+					"id": 157466,
+					"title": "20261029204425_1",
+					"file_name": "5d9889a2-7fd6-4f5a-8aa2-dca010d4b0bf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d9889a2-7fd6-4f5a-8aa2-dca010d4b0bf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057647": [
+			"",
+			[
+				{
+					"id": 157468,
+					"title": "20261029184311_1",
+					"file_name": "5ef4ca50-b5bb-4c27-9cbd-6b747a966077.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5ef4ca50-b5bb-4c27-9cbd-6b747a966077.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057653": [
+			"**_Greymanes > Charting the Unknown > A Wider World_**\n\n**Requirements:** Complete [Footsteps in Unfamiliar Lands](#loc=1057634)\n\n**Reward:**\n\n- Ancient Relic x5\n\n**Quest Steps:**\n\n- Speak with your comrades",
+			[]
+		],
+		"1057654": [
+			"**_Great Ocean > Samora Island > Remote Islands_**\n\n**Requirements:** Complete [Signpost of the Great Ocean](#loc=1057653)\n\n**Quest Steps:**\n\n- Speak with your comrades\n- Check the situation at the port\n- Go to the Ship Manager\n- Set sail\n- Find the island held by pirates",
+			[]
+		],
+		"1057661": [
+			"**_Great Ocean > Great Ocean Quests > Tales of the Ocean Residents_** \n\n**Requirements:** ??\n\n**Reward:**\n\n- Medium Bag\n\n**Quest Steps:**\n\n- Talk\n- Obtain scallops (5)",
+			[]
+		],
+		"1057688": [
+			"**Location:** On the beach of Cloven Hoof Island, on a stone altar under the cliff overhang \n\n**Challenges:** Into the Deep - Swimming  \n\n- Tame a shark or orca \n\n**Reward:**\n\n- Abyss Artifact\n- Aegis II\n- Ancient Relic x1",
+			[
+				{
+					"id": 157470,
+					"title": "20261029223552_1",
+					"file_name": "51bba3b1-1102-4443-b8c7-dae4be992dc1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/51bba3b1-1102-4443-b8c7-dae4be992dc1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057691": [
+			"",
+			[
+				{
+					"id": 157471,
+					"title": "20261029224337_1",
+					"file_name": "4344c280-e6b5-40e2-9c9e-3265927b757c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4344c280-e6b5-40e2-9c9e-3265927b757c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057692": [
+			"**Location:** On Cloven Hoof Isle - follow the stairs up from the northern beach and into the cave",
+			[
+				{
+					"id": 157472,
+					"title": "20261029224705_1",
+					"file_name": "e772a0df-1dc6-445f-9424-68d719c10a4e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e772a0df-1dc6-445f-9424-68d719c10a4e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057703": [
+			"**_Great Ocean > Samora Island > Remote Islands_**\n\n**Requirements:** Complete [The Windswept Horror](#loc=1057654)\n\n**Reward:**\n\n- Abyss Artifact \n- Ancient Relic x5\n\n**Quest Steps:**\n\n- Explore Samora Island\n- Defeat the enemies around Samora\n- Destroy the pirate ships around the island village (2)\n- Destroy the [Dancing Catfish Crusher](#loc=1057729)\n- Obtain the artifact",
+			[]
+		],
+		"1057704": [
+			"**_Great Ocean > Samora Island > Remote Islands_**\n\n**Requirements:** Complete [The Windswept Horror](#loc=1057654)\n\n**Quest Steps:**\n\n- Defeat the enemies along Samora's northern coast\n\n- Defeat the enemies along Samora's southern coast\n- Defeat the enemies along Samora's eastern coast\n- Defeat the enemies around the ruins of Samora\n- Defeat the enemies around Samora Watchtower Zone",
+			[]
+		],
+		"1057723": [
+			"**Location:** In the Ocean Ruins on the northern end of Samora Island   \n**Solution:** Find the Cresset   \n\n**Related Challenge:** Ties of the Waves - Ocean Ruins   \n**Reward:** \n\n- Abyss Artifact\n- Ancient Relic x2",
+			[
+				{
+					"id": 157473,
+					"title": "20261030001328_1",
+					"file_name": "6c95a120-7898-4c30-8435-83ec5670a466.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c95a120-7898-4c30-8435-83ec5670a466.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057724": [
+			"**Location:** On the ground behind the [Abyss Cresset](#loc=1057723)   \n\n**Solution:** ??",
+			[
+				{
+					"id": 157474,
+					"title": "20261030001407_1",
+					"file_name": "78a51cf5-dc3c-4952-bd68-196633873b14.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/78a51cf5-dc3c-4952-bd68-196633873b14.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 157475,
+					"title": "20261030001434_1",
+					"file_name": "f653c1aa-c3db-45ef-a92a-e3abb832c859.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f653c1aa-c3db-45ef-a92a-e3abb832c859.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057725": [
+			"**Location: On top of the mountain, northeast from** [Samora](#loc=1057726)  \n**Solution:** ??  \n\n**Related Challenge:** ??  \n**Reward:** \n\n- Abyss Artifact",
+			[]
+		],
+		"1057727": [
+			"**Location:** On top of the mountain, on the rock near the [Abyss Cresset](#loc=1057725)\n\n**Type:** Headgear",
+			[
+				{
+					"id": 157476,
+					"title": "20261030005816_1",
+					"file_name": "e2409388-d41d-4c5d-ae27-dcf1d93417bc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e2409388-d41d-4c5d-ae27-dcf1d93417bc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 157477,
+					"title": "image",
+					"file_name": "3574af1f-e876-4395-b528-f3bcfe6a490e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3574af1f-e876-4395-b528-f3bcfe6a490e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057728": ["**Location:** On the ground behind the [Abyss Cresset](#loc=1057725)", []],
+		"1057729": [
+			"Appears during [The Seaborne Village](#loc=1057703)",
+			[
+				{
+					"id": 158262,
+					"title": "20261030000206_1",
+					"file_name": "17763297-55d2-4771-a1f4-684a64b7974e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17763297-55d2-4771-a1f4-684a64b7974e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057730": [
+			"Appears during [The Seaborne Village](#loc=1057703)",
+			[
+				{
+					"id": 158263,
+					"title": "20261030004327_1",
+					"file_name": "b6f3d735-7b25-47bd-b569-83bf7265a705.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b6f3d735-7b25-47bd-b569-83bf7265a705.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057731": [
+			"**_Great Ocean > Samora Island > Mistbound Sea_**\n\n**Requirements:** Complete the _Remote Islands_ questline \n\n**Quest Steps:**\n\n- Look around Samora",
+			[]
+		],
+		"1057732": [
+			"**_Great Ocean > Samora Island > Mistbound Sea_**\n\n**Requirements:** Complete the _Remote Islands_ questline \n\n**Quest Steps:**\n\n- Find the underwater shrine\n- Enter the shrine\n- Examine inside the shrine\n- Retrieve the serpent relic",
+			[]
+		],
+		"1057733": [
+			"**Location:** Marked as _Unidentified Box_, on the shelf in the cabin, behind the stairs inside the ship.\n\n\n\nMentioned in the book [Legendary Ship Hunt](#loc=1057734).  One of four pieces used to construct the [Mysterious Ship Blueprint](#loc=1063305)",
+			[
+				{
+					"id": 157480,
+					"title": "20261030015642_1",
+					"file_name": "96054302-4456-4234-bad9-b7c3af33de19.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/96054302-4456-4234-bad9-b7c3af33de19.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057734": [
+			"**Location:** On the ground under the stone roof, near the altar on the mountain above [Samora](#loc=1057726)  \n\n**Use:** Hints at the locations of blueprint pieces -  \n\n- [Mysterious Ship Blueprint Part 1](#loc=1063005)\n- [Mysterious Ship Blueprint Part 2](#loc=1062999)\n- [Mysterious Ship Blueprint Part 3](#loc=1057733)\n- [Mysterious Ship Blueprint Part 4](#loc=1062042)",
+			[
+				{
+					"id": 157478,
+					"title": "20261030013117_1",
+					"file_name": "b1d3ba11-9c61-4984-95a6-bad086b07bf6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b1d3ba11-9c61-4984-95a6-bad086b07bf6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 157481,
+					"title": "20261030015109_1",
+					"file_name": "f6dc74c0-cbb4-4592-bbe2-5bc61d93313d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6dc74c0-cbb4-4592-bbe2-5bc61d93313d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057735": [
+			"**Location:** On top of a stack of books, under the stone roof, near the altar on top of the mountain above [Samora](#loc=1057726)",
+			[
+				{
+					"id": 157479,
+					"title": "20261030013139_1",
+					"file_name": "feb1ac0d-cbbe-444c-8452-c204ab7cd7ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/feb1ac0d-cbbe-444c-8452-c204ab7cd7ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1057772": ["Look for a small cave directly south from here near a patch of sand.", []],
+		"1058056": [
+			"**Location:** Inside the main building of the [Forgotten Ocean Ruins](#loc=1067333)",
+			[
+				{
+					"id": 160777,
+					"title": "20261110210103_1",
+					"file_name": "8ab691c5-7ca7-4732-8983-0c481e92ca55.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8ab691c5-7ca7-4732-8983-0c481e92ca55.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058075": [
+			"**Location:** In an underwater valley amongst the stone ruins",
+			[
+				{
+					"id": 159402,
+					"title": "20261105215717_1",
+					"file_name": "a298ef5a-e5a2-4800-b948-61a9234e9789.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a298ef5a-e5a2-4800-b948-61a9234e9789.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058077": [
+			"**Location:** Inside the sunken tower on the ocean floor",
+			[
+				{
+					"id": 159403,
+					"title": "20261105220927_1",
+					"file_name": "5188b4b0-2cea-4a6e-87dc-c36f03a6a254.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5188b4b0-2cea-4a6e-87dc-c36f03a6a254.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058080": [
+			"",
+			[
+				{
+					"id": 159398,
+					"title": "20261105205252_1",
+					"file_name": "6d067eec-db33-46b2-96f5-cfe2b44be1ef.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6d067eec-db33-46b2-96f5-cfe2b44be1ef.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058086": [
+			"",
+			[
+				{
+					"id": 159387,
+					"title": "20261105184118_1",
+					"file_name": "c45b582f-ee1c-4260-a5ef-5652ed72f8a9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c45b582f-ee1c-4260-a5ef-5652ed72f8a9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058106": [
+			"",
+			[
+				{
+					"id": 159253,
+					"title": "20261104193437_1",
+					"file_name": "0d7f65ea-49c4-4a57-80ce-6ceb0d978c06.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d7f65ea-49c4-4a57-80ce-6ceb0d978c06.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058277": [
+			"",
+			[
+				{
+					"id": 158542,
+					"title": "20261102163103_1",
+					"file_name": "4e6b6286-2371-4b84-8c78-03727b6de1da.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4e6b6286-2371-4b84-8c78-03727b6de1da.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058278": [
+			"",
+			[
+				{
+					"id": 158543,
+					"title": "20261102161829_1",
+					"file_name": "7baa4e03-b3f1-4e27-a50d-10265222a7eb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7baa4e03-b3f1-4e27-a50d-10265222a7eb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058279": [
+			"",
+			[
+				{
+					"id": 158955,
+					"title": "20261104023442_1",
+					"file_name": "e9b7d5de-c2bf-4e6b-b317-511317ca0162.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9b7d5de-c2bf-4e6b-b317-511317ca0162.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061536": [
+			"**_Great Ocean > Keepers of the Abandoned Islands > Isolated Island Chief_**\n\n**Quest Steps:**\n\n- Defeat the enemies around Satyros Village\n- Defeat the enemies around Satyros Outpost",
+			[]
+		],
+		"1061539": [
+			"**_Great Ocean > Keepers of the Abandoned Islands > Land of the Black Flag_**\n\n**Quest Steps:**\n\n- Defeat the enemies around the Watchtower Zone at Outlaw's Rapids\n- Defeat the enemies around Outlaw's Outpost",
+			[]
+		],
+		"1061542": [
+			"**_Great Ocean > Keepers of the Abandoned Islands > Land of the Black Flag_**\n\n**Quest Steps:**\n\n- Defeat the enemies around Outlaw's Rapids",
+			[]
+		],
+		"1061543": [
+			"**Location:** On top of the mountain   \n**Solution:** ??  \n\n**Related Challenge:** ??  \n**Reward:** \n\n- Abyss Artifact",
+			[
+				{
+					"id": 158258,
+					"title": "20261029210358_1",
+					"file_name": "1f458c10-6cbe-4aab-9577-31529e1fca21.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f458c10-6cbe-4aab-9577-31529e1fca21.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061546": [
+			"**_Great Ocean > Keepers of the Abandoned Islands > Predator of the Abandoned Island_**\n\n**Reward:**\n\n- Ancient Relic x5\n- Abyss Artifact\n- Unfurled Feathers\n\n**Quest Steps:**\n\n- Defeat Reggis",
+			[]
+		],
+		"1061547": [
+			"Appears during [Unending Hunger](#loc=1061546)",
+			[
+				{
+					"id": 158253,
+					"title": "20261029194542_1",
+					"file_name": "93b1bbb9-97a3-4b2f-9d6c-18b2a1fb5e10.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/93b1bbb9-97a3-4b2f-9d6c-18b2a1fb5e10.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061548": [
+			"**Location:** In the small alcove",
+			[
+				{
+					"id": 158254,
+					"title": "20261029194945_1",
+					"file_name": "18165e5c-7a8d-4fa5-8b84-5f7a1bdc9c16.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/18165e5c-7a8d-4fa5-8b84-5f7a1bdc9c16.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061549": [
+			"**Location:** Amongst the ruins, in between two stone structures, close to the river  \n**Solution:** Use a shovel to dig up around the chest   \n**Drops:**   \n\n- [Chieftain's Mace](#loc=1066694)",
+			[
+				{
+					"id": 158255,
+					"title": "20261029200948_1",
+					"file_name": "7fefda78-0a4b-4b09-a932-f8f4cb48aa3d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7fefda78-0a4b-4b09-a932-f8f4cb48aa3d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061550": [
+			"**Location:** Inside the cave",
+			[
+				{
+					"id": 158257,
+					"title": "20261029210227_1",
+					"file_name": "0a70426c-28c7-42e7-bc4a-bbe6150da6b5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0a70426c-28c7-42e7-bc4a-bbe6150da6b5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061551": [
+			"**Location:** Inside the cave",
+			[
+				{
+					"id": 158256,
+					"title": "20261029210232_1",
+					"file_name": "e3f55ea6-d2d9-4276-9530-ae414ca9abb1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3f55ea6-d2d9-4276-9530-ae414ca9abb1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061553": [
+			"**Location:** Inside the [cave accessed from the south](#loc=1067450)  \n\n**Solution:** [Buried Treasure Chest](#loc=1067394)",
+			[
+				{
+					"id": 158259,
+					"title": "20261029212216_1",
+					"file_name": "84169fe9-2fc6-4b6b-965a-133dc200cdd4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/84169fe9-2fc6-4b6b-965a-133dc200cdd4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 158260,
+					"title": "20261029212239_1",
+					"file_name": "20f9d849-d9e3-4707-b8da-0267e1c2e254.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20f9d849-d9e3-4707-b8da-0267e1c2e254.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061554": [
+			"**Location:** Inside the [cave accessed from the south](#loc=1067450)",
+			[
+				{
+					"id": 158261,
+					"title": "20261029184220_1",
+					"file_name": "adf069d9-2187-4799-ad26-16606773c88e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/adf069d9-2187-4799-ad26-16606773c88e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061569": [
+			"",
+			[
+				{
+					"id": 158813,
+					"title": "20261103105603_1",
+					"file_name": "ba493a52-fab6-4ed7-b9af-3e12cd91937a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ba493a52-fab6-4ed7-b9af-3e12cd91937a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061979": [
+			"**Location:** On the ground in the ruined boat",
+			[
+				{
+					"id": 158474,
+					"title": "20261102103834_1",
+					"file_name": "e5976c94-5770-4957-a461-fa64e75fef5b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5976c94-5770-4957-a461-fa64e75fef5b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061980": [
+			"**Location:** On the stone altar on the beach \n\n**Challenges:** Into the Deep - Swimming  \n\n- Cling to the Megalodon for two consecutive minutes \n\n**Reward:**\n\n- Abyss Artifact\n- Rend II\n- Ancient Relic",
+			[
+				{
+					"id": 158475,
+					"title": "20261102104051_1",
+					"file_name": "2724b969-7606-4878-83ac-f37bd05e46ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2724b969-7606-4878-83ac-f37bd05e46ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061988": [
+			"**_Great Ocean > Samora Island > Mistbound Sea_**\n\n**Requirements:** Complete [Ancient Shrine](#loc=1057732)\n\n**Reward:**\n\n- Ancient Relic x20\n- Abyss Artifact\n- Guardian's Gaze\n\n**Quest Steps:**\n\n- Go towards the direction of the roar\n- Defeat [Leviakan](#loc=1062048)",
+			[]
+		],
+		"1061989": [
+			"**Location:** On the floor inside the underwater serpent shrine",
+			[
+				{
+					"id": 158476,
+					"title": "20261102120123_1",
+					"file_name": "e2ee36ba-dd29-42b8-8826-c4c423f86547.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e2ee36ba-dd29-42b8-8826-c4c423f86547.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061990": [
+			"**Location:** Inside the underwater serpent shrine",
+			[
+				{
+					"id": 158477,
+					"title": "20261102120329_1",
+					"file_name": "8fdd350b-0ebb-4f07-b95f-f8d4c31716ea.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8fdd350b-0ebb-4f07-b95f-f8d4c31716ea.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1061991": [
+			"**Location:** Inside the underwater shrine",
+			[
+				{
+					"id": 158478,
+					"title": "20261102115608_1",
+					"file_name": "83ee1110-93ac-49ee-85c5-da8c87753fd8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/83ee1110-93ac-49ee-85c5-da8c87753fd8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062017": [
+			"**Location:** Inside the shipwreck on the ocean floor",
+			[
+				{
+					"id": 158534,
+					"title": "20261102145116_1",
+					"file_name": "bc15ede4-117c-4f3f-9bec-08850cdfc631.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bc15ede4-117c-4f3f-9bec-08850cdfc631.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062019": [
+			"",
+			[
+				{
+					"id": 158535,
+					"title": "20261102152136_1",
+					"file_name": "fc1a0351-280c-4d31-b8f3-36719ad8e47e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc1a0351-280c-4d31-b8f3-36719ad8e47e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062020": [
+			"**Location:** On the stone altar, on the beach \n\n**Challenges:** Beyond the Horizon - Voyage   \n\n- Shock 3 enemies in 1 minute \n\n**Reward:**\n\n- Abyss Artifact\n- Ancient Relic x1\n- Energy Drain II",
+			[
+				{
+					"id": 158536,
+					"title": "20261102152405_1",
+					"file_name": "8a788f66-18e4-4d1f-ae6a-ff4028876ce3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8a788f66-18e4-4d1f-ae6a-ff4028876ce3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062034": ["**Location:** On the ocean floor", []],
+		"1062037": [
+			"**Location:** Amongst the ruins on the ocean floor   \n**Solution:** Use Axiom Force to push in the round buttons on the wall and continue the conduit connection to the other side.  Pushing one button will activate the buttons around it   \n\n**Related Challenge:** Ties of the Waves - Ocean Ruins   \n**Reward:** \n\n- Abyss Artifact\n- Ancient Relic x2",
+			[
+				{
+					"id": 158537,
+					"title": "20261102154126_1",
+					"file_name": "9e424820-e29d-4235-ba42-e1a5a3e8f78d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e424820-e29d-4235-ba42-e1a5a3e8f78d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062038": [
+			"**Location:** On the ocean floor, behind the door that is opened by solving the [Abyss Cresset puzzle](#loc=1062037)",
+			[
+				{
+					"id": 158538,
+					"title": "20261102154205_1",
+					"file_name": "d7908ff2-cea0-4dc1-9bec-095929ce1f10.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d7908ff2-cea0-4dc1-9bec-095929ce1f10.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 158539,
+					"title": "20261102155155_1",
+					"file_name": "f5d0173b-4263-4d1d-a59e-75ba6aa512a0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5d0173b-4263-4d1d-a59e-75ba6aa512a0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062039": [
+			"**Location:** On the stone altar on the beach \n\n**Challenges:** Into the Deep - Swimming   \n\n- Sprint on the water continuously for 1 minute \n\n**Reward:**\n\n- Abyss Artifact\n- Ancient Relic x1\n- Shatter II",
+			[
+				{
+					"id": 158541,
+					"title": "20261102161453_1",
+					"file_name": "4f7cc442-1b62-4daa-8547-03d0d8cc0e7b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f7cc442-1b62-4daa-8547-03d0d8cc0e7b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062042": [
+			"**Location:** On the table under the canopy.  Marked as _Unidentified Box_\n\n\n\nMentioned in the book [Legendary Ship Hunt](#loc=1057734).  One of four pieces used to construct the [Mysterious Ship Blueprint](#loc=1063305)",
+			[
+				{
+					"id": 158544,
+					"title": "20261102163307_1",
+					"file_name": "cb28ed73-7261-423d-8b99-3c2ed6da0d50.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb28ed73-7261-423d-8b99-3c2ed6da0d50.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062043": [
+			"**Location:** On the mountain peak, marked by the stacked stones  \n**Solution:** Use a shovel to uncover the chest   \n**Drops:**   \n\n- [Blueprint: Captain's Bed of Dignity](#loc=1062044)",
+			[
+				{
+					"id": 158547,
+					"title": "20261102165132_1",
+					"file_name": "53b976d5-dab0-4cf3-8cb0-a14fd1bdd55d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/53b976d5-dab0-4cf3-8cb0-a14fd1bdd55d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062044": [
+			"**Location:** Inside the [Buried Treasure Chest](#loc=1062043)",
+			[
+				{
+					"id": 158559,
+					"title": "20261102203348_1",
+					"file_name": "f35ceaf3-a232-43b3-a331-a6f8bd5c8494.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f35ceaf3-a232-43b3-a331-a6f8bd5c8494.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062047": [
+			"**Location:** Amongst the ruins on the island   \n**Solution:** Align all pillars with each other so that the image is complete, then raise all the pillars all the way up   \n\n**Related Challenge:** Ties of the Waves - Ocean Ruins  \n**Reward:** \n\n- Abyss Artifact\n- Ancient Relic x2",
+			[
+				{
+					"id": 158549,
+					"title": "20261102180923_1",
+					"file_name": "9b642bf8-4afb-440c-95ca-5b15f1cd5093.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9b642bf8-4afb-440c-95ca-5b15f1cd5093.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062048": ["Appears during [Catastrophe of Ancient Times](#loc=1061988)", []],
+		"1062049": [
+			"**_Great Ocean > Samora Island > Mistbound Sea_**\n\n**Requirements:** Complete [Catastrophe of Ancient Times](#loc=1061988)\n\n**Quest Steps:**\n\n- Deliver the news to Samora",
+			[]
+		],
+		"1062050": [
+			"**Location:** On the table amongst the small camp in the alcove near the dead whales",
+			[
+				{
+					"id": 158550,
+					"title": "20261102185726_1",
+					"file_name": "091abb5e-b196-4329-a351-f21cb040451b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/091abb5e-b196-4329-a351-f21cb040451b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062051": [
+			"**Location:** Inside the [cave](#loc=1084648)",
+			[
+				{
+					"id": 158551,
+					"title": "20261102190029_1",
+					"file_name": "685df531-dea6-4d73-a911-0cbceb0818fa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/685df531-dea6-4d73-a911-0cbceb0818fa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062052": [
+			"",
+			[
+				{
+					"id": 158552,
+					"title": "20261102191257_1",
+					"file_name": "0e4a0135-b8e4-4b39-903d-9caec4d4cdbf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e4a0135-b8e4-4b39-903d-9caec4d4cdbf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062057": [
+			"**Location:** On top of the ruined tower amongst the [Samora Ruins](#loc=1062056)",
+			[
+				{
+					"id": 158553,
+					"title": "20261102192627_1",
+					"file_name": "96301923-a23c-4982-a6c7-5720958a3fb0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/96301923-a23c-4982-a6c7-5720958a3fb0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062058": [
+			"**Location:** In the building, on a stool in the back",
+			[
+				{
+					"id": 158554,
+					"title": "20261102201909_1",
+					"file_name": "b52baf51-1333-4f07-a1c6-d25aa2a88ed8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b52baf51-1333-4f07-a1c6-d25aa2a88ed8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062059": [
+			"**Location:** Behind the waterfall marked with the stacked stones.  Use Stab to get through",
+			[
+				{
+					"id": 158555,
+					"title": "20261102202616_1",
+					"file_name": "feaf54c9-6fc0-4461-b3c8-96c47863b234.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/feaf54c9-6fc0-4461-b3c8-96c47863b234.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062060": [
+			"**Location:** Inside [Mist-Shrouded Pirate Grotto](#loc=1062059)  \n**Solution:** Use Stab to get through the falls  \n**Drops:**   \n\n- [Blueprint: Red Checkered Sail](#loc=1062061)",
+			[
+				{
+					"id": 158556,
+					"title": "20261102202854_1",
+					"file_name": "0d8dc39d-4fd4-45e9-beb9-5491b93c8f77.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d8dc39d-4fd4-45e9-beb9-5491b93c8f77.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062061": [
+			"**Location:** Inside the [Treasure Chest](#loc=1062060)",
+			[
+				{
+					"id": 158557,
+					"title": "20261102203305_1",
+					"file_name": "8d310e61-01a8-4d12-8467-ddf1b8e75875.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8d310e61-01a8-4d12-8467-ddf1b8e75875.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062062": [
+			"**Location:** Inside [Mist-Shrouded Pirate Grotto](#loc=1062059)",
+			[
+				{
+					"id": 158558,
+					"title": "20261102203417_1",
+					"file_name": "2c1596fa-6e69-4baf-b330-7b7855edc122.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2c1596fa-6e69-4baf-b330-7b7855edc122.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062063": [
+			"**Location:** Just under the water  \n**Solution:** Use Force Palm to destroy the rocks blocking access to the chest  \n**Drops:**   \n\n- [Warrior's Axe Earring](#loc=1062064)",
+			[
+				{
+					"id": 158561,
+					"title": "20261102204208_1",
+					"file_name": "f0a6a2c1-8d12-450d-a33e-c02d05d79aa7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0a6a2c1-8d12-450d-a33e-c02d05d79aa7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062064": [
+			"**Location:** Inside the [Underwater Treasure Chest](#loc=1062063)",
+			[
+				{
+					"id": 158560,
+					"title": "image",
+					"file_name": "910105ad-c28c-461e-8d84-73f6dd69a6e2.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/910105ad-c28c-461e-8d84-73f6dd69a6e2.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062065": [
+			"**Location:** In the small cave just up from the water",
+			[
+				{
+					"id": 158562,
+					"title": "20261102204803_1",
+					"file_name": "5508159d-6091-4133-ab51-68db9f6f089a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5508159d-6091-4133-ab51-68db9f6f089a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062791": [
+			"**Location:** On the barrel, on the porch below the hut",
+			[
+				{
+					"id": 158771,
+					"title": "20261103091559_1",
+					"file_name": "0d2809e7-29e0-4a5c-8988-3d11f3fb49ed.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d2809e7-29e0-4a5c-8988-3d11f3fb49ed.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062808": [
+			"**Location:** On the barrel in the corner of the upper level hut",
+			[
+				{
+					"id": 158781,
+					"title": "20261103093011_1",
+					"file_name": "983659a6-2f33-4f9e-9928-d63ea6c6ba68.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/983659a6-2f33-4f9e-9928-d63ea6c6ba68.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062809": [
+			"**Location:** Inside the [Damp Cave of the Marauders](#loc=1062810)  \n**Solution:** Use Stab to access the cave through the falls  \n**Drops:**   \n\n- [Elegant Black Amber Earring](#loc=1062812)",
+			[
+				{
+					"id": 158783,
+					"title": "20261103093602_1",
+					"file_name": "ed3234b3-aa93-4428-bc63-164f52b1bca0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ed3234b3-aa93-4428-bc63-164f52b1bca0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062810": [
+			"**Location:** Look for the entrance at the waterfall marked by the stacked stones.  Use Stab to get through the falls",
+			[
+				{
+					"id": 158782,
+					"title": "20261103093527_1",
+					"file_name": "2ce39b85-8671-433c-81d3-130715c600ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2ce39b85-8671-433c-81d3-130715c600ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062811": ["**Location:** Inside the [Damp Cave of the Marauders](#loc=1062810)", []],
+		"1062812": [
+			"**Location:** Inside the [Treasure Chest](#loc=1062809)",
+			[
+				{
+					"id": 158784,
+					"title": "image",
+					"file_name": "5e66c5c8-8b22-4fc6-948d-d23d80c78d69.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e66c5c8-8b22-4fc6-948d-d23d80c78d69.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062828": [
+			"**Location:** Inside the building directly opposite the front of the ship  \n**How to Access:** \n\n- Walk into the bookshelf to open it\n\n**Behind the Passage:**\n\n- [Plunder Stash Cave](#loc=1081524)\n\n- [Chest x4](#loc=1062834)\n- [Crude Gold Bars](#loc=1062836)\n- [Leviakan Legend Mural](#loc=1062837)",
+			[
+				{
+					"id": 158790,
+					"title": "20261103102522_1",
+					"file_name": "ef046ac0-80ea-440f-8a2a-bb2b50307984.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ef046ac0-80ea-440f-8a2a-bb2b50307984.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062834": [
+			"**Location:** Inside the secret passage, accessed via the [False Bookshelf](#loc=1062828)",
+			[
+				{
+					"id": 158796,
+					"title": "20261103102951_1",
+					"file_name": "8ba82934-f1a0-47cd-8617-81e332e1d7d3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8ba82934-f1a0-47cd-8617-81e332e1d7d3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 158797,
+					"title": "20261103103008_1",
+					"file_name": "bd22fa21-6023-453e-9820-fe2fc2c3536e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd22fa21-6023-453e-9820-fe2fc2c3536e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062836": [
+			"**Location:** Inside the secret passage, accessed via the [False Bookshelf](#loc=1062828)",
+			[
+				{
+					"id": 158798,
+					"title": "20261103103000_1",
+					"file_name": "2f88fb39-ccf3-45d4-8b79-1e6c0a2508e4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2f88fb39-ccf3-45d4-8b79-1e6c0a2508e4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062837": [
+			"**Location:** Inside the secret passage, accessed via the [False Bookshelf](#loc=1062828)",
+			[
+				{
+					"id": 158799,
+					"title": "20261103103039_1",
+					"file_name": "04044c77-19fd-48b5-ac84-d3ae022f9415.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/04044c77-19fd-48b5-ac84-d3ae022f9415.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062843": [
+			"",
+			[
+				{
+					"id": 158803,
+					"title": "20261103104211_1",
+					"file_name": "23b89124-7c2b-4618-b73e-b643bf1d3dee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/23b89124-7c2b-4618-b73e-b643bf1d3dee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062846": [
+			"**Location:** On the wooden altar on the side of the path \n\n**Challenges:** Beyond the Horizon - Voyage  \n\n- Travel by boat from Samora Island to Ocula Island in under 10 minutes \n\n**Reward:**\n\n- Abyss Artifact\n- Ancient Relic \n- Solidarity II",
+			[
+				{
+					"id": 158805,
+					"title": "20261103104534_1",
+					"file_name": "9fab85fc-7117-4751-8b96-6e91c85fd05c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9fab85fc-7117-4751-8b96-6e91c85fd05c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062853": [
+			"**Location:** Inside the unmarked cave.  Follow the flight of stairs from the western beach into the cave",
+			[
+				{
+					"id": 158816,
+					"title": "20261103110213_1",
+					"file_name": "20c4f4d3-7ac3-4418-8c24-f4b2feb82f48.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20c4f4d3-7ac3-4418-8c24-f4b2feb82f48.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062891": [
+			"**Location:** Look for the stacked stones in front of the waterfall that mark the entrance.  Use Stab to get through the falls",
+			[
+				{
+					"id": 158853,
+					"title": "20261103161712_1",
+					"file_name": "319eefbb-4042-4ff8-a81a-245f3864bd98.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/319eefbb-4042-4ff8-a81a-245f3864bd98.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062892": [
+			"**Location:** Inside the [Glowing Mushroom Cave](#loc=1062891)  \n**Solution:** Stab through the falls to access the cave  \n**Drops:**   \n\n- [Bear Dverkhan Armor](#loc=1062894)",
+			[
+				{
+					"id": 158854,
+					"title": "20261103162124_1",
+					"file_name": "143b4964-3717-42b3-afcf-586aeb5315a0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/143b4964-3717-42b3-afcf-586aeb5315a0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062893": [
+			"**Location:** Inside the [Glowing Mushroom Cave](#loc=1062891)",
+			[
+				{
+					"id": 158856,
+					"title": "20261103162746_1",
+					"file_name": "c91ab1c0-557d-4495-949c-b4100bcc6f8f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c91ab1c0-557d-4495-949c-b4100bcc6f8f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062894": [
+			"**Location:** Inside the [Treasure Chest](#loc=1062892)\n\n**Type:** Bear mount armor",
+			[
+				{
+					"id": 158855,
+					"title": "image",
+					"file_name": "bb4276fd-5178-480c-bb83-bad2ee0cbf68.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb4276fd-5178-480c-bb83-bad2ee0cbf68.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062898": [
+			"**Location:** On the wooden slates on the ground, under the cliff overhang",
+			[
+				{
+					"id": 158857,
+					"title": "20261103164917_1",
+					"file_name": "39b71457-1322-4b0a-867c-bc814f194e0b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/39b71457-1322-4b0a-867c-bc814f194e0b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062899": [
+			"**_Great Ocean > Samora Islands > Outlaws of the Ocean_**\n\n**Reward:**\n\n- Forgotten Treasure Map\n\n**Quest Steps:**\n\n- Read the [pirate ship alert](#loc=1062898)\n- Destroy the Grim Wind",
+			[]
+		],
+		"1062900": [
+			"**_Great Ocean > Samora Islands > Outlaws of the Ocean_**\n\n**Reward:**\n\n- Forgotten Treasure Map\n\n**Quest Steps:**\n\n- Read the [pirate ship alert](#loc=1061979)\n- Destroy the Scarlet Widow",
+			[]
+		],
+		"1062901": [
+			"**Location:** Inside the broken ship hull, marked by blue light  \n**Solution:** Find the chest  \n**Drops:**   \n\n- [Blueprint: Sea King's Naval Cannon](#loc=1062902)",
+			[
+				{
+					"id": 158858,
+					"title": "20261103170338_1",
+					"file_name": "08a1baca-7375-4b57-93d0-8624e0f41042.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/08a1baca-7375-4b57-93d0-8624e0f41042.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062902": [
+			"**Location:** Inside the [Treasure Chest](#loc=1062901)",
+			[
+				{
+					"id": 158859,
+					"title": "20261103170811_1",
+					"file_name": "27ba814d-be68-466a-89bb-c8ff0c9fdc77.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/27ba814d-be68-466a-89bb-c8ff0c9fdc77.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062905": [
+			"**Location:** By Road\n\n**Challenges:** Dots on the Sea\n\n- Discover 10 Islands In The Great Ocean\n\n**Reward:**\n\n- Abyss Artifact\n- Shred II",
+			[
+				{
+					"id": 158860,
+					"title": "",
+					"file_name": "c1b71405-0ce2-4d23-9c14-ea01d9cc227e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c1b71405-0ce2-4d23-9c14-ea01d9cc227e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062917": [
+			"**Location:** Look for the poster on the wooden wall",
+			[
+				{
+					"id": 158861,
+					"title": "20261103173933_1",
+					"file_name": "2d76bfb2-31fb-4b43-8651-3cdeb8e9e5a6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2d76bfb2-31fb-4b43-8651-3cdeb8e9e5a6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062920": [
+			"**Location:** On the wooden box, on the wooden floor, near the jail cells",
+			[
+				{
+					"id": 158862,
+					"title": "20261103174219_1",
+					"file_name": "d6cbc68f-de1c-43a2-a2b5-21c32d078bcf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6cbc68f-de1c-43a2-a2b5-21c32d078bcf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062921": [
+			"**_Great Ocean > Samora Islands > Outlaws of the Ocean_**\n\n**Quest Steps:**\n\n- Read the [pirate ship bounty notice](#loc=1062920) \n- Destroy the Drunken Catfish",
+			[]
+		],
+		"1062922": [
+			"**Location:** On the broken boat next to the water",
+			[
+				{
+					"id": 158863,
+					"title": "20261103175844_1",
+					"file_name": "a9040df3-e2d4-48fe-bce9-4c23eca5dc14.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a9040df3-e2d4-48fe-bce9-4c23eca5dc14.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062923": [
+			"**Location:** Inside the shipwreck on the shore, access via a hole on top of the ship  \n**Solution:** Find the chest  \n**Drops:**   \n\n- [Blueprint: Gently Curved Sail](#loc=1062924)",
+			[
+				{
+					"id": 158864,
+					"title": "20261103175820_1",
+					"file_name": "5a208b8a-a180-469b-8080-37096572a2d7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5a208b8a-a180-469b-8080-37096572a2d7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062924": [
+			"**Location:** Inside the [Treasure Chest](#loc=1062923)",
+			[
+				{
+					"id": 158865,
+					"title": "20261103180405_1",
+					"file_name": "b5fbd4c4-8965-478e-aef8-be9cd3bbeccb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b5fbd4c4-8965-478e-aef8-be9cd3bbeccb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062930": [
+			"**Location:** At the base of the waterfall, marked by the stacked stones.  Use Stab to get through the falls",
+			[
+				{
+					"id": 158866,
+					"title": "20261103181930_1",
+					"file_name": "dad6b00b-a20f-41e1-8462-c19aac1b531c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dad6b00b-a20f-41e1-8462-c19aac1b531c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062931": [
+			"**Location:** Inside the [Coastal Waterfall Cave](#loc=1062930)  \n**Solution:** Stab through the falls to access the cave  \n**Drops:**   \n\n- [Blueprint: Chain-Breaking Wolf Figurehead](#loc=1062932)",
+			[
+				{
+					"id": 158867,
+					"title": "20261103182344_1",
+					"file_name": "9fbb5363-a37e-41ef-b500-2c1e06aa3f4f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9fbb5363-a37e-41ef-b500-2c1e06aa3f4f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062932": [
+			"**Location:** Inside the [Treasure Chest](#loc=1062931)",
+			[
+				{
+					"id": 158869,
+					"title": "20261103183318_1",
+					"file_name": "03af0af7-cc36-4000-9483-1aae40464beb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03af0af7-cc36-4000-9483-1aae40464beb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062933": [
+			"**Location:** Inside the [Coastal Waterfall Cave](#loc=1062930)",
+			[
+				{
+					"id": 158868,
+					"title": "20261103182410_1",
+					"file_name": "35e5c122-1bbe-48d2-a524-a9ae04db88f6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35e5c122-1bbe-48d2-a524-a9ae04db88f6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062934": [
+			"**Location:** Inside the intact shipwreck, on the bottom of the ocean floor at \\~170 meters",
+			[
+				{
+					"id": 158870,
+					"title": "20261103184436_1",
+					"file_name": "a79af915-1916-4c83-b544-362eeff88285.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a79af915-1916-4c83-b544-362eeff88285.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062942": [
+			"**Location:** Amongst the wooden wreckage strewn about the beach",
+			[
+				{
+					"id": 158871,
+					"title": "20261103190720_1",
+					"file_name": "4758f65c-8f3f-4f9a-b90d-12d3d888157c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4758f65c-8f3f-4f9a-b90d-12d3d888157c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062943": [
+			"**Location:** Inside an unmarked cave, access from the south",
+			[
+				{
+					"id": 158872,
+					"title": "20261103191201_1",
+					"file_name": "af099a6c-6aeb-4927-b1de-3c9509ea8c91.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/af099a6c-6aeb-4927-b1de-3c9509ea8c91.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062946": [
+			"**Location:** In the unmarked camp",
+			[
+				{
+					"id": 158873,
+					"title": "20261103191621_1",
+					"file_name": "d69b7210-e7e3-4645-be2e-063ad3a64c5f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d69b7210-e7e3-4645-be2e-063ad3a64c5f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062947": [
+			"**Location:** In the middle of the island  \n**Solution:** Use a shovel to dig around the chest  \n**Drops:**   \n\n- [Blueprint: Rowboat Bookshelf](#loc=1062948)",
+			[
+				{
+					"id": 158874,
+					"title": "20261103204853_1",
+					"file_name": "640f30c4-18bb-4882-88a1-397271139dac.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/640f30c4-18bb-4882-88a1-397271139dac.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062948": [
+			"**Location:** Inside the [Buried Treasure Chest](#loc=1062947)",
+			[
+				{
+					"id": 158875,
+					"title": "20261103205331_1",
+					"file_name": "23ff74dc-4b0e-4a10-bc87-b56e144934c4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/23ff74dc-4b0e-4a10-bc87-b56e144934c4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062949": [
+			"",
+			[
+				{
+					"id": 158876,
+					"title": "20261103205622_1",
+					"file_name": "31b5e891-81a7-4bc1-9c88-0c49c4955f7f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31b5e891-81a7-4bc1-9c88-0c49c4955f7f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062950": [
+			"**Location:** On the beach in the ruined rowboat",
+			[
+				{
+					"id": 158877,
+					"title": "20261103205926_1",
+					"file_name": "d03e508d-c8de-4479-a83a-123fececb9a5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d03e508d-c8de-4479-a83a-123fececb9a5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062951": [
+			"**_Great Ocean > Samora Islands > Outlaws of the Ocean_**\n\n**Reward:**\n\n- Forgotten Treasure Map\n\n**Quest Steps:**\n\n- Read the [pirate ship alert](#loc=1062950)\n- Destroy the Devils' Plunder",
+			[]
+		],
+		"1062952": [
+			"**Location:** Inside the unmarked cave, entered from the east beach of the island",
+			[
+				{
+					"id": 158878,
+					"title": "20261103210509_1",
+					"file_name": "eb03449b-896e-4c79-b273-64edb4c7ff7b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb03449b-896e-4c79-b273-64edb4c7ff7b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062953": [
+			"**Location:** Inside the shipwreck on the seabed cliff",
+			[
+				{
+					"id": 158879,
+					"title": "20261103230548_1",
+					"file_name": "22908058-4ce4-4e79-92ee-bab0e403e7fc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/22908058-4ce4-4e79-92ee-bab0e403e7fc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062959": [
+			"**Location:** Inside the shipwreck on the bottom of the ocean",
+			[
+				{
+					"id": 158889,
+					"title": "20261103234619_1",
+					"file_name": "be3ae5f2-d03c-433b-99b3-08b214b299fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be3ae5f2-d03c-433b-99b3-08b214b299fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062999": [
+			"**Location:** Look for an _Unidentified Box_, amongst gilded vases, on the ocean floor under the frame of the large shipwreck, at \\~140 meters, close to a large whirlpool\n\n\n\nMentioned in the book [Legendary Ship Hunt](#loc=1057734).  One of four pieces used to construct the [Mysterious Ship Blueprint](#loc=1063305)",
+			[
+				{
+					"id": 158937,
+					"title": "20261104003131_1",
+					"file_name": "fb5c749e-4b2d-47df-b2ea-02ab21517eed.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fb5c749e-4b2d-47df-b2ea-02ab21517eed.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 158938,
+					"title": "20261104003239_1",
+					"file_name": "ceb1577a-a007-4daa-809a-ce9004be6c1c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ceb1577a-a007-4daa-809a-ce9004be6c1c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063005": [
+			"**Location:** Look for an _Unidentified Box_, amongst gilded vases, on the ocean floor under the frame of the large shipwreck, at \\~140 meters, close to a large whirlpool\n\n\n\nMentioned in the book [Legendary Ship Hunt](#loc=1057734).  One of four pieces used to construct the [Mysterious Ship Blueprint](#loc=1063305)",
+			[
+				{
+					"id": 158944,
+					"title": "20261104011328_1",
+					"file_name": "82f9e121-3c86-4bda-a199-8807d1507f49.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/82f9e121-3c86-4bda-a199-8807d1507f49.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 158945,
+					"title": "20261104011513_1",
+					"file_name": "46f22d21-63f9-4eb6-a876-591432aad94f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/46f22d21-63f9-4eb6-a876-591432aad94f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063006": [
+			"**Location:** Floating around in the water close to the island.  Not aggressive.  Drop Abyss Cells when killed",
+			[
+				{
+					"id": 158948,
+					"title": "20261104015655_1",
+					"file_name": "8bcb04db-7cb0-43b8-b088-09372dd1ca0d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8bcb04db-7cb0-43b8-b088-09372dd1ca0d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063007": [
+			"**Location:** Inside the shipwreck on the ocean floor",
+			[
+				{
+					"id": 158947,
+					"title": "20261104015037_1",
+					"file_name": "37033afa-2a49-4f96-9fee-7ecc0da40db1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37033afa-2a49-4f96-9fee-7ecc0da40db1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063008": [
+			"**Location:** Multiple minions stand guard along the eastern hillside of [Ocula Island](#loc=1063009)  \n\n**Drops:**\n\n- Power Core\n- Abyss Cell",
+			[
+				{
+					"id": 158949,
+					"title": "20261104021020_1",
+					"file_name": "aba6363e-1277-4fcc-a741-6a4b9aa922fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aba6363e-1277-4fcc-a741-6a4b9aa922fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063010": [
+			"**Location:** On the hillside   \n\n**Drops:**\n\n- Power Core\n- Abyss Gear",
+			[
+				{
+					"id": 158950,
+					"title": "20261104021648_1",
+					"file_name": "751d7407-68f4-4a93-8140-edd050a3fd65.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/751d7407-68f4-4a93-8140-edd050a3fd65.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063011": [
+			"**Location:** At the bottom of the hill, not far below [Tervis, the Forestwalker](#loc=1063010), marked by scattered cairns  \n**Solution:** Use a shovel to dig out around the chest  \n**Drops:**   \n\n- [Spiral Spear](#loc=1063012)",
+			[
+				{
+					"id": 158951,
+					"title": "20261104022333_1",
+					"file_name": "2c8a8926-8629-46c5-b405-f9d859f3f0e0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2c8a8926-8629-46c5-b405-f9d859f3f0e0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063012": [
+			"**Location:** Drops from the [Buried Treasure Chest](#loc=1063011)  \n\n**Type:**  Two-handed spear",
+			[
+				{
+					"id": 158952,
+					"title": "image",
+					"file_name": "2ed53203-b9a2-4495-b9bf-ea10c1a60319.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2ed53203-b9a2-4495-b9bf-ea10c1a60319.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063055": [
+			"**Location:** On the hillside\n\n**Drops:**\n\n- Power Core \n- Abyss Cell",
+			[
+				{
+					"id": 158953,
+					"title": "20261104023229_1",
+					"file_name": "f7f6f54f-9975-49bf-8a1d-9f7164f362b7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f7f6f54f-9975-49bf-8a1d-9f7164f362b7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063114": [
+			"**Location:** On the cliffside overlooking the water   \n**Solution:** ??  \n\n**Related Challenge:** ??  \n**Reward:** \n\n- Abyss Artifact",
+			[
+				{
+					"id": 158954,
+					"title": "20261104023855_1",
+					"file_name": "44b6afb1-f90a-49ff-9d0a-08185655de73.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/44b6afb1-f90a-49ff-9d0a-08185655de73.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063115": [
+			"**Location:** Floating around in the water close to the island.  Not aggressive.  Drop Abyss Cells when killed",
+			[
+				{
+					"id": 158956,
+					"title": "20261104024155_1",
+					"file_name": "10269d28-dd77-4575-a9ca-850fe4e4a352.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/10269d28-dd77-4575-a9ca-850fe4e4a352.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063301": [
+			"**Location:** Inside the middle cabin in the shipwreck on the ocean floor",
+			[
+				{
+					"id": 159152,
+					"title": "20261104103000_1",
+					"file_name": "82f75a45-f154-43d6-ba16-82c48613ec82.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/82f75a45-f154-43d6-ba16-82c48613ec82.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063302": [
+			"**Location:** On the ground, on a wooden piece of a shipwreck",
+			[
+				{
+					"id": 159153,
+					"title": "20261104104219_1",
+					"file_name": "d78bc2df-401a-4ef0-99a7-ea84e8a2d8d2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d78bc2df-401a-4ef0-99a7-ea84e8a2d8d2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063303": [
+			"**Location:** A flock of flying magical birds patrol along the coastline.  Not aggressive.  Drop Abyss Cells when killed",
+			[
+				{
+					"id": 159155,
+					"title": "20261104104423_1",
+					"file_name": "a8e4b2fd-7fa4-4f2b-a06a-2c0a976d4f9f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a8e4b2fd-7fa4-4f2b-a06a-2c0a976d4f9f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063305": [
+			"**Location:** Finding this blueprint begins with clues from the book [Legendary Ship Hunt](#loc=1057734), found just above [Samora](#loc=1057726).  The blueprint is obtained from your Inventory after collecting and Restoring all 4 Mysterious Ship Blueprint Parts.  Must be built at [Port Deleysia](#loc=549627)\n\n- [Mysterious Ship Blueprint Part 1](#loc=1063005)\n- [Mysterious Ship Blueprint Part 2](#loc=1062999)\n- [Mysterious Ship Blueprint Part 3](#loc=1057733)\n- [Mysterious Ship Blueprint Part 4](#loc=1062042)",
+			[
+				{
+					"id": 159157,
+					"title": "image",
+					"file_name": "199c7f10-f52c-4137-99c1-ccd56fe347e9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/199c7f10-f52c-4137-99c1-ccd56fe347e9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063326": [
+			"**Location:** Inside the unmarked silver cave, accessed from the northwest beach",
+			[
+				{
+					"id": 159178,
+					"title": "20261104113925_1",
+					"file_name": "bede1822-a5a0-4388-aca2-5a7a4a5d1272.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bede1822-a5a0-4388-aca2-5a7a4a5d1272.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 159179,
+					"title": "20261104113651_1",
+					"file_name": "697ed5ab-4da2-48bc-ae3a-2f17c328ff1a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/697ed5ab-4da2-48bc-ae3a-2f17c328ff1a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063327": [
+			"**Location:** Inside the unmarked silver cave",
+			[
+				{
+					"id": 159180,
+					"title": "20261104113925_1",
+					"file_name": "dc838d64-561f-4c54-a789-1b6c84621b13.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dc838d64-561f-4c54-a789-1b6c84621b13.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063330": [
+			"**Location:** Within the forest",
+			[
+				{
+					"id": 159184,
+					"title": "20261104114423_1",
+					"file_name": "68992bbd-42c6-47e8-aadc-4447fe387e33.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68992bbd-42c6-47e8-aadc-4447fe387e33.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063331": ["**Location:** Within the forest", []],
+		"1063332": [
+			"**Location:** Walking on the ground in the forest.  Not aggressive, may fly away if startled.  Drop Abyss Cells when killed",
+			[
+				{
+					"id": 159183,
+					"title": "20261104114543_1",
+					"file_name": "e7de54da-357c-4b9f-a3ee-9b74222d8e44.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e7de54da-357c-4b9f-a3ee-9b74222d8e44.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063337": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159190,
+					"title": "20261104115009_1",
+					"file_name": "ee4e63bf-a1f3-4f66-8723-65d5631903dd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee4e63bf-a1f3-4f66-8723-65d5631903dd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063338": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159189,
+					"title": "20261104115030_1",
+					"file_name": "b4fe392a-c4f0-452e-90f1-9cdd68e54d16.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b4fe392a-c4f0-452e-90f1-9cdd68e54d16.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063340": ["**Location:** Floating around in the water", []],
+		"1063341": [
+			"**Location:** Look for the stacked stones that mark the entrance in front of the waterfall that's northeast from the lake.  Use Stab to get through the falls",
+			[
+				{
+					"id": 159192,
+					"title": "20261104122554_1",
+					"file_name": "f0bc1df4-3e02-40dc-86c9-35ef25cc4b7f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0bc1df4-3e02-40dc-86c9-35ef25cc4b7f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063342": [
+			"**Location:** Inside the [Unmarked Waterfall Cave](#loc=1063341)  \n**Solution:** Stab through the falls to access the cave  \n**Drops:**   \n\n- [Blueprint: Giant Golden Compass Sail](#loc=1063344)",
+			[
+				{
+					"id": 159193,
+					"title": "20261104122707_1",
+					"file_name": "638d8c0e-5a95-4682-979a-29da245afa29.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/638d8c0e-5a95-4682-979a-29da245afa29.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063343": [
+			"**Location:** Inside the [Unmarked Waterfall Cave](#loc=1063341)",
+			[
+				{
+					"id": 159194,
+					"title": "20261104122727_1",
+					"file_name": "470ea2e6-98ed-4c00-a69c-6b79e767c5c9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/470ea2e6-98ed-4c00-a69c-6b79e767c5c9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063344": [
+			"**Location:** Inside the [Treasure Chest](#loc=1063342)",
+			[
+				{
+					"id": 159195,
+					"title": "20261104123210_1",
+					"file_name": "42cf4d03-a233-4421-bcbf-45e97ad4ea0b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42cf4d03-a233-4421-bcbf-45e97ad4ea0b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063345": [
+			"",
+			[
+				{
+					"id": 159198,
+					"title": "20261104123640_1",
+					"file_name": "41b7863f-dd1e-43c6-96eb-d5e39f0fa94a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41b7863f-dd1e-43c6-96eb-d5e39f0fa94a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063347": [
+			"",
+			[
+				{
+					"id": 159200,
+					"title": "20261104124503_1",
+					"file_name": "d17e7d05-48cb-4b8f-8be2-cb221d1d56e6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d17e7d05-48cb-4b8f-8be2-cb221d1d56e6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063348": ["**Location:** Flying in the air above the lake", []],
+		"1063349": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159197,
+					"title": "20261104123941_1",
+					"file_name": "6b2ce228-15b5-4e46-b896-248bc2dd4caa.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6b2ce228-15b5-4e46-b896-248bc2dd4caa.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063350": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159199,
+					"title": "20261104124046_1",
+					"file_name": "ca7465cb-018a-4f01-90aa-849be21b01a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ca7465cb-018a-4f01-90aa-849be21b01a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063351": ["**Location:** On the beach near the ruins", []],
+		"1063352": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159196,
+					"title": "20261104124204_1",
+					"file_name": "4c7f7833-83b0-4d40-a520-a0459ca218c2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c7f7833-83b0-4d40-a520-a0459ca218c2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063353": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159201,
+					"title": "20261104124424_1",
+					"file_name": "a375602f-24fb-4cca-b620-a7e8fb24c5db.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a375602f-24fb-4cca-b620-a7e8fb24c5db.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063354": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159203,
+					"title": "20261104124630_1",
+					"file_name": "4a1a3ad8-8134-49b6-ba78-8ad4375ce741.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4a1a3ad8-8134-49b6-ba78-8ad4375ce741.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063355": [
+			"**Location:** Near the ruins, close to the lake",
+			[
+				{
+					"id": 159202,
+					"title": "20261104124554_1",
+					"file_name": "1fefed56-d20e-421c-b41d-f468a004ab01.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1fefed56-d20e-421c-b41d-f468a004ab01.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063356": [
+			"**Location:** On the hillside",
+			[
+				{
+					"id": 159204,
+					"title": "20261104124931_1",
+					"file_name": "bffb285e-70e1-41a3-85fc-3057c06cc582.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bffb285e-70e1-41a3-85fc-3057c06cc582.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063357": [
+			"**Location:** On the hillside",
+			[
+				{
+					"id": 159205,
+					"title": "20261104124917_1",
+					"file_name": "1fb2933e-ca0d-4321-a781-bec9547ee0ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1fb2933e-ca0d-4321-a781-bec9547ee0ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063358": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159206,
+					"title": "20261104130705_1",
+					"file_name": "101cef0a-0b40-4488-b528-fde280a7923c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/101cef0a-0b40-4488-b528-fde280a7923c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063359": [
+			"",
+			[
+				{
+					"id": 159208,
+					"title": "20261104130901_1",
+					"file_name": "07639c0b-80f7-4d6e-8ada-fe63512d2d06.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07639c0b-80f7-4d6e-8ada-fe63512d2d06.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063360": [
+			"",
+			[
+				{
+					"id": 159207,
+					"title": "20261104130851_1",
+					"file_name": "22369b55-9f8c-47cf-9a3c-026d766e225a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/22369b55-9f8c-47cf-9a3c-026d766e225a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063361": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159209,
+					"title": "20261104131124_1",
+					"file_name": "5f14e8e6-c587-4673-b944-775dfc87f274.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f14e8e6-c587-4673-b944-775dfc87f274.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063362": [
+			"",
+			[
+				{
+					"id": 159210,
+					"title": "20261104131241_1",
+					"file_name": "dac079aa-ea8e-4bdc-859e-7b9b1571d378.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dac079aa-ea8e-4bdc-859e-7b9b1571d378.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063363": [
+			"",
+			[
+				{
+					"id": 159211,
+					"title": "20261104131424_1",
+					"file_name": "24a65395-c988-4748-a773-b7a34d521bf4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/24a65395-c988-4748-a773-b7a34d521bf4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063364": [
+			"",
+			[
+				{
+					"id": 159212,
+					"title": "20261104131745_1",
+					"file_name": "54bb0b50-feac-4598-894f-dbb552c3b346.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/54bb0b50-feac-4598-894f-dbb552c3b346.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063365": [
+			"**Location:** In the flat forested area near the ruins",
+			[
+				{
+					"id": 159214,
+					"title": "20261104132634_1",
+					"file_name": "d2e5b0a3-5bfc-42a6-9250-297690ed5bd0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d2e5b0a3-5bfc-42a6-9250-297690ed5bd0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063366": [
+			"**Location:** In the forest near the ruins",
+			[
+				{
+					"id": 159213,
+					"title": "20261104132648_1",
+					"file_name": "62bd8a2d-8955-4f00-ba3c-f1977edcb48c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62bd8a2d-8955-4f00-ba3c-f1977edcb48c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063367": [
+			"",
+			[
+				{
+					"id": 159215,
+					"title": "20261104132852_1",
+					"file_name": "f7002d80-11f2-445b-8312-d3a154ff5b49.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f7002d80-11f2-445b-8312-d3a154ff5b49.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063368": [
+			"",
+			[
+				{
+					"id": 159216,
+					"title": "20261104133010_1",
+					"file_name": "470619c6-b192-414a-8a6a-e3b040dfb9cc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/470619c6-b192-414a-8a6a-e3b040dfb9cc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063369": [
+			"",
+			[
+				{
+					"id": 159217,
+					"title": "20261104133052_1",
+					"file_name": "c2080bbe-abe9-48b8-9742-be4985cfe747.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2080bbe-abe9-48b8-9742-be4985cfe747.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063371": [
+			"",
+			[
+				{
+					"id": 159220,
+					"title": "20261104133323_1",
+					"file_name": "33922452-cb22-451b-86a5-d69aedd04a72.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/33922452-cb22-451b-86a5-d69aedd04a72.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063372": [
+			"",
+			[
+				{
+					"id": 159219,
+					"title": "20261104133307_1",
+					"file_name": "667953ac-b24b-4bba-8dcb-f5dc16717520.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/667953ac-b24b-4bba-8dcb-f5dc16717520.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063373": [
+			"**Location:** On the beach",
+			[
+				{
+					"id": 159221,
+					"title": "20261104133528_1",
+					"file_name": "8f45a90d-c3bb-4d56-b657-f21a6e28deeb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8f45a90d-c3bb-4d56-b657-f21a6e28deeb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063374": [
+			"",
+			[
+				{
+					"id": 159222,
+					"title": "20261104133706_1",
+					"file_name": "e53e2680-74d0-43ff-a3a6-113320c2d600.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e53e2680-74d0-43ff-a3a6-113320c2d600.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063375": [
+			"**Location:** Look for small mossy mounds camouflaged in the forest \n\n**Drops:**\n\n- Abyss Cell\n- Shineberry\n- Abyss Gear\n- Produce",
+			[
+				{
+					"id": 159223,
+					"title": "20261104133942_1",
+					"file_name": "e9497dd4-cd56-4155-908f-dad6571265ca.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9497dd4-cd56-4155-908f-dad6571265ca.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063377": ["**Location:** Flying in the air overhead", []],
+		"1063378": [
+			"**Location:** Look for small mossy mounds camouflaged in the forest \n\n**Drops:**\n\n- Abyss Cell\n- Shineberry\n- Abyss Gear\n- Produce",
+			[
+				{
+					"id": 159224,
+					"title": "20261104135052_1",
+					"file_name": "ccb1122e-1bac-46e8-b9b4-48988c9d0773.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ccb1122e-1bac-46e8-b9b4-48988c9d0773.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063379": [
+			"",
+			[
+				{
+					"id": 159225,
+					"title": "20261104135710_1",
+					"file_name": "9e2e0640-6269-4286-b5e0-424574a99f12.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e2e0640-6269-4286-b5e0-424574a99f12.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063380": [
+			"**Location:** On the hillside",
+			[
+				{
+					"id": 159227,
+					"title": "20261104135822_1",
+					"file_name": "c337b344-32a1-4f6b-88ca-84722cbf7b8b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c337b344-32a1-4f6b-88ca-84722cbf7b8b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063381": ["**Location:** On the hillside", []],
+		"1063382": ["**Location:** On the hillside", []],
+		"1063383": ["**Location:** On the hillside", []],
+		"1063384": [
+			"**Location:** In the forest",
+			[
+				{
+					"id": 159226,
+					"title": "20261104140304_1",
+					"file_name": "6c6df984-8d40-4054-95af-2f969e87a998.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c6df984-8d40-4054-95af-2f969e87a998.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063387": [
+			"**Location:** Amongst the unmarked camp",
+			[
+				{
+					"id": 159228,
+					"title": "20261104140824_1",
+					"file_name": "7d6d3b34-3577-4eb1-abf0-b8f36cc315a8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d6d3b34-3577-4eb1-abf0-b8f36cc315a8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063388": [
+			"",
+			[
+				{
+					"id": 159229,
+					"title": "20261104141147_1",
+					"file_name": "3b86fde5-c167-486d-a742-95ffa243ea4f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3b86fde5-c167-486d-a742-95ffa243ea4f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063389": ["**Location:** Camouflaged on the hillside", []],
+		"1063392": ["**Location:** On the hillside", []],
+		"1063393": [
+			"**Location:** On the ground within the unmarked camp",
+			[
+				{
+					"id": 159233,
+					"title": "20261104142123_1",
+					"file_name": "ab9fe1b1-5f36-4286-8ed2-175b7f1f1c24.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab9fe1b1-5f36-4286-8ed2-175b7f1f1c24.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063396": [
+			"**Location:** On the ground in the unmarked camp",
+			[
+				{
+					"id": 159234,
+					"title": "20261104142317_1",
+					"file_name": "af973897-6b81-40f8-bec6-455c46a89e9b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/af973897-6b81-40f8-bec6-455c46a89e9b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063404": [
+			"**Location:** In the unmarked camp",
+			[
+				{
+					"id": 159235,
+					"title": "20261104142912_1",
+					"file_name": "07e40562-0be5-4824-87ce-20ad2e967299.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07e40562-0be5-4824-87ce-20ad2e967299.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063409": [
+			"**Location:** Inside the sunken shipwreck",
+			[
+				{
+					"id": 159236,
+					"title": "20261104144556_1",
+					"file_name": "fc5daa80-9eee-468d-8017-1e9ed0d68c9b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc5daa80-9eee-468d-8017-1e9ed0d68c9b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063485": [
+			"**Location:** Floating around on top of the unmarked lake",
+			[
+				{
+					"id": 159239,
+					"title": "20261104171754_1",
+					"file_name": "27d51bca-e02a-4609-844a-c4a30c187a74.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/27d51bca-e02a-4609-844a-c4a30c187a74.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063486": ["**Location:** On the hillside southeast above the lake", []],
+		"1063488": [
+			"**Location:** On the hillside in the forest",
+			[
+				{
+					"id": 159240,
+					"title": "20261104173427_1",
+					"file_name": "c390ff17-a260-464c-99b9-4c602447b8cf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c390ff17-a260-464c-99b9-4c602447b8cf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063489": ["**Location:** A horde of Wandershrubs inhabit the hillside", []],
+		"1063490": [
+			"",
+			[
+				{
+					"id": 159241,
+					"title": "20261104174514_1",
+					"file_name": "86751898-1865-44fe-8545-ae4b1b539a1e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/86751898-1865-44fe-8545-ae4b1b539a1e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063491": [
+			"**Location:** In the unmarked camp close to the rocks",
+			[
+				{
+					"id": 159242,
+					"title": "20261104175120_1",
+					"file_name": "48503ebc-d712-4551-80b7-68dd65456bec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/48503ebc-d712-4551-80b7-68dd65456bec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063494": [
+			"",
+			[
+				{
+					"id": 159243,
+					"title": "20261104180437_1",
+					"file_name": "17f85e9a-d368-44a3-99d6-6d1f9883479f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17f85e9a-d368-44a3-99d6-6d1f9883479f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063495": [
+			"**Location:** Multiple birds can be found walking on the ground in this area",
+			[
+				{
+					"id": 159244,
+					"title": "20261104180414_1",
+					"file_name": "0112509e-ebcb-43ee-837d-9b05ce855fa9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0112509e-ebcb-43ee-837d-9b05ce855fa9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063498": [
+			"**Location:** In the unmarked camp",
+			[
+				{
+					"id": 159245,
+					"title": "20261104180850_1",
+					"file_name": "9339b20f-ee6e-4d18-9972-e0f6f7117199.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9339b20f-ee6e-4d18-9972-e0f6f7117199.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063499": [
+			"",
+			[
+				{
+					"id": 159247,
+					"title": "20261104183124_1",
+					"file_name": "86f5d8d9-f3ec-40ef-a154-7838456c660b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/86f5d8d9-f3ec-40ef-a154-7838456c660b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063500": [
+			"**Location:** Floating in the water",
+			[
+				{
+					"id": 159246,
+					"title": "20261104183447_1",
+					"file_name": "e57e22cd-942e-4568-9af3-6985ab1097ae.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e57e22cd-942e-4568-9af3-6985ab1097ae.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063503": [
+			"**Location:** In the unmarked camp",
+			[
+				{
+					"id": 159248,
+					"title": "20261104183721_1",
+					"file_name": "6cbe05d3-2186-4dab-981f-00804c9b5cf2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6cbe05d3-2186-4dab-981f-00804c9b5cf2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063504": [
+			"**Location:** Inside the unmarked cave, entered from the east",
+			[
+				{
+					"id": 159249,
+					"title": "20261104184728_1",
+					"file_name": "57617cbf-f31b-4c7d-b35c-14fefcd26d3b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57617cbf-f31b-4c7d-b35c-14fefcd26d3b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063505": [
+			"**Location:** Inside the unmarked cave, entered from the east",
+			[
+				{
+					"id": 159250,
+					"title": "20261104184717_1",
+					"file_name": "66c52046-3485-4f75-b299-11db7f1ea9e7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66c52046-3485-4f75-b299-11db7f1ea9e7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063506": [
+			"**Location:** Inside the shipwreck on the ocean floor",
+			[
+				{
+					"id": 159251,
+					"title": "20261104190517_1",
+					"file_name": "6946cb7a-3d6b-481a-91a9-0ec6105b62c3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6946cb7a-3d6b-481a-91a9-0ec6105b62c3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063507": [
+			"**Location:** Inside the shipwreck on the ocean floor",
+			[
+				{
+					"id": 159252,
+					"title": "20261104191545_1",
+					"file_name": "aa80b792-59ad-4169-8beb-f4a6b685f56d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa80b792-59ad-4169-8beb-f4a6b685f56d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063827": [
+			"",
+			[
+				{
+					"id": 159376,
+					"title": "20261105163417_1",
+					"file_name": "59a98680-c483-4848-8b50-6ac397f103a9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/59a98680-c483-4848-8b50-6ac397f103a9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063898": [
+			"**Location:** On the ocean floor, amongst the ruined sunken train station, underneath a fallen awning  \n**Solution:** Find the chest  \n**Drops:**   \n\n- [Propulsion Breathing Device](#loc=1063899)",
+			[
+				{
+					"id": 159382,
+					"title": "20261105180127_1",
+					"file_name": "120f7b83-2ac1-42f6-b9c8-cb3eb16b47ec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/120f7b83-2ac1-42f6-b9c8-cb3eb16b47ec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063899": [
+			"**Location:** Inside the [Treasure Chest](#loc=1063898)",
+			[
+				{
+					"id": 159384,
+					"title": "image",
+					"file_name": "5c4a4f22-2223-4dd0-9127-835e1e288d1f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5c4a4f22-2223-4dd0-9127-835e1e288d1f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063905": [
+			"**Location:** On top of the ruined awning, close to the ocean floor",
+			[
+				{
+					"id": 159383,
+					"title": "20261105181459_1",
+					"file_name": "3f9a893e-9b03-4237-8e90-358444ddb10a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f9a893e-9b03-4237-8e90-358444ddb10a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063909": [
+			"**Location:** On top of the ruined tower sticking up the from the ocean floor",
+			[
+				{
+					"id": 159385,
+					"title": "20261105183704_1",
+					"file_name": "429d8fb3-7027-4d90-be6a-2cd5d0d4d191.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/429d8fb3-7027-4d90-be6a-2cd5d0d4d191.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063910": [
+			"**Location:** Underneath the building on the bottom of the ocean floor.  Within view of the [Natural Pearl](#loc=1058086)",
+			[
+				{
+					"id": 159386,
+					"title": "20261105183929_1",
+					"file_name": "715965de-67aa-4d74-a432-7494311fd9c5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/715965de-67aa-4d74-a432-7494311fd9c5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063926": [
+			"**Location:** On the stone altar \n\n**Challenges:** Into the Deep - Swimming  \n\n- Ride a sea turtle for 500m in 2 minutes \n\n**Reward:**\n\n- Abyss Artifact\n- Ancient Relic \n- Malicebane II",
+			[
+				{
+					"id": 159388,
+					"title": "20261105194436_1",
+					"file_name": "bb056644-1cd3-46a6-964b-47a1e8448476.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bb056644-1cd3-46a6-964b-47a1e8448476.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063928": [
+			"**Location:** On the ground in the northwest corner of the Red Hangs Island  \n**Solution:** Use a shovel to dig up around the chest  \n**Drops:**   \n\n- [Wailing Sea Greathammer](#loc=1063937)",
+			[
+				{
+					"id": 159389,
+					"title": "",
+					"file_name": "1b7e6c31-c124-41f0-b0ed-566ab1949b5f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1b7e6c31-c124-41f0-b0ed-566ab1949b5f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063937": [
+			"**Location:** Inside the [Buried Treasure Chest](#loc=1063928)",
+			[
+				{
+					"id": 159390,
+					"title": "image",
+					"file_name": "938b3bf6-f8c7-4d97-83f9-722b66bbb417.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/938b3bf6-f8c7-4d97-83f9-722b66bbb417.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063951": [
+			"**Location:** On the ground amongst the unmarked camp",
+			[
+				{
+					"id": 159393,
+					"title": "20261105200807_1",
+					"file_name": "ba1fa00c-45c8-4f89-8f81-78e7b223b97f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ba1fa00c-45c8-4f89-8f81-78e7b223b97f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063956": [
+			"**_Great Ocean > Samora Island > Outlaws of the Ocean_**\n\n**Quest Steps:**\n\n- Read the pirate ship alert\n- Destroy the Death Blossom",
+			[]
+		],
+		"1063960": [
+			"**Location:** On the ocean floor amongst the ruins",
+			[
+				{
+					"id": 159394,
+					"title": "20261105201444_1",
+					"file_name": "b9b12c6e-5eba-4e8c-a1a4-1b410fbdc7d7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b9b12c6e-5eba-4e8c-a1a4-1b410fbdc7d7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063962": [
+			"**Location:** Inside the underwater temple next to the giant skeleton - on the second floor interior  \n**Solution:** Swim to the chest  \n**Drops:**   \n\n- [Blueprint: Skyborne Beast Figurehead](#loc=1063963)\n- [Blueprint: Skyborne Beast Stern](#loc=1063964)",
+			[
+				{
+					"id": 159395,
+					"title": "20261105203007_1",
+					"file_name": "b6df98ef-0a12-41f2-881e-f28897e699cc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b6df98ef-0a12-41f2-881e-f28897e699cc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063963": [
+			"**Location:** Drops from the [Underwater Treasure Chest](#loc=1063962)",
+			[
+				{
+					"id": 160352,
+					"title": "20261109193753_1",
+					"file_name": "8beee41e-80d7-498e-9a61-8f15521348e7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8beee41e-80d7-498e-9a61-8f15521348e7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063964": [
+			"**Location:** Drops from the [Underwater Treasure Chest](#loc=1063962)",
+			[
+				{
+					"id": 160353,
+					"title": "20261109193808_1",
+					"file_name": "b27d4c6a-1364-4adf-bcb0-cabde7bd9967.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b27d4c6a-1364-4adf-bcb0-cabde7bd9967.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063966": [
+			"**Location:** Inside the smaller underwater temple, west from the larger temple  \n**Solution:** Swim to the chest  \n**Drops:**   \n\n- [Blueprint: Seahorse Statue](#loc=1063967)",
+			[
+				{
+					"id": 159396,
+					"title": "20261105203813_1",
+					"file_name": "f5326b11-b0e0-475f-8e60-bdf1421ee188.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5326b11-b0e0-475f-8e60-bdf1421ee188.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063967": [
+			"**Location:** Drops from the [Underwater Treasure Chest](#loc=1063966)",
+			[
+				{
+					"id": 160354,
+					"title": "20261109193821_1",
+					"file_name": "2004feb1-4eac-4fa4-9c7e-775c70d4b74f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2004feb1-4eac-4fa4-9c7e-775c70d4b74f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063974": ["**Location:** On the ocean floor, under the giant skeleton, west from the main temple", []],
+		"1063979": [
+			"**Location:** Inside the small structure with the [Natural Pearl](#loc=1058080), northwest from the main temple",
+			[
+				{
+					"id": 159399,
+					"title": "20261105205758_1",
+					"file_name": "a370cf72-3327-4a7c-bdd8-14991e209905.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a370cf72-3327-4a7c-bdd8-14991e209905.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063981": [
+			"**Location:** Inside the small structure to the southwest of the main temple",
+			[
+				{
+					"id": 159400,
+					"title": "20261105210239_1",
+					"file_name": "ddf4a162-3878-427c-8657-02b8f9378fb7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddf4a162-3878-427c-8657-02b8f9378fb7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1063990": [
+			"**Location:** At the edge of the underwater plateau at \\~185 meters, overlooking the giant skeletons below   \n**Solution:** Find the Cresset   \n\n**Related Challenge:** Echoes of the Deep - Scenic View  \n**Reward:** \n\n- Abyss Artifact\n- Ancient Relic",
+			[
+				{
+					"id": 159401,
+					"title": "20261105211638_1",
+					"file_name": "4b27390f-fab5-435a-afa9-6f1ccc2d1a42.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4b27390f-fab5-435a-afa9-6f1ccc2d1a42.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066454": [
+			"**Location:** On top of the mountain, amidst the shrubbery  \n**Solution:** Climb up to the cresset   \n\n**Related Challenge:** Echoes of the Deep - Scenic View  \n**Reward:** \n\n- Abyss Artifact\n- Ancient Relic",
+			[
+				{
+					"id": 160197,
+					"title": "20261109115359_1",
+					"file_name": "01ed7877-693d-4d37-ae73-169c7739be98.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/01ed7877-693d-4d37-ae73-169c7739be98.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066581": [
+			"**Location:** Inside the cave at the end of the road to the east",
+			[
+				{
+					"id": 160341,
+					"title": "20261109182627_1",
+					"file_name": "999ca2c2-f847-433e-b2d2-4f85056217de.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/999ca2c2-f847-433e-b2d2-4f85056217de.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066582": [
+			"**Location:** On the wall in the cave at the end of the road to the east",
+			[
+				{
+					"id": 160340,
+					"title": "20261109182639_1",
+					"file_name": "24a12301-be75-47ca-8be7-6424a189f827.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/24a12301-be75-47ca-8be7-6424a189f827.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066584": [
+			"**Location:** On the box in the hut",
+			[
+				{
+					"id": 160342,
+					"title": "20261109183316_1",
+					"file_name": "877535e4-57bd-49e4-9cb0-1504ee78b658.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/877535e4-57bd-49e4-9cb0-1504ee78b658.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066585": [
+			"**Location:** On the stone altar on the side of the road \n\n**Challenges:** Beyond the Horizon - Voyage  \n\n- Destroy 5 pirate ships within 3 minutes \n\n**Reward:**\n\n- Abyss Artifact\n- Shatter I\n- Ancient Relic",
+			[
+				{
+					"id": 160343,
+					"title": "20261109183504_1",
+					"file_name": "17f3c049-99c5-4bbd-9df4-0b4b0eadc9db.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/17f3c049-99c5-4bbd-9df4-0b4b0eadc9db.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066588": [
+			"**Location:** In the broken rowboat on the beach",
+			[
+				{
+					"id": 160344,
+					"title": "20261109184214_1",
+					"file_name": "04beb37a-820e-409c-b6b7-7faedde3c35a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/04beb37a-820e-409c-b6b7-7faedde3c35a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066594": [
+			"**_Great Ocean > Samora Island > Outlaws of the Ocean_**\n\n**Reward:**\n\n- Forgotten Treasure Map\n\n**Quest Steps:**\n\n- Read the [pirate ship alert](#loc=1066588)\n- Destroy Faunus",
+			[
+				{
+					"id": 160345,
+					"title": "20261109190045_1",
+					"file_name": "7ead466e-e45c-4cb1-8bed-06f996ed24f7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7ead466e-e45c-4cb1-8bed-06f996ed24f7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066607": [
+			"",
+			[
+				{
+					"id": 160346,
+					"title": "20261109191435_1",
+					"file_name": "a43d2eb2-130a-41ba-99a7-b889a125fa05.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a43d2eb2-130a-41ba-99a7-b889a125fa05.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066608": [
+			"**Location:** Inside the [Unmarked Cave](#loc=1066607)",
+			[
+				{
+					"id": 160347,
+					"title": "20261109191521_1",
+					"file_name": "2e4798b4-144b-496e-b9fa-207fbef41a3c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2e4798b4-144b-496e-b9fa-207fbef41a3c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066618": [
+			"**Location:** Behind the waterfall marked by the cairn.  Use Stab to pass through the falls",
+			[
+				{
+					"id": 160348,
+					"title": "20261109193041_1",
+					"file_name": "4a409ecf-a880-40bb-aaf9-cec0d37374e9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4a409ecf-a880-40bb-aaf9-cec0d37374e9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066619": [
+			"**Location:** Inside the [Unmarked Cave](#loc=1066618)  \n**Solution:** Stab through the falls to access the cave  \n**Drops:**   \n\n- [Alchemy Formula: Fluva's Greater Elixir](#loc=1066620)\n- Ancient Relic x2",
+			[
+				{
+					"id": 160349,
+					"title": "20261109193250_1",
+					"file_name": "b2012aeb-081d-4e5e-84f6-905f348e6643.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b2012aeb-081d-4e5e-84f6-905f348e6643.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066620": [
+			"**Location:** Inside the [Treasure Chest](#loc=1066619)",
+			[
+				{
+					"id": 160351,
+					"title": "20261109193647_1",
+					"file_name": "2ff9191e-ea11-45da-a836-2c9935a5aa76.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2ff9191e-ea11-45da-a836-2c9935a5aa76.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066621": [
+			"**Location:** Inside the [Unmarked Cave](#loc=1066618)",
+			[
+				{
+					"id": 160350,
+					"title": "20261109193255_1",
+					"file_name": "b92e76ce-cfbb-4792-a5a1-bc833f278495.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b92e76ce-cfbb-4792-a5a1-bc833f278495.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066635": [
+			"**Location:** Seated in the arena on the mountain - immediately attacks when approached",
+			[
+				{
+					"id": 160355,
+					"title": "20261109195744_1",
+					"file_name": "abdd2eeb-3cfc-4803-a57f-13ab060d3884.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/abdd2eeb-3cfc-4803-a57f-13ab060d3884.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066636": [
+			"**_Great Ocean > Keepers of the Abandoned Islands > Isolated Island Chief_**\n\n**Reward:**\n\n- Satryos Spear\n- Abyss Artifact\n- Ancient Relic x5\n\n**Quest Steps:**\n\n- Defeat [Satyros](#loc=1066635)\n- Obtain the artifact\n- Defeat the enemies around the Satyros Waterfall Village",
+			[]
+		],
+		"1066678": [
+			"**Location:** Drops from defeating [Satyros](#loc=1066635)  \n\n**Type:**  Two-handed weapon",
+			[
+				{
+					"id": 160356,
+					"title": "image",
+					"file_name": "ee1d8b4e-cd80-459b-afb8-81176578041b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ee1d8b4e-cd80-459b-afb8-81176578041b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066694": [
+			"**Location:** Inside the [Buried Treasure Chest](#loc=1061549)  \n\n**Type:**  One-handed mace",
+			[
+				{
+					"id": 160357,
+					"title": "image",
+					"file_name": "67f57fc1-ace6-4305-8a61-4d590a08345a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/67f57fc1-ace6-4305-8a61-4d590a08345a.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066700": [
+			"**Location:** Inside a corridor that runs north to south, in the ruins on the mountainside",
+			[
+				{
+					"id": 160358,
+					"title": "20261109204354_1",
+					"file_name": "22eb359b-b29e-48ab-a80a-3e8d7768d6dd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/22eb359b-b29e-48ab-a80a-3e8d7768d6dd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066732": [
+			"**Location:** Behind the waterfall marked with the cairn.  Use Stab to get through the falls",
+			[
+				{
+					"id": 160359,
+					"title": "20261109211121_1",
+					"file_name": "eb799740-daba-43ee-b654-28375220ecb0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eb799740-daba-43ee-b654-28375220ecb0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066739": [
+			"**Location:** Inside the [Unmarked Cave](#loc=1066732)  \n**Solution:** Use Stab to pass through the falls and access the cave  \n**Drops:**   \n\n- [Alchemy Formula: Luftis's Greater Elixir](#loc=1066747)\n- Ancient Relic",
+			[]
+		],
+		"1066747": [
+			"**Location:** Inside the [Treasure Chest](#loc=1066739)",
+			[
+				{
+					"id": 160361,
+					"title": "20261109211353_1",
+					"file_name": "b8d8d204-069a-4705-b161-b12d7c952de7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b8d8d204-069a-4705-b161-b12d7c952de7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067158": [
+			"**Location:** Inside a stick teepee on a sack",
+			[
+				{
+					"id": 160642,
+					"title": "",
+					"file_name": "b45731ba-437d-444a-9df1-aab51e8d61a0.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b45731ba-437d-444a-9df1-aab51e8d61a0.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067159": [
+			"**Location:** Inside the small cave next to the river",
+			[
+				{
+					"id": 160665,
+					"title": "20261110132400_1",
+					"file_name": "caeab762-edde-4b2c-a8c8-e2cbad7cbdd1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/caeab762-edde-4b2c-a8c8-e2cbad7cbdd1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067160": [
+			"**Location:** On the dock, up the stairs",
+			[
+				{
+					"id": 160666,
+					"title": "20261110133608_1",
+					"file_name": "f0879cce-98bd-4844-a425-debd12f74b23.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0879cce-98bd-4844-a425-debd12f74b23.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067161": [
+			"**Location:** On the dock near the water",
+			[
+				{
+					"id": 160667,
+					"title": "20261110133729_1",
+					"file_name": "42aea198-4502-4d0a-afd9-2c6af0a71f09.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/42aea198-4502-4d0a-afd9-2c6af0a71f09.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067162": [
+			"**Location:** On the wooden floor, under the canopy",
+			[
+				{
+					"id": 160668,
+					"title": "20261110134046_1",
+					"file_name": "9aa540ec-089d-48d7-bd3b-a7ea5afee6bb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9aa540ec-089d-48d7-bd3b-a7ea5afee6bb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067163": [
+			"**Location:** On the counter in the building",
+			[
+				{
+					"id": 160669,
+					"title": "20261110140139_1",
+					"file_name": "f6b5dd94-33b1-4bec-ab47-29d095510903.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f6b5dd94-33b1-4bec-ab47-29d095510903.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067164": [
+			"",
+			[
+				{
+					"id": 160670,
+					"title": "20261110140309_1",
+					"file_name": "e0fda86d-62e5-42b1-b82d-01357be12bf2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e0fda86d-62e5-42b1-b82d-01357be12bf2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067165": [
+			"**Location:** On a bench in the building",
+			[
+				{
+					"id": 160671,
+					"title": "20261110140426_1",
+					"file_name": "f38a8cf7-3574-44ed-b0e9-2ef758d51cc6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f38a8cf7-3574-44ed-b0e9-2ef758d51cc6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067166": [
+			"**Location:** Inside the small sailboat at the edge of the dock",
+			[
+				{
+					"id": 160672,
+					"title": "20261110141007_1",
+					"file_name": "ddc40a5d-bf51-47b3-8b38-24fb2ed285bc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddc40a5d-bf51-47b3-8b38-24fb2ed285bc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067169": [
+			"",
+			[
+				{
+					"id": 160673,
+					"title": "20261110143329_1",
+					"file_name": "26be5e59-e792-406f-80fe-f3e18a600951.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/26be5e59-e792-406f-80fe-f3e18a600951.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067173": [
+			"**Location:** Behind the waterfall marked with the cairn.  Use Stab to pass through the falls",
+			[
+				{
+					"id": 160674,
+					"title": "20261110143912_1",
+					"file_name": "4ca3a3a8-3805-454e-98ea-73da0d96f3fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ca3a3a8-3805-454e-98ea-73da0d96f3fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067174": [
+			"**Location:** Inside the [Unmarked Cave](#loc=1067173) behind the waterfall  \n**Solution:** Use Stab to pass through the falls  \n**Drops:**   \n\n- [Soulmate Ring](#loc=1067175)\n- Ancient Relic x2",
+			[
+				{
+					"id": 160676,
+					"title": "20261110144244_1",
+					"file_name": "3e959bb9-23c1-400d-bc7b-afb8e4ca9d22.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e959bb9-23c1-400d-bc7b-afb8e4ca9d22.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067175": [
+			"**Location:** Inside the [Treasure Chest](#loc=1067174)",
+			[
+				{
+					"id": 160675,
+					"title": "image",
+					"file_name": "b8279c7f-fee3-4b6f-8fef-bf3f863b1f82.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b8279c7f-fee3-4b6f-8fef-bf3f863b1f82.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067237": [
+			"**Location:** Slightly buried under the big tree on the beach  \n**Solution:** Use a shovel to dig up around the chest  \n**Drops:**   \n\n- [Feral Claw](#loc=1067244)",
+			[
+				{
+					"id": 160732,
+					"title": "20261110191634_1",
+					"file_name": "a1689f43-ad6a-49c7-b87b-2b103c489625.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a1689f43-ad6a-49c7-b87b-2b103c489625.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067244": [
+			"**Location:** Inside the [Buried Treasure Chest](#loc=1067237)  \n\n**Type:**  Two-handed sword",
+			[
+				{
+					"id": 160739,
+					"title": "image",
+					"file_name": "66eaf906-4435-4626-8249-0b13ce275e9f.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66eaf906-4435-4626-8249-0b13ce275e9f.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067252": [
+			"",
+			[
+				{
+					"id": 160746,
+					"title": "20261110192602_1",
+					"file_name": "610430da-5854-49b6-ad7c-e6d7fd791687.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/610430da-5854-49b6-ad7c-e6d7fd791687.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067264": [
+			"**Location:** On top of the broken shipwreck",
+			[
+				{
+					"id": 160754,
+					"title": "20261110194214_1",
+					"file_name": "06d32e32-5043-4aab-93bc-36d07d19152b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/06d32e32-5043-4aab-93bc-36d07d19152b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067278": [
+			"**Location:** Behind the waterfall marked with the cairn.  Use Stab to pass through the falls",
+			[
+				{
+					"id": 160765,
+					"title": "20261110195741_1",
+					"file_name": "46a6a5c4-9034-45f3-9ac9-93af00a227ba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/46a6a5c4-9034-45f3-9ac9-93af00a227ba.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067279": [
+			"**Location:** Inside the [Unmarked Cave](#loc=1067278)  \n**Solution:** Use Stab to pass through the falls  \n**Drops:**   \n\n- [Moonstone Ring](#loc=1067280)\n- Ancient Relic x2",
+			[
+				{
+					"id": 160766,
+					"title": "20261110200335_1",
+					"file_name": "39565d4b-964b-4420-955f-21be1bf1a732.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/39565d4b-964b-4420-955f-21be1bf1a732.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067280": [
+			"**Location:** Drops from the [Treasure Chest](#loc=1067279)",
+			[
+				{
+					"id": 160767,
+					"title": "image",
+					"file_name": "e1276563-290e-45d2-8e1e-3dac187dc103.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e1276563-290e-45d2-8e1e-3dac187dc103.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067282": [
+			"**Location:** Inside the [Treasure Chest](#loc=1067283)\n\n**Type:** Boots",
+			[
+				{
+					"id": 160768,
+					"title": "image",
+					"file_name": "90a55ab9-5af8-461f-b795-22a6f0f9ea15.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/90a55ab9-5af8-461f-b795-22a6f0f9ea15.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067283": [
+			"**Location:** On the seabed, hidden in the rocks  \n**Solution:** Smash the rocks with Force Palm  \n**Drops:**   \n\n- [Forsaken Oath Plate Boots](#loc=1067282)",
+			[
+				{
+					"id": 160769,
+					"title": "20261110202039_1",
+					"file_name": "3e326a65-8e53-47e4-a21c-c827399f1deb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e326a65-8e53-47e4-a21c-c827399f1deb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067295": [
+			"**Location:** Look for an entrance into a building on the west side of the ruins in the circular underwater valley, at \\~180 meters",
+			[
+				{
+					"id": 160773,
+					"title": "20261110203725_1",
+					"file_name": "b606e0fb-e724-4c28-8174-631713cdf937.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b606e0fb-e724-4c28-8174-631713cdf937.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067303": [
+			"**Location:** Under the ocean, inside the [Underwater Air Pocket](#loc=1067295)  \n**Solution:** Find the chest  \n**Drops:**   \n\n- [Ibex Shadowleaf Armor](#loc=1067309)\n- Ancient Relic x3",
+			[
+				{
+					"id": 160775,
+					"title": "20261110204603_1",
+					"file_name": "ca4b83fe-b1c5-42f3-866e-ba6df326c101.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ca4b83fe-b1c5-42f3-866e-ba6df326c101.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067309": [
+			"**Location:** Inside the [Treasure Chest](#loc=1067303)\n\n**Type:** Ibex mount armor",
+			[
+				{
+					"id": 160774,
+					"title": "image",
+					"file_name": "efd80bc1-a3bf-4100-a009-8221655cb270.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/efd80bc1-a3bf-4100-a009-8221655cb270.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067337": [
+			"**Location:** On the second floor, inside the main building of the [Forgotten Ocean Ruins](#loc=1067333)  \n**Solution:** Swim to the chest  \n**Drops:**   \n\n- [Ocean Drifter](#loc=1067342)\n- Ancient Relic x3",
+			[
+				{
+					"id": 160778,
+					"title": "20261110210049_1",
+					"file_name": "67816786-07ed-412d-bfc4-0a16d403baeb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/67816786-07ed-412d-bfc4-0a16d403baeb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067342": [
+			"**Location:** Drops as _Ancients' Chest_ from the [Underwater Treasure Chest](#loc=1067337).  Gives the Ocean Drifter underwater mount when opened",
+			[]
+		],
+		"1067347": [
+			"**Location:** Inside the small building",
+			[
+				{
+					"id": 160779,
+					"title": "20261110205915_1",
+					"file_name": "24f44f5a-3f45-4d35-946e-878e9b77fed8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/24f44f5a-3f45-4d35-946e-878e9b77fed8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067351": [
+			"**Location:** Inside the small building",
+			[
+				{
+					"id": 160781,
+					"title": "20261110211505_1",
+					"file_name": "57fd5d6e-3c1b-40aa-8842-475ea2467477.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/57fd5d6e-3c1b-40aa-8842-475ea2467477.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067365": [
+			"",
+			[
+				{
+					"id": 160784,
+					"title": "20261110212126_1",
+					"file_name": "1c8c788d-c317-419b-b913-e851e6105605.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1c8c788d-c317-419b-b913-e851e6105605.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067394": [
+			"**Location:** On the ledge just above the beach.  Referenced in the [Forgotten Treasure Map](#loc=1061553)  \n**Solution:** Use a shovel to dig up around the chest  \n**Drops:**   \n\n- [Blueprint: Ship Teleportation Device](#loc=1067407)",
+			[
+				{
+					"id": 160790,
+					"title": "",
+					"file_name": "9603300a-1004-4aef-8d56-c04f5d4657fb.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9603300a-1004-4aef-8d56-c04f5d4657fb.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067407": [
+			"**Location:** Inside the [Buried Treasure Chest](#loc=1067394)",
+			[
+				{
+					"id": 160795,
+					"title": "20261110214918_1",
+					"file_name": "28165cca-2923-4579-bc90-692a518acb6b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/28165cca-2923-4579-bc90-692a518acb6b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067419": [
+			"**Location:** On a piece of broken shipwreck, on the beach",
+			[
+				{
+					"id": 160797,
+					"title": "20261110215132_1",
+					"file_name": "063f22e2-e806-4f0c-a912-8206531d7da8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/063f22e2-e806-4f0c-a912-8206531d7da8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067421": [
+			"**Location:** On a piece of broken shipwreck, on the beach",
+			[
+				{
+					"id": 160798,
+					"title": "20261110215221_1",
+					"file_name": "72a75bcf-ef07-4d9a-b759-b0f022677c3d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/72a75bcf-ef07-4d9a-b759-b0f022677c3d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067424": [
+			"**_Great Ocean > Samora Island > Outlaws of the Ocean_**\n\n**Reward:**\n\n- Forgotten Treasure Map\n\n**Quest Steps:**\n\n- Read the [pirate ship alert](#loc=1067421)\n- Destroy the Black Bloom",
+			[]
+		],
+		"1067447": [
+			"**Location:** Up the stairs, on the dock",
+			[
+				{
+					"id": 160799,
+					"title": "20261110221037_1",
+					"file_name": "f2a3571c-b6a6-49bd-a72b-12b6bdffca56.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f2a3571c-b6a6-49bd-a72b-12b6bdffca56.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067450": [
+			"**Location:** On the hill.  Entered from the south side of the island",
+			[
+				{
+					"id": 160800,
+					"title": "20261110222019_1",
+					"file_name": "d014df13-112d-4cd6-9060-09a9413e842d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d014df13-112d-4cd6-9060-09a9413e842d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067466": [
+			"**Location:** In the dirt, under the palm trees, surrounded by rocks  \n**Solution:** Dig up around the chest with a shovel  \n**Drops:**   \n\n- [Silverbreaker Mace](#loc=1067469)",
+			[
+				{
+					"id": 160803,
+					"title": "20261110223738_1",
+					"file_name": "e08e47e0-8b66-43d7-b32b-33265d025248.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e08e47e0-8b66-43d7-b32b-33265d025248.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067469": [
+			"**Location:** Drops from the [Buried Treasure Chest](#loc=1067466)  \n\n**Type:**  One-handed mace",
+			[
+				{
+					"id": 160801,
+					"title": "image",
+					"file_name": "c540769f-8ce4-41eb-adb9-afc049c51aab.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c540769f-8ce4-41eb-adb9-afc049c51aab.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1080280": [
+			"**Location:** On top of the mountain   \n**Solution:** Traverse to the cresset  \n\n**Related Challenge:** Echoes of the Deep - Scenic View  \n**Reward:** \n\n- Abyss Artifact\n- Ancient Relic",
+			[
+				{
+					"id": 161115,
+					"title": "20261112191727_1",
+					"file_name": "7f422db9-7c68-4d17-a266-3c61d52498cb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7f422db9-7c68-4d17-a266-3c61d52498cb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1080286": [
+			"**Location:** At the edge of the underwater plateau   \n**Solution:** Find the cresset   \n\n**Related Challenge:** Echoes of the Deep - Scenic View  \n**Reward:** \n\n- Abyss Artifact\n- Ancient Relic",
+			[
+				{
+					"id": 161062,
+					"title": "20261112160934_1",
+					"file_name": "c0ee8ea3-848e-4be7-b64a-2deec5e5e252.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c0ee8ea3-848e-4be7-b64a-2deec5e5e252.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1081522": [
+			"**Location:** Inside the [Unmarked Cave](#loc=1083312)",
+			[
+				{
+					"id": 160824,
+					"title": "20261111172111_1",
+					"file_name": "b020c411-5b8d-4b0f-843e-6e96f6502780.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b020c411-5b8d-4b0f-843e-6e96f6502780.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1081524": ["**Location:** Can be accessed after passing through the [False Bookshelf](#loc=1062828)", []],
+		"1081538": ["In a tent on a box.", []],
+		"1083310": [
+			"**Location:** On top of the mountain, amidst the shrubbery, surrounded by rocks  \n**Solution:** Use a shovel to dig up around the chest  \n**Drops:**   \n\n- [Swordbreaker](#loc=1083311)",
+			[
+				{
+					"id": 160821,
+					"title": "20261111165753_1",
+					"file_name": "e19751d4-7346-4c13-94a5-81d598226dc8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e19751d4-7346-4c13-94a5-81d598226dc8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083311": [
+			"**Location:** Drops from the [Buried Treasure Chest](#loc=1083310)  \n\n**Type:**  One-handed sword",
+			[
+				{
+					"id": 160822,
+					"title": "image",
+					"file_name": "ff79a161-c23e-4b6d-b60c-fc0c54fb9816.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff79a161-c23e-4b6d-b60c-fc0c54fb9816.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083312": [
+			"**Location:** Entered from ocean side of the island",
+			[
+				{
+					"id": 160823,
+					"title": "20261111171118_1",
+					"file_name": "0f04aa95-142d-47fe-a110-4afaee2a3696.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f04aa95-142d-47fe-a110-4afaee2a3696.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083466": [
+			"**Location:** High up on top of the mountain, surrounded by cairns   \n**Solution:** Use a shovel to dig up around the chest   \n**Drops:**   \n\n- [Blueprint: Fisherman's Pride](#loc=1084298)",
+			[
+				{
+					"id": 161134,
+					"title": "20261112200635_1",
+					"file_name": "abc03664-fb61-4a7e-855f-38235f196cf1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/abc03664-fb61-4a7e-855f-38235f196cf1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083468": [
+			"**Location:** On the small flat ledge, surrounded by rocks, marked by multiple cairns   \n**Solution:** Use a shovel to dig up around the chest   \n**Drops:**   \n\n- [Tempest Warhammer](#loc=1084293)",
+			[
+				{
+					"id": 161126,
+					"title": "20261112195907_1",
+					"file_name": "8783957e-7e7f-4160-9e74-c8741efdff0a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8783957e-7e7f-4160-9e74-c8741efdff0a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083470": [
+			"**Location:** On a flat green area, surrounded by rocks   \n**Solution:** Use a shovel to dig up around the chest   \n**Drops:**   \n\n- [Blueprint: Captain's Chair of Dignity](#loc=1084299)",
+			[
+				{
+					"id": 161138,
+					"title": "20261112201436_1",
+					"file_name": "11ca3a7d-0847-450a-bc39-80ec5e0ccff7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/11ca3a7d-0847-450a-bc39-80ec5e0ccff7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083471": [
+			"**Location:** On the ground, under the palm trees   \n**Solution:** Dig up around the chest with a shovel   \n**Drops:**   \n\n- [Ornate Brass Earring](#loc=1084011)",
+			[
+				{
+					"id": 161063,
+					"title": "20261112162724_1",
+					"file_name": "cc06d1f6-8ace-43cf-9562-0755e53e20ce.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc06d1f6-8ace-43cf-9562-0755e53e20ce.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083474": [
+			"**Location:** Hidden in the small alcove surrounded by greenery, just behind the shipwreck debris on the sand   \n**Solution:** Use a shovel to dig up around the chest   \n**Drops:**   \n\n- [Earring of Sacred Oath](#loc=1084304)",
+			[
+				{
+					"id": 161144,
+					"title": "20261112205234_1",
+					"file_name": "e9f24902-c9da-4526-bd96-c744d24c86ca.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9f24902-c9da-4526-bd96-c744d24c86ca.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083476": [
+			"**Location:** Buried at the base of the big tree, overlooking the small bay below with the land bridge   \n**Solution:** Dig up around the chest with a shovel   \n**Drops:**   \n\n- [Ornate Green Jade Ring](#loc=1084305)",
+			[
+				{
+					"id": 161146,
+					"title": "20261112210019_1",
+					"file_name": "c1726bc9-4a7b-4692-ad07-e53df24ebab8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c1726bc9-4a7b-4692-ad07-e53df24ebab8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083487": [
+			"**Location:** Hidden in the rocks on the ocean floor.  Surrounded by the rock spires, close to hydrothermal geysers, and not far from an underwater whirlpool   \n**Solution:** Use Force Palm to access the chest   \n**Drops:**\n\n- [Sunken Azuretide Plate Helm](#loc=1084272)",
+			[
+				{
+					"id": 161108,
+					"title": "20261112185502_1",
+					"file_name": "8cd800cb-1a74-4ba4-942e-30ff512d7fe3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8cd800cb-1a74-4ba4-942e-30ff512d7fe3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083488": [
+			"**Location:** Hidden in the rock on the ocean floor.  Close to a hydrothermal geyser and a small patch of green kelp   \n**Solution:** Find the chest and use Force Palm to dislodge it from the rock   \n**Drops:**\n\n- [Forsaken Oath Plate Helm](#loc=1084303)",
+			[
+				{
+					"id": 161142,
+					"title": "20261112204241_1",
+					"file_name": "4787e9ec-d7b3-4224-a84a-7f33497e54ee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4787e9ec-d7b3-4224-a84a-7f33497e54ee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083489": [
+			"**Location:** Hidden in the rock on the seabed, surrounded by damaging hydrothermal geysers  \n**Solution:** Use Force Palm to dislodge the chest from the rock  \n**Drops:**\n\n- [Blazing Ring](#loc=1084008)",
+			[
+				{
+					"id": 161060,
+					"title": "20261112160019_1",
+					"file_name": "9a9fad55-b683-4632-b269-e2e5996de61e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a9fad55-b683-4632-b269-e2e5996de61e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083493": [
+			"**Location:** Hidden in the rocks in between the broken pieces of a shipwreck   \n**Solution:** Use Force Palm to destroy the rock and access the chest   \n**Drops:**\n\n- [Forsaken Oath Plate Armor](#loc=1084306)",
+			[
+				{
+					"id": 161149,
+					"title": "20261112210933_1",
+					"file_name": "de117ead-4053-4fd8-a43a-c5cb18c120e0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de117ead-4053-4fd8-a43a-c5cb18c120e0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083564": [
+			"",
+			[
+				{
+					"id": 161231,
+					"title": "20261113171048_1",
+					"file_name": "d2e4a4e8-81af-433a-bda7-35c5e0cfc353.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d2e4a4e8-81af-433a-bda7-35c5e0cfc353.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083565": [
+			"",
+			[
+				{
+					"id": 161125,
+					"title": "20261112195436_1",
+					"file_name": "7d4cdc72-4fcb-4ab5-998a-47420b3f3c24.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d4cdc72-4fcb-4ab5-998a-47420b3f3c24.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083566": [
+			"**Location:** Inside the lower room in the upper ruins",
+			[
+				{
+					"id": 161118,
+					"title": "20261112194021_1",
+					"file_name": "4754dd0d-5e82-4780-9005-3c04426ba002.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4754dd0d-5e82-4780-9005-3c04426ba002.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083572": [
+			"**Location:** Inside the [Unmarked Cave](#loc=1084012)",
+			[
+				{
+					"id": 161066,
+					"title": "20261112163158_1",
+					"file_name": "3de7035b-f7c9-41aa-ba46-f2039243637b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3de7035b-f7c9-41aa-ba46-f2039243637b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083582": [
+			"**Location:** Amidst the shipwreck debris on the sand",
+			[
+				{
+					"id": 161145,
+					"title": "20261112205206_1",
+					"file_name": "f617b0f5-63df-4a8e-82f0-03b7310d19b4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f617b0f5-63df-4a8e-82f0-03b7310d19b4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083640": ["**Location:** Inside the shipwreck on the ocean floor", []],
+		"1084008": [
+			"**Location:** Inside the [Buried Underwater Treasure Chest](#loc=1083489)",
+			[
+				{
+					"id": 161061,
+					"title": "image",
+					"file_name": "c81142f0-aa96-4651-9edb-94fe54dc0ba0.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c81142f0-aa96-4651-9edb-94fe54dc0ba0.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084011": [
+			"**Location:** Inside the [Buried Treasure Chest](#loc=1083471)",
+			[
+				{
+					"id": 161064,
+					"title": "image",
+					"file_name": "9e2d8765-2eef-4df9-99ad-5412937a10f3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e2d8765-2eef-4df9-99ad-5412937a10f3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084012": [
+			"**Location:** Entered from the southern side of the island",
+			[
+				{
+					"id": 161065,
+					"title": "20261112163107_1",
+					"file_name": "2d8a0e7a-332a-4897-82e9-15a5dd63bd3f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2d8a0e7a-332a-4897-82e9-15a5dd63bd3f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084272": [
+			"**Location:** Drops from the [Buried Underwater Treasure Chest](#loc=1083487)\n\n**Type:** Headgear",
+			[
+				{
+					"id": 161110,
+					"title": "image",
+					"file_name": "320679f5-371c-4126-8cea-05adfc5b771d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/320679f5-371c-4126-8cea-05adfc5b771d.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084278": [
+			"**Location:** In the unmarked camp",
+			[
+				{
+					"id": 161117,
+					"title": "20261112193109_1",
+					"file_name": "ab95abf5-1daf-44be-b547-6858f617ce7e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab95abf5-1daf-44be-b547-6858f617ce7e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084283": [
+			"**Location:** Entered from the west side of the island, at the end of the ascending path with the stone stairs",
+			[
+				{
+					"id": 161122,
+					"title": "20261112195235_1",
+					"file_name": "38206ec5-0f9e-4cf6-aa1f-67072c123a71.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/38206ec5-0f9e-4cf6-aa1f-67072c123a71.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084293": [
+			"**Location:** Drops from the [Buried Treasure Chest](#loc=1083468)  \n\n**Type:**  Two-handed mace (Oongka)",
+			[
+				{
+					"id": 161132,
+					"title": "image",
+					"file_name": "8966cacc-73f8-48e1-bfa0-69c99c5134fe.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8966cacc-73f8-48e1-bfa0-69c99c5134fe.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084298": [
+			"**Location:** Drops from the [Buried Treasure Chest](#loc=1083466)",
+			[
+				{
+					"id": 161135,
+					"title": "20261112200804_1",
+					"file_name": "379f0c40-c35f-4fba-aaa9-12f3fed434f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/379f0c40-c35f-4fba-aaa9-12f3fed434f9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084299": [
+			"**Location:** Drops from the [Buried Treasure Chest](#loc=1083470)",
+			[
+				{
+					"id": 161139,
+					"title": "20261112201535_1",
+					"file_name": "3b657d10-b4d3-4754-a3f6-a78909721d65.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3b657d10-b4d3-4754-a3f6-a78909721d65.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084303": [
+			"**Location:** Drops from the [Buried Underwater Treasure Chest](#loc=1083488)\n\n**Type:** Headgear",
+			[
+				{
+					"id": 161141,
+					"title": "image",
+					"file_name": "9e4ee184-268f-4bc8-912b-b898a4040c61.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e4ee184-268f-4bc8-912b-b898a4040c61.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084304": [
+			"**Location:** Drops from the [Buried Treasure Chest](#loc=1083474)",
+			[
+				{
+					"id": 161143,
+					"title": "image",
+					"file_name": "1f15e78f-b1af-47ab-a74c-bbbf2cf1f933.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f15e78f-b1af-47ab-a74c-bbbf2cf1f933.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084305": [
+			"**Location:** Drops from the [Buried Treasure Chest](#loc=1083476)",
+			[
+				{
+					"id": 161147,
+					"title": "image",
+					"file_name": "3e9c0e1b-6c4e-44a8-bee3-db8eb9dfd9a7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e9c0e1b-6c4e-44a8-bee3-db8eb9dfd9a7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084306": [
+			"**Location:** Drops from the [Buried Underwater Treasure Chest](#loc=1083493)\n\n**Type:** Chest armor",
+			[
+				{
+					"id": 161148,
+					"title": "image",
+					"file_name": "ddc470c9-d37a-4eee-bda5-bf1de3d8ea35.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddc470c9-d37a-4eee-bda5-bf1de3d8ea35.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084307": [
+			"**Location:** Accessed from the ocean",
+			[
+				{
+					"id": 161150,
+					"title": "20261112212115_1",
+					"file_name": "ce8ed9e1-5fcd-4091-8d9a-bcf2fd605445.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ce8ed9e1-5fcd-4091-8d9a-bcf2fd605445.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084308": [
+			"**Location:** At the altar inside the massive cavern underneath the island - accessed via the [Unmarked Sea Cave](#loc=1084307)\n\n\n\n**Related Quest:** [A Vengeful Spirit at Sea](#loc=1084309)",
+			[
+				{
+					"id": 161152,
+					"title": "20261112213044_1",
+					"file_name": "ea0f071f-8d33-4081-b920-834c7b14ea64.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ea0f071f-8d33-4081-b920-834c7b14ea64.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084309": [
+			"**_Great Ocean > Keepers of the Abandoned Islands > Cave of Sorrow_**\n\n**Reward:**\n\n- Ancient Relic x5\n- [Naval Officer's Armor](#loc=1084310)\n- [A note Rohan Cooper kept tucked inside his coat.](#loc=1084312)\n- Abyss Artifact\n- [Mirage Cascade](#loc=1084311)\n\n**Quest Steps:**\n\n- Defeat [Rohan Cooper](#loc=1084308)\n- Obtain the artifact",
+			[]
+		],
+		"1084310": [
+			"**Location:** Drops from defeating [Rohan Cooper](#loc=1084308)",
+			[
+				{
+					"id": 161151,
+					"title": "image",
+					"file_name": "d8408239-31f2-4dc9-aa1c-a28ad68ef3b9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d8408239-31f2-4dc9-aa1c-a28ad68ef3b9.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084311": [
+			"**Location:** Drops from defeating [Rohan Cooper](#loc=1084308)",
+			[
+				{
+					"id": 161153,
+					"title": "image",
+					"file_name": "fefe2e6c-51e7-4102-b9fe-44d041887a0b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fefe2e6c-51e7-4102-b9fe-44d041887a0b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084312": [
+			"**Location:** Drops from defeating [Rohan Cooper](#loc=1084308)",
+			[
+				{
+					"id": 161154,
+					"title": "20261112214452_1",
+					"file_name": "5ed9bfd7-39a9-4f9e-84fa-74206b31350b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5ed9bfd7-39a9-4f9e-84fa-74206b31350b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084313": [
+			"**Location:** Can be taken from on top of the altar in the massive underground cave, after defeating [Rohan Cooper](#loc=1084308)",
+			[
+				{
+					"id": 161155,
+					"title": "image",
+					"file_name": "40145c1b-f67f-4592-8219-117be893829e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/40145c1b-f67f-4592-8219-117be893829e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084314": [
+			"**Location:** Inside the massive underground cavern",
+			[
+				{
+					"id": 161156,
+					"title": "20261112215251_1",
+					"file_name": "003c3644-172c-4f50-8009-80e6479e3716.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/003c3644-172c-4f50-8009-80e6479e3716.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084315": [
+			"**Location:** On the broken rowboat, on the side of the water, inside the massive cavern at sea level",
+			[
+				{
+					"id": 161157,
+					"title": "20261112215751_1",
+					"file_name": "361d44e1-f945-46e4-b79d-f689bf9a8b6c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/361d44e1-f945-46e4-b79d-f689bf9a8b6c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084316": [
+			"**Location:** Can be found on a ledge in the ruins on top of the mountain, after defeating the [Leviakan](#loc=1062048)  \n\n**Use:** Keepsake",
+			[
+				{
+					"id": 161158,
+					"title": "image",
+					"file_name": "8f324be4-eeb4-4b92-9143-0241f14a58f5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8f324be4-eeb4-4b92-9143-0241f14a58f5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084317": ["**Location:** In the shipwreck", []],
+		"1084318": ["**Location:** In the shipwreck", []],
+		"1084319": [
+			"**Location:** On a broken table within the destroyed hut",
+			[
+				{
+					"id": 161159,
+					"title": "20261112221233_1",
+					"file_name": "1e45d2b3-819a-4b12-8e3a-ccabbc38e75a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e45d2b3-819a-4b12-8e3a-ccabbc38e75a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084320": [
+			"**_Great Ocean > Samora Island > Outlaws of the Ocean_**\n\n**Quest Steps:**\n\n- Read the [pirate ship alert](#loc=1084319)\n- Destroy the Sea's Vengeance",
+			[
+				{
+					"id": 161160,
+					"title": "20261112221458_1",
+					"file_name": "8acee6a3-2162-4416-9834-393ed63b189b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8acee6a3-2162-4416-9834-393ed63b189b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084321": [
+			"**Location:** On the stone altar on the beach \n\n**Challenges:** Into the Deep - Swimming  \n\n- Mine 3 ores underwater within 20 seconds \n\n**Reward:**\n\n- Abyss Artifact\n- Ancient Relic \n- Disarm I",
+			[
+				{
+					"id": 161161,
+					"title": "20261112221754_1",
+					"file_name": "dfeb759b-a0ba-47e1-9d6c-299f5f3ad2a0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dfeb759b-a0ba-47e1-9d6c-299f5f3ad2a0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084645": [
+			"**_Greymanes > Charting the Unknown > Garden of Trials_**\n\n**Requirements:** Complete all Main Quests including the Epilogue - then wait for White Crow to land on your shoulder and give you a [letter](#loc=1084646) (can happen anywhere)\n\n**Quest Steps:**\n\n- Read the [Mysterious Letter](#loc=1084646)",
+			[]
+		],
+		"1084646": [
+			"**Location:** Handed to you by White Crow, some time after completing all Main Quests.  Completes the Faction Quest [The Gardener's Invitation](#loc=1084645), and begins [At the Threshold of a New Ordeal](#loc=1084647)",
+			[
+				{
+					"id": 161228,
+					"title": "20261113164922_1",
+					"file_name": "36058cfe-18b8-4cc6-9f61-6c78b98f66a1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36058cfe-18b8-4cc6-9f61-6c78b98f66a1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084647": [
+			"**_Greymanes > Charting the Unknown > Garden of Trials_**\n\n**Requirements:** Read the [Mysterious Letter](#loc=1084646)\n\n**Quest Steps:**\n\n- Visit the Axiom Archive",
+			[]
+		],
+		"1084648": [
+			"**Location:** Accessed from the eastern beach",
+			[
+				{
+					"id": 161229,
+					"title": "20261113170542_1",
+					"file_name": "7abb1997-aafc-4f19-87d0-a304acdf23f1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7abb1997-aafc-4f19-87d0-a304acdf23f1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084649": [
+			"**Location:** Accessed from the ocean on the west side of the island",
+			[
+				{
+					"id": 161230,
+					"title": "20261113171005_1",
+					"file_name": "532c85e6-e3c0-4718-84b2-40aa711ee033.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/532c85e6-e3c0-4718-84b2-40aa711ee033.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084650": [
+			"**Location:** Accessed from the northern sea",
+			[
+				{
+					"id": 161232,
+					"title": "20261113171648_1",
+					"file_name": "0e316949-11a1-4b41-9ff5-8ec1f9ea2188.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e316949-11a1-4b41-9ff5-8ec1f9ea2188.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1084689": [
+			"**Location:** On the floor in the side room just before the [False Bookshelf](#loc=1062828)",
+			[
+				{
+					"id": 161233,
+					"title": "20261113173240_1",
+					"file_name": "1e5ba236-3ab2-41c2-82e2-7178c9621414.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e5ba236-3ab2-41c2-82e2-7178c9621414.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
 					"meta": null,
 					"order": 10,
 					"spoiler": false

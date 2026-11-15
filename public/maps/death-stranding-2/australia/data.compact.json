@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 16,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 2270,
 			"game_id": 227,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "187FBE",
@@ -357,6 +359,7 @@
 		{
 			"id": 2273,
 			"game_id": 227,
+			"section_id": null,
 			"title": "Orders",
 			"order": 10,
 			"color": "1EACC1",
@@ -432,6 +435,7 @@
 		{
 			"id": 2272,
 			"game_id": 227,
+			"section_id": null,
 			"title": "Other",
 			"order": 20,
 			"color": "26445C",
@@ -533,6 +537,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"13088": {
 			"id": 13088,

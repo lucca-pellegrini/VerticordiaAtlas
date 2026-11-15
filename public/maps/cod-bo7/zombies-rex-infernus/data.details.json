@@ -1,0 +1,1996 @@
+{
+	"v": 1,
+	"d": {
+		"935386": ["**Cost:** \n- Uncommon: 500\n- Rare: 1,750\n- Epic: 2,750\n- Legendary: 3,750", []],
+		"935388": ["**Cost:** 1,500", []],
+		"935389": ["**Cost:** 1,500", []],
+		"935390": ["**Cost:** 1,500", []],
+		"935391": ["**Cost:** 1,500", []],
+		"935395": ["**Cost:** 2,500  \n\n**Effect:** Drink to recover health and revive allies faster.", []],
+		"935399": ["**Cost:** \n- Uncommon: 1,450\n- Rare: 2,650\n- Epic: 3,650\n- Legendary: 4,650", []],
+		"935402": ["**Cost:** \n- Uncommon: 1,000\n- Rare: 2,250\n- Epic: 3,250\n- Legendary: 4,250", []],
+		"935403": ["**Cost:** 1,250", []],
+		"935406": ["**Cost:** 1,250", []],
+		"935410": ["**Cost:** 1,250", []],
+		"935411": ["**Cost:** 1,250", []],
+		"935412": ["**Cost:** 2,000\n\n**Effect:** Draws in nearby zombies and smashes them to pieces", []],
+		"935413": ["**Cost:** \n- Uncommon: 1,450\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 4,750", []],
+		"935414": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase the variety of loot dropped from enemies.", []],
+		"935415": ["**Cost:** 1,500", []],
+		"935416": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 3,000\n- Epic: 4,000\n- Legendary: 5,000", []],
+		"935418": ["**Cost:** 2,500  \n\n**Effect:** Drink to retaliate with spider webs.", []],
+		"935422": ["**Cost:** 1,000", []],
+		"935424": ["**Cost:** 1,000", []],
+		"935425": ["**Cost:** 1,000", []],
+		"935426": ["**Cost:** 1,000", []],
+		"935427": ["**Cost:** 1,500", []],
+		"935428": ["**Cost:** 1,000", []],
+		"935429": ["**Cost:** 1,000", []],
+		"935430": ["**Cost:** 1,500", []],
+		"935431": ["**Cost:** 1,500", []],
+		"935432": ["**Cost:** 1,000", []],
+		"935433": ["**Cost:** 1,000", []],
+		"935434": ["**Cost:** 1,000", []],
+		"935435": ["**Cost:** 1,500", []],
+		"935436": ["**Cost:** 1,500", []],
+		"935440": ["**Cost:** \n- Uncommon: 750\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 4,000", []],
+		"935444": ["**Cost:** 2,500  \n\n**Effect:** Drink to carry a 3rd primary weapon.", []],
+		"935446": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 3,000\n- Epic: 4,000\n- Legendary: 5,000", []],
+		"935447": [
+			"**Location:** On top of a brick in the wall next to the door",
+			[
+				{
+					"id": 145851,
+					"title": "20260820173306_1",
+					"file_name": "1b0bb9f6-96a8-46b8-86ee-5b9572a6a791.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1b0bb9f6-96a8-46b8-86ee-5b9572a6a791.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"935448": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase maximum health.", []],
+		"935450": ["**Cost:** \n- Uncommon: 1,650\n- Rare: 2,850\n- Epic: 3,950\n- Legendary: 5,000", []],
+		"935451": ["**Cost:** 2,500  \n\n**Effect:** Drink to reload weapons and replate armor faster.", []],
+		"935452": ["**Cost:** \n- Uncommon: 1,000\n- Rare: 2,000\n- Epic: 3,250\n- Legendary: 4,500", []],
+		"935453": ["**Cost:** 1,500", []],
+		"935476": ["**Cost:** 2,500  \n\n**Effect:** Drink to see enemies through walls.", []],
+		"935477": [
+			"**Location:** On the edge of the railing on the upper part of the room",
+			[
+				{
+					"id": 145852,
+					"title": "20260820174416_1",
+					"file_name": "66e3611c-6a53-4718-b902-a429949b4a7a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66e3611c-6a53-4718-b902-a429949b4a7a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"935480": ["**Cost:** \n- Uncommon: 1,650\n- Rare: 2,850\n- Epic: 3,950\n- Legendary: 4,950", []],
+		"935484": ["**Cost:** \n- Uncommon: 1,450\n- Rare: 2,650\n- Epic: 3,650\n- Legendary: 4,650", []],
+		"935489": ["**Cost:** \n- Uncommon: 1,550\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 4,750", []],
+		"935490": [
+			"**Cost:** 2,500  \n\n**Effect:** Drink to explode when diving and become immune to your explosive damage.",
+			[]
+		],
+		"935493": ["**Cost:** \n- Uncommon: 2,000\n- Rare: 3,250\n- Epic: 4,250\n- Legendary: 5,250", []],
+		"935494": [
+			"**Cost:** 2,500  \n\n**Effect:** Drink to improve ADS precision and increase Critical Damage of bullets.\n\n_Replaced by the [Der Wunderfizz](#loc=1052992) after the conditions are met._",
+			[]
+		],
+		"935496": ["**Cost:** \n- Uncommon: 1,550\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 4,750", []],
+		"935498": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase weapon fire rate.", []],
+		"935501": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 3,000\n- Epic: 4,000\n- Legendary: 5,000", []],
+		"935502": [
+			"**Location:** Next to a pile of rocks over a pit",
+			[
+				{
+					"id": 145853,
+					"title": "20260820175509_1",
+					"file_name": "03ff8c94-cb88-4d62-808a-30ea389c133f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03ff8c94-cb88-4d62-808a-30ea389c133f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"935505": ["**Cost:** \n- Uncommon: 750\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 4,000", []],
+		"935506": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase movement speed.", []],
+		"935507": ["**Cost:** 2,000\n\n**Effect:** Draws in nearby zombies and smashes them to pieces", []],
+		"935508": ["**Cost:** 2,500  \n\n**Effect:** Drink to summon a companion wisp after killing zombies.", []],
+		"935509": ["**Cost:** \n- Uncommon: 750\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 4,000", []],
+		"935510": ["**Cost:** \n- Uncommon: 1,550\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 4,750", []],
+		"935517": ["**Cost:** 2,500  \n\n**Effect:** Drink to make attacks trigger random Ammo Mods.", []],
+		"935519": [
+			"**Location:** Next to a pile of rubble next to the wall",
+			[
+				{
+					"id": 145854,
+					"title": "20260820180259_1",
+					"file_name": "5c3127cd-6783-4a4d-ae7e-bd5d245796da.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5c3127cd-6783-4a4d-ae7e-bd5d245796da.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938025": [
+			"**Steps:**\n- First, complete the [Pack-A-Punch Upgrade Easter Egg](#loc=938030).\n- Head to Dravakar's temple and acquire the [Fracture of Nyxara](#loc=938031).\n- Then, head to Nyxara Main Chamber and slot the fracture into the empty slot high up on one of the walls.\n- Head back to the Nexus Forge and grab the purple flame.\n- Throw the purple flame at the [Eye Altar](#loc=938032). This will create a beam to the other crystals in the room.\n- Use the void claw to realign the crystals so they bounce off each other until the projectile goes into a closed door to enter Nyxara Inner Sanctum.\n- Interact with the orb behind the door then head down to the lower area.\n- Interact with the vines and let it drain your health, then interact with the fruit. (The Fruit will not spawn until Round 8)\n- You'll be teleported to a forest. Find the three corpses around the forest and grab the pieces of the wonder weapon:\n   - [Wonder Weapon Part](#loc=938033)\n   - [Wonder Weapon Part](#loc=938034)\n   - [Wonder Weapon Part](#loc=938035)\n- Head to the Dravakar Temple and interact with the [Writing on Wall](#loc=938036) to receive a phrase.\n- There are four symbol pillars that can be rotated around the room:\n   - [Void Pillar](#loc=938037)\n   - [Moon Pillar](#loc=938038)\n   - [Sun Pillar](#loc=938039)\n   - [Comet Pillar](#loc=938040)\n- There are also three levers around that rotate the symbols:\n   - [Lever](#loc=938043)\n   - [Lever](#loc=938042)\n   - [Lever](#loc=938041)\n- Depending on the phrase, the symbols will need to be facing a certain direction:\n   - If the phrase is **I drift to stars that remember moons, who borrow the runner that travels the galaxy.**:\n      - Rotate the left lever once.\n      - Rotate the back lever twice.\n      - Rotate the right lever twice.\n   - If the phrase is **I drift to the runner that travels to the Moon, who borrows from galaxies when stars stay true.**:\n      - Rotate the left lever three times.\n      - Rotate the back lever twice.\n      - Rotate the right lever once.\n   - If the phrase is **I remember the runner that travels to stars, while moons and galaxies stay true.**:\n      - Rotate the back lever twice.\n      - Rotate the right lever three times.\n   - If the phrase is **I remember galaxies that drift to moons, who borrow the runner that travels the stars.**:\n      - Rotate the left lever twice.\n      - Rotate the right lever twice.\n- Once done, pull the middle lever to lower the pillar.\n- Grapple to the area up above and interact with the [Dravakar's Anvil](#loc=938044) to build the Warden's Blight wonder weapon.\n- Returning to the house can be down simultaneously as completing the other temples:\n   - Head to the nexus forge and shoot the [Basketball](#loc=938045) from the roof of the house. \n   - Every round, head to the house and mark down which symbol spawned when. \n   - On the next exfil round, shoot the symbols on the house in the order they appear.\n   - Interact with the exfil and kill the HVT.\n   - Teleporting at the exfil will bring you back to the house.\n   - Head upstairs and shoot the ground behind the window with the Charged Warden's Blight that's Pack-A-Punched to receive the [Eye of the Forge](#loc=938105).\n   - Bring the Eye of the Forge to a void pedestal to upgrade it to the void talon.\n- Head to Veytharion's temple and pick up the four stone blocks on the ground around the area:\n   - [Stone Block](#loc=938049)\n   - [Stone Block](#loc=938047)\n   - [Stone Block](#loc=938050)\n   - [Stone Block](#loc=938046)\n- Place all four blocks into the [Elemental Block Wall](#loc=938048) in one of these orders:\n   - Fire -> Air -> Water -> Earth\n   - Fire -> Air -> Earth -> Water\n   - Earth -> Water -> Air -> Fire\n   - Water -> Earth -> Air -> Fire\n- Then move the blocks in this order back and forth:\n   - Move Fire and Air from left to right.\n   - Drop off Fire then move Air from right to left.\n   - Pick up Water and move Air and Water from left to right.\n   - Drop off Air then Water, pick up Fire then Air, and move Fire from right to left.\n   - Drop off Air then Fire, pick up Earth then Air, and move Earth and Air from left to right.\n   - Drop off Earth and move Air from right to left.\n   - Pick up Fire and move Air and Fire from left to right.\n   - Drop off Air then Fire.\n- This will reveal the [Pool](#loc=938051) behind the wall.\n- Head to Caltheris temple and head to the [Floor Switches](#loc=938052).\n- Stand on each plate from left to right and shoot the lights that appear.\n- Once completed, a wall will open, revealing two orbs and a lantern.\n- Interact with both orbs.\n- Next, four corruptions are required to cleanse each temple:\n   - [Shimmering Thread](#loc=938053)\n   - [Ancient Scroll](#loc=938055)\n   - [Blacksmith's Hammer](#loc=938077)\n   - Woven Sash:\n      - [Woven Sash Possible Spawn](#loc=938094)\n      - [Woven Sash Possible Spawn](#loc=938093)\n      - [Woven Sash Possible Spawn](#loc=938092)\n- With the upgraded void talon and the four corruptions, pull a purple orb to the [Pack-A-Punch Machine](#loc=935472).\n- Spin the wheel around the Pack-A-Punch to surge the nexus.\n- Grab a void talon and pull off the eye symbols above each of the walls in the nexus core.\n- Burn away the spider webs clogging the gears then head back up.\n- Use the void talon to remove the eye symbols from the sides of the pillars surrounding the nexus.\n- Crank the nexus then interact with the levers to start building the nexus.\n- Place a purple orb in and crank it a few times then pull the lever on the ground in the core to lock it in place. The pillars can now be moved.\n- All three pillars will need to line up and face a temple to cleanse it.\n- Caltheris:\n   - Head to the Caltheris Temple and place the Shimmering Thread inside the [Brazier](#loc=938117).\n   - Throw an astral flame inside and a nearby zombie should glow.\n   - Bring that to the [Titan Trap](#loc=935507) and have it die by the trap.\n   - Stand on the [Pressure Plate](#loc=938118) and ADS to release the plate.\n   - Shoot the disc on the ground with a charged wonder weapon shot to raise it.\n   - Shoot it to align it to the wall in front of the [Head Statue](#loc=938119).\n   - Kill zombies underneath the beam to blow open the wall.\n   - Shoot the Head Statue and find the nearby Shadow Zombies.\n   - Kill the Shadow Zombies then shoot the Head Statue until the event is over.\n   - Head outside and bring a purple orb underneath Caltheris' head, then shoot it with the wonder weapon to bring it up to its head.\n   - While it's raining, get an Astral Flame and throw it at the head to strike it with lightning.\n- Nyxara:\n   - Head to the Nyxara Temple and place the Ancient Scroll inside the [Brazier](#loc=938125).\n   - Throw an astral flame inside and a nearby zombie should glow.\n   - Bring that to the [Titan Trap](#loc=935412) and have it die by the trap.\n   - Prone on the [Pressure Plate](#loc=938124) to release the plate.\n   - Shoot the disc on the ground with a charged wonder weapon shot to raise it.\n   - Shoot it to align it to the wall in front of the [Head Statue](#loc=938126).\n   - Kill zombies underneath the beam to blow open the wall.\n   - Shoot the Head Statue and find the nearby Shadow Zombies.\n   - Kill the Shadow Zombies then shoot the Head Statue until the event is over.\n   - Head outside and bring a purple orb underneath Nyxara's head, then shoot it with the wonder weapon to bring it up to its head.\n   - While it's raining, get an Astral Flame and throw it at the head to strike it with lightning.\n- Veytharion:\n   - Head to the Veytharion Temple and place the Woven Sash inside the [Brazier](#loc=938123).\n   - Throw an astral flame inside and a nearby zombie should glow.\n   - Bring that to the [Titan Trap](#loc=935412) and have it die by the trap.\n   - Jump over and over on the [Pressure Plate](#loc=938122) to release the plate.\n   - Shoot the disc on the ground with a charged wonder weapon shot to raise it.\n   - Shoot it to align it to the wall in front of the [Head Statue](#loc=938127).\n   - Kill zombies underneath the beam to blow open the wall.\n   - Shoot the Head Statue and find the nearby Shadow Zombies.\n   - Kill the Shadow Zombies then shoot the Head Statue until the event is over.\n   - Head outside and bring a purple orb underneath Veytharion's head, then shoot it with the wonder weapon to bring it up to its head.\n   - While it's raining, get an Astral Flame and throw it at the head to strike it with lightning.\n- Dravakar:\n   - Head to the Dravakar Temple and place The Hammer inside the [Brazier](#loc=938121).\n   - Throw an astral flame inside and a nearby zombie should glow.\n   - Bring that to the [Titan Trap](#loc=935507) and have it die by the trap.\n   - Plate your armor on the [Pressure Plate](#loc=938120) to release the plate.\n   - Shoot the disc on the ground with a charged wonder weapon shot to raise it.\n   - Shoot it to align it to the wall in front of the [Head Statue](#loc=938128).\n   - Kill zombies underneath the beam to blow open the wall.\n   - Shoot the Head Statue and find the nearby Shadow Zombies.\n   - Kill the Shadow Zombies then shoot the Head Statue until the event is over.\n   - Head outside and bring a purple orb underneath Dravakar's head, then shoot it with the wonder weapon to bring it up to its head.\n   - While it's raining, get an Astral Flame and throw it at the head to strike it with lightning.\n- Head to the nexus core to start the final boss fight.",
+			[]
+		],
+		"938030": [
+			"**Steps:**\n- After unlocking the Pack-A-Punch, grab the void claw from one of the pedestals.\n- Pull a nearby purple orb into the mist in the middle of the nexus then crank the sides of the nexus to upgrade the Pack-A-Punch and change the flame colors to purple.",
+			[]
+		],
+		"938031": [
+			"**Location:** Inside the wall above the entrance, requiring some sort of explosion to bust open the wall\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146767,
+					"title": "20260825204414_1",
+					"file_name": "f2bec361-02f1-4d2d-9a12-ed567e2de16f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f2bec361-02f1-4d2d-9a12-ed567e2de16f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938032": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146768,
+					"title": "20260825204812_1",
+					"file_name": "4983a957-903f-400a-a2b9-6bf06ae85e96.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4983a957-903f-400a-a2b9-6bf06ae85e96.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938033": [
+			"**Location:** Inside the forest next to a corpse near a cave entrance\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146769,
+					"title": "20260825211311_1",
+					"file_name": "f3815f42-70a0-446e-ba91-5619de41a7e0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f3815f42-70a0-446e-ba91-5619de41a7e0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938034": [
+			"**Location:** Inside the forest next to a corpse leaning against a rock near the middle\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146770,
+					"title": "20260825211517_1",
+					"file_name": "be2aa537-00f7-4fc9-b60a-704067f3fb32.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/be2aa537-00f7-4fc9-b60a-704067f3fb32.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938035": [
+			"**Location:** Inside the forest underneath a floor board at the destroyed cabin, requiring meleeing it open\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146771,
+					"title": "20260825211704_1",
+					"file_name": "ec53254c-68d0-4011-b5a4-65e3d097ca5a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec53254c-68d0-4011-b5a4-65e3d097ca5a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938036": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146772,
+					"title": "20260825211957_1",
+					"file_name": "ad9b67eb-bd69-4daf-8cc7-8a35aaa0f15f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ad9b67eb-bd69-4daf-8cc7-8a35aaa0f15f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938037": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146773,
+					"title": "20260825212055_1",
+					"file_name": "f308c95a-1e66-40b8-ae8d-7e6b0df8019b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f308c95a-1e66-40b8-ae8d-7e6b0df8019b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938038": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146774,
+					"title": "20260825212058_1",
+					"file_name": "c5c46da4-e23d-42ee-911a-8b93faace347.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5c46da4-e23d-42ee-911a-8b93faace347.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938039": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146775,
+					"title": "20260825212101_1",
+					"file_name": "7af33882-b0e7-4bd5-8f0c-00807e478294.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7af33882-b0e7-4bd5-8f0c-00807e478294.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938040": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146776,
+					"title": "20260825212103_1",
+					"file_name": "f03ef92a-3499-4e20-a93c-1f0f3516c4a8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f03ef92a-3499-4e20-a93c-1f0f3516c4a8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938041": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146777,
+					"title": "20260825212544_1",
+					"file_name": "d3827422-79c8-4440-9de9-b57f173de7cd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d3827422-79c8-4440-9de9-b57f173de7cd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938042": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146802,
+					"title": "20260825235732_1",
+					"file_name": "b28fe1f4-0a4a-420a-b926-ff6cc32c7f73.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b28fe1f4-0a4a-420a-b926-ff6cc32c7f73.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938043": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146779,
+					"title": "20260825212614_1",
+					"file_name": "d44d4818-7599-4ee3-900e-604dfb72a697.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d44d4818-7599-4ee3-900e-604dfb72a697.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938044": [
+			"_Interacting with it with a Pack-A-Punched weapon or a non-common rarity weapon will strip the weapon back to its default, dropping the corresponding Aether Crystal and Aether Tool on the ground._",
+			[
+				{
+					"id": 146780,
+					"title": "20260825213106_1",
+					"file_name": "a25821ce-f566-44e4-b225-da95b363599b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a25821ce-f566-44e4-b225-da95b363599b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938045": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146781,
+					"title": "20260825213613_1",
+					"file_name": "0c38e019-2a38-4801-8f38-8f0c4edbf64f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0c38e019-2a38-4801-8f38-8f0c4edbf64f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938046": [
+			"**Location:** On top of the ledge in front of the window\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146782,
+					"title": "20260825214007_1",
+					"file_name": "41cab610-97f4-4b64-a773-f6c84fc88d84.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41cab610-97f4-4b64-a773-f6c84fc88d84.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938047": [
+			"**Location:** On top of the pillar in the corner of the room\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146783,
+					"title": "20260825214051_1",
+					"file_name": "ddd2a808-8fa6-43ff-ad9c-ff261ff1ea23.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ddd2a808-8fa6-43ff-ad9c-ff261ff1ea23.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938048": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146784,
+					"title": "20260825214149_1",
+					"file_name": "a3b0aaaa-f26e-4ca4-ba9a-94572a559596.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3b0aaaa-f26e-4ca4-ba9a-94572a559596.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938049": [
+			"**Location:** On the edge of the platform next to the [Elemental Block Wall](#loc=938048)\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146785,
+					"title": "20260825214425_1",
+					"file_name": "238a4a13-8397-4287-993a-745270898130.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/238a4a13-8397-4287-993a-745270898130.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938050": [
+			"**Location:** On the ledge over the window\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146786,
+					"title": "20260825214515_1",
+					"file_name": "cb0851d5-7c24-4c2e-b1a2-66fc79bb3ef1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb0851d5-7c24-4c2e-b1a2-66fc79bb3ef1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938051": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146787,
+					"title": "20260825220116_1",
+					"file_name": "c9c1f4d9-1ea9-4222-b0fc-d8f98d7d0d0d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c9c1f4d9-1ea9-4222-b0fc-d8f98d7d0d0d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938052": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146788,
+					"title": "20260825220351_1",
+					"file_name": "a2704bec-1e20-4070-b5ee-d9b17a25e07a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a2704bec-1e20-4070-b5ee-d9b17a25e07a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938053": [
+			"**Location:** Chance of dropping from interacting with a purple orb around the map\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146789,
+					"title": "20260825221142_1",
+					"file_name": "fb7fef23-1f91-44b8-924b-0c3c01931ade.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fb7fef23-1f91-44b8-924b-0c3c01931ade.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938055": [
+			"**Location:** Randomly drops from a zombie when killing them with the Shadow Rift weapon mod, easiest in the forest\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146790,
+					"title": "20260825224007_1",
+					"file_name": "fca52c44-393d-4ad8-b65f-d28b316fa8fe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fca52c44-393d-4ad8-b65f-d28b316fa8fe.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938077": [
+			"**Location:** Behind one of the shields, requiring killing zombies with the Shatterblast weapon mod near the shields\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146792,
+					"title": "image",
+					"file_name": "ce7af8ea-980c-4a6e-aa0d-f34f5829ded3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ce7af8ea-980c-4a6e-aa0d-f34f5829ded3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938092": [
+			"**Location:** Around the corner of the pillar off the edge of the map, requiring the grapple\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146794,
+					"title": "20260825230056_1",
+					"file_name": "2a07429e-45b8-4ea7-a494-995877f99613.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2a07429e-45b8-4ea7-a494-995877f99613.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938093": [
+			"**Location:** On the side of the rock off the map, requiring the grapple\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146795,
+					"title": "image",
+					"file_name": "ab6b8c43-1fb2-40cb-b849-ba46dc9f16f4.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ab6b8c43-1fb2-40cb-b849-ba46dc9f16f4.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938094": [
+			"**Location:** On the side of the rock off the map, requiring the grapple\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146797,
+					"title": "20260825230715_1",
+					"file_name": "49bba05a-3337-4076-bfdf-d63cabbb431f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49bba05a-3337-4076-bfdf-d63cabbb431f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938105": [
+			"**Location:** On the ground after shooting the ground behind the window with the Pack-A-Punched Seelye and Cashier\n\n**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146805,
+					"title": "20260826002817_1",
+					"file_name": "bcd332bf-1d07-43d0-81b8-fd414d496ec3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bcd332bf-1d07-43d0-81b8-fd414d496ec3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938117": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146814,
+					"title": "20260826010133_1",
+					"file_name": "32e73a60-018a-4c8d-b0bf-7047948dad0b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/32e73a60-018a-4c8d-b0bf-7047948dad0b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938118": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146815,
+					"title": "20260826010301_1",
+					"file_name": "cea0bf17-0cec-4457-a3d8-826dfe6ff360.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cea0bf17-0cec-4457-a3d8-826dfe6ff360.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938119": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146816,
+					"title": "20260826011546_1",
+					"file_name": "e05d7f32-db93-41ef-a658-94b7ae47e3e4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e05d7f32-db93-41ef-a658-94b7ae47e3e4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938120": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146817,
+					"title": "20260826012450_1",
+					"file_name": "9133c248-3532-40a7-abc2-0e10ad30fafc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9133c248-3532-40a7-abc2-0e10ad30fafc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938121": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146818,
+					"title": "20260826012509_1",
+					"file_name": "c2a4420e-7889-4874-8982-b9b71f3fe69f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2a4420e-7889-4874-8982-b9b71f3fe69f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938122": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146819,
+					"title": "20260826012543_1",
+					"file_name": "71fd0403-e8a3-4ff8-a5f6-739e93d87881.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/71fd0403-e8a3-4ff8-a5f6-739e93d87881.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938123": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146820,
+					"title": "20260826012600_1",
+					"file_name": "6aa75df3-4ed2-4b7a-8cff-3ca9b98f10d0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6aa75df3-4ed2-4b7a-8cff-3ca9b98f10d0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938124": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146821,
+					"title": "20260826012634_1",
+					"file_name": "f874a73d-856e-4f68-90c0-b110405629f3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f874a73d-856e-4f68-90c0-b110405629f3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938125": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146822,
+					"title": "20260826012650_1",
+					"file_name": "a33d2aea-2fc9-44bc-88ef-00484b626aeb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a33d2aea-2fc9-44bc-88ef-00484b626aeb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938126": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146823,
+					"title": "20260826014049_1",
+					"file_name": "c6b15248-65dd-4540-87ef-67c53f710f3a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c6b15248-65dd-4540-87ef-67c53f710f3a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938127": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146824,
+					"title": "20260826015351_1",
+					"file_name": "4f59c0e5-ee84-483f-8f54-0352dd79b9d0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f59c0e5-ee84-483f-8f54-0352dd79b9d0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938128": [
+			"**Related Easter Egg:** [Rex Infernus Main Easter Egg](#loc=938025)",
+			[
+				{
+					"id": 146825,
+					"title": "20260826020916_1",
+					"file_name": "556ee242-4d69-4099-bf31-bb351d9e4c7b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/556ee242-4d69-4099-bf31-bb351d9e4c7b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938813": [
+			"**Location:** Behind the painting in the house after surviving in the house for 9 rounds\n\n**Related Easter Egg:** [Skull Mask Easter Egg](#loc=938814)",
+			[
+				{
+					"id": 147029,
+					"title": "20260827215253_1",
+					"file_name": "03887e55-630b-4080-8510-e8106a5ec853.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03887e55-630b-4080-8510-e8106a5ec853.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938814": [
+			"**Steps:**\n- Once starting the game, don't leave the house and survive for 9 rounds.\n- Head to the painting on the right side of the fireplace in the house and melee it to find the [Skull Mask](#loc=938813).",
+			[]
+		],
+		"938815": [
+			"**Location:** Hovering above the rock to the right Catheris Passage\n\n**Related Easter Egg:** [Astronaut Mask Easter Egg](#loc=938861)",
+			[
+				{
+					"id": 147030,
+					"title": "20260827221556_1",
+					"file_name": "68e853e9-4a99-4fa3-b20d-e7e233a89b1d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68e853e9-4a99-4fa3-b20d-e7e233a89b1d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938816": [
+			"**Location:** On the ledge of the window at the top part of the ruins",
+			[
+				{
+					"id": 147031,
+					"title": "20260827221755_1",
+					"file_name": "4292ba86-5f15-4b35-802d-8348ade21894.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4292ba86-5f15-4b35-802d-8348ade21894.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938817": [
+			"**Location:** Floating above a ledge down the rock next to the entrance to Caltheris Main Chamber\n\n**Related Easter Egg:** [Astronaut Mask Easter Egg](#loc=938861)",
+			[
+				{
+					"id": 147032,
+					"title": "20260827221947_1",
+					"file_name": "5f910dfc-48ea-4a96-9bd8-f1f61d686100.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5f910dfc-48ea-4a96-9bd8-f1f61d686100.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938818": [
+			"**Location:** Floating next to the large island on the back side\n\n**Related Easter Egg:** [Astronaut Mask Easter Egg](#loc=938861)",
+			[
+				{
+					"id": 147033,
+					"title": "20260827222337_1",
+					"file_name": "ad720ef8-b645-4ff6-87ed-1051dab14759.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ad720ef8-b645-4ff6-87ed-1051dab14759.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938819": [
+			"**Location:** On top of the front pillar above [Jugger-Nog](#loc=935448)\n\n**Related Easter Egg:** [Astronaut Mask Easter Egg](#loc=938861)",
+			[
+				{
+					"id": 147034,
+					"title": "20260827222455_1",
+					"file_name": "0af2fc88-80d0-48b1-ab4b-27a18b28d88e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0af2fc88-80d0-48b1-ab4b-27a18b28d88e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938820": [
+			"**Location:** Above the rock bridge between Veytharion's and Dravakar's temples\n\n**Related Easter Egg:** [Astronaut Mask Easter Egg](#loc=938861)",
+			[
+				{
+					"id": 147035,
+					"title": "20260827222639_1",
+					"file_name": "d99c7557-e840-4026-88ad-2b7ac44cd044.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d99c7557-e840-4026-88ad-2b7ac44cd044.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938821": [
+			"",
+			[
+				{
+					"id": 147036,
+					"title": "20260827222750_1",
+					"file_name": "62559cf5-2360-4f87-b613-f831d98b468a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62559cf5-2360-4f87-b613-f831d98b468a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938822": [
+			"",
+			[
+				{
+					"id": 147037,
+					"title": "20260827222809_1",
+					"file_name": "8e5344c3-a5a4-4961-b270-6de6ebf2608e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8e5344c3-a5a4-4961-b270-6de6ebf2608e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938823": [
+			"",
+			[
+				{
+					"id": 147038,
+					"title": "20260827222856_1",
+					"file_name": "3af2a121-b0a3-4342-9dd9-a180735057b8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3af2a121-b0a3-4342-9dd9-a180735057b8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938824": [
+			"",
+			[
+				{
+					"id": 147039,
+					"title": "20260827222922_1",
+					"file_name": "6433e86b-196c-482c-95af-83da472cdcbf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6433e86b-196c-482c-95af-83da472cdcbf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938825": [
+			"",
+			[
+				{
+					"id": 147040,
+					"title": "20260827223009_1",
+					"file_name": "50f4c20f-7c21-4332-8b15-06dc3df4b554.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/50f4c20f-7c21-4332-8b15-06dc3df4b554.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938826": [
+			"",
+			[
+				{
+					"id": 147041,
+					"title": "20260827223024_1",
+					"file_name": "2c114f7a-a08b-4298-be83-3e29ad0e6bd6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2c114f7a-a08b-4298-be83-3e29ad0e6bd6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938827": [
+			"",
+			[
+				{
+					"id": 147042,
+					"title": "20260827223147_1",
+					"file_name": "1feb4d5e-2a8f-43f4-b30b-50a88ddc499b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1feb4d5e-2a8f-43f4-b30b-50a88ddc499b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938828": [
+			"",
+			[
+				{
+					"id": 147043,
+					"title": "20260827223201_1",
+					"file_name": "0e5499d7-6862-40e7-bcd5-71c163cbfb50.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e5499d7-6862-40e7-bcd5-71c163cbfb50.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938829": [
+			"",
+			[
+				{
+					"id": 147044,
+					"title": "20260827223233_1",
+					"file_name": "39a3ecd8-d4fa-4f6f-85c9-b4f0efb1cb08.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/39a3ecd8-d4fa-4f6f-85c9-b4f0efb1cb08.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938830": [
+			"",
+			[
+				{
+					"id": 147045,
+					"title": "20260827223351_1",
+					"file_name": "bcea8fb6-359c-4f8a-b001-dfab12847fb3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bcea8fb6-359c-4f8a-b001-dfab12847fb3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938831": [
+			"",
+			[
+				{
+					"id": 147046,
+					"title": "20260827223504_1",
+					"file_name": "0b17fe9d-486b-45bc-88dc-bb6796ea07e4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0b17fe9d-486b-45bc-88dc-bb6796ea07e4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938832": [
+			"",
+			[
+				{
+					"id": 147047,
+					"title": "20260827223619_1",
+					"file_name": "8d9059be-9e6c-4b86-a05b-e9418edd859f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8d9059be-9e6c-4b86-a05b-e9418edd859f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938833": [
+			"",
+			[
+				{
+					"id": 147048,
+					"title": "20260827223657_1",
+					"file_name": "6db3cf1e-8479-4709-a6e4-4d5a9873d60d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6db3cf1e-8479-4709-a6e4-4d5a9873d60d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938834": [
+			"**Location:** Drops randomly from digging up one of the Dig Spots around the map\n\n**Related Easter Egg:** [Mr. Peeks Dance Off Easter Egg](#loc=938836)",
+			[
+				{
+					"id": 147049,
+					"title": "20260827223806_1",
+					"file_name": "5a8241e4-295a-43da-8c9e-742b39f84967.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5a8241e4-295a-43da-8c9e-742b39f84967.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938835": [
+			"**Related Easter Egg:** [Mr. Peeks Dance Off Easter Egg](#loc=938836)",
+			[
+				{
+					"id": 147050,
+					"title": "20260827224022_1",
+					"file_name": "1f724834-950a-4c65-9fd8-0f760bd87b2b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f724834-950a-4c65-9fd8-0f760bd87b2b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938836": [
+			"**Steps:**\n- First, collect the [Cassette](#loc=938834) from one of the dig spots around the map.\n- Then, interact with the [Cassette Player](#loc=938835) to start the dance off.",
+			[]
+		],
+		"938837": [
+			"**Steps:**\n- Around the map, there are three headphones that need to be interacted with:\n   - [Headphones](#loc=938839)\n   - [Headphones](#loc=938816)\n   - [Headphones](#loc=938838)",
+			[]
+		],
+		"938838": [
+			"**Location:** On a ledge up the corner of the wall",
+			[
+				{
+					"id": 147051,
+					"title": "20260827224933_1",
+					"file_name": "2dd5266b-54fc-4c7a-9bd7-52bb12a0e1a3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2dd5266b-54fc-4c7a-9bd7-52bb12a0e1a3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938839": [
+			"**Location:** On top of a skull between a wall and the rock ledge",
+			[
+				{
+					"id": 147052,
+					"title": "20260827225101_1",
+					"file_name": "bf90203d-bd29-456c-a6b3-b949fcbbc7b7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf90203d-bd29-456c-a6b3-b949fcbbc7b7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938843": [
+			"**Location:** On top of the ruins next to the house on the middle ledge off the map",
+			[
+				{
+					"id": 147053,
+					"title": "20260827230226_1",
+					"file_name": "4929a3f2-3261-4859-911e-b95d7b7e2dba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4929a3f2-3261-4859-911e-b95d7b7e2dba.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938846": [
+			"**Location:** In the middle of the arch underneath the platform in the fog",
+			[
+				{
+					"id": 147054,
+					"title": "20260827230557_1",
+					"file_name": "ac0abd7c-32c6-4e3e-b183-36932dc328ee.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ac0abd7c-32c6-4e3e-b183-36932dc328ee.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938849": [
+			"**Location:** Inside the forest under some roots near the ruined cabin\n\n**Related Easter Egg:** [Spiked Mask Easter Egg](#loc=938870)",
+			[
+				{
+					"id": 147055,
+					"title": "20260827231110_1",
+					"file_name": "610863fb-7926-4450-a108-b759bfa2c1f5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/610863fb-7926-4450-a108-b759bfa2c1f5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938850": [
+			"**Location:** On the side of the ruins far off in the distance behind the house, requires a sniper",
+			[
+				{
+					"id": 147056,
+					"title": "20260827231411_1",
+					"file_name": "43bb4f8d-1cf7-4936-ac35-48a4a6c976f3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/43bb4f8d-1cf7-4936-ac35-48a4a6c976f3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938851": [
+			"**Location:** Above the front left pillar inside Veytharion's Main Chamber",
+			[
+				{
+					"id": 147057,
+					"title": "20260827231743_1",
+					"file_name": "3be15505-4692-4b84-986e-df0643a95595.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3be15505-4692-4b84-986e-df0643a95595.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938852": [
+			"**Location:** Inside the forest between two trees next to some roots after coming back the next time after interacting with the [Red Music Box](#loc=938849)\n\n**Related Easter Egg:** [Spiked Mask Easter Egg](#loc=938870)",
+			[
+				{
+					"id": 147058,
+					"title": "20260827232045_1",
+					"file_name": "d32982d2-dc72-4e89-9ab6-3b8635ec675f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d32982d2-dc72-4e89-9ab6-3b8635ec675f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938853": [
+			"**Location:** At the base of the wall behind the window, requires jumping to see it",
+			[
+				{
+					"id": 147059,
+					"title": "20260827232346_1",
+					"file_name": "6387130a-545a-43d9-8030-343e44342946.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6387130a-545a-43d9-8030-343e44342946.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938854": [
+			"**Location:** On top of a square pillar on the ruins off the map",
+			[
+				{
+					"id": 147060,
+					"title": "20260827232533_1",
+					"file_name": "c48b5c92-6e7c-4a8e-8727-8ee75e4ae8cc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c48b5c92-6e7c-4a8e-8727-8ee75e4ae8cc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938855": [
+			"**Location:** Behind the painting in the house in the corner",
+			[
+				{
+					"id": 147061,
+					"title": "20260827232824_1",
+					"file_name": "bfe84f0e-d279-46df-bba5-b2a779297c6a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bfe84f0e-d279-46df-bba5-b2a779297c6a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938856": [
+			"**Location:** On top of a dresser next to the bed on the second floor of the house\n\n**Related Easter Egg:** [Astronaut Mask Easter Egg](#loc=938861)",
+			[
+				{
+					"id": 147062,
+					"title": "20260827233121_1",
+					"file_name": "8c2116a0-fa87-4543-97f5-3ac756abc746.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8c2116a0-fa87-4543-97f5-3ac756abc746.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938857": [
+			"**Related Easter Egg:** [Astronaut Mask Easter Egg](#loc=938861)",
+			[
+				{
+					"id": 147063,
+					"title": "20260827233307_1",
+					"file_name": "55a8e6b9-fc3e-4cb6-b58a-af71829caf29.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/55a8e6b9-fc3e-4cb6-b58a-af71829caf29.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938858": [
+			"**Location:** Below a doorway in the ruins outside the map after collecting every other statue besides the random perk statue",
+			[
+				{
+					"id": 147064,
+					"title": "20260827233851_1",
+					"file_name": "5288fe6d-e1f1-44e9-869b-fe4c743e1f97.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5288fe6d-e1f1-44e9-869b-fe4c743e1f97.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938859": [
+			"**Location:** On top of the bridge below Aranea Insula going to the ruins after collecting every other statue besides the fire sale statue",
+			[
+				{
+					"id": 147065,
+					"title": "20260827234348_1",
+					"file_name": "1ce44e11-bf96-457d-b5bd-b921bd1c29fe.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ce44e11-bf96-457d-b5bd-b921bd1c29fe.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938860": [
+			"**Location:** Dropped by Mr. Peeks after completing the parkour easter egg in under 50 seconds\n\n**Related Easter Egg:** [Astronaut Mask Easter Egg](#loc=938861)",
+			[
+				{
+					"id": 147066,
+					"title": "20260827234908_1",
+					"file_name": "00ae08c5-7220-4acd-8a14-d36240826f09.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/00ae08c5-7220-4acd-8a14-d36240826f09.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938861": [
+			"**Steps:**\n- First, collect all the Mr. Peeks parts around the map:\n   - [Mr. Peeks Part](#loc=938856)\n   - [Mr. Peeks Part](#loc=938815)\n   - [Mr. Peeks Part](#loc=938817)\n   - [Mr. Peeks Part](#loc=938818)\n   - [Mr. Peeks Part](#loc=938819)\n   - [Mr. Peeks Part](#loc=938820)\n- Then, find [Mr. Peeks](#loc=938857) in Caltheris' Main Chamber and complete his parkour challenge.\n- If completed under 50 seconds, the [Astronaut Mask](#loc=938860) will drop as a reward.",
+			[]
+		],
+		"938870": [
+			"**Steps:**\n- Firstly, unlock the forest from the Veytherion Temple.\n- Head into the forest and find and interact with the [Red Music Box](#loc=938849).\n- Leave the forest then come back and find the [Toy Box](#loc=938852).\n- Interact with the toy box and choose one of the three minigames to play.\n- Complete all three minigames successfully then head back in.\n- Complete all three minigames again and, once complete, the [Spiked Mask](#loc=938871) will drop as a reward.",
+			[]
+		],
+		"938871": [
+			"**Location:** Drops after completing all three minigames in the Forest a second time\n\n**Related Easter Egg:** [Spiked Mask Easter Egg](#loc=938870)",
+			[
+				{
+					"id": 147068,
+					"title": "20260828004354_1",
+					"file_name": "3c2d1d78-1479-4f06-b53c-c2726f5b2705.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3c2d1d78-1479-4f06-b53c-c2726f5b2705.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938872": [
+			"**Location:** Drops on top of the Pack-A-Punch after killing zombies while riding a Web Mother near the machine\n\n**Related Easter Egg:** [Cowboy Mask Easter Egg](#loc=938873)",
+			[
+				{
+					"id": 147069,
+					"title": "20260828011947_1",
+					"file_name": "c69804f4-6265-47a0-8e6a-5c5528ee7ba3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c69804f4-6265-47a0-8e6a-5c5528ee7ba3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"938873": [
+			"**Steps:**\n- Bring a Web Mother mini-boss near the [Pack-A-Punch Machine](#loc=935472).\n- Kill zombies near it until the Web Mother dies to the Pack-A-Punch, dropping the [Cowboy Mask](#loc=938872).",
+			[]
+		],
+		"938906": [
+			"**Steps:**\n- Firstly, buy the [M34 Novaline](#loc=935484) from the wall buy.\n- Then, Pack-A-Punch any three weapons.\n- After a few rounds, make it rain until the wall buy begins to glow.\n- Charge up the nexus and grab an Astral Flame and throw it at the wall buy.\n- Defeat the HVT that spawns and interact with the wall buy to receive the Corrupted Press F.\n   - You will continuously take damage from the weapon until it is Pack-A-Punched.",
+			[]
+		],
+		"938907": [
+			"**Steps:**\n- Firstly, buy the [M10 Breacher](#loc=935509) from the wall buy.\n- Then, Pack-A-Punch any three weapons.\n- After a few rounds, make it rain until the wall buy begins to glow.\n- Charge up the nexus and grab an Astral Flame and throw it at the wall buy.\n- Defeat the HVT that spawns and interact with the wall buy to receive the Corrupted Pluto.\n   - You will continuously take damage from the weapon until it is Pack-A-Punched.",
+			[]
+		],
+		"940575": [
+			"**Location:** Underneath the bed after jumping on the bed in the upstairs room five times",
+			[
+				{
+					"id": 148053,
+					"title": "20260831230002_1",
+					"file_name": "d13e7fb4-114a-4251-97d5-e272aaf1375e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d13e7fb4-114a-4251-97d5-e272aaf1375e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"940576": [
+			"**Location:** On top of the piano after playing the tune: **867565354**",
+			[
+				{
+					"id": 148054,
+					"title": "20260831230140_1",
+					"file_name": "a2c44648-7ad3-4f50-b3f7-223d9255133a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a2c44648-7ad3-4f50-b3f7-223d9255133a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"940577": [
+			"**Location:** On top of the piano after playing the tune: **867565354**",
+			[
+				{
+					"id": 148055,
+					"title": "image",
+					"file_name": "ae96e4cc-d9a6-409d-94d0-d03b6c7a1d42.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ae96e4cc-d9a6-409d-94d0-d03b6c7a1d42.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"940578": [
+			"**Location:** On a small ledge behind some cobwebs near the [GobbleGum Machine](#loc=935417)",
+			[
+				{
+					"id": 148056,
+					"title": "20260831230636_1",
+					"file_name": "7c034751-df1f-4113-a8af-5d5300d462df.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c034751-df1f-4113-a8af-5d5300d462df.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"940579": [
+			"**Location:** On top of a pillar over the area, requiring using the void claw to get to the floating platform",
+			[
+				{
+					"id": 148057,
+					"title": "20260831231215_1",
+					"file_name": "b3b62f91-f439-4873-b2fd-0de3be416212.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3b62f91-f439-4873-b2fd-0de3be416212.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"940580": [
+			"**Location:** On top of the doorway over Dravakar's temple, requires the void claw to reach",
+			[
+				{
+					"id": 148058,
+					"title": "20260831231445_1",
+					"file_name": "7e99b88d-5cf2-4a23-9f10-1851649e7cb0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7e99b88d-5cf2-4a23-9f10-1851649e7cb0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"940581": [
+			"**Location:** Randomly appears when pulling up Bone Piles with the void claw",
+			[
+				{
+					"id": 148059,
+					"title": "20260831231600_1",
+					"file_name": "386f9e57-cd17-4426-b909-26c33b01cab1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/386f9e57-cd17-4426-b909-26c33b01cab1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"940624": ["**Location:** Given automatically after placing the World Seed on top of the Nexus Core", []],
+		"940625": [
+			"**Location:** Given automatically after acquiring the void claw from one of the [Void Pedestals](https://mapgenie.io/cod-black-ops-7/maps/zombies-rex-infernus?search=void_pedestal%20%26%26%20category%3A14087) after turning on the nexus during the [Pack-A-Punch Upgrade Easter Egg](#loc=938030)",
+			[]
+		],
+		"940626": [
+			"**Location:** Given automatically after building the wonder weapon at [Dravakar's Anvil](#loc=938044) during the [Rex Infernus Main Easter Egg](#loc=938025)",
+			[]
+		],
+		"957173": [
+			"",
+			[
+				{
+					"id": 153481,
+					"title": "202610~1",
+					"file_name": "b3158cbd-9e3b-4494-932b-b64ce4111e56.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b3158cbd-9e3b-4494-932b-b64ce4111e56.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959335": [
+			"",
+			[
+				{
+					"id": 153814,
+					"title": "20261002211132_1",
+					"file_name": "6bfea3ae-c999-4d2f-b8e1-1cc1c8452bb0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6bfea3ae-c999-4d2f-b8e1-1cc1c8452bb0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959340": [
+			"**Steps:**\n- First, acquire the [Warden's Blight](#loc=940626) from the [Rex Infernus Main Easter Egg](#loc=938025), as well as upgrade the Talon with the [Eye of the Storm](#loc=938105).\n- With the upgraded talon, head to Nyxara Passage and grapple to the [Lock Symbol](#loc=959341) found floating under the bridge.\n- You'll be teleported back to the house. Parkour on the obstacles until you arrive on the last rock with the glowing box.\n- Tip the rock over so the box lands on the floating island, then use the Aether Shroud field upgrade and interact with it to reveal the [Toy Box](#loc=959364).\n- Once teleported back to the main island, there are three locations that Horse Piñatas can spawn. The first one you do is random, but all three are required to be completed:\n   - [Horse Piñata](#loc=959347)\n      - Head to Spira Insula and grapple to the Horse Piñata floating above the area and melee it. This will drop a Pair of Shoes soul box.\n      - Kill zombies nearby it while jumping to fill it, then grab the Pair of Shoes.\n   - [Horse Piñata](#loc=959351)\n      - Head to Aranea Insula and grapple to the Horse Piñata floating above the area and melee it. This will drop a Pair of Rollerskates soul box.\n      - Kill zombies nearby it with [PHD Flopper](#loc=935490) to fill it, then grab the Pair of Rollerskates.\n   - [Horse Piñata](#loc=959355)\n      - Head to Ruinas Insula and grapple to the Horse Piñata floating above the area and melee it. This will drop a Set of Shoelaces soul box.\n      - Kill zombies nearby it while the Frenzy Guard Field Upgrade is active to fill it, then grab the Set of Shoelaces.\n- After all three are collected, wait until a special round and head to the [Portal](#loc=959365) that spawns to head back into the house.\n- Interact with the Toy Box to place the items inside and receive the Warden toy.\n- Finally, interact with the [Toy Wall](#loc=959366) to place the Warden Toy on the shelf.",
+			[]
+		],
+		"959341": [
+			"**Related Easter Egg:** [Rex Infernus Super Easter Egg](#loc=959340)",
+			[
+				{
+					"id": 153820,
+					"title": "20261002212739_1",
+					"file_name": "f57974aa-f73f-4da2-952f-5dcb2166761d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f57974aa-f73f-4da2-952f-5dcb2166761d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959342": [
+			"",
+			[
+				{
+					"id": 153821,
+					"title": "20261002212904_1",
+					"file_name": "b68f9160-4dd2-4c11-af6e-4d3a595eed22.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b68f9160-4dd2-4c11-af6e-4d3a595eed22.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959347": [
+			"**Related Easter Egg:** [Rex Infernus Super Easter Egg](#loc=959340)",
+			[
+				{
+					"id": 153824,
+					"title": "20261002214223_1",
+					"file_name": "73abb6dc-dd6e-4c49-844e-3f62432e4380.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/73abb6dc-dd6e-4c49-844e-3f62432e4380.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959350": [
+			"**Steps:**\n- When digging up a [Dig Spot](https://mapgenie.io/cod-black-ops-7/maps/zombies-rex-infernus?search=dig_spot%20%26%26%20category%3A27993), there's a chance a spider will jump out and jump scare you.\n- When killed, the spider will drop high-tier loot and a free random perk.",
+			[]
+		],
+		"959351": [
+			"**Related Easter Egg:** [Rex Infernus Super Easter Egg](#loc=959340)",
+			[
+				{
+					"id": 153826,
+					"title": "image",
+					"file_name": "792a1890-fac2-434a-ae20-a0a826c0dd56.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/792a1890-fac2-434a-ae20-a0a826c0dd56.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959352": [
+			"",
+			[
+				{
+					"id": 153827,
+					"title": "20261002215456_1",
+					"file_name": "67adb56a-24d6-4a23-84ec-ef687836930a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/67adb56a-24d6-4a23-84ec-ef687836930a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959355": [
+			"**Related Easter Egg:** [Rex Infernus Super Easter Egg](#loc=959340)",
+			[
+				{
+					"id": 153832,
+					"title": "20261002215835_1",
+					"file_name": "48487d86-32d0-44c5-841f-835536e665c5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/48487d86-32d0-44c5-841f-835536e665c5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959362": [
+			"",
+			[
+				{
+					"id": 153838,
+					"title": "20261002220235_1",
+					"file_name": "2508c10d-54cf-4d6f-b92f-0eb4178eeb4e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2508c10d-54cf-4d6f-b92f-0eb4178eeb4e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959363": [
+			"",
+			[
+				{
+					"id": 153839,
+					"title": "20261002220355_1",
+					"file_name": "de74e5d1-ee21-41cb-8857-88ec3b85315e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/de74e5d1-ee21-41cb-8857-88ec3b85315e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959364": [
+			"**Related Easter Egg:** [Rex Infernus Super Easter Egg](#loc=959340)",
+			[
+				{
+					"id": 153841,
+					"title": "20261002221325_1",
+					"file_name": "1604a168-d3e5-4aba-bfe3-04863a2d5141.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1604a168-d3e5-4aba-bfe3-04863a2d5141.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959365": [
+			"**Related Easter Egg:** [Rex Infernus Super Easter Egg](#loc=959340)",
+			[
+				{
+					"id": 153840,
+					"title": "20261002221255_1",
+					"file_name": "365f536f-766d-4ef2-b12c-525746cf38de.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/365f536f-766d-4ef2-b12c-525746cf38de.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959366": [
+			"**Related Easter Egg:** [Rex Infernus Super Easter Egg](#loc=959340)",
+			[
+				{
+					"id": 153842,
+					"title": "20261002221448_1",
+					"file_name": "b35ca949-6175-4fc2-a88c-fb86069c6a2f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b35ca949-6175-4fc2-a88c-fb86069c6a2f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"959367": [
+			"",
+			[
+				{
+					"id": 153843,
+					"title": "20261002231712_1",
+					"file_name": "e054e646-f1c6-4985-bdb3-dd7b75083ede.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e054e646-f1c6-4985-bdb3-dd7b75083ede.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052753": [
+			"",
+			[
+				{
+					"id": 156422,
+					"title": "image",
+					"file_name": "7007a690-f1e7-473b-b7f0-cde9dfcc523b.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7007a690-f1e7-473b-b7f0-cde9dfcc523b.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052754": [
+			"",
+			[
+				{
+					"id": 156423,
+					"title": "image",
+					"file_name": "0d43aa28-437c-4010-9b56-d01a52c5c334.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d43aa28-437c-4010-9b56-d01a52c5c334.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052755": [
+			"",
+			[
+				{
+					"id": 156424,
+					"title": "image",
+					"file_name": "c47c72a3-e4dc-44d9-af26-710b871cc1f5.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c47c72a3-e4dc-44d9-af26-710b871cc1f5.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052756": [
+			"",
+			[
+				{
+					"id": 156425,
+					"title": "image",
+					"file_name": "b57b79a5-bb97-47ba-ab72-686c5336fef7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b57b79a5-bb97-47ba-ab72-686c5336fef7.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1052992": ["_Replaces [Deadshot Daiquiri](#loc=935494) after conditions are met._", []]
+	}
+}

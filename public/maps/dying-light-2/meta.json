@@ -280,6 +280,7 @@
 			"slug": "villedor",
 			"title": "Villedor",
 			"data": "villedor/data.json",
+			"compact": "villedor/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Satellite",
@@ -301,13 +302,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "villedor/data.compact.json"
+			]
 		},
 		{
 			"slug": "bloody-ties",
 			"title": "Carnage Hall",
 			"data": "bloody-ties/data.json",
+			"compact": "bloody-ties/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -319,8 +320,7 @@
 					"tileSize": 256,
 					"background": "#12151e"
 				}
-			],
-			"compact": "bloody-ties/data.compact.json"
+			]
 		}
 	]
 }

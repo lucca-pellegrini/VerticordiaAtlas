@@ -124,6 +124,7 @@
 			"slug": "hyrule-first-quest",
 			"title": "Hyrule - First Quest",
 			"data": "hyrule-first-quest/data.json",
+			"compact": "hyrule-first-quest/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -134,13 +135,13 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "hyrule-first-quest/data.compact.json"
+			]
 		},
 		{
 			"slug": "hyrule-second-quest",
 			"title": "Hyrule - Second Quest",
 			"data": "hyrule-second-quest/data.json",
+			"compact": "hyrule-second-quest/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -151,8 +152,7 @@
 					"bounds": [-1.4, 0, 0, 1.4],
 					"tileSize": 256
 				}
-			],
-			"compact": "hyrule-second-quest/data.compact.json"
+			]
 		}
 	]
 }

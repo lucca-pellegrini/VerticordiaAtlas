@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 2220,
 			"game_id": 222,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3D3C3D",
@@ -161,6 +163,7 @@
 		{
 			"id": 2221,
 			"game_id": 222,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "94241B",
@@ -292,6 +295,7 @@
 		{
 			"id": 2222,
 			"game_id": 222,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "BD7B48",
@@ -395,6 +399,7 @@
 		{
 			"id": 2223,
 			"game_id": 222,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "9D659E",
@@ -468,6 +473,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"12917": {
 			"id": 12917,

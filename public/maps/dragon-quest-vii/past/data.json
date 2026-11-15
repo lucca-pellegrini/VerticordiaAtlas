@@ -13,7 +13,8 @@
 				"max_zoom": 17,
 				"tiles_max_zoom": 16,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 2580,
 			"game_id": 258,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3F4D52",
@@ -245,6 +247,7 @@
 		{
 			"id": 2581,
 			"game_id": 258,
+			"section_id": null,
 			"title": "Services",
 			"order": 20,
 			"color": "59B1A8",
@@ -460,6 +463,7 @@
 		{
 			"id": 2582,
 			"game_id": 258,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "59B1A8",
@@ -647,6 +651,7 @@
 		{
 			"id": 2583,
 			"game_id": 258,
+			"section_id": null,
 			"title": "Items",
 			"order": 30,
 			"color": "505E79",
@@ -890,6 +895,7 @@
 		{
 			"id": 2584,
 			"game_id": 258,
+			"section_id": null,
 			"title": "Quests",
 			"order": 30,
 			"color": "D4A663",
@@ -965,6 +971,7 @@
 		{
 			"id": 2585,
 			"game_id": 258,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 40,
 			"color": "9C305A",
@@ -1040,6 +1047,7 @@
 		{
 			"id": 2586,
 			"game_id": 258,
+			"section_id": null,
 			"title": "Other",
 			"order": 60,
 			"color": "B37665",
@@ -1113,6 +1121,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"14497": {
 			"id": 14497,
@@ -2585,7 +2594,6 @@
 								[-0.356832876914865, 0.983818568356881],
 								[-0.3570274894665033, 0.8195957138917578],
 								[-0.4124214453856041, 0.8195957138917578],
-								[-0.412307344888319, 0.9837440590158195],
 								[-0.412307344888319, 0.9837440590158195]
 							]
 						],

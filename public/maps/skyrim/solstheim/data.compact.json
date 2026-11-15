@@ -21,7 +21,8 @@
 					"15": { "x": { "max": 16278, "min": 16256 }, "y": { "max": 16276, "min": 16256 } },
 					"16": { "x": { "max": 32556, "min": 32512 }, "y": { "max": 32552, "min": 32512 } },
 					"17": { "x": { "max": 65113, "min": 65024 }, "y": { "max": 65105, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -38,6 +39,7 @@
 		{
 			"id": 20,
 			"game_id": 3,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "eadda6",
@@ -785,6 +787,7 @@
 		{
 			"id": 21,
 			"game_id": 3,
+			"section_id": null,
 			"title": "Items",
 			"order": 20,
 			"color": "A4C987",
@@ -888,6 +891,7 @@
 		{
 			"id": 22,
 			"game_id": 3,
+			"section_id": null,
 			"title": "Services",
 			"order": 30,
 			"color": "EFAE51",
@@ -1103,6 +1107,7 @@
 		{
 			"id": 25,
 			"game_id": 3,
+			"section_id": null,
 			"title": "Quests",
 			"order": 35,
 			"color": "AC92E0",
@@ -1150,6 +1155,7 @@
 		{
 			"id": 23,
 			"game_id": 3,
+			"section_id": null,
 			"title": "Resources",
 			"order": 40,
 			"color": "99907D",
@@ -1477,6 +1483,7 @@
 		{
 			"id": 24,
 			"game_id": 3,
+			"section_id": null,
 			"title": "Other",
 			"order": 50,
 			"color": "b7b6c2",
@@ -1522,6 +1529,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"193": {
 			"id": 193,

@@ -172,6 +172,7 @@
 			"slug": "ingot-isle",
 			"title": "Ingot Isle",
 			"data": "ingot-isle/data.json",
+			"compact": "ingot-isle/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -183,13 +184,13 @@
 					"tileSize": 256,
 					"background": "#151618"
 				}
-			],
-			"compact": "ingot-isle/data.compact.json"
+			]
 		},
 		{
 			"slug": "lagoon",
 			"title": "Lagoon Layer",
 			"data": "lagoon/data.json",
+			"compact": "lagoon/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -201,13 +202,13 @@
 					"tileSize": 256,
 					"background": "#3db39d"
 				}
-			],
-			"compact": "lagoon/data.compact.json"
+			]
 		},
 		{
 			"slug": "hilltop",
 			"title": "Hilltop Layer",
 			"data": "hilltop/data.json",
+			"compact": "hilltop/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -219,13 +220,13 @@
 					"tileSize": 256,
 					"background": "#3bb489"
 				}
-			],
-			"compact": "hilltop/data.compact.json"
+			]
 		},
 		{
 			"slug": "canyon",
 			"title": "Canyon Layer",
 			"data": "canyon/data.json",
+			"compact": "canyon/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -237,13 +238,13 @@
 					"tileSize": 256,
 					"background": "#f68f62"
 				}
-			],
-			"compact": "canyon/data.compact.json"
+			]
 		},
 		{
 			"slug": "divide",
 			"title": "The Divide",
 			"data": "divide/data.json",
+			"compact": "divide/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V2",
@@ -255,13 +256,13 @@
 					"tileSize": 256,
 					"background": "#62b19e"
 				}
-			],
-			"compact": "divide/data.compact.json"
+			]
 		},
 		{
 			"slug": "freezer",
 			"title": "Freezer Layer",
 			"data": "freezer/data.json",
+			"compact": "freezer/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -273,13 +274,13 @@
 					"tileSize": 256,
 					"background": "#b197e0"
 				}
-			],
-			"compact": "freezer/data.compact.json"
+			]
 		},
 		{
 			"slug": "forest",
 			"title": "Forest Layer",
 			"data": "forest/data.json",
+			"compact": "forest/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -291,13 +292,13 @@
 					"tileSize": 256,
 					"background": "#3cad5f"
 				}
-			],
-			"compact": "forest/data.compact.json"
+			]
 		},
 		{
 			"slug": "junction",
 			"title": "Junction",
 			"data": "junction/data.json",
+			"compact": "junction/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -309,13 +310,13 @@
 					"tileSize": 256,
 					"background": "#ca5e7e"
 				}
-			],
-			"compact": "junction/data.compact.json"
+			]
 		},
 		{
 			"slug": "resort",
 			"title": "Resort Layer",
 			"data": "resort/data.json",
+			"compact": "resort/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -327,13 +328,13 @@
 					"tileSize": 256,
 					"background": "#54cfcd"
 				}
-			],
-			"compact": "resort/data.compact.json"
+			]
 		},
 		{
 			"slug": "tempest",
 			"title": "Tempest Layer",
 			"data": "tempest/data.json",
+			"compact": "tempest/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -345,13 +346,13 @@
 					"tileSize": 256,
 					"background": "#1f89a1"
 				}
-			],
-			"compact": "tempest/data.compact.json"
+			]
 		},
 		{
 			"slug": "landfill",
 			"title": "Landfill Layer",
 			"data": "landfill/data.json",
+			"compact": "landfill/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -363,13 +364,13 @@
 					"tileSize": 256,
 					"background": "#bd7c42"
 				}
-			],
-			"compact": "landfill/data.compact.json"
+			]
 		},
 		{
 			"slug": "racing",
 			"title": "Racing Layer",
 			"data": "racing/data.json",
+			"compact": "racing/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -381,13 +382,13 @@
 					"tileSize": 256,
 					"background": "#ddbc51"
 				}
-			],
-			"compact": "racing/data.compact.json"
+			]
 		},
 		{
 			"slug": "radiance",
 			"title": "Radiance Layer",
 			"data": "radiance/data.json",
+			"compact": "radiance/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -399,13 +400,13 @@
 					"tileSize": 256,
 					"background": "#6fae68"
 				}
-			],
-			"compact": "radiance/data.compact.json"
+			]
 		},
 		{
 			"slug": "groove",
 			"title": "Groove Layer",
 			"data": "groove/data.json",
+			"compact": "groove/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -417,13 +418,13 @@
 					"tileSize": 256,
 					"background": "#b2b0be"
 				}
-			],
-			"compact": "groove/data.compact.json"
+			]
 		},
 		{
 			"slug": "feast",
 			"title": "Feast Layer",
 			"data": "feast/data.json",
+			"compact": "feast/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -435,13 +436,13 @@
 					"tileSize": 256,
 					"background": "#a1b53a"
 				}
-			],
-			"compact": "feast/data.compact.json"
+			]
 		},
 		{
 			"slug": "forbidden",
 			"title": "Forbidden Layer",
 			"data": "forbidden/data.json",
+			"compact": "forbidden/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -453,13 +454,13 @@
 					"tileSize": 256,
 					"background": "#d86471"
 				}
-			],
-			"compact": "forbidden/data.compact.json"
+			]
 		},
 		{
 			"slug": "planet-core",
 			"title": "Planet Core",
 			"data": "planet-core/data.json",
+			"compact": "planet-core/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -468,10 +469,10 @@
 					"maxzoom": 16,
 					"viewMaxzoom": 16,
 					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256
+					"tileSize": 256,
+					"background": "#42412f"
 				}
-			],
-			"compact": "planet-core/data.compact.json"
+			]
 		}
 	]
 }

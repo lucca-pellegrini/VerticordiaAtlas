@@ -454,6 +454,7 @@
 			"slug": "north-america",
 			"title": "North America",
 			"data": "north-america/data.json",
+			"compact": "north-america/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -465,13 +466,13 @@
 					"tileSize": 256,
 					"background": "#112b42"
 				}
-			],
-			"compact": "north-america/data.compact.json"
+			]
 		},
 		{
 			"slug": "abstergo",
 			"title": "Abstergo",
 			"data": "abstergo/data.json",
+			"compact": "abstergo/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -483,8 +484,7 @@
 					"tileSize": 256,
 					"background": "#263437"
 				}
-			],
-			"compact": "abstergo/data.compact.json"
+			]
 		}
 	]
 }

@@ -13,7 +13,8 @@
 				"max_zoom": 17,
 				"tiles_max_zoom": 17,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -24,16 +25,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "elden-ring",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/elden-ring/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1110,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "34362C",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -323,10 +331,17 @@
 		{
 			"id": 1111,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Key Items",
 			"order": 10,
 			"color": "582359",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -644,10 +659,17 @@
 		{
 			"id": 1112,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "1F526B",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -678,7 +700,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 22
+					"locations_count": 20
 				},
 				{
 					"id": 5681,
@@ -706,7 +728,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 96
+					"locations_count": 76
 				},
 				{
 					"id": 5677,
@@ -965,10 +987,17 @@
 		{
 			"id": 1113,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "39634A",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1174,10 +1203,17 @@
 		{
 			"id": 1114,
 			"game_id": 111,
+			"section_id": null,
 			"title": "NPC's",
 			"order": 10,
 			"color": "428C7F",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1271,10 +1307,17 @@
 		{
 			"id": 1115,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 10,
 			"color": "631813",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1452,10 +1495,17 @@
 		{
 			"id": 1116,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Materials",
 			"order": 10,
 			"color": "807358",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1514,7 +1564,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 507
+					"locations_count": 529
 				},
 				{
 					"id": 6035,
@@ -1661,10 +1711,17 @@
 		{
 			"id": 1117,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "5C5A5A",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1840,6 +1897,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"5655": {
 			"id": 5655,
@@ -2287,7 +2345,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 96
+			"locations_count": 76
 		},
 		"5682": {
 			"id": 5682,
@@ -2315,7 +2373,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 22
+			"locations_count": 20
 		},
 		"5684": {
 			"id": 5684,
@@ -2819,7 +2877,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 507
+			"locations_count": 529
 		},
 		"5704": {
 			"id": 5704,
@@ -3591,6 +3649,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 380333,
@@ -13771,33 +13830,6 @@
 			"media": []
 		},
 		{
-			"id": 380730,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5682,
-			"title": "Redflesh Mushroom x5",
-			"description": "**Location:** Pillage the slumped corpse on the ledge above.  Get up on the roof, traverse the draped fabric covered walkway, then drop down to the balcony below and jump across to the roof with the corpse",
-			"latitude": "0.64763245940041",
-			"longitude": "-0.72385484895605",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 53950,
-					"title": "20240612001017_1",
-					"file_name": "39348741-cbf4-46de-90e8-4f32d564aedf.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/39348741-cbf4-46de-90e8-4f32d564aedf.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
 			"id": 380786,
 			"map_id": 638,
 			"region_id": 2941,
@@ -14100,20 +14132,6 @@
 			"media": []
 		},
 		{
-			"id": 385805,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5682,
-			"title": "Red Fulgurbloom x3",
-			"description": null,
-			"latitude": "0.64603981325580",
-			"longitude": "-0.68998184563293",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 386872,
 			"map_id": 638,
 			"region_id": 2941,
@@ -14403,20 +14421,6 @@
 			"media": []
 		},
 		{
-			"id": 380868,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Frozen Maggot x6",
-			"description": "**Location:** On the corpse in the first room to the left after entering the [Belurat Gaol](#loc=380867)",
-			"latitude": "0.67584735412872",
-			"longitude": "-0.74718564748730",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 380870,
 			"map_id": 638,
 			"region_id": 2941,
@@ -14513,103 +14517,6 @@
 			]
 		},
 		{
-			"id": 380955,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Toxic Mossling x8",
-			"description": "**Location:** On the corpse",
-			"latitude": "0.66609685189557",
-			"longitude": "-0.70942617952855",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 54053,
-					"title": "20240615233317_1",
-					"file_name": "c63f3805-dce5-4c81-88fc-eae46b44de6f.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/c63f3805-dce5-4c81-88fc-eae46b44de6f.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 380967,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": null,
-			"latitude": "0.67097030629377",
-			"longitude": "-0.72479916264172",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 380973,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": null,
-			"latitude": "0.66829870489475",
-			"longitude": "-0.72924565788009",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 380974,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": null,
-			"latitude": "0.67116836861615",
-			"longitude": "-0.72987397037744",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 380981,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": null,
-			"latitude": "0.67647369749282",
-			"longitude": "-0.72998012710750",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 380982,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": null,
-			"latitude": "0.67767867091064",
-			"longitude": "-0.73122713019376",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 380985,
 			"map_id": 638,
 			"region_id": 2941,
@@ -14635,62 +14542,6 @@
 					"spoiler": false
 				}
 			]
-		},
-		{
-			"id": 380986,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": null,
-			"latitude": "0.68222957631714",
-			"longitude": "-0.73070278984849",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 380987,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": null,
-			"latitude": "0.68323101295960",
-			"longitude": "-0.73114813819254",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 380990,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": "Found at the bottom of the waterfall",
-			"latitude": "0.68805094843225",
-			"longitude": "-0.73417861004475",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 380991,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": "Found at the bottom of the waterfall",
-			"latitude": "0.68774588936503",
-			"longitude": "-0.73470741720627",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
 		},
 		{
 			"id": 381002,
@@ -14738,47 +14589,6 @@
 					"file_name": "90725ad8-8cc7-4c60-a587-fa0b1c505784.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/90725ad8-8cc7-4c60-a587-fa0b1c505784.jpg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 381009,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Roundrock",
-			"description": null,
-			"latitude": "0.66388227292211",
-			"longitude": "-0.72130153182283",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 381182,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Black Pyrefly x3",
-			"description": "**Location:** On the corpse",
-			"latitude": "0.68006676838033",
-			"longitude": "-0.72282817194738",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 54103,
-					"title": "20240616221352_1",
-					"file_name": "54a6d4d2-2034-46ce-8e88-70a1f3cc1956.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/54a6d4d2-2034-46ce-8e88-70a1f3cc1956.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -15250,20 +15060,6 @@
 			]
 		},
 		{
-			"id": 381846,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Redflesh Mushroom x5",
-			"description": "**Location:** On a corpse, in the corner of the courtyard",
-			"latitude": "0.66685883163181",
-			"longitude": "-0.69826666289072",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 381857,
 			"map_id": 638,
 			"region_id": 2941,
@@ -15356,20 +15152,6 @@
 			"description": "Down the left wing of the fallen dragon",
 			"latitude": "0.62232664459540",
 			"longitude": "-0.70004635879729",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 382619,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Empyrean-Blood Burgeon x3",
-			"description": "On the cliff next to Scadutree Fragment",
-			"latitude": "0.66662118829476",
-			"longitude": "-0.69032348692474",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -15515,20 +15297,6 @@
 			"media": []
 		},
 		{
-			"id": 385412,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Grave Keeper's Brainpan",
-			"description": "In Charo's hidden grave all the way around overlooking the waterfall of the Ellac River",
-			"latitude": "0.64000613748870",
-			"longitude": "-0.71769732891934",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 385426,
 			"map_id": 638,
 			"region_id": 2941,
@@ -15655,20 +15423,6 @@
 			"media": []
 		},
 		{
-			"id": 385792,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Scorpion Liver x4",
-			"description": "Found within a cave near the waterfall.",
-			"latitude": "0.68229058004331",
-			"longitude": "-0.68323784929655",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 385806,
 			"map_id": 638,
 			"region_id": 2941,
@@ -15691,48 +15445,6 @@
 			"description": "**Location:** On a corpse at the edge of a cliff.",
 			"latitude": "0.64252878413355",
 			"longitude": "-0.67122776532113",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 385836,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Sharp Gravel Stone",
-			"description": null,
-			"latitude": "0.61575182706089",
-			"longitude": "-0.69764067268537",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 385855,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Four-Toed Fowl Foot x1",
-			"description": "**Location:** On a corpse, next to the River Bank",
-			"latitude": "0.68963203885311",
-			"longitude": "-0.69784723441740",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 386320,
-			"map_id": 638,
-			"region_id": 2941,
-			"category_id": 5681,
-			"title": "Grave Keeper's Brainpan",
-			"description": null,
-			"latitude": "0.62394352803921",
-			"longitude": "-0.71246442773133",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -26911,6 +26623,33 @@
 			]
 		},
 		{
+			"id": 380730,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Redflesh Mushroom x5",
+			"description": "**Location:** Pillage the slumped corpse on the ledge above.  Get up on the roof, traverse the draped fabric covered walkway, then drop down to the balcony below and jump across to the roof with the corpse",
+			"latitude": "0.64763245940041",
+			"longitude": "-0.72385484895605",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 53950,
+					"title": "20240612001017_1",
+					"file_name": "39348741-cbf4-46de-90e8-4f32d564aedf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/39348741-cbf4-46de-90e8-4f32d564aedf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 380731,
 			"map_id": 638,
 			"region_id": 2941,
@@ -27571,6 +27310,20 @@
 			"media": []
 		},
 		{
+			"id": 380868,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Frozen Maggot x6",
+			"description": "**Location:** On the corpse in the first room to the left after entering the [Belurat Gaol](#loc=380867)",
+			"latitude": "0.67584735412872",
+			"longitude": "-0.74718564748730",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 380869,
 			"map_id": 638,
 			"region_id": 2941,
@@ -27948,6 +27701,33 @@
 			"media": []
 		},
 		{
+			"id": 380955,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Toxic Mossling x8",
+			"description": "**Location:** On the corpse",
+			"latitude": "0.66609685189557",
+			"longitude": "-0.70942617952855",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 54053,
+					"title": "20240615233317_1",
+					"file_name": "c63f3805-dce5-4c81-88fc-eae46b44de6f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c63f3805-dce5-4c81-88fc-eae46b44de6f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 380956,
 			"map_id": 638,
 			"region_id": 2941,
@@ -28073,6 +27853,20 @@
 			"media": []
 		},
 		{
+			"id": 380967,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": null,
+			"latitude": "0.67097030629377",
+			"longitude": "-0.72479916264172",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 380968,
 			"map_id": 638,
 			"region_id": 2941,
@@ -28095,6 +27889,34 @@
 			"description": null,
 			"latitude": "0.66811529691051",
 			"longitude": "-0.72730297300910",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 380973,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": null,
+			"latitude": "0.66829870489475",
+			"longitude": "-0.72924565788009",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 380974,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": null,
+			"latitude": "0.67116836861615",
+			"longitude": "-0.72987397037744",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -28171,6 +27993,34 @@
 			"media": []
 		},
 		{
+			"id": 380981,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": null,
+			"latitude": "0.67647369749282",
+			"longitude": "-0.72998012710750",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 380982,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": null,
+			"latitude": "0.67767867091064",
+			"longitude": "-0.73122713019376",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 380983,
 			"map_id": 638,
 			"region_id": 2941,
@@ -28199,6 +28049,34 @@
 			"media": []
 		},
 		{
+			"id": 380986,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": null,
+			"latitude": "0.68222957631714",
+			"longitude": "-0.73070278984849",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 380987,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": null,
+			"latitude": "0.68323101295960",
+			"longitude": "-0.73114813819254",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 380988,
 			"map_id": 638,
 			"region_id": 2941,
@@ -28221,6 +28099,34 @@
 			"description": null,
 			"latitude": "0.68388180618066",
 			"longitude": "-0.73214473634818",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 380990,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": "Found at the bottom of the waterfall",
+			"latitude": "0.68805094843225",
+			"longitude": "-0.73417861004475",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 380991,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": "Found at the bottom of the waterfall",
+			"latitude": "0.68774588936503",
+			"longitude": "-0.73470741720627",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -28345,6 +28251,20 @@
 			"description": "**Location:** Inside [Rivermouth Cave](#loc=380994), in the boss room",
 			"latitude": "0.68726001652911",
 			"longitude": "-0.73573596775393",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 381009,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Roundrock",
+			"description": null,
+			"latitude": "0.66388227292211",
+			"longitude": "-0.72130153182283",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -28596,6 +28516,33 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 381182,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Black Pyrefly x3",
+			"description": "**Location:** On the corpse",
+			"latitude": "0.68006676838033",
+			"longitude": "-0.72282817194738",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 54103,
+					"title": "20240616221352_1",
+					"file_name": "54a6d4d2-2034-46ce-8e88-70a1f3cc1956.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/54a6d4d2-2034-46ce-8e88-70a1f3cc1956.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 381191,
@@ -30241,6 +30188,20 @@
 			"media": []
 		},
 		{
+			"id": 381846,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Redflesh Mushroom x5",
+			"description": "**Location:** On a corpse, in the corner of the courtyard",
+			"latitude": "0.66685883163181",
+			"longitude": "-0.69826666289072",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 381847,
 			"map_id": 638,
 			"region_id": 2941,
@@ -30819,6 +30780,20 @@
 			"description": null,
 			"latitude": "0.65101072845205",
 			"longitude": "-0.74162855469388",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 382619,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Empyrean-Blood Burgeon x3",
+			"description": "On the cliff next to Scadutree Fragment",
+			"latitude": "0.66662118829476",
+			"longitude": "-0.69032348692474",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -31966,6 +31941,20 @@
 			"media": []
 		},
 		{
+			"id": 385412,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Grave Keeper's Brainpan",
+			"description": "In Charo's hidden grave, all the way around overlooking the waterfall of the Ellac River",
+			"latitude": "0.64000613748870",
+			"longitude": "-0.71769732891934",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 385418,
 			"map_id": 638,
 			"region_id": 2941,
@@ -32232,6 +32221,20 @@
 			"media": []
 		},
 		{
+			"id": 385792,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Scorpion Liver x4",
+			"description": "Found within a cave near the waterfall.",
+			"latitude": "0.68229058004331",
+			"longitude": "-0.68323784929655",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 385794,
 			"map_id": 638,
 			"region_id": 2941,
@@ -32329,6 +32332,20 @@
 			]
 		},
 		{
+			"id": 385805,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Red Fulgurbloom x3",
+			"description": null,
+			"latitude": "0.64603981325580",
+			"longitude": "-0.68998184563293",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 385809,
 			"map_id": 638,
 			"region_id": 2941,
@@ -32365,6 +32382,20 @@
 			"description": "**Location:** Found on a corpse.",
 			"latitude": "0.68081998678227",
 			"longitude": "-0.73529029066995",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 385836,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Sharp Gravel Stone",
+			"description": null,
+			"latitude": "0.61575182706089",
+			"longitude": "-0.69764067268537",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -32483,6 +32514,20 @@
 			"media": []
 		},
 		{
+			"id": 385855,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Four-Toed Fowl Foot",
+			"description": "**Location:** On a corpse, next to the River Bank",
+			"latitude": "0.68963203885311",
+			"longitude": "-0.69784723441740",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 386317,
 			"map_id": 638,
 			"region_id": 2941,
@@ -32491,6 +32536,20 @@
 			"description": "On the rocks near the Hippo",
 			"latitude": "0.62320063885082",
 			"longitude": "-0.72720974709341",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 386320,
+			"map_id": 638,
+			"region_id": 2941,
+			"category_id": 5703,
+			"title": "Grave Keeper's Brainpan",
+			"description": null,
+			"latitude": "0.62394352803921",
+			"longitude": "-0.71246442773133",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -37548,7 +37607,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "garamond-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/elden-ring/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

@@ -12,36 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "hallownest",
-			"title": "Hallownest",
-			"data": "hallownest/data.json",
-			"tilesets": [
-				{
-					"name": "Titles",
-					"template": "hallownest/tiles/titles-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 14,
-					"viewMaxzoom": 14,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				},
-				{
-					"name": "Clean",
-					"template": "hallownest/tiles/clean-v1/{z}/{y}/{x}.jpg",
-					"minzoom": 8,
-					"maxzoom": 14,
-					"viewMaxzoom": 14,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#000000"
-				}
-			],
-			"compact": "hallownest/data.compact.json"
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -298,5 +268,35 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "hallownest",
+			"title": "Hallownest",
+			"data": "hallownest/data.json",
+			"compact": "hallownest/data.compact.json",
+			"tilesets": [
+				{
+					"name": "Titles",
+					"template": "hallownest/tiles/titles-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				},
+				{
+					"name": "Clean",
+					"template": "hallownest/tiles/clean-v1/{z}/{y}/{x}.jpg",
+					"minzoom": 8,
+					"maxzoom": 14,
+					"viewMaxzoom": 14,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
 }

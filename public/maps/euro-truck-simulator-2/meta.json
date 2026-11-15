@@ -130,10 +130,11 @@
 			"slug": "europe",
 			"title": "Europe",
 			"data": "europe/data.json",
+			"compact": "europe/data.compact.json",
 			"tilesets": [
 				{
-					"name": "1.61",
-					"template": "europe/tiles/gps-v6/{z}/{y}/{x}.jpg",
+					"name": "1-62",
+					"template": "europe/tiles/1_62/{z}/{y}/{x}.jpg",
 					"minzoom": 9,
 					"maxzoom": 17,
 					"viewMaxzoom": 18,
@@ -141,8 +142,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "europe/data.compact.json"
+			]
 		}
 	]
 }

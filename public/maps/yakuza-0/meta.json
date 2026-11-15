@@ -226,6 +226,7 @@
 			"slug": "kamurocho",
 			"title": "Kamurocho",
 			"data": "kamurocho/data.json",
+			"compact": "kamurocho/data.compact.json",
 			"tilesets": [
 				{
 					"name": "kamurocho",
@@ -237,13 +238,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "kamurocho/data.compact.json"
+			]
 		},
 		{
 			"slug": "sotenbori",
 			"title": "Sotenbori",
 			"data": "sotenbori/data.json",
+			"compact": "sotenbori/data.compact.json",
 			"tilesets": [
 				{
 					"name": "sotenbori",
@@ -255,8 +256,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "sotenbori/data.compact.json"
+			]
 		}
 	]
 }

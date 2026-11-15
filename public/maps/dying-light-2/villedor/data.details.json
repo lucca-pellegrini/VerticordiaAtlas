@@ -207,7 +207,7 @@
 			]
 		],
 		"157679": [
-			"Enter building on north side of building.  Secret room is behind movable furniture.",
+			"Enter building on north side of building.  Secret room is behind movable furniture.\n\nCode is 1-0-1.",
 			[
 				{
 					"id": 17539,
@@ -631,6 +631,8 @@
 				}
 			]
 		],
+		"158046": ["Pharmacy", []],
+		"158048": ["Clothing store", []],
 		"158080": [
 			"On top of Church of Saint John of God. Inhibitor is found inside the airdrop.",
 			[
@@ -3903,6 +3905,7 @@
 			"In the upper floor of the western [Saint Paul Cathedral](#loc=158073) tower.  On a laptop on the desk.",
 			[]
 		],
+		"161528": ["Hardware store", []],
 		"161529": [
 			"On the roof inside a locked chest",
 			[
@@ -7097,11 +7100,12 @@
 			]
 		],
 		"513972": [
-			"A block away from the other [Forsaken Store](#loc=158046); at the north west corner of the square condo block at ground level.",
+			"A block away from the other [Forsaken Store](#loc=158046); at the north west corner of the square condo block at ground level.\n\nHardware store",
 			[]
 		],
 		"513977": ["Entrance on ground level facing the train lines.", []],
-		"513979": ["At base of building facing the southern street.", []],
+		"513979": ["At base of building facing the southern street. \n\nHardware store", []],
+		"513982": ["Hardware store", []],
 		"513984": [
 			"One of two Inhibitors can be found in a chest near the top of the [Horseshoe Water Tower](#loc=157649). Climb to the upper platform and search the chest to obtain it.",
 			[]

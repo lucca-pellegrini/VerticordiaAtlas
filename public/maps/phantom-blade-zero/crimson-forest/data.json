@@ -22,7 +22,8 @@
 					"13": { "x": { "max": 4088, "min": 4071 }, "y": { "max": 4083, "min": 4075 } },
 					"14": { "x": { "max": 8176, "min": 8143 }, "y": { "max": 8166, "min": 8150 } },
 					"15": { "x": { "max": 16352, "min": 16286 }, "y": { "max": 16333, "min": 16301 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -39,6 +40,7 @@
 		{
 			"id": 27042,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Points of Interest",
 			"order": 1,
 			"color": "34362C",
@@ -79,7 +81,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 16
+					"locations_count": 24
 				},
 				{
 					"id": 28319,
@@ -90,7 +92,7 @@
 					"icon_color": null,
 					"info": null,
 					"template": null,
-					"order": 1,
+					"order": 2,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -135,7 +137,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 13
+					"locations_count": 14
 				},
 				{
 					"id": 28355,
@@ -146,7 +148,7 @@
 					"icon_color": null,
 					"info": null,
 					"template": null,
-					"order": 6,
+					"order": 4,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -164,12 +166,41 @@
 					"description": null,
 					"premium": false,
 					"locations_count": 2
+				},
+				{
+					"id": 28444,
+					"group_id": 27042,
+					"title": "Miscellaneous",
+					"icon": "miscellaneous",
+					"color": null,
+					"icon_color": null,
+					"info": null,
+					"template": null,
+					"order": 5,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 3
 				}
 			]
 		},
 		{
 			"id": 27054,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Key Items",
 			"order": 2,
 			"color": "582359",
@@ -210,7 +241,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 3
+					"locations_count": 4
 				},
 				{
 					"id": 28308,
@@ -266,7 +297,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 12
+					"locations_count": 14
 				},
 				{
 					"id": 28312,
@@ -275,7 +306,7 @@
 					"icon": "treasure",
 					"color": null,
 					"icon_color": null,
-					"info": null,
+					"info": "Find every treasure in an area and bring them to Quick Hand Zhang for a unique reward.",
 					"template": null,
 					"order": 3,
 					"has_heatmap": false,
@@ -322,7 +353,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 2
+					"locations_count": 3
 				},
 				{
 					"id": 28321,
@@ -350,7 +381,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 4
+					"locations_count": 6
 				},
 				{
 					"id": 28309,
@@ -378,7 +409,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 4
+					"locations_count": 6
 				},
 				{
 					"id": 28314,
@@ -434,7 +465,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 6
+					"locations_count": 7
 				},
 				{
 					"id": 28360,
@@ -462,7 +493,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 4
+					"locations_count": 5
 				},
 				{
 					"id": 28313,
@@ -527,7 +558,7 @@
 					"icon": "soul_tempering_material",
 					"color": null,
 					"icon_color": null,
-					"info": "Used to Soul Temper specific Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
+					"info": "Used to Soul Temper specific Weapons and Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
 					"template": null,
 					"order": 12,
 					"has_heatmap": false,
@@ -546,13 +577,14 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 1
+					"locations_count": 9
 				}
 			]
 		},
 		{
 			"id": 27044,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Items",
 			"order": 3,
 			"color": "1F526B",
@@ -577,6 +609,34 @@
 					"info": "When away from a Bell, consume this Talisman to travel to any previously rung Bell.",
 					"template": null,
 					"order": 1,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 4
+				},
+				{
+					"id": 28363,
+					"group_id": 27044,
+					"title": "Weapon Reforge Talisman",
+					"icon": "talisman2",
+					"color": null,
+					"icon_color": "d5d737",
+					"info": "Used to restore a weapon to its initial level.",
+					"template": null,
+					"order": 2,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -621,13 +681,14 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 2
+					"locations_count": 3
 				}
 			]
 		},
 		{
 			"id": 27047,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Characters",
 			"order": 4,
 			"color": "631813",
@@ -668,7 +729,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 5
+					"locations_count": 7
 				},
 				{
 					"id": 28358,
@@ -724,13 +785,14 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 7
+					"locations_count": 8
 				}
 			]
 		},
 		{
 			"id": 27045,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Quests",
 			"order": 5,
 			"color": "428C7F",
@@ -827,7 +889,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 2
+					"locations_count": 4
 				},
 				{
 					"id": 28317,
@@ -862,6 +924,7 @@
 		{
 			"id": 27055,
 			"game_id": 345,
+			"section_id": null,
 			"title": "Materials",
 			"order": 6,
 			"color": "807358",
@@ -902,7 +965,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 40
+					"locations_count": 54
 				},
 				{
 					"id": 28365,
@@ -958,7 +1021,35 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 1
+					"locations_count": 2
+				},
+				{
+					"id": 28554,
+					"group_id": 27055,
+					"title": "Flawless Forged Metal",
+					"icon": "metal3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Required to upgrade One-Handed weapons from Lv. 20 to max level.",
+					"template": null,
+					"order": 4,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 3
 				},
 				{
 					"id": 28368,
@@ -1017,6 +1108,34 @@
 					"locations_count": 1
 				},
 				{
+					"id": 28551,
+					"group_id": 27055,
+					"title": "Flawless Twinned Metal",
+					"icon": "metal3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Required to upgrade Dual-Wielded weapons from Lv. 20 to max level.",
+					"template": null,
+					"order": 7,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 5
+				},
+				{
 					"id": 28369,
 					"group_id": 27055,
 					"title": "Broadplate Metal",
@@ -1073,6 +1192,34 @@
 					"locations_count": 1
 				},
 				{
+					"id": 28553,
+					"group_id": 27055,
+					"title": "Flawless Broadplate Metal",
+					"icon": "metal3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Required to upgrade Two-Handed weapons from Lv. 20 to max level.",
+					"template": null,
+					"order": 10,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 4
+				},
+				{
 					"id": 28366,
 					"group_id": 27055,
 					"title": "Solvent",
@@ -1099,6 +1246,34 @@
 					"description": null,
 					"premium": false,
 					"locations_count": 6
+				},
+				{
+					"id": 28552,
+					"group_id": 27055,
+					"title": "Universal Solvent",
+					"icon": "metal3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Universal material required to upgrade weapons from Lv. 20 to max level.",
+					"template": null,
+					"order": 13,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 5
 				},
 				{
 					"id": 28367,
@@ -1129,6 +1304,34 @@
 					"locations_count": 3
 				},
 				{
+					"id": 28576,
+					"group_id": 27055,
+					"title": "Forged Otherworldly Copper",
+					"icon": "metal3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": null,
+					"template": null,
+					"order": 16,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 2
+				},
+				{
 					"id": 28371,
 					"group_id": 27055,
 					"title": "Darkfire Charcoal",
@@ -1157,6 +1360,34 @@
 					"locations_count": 5
 				},
 				{
+					"id": 28593,
+					"group_id": 27055,
+					"title": "Searing Darkfire Charcoal",
+					"icon": "coal3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Required to upgrade Destruction-type Phantom Edges from Lv. 20 to max level.",
+					"template": null,
+					"order": 19,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 4
+				},
+				{
 					"id": 28373,
 					"group_id": 27055,
 					"title": "Mechanical Gear",
@@ -1166,6 +1397,34 @@
 					"info": "Required to upgrade Artifice-type Phantom Edges to Lv. 10",
 					"template": null,
 					"order": 20,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 2
+				},
+				{
+					"id": 28595,
+					"group_id": 27055,
+					"title": "Ying Mechanical Gear",
+					"icon": "mechanical_gear3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Required to upgrade Artifice-type Phantom Edges from Lv. 20 to max level.",
+					"template": null,
+					"order": 22,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -1213,6 +1472,34 @@
 					"locations_count": 3
 				},
 				{
+					"id": 28594,
+					"group_id": 27055,
+					"title": "Forbidden Camphor Timber",
+					"icon": "wood3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Required to upgrade Ranged-type Phantom Edges from L.v. 20 to max level.",
+					"template": null,
+					"order": 25,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 2
+				},
+				{
 					"id": 28466,
 					"group_id": 27055,
 					"title": "Tainted Crystal Shard",
@@ -1238,7 +1525,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 6
+					"locations_count": 8
 				},
 				{
 					"id": 28494,
@@ -1266,7 +1553,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 1
+					"locations_count": 2
 				},
 				{
 					"id": 28471,
@@ -1297,13 +1584,13 @@
 					"locations_count": 2
 				},
 				{
-					"id": 28468,
+					"id": 28596,
 					"group_id": 27055,
-					"title": "Apprentice Healer's Memory",
-					"icon": "memory",
+					"title": "Incense Ash for the Lady",
+					"icon": "ash3",
 					"color": null,
-					"icon_color": null,
-					"info": "Required to upgrade Medicine to Lv. 2",
+					"icon_color": "50d352",
+					"info": "Required to upgrade Summon-type Phantom Edges from Lv. 20 to max level.",
 					"template": null,
 					"order": 30,
 					"has_heatmap": false,
@@ -1322,37 +1609,18 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 1
-				}
-			]
-		},
-		{
-			"id": 27046,
-			"game_id": 345,
-			"title": "Other",
-			"order": 7,
-			"color": "5C5A5A",
-			"icon_color": null,
-			"display_type": null,
-			"circle_color": null,
-			"circle_stroke_color": null,
-			"circle_opacity": null,
-			"circle_radius": null,
-			"area_config": null,
-			"expandable": false,
-			"featured": false,
-			"featured_icon": null,
-			"categories": [
+					"locations_count": 3
+				},
 				{
-					"id": 28444,
-					"group_id": 27046,
-					"title": "Miscellaneous",
-					"icon": "miscellaneous",
+					"id": 28468,
+					"group_id": 27055,
+					"title": "Apprentice Healer's Memory",
+					"icon": "memory",
 					"color": null,
 					"icon_color": null,
-					"info": null,
+					"info": "Required to upgrade Medicine to Lv. 2",
 					"template": null,
-					"order": 1,
+					"order": 31,
 					"has_heatmap": false,
 					"features_enabled": false,
 					"display_type": "marker",
@@ -1370,10 +1638,39 @@
 					"description": null,
 					"premium": false,
 					"locations_count": 1
+				},
+				{
+					"id": 28559,
+					"group_id": 27055,
+					"title": "Master Healer's Memory",
+					"icon": "memory3",
+					"color": null,
+					"icon_color": "50d352",
+					"info": "Required to upgrade Medicine from Lv. 4 to max level.",
+					"template": null,
+					"order": 33,
+					"has_heatmap": false,
+					"features_enabled": false,
+					"display_type": "marker",
+					"circle_color": null,
+					"circle_stroke_color": null,
+					"circle_opacity": null,
+					"circle_radius": null,
+					"area_config": null,
+					"ign_enabled": true,
+					"ign_visible": true,
+					"suggestion_locked": false,
+					"suggestion_add_locked": false,
+					"featured": false,
+					"visible": true,
+					"description": null,
+					"premium": false,
+					"locations_count": 5
 				}
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"28305": {
 			"id": 28305,
@@ -1429,7 +1726,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 3
+			"locations_count": 4
 		},
 		"28307": {
 			"id": 28307,
@@ -1457,7 +1754,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 12
+			"locations_count": 14
 		},
 		"28308": {
 			"id": 28308,
@@ -1513,7 +1810,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 4
+			"locations_count": 6
 		},
 		"28310": {
 			"id": 28310,
@@ -1541,7 +1838,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 6
+			"locations_count": 7
 		},
 		"28312": {
 			"id": 28312,
@@ -1550,7 +1847,7 @@
 			"icon": "treasure",
 			"color": null,
 			"icon_color": null,
-			"info": null,
+			"info": "Find every treasure in an area and bring them to Quick Hand Zhang for a unique reward.",
 			"template": null,
 			"order": 3,
 			"has_heatmap": false,
@@ -1653,7 +1950,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 2
+			"locations_count": 4
 		},
 		"28317": {
 			"id": 28317,
@@ -1709,7 +2006,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 40
+			"locations_count": 54
 		},
 		"28319": {
 			"id": 28319,
@@ -1720,7 +2017,7 @@
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 1,
+			"order": 2,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -1765,7 +2062,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 16
+			"locations_count": 24
 		},
 		"28321": {
 			"id": 28321,
@@ -1793,7 +2090,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 4
+			"locations_count": 6
 		},
 		"28353": {
 			"id": 28353,
@@ -1821,7 +2118,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 13
+			"locations_count": 14
 		},
 		"28354": {
 			"id": 28354,
@@ -1849,7 +2146,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 2
+			"locations_count": 3
 		},
 		"28355": {
 			"id": 28355,
@@ -1860,7 +2157,7 @@
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 6,
+			"order": 4,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -1905,7 +2202,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 5
+			"locations_count": 7
 		},
 		"28358": {
 			"id": 28358,
@@ -1961,7 +2258,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 4
+			"locations_count": 5
 		},
 		"28361": {
 			"id": 28361,
@@ -2017,6 +2314,34 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
+			"locations_count": 4
+		},
+		"28363": {
+			"id": 28363,
+			"group_id": 27044,
+			"title": "Weapon Reforge Talisman",
+			"icon": "talisman2",
+			"color": null,
+			"icon_color": "d5d737",
+			"info": "Used to restore a weapon to its initial level.",
+			"template": null,
+			"order": 2,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
 			"locations_count": 2
 		},
 		"28364": {
@@ -2045,7 +2370,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 2
+			"locations_count": 3
 		},
 		"28365": {
 			"id": 28365,
@@ -2269,7 +2594,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 7
+			"locations_count": 8
 		},
 		"28373": {
 			"id": 28373,
@@ -2301,14 +2626,14 @@
 		},
 		"28444": {
 			"id": 28444,
-			"group_id": 27046,
+			"group_id": 27042,
 			"title": "Miscellaneous",
 			"icon": "miscellaneous",
 			"color": null,
 			"icon_color": null,
 			"info": null,
 			"template": null,
-			"order": 1,
+			"order": 5,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2325,7 +2650,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 1
+			"locations_count": 3
 		},
 		"28466": {
 			"id": 28466,
@@ -2353,7 +2678,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 6
+			"locations_count": 8
 		},
 		"28467": {
 			"id": 28467,
@@ -2392,7 +2717,7 @@
 			"icon_color": null,
 			"info": "Required to upgrade Medicine to Lv. 2",
 			"template": null,
-			"order": 30,
+			"order": 31,
 			"has_heatmap": false,
 			"features_enabled": false,
 			"display_type": "marker",
@@ -2437,7 +2762,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 1
+			"locations_count": 2
 		},
 		"28471": {
 			"id": 28471,
@@ -2493,7 +2818,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 1
+			"locations_count": 2
 		},
 		"28496": {
 			"id": 28496,
@@ -2558,7 +2883,7 @@
 			"icon": "soul_tempering_material",
 			"color": null,
 			"icon_color": null,
-			"info": "Used to Soul Temper specific Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
+			"info": "Used to Soul Temper specific Weapons and Phantom Edges. Some materials are fragmented and must have all their pieces gathered first.",
 			"template": null,
 			"order": 12,
 			"has_heatmap": false,
@@ -2577,7 +2902,287 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 1
+			"locations_count": 9
+		},
+		"28551": {
+			"id": 28551,
+			"group_id": 27055,
+			"title": "Flawless Twinned Metal",
+			"icon": "metal3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade Dual-Wielded weapons from Lv. 20 to max level.",
+			"template": null,
+			"order": 7,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 5
+		},
+		"28552": {
+			"id": 28552,
+			"group_id": 27055,
+			"title": "Universal Solvent",
+			"icon": "metal3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Universal material required to upgrade weapons from Lv. 20 to max level.",
+			"template": null,
+			"order": 13,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 5
+		},
+		"28553": {
+			"id": 28553,
+			"group_id": 27055,
+			"title": "Flawless Broadplate Metal",
+			"icon": "metal3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade Two-Handed weapons from Lv. 20 to max level.",
+			"template": null,
+			"order": 10,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 4
+		},
+		"28554": {
+			"id": 28554,
+			"group_id": 27055,
+			"title": "Flawless Forged Metal",
+			"icon": "metal3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade One-Handed weapons from Lv. 20 to max level.",
+			"template": null,
+			"order": 4,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 3
+		},
+		"28559": {
+			"id": 28559,
+			"group_id": 27055,
+			"title": "Master Healer's Memory",
+			"icon": "memory3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade Medicine from Lv. 4 to max level.",
+			"template": null,
+			"order": 33,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 5
+		},
+		"28576": {
+			"id": 28576,
+			"group_id": 27055,
+			"title": "Forged Otherworldly Copper",
+			"icon": "metal3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": null,
+			"template": null,
+			"order": 16,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 2
+		},
+		"28593": {
+			"id": 28593,
+			"group_id": 27055,
+			"title": "Searing Darkfire Charcoal",
+			"icon": "coal3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade Destruction-type Phantom Edges from Lv. 20 to max level.",
+			"template": null,
+			"order": 19,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 4
+		},
+		"28594": {
+			"id": 28594,
+			"group_id": 27055,
+			"title": "Forbidden Camphor Timber",
+			"icon": "wood3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade Ranged-type Phantom Edges from L.v. 20 to max level.",
+			"template": null,
+			"order": 25,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 2
+		},
+		"28595": {
+			"id": 28595,
+			"group_id": 27055,
+			"title": "Ying Mechanical Gear",
+			"icon": "mechanical_gear3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade Artifice-type Phantom Edges from Lv. 20 to max level.",
+			"template": null,
+			"order": 22,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 2
+		},
+		"28596": {
+			"id": 28596,
+			"group_id": 27055,
+			"title": "Incense Ash for the Lady",
+			"icon": "ash3",
+			"color": null,
+			"icon_color": "50d352",
+			"info": "Required to upgrade Summon-type Phantom Edges from Lv. 20 to max level.",
+			"template": null,
+			"order": 30,
+			"has_heatmap": false,
+			"features_enabled": false,
+			"display_type": "marker",
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"ign_enabled": true,
+			"ign_visible": true,
+			"suggestion_locked": false,
+			"suggestion_add_locked": false,
+			"featured": false,
+			"visible": true,
+			"description": null,
+			"premium": false,
+			"locations_count": 3
 		}
 	},
 	"routes": [],
@@ -3006,6 +3611,196 @@
 			]
 		},
 		{
+			"id": 1067073,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28320,
+			"title": "Mirrorwood Lóng Pillar",
+			"description": "Must be reactivated after the area is snowed in.",
+			"latitude": "0.76625208684885",
+			"longitude": "-0.42387485504310",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160480,
+					"title": "003109",
+					"file_name": "c8171340-a765-4d6e-b8b4-e39be6bd893b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c8171340-a765-4d6e-b8b4-e39be6bd893b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067075,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28320,
+			"title": "Burial Grounds",
+			"description": "Must be reactivated after the area is snowed in.",
+			"latitude": "0.71196982360671",
+			"longitude": "-0.44806522118526",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160482,
+					"title": "003111",
+					"file_name": "b004a1db-1a29-4d64-b5bd-5a954aafdb46.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b004a1db-1a29-4d64-b5bd-5a954aafdb46.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067085,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28320,
+			"title": "Parting Mists",
+			"description": "Must be reactivated after the area is snowed in.",
+			"latitude": "0.63677878726531",
+			"longitude": "-0.42977267599491",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160493,
+					"title": "003121",
+					"file_name": "2987286c-e660-490a-b39a-17cac740c15b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2987286c-e660-490a-b39a-17cac740c15b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067090,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28320,
+			"title": "Mirrorwood Depths",
+			"description": "Must be reactivated after the area is snowed in.",
+			"latitude": "0.76129584703594",
+			"longitude": "-0.38027613283225",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067106,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28320,
+			"title": "Threadbound Great Tree",
+			"description": "Must be reactivated after the area is snowed in.",
+			"latitude": "0.81238722663718",
+			"longitude": "-0.38669957124552",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160513,
+					"title": "003137",
+					"file_name": "13be1283-a159-43ce-a0dc-1be9b99f3ca3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/13be1283-a159-43ce-a0dc-1be9b99f3ca3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067111,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28320,
+			"title": "Crimson Forest Sha-Chi Tower Gate",
+			"description": null,
+			"latitude": "0.64042561588424",
+			"longitude": "-0.51264740605825",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160515,
+					"title": "003139",
+					"file_name": "7dc35f99-4a79-4b61-9448-a044105a6b7d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7dc35f99-4a79-4b61-9448-a044105a6b7d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067122,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28320,
+			"title": "Crimson Forest Sha-Chi Tower 6th Floor",
+			"description": "Tower, three floors above ground level.",
+			"latitude": "0.65504554767919",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160527,
+					"title": "003151",
+					"file_name": "3cd2ad70-7c41-4592-8c85-c6e8def46d61.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3cd2ad70-7c41-4592-8c85-c6e8def46d61.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067131,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28320,
+			"title": "Crimson Forest Sha-Chi Tower Base",
+			"description": "Tower, lower level reached via [Elevator](#loc=1067128).",
+			"latitude": "0.63273097447073",
+			"longitude": "-0.52803039550781",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1057530,
 			"map_id": 1066,
 			"region_id": null,
@@ -3149,13 +3944,26 @@
 			"region_id": null,
 			"category_id": 28353,
 			"title": "Fragile Wall",
-			"description": "**Required:** Tiger Cannon",
+			"description": "**Required:** [Tiger Cannon](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1083902)\n\nInside the dungeon beyond the [Crank Slot](#loc=1058424)",
 			"latitude": "0.81119975087830",
 			"longitude": "-0.84314177734970",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 161001,
+					"title": "003330",
+					"file_name": "3f5540c4-05e3-4139-b996-3b0e49aa8511.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f5540c4-05e3-4139-b996-3b0e49aa8511.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1058439,
@@ -3294,12 +4102,39 @@
 			]
 		},
 		{
+			"id": 1067124,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28353,
+			"title": "Locked Door",
+			"description": "**Required:** [Crimson Forest Sha-Chi Tower Key](#loc=1067132)",
+			"latitude": "0.65504554767919",
+			"longitude": "-0.51773071289062",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160528,
+					"title": "003152",
+					"file_name": "7f0e211b-996d-4acc-8350-81da2ccdc0fd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7f0e211b-996d-4acc-8350-81da2ccdc0fd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058371,
 			"map_id": 1066,
 			"region_id": null,
 			"category_id": 28355,
 			"title": "Challenge",
-			"description": null,
+			"description": "[The Gold-Masked One](#loc=1058372)",
 			"latitude": "0.77222107071577",
 			"longitude": "-0.79968117120492",
 			"features": null,
@@ -3313,9 +4148,64 @@
 			"region_id": null,
 			"category_id": 28355,
 			"title": "Challenge",
-			"description": null,
+			"description": "[The Banyan's Heart](#loc=1059579)",
 			"latitude": "0.59145323495137",
 			"longitude": "-0.76767493687794",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1058292,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Crank",
+			"description": "Turn it to lower [Quick Hand Zhang](#loc=1058288)'s cage.",
+			"latitude": "0.73581668106182",
+			"longitude": "-0.99118616330318",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157608,
+					"title": "001536",
+					"file_name": "501c1ab5-e21c-4ff0-a98c-19c2c6b7bbb9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/501c1ab5-e21c-4ff0-a98c-19c2c6b7bbb9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067068,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Crimson Forest (Snow)",
+			"description": "This area is covered in snow after visiting the Mirage Estate in Pangzhen, marking some bells inaccessible until they are rung again. Fast travel to the [Mirrorwood Entrance](#loc=1058360) bell to get right into the new areas.",
+			"latitude": "0.71831978984433",
+			"longitude": "-0.52951010289712",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067128,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28444,
+			"title": "Elevator",
+			"description": "Used to reach the lower level.",
+			"latitude": "0.65504554767919",
+			"longitude": "-0.51429748535156",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -3358,6 +4248,20 @@
 			"description": "Looted from [Bai Chilian, Lady of the Twin Serpents](#loc=1060140)",
 			"latitude": "0.82098543299057",
 			"longitude": "-0.75797407198141",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067109,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28306,
+			"title": "Freezing Chaos",
+			"description": "Looted from [Yucong, No. 34 Twisted Puppet](#loc=1067108)",
+			"latitude": "0.82420084424258",
+			"longitude": "-0.38764276755103",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -3535,7 +4439,7 @@
 			"region_id": null,
 			"category_id": 28307,
 			"title": "Calming Gourd",
-			"description": "Reward for completing [A Healer's Mercy](#loc=1058340)\n\n\n\nUsing medicine lets you recover from Guard Break and prevents Sha-Chi consumption for 3 seconds",
+			"description": "Reward for completing [A Healer's Mercy](#loc=1058340)\n\n\n\n**Using medicine lets you recover from Guard Break and prevents Sha-Chi consumption for 3 seconds**",
 			"latitude": "0.78038704157750",
 			"longitude": "-0.93538662059649",
 			"features": null,
@@ -3549,7 +4453,7 @@
 			"region_id": null,
 			"category_id": 28307,
 			"title": "Seal of Dugu",
-			"description": "Obtained when  ||Ju is killed after accusing her of killing her sister||  as part of [Secrets of the Baishan Sect](#loc=1058320)",
+			"description": "Obtained when  ||Ju is killed after accusing her of killing her sister||  as part of [Secrets of the Baishan Sect](#loc=1058320)\n\n**Heavy attacks increase the Sha-Chi depletion of Sha-Chi combos by 8%**",
 			"latitude": "0.76108009707869",
 			"longitude": "-0.94052918063704",
 			"features": null,
@@ -3584,6 +4488,60 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1067099,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28307,
+			"title": "Chaos Ring",
+			"description": "Inside a chest.\n\n**Chaos Flame inflicts Sha-Chi Burn on enemies and restores 50% of the Sha-Chi they lose.**",
+			"latitude": "0.79690297081953",
+			"longitude": "-0.37819806772336",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160506,
+					"title": "003132",
+					"file_name": "3b1d0fe4-4e84-4c82-994f-a42b53ed4081.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3b1d0fe4-4e84-4c82-994f-a42b53ed4081.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067110,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28307,
+			"title": "Frostward",
+			"description": "Inside a chest in an area reached by going through a tunnel near the [Burial Grounds](#loc=1067075) bell.\n\n**Reduces Chill effects by 50% and reduces Freeze duration by 50%.**",
+			"latitude": "0.62207900231380",
+			"longitude": "-0.48396352264379",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160514,
+					"title": "003138",
+					"file_name": "fba18dba-2aa7-4cde-8f49-8b637f3b5fbc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fba18dba-2aa7-4cde-8f49-8b637f3b5fbc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1058314,
@@ -3721,6 +4679,33 @@
 			]
 		},
 		{
+			"id": 1067150,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28354,
+			"title": "Miracle Remedy",
+			"description": "Inside a chest on the tower's lowest level.\n\n**Restores 30% HP. Restores an additional 30% HP when HP is below 35%.**",
+			"latitude": "0.62929795514218",
+			"longitude": "-0.52803039550781",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160548,
+					"title": "003170",
+					"file_name": "cb1c3f46-135b-46bb-b3b1-859ebb28ba63.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cb1c3f46-135b-46bb-b3b1-859ebb28ba63.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058309,
 			"map_id": 1066,
 			"region_id": null,
@@ -3829,6 +4814,60 @@
 			]
 		},
 		{
+			"id": 1067098,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28321,
+			"title": "Sha-Chi Amber Shard",
+			"description": "Inside a chest.",
+			"latitude": "0.78018995781740",
+			"longitude": "-0.37588001344105",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160505,
+					"title": "003131",
+					"file_name": "d5509b39-c4ad-4dc5-aa57-678af02545c3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d5509b39-c4ad-4dc5-aa57-678af02545c3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067114,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28321,
+			"title": "Sha-Chi Amber Shard",
+			"description": "Outside the tower, reached by wall running on the ground floor.",
+			"latitude": "0.64474652415048",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160518,
+					"title": "003142",
+					"file_name": "8fa4cb45-61bb-42b1-9591-f19d51f62d18.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8fa4cb45-61bb-42b1-9591-f19d51f62d18.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058257,
 			"map_id": 1066,
 			"region_id": null,
@@ -3928,6 +4967,60 @@
 					"file_name": "3d1984d7-e0bb-4b96-83e0-616c4672e049.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/3d1984d7-e0bb-4b96-83e0-616c4672e049.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067120,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28309,
+			"title": "Blackstone Shard",
+			"description": "Tower, two floors above ground level - inside a chest.",
+			"latitude": "0.65161254216547",
+			"longitude": "-0.52803039550781",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160525,
+					"title": "003149",
+					"file_name": "d19f373b-d9ab-45b1-9287-7b2e1488e8ea.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d19f373b-d9ab-45b1-9287-7b2e1488e8ea.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067151,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28309,
+			"title": "Blackstone Shard",
+			"description": "Inside a chest on the tower's lowest level.",
+			"latitude": "0.62929795514218",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160547,
+					"title": "003170",
+					"file_name": "fccc255d-f864-4c29-a248-1546cd50aba7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fccc255d-f864-4c29-a248-1546cd50aba7.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -4533,6 +5626,33 @@
 			"media": []
 		},
 		{
+			"id": 1067132,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28310,
+			"title": "Crimson Forest Sha-Chi Tower Key",
+			"description": "Tower, lower level - climb a ladder by the [Crimson Forest Sha-Chi Tower Base](#loc=1067131) bell and swing on a chain to reach it.\n\n**Unlocks:**\n- [Locked Door](#loc=1067124)",
+			"latitude": "0.63616399152764",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160535,
+					"title": "003160",
+					"file_name": "7d5f1e91-3fd4-4c40-bbe6-23bed365e32a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d5f1e91-3fd4-4c40-bbe6-23bed365e32a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1059579,
 			"map_id": 1066,
 			"region_id": null,
@@ -4606,6 +5726,33 @@
 					"file_name": "579e031f-b207-466f-a19b-f30c57e93fa7.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/579e031f-b207-466f-a19b-f30c57e93fa7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067133,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28360,
+			"title": "Primal Stone",
+			"description": "Tower, lower level - climb a ladder by the [Crimson Forest Sha-Chi Tower Base](#loc=1067131) bell and swing on a chain to reach it.\n\n**Quest:** [A Severed Mindseal](https://mapgenie.io/phantom-blade-zero/maps/weeping-creek-valley?locationIds=1055068)",
+			"latitude": "0.63616399152764",
+			"longitude": "-0.51773071289062",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160536,
+					"title": "003160",
+					"file_name": "b1527849-cea4-4091-aa20-b8544c2473f9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b1527849-cea4-4091-aa20-b8544c2473f9.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -5117,6 +6264,144 @@
 			]
 		},
 		{
+			"id": 1067127,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Honed Blacksteel",
+			"description": "Tower, highest of the lower levels, reached by sliding down the ladder beside [Flawless Twinned Metal x15](#loc=1067115). Approach the red lamp near the furnace, then drop down a level and follow the path to find it in a chest.\n\n**Honed Blacksteel**",
+			"latitude": "0.63959700630053",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160532,
+					"title": "003156",
+					"file_name": "f89f62b6-cc2e-4e8e-b6fe-4bcaec73a24c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f89f62b6-cc2e-4e8e-b6fe-4bcaec73a24c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067139,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Supreme Order Token",
+			"description": "Obtained by reaching the rooftop of the tower.\n\n**Wild Oriole Sword**",
+			"latitude": "0.66191154580125",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067143,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Heel Reinforcement Part",
+			"description": "Reward for completing [Use It Against Them](#loc=1067140)\n\n**Fiend Saws**",
+			"latitude": "0.66362804472416",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067145,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Fist Fragment: Shell",
+			"description": "Obtained by interacting with the grave as part of [Heart of the Fist](#loc=1067141)\n\n**Iron Gauntlets**",
+			"latitude": "0.70201410406125",
+			"longitude": "-0.45802110009797",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067146,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Worldbreaker Fist",
+			"description": "Obtained when finding the [Fist Fragment:Core](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1061828) & [Fist Fragment: Shell](#loc=1067145)\n\n**Iron Gauntlets**",
+			"latitude": "0.70270041979256",
+			"longitude": "-0.45638986412484",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1081537,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Chaos Iron Fragment II",
+			"description": "Reward for defeating [Yucong, No. 34 Twisted Puppet](#loc=1067108)'s secret third phase.\n\nCombined with the [Chaos Iron Fragment I](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1066965).\n\n**Sanguine Twin**",
+			"latitude": "0.82687904066979",
+			"longitude": "-0.38946240016466",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1081559,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Chaos Twin Daggers",
+			"description": "Obtained by combining [Chaos Iron Fragment I](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1066965) with [Chaos Iron Fragment II](#loc=1081537).\n\n**Sanguine Twin**",
+			"latitude": "0.82728092675944",
+			"longitude": "-0.38752483116718",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1083906,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28503,
+			"title": "Song of Parting",
+			"description": "Beyond the [Fragile Wall](#loc=1058432)\n\n**Parting Hooks**",
+			"latitude": "0.81362002930871",
+			"longitude": "-0.84522437985277",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 161002,
+					"title": "003331",
+					"file_name": "5e70df72-43cd-42be-afb4-d4e7d6843fd2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e70df72-43cd-42be-afb4-d4e7d6843fd2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058246,
 			"map_id": 1066,
 			"region_id": null,
@@ -5171,6 +6456,101 @@
 			]
 		},
 		{
+			"id": 1067129,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28362,
+			"title": "Traversal Talisman x3",
+			"description": "Tower, lower level reached via [Elevator](#loc=1067128).",
+			"latitude": "0.63616399038408",
+			"longitude": "-0.52803039550781",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160534,
+					"title": "003157",
+					"file_name": "65f48b37-bdd7-4007-8a34-ab95d180fa18.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/65f48b37-bdd7-4007-8a34-ab95d180fa18.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067144,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28362,
+			"title": "Traversal Talisman x3",
+			"description": "Outside the tower, reached by sliding down a rope from the very top.",
+			"latitude": "0.66191154580125",
+			"longitude": "-0.51086425781250",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160543,
+					"title": "003167",
+					"file_name": "6ebd696c-3b10-4078-8f4b-cd4da6dfd849.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6ebd696c-3b10-4078-8f4b-cd4da6dfd849.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067119,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28363,
+			"title": "Weapon Reforge Talisman x2",
+			"description": "Tower, one floor above ground level - between the stairs leading up to the next floor.",
+			"latitude": "0.64817953431845",
+			"longitude": "-0.51773071289063",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160524,
+					"title": "003148",
+					"file_name": "ec41993d-47c8-45f1-9b0b-fb1a1a49a189.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ec41993d-47c8-45f1-9b0b-fb1a1a49a189.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1084009,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28363,
+			"title": "Weapon Reforge Talisman",
+			"description": "In the same area as the chest",
+			"latitude": "0.79580503028684",
+			"longitude": "-0.79978889902713",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1061627,
 			"map_id": 1066,
 			"region_id": null,
@@ -5203,6 +6583,33 @@
 					"file_name": "b7c33642-8578-4914-bdc5-d911761ca6ff.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/b7c33642-8578-4914-bdc5-d911761ca6ff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067136,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28364,
+			"title": "Phantom Reforge Talisman x4",
+			"description": "Beyond the [Locked Door](#loc=1067124)",
+			"latitude": "0.65504554418389",
+			"longitude": "-0.50743103027344",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160539,
+					"title": "003163",
+					"file_name": "09754555-a0ad-44bb-b1c5-21032288bc70.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/09754555-a0ad-44bb-b1c5-21032288bc70.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -5276,6 +6683,34 @@
 			"description": "**Loot:**\n\n- [White Serpent & Crimson Viper](#loc=1060141)\n- [Resonance Talisman](#loc=1060142)",
 			"latitude": "0.82049040127177",
 			"longitude": "-0.76064706831329",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067108,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28357,
+			"title": "Yucong, No. 34 Twisted Puppet",
+			"description": "**Loot:**\n\n- [Freezing Chaos](#loc=1067109)\n- [Chaos Iron Fragment II](#loc=1081537)*\n\n\n\n\\*Equip the Soul Tempered Sanguine Reach (AKA Blazing Edge) to unlock a secret bonus phase & reward. You'll fight alongside some allies if you sparred with [Jade Dancer & Iron Fiend](#loc=1067142) on the Sha-Chi tower's rooftop first.",
+			"latitude": "0.82387524368286",
+			"longitude": "-0.38988769531991",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067142,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28357,
+			"title": "Jade Dancer & Iron Fiend, Young Mistress' Guardians",
+			"description": "**Loot:**\n- [Heel Reinforcement Part](#loc=1067143)\n\nOptional fight triggered on the rooftop. Can only be fought using the Fiend Saws & Iron Gauntlets as part of [Use It Against Them](#loc=1067140)",
+			"latitude": "0.66191154580125",
+			"longitude": "-0.51429748535156",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -5420,12 +6855,26 @@
 			]
 		},
 		{
+			"id": 1067123,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28372,
+			"title": "Spectral Blade",
+			"description": "Tower, beside the [Crimson Forest Sha-Chi Tower 6th Floor](#loc=1067122) bell.",
+			"latitude": "0.65504554767919",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1057528,
 			"map_id": 1066,
 			"region_id": null,
 			"category_id": 28305,
 			"title": "Illusion of Inanis",
-			"description": "**How to Begin:** Approach the crane bell.\n\n**Tips:**\n\n- N/A\n\n**Rewards:**\n\n- None",
+			"description": "**How to Begin:** Approach the crane bell.",
 			"latitude": "0.63221903264524",
 			"longitude": "-0.94894638399910",
 			"features": null,
@@ -5439,7 +6888,7 @@
 			"region_id": null,
 			"category_id": 28305,
 			"title": "Snake's Reflection",
-			"description": "**How to Begin:** Begin exploring the Crimson Forest\n\n**Tips:**\n\n- ??\n- ??",
+			"description": "**How to Begin:** Begin exploring the Crimson Forest",
 			"latitude": "0.63326987560275",
 			"longitude": "-0.99037182830287",
 			"features": null,
@@ -5467,7 +6916,7 @@
 			"region_id": null,
 			"category_id": 28316,
 			"title": "Secrets of the Baishan Sect",
-			"description": "**How to Begin:** Speak to Lanlan on the bridge.\n\n**Tips:**\n\n- Accept this quest before defeating [Bai Chilian, Lady of the Twin Serpents](#loc=1060140)\n- You'll need to speak to the [Severely Wounded Baishan Disciple](#loc=1058447)\n- Accuse ||Ju of killing her sister|| to receive [Seal of Dugu](#loc=1059577)\n\n**Rewards:**\n\n- ??",
+			"description": "**How to Begin:** Speak to Lanlan on the bridge.\n\n**Tips:**\n\n- Accept this quest before defeating [Bai Chilian, Lady of the Twin Serpents](#loc=1060140)\n- You'll need to speak to the [Severely Wounded Baishan Disciple](#loc=1058447)\n- Accuse ||Ju of killing her sister|| to receive [Seal of Dugu](#loc=1059577)\n\n**Rewards:**\n\n- None",
 			"latitude": "0.76185250505638",
 			"longitude": "-0.93932121720468",
 			"features": null,
@@ -5490,12 +6939,40 @@
 			"media": []
 		},
 		{
+			"id": 1067140,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28316,
+			"title": "Use It Against Them",
+			"description": "**How to Begin:** Speak to Jade Dancer on the rooftop.\n\n**Tips:**\n- Upgrade the Fiend Saws & Iron Gauntlets as far as you can - and don't forget to temper them!\n- Completing [Heart of the Fist](#loc=1067141) first will let you temper the Iron Gauntlets.\n\n**Rewards:**\n- [Heel Reinforcement Part](#loc=1067143)\n- Help in the secret phase of || [Yucong, No. 34 Twisted Puppet](#loc=1067108)||'s boss fight",
+			"latitude": "0.66191154580125",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1067141,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28316,
+			"title": "Heart of the Fist",
+			"description": "**How to Begin:** Speak to Iron Fiend on the rooftop.\n\n**Tips:**\n- The grave you're looking for is the large one near the [Burial Grounds](#loc=1067075) bell.\n\n**Rewards:**\n- [Worldbreaker Fist](#loc=1067146)",
+			"latitude": "0.66191154580125",
+			"longitude": "-0.51773071289062",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1058294,
 			"map_id": 1066,
 			"region_id": null,
 			"category_id": 28317,
 			"title": "The Wily Hare's Three Dens",
-			"description": "**How to Begin:** Rescue [Quick Hand Zhang](#loc=1058288) from his cage.\n\n**Tips:**\n\n- ??\n- ??\n\n**Rewards:**\n\n- ??",
+			"description": "**How to Begin:** Rescue [Quick Hand Zhang](#loc=1058288) from his cage.\n\n**Zhang's Dens:**\n\n- [Crimson Forest](#loc=1058332)\n- [Village of Lu](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1061338)\n- [Pangzhen](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1062206)\n- [Meigu Lake](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1064754)\n- [Mirage Estate](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1083739)\n\n**Rewards:**\n\n- [Maintenance Oil](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1083742)",
 			"latitude": "0.72424107038978",
 			"longitude": "-0.99277925360252",
 			"features": null,
@@ -5523,7 +7000,7 @@
 			"region_id": null,
 			"category_id": 28317,
 			"title": "Resonant Strings",
-			"description": "**How to Begin:** Pick up any of the Left by Inanis memory flowers.\n\n**Tips:**\n\n- ??\n- ??\n\n**Rewards:**\n\n- ??",
+			"description": "**How to Begin:** Pick up any of Inanis' memory flowers.\n\n**Flowers:**\n\n- [Inanis' Memory Flower 1](#loc=1058363)\n- [Inanis' Memory Flower 2](#loc=1058387)\n- [Inanis' Memory Flower 3](#loc=1058410)\n- [Inanis' Memory Flower 4](#loc=1059580)\n- [Inanis' Memory Flower 5](#loc=1059583)\n- [Inanis' Memory Flower 6](#loc=1059587)\n\n**Rewards:**\n\n- HP increased by 10%",
 			"latitude": "0.74360052680788",
 			"longitude": "-0.82487268964562",
 			"features": null,
@@ -5537,7 +7014,7 @@
 			"region_id": null,
 			"category_id": 28317,
 			"title": "Heart of the Banyan",
-			"description": "**How to Begin:** Speak to Lady Inanis\n\n**Tips:**\n\n- ??\n- ??\n\n**Rewards:**\n\n- ??",
+			"description": "**How to Begin:** Speak to Lady Inanis\n\n**Trees:**\n- [Crimson Forest](#loc=1059579)\n- [Pangzhen](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1063153)\n- [Mandate Encampment](https://mapgenie.io/phantom-blade-zero/maps/the-mandates-encampment?locationIds=1062872)\n- [Meigu Lake](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1065049)\n- [Mountain of Imprisonment](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1066466)\n\n**Rewards:**\n\n- Additional skills for purchase after each heart obtained",
 			"latitude": "0.64480966605758",
 			"longitude": "-0.80726161220602",
 			"features": null,
@@ -6626,6 +8103,384 @@
 			]
 		},
 		{
+			"id": 1067072,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": "Inside a chest.",
+			"latitude": "0.68423671296857",
+			"longitude": "-0.52765488624530",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160479,
+					"title": "003108",
+					"file_name": "1b08eedd-d517-461f-81a1-d40e42caef3d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1b08eedd-d517-461f-81a1-d40e42caef3d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067078,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": "Inside a chest.",
+			"latitude": "0.70278581651863",
+			"longitude": "-0.45263961554329",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160485,
+					"title": "003113",
+					"file_name": "341dca73-6534-42d0-b62f-991e403b7f07.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/341dca73-6534-42d0-b62f-991e403b7f07.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067080,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": null,
+			"latitude": "0.65464769275050",
+			"longitude": "-0.44972385236932",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160487,
+					"title": "003116",
+					"file_name": "185db3f7-1127-493b-88aa-d9a875723068.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/185db3f7-1127-493b-88aa-d9a875723068.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067082,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": null,
+			"latitude": "0.65212483310363",
+			"longitude": "-0.43849477924590",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160490,
+					"title": "003118",
+					"file_name": "20fb3b1f-2402-4e16-8761-c5bbc58f7085.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20fb3b1f-2402-4e16-8761-c5bbc58f7085.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067083,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": null,
+			"latitude": "0.65164344830075",
+			"longitude": "-0.44401846365517",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160491,
+					"title": "003119",
+					"file_name": "62ce2352-e959-4e7d-86f1-cbf0363ad71c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/62ce2352-e959-4e7d-86f1-cbf0363ad71c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067084,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": null,
+			"latitude": "0.65436659586639",
+			"longitude": "-0.44624009556460",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160492,
+					"title": "003120",
+					"file_name": "641b5868-f733-4232-8072-4cc30b4d47a7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/641b5868-f733-4232-8072-4cc30b4d47a7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067086,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": null,
+			"latitude": "0.61298263170548",
+			"longitude": "-0.41613930450058",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160494,
+					"title": "003122",
+					"file_name": "0ba3a21d-4b2a-434f-9350-9ae149022579.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0ba3a21d-4b2a-434f-9350-9ae149022579.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067089,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust x3",
+			"description": "At the edge of a frozen lake.",
+			"latitude": "0.73161160736565",
+			"longitude": "-0.36573796451245",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160497,
+					"title": "003124",
+					"file_name": "1ddcf9b0-50d3-4b7b-940a-0afbe2b53961.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ddcf9b0-50d3-4b7b-940a-0afbe2b53961.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067091,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust x2",
+			"description": null,
+			"latitude": "0.74887797403669",
+			"longitude": "-0.38940842546918",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160498,
+					"title": "003126",
+					"file_name": "9238acc8-7290-404d-9af1-507c3be43ba6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9238acc8-7290-404d-9af1-507c3be43ba6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067093,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": "Inside a chest.",
+			"latitude": "0.73888169058257",
+			"longitude": "-0.38523870835172",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160500,
+					"title": "003127",
+					"file_name": "222dfbb3-45d8-4fea-be27-0b207fb4b105.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/222dfbb3-45d8-4fea-be27-0b207fb4b105.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067097,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": "Inside a chest.",
+			"latitude": "0.77066042975152",
+			"longitude": "-0.38528181020141",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160504,
+					"title": "003129",
+					"file_name": "a3dc36bf-f0b7-4e95-aa05-f1b1ed8de73f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a3dc36bf-f0b7-4e95-aa05-f1b1ed8de73f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067112,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": "Inside a bundle hanging above the tower's entrance. Shoot it down to claim the loot.",
+			"latitude": "0.63497358570329",
+			"longitude": "-0.50720094638646",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160516,
+					"title": "003140",
+					"file_name": "ce6e5b2b-98c8-40de-8f22-aee372bb2a47.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ce6e5b2b-98c8-40de-8f22-aee372bb2a47.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067121,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": "Tower, three floors above ground level - near the stairs.",
+			"latitude": "0.65504554767919",
+			"longitude": "-0.52803039550781",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160526,
+					"title": "003150",
+					"file_name": "9ab0d96e-4cd3-4cf3-89bc-085314f65876.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9ab0d96e-4cd3-4cf3-89bc-085314f65876.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067147,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28318,
+			"title": "Remnant Dust",
+			"description": "Tower, lower level - a stone's throw from the [Crimson Forest Sha-Chi Tower Base](#loc=1067131) bell, in a chest.",
+			"latitude": "0.63273097447073",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160544,
+					"title": "003168",
+					"file_name": "6115a302-76be-4dc4-b714-650fadd30c2d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6115a302-76be-4dc4-b714-650fadd30c2d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058247,
 			"map_id": 1066,
 			"region_id": null,
@@ -6829,6 +8684,114 @@
 			]
 		},
 		{
+			"id": 1083908,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28469,
+			"title": "Polished Forged Metal x20",
+			"description": "Inside a chest beyond the [Fragile Wall](#loc=1058432)",
+			"latitude": "0.81458333568587",
+			"longitude": "-0.84179242584071",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 161005,
+					"title": "003331",
+					"file_name": "fd494ead-aff9-4926-b509-f4ad7f83707f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fd494ead-aff9-4926-b509-f4ad7f83707f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067088,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28554,
+			"title": "Flawless Forged Metal x15",
+			"description": null,
+			"latitude": "0.72582877027463",
+			"longitude": "-0.39190416204303",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160496,
+					"title": "003123",
+					"file_name": "a78a2723-7856-4760-a8e5-e431a146deb8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a78a2723-7856-4760-a8e5-e431a146deb8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067103,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28554,
+			"title": "Flawless Forged Metal x18",
+			"description": "Inside a chest.",
+			"latitude": "0.79254123923765",
+			"longitude": "-0.38901642867646",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160510,
+					"title": "003135",
+					"file_name": "c1942cea-16f6-474c-afc7-e8fefe831689.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c1942cea-16f6-474c-afc7-e8fefe831689.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067130,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28554,
+			"title": "Flawless Forged Metal x15",
+			"description": "Tower, lower level reached via [Elevator](#loc=1067128).",
+			"latitude": "0.63616399038408",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160533,
+					"title": "003157",
+					"file_name": "e3468aa5-3713-4a7f-85d8-8279dbc8e952.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e3468aa5-3713-4a7f-85d8-8279dbc8e952.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058240,
 			"map_id": 1066,
 			"region_id": null,
@@ -6969,6 +8932,141 @@
 					"file_name": "12986b64-92ae-4628-9852-a363c33f17b8.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/12986b64-92ae-4628-9852-a363c33f17b8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067076,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28551,
+			"title": "Flawless Twinned Metal x12",
+			"description": "Inside a bundle hanging from a tree; shoot it down to get the loot.",
+			"latitude": "0.70723473170261",
+			"longitude": "-0.45016129738596",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160483,
+					"title": "003112",
+					"file_name": "87ac48d7-1b8a-415d-a631-762a607df4fc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/87ac48d7-1b8a-415d-a631-762a607df4fc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067081,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28551,
+			"title": "Flawless Twinned Metal x15",
+			"description": null,
+			"latitude": "0.65542615260398",
+			"longitude": "-0.44023605831828",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160489,
+					"title": "003117",
+					"file_name": "29c65e1a-3f83-42eb-81f4-c69e593db94e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/29c65e1a-3f83-42eb-81f4-c69e593db94e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067101,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28551,
+			"title": "Flawless Twinned Metal x18",
+			"description": "Inside a chest.",
+			"latitude": "0.79188199236758",
+			"longitude": "-0.38356487045021",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160508,
+					"title": "003133",
+					"file_name": "bfe5f26f-06d4-4c06-b087-903864edff84.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bfe5f26f-06d4-4c06-b087-903864edff84.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067115,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28551,
+			"title": "Flawless Twinned Metal x15",
+			"description": "Ground floor of the tower, at the back - wall run on the right side, then walk on a pipe near the furnace.",
+			"latitude": "0.64474652415048",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160519,
+					"title": "003143",
+					"file_name": "94bc29e1-f3f9-4289-b17f-270c3f97837b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/94bc29e1-f3f9-4289-b17f-270c3f97837b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083909,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28551,
+			"title": "Flawless Twinned Metal x12",
+			"description": "Inside a chest beyond the [Fragile Wall](#loc=1058432)",
+			"latitude": "0.81449758542688",
+			"longitude": "-0.84033384538671",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 161004,
+					"title": "003331",
+					"file_name": "4f8b90ba-f5db-42bf-af58-51a0049b2aa8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4f8b90ba-f5db-42bf-af58-51a0049b2aa8.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -7140,6 +9238,114 @@
 			]
 		},
 		{
+			"id": 1067066,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28553,
+			"title": "Flawless Broadplate Metal x12",
+			"description": "Inside a chest behind the [Mirrorwood Entrance](#loc=1058360) bell after the area is covered in snow.",
+			"latitude": "0.73055607384157",
+			"longitude": "-0.48643522936101",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160474,
+					"title": "003107",
+					"file_name": "cbb01125-2df7-45ea-9128-61eee0e01e88.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cbb01125-2df7-45ea-9128-61eee0e01e88.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067102,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28553,
+			"title": "Flawless Broadplate Metal x18",
+			"description": "Inside a chest.",
+			"latitude": "0.79106667862402",
+			"longitude": "-0.38420877441740",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160509,
+					"title": "003133",
+					"file_name": "aac7e97e-c1ff-419b-8538-517afae5f950.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aac7e97e-c1ff-419b-8538-517afae5f950.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067104,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28553,
+			"title": "Flawless Broadplate Metal x18",
+			"description": "Inside a chest.",
+			"latitude": "0.79271288418821",
+			"longitude": "-0.38751398608588",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160511,
+					"title": "003135",
+					"file_name": "31deec52-7391-40ab-a995-6d4d4f0822cb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31deec52-7391-40ab-a995-6d4d4f0822cb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067118,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28553,
+			"title": "Flawless Broadplate Metal x11",
+			"description": "Tower, one floor above ground level - in a bundle hanging above the stairs. Shoot it down to claim the loot.",
+			"latitude": "0.64817953431845",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160523,
+					"title": "003147",
+					"file_name": "b019274c-9f45-42dd-9c1a-3f8cdd1bd5f5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b019274c-9f45-42dd-9c1a-3f8cdd1bd5f5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058252,
 			"map_id": 1066,
 			"region_id": null,
@@ -7289,6 +9495,141 @@
 			]
 		},
 		{
+			"id": 1067067,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28552,
+			"title": "Universal Solvent x17",
+			"description": "Inside a chest behind the [Mirrorwood Entrance](#loc=1058360) bell after the area is covered in snow.",
+			"latitude": "0.73081988899520",
+			"longitude": "-0.48395472902456",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160475,
+					"title": "003107",
+					"file_name": "cc4a9656-ab6a-426e-a657-f825816b89ba.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cc4a9656-ab6a-426e-a657-f825816b89ba.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067100,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28552,
+			"title": "Universal Solvent x15",
+			"description": "In a chest.",
+			"latitude": "0.79171034738260",
+			"longitude": "-0.38515316690300",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160507,
+					"title": "003133",
+					"file_name": "eee64bec-6151-4e21-8db8-86f41f09d53c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/eee64bec-6151-4e21-8db8-86f41f09d53c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067105,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28552,
+			"title": "Universal Solvent x17",
+			"description": "Inside a chest.",
+			"latitude": "0.79176883686881",
+			"longitude": "-0.38815789005309",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160512,
+					"title": "003135",
+					"file_name": "d8af4c5c-856b-4f3d-a75b-5f64f8fc5dff.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d8af4c5c-856b-4f3d-a75b-5f64f8fc5dff.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067135,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28552,
+			"title": "Universal Solvent x19",
+			"description": "Beyond the [Locked Door](#loc=1067124)",
+			"latitude": "0.65504554418389",
+			"longitude": "-0.51086425781250",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160538,
+					"title": "003162",
+					"file_name": "972769cd-2ffe-4569-895b-430bba8af054.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/972769cd-2ffe-4569-895b-430bba8af054.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067148,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28552,
+			"title": "Universal Solvent x14",
+			"description": "Tower, lower level - a stone's throw from the [Crimson Forest Sha-Chi Tower Base](#loc=1067131) bell, in a chest.",
+			"latitude": "0.63273097447073",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160545,
+					"title": "003168",
+					"file_name": "c97a708b-049a-4efa-9b79-5b44a2f26fbb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c97a708b-049a-4efa-9b79-5b44a2f26fbb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058243,
 			"map_id": 1066,
 			"region_id": null,
@@ -7361,6 +9702,60 @@
 					"file_name": "f705bda5-3647-43d5-80f3-a1993320777b.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/f705bda5-3647-43d5-80f3-a1993320777b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067069,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28576,
+			"title": "Forged Otherworldly Copper x14",
+			"description": "Inside a chest.",
+			"latitude": "0.68602677261113",
+			"longitude": "-0.53001757735200",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160476,
+					"title": "003108",
+					"file_name": "1339ebc6-2d33-47ee-b9ce-aca08167c3ac.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1339ebc6-2d33-47ee-b9ce-aca08167c3ac.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067074,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28576,
+			"title": "Forged Otherworldly Copper x14",
+			"description": "",
+			"latitude": "0.73590281778507",
+			"longitude": "-0.43666362762670",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160481,
+					"title": "003110",
+					"file_name": "54541c77-149c-4ed7-a5f6-728b086714f0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/54541c77-149c-4ed7-a5f6-728b086714f0.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -7505,6 +9900,114 @@
 			]
 		},
 		{
+			"id": 1067070,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28593,
+			"title": "Searing Darkfire Charcoal x9",
+			"description": "",
+			"latitude": "0.68606048469485",
+			"longitude": "-0.52781057023844",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160477,
+					"title": "003108",
+					"file_name": "63b751d4-3944-4eda-a136-27b1ef12b496.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/63b751d4-3944-4eda-a136-27b1ef12b496.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067094,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28593,
+			"title": "Searing Darkfire Charcoal x10",
+			"description": "Inside a chest.",
+			"latitude": "0.77224815355781",
+			"longitude": "-0.38699888744819",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160501,
+					"title": "003129",
+					"file_name": "35e10ecb-c592-462d-84ba-1771dff4b916.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35e10ecb-c592-462d-84ba-1771dff4b916.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067117,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28593,
+			"title": "Searing Darkfire Charcoal x9",
+			"description": "Tower, one floor above ground level - on a pipe near the middle of the room.",
+			"latitude": "0.64817953431845",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160522,
+					"title": "003146",
+					"file_name": "486bacee-692c-4326-afd5-af8826fb2913.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/486bacee-692c-4326-afd5-af8826fb2913.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1083907,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28593,
+			"title": "Searing Darkfire Charcoal x8",
+			"description": "Inside a chest beyond the [Fragile Wall](#loc=1058432)",
+			"latitude": "0.81419745950731",
+			"longitude": "-0.84325100629465",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 161003,
+					"title": "003331",
+					"file_name": "54e29558-b6fa-4d1d-9fa3-afd544a87934.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/54e29558-b6fa-4d1d-9fa3-afd544a87934.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058359,
 			"map_id": 1066,
 			"region_id": null,
@@ -7550,6 +10053,60 @@
 					"file_name": "7cae28fa-4243-4ca6-8816-4609bc3d5931.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/7cae28fa-4243-4ca6-8816-4609bc3d5931.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067079,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28595,
+			"title": "Ying Mechanical Gear x14",
+			"description": null,
+			"latitude": "0.65104610863641",
+			"longitude": "-0.45434724853772",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160488,
+					"title": "003115",
+					"file_name": "e5f8d706-611d-4e87-97fb-4cfaff914ab8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5f8d706-611d-4e87-97fb-4cfaff914ab8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067134,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28595,
+			"title": "Ying Mechanical Gear x14",
+			"description": "Tower, lower level - climb a ladder by the [Crimson Forest Sha-Chi Tower Base](#loc=1067131) bell, swing on a chain, then climb a wall to reach it.",
+			"latitude": "0.63616399152764",
+			"longitude": "-0.51429748535156",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160537,
+					"title": "003161",
+					"file_name": "31a7e9ef-22e9-472a-b50d-efd2f8fb143b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/31a7e9ef-22e9-472a-b50d-efd2f8fb143b.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -7631,6 +10188,60 @@
 					"file_name": "16561c3c-2af4-4aa4-86aa-098f125f1892.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/16561c3c-2af4-4aa4-86aa-098f125f1892.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067087,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28594,
+			"title": "Forbidden Camphor Timber x14",
+			"description": null,
+			"latitude": "0.61062167484820",
+			"longitude": "-0.41253269455549",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160495,
+					"title": "003122",
+					"file_name": "d2d584ea-cd82-4592-bf52-9f3dd01292bc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d2d584ea-cd82-4592-bf52-9f3dd01292bc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067095,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28594,
+			"title": "Forbidden Camphor Timber x14",
+			"description": "Inside a chest.",
+			"latitude": "0.77259144511392",
+			"longitude": "-0.38536766406364",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160502,
+					"title": "003129",
+					"file_name": "1ac0bd56-c71a-46cb-9503-419ae5590783.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ac0bd56-c71a-46cb-9503-419ae5590783.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -7802,6 +10413,72 @@
 			]
 		},
 		{
+			"id": 1067125,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28466,
+			"title": "Tainted Crystal Shard x2",
+			"description": "Tower, highest of the lower levels - shoot it down on the floor above, then slide down the ladder beside [Flawless Twinned Metal x15](#loc=1067115) to claim the loot.",
+			"latitude": "0.63959700630053",
+			"longitude": "-0.52803039550781",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160529,
+					"title": "003153",
+					"file_name": "75a89b91-5d95-42fc-9e81-5298462c2b5d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/75a89b91-5d95-42fc-9e81-5298462c2b5d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 160530,
+					"title": "003154",
+					"file_name": "3e3b0649-a270-4b21-bc62-a3bb0ff116d8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e3b0649-a270-4b21-bc62-a3bb0ff116d8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067126,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28466,
+			"title": "Tainted Crystal Shard x2",
+			"description": "Tower, highest of the lower levels, reached by sliding down the ladder beside [Flawless Twinned Metal x15](#loc=1067115).",
+			"latitude": "0.63959700630053",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160531,
+					"title": "003155",
+					"file_name": "bec304e4-ab36-4ac8-ba76-271e87de770e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bec304e4-ab36-4ac8-ba76-271e87de770e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1059586,
 			"map_id": 1066,
 			"region_id": null,
@@ -7814,6 +10491,33 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1067116,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28494,
+			"title": "Refined Indigo Crystal",
+			"description": "Tower, one floor above ground level - inside a chest above the entrance.",
+			"latitude": "0.64817953431845",
+			"longitude": "-0.52803039550781",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160521,
+					"title": "003144",
+					"file_name": "fc62e18f-f2c7-436a-85bd-d95646e7fa4e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fc62e18f-f2c7-436a-85bd-d95646e7fa4e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 1058357,
@@ -7870,6 +10574,87 @@
 			]
 		},
 		{
+			"id": 1067071,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28596,
+			"title": "Incense Ash for the Lady x7",
+			"description": "Inside a chest.",
+			"latitude": "0.68430644543025",
+			"longitude": "-0.52980103582581",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160478,
+					"title": "003108",
+					"file_name": "c382154a-a960-4d5c-a031-48391e2389bf.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c382154a-a960-4d5c-a031-48391e2389bf.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067096,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28596,
+			"title": "Incense Ash for the Lady x6",
+			"description": "Inside a chest.",
+			"latitude": "0.77057460682710",
+			"longitude": "-0.38708474131042",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160503,
+					"title": "003129",
+					"file_name": "9bb37118-f926-4371-a488-d1bb9a5d2013.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9bb37118-f926-4371-a488-d1bb9a5d2013.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067113,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28596,
+			"title": "Incense Ash for the Lady x15",
+			"description": "Ground floor of the tower, left side.",
+			"latitude": "0.64474652415048",
+			"longitude": "-0.52803039550781",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160517,
+					"title": "003141",
+					"file_name": "3988fe21-e2a1-47f3-bd69-201d2f88305c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3988fe21-e2a1-47f3-bd69-201d2f88305c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 1058349,
 			"map_id": 1066,
 			"region_id": null,
@@ -7884,24 +10669,144 @@
 			"media": []
 		},
 		{
-			"id": 1058292,
+			"id": 1067077,
 			"map_id": 1066,
 			"region_id": null,
-			"category_id": 28444,
-			"title": "Crank",
-			"description": "Turn it to lower [Quick Hand Zhang](#loc=1058288)'s cage.",
-			"latitude": "0.73581668106182",
-			"longitude": "-0.99118616330318",
+			"category_id": 28559,
+			"title": "Master Healer's Memory",
+			"description": "Inside a chest.",
+			"latitude": "0.70254198821836",
+			"longitude": "-0.45431821901531",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
 			"media": [
 				{
-					"id": 157608,
-					"title": "001536",
-					"file_name": "501c1ab5-e21c-4ff0-a98c-19c2c6b7bbb9.jpg",
+					"id": 160484,
+					"title": "003113",
+					"file_name": "e2eed869-8e07-4293-9a5d-c31ab77cb87e.jpg",
 					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/501c1ab5-e21c-4ff0-a98c-19c2c6b7bbb9.jpg",
+					"url": "https://media.mapgenie.io/storage/media/e2eed869-8e07-4293-9a5d-c31ab77cb87e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067092,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28559,
+			"title": "Master Healer's Memory",
+			"description": "Inside a chest.",
+			"latitude": "0.73888169058257",
+			"longitude": "-0.38700224609661",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160499,
+					"title": "003127",
+					"file_name": "3495a2ee-fcb8-4d16-aba4-c63a929a7cec.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3495a2ee-fcb8-4d16-aba4-c63a929a7cec.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067137,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28559,
+			"title": "Master Healer's Memory x2",
+			"description": "Hanging above the stairs beyond the [Locked Door](#loc=1067124). Shoot it down, then go down a floor and walk on the pipe opposite the [Crimson Forest Sha-Chi Tower 6th Floor](#loc=1067122) bell to claim the loot.",
+			"latitude": "0.65847854617462",
+			"longitude": "-0.52459716796875",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160540,
+					"title": "003164",
+					"file_name": "47c32de8-63e3-404b-b079-2054447c318e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/47c32de8-63e3-404b-b079-2054447c318e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 160541,
+					"title": "003165",
+					"file_name": "3f6b94d1-9517-4c2d-a732-1c14f9beb15a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f6b94d1-9517-4c2d-a732-1c14f9beb15a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067138,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28559,
+			"title": "Master Healer's Memory x4",
+			"description": "Tower, four floors above ground level, in a chest outside.",
+			"latitude": "0.65847854617462",
+			"longitude": "-0.52116394042969",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160542,
+					"title": "003166",
+					"file_name": "f62c99c4-d295-4530-bff1-9f3b555aa250.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f62c99c4-d295-4530-bff1-9f3b555aa250.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
+			"id": 1067149,
+			"map_id": 1066,
+			"region_id": null,
+			"category_id": 28559,
+			"title": "Master Healer's Memory",
+			"description": "Tower, lower level - a stone's throw from the [Crimson Forest Sha-Chi Tower Base](#loc=1067131) bell, in a chest.",
+			"latitude": "0.63273097447073",
+			"longitude": "-0.51773071289062",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 160546,
+					"title": "003168",
+					"file_name": "4a1d5747-20d8-408e-b734-77127ea5c54c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4a1d5747-20d8-408e-b734-77127ea5c54c.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -7913,8 +10818,38 @@
 	],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
-	"tags": [],
-	"tagsById": [],
+	"tags": [
+		{
+			"id": 318,
+			"game_id": 345,
+			"order": 1,
+			"title": "Phantom Illusionist Ruins",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{ "id": 319, "game_id": 345, "order": 2, "title": "Lake", "icon": null, "color": null, "icon_color": null }
+	],
+	"tagsById": {
+		"318": {
+			"id": 318,
+			"game_id": 345,
+			"order": 1,
+			"title": "Phantom Illusionist Ruins",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"319": {
+			"id": 319,
+			"game_id": 345,
+			"order": 2,
+			"title": "Lake",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
+	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
 	"presets": [],

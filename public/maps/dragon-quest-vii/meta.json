@@ -250,6 +250,7 @@
 			"slug": "past",
 			"title": "Past",
 			"data": "past/data.json",
+			"compact": "past/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -261,13 +262,13 @@
 					"tileSize": 256,
 					"background": "#0d1925"
 				}
-			],
-			"compact": "past/data.compact.json"
+			]
 		},
 		{
 			"slug": "present",
 			"title": "Present",
 			"data": "present/data.json",
+			"compact": "present/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V2",
@@ -279,8 +280,7 @@
 					"tileSize": 256,
 					"background": "#0d1925"
 				}
-			],
-			"compact": "present/data.compact.json"
+			]
 		}
 	]
 }

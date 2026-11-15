@@ -13,7 +13,8 @@
 				"max_zoom": 17,
 				"tiles_max_zoom": 16,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 13,
@@ -24,16 +25,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "elden-ring",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/elden-ring/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1110,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "34362C",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -519,10 +527,17 @@
 		{
 			"id": 1111,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Key Items",
 			"order": 10,
 			"color": "582359",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -980,10 +995,17 @@
 		{
 			"id": 1112,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "1F526B",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1070,7 +1092,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 260
+					"locations_count": 255
 				},
 				{
 					"id": 5701,
@@ -1441,10 +1463,17 @@
 		{
 			"id": 1113,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "39634A",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1559,7 +1588,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 70
+					"locations_count": 71
 				},
 				{
 					"id": 5692,
@@ -1650,10 +1679,17 @@
 		{
 			"id": 1114,
 			"game_id": 111,
+			"section_id": null,
 			"title": "NPC's",
 			"order": 10,
 			"color": "428C7F",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1775,10 +1811,17 @@
 		{
 			"id": 1115,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 10,
 			"color": "631813",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1956,10 +1999,17 @@
 		{
 			"id": 1116,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Materials",
 			"order": 10,
 			"color": "807358",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -2018,7 +2068,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 647
+					"locations_count": 652
 				},
 				{
 					"id": 6035,
@@ -2249,10 +2299,17 @@
 		{
 			"id": 1117,
 			"game_id": 111,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "5C5A5A",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -2311,7 +2368,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 22
+					"locations_count": 23
 				},
 				{
 					"id": 5719,
@@ -2456,6 +2513,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"5655": {
 			"id": 5655,
@@ -3183,7 +3241,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 260
+			"locations_count": 255
 		},
 		"5682": {
 			"id": 5682,
@@ -3435,7 +3493,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 70
+			"locations_count": 71
 		},
 		"5691": {
 			"id": 5691,
@@ -3799,7 +3857,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 647
+			"locations_count": 652
 		},
 		"5704": {
 			"id": 5704,
@@ -4163,7 +4221,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 22
+			"locations_count": 23
 		},
 		"5719": {
 			"id": 5719,
@@ -4811,7 +4869,8 @@
 								[-0.7900870269518645, 0.3313757986185373],
 								[-0.7535231536608489, 0.3586694624292109],
 								[-0.7552397674303801, 0.39471757189808315],
-								[-0.7780707305651458, 0.42630245415630835]
+								[-0.7780707305651458, 0.42630245415630835],
+								[-0.8223875006229986, 0.41929551584192293]
 							]
 						]
 					},
@@ -4847,7 +4906,8 @@
 								[-0.7696125564765444, 0.7806266717521015],
 								[-0.7750198898505678, 0.7823860371918765],
 								[-0.7792685089301576, 0.7759064193791084],
-								[-0.8213092262525068, 0.7990621978103055]
+								[-0.8213092262525068, 0.7990621978103055],
+								[-0.7933858927580673, 0.8526465496292017]
 							]
 						]
 					},
@@ -4884,7 +4944,8 @@
 								[-0.603001168854087, 0.7031451839928495],
 								[-0.5734983087573942, 0.6805962539035518],
 								[-0.5674901605640348, 0.6199178679661486],
-								[-0.5959859491382535, 0.6025810555837836]
+								[-0.5959859491382535, 0.6025810555837836],
+								[-0.6020445204696379, 0.5894095525366515]
 							]
 						]
 					},
@@ -4911,7 +4972,8 @@
 								[-0.49794420753369817, 0.7550820241835866],
 								[-0.49794420753369817, 0.7138866796729745],
 								[-0.5431769803608466, 0.7138866796729745],
-								[-0.5424903348530341, 0.7550820241835866]
+								[-0.5424903348530341, 0.7550820241835866],
+								[-0.49794420753369817, 0.7550820241835866]
 							]
 						]
 					},
@@ -4941,7 +5003,8 @@
 								[-0.7354942436554412, 0.4945545713790911],
 								[-0.6572166557648162, 0.4907781606989426],
 								[-0.6522384758331756, 0.46194004639497627],
-								[-0.6773010368683319, 0.405636730727994]
+								[-0.6773010368683319, 0.405636730727994],
+								[-0.7169548149445037, 0.3680437466962395]
 							]
 						]
 					},
@@ -4975,7 +5038,8 @@
 								[-0.7608021026691669, 0.6511965622306272],
 								[-0.7765559736201699, 0.6462613896616081],
 								[-0.791061359972709, 0.6386909973673918],
-								[-0.799301106066459, 0.6222983284897253]
+								[-0.799301106066459, 0.6222983284897253],
+								[-0.7238279222992583, 0.5436950766589598]
 							]
 						]
 					},
@@ -5016,7 +5080,8 @@
 								[-0.7696125564765444, 0.7806266717521015],
 								[-0.7700846252631655, 0.7714007190188668],
 								[-0.7681963501166811, 0.7660367838005177],
-								[-0.7619177385825182, 0.762058981767562]
+								[-0.7619177385825182, 0.762058981767562],
+								[-0.7535013819314895, 0.7597065391674122]
 							]
 						]
 					},
@@ -5057,7 +5122,8 @@
 								[-0.5813257865811816, 0.9134304153159472],
 								[-0.5445902519132129, 0.872579970657635],
 								[-0.5501475947036449, 0.7624487738188794],
-								[-0.6284251825942699, 0.7140442852663842]
+								[-0.6284251825942699, 0.7140442852663842],
+								[-0.6451838188077441, 0.7610114311091557]
 							]
 						]
 					},
@@ -5084,7 +5150,8 @@
 								[-0.8384326602188463, 0.5861818113315255],
 								[-0.8389476443497057, 0.5596614547347536],
 								[-0.8745673800674791, 0.5615496394951315],
-								[-0.8751681948868151, 0.5878983350001127]
+								[-0.8751681948868151, 0.5878983350001127],
+								[-0.8384326602188463, 0.5861818113315255]
 							]
 						]
 					},
@@ -5114,7 +5181,8 @@
 								[-0.6757683881157606, 0.2351460242898354],
 								[-0.6215233929985731, 0.24990877041054707],
 								[-0.6077904828423231, 0.2952268599429656],
-								[-0.6228966840141981, 0.3419180314409082]
+								[-0.6228966840141981, 0.3419180314409082],
+								[-0.6598038800591199, 0.34981431090458226]
 							]
 						]
 					},
@@ -5151,6 +5219,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 164074,
@@ -20204,7 +20273,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 160688,
+					"title": "",
+					"file_name": "10ddaa74-96cb-4d6a-9dc1-a8070309826f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/10ddaa74-96cb-4d6a-9dc1-a8070309826f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 166744,
@@ -21429,7 +21511,7 @@
 			"region_id": 1349,
 			"category_id": 5658,
 			"title": "Astel, Naturalborn of the Void",
-			"description": null,
+			"description": "Available after defeating the boss",
 			"latitude": "0.31385248573232",
 			"longitude": "-0.82431758616243",
 			"features": null,
@@ -36429,20 +36511,6 @@
 			]
 		},
 		{
-			"id": 168555,
-			"map_id": 413,
-			"region_id": 1349,
-			"category_id": 5681,
-			"title": "3x Silver Tear Husk",
-			"description": "**Location:** On a corpse behind the building",
-			"latitude": "0.39162994105412",
-			"longitude": "-0.79173675261242",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 168564,
 			"map_id": 413,
 			"region_id": 1349,
@@ -37148,33 +37216,6 @@
 			"media": []
 		},
 		{
-			"id": 170421,
-			"map_id": 413,
-			"region_id": 1327,
-			"category_id": 5681,
-			"title": "8x Rimed Crystal Bud",
-			"description": "**Location:** On a corpse in a small ruined tower",
-			"latitude": "0.75249915959310",
-			"longitude": "-0.81206860857847",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 20306,
-					"title": "Elden Ring Screenshot 2022.04.10 - 22.21.40.37",
-					"file_name": "f1fe2482-c073-42d4-b408-8ec8f832bb1e.jpg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/f1fe2482-c073-42d4-b408-8ec8f832bb1e.png",
-					"type": "image",
-					"mime_type": "image/png",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
 			"id": 170449,
 			"map_id": 413,
 			"region_id": 1334,
@@ -37228,20 +37269,6 @@
 					"spoiler": false
 				}
 			]
-		},
-		{
-			"id": 170485,
-			"map_id": 413,
-			"region_id": 1327,
-			"category_id": 5681,
-			"title": "3x Strip of White Flesh",
-			"description": "**Location:** Under the broken bridge surrounded by Land Squirts",
-			"latitude": "0.69361044338928",
-			"longitude": "-0.76712995304811",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
 		},
 		{
 			"id": 170490,
@@ -38266,20 +38293,6 @@
 			"media": []
 		},
 		{
-			"id": 175129,
-			"map_id": 413,
-			"region_id": 1329,
-			"category_id": 5681,
-			"title": "Four-Toed Fowl Foot x3",
-			"description": "**Location:** On a corpse beside a cart and a trebuchet.",
-			"latitude": "0.80832399757988",
-			"longitude": "-0.73019858370478",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 175336,
 			"map_id": 413,
 			"region_id": 1329,
@@ -38873,20 +38886,6 @@
 			"description": "In the catacombs, guarded by two Large Crabs.",
 			"latitude": "0.79620287131509",
 			"longitude": "-0.77187001701097",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 176097,
-			"map_id": 413,
-			"region_id": 1332,
-			"category_id": 5681,
-			"title": "2x Strip of White Flesh",
-			"description": "On a corpse surrounded by crabs.",
-			"latitude": "0.83377014365523",
-			"longitude": "-0.64451672496514",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -42350,7 +42349,7 @@
 			"region_id": 1325,
 			"category_id": 5707,
 			"title": "Extreme Repentance",
-			"description": "**Location:** Given by [Patches](#loc=164504) under the following conditions:\n1. Befriend him by sparing his life. Doing so will reward you with [Grovel For Mercy](#loc=165136).\n2. Reinitiate the fight by attacking him 3 times.\n3. Let yourself get hit. When your HP is low enough, Patches will offer you to surrender.\n4. Perform the Grovel for Mercy gesture you obtained earlier. Doing so will grant you Extreme Repentance. Use it to end the fight.",
+			"description": "**Location:** Given by [Patches](#loc=164504) under the following conditions:\n\n1. Befriend him by sparing his life during the first encounter. Let the fight end completely. Doing so will reward you with [Grovel for Mercy](#loc=165136).\n2. Reinitiate the fight by attacking him a few times.\n3. Let Patches attack you until your HP drops low enough (approximately below 50%). He will then offer to accept your surrender, automatically granting you **Extreme Repentance**.\n4. Perform the newly obtained gesture while your HP is still low to make Patches stop attacking and become friendly again.\n\n**Note:** Performing Grovel for Mercy is not required to obtain Extreme Repentance, as the gesture is awarded automatically when Patches offers you the chance to surrender.",
 			"latitude": "0.62950179072870",
 			"longitude": "-0.70929676294207",
 			"features": null,
@@ -64259,6 +64258,33 @@
 			"media": []
 		},
 		{
+			"id": 1056296,
+			"map_id": 413,
+			"region_id": 1328,
+			"category_id": 5690,
+			"title": "Ritual Thrusting Shield",
+			"description": "**Location:** Inside the Caelid Colosseum  \n\n**Type:** Thrusting Shield\n\n**Skill:** Shield Strike\n\n**Only available in the Tarnished Pack DLC**",
+			"latitude": "0.67808772568310",
+			"longitude": "-0.67058097915881",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157339,
+					"title": "",
+					"file_name": "fa6e8a95-6bd2-49ed-9063-d0da40db6e49.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fa6e8a95-6bd2-49ed-9063-d0da40db6e49.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 165163,
 			"map_id": 413,
 			"region_id": 1325,
@@ -80838,7 +80864,20 @@
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
-			"media": []
+			"media": [
+				{
+					"id": 157044,
+					"title": "",
+					"file_name": "cbfa3d80-972f-4665-9498-ebfa30086d44.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/cbfa3d80-972f-4665-9498-ebfa30086d44.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 164444,
@@ -80861,6 +80900,18 @@
 					"url": "https://www.youtube.com/watch?v=WRdsHbD8yn8",
 					"type": "youtube",
 					"mime_type": "mp4",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				},
+				{
+					"id": 157134,
+					"title": "",
+					"file_name": "2de88b3b-306c-4265-9b55-b39b541dd2e7.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2de88b3b-306c-4265-9b55-b39b541dd2e7.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
 					"meta": null,
 					"order": 10,
 					"spoiler": false
@@ -81856,7 +81907,7 @@
 			"region_id": 1328,
 			"category_id": 5699,
 			"title": "Putrid Avatar",
-			"description": "**Location:** East of the Minor Erdtree  \n**Loot:** \n- [Opaline Hardtear](#loc=167335)\n- [Stonebarb Cracked Tear](#loc=167334)",
+			"description": "**Location:** East of the Minor Erdtree  \n**Loot:** \n\n- [Opaline Hardtear](#loc=167335)\n- [Stonebarb Cracked Tear](#loc=167334)\n- Rune x91,000",
 			"latitude": "0.66119410271560",
 			"longitude": "-0.62510624527690",
 			"features": null,
@@ -82847,7 +82898,7 @@
 			"region_id": 1328,
 			"category_id": 5699,
 			"title": "Beastman of Farum Azula x2",
-			"description": "**Location:** [Dragonbarrow Cave](#loc=166188). One fights with a cleaver, while the other uses throwing knives.\n\n**Loot:**\n- [Flamedrake Talisman +2](#loc=167917)\n- Rune x78,000",
+			"description": "**Location:** [Dragonbarrow Cave](#loc=166188). One fights with a cleaver, while the other uses throwing knives.\n\n**Loot:**\n\n- [Flamedrake Talisman +2](#loc=167917)\n- Rune x65,000",
 			"latitude": "0.66372717205792",
 			"longitude": "-0.62592700547597",
 			"features": null,
@@ -89254,8 +89305,8 @@
 			"map_id": 413,
 			"region_id": 1325,
 			"category_id": 5703,
-			"title": "3x Sanctuary Stone",
-			"description": "On the large chunk of collapsed ruin",
+			"title": "Sanctuary Stone x3",
+			"description": "On the large chunk of collapsed ruin. Can respawn",
 			"latitude": "0.56443761749006",
 			"longitude": "-0.70421397686053",
 			"features": null,
@@ -91162,6 +91213,20 @@
 			"media": []
 		},
 		{
+			"id": 168555,
+			"map_id": 413,
+			"region_id": 1349,
+			"category_id": 5703,
+			"title": "Silver Tear Husk x3",
+			"description": "**Location:** On a corpse behind the building",
+			"latitude": "0.39162994105412",
+			"longitude": "-0.79173675261242",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 168628,
 			"map_id": 413,
 			"region_id": 1334,
@@ -92275,6 +92340,33 @@
 			"media": []
 		},
 		{
+			"id": 170421,
+			"map_id": 413,
+			"region_id": 1327,
+			"category_id": 5703,
+			"title": "Rimed Crystal Bud x8",
+			"description": "**Location:** On a corpse in a small ruined tower",
+			"latitude": "0.75249915959310",
+			"longitude": "-0.81206860857847",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 20306,
+					"title": "Elden Ring Screenshot 2022.04.10 - 22.21.40.37",
+					"file_name": "f1fe2482-c073-42d4-b408-8ec8f832bb1e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f1fe2482-c073-42d4-b408-8ec8f832bb1e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		},
+		{
 			"id": 170450,
 			"map_id": 413,
 			"region_id": 1334,
@@ -92379,6 +92471,20 @@
 			"description": "**Location:** At the end of the ledge on the right of the road.",
 			"latitude": "0.75617468418761",
 			"longitude": "-0.78006343237240",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 170485,
+			"map_id": 413,
+			"region_id": 1327,
+			"category_id": 5703,
+			"title": "Strip of White Flesh x3",
+			"description": "**Location:** Under the broken bridge surrounded by Land Squirts",
+			"latitude": "0.69361044338928",
+			"longitude": "-0.76712995304811",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -95176,6 +95282,20 @@
 			"media": []
 		},
 		{
+			"id": 175129,
+			"map_id": 413,
+			"region_id": 1329,
+			"category_id": 5703,
+			"title": "Four-Toed Fowl Foot x3",
+			"description": "**Location:** On a corpse beside a cart and a trebuchet.",
+			"latitude": "0.80832399757988",
+			"longitude": "-0.73019858370478",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 175135,
 			"map_id": 413,
 			"region_id": 1329,
@@ -96199,6 +96319,20 @@
 					"spoiler": false
 				}
 			]
+		},
+		{
+			"id": 176097,
+			"map_id": 413,
+			"region_id": 1332,
+			"category_id": 5703,
+			"title": "Strip of White Flesh x2",
+			"description": "On a corpse surrounded by crabs.",
+			"latitude": "0.83377014365523",
+			"longitude": "-0.64451672496514",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
 		},
 		{
 			"id": 176108,
@@ -115422,7 +115556,7 @@
 			"region_id": 1325,
 			"category_id": 6027,
 			"title": "Trina's Lily",
-			"description": null,
+			"description": "On a clifftop overlooking the valley.",
 			"latitude": "0.65213306737718",
 			"longitude": "-0.70668429136390",
 			"features": null,
@@ -116318,6 +116452,33 @@
 			"ign_page_id": null,
 			"tags": [],
 			"media": []
+		},
+		{
+			"id": 1056295,
+			"map_id": 413,
+			"region_id": 1325,
+			"category_id": 5718,
+			"title": "Spectral Candelabra",
+			"description": "Interacting with this will summon a spirit who will walk to [Mistwood Ruins](#loc=164003) if you haven’t discovered it already.",
+			"latitude": "0.63028412063539",
+			"longitude": "-0.68897069505911",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": [
+				{
+					"id": 157338,
+					"title": "",
+					"file_name": "b03d57f8-f53b-4f75-a20d-26ecf8be7441.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b03d57f8-f53b-4f75-a20d-26ecf8be7441.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		},
 		{
 			"id": 164090,
@@ -118645,7 +118806,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "garamond-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/elden-ring/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

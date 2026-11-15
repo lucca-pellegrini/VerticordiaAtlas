@@ -94,6 +94,7 @@
 			"slug": "hyrule",
 			"title": "Hyrule",
 			"data": "hyrule/data.json",
+			"compact": "hyrule/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -105,8 +106,7 @@
 					"tileSize": 256,
 					"background": "#ffc641"
 				}
-			],
-			"compact": "hyrule/data.compact.json"
+			]
 		}
 	]
 }

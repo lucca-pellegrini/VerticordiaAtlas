@@ -704,6 +704,7 @@
 			"slug": "white-orchard",
 			"title": "White Orchard",
 			"data": "white-orchard/data.json",
+			"compact": "white-orchard/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V2",
@@ -715,13 +716,13 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "white-orchard/data.compact.json"
+			]
 		},
 		{
 			"slug": "vizima-palace",
 			"title": "Royal Palace in Vizima",
 			"data": "vizima-palace/data.json",
+			"compact": "vizima-palace/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -732,13 +733,13 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			],
-			"compact": "vizima-palace/data.compact.json"
+			]
 		},
 		{
 			"slug": "velen-novigrad",
 			"title": "Velen & Novigrad",
 			"data": "velen-novigrad/data.json",
+			"compact": "velen-novigrad/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V2",
@@ -750,13 +751,13 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			],
-			"compact": "velen-novigrad/data.compact.json"
+			]
 		},
 		{
 			"slug": "skellige",
 			"title": "Skellige Isles",
 			"data": "skellige/data.json",
+			"compact": "skellige/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V2",
@@ -768,13 +769,13 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			],
-			"compact": "skellige/data.compact.json"
+			]
 		},
 		{
 			"slug": "kaer-morhen",
 			"title": "Kaer Morhen",
 			"data": "kaer-morhen/data.json",
+			"compact": "kaer-morhen/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V2",
@@ -786,13 +787,13 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			],
-			"compact": "kaer-morhen/data.compact.json"
+			]
 		},
 		{
 			"slug": "time-and-space",
 			"title": "Time and Space",
 			"data": "time-and-space/data.json",
+			"compact": "time-and-space/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -804,13 +805,13 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			],
-			"compact": "time-and-space/data.compact.json"
+			]
 		},
 		{
 			"slug": "isle-of-mists",
 			"title": "Isle of Mists",
 			"data": "isle-of-mists/data.json",
+			"compact": "isle-of-mists/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -821,13 +822,13 @@
 					"bounds": [-168.75, 83.83, -167.5, 83.98],
 					"tileSize": 256
 				}
-			],
-			"compact": "isle-of-mists/data.compact.json"
+			]
 		},
 		{
 			"slug": "realm-of-rumination",
 			"title": "Realm of Rumination",
 			"data": "realm-of-rumination/data.json",
+			"compact": "realm-of-rumination/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -839,13 +840,13 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			],
-			"compact": "realm-of-rumination/data.compact.json"
+			]
 		},
 		{
 			"slug": "toussaint",
 			"title": "Toussaint",
 			"data": "toussaint/data.json",
+			"compact": "toussaint/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V2",
@@ -857,13 +858,13 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			],
-			"compact": "toussaint/data.compact.json"
+			]
 		},
 		{
 			"slug": "fablesphere",
 			"title": "Fablesphere",
 			"data": "fablesphere/data.json",
+			"compact": "fablesphere/data.compact.json",
 			"tilesets": [
 				{
 					"name": "V2",
@@ -875,8 +876,7 @@
 					"tileSize": 256,
 					"background": "#14130f"
 				}
-			],
-			"compact": "fablesphere/data.compact.json"
+			]
 		}
 	]
 }

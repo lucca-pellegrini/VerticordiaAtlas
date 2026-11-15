@@ -232,6 +232,7 @@
 			"slug": "castor-woods",
 			"title": "Castor Woods",
 			"data": "castor-woods/data.json",
+			"compact": "castor-woods/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -243,8 +244,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "castor-woods/data.compact.json"
+			]
 		}
 	]
 }

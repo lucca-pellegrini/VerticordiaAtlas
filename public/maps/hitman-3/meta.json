@@ -12,202 +12,13 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"icons": {
-		"font": "icons/icons.woff",
-		"glyphs": {
-			"blend_in": [
-				{
-					"cp": "e900",
-					"color": "#fff"
-				}
-			],
-			"hiding_spot": [
-				{
-					"cp": "e901",
-					"color": "#fff"
-				}
-			],
-			"non_lethal_melee": [
-				{
-					"cp": "e902",
-					"color": "#fff"
-				}
-			],
-			"stairs": [
-				{
-					"cp": "e903",
-					"color": "#fff"
-				}
-			],
-			"agency_pickup": [
-				{
-					"cp": "e904",
-					"color": "#fff"
-				}
-			],
-			"alarm": [
-				{
-					"cp": "e905",
-					"color": "#fff"
-				}
-			],
-			"ammo": [
-				{
-					"cp": "e906",
-					"color": "#fff"
-				}
-			],
-			"conceal_item": [
-				{
-					"cp": "e907",
-					"color": "#fff"
-				}
-			],
-			"discovery": [
-				{
-					"cp": "e908",
-					"color": "#fff"
-				}
-			],
-			"disguise": [
-				{
-					"cp": "e909",
-					"color": "#fff"
-				}
-			],
-			"distraction": [
-				{
-					"cp": "e90a",
-					"color": "#fff"
-				}
-			],
-			"exit": [
-				{
-					"cp": "e90b",
-					"color": "#fff"
-				}
-			],
-			"explosive": [
-				{
-					"cp": "e90c",
-					"color": "#fff"
-				}
-			],
-			"firearm": [
-				{
-					"cp": "e90d",
-					"color": "#fff"
-				}
-			],
-			"food_drink": [
-				{
-					"cp": "e90e",
-					"color": "#fff"
-				}
-			],
-			"intel": [
-				{
-					"cp": "e90f",
-					"color": "#fff"
-				}
-			],
-			"interaction": [
-				{
-					"cp": "e910",
-					"color": "#fff"
-				}
-			],
-			"key": [
-				{
-					"cp": "e911",
-					"color": "#fff"
-				}
-			],
-			"lethal_melee": [
-				{
-					"cp": "e912",
-					"color": "#fff"
-				}
-			],
-			"location": [
-				{
-					"cp": "e913",
-					"color": "#fff"
-				}
-			],
-			"locked_door": [
-				{
-					"cp": "e914",
-					"color": "#fff"
-				}
-			],
-			"passage": [
-				{
-					"cp": "e915",
-					"color": "#fff"
-				}
-			],
-			"persistent_shortcut": [
-				{
-					"cp": "e916",
-					"color": "#fff"
-				}
-			],
-			"poison": [
-				{
-					"cp": "e917",
-					"color": "#fff"
-				}
-			],
-			"sabotage": [
-				{
-					"cp": "e918",
-					"color": "#fff"
-				}
-			],
-			"security_camera": [
-				{
-					"cp": "e919",
-					"color": "#fff"
-				}
-			],
-			"security_check": [
-				{
-					"cp": "e91a",
-					"color": "#fff"
-				}
-			],
-			"security_footage": [
-				{
-					"cp": "e91b",
-					"color": "#fff"
-				}
-			],
-			"starting_location": [
-				{
-					"cp": "e91c",
-					"color": "#fff"
-				}
-			],
-			"tool": [
-				{
-					"cp": "e91d",
-					"color": "#fff"
-				}
-			],
-			"vertical_traversal": [
-				{
-					"cp": "e91e",
-					"color": "#fff"
-				}
-			]
-		}
-	},
+	"icons": null,
 	"maps": [
 		{
 			"slug": "dubai",
 			"title": "Dubai",
 			"data": "dubai/data.json",
+			"compact": "dubai/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -219,13 +30,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "dubai/data.compact.json"
+			]
 		},
 		{
 			"slug": "dartmoor",
 			"title": "Dartmoor",
 			"data": "dartmoor/data.json",
+			"compact": "dartmoor/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -237,13 +48,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "dartmoor/data.compact.json"
+			]
 		},
 		{
 			"slug": "berlin",
 			"title": "Berlin",
 			"data": "berlin/data.json",
+			"compact": "berlin/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -255,13 +66,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "berlin/data.compact.json"
+			]
 		},
 		{
 			"slug": "chongqing",
 			"title": "Chongqing",
 			"data": "chongqing/data.json",
+			"compact": "chongqing/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -273,13 +84,13 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "chongqing/data.compact.json"
+			]
 		},
 		{
 			"slug": "mendoza",
 			"title": "Mendoza",
 			"data": "mendoza/data.json",
+			"compact": "mendoza/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -291,8 +102,7 @@
 					"tileSize": 256,
 					"background": "#333333"
 				}
-			],
-			"compact": "mendoza/data.compact.json"
+			]
 		}
 	]
 }

@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -35,12 +36,13 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "kingdom-hearts-3d",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 560,
 			"game_id": 56,
+			"section_id": null,
 			"title": "Locations",
 			"order": 1,
 			"color": "293038",
@@ -116,6 +118,7 @@
 		{
 			"id": 561,
 			"game_id": 56,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 2,
 			"color": "293038",
@@ -191,6 +194,7 @@
 		{
 			"id": 562,
 			"game_id": 56,
+			"section_id": null,
 			"title": "Game Records",
 			"order": 3,
 			"color": "293038",
@@ -238,6 +242,7 @@
 		{
 			"id": 27030,
 			"game_id": 56,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 4,
 			"color": "293038",
@@ -283,6 +288,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"2511": {
 			"id": 2511,
@@ -489,7 +495,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

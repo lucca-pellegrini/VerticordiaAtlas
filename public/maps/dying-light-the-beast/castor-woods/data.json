@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 14,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -30,6 +31,7 @@
 		{
 			"id": 2390,
 			"game_id": 239,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "11AD76",
@@ -217,6 +219,7 @@
 		{
 			"id": 2391,
 			"game_id": 239,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "CC702F",
@@ -628,6 +631,7 @@
 		{
 			"id": 2392,
 			"game_id": 239,
+			"section_id": null,
 			"title": "Loot",
 			"order": 10,
 			"color": "349BD1",
@@ -759,6 +763,7 @@
 		{
 			"id": 2393,
 			"game_id": 239,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "C3C21B",
@@ -862,6 +867,7 @@
 		{
 			"id": 2394,
 			"game_id": 239,
+			"section_id": null,
 			"title": "Enemies",
 			"order": 10,
 			"color": "CF2E2E",
@@ -909,6 +915,7 @@
 		{
 			"id": 2395,
 			"game_id": 239,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "646464",
@@ -1038,6 +1045,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"13683": {
 			"id": 13683,
@@ -5336,7 +5344,7 @@
 			"map_id": 819,
 			"region_id": null,
 			"category_id": 13698,
-			"title": "EPO3: \"Nature's Wrath\"",
+			"title": "EP03: \"Nature's Wrath\"",
 			"description": "South of Station Square Apartments, 2nd floor to left of the red \"Motel\" banner. On the shelf next to the radio",
 			"latitude": "0.67778582498502",
 			"longitude": "-0.74933134130529",

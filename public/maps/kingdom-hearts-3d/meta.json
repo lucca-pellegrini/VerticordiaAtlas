@@ -94,6 +94,7 @@
 			"slug": "country-of-the-muskateers-sora",
 			"title": "Country of the Muskateers [Sora]",
 			"data": "country-of-the-muskateers-sora/data.json",
+			"compact": "country-of-the-muskateers-sora/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -105,13 +106,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "country-of-the-muskateers-sora/data.compact.json"
+			]
 		},
 		{
 			"slug": "la-cite-des-cloches-sora",
 			"title": "La Cité des Cloches [Sora]",
 			"data": "la-cite-des-cloches-sora/data.json",
+			"compact": "la-cite-des-cloches-sora/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -123,13 +124,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "la-cite-des-cloches-sora/data.compact.json"
+			]
 		},
 		{
 			"slug": "pranksters-paradise-sora",
 			"title": "Prankster's Paradise [Sora]",
 			"data": "pranksters-paradise-sora/data.json",
+			"compact": "pranksters-paradise-sora/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -141,13 +142,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "pranksters-paradise-sora/data.compact.json"
+			]
 		},
 		{
 			"slug": "symphony-of-sorcery-sora",
 			"title": "Symphony of Sorcery [Sora]",
 			"data": "symphony-of-sorcery-sora/data.json",
+			"compact": "symphony-of-sorcery-sora/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -159,13 +160,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "symphony-of-sorcery-sora/data.compact.json"
+			]
 		},
 		{
 			"slug": "the-grid-sora",
 			"title": "The Grid [Sora]",
 			"data": "the-grid-sora/data.json",
+			"compact": "the-grid-sora/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -177,13 +178,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "the-grid-sora/data.compact.json"
+			]
 		},
 		{
 			"slug": "the-world-that-never-was-sora",
 			"title": "The World That Never Was [Sora]",
 			"data": "the-world-that-never-was-sora/data.json",
+			"compact": "the-world-that-never-was-sora/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -194,13 +195,13 @@
 					"bounds": [-1.40625, 0, 0, 1.4061088354351563],
 					"tileSize": 256
 				}
-			],
-			"compact": "the-world-that-never-was-sora/data.compact.json"
+			]
 		},
 		{
 			"slug": "traverse-town-sora",
 			"title": "Traverse Town [Sora]",
 			"data": "traverse-town-sora/data.json",
+			"compact": "traverse-town-sora/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -212,13 +213,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "traverse-town-sora/data.compact.json"
+			]
 		},
 		{
 			"slug": "country-of-the-muskateers-riku",
 			"title": "Country of the Muskateers [Riku]",
 			"data": "country-of-the-muskateers-riku/data.json",
+			"compact": "country-of-the-muskateers-riku/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -230,13 +231,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "country-of-the-muskateers-riku/data.compact.json"
+			]
 		},
 		{
 			"slug": "la-cite-des-cloches-riku",
 			"title": "La Cité des Cloches [Riku]",
 			"data": "la-cite-des-cloches-riku/data.json",
+			"compact": "la-cite-des-cloches-riku/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -248,13 +249,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "la-cite-des-cloches-riku/data.compact.json"
+			]
 		},
 		{
 			"slug": "pranksters-paradise-riku",
 			"title": "Prankster's Paradise [Riku]",
 			"data": "pranksters-paradise-riku/data.json",
+			"compact": "pranksters-paradise-riku/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -266,13 +267,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "pranksters-paradise-riku/data.compact.json"
+			]
 		},
 		{
 			"slug": "symphony-of-sorcery-riku",
 			"title": "Symphony of Sorcery [Riku]",
 			"data": "symphony-of-sorcery-riku/data.json",
+			"compact": "symphony-of-sorcery-riku/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -284,13 +285,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "symphony-of-sorcery-riku/data.compact.json"
+			]
 		},
 		{
 			"slug": "the-grid-riku",
 			"title": "The Grid [Riku]",
 			"data": "the-grid-riku/data.json",
+			"compact": "the-grid-riku/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -302,13 +303,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "the-grid-riku/data.compact.json"
+			]
 		},
 		{
 			"slug": "the-world-that-never-was-riku",
 			"title": "The World That Never Was [Riku]",
 			"data": "the-world-that-never-was-riku/data.json",
+			"compact": "the-world-that-never-was-riku/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -320,13 +321,13 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "the-world-that-never-was-riku/data.compact.json"
+			]
 		},
 		{
 			"slug": "traverse-town-riku",
 			"title": "Traverse Town [Riku]",
 			"data": "traverse-town-riku/data.json",
+			"compact": "traverse-town-riku/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -338,8 +339,7 @@
 					"tileSize": 256,
 					"background": "#414141"
 				}
-			],
-			"compact": "traverse-town-riku/data.compact.json"
+			]
 		}
 	]
 }

@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -24,16 +25,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "fallout-new-vegas",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1800,
 			"game_id": 180,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "F4BD76",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -463,10 +471,17 @@
 		{
 			"id": 1801,
 			"game_id": 180,
+			"section_id": null,
 			"title": "NPCs",
 			"order": 10,
 			"color": "E4E1D6",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -616,10 +631,17 @@
 		{
 			"id": 1802,
 			"game_id": 180,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "88CF78",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -853,10 +875,17 @@
 		{
 			"id": 1803,
 			"game_id": 180,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "82A2CF",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -978,10 +1007,17 @@
 		{
 			"id": 1804,
 			"game_id": 180,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "D4725F",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1159,10 +1195,17 @@
 		{
 			"id": 1806,
 			"game_id": 180,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "E4E1D6",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1282,6 +1325,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"10815": {
 			"id": 10815,
@@ -2736,6 +2780,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 348685,
@@ -41287,9 +41332,27 @@
 	],
 	"heatmapGroups": [],
 	"heatmapCategories": [],
-	"tags": [{ "id": 59, "game_id": 180, "title": "Fast Travel", "icon": null, "color": null, "icon_color": null }],
+	"tags": [
+		{
+			"id": 59,
+			"game_id": 180,
+			"order": 0,
+			"title": "Fast Travel",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
+	],
 	"tagsById": {
-		"59": { "id": 59, "game_id": 180, "title": "Fast Travel", "icon": null, "color": null, "icon_color": null }
+		"59": {
+			"id": 59,
+			"game_id": 180,
+			"order": 0,
+			"title": "Fast Travel",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -41299,7 +41362,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

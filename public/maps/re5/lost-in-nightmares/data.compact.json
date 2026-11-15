@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 11,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 10,
@@ -30,6 +31,7 @@
 		{
 			"id": 2840,
 			"game_id": 284,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "393939",
@@ -189,6 +191,7 @@
 		{
 			"id": 2841,
 			"game_id": 284,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "5D5285",
@@ -225,7 +228,7 @@
 					"ign_visible": true,
 					"suggestion_locked": false,
 					"suggestion_add_locked": false,
-					"featured": false,
+					"featured": true,
 					"visible": true,
 					"description": null,
 					"premium": false,
@@ -281,7 +284,7 @@
 					"ign_visible": true,
 					"suggestion_locked": false,
 					"suggestion_add_locked": false,
-					"featured": false,
+					"featured": true,
 					"visible": true,
 					"description": null,
 					"premium": false,
@@ -309,7 +312,7 @@
 					"ign_visible": true,
 					"suggestion_locked": false,
 					"suggestion_add_locked": false,
-					"featured": false,
+					"featured": true,
 					"visible": true,
 					"description": null,
 					"premium": false,
@@ -320,6 +323,7 @@
 		{
 			"id": 2842,
 			"game_id": 284,
+			"section_id": null,
 			"title": "Pickups",
 			"order": 30,
 			"color": "807035",
@@ -451,6 +455,7 @@
 		{
 			"id": 2843,
 			"game_id": 284,
+			"section_id": null,
 			"title": "Other",
 			"order": 50,
 			"color": "E0BE5D",
@@ -552,6 +557,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"16030": {
 			"id": 16030,
@@ -687,7 +693,7 @@
 			"ign_visible": true,
 			"suggestion_locked": false,
 			"suggestion_add_locked": false,
-			"featured": false,
+			"featured": true,
 			"visible": true,
 			"description": null,
 			"premium": false,
@@ -715,7 +721,7 @@
 			"ign_visible": true,
 			"suggestion_locked": false,
 			"suggestion_add_locked": false,
-			"featured": false,
+			"featured": true,
 			"visible": true,
 			"description": null,
 			"premium": false,
@@ -743,7 +749,7 @@
 			"ign_visible": true,
 			"suggestion_locked": false,
 			"suggestion_add_locked": false,
-			"featured": false,
+			"featured": true,
 			"visible": true,
 			"description": null,
 			"premium": false,

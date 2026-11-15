@@ -1415,7 +1415,7 @@
 			[]
 		],
 		"355308": [
-			"Note: This teleporter only receives teleports from other teleporters and cannot be used to teleport out of The Ranch.",
+			"_Only receives teleports from other teleporters and cannot be used to teleport out of The Ranch._",
 			[]
 		],
 		"355309": [
@@ -1525,7 +1525,7 @@
 			]
 		],
 		"355316": [
-			"Note: To open this gate, you will have to insert the correct plort into each statue around the area, which are the [Tabby Slime Statue](#loc=355311), [Phosphor Slime Statue](#loc=355313), [Boom Slime Statue](#loc=355310), [Honey Slime Statue](#loc=355312), [Rad Slime Statue](#loc=355314), and [Rock Slime Statue](#loc=355315).",
+			"Note: To open this gate, you will have to insert the correct plort into each statue around the area.\n- [Tabby Slime Statue](#loc=355311)\n- [Phosphor Slime Statue](#loc=355313)\n- [Boom Slime Statue](#loc=355310)\n- [Honey Slime Statue](#loc=355312)\n- [Rad Slime Statue](#loc=355314)\n- [Rock Slime Statue](#loc=355315)",
 			[]
 		],
 		"355317": [
@@ -3182,6 +3182,282 @@
 					"spoiler": false
 				}
 			]
+		],
+		"1083293": [
+			"**Location:** \n- Among crystals on the path towards [Tabby Gordo](#loc=355178)\n\n**Contents:**\n- Heavy Metal Slime (Rock Slime Secret Style)",
+			[
+				{
+					"id": 160805,
+					"title": "",
+					"file_name": "390c2fcc-5e5d-448e-8064-460f409ba082.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/390c2fcc-5e5d-448e-8064-460f409ba082.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083294": [
+			"**Location:** \n- Top of Ring Island near Vault Entrance\n\n**Contents:**\n- Gilded Slime (Golden Slime Secret Style)",
+			[
+				{
+					"id": 160806,
+					"title": "",
+					"file_name": "764249ef-c963-4fee-8bec-676a902a5cd9.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/764249ef-c963-4fee-8bec-676a902a5cd9.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083295": [
+			"**Location:** \n- Behind the [Pink Gordo](#loc=355247)\n\n**Contents:**\n- Sparkly Slime (Pink Slime Secret Style)",
+			[
+				{
+					"id": 160807,
+					"title": "",
+					"file_name": "952f25a6-17ec-4074-a2bc-61442c926bbc.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/952f25a6-17ec-4074-a2bc-61442c926bbc.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083296": [
+			"**Location:** \n- Near [Tabby Gordo](#loc=355182), past The Overgrowth\n\n**Contents:**\n- Tiger Slime (Tabby Slime Secret Style)",
+			[
+				{
+					"id": 160808,
+					"title": "",
+					"file_name": "b75e71b8-9413-4db9-a6f1-bbe244fcb9ca.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b75e71b8-9413-4db9-a6f1-bbe244fcb9ca.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083297": [
+			"**Location:** \n- Ash Isle on a flower patch\n\n**Contents:**\n- Ruby Red Slime (Crystal Slime Secret Style)",
+			[
+				{
+					"id": 160809,
+					"title": "",
+					"file_name": "765f919e-48ae-4d3f-8313-41df0e1be6e7.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/765f919e-48ae-4d3f-8313-41df0e1be6e7.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083298": [
+			"**Location:** \n- Next to water where Puddle Slimes spawn\n\n**Contents:**\n- Lilypad Slime (Puddle Slime Secret Style)",
+			[
+				{
+					"id": 160810,
+					"title": "",
+					"file_name": "111a9ae0-456b-4891-8cb0-57512672b073.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/111a9ae0-456b-4891-8cb0-57512672b073.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083299": [
+			"**Location:** \n- Near Slime Door to Ancient Ruins\n\n**Contents:**\n- Arcane Slime (Boom Slime Secret Style)",
+			[
+				{
+					"id": 160811,
+					"title": "",
+					"file_name": "03cdade0-3283-4ff0-b65b-b9827198f980.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/03cdade0-3283-4ff0-b65b-b9827198f980.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083300": [
+			"**Location:** \n- Beyond The Grotto\n\n**Contents:**\n- Angelic Slime (Phosphor Slime Secret Style)",
+			[
+				{
+					"id": 160812,
+					"title": "",
+					"file_name": "68d0a551-2265-43b6-84bb-39aaab731305.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68d0a551-2265-43b6-84bb-39aaab731305.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083301": [
+			"**Location:** \n- On island next to a bridge\n\n**Contents:**\n- Cheshire Slime (Hunter Slime Secret Style)",
+			[
+				{
+					"id": 160813,
+					"title": "",
+					"file_name": "79ce3fe2-8672-48e0-9477-6bc55fe54e3a.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/79ce3fe2-8672-48e0-9477-6bc55fe54e3a.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083302": [
+			"**Location:** \n- Behind Teleporter\n\n**Contents:**\n- Royal Jelly Slime (Honey Slime Secret Style)",
+			[
+				{
+					"id": 160814,
+					"title": "",
+					"file_name": "4c064eb0-fbd9-4ead-a4c0-91757030c03d.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4c064eb0-fbd9-4ead-a4c0-91757030c03d.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083303": [
+			"**Location:** \n- In a corner on top level\n\n**Contents:**\n- Guardian Slime (Lucky Slime Secret Style)",
+			[
+				{
+					"id": 160815,
+					"title": "",
+					"file_name": "425aaa56-3d72-422a-b676-2b2813b2dabb.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/425aaa56-3d72-422a-b676-2b2813b2dabb.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083304": [
+			"**Location:** \n- In structure leading to Glass Desert Teleporter\n\n**Contents:**\n- Monochrome Slime (Quantum Slime Secret Style)",
+			[
+				{
+					"id": 160816,
+					"title": "",
+					"file_name": "bd5c14bd-e3e6-4f92-9a98-3ff99453e00c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bd5c14bd-e3e6-4f92-9a98-3ff99453e00c.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083305": [
+			"**Location:** \n- Below platform with Oasis Bud\n\n**Contents:**\n- Nebula Slime (Dervish Slime Secret Style)",
+			[
+				{
+					"id": 160817,
+					"title": "",
+					"file_name": "ff7acd3e-c311-4cce-ac50-8f1ef613407c.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff7acd3e-c311-4cce-ac50-8f1ef613407c.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083306": [
+			"**Location:** \n- On top of a cliff\n\n**Contents:**\n- Devilish Slime (Fire Slime Secret Style)",
+			[
+				{
+					"id": 160818,
+					"title": "",
+					"file_name": "145c2766-008d-429b-add2-a67d85504825.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/145c2766-008d-429b-add2-a67d85504825.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083307": [
+			"**Location:** \n- On the island, off the path with Feral Largos\n\n**Contents:**\n- Shattered Slime (Mosaic Slime Secret Style)",
+			[
+				{
+					"id": 160819,
+					"title": "",
+					"file_name": "6a42acec-2791-47ed-8124-ed06cc3de0ba.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a42acec-2791-47ed-8124-ed06cc3de0ba.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083308": [
+			"**Location:** \n- At top of path entering desert ruins\n\n**Contents:**\n- Nightshade Slime (Tangle Slime Secret Style)",
+			[
+				{
+					"id": 160820,
+					"title": "",
+					"file_name": "68c3deb7-4111-470d-9c98-07a4dac85b92.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68c3deb7-4111-470d-9c98-07a4dac85b92.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1083309": [
+			"**Location:** In a cave, behind a rock pillar.\n\n**Contents:**\n- Radiant Slime (Rad Slime Secret Style)",
+			[]
 		]
 	}
 }

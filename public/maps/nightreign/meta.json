@@ -12,26 +12,6 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"maps": [
-		{
-			"slug": "limveld",
-			"title": "Limveld",
-			"data": "limveld/data.json",
-			"tilesets": [
-				{
-					"name": "V3",
-					"template": "limveld/tiles/default-v3/{z}/{y}/{x}.jpg",
-					"minzoom": 9,
-					"maxzoom": 14,
-					"viewMaxzoom": 15,
-					"bounds": [-1.4, 0, 0, 1.4],
-					"tileSize": 256,
-					"background": "#14130f"
-				}
-			],
-			"compact": "limveld/data.compact.json"
-		}
-	],
 	"icons": {
 		"font": "icons/icons.woff",
 		"glyphs": {
@@ -186,5 +166,25 @@
 				}
 			]
 		}
-	}
+	},
+	"maps": [
+		{
+			"slug": "limveld",
+			"title": "Limveld",
+			"data": "limveld/data.json",
+			"compact": "limveld/data.compact.json",
+			"tilesets": [
+				{
+					"name": "V3",
+					"template": "limveld/tiles/default-v3/{z}/{y}/{x}.jpg",
+					"minzoom": 9,
+					"maxzoom": 14,
+					"viewMaxzoom": 15,
+					"bounds": [-1.4, 0, 0, 1.4],
+					"tileSize": 256,
+					"background": "#14130f"
+				}
+			]
+		}
+	]
 }

@@ -13,7 +13,8 @@
 				"max_zoom": 16,
 				"tiles_max_zoom": 16,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 1470,
 			"game_id": 147,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3D3C3D",
@@ -189,6 +191,7 @@
 		{
 			"id": 1471,
 			"game_id": 147,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "9D659E",
@@ -404,6 +407,7 @@
 		{
 			"id": 1472,
 			"game_id": 147,
+			"section_id": null,
 			"title": "Pickups",
 			"order": 11,
 			"color": "BD7B48",
@@ -619,6 +623,7 @@
 		{
 			"id": 1473,
 			"game_id": 147,
+			"section_id": null,
 			"title": "Other",
 			"order": 15,
 			"color": "62A691",
@@ -748,6 +753,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"8567": {
 			"id": 8567,
@@ -6699,7 +6705,7 @@
 			"region_id": null,
 			"category_id": 8589,
 			"title": "WORK IN PROGRESS!",
-			"description": "**The new map is here!**\n\nPlease bear with us as we move pins from old to new positions - and get ready for the Castle and Island, coming very soon!!\n\n_Aug 12, 2026_",
+			"description": "**The new map is here!**\n\nPlease bear with us as we move pins from old to new positions - and get ready for the Castle and Island, coming very soon!!\n\n_Nov 11, 2026_",
 			"latitude": "0.64680632983435",
 			"longitude": "-0.41713714599578",
 			"features": null,

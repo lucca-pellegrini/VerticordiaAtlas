@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 14,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			},
 			{
 				"id": 884,
@@ -26,7 +27,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 14,
 				"order": 2,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -43,6 +45,7 @@
 		{
 			"id": 2400,
 			"game_id": 240,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "3F7791",
@@ -146,6 +149,7 @@
 		{
 			"id": 2401,
 			"game_id": 240,
+			"section_id": null,
 			"title": "Services",
 			"order": 10,
 			"color": "418F71",
@@ -305,6 +309,7 @@
 		{
 			"id": 2402,
 			"game_id": 240,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "89418F",
@@ -408,6 +413,7 @@
 		{
 			"id": 2403,
 			"game_id": 240,
+			"section_id": null,
 			"title": "Items",
 			"order": 10,
 			"color": "46A3A2",
@@ -567,6 +573,7 @@
 		{
 			"id": 2404,
 			"game_id": 240,
+			"section_id": null,
 			"title": "Missions",
 			"order": 10,
 			"color": "CFAB3E",
@@ -642,6 +649,7 @@
 		{
 			"id": 2405,
 			"game_id": 240,
+			"section_id": null,
 			"title": "Battles",
 			"order": 10,
 			"color": "827168",
@@ -689,6 +697,7 @@
 		{
 			"id": 2406,
 			"game_id": 240,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "4C4E4F",
@@ -792,6 +801,7 @@
 		{
 			"id": 2407,
 			"game_id": 240,
+			"section_id": null,
 			"title": "Special Pokémon",
 			"order": 10,
 			"color": "B14524",
@@ -865,6 +875,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"13727": {
 			"id": 13727,
@@ -1544,8 +1555,562 @@
 	"searchQuery": null,
 	"maps": [{ "id": 821, "title": "Lumiose City", "slug": "lumiose-city" }],
 	"regions": [],
-	"roads": [],
-	"roadStyles": [],
+	"roads": [
+		{
+			"id": 2,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.703213160000729, 0.9392617689224494, false],
+				[-0.703078993273607, 0.8558239101780032, false]
+			],
+			"edges": [[0, 1, 0.5, "Rouge Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 3,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.676384871923176, 0.7401861223325739, false],
+				[-0.5648704937141815, 0.893303482630543, false]
+			],
+			"edges": [[0, 1, null, "Hibernal Avenue"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 4,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.900273676662124, 0.8427518385976214, false],
+				[-0.8445122509623957, 0.8983195472815169, false],
+				[-0.703467664309386, 0.9433419716235818, false],
+				[-0.5622569474017496, 0.8973227344607011, false],
+				[-0.4766296484920076, 0.7819861067963814, false],
+				[-0.4635231080483493, 0.7028034512469361, false],
+				[-0.47245977678429085, 0.6349867454823368, false],
+				[-0.93235334908357, 0.7778001345477747, false],
+				[-0.7733956819919854, 0.9328946112722888, false],
+				[-0.6270656540574464, 0.931496057695398, false],
+				[-0.510165574508818, 0.8456312238643449, false],
+				[-0.4655821498289754, 0.6668211906673776, false],
+				[-0.4697446104712242, 0.6488504158337776, false],
+				[-0.4650431887972388, 0.7362405012445947, false],
+				[-0.4895963844808193, 0.8138831531175583, false]
+			],
+			"edges": [
+				[0, 1, null, "North Boulevard"],
+				[1, 8, null, "North Boulevard"],
+				[2, 9, null, "North Boulevard"],
+				[3, 10, null, "North Boulevard"],
+				[4, 13, null, "North Boulevard"],
+				[5, 11, null, "North Boulevard"],
+				[0, 7, null, "North Boulevard"],
+				[8, 2, null, "North Boulevard"],
+				[9, 3, null, "North Boulevard"],
+				[10, 14, null, "North Boulevard"],
+				[11, 12, null, "North Boulevard"],
+				[12, 6, null, "North Boulevard"],
+				[13, 5, null, "North Boulevard"],
+				[14, 4, null, "North Boulevard"]
+			],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 5,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.9314702649107288, 0.7774149661788954, false],
+				[-0.472321285300211, 0.6359471248570259, false],
+				[-0.9317364739035554, 0.6304235312852171, false],
+				[-0.842826049929073, 0.5083039193304444, false],
+				[-0.7034618375210187, 0.46347770190274673, false],
+				[-0.5624280415250951, 0.5095870694472922, false],
+				[-0.6246253383471299, 0.475840746997136, false],
+				[-0.5235411824695007, 0.5420975655082714, false],
+				[-0.4985400924556416, 0.5756297622349678, false],
+				[-0.4832123256598493, 0.6056633074203575, false],
+				[-0.6767522567950266, 0.4647518045698291, false],
+				[-0.7400788085598435, 0.4658693995198746, false],
+				[-0.7794374024452395, 0.4755810008684165, false],
+				[-0.8784646285089366, 0.5387831111374197, false],
+				[-0.9098928256213412, 0.5804418830850722, false],
+				[-0.939597513982136, 0.657418815480014, false],
+				[-0.94262419191881, 0.7069797745010078, false],
+				[-0.9405549926324284, 0.7439786328582443, false],
+				[-0.9354403182623514, 0.7653075349914786, false]
+			],
+			"edges": [
+				[0, 18, null, "South Boulevard"],
+				[2, 14, null, "South Boulevard"],
+				[3, 12, null, "South Boulevard"],
+				[4, 10, null, "South Boulevard"],
+				[5, 7, null, "South Boulevard"],
+				[6, 5, null, "South Boulevard"],
+				[7, 8, null, "South Boulevard"],
+				[8, 9, null, "South Boulevard"],
+				[9, 1, null, "South Boulevard"],
+				[10, 6, null, "South Boulevard"],
+				[11, 4, null, "South Boulevard"],
+				[12, 11, null, "South Boulevard"],
+				[13, 3, null, "South Boulevard"],
+				[14, 13, null, "South Boulevard"],
+				[15, 2, null, "South Boulevard"],
+				[16, 15, null, "South Boulevard"],
+				[17, 16, null, "South Boulevard"],
+				[18, 17, null, "South Boulevard"]
+			],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 6,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.7030854321360209, 0.7912325940790907, false],
+				[-0.7030854321346851, 0.7491534817523018, false]
+			],
+			"edges": [[0, 1, null, "Rouge Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 7,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.841474205479301, 0.8931328574781929, false],
+				[-0.7303737734278855, 0.7414283525233714, false]
+			],
+			"edges": [[0, 1, null, "Autumnal Avenue"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 8,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.92379441593539, 0.7842125545771665, false],
+				[-0.8358611666615445, 0.755971092234816, false]
+			],
+			"edges": [[0, 1, null, "Magenta Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 9,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.789009897748258, 0.7391134929277854, false],
+				[-0.7451123943485811, 0.7250230974917429, false]
+			],
+			"edges": [[0, 1, null, "Magenta Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 10,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.4801245654828677, 0.780799308763946, false],
+				[-0.5621783468572232, 0.7530536549038374, false]
+			],
+			"edges": [[0, 1, null, "Jaune Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 11,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.6092905658276209, 0.73682498265768, false],
+				[-0.6595435994007914, 0.7191566029371046, false]
+			],
+			"edges": [[0, 1, null, "Jaune Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 12,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.6752646280788497, 0.665880193422197, false],
+				[-0.6572394772241523, 0.6406427320807637, false]
+			],
+			"edges": [[0, 1, null, "Vert Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 13,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.6169143187993882, 0.5853426855953074, false],
+				[-0.5645630111059745, 0.5129207674838625, false]
+			],
+			"edges": [[0, 1, null, "Vert Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 14,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.7043258155849799, 0.655739082755673, false],
+				[-0.7037960969257995, 0.46863315099169256, false]
+			],
+			"edges": [[0, 1, null, "Vernal Avenue"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 15,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.8405012560552052, 0.5108901009508742, false],
+				[-0.7931273025351118, 0.5792102555638365, false]
+			],
+			"edges": [[0, 1, null, "Bleu Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 16,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.7577931382990357, 0.6268513188730651, false],
+				[-0.7300492760154782, 0.6662459329033226, false]
+			],
+			"edges": [[0, 1, null, "Bleu Street"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		},
+		{
+			"id": 17,
+			"road_style_id": 2,
+			"order": 1,
+			"nodes": [
+				[-0.9278542031644008, 0.6305691376905855, false],
+				[-0.7472159546283308, 0.6889098751037039, false]
+			],
+			"edges": [[0, 1, null, "Estival Avenue"]],
+			"style": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		}
+	],
+	"roadStyles": [
+		{
+			"id": 2,
+			"title": "Streets",
+			"order": 1,
+			"config": {
+				"color": "#a6ab9c",
+				"width": 0.5,
+				"opacity": 0,
+				"border_color": "#a6ab9c",
+				"border_width": 1,
+				"pattern": "solid",
+				"dash": 2,
+				"gap": 2,
+				"min_zoom": 0,
+				"max_zoom": 24,
+				"label_font": "",
+				"label_size": 16,
+				"label_color": "#a9a9a9",
+				"label_border_color": "#f2efea",
+				"label_border_width": 1,
+				"label_spacing": 250,
+				"label_letter_spacing": 0.05
+			}
+		}
+	],
 	"roadsVisible": true,
 	"coordinateAreas": [],
 	"heatmapGroups": [],
@@ -9189,8 +9754,6 @@
 								[-0.5516401574269878, 0.8664658374730152],
 								[-0.5589357659481493, 0.8731169493628954],
 								[-0.5507189057382504, 0.8820113967764485],
-								[-0.5592466437871337, 0.8887963108803234],
-								[-0.5592466437871337, 0.8887963108803234],
 								[-0.5592466437871337, 0.8887963108803234]
 							]
 						],
@@ -9306,8 +9869,6 @@
 								[-0.8866163583756759, 0.8664452848711619],
 								[-0.8791824119937246, 0.8592103975011156],
 								[-0.8744742459504948, 0.864314463308844],
-								[-0.8704953076197626, 0.8687275131369887],
-								[-0.8704953076197626, 0.8687275131369887],
 								[-0.8704953076197626, 0.8687275131369887]
 							]
 						],

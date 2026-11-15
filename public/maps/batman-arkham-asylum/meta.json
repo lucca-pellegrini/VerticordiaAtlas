@@ -106,6 +106,7 @@
 			"slug": "arkham-asylum",
 			"title": "Arkham Asylum",
 			"data": "arkham-asylum/data.json",
+			"compact": "arkham-asylum/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -117,8 +118,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "arkham-asylum/data.compact.json"
+			]
 		}
 	]
 }

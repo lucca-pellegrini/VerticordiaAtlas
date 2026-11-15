@@ -1,0 +1,2194 @@
+{
+	"v": 1,
+	"d": {
+		"945781": ["**Cost:** \n- Uncommon: 750\n- Rare: 1,750\n- Epic: 2,750\n- Legendary: 5,250", []],
+		"945784": ["**Cost:** 750\n\n**Effect:** Summon Tentacles to Devour Zombies", []],
+		"945787": ["**Powered by:** [AMP Generator](#loc=945801)", []],
+		"945790": ["**Powered by:** [AMP Generator](#loc=945801)", []],
+		"945801": ["**Enabled For:** 500 Essence", []],
+		"945806": ["**Cost:** \n- Uncommon: 1,250\n- Rare: 2,250\n- Epic: 3,250\n- Legendary: 5,750", []],
+		"945807": ["**Cost:** 2,500  \n\n**Effect:** Drink to recover health and revive allies faster", []],
+		"945808": ["**Cost:** 1,000", []],
+		"945810": ["**Cost:** \n- Uncommon: 1,000\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 5,500", []],
+		"945813": ["**Cost:** 2,500  \n\n**Effect:** Drink to increase movement speed", []],
+		"945816": ["**Cost:** 1,000", []],
+		"945817": ["**Powered by:** [AMP Generator](#loc=945856)", []],
+		"945819": ["**Cost:** 1,500", []],
+		"945822": ["**Cost:** 1,250", []],
+		"945823": ["**Cost:** 1,250", []],
+		"945825": ["**Powered by:** [AMP Generator](#loc=945856)", []],
+		"945826": ["**Powered by:** [AMP Generator](#loc=945856)", []],
+		"945827": ["**Cost:** 1,500", []],
+		"945831": ["**Cost:** 1,500", []],
+		"945834": ["**Powered by:** [AMP Generator](#loc=945912)", []],
+		"945836": ["**Powered by:** [AMP Generator](#loc=945912)", []],
+		"945846": ["**Cost:** \n- Uncommon: 1,250\n- Rare: 2,250\n- Epic: 3,250\n- Legendary: 5,750", []],
+		"945849": ["**Cost:** \n- Uncommon: 1,000\n- Rare: 2,000\n- Epic: 3,000\n- Legendary: 5,500", []],
+		"945850": ["**Cost:** 1,250", []],
+		"945851": ["**Cost:** 750\n\n**Effect:** Summon Tentacles to Devour Zombies", []],
+		"945856": ["**Enabled For:** 500 Essence", []],
+		"945863": ["**Cost:** 4,000", []],
+		"945864": ["**Cost:** 2,500  \n\n**Effect:** Drink to make attacks trigger random Ammo Mods", []],
+		"945865": ["**Transitions to:** [Ascender](#loc=945893)", []],
+		"945869": ["**Cost:** \n- Uncommon: 1,250\n- Rare: 2,250\n- Epic: 3,250\n- Legendary: 5,750", []],
+		"945884": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 6,250", []],
+		"945886": ["**Cost:** 1,750\n\n**Effect:** Launch Zombies into the Dark Aether", []],
+		"945889": ["**Cost:** 4,000", []],
+		"945890": ["**Cost:** 2,500  \n\n**Effect:** Drink to improve ADS precision and increase critical damage", []],
+		"945891": ["**Powered by:** [AMP Generator](#loc=945912)", []],
+		"945892": ["**Cost:** 1,750", []],
+		"945893": ["**Transitions to:** [Ascender](#loc=945865)", []],
+		"945894": ["**Powered by:** [AMP Generator](#loc=945912)", []],
+		"945895": ["**Cost:** 2,000", []],
+		"945896": ["**Cost:** 2,000", []],
+		"945897": ["**Cost:** 1,750", []],
+		"945898": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 6,250", []],
+		"945899": ["**Cost:** 2,500  \n\n**Effect:** Drink to reload weapons and replate armor faster", []],
+		"945900": ["**Cost:** 750\n\n**Effect:** Summon Tentacles to Devour Zombies", []],
+		"945903": ["**Cost:** \n- Without Tier 2: 14,000\n- With Tier 2: 10,000", []],
+		"945904": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 6,250", []],
+		"945907": ["**Cost:** 2,500  \n\n**Effect:** Drink to replace weapon gun butt with a deadly punch", []],
+		"945910": ["**Cost:** 750\n\n**Effect:** Summon Tentacles to Devour Zombies", []],
+		"945911": ["**Powered by:** [AMP Generator](#loc=945912)", []],
+		"945912": ["**Enabled For:** 500 Essence", []],
+		"945914": ["**Requires [AMP Generator](#loc=945912)**", []],
+		"945915": ["**Requires [AMP Generator](#loc=945912)**", []],
+		"945916": ["**Requires [AMP Generator](#loc=945912)**", []],
+		"945917": ["**Requires [AMP Generator](#loc=945912)**", []],
+		"945919": [
+			"**Cost:** 2,500  \n\n**Effect:** Drink to explode when diving and become immune to your explosive damage",
+			[]
+		],
+		"945920": ["**Cost:** \n- Uncommon: 1,750\n- Rare: 2,750\n- Epic: 3,750\n- Legendary: 6,250", []],
+		"945923": ["**Cost:** \n- Without Tier 2: 14,000\n- With Tier 2: 10,000", []],
+		"945926": ["**Cost:** \n- Uncommon: 1,500\n- Rare: 2,500\n- Epic: 3,500\n- Legendary: 6,000", []],
+		"945929": ["**Cost:** \n- Uncommon: 2,000\n- Rare: 3,000\n- Epic: 4,000\n- Legendary: 6,500", []],
+		"945933": ["**Cost:** \n- Uncommon: 2,250\n- Rare: 3,250\n- Epic: 4,250\n- Legendary: 6,750", []],
+		"945938": ["**Cost:** \n- Uncommon: 2,250\n- Rare: 3,250\n- Epic: 4,250\n- Legendary: 6,750", []],
+		"945955": ["**Transitions to:** [Maglev Elevator](#loc=945956)", []],
+		"945956": ["**Transitions to:** [Maglev Elevator](#loc=945955)", []],
+		"948326": [
+			"**Location:** On top of the window of the guard tower next to the storage area",
+			[
+				{
+					"id": 150781,
+					"title": "20260916215829_1",
+					"file_name": "c18d2e1e-5961-40f3-a18f-fec2617ba304.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c18d2e1e-5961-40f3-a18f-fec2617ba304.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"948327": [
+			"**Location:** On the lower level of a table against the wall behind the gated area of the Interrogation Room",
+			[
+				{
+					"id": 150782,
+					"title": "20260916220028_1",
+					"file_name": "0f14d757-79a7-4e22-aeb8-3aac84f4c5f2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0f14d757-79a7-4e22-aeb8-3aac84f4c5f2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"948328": [
+			"**Location:** On top of a table in the corner of the room above the [Melee Macchiato perk machine](#loc=945907) behind a group of file storage boxes",
+			[
+				{
+					"id": 150783,
+					"title": "20260916220156_1",
+					"file_name": "36b8248c-dd36-43fb-8cf6-8df6356f235a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36b8248c-dd36-43fb-8cf6-8df6356f235a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"948329": [
+			"**Location:** Hanging on the wall of the top floor on the ship through the window",
+			[
+				{
+					"id": 150784,
+					"title": "20260916220405_1",
+					"file_name": "7c8c783c-4662-472e-b0e7-40c9b096f2f0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7c8c783c-4662-472e-b0e7-40c9b096f2f0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"948330": [
+			"**Location:** On top of a ledge of the ruins near the [Ammo Cache](#loc=945932)",
+			[
+				{
+					"id": 150785,
+					"title": "20260916220525_1",
+					"file_name": "0cac794e-686e-4167-a861-0375539fe207.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0cac794e-686e-4167-a861-0375539fe207.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"948331": [
+			"**Location:** On the left side of the inner part of the window going into a cave",
+			[
+				{
+					"id": 150786,
+					"title": "20260916220726_1",
+					"file_name": "f09ff55c-604d-4687-8fb0-c4cb85e77cc8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f09ff55c-604d-4687-8fb0-c4cb85e77cc8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"948332": [
+			"**Location:** On the side of a girder sticking out of the other second Sea Tower to the north-east",
+			[
+				{
+					"id": 150788,
+					"title": "20260916221324_1",
+					"file_name": "37497660-c184-460c-affe-0473f7203dcb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/37497660-c184-460c-affe-0473f7203dcb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"948341": [
+			"**Location:** On top of a barrel in the corner of the room behind the window outside the Security Overlook after collecting every other statue",
+			[
+				{
+					"id": 150794,
+					"title": "20260916224248_1",
+					"file_name": "84048ef1-69de-4ed2-8fe4-e8d26c676d64.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/84048ef1-69de-4ed2-8fe4-e8d26c676d64.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953092": [
+			"**Steps:**\n- Firstly, turn on the power and activate the Pack-A-Punch elevator.\n- Equip your gun with the Dead Wire Ammo Mod and take the elevator from the bottom to the top.\n- While the elevator is going, there are three electrical boxes that need to be shot in order:\n   1. [Electrical Box](#loc=953093)\n   2. [Electrical Box](#loc=953094)\n   3. [Electrical Box](#loc=953095)\n- Once all are shot, head to the Living Quarters and shoot the [Electrical Box](#loc=953096) there, then on the other side of the wall, in the Rec Yard, shoot the last [Electrical Box](#loc=953097).\n- This will open the door next to the final Electrical Box. Head inside and shoot the zombie named Anya Tonovsky underneath the shelf.\n- Pick up the [EMF Fob](#loc=953098) and head to the Sea Tower.\n- Use it to open the briefcase on the table and grab the [Multiphastic Resonator](#loc=953099) inside.\n- Head back to the Research Lab and place the Multiphastic Resonator inside the [Research Lab Machine](#loc=953100).\n- The code that needs to be input can be acquired in two ways:\n   - Option 1:\n      - In the back of the Research Lab are two [Formula Boards](#loc=953101). \n      - Head around the map and activate three laptops:\n         - [Laptop](#loc=953102)\n         - [Laptop](#loc=953103)\n         - [Laptop](#loc=953104)\n      - After they are activated, sticky notes will appear on the Research Lab Machine that correlates the symbols on the board to the X, Y, and Z values.\n         - Find the symbol on the board. The left number is the number in the tens digit, and the bottom number is the number in the ones digit.\n      - Using Algebra, solve the three equations on the board in order to get the full code to put into the machine.\n   - Option 2:\n      - After a couple of rounds, head to Peck in the Guard Station and interact with the computer to receive the code immediately for 5,000 essence.\n         - You can avoid paying the price by cooking a normal fish, using the knowledge from the [Culinary Delight Easter Egg](#loc=953182), picking it up instead of eating it, then giving it through the slot next to Peck.\n- After a few rounds complete, the Multiphastic Resonator will be charged.\n- Pick up the Multiphastic Resonator, head to Castle Rock Island, and interact with the [Blue Orb](#loc=953105).\n- A zombie will spawn in glowing blue. Kill the zombie, pick up the orb it drops, and bring it into the large orb.\n- After doing this two or three times, pick up the Resonator and head to Crab Island and interact with the [Green Orb](#loc=953106) there, repeating the process.\n- Finally, head to Temple Island and complete the last [Purple Orb](#loc=953107), which will drop the [AMP Munition](#loc=953108).\n- Pick it up and build the wonder weapon at the [Workbench](#loc=953109) in the back of the Research Lab.",
+			[]
+		],
+		"953093": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151243,
+					"title": "20260921202453_1",
+					"file_name": "479f7cb2-1039-4030-b88e-1262b2f59603.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/479f7cb2-1039-4030-b88e-1262b2f59603.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953094": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151244,
+					"title": "20260921202455_1",
+					"file_name": "78a5980f-b699-4ea5-851c-0289d38b2b1b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/78a5980f-b699-4ea5-851c-0289d38b2b1b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953095": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151245,
+					"title": "20260921202457_1",
+					"file_name": "edd553c1-f86b-48d0-9a0f-6461cdd31dcd.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/edd553c1-f86b-48d0-9a0f-6461cdd31dcd.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953096": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151246,
+					"title": "20260921202803_1",
+					"file_name": "b5c58add-b785-4d2c-a53f-539684e6b8b0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b5c58add-b785-4d2c-a53f-539684e6b8b0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953097": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151247,
+					"title": "20260921202829_1",
+					"file_name": "e5066eb8-f567-4807-863d-b7e73de393c2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5066eb8-f567-4807-863d-b7e73de393c2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953098": [
+			"**Location:** Dropped by Anya Tonovsky inside the Research Office\n\n**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151248,
+					"title": "20260921203021_1",
+					"file_name": "9b15727a-14b9-4354-8e0d-c00973975aa8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9b15727a-14b9-4354-8e0d-c00973975aa8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953099": [
+			"**Location:** Inside the briefcase on the table on the top floor with the zombie hand holding the handle\n\n**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151249,
+					"title": "20260921203139_1",
+					"file_name": "e9c0e720-c043-47bd-a4ed-9b23e2114d03.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9c0e720-c043-47bd-a4ed-9b23e2114d03.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953100": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151250,
+					"title": "20260921203321_1",
+					"file_name": "3813b94b-6ff9-475d-88d5-1ce529c6c60d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3813b94b-6ff9-475d-88d5-1ce529c6c60d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953101": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151251,
+					"title": "20260921203431_1",
+					"file_name": "aa79aae5-85b4-4fba-b9f1-b54847889ac1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/aa79aae5-85b4-4fba-b9f1-b54847889ac1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953102": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151252,
+					"title": "20260921203946_1",
+					"file_name": "40eca6b4-90d2-4f4a-af22-6ca73c501db6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/40eca6b4-90d2-4f4a-af22-6ca73c501db6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953103": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151253,
+					"title": "20260921204037_1",
+					"file_name": "8f20ba19-2d2d-44ec-9593-76d95888513e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8f20ba19-2d2d-44ec-9593-76d95888513e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953104": [
+			"**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151254,
+					"title": "20260921204124_1",
+					"file_name": "f72515c6-ff77-4f6e-892b-281487b6ba5d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f72515c6-ff77-4f6e-892b-281487b6ba5d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953105": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151255,
+					"title": "20260921205209_1",
+					"file_name": "423f70e2-71cf-42d2-b474-5598b233d2b4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/423f70e2-71cf-42d2-b474-5598b233d2b4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953106": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151256,
+					"title": "20260921205651_1",
+					"file_name": "3264d8fb-2205-4031-8808-0558561171f1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3264d8fb-2205-4031-8808-0558561171f1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953107": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151257,
+					"title": "20260921205908_1",
+					"file_name": "7f16ce49-465f-4721-b0d7-47d53295f27e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7f16ce49-465f-4721-b0d7-47d53295f27e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953108": [
+			"**Location:** Dropped by the [Purple Orb](#loc=953107)\n\n**Related Easter Egg:** [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[
+				{
+					"id": 151258,
+					"title": "20260921210108_1",
+					"file_name": "1f18b86e-6d83-4e43-88a8-88ffc63b23b9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1f18b86e-6d83-4e43-88a8-88ffc63b23b9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953109": [
+			"",
+			[
+				{
+					"id": 151259,
+					"title": "20260921210301_1",
+					"file_name": "6d894525-6bb2-43e3-bcbe-656f973e5dc1.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6d894525-6bb2-43e3-bcbe-656f973e5dc1.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953110": [
+			"**Steps:**\n- Firstly, acquire the Beamsmasher Wonder Weapon from the [Beamsmasher Wonder Weapon Easter Egg](#loc=953092).\n   - The Beamsmasher can also be acquired in the mystery box.\n- With the Beamsmasher, head to the [Tentacle Traps](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-terminus?search=tentacle_trap%20%26%26%20category%3A27396) around the map and find the one with the broken grate above.\n- While the trap is active, shoot the tentacles with the Beamsmasher to drop the [Hard Drive](#loc=953111).\n- Head back to the Guard Station and give the Hard Drive to Peck and Strauss.\n- Next, three numbers need to be found around the map:\n   - The first number is whatever the hour hand is set to on the [Clock](#loc=953112) in the Interrogation Room.\n   - The second number is the value of the [Playing Card](#loc=953113) on the wall of the Mess Hall.\n   - The third number is how many days since the last injury on the [Safety First Poster](#loc=953114) in the Engineering room.\n- After acquiring all the numbers, head to the Bio Lab and input the code, in order, into the [Containment Device](#loc=953115).\n- Each player in the game needs to interact with a valve on the Containment Device to release Nathan.\n- After defeating Nathan, grab the [Key Card](#loc=953116) and head to the underside of the Shipwreck to access the secret room.\n- Inside it, grab the [Connection Tool](#loc=953118) and survive the lockdown.\n- Place the two Connection Tools into two of the three spots around the map (One of them will already be filled):\n   - [Node Connection](#loc=953119)\n   - [Node Connection](#loc=953120)\n   - [Node Connection](#loc=953121)\n- Head back to the Guard Station and grab the [Hacking Device](#loc=953122) from Peck and Strauss.\n- With the Hacking Device, head to three different buoys around the map and hack each one quickly:\n   - [Buoy](#loc=953125)\n   - [Buoy](#loc=953124)\n   - [Buoy](#loc=953123)\n- Once all are hacked, head to the Bio Lab and quickly disarm the three bombs around the room:\n   - [Bomb](#loc=953126)\n   - [Bomb](#loc=953127)\n   - [Bomb](#loc=953128)\n- Interact with the door next to the [Melee Macchiato perk machine](#loc=945907) to start the boss fight.",
+			[]
+		],
+		"953111": [
+			"**Location:** Dropped by a [Tentacle Trap](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-terminus?search=tentacle_trap%20%26%26%20category%3A27396) after shooting it with the Beamsmasher during the [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151260,
+					"title": "20260921210803_1",
+					"file_name": "19c69037-a840-462b-ba84-722c21045a77.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/19c69037-a840-462b-ba84-722c21045a77.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953112": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151261,
+					"title": "20260921211057_1",
+					"file_name": "878e6f5a-ada8-484d-8213-8a64a716f152.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/878e6f5a-ada8-484d-8213-8a64a716f152.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953113": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151262,
+					"title": "20260921211241_1",
+					"file_name": "36543822-59f9-4361-adc9-f8541c739ea8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/36543822-59f9-4361-adc9-f8541c739ea8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953114": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151263,
+					"title": "20260921211349_1",
+					"file_name": "edf90922-7064-4703-bf9c-1df298ef4ac8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/edf90922-7064-4703-bf9c-1df298ef4ac8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953115": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151264,
+					"title": "20260921211531_1",
+					"file_name": "5e72b818-b0dc-4f29-bdc4-09fa5b2e0a71.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5e72b818-b0dc-4f29-bdc4-09fa5b2e0a71.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953116": [
+			"**Location:** In the water after killing Nathan during the [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151265,
+					"title": "20260921212055_1",
+					"file_name": "a38996d5-a4ac-4592-ad3e-911eca90b3b2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a38996d5-a4ac-4592-ad3e-911eca90b3b2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953118": [
+			"**Location:** Inside the underside of the shipwreck after opening it with the [Key Card](#loc=953116)\n\n**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151266,
+					"title": "20260921212357_1",
+					"file_name": "1083f110-8e77-4549-962a-8ecfd8a4a506.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1083f110-8e77-4549-962a-8ecfd8a4a506.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953119": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151267,
+					"title": "20260921212934_1",
+					"file_name": "f5608fdb-c73f-46ff-9aab-6d71796aaa4b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5608fdb-c73f-46ff-9aab-6d71796aaa4b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953120": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151268,
+					"title": "20260921213028_1",
+					"file_name": "b200ded5-aa52-4182-a297-73958fc7b951.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b200ded5-aa52-4182-a297-73958fc7b951.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953121": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151269,
+					"title": "20260921213125_1",
+					"file_name": "91f09498-0806-40ff-9e3d-6b241ec11c38.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91f09498-0806-40ff-9e3d-6b241ec11c38.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953122": [
+			"**Location:** Given by Peck and Strauss\n\n**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151270,
+					"title": "20260921213402_1",
+					"file_name": "6f6bcb2f-b0ac-4bae-91ea-b510e806e3d6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6f6bcb2f-b0ac-4bae-91ea-b510e806e3d6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953123": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151271,
+					"title": "20260921213649_1",
+					"file_name": "0cc0512a-f1fc-4071-b051-9f776b97c713.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0cc0512a-f1fc-4071-b051-9f776b97c713.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953124": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151272,
+					"title": "20260921213818_1",
+					"file_name": "51131a0b-b44f-404f-bad1-c3b146320d10.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/51131a0b-b44f-404f-bad1-c3b146320d10.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953125": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151273,
+					"title": "20260921213920_1",
+					"file_name": "1cdf337e-ee05-40a6-8d50-fc857ebbd159.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1cdf337e-ee05-40a6-8d50-fc857ebbd159.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953126": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151274,
+					"title": "20260921214118_1",
+					"file_name": "5b83c6cf-5dd6-4718-a6a1-15ab9513a572.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5b83c6cf-5dd6-4718-a6a1-15ab9513a572.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953127": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151275,
+					"title": "20260921214217_1",
+					"file_name": "0e336db8-0bdf-4595-8e96-a8ec7bd944a8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0e336db8-0bdf-4595-8e96-a8ec7bd944a8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953128": [
+			"**Related Easter Egg:** [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151276,
+					"title": "20260921214313_1",
+					"file_name": "e5aafc9c-a3f3-4936-9ee8-a365da511d73.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e5aafc9c-a3f3-4936-9ee8-a365da511d73.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953129": [
+			"**Related Easter Egg:** [Pool Easter Egg](#loc=953130)",
+			[
+				{
+					"id": 151277,
+					"title": "20260921220905_1",
+					"file_name": "5fccc52a-d40a-44ac-9fe9-b2bf1c9bfd66.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5fccc52a-d40a-44ac-9fe9-b2bf1c9bfd66.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953130": [
+			"**Steps:**\n- Head to the [Pool Table](#loc=953129) in the upper level of the Living Quarters and shoot the Pool Balls to get a free 100 essence.",
+			[]
+		],
+		"953131": [
+			"**Location:** Leaning against the central pillar wall",
+			[
+				{
+					"id": 151278,
+					"title": "20260921221540_1",
+					"file_name": "ca26f629-492d-495a-881f-6719cab13ef3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ca26f629-492d-495a-881f-6719cab13ef3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953132": [
+			"**Location:** On top of a blue barrel against the central pillar",
+			[
+				{
+					"id": 151279,
+					"title": "20260921221629_1",
+					"file_name": "a666b6cd-7464-41d5-81fc-b9bc11929b3c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a666b6cd-7464-41d5-81fc-b9bc11929b3c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953133": [
+			"**Location:** On the end of the file cabinet in the third floor lab",
+			[
+				{
+					"id": 151280,
+					"title": "20260921221723_1",
+					"file_name": "b42af827-c310-4558-9b1e-a512982e1522.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/b42af827-c310-4558-9b1e-a512982e1522.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953134": [
+			"**Location:** On top of a large spool in the corner of the courtyard",
+			[
+				{
+					"id": 151281,
+					"title": "20260921221841_1",
+					"file_name": "3ca05e97-294a-4b8d-935f-397aade54133.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3ca05e97-294a-4b8d-935f-397aade54133.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953135": [
+			"**Steps:**\n- Around the map, there are three headphones that need to be interacted with:\n   - [Headphones](#loc=953132)\n   - [Headphones](#loc=953133)\n   - [Headphones](#loc=953134)",
+			[]
+		],
+		"953136": [
+			"**Steps:**\n- Around the map are six stuffed animals:\n   - [Bear Plush](#loc=953140)\n   - [Elephant Plush](#loc=953145)\n   - [Unicorn Plush](#loc=953137)\n   - [Monkey Plush](#loc=953139)\n   - [Giraffe Plush](#loc=953148)\n   - [Duck Plush](#loc=953149)\n- Shoot or interact with each one then head to the Living Quarters.\n- A friendly plush pet spawns that'll shoot zombies for you.\n   - If the stuffed animals are interacted with and not shot, additional loot will appear as well.",
+			[]
+		],
+		"953137": [
+			"**Location:** Inside a locker slightly open in the corner of Control Center\n\n**Related Easter Egg:** [Mega-Stuffy Easter Egg](#loc=953136)",
+			[
+				{
+					"id": 151282,
+					"title": "20260921222452_1",
+					"file_name": "35a383a3-3adb-40db-b218-c0b0249f1b3b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/35a383a3-3adb-40db-b218-c0b0249f1b3b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953138": [
+			"**Location:** On the base of a pillar outside of the Sea Caves",
+			[
+				{
+					"id": 151283,
+					"title": "20260921222559_1",
+					"file_name": "41fd9859-8dd0-445c-bd6b-68f38a873566.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41fd9859-8dd0-445c-bd6b-68f38a873566.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953139": [
+			"**Location:** In the corner behind the fence next to the bridge to the Sea Tower\n\n**Related Easter Egg:** [Mega-Stuffy Easter Egg](#loc=953136)",
+			[
+				{
+					"id": 151284,
+					"title": "20260921222853_1",
+					"file_name": "7652fe49-785e-4360-bd06-5d384e6118fb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7652fe49-785e-4360-bd06-5d384e6118fb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953140": [
+			"**Location:** Underneath a lab machine on the second layer of the Bio Lab\n\n**Related Easter Egg:** [Mega-Stuffy Easter Egg](#loc=953136)",
+			[
+				{
+					"id": 151285,
+					"title": "20260921223038_1",
+					"file_name": "1be7acb9-77c5-4f69-9aa2-6f7a47d0656d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1be7acb9-77c5-4f69-9aa2-6f7a47d0656d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953141": [
+			"",
+			[
+				{
+					"id": 151286,
+					"title": "20260921223124_1",
+					"file_name": "e800f3fb-6753-4ad6-8cda-6b96a3693b0a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e800f3fb-6753-4ad6-8cda-6b96a3693b0a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953142": [
+			"",
+			[
+				{
+					"id": 151287,
+					"title": "20260921223155_1",
+					"file_name": "91d93ee8-d21f-4504-b4e3-c645d983a0b9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/91d93ee8-d21f-4504-b4e3-c645d983a0b9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953143": [
+			"",
+			[
+				{
+					"id": 151288,
+					"title": "20260921223227_1",
+					"file_name": "61c2e2f1-8a7a-4923-8986-df448072f6eb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/61c2e2f1-8a7a-4923-8986-df448072f6eb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953144": [
+			"",
+			[
+				{
+					"id": 151289,
+					"title": "20260921223400_1",
+					"file_name": "0030a49c-5bce-4fee-8416-fb9479846827.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0030a49c-5bce-4fee-8416-fb9479846827.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953145": [
+			"**Location:** In the corner of the cave next to a wooden pallet and a window\n\n**Related Easter Egg:** [Mega-Stuffy Easter Egg](#loc=953136)",
+			[
+				{
+					"id": 151290,
+					"title": "20260921223550_1",
+					"file_name": "3a818470-3470-4f10-966e-7ce0cf4117b7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3a818470-3470-4f10-966e-7ce0cf4117b7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953146": [
+			"",
+			[
+				{
+					"id": 151291,
+					"title": "20260921223703_1",
+					"file_name": "db5f49b2-02f1-4f57-99bb-6af00f897311.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/db5f49b2-02f1-4f57-99bb-6af00f897311.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953147": [
+			"",
+			[
+				{
+					"id": 151292,
+					"title": "20260921223733_1",
+					"file_name": "2dfabefc-ea2d-42cb-abe6-9dd79bee6b9e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2dfabefc-ea2d-42cb-abe6-9dd79bee6b9e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953148": [
+			"**Location:** Behind a light on top of a rock\n\n**Related Easter Egg:** [Mega-Stuffy Easter Egg](#loc=953136)",
+			[
+				{
+					"id": 151293,
+					"title": "20260921223911_1",
+					"file_name": "6c212ab1-5714-40a2-956b-6dc8f35893a4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6c212ab1-5714-40a2-956b-6dc8f35893a4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953149": [
+			"**Location:** In the corner of the red bin next to the [Mystery Box](#loc=953150)\n\n**Related Easter Egg:** [Mega-Stuffy Easter Egg](#loc=953136)",
+			[
+				{
+					"id": 151294,
+					"title": "20260921224023_1",
+					"file_name": "5c3d6287-4b19-4e0f-a9d6-7e4d86d99bb9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5c3d6287-4b19-4e0f-a9d6-7e4d86d99bb9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953151": [
+			"**Location:** Leaning against a stone pillar on the beach",
+			[
+				{
+					"id": 151295,
+					"title": "20260921224203_1",
+					"file_name": "9234a556-e0f4-4959-a84d-8e1308fa6a65.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9234a556-e0f4-4959-a84d-8e1308fa6a65.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953152": [
+			"",
+			[
+				{
+					"id": 151296,
+					"title": "20260921224228_1",
+					"file_name": "e9248873-fc38-43d5-9a24-83ae6731e244.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e9248873-fc38-43d5-9a24-83ae6731e244.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953153": [
+			"",
+			[
+				{
+					"id": 151297,
+					"title": "20260921224259_1",
+					"file_name": "41988b06-238b-4562-b6ea-a6358be5b6cc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/41988b06-238b-4562-b6ea-a6358be5b6cc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953154": [
+			"**Location:** Leaning against the base of a light on the beach",
+			[
+				{
+					"id": 151298,
+					"title": "20260921224342_1",
+					"file_name": "3dffa338-274d-4c8e-be33-a4d41da01de7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3dffa338-274d-4c8e-be33-a4d41da01de7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953155": [
+			"",
+			[
+				{
+					"id": 151299,
+					"title": "20260921224406_1",
+					"file_name": "66d9c8e6-bd9a-4637-8e88-08af6a4bbc3d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/66d9c8e6-bd9a-4637-8e88-08af6a4bbc3d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953156": [
+			"",
+			[
+				{
+					"id": 151300,
+					"title": "20260921224422_1",
+					"file_name": "6a8407c9-3c0f-4355-b6be-79a376256f9a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6a8407c9-3c0f-4355-b6be-79a376256f9a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953157": [
+			"**Steps:**\n- Around the map, there are [Shovels](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-terminus?search=shovel%20%26%26%20category%3A27411) that can be personally picked up.\n- After picking one up, you can now dig at the [Dig Spots](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-terminus?search=dig_spot%20%26%26%20category%3A27416) around the map to acquire a variety of loot.",
+			[]
+		],
+		"953158": [
+			"**Related Easter Egg:** [Meteor Easter Egg](#loc=953165)",
+			[
+				{
+					"id": 151301,
+					"title": "20260921224939_1",
+					"file_name": "a35f548e-04db-4fa6-ad93-a47077a5a885.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a35f548e-04db-4fa6-ad93-a47077a5a885.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953159": [
+			"**Related Easter Egg:** [Meteor Easter Egg](#loc=953165)",
+			[
+				{
+					"id": 151302,
+					"title": "20260921225022_1",
+					"file_name": "6fb8c3d3-eaf0-4562-abbe-77ae9373af94.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6fb8c3d3-eaf0-4562-abbe-77ae9373af94.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953160": [
+			"**Related Easter Egg:** [Whack-A-Mole Easter Egg](#loc=953161)",
+			[
+				{
+					"id": 151303,
+					"title": "20260921230013_1",
+					"file_name": "fafae4c3-4e49-47e6-bc3c-283c443801fc.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/fafae4c3-4e49-47e6-bc3c-283c443801fc.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953161": [
+			"**Steps:**\n- On Crab Island, throw an explosive at the [Crab Pot](#loc=953160) in the trees on the middle rock formation.\n- Once done, small yellow crabs will pop out of the ground.\n- Melee them as they pop up to receive rewards based on your performance.",
+			[]
+		],
+		"953163": [
+			"",
+			[
+				{
+					"id": 151304,
+					"title": "20260921231145_1",
+					"file_name": "47b00d98-a0e1-4e3f-beff-37bafebc6ff5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/47b00d98-a0e1-4e3f-beff-37bafebc6ff5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953164": [
+			"",
+			[
+				{
+					"id": 151305,
+					"title": "20260921231957_1",
+					"file_name": "3e818354-08e4-459d-8ce4-149b784fd173.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3e818354-08e4-459d-8ce4-149b784fd173.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953165": [
+			"**Steps:**\n- Firstly, Pack-A-Punch a weapon and add the Dead Wire Ammo Mod to it.\n- Then, there are two radio towers that need to be shot in quick succession:\n   - [Radio Tower](#loc=953159)\n   - [Radio Tower](#loc=953158)\n- After both are shot and have a red light, quickly flip rounds then trigger the [Void Cannon](#loc=945886) to destroy a meteor.\n- The meteor will crash onto Castle Rock Island and drop a variety of loot.",
+			[]
+		],
+		"953166": [
+			"",
+			[
+				{
+					"id": 151306,
+					"title": "20260921232409_1",
+					"file_name": "7535bc88-e242-4288-83f4-254b47498828.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7535bc88-e242-4288-83f4-254b47498828.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953167": [
+			"**Related Easter Egg:** [Treasure Hunt Easter Egg](#loc=953172)",
+			[
+				{
+					"id": 151307,
+					"title": "20260921232459_1",
+					"file_name": "55f36b74-2424-4e47-8547-553b0fd58de8.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/55f36b74-2424-4e47-8547-553b0fd58de8.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953168": [
+			"**Related Easter Egg:** [Treasure Hunt Easter Egg](#loc=953172)",
+			[
+				{
+					"id": 151308,
+					"title": "20260921233737_1",
+					"file_name": "9024506b-0b0d-40f9-8bb4-4cdb44d6bc19.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9024506b-0b0d-40f9-8bb4-4cdb44d6bc19.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953169": [
+			"**Related Easter Egg:** [Treasure Hunt Easter Egg](#loc=953172)",
+			[
+				{
+					"id": 151309,
+					"title": "20260921234005_1",
+					"file_name": "c4e0835f-11d8-42f3-82e3-cc7064853d78.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c4e0835f-11d8-42f3-82e3-cc7064853d78.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953170": [
+			"",
+			[
+				{
+					"id": 151310,
+					"title": "20260921234041_1",
+					"file_name": "011772c3-1959-4173-bb9a-a550fcf9f86b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/011772c3-1959-4173-bb9a-a550fcf9f86b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953171": [
+			"**Related Easter Egg:** [Treasure Hunt Easter Egg](#loc=953172)",
+			[
+				{
+					"id": 151311,
+					"title": "20260921234244_1",
+					"file_name": "0bc07e1b-4121-458b-97ad-60fccf7e9c07.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0bc07e1b-4121-458b-97ad-60fccf7e9c07.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953172": [
+			"**Steps:**\n- First, acquire [Melee Macchiato](#loc=945907) and head to the Sea Caves.\n- Melee the loose rocks in front of the [Hidden Treasure Room](#loc=953167) and interact with the skeleton.\n- An X will show up on the map. Head to the location marked and swim around to acquire a Watch.\n- Head back to the Hidden Treasure Room and interact with the skeleton. \n- Three X's will show on the map, corresponding to three skeletons that appear around the map:\n   - [Skeleton](#loc=953168)\n   - [Skeleton](#loc=953169)\n   - [Skeleton](#loc=953171)\n- At each skeleton, throw a thermal grenade or a molotov on top of it to spawn an HVT.\n- After killing each HVT, grab the Cursed Coin that it drops and take it back to the skeleton in the Hidden Treasure Room.\n   - Each coin will reward loot when turned in.\n- After all three coins are turned in, a last X will be marked on the map.\n- Head to the location and survive three rounds for lightning to strike, leaving behind a chest. Open the chest to acquire the [Cursed Talisman](#loc=953173), increasing the zombie kill reward but decreasing your essence when you take damage.",
+			[]
+		],
+		"953173": [
+			"**Location:** Inside the chest after lighting strikes at the end of the [Treasure Hunt Easter Egg](#loc=953172)",
+			[]
+		],
+		"953174": [
+			"**Steps:**\n- Around the map are small islands that are inaccessible, which sometimes contain spores.\n- Destroy all of the spores on an island for three different rounds to spawn spores inside the Sea Caves.\n- Destroy all of the spores in the Sea Caves to receive a Free Perk power-up.",
+			[]
+		],
+		"953175": [
+			"**Location:** On a shelf in the corner of the Mess Hall\n\n**Related Easter Egg:** [Culinary Delight Easter Egg](#loc=953182)",
+			[
+				{
+					"id": 151312,
+					"title": "20260922001416_1",
+					"file_name": "bbdc744f-af93-4445-9fb8-1933e8cbea66.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bbdc744f-af93-4445-9fb8-1933e8cbea66.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953176": [
+			"**Location:** Between the crates on top of a chest freezer in the corner of the Mess Hall\n\n**Related Easter Egg:** [Culinary Delight Easter Egg](#loc=953182)",
+			[
+				{
+					"id": 151313,
+					"title": "20260922001624_1",
+					"file_name": "bf7973e8-bdfc-4df1-80d4-c890abd35f89.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/bf7973e8-bdfc-4df1-80d4-c890abd35f89.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953177": [
+			"**Location:** On top of the fridge on the upper level of the Living Quarters\n\n**Related Easter Egg:** [Culinary Delight Easter Egg](#loc=953182)",
+			[
+				{
+					"id": 151314,
+					"title": "20260922001806_1",
+					"file_name": "6293d675-4727-42d9-bcba-32e223f415c7.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6293d675-4727-42d9-bcba-32e223f415c7.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953178": [
+			"**Location:** On top of a scale in a small lab area outside the entrance to the Sea Caves\n\n**Related Easter Egg:** [Culinary Delight Easter Egg](#loc=953182)",
+			[
+				{
+					"id": 151315,
+					"title": "20260922002140_1",
+					"file_name": "07a6b6a2-b2d7-4e60-9170-96e103ac2f73.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/07a6b6a2-b2d7-4e60-9170-96e103ac2f73.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953179": [
+			"**Location:** In the grass against the ledge next to the path down the hill\n\n**Related Easter Egg:** [Culinary Delight Easter Egg](#loc=953182)",
+			[
+				{
+					"id": 151316,
+					"title": "20260922002340_1",
+					"file_name": "a6e5fb1c-c5fd-435c-85aa-c714eb281e04.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a6e5fb1c-c5fd-435c-85aa-c714eb281e04.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953180": [
+			"**Location:** On top of the work desk in the middle of the Engineering room\n\n**Related Easter Egg:** [Culinary Delight Easter Egg](#loc=953182)",
+			[
+				{
+					"id": 151317,
+					"title": "20260922002523_1",
+					"file_name": "54bc5932-599a-4757-b718-2e7987023db6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/54bc5932-599a-4757-b718-2e7987023db6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953181": [
+			"**Related Easter Egg:** [Culinary Delight Easter Egg](#loc=953182)",
+			[
+				{
+					"id": 151318,
+					"title": "20260922002601_1",
+					"file_name": "d900a84e-55e0-4df0-9407-02c9c41cc9c3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d900a84e-55e0-4df0-9407-02c9c41cc9c3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953182": [
+			"**Steps:**\n- Firstly, find a school of fish splashing in the water in the Bio Lab and throw an explosive in it to kill the fish.\n- Interact with one of the dead fish then go and pick up the [Oil](#loc=953175) in the Mess Hall.\n- There are five ingredients around the map that can be cooked with the fish:\n   - [Brain](#loc=953178)\n   - [Batteries](#loc=953180)\n   - [Mushroom](#loc=953179)\n   - [Snowball](#loc=953177)\n   - [Can](#loc=953176)\n- Each ingredient gives an Ammo Mod a temporary boost for a round:\n   - Brain: Brain Rot\n   - Battery: Dead Wire\n   - Mushroom: Shadow Rift\n   - Snowball: Cryofreeze\n   - Can: Napalm Burst\n- Interact with the [Stove](#loc=953181) to place the ingredients inside the pan and wait a round for the fish to be done.\n- Interact with the fish to eat it.",
+			[]
+		],
+		"953183": [
+			"**Location:** Underneath a rock near the inclined lift underwater during the [Oxygen Easter Egg](#loc=953184)\n\n**Related Easter Egg:** [Oxygen Easter Egg](#loc=953184)",
+			[
+				{
+					"id": 151319,
+					"title": "20260922003745_1",
+					"file_name": "c5c0f575-1646-4f69-ba7a-9d080c680e6d.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c5c0f575-1646-4f69-ba7a-9d080c680e6d.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953184": [
+			"**Steps:**\n- Underneath the water in the Bio Lab is a rock emitting bubbles.\n- Use an explosive on the rock to expose the [Oxygen Tank](#loc=953183), giving increased underwater breathing time for the rest of the game.",
+			[]
+		],
+		"953185": [
+			"",
+			[
+				{
+					"id": 151320,
+					"title": "20260922004059_1",
+					"file_name": "8aa38b98-9b41-4625-a797-d48cd835f65f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8aa38b98-9b41-4625-a797-d48cd835f65f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953186": [
+			"",
+			[
+				{
+					"id": 151321,
+					"title": "20260922004131_1",
+					"file_name": "439b8d6a-2c6d-4536-ae73-72757bac0c91.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/439b8d6a-2c6d-4536-ae73-72757bac0c91.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953187": [
+			"",
+			[
+				{
+					"id": 151322,
+					"title": "20260922004242_1",
+					"file_name": "94855b8b-d3c0-4202-a847-6c130a4843e0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/94855b8b-d3c0-4202-a847-6c130a4843e0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953188": [
+			"**Related Easter Egg:** [Basketball Easter Egg](#loc=953190)",
+			[
+				{
+					"id": 151323,
+					"title": "20260922004656_1",
+					"file_name": "d15a775c-1443-4296-b4b3-81946badad98.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d15a775c-1443-4296-b4b3-81946badad98.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953190": [
+			"**Steps:**\n- Shoot the [Basketball](#loc=953188) on the roof of the Living Quarters with a Pack-A-Punched gun to score a basket in the Rec Yard, rewarding 2,000 essence.",
+			[]
+		],
+		"953195": [
+			"**Related Easter Egg:** [Boat Race Easter Egg](#loc=953202)",
+			[
+				{
+					"id": 151324,
+					"title": "20260922010314_1",
+					"file_name": "43897ba5-a6c1-4933-a9f7-95303e9d2f27.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/43897ba5-a6c1-4933-a9f7-95303e9d2f27.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953197": [
+			"**Related Easter Egg:** [Boat Race Easter Egg](#loc=953202)",
+			[
+				{
+					"id": 151325,
+					"title": "20260922010731_1",
+					"file_name": "49e12c7d-5124-465e-8bd8-7b5e97a7604b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/49e12c7d-5124-465e-8bd8-7b5e97a7604b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953198": [
+			"**Related Easter Egg:** [Boat Race Easter Egg](#loc=953202)",
+			[
+				{
+					"id": 151326,
+					"title": "20260922010854_1",
+					"file_name": "29cc56fe-2b59-4659-8dde-4f10b5d6d262.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/29cc56fe-2b59-4659-8dde-4f10b5d6d262.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953202": [
+			"**Steps:**\n- Around the islands are three different spawns for a toy boat:\n   - [Toy Boat](#loc=953195)\n   - [Toy Boat](#loc=953197)\n   - [Toy Boat](#loc=953198)\n- One of them are blinking a red light. Interact with the blinking one to enter a boat race.\n   - The reward loot depends on how many points and how fast the race is completed.",
+			[]
+		],
+		"953204": [
+			"",
+			[
+				{
+					"id": 151327,
+					"title": "20260922012858_1",
+					"file_name": "1348e581-de3b-4ac9-a320-d6f5e5179607.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1348e581-de3b-4ac9-a320-d6f5e5179607.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953596": [
+			"",
+			[
+				{
+					"id": 151561,
+					"title": "209785~1",
+					"file_name": "c18395df-1832-4330-8cc1-f5a6a8efc828.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c18395df-1832-4330-8cc1-f5a6a8efc828.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953597": [
+			"**Related Easter Egg:** [Caged Free Perk Easter Egg](#loc=953599)",
+			[
+				{
+					"id": 151562,
+					"title": "20260922225511_1",
+					"file_name": "f0fd08e1-0227-4306-a54c-fe7f08e7be65.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f0fd08e1-0227-4306-a54c-fe7f08e7be65.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953598": [
+			"**Related Easter Egg:** [Caged Free Perk Easter Egg](#loc=953599)",
+			[
+				{
+					"id": 151563,
+					"title": "20260922225600_1",
+					"file_name": "9a9d04a9-625e-4e07-a36e-e8379e8611d3.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9a9d04a9-625e-4e07-a36e-e8379e8611d3.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953599": [
+			"**Steps:**\n- In the Bio Lab, there are two sets of cages along the wall:\n   - [Cages](#loc=953597)\n   - [Cages](#loc=953598)\n- Originally, they will contain normal zombies. Kill all the zombies.\n- Then, they will spawn Vermin, then Manglers.\n- Once all the Manglers are dead, a Free Perk power-up will spawn.",
+			[]
+		],
+		"953602": [
+			"**Related Easter Egg:** [Sentinal Artifact Easter Egg](#loc=953609)",
+			[
+				{
+					"id": 151566,
+					"title": "20260922232815_1",
+					"file_name": "df660e42-39c3-487d-8169-aab380479265.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/df660e42-39c3-487d-8169-aab380479265.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953609": [
+			"**Steps:**\n- After acquiring the Beamsmasher during the [Beamsmasher Wonder Weapon Easter Egg](#loc=953092), head to Temple Island.\n- Use the Beamsmasher's alternate fire on the [Sentinal Artifact Chalk Drawing](#loc=953602) on the side of the rock until it teleports you back to the main island.\n- After completing this nine times, 1,000 savage and 1,000 essence will spawn on the ground.",
+			[]
+		],
+		"953612": [
+			"",
+			[
+				{
+					"id": 151573,
+					"title": "20260922235601_1",
+					"file_name": "7d07d630-acee-4960-9f51-18f3c88cad02.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7d07d630-acee-4960-9f51-18f3c88cad02.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953618": [
+			"**Location:** On top of the control panel after defeating Nathan during the [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151578,
+					"title": "20260923001511_1",
+					"file_name": "509554d7-4771-4204-a365-750ca33a8b6b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/509554d7-4771-4204-a365-750ca33a8b6b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953619": [
+			"**Location:** On top of the blue barrel against the wall in the Security Overlook",
+			[
+				{
+					"id": 151579,
+					"title": "20260923001703_1",
+					"file_name": "82290187-bfac-4a8e-b2ba-65efc539a6b0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/82290187-bfac-4a8e-b2ba-65efc539a6b0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953620": [
+			"**Location:** On top of the desk between the two sets of bunk beds against the wall in the Living Quarters",
+			[
+				{
+					"id": 151580,
+					"title": "20260923001754_1",
+					"file_name": "02bf1e78-952b-45b7-9435-4e3fd6610980.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/02bf1e78-952b-45b7-9435-4e3fd6610980.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953621": [
+			"**Location:** On top of a computer desk in the corner of the Control Center",
+			[
+				{
+					"id": 151581,
+					"title": "20260923001930_1",
+					"file_name": "f22338b5-7790-47ff-9419-ec5a7fa3ace6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f22338b5-7790-47ff-9419-ec5a7fa3ace6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953622": [
+			"**Location:** On top of the table against the wall next to the entrance of the Mess Hall",
+			[
+				{
+					"id": 151584,
+					"title": "20260923002030_1",
+					"file_name": "651a4820-b9fc-4a11-825a-99d7642ef8c6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/651a4820-b9fc-4a11-825a-99d7642ef8c6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953623": [
+			"**Location:** On top of a stack of crates next to the [Maglev Elevator](#loc=945955)",
+			[
+				{
+					"id": 151585,
+					"title": "20260923002122_1",
+					"file_name": "f33d071a-be03-46b8-b43a-ae37ddb7abb9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f33d071a-be03-46b8-b43a-ae37ddb7abb9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953624": [
+			"**Location:** On the second shelf from the bottom filled with VHS tapes against the wall in the Interrogation Rooms",
+			[
+				{
+					"id": 151586,
+					"title": "20260923002210_1",
+					"file_name": "ff5bcc21-64f6-4edb-af82-387280b8c479.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/ff5bcc21-64f6-4edb-af82-387280b8c479.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953625": [
+			"**Location:** On top of a rock next to the stone slab containing the [Skeleton](#loc=953169) on Temple Island",
+			[
+				{
+					"id": 151587,
+					"title": "20260923002345_1",
+					"file_name": "68bc7027-34a8-4882-8ef3-291018e2df8f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/68bc7027-34a8-4882-8ef3-291018e2df8f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953626": [
+			"**Location:** On top of the pipe in the Sea Caves next to the entrance to the Bio Lab",
+			[
+				{
+					"id": 151588,
+					"title": "20260923002519_1",
+					"file_name": "1ad3da05-3dc9-48ba-82ff-7dd5ff1e8506.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ad3da05-3dc9-48ba-82ff-7dd5ff1e8506.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953627": [
+			"**Location:** On top of a large spool in the corner of the cave wall next to the [GobbleGum Machine](#loc=945921)",
+			[
+				{
+					"id": 151589,
+					"title": "20260923002609_1",
+					"file_name": "08db3329-5e27-4e22-ab49-859bab0b0877.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/08db3329-5e27-4e22-ab49-859bab0b0877.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953628": [
+			"**Location:** On top of the railing next to the large machine at the top of the Sea Tower",
+			[
+				{
+					"id": 151590,
+					"title": "20260923002658_1",
+					"file_name": "609536e3-7cdf-49a1-a3d7-c5fcabab7bad.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/609536e3-7cdf-49a1-a3d7-c5fcabab7bad.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953629": [
+			"**Location:** On top of a blue barrel at the front of the Shipwreck",
+			[
+				{
+					"id": 151591,
+					"title": "20260923002848_1",
+					"file_name": "d6b53767-0b87-4c7a-ac15-214b4779aaa2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6b53767-0b87-4c7a-ac15-214b4779aaa2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953631": [
+			"**Location:** On the corner of the desk next to a computer in the top area of the Communications building",
+			[
+				{
+					"id": 151592,
+					"title": "20260923003202_1",
+					"file_name": "6b746b99-5a67-48ed-bd15-987472b3e6f4.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/6b746b99-5a67-48ed-bd15-987472b3e6f4.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953633": [
+			"**Location:** Next to the ladder underneath the Shipwreck after acquiring the [Key Card](#loc=953116) during the [Terminus Main Easter Egg](#loc=953110)",
+			[
+				{
+					"id": 151596,
+					"title": "20260923003443_1",
+					"file_name": "2e85f870-b276-4ebf-b9d3-dda4a9d610d6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2e85f870-b276-4ebf-b9d3-dda4a9d610d6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953635": [
+			"**Location:** On the base of a pillar along the Seaside Path",
+			[
+				{
+					"id": 151599,
+					"title": "20260923003811_1",
+					"file_name": "3f6ae0f1-0e43-44e4-8856-6f35fcbaa06e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3f6ae0f1-0e43-44e4-8856-6f35fcbaa06e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953636": [
+			"**Location:** On top of a small table next to a laptop to the right of [Melee Macchiato](#loc=945907)",
+			[
+				{
+					"id": 151600,
+					"title": "20260923003906_1",
+					"file_name": "1e76e41e-8464-4faf-b0a3-ef785c74c8a9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1e76e41e-8464-4faf-b0a3-ef785c74c8a9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953637": [
+			"**Location:** In the middle of the Gun Platform after using the [Void Cannon](#loc=945886) for the first time",
+			[
+				{
+					"id": 151601,
+					"title": "20260923004059_1",
+					"file_name": "c2aff20a-3eab-4957-9467-30595ab5b1e9.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/c2aff20a-3eab-4957-9467-30595ab5b1e9.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953639": [
+			"**Location:** Dropped by the tenth school of fish killed after defeating Nathan during the [Terminus Main Easter Egg](#loc=953110)",
+			[]
+		],
+		"953640": [
+			"**Location:** Randomly dropped from a [Dig Spot](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-terminus?search=dig_spot%20%26%26%20category%3A27416) found around Castle Rock Island",
+			[]
+		],
+		"953641": [
+			"**Location:** Randomly dropped from a [Dig Spot](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-terminus?search=dig_spot%20%26%26%20category%3A27416) found around Crab Island",
+			[]
+		],
+		"953642": [
+			"**Location:** Randomly dropped from a [Dig Spot](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-terminus?search=dig_spot%20%26%26%20category%3A27416) found around Crab Island",
+			[]
+		],
+		"953643": [
+			"**Location:** Randomly dropped from a [Dig Spot](https://mapgenie.io/call-of-duty-black-ops-6/maps/zombies-terminus?search=dig_spot%20%26%26%20category%3A27416) found around Temple Island",
+			[]
+		],
+		"953646": [
+			"**Location:** On the ground next to the [Ammo Cache](#loc=945792) on Security Overlook after throwing a grenade into the Watch Tower",
+			[
+				{
+					"id": 151604,
+					"title": "20260923005409_1",
+					"file_name": "273ab3ef-24b4-467b-92d8-e208e3686202.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/273ab3ef-24b4-467b-92d8-e208e3686202.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953647": [
+			"**Location:** On the ground in front of the blue trash can at the entrance of the Mess Hall after throwing a grenade inside the trash",
+			[
+				{
+					"id": 151605,
+					"title": "20260923005722_1",
+					"file_name": "2fea8b15-dc36-4e0f-905d-bfbae4379da5.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2fea8b15-dc36-4e0f-905d-bfbae4379da5.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953648": [
+			"**Location:** On the ground in front of the monitor stack on the top floor of the Sea Tower after shooting the stack of papers sitting on top of the monitors",
+			[
+				{
+					"id": 151606,
+					"title": "20260923005826_1",
+					"file_name": "a2c94a52-0c2f-41e8-94a9-7fa9dc510a31.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/a2c94a52-0c2f-41e8-94a9-7fa9dc510a31.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953649": [
+			"**Location:** Crafted at the [Workbench](#loc=953109) at the end of the [Beamsmasher Wonder Weapon Easter Egg](#loc=953092)",
+			[]
+		],
+		"953650": [
+			"**Location:** On top of a counter in the small lab on the middle layer of the Bio Lab",
+			[
+				{
+					"id": 151607,
+					"title": "20260923010051_1",
+					"file_name": "deb2c975-b8c7-4eae-b984-d13e98ab6cc0.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/deb2c975-b8c7-4eae-b984-d13e98ab6cc0.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"953655": [
+			"**Steps:**\n- Around the map are splashing fish spots with fish swimming around.\n- Using an explosive, blow up the school of fish for loot.\n- After doing this 25 times, every available perk is given to the player.\n   - In multiplayer, it only gives it to the player who does it, not every player.",
+			[]
+		],
+		"953658": [
+			"**Steps:**\n- Hidden underwater around the islands of the map are secret caches with a blinking yellow light.\n- Each one, when opened, drops a variety of loot.\n- After opening the 10th cache, a Free Perk power-up will spawn.",
+			[]
+		]
+	}
+}

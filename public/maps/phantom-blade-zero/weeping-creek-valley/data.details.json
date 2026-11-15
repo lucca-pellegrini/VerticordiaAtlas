@@ -20,7 +20,7 @@
 		],
 		"1054890": ["**Required:** [Hunter's Chain Sickle](#loc=1057515)", []],
 		"1054895": [
-			"**How to Begin:** Approach the area.\n\n**Tips:**\n\n- This quest progresses in the next region.\n- ??",
+			"**How to Begin:** Approach the area.\n\n**Tips:**\n\n- This quest is dormant until the Mountain of Imprisonment region.",
 			[]
 		],
 		"1054909": [
@@ -101,7 +101,7 @@
 		],
 		"1054924": ["**Loot:**\n\n- [Three-Headed Doll](#loc=1055040)", []],
 		"1054926": [
-			"**How to Begin:** Kill (or be killed by) the [Aberrant Three-Faced Puppet](#loc=1054924)\n\n**Tips:**\n\n- This is a tough fight - come back with a few upgrades under your belt!\n- ??\n\n**Rewards:**\n\n- ??",
+			"**How to Begin:** Kill (or be killed by) the [Aberrant Three-Faced Puppet](#loc=1054924)\n\n**Tips:**\n\n- This is a tough fight - come back with a few upgrades under your belt!\n- The quest continues in the late-game version of Crimson Forest; use the soul tempered version of [Sanguine Reach](#loc=1054959) during the [rematch](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1067108) for a secret third phase.\n\n**Rewards:**\n\n- [Chaos Twin Daggers](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1081559)",
 			[]
 		],
 		"1054927": [
@@ -1372,7 +1372,7 @@
 			]
 		],
 		"1055068": [
-			"**How to Begin:** Speak to the shadow guard beside the [Valley Sha-Chi Tower Summit](#loc=1055067) bell.\n\n**Tips:**\n\n- The stone he's looking for is [here](#loc=1055071).\n- ??\n\n**Rewards:**\n\n- ??",
+			"**How to Begin:** Speak to the shadow guard beside the [Valley Sha-Chi Tower Summit](#loc=1055067) bell.\n\n**Tips:**\n\n- The stone he's looking for is [here](#loc=1055071).\n- You'll find him in the [Meigu Lake tower](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1065493) next.\n- The final encounter is in the [Crimson Forest tower.](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1067123)\n\n**Rewards:**\n\n- [Statue of the Loyal Hero](https://mapgenie.io/phantom-blade-zero/maps/mount-soulrend?locationIds=1083939)",
 			[]
 		],
 		"1055069": [
@@ -1894,7 +1894,7 @@
 			]
 		],
 		"1057534": [
-			"**How to Begin:** Try to open the manor's front door.\n\n**Tips:**\n\n- ??\n- ??",
+			"**How to Begin:** Try to open the manor's front door.\n\n**Tips:**\n\n- To unlock the manor, you'll need the [Puppet's Tongue](https://mapgenie.io/phantom-blade-zero/maps/mountain-of-imprisonment?locationIds=1066514) from the Mountain of Imprisonment",
 			[
 				{
 					"id": 157421,
@@ -2172,7 +2172,7 @@
 			]
 		],
 		"1057553": [
-			"**Required:** Tiger Cannon",
+			"**Required:** [Tiger Cannon](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1083902)",
 			[
 				{
 					"id": 157436,
@@ -2189,7 +2189,10 @@
 			]
 		],
 		"1057554": ["**Loot:**\n\n- [Counterstrike Bracers](#loc=1057586)", []],
-		"1057555": ["**How to Begin:** Fight [The Gold-Masked One](#loc=1057554)\n\n**Tips:**\n\n- ??\n- ??", []],
+		"1057555": [
+			"**How to Begin:** Fight [The Gold-Masked One](#loc=1057554)\n\n**Lóng Pillars:** \n\n- [Weeping Creek Valley](#loc=1057587)\n- [Crimson Forest](https://mapgenie.io/phantom-blade-zero/maps/crimson-forest?locationIds=1058371)\n- [Meigu Lake](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1065035)\n- [Mirror Realm](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1066963)\n- [Mirage Estate](https://mapgenie.io/phantom-blade-zero/maps/pangzhen?locationIds=1083846)",
+			[]
+		],
 		"1057556": [
 			"**Quest:** [Apprentice Healer](#loc=1054978)",
 			[
@@ -3911,8 +3914,21 @@
 		],
 		"1061320": ["Opens after reaching Village of Lu", []],
 		"1061552": [
-			"Inside the Crimson Manor on the second-floor balcony. Must complete [The Herald's Illusion](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1061821) side quest to be able to unlock the manor.",
-			[]
+			"Inside the Crimson Manor, upper floor - on the balcony.\n\n5. Mirrors and Ruins",
+			[
+				{
+					"id": 160324,
+					"title": "002988",
+					"file_name": "60f0bb23-69b7-4280-8613-6f87ec5625ed.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/60f0bb23-69b7-4280-8613-6f87ec5625ed.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"1062114": [
 			"Obtained by interacting with the stone carving.",
@@ -4025,6 +4041,291 @@
 					"file_name": "8125e465-228e-453e-9d31-767bb53d5357.jpg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/8125e465-228e-453e-9d31-767bb53d5357.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066516": [
+			"Inside the Crimson Manor, ground floor - in front of you as you enter.",
+			[
+				{
+					"id": 160321,
+					"title": "002985",
+					"file_name": "463d36d5-5f1d-4987-9407-47b9d16371a6.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/463d36d5-5f1d-4987-9407-47b9d16371a6.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066517": [
+			"Inside the Crimson Manor, ground floor - on your right as you enter.",
+			[
+				{
+					"id": 160322,
+					"title": "002986",
+					"file_name": "3de2996d-ff0a-40e9-99ff-84db44fc9a8b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3de2996d-ff0a-40e9-99ff-84db44fc9a8b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066518": [
+			"Inside the Crimson Manor, ground floor - on a shrine facing the back.\n\n**Thread-Binding Sect**",
+			[
+				{
+					"id": 160323,
+					"title": "002987",
+					"file_name": "8c967a13-5fec-4673-9f89-e4b734f96026.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/8c967a13-5fec-4673-9f89-e4b734f96026.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066519": [
+			"Inside the Crimson Manor, on the upper floor.\n\n**The Herald**",
+			[
+				{
+					"id": 160325,
+					"title": "002989",
+					"file_name": "7062df2d-9693-4bea-a17e-8acbb4902ceb.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/7062df2d-9693-4bea-a17e-8acbb4902ceb.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066520": [
+			"Inside the Crimson Manor, on the upper floor.\n\n**The Herald's Experiment Notes**",
+			[
+				{
+					"id": 160326,
+					"title": "002989",
+					"file_name": "861b4173-3d9b-43fc-95f9-23929e7b497e.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/861b4173-3d9b-43fc-95f9-23929e7b497e.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066521": [
+			"Inside the Crimson Manor, on the upper floor.\n\n**The Herald's Experiment Notes**",
+			[
+				{
+					"id": 160327,
+					"title": "002989",
+					"file_name": "2b4a8587-7442-4b0c-a3d9-16ef4e862448.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/2b4a8587-7442-4b0c-a3d9-16ef4e862448.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066522": [
+			"Inside the Crimson Manor, on the upper floor.",
+			[
+				{
+					"id": 160328,
+					"title": "002989",
+					"file_name": "dd14bb40-bc09-493e-8a71-3f05b688342a.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/dd14bb40-bc09-493e-8a71-3f05b688342a.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066523": [
+			"Behind the Crimson Manor, at the top of the stairs leading down into a cavern.",
+			[
+				{
+					"id": 160329,
+					"title": "002990",
+					"file_name": "20a1ab0a-1602-4b22-8fba-1b4ae33cac68.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/20a1ab0a-1602-4b22-8fba-1b4ae33cac68.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066524": [
+			"Behind the Crimson Manor, inside a cage in the cavern.",
+			[
+				{
+					"id": 160330,
+					"title": "002991",
+					"file_name": "759d6a43-8c5e-424e-8229-abf2c949fc9b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/759d6a43-8c5e-424e-8229-abf2c949fc9b.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066525": [
+			"Behind the Crimson Manor, on a ledge in the red thread pit.",
+			[
+				{
+					"id": 160331,
+					"title": "002992",
+					"file_name": "d6991de0-6cd3-40aa-b25d-f9ab1160895f.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/d6991de0-6cd3-40aa-b25d-f9ab1160895f.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066526": [
+			"Behind the Crimson Manor, on a red thread bridge in the pit.",
+			[
+				{
+					"id": 160332,
+					"title": "002993",
+					"file_name": "e8d0d13d-b32e-4a87-aa77-9092d4ef21b2.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e8d0d13d-b32e-4a87-aa77-9092d4ef21b2.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066527": [
+			"Behind the Crimson Manor, on a red thread bridge in the pit.",
+			[
+				{
+					"id": 160333,
+					"title": "002994",
+					"file_name": "1ea6a8a0-79d2-4e06-be18-b24701173130.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/1ea6a8a0-79d2-4e06-be18-b24701173130.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066529": [
+			"Behind the Crimson Manor - at the bottom of the red thread pit.",
+			[
+				{
+					"id": 160334,
+					"title": "002995",
+					"file_name": "0d4460af-d630-4266-856d-237ccdc31c4c.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/0d4460af-d630-4266-856d-237ccdc31c4c.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066530": [
+			"Behind the Crimson Manor - at the bottom of the red thread pit.\n\n**Loot:**\n- [Alloyed Scythe Blade](#loc=1066536)\n- [Crystal Puppet Eye [Yang]](https://mapgenie.io/phantom-blade-zero/maps/weeping-creek-valley?locationIds=1066537)\n- [Hansui's Frost Mask](#loc=1066539)",
+			[]
+		],
+		"1066536": ["Looted from [The Puppet Scavenger](#loc=1066530)\n\n**Hunter's Chain Sickle**", []],
+		"1066537": [
+			"Looted from [The Puppet Scavenger](#loc=1066530)\n\n**Unlocks:**\n- [Eyeless Statue](https://mapgenie.io/phantom-blade-zero/maps/meigu-lake?locationIds=1067040)",
+			[]
+		],
+		"1066539": [
+			"Looted from [The Puppet Scavenger](#loc=1066530)\n\n**Quest:** [Secrets at the Heart of the Lake](https://mapgenie.io/phantom-blade-zero/maps/village-of-lu?locationIds=1061308)",
+			[]
+		],
+		"1066542": [
+			"Inside a chest in the boss arena.",
+			[
+				{
+					"id": 160335,
+					"title": "002996",
+					"file_name": "11972943-df63-4537-9f70-89a97fbec910.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/11972943-df63-4537-9f70-89a97fbec910.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066545": [
+			"Inside a chest in the boss arena.",
+			[
+				{
+					"id": 160336,
+					"title": "002996",
+					"file_name": "01dbad97-bac3-4ca5-a459-fdec71c0df98.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/01dbad97-bac3-4ca5-a459-fdec71c0df98.jpg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1066546": [
+			"Inside a chest in the boss arena.",
+			[
+				{
+					"id": 160337,
+					"title": "002996",
+					"file_name": "3fbffad5-4bdf-4e4d-a104-e7f466f51d9b.jpg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3fbffad5-4bdf-4e4d-a104-e7f466f51d9b.jpg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,

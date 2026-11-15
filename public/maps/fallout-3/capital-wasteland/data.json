@@ -13,7 +13,8 @@
 				"max_zoom": 15,
 				"tiles_max_zoom": 15,
 				"order": 0,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 12,
@@ -24,16 +25,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "fallout-3",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 1870,
 			"game_id": 187,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "F4BD76",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -463,10 +471,17 @@
 		{
 			"id": 1871,
 			"game_id": 187,
-			"title": "NPC's",
+			"section_id": null,
+			"title": "NPCs",
 			"order": 10,
 			"color": "E4E1D6",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -588,10 +603,17 @@
 		{
 			"id": 1872,
 			"game_id": 187,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 10,
 			"color": "88CF78",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -706,17 +728,24 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 326
+					"locations_count": 325
 				}
 			]
 		},
 		{
 			"id": 1873,
 			"game_id": 187,
+			"section_id": null,
 			"title": "Equipment",
 			"order": 10,
 			"color": "82A2CF",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -838,10 +867,17 @@
 		{
 			"id": 1874,
 			"game_id": 187,
+			"section_id": null,
 			"title": "Quests",
 			"order": 10,
 			"color": "D4725F",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -963,10 +999,17 @@
 		{
 			"id": 1876,
 			"game_id": 187,
+			"section_id": null,
 			"title": "Other",
 			"order": 10,
 			"color": "E4E1D6",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1030,6 +1073,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"11122": {
 			"id": 11122,
@@ -1841,7 +1885,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 326
+			"locations_count": 325
 		},
 		"11153": {
 			"id": 11153,
@@ -1972,6 +2016,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 356805,
@@ -17023,8 +17068,8 @@
 			"category_id": 11152,
 			"title": "Nikola Tesla and You",
 			"description": "**Location:** [Fort Bannister](#loc=356862), Commanding Officer's Quarters - On top of a covered corner of walkway at the bottom of a tall room. Jump over the railings above to reach it.\n\n**Skill Increase:** +1 Energy Weapons (+2 with the Comprehension perk)",
-			"latitude": "0.67486573382455",
-			"longitude": "-0.77652633190121",
+			"latitude": "0.67396372341288",
+			"longitude": "-0.77809080782569",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -17311,45 +17356,6 @@
 					"file_name": "de6f9397-d7b9-4157-8af6-483ac7239d42.jpeg",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/de6f9397-d7b9-4157-8af6-483ac7239d42.jpeg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				}
-			]
-		},
-		{
-			"id": 542442,
-			"map_id": 624,
-			"region_id": null,
-			"category_id": 11152,
-			"title": "Nikola Tesla and You",
-			"description": "**Location:** On top of a container in the middle room, you will need to jump down from a catwalk.\n\n**Skill Increase:** +1 Energy Weapons (+2 with the Comprehension perk)",
-			"latitude": "0.66516752919016",
-			"longitude": "-0.77288851504215",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": [
-				{
-					"id": 120622,
-					"title": "",
-					"file_name": "4dd32deb-ac9a-41bc-a964-62a2b92f9319.jpeg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/4dd32deb-ac9a-41bc-a964-62a2b92f9319.jpeg",
-					"type": "image",
-					"mime_type": "image/jpeg",
-					"meta": null,
-					"order": 10,
-					"spoiler": false
-				},
-				{
-					"id": 120623,
-					"title": "",
-					"file_name": "67c79f0b-79ba-49c5-970a-415eef38b84c.jpeg",
-					"attribution": "",
-					"url": "https://media.mapgenie.io/storage/media/67c79f0b-79ba-49c5-970a-415eef38b84c.jpeg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,
@@ -19666,27 +19672,108 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 60, "game_id": 187, "title": "Fast Travel", "icon": null, "color": null, "icon_color": null },
-		{ "id": 61, "game_id": 187, "title": "Operation: Anchorage", "icon": null, "color": null, "icon_color": null },
-		{ "id": 62, "game_id": 187, "title": "The Pitt", "icon": null, "color": null, "icon_color": null },
-		{ "id": 63, "game_id": 187, "title": "Broken Steel", "icon": null, "color": null, "icon_color": null },
-		{ "id": 64, "game_id": 187, "title": "Point Lookout", "icon": null, "color": null, "icon_color": null },
-		{ "id": 65, "game_id": 187, "title": "Mothership Zeta", "icon": null, "color": null, "icon_color": null }
-	],
-	"tagsById": {
-		"60": { "id": 60, "game_id": 187, "title": "Fast Travel", "icon": null, "color": null, "icon_color": null },
-		"61": {
+		{
+			"id": 60,
+			"game_id": 187,
+			"order": 0,
+			"title": "Fast Travel",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
 			"id": 61,
 			"game_id": 187,
+			"order": 0,
 			"title": "Operation: Anchorage",
 			"icon": null,
 			"color": null,
 			"icon_color": null
 		},
-		"62": { "id": 62, "game_id": 187, "title": "The Pitt", "icon": null, "color": null, "icon_color": null },
-		"63": { "id": 63, "game_id": 187, "title": "Broken Steel", "icon": null, "color": null, "icon_color": null },
-		"64": { "id": 64, "game_id": 187, "title": "Point Lookout", "icon": null, "color": null, "icon_color": null },
-		"65": { "id": 65, "game_id": 187, "title": "Mothership Zeta", "icon": null, "color": null, "icon_color": null }
+		{ "id": 62, "game_id": 187, "order": 0, "title": "The Pitt", "icon": null, "color": null, "icon_color": null },
+		{
+			"id": 63,
+			"game_id": 187,
+			"order": 0,
+			"title": "Broken Steel",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 64,
+			"game_id": 187,
+			"order": 0,
+			"title": "Point Lookout",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 65,
+			"game_id": 187,
+			"order": 0,
+			"title": "Mothership Zeta",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
+	],
+	"tagsById": {
+		"60": {
+			"id": 60,
+			"game_id": 187,
+			"order": 0,
+			"title": "Fast Travel",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"61": {
+			"id": 61,
+			"game_id": 187,
+			"order": 0,
+			"title": "Operation: Anchorage",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"62": {
+			"id": 62,
+			"game_id": 187,
+			"order": 0,
+			"title": "The Pitt",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"63": {
+			"id": 63,
+			"game_id": 187,
+			"order": 0,
+			"title": "Broken Steel",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"64": {
+			"id": 64,
+			"game_id": 187,
+			"order": 0,
+			"title": "Point Lookout",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"65": {
+			"id": 65,
+			"game_id": 187,
+			"order": 0,
+			"title": "Mothership Zeta",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	},
 	"distanceToolConfig": null,
 	"proCategoryLocationCounts": [],
@@ -19696,7 +19783,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

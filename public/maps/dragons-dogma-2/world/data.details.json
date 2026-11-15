@@ -10118,7 +10118,7 @@
 		],
 		"330639": ["**Transitions to:** [Nameless Village Depths](#loc=330693)", []],
 		"330640": [
-			"**Location:** On top of the eastern's wall battlements.",
+			"**Location:** On top of the eastern's wall battlements.\n\nIf you don't have levitate, there is another wall segment to the left with barrels beneath it. Climb up on the barrels and drop off the ledge onto a cliff on the otherside. There's a ladder that will lead you back up onto the wall where the token is.",
 			[
 				{
 					"id": 53565,
@@ -12400,7 +12400,7 @@
 			]
 		],
 		"331376": [
-			"**Location:** At the top of the tower at the end of the archway",
+			"**Location:** Dragonsbreath Tower - At the top of the tower at the end of the archway",
 			[
 				{
 					"id": 53788,
@@ -13309,7 +13309,7 @@
 		"331664": ["**Transitions to:** [Rainshelter Cave](#loc=330410)", []],
 		"331665": ["**Location:** On the wall of the cave", []],
 		"331666": [
-			"**Location:** Inside a chest, at the end of the cave.  \n**Vocation(s):** Mage",
+			"**Location:** Inside a [Chest](#loc=1067374), at the end of the cave.  \n**Vocation(s):** Mage",
 			[
 				{
 					"id": 48887,
@@ -21092,7 +21092,10 @@
 		"1044920": ["**Transitions to:** [Snatching-Beast's Lair](#loc=1044921)", []],
 		"1044921": ["**Transitions to:** [Snatching-Beast's Lair](#loc=1044920)", []],
 		"1044922": ["**Transitions to:** [Underhill Passage](#loc=1044923)", []],
-		"1044923": ["**Transitions to:** [Underhill Passage](#loc=1044922)", []],
+		"1044923": [
+			"**Transitions to:** [Underhill Passage](#loc=1044922). This passage has gate that requires entry elsewhere to unlock.",
+			[]
+		],
 		"1044924": ["**Transitions to:** [Underhill Passage](#loc=1044925)", []],
 		"1044925": ["**Transitions to:** [Underhill Passage](#loc=1044924)", []],
 		"1044926": ["**Transitions to:** [Underhill Passage](#loc=1044927)", []],
@@ -21220,6 +21223,46 @@
 			]
 		],
 		"1055087": ["**Location:** On the edge of the cliff past the chest", []],
-		"1055088": ["**Location:** Up the cliff, next to a ladder  \n**Contents:** 300 RC", []]
+		"1055088": ["**Location:** Up the cliff, next to a ladder  \n**Contents:** 300 RC", []],
+		"1067346": ["Break the ice", []],
+		"1067348": [
+			"**Location:** ??",
+			[
+				{
+					"id": 160780,
+					"title": "",
+					"file_name": "f5cea631-d490-4bf9-bc55-938e404c3cb3.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/f5cea631-d490-4bf9-bc55-938e404c3cb3.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1067374": [
+			"**Location:** At the end of the cave, guarded by a Cyclops  \n**Contents:** [Favored Canopy](#loc=331666)",
+			[]
+		],
+		"1067383": [
+			"\"Chest-filled house located just outside the southeast corner of the _Bjorkan stronghold\"_\n\n_Building houses  3 chests ._",
+			[]
+		],
+		"1084000": ["Next to the fortified wall on a scaffold inside the village.", []],
+		"1084001": ["Next to the waterfall.", []],
+		"1084002": [
+			"In the ravine. There is a Hook Tether post just to the south to assist in decending/ascending.",
+			[]
+		],
+		"1084003": [
+			"Inside the cave to the north of the location and to the right of where you initially spawn in.",
+			[]
+		],
+		"1084004": ["Next to the Archery Obelisk.", []],
+		"1084005": ["Outside of the cave near the cliff edge.", []],
+		"1084006": ["Near the edge of the cliff.", []],
+		"1084007": ["In the river underneath the bridge.", []]
 	}
 }

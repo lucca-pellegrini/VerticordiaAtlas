@@ -13,7 +13,8 @@
 				"max_zoom": 17,
 				"tiles_max_zoom": 15,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -30,6 +31,7 @@
 		{
 			"id": 2660,
 			"game_id": 266,
+			"section_id": null,
 			"title": "Locations",
 			"order": 10,
 			"color": "393939",
@@ -385,6 +387,7 @@
 		{
 			"id": 2661,
 			"game_id": 266,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 20,
 			"color": "5D5285",
@@ -740,6 +743,7 @@
 		{
 			"id": 2662,
 			"game_id": 266,
+			"section_id": null,
 			"title": "Pickups",
 			"order": 30,
 			"color": "807035",
@@ -758,7 +762,7 @@
 					"id": 14951,
 					"group_id": 2662,
 					"title": "12.7x55mm Ammo",
-					"icon": "x55mm_ammo",
+					"icon": "127x55mm_ammo",
 					"color": null,
 					"icon_color": null,
 					"info": "Ammunition used by Requiem.",
@@ -1095,6 +1099,7 @@
 		{
 			"id": 2663,
 			"game_id": 266,
+			"section_id": null,
 			"title": "Consumables & Crafting",
 			"order": 30,
 			"color": "498C97",
@@ -1366,6 +1371,7 @@
 		{
 			"id": 2664,
 			"game_id": 266,
+			"section_id": null,
 			"title": "Other",
 			"order": 40,
 			"color": "E0BE5D",
@@ -1579,6 +1585,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"14924": {
 			"id": 14924,
@@ -2340,7 +2347,7 @@
 			"id": 14951,
 			"group_id": 2662,
 			"title": "12.7x55mm Ammo",
-			"icon": "x55mm_ammo",
+			"icon": "127x55mm_ammo",
 			"color": null,
 			"icon_color": null,
 			"info": "Ammunition used by Requiem.",

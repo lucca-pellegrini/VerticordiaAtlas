@@ -214,6 +214,7 @@
 			"slug": "capital-wasteland",
 			"title": "Capital Wasteland",
 			"data": "capital-wasteland/data.json",
+			"compact": "capital-wasteland/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Default",
@@ -225,8 +226,7 @@
 					"tileSize": 256,
 					"background": "#1d1d1d"
 				}
-			],
-			"compact": "capital-wasteland/data.compact.json"
+			]
 		}
 	]
 }

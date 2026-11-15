@@ -160,6 +160,7 @@
 			"slug": "kamurocho",
 			"title": "Kamurocho",
 			"data": "kamurocho/data.json",
+			"compact": "kamurocho/data.compact.json",
 			"tilesets": [
 				{
 					"name": "kamurocho",
@@ -171,8 +172,7 @@
 					"tileSize": 256,
 					"background": "#000000"
 				}
-			],
-			"compact": "kamurocho/data.compact.json"
+			]
 		}
 	]
 }

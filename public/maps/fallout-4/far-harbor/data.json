@@ -24,7 +24,8 @@
 					"15": { "x": { "max": 16383, "min": 16256 }, "y": { "max": 16383, "min": 16256 } },
 					"16": { "x": { "max": 32767, "min": 32512 }, "y": { "max": 32767, "min": 32512 } },
 					"17": { "x": { "max": 65535, "min": 65024 }, "y": { "max": 65535, "min": 65024 } }
-				}
+				},
+				"filter": null
 			},
 			{
 				"id": 634,
@@ -37,7 +38,8 @@
 				"max_zoom": 13,
 				"tiles_max_zoom": 13,
 				"order": 1,
-				"bounds": null
+				"bounds": null,
+				"filter": null
 			}
 		],
 		"initial_zoom": 11,
@@ -48,16 +50,23 @@
 		"circle_locations_interactive": true,
 		"coordinate_grid": null,
 		"glyphs_font_slug": "fallout-4",
-		"glyphs_url": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf"
+		"glyphs_url": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf"
 	},
 	"groups": [
 		{
 			"id": 580,
 			"game_id": 58,
+			"section_id": null,
 			"title": "Collectibles",
 			"order": 1,
 			"color": "597698",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -151,10 +160,17 @@
 		{
 			"id": 581,
 			"game_id": 58,
+			"section_id": null,
 			"title": "Loot",
 			"order": 2,
 			"color": "D05148",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -500,10 +516,17 @@
 		{
 			"id": 584,
 			"game_id": 58,
+			"section_id": null,
 			"title": "Quests",
 			"order": 3,
 			"color": "8E58A1",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -597,11 +620,18 @@
 		{
 			"id": 582,
 			"game_id": 58,
+			"section_id": null,
 			"title": "Locations",
 			"order": 5,
 			"color": "26BB28",
 			"icon_color": null,
-			"expandable": false,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
+			"expandable": true,
 			"featured": false,
 			"featured_icon": null,
 			"categories": [
@@ -1310,10 +1340,17 @@
 		{
 			"id": 583,
 			"game_id": 58,
+			"section_id": null,
 			"title": "Other",
 			"order": 6,
 			"color": "8E58A1",
 			"icon_color": null,
+			"display_type": null,
+			"circle_color": null,
+			"circle_stroke_color": null,
+			"circle_opacity": null,
+			"circle_radius": null,
+			"area_config": null,
 			"expandable": false,
 			"featured": false,
 			"featured_icon": null,
@@ -1517,6 +1554,7 @@
 			]
 		}
 	],
+	"sections": [],
 	"categories": {
 		"2588": {
 			"id": 2588,
@@ -2932,6 +2970,7 @@
 	"roads": [],
 	"roadStyles": [],
 	"roadsVisible": true,
+	"coordinateAreas": [],
 	"locations": [
 		{
 			"id": 145070,
@@ -16170,22 +16209,111 @@
 	"heatmapGroups": [],
 	"heatmapCategories": [],
 	"tags": [
-		{ "id": 58, "game_id": 58, "title": "Creation Club", "icon": null, "color": null, "icon_color": null },
-		{ "id": 72, "game_id": 58, "title": "Automatron DLC", "icon": null, "color": null, "icon_color": null },
-		{ "id": 73, "game_id": 58, "title": "Next-Gen Update", "icon": null, "color": null, "icon_color": null },
-		{ "id": 74, "game_id": 58, "title": "Far Harbor DLC", "icon": null, "color": null, "icon_color": null },
-		{ "id": 75, "game_id": 58, "title": "Nuka-World DLC", "icon": null, "color": null, "icon_color": null },
-		{ "id": 76, "game_id": 58, "title": "Vault-Tec Workshop DLC", "icon": null, "color": null, "icon_color": null }
+		{
+			"id": 58,
+			"game_id": 58,
+			"order": 0,
+			"title": "Creation Club",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 72,
+			"game_id": 58,
+			"order": 0,
+			"title": "Automatron DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 73,
+			"game_id": 58,
+			"order": 0,
+			"title": "Next-Gen Update",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 74,
+			"game_id": 58,
+			"order": 0,
+			"title": "Far Harbor DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 75,
+			"game_id": 58,
+			"order": 0,
+			"title": "Nuka-World DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		{
+			"id": 76,
+			"game_id": 58,
+			"order": 0,
+			"title": "Vault-Tec Workshop DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		}
 	],
 	"tagsById": {
-		"58": { "id": 58, "game_id": 58, "title": "Creation Club", "icon": null, "color": null, "icon_color": null },
-		"72": { "id": 72, "game_id": 58, "title": "Automatron DLC", "icon": null, "color": null, "icon_color": null },
-		"73": { "id": 73, "game_id": 58, "title": "Next-Gen Update", "icon": null, "color": null, "icon_color": null },
-		"74": { "id": 74, "game_id": 58, "title": "Far Harbor DLC", "icon": null, "color": null, "icon_color": null },
-		"75": { "id": 75, "game_id": 58, "title": "Nuka-World DLC", "icon": null, "color": null, "icon_color": null },
+		"58": {
+			"id": 58,
+			"game_id": 58,
+			"order": 0,
+			"title": "Creation Club",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"72": {
+			"id": 72,
+			"game_id": 58,
+			"order": 0,
+			"title": "Automatron DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"73": {
+			"id": 73,
+			"game_id": 58,
+			"order": 0,
+			"title": "Next-Gen Update",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"74": {
+			"id": 74,
+			"game_id": 58,
+			"order": 0,
+			"title": "Far Harbor DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
+		"75": {
+			"id": 75,
+			"game_id": 58,
+			"order": 0,
+			"title": "Nuka-World DLC",
+			"icon": null,
+			"color": null,
+			"icon_color": null
+		},
 		"76": {
 			"id": 76,
 			"game_id": 58,
+			"order": 0,
 			"title": "Vault-Tec Workshop DLC",
 			"icon": null,
 			"color": null,
@@ -16200,7 +16328,7 @@
 		"mapStyle": {
 			"bounds": [-1.4, 0, 0, 1.4],
 			"fontName": "open-sans-regular",
-			"glyphsUrl": "https://cdn.mapgenie.io/fonts/default/pbf/{fontstack}/{range}.pbf",
+			"glyphsUrl": "https://media.mapgenie.io/v2/assets/prod/glyphs/{fontstack}/{range}.pbf",
 			"locationPolygonsEnabled": false,
 			"locationLinesEnabled": false,
 			"subregionsEnabled": false,

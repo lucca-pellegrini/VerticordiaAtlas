@@ -759,7 +759,7 @@
 			[]
 		],
 		"108": [
-			"**Requirements**: Chapter 2\n\nClimb up a ladder inside the barn to the above floor to find the stash box next to some hay stacks. The treasure box contains 2 x $50 and a jewelry bag. Be sure to loot everything else in the houses too.",
+			"**Requirements**: Chapter 2\n\nClimb up a ladder inside the barn to the above floor to find the stash box next to some hay stacks. The treasure box contains 2 x $50 and a jewelry bag. Be sure to loot everything else in the houses too.\n\n\n\nAdditional loot can be found in the barn if robbing the place with Javier - you'll find it by lingering around him until he asks you to help him move a crate.",
 			[
 				{
 					"id": 134374,
@@ -1116,7 +1116,23 @@
 				}
 			]
 		],
-		"147": ["Lodged inside a shipwreck", []],
+		"147": [
+			"Lodged inside a shipwreck",
+			[
+				{
+					"id": 157325,
+					"title": "",
+					"file_name": "9e99b9cf-5499-47e8-b29d-eadb9fa8dcdc.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/9e99b9cf-5499-47e8-b29d-eadb9fa8dcdc.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"148": [
 			"**Requirements:** The Noblest of Man, and a Woman stranger mission.\n\nTo obtain this pistol, you must kill Billy Midnight.\n\nSpeak to the train station clerk and he will reveal that Billy Midnight should be on one of the next two trains. Wait outside and board the first train that arrives.  Midnight will be in the last wagon. You must chase and duel him.",
 			[]
@@ -1377,6 +1393,23 @@
 				}
 			]
 		],
+		"262": [
+			"",
+			[
+				{
+					"id": 157521,
+					"title": "",
+					"file_name": "e32ac9a3-a5ef-4550-baaa-c885ca2cd37d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e32ac9a3-a5ef-4550-baaa-c885ca2cd37d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
 		"263": [
 			"",
 			[
@@ -1627,11 +1660,11 @@
 			[]
 		],
 		"314": [
-			"**Murder Scene:** A dismembered body is tied to a rock. On a nearby rock you'll find a head with \"Killer Clue 2 Piece\" in its mouth.  \n\n**Mission Unlocked:** Finding all 3 clues unlocks the [American Dreams](#loc=320) stranger mission.",
+			"**Murder Scene:** A dismembered body is strung up under a bridge. On a stake nearby you'll find a head that has \"Killer Clue 1 Piece\" in its mouth. You can also shoot the body down.\n\n**Mission Unlocked:** Finding all 3 clues unlocks the [American Dreams](#loc=320) stranger mission.",
 			[]
 		],
 		"315": [
-			"**Murder Scene:** A dismembered body is strung up under a bridge. On a stake nearby you'll find a head that has \"Killer Clue 1 Piece\" in its mouth. You can also shoot the body down.  \n\n**Mission Unlocked:** Finding all 3 clues unlocks the [American Dreams](#loc=320) stranger mission.",
+			"**Murder Scene:** This body is tied to a large tree. At the base of the tree, you'll find a head on a stake, with a \"Serial Killer Piece\" in its mouth. There are 3 clues in total. The number of the clue is determined by the order in which you find them.\n\n**Mission Unlocked:** Finding all 3 clues unlocks the [American Dreams](#loc=320) stranger mission.",
 			[
 				{
 					"id": 133854,
@@ -1648,7 +1681,7 @@
 			]
 		],
 		"316": [
-			"**Murder Scene:** This body is tied to a large tree. At the base of the tree, you'll find a head on a stake, with \"Serial Killer 3 Piece\" in its mouth.  \n\n**Mission Unlocked:** Finding all 3 clues unlocks the *American Dreams* stranger mission.",
+			"**Murder Scene:** This body is tied to a large tree. At the base of the tree, you'll find a head on a stake, with a \"Serial Killer Piece\" in its mouth. There are 3 clues in total. The number of the clue is determined by the order in which you find them.\n\n**Mission Unlocked:** Finding all 3 clues unlocks the _American Dreams_ stranger mission.",
 			[]
 		],
 		"319": [
@@ -2560,7 +2593,7 @@
 			"Behind an ivy-covered wall, facing away from the path.\n\n**Note:** These usually grow on tree trunks.",
 			[]
 		],
-		"468": ["Near a small cliff.\n\n**Note:** These usually grow on tree trunks.", []],
+		"468": ["Near a small cliff, on a tree with no ivy.\n\n**Note:** These usually grow on tree trunks.", []],
 		"469": ["On a slender tree near the water's edge.", []],
 		"470": ["**Note:** These usually grow on tree trunks.", []],
 		"471": ["**Random Spawns:**  \nSnowy Egret  \nLittle Egret  \nReddish Egret  \nHeron  \nSpoonbill", []],
@@ -2710,7 +2743,8 @@
 		"531": ["Close to cliff edge, between the three rocks.", []],
 		"533": ["In the ditch, almost under the bridge", []],
 		"534": ["On the ground", []],
-		"538": ["0", []],
+		"538": ["On the ground", []],
+		"539": ["On the ground", []],
 		"553": [
 			"**Prerequisite:**\n- Complete \"Gainful Employment\" in Epilogue, Part 1\n- Only available if Anthony is **NOT** killed at the ending of \"No, No, and Thrice, No\" in Chapter 4",
 			[]
@@ -5178,7 +5212,20 @@
 		],
 		"811": [
 			"Found on the southernmost island, at the foot of a dead tree hung with drying fish.\n- Large Jewelry Bag\n- Potent Miracle Tonic\n- Revolver Ammo",
-			[]
+			[
+				{
+					"id": 157324,
+					"title": "",
+					"file_name": "05f84fee-d9e5-4faf-b2fc-0b2fe50fcd9d.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/05f84fee-d9e5-4faf-b2fc-0b2fe50fcd9d.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"812": [
 			"**Requirements:** Chapter 4 onwards.\n\n**SPOILERS:** The treasure is located a few steps left of the corpse, inside a lockbox that's under a wall to the left of the doorway.",
@@ -5760,7 +5807,7 @@
 			]
 		],
 		"880": [
-			"Opening the front door will trigger a bear attack. You can ambush the bear yourself by entering through the cabin's broken back door.",
+			"||Opening the front door will trigger a bear attack. You can ambush the bear yourself by entering through the cabin's broken back door.||",
 			[]
 		],
 		"881": ["**Note:** Unlocked during the Epilogue.", []],
@@ -6463,7 +6510,7 @@
 			[]
 		],
 		"2410": [
-			"**Location:** Inside [Vetter's Echo Cabin](#loc=880), on a desk.\n\n**Requirements:** Chapters 2, 3 & 4, after accepting Lenny's request.\n\n_There's a bear inside the cabin - if you enter from the rear you'll get to attack it first._",
+			"**Location:** Inside [Vetter's Echo Cabin](#loc=880), on a desk.\n\n**Requirements:** Chapters 2, 3 & 4, after accepting Lenny's request.\n\n||_There's a bear inside the cabin - if you enter from the rear you'll get to attack it first._||",
 			[]
 		],
 		"2411": [
@@ -6806,7 +6853,7 @@
 		"19311": ["**Potential Location:** In the camp under the cliff overhang.", []],
 		"19312": ["**Potential Location:**", []],
 		"19313": ["**Potential Location:** At the base of a dead tree.", []],
-		"19314": ["**Potential Location:**", []],
+		"19314": ["**Potential Location: On a ledge**", []],
 		"19315": ["**Potential Location:** Under the overhanging cliff.", []],
 		"19316": ["**Potential Location:** By the crates on the edge of the canyon.", []],
 		"19317": ["**Potential Location:** By the fallen tree near the edge", []],
@@ -7123,7 +7170,20 @@
 		],
 		"21184": [
 			"In a lock box by a crate.\n\n**Requirements:** Chapter 2 onwards  \n**Ability:** Permanently increases the length of Fortifying tonic effects by 20%",
-			[]
+			[
+				{
+					"id": 157397,
+					"title": "",
+					"file_name": "e780a73b-da72-47e4-bab4-280fb8c0a66f.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e780a73b-da72-47e4-bab4-280fb8c0a66f.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"21185": [
 			"In a lock box by the shipwreck.\n\n**Requirements:** Chapter 2 onwards  \n**Ability:** Permanently increases player's horse bonding experience by 10%.",
@@ -8704,7 +8764,20 @@
 		],
 		"63699": [
 			"This gravestone represents an interesting story that is told through a letter found elsewhere on the map, in a wrecked mail truck.\n\nThe gravestone reads \"Joshua Burgess Accidentally shot August 1898\". The shooting occurred less than a year before the beginning of the story. The story in the letter tells of a relationship between the daughter of the man who owns Emerald Ranch and a young man. \n\nThe ranch owner did not approve of the relationship and shot the young man in the saloon which still has blood on the floor and bullet holes in the walls where the shooting occurred.",
-			[]
+			[
+				{
+					"id": 161415,
+					"title": "",
+					"file_name": "3789dab6-e7c2-4366-919a-ab0af2d7dc5e.png",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/3789dab6-e7c2-4366-919a-ab0af2d7dc5e.png",
+					"type": "image",
+					"mime_type": "image/png",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"63700": [
 			"A pair of moonshiners that can be encountered multiple times. At first, they will try to chase you away, but will eventually ask for help that you can provide by fetching herbs. \n\nRewards can include aged pirate rum, cash, and honor - but with some herbs being poisonous, their luck is sure to run out eventually.",
@@ -9699,7 +9772,20 @@
 		],
 		"506777": [
 			"50 paces from the Southeast corner of the old Bolger Glade Church - a rifle / bayonet is stuck in the tree",
-			[]
+			[
+				{
+					"id": 157300,
+					"title": "",
+					"file_name": "4ee71e39-a1e9-4856-8b98-ccfc49531f4e.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/4ee71e39-a1e9-4856-8b98-ccfc49531f4e.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
 		],
 		"506778": [
 			"Come here during a stormy night to hear ghostly whispers from General Harris & his men during the Battle of Scarlett Meadows of 1864.",
@@ -10711,11 +10797,11 @@
 		],
 		"928372": ["Inside the cave where you find [Otis Miller's Revolver](#loc=311).", []],
 		"928373": [
-			"Located in a drawer in Vetter's Echo Cabin.\n\n_There's a bear inside the cabin - if you enter from the rear you'll get to attack it first._",
+			"Located in a drawer in Vetter's Echo Cabin.\n\n||_There's a bear inside the cabin - if you enter from the rear you'll get to attack it first._||",
 			[]
 		],
 		"928374": [
-			"Found in a drawer in Vetter's Echo Cabin with A Day's Walk Poem.\n\n_There's a bear inside the cabin - if you enter from the rear you'll get to attack it first._",
+			"Found in a drawer in Vetter's Echo Cabin with A Day's Walk Poem.\n\n||_There's a bear inside the cabin - if you enter from the rear you'll get to attack it first._||",
 			[]
 		],
 		"928375": ["Given by the [Eugenics Proponent](#loc=952).\n\nBe sure to repay him with a knuckle sandwich.", []],
@@ -10970,6 +11056,67 @@
 					"file_name": "64e9148a-7eba-4503-8db4-4427e1bf4bca.png",
 					"attribution": "",
 					"url": "https://media.mapgenie.io/storage/media/64e9148a-7eba-4503-8db4-4427e1bf4bca.png",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1058207": [
+			"A stranger is trying to heal the foot of his mount.\n\nYour arrival will startle him, usually triggering a fatal kick to the head from his horse - though this isn't always guaranteed.\n\n**Tip:** If the stranger's horse bolts, you can chase it down and catch it.",
+			[]
+		],
+		"1058208": [
+			"A stranger is trying to heal the foot of his mount. \n\nYour arrival will startle him, usually triggering a fatal kick to the head from his horse - though this isn't always guaranteed.\n\n**Tip:** If the stranger's horse bolts, you can chase it down and catch it.",
+			[]
+		],
+		"1062118": ["Next to the Civil War Knife on a shelf in the basement.", []],
+		"1062119": ["Lemoyne Raiders may attack you or otherwise have a presence in this area.", []],
+		"1062120": [
+			"Next to the trail, amongst some trees and shrubbery.",
+			[
+				{
+					"id": 158568,
+					"title": "",
+					"file_name": "5d99766d-c821-4f12-9b5b-53c5dded94f9.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/5d99766d-c821-4f12-9b5b-53c5dded94f9.jpeg",
+					"type": "image",
+					"mime_type": "image/jpeg",
+					"meta": null,
+					"order": 10,
+					"spoiler": false
+				}
+			]
+		],
+		"1062121": ["Get ready for a friendly horse race! \n\nThree races can be found as random events.", []],
+		"1064227": [
+			"William the Herbalist has a chance to appear here after completing [To the Ends of the Earth](#loc=21182)\n\nGive him the herbs he asks for to receive another bottle of Special Miracle Tonic.",
+			[]
+		],
+		"1064228": [
+			"Two men trying to open a safe by any means necessary.\n\nYou can open it yourself with dynamite, or wait for the men to get it open before swooping in to claim the loot for yourself.",
+			[]
+		],
+		"1064229": [
+			"An outlaw can be heard shouting to members of his gang, stating that first to kill the player will be rewarded with gold. Four outlaws on horses will attack the player. This event can only occur in Chapter 2.",
+			[]
+		],
+		"1064230": [
+			"An outlaw can be heard shouting to members of his gang, stating that first to kill the player will be rewarded with gold. Four outlaws on horses will attack the player. This event can only occur in Chapter 2.",
+			[]
+		],
+		"1064231": [
+			"A man being mauled by a wolf. \n\nKill the wolf, and you'll get the option to share a whiskey or health cure with the man to gain some honor. \n\nUnfortunately, he'll die from blood loss either way.",
+			[
+				{
+					"id": 159407,
+					"title": "",
+					"file_name": "e6c10d22-28cb-4c56-ba40-e358ddcd9f0a.jpeg",
+					"attribution": "",
+					"url": "https://media.mapgenie.io/storage/media/e6c10d22-28cb-4c56-ba40-e358ddcd9f0a.jpeg",
 					"type": "image",
 					"mime_type": "image/jpeg",
 					"meta": null,

@@ -3,7 +3,7 @@
 	"title": "Grand Theft Auto III",
 	"slug": "grand-theft-auto-3",
 	"source": "https://mapgenie.io/grand-theft-auto-3",
-	"poster": "poster.png",
+	"poster": "poster.jpg",
 	"tagLabel": "Filter",
 	"defaultTag": null,
 	"markers": {
@@ -12,191 +12,13 @@
 		"json2x": "markers@2x.json",
 		"png2x": "markers@2x.png"
 	},
-	"icons": {
-		"font": "icons/icons.woff",
-		"glyphs": {
-			"vigilante": [
-				{
-					"cp": "e900"
-				}
-			],
-			"adrenaline": [
-				{
-					"cp": "e901"
-				}
-			],
-			"airport": [
-				{
-					"cp": "e902"
-				}
-			],
-			"ammu_nation": [
-				{
-					"cp": "e903"
-				}
-			],
-			"armor": [
-				{
-					"cp": "e904"
-				}
-			],
-			"bomb_shop": [
-				{
-					"cp": "e905"
-				}
-			],
-			"bribe": [
-				{
-					"cp": "e906"
-				}
-			],
-			"car_crusher": [
-				{
-					"cp": "e907"
-				}
-			],
-			"clothing": [
-				{
-					"cp": "e908"
-				}
-			],
-			"district": [
-				{
-					"cp": "e909"
-				}
-			],
-			"easter_egg": [
-				{
-					"cp": "e90a"
-				}
-			],
-			"fire_station": [
-				{
-					"cp": "e90b"
-				}
-			],
-			"firefighter_mission": [
-				{
-					"cp": "e90c"
-				}
-			],
-			"garage": [
-				{
-					"cp": "e90d"
-				}
-			],
-			"health": [
-				{
-					"cp": "e90e"
-				}
-			],
-			"hidden_package": [
-				{
-					"cp": "e90f"
-				}
-			],
-			"hospital": [
-				{
-					"cp": "e910"
-				}
-			],
-			"import_export": [
-				{
-					"cp": "e911"
-				}
-			],
-			"miscellaneous": [
-				{
-					"cp": "e912"
-				}
-			],
-			"mission": [
-				{
-					"cp": "e913"
-				}
-			],
-			"off_road_mission": [
-				{
-					"cp": "e914"
-				}
-			],
-			"paramedic_mission": [
-				{
-					"cp": "e915"
-				}
-			],
-			"pay_n_spray": [
-				{
-					"cp": "e916"
-				}
-			],
-			"phone_mission": [
-				{
-					"cp": "e917"
-				}
-			],
-			"point_of_interest": [
-				{
-					"cp": "e918"
-				}
-			],
-			"police_station": [
-				{
-					"cp": "e919"
-				}
-			],
-			"pool": [
-				{
-					"cp": "e91a"
-				}
-			],
-			"rampage": [
-				{
-					"cp": "e91b"
-				}
-			],
-			"rc_toyz": [
-				{
-					"cp": "e91c"
-				}
-			],
-			"safe_house": [
-				{
-					"cp": "e91d"
-				}
-			],
-			"stunt_jump": [
-				{
-					"cp": "e91e"
-				}
-			],
-			"taxi_driver_mission": [
-				{
-					"cp": "e91f"
-				}
-			],
-			"train_station": [
-				{
-					"cp": "e920"
-				}
-			],
-			"vehicle_spawn": [
-				{
-					"cp": "e921"
-				}
-			],
-			"weapon": [
-				{
-					"cp": "e922"
-				}
-			]
-		}
-	},
+	"icons": null,
 	"maps": [
 		{
 			"slug": "liberty-city",
 			"title": "Liberty City",
 			"data": "liberty-city/data.json",
+			"compact": "liberty-city/data.compact.json",
 			"tilesets": [
 				{
 					"name": "Atlas",
@@ -228,8 +50,7 @@
 					"tileSize": 256,
 					"background": "#5d7c8e"
 				}
-			],
-			"compact": "liberty-city/data.compact.json"
+			]
 		}
 	]
 }
