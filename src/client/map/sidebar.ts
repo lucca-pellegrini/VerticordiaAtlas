@@ -276,6 +276,7 @@ export function buildSidebar(): void {
 	root.textContent = "";
 	state.ui = { groups: new Map(), cats: new Map(), segs: new Map() };
 
+	const singleGroup = state.groups.length === 1;
 	for (const g of state.groups) {
 		// segments persist across map switches, so the bar morphs to the new sizes instead of being rebuilt
 		let seg = barSegs.get(g.id);
@@ -292,33 +293,40 @@ export function buildSidebar(): void {
 		state.ui.segs.set(g.id, seg);
 
 		const el = document.createElement("section");
-		el.className = "group" + (state.view.collapsed.has(g.id) ? " collapsed" : "");
+		el.className = "group" + (!singleGroup && state.view.collapsed.has(g.id) ? " collapsed" : "");
 		el.style.setProperty("--c", g.col);
 		el.innerHTML =
-			`<div class="group-head">${menuBtnHtml(g.title)}<button class="name" type="button">${esc(g.title)}</button>` +
-			`<span class="tally"></span><input type="checkbox" class="g-toggle" aria-label="Show all in ${esc(g.title)}"></div>` +
+			(singleGroup
+				? ""
+				: `<div class="group-head">${menuBtnHtml(g.title)}<button class="name" type="button">${esc(g.title)}</button>` +
+					`<span class="tally"></span><input type="checkbox" class="g-toggle" aria-label="Show all in ${esc(g.title)}"></div>`) +
 			`<div class="cats"></div>`;
 		const catsEl = el.querySelector<HTMLElement>(".cats")!;
-		const gToggle = el.querySelector<HTMLInputElement>(".g-toggle")!;
-		el.querySelector<HTMLElement>(".name")!.onclick = () => {
-			el.classList.toggle("collapsed");
-			el.classList.contains("collapsed") ? state.view.collapsed.add(g.id) : state.view.collapsed.delete(g.id);
-			scheduleViewSave();
-		};
-		gToggle.onchange = () => {
-			for (const c of g.cats) gToggle.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id);
-			for (const { row, cb } of rows) {
-				cb.checked = gToggle.checked;
-				row.classList.toggle("off", !cb.checked);
+		const gToggle = el.querySelector<HTMLInputElement>(".g-toggle");
+		if (!singleGroup) {
+			el.querySelector<HTMLElement>(".name")!.onclick = () => {
+				el.classList.toggle("collapsed");
+				el.classList.contains("collapsed") ? state.view.collapsed.add(g.id) : state.view.collapsed.delete(g.id);
+				scheduleViewSave();
+			};
+			if (gToggle) {
+				gToggle.onchange = () => {
+					for (const c of g.cats)
+						gToggle.checked ? state.view.hidden.delete(c.id) : state.view.hidden.add(c.id);
+					for (const { row, cb } of rows) {
+						cb.checked = gToggle.checked;
+						row.classList.toggle("off", !cb.checked);
+					}
+					onViewChanged();
+				};
 			}
-			onViewChanged();
-		};
-		el.querySelector<HTMLElement>(".group-head")!.oncontextmenu = (e) => {
-			e.preventDefault();
-			showOnly(g.cats.map((c: any) => c.id));
-		};
-		el.querySelector<HTMLElement>(".row-menu-btn")!.onclick = (e) =>
-			openRowMenu(e, { title: g.title, color: g.col, cats: g.cats, user: g.user ? { kind: "group" } : null });
+			el.querySelector<HTMLElement>(".group-head")!.oncontextmenu = (e) => {
+				e.preventDefault();
+				showOnly(g.cats.map((c: any) => c.id));
+			};
+			el.querySelector<HTMLElement>(".row-menu-btn")!.onclick = (e) =>
+				openRowMenu(e, { title: g.title, color: g.col, cats: g.cats, user: g.user ? { kind: "group" } : null });
+		}
 
 		const rows: any[] = [];
 		for (const c of g.cats) {
@@ -538,10 +546,12 @@ function updateSidebarImpl(): void {
 			gt += s.total;
 			gf += s.found;
 		}
-		tally.textContent = `${gf}/${gt}`;
-		gToggle.checked = visibleRows > 0 && shown === visibleRows;
-		gToggle.indeterminate = shown > 0 && shown < visibleRows;
-		gToggle.hidden = visibleRows === 0;
+		if (tally) tally.textContent = `${gf}/${gt}`;
+		if (gToggle) {
+			gToggle.checked = visibleRows > 0 && shown === visibleRows;
+			gToggle.indeterminate = shown > 0 && shown < visibleRows;
+			gToggle.hidden = visibleRows === 0;
+		}
 		const seg = state.ui.segs.get(g.id);
 		seg.style.flexGrow = String(Math.max(gt, 0.0001));
 		(seg.firstChild as HTMLElement).style.width = gt ? (100 * gf) / gt + "%" : "0";

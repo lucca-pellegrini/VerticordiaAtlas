@@ -761,15 +761,17 @@ function renderResume(gamesList: GameManifestEntry[]): string | null {
 			)
 			.join("") +
 		`</div>` +
-		`<ul class="resume-legend">` +
-		legend
-			.map(
-				(x) =>
-					`<li style="--c:${colour(x.c)}"><span class="dot" aria-hidden="true"></span>${esc(x.t)}<span class="num">${fmt(x.f)}/${fmt(x.n)}</span></li>`,
-			)
-			.join("") +
-		(more > 0 ? `<li class="more">+${more} more</li>` : "") +
-		`</ul>` +
+		(groups.length > 1
+			? `<ul class="resume-legend">` +
+				legend
+					.map(
+						(x) =>
+							`<li style="--c:${colour(x.c)}"><span class="dot" aria-hidden="true"></span>${esc(x.t)}<span class="num">${fmt(x.f)}/${fmt(x.n)}</span></li>`,
+					)
+					.join("") +
+				(more > 0 ? `<li class="more">+${more} more</li>` : "") +
+				`</ul>`
+			: "") +
 		`</div>` +
 		(recent || near
 			? `<div class="resume-cols">` +
