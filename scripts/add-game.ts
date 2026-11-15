@@ -49,6 +49,7 @@
 //                        slow and big: use it for a map whose tiles have gaps at different places and zooms, e.g. Solstheim,
 //                        or any map that is not a perfect rectangle at the stored zoom)
 
+import { AsyncLocalStorage } from "node:async_hooks";
 import { copyFile, mkdir, readdir, rename, rm, stat, unlink } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -545,6 +546,7 @@ export async function downloadTiles({
 			bounds: explicitBounds,
 			container: opts.container,
 			renderer: opts.renderer,
+			onStats: opts.onTileStats,
 		});
 
 		const visited = new Set<string>();
@@ -1023,6 +1025,7 @@ export async function downloadMedia(
 		noTui?: boolean;
 		container?: any;
 		renderer?: any;
+		onMediaStats?: (stats: { done: number; total: number; failed: number; etaSeconds: number }) => void;
 	},
 ) {
 	const writeLocal = !opts.uploadMedia || Boolean(opts.keepLocal);
@@ -1041,6 +1044,7 @@ export async function downloadMedia(
 		noTui: opts.noTui,
 		container: opts.container,
 		renderer: opts.renderer,
+		onStats: opts.onMediaStats,
 	});
 
 	try {
@@ -1518,35 +1522,186 @@ export interface AddGamePipelineOptions {
 	onStage?: (stage: string) => void;
 }
 
-export async function runAddGamePipeline(p: AddGamePipelineOptions) {
-	const origLog = console.log;
-	const origErr = console.error;
-	if (p.onLog || p.renderer) {
-		console.log = (...args: any[]) => p.onLog?.(args.map(String).join(" "));
-		console.error = (...args: any[]) => p.onLog?.(`[ERROR] ${args.map(String).join(" ")}`);
-	}
-	const log = (msg: string) => {
-		if (p.onLog) {
-			p.onLog(msg);
-		} else {
-			console.log(msg);
-		}
-	};
+export interface PipelineTileProgress {
+	tilesetIndex: number;
+	totalTilesets: number;
+	done: number;
+	total: number;
+	mode: "exact" | "estimated" | "unknown";
+	etaSeconds: number;
+}
 
+export interface PipelineOptimizeProgress {
+	tilesetIndex: number;
+	totalTilesets: number;
+	phase: string;
+	tilesDone: number;
+	solid: number;
+	overview: number;
+	freedBytes: number;
+}
+
+export interface PipelineMediaProgress {
+	done: number;
+	total: number;
+	failed: number;
+	etaSeconds: number;
+}
+
+export interface PipelineStageHooks {
+	container?: any;
+	renderer?: any;
+	onLog?: (msg: string) => void;
+	onStage?: (stage: string) => void;
+	onTileProgress?: (ev: PipelineTileProgress) => void;
+	onOptimizeProgress?: (ev: PipelineOptimizeProgress) => void;
+	onMediaProgress?: (ev: PipelineMediaProgress) => void;
+}
+
+export interface PipelineGameContext {
+	lootAtlasDone?: boolean;
+	pageSlug: string;
+	title: string;
+	outDir: string;
+	stagingBase: string;
+	redownloadTiles: boolean;
+	noTiles: boolean;
+	noOptimize: boolean;
+	noMedia: boolean;
+	noCards: boolean;
+	uploadMedia: boolean;
+	keepLocal: boolean;
+	videos: boolean;
+	concurrency: number;
+	maps: any[];
+	tileJobs: { md: any; ts: any; ms: string; dir: string; localTail: string; info: any }[];
+	writeMeta: () => Promise<void>;
+	mediaUrls: Map<string, string>;
+	mediaSummaryLine: string;
+	r2Cfg: ReturnType<typeof validateR2Env> | null;
+	r2Client: ReturnType<typeof createR2Client> | undefined;
+	opts: any;
+}
+
+const logStorage = new AsyncLocalStorage<(msg: string) => void>();
+let logHookCount = 0;
+let origConsoleLog: typeof console.log | null = null;
+let origConsoleError: typeof console.error | null = null;
+
+async function withScopedLog<T>(onLog: ((msg: string) => void) | undefined, fn: () => Promise<T>): Promise<T> {
+	if (!onLog) return await fn();
+	if (logHookCount === 0) {
+		origConsoleLog = console.log;
+		origConsoleError = console.error;
+		console.log = (...args: any[]) => {
+			const cb = logStorage.getStore();
+			if (cb) cb(args.map(String).join(" "));
+			else origConsoleLog?.(...args);
+		};
+		console.error = (...args: any[]) => {
+			const cb = logStorage.getStore();
+			if (cb) cb(`[ERROR] ${args.map(String).join(" ")}`);
+			else origConsoleError?.(...args);
+		};
+	}
+	logHookCount++;
 	try {
-		await executeAddGamePipeline(p, log);
+		return await logStorage.run(onLog, fn);
 	} finally {
-		if (p.onLog || p.renderer) {
-			console.log = origLog;
-			console.error = origErr;
+		logHookCount--;
+		if (logHookCount === 0 && origConsoleLog && origConsoleError) {
+			console.log = origConsoleLog;
+			console.error = origConsoleError;
+			origConsoleLog = null;
+			origConsoleError = null;
 		}
 	}
 }
 
-async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: string) => void) {
-	if (isLootAtlas(p.url)) {
-		return await executeLootAtlasPipeline(p, log);
+let indexLock: Promise<void> = Promise.resolve();
+async function withIndexLock<T>(fn: () => Promise<T>): Promise<T> {
+	let release!: () => void;
+	const next = new Promise<void>((r) => {
+		release = r;
+	});
+	const prev = indexLock;
+	indexLock = next;
+	await prev;
+	try {
+		return await fn();
+	} finally {
+		release();
 	}
+}
+
+export async function runAddGamePipeline(p: AddGamePipelineOptions) {
+	return await withScopedLog(p.onLog, async () => {
+		await executeAddGamePipeline(p);
+	});
+}
+
+async function executeAddGamePipeline(p: AddGamePipelineOptions) {
+	const hooks: PipelineStageHooks = {
+		container: p.container,
+		renderer: p.renderer,
+		onLog: p.onLog,
+		onStage: p.onStage,
+	};
+	const ctx = await runPipelineStageMetaAndTiles(p, hooks);
+	if (ctx.lootAtlasDone) {
+		p.onStage?.("Completed");
+		return;
+	}
+	await runPipelineStageOptimize(ctx, hooks);
+	await runPipelineStageMedia(ctx, hooks);
+	await runPipelineStageCards(ctx, hooks);
+	p.onStage?.("Completed");
+}
+
+export async function runPipelineStageMetaAndTiles(
+	p: AddGamePipelineOptions,
+	hooks: PipelineStageHooks = {},
+): Promise<PipelineGameContext> {
+	const log = (msg: string) => {
+		if (hooks.onLog) hooks.onLog(msg);
+		else console.log(msg);
+	};
+	return await withScopedLog(hooks.onLog, async () => {
+		if (isLootAtlas(p.url)) {
+			await executeLootAtlasPipeline({ ...p, ...hooks }, log);
+			return {
+				lootAtlasDone: true,
+				pageSlug: p.slug || "lootatlas",
+				title: p.title || p.slug || "LootAtlas",
+				outDir: path.resolve(p.out || "./public/maps", p.slug || "lootatlas"),
+				stagingBase: "",
+				redownloadTiles: Boolean(p.redownloadTiles),
+				noTiles: Boolean(p.noTiles),
+				noOptimize: Boolean(p.noOptimize),
+				noMedia: Boolean(p.noMedia),
+				noCards: Boolean(p.noCards),
+				uploadMedia: Boolean(p.uploadMedia),
+				keepLocal: Boolean(p.keepLocal),
+				videos: Boolean(p.videos),
+				concurrency: p.concurrency ?? 16,
+				maps: [],
+				tileJobs: [],
+				writeMeta: async () => {},
+				mediaUrls: new Map<string, string>(),
+				mediaSummaryLine: "",
+				r2Cfg: null,
+				r2Client: undefined,
+				opts: {},
+			};
+		}
+		return await executeStageMetaAndTiles(p, hooks);
+	});
+}
+
+async function executeStageMetaAndTiles(
+	p: AddGamePipelineOptions,
+	hooks: PipelineStageHooks,
+): Promise<PipelineGameContext> {
 	const v = {
 		out: p.out || "./public/maps",
 		id: p.id,
@@ -1729,7 +1884,30 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 				? `icons: ${Object.keys(icons.glyphs).length} glyphs in ${(icons as any).font || (icons as any).image}`
 				: "! no icon font for this game: the sidebar keeps the marker sprite",
 		);
-		return;
+		return {
+			lootAtlasDone: true,
+			pageSlug,
+			title,
+			outDir,
+			stagingBase: "",
+			redownloadTiles: Boolean(p.redownloadTiles),
+			noTiles: true,
+			noOptimize: true,
+			noMedia: true,
+			noCards: true,
+			uploadMedia: false,
+			keepLocal: false,
+			videos: false,
+			concurrency: opts.concurrency,
+			maps: [],
+			tileJobs: [],
+			writeMeta: async () => {},
+			mediaUrls: new Map<string, string>(),
+			mediaSummaryLine: "",
+			r2Cfg: null,
+			r2Client: undefined,
+			opts,
+		};
 	}
 	console.log(`Game "${title}" (${slug}) -> ${outDir}, ${maps.length} map(s)`);
 
@@ -1878,46 +2056,48 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 	};
 	await writeMeta();
 
-	// 8. homepage manifest
-	let index: { games: any[] } = { games: [] };
-	if (await exists(v.index!)) index = await Bun.file(v.index!).json();
-	const prev = index.games.find((g) => g.slug === pageSlug) || {};
-	const posterAccent =
-		posterFile && (v.poster || !prev.theme) && !v.accent ? await accentFromPoster(posterFile) : null;
-	const accent = v.accent || posterAccent || vividHex(maps[0].groups?.[0]?.color) || "#d6453b";
-	const newTheme = !prev.theme || v.accent || (v.poster && posterAccent);
-	if (newTheme)
-		console.log(
-			`  theme: accent ${accent} (${v.accent ? "--accent" : posterAccent ? "from the poster" : "from the game's first group colour"})`,
-		);
-	const posterRef = !poster ? undefined : variants ? `${pageSlug}/poster` : `${pageSlug}/${poster}`;
-	const entry: Record<string, any> = {
-		id: prev.id || id,
-		slug: pageSlug,
-		title: prev.title || title,
-		description: prev.description || `Every marker on the ${title} map.`,
-		poster: (v.poster ? posterRef : prev.poster) || posterRef,
-		posterAlt: prev.posterAlt,
-		theme: newTheme ? deriveTheme(accent) : prev.theme,
-		stats: [
-			{ value: maps.reduce((n, m) => n + m.locations.length, 0), label: "markers" },
-			{ value: cats.length, label: "categories" },
-		],
-		tagLabel: prev.tagLabel || meta.tagLabel,
-		defaultTag: prev.defaultTag ?? meta.defaultTag,
-	};
-	for (const k of Object.keys(entry)) if (entry[k] === undefined) delete entry[k];
-	const at = index.games.findIndex((g) => g.slug === pageSlug);
-	if (at >= 0) index.games[at] = entry;
-	else index.games.push(entry);
-	const tmpIndex = `${v.index!}.tmp.${process.pid}.${Date.now()}`;
-	await Bun.write(tmpIndex, JSON.stringify(index, null, "\t") + "\n");
-	await rename(tmpIndex, v.index!);
+	// 8. homepage manifest (serialized across concurrent pipeline tabs)
+	await withIndexLock(async () => {
+		let index: { games: any[] } = { games: [] };
+		if (await exists(v.index!)) index = await Bun.file(v.index!).json();
+		const prev = index.games.find((g) => g.slug === pageSlug) || {};
+		const posterAccent =
+			posterFile && (v.poster || !prev.theme) && !v.accent ? await accentFromPoster(posterFile) : null;
+		const accent = v.accent || posterAccent || vividHex(maps[0].groups?.[0]?.color) || "#d6453b";
+		const newTheme = !prev.theme || v.accent || (v.poster && posterAccent);
+		if (newTheme)
+			console.log(
+				`  theme: accent ${accent} (${v.accent ? "--accent" : posterAccent ? "from the poster" : "from the game's first group colour"})`,
+			);
+		const posterRef = !poster ? undefined : variants ? `${pageSlug}/poster` : `${pageSlug}/${poster}`;
+		const entry: Record<string, any> = {
+			id: prev.id || id,
+			slug: pageSlug,
+			title: prev.title || title,
+			description: prev.description || `Every marker on the ${title} map.`,
+			poster: (v.poster ? posterRef : prev.poster) || posterRef,
+			posterAlt: prev.posterAlt,
+			theme: newTheme ? deriveTheme(accent) : prev.theme,
+			stats: [
+				{ value: maps.reduce((n, m) => n + m.locations.length, 0), label: "markers" },
+				{ value: cats.length, label: "categories" },
+			],
+			tagLabel: prev.tagLabel || meta.tagLabel,
+			defaultTag: prev.defaultTag ?? meta.defaultTag,
+		};
+		for (const k of Object.keys(entry)) if (entry[k] === undefined) delete entry[k];
+		const at = index.games.findIndex((g) => g.slug === pageSlug);
+		if (at >= 0) index.games[at] = entry;
+		else index.games.push(entry);
+		const tmpIndex = `${v.index!}.tmp.${process.pid}.${Date.now()}`;
+		await Bun.write(tmpIndex, JSON.stringify(index, null, "\t") + "\n");
+		await rename(tmpIndex, v.index!);
+	});
 	console.log(
 		`\nWrote ${path.join(outDir, "meta.json")} and updated ${v.index}; the game is now listed, fetching tiles and media`,
 	);
 
-	// 10. tiles, then media
+	// 10. tiles
 	const stagingBase = path.resolve(p.cacheDir || "./cache/updates", pageSlug);
 	if (p.redownloadTiles && !v["no-tiles"] && tileJobs.length > 0) {
 		await rm(stagingBase, { recursive: true, force: true });
@@ -1926,8 +2106,10 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 
 	for (const m of forceTiles)
 		if (!maps.some((md) => md.map?.slug === m)) console.log(`! --force-get-tiles: no map "${m}" in this game`);
-	for (const { md, ts, ms, dir, localTail, info } of tileJobs) {
+	for (let tjIdx = 0; tjIdx < tileJobs.length; tjIdx++) {
+		const { md, ts, ms, dir, localTail, info } = tileJobs[tjIdx];
 		const targetDir = p.redownloadTiles ? path.join(stagingBase, ms) : dir;
+		hooks.onStage?.(`Downloading Tiles: ${ms} (${tjIdx + 1}/${tileJobs.length})`);
 		console.log(`\nTiles for ${ms} / ${ts.name}${p.redownloadTiles ? " (atomic staging)" : ""}`);
 		const r = await downloadTiles({
 			md,
@@ -1937,144 +2119,223 @@ async function executeAddGamePipeline(p: AddGamePipelineOptions, log: (msg: stri
 			localTail,
 			opts: {
 				...opts,
+				container: hooks.container ?? opts.container,
+				renderer: hooks.renderer ?? opts.renderer,
 				unpruned: forceTiles.has(ms),
 				gameTitle: title,
 				gameSlug: slug,
 				mapSlug: ms,
 				tilesetName: ts.name,
+				onTileStats: hooks.onTileProgress
+					? (st: {
+							done: number;
+							total: number;
+							mode: "exact" | "estimated" | "unknown";
+							etaSeconds: number;
+						}) =>
+							hooks.onTileProgress?.({
+								tilesetIndex: tjIdx + 1,
+								totalTilesets: tileJobs.length,
+								...st,
+							})
+					: undefined,
 			},
 		});
 		info.minzoom = r.minzoom;
 		info.maxzoom = r.maxzoom;
 		if (opts.maxZoom != null) info.maxzoom = Math.min(info.maxzoom ?? 99, opts.maxZoom);
-		// the overview levels (minzoom through maxzoom - 3) from the highest zoom, single-colour tiles as links, and
-		// the colour around the map.
-		// A forced map keeps the whole pyramid it was asked for; prune-tiles.ts can thin it out later.
-		const split = splitTemplate(info.template);
-		if (!v["no-optimize"] && !v["no-tiles"] && split) {
-			p.onStage?.(`Optimizing Tiles: ${ms}`);
-			let pruneDash: any = null;
-			if (p.container && p.renderer) {
-				pruneDash = await createPruneDashboard({
-					container: p.container,
-					renderer: p.renderer,
-					totalTilesets: 1,
-				});
-				pruneDash.startTileset(title, ts.name || ms, 0);
-			}
-			try {
-				const optDir = p.redownloadTiles ? path.join(stagingBase, split.base) : path.join(outDir, split.base);
-				const o = await optimizeTileset({
-					dir: optDir,
-					tail: split.tail,
-					minZ: info.minzoom ?? 0,
-					maxZ: info.maxzoom ?? 0,
-					prune: false,
-					background: info.background,
-					concurrency: opts.concurrency,
-					onProgress: pruneDash ? (ev) => pruneDash.onProgress(ev) : undefined,
-				});
-				if (pruneDash) {
-					pruneDash.finishTileset(o);
-					await pruneDash.finish();
-				}
-				log(
-					`  overview: ${o.overview} tile(s) made (minzoom..maxzoom-3); ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
-				);
-				if (o.background && !info.background) info.background = o.background;
-			} finally {
-				if (pruneDash) pruneDash.destroy();
-			}
-		}
 		await writeMeta();
 	}
 
-	if (p.redownloadTiles && !v["no-tiles"] && tileJobs.length > 0) {
-		p.onStage?.("Swapping Staged Tiles");
-		log(`  Swapping staged tiles into ${outDir}...`);
-		for (const md of maps) {
-			const ms = md.map?.slug || "map";
-			const stagedTilesDir = path.join(stagingBase, ms, "tiles");
-			const targetTilesDir = path.join(outDir, ms, "tiles");
-			if (await exists(stagedTilesDir)) {
-				await rm(targetTilesDir, { recursive: true, force: true });
-				await mkdir(path.dirname(targetTilesDir), { recursive: true });
-				await rename(stagedTilesDir, targetTilesDir);
-			}
-		}
-		await rm(stagingBase, { recursive: true, force: true });
-		log(`  ✓ Atomic tile update complete for ${pageSlug}`);
-	}
-
 	const { urls, kinds, embedded, youtube } = collectMedia(maps, Boolean(v.videos));
-	console.log(
-		`\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ""}${youtube ? `, ${youtube} YouTube videos (embedded, not downloaded)` : ""}; ${urls.size} file(s) to fetch${v.videos ? "" : " (images only; use --videos for the rest)"}`,
-	);
-	if (!v["no-media"] && urls.size) {
-		p.onStage?.("Downloading Media Assets");
-		const mediaDb = openMediaDb();
-		try {
-			await downloadMedia(urls, path.join(outDir, "media"), {
-				...opts,
-				game: pageSlug,
-				mediaDb,
-				uploadMedia,
-				keepLocal: Boolean(v["keep-local"]),
-				s3: r2Client,
-				mediaUrl: r2Cfg?.mediaUrl,
-			});
-		} finally {
-			mediaDb.close();
-		}
-	}
-	console.log(`\nDone: ${outDir}`);
+	const mediaSummaryLine = `\nMedia: ${JSON.stringify(kinds)}${embedded ? `, ${embedded} images embedded in descriptions` : ""}${youtube ? `, ${youtube} YouTube videos (embedded, not downloaded)` : ""}; ${urls.size} file(s) to fetch${v.videos ? "" : " (images only; use --videos for the rest)"}`;
 
-	// 11. social preview cards for the homepage and every game, and their tags (make-cards.ts)
-	if (!v["no-cards"]) {
-		p.onStage?.("Generating Preview Cards");
-		const here = path.dirname(fileURLToPath(import.meta.url));
-		try {
-			const proc = Bun.spawn(
-				[process.execPath, path.join(here, "make-cards.ts"), "--only", pageSlug, "--no-tui"],
-				{
-					cwd: path.dirname(here),
-					stdout: p.onLog ? "pipe" : "inherit",
-					stderr: "pipe",
-				},
-			);
-			if (p.onLog && proc.stdout) {
-				const reader = proc.stdout.getReader();
-				const decoder = new TextDecoder();
-				(async () => {
-					let buf = "";
-					while (true) {
-						const { done, value } = await reader.read();
-						if (done) break;
-						buf += decoder.decode(value, { stream: true });
-						const lines = buf.split("\n");
-						buf = lines.pop() || "";
-						for (const l of lines) if (l.trim()) p.onLog?.(l);
+	return {
+		pageSlug,
+		title,
+		outDir,
+		stagingBase,
+		redownloadTiles: Boolean(p.redownloadTiles),
+		noTiles: Boolean(v["no-tiles"]),
+		noOptimize: Boolean(v["no-optimize"]),
+		noMedia: Boolean(v["no-media"]),
+		noCards: Boolean(v["no-cards"]),
+		uploadMedia,
+		keepLocal: Boolean(v["keep-local"]),
+		videos: Boolean(v.videos),
+		concurrency: opts.concurrency,
+		maps,
+		tileJobs,
+		writeMeta,
+		mediaUrls: urls,
+		mediaSummaryLine,
+		r2Cfg,
+		r2Client,
+		opts,
+	};
+}
+
+export async function runPipelineStageOptimize(
+	ctx: PipelineGameContext,
+	hooks: PipelineStageHooks = {},
+): Promise<void> {
+	await withScopedLog(hooks.onLog, async () => {
+		const optimizable = ctx.tileJobs.filter((j) => splitTemplate(j.info.template));
+		if (!ctx.noOptimize && !ctx.noTiles && optimizable.length > 0) {
+			for (let i = 0; i < optimizable.length; i++) {
+				const { ts, ms, info } = optimizable[i];
+				const split = splitTemplate(info.template)!;
+				hooks.onStage?.(`Optimizing Tiles: ${ms} (${i + 1}/${optimizable.length})`);
+				let pruneDash: any = null;
+				if (hooks.container && hooks.renderer) {
+					pruneDash = await createPruneDashboard({
+						container: hooks.container,
+						renderer: hooks.renderer,
+						totalTilesets: 1,
+					});
+					pruneDash.startTileset(ctx.title, ts.name || ms, 0);
+				}
+				try {
+					const optDir = ctx.redownloadTiles
+						? path.join(ctx.stagingBase, split.base)
+						: path.join(ctx.outDir, split.base);
+					let tilesDone = 0;
+					let solidCount = 0;
+					let overviewCount = 0;
+					let freedBytes = 0;
+					const o = await optimizeTileset({
+						dir: optDir,
+						tail: split.tail,
+						minZ: info.minzoom ?? 0,
+						maxZ: info.maxzoom ?? 0,
+						prune: false,
+						background: info.background,
+						concurrency: ctx.concurrency,
+						onProgress: (ev) => {
+							pruneDash?.onProgress(ev);
+							if (ev.solid !== undefined) solidCount = ev.solid;
+							if (ev.solidFreed !== undefined) freedBytes = ev.solidFreed;
+							if (ev.overview !== undefined) overviewCount = ev.overview;
+							tilesDone = Math.max(tilesDone, solidCount + overviewCount);
+							hooks.onOptimizeProgress?.({
+								tilesetIndex: i + 1,
+								totalTilesets: optimizable.length,
+								phase: ev.phase,
+								tilesDone,
+								solid: solidCount,
+								overview: overviewCount,
+								freedBytes,
+							});
+						},
+					});
+					if (pruneDash) {
+						pruneDash.finishTileset(o);
+						await pruneDash.finish();
 					}
-					if (buf.trim()) p.onLog?.(buf);
-				})().catch(() => {});
+					console.log(
+						`  overview: ${o.overview} tile(s) made (minzoom..maxzoom-3); ${o.solid} single-colour tiles linked (-${mb(o.solidFreed)})`,
+					);
+					if (o.background && !info.background) info.background = o.background;
+				} finally {
+					if (pruneDash) pruneDash.destroy();
+				}
+				await ctx.writeMeta();
 			}
-			const exit = await proc.exited;
-			if (exit !== 0) {
-				const err = await new Response(proc.stderr).text();
-				throw new Error(err || `make-cards.ts exited with code ${exit}`);
-			}
-			console.log("Cards rebuilt (make-cards.ts).");
-		} catch (e: any) {
-			console.log(
-				'! Cards not rebuilt, run "bun scripts/make-cards.ts" by hand:',
-				String(e.stderr || e.message)
-					.trim()
-					.split("\n")
-					.slice(-1)[0],
-			);
 		}
-	}
-	p.onStage?.("Completed");
+
+		if (ctx.redownloadTiles && !ctx.noTiles && ctx.tileJobs.length > 0) {
+			hooks.onStage?.("Swapping Staged Tiles");
+			console.log(`  Swapping staged tiles into ${ctx.outDir}...`);
+			for (const md of ctx.maps) {
+				const ms = md.map?.slug || "map";
+				const stagedTilesDir = path.join(ctx.stagingBase, ms, "tiles");
+				const targetTilesDir = path.join(ctx.outDir, ms, "tiles");
+				if (await exists(stagedTilesDir)) {
+					await rm(targetTilesDir, { recursive: true, force: true });
+					await mkdir(path.dirname(targetTilesDir), { recursive: true });
+					await rename(stagedTilesDir, targetTilesDir);
+				}
+			}
+			await rm(ctx.stagingBase, { recursive: true, force: true });
+			console.log(`  ✓ Atomic tile update complete for ${ctx.pageSlug}`);
+		}
+	});
+}
+
+export async function runPipelineStageMedia(ctx: PipelineGameContext, hooks: PipelineStageHooks = {}): Promise<void> {
+	await withScopedLog(hooks.onLog, async () => {
+		console.log(ctx.mediaSummaryLine);
+		if (!ctx.noMedia && ctx.mediaUrls.size) {
+			hooks.onStage?.("Downloading Media Assets");
+			const mediaDb = openMediaDb();
+			try {
+				await downloadMedia(ctx.mediaUrls, path.join(ctx.outDir, "media"), {
+					...ctx.opts,
+					container: hooks.container ?? ctx.opts.container,
+					renderer: hooks.renderer ?? ctx.opts.renderer,
+					game: ctx.pageSlug,
+					mediaDb,
+					uploadMedia: ctx.uploadMedia,
+					keepLocal: ctx.keepLocal,
+					s3: ctx.r2Client,
+					mediaUrl: ctx.r2Cfg?.mediaUrl,
+					onMediaStats: hooks.onMediaProgress,
+				});
+			} finally {
+				mediaDb.close();
+			}
+		}
+		console.log(`\nDone: ${ctx.outDir}`);
+	});
+}
+
+export async function runPipelineStageCards(ctx: PipelineGameContext, hooks: PipelineStageHooks = {}): Promise<void> {
+	await withScopedLog(hooks.onLog, async () => {
+		if (!ctx.noCards) {
+			hooks.onStage?.("Generating Preview Cards");
+			const here = path.dirname(fileURLToPath(import.meta.url));
+			try {
+				const proc = Bun.spawn(
+					[process.execPath, path.join(here, "make-cards.ts"), "--only", ctx.pageSlug, "--no-tui"],
+					{
+						cwd: path.dirname(here),
+						stdout: hooks.onLog ? "pipe" : "inherit",
+						stderr: "pipe",
+					},
+				);
+				if (hooks.onLog && proc.stdout) {
+					const reader = proc.stdout.getReader();
+					const decoder = new TextDecoder();
+					(async () => {
+						let buf = "";
+						while (true) {
+							const { done, value } = await reader.read();
+							if (done) break;
+							buf += decoder.decode(value, { stream: true });
+							const lines = buf.split("\n");
+							buf = lines.pop() || "";
+							for (const l of lines) if (l.trim()) hooks.onLog?.(l);
+						}
+						if (buf.trim()) hooks.onLog?.(buf);
+					})().catch(() => {});
+				}
+				const exit = await proc.exited;
+				if (exit !== 0) {
+					const err = await new Response(proc.stderr).text();
+					throw new Error(err || `make-cards.ts exited with code ${exit}`);
+				}
+				console.log("Cards rebuilt (make-cards.ts).");
+			} catch (e: any) {
+				console.log(
+					'! Cards not rebuilt, run "bun scripts/make-cards.ts" by hand:',
+					String(e.stderr || e.message)
+						.trim()
+						.split("\n")
+						.slice(-1)[0],
+				);
+			}
+		}
+	});
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

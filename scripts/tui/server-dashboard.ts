@@ -19,6 +19,7 @@ import { runAddGamePipeline } from "../add-game.js";
 import { resolveGames, updateGame } from "../update-games.js";
 import { CatalogGame, createGamesCatalogView, GamesCatalogView, type UpdateGameFormOptions } from "./games-catalog.js";
 import { AddGameFormResult, AddGameFormView, createAddGameFormView } from "./input-form.js";
+import { createPipelineJobView, type PipelineJobView } from "./pipeline-job.js";
 import { createQuitConfirmOverlay } from "./quit-confirm.js";
 import { createServerJobView, ServerJobView } from "./server-job.js";
 import {
@@ -100,7 +101,7 @@ interface TabItem {
 	id: string;
 	label: string;
 	type: "monitor" | "catalog" | "form" | "job";
-	view?: GamesCatalogView | AddGameFormView | ServerJobView;
+	view?: GamesCatalogView | AddGameFormView | ServerJobView | PipelineJobView;
 	jobSlug?: string;
 	statusBadge?: string;
 }
@@ -778,6 +779,7 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		return {
 			redownloadTiles: options.redownloadTiles,
 			noTiles: options.noTiles,
+			noOptimize: !options.optimizeTiles,
 			noMedia: !options.downloadMedia,
 			uploadMedia: options.uploadMedia,
 			keepLocal: options.keepLocal,
@@ -890,6 +892,37 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 						jobSlug: "all",
 						statusBadge: "(RUNNING)",
 					};
+
+					if (options.pipeline) {
+						const pipelineView = await createPipelineJobView({
+							renderer,
+							width: boxW - 4,
+							height: boxH - 5,
+							jobId: newTab.id,
+							title: workerCount === 1 ? "All games" : `All games (worker ${w + 1}/${workerCount})`,
+							slug: workerCount === 1 ? "all" : `all-${w + 1}`,
+							games: bucket,
+							updateOptions: uopts,
+							mapsDir,
+							onGameUpdated() {
+								catalogView.reload();
+							},
+							onCompleted(success) {
+								newTab.statusBadge = success ? "(✓)" : "(✗)";
+								catalogView.reload();
+								updateTabBar();
+							},
+							onCloseTab() {
+								closeTab(tabs.indexOf(newTab));
+							},
+						});
+						newTab.view = pipelineView;
+						tabs.push(newTab);
+						if (w === 0) switchTab(tabs.length - 1);
+						else updateTabBar();
+						continue;
+					}
+
 					const jobView = createServerJobView({
 						renderer,
 						width: boxW - 4,
@@ -1355,11 +1388,14 @@ export async function createServerDashboard(opts: ServerDashboardOptions): Promi
 		} else if (cur.type === "form") {
 			hints = `[Tab/Shift+Tab] Field   [Space] Toggle   [Enter] Start Scrape   [Esc/^w] Close Tab   ${tabHint}`;
 		} else if (cur.type === "job") {
-			const jv = cur.view as ServerJobView;
+			const jv = cur.view as ServerJobView | PipelineJobView;
+			const pipeHint = (jv as PipelineJobView)?.isPipeline
+				? "[↑↓/kj] Stage   [f] Follow   [Esc] Unfollow   "
+				: "";
 			if (jv?.status === "running") {
-				hints = `${tabHint} (runs in background)   [^n] New Scrape`;
+				hints = `${pipeHint}${tabHint} (runs in background)   [^n] New Scrape`;
 			} else {
-				hints = `[^w] Close Tab   [Alt-1] Monitor   [Alt-2] Catalog   [^n] New Scrape   ${tabHint}`;
+				hints = `${pipeHint}[^w] Close Tab   [Alt-1] Monitor   [Alt-2] Catalog   [^n] New Scrape   ${tabHint}`;
 			}
 		}
 

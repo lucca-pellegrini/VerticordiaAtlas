@@ -33,12 +33,14 @@ export interface CatalogGame {
 export interface UpdateGameFormOptions {
 	redownloadTiles: boolean;
 	noTiles: boolean;
+	optimizeTiles: boolean;
 	downloadMedia: boolean;
 	uploadMedia: boolean;
 	keepLocal: boolean;
 	videos: boolean;
 	renderCards: boolean;
 	shuffle: boolean;
+	pipeline: boolean;
 	jobs: number;
 }
 
@@ -88,12 +90,14 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 	let updateOptions: UpdateGameFormOptions = {
 		redownloadTiles: false,
 		noTiles: false,
+		optimizeTiles: true,
 		downloadMedia: true,
 		uploadMedia: false,
 		keepLocal: false,
 		videos: false,
 		renderCards: false,
 		shuffle: false,
+		pipeline: true,
 		jobs: 1,
 	};
 	let searchQuery = "";
@@ -530,29 +534,43 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 		showToast(`✓ Saved changes to "${game.title}"`);
 	}
 
-	const updateFields: { key: keyof UpdateGameFormOptions; label: string; type: "bool" | "number" }[] = [
+	const updateFields: {
+		key: keyof UpdateGameFormOptions;
+		label: string;
+		type: "bool" | "number";
+		allOnly?: boolean;
+	}[] = [
 		{ key: "redownloadTiles", label: "Force overwrite all tiles (atomic staging via cache)", type: "bool" },
 		{ key: "noTiles", label: "Skip downloading tiles", type: "bool" },
+		{ key: "optimizeTiles", label: "Optimize / prune overview tiles", type: "bool" },
 		{ key: "downloadMedia", label: "Download missing media", type: "bool" },
 		{ key: "uploadMedia", label: "Upload media directly to R2 / S3", type: "bool" },
 		{ key: "keepLocal", label: "Keep local media copies when uploading", type: "bool" },
 		{ key: "videos", label: "Include video media", type: "bool" },
 		{ key: "renderCards", label: "Re-render OpenGraph preview cards", type: "bool" },
-		{ key: "shuffle", label: "Shuffle game order", type: "bool" },
-		{ key: "jobs", label: "Parallel update tabs (update all, interleaved)", type: "number" },
+		{ key: "shuffle", label: "Shuffle game order", type: "bool", allOnly: true },
+		{ key: "pipeline", label: "Pipeline execution across stages (recommended)", type: "bool", allOnly: true },
+		{ key: "jobs", label: "Parallel update tabs (update all, interleaved)", type: "number", allOnly: true },
 	];
+
+	function visibleUpdateFields() {
+		const all = modalState === "updateAll";
+		return updateFields.filter((f) => !f.allOnly || all);
+	}
 
 	function resetUpdateOptions() {
 		updateFocusIdx = 0;
 		updateOptions = {
 			redownloadTiles: false,
 			noTiles: false,
+			optimizeTiles: true,
 			downloadMedia: true,
 			uploadMedia: false,
 			keepLocal: false,
 			videos: false,
 			renderCards: false,
 			shuffle: false,
+			pipeline: true,
 			jobs: 1,
 		};
 	}
@@ -580,8 +598,9 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 			: `Update "${game?.title || ""}" (${game?.slug || ""}) from MapGenie`;
 		modalTitle.content = all ? "UPDATE ALL GAMES" : "UPDATE GAME FROM MAPGENIE";
 		const lines = [title, "", "Options:"];
-		for (let i = 0; i < updateFields.length; i++) {
-			const f = updateFields[i];
+		const fields = visibleUpdateFields();
+		for (let i = 0; i < fields.length; i++) {
+			const f = fields[i];
 			const focus = i === updateFocusIdx ? "▶" : " ";
 			if (f.type === "number") {
 				const val = String(updateOptions.jobs).padStart(2, " ");
@@ -774,10 +793,11 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 					closeModal();
 					return true;
 				}
+				const fields = visibleUpdateFields();
 				if (key.name === "up" || key.name === "k" || (key.name === "tab" && key.shift)) {
 					key.preventDefault?.();
 					key.stopPropagation?.();
-					updateFocusIdx = (updateFocusIdx - 1 + updateFields.length) % updateFields.length;
+					updateFocusIdx = (updateFocusIdx - 1 + fields.length) % fields.length;
 					renderUpdateModalText();
 					renderer.requestRender();
 					return true;
@@ -785,12 +805,12 @@ export async function createGamesCatalogView(opts: GamesCatalogOptions): Promise
 				if (key.name === "down" || key.name === "j" || key.name === "tab") {
 					key.preventDefault?.();
 					key.stopPropagation?.();
-					updateFocusIdx = (updateFocusIdx + 1) % updateFields.length;
+					updateFocusIdx = (updateFocusIdx + 1) % fields.length;
 					renderUpdateModalText();
 					renderer.requestRender();
 					return true;
 				}
-				const focused = updateFields[updateFocusIdx];
+				const focused = fields[updateFocusIdx];
 				if (focused.type === "number" && (key.name === "left" || key.name === "h")) {
 					key.preventDefault?.();
 					key.stopPropagation?.();

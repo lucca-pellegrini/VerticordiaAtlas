@@ -45,7 +45,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 
-import { runAddGamePipeline } from "./add-game.ts";
+import { type AddGamePipelineOptions, runAddGamePipeline } from "./add-game.ts";
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const exists = (p: string) => Bun.file(p).exists();
@@ -74,6 +74,7 @@ export interface UpdateGameOptions {
 	keepLocal?: boolean;
 	videos?: boolean;
 	noCards?: boolean;
+	noOptimize?: boolean;
 	concurrency?: number;
 	delay?: number;
 	maxTiles?: number;
@@ -182,12 +183,7 @@ export async function detectMissingTilesets(game: GameInfo): Promise<MissingTile
 	return missing;
 }
 
-/**
- * Re-runs the scrape and download pipeline for a game with its existing configuration.
- * Preserves the original slug, title, id, poster, and description.
- * If redownloadTiles is true, downloads tiles into cache staging and atomically swaps them.
- */
-export async function updateGame(game: GameInfo, options: UpdateGameOptions = {}): Promise<void> {
+export function gameToPipelineOptions(game: GameInfo, options: UpdateGameOptions = {}): AddGamePipelineOptions {
 	const meta = game.meta;
 	const sourceUrl =
 		meta.source || (meta.slug ? `https://mapgenie.io/${meta.slug}` : `https://mapgenie.io/${game.folder}`);
@@ -199,19 +195,7 @@ export async function updateGame(game: GameInfo, options: UpdateGameOptions = {}
 	const defaultTag = meta.defaultTag || game.indexEntry?.defaultTag;
 	const allTilesets = meta.maps?.some((m: any) => (m.tilesets?.length || 0) > 1) ?? true;
 
-	if (options.dryRun) {
-		console.log(`[dry-run] Update plan for ${title} (${slug}):`);
-		console.log(`  Source: ${sourceUrl}`);
-		console.log(
-			`  Tiles:  ${options.noTiles ? "skipped" : options.redownloadTiles ? "atomic redownload (via cache staging)" : "incremental update"}`,
-		);
-		console.log(
-			`  Media:  ${options.noMedia ? "skipped" : options.uploadMedia ? "upload to cloud" : "download missing"}`,
-		);
-		return;
-	}
-
-	await runAddGamePipeline({
+	return {
 		url: sourceUrl,
 		out: options.mapsDir || path.dirname(game.gameDir),
 		id,
@@ -225,6 +209,7 @@ export async function updateGame(game: GameInfo, options: UpdateGameOptions = {}
 		redownloadTiles: Boolean(options.redownloadTiles),
 		cacheDir: options.cacheDir || path.join(REPO, "cache", "updates"),
 		noTiles: options.noTiles,
+		noOptimize: options.noOptimize,
 		noMedia: options.noMedia,
 		uploadMedia: options.uploadMedia,
 		keepLocal: options.keepLocal,
@@ -239,7 +224,30 @@ export async function updateGame(game: GameInfo, options: UpdateGameOptions = {}
 		renderer: options.renderer,
 		onLog: options.onLog,
 		onStage: options.onStage,
-	});
+	};
+}
+
+/**
+ * Re-runs the scrape and download pipeline for a game with its existing configuration.
+ * Preserves the original slug, title, id, poster, and description.
+ * If redownloadTiles is true, downloads tiles into cache staging and atomically swaps them.
+ */
+export async function updateGame(game: GameInfo, options: UpdateGameOptions = {}): Promise<void> {
+	const pipelineOpts = gameToPipelineOptions(game, options);
+
+	if (options.dryRun) {
+		console.log(`[dry-run] Update plan for ${pipelineOpts.title} (${pipelineOpts.slug}):`);
+		console.log(`  Source: ${pipelineOpts.url}`);
+		console.log(
+			`  Tiles:  ${options.noTiles ? "skipped" : options.redownloadTiles ? "atomic redownload (via cache staging)" : "incremental update"}`,
+		);
+		console.log(
+			`  Media:  ${options.noMedia ? "skipped" : options.uploadMedia ? "upload to cloud" : "download missing"}`,
+		);
+		return;
+	}
+
+	await runAddGamePipeline(pipelineOpts);
 }
 
 async function main() {

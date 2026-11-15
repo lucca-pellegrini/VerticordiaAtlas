@@ -33,6 +33,12 @@ export interface DashboardOptions {
 	concurrency?: number;
 	container?: BoxRenderable;
 	renderer?: any;
+	onStats?: (stats: {
+		done: number;
+		total: number;
+		mode: "exact" | "estimated" | "unknown";
+		etaSeconds: number;
+	}) => void;
 }
 
 export interface TileDashboard {
@@ -627,16 +633,18 @@ export async function createTileDashboard(opts: DashboardOptions): Promise<TileD
 		rateText.content = `Rate:        ${currentRateTiles.toFixed(1)} tiles/s (${fmtBytes(currentRateBytes)}/s)`;
 
 		const elapsed = (now - startTime) / 1000;
+		let etaSeconds = -1;
 		if (st.mode === "unknown") {
 			timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: unknown`;
 		} else if (st.mode === "estimated") {
-			const eta = currentRateTiles > 0 && st.total > totalDone ? (st.total - totalDone) / currentRateTiles : -1;
-			const etaStr = eta >= 0 ? `~${fmtTime(eta)} (est.)` : "unknown";
+			etaSeconds = currentRateTiles > 0 && st.total > totalDone ? (st.total - totalDone) / currentRateTiles : -1;
+			const etaStr = etaSeconds >= 0 ? `~${fmtTime(etaSeconds)} (est.)` : "unknown";
 			timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: ${etaStr}`;
 		} else {
-			const eta = currentRateTiles > 0 && st.total > totalDone ? (st.total - totalDone) / currentRateTiles : -1;
-			timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: ${fmtTime(eta)}`;
+			etaSeconds = currentRateTiles > 0 && st.total > totalDone ? (st.total - totalDone) / currentRateTiles : -1;
+			timeText.content = `Elapsed:     ${fmtTime(elapsed)}   ETA: ${fmtTime(etaSeconds)}`;
 		}
+		opts.onStats?.({ done: totalDone, total: st.total, mode: st.mode, etaSeconds });
 
 		redrawMinimap();
 		renderer.requestRender();

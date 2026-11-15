@@ -27,6 +27,7 @@ export interface MediaDashboardOptions {
 	noTui?: boolean;
 	container?: BoxRenderable;
 	renderer?: any;
+	onStats?: (stats: { done: number; total: number; failed: number; etaSeconds: number }) => void;
 }
 
 export interface MediaItemEvent {
@@ -276,6 +277,7 @@ export async function createMediaDashboard(opts: MediaDashboardOptions): Promise
 		const totalAll = Math.max(done, totalExpected);
 		const pct = totalAll > 0 ? Math.min(100, (done / totalAll) * 100) : 0;
 		const eta = rateItems > 0 && totalAll > done ? (totalAll - done) / rateItems : -1;
+		opts.onStats?.({ done, total: totalAll, failed, etaSeconds: eta });
 
 		progressText.content = `Progress:    ${fmt(done)} / ${fmt(totalAll)} items (${pct.toFixed(1)}%)`;
 		rateText.content = `Throughput:  ${rateItems.toFixed(1)} items/s (${fmtBytes(rateBytes)}/s)`;

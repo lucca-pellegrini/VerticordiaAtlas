@@ -128,6 +128,9 @@ export async function optimizeTileset(o: {
 	// 1. single-colour tiles
 	const colours = new Map<string, number>();
 	const firstOfColour = new Set<string>();
+	let scanned = 0;
+	let lastEmit = 0;
+	o.onProgress?.({ phase: "solid", scanned: 0, totalTiles: r.tiles, solid: 0, solidFreed: 0 });
 	await pool(tiles, conc, async (t) => {
 		let key: string | null = null;
 		if (o.dryRun) {
@@ -143,11 +146,25 @@ export async function optimizeTileset(o: {
 			r.solid++;
 			colours.set(key, (colours.get(key) ?? 0) + 1);
 		}
+		scanned++;
+		const now = Date.now();
+		if (now - lastEmit >= 100 || scanned === r.tiles) {
+			lastEmit = now;
+			o.onProgress?.({
+				phase: "solid",
+				scanned,
+				totalTiles: r.tiles,
+				solid: r.solid,
+				solidFreed: r.solidFreed,
+			});
+		}
 	});
 	const top = [...colours.entries()].filter(([k]) => k.endsWith("ff")).sort((a, b) => b[1] - a[1])[0];
 	r.background = top ? "#" + top[0].slice(0, 6) : null;
 	o.onProgress?.({
 		phase: "solid",
+		scanned: r.tiles,
+		totalTiles: r.tiles,
 		solid: r.solid,
 		solidFreed: r.solidFreed,
 		topColors: [...colours.entries()].sort((a, b) => b[1] - a[1]).slice(0, 4),
@@ -182,7 +199,7 @@ export async function optimizeTileset(o: {
 			if (have.has(`${z}/${x}/${y}`)) return;
 			have.add(`${z}/${x}/${y}`);
 			r.overview++;
-			o.onProgress?.({ phase: "overview", overview: r.overview });
+			o.onProgress?.({ phase: "overview", overview: r.overview, overviewTotal: missing.size });
 			const sk = solidKey(raw);
 			await placeTile(
 				path.join(dir, tilePath(tail, z, x, y)),
@@ -212,7 +229,7 @@ export async function optimizeTileset(o: {
 			const st = await stat(t.file);
 			r.pruned++;
 			if (st.nlink === 1) r.prunedBytes += st.size;
-			o.onProgress?.({ phase: "prune", pruned: r.pruned, prunedBytes: r.prunedBytes });
+			o.onProgress?.({ phase: "prune", pruned: r.pruned, prunedBytes: r.prunedBytes, pruneTotal: doomed.length });
 			if (o.dryRun) return;
 			await unlink(t.file);
 			parents.add(path.dirname(t.file));

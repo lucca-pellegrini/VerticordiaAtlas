@@ -28,12 +28,16 @@ export interface PruneDashboardOptions {
 
 export interface PruneTilesetEvent {
 	phase: "solid" | "overview" | "prune";
+	scanned?: number;
+	totalTiles?: number;
 	solid?: number;
 	solidFreed?: number;
 	topColors?: [string, number][];
 	overview?: number;
+	overviewTotal?: number;
 	pruned?: number;
 	prunedBytes?: number;
+	pruneTotal?: number;
 }
 
 export interface PruneDashboard {
@@ -74,11 +78,14 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 	let curGame = "--";
 	let curTileset = "--";
 	let curTiles = 0;
+	let curScanned = 0;
 	let curSolid = 0;
 	let curSolidFreed = 0;
 	let curOverview = 0;
+	let curOverviewTotal = 0;
 	let curPruned = 0;
 	let curPrunedBytes = 0;
+	let curPruneTotal = 0;
 	let curTopColors: [string, number][] = [];
 	let curPhase: "solid" | "overview" | "prune" | "idle" = "idle";
 	let activeThrobberFrame = throbberFrame(0);
@@ -281,7 +288,10 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 		lastRender = now;
 
 		targetText.content = `Target:    ${curGame} / ${curTileset} (${fmt(curTiles)} tiles)`;
-		phase1Text.content = `1. Dedupe:   ${fmt(curSolid)} solid (${fmtBytes(curSolidFreed)} linked)`;
+		phase1Text.content =
+			curTiles > 0
+				? `1. Dedupe:   ${fmt(curScanned)}/${fmt(curTiles)} scanned (${fmt(curSolid)} solid, ${fmtBytes(curSolidFreed)})`
+				: `1. Dedupe:   ${fmt(curSolid)} solid (${fmtBytes(curSolidFreed)} linked)`;
 
 		if (curTopColors.length) {
 			const colStr = curTopColors
@@ -293,13 +303,31 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 			colorChipsText.content = "   Colors:   discovering...";
 		}
 
-		phase2Text.content = `2. Overview: ${fmt(curOverview)} generated`;
-		phase3Text.content = `3. Pruning:  ${fmt(curPruned)} intermediate (${fmtBytes(curPrunedBytes)})`;
+		phase2Text.content =
+			curOverviewTotal > 0
+				? `2. Overview: ${fmt(curOverview)} / ${fmt(curOverviewTotal)} generated`
+				: `2. Overview: ${fmt(curOverview)} generated`;
+		phase3Text.content =
+			curPruneTotal > 0
+				? `3. Pruning:  ${fmt(curPruned)} / ${fmt(curPruneTotal)} (${fmtBytes(curPrunedBytes)})`
+				: `3. Pruning:  ${fmt(curPruned)} intermediate (${fmtBytes(curPrunedBytes)})`;
 
 		const totalSets = opts.totalTilesets || 1;
-		const pct = Math.min(100, (tilesetsProcessed / totalSets) * 100);
+		let setFrac = 0;
+		if (tilesetsProcessed < totalSets) {
+			if (curPhase === "solid") {
+				setFrac = curTiles > 0 ? 0.7 * Math.min(1, curScanned / curTiles) : 0;
+			} else if (curPhase === "overview") {
+				const ovFrac = curOverviewTotal > 0 ? Math.min(1, curOverview / curOverviewTotal) : 0.5;
+				setFrac = 0.7 + 0.25 * ovFrac;
+			} else if (curPhase === "prune") {
+				const prFrac = curPruneTotal > 0 ? Math.min(1, curPruned / curPruneTotal) : 0.5;
+				setFrac = 0.95 + 0.05 * prFrac;
+			}
+		}
+		const pct = Math.min(100, ((tilesetsProcessed + setFrac) / totalSets) * 100);
 		progressText.content = `Tilesets:    ${fmt(tilesetsProcessed)} / ${fmt(totalSets)} completed (${pct.toFixed(0)}%)`;
-		totalTilesText.content = `Total tiles: ${fmt(totalTiles + curTiles)} scanned`;
+		totalTilesText.content = `Total tiles: ${fmt(totalTiles + curTiles)} (${fmt(curScanned)} scanned)`;
 		solidSavingsText.content = `Solid links: ${fmt(totalSolid + curSolid)} (${fmtBytes(totalSolidFreed + curSolidFreed)} saved)`;
 		pruneSavingsText.content = `Pruned:      ${fmt(totalPruned + curPruned)} (${fmtBytes(totalPrunedBytes + curPrunedBytes)} freed)`;
 
@@ -360,23 +388,30 @@ export async function createPruneDashboard(opts: PruneDashboardOptions): Promise
 			curGame = gameSlug;
 			curTileset = tilesetName;
 			curTiles = count;
+			curScanned = 0;
 			curSolid = 0;
 			curSolidFreed = 0;
 			curOverview = 0;
+			curOverviewTotal = 0;
 			curPruned = 0;
 			curPrunedBytes = 0;
+			curPruneTotal = 0;
 			curTopColors = [];
 			curPhase = "solid";
 			renderUi(false);
 		},
 		onProgress(ev) {
 			curPhase = ev.phase;
+			if (ev.totalTiles != null && ev.totalTiles > 0) curTiles = ev.totalTiles;
+			if (ev.scanned != null) curScanned = ev.scanned;
 			if (ev.solid != null) curSolid = ev.solid;
 			if (ev.solidFreed != null) curSolidFreed = ev.solidFreed;
 			if (ev.topColors != null) curTopColors = ev.topColors;
 			if (ev.overview != null) curOverview = ev.overview;
+			if (ev.overviewTotal != null) curOverviewTotal = ev.overviewTotal;
 			if (ev.pruned != null) curPruned = ev.pruned;
 			if (ev.prunedBytes != null) curPrunedBytes = ev.prunedBytes;
+			if (ev.pruneTotal != null) curPruneTotal = ev.pruneTotal;
 			renderUi(false);
 		},
 		finishTileset(res) {
