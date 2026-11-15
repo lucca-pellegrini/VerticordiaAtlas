@@ -868,7 +868,7 @@ export async function executeLootAtlasPipeline(
 		id: prevIndex.id || id,
 		slug,
 		title: prevIndex.title || title,
-		description: game.description || prevIndex.description || `Interactive map and locations for ${title}.`,
+		description: prevIndex.description || `Interactive map and locations for ${title}.`,
 		poster: (p.poster ? posterRef : prevIndex.poster) || posterRef,
 		posterAlt: prevIndex.posterAlt,
 		theme: p.accent || (p.poster && posterAccent) ? theme : prevIndex.theme || theme,
