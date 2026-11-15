@@ -673,7 +673,8 @@
 					"label": "categories"
 				}
 			],
-			"tagLabel": "Filter"
+			"tagLabel": "Filter",
+			"defaultTag": null
 		},
 		{
 			"id": "re5",
@@ -799,11 +800,11 @@
 			},
 			"stats": [
 				{
-					"value": 3332,
+					"value": 3372,
 					"label": "markers"
 				},
 				{
-					"value": 222,
+					"value": 223,
 					"label": "categories"
 				}
 			],
@@ -2839,7 +2840,7 @@
 			"id": "satisfactory",
 			"slug": "satisfactory",
 			"title": "Satisfactory",
-			"description": "Every marker on the Satisfactory map.",
+			"description": "Power Slugs, Mercer Spheres, Somersloops, Hard Drives, Boom Box Tapes, and resource nodes across MASSAGE-2(A-B)b.",
 			"poster": "satisfactory/poster",
 			"theme": {
 				"accent": "#df8920",
@@ -2866,7 +2867,7 @@
 			"id": "control-resonant",
 			"slug": "control-resonant",
 			"title": "CONTROL Resonant",
-			"description": "Every marker on the CONTROL Resonant map.",
+			"description": "Fast Travel Doors, Map Pylons, Power Core Stations, Ability Doors, World Feats, and checkpoints across Manhattan.",
 			"poster": "control-resonant/poster",
 			"theme": {
 				"accent": "#b3734c",
@@ -2893,7 +2894,7 @@
 			"id": "donkey-kong-bananza",
 			"slug": "donkey-kong-bananza",
 			"title": "Donkey Kong Bananza",
-			"description": "Every marker on the Donkey Kong Bananza map.",
+			"description": "Banandium Gems, Warp Gongs, Chip Exchanges, Getaways, Stuff Shops, and challenges across every layer.",
 			"poster": "donkey-kong-bananza/poster",
 			"theme": {
 				"accent": "#d9921f",
@@ -2920,7 +2921,7 @@
 			"id": "ghost-recon-wildlands",
 			"slug": "ghost-recon-wildlands",
 			"title": "Tom Clancy's Ghost Recon Wildlands",
-			"description": "Every marker on the Tom Clancy's Ghost Recon Wildlands map.",
+			"description": "Cartel bases, Rebel hideouts, Rally Points, shrines, outposts, and missions across Bolivia.",
 			"poster": "ghost-recon-wildlands/poster",
 			"theme": {
 				"accent": "#b98e46",
@@ -2947,7 +2948,7 @@
 			"id": "gothic",
 			"slug": "gothic",
 			"title": "Gothic 1 Remake",
-			"description": "Every marker on the Gothic 1 Remake map.",
+			"description": "Camps, caves, chests, keys, Ore Nuggets, potions, and quest items across the Valley of Mines.",
 			"poster": "gothic/poster",
 			"theme": {
 				"accent": "#9a4b28",
@@ -2974,7 +2975,7 @@
 			"id": "luigis-mansion",
 			"slug": "luigis-mansion",
 			"title": "Luigi's Mansion",
-			"description": "Every marker on the Luigi's Mansion map.",
+			"description": "Boos, Portrait Ghosts, Elemental Medals, Mario's Lost Items, keys, and secrets across Luigi's Mansion.",
 			"poster": "luigis-mansion/poster",
 			"theme": {
 				"accent": "#4575ba",
@@ -3001,7 +3002,7 @@
 			"id": "luigis-mansion-2",
 			"slug": "luigis-mansion-2",
 			"title": "Luigi's Mansion 2",
-			"description": "Every marker on the Luigi's Mansion 2 map.",
+			"description": "Dark Moon Pieces, Boos, gems, keys, secret doors, and bosses across Evershade Valley.",
 			"poster": "luigis-mansion-2/poster",
 			"theme": {
 				"accent": "#64d625",
@@ -3028,7 +3029,7 @@
 			"id": "luigis-mansion-3",
 			"slug": "luigis-mansion-3",
 			"title": "Luigi's Mansion 3",
-			"description": "Every marker on the Luigi's Mansion 3 map.",
+			"description": "Boos, gems, elevator buttons, Gooigi grates, Golden Mice, and bosses across The Last Resort.",
 			"poster": "luigis-mansion-3/poster",
 			"theme": {
 				"accent": "#18aa20",
@@ -3055,7 +3056,7 @@
 			"id": "metal-gear-solid-peace-walker",
 			"slug": "metal-gear-solid-peace-walker",
 			"title": "Metal Gear Solid: Peace Walker",
-			"description": "Every marker on the Metal Gear Solid: Peace Walker map.",
+			"description": "Main Ops, Extra Ops, prisoners, camouflage, schematics, and extraction points across Costa Rica.",
 			"poster": "metal-gear-solid-peace-walker/poster",
 			"theme": {
 				"accent": "#b8a11a",
@@ -3082,7 +3083,7 @@
 			"id": "the-legend-of-zelda-ocarina-of-time",
 			"slug": "oot",
 			"title": "The Legend of Zelda: Ocarina of Time (Switch 2 Remake)",
-			"description": "Every marker on the The Legend of Zelda: Ocarina of Time (Switch 2 Remake) map.",
+			"description": "Heart Pieces, Gold Skulltulas, Fairy Fountains, Gossip Stones, dungeons, and secrets across past and future Hyrule.",
 			"poster": "oot/poster",
 			"theme": {
 				"accent": "#23529f",
@@ -3094,7 +3095,7 @@
 			},
 			"stats": [
 				{
-					"value": 2674,
+					"value": 2897,
 					"label": "markers"
 				},
 				{
@@ -3109,7 +3110,7 @@
 			"id": "phantom-blade-zero",
 			"slug": "phantom-blade-zero",
 			"title": "Phantom Blade Zero",
-			"description": "Every marker on the Phantom Blade Zero map.",
+			"description": "Weapons, Phantom Edges, Sha-Chi Amber, Memory Flowers, challenges, and bells across every region.",
 			"poster": "phantom-blade-zero/poster",
 			"theme": {
 				"accent": "#886b3a",
@@ -3136,7 +3137,7 @@
 			"id": "croc-legend-of-gobbos",
 			"slug": "croc-legend-of-gobbos",
 			"title": "Croc: The Legend of the Gobbos",
-			"description": "Every marker on the Croc: The Legend of the Gobbos map.",
+			"description": "Gobbos, Crystal Doors, hidden crystals, secret areas, cages, and bosses across the Gobbo Archipelago.",
 			"poster": "croc-legend-of-gobbos/poster",
 			"theme": {
 				"accent": "#3494cb",
@@ -3163,7 +3164,7 @@
 			"id": "call-of-duty-vanguard",
 			"slug": "cod-vanguard",
 			"title": "Call of Duty: Vanguard",
-			"description": "Every marker on the Call of Duty: Vanguard map.",
+			"description": "Perk Fountains, Pack-A-Punch, Mystery Boxes, Altars of Covenant, Tomes of Rituals, and intel across Zombies maps.",
 			"poster": "cod-vanguard/poster",
 			"theme": {
 				"accent": "#a78248",
@@ -3190,7 +3191,7 @@
 			"id": "cod-black-ops-7",
 			"slug": "cod-bo7",
 			"title": "Call of Duty: Black Ops 7",
-			"description": "Every marker on the Call of Duty: Black Ops 7 map.",
+			"description": "Pack-A-Punch, Der Wunderfizz, Crafting Tables, Teleport Pads, Traps, and secrets across Zombies maps.",
 			"poster": "cod-bo7/poster",
 			"theme": {
 				"accent": "#aa4d18",
@@ -3217,7 +3218,7 @@
 			"id": "call-of-duty-black-ops-6",
 			"slug": "cod-bo6",
 			"title": "Call of Duty: Black Ops 6",
-			"description": "Every marker on the Call of Duty: Black Ops 6 map.",
+			"description": "Perk machines, Pack-A-Punch, Mystery Boxes, GobbleGum Machines, Workbenches, and secrets across Zombies maps.",
 			"poster": "cod-bo6/poster",
 			"theme": {
 				"accent": "#b5771a",
@@ -3234,6 +3235,33 @@
 				},
 				{
 					"value": 161,
+					"label": "categories"
+				}
+			],
+			"tagLabel": "Filter",
+			"defaultTag": null
+		},
+		{
+			"id": "gta-6",
+			"slug": "gta-6",
+			"title": "Grand Theft Auto VI",
+			"description": "Shops, landmarks, event locations, safehouses, and points of interest across Leonida.",
+			"poster": "gta-6/poster",
+			"theme": {
+				"accent": "#c84a37",
+				"accent-soft": "#e09a8f",
+				"night": "#0c0706",
+				"panel": "#160d0c",
+				"panel-2": "#1f1311",
+				"line": "#362321"
+			},
+			"stats": [
+				{
+					"value": 3307,
+					"label": "markers"
+				},
+				{
+					"value": 77,
 					"label": "categories"
 				}
 			],

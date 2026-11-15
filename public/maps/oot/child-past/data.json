@@ -138,7 +138,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 11
+					"locations_count": 10
 				},
 				{
 					"id": 28569,
@@ -250,7 +250,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 38
+					"locations_count": 40
 				},
 				{
 					"id": 28654,
@@ -890,7 +890,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 117
+					"locations_count": 118
 				},
 				{
 					"id": 28587,
@@ -1399,7 +1399,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 11
+			"locations_count": 10
 		},
 		"28569": {
 			"id": 28569,
@@ -1735,7 +1735,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 117
+			"locations_count": 118
 		},
 		"28586": {
 			"id": 28586,
@@ -1931,7 +1931,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 38
+			"locations_count": 40
 		},
 		"28651": {
 			"id": 28651,
@@ -4138,20 +4138,6 @@
 			"media": []
 		},
 		{
-			"id": 1067594,
-			"map_id": 1092,
-			"region_id": null,
-			"category_id": 28568,
-			"title": "Soft Soil",
-			"description": "Below, by the river.",
-			"latitude": "0.61592245824190",
-			"longitude": "-0.90631466570778",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 1067634,
 			"map_id": 1092,
 			"region_id": null,
@@ -4353,7 +4339,7 @@
 			"region_id": null,
 			"category_id": 28586,
 			"title": "Soldier",
-			"description": "Show him the Skull Mask to get free passage and 10 Rupees",
+			"description": "Show and sell him the Skull Mask to get offered free passage and 10 Rupees",
 			"latitude": "0.81110216613865",
 			"longitude": "-0.74027807913620",
 			"features": null,
@@ -5146,6 +5132,34 @@
 			"media": []
 		},
 		{
+			"id": 1087123,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28592,
+			"title": "Gossip Quest #71",
+			"description": "Lucky Zora Fish",
+			"latitude": "0.62609049700690",
+			"longitude": "-0.38111556931077",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087124,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28592,
+			"title": "Gossip Quesr #70",
+			"description": "Before a Deity",
+			"latitude": "0.62799467468695",
+			"longitude": "-0.37173606831644",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1066938,
 			"map_id": 1092,
 			"region_id": null,
@@ -5416,8 +5430,8 @@
 			"map_id": 1092,
 			"region_id": null,
 			"category_id": 28563,
-			"title": "200 Rupees",
-			"description": "Turn in 100 tokens at the Cursed Spider House",
+			"title": "Gold Rupee (Infinite)",
+			"description": "Turn in 100 Skulltula tokens at the Cursed Spider House.  He'll reward you with a Gold Rupee.  Talk to the Rich Man again after he's cured and he will keep giving you a Gold Rupee reward as many times as you wish every time you talk to him again!",
 			"latitude": "0.71570200017652",
 			"longitude": "-0.55518790507543",
 			"features": null,
@@ -9268,8 +9282,8 @@
 			"category_id": 28656,
 			"title": "Item Drop (3)",
 			"description": "Inside pots",
-			"latitude": "0.74039545225494",
-			"longitude": "-0.31801227556475",
+			"latitude": "0.74037368917016",
+			"longitude": "-0.31805499367786",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -17003,6 +17017,20 @@
 			"description": "",
 			"latitude": "0.85386180874789",
 			"longitude": "-1.13762851273880",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087126,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28585,
+			"title": "Fake Wall",
+			"description": "Jump to access the area with the Business Scrub",
+			"latitude": "0.73917451618213",
+			"longitude": "-0.31568807075109",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],

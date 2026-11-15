@@ -1,0 +1,422 @@
+{
+	"tattoo-parlor": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"other": {
+		"width": 33,
+		"height": 44,
+		"x": 264,
+		"y": 308,
+		"pixelRatio": 1
+	},
+	"construction-site": {
+		"width": 33,
+		"height": 44,
+		"x": 99,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"shop": {
+		"width": 33,
+		"height": 44,
+		"x": 132,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"electronics-store": {
+		"width": 33,
+		"height": 44,
+		"x": 165,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"pharmacy": {
+		"width": 33,
+		"height": 44,
+		"x": 198,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"shoe-store": {
+		"width": 33,
+		"height": 44,
+		"x": 231,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"supermarket": {
+		"width": 33,
+		"height": 44,
+		"x": 264,
+		"y": 0,
+		"pixelRatio": 1
+	},
+	"vendor": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"event-location": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"jail": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"hotel": {
+		"width": 33,
+		"height": 44,
+		"x": 99,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"industrial": {
+		"width": 33,
+		"height": 44,
+		"x": 132,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"beach-volleyball": {
+		"width": 33,
+		"height": 44,
+		"x": 165,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"location": {
+		"width": 33,
+		"height": 44,
+		"x": 198,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"nature": {
+		"width": 33,
+		"height": 44,
+		"x": 231,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"office": {
+		"width": 33,
+		"height": 44,
+		"x": 264,
+		"y": 44,
+		"pixelRatio": 1
+	},
+	"public-building": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"hospital": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"residential": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"safehouse": {
+		"width": 33,
+		"height": 44,
+		"x": 99,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"restaurant": {
+		"width": 33,
+		"height": 44,
+		"x": 132,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"bar": {
+		"width": 33,
+		"height": 44,
+		"x": 165,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"drinks": {
+		"width": 33,
+		"height": 44,
+		"x": 198,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"bike-shop": {
+		"width": 33,
+		"height": 44,
+		"x": 231,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"clothing-store": {
+		"width": 33,
+		"height": 44,
+		"x": 264,
+		"y": 88,
+		"pixelRatio": 1
+	},
+	"fence": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"gas-station": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"gun-store": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"liquor-store": {
+		"width": 33,
+		"height": 44,
+		"x": 99,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"service": {
+		"width": 33,
+		"height": 44,
+		"x": 132,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"barber-hair-salon": {
+		"width": 33,
+		"height": 44,
+		"x": 165,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"car-wash": {
+		"width": 33,
+		"height": 44,
+		"x": 198,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"mod-shop": {
+		"width": 33,
+		"height": 44,
+		"x": 231,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"pay-n-spray": {
+		"width": 33,
+		"height": 44,
+		"x": 264,
+		"y": 132,
+		"pixelRatio": 1
+	},
+	"air-base": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 176,
+		"pixelRatio": 1
+	},
+	"marina": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 176,
+		"pixelRatio": 1
+	},
+	"utilities": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 176,
+		"pixelRatio": 1
+	},
+	"metromover-station": {
+		"width": 33,
+		"height": 44,
+		"x": 231,
+		"y": 220,
+		"pixelRatio": 1
+	},
+	"train-station": {
+		"width": 33,
+		"height": 44,
+		"x": 264,
+		"y": 220,
+		"pixelRatio": 1
+	},
+	"metro-station": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 264,
+		"pixelRatio": 1
+	},
+	"airport": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 264,
+		"pixelRatio": 1
+	},
+	"blimp": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 264,
+		"pixelRatio": 1
+	},
+	"police-station": {
+		"width": 33,
+		"height": 44,
+		"x": 99,
+		"y": 264,
+		"pixelRatio": 1
+	},
+	"government": {
+		"width": 33,
+		"height": 44,
+		"x": 132,
+		"y": 264,
+		"pixelRatio": 1
+	},
+	"bus-stop": {
+		"width": 33,
+		"height": 44,
+		"x": 165,
+		"y": 264,
+		"pixelRatio": 1
+	},
+	"transportation": {
+		"width": 33,
+		"height": 44,
+		"x": 198,
+		"y": 264,
+		"pixelRatio": 1
+	},
+	"landmark": {
+		"width": 33,
+		"height": 44,
+		"x": 231,
+		"y": 264,
+		"pixelRatio": 1
+	},
+	"cinema": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 308,
+		"pixelRatio": 1
+	},
+	"ferris-wheel": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 308,
+		"pixelRatio": 1
+	},
+	"golf-course": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 308,
+		"pixelRatio": 1
+	},
+	"gym": {
+		"width": 33,
+		"height": 44,
+		"x": 99,
+		"y": 308,
+		"pixelRatio": 1
+	},
+	"nightclub": {
+		"width": 33,
+		"height": 44,
+		"x": 132,
+		"y": 308,
+		"pixelRatio": 1
+	},
+	"leisure": {
+		"width": 33,
+		"height": 44,
+		"x": 165,
+		"y": 308,
+		"pixelRatio": 1
+	},
+	"food": {
+		"width": 33,
+		"height": 44,
+		"x": 231,
+		"y": 308,
+		"pixelRatio": 1
+	},
+	"farm": {
+		"width": 33,
+		"height": 44,
+		"x": 0,
+		"y": 352,
+		"pixelRatio": 1
+	},
+	"racetrack": {
+		"width": 33,
+		"height": 44,
+		"x": 33,
+		"y": 352,
+		"pixelRatio": 1
+	},
+	"strip-club": {
+		"width": 33,
+		"height": 44,
+		"x": 66,
+		"y": 352,
+		"pixelRatio": 1
+	},
+	"tennis-court": {
+		"width": 33,
+		"height": 44,
+		"x": 99,
+		"y": 352,
+		"pixelRatio": 1
+	},
+	"fast-food": {
+		"width": 33,
+		"height": 44,
+		"x": 132,
+		"y": 352,
+		"pixelRatio": 1
+	}
+}

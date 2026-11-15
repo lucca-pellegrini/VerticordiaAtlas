@@ -1453,7 +1453,10 @@
 		"1063860": ["Turn in 20 tokens at the Cursed Spider House", []],
 		"1063861": ["Turn in 30 tokens at the Cursed Spider House", []],
 		"1063862": ["Turn in 40 tokens at the Cursed Spider House", []],
-		"1063863": ["Turn in 100 tokens at the Cursed Spider House", []],
+		"1063863": [
+			"Turn in 100 Skulltula tokens at the Cursed Spider House.  He'll reward you with a Gold Rupee.  Talk to the Rich Man again after he's cured and he will keep giving you a Gold Rupee reward as many times as you wish every time you talk to him again!",
+			[]
+		],
 		"1063864": [
 			"Play Zelda's Lullaby in front of the Royal Tomb\n\nEnter and find a poem inscribed on a stone plaque. Underneath is the song you can then commit to memory:.",
 			[]
@@ -1740,7 +1743,7 @@
 		"1064559": ["Roll into tree", []],
 		"1064560": ["Roll into tree", []],
 		"1064561": ["Play the Song of Storms", []],
-		"1064562": ["Show him the Skull Mask to get free passage and 10 Rupees", []],
+		"1064562": ["Show and sell him the Skull Mask to get offered free passage and 10 Rupees", []],
 		"1064563": ["Green Rupee (2)", []],
 		"1064565": ["Attract with a Deku Stick to turn it into a Fairy", []],
 		"1064566": ["Purchase Magic Beans (starting price 10 Rupees, increases by 10 everytime)", []],
@@ -2036,7 +2039,6 @@
 		"1067591": ["In a shrub", []],
 		"1067592": ["In a shrub", []],
 		"1067593": ["Outside Spirit Temple", []],
-		"1067594": ["Below, by the river.", []],
 		"1067595": [
 			"\"Those big Peahats are darn scary. They put down roots and act like they own Hyrule Field! But I heard they're no different than other plants when it comes to fire! Lucky thing I learned that!\"",
 			[]
@@ -2172,6 +2174,9 @@
 		"1085151": ["Light torch to reveal treasure chest", []],
 		"1085152": ["Inside chest\n\nLight torch to make chest appear.", []],
 		"1085156": ["Under rock", []],
-		"1086607": ["Inside chest", []]
+		"1086607": ["Inside chest", []],
+		"1087123": ["Lucky Zora Fish", []],
+		"1087124": ["Before a Deity", []],
+		"1087126": ["Jump to access the area with the Business Scrub", []]
 	}
 }

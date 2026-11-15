@@ -1,0 +1,36 @@
+{
+	"id": "gta-6",
+	"title": "Grand Theft Auto VI",
+	"slug": "gta-6",
+	"source": "https://app.lootatlas.com/games/grand-theft-auto-6",
+	"poster": "poster.jpg",
+	"tagLabel": "Filter",
+	"defaultTag": null,
+	"markers": {
+		"json": "markers.json",
+		"png": "markers.png",
+		"json2x": "markers@2x.json",
+		"png2x": "markers@2x.png"
+	},
+	"icons": null,
+	"maps": [
+		{
+			"slug": "leonida-1",
+			"title": "Leonida",
+			"data": "leonida-1/data.json",
+			"compact": "leonida-1/data.compact.json",
+			"tilesets": [
+				{
+					"name": "Default",
+					"template": "leonida-1/tiles/default/{z}/{y}/{x}.webp",
+					"minzoom": 0,
+					"maxzoom": 7,
+					"viewMaxzoom": 8,
+					"bounds": [-180, -85.051129, 180, 85.051129],
+					"tileSize": 256,
+					"background": "#000000"
+				}
+			]
+		}
+	]
+}
