@@ -700,6 +700,9 @@ function renderResume(gamesList: GameManifestEntry[]): string | null {
 			(r) =>
 				`<li style="--c:${colour(r.c)}"><span class="dot" aria-hidden="true"></span><span class="what">${esc(r.t)}</span>` +
 				(r.cat && r.cat !== r.t ? `<span class="cat">${esc(r.cat)}</span>` : "") +
+				(typeof r.at === "number" && r.at > 0
+					? `<time class="when" datetime="${new Date(r.at * 1000).toISOString()}">${esc(ago(r.at * 1000))}</time>`
+					: "") +
 				`</li>`,
 		)
 		.join("");
@@ -773,6 +776,9 @@ function renderResume(gamesList: GameManifestEntry[]): string | null {
 				`</ul>`
 			: "") +
 		`</div>` +
+		(s.session && s.session.found > 0
+			? `<p class="resume-session">Last session: <b>${fmt(s.session.found)}</b> found</p>`
+			: "") +
 		(recent || near
 			? `<div class="resume-cols">` +
 				(recent ? `<section><h2>Recently found</h2><ul class="resume-recent">${recent}</ul></section>` : "") +

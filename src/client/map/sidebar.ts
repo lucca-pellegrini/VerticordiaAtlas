@@ -4,6 +4,7 @@
 /* ---------- filtering, stats, and sidebar ---------- */
 
 import { esc, formatBytes } from "../../shared/escape.ts";
+import { computeSessions, detectBatchTimestamps, extractStampedFinds, latestSession } from "../../shared/found-log.ts";
 import { glyphInk, iconInner, iconsReady, loadIconLibrary } from "../icons-lib.ts";
 import { svgIcon } from "../icons.ts";
 import { downloadOfflineGame, getGameOfflineManifests, removeOfflineGame } from "../offline.ts";
@@ -11,6 +12,7 @@ import type { OfflineStatus } from "../offline.ts";
 import { perf } from "../perf.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
+import { applyFoundChange, notifyFoundChange } from "./found.ts";
 import {
 	createScheduler,
 	flushRefreshNow,
@@ -414,10 +416,17 @@ function rowMenuEl(): RowMenuElement {
 			return;
 		}
 		const locs = rowLocs(el!._cats);
-		for (const l of locs) b.dataset.act === "found" ? state.found.add(l.id) : state.found.delete(l.id);
+		const rec = applyFoundChange(
+			locs.map((l: any) => l.id),
+			b.dataset.act === "found",
+		);
 		closeRowMenu();
 		saveProfileNow();
 		refreshAll();
+		notifyFoundChange(rec, () => {
+			saveProfileNow();
+			refreshAll();
+		});
 	};
 	document.body.appendChild(el);
 	return el;
@@ -600,18 +609,42 @@ export function saveSession(): void {
 		}
 		const score = (item: { f: number; n: number }) => (item.f / item.n) * (1 - 1 / Math.sqrt(item.n + 1));
 		near.sort((a, b) => score(b) - score(a) || b.f / b.n - a.f / a.n || b.n - a.n);
-		const recent: any[] = [];
+		const recent: { t: string; cat: string; c: string | null; at?: number }[] = [];
+		const addedIds = new Set<number>();
+		const entries = extractStampedFinds(state.found, state.foundAt);
+		for (let i = entries.length - 1; i >= 0 && recent.length < 4; i--) {
+			const e = entries[i]!;
+			const l = state.byId.get(e.id);
+			if (!l) continue;
+			const c = state.cats.get(l.cat);
+			addedIds.add(e.id);
+			recent.push({
+				t: l.title || c?.title || "Marker",
+				cat: c?.title || "",
+				c: state.groupOfCat?.get(l.cat)?.col || null,
+				at: e.at,
+			});
+		}
 		for (const id of [...state.found].reverse()) {
+			if (recent.length >= 4) break;
+			if (addedIds.has(id)) continue;
 			const l = state.byId.get(id);
 			if (!l) continue;
 			const c = state.cats.get(l.cat);
+			addedIds.add(id);
 			recent.push({
 				t: l.title || c?.title || "Marker",
 				cat: c?.title || "",
 				c: state.groupOfCat?.get(l.cat)?.col || null,
 			});
-			if (recent.length >= 4) break;
 		}
+		const latest = latestSession(
+			computeSessions(entries, detectBatchTimestamps(entries)),
+			Math.floor(Date.now() / 1000),
+		);
+		const session = latest
+			? { found: latest.session.count, start: latest.session.start, end: latest.session.end }
+			: undefined;
 		const map = state.mapInfo.slug;
 		const tag =
 			state.tag === UNTAGGED ? "Only untagged" : state.tags.find((t: any) => t.id === state.tag)?.title || null;
@@ -636,6 +669,7 @@ export function saveSession(): void {
 			groups,
 			near: near.slice(0, 5),
 			recent,
+			...(session ? { session } : {}),
 			userMarkers: (state.profile?.userMarkers || []).filter((m: any) => m.map === map).length,
 			drawings: (state.profile?.drawings || []).filter((d: any) => d.map === map).length,
 			presets: state.presets.length,

@@ -1474,6 +1474,22 @@ html[data-theme="light"] .resume-card {
 	color: var(--ink-dim);
 	font-size: 0.76rem;
 }
+.resume-recent .when {
+	flex: none;
+	color: var(--ink-dim);
+	font-size: 0.74rem;
+}
+.resume-recent .what + .when {
+	margin-left: auto;
+}
+.resume-session {
+	margin: 12px 0 0;
+	font-size: 0.86rem;
+	color: var(--ink-dim);
+}
+.resume-session b {
+	color: var(--ink);
+}
 .resume-near li {
 	display: grid;
 	grid-template-columns: 1fr auto;
