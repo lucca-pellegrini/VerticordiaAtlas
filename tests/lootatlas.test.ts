@@ -12,6 +12,7 @@ import {
 	generateLootAtlasSpriteSheet,
 	isLootAtlas,
 	parseLootAtlasSlug,
+	resolveLootAtlasPoster,
 	slugify,
 } from "../scripts/lootatlas.ts";
 
@@ -165,6 +166,108 @@ describe("scripts/lootatlas helpers", () => {
 			expect(res.minZoom).toBe(0);
 		} finally {
 			globalThis.fetch = originalFetch;
+		}
+	}, 30_000);
+
+	test("resolveLootAtlasPoster prioritizes explicit local poster over fallbackUrl", async () => {
+		const dir = await mkdtemp(path.join(os.tmpdir(), "lootatlas-poster-"));
+		try {
+			const srcFile = path.join(dir, "custom.avif");
+			const outDir = path.join(dir, "game");
+			await Bun.write(srcFile, "custom-avif-bytes");
+			await Bun.write(path.join(outDir, "poster.jpg"), "old-poster-bytes");
+
+			let fetchedUrl: string | null = null;
+			const poster = await resolveLootAtlasPoster({
+				outDir,
+				explicitPoster: srcFile,
+				fallbackUrl: "https://cdn.lootatlas.com/fallback.jpg",
+				fetchFn: async (url) => {
+					fetchedUrl = url;
+					return new Response("fallback", { status: 200 });
+				},
+			});
+
+			expect(poster).toBe("poster.avif");
+			expect(fetchedUrl).toBeNull();
+			expect(await Bun.file(path.join(outDir, "poster.avif")).text()).toBe("custom-avif-bytes");
+		} finally {
+			await rm(dir, { recursive: true, force: true });
+		}
+	}, 30_000);
+
+	test("resolveLootAtlasPoster prioritizes explicit URL poster over fallbackUrl", async () => {
+		const dir = await mkdtemp(path.join(os.tmpdir(), "lootatlas-poster-url-"));
+		try {
+			const fetchedUrls: string[] = [];
+			const poster = await resolveLootAtlasPoster({
+				outDir: dir,
+				explicitPoster: "https://example.com/custom.webp",
+				fallbackUrl: "https://cdn.lootatlas.com/fallback.jpg",
+				fetchFn: async (url) => {
+					fetchedUrls.push(url);
+					return new Response("webp-bytes", {
+						status: 200,
+						headers: { "content-type": "image/webp" },
+					});
+				},
+			});
+
+			expect(poster).toBe("poster.webp");
+			expect(fetchedUrls).toEqual(["https://example.com/custom.webp"]);
+			expect(await Bun.file(path.join(dir, "poster.webp")).text()).toBe("webp-bytes");
+		} finally {
+			await rm(dir, { recursive: true, force: true });
+		}
+	}, 30_000);
+
+	test("resolveLootAtlasPoster preserves existing poster when explicitPoster is omitted", async () => {
+		const dir = await mkdtemp(path.join(os.tmpdir(), "lootatlas-poster-keep-"));
+		try {
+			await Bun.write(path.join(dir, "poster.avif"), "existing-custom-poster");
+			let fetchedUrl: string | null = null;
+
+			const poster = await resolveLootAtlasPoster({
+				outDir: dir,
+				fallbackUrl: "https://cdn.lootatlas.com/fallback.jpg",
+				fetchFn: async (url) => {
+					fetchedUrl = url;
+					return new Response("fallback-bytes", {
+						status: 200,
+						headers: { "content-type": "image/jpeg" },
+					});
+				},
+			});
+
+			expect(poster).toBe("poster.avif");
+			expect(fetchedUrl).toBeNull();
+			expect(await Bun.file(path.join(dir, "poster.avif")).text()).toBe("existing-custom-poster");
+		} finally {
+			await rm(dir, { recursive: true, force: true });
+		}
+	}, 30_000);
+
+	test("resolveLootAtlasPoster downloads fallbackUrl when no explicit or existing poster exists", async () => {
+		const dir = await mkdtemp(path.join(os.tmpdir(), "lootatlas-poster-fb-"));
+		try {
+			const fetchedUrls: string[] = [];
+			const poster = await resolveLootAtlasPoster({
+				outDir: dir,
+				fallbackUrl: "https://cdn.lootatlas.com/fallback.jpg",
+				fetchFn: async (url) => {
+					fetchedUrls.push(url);
+					return new Response("fallback-bytes", {
+						status: 200,
+						headers: { "content-type": "image/jpeg" },
+					});
+				},
+			});
+
+			expect(poster).toBe("poster.jpg");
+			expect(fetchedUrls).toEqual(["https://cdn.lootatlas.com/fallback.jpg"]);
+			expect(await Bun.file(path.join(dir, "poster.jpg")).text()).toBe("fallback-bytes");
+		} finally {
+			await rm(dir, { recursive: true, force: true });
 		}
 	}, 30_000);
 });

@@ -459,6 +459,60 @@ export async function generateLootAtlasSpriteSheet(
 	};
 }
 
+export interface ResolvePosterOptions {
+	outDir: string;
+	explicitPoster?: string;
+	fallbackUrl?: string;
+	fetchFn?: (url: string) => Promise<Response>;
+	log?: (msg: string) => void;
+}
+
+/**
+ * Resolves the game poster in priority order:
+ * 1. Explicit poster override (`explicitPoster` URL or local file path)
+ * 2. Existing `poster.<ext>` already on disk in `outDir`
+ * 3. Remote fallback URL from Loot Atlas (`fallbackUrl`)
+ */
+export async function resolveLootAtlasPoster(opts: ResolvePosterOptions): Promise<string | null> {
+	const { outDir, explicitPoster, fallbackUrl, fetchFn, log = console.log } = opts;
+	const existingPoster = (await readdir(outDir)).find((f) => /^poster\.(jpe?g|png|webp|avif)$/i.test(f));
+
+	const downloadRemotePoster = async (url: string): Promise<string | null> => {
+		try {
+			const res = await (fetchFn ? fetchFn(url) : fetch(url, { headers: { "User-Agent": UA } }));
+			if (!res.ok) return null;
+			const buf = Buffer.from(await res.arrayBuffer());
+			const ctype = res.headers.get("content-type") || "image/jpeg";
+			const ext = (ctype.split("/")[1] || "jpg").split(";")[0].replace("jpeg", "jpg");
+			const poster = `poster.${ext}`;
+			await Bun.write(path.join(outDir, poster), buf);
+			return poster;
+		} catch (e: any) {
+			log(`  ! could not download poster: ${e.message}`);
+			return null;
+		}
+	};
+
+	if (explicitPoster) {
+		if (/^https?:/.test(explicitPoster)) {
+			return (await downloadRemotePoster(explicitPoster)) ?? existingPoster ?? null;
+		}
+		const resolvedSrc = path.resolve(expandHome(explicitPoster.replace(/^file:\/\//, "")));
+		const poster = "poster" + (path.extname(resolvedSrc).toLowerCase() || ".jpg");
+		const dest = path.resolve(outDir, poster);
+		if (resolvedSrc !== dest) await copyFile(resolvedSrc, dest);
+		return poster;
+	}
+
+	if (existingPoster) return existingPoster;
+
+	if (fallbackUrl && /^https?:/.test(fallbackUrl)) {
+		return await downloadRemotePoster(fallbackUrl);
+	}
+
+	return null;
+}
+
 export async function executeLootAtlasPipeline(
 	p: AddGamePipelineOptions,
 	log: (msg: string) => void = console.log,
@@ -763,22 +817,12 @@ export async function executeLootAtlasPipeline(
 
 	// Poster download & processing
 	p.onStage?.("Processing Poster & Theme");
-	let poster: string | null = null;
-	const posterUrl = game.imageLandscapeUri || game.imageUri;
-	if (posterUrl && /^https?:/.test(posterUrl)) {
-		try {
-			const res = await fetch(posterUrl, { headers: { "User-Agent": UA } });
-			if (res.ok) {
-				const buf = Buffer.from(await res.arrayBuffer());
-				const ctype = res.headers.get("content-type") || "image/jpeg";
-				const ext = (ctype.split("/")[1] || "jpg").split(";")[0].replace("jpeg", "jpg");
-				poster = `poster.${ext}`;
-				await Bun.write(path.join(outDir, poster), buf);
-			}
-		} catch (e: any) {
-			log(`  ! could not download poster: ${e.message}`);
-		}
-	}
+	const poster = await resolveLootAtlasPoster({
+		outDir,
+		explicitPoster: p.poster,
+		fallbackUrl: game.imageLandscapeUri || game.imageUri,
+		log,
+	});
 
 	const posterFile = poster ? path.join(outDir, poster) : null;
 	const variants = posterFile ? await posterVariants(posterFile, outDir, !!p.poster) : false;
@@ -827,7 +871,7 @@ export async function executeLootAtlasPipeline(
 		description: game.description || prevIndex.description || `Interactive map and locations for ${title}.`,
 		poster: (p.poster ? posterRef : prevIndex.poster) || posterRef,
 		posterAlt: prevIndex.posterAlt,
-		theme: prevIndex.theme || theme,
+		theme: p.accent || (p.poster && posterAccent) ? theme : prevIndex.theme || theme,
 		stats: [
 			{ value: dataMaps.reduce((n, m) => n + m.locations.length, 0), label: "markers" },
 			{ value: categories.length, label: "categories" },
