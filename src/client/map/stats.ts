@@ -5,6 +5,18 @@
 
 import { locationsOf } from "../../shared/compact-map.ts";
 import { esc } from "../../shared/escape.ts";
+import {
+	computePace,
+	computeSessions,
+	dailyCounts,
+	detectBatchTimestamps,
+	extractStampedFinds,
+	latestSession,
+	localDayIndex,
+	recentFeed,
+} from "../../shared/found-log.ts";
+import { select } from "./detail.ts";
+import { applyFoundChange, notifyFoundChange } from "./found.ts";
 import { mapData, refreshAll, switchMap } from "./map-view.ts";
 import { saveProfileNow, scheduleViewSave, syncTagStrict } from "./profiles.ts";
 import { focusRegion, iconHtml, listCats, setRegionFilter, updateSidebar } from "./sidebar.ts";
@@ -38,7 +50,7 @@ export interface Breakdown {
 }
 
 const MILESTONES = [25, 50, 75, 100];
-const CSV_HEADER = ["Map", "Group", "Category", "Region", "Title", "Found", "Tags", "Id"];
+const CSV_HEADER = ["Map", "Group", "Category", "Region", "Title", "Found", "Tags", "Id", "Found at"];
 
 // markers the map shows: the same coordinate rule as prepareMap
 const placed = (data: any): any[] =>
@@ -165,12 +177,22 @@ export function toCsv(rows: unknown[][]): string {
 	return "\ufeff" + rows.map((r) => r.map(csvCell).join(",")).join("\r\n") + "\r\n";
 }
 
-export function csvRows(data: any, found: ReadonlySet<number>, mapTitle: string): unknown[][] {
+export function csvRows(
+	data: any,
+	found: ReadonlySet<number>,
+	mapTitle: string,
+	foundAt?: Map<number, number> | Record<string, number>,
+): unknown[][] {
 	const group = new Map<number, string>();
 	for (const g of groupsOf(data)) for (const c of g.cats) group.set(c.id, g.title);
 	const cats = new Map<number, any>(Object.values<any>(data?.categories || {}).map((c: any) => [c.id, c]));
 	const regions = new Map<number, any>((data?.regions || []).map((r: any) => [r.id, r]));
 	const tags = new Map<number, string>((data?.tags || []).map((t: any) => [t.id, t.title]));
+	const readAt = (id: number): string => {
+		if (!foundAt || !found.has(id)) return "";
+		const sec = foundAt instanceof Map ? foundAt.get(id) : foundAt[String(id)];
+		return typeof sec === "number" && Number.isInteger(sec) && sec > 0 ? new Date(sec * 1000).toISOString() : "";
+	};
 	return placed(data).map((l: any) => [
 		mapTitle,
 		group.get(l.category_id) || "",
@@ -180,6 +202,7 @@ export function csvRows(data: any, found: ReadonlySet<number>, mapTitle: string)
 		found.has(l.id) ? "yes" : "no",
 		(l.tags || []).map((t: number) => tags.get(t) || t).join("; "),
 		l.id,
+		readAt(l.id),
 	]);
 }
 
@@ -241,6 +264,32 @@ function rowsHtml(maps: any[], results: Map<string, Tally | null>, current: stri
 		.join("");
 }
 
+function formatRelativeSec(sec: number, nowSec: number): string {
+	const d = Math.max(0, nowSec - sec);
+	if (d < 60) return "just now";
+	const m = Math.floor(d / 60);
+	if (m < 60) return `${m}m ago`;
+	const h = Math.floor(m / 60);
+	if (h < 24) return `${h}h ago`;
+	const days = Math.floor(h / 24);
+	return `${days}d ago`;
+}
+
+function formatDurationSec(sec: number): string {
+	const m = Math.floor(sec / 60);
+	if (m < 60) return `${Math.max(1, m)}m`;
+	const h = Math.floor(m / 60);
+	const rem = m % 60;
+	return rem ? `${h}h ${rem}m` : `${h}h`;
+}
+
+const dateLabelFmt = new Intl.DateTimeFormat(undefined, {
+	month: "short",
+	day: "numeric",
+	year: "numeric",
+	timeZone: "UTC",
+});
+
 export function openStats(): void {
 	const d = document.getElementById("dlg") as HTMLDialogElement;
 	const form = document.getElementById("dlg-form") as HTMLFormElement;
@@ -276,6 +325,7 @@ export function openStats(): void {
 		`<h2>Progress &amp; stats</h2>` +
 		`<p class="sd-scope">${esc(state.profile?.name || "")}. Game totals ignore the current filters and hidden categories.</p>` +
 		`<div data-slot="head"></div>` +
+		`<div data-slot="activity"></div>` +
 		`<div data-slot="here"></div>` +
 		`<section data-slot="maps" class="sd-maps" aria-label="Progress per map"${multi ? "" : " hidden"}>` +
 		`<div class="sd-maps-head"><span class="sd-label">Maps</span>` +
@@ -294,6 +344,133 @@ export function openStats(): void {
 	const loadBtn = form.querySelector<HTMLButtonElement>("[data-load]")!;
 	const exportAll = form.querySelector<HTMLButtonElement>('[data-export="all"]')!;
 	const list = form.querySelector<HTMLElement>(".sd-rows")!;
+
+	const resolveMarker = (id: number): { title: string; catTitle: string; mapSlug: string | null } => {
+		const curLoc = state.byId?.get(id);
+		if (curLoc) {
+			const c = state.cats?.get(curLoc.cat);
+			return { title: curLoc.title || c?.title || `Marker #${id}`, catTitle: c?.title || "", mapSlug: current };
+		}
+		for (const m of state.profile?.userMarkers || []) {
+			if (m.id === id) {
+				const c = state.cats?.get(m.cat);
+				return {
+					title: m.title || c?.title || `Marker #${id}`,
+					catTitle: c?.title || "",
+					mapSlug: m.map || current,
+				};
+			}
+		}
+		for (const [slug, data] of raw) {
+			for (const l of locationsOf(data)) {
+				if (l.id === id) {
+					const cat = data?.categories?.[l.category_id];
+					return {
+						title: l.title || cat?.title || `Marker #${id}`,
+						catTitle: cat?.title || "",
+						mapSlug: slug,
+					};
+				}
+			}
+		}
+		return { title: `Marker #${id}`, catTitle: "", mapSlug: null };
+	};
+
+	const renderActivity = () => {
+		const el = slot("activity");
+		const nowSec = Math.floor(Date.now() / 1000);
+		const tzOffsetMin = -new Date().getTimezoneOffset();
+		const entries = extractStampedFinds(state.found, state.foundAt);
+		const batches = detectBatchTimestamps(entries);
+		const sessions = computeSessions(entries, batches);
+		const latest = latestSession(sessions, nowSec);
+		const total = gameTotal();
+		const remaining = Math.max(0, total - state.found.size);
+		const pace = computePace(entries, batches, remaining, nowSec, tzOffsetMin);
+		const days = dailyCounts(entries, batches, nowSec, tzOffsetMin, 30);
+		const feed = recentFeed(entries, batches, 10);
+		const unstamped = Math.max(0, state.found.size - entries.length);
+
+		const parts: string[] = [];
+
+		if (latest) {
+			const dur = latest.session.end - latest.session.start;
+			const line = latest.active
+				? `This session: <strong>${fmt(latest.session.count)}</strong> found` +
+					(dur >= 60 ? ` in ${esc(formatDurationSec(dur))}` : "")
+				: `Last session: <strong>${fmt(latest.session.count)}</strong> found (${esc(formatRelativeSec(latest.session.end, nowSec))})`;
+			parts.push(`<p class="sd-recap">${line}</p>`);
+		}
+
+		if (pace) {
+			parts.push(
+				`<p class="sd-recap">Pace: about <strong>${fmt(pace.estimatedDays)}</strong> more play ${pace.estimatedDays === 1 ? "day" : "days"} (${pace.findsPerDay.toFixed(1)}/day over ${pace.activeDays} active days)</p>`,
+			);
+		}
+
+		const maxDay = days.reduce((m, d) => Math.max(m, d.count), 0);
+		if (maxDay > 0) {
+			const total30 = days.reduce((s, d) => s + d.count, 0);
+			const bars = days
+				.map((d) => {
+					const h = d.count ? Math.max(8, Math.round((d.count / maxDay) * 100)) : 0;
+					const label = `${dateLabelFmt.format(new Date(d.dayUtcMs))}: ${fmt(d.count)} found`;
+					return `<div class="sd-chart-bar${d.count ? " on" : ""}" title="${esc(label)}"><i style="height:${h}%"></i></div>`;
+				})
+				.join("");
+			parts.push(
+				`<div class="sd-chart-wrap"><div class="sd-chart-head"><span class="sd-label">Last 30 days</span><span class="sd-row-count">${fmt(total30)} found</span></div>` +
+					`<div class="sd-chart" role="img" aria-label="Daily finds over the last 30 days: ${fmt(total30)} finds">${bars}</div></div>`,
+			);
+		}
+
+		if (feed.length) {
+			const todayIdx = localDayIndex(nowSec, tzOffsetMin);
+			let lastGroup = "";
+			const rowsHtmlFeed = feed
+				.map((item) => {
+					const idx = localDayIndex(item.at, tzOffsetMin);
+					const groupLabel =
+						idx === todayIdx
+							? "Today"
+							: idx === todayIdx - 1
+								? "Yesterday"
+								: dateLabelFmt.format(new Date(idx * 86_400_000));
+					const heading = groupLabel !== lastGroup ? `<li class="sd-recent-day">${esc(groupLabel)}</li>` : "";
+					lastGroup = groupLabel;
+					const rel = formatRelativeSec(item.at, nowSec);
+					if (item.kind === "batch") {
+						return (
+							heading +
+							`<li class="sd-recent-row">` +
+							`<span class="sd-recent-main"><span class="sd-recent-title">${fmt(item.ids.length)} markers marked in bulk</span>` +
+							`<span class="sd-recent-meta">${esc(rel)}</span></span>` +
+							`<button type="button" class="sd-unfind" data-unfind-batch="${item.at}">Mark not found</button></li>`
+						);
+					}
+					const info = resolveMarker(item.id);
+					const meta = [info.catTitle, rel].filter(Boolean).join(" · ");
+					return (
+						heading +
+						`<li class="sd-recent-row">` +
+						`<button type="button" class="sd-recent-go" data-goto-id="${item.id}" data-goto-map="${esc(info.mapSlug || "")}">` +
+						`<span class="sd-recent-title">${esc(info.title)}</span>` +
+						`<span class="sd-recent-meta">${esc(meta)}</span></button>` +
+						`<button type="button" class="sd-unfind" data-unfind-id="${item.id}">Mark not found</button></li>`
+					);
+				})
+				.join("");
+			parts.push(`<h3 class="sd-sub-h">Recently found</h3><ul class="sd-recent">${rowsHtmlFeed}</ul>`);
+		}
+
+		if (unstamped > 0) {
+			parts.push(
+				`<p class="sd-note">${fmt(unstamped)} ${unstamped === 1 ? "marker was" : "markers were"} found before dates were recorded.</p>`,
+			);
+		}
+
+		el.innerHTML = parts.join("");
+	};
 
 	const renderHead = () => {
 		const total = gameTotal();
@@ -417,6 +594,7 @@ export function openStats(): void {
 
 	const renderAll = () => {
 		renderHead();
+		renderActivity();
 		renderMaps();
 		renderStale();
 		exportAll.disabled = !allLoaded();
@@ -477,7 +655,7 @@ export function openStats(): void {
 	const exportCsv = (all: boolean) => {
 		const list = all ? maps : maps.filter((m) => m.slug === current);
 		if (!raw.has(current)) return toast("This map's markers are not available offline");
-		const rows = list.flatMap((m) => csvRows(raw.get(m.slug), state.found, m.title));
+		const rows = list.flatMap((m) => csvRows(raw.get(m.slug), state.found, m.title, state.foundAt));
 		download(`${state.entry?.slug || "game"}-${all ? "all-maps" : current}.csv`, toCsv([CSV_HEADER, ...rows]));
 	};
 
@@ -504,7 +682,7 @@ export function openStats(): void {
 			return;
 		}
 		armed = false;
-		for (const id of ids) state.found.delete(id);
+		applyFoundChange(ids, false, { recordUndo: false });
 		void saveProfileNow();
 		updateSidebar();
 		refreshAll();
@@ -514,8 +692,25 @@ export function openStats(): void {
 		toast(`Removed ${fmt(ids.length)} stale id(s)`);
 	};
 
+	const unfindIds = (ids: number[]) => {
+		const rec = applyFoundChange(ids, false);
+		if (!rec) return;
+		const after = () => {
+			void saveProfileNow();
+			updateSidebar();
+			refreshAll();
+			if (d.open) {
+				here = raw.has(current) ? breakdown(raw.get(current), state.found) : null;
+				renderAll();
+				renderHere();
+			}
+		};
+		after();
+		notifyFoundChange(rec, after);
+	};
+
 	form.onsubmit = (e) => e.preventDefault();
-	form.onclick = (e) => {
+	form.onclick = async (e) => {
 		const t = (e.target as HTMLElement).closest<HTMLElement>("button");
 		if (!t) return;
 		const ds = t.dataset;
@@ -524,6 +719,24 @@ export function openStats(): void {
 		if (t.hasAttribute("data-copy")) return void copySummary();
 		if (t.hasAttribute("data-clean")) return cleanStale();
 		if (t.hasAttribute("data-export")) return exportCsv(ds.export === "all");
+		if (ds.unfindId !== undefined) return unfindIds([Number(ds.unfindId)]);
+		if (ds.unfindBatch !== undefined) {
+			const at = Number(ds.unfindBatch);
+			const ids: number[] = [];
+			for (const id of state.found) {
+				if (state.foundAt?.get(id) === at) ids.push(id);
+			}
+			return unfindIds(ids);
+		}
+		if (ds.gotoId !== undefined) {
+			const id = Number(ds.gotoId);
+			const targetMap = ds.gotoMap;
+			d.close();
+			if (targetMap && targetMap !== current) await switchMap(targetMap);
+			if (state.byId?.has(id)) select(id);
+			else toast("Marker is not on a loaded map");
+			return;
+		}
 		if (ds.slug !== undefined) {
 			d.close();
 			if (ds.slug !== current) void switchMap(ds.slug);
@@ -554,6 +767,7 @@ export function openStats(): void {
 	};
 
 	renderHead();
+	renderActivity();
 	renderHere();
 	renderMaps();
 	renderStale();

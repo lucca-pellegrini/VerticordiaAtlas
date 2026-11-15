@@ -1915,6 +1915,122 @@ dialog.stats-dlg {
 	margin-top: 14px;
 	font-size: 13px;
 }
+.sd-recap {
+	margin: 10px 0 0;
+	font-size: 13px;
+	color: var(--muted);
+}
+.sd-recap strong {
+	color: var(--ink);
+}
+.sd-chart-wrap {
+	margin-top: 14px;
+}
+.sd-chart-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 6px;
+}
+.sd-chart {
+	display: grid;
+	grid-template-columns: repeat(30, minmax(0, 1fr));
+	gap: 3px;
+	height: 54px;
+	padding: 6px 8px;
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	background: var(--panel-2);
+	align-items: end;
+}
+.sd-chart-bar {
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+}
+.sd-chart-bar i {
+	display: block;
+	width: 100%;
+	min-height: 2px;
+	border-radius: 2px;
+	background: var(--line);
+}
+.sd-chart-bar.on i {
+	background: var(--accent);
+}
+.sd-recent {
+	list-style: none;
+	margin: 8px 0 0;
+	padding: 0;
+	display: grid;
+	gap: 6px;
+}
+.sd-recent-day {
+	margin-top: 6px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+.sd-recent-day:first-child {
+	margin-top: 0;
+}
+.sd-recent-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	background: var(--panel-2);
+}
+.sd-recent-go,
+.sd-recent-main {
+	flex: 1 1 auto;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+	background: none;
+	border: 0;
+	padding: 0;
+	color: inherit;
+	font: inherit;
+}
+.sd-recent-go {
+	cursor: pointer;
+}
+.sd-recent-go:hover .sd-recent-title {
+	color: var(--accent);
+}
+.sd-recent-title {
+	font-size: 13px;
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 100%;
+}
+.sd-recent-meta {
+	font-size: 11px;
+	color: var(--muted);
+}
+.sd-unfind {
+	flex: 0 0 auto;
+	padding: 4px 10px;
+	border-radius: 999px;
+	border: 1px solid var(--line);
+	background: transparent;
+	color: var(--muted);
+	font-size: 11px;
+	cursor: pointer;
+}
+.sd-unfind:hover {
+	color: var(--ink);
+	border-color: var(--line-2);
+}
 .sd-actions {
 	flex-wrap: wrap;
 }
