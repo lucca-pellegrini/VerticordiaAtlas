@@ -1174,7 +1174,7 @@ export function renderGuidePanel(opts?: { forceFullHeader?: boolean }): void {
 
 		headEl.innerHTML =
 			`<div class="gp-top-bar">` +
-			`<button type="button" class="gp-back-btn" data-gp-act="back" aria-label="Back to categories">← Categories</button>` +
+			`<button type="button" class="gp-back-btn" data-gp-act="back" aria-label="Back to categories">${host!.svgIcon("arrowLeft")}<span>Categories</span></button>` +
 			`<button type="button" class="row-menu-btn gp-head-menu" data-guide-menu="${esc(guide.id)}" aria-haspopup="menu" aria-label="Guide actions" title="Guide actions">` +
 			`<svg viewBox="0 0 4 16" aria-hidden="true"><circle cx="2" cy="2" r="1.6"/><circle cx="2" cy="8" r="1.6"/><circle cx="2" cy="14" r="1.6"/></svg>` +
 			`</button>` +
@@ -1186,11 +1186,11 @@ export function renderGuidePanel(opts?: { forceFullHeader?: boolean }): void {
 			`<div class="gp-progress-bar" role="img" aria-label="${pct}% complete"><i style="width:${pct}%"></i></div>` +
 			`</div>` +
 			`<div class="gp-nav-bar">` +
-			`<button type="button" class="gp-nav-btn" data-gp-act="prev" ${prevId ? "" : "disabled"} title="Previous step ([)">← Prev</button>` +
+			`<button type="button" class="gp-nav-btn" data-gp-act="prev" ${prevId ? "" : "disabled"} title="Previous step ([)">${host!.svgIcon("arrowLeft")}<span>Prev</span></button>` +
 			`<button type="button" class="gp-nav-cur" data-gp-act="jump-cursor" ${view.cursor ? "" : "disabled"} title="Jump to current step">` +
 			(cursorIdx >= 0 ? `Step ${cursorIdx + 1} of ${view.visibleSteps.length}` : "All steps complete") +
 			`</button>` +
-			`<button type="button" class="gp-nav-btn" data-gp-act="next" ${nextId ? "" : "disabled"} title="Next step (])">Next →</button>` +
+			`<button type="button" class="gp-nav-btn" data-gp-act="next" ${nextId ? "" : "disabled"} title="Next step (])"><span>Next</span>${host!.svgIcon("arrowRight")}</button>` +
 			`</div>` +
 			`<div class="gp-toggles">` +
 			`<label class="gp-check"><input type="checkbox" data-gp-toggle="remaining" ${host!.state.guide.remainingOnly ? "checked" : ""}/><span>Only remaining on map</span></label>` +
@@ -1552,7 +1552,7 @@ export function renderStepCard(): void {
 				`</button>` +
 				`<div class="gs-sub-actions">` +
 				(!ds.done && nextId
-					? `<button type="button" class="gs-btn primary" data-gs-act="done-and-next">Mark done &amp; next →</button>`
+					? `<button type="button" class="gs-btn primary" data-gs-act="done-and-next"><span>Mark done &amp; next</span>${host.svgIcon("arrowRight")}</button>`
 					: "") +
 				`<button type="button" class="gs-btn" data-gs-act="toggle-skip" aria-pressed="${ds.skipped}">` +
 				(ds.skipped ? "Skipped · Unskip" : "Skip step") +
@@ -1563,8 +1563,8 @@ export function renderStepCard(): void {
 
 	const navRowHtml =
 		`<div class="gs-nav-row">` +
-		`<button type="button" class="gs-btn" data-gs-act="prev" ${prevId ? "" : "disabled"}>← Previous</button>` +
-		`<button type="button" class="gs-btn" data-gs-act="next" ${nextId ? "" : "disabled"}>Next →</button>` +
+		`<button type="button" class="gs-btn" data-gs-act="prev" ${prevId ? "" : "disabled"}>${host.svgIcon("arrowLeft")}<span>Previous</span></button>` +
+		`<button type="button" class="gs-btn" data-gs-act="next" ${nextId ? "" : "disabled"}><span>Next</span>${host.svgIcon("arrowRight")}</button>` +
 		`</div>`;
 
 	const consequenceHtml = ds.step.consequence

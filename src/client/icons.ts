@@ -23,6 +23,8 @@ export const ICONS: Record<string, string> = {
 	box: '<rect x="4" y="6" width="16" height="12" rx="1" stroke-dasharray="2.5 2"/>',
 	ellipse: '<ellipse cx="12" cy="12" rx="8" ry="6" stroke-dasharray="2.5 2"/>',
 	free: '<path d="M5 9c1.5-3 5-4 7-2s4-1.5 6 .5 1 6-2 6.5-3-2-5 0-4 2.5-6 1-4.5-.5-3-3.5z" stroke-dasharray="2.5 2"/>',
+	arrowLeft: '<path d="M19 12H5M11 6l-6 6 6 6"/>',
+	arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
 };
 
 // an icon as markup: the paths of ICONS.name inside a 24x24 svg with the shared styling (class "i")
