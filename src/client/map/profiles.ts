@@ -16,6 +16,7 @@ import {
 	guideStoreKey,
 	guideSyncKey,
 	openManageGuidesDialog,
+	openNewGuideEditor,
 	saveGuideNow,
 } from "./guides.ts";
 import { refreshAll, rememberCamera, syncMapToProfile } from "./map-view.ts";
@@ -448,6 +449,8 @@ export async function profileAction(act: string): Promise<void> {
 		setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 	} else if (act === "import") {
 		$("#import-file")?.click();
+	} else if (act === "new-guide") {
+		await openNewGuideEditor();
 	} else if (act === "import-guide") {
 		$("#import-guide-file")?.click();
 	} else if (act === "export-guide") {
