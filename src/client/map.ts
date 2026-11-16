@@ -18,6 +18,7 @@ import {
 	shareMarker,
 	toggleFound,
 } from "./map/detail.ts";
+import { importGuideFile, reloadGuidesFromStore } from "./map/guides.ts";
 import {
 	agreeCamera,
 	applyTheme,
@@ -98,6 +99,9 @@ export async function startAccountSync(): Promise<void> {
 async function refreshFromStore(keys: string[]): Promise<void> {
 	const gid = state.entry?.id;
 	if (!gid || !state.profile) return;
+	if (keys.some((k) => k.startsWith(`guide:${gid}:`))) {
+		await reloadGuidesFromStore(gid);
+	}
 	if (keys.some((k) => k.startsWith(`profile:${gid}:`))) {
 		state.profiles = (await dbAll("profiles")).filter((p) => p.game === gid).sort((a, b) => a.created - b.created);
 		// a new device starts with an empty profile of its own: when the account's profiles arrive, the one with progress is the one to show
@@ -249,6 +253,15 @@ function wire(): void {
 		input.value = "";
 		if (f) importFile(f);
 	};
+	const importGuideInput = $<HTMLInputElement>("#import-guide-file");
+	if (importGuideInput) {
+		importGuideInput.onchange = (e) => {
+			const input = e.target as HTMLInputElement;
+			const f = input.files?.[0];
+			input.value = "";
+			if (f) importGuideFile(f);
+		};
+	}
 
 	const presetMenu = $("#preset-menu")!,
 		presetMenuBtn = $("#preset-menu-btn")!;

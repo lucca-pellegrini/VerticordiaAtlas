@@ -6,21 +6,37 @@
 import type { SyncStore } from "../sync.ts";
 import { state, syncNote } from "./state.ts";
 
-type StoreName = "profiles" | "meta";
+export type StoreName = "profiles" | "meta" | "guides";
+export const DB_VERSION = 2;
 
-const mem: Record<StoreName, Map<string, any>> = { profiles: new Map(), meta: new Map() };
+const mem: Record<StoreName, Map<string, any>> = {
+	profiles: new Map(),
+	meta: new Map(),
+	guides: new Map(),
+};
 let dbPromise: Promise<IDBDatabase> | null = null;
+
+export function upgradeDB(db: IDBDatabase): void {
+	if (!db.objectStoreNames.contains("profiles")) db.createObjectStore("profiles", { keyPath: "key" });
+	if (!db.objectStoreNames.contains("meta")) db.createObjectStore("meta", { keyPath: "k" });
+	if (!db.objectStoreNames.contains("guides")) db.createObjectStore("guides", { keyPath: "key" });
+}
+
+export function _resetDBForTest(): void {
+	dbPromise = null;
+	mem.profiles.clear();
+	mem.meta.clear();
+	mem.guides.clear();
+}
 
 export function openDB(): Promise<IDBDatabase> {
 	if (dbPromise) return dbPromise;
 	dbPromise = new Promise((resolve, reject) => {
 		if (typeof window === "undefined" || !("indexedDB" in window))
 			return reject(new Error("IndexedDB unavailable"));
-		const req = indexedDB.open("offline-map-viewer", 1);
+		const req = indexedDB.open("offline-map-viewer", DB_VERSION);
 		req.onupgradeneeded = () => {
-			const db = req.result;
-			db.createObjectStore("profiles", { keyPath: "key" });
-			db.createObjectStore("meta", { keyPath: "k" });
+			upgradeDB(req.result);
 		};
 		req.onsuccess = () => resolve(req.result);
 		req.onerror = () => reject(req.error);
@@ -44,7 +60,7 @@ async function withStore<T = any>(
 	});
 }
 
-const keyField = (store: StoreName): "key" | "k" => (store === "profiles" ? "key" : "k");
+const keyField = (store: StoreName): "key" | "k" => (store === "meta" ? "k" : "key");
 
 export async function dbAll(store: StoreName): Promise<any[]> {
 	if (state.memoryOnly) return [...mem[store].values()];
@@ -82,7 +98,11 @@ export const setMeta = (k: string, v: any): Promise<void> => {
 
 // a profile with no progress yet (what a new device starts with)
 export const emptyProfile = (p: any): boolean =>
-	!p.found?.length && !p.drawings?.length && !p.userMarkers?.length && !p.userCats?.length;
+	!p.found?.length &&
+	!p.drawings?.length &&
+	!p.userMarkers?.length &&
+	!p.userCats?.length &&
+	!Object.keys(p.guides || {}).length;
 
 // what sync reads and writes: this device's IndexedDB
 export const syncStore: SyncStore = {
@@ -94,4 +114,7 @@ export const syncStore: SyncStore = {
 	putMeta: (k, v) => dbPut("meta", { k, v }),
 	removeMeta: (k) => dbDelete("meta", k),
 	getMeta: async (k) => (await dbGet("meta", k))?.v ?? null,
+	guides: () => dbAll("guides"),
+	putGuide: (rec) => dbPut("guides", rec),
+	deleteGuide: (key) => dbDelete("guides", key),
 };

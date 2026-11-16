@@ -66,13 +66,14 @@ src/
 		vendor.d.ts         # Ambient types for global vendor libraries (maplibregl, marked, ServiceWorker)
 		map/                # Modularized map viewer subsystems
 			state.ts        # Shared viewer state singleton and core UI/dialog helpers
-			db.ts           # IndexedDB wrapper (profiles and meta stores) and syncStore adapter
+			db.ts           # IndexedDB v2 wrapper (profiles, meta, and guides stores) and syncStore adapter
 			map-view.ts     # MapLibre GL setup, raster tile layers, map switcher, and camera persistence
 			marker-filter.ts # Dynamic MapLibre setFilter marker visibility toggles without rebuilding layers
 			sidebar.ts      # Category/group tree, morphing progress bar, row menus, and session summary
 			stats.ts        # Completion statistics aggregation, breakdown, CSV export, and stale marker cleanup
 			profiles.ts     # Profile CRUD, veil transitions, JSON export/import, and data sanitization
-			found.ts        # Single mutation path for state.found/state.foundAt and in-memory undo stack
+			found.ts        # Single mutation path for state.found/state.foundAt and generic in-memory undo stack
+			guides.ts       # Guide store CRUD, per-guide debounced saves, progress mutators, and guide import/export
 			presets.ts      # Category visibility presets, dirty state detection, and per-game migration
 			detail.ts       # Marker detail card, bidirectional link graph, arrowheads, and history stack
 			search.ts       # Tiered location search (current map & all maps) and hover ring preview
@@ -164,8 +165,10 @@ tests/
 
 2. **Sync Hashing & Conflict Rules (`src/shared/sync-rules.ts`)**:
     - Both client (`src/client/sync.ts`) and server (`server/api.ts`) must use `contentKey` and `sendKey` from `src/shared/sync-rules.ts`.
-    - `contentKey` strips `updated`, `map`, `cameras`, and `foundAt` from profile records so camera movements, timestamps, and advisory per-marker find dates never trigger a conflict dialog between devices.
-    - `sendKey` strips only `updated` so camera changes and `foundAt` metadata are still replicated to other devices when no content conflict exists.
+    - `contentKey` strips `updated`, `map`, `cameras`, `foundAt`, and nested `guides[id].cursor` / `guides[id].variants` / `guides[id].updated` from profile records so camera movements, timestamps, advisory per-marker find dates, and guide cursor/variant selections never trigger a conflict dialog between devices.
+    - `sendKey` strips only `updated` (top-level and inside `guides[id]`) so camera changes, `foundAt` metadata, and guide cursor/variants are still replicated to other devices when no content conflict exists.
+    - For `guide:<game>:<id>` records, both `contentKey` and `sendKey` ignore `updated` and nothing else.
+    - Golden-hash rule: the canonical output of `stable()`, `contentKey`, and `sendKey` for every pre-existing profile and meta record shape must never change by a single byte.
 
 3. **Security & Untrusted Data Sanitization**:
     - Profile imports and synced records can contain arbitrary JSON; always pass profile data through `cleanUserData()` (`src/client/map/profiles.ts`) and guide definitions through `cleanGuide()` (`src/shared/guide.ts`). Never commit third-party guide content to the repository; test fixtures must be synthetic.

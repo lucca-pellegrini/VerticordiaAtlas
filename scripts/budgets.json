@@ -3,8 +3,8 @@
 		"id": "app-gzip",
 		"file": "public/app.js",
 		"metric": "gzip",
-		"measured": 80699,
-		"hard": 83200,
+		"measured": 90148,
+		"hard": 92900,
 		"target": 65000,
 		"note": "Roadmap target is ~65 KB gzip; not yet met. Hard limit is measured + ~3%."
 	},
@@ -12,9 +12,9 @@
 		"id": "app-brotli",
 		"file": "public/app.js",
 		"metric": "brotli",
-		"measured": 68026,
-		"hard": 70100,
-		"note": "br11."
+		"measured": 75657,
+		"hard": 78000,
+		"note": "br11 (includes Guide v1 validator, store, sync, and import/export from M2)."
 	},
 	{
 		"id": "home-gzip",

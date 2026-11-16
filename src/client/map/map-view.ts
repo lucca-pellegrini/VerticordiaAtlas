@@ -13,6 +13,7 @@ import { isLightTheme, recordGameOpen } from "../theme.ts";
 import { setupCapture } from "./capture.ts";
 import { closeCtx, closeDetail, dismiss, mapMenuAt, renderDetail, select, updateLinkHeads } from "./detail.ts";
 import { setupDrawing } from "./drawing.ts";
+import { loadGuides } from "./guides.ts";
 import { renderMd } from "./markdown.ts";
 import { buildMarkerFilter } from "./marker-filter.ts";
 import { loadMapState, migratePresets, renderPresets } from "./presets.ts";
@@ -211,6 +212,7 @@ export async function loadGame(entry: any): Promise<boolean> {
 	}
 
 	await migratePresets(); // presets are per game (see presetsKey)
+	await loadGuides(entry.id);
 	// the profile comes first: it says which map was open, and where
 	await loadProfiles();
 	// the map to open: a shared link's map, else the one this profile was last on, else the game's first

@@ -604,6 +604,109 @@ describe("server/api and server/ws integration", () => {
 			const pushBigData = await pushBig.json();
 			expect(pushBigData.results[0].status).toBe("ok");
 
+			// 8c. Guide item push, pull, updated-only no-op, deletion, and profile cursor/variants non-conflict
+			const guideVal = {
+				v: 1,
+				id: "g-limgrave",
+				game: "elden-ring",
+				title: "Limgrave Route",
+				sections: [
+					{
+						id: "sec-1",
+						title: "West Limgrave",
+						steps: [{ id: "st-1", kind: "task", title: "First Step" }],
+					},
+				],
+				created: 1000,
+				updated: 1000,
+			};
+			const pushGuide = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [{ key: "guide:elden-ring:g-limgrave", value: guideVal, base: 0 }],
+				}),
+			});
+			expect(pushGuide.status).toBe(200);
+			const pushGuideData = await pushGuide.json();
+			expect(pushGuideData.results[0].status).toBe("ok");
+			const guideUpdatedAt = pushGuideData.results[0].updated_at;
+
+			// Pull confirms the guide item is stored
+			const pullGuides = await (
+				await fetch(`${baseUrl}/api/sync?since=${guideUpdatedAt}`, { headers: { Cookie: cookie } })
+			).json();
+			expect(pullGuides.items.find((it: any) => it.key === "guide:elden-ring:g-limgrave")?.value.title).toBe(
+				"Limgrave Route",
+			);
+
+			// Pushing the same guide with only `updated` changed is a no-op (same: true, updated_at unchanged)
+			const pushGuideNoop = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [
+						{
+							key: "guide:elden-ring:g-limgrave",
+							value: { ...guideVal, updated: 999999 },
+							base: 0,
+						},
+					],
+				}),
+			});
+			const pushGuideNoopData = await pushGuideNoop.json();
+			expect(pushGuideNoopData.results[0].status).toBe("ok");
+			expect(pushGuideNoopData.results[0].same).toBe(true);
+			expect(pushGuideNoopData.results[0].updated_at).toBe(guideUpdatedAt);
+
+			// Profile cursor/variants-only update with stale base: 0 does not conflict
+			const pushCursor = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [
+						{
+							key: "profile:elden-ring:p1",
+							value: {
+								name: "Run 1",
+								found: [1, 2],
+								foundAt: { "1": 1700000001, "2": 1700000002 },
+								guides: {
+									"g-limgrave": { cursor: "st-1", variants: { mode: "standard" }, updated: 500 },
+								},
+								updated: 500,
+								map: "caelid",
+								cameras: {},
+							},
+							base: 0,
+						},
+					],
+				}),
+			});
+			const pushCursorData = await pushCursor.json();
+			expect(pushCursorData.results[0].status).toBe("ok");
+
+			// Delete guide item (value: null)
+			const delGuide = await fetch(`${baseUrl}/api/sync`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json", Cookie: cookie },
+				body: JSON.stringify({
+					client: "client-A",
+					items: [{ key: "guide:elden-ring:g-limgrave", value: null, base: guideUpdatedAt }],
+				}),
+			});
+			const delGuideData = await delGuide.json();
+			expect(delGuideData.results[0].status).toBe("ok");
+			const pullAfterDel = await (
+				await fetch(`${baseUrl}/api/sync?since=${delGuideData.results[0].updated_at}`, {
+					headers: { Cookie: cookie },
+				})
+			).json();
+			expect(pullAfterDel.items.find((it: any) => it.key === "guide:elden-ring:g-limgrave")?.value).toBeNull();
+
 			// 9. Delete account cascades user_data, sessions, and secret_accounts and closes active WebSockets
 			const wsClosed = new Promise<number>((resolve) => {
 				ws.onclose = (ev) => resolve(ev.code);

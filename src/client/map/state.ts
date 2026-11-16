@@ -91,6 +91,8 @@ export const state: Record<string, any> = {
 	},
 	presets: [],
 	presetId: null,
+	guides: [] as any[],
+	guidesLoaded: false,
 	activeTileset: null as string | null,
 	regions: [] as any[],
 	regionById: new Map<number, any>(),

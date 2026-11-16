@@ -195,6 +195,191 @@ describe("shared/sync-rules", () => {
 		expect(fnv("hello")).toBe(fnv("hello"));
 		expect(fnv("hello")).not.toBe(fnv("world"));
 	}, 30_000);
+
+	test("golden test: pre-existing profile and meta records produce byte-identical stable, contentKey, sendKey, and fnv hashes", () => {
+		const minimalProfile = {
+			id: "p1",
+			game: "elden-ring",
+			name: "Default",
+			tag: null,
+			found: [101, 205, 309],
+			created: 1700000000000,
+			updated: 1700000500000,
+		};
+		expect(stable(minimalProfile)).toBe(
+			'{"created":1700000000000,"found":[101,205,309],"game":"elden-ring","id":"p1","name":"Default","tag":null,"updated":1700000500000}',
+		);
+		expect(contentKey("profile:elden-ring:p1", minimalProfile)).toBe(
+			'{"created":1700000000000,"found":[101,205,309],"game":"elden-ring","id":"p1","name":"Default","tag":null}',
+		);
+		expect(fnv(contentKey("profile:elden-ring:p1", minimalProfile))).toBe("4980a76e");
+		expect(sendKey("profile:elden-ring:p1", minimalProfile)).toBe(
+			'{"created":1700000000000,"found":[101,205,309],"game":"elden-ring","id":"p1","name":"Default","tag":null}',
+		);
+		expect(fnv(sendKey("profile:elden-ring:p1", minimalProfile))).toBe("4980a76e");
+
+		const richProfileWithFoundAt = {
+			id: "main",
+			game: "hollow-knight",
+			name: "112% Steel Soul",
+			tag: 2,
+			tagStrict: true,
+			found: [10, 20, 30],
+			foundAt: { "10": 1700000100, "20": 1700000200 },
+			created: 1700000000000,
+			updated: 1700000900000,
+			map: "hallownest",
+			cameras: {
+				hallownest: { lng: -12.3456, lat: 45.6789, zoom: 11.5 },
+			},
+			view: {
+				hallownest: { hidden: [5, 8], hideFound: true, collapsed: ["grp-1"], presetId: "pre-1" },
+			},
+			drawings: [
+				{
+					id: "d1",
+					kind: "line",
+					color: "#e5484d",
+					size: "m",
+					pts: [
+						{ lng: 1, lat: 2 },
+						{ lng: 3, lat: 4 },
+					],
+					map: "hallownest",
+				},
+			],
+			userCats: [{ id: -1, title: "Pins", color: "#3b82f6", glyph: "star" }],
+			userMarkers: [
+				{
+					id: -101,
+					cat: -1,
+					title: "Bench",
+					desc: "Rest here",
+					lat: 10.5,
+					lng: -20.25,
+					links: [10],
+					map: "hallownest",
+					created: 1700000050000,
+				},
+			],
+		};
+		expect(contentKey("profile:hollow-knight:main", richProfileWithFoundAt)).toBe(
+			'{"created":1700000000000,"drawings":[{"color":"#e5484d","id":"d1","kind":"line","map":"hallownest","pts":[{"lat":2,"lng":1},{"lat":4,"lng":3}],"size":"m"}],"found":[10,20,30],"game":"hollow-knight","id":"main","name":"112% Steel Soul","tag":2,"tagStrict":true,"userCats":[{"color":"#3b82f6","glyph":"star","id":-1,"title":"Pins"}],"userMarkers":[{"cat":-1,"created":1700000050000,"desc":"Rest here","id":-101,"lat":10.5,"links":[10],"lng":-20.25,"map":"hallownest","title":"Bench"}],"view":{"hallownest":{"collapsed":["grp-1"],"hidden":[5,8],"hideFound":true,"presetId":"pre-1"}}}',
+		);
+		expect(fnv(contentKey("profile:hollow-knight:main", richProfileWithFoundAt))).toBe("6c45cb9b");
+		expect(sendKey("profile:hollow-knight:main", richProfileWithFoundAt)).toBe(
+			'{"cameras":{"hallownest":{"lat":45.6789,"lng":-12.3456,"zoom":11.5}},"created":1700000000000,"drawings":[{"color":"#e5484d","id":"d1","kind":"line","map":"hallownest","pts":[{"lat":2,"lng":1},{"lat":4,"lng":3}],"size":"m"}],"found":[10,20,30],"foundAt":{"10":1700000100,"20":1700000200},"game":"hollow-knight","id":"main","map":"hallownest","name":"112% Steel Soul","tag":2,"tagStrict":true,"userCats":[{"color":"#3b82f6","glyph":"star","id":-1,"title":"Pins"}],"userMarkers":[{"cat":-1,"created":1700000050000,"desc":"Rest here","id":-101,"lat":10.5,"links":[10],"lng":-20.25,"map":"hallownest","title":"Bench"}],"view":{"hallownest":{"collapsed":["grp-1"],"hidden":[5,8],"hideFound":true,"presetId":"pre-1"}}}',
+		);
+		expect(fnv(sendKey("profile:hollow-knight:main", richProfileWithFoundAt))).toBe("bba325a3");
+
+		const metaPresets = [
+			{ id: "pre-1", name: "Grubs & Charms", hidden: [1, 2, 3] },
+			{ id: "pre-2", name: "Bosses Only", hidden: [4, 5] },
+		];
+		expect(contentKey("meta:presets:hollow-knight", metaPresets)).toBe(
+			'[{"hidden":[1,2,3],"id":"pre-1","name":"Grubs & Charms"},{"hidden":[4,5],"id":"pre-2","name":"Bosses Only"}]',
+		);
+		expect(fnv(contentKey("meta:presets:hollow-knight", metaPresets))).toBe("7e6c9683");
+		expect(sendKey("meta:presets:hollow-knight", metaPresets)).toBe(
+			'[{"hidden":[1,2,3],"id":"pre-1","name":"Grubs & Charms"},{"hidden":[4,5],"id":"pre-2","name":"Bosses Only"}]',
+		);
+		expect(fnv(sendKey("meta:presets:hollow-knight", metaPresets))).toBe("7e6c9683");
+
+		const metaView = {
+			hidden: [1, 4],
+			hideFound: false,
+			collapsed: [10],
+			presetId: null,
+		};
+		expect(contentKey("meta:view:hollow-knight:hallownest", metaView)).toBe(
+			'{"collapsed":[10],"hidden":[1,4],"hideFound":false,"presetId":null}',
+		);
+		expect(fnv(contentKey("meta:view:hollow-knight:hallownest", metaView))).toBe("38364f3a");
+		expect(sendKey("meta:view:hollow-knight:hallownest", metaView)).toBe(
+			'{"collapsed":[10],"hidden":[1,4],"hideFound":false,"presetId":null}',
+		);
+		expect(fnv(sendKey("meta:view:hollow-knight:hallownest", metaView))).toBe("38364f3a");
+	}, 30_000);
+
+	test("guide: keys ignore only updated in both contentKey and sendKey", () => {
+		const g1 = { v: 1, id: "g-1234", game: "totk", title: "Route A", sections: [], created: 1000, updated: 2000 };
+		const g2 = { v: 1, id: "g-1234", game: "totk", title: "Route A", sections: [], created: 1000, updated: 9999 };
+		const g3 = { v: 1, id: "g-1234", game: "totk", title: "Route B", sections: [], created: 1000, updated: 9999 };
+
+		expect(contentKey("guide:totk:g-1234", g1)).toBe(contentKey("guide:totk:g-1234", g2));
+		expect(sendKey("guide:totk:g-1234", g1)).toBe(sendKey("guide:totk:g-1234", g2));
+		expect(contentKey("guide:totk:g-1234", g1)).not.toBe(contentKey("guide:totk:g-1234", g3));
+		expect(sendKey("guide:totk:g-1234", g1)).not.toBe(sendKey("guide:totk:g-1234", g3));
+	}, 30_000);
+
+	test("profile.guides cursor and variants are ignored in contentKey (never conflict) but kept in sendKey (replicate)", () => {
+		const baseProfile = {
+			id: "p1",
+			game: "totk",
+			name: "Main",
+			found: [1, 2],
+			created: 1000,
+			updated: 2000,
+		};
+		const withCursorAndVariantOnly = {
+			...baseProfile,
+			updated: 3000,
+			guides: {
+				"g-1234": {
+					cursor: "st-5",
+					variants: { mode: "ironman" },
+					updated: 3000,
+				},
+			},
+		};
+		// When a guide progress entry only has cursor/variants/updated, contentKey matches the untouched profile
+		expect(contentKey("profile:totk:p1", withCursorAndVariantOnly)).toBe(
+			contentKey("profile:totk:p1", baseProfile),
+		);
+		// But sendKey differs so cursor and variants replicate to other devices
+		expect(sendKey("profile:totk:p1", withCursorAndVariantOnly)).not.toBe(sendKey("profile:totk:p1", baseProfile));
+
+		// With manual done or skipped steps, contentKey includes done/skipped while ignoring cursor/variants/updated
+		const pA = {
+			...baseProfile,
+			guides: {
+				"g-1234": {
+					done: { "st-1": 1700000000 },
+					skipped: ["st-2"],
+					cursor: "st-3",
+					variants: { mode: "standard" },
+					updated: 4000,
+				},
+			},
+		};
+		const pB = {
+			...baseProfile,
+			guides: {
+				"g-1234": {
+					done: { "st-1": 1700000000 },
+					skipped: ["st-2"],
+					cursor: "st-99",
+					variants: { mode: "ironman" },
+					updated: 8000,
+				},
+			},
+		};
+		const pC = {
+			...baseProfile,
+			guides: {
+				"g-1234": {
+					done: { "st-1": 1700000000, "st-4": 1700000100 },
+					skipped: ["st-2"],
+					cursor: "st-99",
+					variants: { mode: "ironman" },
+					updated: 8000,
+				},
+			},
+		};
+		expect(contentKey("profile:totk:p1", pA)).toBe(contentKey("profile:totk:p1", pB));
+		expect(sendKey("profile:totk:p1", pA)).not.toBe(sendKey("profile:totk:p1", pB));
+		expect(contentKey("profile:totk:p1", pA)).not.toBe(contentKey("profile:totk:p1", pC));
+	}, 30_000);
 });
 
 describe("share-link", () => {
