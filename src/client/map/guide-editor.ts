@@ -4,7 +4,7 @@
 /* ---------- guide editor: lazily loaded authoring UI, edit undo/redo, step fields, reordering, and raw JSON ---------- */
 
 import { esc } from "../../shared/escape.ts";
-import { parseMarkerLink } from "../../shared/guide-import.ts";
+import { linesToSteps, parseMarkerLink, suggestRegionTitle } from "../../shared/guide-import.ts";
 import {
 	cleanGuide,
 	duplicateStep,
@@ -2162,12 +2162,153 @@ export function addMarkerTargetPromptOrStep(loc: any): void {
 	promptChoiceOrCreateStep(loc);
 }
 
-export function createMultiTargetStepFromMarkers(_markers: any[], _titleSuggestion: string): void {
-	// Wired in Slice 4
+export async function createMultiTargetStepFromMarkers(markers: any[], titleSuggestion?: string): Promise<void> {
+	if (!host || mode !== "edit" || !markers.length) return;
+	const guide = currentGuide();
+	if (!guide) return;
+
+	const targets: GuideTarget[] = [];
+	const seenOfficial = new Set<number>();
+	for (const m of markers) {
+		if (!m) continue;
+		const tgt = buildTargetForLoc(m);
+		if (tgt.kind === "marker") {
+			if (seenOfficial.has(tgt.marker)) continue;
+			seenOfficial.add(tgt.marker);
+		}
+		targets.push(tgt);
+		if (targets.length >= MAX_STEP_TARGETS) break;
+	}
+	if (!targets.length) return;
+
+	const suggested =
+		titleSuggestion || suggestRegionTitle(markers, host.state.regions || [], host.state.regionById || new Map());
+	const chosen = await host.askDialog({
+		title: "Create guide step",
+		message: `${targets.length} marker target${targets.length === 1 ? "" : "s"} selected.`,
+		value: suggested.slice(0, MAX_STEP_TITLE),
+		okLabel: "Add step",
+	});
+	if (!chosen) return;
+
+	const secId = currentSectionIdForInsert(guide);
+	const insertAt = nextInsertionIndexInSection(guide, secId);
+	const newId = makeStepId(guide);
+	collapsedSections.delete(secId);
+	await applyEdit(
+		(g) =>
+			insertStep(
+				g,
+				secId,
+				{
+					id: newId,
+					kind: "task",
+					title: chosen.slice(0, MAX_STEP_TITLE),
+					targets,
+				},
+				insertAt,
+			),
+		{ selectStepId: newId, openStepCard: true },
+	);
+	host.toast(`Created step "${chosen}" (${targets.length} targets)`);
 }
 
 function openPasteTextModal(): void {
-	// Wired in Slice 4
+	if (!host || mode !== "edit") return;
+	const g = currentGuide();
+	const dlg = document.getElementById("dlg") as HTMLDialogElement | null;
+	const form = document.getElementById("dlg-form") as HTMLFormElement | null;
+	if (!g || !dlg || !form) return;
+
+	const secOptions =
+		g.sections.map((s) => `<option value="${esc(s.id)}">${esc(s.title)}</option>`).join("") +
+		`<option value="__new__">+ New section…</option>`;
+	const curSecId = currentSectionIdForInsert(g);
+
+	form.innerHTML =
+		`<h2>Paste text as steps</h2>` +
+		`<p style="font-size:0.86em;opacity:0.8">Paste one step per line. Marker links like <code>#loc=123</code> or full marker URLs bind automatically.</p>` +
+		`<textarea name="lines" rows="8" placeholder="- Find the Hidden Shrine (#loc=101)\n- Unlock the Watchtower\n- Speak to the Merchant" required></textarea>` +
+		`<div class="ge-row-2" style="margin-top:8px">` +
+		`<label class="field"><span>Section</span><select name="sec">${secOptions}</select></label>` +
+		`<label class="field"><span>Default kind</span><select name="kind">${STEP_KINDS.map((k) => `<option value="${k}">${k === "task" ? "Task" : k === "waypoint" ? "Waypoint" : "Info"}</option>`).join("")}</select></label>` +
+		`</div>` +
+		`<label class="field" data-ge-newsec hidden><span>New section title</span><input type="text" name="newsec" maxlength="${MAX_SECTION_TITLE}" value="Section ${g.sections.length + 1}"></label>` +
+		`<div class="ge-dim" data-ge-paste-count>0 step(s) parsed</div>` +
+		`<div class="dlg-actions"><button type="button" data-cancel>Cancel</button><button type="submit" class="primary">Add steps</button></div>`;
+
+	const secSel = form.elements.namedItem("sec") as HTMLSelectElement;
+	secSel.value = curSecId;
+	const newSecRow = form.querySelector<HTMLElement>("[data-ge-newsec]")!;
+	const linesEl = form.elements.namedItem("lines") as HTMLTextAreaElement;
+	const kindSel = form.elements.namedItem("kind") as HTMLSelectElement;
+	const countEl = form.querySelector<HTMLElement>("[data-ge-paste-count]")!;
+
+	const refreshCount = () => {
+		const parsed = linesToSteps(linesEl.value, { kind: kindSel.value as StepKind });
+		const bound = parsed.reduce((n, st) => n + (st.targets?.length ? 1 : 0), 0);
+		countEl.textContent = `${parsed.length} step(s) parsed${bound ? ` · ${bound} bound to markers` : ""}`;
+	};
+	secSel.onchange = () => {
+		newSecRow.hidden = secSel.value !== "__new__";
+	};
+	linesEl.oninput = refreshCount;
+	kindSel.onchange = refreshCount;
+	form.querySelector<HTMLElement>("[data-cancel]")!.onclick = () => dlg.close();
+
+	form.onsubmit = async (e) => {
+		e.preventDefault();
+		if (!host) return;
+		const parsed = linesToSteps(linesEl.value, { kind: kindSel.value as StepKind });
+		if (!parsed.length) return;
+		await ensureCrossMapMarkers();
+
+		const enrichedSteps = parsed.map((st) => {
+			if (!st.targets?.length) return st;
+			return {
+				...st,
+				targets: st.targets.map((t) => {
+					if (t.kind !== "marker") return t;
+					const loc = lookupAnyMarker(t.marker);
+					if (!loc) return t;
+					const catTitle = loc.cat != null ? host!.state.cats?.get(loc.cat)?.title : undefined;
+					return officialMarkerToTarget(loc, catTitle, loc.map);
+				}),
+			};
+		});
+
+		const wantNewSec = secSel.value === "__new__";
+		const targetSecId = secSel.value;
+		const newSecTitle = (form.elements.namedItem("newsec") as HTMLInputElement).value.trim() || "New Section";
+		dlg.close();
+
+		let firstAddedId: string | null = null;
+		await host.perf("pasteSteps", () =>
+			applyEdit(
+				(gr) => {
+					let nextG = structuredClone(gr);
+					let destSecId = targetSecId;
+					if (wantNewSec) {
+						const newId = makeSectionId(nextG);
+						nextG = insertSection(nextG, { id: newId, title: newSecTitle });
+						destSecId = newId;
+					}
+					for (const st of enrichedSteps) {
+						const sid = makeStepId(nextG);
+						if (!firstAddedId) firstAddedId = sid;
+						nextG = insertStep(nextG, destSecId, { ...st, id: sid });
+					}
+					collapsedSections.delete(destSecId);
+					return nextG;
+				},
+				{ selectStepId: firstAddedId ?? selectedStepId, openStepCard: Boolean(firstAddedId) },
+			),
+		);
+		host.toast(`Added ${enrichedSteps.length} step(s)`);
+	};
+
+	dlg.showModal();
+	setTimeout(() => linesEl.focus(), 0);
 }
 
 function openRawJsonModal(): void {
