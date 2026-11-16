@@ -5,8 +5,10 @@
 
 import { esc } from "../../shared/escape.ts";
 
-export const $ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document): T | null =>
-	r.querySelector<T>(s);
+export const $ = <T extends Element = HTMLElement>(
+	s: string,
+	r: ParentNode | null = typeof document !== "undefined" ? document : null,
+): T | null => (r ? r.querySelector<T>(s) : null);
 
 export const fmt = (n: number | string): string => Number(n).toLocaleString();
 

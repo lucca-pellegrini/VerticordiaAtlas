@@ -1208,7 +1208,7 @@ export function rememberCamera(now = false): void {
 		const p = state.profile,
 			slug = state.mapInfo.slug,
 			key = cameraKey();
-		if (key !== state.camKey || p.map !== slug) {
+		if (key !== state.camKey) {
 			// the view really moved (or the map changed)
 			p.map = slug;
 			p.cameras = { ...(p.cameras || {}), [slug]: cameraNow() };

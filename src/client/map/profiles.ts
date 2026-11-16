@@ -319,7 +319,7 @@ export function tweenVeil(to: number, ms: number): Promise<void> {
 
 export async function switchProfile(id: string): Promise<void> {
 	rememberCamera(false); // the camera belongs to the profile being left
-	await saveProfileNow();
+	if (isSavePending()) await saveProfileNow();
 	const p = state.profiles.find((x: any) => x.id === id);
 	if (!p) return;
 	closeDetail(); // a card open on the old profile's marker closes the way a close does

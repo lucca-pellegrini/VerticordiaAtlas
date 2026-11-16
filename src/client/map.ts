@@ -5,7 +5,7 @@
 
 import { esc } from "../shared/escape.ts";
 import { accountSlot, api, currentUser, initAccount, legalLinks, setOnlineStatus, socketUrl } from "./account.ts";
-import { dbAll, emptyProfile, openDB, syncStore } from "./map/db.ts";
+import { dbAll, emptyProfile, openDB, setMeta, syncStore } from "./map/db.ts";
 import {
 	closeCtx,
 	closeCtxIfOutside,
@@ -96,7 +96,7 @@ export async function startAccountSync(): Promise<void> {
 }
 
 // the open screen follows what sync wrote into IndexedDB (the profile, its presets and view), so nothing stale is saved over it
-async function refreshFromStore(keys: string[]): Promise<void> {
+export async function refreshFromStore(keys: string[]): Promise<void> {
 	const gid = state.entry?.id;
 	if (!gid || !state.profile) return;
 	if (keys.some((k) => k.startsWith(`guide:${gid}:`))) {
@@ -104,39 +104,48 @@ async function refreshFromStore(keys: string[]): Promise<void> {
 	}
 	if (keys.some((k) => k.startsWith(`profile:${gid}:`))) {
 		state.profiles = (await dbAll("profiles")).filter((p) => p.game === gid).sort((a, b) => a.created - b.created);
-		// a new device starts with an empty profile of its own: when the account's profiles arrive, the one with progress is the one to show
-		let cur = state.profiles.find((p: any) => p.id === state.profile.id) || state.profiles[0];
-		if (cur && emptyProfile(cur)) {
-			const withProgress = state.profiles
-				.filter((p: any) => !emptyProfile(p))
-				.sort((x: any, y: any) => (y.updated || 0) - (x.updated || 0))[0];
-			if (withProgress) cur = withProgress;
+		// a new device starts with an empty profile of its own (deleted by adoptOverPlaceholders when the account's
+		// profiles arrive): only when the open profile is gone do we pick the arriving profile with progress
+		let cur = state.profiles.find((p: any) => p.id === state.profile.id);
+		const replaced = !cur;
+		if (!cur) {
+			cur =
+				state.profiles
+					.filter((p: any) => !emptyProfile(p))
+					.sort((x: any, y: any) => (y.updated || 0) - (x.updated || 0))[0] || state.profiles[0];
+			if (cur) void setMeta("last-profile:" + gid, cur.id).catch(() => {});
 		}
 		if (cur) {
-			state.drawing?.animateNext(); // the drawings that changed elsewhere fade in or out (applyProfile redraws them)
-			applyProfile(cur);
-			renderProfileSelect();
-			// the view belongs to the profile: show this map's view from it, whatever map this is (switchMap below may not run yet)
-			if (state.mapInfo) await loadMapState();
-			// the profile also carries the map and the camera: follow them, as the other device left them
-			// ...but only while this device's own view is as it was left: someone moving the map here keeps it where they put it
-			if (viewUntouched()) {
-				if (
-					cur.map &&
-					cur.map !== state.mapInfo?.slug &&
-					state.meta.maps.some((m: any) => m.slug === cur.map)
-				) {
-					await switchMap(cur.map, { remember: false }); // prepareMap loads the view again
-					agreeCamera();
-				} else {
-					const cam = cur.cameras?.[state.mapInfo?.slug];
-					if (cam && state.mapReady && !sameCamera(cam, cameraNow())) glideTo(cam);
+			if (!replaced && !keys.includes(`profile:${gid}:${cur.id}`)) {
+				const idx = state.profiles.findIndex((p: any) => p.id === cur.id);
+				if (idx >= 0) state.profiles[idx] = state.profile;
+				renderProfileSelect();
+			} else {
+				state.drawing?.animateNext(); // the drawings that changed elsewhere fade in or out (applyProfile redraws them)
+				applyProfile(cur);
+				renderProfileSelect();
+				// the view belongs to the profile: show this map's view from it, whatever map this is (switchMap below may not run yet)
+				if (state.mapInfo) await loadMapState();
+				// the profile also carries the map and the camera: follow them, as the other device left them
+				// ...but only while this device's own view is as it was left: someone moving the map here keeps it where they put it
+				if (viewUntouched()) {
+					if (
+						cur.map &&
+						cur.map !== state.mapInfo?.slug &&
+						state.meta.maps.some((m: any) => m.slug === cur.map)
+					) {
+						await switchMap(cur.map, { remember: false }); // prepareMap loads the view again
+						agreeCamera();
+					} else {
+						const cam = cur.cameras?.[state.mapInfo?.slug];
+						if (cam && state.mapReady && !sameCamera(cam, cameraNow())) glideTo(cam);
+					}
 				}
 			}
 		}
 	}
 	if (keys.some((k) => k === `meta:${presetsKey()}`)) await loadMapState();
-	refreshAll();
+	if (typeof document !== "undefined") refreshAll();
 }
 
 // the conflict message: the server has newer data, and this device has changes of its own

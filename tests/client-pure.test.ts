@@ -22,6 +22,7 @@ import {
 } from "../src/client/home.ts";
 import { glyphInk, PIN } from "../src/client/icons-lib.ts";
 import { ICONS, svgIcon } from "../src/client/icons.ts";
+import { refreshFromStore } from "../src/client/map.ts";
 import {
 	_resetDBForTest,
 	DB_VERSION,
@@ -2096,6 +2097,68 @@ describe("guides client store, DB upgrade, progress & undo, and file import/expo
 			await flushGuideSaves();
 			const reloaded = await loadGuides("sunlit-reach");
 			expect(reloaded.find((g) => g.id === created.id)?.description).toBe("Updated desc");
+		},
+		30_000,
+	);
+
+	test.serial(
+		"refreshFromStore keeps an empty active second profile selected when camera sync arrives and only adopts progress when a placeholder is replaced",
+		async () => {
+			state.memoryOnly = true;
+			_resetDBForTest();
+			state.entry = { id: "sunlit-reach", slug: "sunlit-reach", title: "Sunlit Reach" };
+			state.mapInfo = null;
+			state.mapReady = false;
+			state.drawing = null;
+
+			const prof1 = {
+				key: "sunlit-reach:p1",
+				id: "p1",
+				game: "sunlit-reach",
+				name: "Playthrough 1",
+				found: [1001, 1002],
+				created: 1000,
+				updated: 5000,
+			};
+			const prof2 = {
+				key: "sunlit-reach:p2",
+				id: "p2",
+				game: "sunlit-reach",
+				name: "Playthrough 2",
+				found: [],
+				cameras: { overworld: { lng: 12.5, lat: -8.25, zoom: 4 } },
+				created: 2000,
+				updated: 6000,
+			};
+			await dbPut("profiles", prof1);
+			await dbPut("profiles", prof2);
+
+			// Device is currently viewing Profile 2 (which is empty of markers/drawings/guides)
+			state.profiles = [prof1, prof2];
+			state.profile = structuredClone(prof2);
+
+			// Remote camera update arrives for Profile 2
+			await refreshFromStore(["profile:sunlit-reach:p2"]);
+			expect(state.profile.id).toBe("p2");
+			expect(state.profile.cameras?.overworld).toEqual({ lng: 12.5, lat: -8.25, zoom: 4 });
+
+			// Remote update arrives for Profile 1 while Device is still on Profile 2
+			await refreshFromStore(["profile:sunlit-reach:p1"]);
+			expect(state.profile.id).toBe("p2");
+
+			// When a new device's unsent local placeholder (`local-init`) is deleted by adoptOverPlaceholders,
+			// refreshFromStore switches to the arriving profile with progress (`p1`).
+			state.profile = {
+				key: "sunlit-reach:local-init",
+				id: "local-init",
+				game: "sunlit-reach",
+				name: "Default",
+				found: [],
+				created: 500,
+				updated: 500,
+			};
+			await refreshFromStore(["profile:sunlit-reach:p1", "profile:sunlit-reach:p2"]);
+			expect(state.profile.id).toBe("p1");
 		},
 		30_000,
 	);
