@@ -63,6 +63,8 @@ export interface GuideFollowHost {
 	renameGuidePrompt: (guideId: string) => Promise<void>;
 	deleteGuideWithUndo: (guideId: string) => Promise<void>;
 	downloadGuideJson: (guide: Guide) => void;
+	openGuideEditor: (guideId: string) => Promise<void>;
+	openNewGuideEditor: () => Promise<void>;
 	closeDetail: () => void;
 	hideDetail: () => void;
 	updateLinks: () => void;
@@ -657,9 +659,18 @@ export function renderGuidesSidebarSection(): void {
 	sec.innerHTML =
 		`<div class="group-head">` +
 		`<button class="name" type="button" data-guides-collapse>${esc("Guides")}</button>` +
+		`<button class="link-btn gp-new-link" type="button" data-guides-new title="Create a new guide">+ New</button>` +
 		`<span class="tally">${guides.length}</span>` +
 		`</div>` +
 		`<div class="cats guides-cats">${rowsHtml}</div>`;
+
+	const newBtn = sec.querySelector<HTMLElement>("[data-guides-new]");
+	if (newBtn) {
+		newBtn.onclick = (e) => {
+			e.stopPropagation();
+			void host?.openNewGuideEditor();
+		};
+	}
 
 	const collapseBtn = sec.querySelector<HTMLElement>("[data-guides-collapse]");
 	if (collapseBtn) {
@@ -738,6 +749,7 @@ function openGuideRowMenu(btn: HTMLElement, guideId: string): void {
 		`<div class="rm-text"><div class="rm-title">${esc(guide.title)}</div>` +
 		`<div class="rm-sub">Guide · ${fmt(view.counts.done)}/${fmt(view.counts.total)} done</div></div></div><hr>` +
 		`<button type="button" role="menuitem" data-gm-act="open">${host.svgIcon("list")}<span>Open guide</span></button>` +
+		`<button type="button" role="menuitem" data-gm-act="edit">${host.svgIcon("pencil")}<span>Edit guide</span></button>` +
 		`<button type="button" role="menuitem" data-gm-act="remaining">${host.svgIcon("check")}<span>${isRemOnly ? "Show all map markers" : "Show only remaining on map"}</span></button>` +
 		`<button type="button" role="menuitem" data-gm-act="rename">${host.svgIcon("pen")}<span>Rename guide</span></button>` +
 		`<button type="button" role="menuitem" data-gm-act="export">${host.svgIcon("share")}<span>Export guide (JSON)</span></button>` +
@@ -751,6 +763,8 @@ function openGuideRowMenu(btn: HTMLElement, guideId: string): void {
 		if (!host) return;
 		if (act === "open") {
 			openGuidePanel(guide.id, { scrollToCursor: true });
+		} else if (act === "edit") {
+			void host.openGuideEditor(guide.id);
 		} else if (act === "remaining") {
 			host.state.guide.activeId = guide.id;
 			host.state.guide.remainingOnly = !isRemOnly;
@@ -1175,9 +1189,12 @@ export function renderGuidePanel(opts?: { forceFullHeader?: boolean }): void {
 		headEl.innerHTML =
 			`<div class="gp-top-bar">` +
 			`<button type="button" class="gp-back-btn" data-gp-act="back" aria-label="Back to categories">${host!.svgIcon("arrowLeft")}<span>Categories</span></button>` +
+			`<div class="gp-top-actions">` +
+			`<button type="button" class="gp-back-btn" data-gp-act="edit" aria-label="Edit guide">${host!.svgIcon("pencil")}<span>Edit</span></button>` +
 			`<button type="button" class="row-menu-btn gp-head-menu" data-guide-menu="${esc(guide.id)}" aria-haspopup="menu" aria-label="Guide actions" title="Guide actions">` +
 			`<svg viewBox="0 0 4 16" aria-hidden="true"><circle cx="2" cy="2" r="1.6"/><circle cx="2" cy="8" r="1.6"/><circle cx="2" cy="14" r="1.6"/></svg>` +
 			`</button>` +
+			`</div>` +
 			`</div>` +
 			`<h2 class="gp-title">${esc(guide.title)}</h2>` +
 			(guide.author ? `<div class="gp-meta">By ${esc(guide.author)}</div>` : "") +
@@ -1231,6 +1248,8 @@ function wireGuidePanelDelegation(panel: HTMLElement): void {
 			const act = actBtn.dataset.gpAct;
 			if (act === "back") {
 				closeGuidePanel();
+			} else if (act === "edit") {
+				void host.openGuideEditor(guide.id);
 			} else if (act === "prev") {
 				void stepGuideCursor(-1);
 			} else if (act === "next") {

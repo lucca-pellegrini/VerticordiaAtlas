@@ -13,7 +13,7 @@ import { perf } from "../perf.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
 import { applyFoundChange, notifyFoundChange } from "./found.ts";
-import { followedGuideSessionSummary, syncGuidesSidebarAndPanel } from "./guides.ts";
+import { followedGuideSessionSummary, openNewGuideEditor, syncGuidesSidebarAndPanel } from "./guides.ts";
 import {
 	createScheduler,
 	flushRefreshNow,
@@ -815,6 +815,10 @@ export function setupTitleRow(): void {
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg>` +
 		`<span>Progress &amp; stats</span>` +
 		`</button>` +
+		`<button id="side-new-guide-btn" class="side-menu-link" type="button">` +
+		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>` +
+		`<span>New guide</span>` +
+		`</button>` +
 		`<button id="side-import-guide-btn" class="side-menu-link" type="button">` +
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>` +
 		`<span>Import guide</span>` +
@@ -863,6 +867,14 @@ export function setupTitleRow(): void {
 		moreBtn.focus(); // the dialog returns focus here when it closes
 		openStats();
 	};
+	const newGuideBtn = tools.querySelector<HTMLButtonElement>("#side-new-guide-btn");
+	if (newGuideBtn) {
+		newGuideBtn.onclick = () => {
+			moreMenu.hidden = true;
+			moreBtn.setAttribute("aria-expanded", "false");
+			void openNewGuideEditor();
+		};
+	}
 	const importGuideBtn = tools.querySelector<HTMLButtonElement>("#side-import-guide-btn");
 	if (importGuideBtn) {
 		importGuideBtn.onclick = () => {

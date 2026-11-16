@@ -415,6 +415,7 @@ input[type="checkbox"]:active {
 	position: relative;
 }
 .side-head {
+	z-index: 5;
 	padding: 18px 16px 14px;
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
@@ -4501,6 +4502,470 @@ body.searching #guide-panel {
 	background: color-mix(in srgb, var(--accent) 22%, transparent);
 }
 
+/* ---------- guide editor ---------- */
+
+body.guide-editing #guides-section,
+body.guide-editing #guide-panel,
+body.guide-editing #groups,
+body.guide-editing #groups-region-filter,
+body.guide-editing #search-region-filter {
+	display: none !important;
+}
+.guide-editor[hidden] {
+	display: none !important;
+}
+.gp-new-link {
+	margin-left: auto;
+	margin-right: 6px;
+	font-size: 11.5px;
+}
+.gp-top-actions {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+.guide-editor {
+	margin: 0 -16px;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 24px;
+}
+.ge-header {
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--line);
+	background: color-mix(in srgb, var(--panel) 88%, var(--panel-2));
+	display: grid;
+	gap: 10px;
+}
+.ge-top-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+.ge-top-right {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+}
+.ge-icon-btn,
+.ge-icon-sm {
+	display: inline-grid;
+	place-items: center;
+	padding: 0;
+	border: 1px solid var(--line-2);
+	border-radius: 8px;
+	background: var(--panel-2);
+	color: var(--ink);
+}
+.ge-icon-btn {
+	width: 32px;
+	height: 32px;
+}
+.ge-icon-sm {
+	width: 26px;
+	height: 26px;
+	border-color: transparent;
+	background: transparent;
+	color: var(--ink-dim);
+}
+.ge-icon-sm:hover:not(:disabled),
+.ge-icon-btn:hover:not(:disabled) {
+	background: var(--tint);
+	color: var(--accent-soft);
+	border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+.ge-icon-sm.danger:hover:not(:disabled) {
+	color: var(--danger);
+	background: color-mix(in srgb, var(--danger) 14%, transparent);
+}
+.ge-icon-btn:disabled,
+.ge-icon-sm:disabled {
+	opacity: 0.35;
+	cursor: default;
+}
+.ge-icon-btn svg.i,
+.ge-icon-sm svg.i,
+.ge-drag svg.i,
+.ge-tool-btn svg.i {
+	width: 14px;
+	height: 14px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.ge-save-pill {
+	padding: 5px 10px;
+	border-radius: 999px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	font-size: 11.5px;
+	font-weight: 500;
+	color: var(--ink-dim);
+}
+.ge-save-pill[data-status="unsaved"] {
+	border-color: var(--accent-soft);
+	color: var(--accent-soft);
+}
+.ge-save-pill[data-status="conflict"] {
+	border-color: var(--warn);
+	background: color-mix(in srgb, var(--warn) 16%, var(--panel-2));
+	color: var(--warn);
+}
+.ge-save-pill[data-status="error"] {
+	border-color: var(--danger);
+	color: var(--danger);
+}
+.ge-remote-notice {
+	padding: 8px 10px;
+	border-radius: 10px;
+	border: 1px solid color-mix(in srgb, var(--warn) 55%, transparent);
+	background: color-mix(in srgb, var(--warn) 14%, var(--panel-2));
+	font-size: 12px;
+	color: var(--ink);
+}
+.ge-toolbar {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 6px;
+}
+.ge-tool-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 6px 6px;
+	min-height: 32px;
+	border-radius: 9px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	font-size: 11.5px;
+	font-weight: 500;
+}
+.ge-tool-btn[aria-pressed="true"] {
+	border-color: var(--accent);
+	background: color-mix(in srgb, var(--accent) 24%, var(--panel-2));
+	color: var(--accent-soft);
+	font-weight: 600;
+}
+.ge-meta-acc {
+	font-size: 12px;
+	color: var(--ink-dim);
+}
+.ge-meta-acc summary {
+	cursor: pointer;
+	padding: 4px 0;
+}
+.ge-meta-body {
+	display: grid;
+	gap: 8px;
+	padding-top: 8px;
+}
+.ge-meta-body textarea,
+.ge-step-form textarea,
+.ge-new-form textarea {
+	width: 100%;
+	box-sizing: border-box;
+	background: var(--panel-2);
+	border: 1px solid var(--line);
+	border-radius: var(--r);
+	padding: 8px 10px;
+	resize: vertical;
+	font: inherit;
+	color: var(--ink);
+}
+.ge-new-form {
+	padding: 14px 16px;
+	display: grid;
+	gap: 10px;
+}
+.ge-sec-head {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 6px 10px 6px 14px;
+	background: color-mix(in srgb, var(--panel-2) 65%, var(--panel));
+	border-top: 1px solid var(--line);
+	border-bottom: 1px solid var(--line);
+}
+.ge-sec-toggle {
+	flex: 1;
+	min-width: 0;
+	border: 0;
+	background: none;
+	padding: 4px 0;
+	text-align: left;
+	font-size: 11.5px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: var(--ink);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.ge-sec-count {
+	color: var(--ink-dim);
+	font-weight: 500;
+}
+.ge-sec-btns {
+	display: inline-flex;
+	align-items: center;
+	gap: 2px;
+	flex: none;
+}
+.ge-empty-sec {
+	padding: 10px 16px;
+	font-size: 12px;
+	color: var(--ink-dim);
+}
+.ge-step-row {
+	display: grid;
+	grid-template-columns: 24px 1fr auto auto auto;
+	align-items: center;
+	gap: 2px;
+	padding: 4px 8px 4px 6px;
+	min-height: 40px;
+	border-bottom: 1px solid color-mix(in srgb, var(--line) 50%, transparent);
+}
+.ge-step-row.is-selected {
+	background: color-mix(in srgb, var(--accent) 18%, transparent);
+	box-shadow: inset 3px 0 0 var(--accent);
+}
+.ge-step-row.is-dragging {
+	opacity: 0.45;
+}
+.ge-step-row.drop-before {
+	box-shadow: inset 0 2px 0 var(--accent);
+}
+.ge-step-row.drop-after {
+	box-shadow: inset 0 -2px 0 var(--accent);
+}
+.ge-sec-head.drop-sec,
+.ge-empty-sec.drop-sec {
+	background: color-mix(in srgb, var(--accent) 18%, transparent);
+	outline: 1px dashed var(--accent);
+	outline-offset: -2px;
+}
+body.ge-dragging {
+	user-select: none;
+}
+.ge-drag {
+	display: grid;
+	place-items: center;
+	width: 24px;
+	height: 28px;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--ink-dim);
+	cursor: grab;
+	touch-action: none;
+}
+.ge-drag svg {
+	pointer-events: none;
+}
+.ge-step-select {
+	min-width: 0;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px;
+	border: 0;
+	background: none;
+	text-align: left;
+}
+.ge-step-num {
+	flex: none;
+	font: 600 11px/1 var(--mono, monospace);
+	color: var(--ink-dim);
+}
+.ge-step-title {
+	flex: 1;
+	min-width: 0;
+	font-size: 12.5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.ge-step-head-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	margin-bottom: 6px;
+	padding-right: 40px;
+}
+.ge-step-form {
+	display: grid;
+	gap: 10px;
+}
+.ge-row-2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+	align-items: start;
+}
+.ge-flags-col {
+	display: grid;
+	gap: 6px;
+	padding-top: 18px;
+}
+.ge-sub-head,
+.ge-notes-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	font-size: 11.5px;
+	font-weight: 600;
+	color: var(--ink-dim);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 4px;
+}
+.ge-notes-preview {
+	padding: 8px 10px;
+	border: 1px solid var(--line);
+	border-radius: var(--r);
+	background: var(--panel-2);
+	min-height: 60px;
+}
+.ge-targets-list,
+.ge-links-box,
+.ge-var-opts {
+	display: grid;
+	gap: 6px;
+}
+.ge-target-card,
+.ge-var-card {
+	padding: 8px;
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	background: var(--panel-2);
+	display: grid;
+	gap: 6px;
+}
+.ge-target-top,
+.ge-var-row,
+.ge-link-bind,
+.ge-um-add {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+.ge-target-name {
+	flex: 1;
+	min-width: 0;
+	font-size: 12.5px;
+	font-weight: 500;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.ge-target-opts {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 6px;
+	align-items: center;
+}
+.ge-link-row {
+	display: grid;
+	grid-template-columns: 1fr 0.8fr auto;
+	gap: 6px;
+	align-items: center;
+}
+.ge-step-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	padding-top: 6px;
+	border-top: 1px solid var(--line);
+}
+.ge-dim {
+	margin: 0;
+	font-size: 12px;
+	color: var(--ink-dim);
+}
+.ge-json-area {
+	width: 100%;
+	box-sizing: border-box;
+	font: 400 12px/1.45 var(--mono, monospace);
+	background: var(--panel-2);
+	border: 1px solid var(--line);
+	border-radius: var(--r);
+	padding: 8px 10px;
+	color: var(--ink);
+	resize: vertical;
+}
+.ge-json-issues {
+	margin-top: 8px;
+	padding: 8px 10px;
+	border-radius: 10px;
+	border: 1px solid var(--line-2);
+	font-size: 12px;
+	max-height: 140px;
+	overflow: auto;
+}
+.ge-json-issues[data-state="ok"] {
+	border-color: color-mix(in srgb, var(--ok) 55%, transparent);
+	color: var(--ok);
+}
+.ge-json-issues[data-state="warn"] {
+	border-color: color-mix(in srgb, var(--warn) 55%, transparent);
+	color: var(--warn);
+}
+.ge-json-issues[data-state="error"] {
+	border-color: color-mix(in srgb, var(--danger) 55%, transparent);
+	color: var(--danger);
+}
+.ge-json-issues ul {
+	margin: 4px 0 0 16px;
+	padding: 0;
+}
+.guide-add-banner {
+	position: absolute;
+	top: 12px;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 12;
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 12px 8px 14px;
+	border-radius: 999px;
+	border: 1px solid var(--accent);
+	background: color-mix(in srgb, var(--panel) 94%, transparent);
+	backdrop-filter: blur(12px);
+	box-shadow: 0 12px 30px -8px #000a;
+	font-size: 12.5px;
+	max-width: calc(100% - 24px);
+}
+.gab-dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--accent);
+	flex: none;
+}
+.gab-text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.gab-done {
+	padding: 4px 11px;
+	border-radius: 999px;
+	border: 1px solid var(--accent);
+	background: var(--accent);
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+	flex: none;
+}
+
 @media (max-width: 760px), (pointer: coarse) {
 	.gp-back-btn,
 	.gp-nav-btn,
@@ -4510,6 +4975,22 @@ body.searching #guide-panel {
 	.gs-btn,
 	.d-guide-link {
 		min-height: 44px;
+	}
+	.ge-tool-btn,
+	.ge-save-pill {
+		min-height: 40px;
+	}
+	.ge-step-row {
+		grid-template-columns: 34px 1fr auto auto auto;
+		min-height: 48px;
+	}
+	.ge-drag {
+		width: 34px;
+		height: 40px;
+	}
+	.ge-icon-sm {
+		width: 34px;
+		height: 34px;
 	}
 	.gp-step {
 		grid-template-columns: 44px 1fr;

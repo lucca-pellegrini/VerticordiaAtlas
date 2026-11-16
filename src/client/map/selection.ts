@@ -9,6 +9,7 @@ import { svgIcon } from "../icons.ts";
 import { CAPTURE_CONTROL_HTML } from "./capture.ts";
 import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML } from "./drawing.ts";
 import { applyFoundChange, notifyFoundChange } from "./found.ts";
+import { createGuideStepFromSelection, isGuideEditorOpen } from "./guides.ts";
 import { refreshAll } from "./map-view.ts";
 import { saveProfileNow } from "./profiles.ts";
 import { closeRowMenu, shownOnMap } from "./sidebar.ts";
@@ -152,6 +153,7 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 		'<div class="rm-head"><div class="rm-text"><div class="rm-title">Selection</div><div class="rm-sub"></div></div></div><hr>' +
 		`<button type="button" role="menuitem" data-act="found">${svgIcon("check")}<span>Mark all as found</span></button>` +
 		`<button type="button" role="menuitem" data-act="unfound">${svgIcon("open")}<span>Mark all as not found</span></button>` +
+		`<button type="button" role="menuitem" data-act="guide-step" hidden>${svgIcon("plus")}<span>Create guide step</span></button>` +
 		`<button type="button" role="menuitem" data-act="delete-user" class="danger" hidden>${svgIcon("trash")}<span>Delete user markers</span></button>`;
 	document.body.appendChild(selMenu);
 
@@ -245,6 +247,8 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 				b.disabled = n === 0;
 			});
 		const users = userInSelection().length;
+		const gs = selMenu.querySelector<HTMLButtonElement>('[data-act="guide-step"]')!;
+		gs.hidden = !isGuideEditorOpen() || n === 0;
 		const del = selMenu.querySelector<HTMLButtonElement>('[data-act="delete-user"]')!;
 		del.hidden = users === 0;
 		del.querySelector("span")!.textContent = `Delete ${users} user marker${users === 1 ? "" : "s"}`;
@@ -253,6 +257,14 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 	selMenu.onclick = (e) => {
 		const b = (e.target as HTMLElement).closest<HTMLButtonElement>("button[data-act]");
 		if (!b || b.disabled) return;
+		if (b.dataset.act === "guide-step") {
+			const picked = markersInSelection();
+			closeToolMenus();
+			state.sel = null;
+			renderSelection();
+			void createGuideStepFromSelection(picked);
+			return;
+		}
 		if (b.dataset.act === "delete-user") {
 			const ids = userInSelection().map((l) => l.id);
 			closeToolMenus();

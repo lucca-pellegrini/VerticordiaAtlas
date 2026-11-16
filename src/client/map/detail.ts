@@ -7,7 +7,7 @@ import { esc } from "../../shared/escape.ts";
 import { packMarker } from "../../shared/share-link.ts";
 import { svgIcon } from "../icons.ts";
 import { applyFoundChange, notifyFoundChange } from "./found.ts";
-import { guideDetailBacklinksHtml } from "./guides.ts";
+import { addFreeWaypointToGuide, addMarkerToGuide, guideDetailBacklinksHtml, isGuideEditorOpen } from "./guides.ts";
 import { detailsReady, ensureDetails, invalidateMarkerSource, refreshMap } from "./map-view.ts";
 import { ensureMarked, internalRefs, renderMd } from "./markdown.ts";
 import { scheduleSave } from "./profiles.ts";
@@ -398,7 +398,7 @@ export function mediaHtml(m: any, l: { title: string }): string {
 /* ---------- right-click on the map: what is here ----------
    On an empty spot: add a marker there (either kind), or share the spot. On a marker: found or not found, share;
    a user marker also has its own actions (the card's buttons). Pan and marker tools only; press and hold on touch. */
-interface CtxMenuItem {
+export interface CtxMenuItem {
 	sep?: boolean;
 	icon?: string;
 	label?: string;
@@ -438,7 +438,7 @@ export function closeCtxIfOutside(e: MouseEvent): void {
 	if (!(e.target as HTMLElement).closest("#ctx-menu") && Date.now() - ctxOpenedAt > 350) closeCtx(); // a touch's click can follow its press
 }
 
-function openCtx(x: number, y: number, { title = "", items }: { title?: string; items: CtxMenuItem[] }): void {
+export function openCtx(x: number, y: number, { title = "", items }: { title?: string; items: CtxMenuItem[] }): void {
 	const el = ctxEl();
 	ctxItems = items;
 	el.innerHTML =
@@ -488,14 +488,15 @@ export async function shareLocation(pos: { lat: number; lng: number }): Promise<
 
 function spotMenu(ll: { lat: number; lng: number }, x: number, y: number): void {
 	const pos = { lat: ll.lat, lng: ll.lng };
-	openCtx(x, y, {
-		items: [
-			{ icon: "pin", label: "Add marker here", fn: () => state.um.placeAt(pos, false) },
-			{ icon: "tempPin", label: "Add temporary marker here", fn: () => state.um.placeAt(pos, true) },
-			{ sep: true },
-			{ icon: "share", label: "Share this location", fn: () => shareLocation(pos) },
-		],
-	});
+	const items: CtxMenuItem[] = [
+		{ icon: "pin", label: "Add marker here", fn: () => state.um.placeAt(pos, false) },
+		{ icon: "tempPin", label: "Add temporary marker here", fn: () => state.um.placeAt(pos, true) },
+	];
+	if (isGuideEditorOpen()) {
+		items.push({ sep: true }, { icon: "plus", label: "Add step here", fn: () => void addFreeWaypointToGuide(pos) });
+	}
+	items.push({ sep: true }, { icon: "share", label: "Share this location", fn: () => shareLocation(pos) });
+	openCtx(x, y, { items });
 }
 
 function markerMenu(l: any, x: number, y: number): void {
@@ -509,6 +510,9 @@ function markerMenu(l: any, x: number, y: number): void {
 		{ icon: "share", label: "Share", fn: () => shareMarker(l.id, null) },
 		{ icon: "card", label: "Open card", fn: () => select(l.id, { fly: false }) },
 	];
+	if (isGuideEditorOpen()) {
+		items.push({ icon: "plus", label: "Add to guide", fn: () => void addMarkerToGuide(l) });
+	}
 	if (l.user) {
 		items.push({ sep: true });
 		if (l.temp)

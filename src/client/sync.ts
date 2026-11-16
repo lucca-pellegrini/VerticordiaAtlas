@@ -29,6 +29,7 @@ export interface SyncStore {
 	guides?(): Promise<(Guide & { key?: string })[]>;
 	putGuide?(g: Guide & { key: string }): Promise<unknown>;
 	deleteGuide?(key: string): Promise<unknown>;
+	isUnsaved?(key: string): boolean;
 }
 
 export interface SyncConflictItem {
@@ -39,6 +40,7 @@ export interface SyncConflictItem {
 export interface SyncUI {
 	status(s: { online: boolean }): void;
 	conflicts(list: SyncConflictItem[]): void;
+	deferredConflict?(list: SyncConflictItem[]): void;
 	remoteChanged(keys: string[]): Promise<void> | void;
 	signedOut(): void;
 }
@@ -182,13 +184,16 @@ export function createSync({
 		if (full) lastFullPull = Date.now();
 		const snap = await snapshot();
 		const changed: string[] = [];
+		const deferred: string[] = [];
 		let newest = cursor;
 		for (const item of items as SyncItem[]) {
 			const updatedAt = item.updated_at ?? 0;
 			if (updatedAt > newest) newest = updatedAt;
 			if ((st.seen[item.key] ?? 0) >= updatedAt) continue;
-			if (isDirty(item.key, snap)) {
+			const unsaved = Boolean(store.isUnsaved?.(item.key));
+			if (isDirty(item.key, snap) || unsaved) {
 				st.conflicts[item.key] = { server: item.value, updated_at: updatedAt };
+				if (unsaved) deferred.push(item.key);
 				continue;
 			}
 			if (item.key.startsWith("profile:") && item.value !== null) await adoptOverPlaceholders(item.key);
@@ -204,7 +209,11 @@ export function createSync({
 			bc?.postMessage({ type: "remote", keys: changed });
 			await ui.remoteChanged(changed);
 		}
-		if (Object.keys(st.conflicts).length) ui.conflicts(conflictList());
+		if (deferred.length) {
+			ui.deferredConflict?.(conflictList().filter((c) => deferred.includes(c.key)));
+		}
+		const ready = readyConflicts();
+		if (ready.length) ui.conflicts(ready);
 	}
 
 	/* ---------- push: this device's changes ---------- */
@@ -214,7 +223,7 @@ export function createSync({
 		const snap = await snapshot();
 		const items: { key: string; value: any; base: number }[] = [];
 		for (const [key, value] of snap) {
-			if (clean.has(key)) continue;
+			if (clean.has(key) || store.isUnsaved?.(key)) continue;
 			if (st.sent[key] !== sendHash(key, value)) items.push({ key, value, base: st.seen[key] ?? 0 });
 			else if (!notedAll && !noted.has(key)) clean.add(key);
 		}
@@ -238,11 +247,13 @@ export function createSync({
 				}
 			}
 		}
-		if (Object.keys(st.conflicts).length) ui.conflicts(conflictList());
+		const ready = readyConflicts();
+		if (ready.length) ui.conflicts(ready);
 	}
 
 	const conflictList = (): SyncConflictItem[] =>
 		Object.keys(st.conflicts).map((key) => ({ key, label: labelFor(key) }));
+	const readyConflicts = (): SyncConflictItem[] => conflictList().filter((c) => !store.isUnsaved?.(c.key));
 	const labelFor = (key: string): string => {
 		if (key.startsWith("profile:")) return `Progress for "${key.split(":")[2]}"`;
 		if (key.startsWith("guide:")) {
@@ -432,8 +443,14 @@ export function createSync({
 			bc?.postMessage({ type: "local", keys });
 			if (leader) {
 				note(keys);
+				const ready = readyConflicts();
+				if (ready.length) ui.conflicts(ready);
 				schedulePush();
 			}
+		},
+		flushDeferredConflicts() {
+			const ready = readyConflicts();
+			if (ready.length) ui.conflicts(ready);
 		},
 		resolveConflicts,
 		isLeader: () => leader,
