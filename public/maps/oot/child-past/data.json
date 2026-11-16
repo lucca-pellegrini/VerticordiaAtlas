@@ -82,7 +82,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 111
+					"locations_count": 114
 				},
 				{
 					"id": 28562,
@@ -110,7 +110,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 21
+					"locations_count": 22
 				},
 				{
 					"id": 28568,
@@ -250,7 +250,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 40
+					"locations_count": 43
 				},
 				{
 					"id": 28654,
@@ -326,7 +326,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 137
+					"locations_count": 139
 				},
 				{
 					"id": 28564,
@@ -466,7 +466,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 52
+					"locations_count": 53
 				},
 				{
 					"id": 28656,
@@ -494,7 +494,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 64
+					"locations_count": 65
 				}
 			]
 		},
@@ -786,7 +786,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 192
+					"locations_count": 196
 				},
 				{
 					"id": 28583,
@@ -890,7 +890,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 118
+					"locations_count": 121
 				},
 				{
 					"id": 28587,
@@ -974,7 +974,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 37
+					"locations_count": 38
 				},
 				{
 					"id": 28591,
@@ -1114,7 +1114,7 @@
 					"visible": true,
 					"description": null,
 					"premium": false,
-					"locations_count": 12
+					"locations_count": 16
 				}
 			]
 		}
@@ -1203,7 +1203,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 111
+			"locations_count": 114
 		},
 		"28562": {
 			"id": 28562,
@@ -1231,7 +1231,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 21
+			"locations_count": 22
 		},
 		"28563": {
 			"id": 28563,
@@ -1259,7 +1259,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 137
+			"locations_count": 139
 		},
 		"28564": {
 			"id": 28564,
@@ -1623,7 +1623,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 52
+			"locations_count": 53
 		},
 		"28582": {
 			"id": 28582,
@@ -1651,7 +1651,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 192
+			"locations_count": 196
 		},
 		"28583": {
 			"id": 28583,
@@ -1735,7 +1735,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 118
+			"locations_count": 121
 		},
 		"28586": {
 			"id": 28586,
@@ -1847,7 +1847,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 37
+			"locations_count": 38
 		},
 		"28590": {
 			"id": 28590,
@@ -1931,7 +1931,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 40
+			"locations_count": 43
 		},
 		"28651": {
 			"id": 28651,
@@ -2071,7 +2071,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 12
+			"locations_count": 16
 		},
 		"28656": {
 			"id": 28656,
@@ -2099,7 +2099,7 @@
 			"visible": true,
 			"description": null,
 			"premium": false,
-			"locations_count": 64
+			"locations_count": 65
 		}
 	},
 	"routes": [],
@@ -3080,8 +3080,8 @@
 			"category_id": 28561,
 			"title": "Magic Plant",
 			"description": "Play the Song of Storms",
-			"latitude": "0.83606647371339",
-			"longitude": "-0.73425770150644",
+			"latitude": "0.83606583982936",
+			"longitude": "-0.73455512176716",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -3298,42 +3298,14 @@
 			"media": []
 		},
 		{
-			"id": 1067595,
-			"map_id": 1092,
-			"region_id": 5442,
-			"category_id": 28561,
-			"title": "Fairy's Thoughts",
-			"description": "\"Those big Peahats are darn scary. They put down roots and act like they own Hyrule Field! But I heard they're no different than other plants when it comes to fire! Lucky thing I learned that!\"",
-			"latitude": "0.63231609910203",
-			"longitude": "-0.73009783705885",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
 			"id": 1067597,
 			"map_id": 1092,
 			"region_id": 5442,
 			"category_id": 28561,
 			"title": "Magic Plant",
-			"description": null,
-			"latitude": "0.63833434230376",
-			"longitude": "-0.72059626916231",
-			"features": null,
-			"ign_page_id": null,
-			"tags": [],
-			"media": []
-		},
-		{
-			"id": 1067602,
-			"map_id": 1092,
-			"region_id": 5442,
-			"category_id": 28561,
-			"title": "Fairy Thought",
-			"description": "On the back side of the stone building, outside of the fenced ranch area.  Play the Sun's Song and a fairy will appear and replenish lost hearts.  \n  \n\"I just love the view of Hyrule Field from here.   Day or night, it's gorgeous, isn't it?  Wouldn't it be nifty if you could switch back and forth between them, over and over?\"",
-			"latitude": "0.56474685652280",
-			"longitude": "-0.73690661468498",
+			"description": "Play the Song of Storms",
+			"latitude": "0.63833644645462",
+			"longitude": "-0.72059690952267",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -3718,6 +3690,76 @@
 			"media": []
 		},
 		{
+			"id": 1087633,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28561,
+			"title": "Note: Piece of Heart",
+			"description": "Needs to be completed as Adult Link -- we track this Piece of Heart on the Adult Link map.",
+			"latitude": "0.96101549130501",
+			"longitude": "-0.57239413261411",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087635,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28561,
+			"title": "Royal Tomb",
+			"description": "",
+			"latitude": "0.72354295650133",
+			"longitude": "-0.46064529166978",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087638,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28561,
+			"title": "Grotto",
+			"description": "",
+			"latitude": "0.96293933909136",
+			"longitude": "-0.59181323245883",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087640,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28561,
+			"title": "Grotto",
+			"description": "Play the Song of Storms and the Magic Plant will open the Grotto",
+			"latitude": "0.83605108925083",
+			"longitude": "-0.73523640632729",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087651,
+			"map_id": 1092,
+			"region_id": 5442,
+			"category_id": 28561,
+			"title": "Grotto",
+			"description": "Opened with the Magic Plant",
+			"latitude": "0.63842020931442",
+			"longitude": "-0.71931010193009",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1063690,
 			"map_id": 1092,
 			"region_id": null,
@@ -4012,6 +4054,20 @@
 			"media": []
 		},
 		{
+			"id": 1087636,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28562,
+			"title": "Business Scrub",
+			"description": "Hit the Business Scrub to buy the Piece of Heart for 100 Rupees.",
+			"latitude": "0.94468205202797",
+			"longitude": "-0.57561502562925",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1063692,
 			"map_id": 1092,
 			"region_id": null,
@@ -4101,7 +4157,7 @@
 			"region_id": null,
 			"category_id": 28568,
 			"title": "Soft Soil",
-			"description": "Release a Bug first, then plant a Magic Bean",
+			"description": "**Location:** In the lower canyon, below the bridge\n\nRelease a Bug to make a [Gold Skulltula](#loc=1063044) appear. \n\nThen plant a Magic Bean for use in the future.",
 			"latitude": "0.60828675526254",
 			"longitude": "-0.90738326310944",
 			"features": null,
@@ -4144,8 +4200,8 @@
 			"category_id": 28568,
 			"title": "Soft Soil",
 			"description": "This soft soil resides in the burning heart of Death Mountain, but to reach it, you'll need to have gained access to the Fire Temple as Adult Link. Once you do return back to being Child Link and play the Bolero of Fire to warp outside the temple.",
-			"latitude": "0.97123769372793",
-			"longitude": "-0.56022988953885",
+			"latitude": "0.96386535245844",
+			"longitude": "-0.55963603887446",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -4340,8 +4396,8 @@
 			"category_id": 28586,
 			"title": "Soldier",
 			"description": "Show and sell him the Skull Mask to get offered free passage and 10 Rupees",
-			"latitude": "0.81110216613865",
-			"longitude": "-0.74027807913620",
+			"latitude": "0.81110241769993",
+			"longitude": "-0.74027895927372",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -5053,9 +5109,9 @@
 			"region_id": null,
 			"category_id": 28592,
 			"title": "Gossip Stone",
-			"description": null,
-			"latitude": "0.42735571973736",
-			"longitude": "-0.78860261659710",
+			"description": "",
+			"latitude": "0.42544540205593",
+			"longitude": "-0.79029808897775",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -5154,6 +5210,48 @@
 			"description": "Before a Deity",
 			"latitude": "0.62799467468695",
 			"longitude": "-0.37173606831644",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087392,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28592,
+			"title": "Gossip Stone",
+			"description": null,
+			"latitude": "0.63646217687104",
+			"longitude": "-0.90972815285420",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087637,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28592,
+			"title": "Gossip Stone",
+			"description": "",
+			"latitude": "0.93317039730186",
+			"longitude": "-0.57299305431471",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087647,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28592,
+			"title": "Gossip Stone",
+			"description": "Inside Grotto",
+			"latitude": "0.83785334140786",
+			"longitude": "-0.73482872443688",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -7096,10 +7194,38 @@
 			"map_id": 1092,
 			"region_id": null,
 			"category_id": 28563,
-			"title": "Red Rupe",
+			"title": "Red Rupee",
 			"description": "Inside chest",
-			"latitude": "0.58384459157666",
-			"longitude": "-0.16004009873194",
+			"latitude": "0.58342938657329",
+			"longitude": "-0.16004204750095",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087649,
+			"map_id": 1092,
+			"region_id": 5442,
+			"category_id": 28563,
+			"title": "Green Rupee",
+			"description": "Inside crate",
+			"latitude": "0.63834071053850",
+			"longitude": "-0.70622066084258",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087650,
+			"map_id": 1092,
+			"region_id": 5442,
+			"category_id": 28563,
+			"title": "Green Rupee",
+			"description": "Roll into tree",
+			"latitude": "0.63907327743082",
+			"longitude": "-0.71379837522454",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -8702,6 +8828,20 @@
 			"media": []
 		},
 		{
+			"id": 1087394,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28581,
+			"title": "Cow (Li'l Miss Moo)",
+			"description": "In the canyon below, by the river. Tended to by a Gerudo.",
+			"latitude": "0.62034476021938",
+			"longitude": "-0.90699406756599",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1063991,
 			"map_id": 1092,
 			"region_id": null,
@@ -9324,8 +9464,8 @@
 			"category_id": 28656,
 			"title": "Item Drop",
 			"description": "In a shrub",
-			"latitude": "0.42695923883224",
-			"longitude": "-0.78901053957884",
+			"latitude": "0.42628356922020",
+			"longitude": "-0.78965440392437",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -9338,8 +9478,8 @@
 			"category_id": 28656,
 			"title": "Item Drop",
 			"description": "In a shrub",
-			"latitude": "0.42629442433928",
-			"longitude": "-0.78910767080995",
+			"latitude": "0.42560767122559",
+			"longitude": "-0.78921450776505",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -9352,8 +9492,8 @@
 			"category_id": 28656,
 			"title": "Item Drop",
 			"description": "In a shrub",
-			"latitude": "0.42659213524885",
-			"longitude": "-0.78840277528334",
+			"latitude": "0.42642035809190",
+			"longitude": "-0.78904677948196",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -9592,6 +9732,20 @@
 			"description": "",
 			"latitude": "0.85285376420076",
 			"longitude": "-1.15308304779130",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087646,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28656,
+			"title": "item Drop (2)",
+			"description": "Inside pots in Grotto",
+			"latitude": "0.83793916291872",
+			"longitude": "-0.73551535953476",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -9883,8 +10037,8 @@
 			"category_id": 28556,
 			"title": "Heart Piece",
 			"description": "**Location:** Once you're able to reach the summit of Death Mountain after completing Dodongo Cavern, there's two Pieces of Heart hiding in the extreme heat of the Death Mountain Crater. Be warned, after around 4 seconds, you'll start to take a quarter heart damage every second, so you'll need to move quickly.\n\nSprint down the slope from the entrance to the northwest to spot a low platform, near a broken bridge with a large grey rock in the way making it impossible to cross. What you can do from this side is find a Business Deku Scrub here -- of all places! He'll sell you another Piece of Heart for 100 Rupees. It's a steep price, but well worth it (and will reset the time until you start taking damage).",
-			"latitude": "0.94579424232379",
-			"longitude": "-0.57625127654708",
+			"latitude": "0.94579513771023",
+			"longitude": "-0.57625114917633",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -10098,7 +10252,7 @@
 			"region_id": null,
 			"category_id": 28556,
 			"title": "Heart Piece",
-			"description": "**Location:** Though much of Gerudo Valley is inaccessible to Child Link, there are still two Pieces of Heart you can locate fairly early (or come back as an adult). Look for a Cucco wandering near the bridge, and use it to carefully float down to the large alcove at the bottom of the valley with the raging river below that feeds out to Lake Hylia. Jump off with the Cucco and slowly float down to a large alcove along the waterline.\n\nHead up this large alcove path up north toward the giant waterfall. You'll find there's actually a path behind the waterfall, and you can climb it to reach another Piece of Heart!",
+			"description": "**Location:** Look for a Cucco wandering near the bridge, and use it to carefully float down to the large alcove at the bottom of the valley with the raging river below that feeds out to Lake Hylia. Jump off with the Cucco and slowly float down to a large alcove along the waterline.\n\nHead up this large alcove path up north toward the giant waterfall. You'll find there's actually a path behind the waterfall, and you can climb it to reach another Piece of Heart!",
 			"latitude": "0.64488817067375",
 			"longitude": "-0.89911944663291",
 			"features": null,
@@ -10126,8 +10280,8 @@
 			"category_id": 28556,
 			"title": "Heart Piece",
 			"description": "**Location:** If you travel toward the entrance to Gerudo Valley, look under a large rock outcropping and you'll find a small Treasure Chest. However, as a child, there seems to be no way to unlock it.\n\nTo find a way to unlock it, you'll need to become Adult Link. Return to inspect the Treasure Chest in the future to find fairy writing nearby, urging you specifically to take what's inside before someone else does. Unfortunately, someone else already has. After completing the Forest Temple, you can then return to being Child Link, and head back to find the Treasure Chest can now be opened to nab a Piece of Heart!",
-			"latitude": "0.59925894100149",
-			"longitude": "-0.75475215911732",
+			"latitude": "0.59925894100198",
+			"longitude": "-0.75475215911976",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -10165,8 +10319,8 @@
 			"category_id": 28556,
 			"title": "Heart Piece",
 			"description": "**Location:** If you look just to the east of Hyrule Castle Town's gate along the moat, you can find a cracked stone that you can bomb revealing a Grotto entrance. Inside is a peculiar Deku Business Scrub, who won't trade with you unless you know the password. \n\nTo get the password, you'll have to become Adult Link, and return to the Grotto entrance. Nearby on a tree, you can now find fairy writing which has the password. Unfortunately, as an adult, the Scrub has already sold his wares. Once you complete the Forest Temple, return to being Child Link, and use the password on the Scrub to buy his Piece of Heart for 100 Rupees!",
-			"latitude": "0.63556321370791",
-			"longitude": "-0.67728996276972",
+			"latitude": "0.63556321370837",
+			"longitude": "-0.67728996276847",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -11206,8 +11360,8 @@
 			"category_id": 28557,
 			"title": "Gold Skulltula",
 			"description": "**Location:** One of several Gold Skulltulas that can be found in the Lake Hylia region to the south of Hyrule Field, this spider is in a location exclusive to the remake of Ocarina of Time, located at the far edge of the lake. From the large island with the huge tree and pedestal, start swimming for the far shores to the southwest.\n\nAlong the southern tip, look for the smallest of ledges you can climb up to find a tunnel entrance. You can shuffle through to the other side, where you'll find a Gold Skulltula.",
-			"latitude": "0.42369933000000",
-			"longitude": "-0.80350399000000",
+			"latitude": "0.42200422199475",
+			"longitude": "-0.80526351928734",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -11245,8 +11399,8 @@
 			"category_id": 28557,
 			"title": "Gold Skulltula",
 			"description": "**Location:** After you've found the Empty Bottle in Lake Hylia with a note from Princess Ruto, you can show it to King Zora to be granted access to where Lord Jabu Jabu is at the Zora Fountain.\n\nOff to the south, you can find a shallow path leading to a section of land with a few trees and a large cracked wall. Be sure to try rolling into the narrow tall tree here, and you can dislodge a Gold Skulltula!",
-			"latitude": "0.59133052325699",
-			"longitude": "-0.22179389878511",
+			"latitude": "0.59133075910049",
+			"longitude": "-0.22179454565156",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -11380,8 +11534,8 @@
 			"category_id": 28557,
 			"title": "Gold Skulltula",
 			"description": "**Location:** There's a Gold Skulltula hiding in the Zora Fountain, but it can only be obtained once you have access to the Boomerang from completing Lord Jabu-Jabu's Belly. Upon returning to the fountain, be sure to play the Sun's Song here. Look for a nearby archway in the water you can climb up, and on the far wall, a Gold Skulltula will appear at night, and you can toss your Boomerang to collect its token.\n\n**Requires:** Boomerang",
-			"latitude": "0.59614774349841",
-			"longitude": "-0.24344801034789",
+			"latitude": "0.59614774783626",
+			"longitude": "-0.24344801902836",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -11526,7 +11680,7 @@
 			"region_id": null,
 			"category_id": 28557,
 			"title": "Gold Skulltula",
-			"description": "**Location:** Though most of the region of Gerudo Valley is inaccessible to Child Link, there are a few Gold Skulltulas you can locate. Look around the bridge for a wandering Cucco, grab it and look down at the bottom of the valley with the raging river below that feeds out to Lake Hylia. Jump off with the Cucco and slowly float down to a large alcove along the waterline.\n\nIt's here you'll find a lone Gerudo tending to her cow, and nearby is a patch of soft soil you can drop a Bug in to make another Gold Skulltula pop out.\n\n**Requires:** Bottled Bug",
+			"description": "**Location:** Look around the bridge for a wandering Cucco, grab it and look down at the bottom of the valley with the raging river below that feeds out to Lake Hylia. Jump off with the Cucco and slowly float down to a large alcove along the waterline. Alternatively, you can also jump into the waters below from the right side of the bridge, then quickly swim ashore before you get swept downriver by the waterfall.\n\nIt's down here in the canyon that you'll find a lone Gerudo tending to her cow, and nearby is a patch of soft soil you can drop a Bug in to make another Gold Skulltula pop out.\n\n**Requires:** Bottled Bug",
 			"latitude": "0.60766988191722",
 			"longitude": "-0.90861976146527",
 			"features": null,
@@ -11555,8 +11709,8 @@
 			"category_id": 28557,
 			"title": "Gold Skulltula",
 			"description": "**Location:** After you visit the Windmill as Adult Link and learn the Song of Storms from the crazed Windmill Man, you can use it to reveal certain grottos. Return to Child Link after completing the Forest Temple, and head back to Hyrule Castle. Evade the guards until you return to the spot where Talon was sleeping, and in the southeast corner by the tree you can find a strange plant with propeller-looking leaves. Play the Song of Storms to make the leaves spin and reveal a Grotto. Down below, bomb the cracked walls to locate a Gold Skulltula.\n\n**Requires:** Song of Storms",
-			"latitude": "0.83472216494064",
-			"longitude": "-0.73517531845854",
+			"latitude": "0.83476510673674",
+			"longitude": "-0.73410184232407",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -11569,8 +11723,8 @@
 			"category_id": 28557,
 			"title": "Gold Skulltula",
 			"description": "**Required:** Bug (Bottled)\n\n**Location:** This Gold Skulltula resides in the burning heart of Death Mountain, but to reach it, you'll need to have gained access to the Fire Temple as Adult Link. Once you do, make sure you have a bottled Bug, and return back to being Child Link and play the Bolero of Fire to warp outside the temple. Quickly plant the bugs into the nearby soft soil to reveal a Gold Skulltula.",
-			"latitude": "0.97215755911851",
-			"longitude": "-0.55967876911851",
+			"latitude": "0.96387876160613",
+			"longitude": "-0.56035103495782",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -12003,8 +12157,8 @@
 			"category_id": 28575,
 			"title": "Sun's Song",
 			"description": "Play Zelda's Lullaby in front of the Royal Tomb\n\nEnter and find a poem inscribed on a stone plaque. Underneath is the song you can then commit to memory:.",
-			"latitude": "0.72382666723006",
-			"longitude": "-0.45891080764594",
+			"latitude": "0.72307216989591",
+			"longitude": "-0.45166254043565",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -14424,9 +14578,9 @@
 			"region_id": null,
 			"category_id": 28582,
 			"title": "Tektite",
-			"description": null,
-			"latitude": "0.42500089843674",
-			"longitude": "-0.80204607900842",
+			"description": "",
+			"latitude": "0.42470110953795",
+			"longitude": "-0.80219638898885",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -14959,6 +15113,62 @@
 			"description": "",
 			"latitude": "0.70327493495923",
 			"longitude": "-1.20300198353790",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087641,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28582,
+			"title": "Skullwalltula",
+			"description": "",
+			"latitude": "0.83450630102891",
+			"longitude": "-0.73465706999994",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087644,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28582,
+			"title": "Skullwalltula",
+			"description": "Inside Grotto",
+			"latitude": "0.83487104274711",
+			"longitude": "-0.73613761120643",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087753,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28582,
+			"title": "Octorok",
+			"description": "",
+			"latitude": "0.58604854702378",
+			"longitude": "-0.15887796878877",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087754,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28582,
+			"title": "Octorok",
+			"description": "",
+			"latitude": "0.58370139353107",
+			"longitude": "-0.15722529030813",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -16159,10 +16369,10 @@
 			"map_id": 1092,
 			"region_id": null,
 			"category_id": 28585,
-			"title": "Black Stone Blocks",
-			"description": "",
-			"latitude": "0.59533240905552",
-			"longitude": "-0.21073579788475",
+			"title": "Obsidian Blocks (3)",
+			"description": "Lift them with the Silver Gauntlets",
+			"latitude": "0.59580566761065",
+			"longitude": "-0.21035722486818",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -17031,6 +17241,48 @@
 			"description": "Jump to access the area with the Business Scrub",
 			"latitude": "0.73917451618213",
 			"longitude": "-0.31568807075109",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087642,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28585,
+			"title": "Bombable Rock",
+			"description": "Inside Grotto",
+			"latitude": "0.83542888295617",
+			"longitude": "-0.73476434448091",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087643,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28585,
+			"title": "Bombable Rock",
+			"description": "",
+			"latitude": "0.83566489225231",
+			"longitude": "-0.73577285854026",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087645,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28585,
+			"title": "Bombable Rock",
+			"description": "",
+			"latitude": "0.83727404616234",
+			"longitude": "-0.73519350486282",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -18549,6 +18801,20 @@
 			"media": []
 		},
 		{
+			"id": 1087652,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28589,
+			"title": "Narrow Passage",
+			"description": null,
+			"latitude": "0.42306917663328",
+			"longitude": "-0.80447124587806",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1063838,
 			"map_id": 1092,
 			"region_id": null,
@@ -19801,8 +20067,8 @@
 			"category_id": 28655,
 			"title": "Fairy Thought",
 			"description": "Written on the side of a broken column, on the right side of the room where the Sun's Song is learned.  Play the Sun's Song in front of it and it'll restore lost hearts.\n\n\"I forget how that song went.  The one carved in the stone monument.  I'd love to hear it again.  If only to jog my memory.\"",
-			"latitude": "0.72257389079097",
-			"longitude": "-0.45893374028421",
+			"latitude": "0.72366757284396",
+			"longitude": "-0.45319676399140",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],
@@ -19837,6 +20103,20 @@
 			"media": []
 		},
 		{
+			"id": 1067595,
+			"map_id": 1092,
+			"region_id": 5442,
+			"category_id": 28655,
+			"title": "Fairy Thought",
+			"description": "\"Those big Peahats are darn scary. They put down roots and act like they own Hyrule Field! But I heard they're no different than other plants when it comes to fire! Lucky thing I learned that!\"",
+			"latitude": "0.63231257536310",
+			"longitude": "-0.73009729385456",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1067599,
 			"map_id": 1092,
 			"region_id": 5442,
@@ -19851,6 +20131,20 @@
 			"media": []
 		},
 		{
+			"id": 1067602,
+			"map_id": 1092,
+			"region_id": 5442,
+			"category_id": 28655,
+			"title": "Fairy Thought",
+			"description": "On the back side of the stone building, outside of the fenced ranch area.  Play the Sun's Song and a fairy will appear and replenish lost hearts.  \n  \n\"I just love the view of Hyrule Field from here.   Day or night, it's gorgeous, isn't it?  Wouldn't it be nifty if you could switch back and forth between them, over and over?\"",
+			"latitude": "0.56474605655148",
+			"longitude": "-0.73690742254215",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
 			"id": 1085147,
 			"map_id": 1092,
 			"region_id": null,
@@ -19859,6 +20153,34 @@
 			"description": "\"I do love the scenery out here, but I have to be honest... The air here is SO. HORRIBLY. DRY. I wish it would rain.\"\n\nPlay the Song of Storms to restore Link's hearts and magic meter.",
 			"latitude": "0.70836494595201",
 			"longitude": "-1.22273395177240",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087634,
+			"map_id": 1092,
+			"region_id": null,
+			"category_id": 28655,
+			"title": "Fairy Thought",
+			"description": "Written on the outside of the tomb.\n\n\n\n\"I ended up down in the depths of a tomb, and a terrifying monster showed up out of nowhere! I started to sing my glowing little heart out, and it stopped chasing me! Now, if I could just remember the name of the song...\"",
+			"latitude": "0.72330282149765",
+			"longitude": "-0.45816421508673",
+			"features": null,
+			"ign_page_id": null,
+			"tags": [],
+			"media": []
+		},
+		{
+			"id": 1087648,
+			"map_id": 1092,
+			"region_id": 5442,
+			"category_id": 28655,
+			"title": "Fairy Thought",
+			"description": "On the rock by the water and the castle wall.\n\n\"This is it! The BEST idea I've ever had! Nobody will EVER suspect I've hidden my ENTIRE fortune in this wooden box! Ha! I'm a GENIUS!\"\n\nIt refers to the crate nearby. It contains the fortune of one Green Rupee.",
+			"latitude": "0.63666285163025",
+			"longitude": "-0.70801734924501",
 			"features": null,
 			"ign_page_id": null,
 			"tags": [],

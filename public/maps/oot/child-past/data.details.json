@@ -327,7 +327,7 @@
 			]
 		],
 		"1062973": [
-			"**Location:** Though much of Gerudo Valley is inaccessible to Child Link, there are still two Pieces of Heart you can locate fairly early (or come back as an adult). Look for a Cucco wandering near the bridge, and use it to carefully float down to the large alcove at the bottom of the valley with the raging river below that feeds out to Lake Hylia. Jump off with the Cucco and slowly float down to a large alcove along the waterline.\n\nHead up this large alcove path up north toward the giant waterfall. You'll find there's actually a path behind the waterfall, and you can climb it to reach another Piece of Heart!",
+			"**Location:** Look for a Cucco wandering near the bridge, and use it to carefully float down to the large alcove at the bottom of the valley with the raging river below that feeds out to Lake Hylia. Jump off with the Cucco and slowly float down to a large alcove along the waterline.\n\nHead up this large alcove path up north toward the giant waterfall. You'll find there's actually a path behind the waterfall, and you can climb it to reach another Piece of Heart!",
 			[
 				{
 					"id": 158903,
@@ -1275,7 +1275,7 @@
 			]
 		],
 		"1063044": [
-			"**Location:** Though most of the region of Gerudo Valley is inaccessible to Child Link, there are a few Gold Skulltulas you can locate. Look around the bridge for a wandering Cucco, grab it and look down at the bottom of the valley with the raging river below that feeds out to Lake Hylia. Jump off with the Cucco and slowly float down to a large alcove along the waterline.\n\nIt's here you'll find a lone Gerudo tending to her cow, and nearby is a patch of soft soil you can drop a Bug in to make another Gold Skulltula pop out.\n\n**Requires:** Bottled Bug",
+			"**Location:** Look around the bridge for a wandering Cucco, grab it and look down at the bottom of the valley with the raging river below that feeds out to Lake Hylia. Jump off with the Cucco and slowly float down to a large alcove along the waterline. Alternatively, you can also jump into the waters below from the right side of the bridge, then quickly swim ashore before you get swept downriver by the waterfall.\n\nIt's down here in the canyon that you'll find a lone Gerudo tending to her cow, and nearby is a patch of soft soil you can drop a Bug in to make another Gold Skulltula pop out.\n\n**Requires:** Bottled Bug",
 			[]
 		],
 		"1063045": [
@@ -1817,6 +1817,7 @@
 		"1064658": ["Connects to [Shortcut to Zora Domain](#loc=1064632)", []],
 		"1064659": ["**Connects to:** [Path to Zora Domain](#loc=1064660)", []],
 		"1064660": ["**Connects to:** [Path to Zora Fountain](#loc=1064659)", []],
+		"1064664": ["Lift them with the Silver Gauntlets", []],
 		"1064665": ["Bomb to open", []],
 		"1064666": ["Inside pot", []],
 		"1064667": ["Inside pot", []],
@@ -2033,7 +2034,10 @@
 		"1067442": ["Inside pot", []],
 		"1067443": ["Inside pots", []],
 		"1067584": ["Release a Bug first, then plant a Magic Bean", []],
-		"1067585": ["Release a Bug first, then plant a Magic Bean", []],
+		"1067585": [
+			"**Location:** In the lower canyon, below the bridge\n\nRelease a Bug to make a [Gold Skulltula](#loc=1063044) appear. \n\nThen plant a Magic Bean for use in the future.",
+			[]
+		],
 		"1067587": ["Under rocks", []],
 		"1067590": ["In a shrub", []],
 		"1067591": ["In a shrub", []],
@@ -2044,6 +2048,7 @@
 			[]
 		],
 		"1067596": ["Blow up for a Green Rupee", []],
+		"1067597": ["Play the Song of Storms", []],
 		"1067598": ["Location: Inside chest", []],
 		"1067599": [
 			"On cart beside the road.  Suggests that there are bugs in nearby plants.\n\n\"I know what you're thinking!  You're the only one here.  Just you and some weeds, huh?  Wrong!  Take a closer look, and you'll find little ones skittering about!\"",
@@ -2177,6 +2182,25 @@
 		"1086607": ["Inside chest", []],
 		"1087123": ["Lucky Zora Fish", []],
 		"1087124": ["Before a Deity", []],
-		"1087126": ["Jump to access the area with the Business Scrub", []]
+		"1087126": ["Jump to access the area with the Business Scrub", []],
+		"1087394": ["In the canyon below, by the river. Tended to by a Gerudo.", []],
+		"1087633": ["Needs to be completed as Adult Link -- we track this Piece of Heart on the Adult Link map.", []],
+		"1087634": [
+			"Written on the outside of the tomb.\n\n\n\n\"I ended up down in the depths of a tomb, and a terrifying monster showed up out of nowhere! I started to sing my glowing little heart out, and it stopped chasing me! Now, if I could just remember the name of the song...\"",
+			[]
+		],
+		"1087636": ["Hit the Business Scrub to buy the Piece of Heart for 100 Rupees.", []],
+		"1087640": ["Play the Song of Storms and the Magic Plant will open the Grotto", []],
+		"1087642": ["Inside Grotto", []],
+		"1087644": ["Inside Grotto", []],
+		"1087646": ["Inside pots in Grotto", []],
+		"1087647": ["Inside Grotto", []],
+		"1087648": [
+			"On the rock by the water and the castle wall.\n\n\"This is it! The BEST idea I've ever had! Nobody will EVER suspect I've hidden my ENTIRE fortune in this wooden box! Ha! I'm a GENIUS!\"\n\nIt refers to the crate nearby. It contains the fortune of one Green Rupee.",
+			[]
+		],
+		"1087649": ["Inside crate", []],
+		"1087650": ["Roll into tree", []],
+		"1087651": ["Opened with the Magic Plant", []]
 	}
 }
