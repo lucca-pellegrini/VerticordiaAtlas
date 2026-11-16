@@ -1,0 +1,72 @@
+{
+	"v": 1,
+	"id": "sunlit-checklist",
+	"game": "sunlit-reach",
+	"title": "Starter Valley Checklist",
+	"description": "A compact linear checklist through Dawnvale with bound shrine and beacon markers.",
+	"author": "Atlas Test Suite",
+	"sections": [
+		{
+			"id": "sec-dawnvale",
+			"title": "Dawnvale",
+			"steps": [
+				{
+					"id": "st-talk-elder",
+					"kind": "task",
+					"title": "Speak with the Camp Elder by the watchfire",
+					"notes": "Exhaust all dialogue to receive the **Brass Compass**.",
+					"place": "Dawnvale Camp",
+					"reward": "Brass Compass"
+				},
+				{
+					"id": "st-waystone-1",
+					"kind": "task",
+					"title": "Attune the North Waystone",
+					"targets": [
+						{
+							"kind": "marker",
+							"marker": 1001,
+							"snapshot": {
+								"title": "North Waystone",
+								"cat": "Waystones",
+								"lat": 12.45,
+								"lng": -34.12,
+								"map": "overworld"
+							}
+						}
+					]
+				},
+				{
+					"id": "st-ridge-beacon",
+					"kind": "task",
+					"title": "Light the Ridge Beacon",
+					"targets": [
+						{
+							"kind": "marker",
+							"marker": 1002
+						}
+					],
+					"optional": true
+				},
+				{
+					"id": "st-ferry-dock",
+					"kind": "waypoint",
+					"title": "Follow the stone causeway down to the Old Ferry Dock",
+					"targets": [
+						{
+							"kind": "point",
+							"point": {
+								"lat": 12.8,
+								"lng": -33.9,
+								"map": "overworld"
+							},
+							"label": "Old Ferry Dock"
+						}
+					]
+				}
+			]
+		}
+	],
+	"created": 1760000000000,
+	"updated": 1760000000000
+}

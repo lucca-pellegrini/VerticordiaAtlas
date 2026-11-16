@@ -1,0 +1,346 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://atlas.verticordia.com/schemas/guide-v1.json",
+	"title": "Verticordia Atlas Guide (v1)",
+	"description": "Linear progression guide format for Verticordia Atlas.",
+	"type": "object",
+	"additionalProperties": false,
+	"required": ["v", "id", "game", "title", "sections", "created", "updated"],
+	"properties": {
+		"v": {
+			"const": 1,
+			"description": "Format version. Must be 1."
+		},
+		"id": {
+			"type": "string",
+			"pattern": "^[A-Za-z0-9_-]{4,24}$",
+			"description": "Short stable guide identifier."
+		},
+		"game": {
+			"type": "string",
+			"pattern": "^[A-Za-z0-9._-]{1,80}$",
+			"maxLength": 80,
+			"description": "Game slug/id that this guide belongs to."
+		},
+		"title": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 120,
+			"description": "Plain-text guide title."
+		},
+		"description": {
+			"type": "string",
+			"maxLength": 2000,
+			"description": "Short Markdown summary of the guide."
+		},
+		"author": {
+			"type": "string",
+			"maxLength": 120,
+			"description": "Free-text author credit."
+		},
+		"credits": {
+			"type": "string",
+			"maxLength": 1000,
+			"description": "Free-text sources and acknowledgements."
+		},
+		"variants": {
+			"type": "array",
+			"maxItems": 8,
+			"items": {
+				"$ref": "#/$defs/GuideVariant"
+			}
+		},
+		"sections": {
+			"type": "array",
+			"minItems": 1,
+			"maxItems": 300,
+			"items": {
+				"$ref": "#/$defs/GuideSection"
+			}
+		},
+		"created": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "Creation timestamp in milliseconds since Unix epoch."
+		},
+		"updated": {
+			"type": "integer",
+			"minimum": 0,
+			"description": "Last update timestamp in milliseconds since Unix epoch."
+		}
+	},
+	"$defs": {
+		"GuideVariant": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["id", "label", "options", "default"],
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^[a-z0-9-]{1,40}$"
+				},
+				"label": {
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 60
+				},
+				"options": {
+					"type": "array",
+					"minItems": 2,
+					"maxItems": 8,
+					"items": {
+						"type": "object",
+						"additionalProperties": false,
+						"required": ["id", "label"],
+						"properties": {
+							"id": {
+								"type": "string",
+								"pattern": "^[a-z0-9-]{1,40}$"
+							},
+							"label": {
+								"type": "string",
+								"minLength": 1,
+								"maxLength": 60
+							}
+						}
+					}
+				},
+				"default": {
+					"type": "string",
+					"pattern": "^[a-z0-9-]{1,40}$"
+				}
+			}
+		},
+		"GuideSection": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["id", "title", "steps"],
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^[A-Za-z0-9_-]{1,40}$"
+				},
+				"title": {
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 120
+				},
+				"notes": {
+					"type": "string",
+					"maxLength": 5000
+				},
+				"level": {
+					"type": "string",
+					"maxLength": 40
+				},
+				"gate": {
+					"type": "string",
+					"maxLength": 500
+				},
+				"after": {
+					"type": "string",
+					"maxLength": 500
+				},
+				"optional": {
+					"type": "boolean"
+				},
+				"steps": {
+					"type": "array",
+					"maxItems": 2000,
+					"items": {
+						"$ref": "#/$defs/GuideStep"
+					}
+				}
+			}
+		},
+		"GuideStep": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["id", "kind", "title"],
+			"properties": {
+				"id": {
+					"type": "string",
+					"pattern": "^[A-Za-z0-9_-]{1,40}$"
+				},
+				"kind": {
+					"type": "string",
+					"enum": ["task", "waypoint", "info"]
+				},
+				"title": {
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 120
+				},
+				"notes": {
+					"type": "string",
+					"maxLength": 5000
+				},
+				"targets": {
+					"type": "array",
+					"maxItems": 100,
+					"items": {
+						"$ref": "#/$defs/GuideTarget"
+					}
+				},
+				"place": {
+					"type": "string",
+					"maxLength": 120
+				},
+				"samePlace": {
+					"type": "boolean"
+				},
+				"reward": {
+					"type": "string",
+					"maxLength": 500
+				},
+				"consequence": {
+					"type": "string",
+					"maxLength": 1000
+				},
+				"optional": {
+					"type": "boolean"
+				},
+				"missable": {
+					"type": "boolean"
+				},
+				"thread": {
+					"type": "string",
+					"pattern": "^[^\\r\\n]{1,40}$",
+					"maxLength": 40
+				},
+				"only": {
+					"type": "object",
+					"propertyNames": {
+						"pattern": "^[a-z0-9-]{1,40}$"
+					},
+					"additionalProperties": {
+						"type": "array",
+						"minItems": 1,
+						"items": {
+							"type": "string",
+							"pattern": "^[a-z0-9-]{1,40}$"
+						}
+					}
+				},
+				"links": {
+					"type": "array",
+					"maxItems": 5,
+					"items": {
+						"type": "object",
+						"additionalProperties": false,
+						"required": ["url"],
+						"properties": {
+							"url": {
+								"type": "string",
+								"pattern": "^https?://",
+								"maxLength": 2000
+							},
+							"label": {
+								"type": "string",
+								"maxLength": 80
+							}
+						}
+					}
+				},
+				"zone": {
+					"$ref": "#/$defs/GuideZone"
+				}
+			}
+		},
+		"GuideTarget": {
+			"oneOf": [
+				{
+					"type": "object",
+					"additionalProperties": false,
+					"required": ["kind", "marker"],
+					"properties": {
+						"kind": { "const": "marker" },
+						"marker": { "type": "integer", "minimum": 1 },
+						"optional": { "type": "boolean" },
+						"label": { "type": "string", "maxLength": 120 },
+						"snapshot": { "$ref": "#/$defs/TargetSnapshot" }
+					}
+				},
+				{
+					"type": "object",
+					"additionalProperties": false,
+					"required": ["kind", "point"],
+					"properties": {
+						"kind": { "const": "point" },
+						"point": { "$ref": "#/$defs/MapPoint" },
+						"optional": { "type": "boolean" },
+						"label": { "type": "string", "maxLength": 120 },
+						"snapshot": { "$ref": "#/$defs/TargetSnapshot" }
+					}
+				}
+			]
+		},
+		"MapPoint": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["lat", "lng", "map"],
+			"properties": {
+				"lat": { "type": "number" },
+				"lng": { "type": "number" },
+				"map": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,80}$", "maxLength": 80 }
+			}
+		},
+		"TargetSnapshot": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["title", "lat", "lng", "map"],
+			"properties": {
+				"title": { "type": "string", "minLength": 1, "maxLength": 120 },
+				"cat": { "type": "string", "maxLength": 80 },
+				"lat": { "type": "number" },
+				"lng": { "type": "number" },
+				"map": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,80}$", "maxLength": 80 }
+			}
+		},
+		"PolygonPoint": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["lng", "lat"],
+			"properties": {
+				"lng": { "type": "number" },
+				"lat": { "type": "number" }
+			}
+		},
+		"GuideZone": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["map"],
+			"anyOf": [{ "required": ["region"] }, { "required": ["polygon"] }],
+			"properties": {
+				"map": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,80}$", "maxLength": 80 },
+				"region": { "type": "integer", "minimum": 1 },
+				"polygon": {
+					"type": "array",
+					"minItems": 3,
+					"maxItems": 500,
+					"items": { "$ref": "#/$defs/PolygonPoint" }
+				},
+				"avoid": {
+					"type": "array",
+					"maxItems": 30,
+					"items": {
+						"type": "object",
+						"additionalProperties": false,
+						"required": ["note"],
+						"anyOf": [{ "required": ["marker"] }, { "required": ["polygon"] }],
+						"properties": {
+							"marker": { "type": "integer", "minimum": 1 },
+							"polygon": {
+								"type": "array",
+								"minItems": 3,
+								"maxItems": 500,
+								"items": { "$ref": "#/$defs/PolygonPoint" }
+							},
+							"note": { "type": "string", "minLength": 1, "maxLength": 240 }
+						}
+					}
+				}
+			}
+		}
+	}
+}
