@@ -1,0 +1,109 @@
+{
+	"v": 1,
+	"id": "citadel-routes",
+	"game": "sunlit-reach",
+	"title": "Skyward Citadel & Side Threads",
+	"description": "Full-featured synthetic guide testing variants, optional sections, threads, gates, and missing markers.",
+	"variants": [
+		{
+			"id": "mode",
+			"label": "Game Mode",
+			"options": [
+				{ "id": "standard", "label": "Standard" },
+				{ "id": "ironman", "label": "Ironman" }
+			],
+			"default": "standard"
+		},
+		{
+			"id": "pact",
+			"label": "Faction Pact",
+			"options": [
+				{ "id": "wardens", "label": "Order of Wardens" },
+				{ "id": "scholars", "label": "Glass Scholars" },
+				{ "id": "none", "label": "Unaligned" }
+			],
+			"default": "wardens"
+		}
+	],
+	"sections": [
+		{
+			"id": "sec-approach",
+			"title": "Citadel Approach",
+			"level": "40-45",
+			"gate": "Requires the Skyhook grappling tool from the Foundry.",
+			"after": "locks out early Dawnvale merchant commissions",
+			"steps": [
+				{
+					"id": "st-gatehouse",
+					"kind": "task",
+					"title": "Unlock the Windward Gatehouse",
+					"targets": [{ "kind": "marker", "marker": 3001 }],
+					"thread": "Main Route"
+				},
+				{
+					"id": "st-warden-envoy",
+					"kind": "task",
+					"title": "Meet Envoy Kael on the battlement",
+					"targets": [{ "kind": "marker", "marker": 3002 }],
+					"missable": true,
+					"thread": "Warden Covenant",
+					"only": {
+						"pact": ["wardens"]
+					}
+				},
+				{
+					"id": "st-ironman-ward",
+					"kind": "task",
+					"title": "Inscribe the Warden's Iron Sigil",
+					"notes": "Only needed on Ironman runs aligned with the Wardens.",
+					"thread": "Warden Covenant",
+					"only": {
+						"mode": ["ironman"],
+						"pact": ["wardens"]
+					}
+				},
+				{
+					"id": "st-legacy-shrine",
+					"kind": "task",
+					"title": "Inspect the Old Observatory Pedestal",
+					"notes": "Its marker (999999) was removed from the map data; its snapshot supplies the fallback point.",
+					"targets": [
+						{
+							"kind": "marker",
+							"marker": 999999,
+							"snapshot": {
+								"title": "Old Observatory Pedestal",
+								"cat": "Monuments",
+								"lat": 22.15,
+								"lng": 14.75,
+								"map": "citadel"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "sec-astral-vault",
+			"title": "Astral Vault (Bonus Wing)",
+			"optional": true,
+			"steps": [
+				{
+					"id": "st-vault-key",
+					"kind": "task",
+					"title": "Recover the Starlit Key from the bell tower",
+					"targets": [{ "kind": "marker", "marker": 3003 }],
+					"reward": "Starlit Key"
+				},
+				{
+					"id": "st-vault-sanctum",
+					"kind": "task",
+					"title": "Open the Astral Sanctum reliquary",
+					"targets": [{ "kind": "marker", "marker": 3004 }]
+				}
+			]
+		}
+	],
+	"created": 1760000300000,
+	"updated": 1760000400000
+}

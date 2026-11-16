@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 import { esc, fmt, fmtEn } from "../src/shared/escape.ts";
 import {
@@ -15,6 +17,53 @@ import {
 	recentFeed,
 } from "../src/shared/found-log.ts";
 import { closeRing, sanitizeGeometry, sanitizeMapData } from "../src/shared/geometry.ts";
+import { extractMarkerLinksFromText, linesToSteps, parseMarkerLink } from "../src/shared/guide-import.ts";
+import {
+	deriveGuideView,
+	isStepVisible,
+	nextAutoAdvanceStepId,
+	nextVisibleStepId,
+	prevVisibleStepId,
+	resolveVariants,
+} from "../src/shared/guide-progress.ts";
+import {
+	cleanGuide,
+	duplicateSection,
+	duplicateStep,
+	type Guide,
+	guideByteLength,
+	insertSection,
+	insertStep,
+	MAX_CONSEQUENCE,
+	MAX_DESCRIPTION,
+	MAX_GUIDE_BYTES,
+	MAX_GUIDE_SECTIONS,
+	MAX_GUIDE_STEPS,
+	MAX_GUIDE_TITLE,
+	MAX_GUIDE_VARIANTS,
+	MAX_LINK_LABEL,
+	MAX_NOTES,
+	MAX_PLACE,
+	MAX_POLYGON_POINTS,
+	MAX_REWARD,
+	MAX_SECTION_TITLE,
+	MAX_STEP_LINKS,
+	MAX_STEP_TARGETS,
+	MAX_STEP_TITLE,
+	MAX_THREAD,
+	MAX_VARIANT_OPTIONS,
+	MAX_ZONE_AVOID,
+	mergeSections,
+	mergeSteps,
+	moveSection,
+	moveStep,
+	removeSection,
+	removeStep,
+	splitSection,
+	splitStep,
+	updateSection,
+	updateStep,
+} from "../src/shared/guide.ts";
 import { flat, fuzzyScore, levenshtein, norm, words } from "../src/shared/search.ts";
 import {
 	B32,
@@ -578,4 +627,814 @@ describe("shared/found-log", () => {
 		if (feed[1]?.kind === "batch") expect(feed[1].ids).toHaveLength(8);
 		expect(feed[2]).toEqual({ kind: "single", id: 1, at: 100 });
 	});
+});
+
+// Minimal JSON Schema Draft 2020-12 validator for `docs/guide.schema.json`
+function validateAgainstSchema(value: unknown, schema: any, rootSchema = schema, curPath = "$"): string[] {
+	if (schema.$ref) {
+		const refPath = String(schema.$ref).replace(/^#\//, "").split("/");
+		let target: any = rootSchema;
+		for (const seg of refPath) target = target?.[seg];
+		if (!target) return [`${curPath}: unresolved $ref ${schema.$ref}`];
+		return validateAgainstSchema(value, target, rootSchema, curPath);
+	}
+	const errs: string[] = [];
+	if (schema.oneOf) {
+		const matches = schema.oneOf.filter(
+			(sub: any) => validateAgainstSchema(value, sub, rootSchema, curPath).length === 0,
+		);
+		if (matches.length !== 1)
+			errs.push(`${curPath}: expected to match exactly 1 oneOf branch (matched ${matches.length})`);
+		return errs;
+	}
+	if (schema.anyOf) {
+		const ok = schema.anyOf.some((sub: any) => validateAgainstSchema(value, sub, rootSchema, curPath).length === 0);
+		if (!ok) errs.push(`${curPath}: failed all anyOf branches`);
+	}
+	if (schema.const !== undefined && value !== schema.const) {
+		errs.push(`${curPath}: expected const ${JSON.stringify(schema.const)}, got ${JSON.stringify(value)}`);
+		return errs;
+	}
+	if (schema.enum && !schema.enum.includes(value)) {
+		errs.push(`${curPath}: value ${JSON.stringify(value)} not in enum`);
+		return errs;
+	}
+	if (schema.type === "object") {
+		if (!value || typeof value !== "object" || Array.isArray(value)) {
+			errs.push(`${curPath}: expected object`);
+			return errs;
+		}
+		const obj = value as Record<string, unknown>;
+		for (const reqKey of schema.required || []) {
+			if (!Object.prototype.hasOwnProperty.call(obj, reqKey) || obj[reqKey] === undefined) {
+				errs.push(`${curPath}: missing required property "${reqKey}"`);
+			}
+		}
+		for (const k of Object.keys(obj)) {
+			if (schema.propertyNames?.pattern && !new RegExp(schema.propertyNames.pattern).test(k)) {
+				errs.push(`${curPath}.${k}: property name does not match ${schema.propertyNames.pattern}`);
+			}
+			const propSchema = schema.properties?.[k];
+			if (propSchema) {
+				errs.push(...validateAgainstSchema(obj[k], propSchema, rootSchema, `${curPath}.${k}`));
+			} else if (schema.additionalProperties === false) {
+				errs.push(`${curPath}: unexpected additional property "${k}"`);
+			} else if (schema.additionalProperties && typeof schema.additionalProperties === "object") {
+				errs.push(...validateAgainstSchema(obj[k], schema.additionalProperties, rootSchema, `${curPath}.${k}`));
+			}
+		}
+	} else if (schema.type === "array") {
+		if (!Array.isArray(value)) {
+			errs.push(`${curPath}: expected array`);
+			return errs;
+		}
+		if (schema.minItems !== undefined && value.length < schema.minItems) {
+			errs.push(`${curPath}: array length ${value.length} < minItems ${schema.minItems}`);
+		}
+		if (schema.maxItems !== undefined && value.length > schema.maxItems) {
+			errs.push(`${curPath}: array length ${value.length} > maxItems ${schema.maxItems}`);
+		}
+		if (schema.items) {
+			for (let i = 0; i < value.length; i++) {
+				errs.push(...validateAgainstSchema(value[i], schema.items, rootSchema, `${curPath}[${i}]`));
+			}
+		}
+	} else if (schema.type === "string") {
+		if (typeof value !== "string") {
+			errs.push(`${curPath}: expected string`);
+			return errs;
+		}
+		if (schema.minLength !== undefined && value.length < schema.minLength) {
+			errs.push(`${curPath}: string length ${value.length} < minLength ${schema.minLength}`);
+		}
+		if (schema.maxLength !== undefined && value.length > schema.maxLength) {
+			errs.push(`${curPath}: string length ${value.length} > maxLength ${schema.maxLength}`);
+		}
+		if (schema.pattern && !new RegExp(schema.pattern).test(value)) {
+			errs.push(`${curPath}: string "${value}" does not match pattern ${schema.pattern}`);
+		}
+	} else if (schema.type === "integer" || schema.type === "number") {
+		if (typeof value !== "number" || !Number.isFinite(value)) {
+			errs.push(`${curPath}: expected finite ${schema.type}`);
+			return errs;
+		}
+		if (schema.type === "integer" && !Number.isInteger(value)) {
+			errs.push(`${curPath}: expected integer, got ${value}`);
+		}
+		if (schema.minimum !== undefined && value < schema.minimum) {
+			errs.push(`${curPath}: ${value} < minimum ${schema.minimum}`);
+		}
+	} else if (schema.type === "boolean") {
+		if (typeof value !== "boolean") {
+			errs.push(`${curPath}: expected boolean`);
+		}
+	}
+	return errs;
+}
+
+describe("shared/guide: schema, validation, and editing operations", () => {
+	const schemaPath = path.join(import.meta.dir, "..", "docs", "guide.schema.json");
+	const guideSchema = JSON.parse(readFileSync(schemaPath, "utf8"));
+	const fixtureNames = ["flat-checklist.json", "place-multi-target.json", "variants-and-missing.json"];
+	const fixtures: Guide[] = fixtureNames.map((name) =>
+		JSON.parse(readFileSync(path.join(import.meta.dir, "fixtures", "guides", name), "utf8")),
+	);
+
+	test("all synthetic fixtures and docs/guides.md examples conform to docs/guide.schema.json and cleanGuide with 0 issues", () => {
+		for (let i = 0; i < fixtures.length; i++) {
+			const fx = fixtures[i]!;
+			const schemaErrs = validateAgainstSchema(fx, guideSchema);
+			expect(schemaErrs).toEqual([]);
+
+			const { guide, issues } = cleanGuide(fx);
+			expect(issues).toEqual([]);
+			expect(guide).toEqual(fx);
+		}
+
+		// Also validate the JSON examples embedded in docs/guides.md
+		const docText = readFileSync(path.join(import.meta.dir, "..", "docs", "guides.md"), "utf8");
+		const codeBlocks = [...docText.matchAll(/```json\r?\n([\s\S]*?)```/g)].map((m) => JSON.parse(m[1]!));
+		expect(codeBlocks.length).toBeGreaterThanOrEqual(3);
+		for (const block of codeBlocks) {
+			expect(validateAgainstSchema(block, guideSchema)).toEqual([]);
+			const { guide, issues } = cleanGuide(block);
+			expect(issues).toEqual([]);
+			expect(guide).toEqual(block);
+		}
+	}, 30_000);
+
+	test("cleanGuide rejects irrecoverable inputs (non-objects, future/wrong versions, missing game or sections)", () => {
+		for (const bad of [null, undefined, 42, "string", true, [], [1, 2]]) {
+			const res = cleanGuide(bad);
+			expect(res.guide).toBeNull();
+			expect(res.issues.length).toBeGreaterThan(0);
+		}
+
+		const futureVer = cleanGuide({ ...fixtures[0], v: 2 });
+		expect(futureVer.guide).toBeNull();
+		expect(futureVer.issues[0]?.message).toContain("Unsupported guide format version 2");
+
+		const badVer = cleanGuide({ ...fixtures[0], v: 0 });
+		expect(badVer.guide).toBeNull();
+
+		const noGame = cleanGuide({ ...fixtures[0], game: "   " });
+		expect(noGame.guide).toBeNull();
+
+		const badGame = cleanGuide({ ...fixtures[0], game: "../etc/passwd" });
+		expect(badGame.guide).toBeNull();
+
+		const emptySections = cleanGuide({ ...fixtures[0], sections: [] });
+		expect(emptySections.guide).toBeNull();
+
+		const nonObjectSections = cleanGuide({ ...fixtures[0], sections: [null, "bad", 123] });
+		expect(nonObjectSections.guide).toBeNull();
+	}, 30_000);
+
+	test("cleanGuide rejects prototype-pollution keys (__proto__, constructor, prototype) everywhere", () => {
+		const raw = JSON.parse(
+			'{"v":1,"id":"__proto__","game":"sunlit-reach","title":"Pollution Test","__proto__":{"polluted":true},"constructor":"bad","variants":[{"id":"__proto__","label":"Bad","options":[{"id":"a","label":"A"},{"id":"b","label":"B"}],"default":"a"},{"id":"mode","label":"Mode","options":[{"id":"__proto__","label":"Bad"},{"id":"a","label":"A"},{"id":"b","label":"B"}],"default":"__proto__"}],"sections":[{"id":"constructor","title":"Sec","prototype":123,"steps":[{"id":"prototype","kind":"task","title":"Step","only":{"__proto__":["a"],"constructor":["a"],"mode":["__proto__","a"]}}]}],"created":1,"updated":1}',
+		);
+		const { guide, issues } = cleanGuide(raw);
+		expect(guide).not.toBeNull();
+		expect(({} as any).polluted).toBeUndefined();
+		expect(guide!.id).not.toBe("__proto__");
+		expect(guide!.sections[0]!.id).toBe("sec-1");
+		expect(guide!.sections[0]!.steps[0]!.id).toBe("step-1");
+		expect(guide!.variants).toHaveLength(1);
+		expect(guide!.variants![0]!.id).toBe("mode");
+		expect(guide!.variants![0]!.default).toBe("a");
+		expect(guide!.sections[0]!.steps[0]!.only).toEqual({ mode: ["a"] });
+		expect(issues.length).toBeGreaterThan(5);
+		expect(validateAgainstSchema(guide, guideSchema)).toEqual([]);
+	}, 30_000);
+
+	test("cleanGuide deterministically regenerates duplicate section and step ids, drops invalid targets/links/only, and clips strings", () => {
+		const messy = {
+			v: 1,
+			id: "bad id!",
+			game: "sunlit-reach",
+			title: "T".repeat(MAX_GUIDE_TITLE + 50),
+			description: "D".repeat(MAX_DESCRIPTION + 50),
+			unknownRoot: "drop-me",
+			variants: [
+				{
+					id: "pact",
+					label: "Pact",
+					options: [
+						{ id: "wardens", label: "Wardens" },
+						{ id: "wardens", label: "Duplicate" },
+						{ id: "scholars", label: "Scholars" },
+					],
+					default: "non-existent",
+				},
+				{
+					id: "too-few",
+					label: "Too Few",
+					options: [{ id: "only-one", label: "One" }],
+					default: "only-one",
+				},
+			],
+			sections: [
+				{
+					id: "dup-sec",
+					title: "S".repeat(MAX_SECTION_TITLE + 20),
+					notes: "N".repeat(MAX_NOTES + 10),
+					steps: [
+						{
+							id: "dup-step",
+							kind: "invalid-kind",
+							title: "A".repeat(MAX_STEP_TITLE + 20),
+							reward: "R".repeat(MAX_REWARD + 20),
+							consequence: "C".repeat(MAX_CONSEQUENCE + 20),
+							place: "P".repeat(MAX_PLACE + 20),
+							thread: "H".repeat(MAX_THREAD + 20),
+							targets: [
+								{ kind: "marker", marker: 101 },
+								{ kind: "marker", marker: -5 }, // negative user marker id -> dropped
+								{ kind: "marker", marker: Number.NaN }, // non-finite -> dropped
+								{ kind: "point", point: { lat: Number.POSITIVE_INFINITY, lng: 0, map: "m" } }, // non-finite -> dropped
+								{ kind: "point", point: { lat: 10, lng: 20, map: "overworld" } },
+							],
+							only: {
+								pact: ["wardens", "ghost-option"],
+								unknownVar: ["x"],
+							},
+							links: [
+								{ url: "javascript:alert(1)", label: "XSS" },
+								{ url: "mailto:user@example.com" },
+								{ url: "https://atlas.verticordia.com/guide", label: "L".repeat(MAX_LINK_LABEL + 20) },
+							],
+						},
+						{
+							id: "dup-step",
+							kind: "task",
+							title: "Second step with duplicate id",
+						},
+					],
+				},
+				{
+					id: "dup-sec",
+					title: "Second section with duplicate id",
+					steps: [],
+				},
+			],
+			created: -10,
+			updated: "bad",
+		};
+
+		const r1 = cleanGuide(messy);
+		const r2 = cleanGuide(messy);
+		expect(r1.guide).not.toBeNull();
+		// Deterministic output
+		expect(r1.guide).toEqual(r2.guide);
+		const g = r1.guide!;
+		expect(validateAgainstSchema(g, guideSchema)).toEqual([]);
+
+		expect(g.title.length).toBe(MAX_GUIDE_TITLE);
+		expect(g.description!.length).toBe(MAX_DESCRIPTION);
+		expect(g.variants).toHaveLength(1);
+		expect(g.variants![0]!.default).toBe("wardens");
+		expect(g.sections[0]!.id).toBe("dup-sec");
+		expect(g.sections[1]!.id).toBe("sec-1");
+
+		const st0 = g.sections[0]!.steps[0]!;
+		const st1 = g.sections[0]!.steps[1]!;
+		expect(st0.id).toBe("dup-step");
+		expect(st1.id).toBe("step-1");
+		expect(st0.kind).toBe("task");
+		expect(st0.title.length).toBe(MAX_STEP_TITLE);
+		expect(st0.reward!.length).toBe(MAX_REWARD);
+		expect(st0.consequence!.length).toBe(MAX_CONSEQUENCE);
+		expect(st0.place!.length).toBe(MAX_PLACE);
+		expect(st0.thread!.length).toBe(MAX_THREAD);
+		expect(st0.targets).toEqual([
+			{ kind: "marker", marker: 101 },
+			{ kind: "point", point: { lat: 10, lng: 20, map: "overworld" } },
+		]);
+		expect(st0.only).toEqual({ pact: ["wardens"] });
+		expect(st0.links).toEqual([{ url: "https://atlas.verticordia.com/guide", label: "L".repeat(MAX_LINK_LABEL) }]);
+		expect(g.created).toBe(0);
+		expect(g.updated).toBe(0);
+	}, 30_000);
+
+	test("cleanGuide is total under field-by-field fixture mutations and random fuzzing", () => {
+		const badValues: unknown[] = [
+			null,
+			undefined,
+			0,
+			-1,
+			1.5,
+			Number.NaN,
+			Number.POSITIVE_INFINITY,
+			"",
+			"   ",
+			"__proto__",
+			"constructor",
+			"prototype",
+			true,
+			false,
+			[],
+			[null, {}, -999],
+			{},
+			{ __proto__: { bad: 1 } },
+		];
+
+		for (const fx of fixtures) {
+			for (const topKey of Object.keys(fx)) {
+				for (const bad of badValues) {
+					const copy: any = structuredClone(fx);
+					copy[topKey] = bad;
+					const res = cleanGuide(copy);
+					if (res.guide !== null) {
+						expect(validateAgainstSchema(res.guide, guideSchema)).toEqual([]);
+					}
+				}
+			}
+			// Mutate nested section and step fields
+			for (const bad of badValues) {
+				const copySec: any = structuredClone(fx);
+				for (const k of ["id", "title", "notes", "level", "gate", "after", "optional", "steps"]) {
+					const c = structuredClone(copySec);
+					c.sections[0][k] = bad;
+					const res = cleanGuide(c);
+					if (res.guide !== null) {
+						expect(validateAgainstSchema(res.guide, guideSchema)).toEqual([]);
+					}
+				}
+				for (const k of [
+					"id",
+					"kind",
+					"title",
+					"notes",
+					"targets",
+					"place",
+					"samePlace",
+					"reward",
+					"consequence",
+					"optional",
+					"missable",
+					"thread",
+					"only",
+					"links",
+					"zone",
+				]) {
+					const c = structuredClone(copySec);
+					c.sections[0].steps[0][k] = bad;
+					const res = cleanGuide(c);
+					if (res.guide !== null) {
+						expect(validateAgainstSchema(res.guide, guideSchema)).toEqual([]);
+					}
+				}
+			}
+		}
+	}, 30_000);
+
+	test("limits are enforced and a maximal guide at the structural limits serializes below MAX_GUIDE_BYTES", () => {
+		// 1. Construct a guide at structural limits: 300 sections, 2,000 steps total, 8 variants with 8 options each
+		const variants = Array.from({ length: MAX_GUIDE_VARIANTS + 2 }, (_, v) => ({
+			id: `var-${v + 1}`,
+			label: `Variant ${v + 1}`,
+			options: Array.from({ length: MAX_VARIANT_OPTIONS + 2 }, (__, o) => ({
+				id: `opt-${o + 1}`,
+				label: `Option ${o + 1}`,
+			})),
+			default: "opt-1",
+		}));
+
+		const sections = [];
+		let stepNum = 0;
+		for (let s = 0; s < MAX_GUIDE_SECTIONS + 10; s++) {
+			const stepsInSec = s < 200 ? 10 : 1; // 200 * 10 = 2000 steps across the first 200 sections
+			const steps = [];
+			for (let i = 0; i < stepsInSec; i++) {
+				stepNum++;
+				steps.push({
+					id: `st-${stepNum}`,
+					kind: "task",
+					title: `Step ${stepNum}: Collect the Sunstone Shard at Beacon #${stepNum}`,
+					targets: [{ kind: "marker", marker: stepNum }],
+					place: "Sunlit Valley",
+					thread: "Main Quest",
+				});
+			}
+			sections.push({
+				id: `sec-${s + 1}`,
+				title: `Section ${s + 1}: Region Sweep`,
+				steps,
+			});
+		}
+
+		const { guide, issues } = cleanGuide({
+			v: 1,
+			id: "max-limits-guide",
+			game: "sunlit-reach",
+			title: "Maximal Structural Guide",
+			variants,
+			sections,
+			created: 1760000000000,
+			updated: 1760000000000,
+		});
+
+		expect(guide).not.toBeNull();
+		expect(issues.length).toBeGreaterThan(0);
+		expect(guide!.variants).toHaveLength(MAX_GUIDE_VARIANTS);
+		expect(guide!.variants![0]!.options).toHaveLength(MAX_VARIANT_OPTIONS);
+		expect(guide!.sections).toHaveLength(MAX_GUIDE_SECTIONS);
+		const totalSteps = guide!.sections.reduce((a, s) => a + s.steps.length, 0);
+		expect(totalSteps).toBe(MAX_GUIDE_STEPS);
+
+		const bytes = guideByteLength(guide!);
+		console.log(
+			`[guides] 2,000-step / 300-section / 8x8-variant guide serialized size: ${bytes.toLocaleString("en-US")} bytes (limit: ${MAX_GUIDE_BYTES.toLocaleString("en-US")} bytes)`,
+		);
+		expect(bytes).toBeLessThanOrEqual(MAX_GUIDE_BYTES);
+		expect(validateAgainstSchema(guide, guideSchema)).toEqual([]);
+
+		// 2. Also verify that an intentionally bloated guide (e.g. 500 steps each with 5,000-char notes > 2.5 MB)
+		// is clamped by cleanGuide to <= MAX_GUIDE_BYTES
+		const bloatedSteps = Array.from({ length: 400 }, (_, i) => ({
+			id: `bloat-${i + 1}`,
+			kind: "task" as const,
+			title: `Step ${i + 1}`,
+			notes: "X".repeat(MAX_NOTES),
+			consequence: "Y".repeat(MAX_CONSEQUENCE),
+			targets: Array.from({ length: MAX_STEP_TARGETS + 5 }, (__, t) => ({
+				kind: "marker" as const,
+				marker: i * 200 + t + 1,
+			})),
+			links: Array.from({ length: MAX_STEP_LINKS + 2 }, (__, l) => ({
+				url: `https://atlas.verticordia.com/step/${i}/${l}`,
+			})),
+			zone: {
+				map: "overworld",
+				polygon: Array.from({ length: MAX_POLYGON_POINTS + 10 }, (__, p) => ({ lng: p * 0.01, lat: p * 0.01 })),
+				avoid: Array.from({ length: MAX_ZONE_AVOID + 5 }, (__, a) => ({
+					marker: a + 1,
+					note: `Avoid ${a}`,
+				})),
+			},
+		}));
+		const bloatedRes = cleanGuide({
+			v: 1,
+			id: "bloated-guide",
+			game: "sunlit-reach",
+			title: "Bloated Guide",
+			sections: [{ id: "sec-1", title: "All", steps: bloatedSteps }],
+			created: 1,
+			updated: 1,
+		});
+		expect(bloatedRes.guide).not.toBeNull();
+		expect(guideByteLength(bloatedRes.guide!)).toBeLessThanOrEqual(MAX_GUIDE_BYTES);
+		expect(bloatedRes.guide!.sections[0]!.steps[0]!.targets!.length).toBeLessThanOrEqual(MAX_STEP_TARGETS);
+		expect(bloatedRes.guide!.sections[0]!.steps[0]!.links!.length).toBeLessThanOrEqual(MAX_STEP_LINKS);
+		expect(bloatedRes.guide!.sections[0]!.steps[0]!.zone!.polygon!.length).toBeLessThanOrEqual(MAX_POLYGON_POINTS);
+		expect(bloatedRes.guide!.sections[0]!.steps[0]!.zone!.avoid!.length).toBeLessThanOrEqual(MAX_ZONE_AVOID);
+	}, 30_000);
+
+	test("pure editing operations preserve existing ids, never mutate inputs, and round-trip through cleanGuide", () => {
+		const base = structuredClone(fixtures[1]!);
+		const snapBefore = JSON.stringify(base);
+
+		// insertSection & updateSection
+		const withSec = insertSection(base, { id: "sec-added", title: "Inner Sanctum", level: "20-25" }, 1, 5000);
+		expect(JSON.stringify(base)).toBe(snapBefore);
+		expect(withSec.sections).toHaveLength(2);
+		expect(withSec.sections[0]!.id).toBe("sec-outer-delve");
+		expect(withSec.sections[1]!.id).toBe("sec-added");
+
+		const updatedSec = updateSection(withSec, "sec-added", { title: "Updated Sanctum", optional: true }, 6000);
+		expect(withSec.sections[1]!.title).toBe("Inner Sanctum");
+		expect(updatedSec.sections[1]!.title).toBe("Updated Sanctum");
+		expect(updatedSec.sections[1]!.optional).toBe(true);
+
+		// moveSection & duplicateSection
+		const movedSec = moveSection(updatedSec, "sec-added", 0, 7000);
+		expect(movedSec.sections.map((s) => s.id)).toEqual(["sec-added", "sec-outer-delve"]);
+
+		const dupSec = duplicateSection(movedSec, "sec-outer-delve", { newSectionId: "sec-copy", nowMs: 8000 });
+		expect(dupSec.sections.map((s) => s.id)).toEqual(["sec-added", "sec-outer-delve", "sec-copy"]);
+		expect(dupSec.sections[2]!.steps).toHaveLength(dupSec.sections[1]!.steps.length);
+		expect(dupSec.sections[2]!.steps[0]!.id).not.toBe(dupSec.sections[1]!.steps[0]!.id);
+
+		// splitSection & mergeSections
+		const splitSec = splitSection(base, "sec-outer-delve", 2, "Lower Delve", "sec-lower", 9000);
+		expect(splitSec.sections.map((s) => s.id)).toEqual(["sec-outer-delve", "sec-lower"]);
+		expect(splitSec.sections[0]!.steps.map((st) => st.id)).toEqual(["st-cavern-lore", "st-sluice-caches"]);
+		expect(splitSec.sections[1]!.steps.map((st) => st.id)).toEqual(["st-sluice-lever", "st-basin-explore"]);
+
+		const mergedSec = mergeSections(splitSec, "sec-outer-delve", "sec-lower", 10000);
+		expect(mergedSec.sections).toHaveLength(1);
+		expect(mergedSec.sections[0]!.steps.map((st) => st.id)).toEqual([
+			"st-cavern-lore",
+			"st-sluice-caches",
+			"st-sluice-lever",
+			"st-basin-explore",
+		]);
+
+		const afterRemoveSec = removeSection(splitSec, "sec-lower", 11000);
+		expect(afterRemoveSec.sections.map((s) => s.id)).toEqual(["sec-outer-delve"]);
+
+		// Step operations: insertStep, updateStep, moveStep, duplicateStep, splitStep, mergeSteps, removeStep
+		const s1 = insertStep(base, "sec-outer-delve", { id: "st-new", kind: "task", title: "New Step" }, 1, 12000);
+		expect(s1.sections[0]!.steps[1]!.id).toBe("st-new");
+
+		const s2 = updateStep(s1, "st-new", { title: "Edited Step", reward: "Gold Coin" }, 13000);
+		expect(s1.sections[0]!.steps[1]!.title).toBe("New Step");
+		expect(s2.sections[0]!.steps[1]!.title).toBe("Edited Step");
+		expect(s2.sections[0]!.steps[1]!.id).toBe("st-new");
+
+		const s3 = moveStep(s2, "st-new", "sec-outer-delve", 0, 14000);
+		expect(s3.sections[0]!.steps[0]!.id).toBe("st-new");
+
+		const s4 = duplicateStep(s3, "st-new", "st-new-copy", 15000);
+		expect(s4.sections[0]!.steps[1]!.id).toBe("st-new-copy");
+
+		// splitStep on multi-target step `st-sluice-caches` (which has 3 targets: 2001, 2002, 2003)
+		const s5 = splitStep(s4, "st-sluice-caches", {
+			afterTargetIndex: 1,
+			newStepId: "st-sluice-caches-2",
+			secondTitle: "Remaining Sluice Caches",
+			nowMs: 16000,
+		});
+		const origCacheStep = s5.sections[0]!.steps.find((st) => st.id === "st-sluice-caches")!;
+		const splitCacheStep = s5.sections[0]!.steps.find((st) => st.id === "st-sluice-caches-2")!;
+		expect(origCacheStep.targets).toHaveLength(1);
+		expect(splitCacheStep.targets).toHaveLength(2);
+
+		// mergeSteps back together preserves `st-sluice-caches` id and restores all 3 targets
+		const s6 = mergeSteps(s5, "st-sluice-caches", "st-sluice-caches-2", 17000);
+		const mergedCacheStep = s6.sections[0]!.steps.find((st) => st.id === "st-sluice-caches")!;
+		expect(mergedCacheStep.targets).toHaveLength(3);
+		expect(s6.sections[0]!.steps.some((st) => st.id === "st-sluice-caches-2")).toBe(false);
+
+		const s7 = removeStep(s6, "st-new-copy", 18000);
+		expect(s7.sections[0]!.steps.some((st) => st.id === "st-new-copy")).toBe(false);
+
+		const roundTrip = cleanGuide(s7);
+		expect(roundTrip.issues).toEqual([]);
+		expect(roundTrip.guide).toEqual(s7);
+		expect(JSON.stringify(base)).toBe(snapBefore);
+	}, 30_000);
+});
+
+describe("shared/guide-progress: table-driven derived state rules and performance", () => {
+	const fxFlat = JSON.parse(
+		readFileSync(path.join(import.meta.dir, "fixtures", "guides", "flat-checklist.json"), "utf8"),
+	) as Guide;
+	const fxPlace = JSON.parse(
+		readFileSync(path.join(import.meta.dir, "fixtures", "guides", "place-multi-target.json"), "utf8"),
+	) as Guide;
+	const fxVariants = JSON.parse(
+		readFileSync(path.join(import.meta.dir, "fixtures", "guides", "variants-and-missing.json"), "utf8"),
+	) as Guide;
+
+	test("rule: variants combine with AND, unmentioned variants do not hide, and hidden steps never count or become cursor", () => {
+		const cases: {
+			name: string;
+			variants: Record<string, string>;
+			expectedVisibleIds: string[];
+			expectedTotalTasks: number;
+		}[] = [
+			{
+				name: "defaults (mode=standard, pact=wardens): st-warden-envoy visible, st-ironman-ward hidden",
+				variants: {},
+				expectedVisibleIds: [
+					"st-gatehouse",
+					"st-warden-envoy",
+					"st-legacy-shrine",
+					"st-vault-key",
+					"st-vault-sanctum",
+				],
+				expectedTotalTasks: 5,
+			},
+			{
+				name: "mode=ironman AND pact=wardens: both st-warden-envoy and st-ironman-ward visible",
+				variants: { mode: "ironman", pact: "wardens" },
+				expectedVisibleIds: [
+					"st-gatehouse",
+					"st-warden-envoy",
+					"st-ironman-ward",
+					"st-legacy-shrine",
+					"st-vault-key",
+					"st-vault-sanctum",
+				],
+				expectedTotalTasks: 6,
+			},
+			{
+				name: "mode=ironman AND pact=scholars: both Warden-only steps hidden (AND rule)",
+				variants: { mode: "ironman", pact: "scholars" },
+				expectedVisibleIds: ["st-gatehouse", "st-legacy-shrine", "st-vault-key", "st-vault-sanctum"],
+				expectedTotalTasks: 4,
+			},
+		];
+
+		for (const tc of cases) {
+			const view = deriveGuideView({
+				guide: fxVariants,
+				found: new Set(),
+				progress: { cursor: "st-ironman-ward" },
+				variants: tc.variants,
+			});
+			expect(view.visibleSteps.map((s) => s.step.id)).toEqual(tc.expectedVisibleIds);
+			expect(view.counts.total).toBe(tc.expectedTotalTasks);
+			if (!tc.expectedVisibleIds.includes("st-ironman-ward")) {
+				// Cursor pointing at a hidden step falls back to the first visible undone/unskipped step
+				expect(view.cursor).toBe("st-gatehouse");
+			} else {
+				expect(view.cursor).toBe("st-ironman-ward");
+			}
+		}
+		expect(resolveVariants(fxVariants, { variants: { mode: "invalid" } })).toEqual({
+			mode: "standard",
+			pact: "wardens",
+		});
+		expect(isStepVisible(fxVariants.sections[0]!.steps[2]!, { mode: "ironman", pact: "wardens" })).toBe(true);
+	}, 30_000);
+
+	test("rule: task step completion, partial steps, optional targets, manual done flags, waypoint/info steps, and samePlace", () => {
+		// In fxPlace:
+		// - st-cavern-lore: info step (never done, never counted)
+		// - st-sluice-caches: task with required markers 2001, 2002 and optional marker 2003
+		// - st-sluice-lever: task with no targets (manual done flag) and samePlace: true
+		// - st-basin-explore: task with required markers 2004, 2005
+		const v0 = deriveGuideView({ guide: fxPlace, found: new Set([2001]) });
+		const cacheStep0 = v0.stepsById.get("st-sluice-caches")!;
+		expect(cacheStep0.requiredTargets).toBe(2);
+		expect(cacheStep0.foundRequiredTargets).toBe(1);
+		expect(cacheStep0.partial).toBe(true);
+		expect(cacheStep0.done).toBe(false);
+		expect(cacheStep0.status).toBe("partial");
+		expect(v0.counts.total).toBe(3); // 3 task steps; info step excluded
+		expect(v0.counts.done).toBe(0);
+
+		// Finding both required targets (2001, 2002) completes st-sluice-caches even without optional 2003
+		const v1 = deriveGuideView({
+			guide: fxPlace,
+			found: new Set([2001, 2002]),
+			progress: { done: { "st-sluice-lever": 1700000000 }, cursor: "st-basin-explore" },
+		});
+		expect(v1.stepsById.get("st-sluice-caches")!.done).toBe(true);
+		expect(v1.stepsById.get("st-sluice-caches")!.partial).toBe(false);
+		expect(v1.stepsById.get("st-sluice-lever")!.done).toBe(true);
+		expect(v1.stepsById.get("st-sluice-lever")!.effectivePlace).toBe("Sluice Gallery");
+		expect(v1.stepsById.get("st-cavern-lore")!.done).toBe(false);
+		expect(v1.stepsById.get("st-cavern-lore")!.passed).toBe(true); // before cursor
+		expect(v1.counts).toEqual({
+			total: 3,
+			required: 3,
+			done: 2,
+			doneRequired: 2,
+			skipped: 0,
+			remaining: 1,
+		});
+	}, 30_000);
+
+	test("rule: missing markers vs unknown markers, optional sections, skipped steps, and cursor navigation", () => {
+		// In fxVariants, st-legacy-shrine has marker 999999 with a snapshot
+		// 1. When markerExists returns 'unknown', marker 999999 is treated as existing and required
+		const unknownView = deriveGuideView({
+			guide: fxVariants,
+			found: new Set(),
+			markerExists: () => "unknown",
+		});
+		const legacyUnknown = unknownView.stepsById.get("st-legacy-shrine")!;
+		expect(legacyUnknown.targets[0]!.missing).toBe(false);
+		expect(legacyUnknown.requiredTargets).toBe(1);
+		expect(legacyUnknown.done).toBe(false);
+
+		// 2. When markerExists returns 'no' for 999999, it degrades to its snapshot point, is excluded from required
+		// targets, and st-legacy-shrine becomes a manual step (done when progress.done has its id)
+		const missingView = deriveGuideView({
+			guide: fxVariants,
+			found: new Set([3001]),
+			markerExists: (id) => (id === 999999 ? "no" : "yes"),
+			progress: {
+				skipped: ["st-warden-envoy"],
+				done: { "st-legacy-shrine": 1700000100 },
+			},
+		});
+		const legacyMissing = missingView.stepsById.get("st-legacy-shrine")!;
+		expect(legacyMissing.targets[0]!.missing).toBe(true);
+		expect(legacyMissing.targets[0]!.point).toEqual({ lat: 22.15, lng: 14.75, map: "citadel" });
+		expect(legacyMissing.requiredTargets).toBe(0);
+		expect(legacyMissing.done).toBe(true);
+
+		// Optional section `sec-astral-vault` steps are flagged optional; required count excludes them
+		expect(missingView.stepsById.get("st-vault-key")!.optional).toBe(true);
+		expect(missingView.stepsById.get("st-vault-sanctum")!.optional).toBe(true);
+		expect(missingView.counts).toEqual({
+			total: 5, // 3 in sec-approach + 2 in sec-astral-vault
+			required: 3, // only the 3 in sec-approach
+			done: 2, // st-gatehouse (found 3001) + st-legacy-shrine (manual done)
+			doneRequired: 2,
+			skipped: 1, // st-warden-envoy
+			remaining: 2, // 5 - 2 - 1 = 2
+		});
+
+		// Cursor fallback skipped over done st-gatehouse, skipped st-warden-envoy, and done st-legacy-shrine -> st-vault-key
+		expect(missingView.cursor).toBe("st-vault-key");
+		expect(nextVisibleStepId(missingView)).toBe("st-vault-sanctum");
+		expect(prevVisibleStepId(missingView)).toBe("st-legacy-shrine");
+		expect(nextAutoAdvanceStepId(missingView, "st-vault-key")).toBe("st-vault-sanctum");
+
+		// A step with only optional marker targets is also treated as optional
+		const optTargetGuide = updateStep(fxFlat, "st-waystone-1", {
+			targets: [{ kind: "marker", marker: 1001, optional: true }],
+		});
+		const optTargetView = deriveGuideView({ guide: optTargetGuide, found: new Set() });
+		expect(optTargetView.stepsById.get("st-waystone-1")!.optional).toBe(true);
+	}, 30_000);
+
+	test("performance: deriving a 2,000-step guide against 30,000 found markers completes well under 250 ms", () => {
+		const found = new Set<number>();
+		for (let i = 1; i <= 30_000; i++) found.add(i * 2); // 30,000 even marker ids found
+
+		const sections = [];
+		for (let s = 0; s < 20; s++) {
+			const steps = [];
+			for (let i = 0; i < 100; i++) {
+				const n = s * 100 + i + 1;
+				steps.push({
+					id: `st-${n}`,
+					kind: "task" as const,
+					title: `Step ${n}`,
+					targets: [
+						{ kind: "marker" as const, marker: n * 2 },
+						{ kind: "marker" as const, marker: n * 2 + (i % 2) },
+					],
+				});
+			}
+			sections.push({ id: `sec-${s + 1}`, title: `Section ${s + 1}`, steps });
+		}
+		const bigGuide: Guide = {
+			v: 1,
+			id: "perf-guide-2000",
+			game: "sunlit-reach",
+			title: "Performance Benchmark Guide",
+			sections,
+			created: 1,
+			updated: 1,
+		};
+
+		const t0 = performance.now();
+		const view = deriveGuideView({
+			guide: bigGuide,
+			found,
+			markerExists: () => "yes",
+		});
+		const elapsedMs = performance.now() - t0;
+		console.log(`[guides] deriveGuideView(2,000 steps, 30,000 found markers): ${elapsedMs.toFixed(2)} ms`);
+
+		expect(view.counts.total).toBe(2000);
+		expect(view.counts.done).toBe(1000);
+		expect(elapsedMs).toBeLessThan(250);
+	}, 30_000);
+});
+
+describe("shared/guide-import: URL parsing and text-to-steps conversion", () => {
+	test("parseMarkerLink and extractMarkerLinksFromText parse #loc, ?loc, and locationIds links", () => {
+		expect(parseMarkerLink("#loc=1001")).toEqual({ markerId: 1001 });
+		expect(parseMarkerLink("?loc=2002&map=underdepths")).toEqual({ markerId: 2002, mapSlug: "underdepths" });
+		expect(parseMarkerLink("https://mapgenie.io/elden-ring/maps/the-lands-between?locationIds=165234")).toEqual({
+			markerId: 165234,
+			mapSlug: "the-lands-between",
+		});
+		expect(parseMarkerLink("https://atlas.verticordia.com/maps/hollow-knight/#loc=42")).toEqual({
+			markerId: 42,
+			mapSlug: "hollow-knight",
+		});
+		expect(parseMarkerLink("javascript:alert(1)")).toBeNull();
+		expect(parseMarkerLink("https://example.com/no-id")).toBeNull();
+
+		const text = "Check [North Shrine](#loc=101) and [South Chest](https://mapgenie.io/g/maps/m?locationIds=202).";
+		expect(extractMarkerLinksFromText(text)).toEqual([101, 202]);
+	}, 30_000);
+
+	test("linesToSteps converts markdown checklists and numbered lists into steps with bound marker targets", () => {
+		const raw = [
+			"- [ ] Speak with the Elder at Dawnvale Camp",
+			"1. Attune the [North Waystone](#loc=1001)",
+			"* [x] Open [West Chest](?locationIds=2001) and [East Chest](#loc=2002)",
+			"   ",
+		].join("\n");
+		const steps = linesToSteps(raw);
+		expect(steps).toEqual([
+			{ id: "step-1", kind: "task", title: "Speak with the Elder at Dawnvale Camp" },
+			{
+				id: "step-2",
+				kind: "task",
+				title: "Attune the North Waystone",
+				targets: [{ kind: "marker", marker: 1001 }],
+			},
+			{
+				id: "step-3",
+				kind: "task",
+				title: "Open West Chest and East Chest",
+				targets: [
+					{ kind: "marker", marker: 2001 },
+					{ kind: "marker", marker: 2002 },
+				],
+			},
+		]);
+	}, 30_000);
 });

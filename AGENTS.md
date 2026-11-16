@@ -43,6 +43,9 @@ src/
 		theme-math.ts       # HSL color conversions and light-theme palette derivation
 		compact-map.ts      # Versioned compact client map payload (data.compact.json + lazy data.details.json) <-> data.json conversion
 		found-log.ts        # Pure per-marker find timestamp analytics: batch detection, sessions, 30-day timeline, and pace
+		guide.ts            # Guide schema constants, total sanitizer/validator (cleanGuide), and immutable editing helpers
+		guide-progress.ts   # Pure derived guide view: variant filtering, step completion, missing-marker fallback, cursor, and tallies
+		guide-import.ts     # Pure marker link parser and text-to-steps conversion helpers
 		escape.ts           # HTML escaping (esc) and number/byte formatting (fmt, fmtEn, formatBytes)
 	client/                 # Browser TypeScript sources (bundled into public/ by scripts/build.ts)
 		map.ts              # Map viewer entrypoint: boot sequence, sync wiring, and top-level DOM events
@@ -123,7 +126,11 @@ public/                     # Static web root served by server/server.ts
 	fonts/                  # Self-hosted Instrument Sans, Instrument Serif, and Red Hat Mono .woff2 files
 	vendor/                 # Vendored browser dependencies (maplibre-gl, marked, perfect-freehand, lucide)
 	maps/                   # Game manifest (maps/index.json) and per-game directories (meta.json, data.json, sprites)
+docs/
+	guides.md               # Guide format specification (v1), worked examples, and LLM conversion instructions
+	guide.schema.json       # JSON Schema Draft 2020-12 for Guide v1 definitions
 tests/
+	fixtures/guides/        # Synthetic guide fixtures for schema, validator, derivation, and sync tests
 	shared.test.ts          # Unit tests for src/shared/*
 	client-pure.test.ts     # Unit tests for client pure functions, map helpers, and sync engine
 	auth.test.ts            # Unit and integration tests for usernames, secret keys, registration, login, password reset, and step-up reauth
@@ -161,7 +168,7 @@ tests/
     - `sendKey` strips only `updated` so camera changes and `foundAt` metadata are still replicated to other devices when no content conflict exists.
 
 3. **Security & Untrusted Data Sanitization**:
-    - Profile imports and synced records can contain arbitrary JSON; always pass profile data through `cleanUserData()` (`src/client/map/profiles.ts`).
+    - Profile imports and synced records can contain arbitrary JSON; always pass profile data through `cleanUserData()` (`src/client/map/profiles.ts`) and guide definitions through `cleanGuide()` (`src/shared/guide.ts`). Never commit third-party guide content to the repository; test fixtures must be synthetic.
     - Because UI rendering uses template strings and `innerHTML`, always escape dynamic text with `esc()` (`src/shared/escape.ts`).
     - Markdown descriptions rendered through `renderMd()` (`src/client/map/markdown.ts`) escape raw HTML tokens and restrict links to `http:`/`https:` or internal `#loc=<id>` references.
     - `server/server.ts` emits a strict `Content-Security-Policy` header on HTML responses using SHA-256 hashes for the inline theme bootstrap scripts in `<head>`. Do not add new inline `<script>` blocks or inline event handlers (`onclick=`, etc.) without updating `collectInlineScriptHashes()` in `server/server.ts`.

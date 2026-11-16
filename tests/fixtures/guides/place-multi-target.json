@@ -1,0 +1,77 @@
+{
+	"v": 1,
+	"id": "cavern-sweep-01",
+	"game": "sunlit-reach",
+	"title": "Echoing Cavern Sweep",
+	"description": "Place-oriented route covering multi-target chambers, shared interior locations, and lore notes.",
+	"author": "Atlas Test Suite",
+	"credits": "Synthetic test fixture for Verticordia Atlas.",
+	"sections": [
+		{
+			"id": "sec-outer-delve",
+			"title": "Outer Delve",
+			"level": "15-20",
+			"notes": "Bring a lantern or fire oil before descending.",
+			"steps": [
+				{
+					"id": "st-cavern-lore",
+					"kind": "info",
+					"title": "Water levels rise and fall with the surface bell",
+					"notes": "Ringing the bronze bell opens the lower sluice gates for ten minutes."
+				},
+				{
+					"id": "st-sluice-caches",
+					"kind": "task",
+					"title": "Clear the three Sluice Gallery caches",
+					"place": "Sluice Gallery",
+					"targets": [
+						{ "kind": "marker", "marker": 2001, "label": "West Alcove Chest" },
+						{ "kind": "marker", "marker": 2002, "label": "Sunken Grate Chest" },
+						{ "kind": "marker", "marker": 2003, "label": "Pillar Ledge Chest", "optional": true }
+					],
+					"reward": "2x Sunstone Shard"
+				},
+				{
+					"id": "st-sluice-lever",
+					"kind": "task",
+					"title": "Pull the counter-weight lever above the aqueduct",
+					"samePlace": true,
+					"consequence": "Drains the lower basin and seals the upper return tunnel.",
+					"links": [
+						{
+							"url": "https://atlas.verticordia.com/docs/example",
+							"label": "Aqueduct puzzle diagram"
+						}
+					]
+				},
+				{
+					"id": "st-basin-explore",
+					"kind": "task",
+					"title": "Sweep the Drained Basin floor",
+					"targets": [
+						{ "kind": "marker", "marker": 2004 },
+						{ "kind": "marker", "marker": 2005 }
+					],
+					"zone": {
+						"map": "underdepths",
+						"region": 42,
+						"polygon": [
+							{ "lng": -10.0, "lat": 5.0 },
+							{ "lng": -9.0, "lat": 5.0 },
+							{ "lng": -9.0, "lat": 6.0 },
+							{ "lng": -10.0, "lat": 6.0 }
+						],
+						"avoid": [
+							{
+								"marker": 2099,
+								"note": "Do not wake the Deep Warden until the bell quest is finished."
+							}
+						]
+					}
+				}
+			]
+		}
+	],
+	"created": 1760000100000,
+	"updated": 1760000200000
+}
