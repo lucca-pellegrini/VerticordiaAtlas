@@ -7,6 +7,7 @@ import { esc } from "../../shared/escape.ts";
 import { packMarker } from "../../shared/share-link.ts";
 import { svgIcon } from "../icons.ts";
 import { applyFoundChange, notifyFoundChange } from "./found.ts";
+import { guideDetailBacklinksHtml } from "./guides.ts";
 import { detailsReady, ensureDetails, invalidateMarkerSource, refreshMap } from "./map-view.ts";
 import { ensureMarked, internalRefs, renderMd } from "./markdown.ts";
 import { scheduleSave } from "./profiles.ts";
@@ -101,6 +102,7 @@ export function select(id: number, { fly = true, push = true, closeSide = true }
 	const l = state.byId.get(id);
 	if (!l) return;
 	if (push) stackPush(id);
+	if (state.guide) state.guide.selectedStepId = null;
 	state.selected = id;
 	refreshMap(); // the card's marker and its links are drawn whatever the filters say
 	if (applicable(l) && state.view.hidden.has(l.cat)) {
@@ -222,6 +224,7 @@ export function dismiss(): void {
 	state.trail = [];
 	state.session = uid();
 	state.selected = null;
+	if (state.guide) state.guide.selectedStepId = null;
 	refreshMap(); // its links are no longer pinned
 	hideDetail();
 	document.body.classList.remove("detail-open");
@@ -284,6 +287,7 @@ function populateDetail(l: any): void {
 		`<div class="d-cat" style="--c:${l.user && cat?.icon ? "#" + cat.icon.slice(3).replace("-t", "") : g ? g.col : "#888"}"><i></i>${esc(cat?.title || "")}</div>` +
 		`<h2 class="d-title">${esc(l.title)}</h2>` +
 		regBreadcrumb +
+		guideDetailBacklinksHtml(l.id) +
 		(l.user ? state.um.detailHtml(l) : "") +
 		`<div class="d-actions">${ok ? `<button class="found-btn${isFound ? " on" : ""}" type="button" aria-pressed="${isFound}">${isFound ? "Found. Tap to undo" : "Mark as found"}</button>` : ""}` +
 		'<button class="share-btn" type="button" aria-label="Share this marker" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="glyph"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.4 10.8l7.2-4.4M8.4 13.2l7.2 4.4"/></g><path class="tick" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>' +
@@ -326,7 +330,10 @@ function populateDetail(l: any): void {
 
 export function renderDetail(): void {
 	const l = state.byId.get(state.selected);
-	if (!l) return closeDetail();
+	if (!l) {
+		if (!state.guide?.selectedStepId) closeDetail();
+		return;
+	}
 	const id = l.id;
 	populateDetail(l);
 	if (!linkIndexBuilt || typeof marked === "undefined" || !detailsReady()) {

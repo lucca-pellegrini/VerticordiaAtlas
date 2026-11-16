@@ -13,6 +13,7 @@ export interface MarkerFilterOptions {
 	hideFound?: boolean;
 	matchingRegions?: Iterable<number> | null;
 	searchIds?: Iterable<number> | null;
+	guideIds?: Iterable<number> | null;
 	pinnedIds?: Iterable<number> | null;
 }
 
@@ -71,6 +72,15 @@ export function buildMarkerFilter(opts: MarkerFilterOptions): MapLibreFilter {
 
 	if (opts.searchIds != null) {
 		const ids = Array.from(opts.searchIds);
+		if (ids.length === 0) {
+			conditions.push(false);
+		} else {
+			conditions.push(["in", ["get", "id"], ["literal", ids]]);
+		}
+	}
+
+	if (opts.guideIds != null) {
+		const ids = Array.from(opts.guideIds);
 		if (ids.length === 0) {
 			conditions.push(false);
 		} else {

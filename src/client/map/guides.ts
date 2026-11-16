@@ -21,10 +21,17 @@ import {
 	MAX_GUIDE_VARIANTS,
 	VARIANT_ID_PATTERN,
 } from "../../shared/guide.ts";
+import { svgIcon } from "../icons.ts";
+import { perf } from "../perf.ts";
 import { dbAll, dbDelete, dbPut } from "./db.ts";
+import { closeDetail, hideDetail, mediaHtml, updateLinks } from "./detail.ts";
 import { applyFoundChange, type FoundChangeRecord, notifyFoundChange, pushCustomUndo } from "./found.ts";
-import { refreshAll } from "./map-view.ts";
+import type { GuideFollowHost } from "./guide-follow.ts";
+import { detailsReady, ensureDetails, mapData, refreshAll, refreshMap, switchMap, themeVar } from "./map-view.ts";
+import { ensureMarked, renderMd } from "./markdown.ts";
 import { chooseConflicts, scheduleSave, uniqueName } from "./profiles.ts";
+import { syncSideClose } from "./search.ts";
+import { closeRowMenu, iconHtml, saveSessionSoon, syncRegionBanners } from "./sidebar.ts";
 import { $, askDialog, state, syncNote, toast } from "./state.ts";
 
 export const guideStoreKey = (game: string, id: string): string => `${game}:${id}`;
@@ -214,6 +221,16 @@ export async function loadGuides(gameId: string = state.entry?.id): Promise<Guid
 		if (pruned) state.profile.guides = pruned;
 		else delete state.profile.guides;
 	}
+	if (typeof document !== "undefined" && loaded.length > 0) {
+		void ensureGuideFollow().then((m) => {
+			const wantGuide = new URLSearchParams(location.search).get("guide");
+			if (wantGuide && loaded.some((g) => g.id === wantGuide)) {
+				m.openGuidePanel(wantGuide, { scrollToCursor: true });
+			} else {
+				m.renderGuidesSidebarSection();
+			}
+		});
+	}
 	return loaded;
 }
 
@@ -238,6 +255,13 @@ export async function reloadGuidesFromStore(gameId: string = state.entry?.id): P
 	const list = [...byId.values()].sort((a, b) => a.created - b.created || a.id.localeCompare(b.id));
 	state.guides = list;
 	state.guidesLoaded = true;
+	if (typeof document !== "undefined" && list.length > 0) {
+		void ensureGuideFollow().then((m) => {
+			m.renderGuidesSidebarSection();
+			if (state.guide?.panelOpen) m.renderGuidePanel();
+			if (state.guide?.selectedStepId) m.renderStepCard();
+		});
+	}
 	return list;
 }
 
@@ -389,6 +413,7 @@ export function setStepDone(
 		notify?: boolean;
 		recordUndo?: boolean;
 		markerExists?: MarkerExistsFn;
+		onUndo?: () => void;
 	},
 ): FoundChangeRecord | null {
 	if (!state.profile) return null;
@@ -423,13 +448,16 @@ export function setStepDone(
 		const rec = applyFoundChange(requiredMarkerIds, done, {
 			nowSec: at,
 			recordUndo: opts?.recordUndo,
-			...(unskipped
+			...(unskipped || opts?.onUndo
 				? {
 						revert: () => {
-							const e = ensureGuideProgressEntry(guideId);
-							if (!e.skipped) e.skipped = [];
-							if (!e.skipped.includes(stepId)) e.skipped.push(stepId);
-							e.updated = Date.now();
+							if (unskipped) {
+								const e = ensureGuideProgressEntry(guideId);
+								if (!e.skipped) e.skipped = [];
+								if (!e.skipped.includes(stepId)) e.skipped.push(stepId);
+								e.updated = Date.now();
+							}
+							opts?.onUndo?.();
 						},
 					}
 				: {}),
@@ -483,6 +511,7 @@ export function setStepDone(
 			}
 			e.updated = Date.now();
 			pruneEmptyGuideEntry(guideId);
+			opts?.onUndo?.();
 		},
 	});
 
@@ -501,7 +530,7 @@ export function setSkipped(
 	guideId: string,
 	stepId: string,
 	skipped: boolean,
-	opts?: { notify?: boolean; recordUndo?: boolean; nowSec?: number },
+	opts?: { notify?: boolean; recordUndo?: boolean; nowSec?: number; onUndo?: () => void },
 ): FoundChangeRecord | null {
 	if (!state.profile) return null;
 	const found = findGuideAndStep(guideId, stepId);
@@ -537,6 +566,7 @@ export function setSkipped(
 			}
 			e.updated = Date.now();
 			pruneEmptyGuideEntry(guideId);
+			opts?.onUndo?.();
 		},
 	});
 
@@ -745,6 +775,7 @@ export async function importGuideFile(file: File): Promise<void> {
 		const text = await file.text();
 		const res = await importGuideText(text);
 		if (res.status === "imported" && res.guide) {
+			await ensureGuideFollow();
 			refreshAll();
 			toast(`Imported guide "${res.guide.title}".`);
 		}
@@ -790,6 +821,7 @@ export function openManageGuidesDialog(): void {
 							`<div style="font-size:0.82em;opacity:0.7">${g.sections.length} section(s) · ${stepCount} step(s)</div>` +
 							`</div>` +
 							`<div style="display:flex;gap:6px;flex-shrink:0">` +
+							`<button type="button" class="chip" data-gact="open" data-gid="${esc(g.id)}">Open</button>` +
 							`<button type="button" class="chip" data-gact="export" data-gid="${esc(g.id)}">Export</button>` +
 							`<button type="button" class="chip" data-gact="rename" data-gid="${esc(g.id)}">Rename</button>` +
 							`<button type="button" class="chip danger" data-gact="delete" data-gid="${esc(g.id)}">Delete</button>` +
@@ -827,7 +859,10 @@ export function openManageGuidesDialog(): void {
 		if (!gid) return;
 		const g = (state.guides as Guide[] | undefined)?.find((x) => x.id === gid);
 		if (!g) return;
-		if (act === "export") {
+		if (act === "open") {
+			if (dlg.open) dlg.close();
+			await openGuideById(gid, { scrollToCursor: true });
+		} else if (act === "export") {
 			downloadGuideJson(g);
 		} else if (act === "rename") {
 			if (dlg.open) dlg.close();
@@ -851,4 +886,161 @@ export function openManageGuidesDialog(): void {
 		if (dlg.open) dlg.close();
 	};
 	if (!dlg.open) dlg.showModal();
+}
+
+/* ---------- Lazy Follow Mode Loader & Facade ---------- */
+
+let followMod: typeof import("./guide-follow.ts") | null = null;
+let followPromise: Promise<typeof import("./guide-follow.ts")> | null = null;
+
+function buildFollowHost(): GuideFollowHost {
+	return {
+		state,
+		mapData,
+		setStepDone,
+		setSkipped,
+		setCursor,
+		setVariant,
+		toggleMarkerFound: (markerId, found) => {
+			const rec = applyFoundChange([markerId], found);
+			if (!rec) return;
+			scheduleSave();
+			refreshAll();
+			notifyFoundChange(rec, () => {
+				scheduleSave();
+				refreshAll();
+			});
+		},
+		renameGuidePrompt: async (guideId) => {
+			const g = (state.guides as Guide[] | undefined)?.find((x) => x.id === guideId);
+			if (!g) return;
+			const name = await askDialog({
+				title: "Rename guide",
+				value: g.title,
+				okLabel: "Rename",
+			});
+			if (name) {
+				await renameGuide(guideId, name);
+				refreshAll();
+			}
+		},
+		deleteGuideWithUndo: async (guideId) => {
+			if (state.guide?.activeId === guideId) {
+				followMod?.closeGuidePanel();
+				state.guide.activeId = null;
+			}
+			await deleteGuide(guideId, { withUndoToast: true });
+			refreshAll();
+		},
+		downloadGuideJson,
+		closeDetail,
+		hideDetail,
+		updateLinks,
+		switchMap,
+		refreshAll,
+		refreshMap,
+		saveSessionSoon,
+		renderMd,
+		ensureMarked,
+		detailsReady,
+		ensureDetails,
+		mediaHtml,
+		iconHtml,
+		svgIcon,
+		syncSideClose,
+		syncRegionBanners,
+		closeRowMenu,
+		themeVar,
+		perf,
+	};
+}
+
+export function ensureGuideFollow(): Promise<typeof import("./guide-follow.ts")> {
+	if (followMod) return Promise.resolve(followMod);
+	if (!followPromise) {
+		const isHttp =
+			typeof document !== "undefined" && typeof location !== "undefined" && location.protocol.startsWith("http");
+		const tsFallback = ["./guide-follow", ".ts"].join("");
+		const spec = isHttp ? new URL("./guide-follow.js", import.meta.url).href : tsFallback;
+		followPromise = import(spec)
+			.then((m: typeof import("./guide-follow.ts")) => {
+				m.initGuideFollow(buildFollowHost());
+				followMod = m;
+				return m;
+			})
+			.catch((err) => {
+				followPromise = null;
+				throw err;
+			});
+	}
+	return followPromise;
+}
+
+export async function openGuideById(
+	guideId: string,
+	opts?: { scrollToCursor?: boolean; selectCursorStep?: boolean },
+): Promise<void> {
+	const m = await ensureGuideFollow();
+	m.openGuidePanel(guideId, opts);
+}
+
+export async function jumpToGuideStep(guideId: string, stepId: string): Promise<void> {
+	const m = await ensureGuideFollow();
+	setCursor(guideId, stepId);
+	m.openGuidePanel(guideId, { scrollToCursor: true });
+	m.openStepCard(guideId, stepId, { fly: true });
+}
+
+export function closeGuidePanelIfOpen(): boolean {
+	if (state.guide?.panelOpen && followMod) {
+		followMod.closeGuidePanel();
+		return true;
+	}
+	return false;
+}
+
+export function closeGuideMenuIfOpen(): void {
+	followMod?.closeGuideRowMenu();
+}
+
+export function stepActiveGuideCursor(delta: 1 | -1): void {
+	if (state.guide?.panelOpen && followMod) {
+		void followMod.stepGuideCursor(delta);
+	}
+}
+
+export function syncGuidesSidebarAndPanel(): void {
+	if (typeof document === "undefined") return;
+	if (!followMod) {
+		if (state.guides?.length > 0) {
+			void ensureGuideFollow().then((m) => m.onGuideFoundOrProgressChanged());
+		} else {
+			const sec = document.getElementById("guides-section");
+			if (sec) sec.hidden = true;
+		}
+		return;
+	}
+	followMod.onGuideFoundOrProgressChanged();
+}
+
+export function prepareGuideFilterBeforeRefresh(): void {
+	followMod?.prepareGuideMapFilterState();
+}
+
+export function syncGuideMapRoute(map: any): void {
+	followMod?.refreshGuideMapLayers(map);
+}
+
+export function guideDetailBacklinksHtml(markerId: number): string {
+	return followMod ? followMod.guideBacklinksHtml(markerId) : "";
+}
+
+export function followedGuideSessionSummary(): {
+	id: string;
+	title: string;
+	done: number;
+	total: number;
+	nextStep: string | null;
+} | null {
+	return followMod ? followMod.getFollowedGuideSummary() : null;
 }

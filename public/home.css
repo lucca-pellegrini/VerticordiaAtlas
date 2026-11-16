@@ -1490,6 +1490,62 @@ html[data-theme="light"] .resume-card {
 .resume-session b {
 	color: var(--ink);
 }
+.resume-guide {
+	display: grid;
+	gap: 4px;
+	margin-top: 12px;
+	padding: 11px 14px;
+	border-radius: 14px;
+	border: 1px solid var(--line-2);
+	background: color-mix(in srgb, var(--accent) 8%, var(--panel-2));
+	color: var(--ink);
+	text-decoration: none;
+	transition:
+		border-color 0.2s,
+		background-color 0.2s;
+}
+.resume-guide:hover,
+.resume-guide:focus-visible {
+	border-color: var(--accent);
+	background: color-mix(in srgb, var(--accent) 14%, var(--panel-2));
+	outline: none;
+}
+.resume-guide-head {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.88rem;
+}
+.resume-guide-head svg {
+	width: 16px;
+	height: 16px;
+	flex: none;
+	fill: none;
+	stroke: var(--accent-soft);
+	stroke-width: 1.9;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+.resume-guide-title {
+	font-weight: 600;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.resume-guide-count {
+	margin-left: auto;
+	flex: none;
+	font-size: 0.78rem;
+	font-variant-numeric: tabular-nums;
+	color: var(--accent-soft);
+}
+.resume-guide-next {
+	font-size: 0.8rem;
+	color: var(--ink-dim);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 .resume-near li {
 	display: grid;
 	grid-template-columns: 1fr auto;

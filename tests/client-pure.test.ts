@@ -49,6 +49,13 @@ import {
 	writeFoundToProfile,
 } from "../src/client/map/found.ts";
 import {
+	computeGuideRouteWindow,
+	computeRemainingMarkerIds,
+	findStepsForMarker,
+	stepHintText,
+	stripMdInline,
+} from "../src/client/map/guide-follow.ts";
+import {
 	cleanProfileGuides,
 	createGuide,
 	deleteGuide,
@@ -125,6 +132,7 @@ import { createMemoryPackStore } from "../src/client/pack-store.ts";
 import { cleanSecretChars, formatSecretKey } from "../src/client/signin.ts";
 import { createSync } from "../src/client/sync.ts";
 import { deriveLightAccentSoft, describePage, normalizePath } from "../src/client/theme.ts";
+import { deriveGuideView } from "../src/shared/guide-progress.ts";
 import { contentKey, sendKey } from "../src/shared/sync-rules.ts";
 
 describe("drawing pure helpers", () => {
@@ -2162,4 +2170,85 @@ describe("guides client store, DB upgrade, progress & undo, and file import/expo
 		},
 		30_000,
 	);
+});
+
+describe("guides follow mode pure helpers & map filter interplay (src/client/map/guide-follow.ts)", () => {
+	test.concurrent("buildMarkerFilter combines guideIds with hideFound, searchIds, and pinnedIds", () => {
+		expect(
+			buildMarkerFilter({
+				guideIds: [101, 102],
+				hideFound: true,
+				pinnedIds: [100],
+			}),
+		).toEqual([
+			"any",
+			["in", ["get", "id"], ["literal", [100]]],
+			["all", ["!=", ["get", "f"], 1], ["in", ["get", "id"], ["literal", [101, 102]]]],
+		]);
+
+		// Empty remaining guide markers hides non-pinned markers
+		expect(buildMarkerFilter({ guideIds: [], pinnedIds: [101] })).toEqual([
+			"any",
+			["in", ["get", "id"], ["literal", [101]]],
+			false,
+		]);
+		expect(buildMarkerFilter({ guideIds: [] })).toBe(false);
+	});
+
+	test.concurrent("computeGuideRouteWindow, computeRemainingMarkerIds, findStepsForMarker, and stepHintText", () => {
+		const guide = JSON.parse(
+			readFileSync(path.join(import.meta.dir, "fixtures", "guides", "place-multi-target.json"), "utf8"),
+		);
+		const view = deriveGuideView({
+			guide,
+			found: new Set([2001, 2002]), // step st-sluice-caches still requires 2003 (Wait: 2003 is optional!) -> st-sluice-caches is DONE!
+			progress: { cursor: "st-sluice-lever" },
+			markerExists: (id) => (id === 2099 ? "no" : "yes"),
+		});
+
+		expect(view.cursor).toBe("st-sluice-lever");
+		// Sluice caches had only 2001 & 2002 required (2003 optional), so it is done -> not in remaining markers
+		const rem = computeRemainingMarkerIds(view);
+		expect(rem.has(2001)).toBe(false);
+		expect(rem.has(2004)).toBe(true);
+		expect(rem.has(2005)).toBe(true);
+
+		// Lookup markers across multiple maps ("underdepths" is the fixture's primary map)
+		const coords: Record<number, { lng: number; lat: number; map: string; title: string }> = {
+			2001: { lng: -12.1, lat: 4.1, map: "underdepths", title: "West Alcove Chest" },
+			2002: { lng: -12.0, lat: 4.2, map: "underdepths", title: "Sunken Grate Chest" },
+			2003: { lng: -11.9, lat: 4.3, map: "underdepths", title: "Pillar Ledge Chest" },
+			2004: { lng: -9.5, lat: 5.5, map: "underdepths", title: "Basin Cache A" },
+			2005: { lng: -9.4, lat: 5.6, map: "other-map", title: "Basin Cache B" },
+			2099: { lng: -9.1, lat: 5.9, map: "underdepths", title: "Deep Warden" },
+		};
+		const lookup = (id: number) => coords[id] ?? null;
+
+		const win = computeGuideRouteWindow(view, "underdepths", lookup, { before: 1, after: 4 });
+		// Cursor is st-sluice-lever (visible index 2): window covers indices 1 (prev: st-sluice-caches) through 6 (next steps)
+		expect(win.pinFeatures.length).toBeGreaterThanOrEqual(4);
+		expect(win.pinFeatures.some((f) => f.properties.role === "prev" && f.properties.done === 1)).toBe(true);
+		// Multi-target line & inter-step lines generated; other-map marker 2005 excluded from underdepths window
+		expect(win.lineFeatures.length).toBeGreaterThan(0);
+		expect(win.windowMarkerIds.has(2001)).toBe(true);
+		expect(win.windowMarkerIds.has(2004)).toBe(true);
+		expect(win.windowMarkerIds.has(2005)).toBe(false);
+
+		const refs = findStepsForMarker(view, 2004);
+		expect(refs).toHaveLength(1);
+		expect(refs[0]!.stepId).toBe("st-basin-explore");
+
+		// Step hint formats place, cross-map indicator, and inline stripped markdown
+		expect(stripMdInline("Check **north** [chest](#loc=2001)!\nSecond line")).toBe(
+			"Check north chest! Second line",
+		);
+		const basinStep = view.stepsById.get("st-basin-explore")!;
+		const hint = stepHintText(
+			basinStep,
+			"underdepths",
+			(slug) => (slug === "other-map" ? "Surface World" : slug),
+			(id) => coords[id]?.map ?? null,
+		);
+		expect(hint).toContain("Map: Surface World");
+	});
 });

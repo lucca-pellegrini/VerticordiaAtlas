@@ -74,6 +74,7 @@ src/
 			profiles.ts     # Profile CRUD, veil transitions, JSON export/import, and data sanitization
 			found.ts        # Single mutation path for state.found/state.foundAt and generic in-memory undo stack
 			guides.ts       # Guide store CRUD, per-guide debounced saves, progress mutators, and guide import/export
+			guide-follow.ts # Lazily loaded guide follow panel, step card, route window, and canvas badge renderer
 			presets.ts      # Category visibility presets, dirty state detection, and per-game migration
 			detail.ts       # Marker detail card, bidirectional link graph, arrowheads, and history stack
 			search.ts       # Tiered location search (current map & all maps) and hover ring preview
@@ -160,7 +161,7 @@ tests/
 1. **Client Bundles Are Build Artifacts**:
     - All `.js` files outside `public/vendor/*.js` are gitignored (`.gitignore`).
     - Edit TypeScript sources in `src/client/` and `src/shared/`, never the generated `.js` bundles in `public/`.
-    - `scripts/build.ts` compiles seven entrypoints (`public/app.js`, `public/home.js`, `public/theme.js`, `public/signin/signin.js`, `public/account/account.js`, `public/legal/legal.js`, and `public/sw.js`) in ~50ms.
+    - `scripts/build.ts` compiles eight entrypoints (`public/app.js`, `public/guide-follow.js`, `public/home.js`, `public/theme.js`, `public/signin/signin.js`, `public/account/account.js`, `public/legal/legal.js`, and `public/sw.js`) in ~50ms.
     - `scripts/build.ts` also verifies that every path in `PRECACHE` (`src/client/sw.ts`) exists on disk in `public/` and injects a content-addressed SHA-256 version string (`__SW_VERSION__`) into `public/sw.js`. When adding or renaming static shell assets in `public/`, update `PRECACHE` in `src/client/sw.ts` and run `bun test`.
 
 2. **Sync Hashing & Conflict Rules (`src/shared/sync-rules.ts`)**:
@@ -180,9 +181,9 @@ tests/
 4. **Testability of Client Modules**:
     - Guard top-level browser DOM side effects (`document`, `window`, `marked`, `matchMedia`) in client modules when they export pure functions or state helpers, so `bun test` can import and test them directly in a non-DOM environment.
 
-5. **Static Precompression & Lazy Vendor Assets**:
+5. **Static Precompression & Lazy Assets**:
     - `scripts/precompress.ts` generates Brotli (`.br`) and gzip (`.gz`) sidecars beside static bundles and assets; `server/server.ts` serves precompressed sidecars directly when supported by the client.
-    - Vendor Markdown parsing (`public/vendor/marked.umd.js`) is lazy-loaded on demand via `ensureMarked()` in `src/client/map/markdown.ts` to keep initial map boot lightweight and out of the critical rendering path.
+    - Vendor Markdown parsing (`public/vendor/marked.umd.js`) is lazy-loaded on demand via `ensureMarked()` in `src/client/map/markdown.ts`, and the guide follow runtime (`public/guide-follow.js`) is lazy-loaded via `ensureGuideFollow()` in `src/client/map/guides.ts` so games without guides pay zero upfront bundle cost.
 
 6. **Test Concurrency & Isolation**:
     - Tests intended to run under `bun test --parallel --concurrent` must isolate filesystem paths (`withTempDir` or `mkdtemp`) and HTTP servers (ephemeral port 0 via `spawnTestServer`).

@@ -315,6 +315,13 @@ export interface SessionSummary {
 	near: { t: string; c: string | null; f: number; n: number }[];
 	recent: { t: string; cat: string; c: string | null; at?: number }[];
 	session?: { found: number; start: number; end: number };
+	guide?: {
+		id: string;
+		title: string;
+		done: number;
+		total: number;
+		nextStep?: string | null;
+	};
 	userMarkers: number;
 	drawings: number;
 	presets: number;

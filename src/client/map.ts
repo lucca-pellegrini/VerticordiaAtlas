@@ -18,7 +18,14 @@ import {
 	shareMarker,
 	toggleFound,
 } from "./map/detail.ts";
-import { importGuideFile, reloadGuidesFromStore } from "./map/guides.ts";
+import {
+	closeGuideMenuIfOpen,
+	closeGuidePanelIfOpen,
+	importGuideFile,
+	jumpToGuideStep,
+	reloadGuidesFromStore,
+	stepActiveGuideCursor,
+} from "./map/guides.ts";
 import {
 	agreeCamera,
 	applyTheme,
@@ -366,10 +373,20 @@ function wire(): void {
 		search.select();
 	});
 	document.addEventListener("keydown", (e) => {
-		// Esc leaves the search, wherever the focus is
-		if (e.key !== "Escape" || !state.search.active || $<HTMLDialogElement>("#dlg")!.open) return;
-		search.value = "";
-		leaveSearch();
+		// [ and ] move to the previous or next step while a guide is open and focus is not in a text field
+		if (
+			!state.guide?.panelOpen ||
+			e.ctrlKey ||
+			e.metaKey ||
+			e.altKey ||
+			(e.key !== "[" && e.key !== "]") ||
+			$<HTMLDialogElement>("#dlg")!.open
+		)
+			return;
+		const typing = (e.target as HTMLElement | null)?.closest?.('input, textarea, select, [contenteditable="true"]');
+		if (typing) return;
+		e.preventDefault();
+		stepActiveGuideCursor(e.key === "]" ? 1 : -1);
 	});
 	results.onclick = (e) => {
 		const target = e.target as HTMLElement;
@@ -437,22 +454,17 @@ function wire(): void {
 	});
 
 	$("#detail-close")!.onclick = closeDetail;
-	document.addEventListener("keydown", (e) => {
-		if (e.key === "Escape") {
-			closeCtx();
-			closeRowMenu();
-			const smm = $("#side-more-menu");
-			if (smm && !smm.hidden) {
-				smm.hidden = true;
-				$("#side-more-btn")?.setAttribute("aria-expanded", "false");
-			}
-		}
+	addEventListener("resize", () => {
+		closeRowMenu();
+		closeGuideMenuIfOpen();
 	});
-	addEventListener("resize", closeRowMenu);
 	document.addEventListener(
 		"scroll",
 		(e) => {
-			if (!(e.target as HTMLElement).closest?.("#row-menu")) closeRowMenu();
+			if (!(e.target as HTMLElement).closest?.("#row-menu, #guide-row-menu")) {
+				closeRowMenu();
+				closeGuideMenuIfOpen();
+			}
 		},
 		true,
 	);
@@ -495,7 +507,12 @@ function wire(): void {
 	);
 	detailBody.addEventListener("click", (e) => {
 		const target = e.target as HTMLElement;
-		if (target.closest(".found-btn")) return toggleFound(state.selected);
+		const jumpGuideBtn = target.closest<HTMLElement>("button[data-jump-guide][data-jump-step]");
+		if (jumpGuideBtn) {
+			void jumpToGuideStep(jumpGuideBtn.dataset.jumpGuide!, jumpGuideBtn.dataset.jumpStep!);
+			return;
+		}
+		if (target.closest(".found-btn:not(.gs-done-btn)")) return toggleFound(state.selected);
 		if (target.closest(".share-btn")) {
 			shareMarker(state.selected, target.closest<HTMLElement>(".share-btn"));
 			return;
@@ -529,21 +546,68 @@ function wire(): void {
 	$("#lightbox")!.onclick = () => {
 		$("#lightbox")!.hidden = true;
 	};
+	// Escape closes one layer at a time, innermost first:
+	// 1. dialog (#dlg) -> 2. menus -> 3. lightbox -> 4. detail / step card -> 5. search -> 6. guide panel
 	document.addEventListener("keydown", (e) => {
-		if (e.key !== "Escape") return;
+		if (e.key !== "Escape" || $<HTMLDialogElement>("#dlg")!.open) return;
+
+		const ctxEl = document.getElementById("ctx-menu");
+		const rowEl = document.getElementById("row-menu");
+		const gRowEl = document.getElementById("guide-row-menu");
+		const smm = $("#side-more-menu");
+		const hasOpenMenu =
+			(ctxEl && !ctxEl.hidden) ||
+			(rowEl && !rowEl.hidden) ||
+			(gRowEl && !gRowEl.hidden) ||
+			(smm && !smm.hidden) ||
+			!menu.hidden ||
+			!presetMenu.hidden;
+		if (hasOpenMenu) {
+			closeCtx();
+			closeRowMenu();
+			closeGuideMenuIfOpen();
+			menu.hidden = true;
+			presetMenu.hidden = true;
+			if (smm && !smm.hidden) {
+				smm.hidden = true;
+				$("#side-more-btn")?.setAttribute("aria-expanded", "false");
+			}
+			return;
+		}
+
 		const lb = $("#lightbox")!;
-		if (!lb.hidden) lb.hidden = true;
-		else if (!$<HTMLDialogElement>("#dlg")!.open && state.selected != null && document.activeElement !== search)
+		if (!lb.hidden) {
+			lb.hidden = true;
+			return;
+		}
+
+		if ((state.selected != null || state.guide?.selectedStepId != null) && document.activeElement !== search) {
 			closeDetail();
+			return;
+		}
+
+		if (state.search.active) {
+			search.value = "";
+			leaveSearch();
+			return;
+		}
+
+		if (state.guide?.panelOpen) {
+			closeGuidePanelIfOpen();
+		}
 	});
 
 	$("#side-toggle")!.onclick = () => document.body.classList.add("side-open");
-	// the list's close button: it closes the panel, or while searching it closes the search (see syncSideClose)
+	// the list's close button: it closes the panel, or while searching/guiding it closes the search or guide
 	$("#side-close")!.onclick = () => {
 		if (state.search.active) {
 			$<HTMLInputElement>("#search")!.value = "";
 			leaveSearch();
-		} else document.body.classList.remove("side-open");
+		} else if (state.guide?.panelOpen) {
+			closeGuidePanelIfOpen();
+		} else {
+			document.body.classList.remove("side-open");
+		}
 	};
 	$("#side-collapse")!.onclick = () => setSideCollapsed(!document.body.classList.contains("side-collapsed"));
 
