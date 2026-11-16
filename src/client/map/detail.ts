@@ -7,7 +7,7 @@ import { esc } from "../../shared/escape.ts";
 import { packMarker } from "../../shared/share-link.ts";
 import { svgIcon } from "../icons.ts";
 import { applyFoundChange, notifyFoundChange } from "./found.ts";
-import { guideDetailBacklinksHtml } from "./guides.ts";
+import { addFreeWaypointToGuide, addMarkerToGuide, guideDetailBacklinksHtml, isGuideEditorOpen } from "./guides.ts";
 import { detailsReady, ensureDetails, invalidateMarkerSource, refreshMap } from "./map-view.ts";
 import { ensureMarked, internalRefs, renderMd } from "./markdown.ts";
 import { scheduleSave } from "./profiles.ts";
@@ -488,14 +488,15 @@ export async function shareLocation(pos: { lat: number; lng: number }): Promise<
 
 function spotMenu(ll: { lat: number; lng: number }, x: number, y: number): void {
 	const pos = { lat: ll.lat, lng: ll.lng };
-	openCtx(x, y, {
-		items: [
-			{ icon: "pin", label: "Add marker here", fn: () => state.um.placeAt(pos, false) },
-			{ icon: "tempPin", label: "Add temporary marker here", fn: () => state.um.placeAt(pos, true) },
-			{ sep: true },
-			{ icon: "share", label: "Share this location", fn: () => shareLocation(pos) },
-		],
-	});
+	const items: CtxMenuItem[] = [
+		{ icon: "pin", label: "Add marker here", fn: () => state.um.placeAt(pos, false) },
+		{ icon: "tempPin", label: "Add temporary marker here", fn: () => state.um.placeAt(pos, true) },
+	];
+	if (isGuideEditorOpen()) {
+		items.push({ sep: true }, { icon: "plus", label: "Add step here", fn: () => void addFreeWaypointToGuide(pos) });
+	}
+	items.push({ sep: true }, { icon: "share", label: "Share this location", fn: () => shareLocation(pos) });
+	openCtx(x, y, { items });
 }
 
 function markerMenu(l: any, x: number, y: number): void {
@@ -509,6 +510,9 @@ function markerMenu(l: any, x: number, y: number): void {
 		{ icon: "share", label: "Share", fn: () => shareMarker(l.id, null) },
 		{ icon: "card", label: "Open card", fn: () => select(l.id, { fly: false }) },
 	];
+	if (isGuideEditorOpen()) {
+		items.push({ icon: "plus", label: "Add to guide", fn: () => void addMarkerToGuide(l) });
+	}
 	if (l.user) {
 		items.push({ sep: true });
 		if (l.temp)

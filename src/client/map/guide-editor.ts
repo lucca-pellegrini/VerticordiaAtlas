@@ -347,6 +347,8 @@ export function setAddStepsActive(on: boolean): void {
 		renderAddStepsBanner();
 		if (addStepsActive && window.innerWidth <= 760) {
 			document.body.classList.remove("side-open");
+		} else if (!addStepsActive && mode === "edit" && window.innerWidth <= 760) {
+			document.body.classList.add("side-open");
 		}
 	}
 }
@@ -2054,16 +2056,110 @@ function renderAddStepsBanner(): void {
 	banner.querySelector<HTMLButtonElement>("[data-gab-done]")!.onclick = () => setAddStepsActive(false);
 }
 
-export function onAddStepsMarkerTap(_markerId: number, _x?: number, _y?: number): void {
-	// Wired in Slice 3
+function buildTargetForLoc(loc: any): GuideTarget {
+	if (loc.user) {
+		return userMarkerToPointTarget(loc, host?.state.mapInfo?.slug);
+	}
+	const catTitle = loc.cat != null ? host?.state.cats?.get(loc.cat)?.title : undefined;
+	return officialMarkerToTarget(loc, catTitle, host?.state.mapInfo?.slug);
 }
 
-export function addFreeWaypointAt(_pos: { lat: number; lng: number }): void {
-	// Wired in Slice 3
+async function appendStepWithTarget(title: string, target: GuideTarget, kind: StepKind = "task"): Promise<void> {
+	const g = currentGuide();
+	if (!g) return;
+	const secId = currentSectionIdForInsert(g);
+	const insertAt = nextInsertionIndexInSection(g, secId);
+	const newId = makeStepId(g);
+	collapsedSections.delete(secId);
+	await applyEdit(
+		(gr) =>
+			insertStep(
+				gr,
+				secId,
+				{
+					id: newId,
+					kind,
+					title: title.slice(0, MAX_STEP_TITLE) || "Step",
+					targets: [target],
+				},
+				insertAt,
+			),
+		{ selectStepId: newId, openStepCard: !addStepsActive },
+	);
+	host?.toast(`Added step "${title.slice(0, MAX_STEP_TITLE)}"`);
 }
 
-export function addMarkerTargetPromptOrStep(_loc: any): void {
-	// Wired in Slice 3
+async function addTargetToCurrentStep(stepId: string, curTitle: string, target: GuideTarget): Promise<void> {
+	await applyEdit(
+		(g) => {
+			const f = findStepInGuide(g, stepId);
+			if (!f) return g;
+			const nextStep = addTargetToStepTargets(f.step, target);
+			return updateStep(g, stepId, { targets: nextStep.targets });
+		},
+		{ selectStepId: stepId, openStepCard: !addStepsActive },
+	);
+	host?.toast(`Added target to "${curTitle}"`);
+}
+
+function promptChoiceOrCreateStep(loc: any, x?: number, y?: number): void {
+	if (!host || mode !== "edit") return;
+	const g = currentGuide();
+	if (!g) return;
+	const target = buildTargetForLoc(loc);
+	const title = String(loc.title || "Step").trim() || "Step";
+	const curFound = selectedStepId ? findStepInGuide(g, selectedStepId) : null;
+
+	if (!curFound) {
+		void appendStepWithTarget(title, target, "task");
+		return;
+	}
+
+	const cx = typeof x === "number" && Number.isFinite(x) ? x : Math.round(window.innerWidth / 2);
+	const cy = typeof y === "number" && Number.isFinite(y) ? y : Math.round(window.innerHeight / 2);
+	host.openCtx(cx, cy, {
+		title,
+		items: [
+			{
+				icon: "plus",
+				label: "New step",
+				fn: () => void appendStepWithTarget(title, target, "task"),
+			},
+			{
+				icon: "pin",
+				label: `Add to current step (${curFound.step.title.slice(0, 28)})`,
+				fn: () => void addTargetToCurrentStep(curFound.step.id, curFound.step.title, target),
+			},
+		],
+	});
+}
+
+export function onAddStepsMarkerTap(markerId: number, x?: number, y?: number): void {
+	if (!host || mode !== "edit" || !addStepsActive) return;
+	const loc = host.state.byId?.get(markerId);
+	if (!loc) return;
+	promptChoiceOrCreateStep(loc, x, y);
+}
+
+export async function addFreeWaypointAt(pos: { lat: number; lng: number }): Promise<void> {
+	if (!host || mode !== "edit") return;
+	const title = await host.askDialog({
+		title: "New waypoint step",
+		value: "Waypoint",
+		okLabel: "Add step",
+	});
+	if (!title) return;
+	const target: GuideTarget = {
+		kind: "point",
+		point: { lat: pos.lat, lng: pos.lng, map: host.state.mapInfo?.slug || "default" },
+		label: title.slice(0, MAX_TARGET_LABEL),
+	};
+	await appendStepWithTarget(title, target, "waypoint");
+}
+
+export function addMarkerTargetPromptOrStep(loc: any): void {
+	if (!host || mode !== "edit" || !loc) return;
+	promptChoiceOrCreateStep(loc);
 }
 
 export function createMultiTargetStepFromMarkers(_markers: any[], _titleSuggestion: string): void {
