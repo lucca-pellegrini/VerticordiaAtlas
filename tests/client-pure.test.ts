@@ -49,6 +49,14 @@ import {
 	writeFoundToProfile,
 } from "../src/client/map/found.ts";
 import {
+	addTargetToStepTargets,
+	computeMoveStepIndex,
+	GuideEditHistory,
+	officialMarkerToTarget,
+	userMarkerToPointTarget,
+	validateRawGuideJson,
+} from "../src/client/map/guide-editor.ts";
+import {
 	computeGuideRouteWindow,
 	computeRemainingMarkerIds,
 	findStepsForMarker,
@@ -61,10 +69,16 @@ import {
 	deleteGuide,
 	flushGuideSaves,
 	importGuideText,
+	isGuideSyncKeyUnsaved,
 	loadGuides,
+	onGuideRemoteConflictPending,
+	reloadGuidesFromStore,
 	renameGuide,
+	saveGuideNow,
 	serializeGuide,
 	setCursor,
+	setGuideConflictFlush,
+	setLocalGuideConflictHandler,
 	setSkipped,
 	setStepDone,
 	setVariant,
@@ -2251,4 +2265,286 @@ describe("guides follow mode pure helpers & map filter interplay (src/client/map
 		);
 		expect(hint).toContain("Map: Surface World");
 	});
+});
+
+describe("guide editor core helpers, undo history, and remote edit conflict handling (M4)", () => {
+	test.concurrent("userMarkerToPointTarget copies position and title into point snapshot without user id", () => {
+		const target = userMarkerToPointTarget({ title: "Secret Chest\nNote", lat: 12.5, lng: -4.25 }, "overworld");
+		expect(target).toEqual({
+			kind: "point",
+			point: { lat: 12.5, lng: -4.25, map: "overworld" },
+			label: "Secret Chest Note",
+		});
+		expect((target as any).marker).toBeUndefined();
+
+		const offTarget = officialMarkerToTarget(
+			{ id: 5001, title: "Shrine", lat: 1, lng: 2, map: "overworld" },
+			"Shrines",
+		);
+		expect(offTarget).toEqual({
+			kind: "marker",
+			marker: 5001,
+			snapshot: { title: "Shrine", cat: "Shrines", lat: 1, lng: 2, map: "overworld" },
+		});
+
+		const step = { id: "st-1", kind: "task" as const, title: "Step 1" };
+		const withOne = addTargetToStepTargets(step, offTarget);
+		expect(withOne.targets).toHaveLength(1);
+		// Duplicate official marker is ignored
+		expect(addTargetToStepTargets(withOne, offTarget).targets).toHaveLength(1);
+		// Point target appends cleanly
+		expect(addTargetToStepTargets(withOne, target).targets).toHaveLength(2);
+	});
+
+	test.concurrent("GuideEditHistory tracks undo/redo with coalescing independently of found undo", () => {
+		const fx = JSON.parse(
+			readFileSync(path.join(import.meta.dir, "fixtures", "guides", "flat-checklist.json"), "utf8"),
+		);
+		const hist = new GuideEditHistory(20);
+		const g1 = { ...structuredClone(fx), title: "Edit A" };
+		const g2 = { ...structuredClone(fx), title: "Edit B" };
+		const g3 = { ...structuredClone(fx), title: "Structural Edit" };
+
+		hist.record({ guide: fx, selectedStepId: "st-talk-elder" }, "title", 1000);
+		// Coalesces within 1200ms on same key
+		hist.record({ guide: g1, selectedStepId: "st-talk-elder" }, "title", 1500);
+		expect(hist.canUndo()).toBe(true);
+		// Distinct action pushes new entry
+		hist.record({ guide: g2, selectedStepId: "st-waystone-1" }, "add-step", 1600);
+
+		const u1 = hist.undo({ guide: g3, selectedStepId: "st-waystone-1" });
+		expect(u1?.guide.title).toBe("Edit B");
+		expect(hist.canRedo()).toBe(true);
+
+		const u2 = hist.undo(u1!);
+		expect(u2?.guide.title).toBe("Starter Valley Checklist");
+		expect(hist.canUndo()).toBe(false);
+
+		const r1 = hist.redo(u2!);
+		expect(r1?.guide.title).toBe("Edit B");
+	});
+
+	test.concurrent("computeMoveStepIndex and 600-step reorder round-trip through cleanGuide cleanly", async () => {
+		const { cleanGuide, moveStep } = await import("../src/shared/guide.ts");
+		expect(computeMoveStepIndex("sec-1", 0, "sec-1", 2, false)).toBe(1);
+		expect(computeMoveStepIndex("sec-1", 0, "sec-1", 2, true)).toBe(2);
+		expect(computeMoveStepIndex("sec-1", 4, "sec-1", 1, false)).toBe(1);
+		expect(computeMoveStepIndex("sec-1", 4, "sec-1", 1, true)).toBe(2);
+		expect(computeMoveStepIndex("sec-1", 0, "sec-2", 3, false)).toBe(3);
+		expect(computeMoveStepIndex("sec-1", 0, "sec-2", 3, true)).toBe(4);
+
+		const stepsA = Array.from({ length: 300 }, (_, i) => ({
+			id: `st-a-${i}`,
+			kind: "task" as const,
+			title: `Step A ${i}`,
+		}));
+		const stepsB = Array.from({ length: 300 }, (_, i) => ({
+			id: `st-b-${i}`,
+			kind: "task" as const,
+			title: `Step B ${i}`,
+		}));
+		const big = {
+			v: 1 as const,
+			id: "big-600",
+			game: "sunlit-reach",
+			title: "600-Step Guide",
+			sections: [
+				{ id: "sec-1", title: "Part 1", steps: stepsA },
+				{ id: "sec-2", title: "Part 2", steps: stepsB },
+			],
+			created: 1000,
+			updated: 1000,
+		};
+
+		const t0 = performance.now();
+		// Move step 0 downward within sec-1, then across into sec-2
+		const afterSame = moveStep(big, "st-a-0", "sec-1", computeMoveStepIndex("sec-1", 0, "sec-1", 2, true));
+		expect(afterSame.sections[0]!.steps[2]!.id).toBe("st-a-0");
+		const afterCross = moveStep(afterSame, "st-a-0", "sec-2", 0);
+		expect(afterCross.sections[0]!.steps).toHaveLength(299);
+		expect(afterCross.sections[1]!.steps[0]!.id).toBe("st-a-0");
+		const { guide, issues } = cleanGuide(afterCross);
+		const elapsed = performance.now() - t0;
+		expect(issues).toEqual([]);
+		expect(guide?.sections[1]!.steps[0]!.id).toBe("st-a-0");
+		expect(elapsed).toBeLessThan(150);
+	});
+
+	test.concurrent("validateRawGuideJson validates syntax, normalizes issues, and rebinds game/id cleanly", () => {
+		const fx = JSON.parse(
+			readFileSync(path.join(import.meta.dir, "fixtures", "guides", "flat-checklist.json"), "utf8"),
+		);
+		expect(validateRawGuideJson("{bad json", "sunlit-reach", "g-1").error).toBeTruthy();
+		expect(validateRawGuideJson("[]", "sunlit-reach", "g-1").error).toContain("object");
+
+		const rebound = validateRawGuideJson(
+			JSON.stringify({ ...fx, game: "other-game", id: "foreign-id", unexpectedKey: 123 }),
+			"sunlit-reach",
+			"local-id",
+		);
+		expect(rebound.error).toBeNull();
+		expect(rebound.guide?.game).toBe("sunlit-reach");
+		expect(rebound.guide?.id).toBe("local-id");
+		expect(rebound.issues.some((i) => i.path === "game")).toBe(true);
+		expect(rebound.issues.some((i) => i.path === "unexpectedKey")).toBe(true);
+	});
+
+	test.serial(
+		"remote edit while editor is clean reloads quietly; remote edit while unsaved keeps local edits, notifies, and routes conflict on save",
+		async () => {
+			state.memoryOnly = true;
+			_resetDBForTest();
+			state.entry = { id: "sunlit-reach", slug: "sunlit-reach", title: "Sunlit Reach" };
+			state.guides = [];
+			state.guidesLoaded = true;
+			state.profile = {
+				key: "sunlit-reach:p1",
+				id: "p1",
+				game: "sunlit-reach",
+				name: "Default",
+				found: [],
+				created: 1000,
+				updated: 1000,
+			};
+
+			// Create initial guide cleanly
+			const base = await createGuide({
+				id: "g-remote-test",
+				title: "Shared Route",
+				sections: [
+					{ id: "sec-1", title: "Section 1", steps: [{ id: "st-1", kind: "task", title: "Initial step" }] },
+				],
+			});
+			await flushGuideSaves();
+			expect(isGuideSyncKeyUnsaved("guide:sunlit-reach:g-remote-test")).toBe(false);
+
+			// Case 1: Clean guide in memory -> remote write into store reloads quietly
+			const remoteClean = {
+				...structuredClone(base),
+				title: "Remote Clean Title",
+				updated: base.updated + 5000,
+			};
+			await dbPut("guides", { ...remoteClean, key: "sunlit-reach:g-remote-test" });
+			const reloadedClean = await reloadGuidesFromStore("sunlit-reach");
+			expect(reloadedClean[0]!.title).toBe("Remote Clean Title");
+			expect(state.guides[0].title).toBe("Remote Clean Title");
+
+			// Case 2: Unsaved local edit via scheduleGuideSave -> remote pull in sync.ts keeps local edits & defers conflict until user saves
+			let serverGuide = {
+				...structuredClone(remoteClean),
+				title: "Server Concurrent Edit",
+				updated: remoteClean.updated + 9000,
+			};
+			let serverRev = 20;
+			const deferredNotices: string[] = [];
+			const immediateConflicts: string[] = [];
+			const api = async (method: string, route: string, body?: any) => {
+				if (method === "GET" && route.startsWith("sync")) {
+					return {
+						items: [{ key: "guide:sunlit-reach:g-remote-test", value: serverGuide, updated_at: serverRev }],
+					};
+				}
+				if (method === "POST" && route === "sync") {
+					return {
+						results: (body?.items || []).map((it: any) => ({
+							key: it.key,
+							status: "ok",
+							updated_at: ++serverRev,
+						})),
+					};
+				}
+				return {};
+			};
+			const { createSync } = await import("../src/client/sync.ts");
+			const origNav = (globalThis as any).navigator;
+			const origAdd = (globalThis as any).addEventListener;
+			const origDoc = (globalThis as any).document;
+			(globalThis as any).navigator = { onLine: true };
+			(globalThis as any).addEventListener = () => {};
+			(globalThis as any).document = { addEventListener: () => {}, visibilityState: "visible" };
+
+			const sync = createSync({
+				store: {
+					profiles: async () => [],
+					putProfile: async () => {},
+					deleteProfile: async () => {},
+					metaEntries: async () => [],
+					getMeta: async () => null,
+					putMeta: async () => {},
+					removeMeta: async () => {},
+					isEmpty: () => true,
+					guides: async () => dbAll("guides"),
+					putGuide: async (g) => dbPut("guides", g),
+					deleteGuide: async (k) => dbDelete("guides", k),
+					isUnsaved: isGuideSyncKeyUnsaved,
+				},
+				api,
+				ui: {
+					status: () => {},
+					conflicts: (list) => {
+						immediateConflicts.push(...list.map((c) => c.key));
+					},
+					deferredConflict: (list) => {
+						for (const c of list) {
+							deferredNotices.push(c.key);
+							onGuideRemoteConflictPending(c.key);
+						}
+					},
+					remoteChanged: async () => {},
+					signedOut: () => {},
+				},
+			});
+			setGuideConflictFlush(() => sync.flushDeferredConflicts());
+
+			try {
+				// First make local edit with debounced autosave pending (not yet flushed to DB)
+				await updateGuide("g-remote-test", (g) => ({ ...g, title: "My Unsaved Local Edit" }));
+				expect(isGuideSyncKeyUnsaved("guide:sunlit-reach:g-remote-test")).toBe(true);
+
+				// Sync runs pull(): sees unsaved local edits -> must NOT overwrite DB/state, must NOT open blocking conflict modal immediately
+				sync.start();
+				await new Promise((r) => setTimeout(r, 80));
+				expect(deferredNotices).toContain("guide:sunlit-reach:g-remote-test");
+				expect(immediateConflicts).toEqual([]);
+				expect(state.guides[0].title).toBe("My Unsaved Local Edit");
+
+				// Now user explicitly saves: local edits persist to DB, pending conflict routes into existing conflict flow
+				await saveGuideNow("g-remote-test");
+				expect(immediateConflicts).toContain("guide:sunlit-reach:g-remote-test");
+
+				// User resolves keeping local edits
+				await sync.resolveConflicts("local");
+				expect(state.guides[0].title).toBe("My Unsaved Local Edit");
+			} finally {
+				sync.stop();
+				setGuideConflictFlush(null);
+				(globalThis as any).navigator = origNav;
+				(globalThis as any).addEventListener = origAdd;
+				(globalThis as any).document = origDoc;
+			}
+
+			// Case 3: Standalone multi-tab / store reload while unsaved -> keeps local edits and prompts on save
+			await updateGuide("g-remote-test", (g) => ({ ...g, title: "Unsaved Tab Local" }));
+			await dbPut("guides", {
+				...structuredClone(base),
+				title: "Other Tab Remote Write",
+				key: "sunlit-reach:g-remote-test",
+			});
+			await reloadGuidesFromStore("sunlit-reach");
+			expect(state.guides[0].title).toBe("Unsaved Tab Local");
+
+			let handlerCalled = false;
+			setLocalGuideConflictHandler(async (_id, local, remote) => {
+				handlerCalled = true;
+				expect(local.title).toBe("Unsaved Tab Local");
+				expect(remote?.title).toBe("Other Tab Remote Write");
+				return "server";
+			});
+			await saveGuideNow("g-remote-test");
+			expect(handlerCalled).toBe(true);
+			expect(state.guides[0].title).toBe("Other Tab Remote Write");
+			setLocalGuideConflictHandler(null);
+		},
+		30_000,
+	);
 });

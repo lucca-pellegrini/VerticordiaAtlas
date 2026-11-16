@@ -24,8 +24,9 @@ import {
 import { svgIcon } from "../icons.ts";
 import { perf } from "../perf.ts";
 import { dbAll, dbDelete, dbPut } from "./db.ts";
-import { closeDetail, hideDetail, mediaHtml, updateLinks } from "./detail.ts";
+import { closeCtx, closeDetail, hideDetail, mediaHtml, openCtx, updateLinks } from "./detail.ts";
 import { applyFoundChange, type FoundChangeRecord, notifyFoundChange, pushCustomUndo } from "./found.ts";
+import type { GuideEditorHost } from "./guide-editor.ts";
 import type { GuideFollowHost } from "./guide-follow.ts";
 import { detailsReady, ensureDetails, mapData, refreshAll, refreshMap, switchMap, themeVar } from "./map-view.ts";
 import { ensureMarked, renderMd } from "./markdown.ts";
@@ -156,20 +157,107 @@ export function cleanProfileGuides(
 /* ---------- Client Guide Store & Per-Guide Debounced Persistence ---------- */
 
 const guideSaveTimers = new Map<string, ReturnType<typeof setTimeout>>();
+const deferredRemoteConflictGuides = new Set<string>();
+const pendingLocalConflictRemotes = new Map<string, Guide | null>();
+let flushSyncConflictsHook: (() => void) | null = null;
+let localConflictHandlerHook: ((id: string, local: Guide, remote: Guide | null) => Promise<"local" | "server">) | null =
+	null;
+
+export function setGuideConflictFlush(fn: (() => void) | null): void {
+	flushSyncConflictsHook = fn;
+}
+
+export function setLocalGuideConflictHandler(
+	fn: ((id: string, local: Guide, remote: Guide | null) => Promise<"local" | "server">) | null,
+): void {
+	localConflictHandlerHook = fn;
+}
 
 export function isGuideSavePending(id?: string): boolean {
 	if (id !== undefined) return guideSaveTimers.has(id);
 	return guideSaveTimers.size > 0;
 }
 
+export function hasUnsavedGuideChanges(id: string): boolean {
+	return (
+		isGuideSavePending(id) ||
+		deferredRemoteConflictGuides.has(id) ||
+		pendingLocalConflictRemotes.has(id) ||
+		Boolean(editorMod?.hasUnsavedChanges(id))
+	);
+}
+
+export function isGuideSyncKeyUnsaved(key: string): boolean {
+	if (!key.startsWith("guide:")) return false;
+	const parts = key.split(":");
+	const game = parts[1];
+	const id = parts[2];
+	if (!id || (state.entry?.id && game !== state.entry.id)) return false;
+	return hasUnsavedGuideChanges(id);
+}
+
+export function onGuideRemoteConflictPending(key: string): void {
+	if (!key.startsWith("guide:")) return;
+	const parts = key.split(":");
+	const id = parts[2];
+	if (!id) return;
+	deferredRemoteConflictGuides.add(id);
+	// Pause automatic background flush so typing isn't interrupted by a modal until user saves explicitly
+	const t = guideSaveTimers.get(id);
+	if (t) {
+		clearTimeout(t);
+		guideSaveTimers.delete(id);
+	}
+	editorMod?.onRemoteConflictNotice(id);
+}
+
+export function clearPendingGuideConflictState(id?: string): void {
+	if (id !== undefined) {
+		deferredRemoteConflictGuides.delete(id);
+		pendingLocalConflictRemotes.delete(id);
+	} else {
+		deferredRemoteConflictGuides.clear();
+		pendingLocalConflictRemotes.clear();
+	}
+}
+
 export function scheduleGuideSave(id: string, delayMs = 200): void {
 	const prev = guideSaveTimers.get(id);
 	if (prev) clearTimeout(prev);
+	if (deferredRemoteConflictGuides.has(id) || pendingLocalConflictRemotes.has(id)) {
+		editorMod?.onSaveStatusChange(id, "unsaved");
+		return;
+	}
+	editorMod?.onSaveStatusChange(id, "saving");
 	const timer = setTimeout(() => {
 		guideSaveTimers.delete(id);
 		void saveGuideNow(id);
 	}, delayMs);
 	guideSaveTimers.set(id, timer);
+}
+
+async function promptLocalRemoteConflict(id: string, local: Guide, remote: Guide | null): Promise<"local" | "server"> {
+	if (localConflictHandlerHook) return localConflictHandlerHook(id, local, remote);
+	if (typeof document === "undefined") return "local";
+	const dlg = $<HTMLDialogElement>("#dlg");
+	const form = $<HTMLFormElement>("#dlg-form");
+	if (!dlg || !form || dlg.open) return "local";
+	return new Promise((resolve) => {
+		form.innerHTML =
+			`<h2>Your changes and the remote guide disagree</h2>` +
+			`<p>A newer version of "${esc(local.title)}" arrived while you had unsaved changes. Which version do you want to keep?</p>` +
+			`<div class="dlg-actions"><button type="button" data-keep="local">Overwrite with my edits</button>` +
+			`<button type="button" class="primary" data-keep="server">Use remote version</button></div>`;
+		const done = (choice: "local" | "server") => {
+			if (dlg.open) dlg.close();
+			resolve(choice);
+		};
+		form.onsubmit = (e) => e.preventDefault();
+		form.querySelector<HTMLButtonElement>('[data-keep="local"]')!.onclick = () => done("local");
+		form.querySelector<HTMLButtonElement>('[data-keep="server"]')!.onclick = () => done("server");
+		dlg.oncancel = () => resolve("local");
+		dlg.showModal();
+	});
 }
 
 export async function saveGuideNow(id: string): Promise<void> {
@@ -180,12 +268,39 @@ export async function saveGuideNow(id: string): Promise<void> {
 	}
 	const g = (state.guides as Guide[] | undefined)?.find((x) => x.id === id);
 	if (!g) return;
+
+	if (pendingLocalConflictRemotes.has(id) && !deferredRemoteConflictGuides.has(id)) {
+		const remote = pendingLocalConflictRemotes.get(id) ?? null;
+		const choice = await promptLocalRemoteConflict(id, g, remote);
+		pendingLocalConflictRemotes.delete(id);
+		if (choice === "server") {
+			if (remote) {
+				const idx = (state.guides as Guide[]).findIndex((x) => x.id === id);
+				if (idx >= 0) state.guides[idx] = remote;
+				editorMod?.onRemoteReload(id, remote);
+				if (typeof document !== "undefined") refreshAll();
+			} else {
+				const idx = (state.guides as Guide[]).findIndex((x) => x.id === id);
+				if (idx >= 0) state.guides.splice(idx, 1);
+				editorMod?.onRemoteReload(id, null);
+				if (typeof document !== "undefined") refreshAll();
+			}
+			return;
+		}
+	}
+
+	const hadDeferredSyncConflict = deferredRemoteConflictGuides.has(id);
+	deferredRemoteConflictGuides.delete(id);
+	editorMod?.markGuideSaved(id, g);
 	const key = guideStoreKey(g.game, g.id);
 	try {
 		await dbPut("guides", { ...structuredClone(g), key });
 		syncNote([guideSyncKey(g.game, g.id)]);
+		if (hadDeferredSyncConflict) flushSyncConflictsHook?.();
+		editorMod?.onSaveStatusChange(id, "saved");
 	} catch (e) {
 		console.error(e);
+		editorMod?.onSaveStatusChange(id, "error");
 		toast("Could not save guide in this browser.");
 	}
 }
@@ -237,9 +352,10 @@ export async function loadGuides(gameId: string = state.entry?.id): Promise<Guid
 export async function reloadGuidesFromStore(gameId: string = state.entry?.id): Promise<Guide[]> {
 	if (!gameId) return [];
 	const unsaved = new Map<string, Guide>();
-	for (const id of guideSaveTimers.keys()) {
-		const cur = (state.guides as Guide[] | undefined)?.find((g) => g.id === id);
-		if (cur) unsaved.set(id, cur);
+	for (const g of (state.guides as Guide[] | undefined) || []) {
+		if (hasUnsavedGuideChanges(g.id)) {
+			unsaved.set(g.id, g);
+		}
 	}
 	const rows = await dbAll("guides");
 	const byId = new Map<string, Guide>();
@@ -249,12 +365,27 @@ export async function reloadGuidesFromStore(gameId: string = state.entry?.id): P
 		const { guide } = cleanGuide(rest);
 		if (guide && guide.game === gameId) byId.set(guide.id, guide);
 	}
-	for (const [id, g] of unsaved) {
-		byId.set(id, g);
+	for (const [id, localGuide] of unsaved) {
+		const remoteGuide = byId.get(id) ?? null;
+		if (JSON.stringify(remoteGuide) !== JSON.stringify(localGuide)) {
+			pendingLocalConflictRemotes.set(id, remoteGuide);
+			const t = guideSaveTimers.get(id);
+			if (t) {
+				clearTimeout(t);
+				guideSaveTimers.delete(id);
+			}
+			editorMod?.onRemoteConflictNotice(id);
+			toast(`Remote update arrived for "${localGuide.title}". Your edits were kept; save to resolve.`, 5000);
+		}
+		byId.set(id, localGuide);
 	}
 	const list = [...byId.values()].sort((a, b) => a.created - b.created || a.id.localeCompare(b.id));
 	state.guides = list;
 	state.guidesLoaded = true;
+	const editingId = editorMod?.getEditingGuideId() ?? null;
+	if (editingId && !unsaved.has(editingId)) {
+		editorMod?.onRemoteReload(editingId, byId.get(editingId) ?? null);
+	}
 	if (typeof document !== "undefined" && list.length > 0) {
 		void ensureGuideFollow().then((m) => {
 			m.renderGuidesSidebarSection();
@@ -822,6 +953,7 @@ export function openManageGuidesDialog(): void {
 							`</div>` +
 							`<div style="display:flex;gap:6px;flex-shrink:0">` +
 							`<button type="button" class="chip" data-gact="open" data-gid="${esc(g.id)}">Open</button>` +
+							`<button type="button" class="chip" data-gact="edit" data-gid="${esc(g.id)}">Edit</button>` +
 							`<button type="button" class="chip" data-gact="export" data-gid="${esc(g.id)}">Export</button>` +
 							`<button type="button" class="chip" data-gact="rename" data-gid="${esc(g.id)}">Rename</button>` +
 							`<button type="button" class="chip danger" data-gact="delete" data-gid="${esc(g.id)}">Delete</button>` +
@@ -836,6 +968,7 @@ export function openManageGuidesDialog(): void {
 			`<h2>Manage guides</h2>` +
 			`<div class="manage-guides-list" style="max-height:300px;overflow:auto;margin:8px 0">${rows}</div>` +
 			`<div class="dlg-actions">` +
+			`<button type="button" data-gact="new">New guide</button>` +
 			`<button type="button" data-gact="import">Import guide</button>` +
 			`<button class="primary">Done</button>` +
 			`</div>`;
@@ -851,6 +984,11 @@ export function openManageGuidesDialog(): void {
 		if (!btn) return;
 		const act = btn.dataset.gact;
 		const gid = btn.dataset.gid;
+		if (act === "new") {
+			if (dlg.open) dlg.close();
+			await openNewGuideEditor();
+			return;
+		}
 		if (act === "import") {
 			if (dlg.open) dlg.close();
 			$("#import-guide-file")?.click();
@@ -862,6 +1000,9 @@ export function openManageGuidesDialog(): void {
 		if (act === "open") {
 			if (dlg.open) dlg.close();
 			await openGuideById(gid, { scrollToCursor: true });
+		} else if (act === "edit") {
+			if (dlg.open) dlg.close();
+			await openGuideEditor(gid);
 		} else if (act === "export") {
 			downloadGuideJson(g);
 		} else if (act === "rename") {
@@ -933,6 +1074,8 @@ function buildFollowHost(): GuideFollowHost {
 			refreshAll();
 		},
 		downloadGuideJson,
+		openGuideEditor,
+		openNewGuideEditor,
 		closeDetail,
 		hideDetail,
 		updateLinks,
@@ -1043,4 +1186,121 @@ export function followedGuideSessionSummary(): {
 	nextStep: string | null;
 } | null {
 	return followMod ? followMod.getFollowedGuideSummary() : null;
+}
+
+/* ---------- Lazy Guide Editor Loader & Facade ---------- */
+
+let editorMod: typeof import("./guide-editor.ts") | null = null;
+let editorPromise: Promise<typeof import("./guide-editor.ts")> | null = null;
+
+function buildEditorHost(): GuideEditorHost {
+	return {
+		state,
+		mapData,
+		createGuide,
+		updateGuide,
+		saveGuideNow,
+		flushGuideSaves,
+		isGuideSavePending,
+		deleteGuide,
+		downloadGuideJson,
+		openGuideById,
+		closeGuidePanelIfOpen,
+		closeDetail,
+		hideDetail,
+		openCtx,
+		closeCtx,
+		switchMap,
+		refreshAll,
+		refreshMap,
+		saveSessionSoon,
+		renderMd,
+		ensureMarked,
+		detailsReady,
+		ensureDetails,
+		iconHtml,
+		svgIcon,
+		syncSideClose,
+		syncRegionBanners,
+		closeRowMenu,
+		toast,
+		askDialog,
+		perf,
+		hasPendingRemoteConflict: (id: string) =>
+			deferredRemoteConflictGuides.has(id) || pendingLocalConflictRemotes.has(id),
+	};
+}
+
+export function ensureGuideEditor(): Promise<typeof import("./guide-editor.ts")> {
+	if (editorMod) return Promise.resolve(editorMod);
+	if (!editorPromise) {
+		const isHttp =
+			typeof document !== "undefined" && typeof location !== "undefined" && location.protocol.startsWith("http");
+		const tsFallback = ["./guide-editor", ".ts"].join("");
+		const spec = isHttp ? new URL("./guide-editor.js", import.meta.url).href : tsFallback;
+		editorPromise = import(spec)
+			.then((m: typeof import("./guide-editor.ts")) => {
+				m.initGuideEditor(buildEditorHost());
+				editorMod = m;
+				return m;
+			})
+			.catch((err) => {
+				editorPromise = null;
+				throw err;
+			});
+	}
+	return editorPromise;
+}
+
+export async function openGuideEditor(guideId: string): Promise<void> {
+	const m = await ensureGuideEditor();
+	m.openGuideEditor(guideId);
+}
+
+export async function openNewGuideEditor(): Promise<void> {
+	const m = await ensureGuideEditor();
+	m.openNewGuideEditor();
+}
+
+export function closeGuideEditorIfOpen(): boolean {
+	if (editorMod?.isOpen()) {
+		editorMod.closeGuideEditor();
+		return true;
+	}
+	return false;
+}
+
+export function isGuideEditorOpen(): boolean {
+	return Boolean(editorMod?.isOpen());
+}
+
+export function isGuideAddStepsActive(): boolean {
+	return Boolean(editorMod?.isAddStepsActive());
+}
+
+export function exitGuideAddStepsIfActive(): boolean {
+	if (editorMod?.isAddStepsActive()) {
+		editorMod.setAddStepsActive(false);
+		return true;
+	}
+	return false;
+}
+
+export function handleGuideAddStepsMarkerTap(markerId: number, x?: number, y?: number): void {
+	editorMod?.onAddStepsMarkerTap(markerId, x, y);
+}
+
+export async function addFreeWaypointToGuide(pos: { lat: number; lng: number }): Promise<void> {
+	const m = await ensureGuideEditor();
+	m.addFreeWaypointAt(pos);
+}
+
+export async function addMarkerToGuide(loc: any): Promise<void> {
+	const m = await ensureGuideEditor();
+	m.addMarkerTargetPromptOrStep(loc);
+}
+
+export async function createGuideStepFromSelection(markers: any[], titleSuggestion?: string): Promise<void> {
+	const m = await ensureGuideEditor();
+	await m.createMultiTargetStepFromMarkers(markers, titleSuggestion);
 }

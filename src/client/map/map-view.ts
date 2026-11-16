@@ -13,7 +13,13 @@ import { isLightTheme, recordGameOpen } from "../theme.ts";
 import { setupCapture } from "./capture.ts";
 import { closeCtx, closeDetail, dismiss, mapMenuAt, renderDetail, select, updateLinkHeads } from "./detail.ts";
 import { setupDrawing } from "./drawing.ts";
-import { loadGuides, prepareGuideFilterBeforeRefresh, syncGuideMapRoute } from "./guides.ts";
+import {
+	handleGuideAddStepsMarkerTap,
+	isGuideAddStepsActive,
+	loadGuides,
+	prepareGuideFilterBeforeRefresh,
+	syncGuideMapRoute,
+} from "./guides.ts";
 import { renderMd } from "./markdown.ts";
 import { buildMarkerFilter } from "./marker-filter.ts";
 import { loadMapState, migratePresets, renderPresets } from "./presets.ts";
@@ -1774,8 +1780,14 @@ export function createMap(): void {
 		if (state.tool !== "pan") return; // markers cannot be clicked while selecting or drawing
 		document.body.classList.remove("side-open");
 		const hits = map.queryRenderedFeatures(ev.point, { layers: ["locs", "locs-circles", "locs-text"] });
-		if (hits.length) select(Number(hits[0].properties.id), { fly: false });
-		else closeDetail();
+		if (hits.length) {
+			const hitId = Number(hits[0].properties.id);
+			if (isGuideAddStepsActive()) {
+				handleGuideAddStepsMarkerTap(hitId, ev.originalEvent?.clientX, ev.originalEvent?.clientY);
+				return;
+			}
+			select(hitId, { fly: false });
+		} else closeDetail();
 	});
 }
 

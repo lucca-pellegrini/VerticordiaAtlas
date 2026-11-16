@@ -989,4 +989,319 @@ describe("browser e2e (real server, headless Chrome)", () => {
 		},
 		T,
 	);
+
+	test(
+		"11. guide editor reorders a 600-step guide smoothly by touch drag and keyboard Alt+Up/Alt+Down",
+		async () => {
+			if (!guard()) return;
+			const dir = mkdtempSync(path.join(tmpdir(), "va-e2e-guide-600-"));
+			try {
+				const steps1 = Array.from({ length: 300 }, (_, i) => ({
+					id: `st-a-${i}`,
+					kind: "task",
+					title: `First Half ${i + 1}`,
+				}));
+				const steps2 = Array.from({ length: 300 }, (_, i) => ({
+					id: `st-b-${i}`,
+					kind: "task",
+					title: `Second Half ${i + 1}`,
+				}));
+				const gObj = {
+					v: 1,
+					id: "e2e-600-reorder",
+					game: CONTROL_GAME,
+					title: "600-Step Reorder Test",
+					sections: [
+						{ id: "sec-1", title: "Section One", steps: steps1 },
+						{ id: "sec-2", title: "Section Two", steps: steps2 },
+					],
+					created: 1760000000000,
+					updated: 1760000000000,
+				};
+				const guidePath = path.join(dir, "guide-600.json");
+				writeFileSync(guidePath, JSON.stringify(gObj));
+
+				const ctx = await browser.createBrowserContext();
+				const t = await track(ctx);
+				// Phone viewport with touch enabled to verify touch drag reordering early
+				await t.page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
+				await t.page.goto(mapUrl(CONTROL_GAME, CONTROL_MAP, "&perf=1"), { waitUntil: "domcontentloaded" });
+				await ready(t.page);
+
+				const fileInput = (await t.page.$("input#import-guide-file"))!;
+				await fileInput.uploadFile(guidePath);
+				await t.page.waitForFunction(() => !document.getElementById("guides-section")?.hasAttribute("hidden"), {
+					timeout: 15000,
+				});
+
+				// Open sidebar drawer on mobile & wait for drawer slide-in transition before clicking menu
+				await t.page.click("#side-toggle");
+				await t.page.waitForFunction(
+					() => {
+						const el = document.querySelector('[data-guide-menu="e2e-600-reorder"]');
+						return !!el && el.getBoundingClientRect().right > 16;
+					},
+					{ timeout: 5000 },
+				);
+				await t.page.click('[data-guide-menu="e2e-600-reorder"]');
+				await t.page.waitForSelector('#guide-row-menu button[data-gm-act="edit"]', { timeout: 5000 });
+				await t.page.click('#guide-row-menu button[data-gm-act="edit"]');
+				await t.page.waitForSelector('body.guide-editing .ge-step-row[data-ge-step="st-a-0"]', {
+					timeout: 15000,
+				});
+
+				// Ensure first rows of sec-1 are scrolled into viewport before touch drag
+				await t.page.$eval('.ge-step-row[data-ge-step="st-a-0"]', (el) =>
+					el.scrollIntoView({ block: "center" }),
+				);
+				await sleep(100);
+
+				// 1. Touch drag st-a-0 down below st-a-2
+				const dragStartBox = (await t.page.$eval('.ge-step-row[data-ge-step="st-a-0"] .ge-drag', (el) => {
+					const r = el.getBoundingClientRect();
+					return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+				}))!;
+				const dropTargetBox = (await t.page.$eval('.ge-step-row[data-ge-step="st-a-2"]', (el) => {
+					const r = el.getBoundingClientRect();
+					return { x: r.left + 20, y: r.bottom - 4 };
+				}))!;
+
+				expect(dragStartBox.y).toBeGreaterThan(0);
+				expect(dropTargetBox.y).toBeLessThan(844);
+
+				await t.page.touchscreen.touchStart(dragStartBox.x, dragStartBox.y);
+				await t.page.touchscreen.touchMove(dragStartBox.x, dragStartBox.y + 8);
+				await t.page.touchscreen.touchMove(dragStartBox.x, (dragStartBox.y + dropTargetBox.y) / 2);
+				await t.page.touchscreen.touchMove(dragStartBox.x, dropTargetBox.y);
+				await t.page.touchscreen.touchEnd();
+
+				await t.page.waitForFunction(
+					() => {
+						const rows = [...document.querySelectorAll('#ge-outline .ge-step-row[data-ge-sec-id="sec-1"]')];
+						return (
+							rows
+								.slice(0, 3)
+								.map((r) => (r as HTMLElement).dataset.geStep)
+								.join(",") === "st-a-1,st-a-2,st-a-0"
+						);
+					},
+					{ timeout: 5000 },
+				);
+
+				// 2. Keyboard Alt+ArrowUp / Alt+ArrowDown on st-a-0
+				await t.page.focus('.ge-step-row[data-ge-step="st-a-0"]');
+				await t.page.keyboard.down("Alt");
+				await t.page.keyboard.press("ArrowUp");
+				await t.page.keyboard.up("Alt");
+
+				await t.page.waitForFunction(
+					() => {
+						const rows = [...document.querySelectorAll('#ge-outline .ge-step-row[data-ge-sec-id="sec-1"]')];
+						return (
+							rows
+								.slice(0, 3)
+								.map((r) => (r as HTMLElement).dataset.geStep)
+								.join(",") === "st-a-1,st-a-0,st-a-2"
+						);
+					},
+					{ timeout: 5000 },
+				);
+
+				await t.page.keyboard.down("Alt");
+				await t.page.keyboard.press("ArrowDown");
+				await t.page.keyboard.up("Alt");
+
+				await t.page.waitForFunction(
+					() => {
+						const rows = [...document.querySelectorAll('#ge-outline .ge-step-row[data-ge-sec-id="sec-1"]')];
+						return (
+							rows
+								.slice(0, 3)
+								.map((r) => (r as HTMLElement).dataset.geStep)
+								.join(",") === "st-a-1,st-a-2,st-a-0"
+						);
+					},
+					{ timeout: 5000 },
+				);
+
+				// 3. Verify step text fields keep focus across keystrokes & autosave
+				await t.page.click('.ge-step-row[data-ge-step="st-a-0"] [data-ge-select-step]');
+				await t.page.waitForSelector('#ge-step-form input[name="title"]', { timeout: 5000 });
+				await t.page.waitForFunction(
+					() => (document.getElementById("side")?.getBoundingClientRect().right ?? 0) <= 1,
+					{ timeout: 5000 },
+				);
+				await t.page.click('#ge-step-form input[name="title"]', { count: 3 });
+				await t.page.keyboard.type("Renamed Step Focus Check", { delay: 15 });
+				const titleStillFocused = await t.page.evaluate(
+					() => document.activeElement === document.querySelector('#ge-step-form input[name="title"]'),
+				);
+				expect(titleStillFocused).toBe(true);
+				await t.page.click('#ge-step-form textarea[name="notes"]');
+				await t.page.keyboard.type("Multi character note", { delay: 15 });
+				await sleep(300); // wait past debounced save ("Saving..." -> "Saved") while still focused
+				const notesStillFocused = await t.page.evaluate(
+					() => document.activeElement === document.querySelector('#ge-step-form textarea[name="notes"]'),
+				);
+				expect(notesStillFocused).toBe(true);
+
+				await t.page.click('[data-ge-step-act="open-outline"]');
+				await t.page.waitForFunction(
+					() => {
+						const el = document.querySelector('.ge-step-row[data-ge-step="st-a-0"] .ge-step-title');
+						return el?.textContent?.trim() === "Renamed Step Focus Check";
+					},
+					{ timeout: 5000 },
+				);
+
+				await t.page.$eval('[data-ge-act="save"]', (el) => el.scrollIntoView({ block: "center" }));
+				await sleep(100);
+				await t.page.click('[data-ge-act="save"]');
+				await sleep(300);
+				await ctx.close();
+				expect({ errors: t.errors, failed: t.failed }).toEqual({ errors: [], failed: [] });
+			} finally {
+				rmSync(dir, { recursive: true, force: true });
+			}
+		},
+		T,
+	);
+
+	test(
+		"12. M4 full workflow: lazy chunk, new guide, paste text, bind marker, add-steps mode + Esc, raw JSON, reorder, reload intact",
+		async () => {
+			if (!guard()) return;
+			const hkData = JSON.parse(readFileSync(`public/maps/${CONTROL_GAME}/${CONTROL_MAP}/data.json`, "utf8"));
+			const locs = hkData.locations.slice(0, 3);
+
+			const ctx = await browser.createBrowserContext();
+			const t = await track(ctx);
+			const editorScriptRequests: string[] = [];
+			t.page.on("request", (req) => {
+				if (req.url().includes("guide-editor.js")) editorScriptRequests.push(req.url());
+			});
+
+			await t.page.goto(mapUrl(CONTROL_GAME, CONTROL_MAP, "&perf=1"), { waitUntil: "domcontentloaded" });
+			await ready(t.page);
+
+			// Lazy invariant: guide-editor.js must NOT be requested on initial map load
+			expect(editorScriptRequests).toEqual([]);
+
+			// 1. Enter editor from "New guide" in sidebar More menu
+			await t.page.click("#side-more-btn");
+			await t.page.waitForSelector("#side-new-guide-btn", { timeout: 5000 });
+			await t.page.click("#side-new-guide-btn");
+			await t.page.waitForSelector("#ge-new-form input[name='title']", { timeout: 15000 });
+			expect(editorScriptRequests.length).toBeGreaterThan(0);
+
+			await t.page.type("#ge-new-form input[name='title']", "M4 Full Authoring E2E");
+			await t.page.click("#ge-new-form button[type='submit']");
+			await t.page.waitForSelector("body.guide-editing #ge-outline", { timeout: 10000 });
+
+			// 2. Paste text lines -> one step per line, auto-binding #loc link on line 2
+			await t.page.click('[data-ge-act="paste-text"]');
+			await t.page.waitForSelector('#dlg textarea[name="lines"]', { timeout: 5000 });
+			await t.page.type(
+				'#dlg textarea[name="lines"]',
+				`- Talk to Elder\n- Collect [Shrine One](#loc=${locs[0].id})`,
+			);
+			await t.page.click('#dlg button[type="submit"]');
+			await t.page.waitForFunction(() => document.querySelectorAll("#ge-outline .ge-step-row").length === 2, {
+				timeout: 5000,
+			});
+
+			// 3. Bind first step ("Talk to Elder") to locs[1].id via marker link field
+			await t.page.click("#ge-outline .ge-step-row:first-child [data-ge-select-step]");
+			await t.page.waitForSelector("#ge-bind-link", { timeout: 5000 });
+			await t.page.type("#ge-bind-link", `#loc=${locs[1].id}`);
+			await t.page.click('[data-ge-step-act="bind-link"]');
+			await t.page.waitForFunction(
+				() => document.querySelector(".ge-targets-box .ge-sub-head")?.textContent?.includes("Targets (1)"),
+				{ timeout: 5000 },
+			);
+
+			// 4. Add-steps mode: explicit active banner, context menu still works, Escape exits mode cleanly
+			await t.page.click('[data-ge-act="toggle-add-steps"]');
+			await t.page.waitForSelector("body.guide-add-steps #guide-add-banner:not([hidden])", { timeout: 5000 });
+			const mapBox = (await t.page.$eval("#map", (el) => {
+				const r = el.getBoundingClientRect();
+				return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+			}))!;
+			await t.page.mouse.click(mapBox.x, mapBox.y, { button: "right" });
+			await t.page.waitForSelector("#ctx-menu:not([hidden])", { timeout: 5000 });
+			const hasAddHere = await t.page.$eval("#ctx-menu", (el) => el.textContent?.includes("Add step here"));
+			expect(hasAddHere).toBe(true);
+			await t.page.keyboard.press("Escape"); // first Escape closes ctx-menu
+			await t.page.waitForSelector("#ctx-menu[hidden]", { timeout: 5000 });
+			await t.page.keyboard.press("Escape"); // second Escape exits Add-steps mode cleanly
+			await t.page.waitForFunction(() => !document.body.classList.contains("guide-add-steps"), { timeout: 5000 });
+
+			// 5. Raw JSON view: catches syntax error, then validates & applies clean edit
+			await t.page.click('[data-ge-act="raw-json"]');
+			await t.page.waitForSelector('#dlg textarea[name="json"]', { timeout: 5000 });
+			const origJson = await t.page.$eval(
+				'#dlg textarea[name="json"]',
+				(el) => (el as HTMLTextAreaElement).value,
+			);
+			await t.page.$eval('#dlg textarea[name="json"]', (el) => {
+				(el as HTMLTextAreaElement).value = "{not valid json";
+			});
+			await t.page.click('#dlg [data-json-act="validate"]');
+			await t.page.waitForSelector('.ge-json-issues[data-state="error"]:not([hidden])', { timeout: 5000 });
+
+			const patchedJson = origJson.replace("Talk to Elder", "Meet Elder At Gate");
+			await t.page.$eval(
+				'#dlg textarea[name="json"]',
+				(el, val) => {
+					(el as HTMLTextAreaElement).value = val;
+				},
+				patchedJson,
+			);
+			await t.page.click('#dlg [data-json-act="validate"]');
+			await t.page.waitForSelector('.ge-json-issues[data-state="ok"]:not([hidden])', { timeout: 5000 });
+			await t.page.click('#dlg button[type="submit"]');
+			await t.page.waitForFunction(
+				() => document.querySelector("#ge-outline")?.textContent?.includes("Meet Elder At Gate"),
+				{ timeout: 5000 },
+			);
+
+			// 6. Reorder step 2 above step 1 with Alt+ArrowUp, then autosave/save and reload page
+			await t.page.focus("#ge-outline .ge-step-row:nth-child(2)");
+			await t.page.keyboard.down("Alt");
+			await t.page.keyboard.press("ArrowUp");
+			await t.page.keyboard.up("Alt");
+			await t.page.waitForFunction(
+				() => {
+					const titles = [...document.querySelectorAll("#ge-outline .ge-step-title")].map((el) =>
+						el.textContent?.trim(),
+					);
+					return titles[0]?.includes("Collect") && titles[1] === "Meet Elder At Gate";
+				},
+				{ timeout: 5000 },
+			);
+
+			await t.page.click('[data-ge-act="save"]');
+			await sleep(400);
+
+			// Reload page and confirm guide, order, and marker bindings survived intact
+			await t.page.reload({ waitUntil: "domcontentloaded" });
+			await ready(t.page);
+			await t.page.waitForFunction(
+				() => document.getElementById("guides-section")?.textContent?.includes("M4 Full Authoring E2E"),
+				{ timeout: 15000 },
+			);
+			await t.page.click("#guides-section .guide-row");
+			await t.page.waitForSelector("body.guide-open #guide-panel .gp-step", { timeout: 10000 });
+			const persistedTitles = await t.page.$$eval("#guide-panel .gp-step-title", (els) =>
+				els.map((el) => el.textContent?.trim()),
+			);
+			expect(persistedTitles[0]).toContain("Collect");
+			expect(persistedTitles[1]).toBe("Meet Elder At Gate");
+
+			await t.page.evaluate(() => (window as any).perfReport?.());
+			await ctx.close();
+			expect({ errors: t.errors, failed: t.failed }).toEqual({ errors: [], failed: [] });
+		},
+		T,
+	);
 });

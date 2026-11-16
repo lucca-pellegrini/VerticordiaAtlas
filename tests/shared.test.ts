@@ -17,7 +17,12 @@ import {
 	recentFeed,
 } from "../src/shared/found-log.ts";
 import { closeRing, sanitizeGeometry, sanitizeMapData } from "../src/shared/geometry.ts";
-import { extractMarkerLinksFromText, linesToSteps, parseMarkerLink } from "../src/shared/guide-import.ts";
+import {
+	extractMarkerLinksFromText,
+	linesToSteps,
+	parseMarkerLink,
+	suggestRegionTitle,
+} from "../src/shared/guide-import.ts";
 import {
 	deriveGuideView,
 	isStepVisible,
@@ -1621,5 +1626,104 @@ describe("shared/guide-import: URL parsing and text-to-steps conversion", () => 
 				],
 			},
 		]);
+	}, 30_000);
+
+	test("suggestRegionTitle resolves explicit marker regions, polygon centroids, and clean fallbacks", () => {
+		const regions = [
+			{
+				id: 10,
+				title: "Outer Basin",
+				parent_region_id: null,
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "Polygon",
+							coordinates: [
+								[
+									[0, 0],
+									[20, 0],
+									[20, 20],
+									[0, 20],
+									[0, 0],
+								],
+							],
+						},
+					},
+				],
+			},
+			{
+				id: 11,
+				title: "Inner Ruins",
+				parent_region_id: 10,
+				features: [
+					{
+						type: "Feature",
+						geometry: {
+							type: "Polygon",
+							coordinates: [
+								[
+									[2, 2],
+									[8, 2],
+									[8, 8],
+									[2, 8],
+									[2, 2],
+								],
+							],
+						},
+					},
+				],
+			},
+		];
+		const byId = new Map<number, any>(regions.map((r) => [r.id, r]));
+
+		// 1. Explicit majority marker region wins
+		expect(
+			suggestRegionTitle(
+				[
+					{ region: 10, lng: 5, lat: 5 },
+					{ region: 11, lng: 5, lat: 5 },
+					{ region: 11, lng: 6, lat: 6 },
+				],
+				regions,
+				byId,
+			),
+		).toBe("Inner Ruins");
+
+		// 2. Fallback to polygon centroid prefers subregion over parent
+		expect(
+			suggestRegionTitle(
+				[
+					{ region: null, lng: 4, lat: 4 },
+					{ region: null, lng: 6, lat: 6 },
+				],
+				regions,
+				byId,
+			),
+		).toBe("Inner Ruins");
+
+		// 3. Centroid in outer region returns parent name
+		expect(
+			suggestRegionTitle(
+				[
+					{ region: null, lng: 14, lat: 14 },
+					{ region: null, lng: 16, lat: 16 },
+				],
+				regions,
+				byId,
+			),
+		).toBe("Outer Basin");
+
+		// 4. Outside any polygon & no region falls back gracefully without blocking
+		expect(
+			suggestRegionTitle(
+				[
+					{ region: null, lng: 50, lat: 50 },
+					{ region: null, lng: 52, lat: 52 },
+				],
+				regions,
+				byId,
+			),
+		).toBe("Selected area (2 targets)");
 	}, 30_000);
 });
