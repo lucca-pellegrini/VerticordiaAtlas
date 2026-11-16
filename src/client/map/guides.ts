@@ -1300,7 +1300,7 @@ export async function addMarkerToGuide(loc: any): Promise<void> {
 	m.addMarkerTargetPromptOrStep(loc);
 }
 
-export async function createGuideStepFromSelection(markers: any[], titleSuggestion: string): Promise<void> {
+export async function createGuideStepFromSelection(markers: any[], titleSuggestion?: string): Promise<void> {
 	const m = await ensureGuideEditor();
-	m.createMultiTargetStepFromMarkers(markers, titleSuggestion);
+	await m.createMultiTargetStepFromMarkers(markers, titleSuggestion);
 }
