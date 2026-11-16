@@ -141,6 +141,22 @@ export function officialMarkerToTarget(
 	};
 }
 
+export function computeMoveStepIndex(
+	fromSecId: string,
+	fromIdx: number,
+	destSecId: string,
+	targetIdx: number,
+	placeAfter: boolean,
+): number {
+	if (fromSecId !== destSecId) {
+		return placeAfter ? targetIdx + 1 : targetIdx;
+	}
+	if (placeAfter) {
+		return targetIdx < fromIdx ? targetIdx + 1 : targetIdx;
+	}
+	return targetIdx > fromIdx ? targetIdx - 1 : targetIdx;
+}
+
 export function addTargetToStepTargets(step: GuideStep, target: GuideTarget): GuideStep {
 	const existing = [...(step.targets || [])];
 	if (existing.length >= MAX_STEP_TARGETS) return structuredClone(step);
@@ -449,6 +465,7 @@ async function applyEdit(
 		immediate?: boolean;
 		openStepCard?: boolean;
 		reRenderOutline?: boolean;
+		reRenderStepEditor?: boolean;
 	},
 ): Promise<Guide | null> {
 	if (!host || !editingGuideId) return null;
@@ -481,7 +498,9 @@ async function applyEdit(
 	if (opts?.reRenderOutline !== false) renderEditor();
 	else updateUndoRedoAndSaveButtons();
 
-	if (opts?.openStepCard || (selectedStepId && isStepEditorShowing())) {
+	const shouldRenderStep =
+		opts?.openStepCard || (opts?.reRenderStepEditor !== false && selectedStepId && isStepEditorShowing());
+	if (shouldRenderStep) {
 		if (selectedStepId) renderStepEditor();
 		else clearStepEditorIfShowing();
 	}
@@ -604,6 +623,7 @@ export function openGuideEditor(guideId: string): void {
 
 export function closeGuideEditor(opts?: { switchToFollow?: boolean }): void {
 	if (!host || typeof document === "undefined" || mode === "closed") return;
+	finishDrag(false);
 	const prevGuideId = editingGuideId;
 	setAddStepsActive(false);
 	mode = "closed";
@@ -727,132 +747,134 @@ export function renderEditor(): void {
 	const guide = currentGuide();
 	if (!root || !guide) return;
 
-	const scroller = document.querySelector<HTMLElement>("#side .side-scroll");
-	const prevScrollTop = scroller?.scrollTop ?? 0;
+	host.perf("renderEditor", () => {
+		const scroller = document.querySelector<HTMLElement>("#side .side-scroll");
+		const prevScrollTop = scroller?.scrollTop ?? 0;
 
-	const totalSteps = guide.sections.reduce((acc, s) => acc + s.steps.length, 0);
-	let globalNum = 0;
+		const totalSteps = guide.sections.reduce((acc, s) => acc + s.steps.length, 0);
+		let globalNum = 0;
 
-	const sectionsHtml = guide.sections
-		.map((sec, sIdx) => {
-			const isCol = collapsedSections.has(sec.id);
-			const stepsHtml = isCol
-				? ""
-				: sec.steps
-						.map((st, stIdx) => {
-							globalNum++;
-							const isSel = selectedStepId === st.id;
-							const tCount = st.targets?.length ?? 0;
-							const kindShort = st.kind === "waypoint" ? "WP" : st.kind === "info" ? "Info" : "";
-							return (
-								`<div class="ge-step-row${isSel ? " is-selected" : ""}" data-ge-step="${esc(st.id)}" data-ge-sec-id="${esc(sec.id)}" data-ge-step-idx="${stIdx}" tabindex="0">` +
-								`<button type="button" class="ge-drag" data-ge-drag="${esc(st.id)}" aria-label="Drag to reorder ${esc(st.title)}" title="Drag to reorder">${host!.svgIcon("grip")}</button>` +
-								`<button type="button" class="ge-step-select" data-ge-select-step="${esc(st.id)}">` +
-								`<span class="ge-step-num">${globalNum}</span>` +
-								`<span class="ge-step-title">${esc(st.title)}</span>` +
-								(kindShort ? `<span class="gp-badge gp-badge-kind">${kindShort}</span>` : "") +
-								(st.missable ? `<span class="gp-badge gp-badge-missable">M</span>` : "") +
-								(tCount > 0 ? `<span class="gp-badge">${tCount}</span>` : "") +
-								`</button>` +
-								`<button type="button" class="ge-icon-sm" data-ge-step-up="${esc(st.id)}" aria-label="Move step up" title="Move up (Alt+Up)">${host!.svgIcon("chevUp")}</button>` +
-								`<button type="button" class="ge-icon-sm" data-ge-step-down="${esc(st.id)}" aria-label="Move step down" title="Move down (Alt+Down)">${host!.svgIcon("chevDown")}</button>` +
-								`<button type="button" class="ge-icon-sm danger" data-ge-step-del="${esc(st.id)}" aria-label="Delete step" title="Delete step">${host!.svgIcon("trash")}</button>` +
-								`</div>`
-							);
-						})
-						.join("");
+		const sectionsHtml = guide.sections
+			.map((sec, sIdx) => {
+				const isCol = collapsedSections.has(sec.id);
+				const stepsHtml = isCol
+					? ""
+					: sec.steps
+							.map((st, stIdx) => {
+								globalNum++;
+								const isSel = selectedStepId === st.id;
+								const tCount = st.targets?.length ?? 0;
+								const kindShort = st.kind === "waypoint" ? "WP" : st.kind === "info" ? "Info" : "";
+								return (
+									`<div class="ge-step-row${isSel ? " is-selected" : ""}" data-ge-step="${esc(st.id)}" data-ge-sec-id="${esc(sec.id)}" data-ge-step-idx="${stIdx}" tabindex="0">` +
+									`<button type="button" class="ge-drag" data-ge-drag="${esc(st.id)}" aria-label="Drag to reorder ${esc(st.title)}" title="Drag to reorder">${host!.svgIcon("grip")}</button>` +
+									`<button type="button" class="ge-step-select" data-ge-select-step="${esc(st.id)}">` +
+									`<span class="ge-step-num">${globalNum}</span>` +
+									`<span class="ge-step-title">${esc(st.title)}</span>` +
+									(kindShort ? `<span class="gp-badge gp-badge-kind">${kindShort}</span>` : "") +
+									(st.missable ? `<span class="gp-badge gp-badge-missable">M</span>` : "") +
+									(tCount > 0 ? `<span class="gp-badge">${tCount}</span>` : "") +
+									`</button>` +
+									`<button type="button" class="ge-icon-sm" data-ge-step-up="${esc(st.id)}" aria-label="Move step up" title="Move up (Alt+Up)">${host!.svgIcon("chevUp")}</button>` +
+									`<button type="button" class="ge-icon-sm" data-ge-step-down="${esc(st.id)}" aria-label="Move step down" title="Move down (Alt+Down)">${host!.svgIcon("chevDown")}</button>` +
+									`<button type="button" class="ge-icon-sm danger" data-ge-step-del="${esc(st.id)}" aria-label="Delete step" title="Delete step">${host!.svgIcon("trash")}</button>` +
+									`</div>`
+								);
+							})
+							.join("");
 
-			return (
-				`<div class="ge-sec${isCol ? " is-collapsed" : ""}" data-ge-sec="${esc(sec.id)}">` +
-				`<div class="ge-sec-head">` +
-				`<button type="button" class="ge-sec-toggle" data-ge-sec-toggle="${esc(sec.id)}" aria-expanded="${!isCol}">${esc(sec.title)} <span class="ge-sec-count">(${sec.steps.length})</span></button>` +
-				`<div class="ge-sec-btns">` +
-				`<button type="button" class="ge-icon-sm" data-ge-sec-up="${esc(sec.id)}" ${sIdx === 0 ? "disabled" : ""} aria-label="Move section up" title="Move section up">${host!.svgIcon("chevUp")}</button>` +
-				`<button type="button" class="ge-icon-sm" data-ge-sec-down="${esc(sec.id)}" ${sIdx === guide.sections.length - 1 ? "disabled" : ""} aria-label="Move section down" title="Move section down">${host!.svgIcon("chevDown")}</button>` +
-				`<button type="button" class="ge-icon-sm" data-ge-sec-edit="${esc(sec.id)}" aria-label="Edit section details" title="Edit section details">${host!.svgIcon("pencil")}</button>` +
-				`<button type="button" class="ge-icon-sm" data-ge-sec-add-step="${esc(sec.id)}" aria-label="Add step to ${esc(sec.title)}" title="Add step">${host!.svgIcon("plus")}</button>` +
-				(guide.sections.length > 1
-					? `<button type="button" class="ge-icon-sm danger" data-ge-sec-del="${esc(sec.id)}" aria-label="Delete section" title="Delete section">${host!.svgIcon("trash")}</button>`
-					: "") +
-				`</div>` +
-				`</div>` +
-				(sec.steps.length === 0 && !isCol
-					? `<div class="ge-empty-sec">No steps yet. Tap + or use Add steps / Paste text.</div>`
-					: `<div class="ge-sec-steps">${stepsHtml}</div>`) +
-				`</div>`
-			);
-		})
-		.join("");
+				return (
+					`<div class="ge-sec${isCol ? " is-collapsed" : ""}" data-ge-sec="${esc(sec.id)}">` +
+					`<div class="ge-sec-head" data-ge-sec-drop="${esc(sec.id)}">` +
+					`<button type="button" class="ge-sec-toggle" data-ge-sec-toggle="${esc(sec.id)}" aria-expanded="${!isCol}">${esc(sec.title)} <span class="ge-sec-count">(${sec.steps.length})</span></button>` +
+					`<div class="ge-sec-btns">` +
+					`<button type="button" class="ge-icon-sm" data-ge-sec-up="${esc(sec.id)}" ${sIdx === 0 ? "disabled" : ""} aria-label="Move section up" title="Move section up">${host!.svgIcon("chevUp")}</button>` +
+					`<button type="button" class="ge-icon-sm" data-ge-sec-down="${esc(sec.id)}" ${sIdx === guide.sections.length - 1 ? "disabled" : ""} aria-label="Move section down" title="Move section down">${host!.svgIcon("chevDown")}</button>` +
+					`<button type="button" class="ge-icon-sm" data-ge-sec-edit="${esc(sec.id)}" aria-label="Edit section details" title="Edit section details">${host!.svgIcon("pencil")}</button>` +
+					`<button type="button" class="ge-icon-sm" data-ge-sec-add-step="${esc(sec.id)}" aria-label="Add step to ${esc(sec.title)}" title="Add step">${host!.svgIcon("plus")}</button>` +
+					(guide.sections.length > 1
+						? `<button type="button" class="ge-icon-sm danger" data-ge-sec-del="${esc(sec.id)}" aria-label="Delete section" title="Delete section">${host!.svgIcon("trash")}</button>`
+						: "") +
+					`</div>` +
+					`</div>` +
+					(sec.steps.length === 0 && !isCol
+						? `<div class="ge-empty-sec" data-ge-empty-sec="${esc(sec.id)}">No steps yet. Tap + or use Add steps / Paste text.</div>`
+						: `<div class="ge-sec-steps">${stepsHtml}</div>`) +
+					`</div>`
+				);
+			})
+			.join("");
 
-	const variantsHtml = (guide.variants || [])
-		.map(
-			(v, vi) =>
-				`<div class="ge-var-card" data-ge-var="${esc(v.id)}">` +
-				`<div class="ge-var-row">` +
-				`<input type="text" class="ge-var-label" data-ge-var-label="${vi}" value="${esc(v.label)}" maxlength="${MAX_VARIANT_LABEL}" aria-label="Variant label">` +
-				`<button type="button" class="ge-icon-sm danger" data-ge-var-del="${vi}" aria-label="Delete variant">${host!.svgIcon("trash")}</button>` +
-				`</div>` +
-				`<div class="ge-var-opts">${v.options
-					.map(
-						(o, oi) =>
-							`<label class="ge-var-opt">` +
-							`<input type="radio" name="ge-vdef-${vi}" data-ge-var-def="${vi}" value="${esc(o.id)}" ${v.default === o.id ? "checked" : ""} title="Default option">` +
-							`<input type="text" data-ge-var-opt="${vi}:${oi}" value="${esc(o.label)}" maxlength="${MAX_OPTION_LABEL}" aria-label="Option label">` +
-							(v.options.length > 2
-								? `<button type="button" class="ge-icon-sm danger" data-ge-var-opt-del="${vi}:${oi}" aria-label="Remove option">&times;</button>`
-								: "") +
-							`</label>`,
-					)
-					.join("")}` +
-				(v.options.length < MAX_VARIANT_OPTIONS
-					? `<button type="button" class="chip" data-ge-var-add-opt="${vi}">+ Option</button>`
-					: "") +
-				`</div></div>`,
-		)
-		.join("");
+		const variantsHtml = (guide.variants || [])
+			.map(
+				(v, vi) =>
+					`<div class="ge-var-card" data-ge-var="${esc(v.id)}">` +
+					`<div class="ge-var-row">` +
+					`<input type="text" class="ge-var-label" data-ge-var-label="${vi}" value="${esc(v.label)}" maxlength="${MAX_VARIANT_LABEL}" aria-label="Variant label">` +
+					`<button type="button" class="ge-icon-sm danger" data-ge-var-del="${vi}" aria-label="Delete variant">${host!.svgIcon("trash")}</button>` +
+					`</div>` +
+					`<div class="ge-var-opts">${v.options
+						.map(
+							(o, oi) =>
+								`<label class="ge-var-opt">` +
+								`<input type="radio" name="ge-vdef-${vi}" data-ge-var-def="${vi}" value="${esc(o.id)}" ${v.default === o.id ? "checked" : ""} title="Default option">` +
+								`<input type="text" data-ge-var-opt="${vi}:${oi}" value="${esc(o.label)}" maxlength="${MAX_OPTION_LABEL}" aria-label="Option label">` +
+								(v.options.length > 2
+									? `<button type="button" class="ge-icon-sm danger" data-ge-var-opt-del="${vi}:${oi}" aria-label="Remove option">&times;</button>`
+									: "") +
+								`</label>`,
+						)
+						.join("")}` +
+					(v.options.length < MAX_VARIANT_OPTIONS
+						? `<button type="button" class="chip" data-ge-var-add-opt="${vi}">+ Option</button>`
+						: "") +
+					`</div></div>`,
+			)
+			.join("");
 
-	root.innerHTML =
-		`<div class="ge-header">` +
-		`<div class="ge-top-bar">` +
-		`<button type="button" class="gp-back-btn" data-ge-act="done">${host.svgIcon("arrowLeft")}<span>Done</span></button>` +
-		`<div class="ge-top-right">` +
-		`<button type="button" class="ge-icon-btn" data-ge-act="undo" ${history.canUndo() ? "" : "disabled"} title="Undo edit" aria-label="Undo edit">${host.svgIcon("undo")}</button>` +
-		`<button type="button" class="ge-icon-btn" data-ge-act="redo" ${history.canRedo() ? "" : "disabled"} title="Redo edit" aria-label="Redo edit">${host.svgIcon("redo")}</button>` +
-		`<button type="button" class="ge-save-pill" data-ge-act="save" data-status="${remoteConflictNotice ? "conflict" : saveStatus}">${esc(saveStatusLabel())}</button>` +
-		`</div>` +
-		`</div>` +
-		`<div id="ge-remote-notice" class="ge-remote-notice" role="status"${remoteConflictNotice ? "" : " hidden"}>` +
-		`<span>A remote update arrived. Your edits are kept; click <b>Save</b> to resolve.</span>` +
-		`</div>` +
-		`<div class="ge-title-wrap">` +
-		`<input type="text" id="ge-guide-title" value="${esc(guide.title)}" maxlength="${MAX_GUIDE_TITLE}" aria-label="Guide title" placeholder="Guide title">` +
-		`</div>` +
-		`<div class="ge-toolbar">` +
-		`<button type="button" class="ge-tool-btn" data-ge-act="toggle-add-steps" aria-pressed="${addStepsActive}">${host.svgIcon("pin")}<span>Add steps</span></button>` +
-		`<button type="button" class="ge-tool-btn" data-ge-act="add-section">${host.svgIcon("plus")}<span>Section</span></button>` +
-		`<button type="button" class="ge-tool-btn" data-ge-act="paste-text">${host.svgIcon("list")}<span>Paste</span></button>` +
-		`<button type="button" class="ge-tool-btn" data-ge-act="raw-json">${host.svgIcon("code")}<span>JSON</span></button>` +
-		`</div>` +
-		`<details class="ge-meta-acc">` +
-		`<summary>Guide details, variants &amp; stats (${guide.sections.length} sec · ${totalSteps} steps)</summary>` +
-		`<div class="ge-meta-body">` +
-		`<label class="field"><span>Author</span><input type="text" data-ge-meta="author" value="${esc(guide.author || "")}" maxlength="${MAX_AUTHOR}" placeholder="Author"></label>` +
-		`<label class="field"><span>Description</span><textarea rows="2" data-ge-meta="description" maxlength="${MAX_DESCRIPTION}" placeholder="Description">${esc(guide.description || "")}</textarea></label>` +
-		`<label class="field"><span>Credits</span><textarea rows="2" data-ge-meta="credits" maxlength="${MAX_CREDITS}" placeholder="Credits">${esc(guide.credits || "")}</textarea></label>` +
-		`<div class="ge-variants-box"><div class="ge-sub-head"><span>Variants</span>` +
-		((guide.variants?.length ?? 0) < MAX_GUIDE_VARIANTS
-			? `<button type="button" class="chip" data-ge-act="add-variant">+ Variant</button>`
-			: "") +
-		`</div>${variantsHtml || '<p class="ge-dim">No route variants (e.g. Normal vs NG+).</p>'}</div>` +
-		`</div>` +
-		`</details>` +
-		`</div>` +
-		`<div class="ge-outline" id="ge-outline">${sectionsHtml}</div>`;
+		root.innerHTML =
+			`<div class="ge-header">` +
+			`<div class="ge-top-bar">` +
+			`<button type="button" class="gp-back-btn" data-ge-act="done">${host!.svgIcon("arrowLeft")}<span>Done</span></button>` +
+			`<div class="ge-top-right">` +
+			`<button type="button" class="ge-icon-btn" data-ge-act="undo" ${history.canUndo() ? "" : "disabled"} title="Undo edit" aria-label="Undo edit">${host!.svgIcon("undo")}</button>` +
+			`<button type="button" class="ge-icon-btn" data-ge-act="redo" ${history.canRedo() ? "" : "disabled"} title="Redo edit" aria-label="Redo edit">${host!.svgIcon("redo")}</button>` +
+			`<button type="button" class="ge-save-pill" data-ge-act="save" data-status="${remoteConflictNotice ? "conflict" : saveStatus}">${esc(saveStatusLabel())}</button>` +
+			`</div>` +
+			`</div>` +
+			`<div id="ge-remote-notice" class="ge-remote-notice" role="status"${remoteConflictNotice ? "" : " hidden"}>` +
+			`<span>A remote update arrived. Your edits are kept; click <b>Save</b> to resolve.</span>` +
+			`</div>` +
+			`<div class="ge-title-wrap">` +
+			`<input type="text" id="ge-guide-title" value="${esc(guide.title)}" maxlength="${MAX_GUIDE_TITLE}" aria-label="Guide title" placeholder="Guide title">` +
+			`</div>` +
+			`<div class="ge-toolbar">` +
+			`<button type="button" class="ge-tool-btn" data-ge-act="toggle-add-steps" aria-pressed="${addStepsActive}">${host!.svgIcon("pin")}<span>Add steps</span></button>` +
+			`<button type="button" class="ge-tool-btn" data-ge-act="add-section">${host!.svgIcon("plus")}<span>Section</span></button>` +
+			`<button type="button" class="ge-tool-btn" data-ge-act="paste-text">${host!.svgIcon("list")}<span>Paste</span></button>` +
+			`<button type="button" class="ge-tool-btn" data-ge-act="raw-json">${host!.svgIcon("code")}<span>JSON</span></button>` +
+			`</div>` +
+			`<details class="ge-meta-acc">` +
+			`<summary>Guide details, variants &amp; stats (${guide.sections.length} sec · ${totalSteps} steps)</summary>` +
+			`<div class="ge-meta-body">` +
+			`<label class="field"><span>Author</span><input type="text" data-ge-meta="author" value="${esc(guide.author || "")}" maxlength="${MAX_AUTHOR}" placeholder="Author"></label>` +
+			`<label class="field"><span>Description</span><textarea rows="2" data-ge-meta="description" maxlength="${MAX_DESCRIPTION}" placeholder="Description">${esc(guide.description || "")}</textarea></label>` +
+			`<label class="field"><span>Credits</span><textarea rows="2" data-ge-meta="credits" maxlength="${MAX_CREDITS}" placeholder="Credits">${esc(guide.credits || "")}</textarea></label>` +
+			`<div class="ge-variants-box"><div class="ge-sub-head"><span>Variants</span>` +
+			((guide.variants?.length ?? 0) < MAX_GUIDE_VARIANTS
+				? `<button type="button" class="chip" data-ge-act="add-variant">+ Variant</button>`
+				: "") +
+			`</div>${variantsHtml || '<p class="ge-dim">No route variants (e.g. Normal vs NG+).</p>'}</div>` +
+			`</div>` +
+			`</details>` +
+			`</div>` +
+			`<div class="ge-outline" id="ge-outline">${sectionsHtml}</div>`;
 
-	wireEditorOutlineEvents(root, guide);
-	renderAddStepsBanner();
+		wireEditorOutlineEvents(root, guide);
+		renderAddStepsBanner();
 
-	if (scroller) scroller.scrollTop = prevScrollTop;
+		if (scroller) scroller.scrollTop = prevScrollTop;
+	});
 }
 
 function wireEditorOutlineEvents(root: HTMLElement, guide: Guide): void {
@@ -865,6 +887,7 @@ function wireEditorOutlineEvents(root: HTMLElement, guide: Guide): void {
 			void applyEdit((g) => ({ ...g, title: val.slice(0, MAX_GUIDE_TITLE) }), {
 				coalesceKey: "guide-title",
 				reRenderOutline: false,
+				reRenderStepEditor: false,
 			});
 		};
 	}
@@ -880,7 +903,7 @@ function wireEditorOutlineEvents(root: HTMLElement, guide: Guide): void {
 					else delete next[field];
 					return next;
 				},
-				{ coalesceKey: `meta-${field}`, reRenderOutline: false },
+				{ coalesceKey: `meta-${field}`, reRenderOutline: false, reRenderStepEditor: false },
 			);
 		};
 	});
@@ -896,7 +919,7 @@ function wireEditorOutlineEvents(root: HTMLElement, guide: Guide): void {
 					if (vars[vi]) vars[vi]!.label = val.slice(0, MAX_VARIANT_LABEL);
 					return { ...g, variants: vars };
 				},
-				{ coalesceKey: `var-lbl-${vi}`, reRenderOutline: false },
+				{ coalesceKey: `var-lbl-${vi}`, reRenderOutline: false, reRenderStepEditor: false },
 			);
 		};
 	});
@@ -912,7 +935,7 @@ function wireEditorOutlineEvents(root: HTMLElement, guide: Guide): void {
 					if (vars[vi]?.options[oi]) vars[vi]!.options[oi]!.label = val.slice(0, MAX_OPTION_LABEL);
 					return { ...g, variants: vars };
 				},
-				{ coalesceKey: `var-opt-${vi}-${oi}`, reRenderOutline: false },
+				{ coalesceKey: `var-opt-${vi}-${oi}`, reRenderOutline: false, reRenderStepEditor: false },
 			);
 		};
 	});
@@ -1402,14 +1425,20 @@ function wireStepEditorForm(
 
 	const patchStep = (patch: Partial<Omit<GuideStep, "id">>, coalesceKey?: string, reRenderOutline = false) => {
 		const sid = step.id;
-		void applyEdit((g) => updateStep(g, sid, patch), { coalesceKey, reRenderOutline });
+		void applyEdit((g) => updateStep(g, sid, patch), {
+			coalesceKey,
+			reRenderOutline,
+			reRenderStepEditor: false,
+		});
 	};
 
 	const titleEl = form.elements.namedItem("title") as HTMLInputElement;
 	titleEl.oninput = () => {
 		const v = titleEl.value;
 		if (!v.trim()) return;
-		patchStep({ title: v.slice(0, MAX_STEP_TITLE) }, `st-title-${step.id}`, true);
+		const rowTitle = document.querySelector<HTMLElement>(`[data-ge-step="${CSS.escape(step.id)}"] .ge-step-title`);
+		if (rowTitle) rowTitle.textContent = v.slice(0, MAX_STEP_TITLE);
+		patchStep({ title: v.slice(0, MAX_STEP_TITLE) }, `st-title-${step.id}`, false);
 	};
 
 	const kindEl = form.elements.namedItem("kind") as HTMLSelectElement;
@@ -1470,7 +1499,7 @@ function wireStepEditorForm(
 					else delete targets[ti]!.label;
 					return updateStep(g, step.id, { targets });
 				},
-				{ coalesceKey: `st-tlbl-${step.id}-${ti}` },
+				{ coalesceKey: `st-tlbl-${step.id}-${ti}`, reRenderOutline: false, reRenderStepEditor: false },
 			);
 		};
 	});
@@ -1478,14 +1507,17 @@ function wireStepEditorForm(
 	form.querySelectorAll<HTMLInputElement>("[data-ge-target-opt]").forEach((cb) => {
 		cb.onchange = () => {
 			const ti = Number(cb.dataset.geTargetOpt);
-			void applyEdit((g) => {
-				const found = findStepInGuide(g, step.id);
-				const targets = structuredClone(found?.step.targets || []);
-				if (!targets[ti]) return g;
-				if (cb.checked) targets[ti]!.optional = true;
-				else delete targets[ti]!.optional;
-				return updateStep(g, step.id, { targets });
-			});
+			void applyEdit(
+				(g) => {
+					const found = findStepInGuide(g, step.id);
+					const targets = structuredClone(found?.step.targets || []);
+					if (!targets[ti]) return g;
+					if (cb.checked) targets[ti]!.optional = true;
+					else delete targets[ti]!.optional;
+					return updateStep(g, step.id, { targets });
+				},
+				{ reRenderOutline: false, reRenderStepEditor: false },
+			);
 		};
 	});
 
@@ -1493,17 +1525,20 @@ function wireStepEditorForm(
 	form.querySelectorAll<HTMLInputElement>("[data-ge-only]").forEach((cb) => {
 		cb.onchange = () => {
 			const [vid, oid] = cb.dataset.geOnly!.split(":");
-			void applyEdit((g) => {
-				const found = findStepInGuide(g, step.id);
-				if (!found) return g;
-				const nextOnly: Record<string, string[]> = structuredClone(found.step.only || {});
-				const curSet = new Set(nextOnly[vid!] || []);
-				if (cb.checked) curSet.add(oid!);
-				else curSet.delete(oid!);
-				if (curSet.size > 0) nextOnly[vid!] = [...curSet];
-				else delete nextOnly[vid!];
-				return updateStep(g, step.id, { only: Object.keys(nextOnly).length ? nextOnly : undefined });
-			});
+			void applyEdit(
+				(g) => {
+					const found = findStepInGuide(g, step.id);
+					if (!found) return g;
+					const nextOnly: Record<string, string[]> = structuredClone(found.step.only || {});
+					const curSet = new Set(nextOnly[vid!] || []);
+					if (cb.checked) curSet.add(oid!);
+					else curSet.delete(oid!);
+					if (curSet.size > 0) nextOnly[vid!] = [...curSet];
+					else delete nextOnly[vid!];
+					return updateStep(g, step.id, { only: Object.keys(nextOnly).length ? nextOnly : undefined });
+				},
+				{ reRenderOutline: false, reRenderStepEditor: false },
+			);
 		};
 	});
 
@@ -1523,7 +1558,11 @@ function wireStepEditorForm(
 					else delete links[li]!.label;
 					return updateStep(g, step.id, { links });
 				},
-				{ coalesceKey: `st-lnk-${step.id}-${li}-${isUrl ? "u" : "l"}` },
+				{
+					coalesceKey: `st-lnk-${step.id}-${li}-${isUrl ? "u" : "l"}`,
+					reRenderOutline: false,
+					reRenderStepEditor: false,
+				},
 			);
 		};
 	});
@@ -1694,8 +1733,263 @@ export async function nudgeSelectedStep(stepId: string, delta: -1 | 1): Promise<
 	return Boolean(saved);
 }
 
-function wireOutlineReorder(_root: HTMLElement, _guide: Guide): void {
-	// Enhanced touch & pointer drag reordering added in Slice 2!
+interface DropSlot {
+	el: HTMLElement;
+	kind: "step" | "empty-sec" | "sec-head";
+	secId: string;
+	stepId?: string;
+	stepIdx: number;
+	top: number;
+	bottom: number;
+	mid: number;
+}
+
+interface ActiveDrag {
+	pointerId: number;
+	handleEl: HTMLElement;
+	rowEl: HTMLElement;
+	stepId: string;
+	fromSecId: string;
+	fromIdx: number;
+	startX: number;
+	startY: number;
+	lastClientY: number;
+	started: boolean;
+	scroller: HTMLElement | null;
+	scrollerRect: DOMRect | null;
+	slots: DropSlot[];
+	hoverSlot: DropSlot | null;
+	placeAfter: boolean;
+	raf: number;
+}
+
+let activeDrag: ActiveDrag | null = null;
+let dragGlobalListenersWired = false;
+
+function buildDropSlots(outline: HTMLElement, scroller: HTMLElement | null): DropSlot[] {
+	const scrollerTop = scroller ? scroller.getBoundingClientRect().top : 0;
+	const scrollY = scroller ? scroller.scrollTop : 0;
+	const slots: DropSlot[] = [];
+	const nodes = outline.querySelectorAll<HTMLElement>("[data-ge-step], [data-ge-empty-sec], [data-ge-sec-drop]");
+	for (const el of nodes) {
+		const r = el.getBoundingClientRect();
+		const top = r.top - scrollerTop + scrollY;
+		const bottom = r.bottom - scrollerTop + scrollY;
+		const mid = (top + bottom) / 2;
+		if (el.hasAttribute("data-ge-step")) {
+			slots.push({
+				el,
+				kind: "step",
+				secId: el.dataset.geSecId!,
+				stepId: el.dataset.geStep!,
+				stepIdx: Number(el.dataset.geStepIdx || 0),
+				top,
+				bottom,
+				mid,
+			});
+		} else if (el.hasAttribute("data-ge-empty-sec")) {
+			slots.push({
+				el,
+				kind: "empty-sec",
+				secId: el.dataset.geEmptySec!,
+				stepIdx: 0,
+				top,
+				bottom,
+				mid,
+			});
+		} else if (el.hasAttribute("data-ge-sec-drop")) {
+			slots.push({
+				el,
+				kind: "sec-head",
+				secId: el.dataset.geSecDrop!,
+				stepIdx: 0,
+				top,
+				bottom,
+				mid,
+			});
+		}
+	}
+	return slots;
+}
+
+function findClosestSlot(slots: DropSlot[], contentY: number): { slot: DropSlot; placeAfter: boolean } | null {
+	if (!slots.length) return null;
+	let lo = 0;
+	let hi = slots.length - 1;
+	while (lo < hi) {
+		const midIdx = (lo + hi) >> 1;
+		if (slots[midIdx]!.mid < contentY) lo = midIdx + 1;
+		else hi = midIdx;
+	}
+	let bestIdx = lo;
+	if (lo > 0 && Math.abs(slots[lo - 1]!.mid - contentY) < Math.abs(slots[lo]!.mid - contentY)) {
+		bestIdx = lo - 1;
+	}
+	const slot = slots[bestIdx]!;
+	const placeAfter = slot.kind === "step" ? contentY >= slot.mid : false;
+	return { slot, placeAfter };
+}
+
+function clearDropHighlight(d: ActiveDrag | null): void {
+	if (!d?.hoverSlot) return;
+	d.hoverSlot.el.classList.remove("drop-before", "drop-after", "drop-sec");
+	d.hoverSlot = null;
+}
+
+function updateDragHover(d: ActiveDrag): void {
+	if (!d.started || !d.slots.length) return;
+	const scrollerTop = d.scrollerRect ? d.scrollerRect.top : 0;
+	const scrollY = d.scroller ? d.scroller.scrollTop : 0;
+	const contentY = d.lastClientY - scrollerTop + scrollY;
+	const hit = findClosestSlot(d.slots, contentY);
+	if (!hit) return;
+
+	if (d.hoverSlot && d.hoverSlot.el === hit.slot.el && d.placeAfter === hit.placeAfter) return;
+	clearDropHighlight(d);
+	d.hoverSlot = hit.slot;
+	d.placeAfter = hit.placeAfter;
+	if (hit.slot.kind === "step") {
+		hit.slot.el.classList.add(hit.placeAfter ? "drop-after" : "drop-before");
+	} else {
+		hit.slot.el.classList.add("drop-sec");
+	}
+}
+
+function stopDragAutoScroll(d: ActiveDrag): void {
+	if (d.raf) {
+		cancelAnimationFrame(d.raf);
+		d.raf = 0;
+	}
+}
+
+function tickDragAutoScroll(): void {
+	const d = activeDrag;
+	if (!d || !d.started || !d.scroller || !d.scrollerRect) return;
+	const edge = 44;
+	let delta = 0;
+	if (d.lastClientY < d.scrollerRect.top + edge) {
+		delta = -Math.max(4, Math.round((d.scrollerRect.top + edge - d.lastClientY) * 0.35));
+	} else if (d.lastClientY > d.scrollerRect.bottom - edge) {
+		delta = Math.max(4, Math.round((d.lastClientY - (d.scrollerRect.bottom - edge)) * 0.35));
+	}
+	if (delta !== 0) {
+		d.scroller.scrollTop += delta;
+		updateDragHover(d);
+		d.raf = requestAnimationFrame(tickDragAutoScroll);
+	} else {
+		d.raf = 0;
+	}
+}
+
+function finishDrag(commit: boolean): void {
+	const d = activeDrag;
+	if (!d) return;
+	activeDrag = null;
+	stopDragAutoScroll(d);
+	const slot = d.hoverSlot;
+	const placeAfter = d.placeAfter;
+	clearDropHighlight(d);
+	d.rowEl.classList.remove("is-dragging");
+	document.body.classList.remove("ge-dragging");
+	try {
+		if (d.handleEl.hasPointerCapture?.(d.pointerId)) d.handleEl.releasePointerCapture(d.pointerId);
+	} catch {}
+
+	if (!commit || !d.started || !slot) return;
+	if (slot.kind === "step" && slot.stepId === d.stepId) return;
+
+	const destSecId = slot.secId;
+	const destIdx =
+		slot.kind === "step" ? computeMoveStepIndex(d.fromSecId, d.fromIdx, destSecId, slot.stepIdx, placeAfter) : 0;
+
+	collapsedSections.delete(destSecId);
+	host?.perf("dragReorderStep", () => {
+		void applyEdit((g) => moveStep(g, d.stepId, destSecId, destIdx), {
+			selectStepId: d.stepId,
+			openStepCard: false,
+		});
+	});
+}
+
+function wireDragGlobalListeners(): void {
+	if (dragGlobalListenersWired || typeof document === "undefined") return;
+	dragGlobalListenersWired = true;
+
+	document.addEventListener(
+		"pointermove",
+		(e: PointerEvent) => {
+			const d = activeDrag;
+			if (!d || e.pointerId !== d.pointerId) return;
+			d.lastClientY = e.clientY;
+			if (!d.started) {
+				if (Math.hypot(e.clientX - d.startX, e.clientY - d.startY) < 4) return;
+				d.started = true;
+				d.rowEl.classList.add("is-dragging");
+				document.body.classList.add("ge-dragging");
+				const outline = document.getElementById("ge-outline");
+				d.scroller = document.querySelector<HTMLElement>("#side .side-scroll");
+				d.scrollerRect = d.scroller ? d.scroller.getBoundingClientRect() : null;
+				d.slots = outline ? buildDropSlots(outline, d.scroller) : [];
+				try {
+					d.handleEl.setPointerCapture(d.pointerId);
+				} catch {}
+			}
+			e.preventDefault();
+			updateDragHover(d);
+			if (d.scroller && d.scrollerRect && !d.raf) {
+				const edge = 44;
+				if (d.lastClientY < d.scrollerRect.top + edge || d.lastClientY > d.scrollerRect.bottom - edge) {
+					d.raf = requestAnimationFrame(tickDragAutoScroll);
+				}
+			}
+		},
+		{ passive: false },
+	);
+
+	document.addEventListener("pointerup", (e: PointerEvent) => {
+		if (activeDrag && e.pointerId === activeDrag.pointerId) {
+			finishDrag(true);
+		}
+	});
+	document.addEventListener("pointercancel", (e: PointerEvent) => {
+		if (activeDrag && e.pointerId === activeDrag.pointerId) {
+			finishDrag(false);
+		}
+	});
+}
+
+function wireOutlineReorder(root: HTMLElement, _guide: Guide): void {
+	wireDragGlobalListeners();
+	const outline = root.querySelector<HTMLElement>("#ge-outline");
+	if (!outline) return;
+
+	outline.addEventListener("pointerdown", (e: PointerEvent) => {
+		if (e.pointerType === "mouse" && e.button !== 0) return;
+		const handleEl = (e.target as HTMLElement | null)?.closest<HTMLElement>("[data-ge-drag]");
+		if (!handleEl) return;
+		const rowEl = handleEl.closest<HTMLElement>("[data-ge-step]");
+		if (!rowEl) return;
+		e.preventDefault();
+		finishDrag(false);
+		activeDrag = {
+			pointerId: e.pointerId,
+			handleEl,
+			rowEl,
+			stepId: rowEl.dataset.geStep!,
+			fromSecId: rowEl.dataset.geSecId!,
+			fromIdx: Number(rowEl.dataset.geStepIdx || 0),
+			startX: e.clientX,
+			startY: e.clientY,
+			lastClientY: e.clientY,
+			started: false,
+			scroller: null,
+			scrollerRect: null,
+			slots: [],
+			hoverSlot: null,
+			placeAfter: false,
+			raf: 0,
+		};
+	});
 }
 
 function wireEditorGlobalShortcuts(): void {
