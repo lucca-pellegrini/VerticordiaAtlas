@@ -4742,6 +4742,15 @@ body.guide-editing #search-region-filter {
 .ge-step-row.drop-after {
 	box-shadow: inset 0 -2px 0 var(--accent);
 }
+.ge-sec-head.drop-sec,
+.ge-empty-sec.drop-sec {
+	background: color-mix(in srgb, var(--accent) 18%, transparent);
+	outline: 1px dashed var(--accent);
+	outline-offset: -2px;
+}
+body.ge-dragging {
+	user-select: none;
+}
 .ge-drag {
 	display: grid;
 	place-items: center;
@@ -4753,6 +4762,9 @@ body.guide-editing #search-region-filter {
 	color: var(--ink-dim);
 	cursor: grab;
 	touch-action: none;
+}
+.ge-drag svg {
+	pointer-events: none;
 }
 .ge-step-select {
 	min-width: 0;

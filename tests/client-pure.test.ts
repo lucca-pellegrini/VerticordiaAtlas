@@ -50,6 +50,7 @@ import {
 } from "../src/client/map/found.ts";
 import {
 	addTargetToStepTargets,
+	computeMoveStepIndex,
 	GuideEditHistory,
 	officialMarkerToTarget,
 	userMarkerToPointTarget,
@@ -2320,6 +2321,52 @@ describe("guide editor core helpers, undo history, and remote edit conflict hand
 
 		const r1 = hist.redo(u2!);
 		expect(r1?.guide.title).toBe("Edit B");
+	});
+
+	test.concurrent("computeMoveStepIndex and 600-step reorder round-trip through cleanGuide cleanly", async () => {
+		const { cleanGuide, moveStep } = await import("../src/shared/guide.ts");
+		expect(computeMoveStepIndex("sec-1", 0, "sec-1", 2, false)).toBe(1);
+		expect(computeMoveStepIndex("sec-1", 0, "sec-1", 2, true)).toBe(2);
+		expect(computeMoveStepIndex("sec-1", 4, "sec-1", 1, false)).toBe(1);
+		expect(computeMoveStepIndex("sec-1", 4, "sec-1", 1, true)).toBe(2);
+		expect(computeMoveStepIndex("sec-1", 0, "sec-2", 3, false)).toBe(3);
+		expect(computeMoveStepIndex("sec-1", 0, "sec-2", 3, true)).toBe(4);
+
+		const stepsA = Array.from({ length: 300 }, (_, i) => ({
+			id: `st-a-${i}`,
+			kind: "task" as const,
+			title: `Step A ${i}`,
+		}));
+		const stepsB = Array.from({ length: 300 }, (_, i) => ({
+			id: `st-b-${i}`,
+			kind: "task" as const,
+			title: `Step B ${i}`,
+		}));
+		const big = {
+			v: 1 as const,
+			id: "big-600",
+			game: "sunlit-reach",
+			title: "600-Step Guide",
+			sections: [
+				{ id: "sec-1", title: "Part 1", steps: stepsA },
+				{ id: "sec-2", title: "Part 2", steps: stepsB },
+			],
+			created: 1000,
+			updated: 1000,
+		};
+
+		const t0 = performance.now();
+		// Move step 0 downward within sec-1, then across into sec-2
+		const afterSame = moveStep(big, "st-a-0", "sec-1", computeMoveStepIndex("sec-1", 0, "sec-1", 2, true));
+		expect(afterSame.sections[0]!.steps[2]!.id).toBe("st-a-0");
+		const afterCross = moveStep(afterSame, "st-a-0", "sec-2", 0);
+		expect(afterCross.sections[0]!.steps).toHaveLength(299);
+		expect(afterCross.sections[1]!.steps[0]!.id).toBe("st-a-0");
+		const { guide, issues } = cleanGuide(afterCross);
+		const elapsed = performance.now() - t0;
+		expect(issues).toEqual([]);
+		expect(guide?.sections[1]!.steps[0]!.id).toBe("st-a-0");
+		expect(elapsed).toBeLessThan(150);
 	});
 
 	test.serial(
