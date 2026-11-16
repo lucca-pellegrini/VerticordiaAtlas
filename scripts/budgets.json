@@ -32,6 +32,21 @@
 		"hard": 13000
 	},
 	{
+		"id": "guide-editor-gzip",
+		"file": "public/guide-editor.js",
+		"metric": "gzip",
+		"measured": 22155,
+		"hard": 23500,
+		"note": "Lazy-loaded guide authoring editor chunk."
+	},
+	{
+		"id": "guide-editor-brotli",
+		"file": "public/guide-editor.js",
+		"metric": "brotli",
+		"measured": 19492,
+		"hard": 20700
+	},
+	{
 		"id": "home-gzip",
 		"file": "public/home.js",
 		"metric": "gzip",
