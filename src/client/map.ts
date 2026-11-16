@@ -21,9 +21,14 @@ import {
 import {
 	closeGuideMenuIfOpen,
 	closeGuidePanelIfOpen,
+	exitGuideAddStepsIfActive,
+	flushGuideSaves,
 	importGuideFile,
+	isGuideSyncKeyUnsaved,
 	jumpToGuideStep,
+	onGuideRemoteConflictPending,
 	reloadGuidesFromStore,
+	setGuideConflictFlush,
 	stepActiveGuideCursor,
 } from "./map/guides.ts";
 import {
@@ -86,12 +91,24 @@ export async function startAccountSync(): Promise<void> {
 	await accountReady;
 	if (!currentUser()) return;
 	syncer = createSync({
-		store: syncStore,
+		store: {
+			...syncStore,
+			isUnsaved: isGuideSyncKeyUnsaved,
+		},
 		api,
 		socketUrl,
 		ui: {
 			status: ({ online }) => setOnlineStatus(online),
 			conflicts: (list) => showConflicts(list),
+			deferredConflict: (list) => {
+				for (const item of list) onGuideRemoteConflictPending(item.key);
+				if (list.length) {
+					toast(
+						`Remote update arrived for ${list.map((i) => i.label).join(", ")}. Your local edits were kept; save to resolve.`,
+						5000,
+					);
+				}
+			},
 			remoteChanged: async (keys) => {
 				await refreshFromStore(keys);
 				if (keys.length) toast("Updated from your other device.");
@@ -99,6 +116,7 @@ export async function startAccountSync(): Promise<void> {
 			signedOut: () => location.reload(),
 		},
 	});
+	setGuideConflictFlush(() => syncer?.flushDeferredConflicts());
 	syncer.start();
 }
 
@@ -581,6 +599,8 @@ function wire(): void {
 			return;
 		}
 
+		if (exitGuideAddStepsIfActive()) return;
+
 		if ((state.selected != null || state.guide?.selectedStepId != null) && document.activeElement !== search) {
 			closeDetail();
 			return;
@@ -620,6 +640,7 @@ function wire(): void {
 	addEventListener("pagehide", () => {
 		saveSession();
 		rememberCamera(true);
+		void flushGuideSaves();
 	});
 	document.addEventListener("visibilitychange", () => {
 		if (document.visibilityState === "hidden") rememberCamera(true);

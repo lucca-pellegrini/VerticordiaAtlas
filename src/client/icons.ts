@@ -25,6 +25,12 @@ export const ICONS: Record<string, string> = {
 	free: '<path d="M5 9c1.5-3 5-4 7-2s4-1.5 6 .5 1 6-2 6.5-3-2-5 0-4 2.5-6 1-4.5-.5-3-3.5z" stroke-dasharray="2.5 2"/>',
 	arrowLeft: '<path d="M19 12H5M11 6l-6 6 6 6"/>',
 	arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
+	undo: '<path d="M9 14L4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
+	redo: '<path d="M15 14l5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>',
+	grip: '<circle cx="9" cy="6" r="1.3"/><circle cx="15" cy="6" r="1.3"/><circle cx="9" cy="12" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="9" cy="18" r="1.3"/><circle cx="15" cy="18" r="1.3"/>',
+	chevUp: '<path d="M6 15l6-6 6 6"/>',
+	chevDown: '<path d="M6 9l6 6 6-6"/>',
+	code: '<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>',
 };
 
 // an icon as markup: the paths of ICONS.name inside a 24x24 svg with the shared styling (class "i")

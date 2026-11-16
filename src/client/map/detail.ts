@@ -398,7 +398,7 @@ export function mediaHtml(m: any, l: { title: string }): string {
 /* ---------- right-click on the map: what is here ----------
    On an empty spot: add a marker there (either kind), or share the spot. On a marker: found or not found, share;
    a user marker also has its own actions (the card's buttons). Pan and marker tools only; press and hold on touch. */
-interface CtxMenuItem {
+export interface CtxMenuItem {
 	sep?: boolean;
 	icon?: string;
 	label?: string;
@@ -438,7 +438,7 @@ export function closeCtxIfOutside(e: MouseEvent): void {
 	if (!(e.target as HTMLElement).closest("#ctx-menu") && Date.now() - ctxOpenedAt > 350) closeCtx(); // a touch's click can follow its press
 }
 
-function openCtx(x: number, y: number, { title = "", items }: { title?: string; items: CtxMenuItem[] }): void {
+export function openCtx(x: number, y: number, { title = "", items }: { title?: string; items: CtxMenuItem[] }): void {
 	const el = ctxEl();
 	ctxItems = items;
 	el.innerHTML =
