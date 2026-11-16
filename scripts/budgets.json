@@ -3,25 +3,40 @@
 		"id": "app-gzip",
 		"file": "public/app.js",
 		"metric": "gzip",
-		"measured": 90148,
-		"hard": 92900,
+		"measured": 92836,
+		"hard": 95600,
 		"target": 65000,
-		"note": "Roadmap target is ~65 KB gzip; not yet met. Hard limit is measured + ~3%."
+		"note": "Roadmap target is ~65 KB gzip; not yet met. Hard limit is measured + ~3% (follow UI is lazy-loaded in guide-follow.js)."
 	},
 	{
 		"id": "app-brotli",
 		"file": "public/app.js",
 		"metric": "brotli",
-		"measured": 75657,
-		"hard": 78000,
-		"note": "br11 (includes Guide v1 validator, store, sync, and import/export from M2)."
+		"measured": 77650,
+		"hard": 80000,
+		"note": "br11 (includes Guide v1 validator, store, sync, import/export, and M3 lazy follow hooks)."
+	},
+	{
+		"id": "guide-follow-gzip",
+		"file": "public/guide-follow.js",
+		"metric": "gzip",
+		"measured": 13885,
+		"hard": 14500,
+		"note": "Lazy-loaded guide follow panel, step card, and route renderer."
+	},
+	{
+		"id": "guide-follow-brotli",
+		"file": "public/guide-follow.js",
+		"metric": "brotli",
+		"measured": 12500,
+		"hard": 13000
 	},
 	{
 		"id": "home-gzip",
 		"file": "public/home.js",
 		"metric": "gzip",
-		"measured": 18452,
-		"hard": 19000
+		"measured": 18700,
+		"hard": 19300
 	},
 	{
 		"id": "theme-gzip",
@@ -34,7 +49,7 @@
 		"id": "sw-gzip",
 		"file": "public/sw.js",
 		"metric": "gzip",
-		"measured": 3377,
+		"measured": 3410,
 		"hard": 3600
 	},
 	{

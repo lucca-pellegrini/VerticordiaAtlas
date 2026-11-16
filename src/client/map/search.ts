@@ -106,10 +106,14 @@ export function matchOf(q: SearchQuery, l: { title?: string; desc?: string }): [
 // the locations of this map a search may match: shown now (category on, found ones only when they are shown)
 export function localEntries(): any[] {
 	const cur = state.mapInfo.slug;
+	const remIds = state.guide?.remainingOnly ? (state.guide?.remainingIds as Set<number> | null) : null;
 	return state.locs
 		.filter(
 			(l: any) =>
-				applicable(l) && !state.view.hidden.has(l.cat) && !(state.view.hideFound && state.found.has(l.id)),
+				applicable(l) &&
+				!state.view.hidden.has(l.cat) &&
+				!(state.view.hideFound && state.found.has(l.id)) &&
+				(!remIds || remIds.has(l.id)),
 		)
 		.map((l: any) => ({ l, slug: cur, cat: state.cats.get(l.cat), col: state.groupOfCat.get(l.cat)?.col }));
 }
@@ -227,12 +231,14 @@ async function runSearchImpl(): Promise<void> {
 // searching, which closes the search, on a phone and a desktop alike
 export function syncSideClose(): void {
 	const b = $("#side-close"),
-		on = state.search.active;
+		searching = Boolean(state.search?.active),
+		guiding = Boolean(!searching && state.guide?.panelOpen),
+		on = searching || guiding;
 	if (!b) return;
 	b.classList.toggle("search-close", on);
 	b.innerHTML = on ? svgIcon("x") : "Close";
-	b.setAttribute("aria-label", on ? "Close search" : "Close panel");
-	b.title = on ? "Close search" : "";
+	b.setAttribute("aria-label", searching ? "Close search" : guiding ? "Close guide" : "Close panel");
+	b.title = searching ? "Close search" : guiding ? "Close guide" : "";
 }
 
 export function leaveSearch(): void {

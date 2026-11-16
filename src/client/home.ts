@@ -720,6 +720,27 @@ function renderResume(gamesList: GameManifestEntry[]): string | null {
 		)
 		.join("");
 
+	const bookSvg =
+		'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>';
+	const guideSummary =
+		s.guide && typeof s.guide.title === "string" && s.guide.total > 0
+			? (() => {
+					const gHref = `${href}?guide=${encodeURIComponent(s.guide.id)}`;
+					const gDone = fmt(s.guide.done ?? 0);
+					const gTotal = fmt(s.guide.total);
+					const gPct = pct(s.guide.done ?? 0, s.guide.total);
+					return (
+						`<a class="resume-guide" href="${esc(gHref)}" data-slug="${esc(g.slug)}">` +
+						`<div class="resume-guide-head">${bookSvg}<span class="resume-guide-title">${esc(s.guide.title)}</span>` +
+						`<span class="resume-guide-count">${gDone} / ${gTotal} (${gPct}%)</span></div>` +
+						(s.guide.nextStep
+							? `<div class="resume-guide-next">Next: ${esc(s.guide.nextStep)}</div>`
+							: `<div class="resume-guide-next">All steps complete</div>`) +
+						`</a>`
+					);
+				})()
+			: "";
+
 	const extras = [
 		s.userMarkers
 			? `<li>${ICON.pin}<b>${fmt(s.userMarkers)}</b> marker${s.userMarkers === 1 ? "" : "s"} placed</li>`
@@ -779,6 +800,7 @@ function renderResume(gamesList: GameManifestEntry[]): string | null {
 		(s.session && s.session.found > 0
 			? `<p class="resume-session">Last session: <b>${fmt(s.session.found)}</b> found</p>`
 			: "") +
+		guideSummary +
 		(recent || near
 			? `<div class="resume-cols">` +
 				(recent ? `<section><h2>Recently found</h2><ul class="resume-recent">${recent}</ul></section>` : "") +

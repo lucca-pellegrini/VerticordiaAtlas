@@ -13,6 +13,7 @@ import { perf } from "../perf.ts";
 import { themeToggle } from "../theme.ts";
 import { buildLinkIndex } from "./detail.ts";
 import { applyFoundChange, notifyFoundChange } from "./found.ts";
+import { followedGuideSessionSummary, syncGuidesSidebarAndPanel } from "./guides.ts";
 import {
 	createScheduler,
 	flushRefreshNow,
@@ -568,6 +569,7 @@ function updateSidebarImpl(): void {
 		found += gf;
 	}
 	showCounts(found, total);
+	syncGuidesSidebarAndPanel();
 	renderTilesetMenu();
 	renderRegionNavigator();
 	updateSidebarRegionsBtn();
@@ -652,6 +654,8 @@ export function saveSession(): void {
 		const allMaps = (state.meta?.maps || []).map((m: any) => ({ slug: m.slug, title: m.title || m.slug }));
 		allMaps.sort((a: any, b: any) => (visited.has(b.slug) ? 1 : 0) - (visited.has(a.slug) ? 1 : 0));
 
+		const followedGuide = followedGuideSessionSummary();
+
 		const snap = {
 			v: 1,
 			slug: state.entry.slug,
@@ -670,6 +674,7 @@ export function saveSession(): void {
 			near: near.slice(0, 5),
 			recent,
 			...(session ? { session } : {}),
+			...(followedGuide ? { guide: followedGuide } : {}),
 			userMarkers: (state.profile?.userMarkers || []).filter((m: any) => m.map === map).length,
 			drawings: (state.profile?.drawings || []).filter((d: any) => d.map === map).length,
 			presets: state.presets.length,
@@ -774,6 +779,9 @@ export function arrangeSidebar(): void {
 		"#results-bar",
 		"#results",
 		"#groups-region-filter",
+		"#guides-section",
+		"#guide-panel",
+		"#guide-live",
 		"#groups",
 	]) {
 		const el = document.querySelector("#side " + sel);
@@ -806,6 +814,10 @@ export function setupTitleRow(): void {
 		`<button id="side-stats-btn" class="side-menu-link side-stats-btn" type="button">` +
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg>` +
 		`<span>Progress &amp; stats</span>` +
+		`</button>` +
+		`<button id="side-import-guide-btn" class="side-menu-link" type="button">` +
+		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>` +
+		`<span>Import guide</span>` +
 		`</button>` +
 		`<button id="side-regions-btn" class="side-menu-link side-regions-btn" type="button" aria-pressed="true" hidden>` +
 		`<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>` +
@@ -851,6 +863,14 @@ export function setupTitleRow(): void {
 		moreBtn.focus(); // the dialog returns focus here when it closes
 		openStats();
 	};
+	const importGuideBtn = tools.querySelector<HTMLButtonElement>("#side-import-guide-btn");
+	if (importGuideBtn) {
+		importGuideBtn.onclick = () => {
+			moreMenu.hidden = true;
+			moreBtn.setAttribute("aria-expanded", "false");
+			$("#import-guide-file")?.click();
+		};
+	}
 
 	const regionsBtn = tools.querySelector<HTMLButtonElement>("#side-regions-btn");
 	if (regionsBtn) {

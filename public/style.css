@@ -3915,6 +3915,600 @@ body.has-region-filter .side-scroll .group-head {
 	top: 79px;
 }
 
+/* ---------- Guides follow mode (sidebar section, guide panel, step card) ---------- */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+.side-scroll > .guides-group {
+	margin: 0 -16px;
+}
+.guides-group[hidden],
+.guide-panel[hidden] {
+	display: none !important;
+}
+.guide-row {
+	grid-template-columns: 16px 26px 1fr auto;
+}
+.guide-ico {
+	display: grid;
+	place-items: center;
+	color: var(--accent-soft);
+}
+.guide-row.active-guide {
+	background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.guide-row:focus-visible,
+.gp-step-main:focus-visible,
+.gp-step-check:focus-visible,
+.gp-sec-head:focus-visible,
+.gp-nav-btn:focus-visible,
+.gp-nav-cur:focus-visible,
+.gp-back-btn:focus-visible,
+.gp-thread-chip:focus-visible,
+.gs-btn:focus-visible,
+.gs-target-btn:focus-visible,
+.d-guide-link:focus-visible {
+	outline: 2px solid var(--accent-soft);
+	outline-offset: 2px;
+}
+
+body.guide-open #guides-section,
+body.guide-open #groups,
+body.searching #guides-section,
+body.searching #guide-panel {
+	display: none !important;
+}
+
+.guide-panel {
+	margin: 0 -16px;
+	display: flex;
+	flex-direction: column;
+}
+.gp-header {
+	padding: 12px 16px 14px;
+	border-bottom: 1px solid var(--line);
+	background: color-mix(in srgb, var(--panel) 88%, var(--panel-2));
+	display: grid;
+	gap: 10px;
+}
+.gp-top-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+.gp-back-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 11px;
+	min-height: 32px;
+	border-radius: 999px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	color: var(--ink);
+	font-size: 12.5px;
+	font-weight: 500;
+}
+.gp-back-btn:hover {
+	border-color: var(--accent-soft);
+	color: var(--accent-soft);
+}
+.gp-title {
+	margin: 0;
+	font: 400 22px/1.12 var(--serif);
+	text-wrap: balance;
+}
+.gp-meta {
+	margin-top: -6px;
+	font-size: 12px;
+	color: var(--ink-dim);
+}
+.gp-progress-row {
+	display: grid;
+	gap: 6px;
+}
+.gp-progress-text {
+	font-size: 12px;
+	color: var(--ink-dim);
+	font-variant-numeric: tabular-nums;
+}
+.gp-progress-text b {
+	color: var(--ink);
+	font-weight: 600;
+}
+.gp-progress-bar {
+	height: 6px;
+	border-radius: 999px;
+	background: var(--panel-2);
+	overflow: hidden;
+}
+.gp-progress-bar i {
+	display: block;
+	height: 100%;
+	border-radius: 999px;
+	background: var(--accent);
+	transition: width var(--fast) var(--ease);
+}
+.gp-nav-bar {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	gap: 6px;
+	align-items: center;
+}
+.gp-nav-btn,
+.gp-nav-cur {
+	padding: 6px 10px;
+	min-height: 34px;
+	border-radius: 10px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	font-size: 12px;
+	font-weight: 500;
+	white-space: nowrap;
+}
+.gp-nav-cur {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: var(--accent-soft);
+}
+.gp-nav-btn:hover:not(:disabled),
+.gp-nav-cur:hover:not(:disabled) {
+	border-color: var(--accent-soft);
+	background: var(--tint);
+}
+.gp-nav-btn:disabled,
+.gp-nav-cur:disabled {
+	opacity: 0.42;
+	cursor: default;
+}
+.gp-toggles {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 12px;
+}
+.gp-check {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	color: var(--ink-dim);
+	cursor: pointer;
+}
+.gp-check input {
+	width: 15px;
+	height: 15px;
+}
+.gp-variants {
+	display: grid;
+	gap: 6px;
+}
+.gp-variant {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	font-size: 12px;
+	color: var(--ink-dim);
+}
+.gp-variant select {
+	width: auto;
+	min-width: 132px;
+	max-width: 62%;
+	padding: 5px 28px 5px 9px;
+	font-size: 12px;
+	border-radius: 8px;
+}
+.gp-threads {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+.gp-thread-chip {
+	padding: 4px 10px;
+	border-radius: 999px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	font-size: 11.5px;
+	color: var(--ink-dim);
+}
+.gp-thread-chip[aria-pressed="true"] {
+	border-color: var(--accent);
+	background: color-mix(in srgb, var(--accent) 18%, transparent);
+	color: var(--accent-soft);
+	font-weight: 600;
+}
+
+.gp-list {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 24px;
+}
+.gp-empty {
+	padding: 20px 16px;
+	font-size: 13px;
+	color: var(--ink-dim);
+	text-align: center;
+}
+.gp-sec-head {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 9px 14px;
+	min-height: 40px;
+	border: 0;
+	border-top: 1px solid var(--line);
+	border-bottom: 1px solid var(--line);
+	background: color-mix(in srgb, var(--panel-2) 65%, var(--panel));
+	text-align: left;
+	font-size: 11.5px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--ink-dim);
+}
+.gp-sec-title {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: var(--ink);
+}
+.gp-sec-tally {
+	font-variant-numeric: tabular-nums;
+	flex: none;
+}
+.gp-sec-gate {
+	padding: 4px 14px 6px;
+	font-size: 11.5px;
+	color: var(--warn);
+	background: color-mix(in srgb, var(--warn) 10%, var(--panel));
+	border-bottom: 1px solid var(--line);
+}
+.gp-step {
+	display: grid;
+	grid-template-columns: 38px 1fr;
+	align-items: center;
+	gap: 4px;
+	padding: 4px 10px 4px 8px;
+	min-height: 56px;
+	box-sizing: border-box;
+	border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+	transition: background-color var(--fast);
+}
+.gp-step:hover {
+	background: var(--hover);
+}
+.gp-step.is-current {
+	background: color-mix(in srgb, var(--accent) 14%, transparent);
+	box-shadow: inset 3px 0 0 var(--accent);
+}
+.gp-step.is-selected {
+	background: color-mix(in srgb, var(--accent) 20%, transparent);
+}
+.gp-step.is-done .gp-step-title,
+.gp-step.is-skipped .gp-step-title {
+	color: var(--ink-dim);
+}
+.gp-step.is-done .gp-step-title {
+	text-decoration: line-through;
+	text-decoration-color: color-mix(in srgb, var(--ink-dim) 50%, transparent);
+}
+.gp-step-check {
+	width: 24px;
+	height: 24px;
+	margin: auto;
+	padding: 0;
+	border-radius: 7px;
+	border: 1.5px solid var(--line-2);
+	background: var(--panel-2);
+	color: #fff;
+	font-size: 13px;
+	font-weight: 700;
+	display: grid;
+	place-items: center;
+}
+.gp-step-check.on {
+	background: var(--accent);
+	border-color: var(--accent);
+}
+.gp-step-check.partial {
+	border-color: var(--accent-soft);
+	color: var(--accent-soft);
+}
+.gp-step-bullet {
+	width: 24px;
+	height: 24px;
+	margin: auto;
+	display: grid;
+	place-items: center;
+	font-size: 14px;
+	color: var(--accent-soft);
+}
+.gp-step-main {
+	min-width: 0;
+	width: 100%;
+	padding: 4px 6px;
+	border: 0;
+	background: none;
+	text-align: left;
+	border-radius: 8px;
+	display: grid;
+	gap: 2px;
+}
+.gp-step-top {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	min-width: 0;
+}
+.gp-step-num {
+	flex: none;
+	font: 600 11px/1 var(--mono, monospace);
+	color: var(--ink-dim);
+}
+.gp-step-title {
+	flex: 1;
+	min-width: 0;
+	font-size: 13px;
+	font-weight: 500;
+	color: var(--ink);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.gp-step-badges {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	flex: none;
+}
+.gp-step-hint {
+	font-size: 11.5px;
+	color: var(--ink-dim);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.gp-badge {
+	display: inline-block;
+	padding: 1px 6px;
+	border-radius: 999px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	color: var(--ink-dim);
+	font-size: 10.5px;
+	font-weight: 600;
+	line-height: 1.45;
+	white-space: nowrap;
+}
+.gp-badge-done {
+	border-color: color-mix(in srgb, var(--ok) 45%, transparent);
+	color: var(--ok);
+}
+.gp-badge-partial {
+	border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+	color: var(--accent-soft);
+}
+.gp-badge-missable {
+	border-color: color-mix(in srgb, var(--danger) 50%, transparent);
+	background: color-mix(in srgb, var(--danger) 14%, transparent);
+	color: var(--danger);
+}
+.gp-badge-skip {
+	opacity: 0.75;
+}
+.gp-badge-thread {
+	border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* Step detail card inside #detail */
+.gs-badges-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin: 8px 0 2px;
+}
+.gs-cross-map {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 9px 12px;
+	margin: 10px 0;
+	border-radius: 12px;
+	border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent);
+	background: color-mix(in srgb, var(--accent) 12%, var(--panel-2));
+	font-size: 12.5px;
+}
+.gs-consequence {
+	padding: 10px 12px;
+	margin: 10px 0;
+	border-radius: 12px;
+	border: 1px solid color-mix(in srgb, var(--danger) 55%, transparent);
+	background: color-mix(in srgb, var(--danger) 14%, transparent);
+	color: var(--ink);
+	font-size: 13px;
+}
+.gs-consequence strong {
+	color: var(--danger);
+}
+.gs-reward {
+	padding: 8px 12px;
+	margin: 8px 0 12px;
+	border-radius: 10px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	font-size: 13px;
+}
+.gs-actions {
+	display: grid;
+	gap: 8px;
+	margin: 12px 0 10px;
+}
+.gs-actions .found-btn {
+	margin-bottom: 0;
+}
+.gs-sub-actions,
+.gs-nav-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 8px;
+	margin-bottom: 12px;
+}
+.gs-actions .gs-sub-actions {
+	margin-bottom: 0;
+}
+.gs-btn {
+	padding: 9px 12px;
+	min-height: 38px;
+	border-radius: 999px;
+	border: 1px solid var(--line-2);
+	background: var(--panel-2);
+	color: var(--ink);
+	font-size: 12.5px;
+	font-weight: 500;
+}
+.gs-btn:hover:not(:disabled) {
+	border-color: var(--accent-soft);
+	background: var(--tint);
+}
+.gs-btn.primary {
+	border-color: var(--accent);
+	background: color-mix(in srgb, var(--accent) 22%, var(--panel-2));
+	color: var(--accent-soft);
+	font-weight: 600;
+}
+.gs-btn:disabled {
+	opacity: 0.42;
+	cursor: default;
+}
+.gs-targets,
+.gs-links {
+	margin-top: 14px;
+	padding-top: 12px;
+	border-top: 1px solid var(--line);
+}
+.gs-targets h3,
+.gs-links h3 {
+	margin: 0 0 8px;
+	color: var(--ink-dim);
+	font: 500 11px var(--sans);
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+}
+.gs-target-list,
+.gs-links ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 6px;
+}
+.gs-target-row {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 8px;
+	border-radius: 10px;
+	border: 1px solid var(--line);
+	background: var(--panel-2);
+}
+.gs-target-row.is-found .gs-target-title {
+	text-decoration: line-through;
+	color: var(--ink-dim);
+}
+.gs-target-btn {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 4px 2px;
+	border: 0;
+	background: none;
+	text-align: left;
+	font-size: 13px;
+}
+.gs-target-btn:hover {
+	color: var(--accent-soft);
+}
+.gs-target-btn .ico-wrap {
+	flex: none;
+	transform: scale(0.85);
+}
+.gs-target-title {
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.gs-target-missing-tag {
+	font-size: 10.5px;
+	color: var(--warn);
+	flex: none;
+}
+.d-guide-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin: 8px 0 12px;
+}
+.d-guide-link {
+	padding: 5px 11px;
+	border-radius: 999px;
+	border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+	background: color-mix(in srgb, var(--accent) 12%, transparent);
+	color: var(--accent-soft);
+	font-size: 12px;
+	font-weight: 500;
+}
+.d-guide-link:hover {
+	background: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+@media (max-width: 760px), (pointer: coarse) {
+	.gp-back-btn,
+	.gp-nav-btn,
+	.gp-nav-cur,
+	.gp-sec-head,
+	.gp-thread-chip,
+	.gs-btn,
+	.d-guide-link {
+		min-height: 44px;
+	}
+	.gp-step {
+		grid-template-columns: 44px 1fr;
+		min-height: 56px;
+	}
+	.gp-step-check {
+		width: 32px;
+		height: 32px;
+	}
+	.gp-step-main {
+		min-height: 44px;
+	}
+	.gs-target-row {
+		min-height: 44px;
+	}
+	.gs-target-cb {
+		width: 24px;
+		height: 24px;
+	}
+}
+
 /* ---------- light mode refinements for map pages ---------- */
 html[data-theme="light"] {
 	--chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235a636a' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");

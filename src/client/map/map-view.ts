@@ -13,7 +13,7 @@ import { isLightTheme, recordGameOpen } from "../theme.ts";
 import { setupCapture } from "./capture.ts";
 import { closeCtx, closeDetail, dismiss, mapMenuAt, renderDetail, select, updateLinkHeads } from "./detail.ts";
 import { setupDrawing } from "./drawing.ts";
-import { loadGuides } from "./guides.ts";
+import { loadGuides, prepareGuideFilterBeforeRefresh, syncGuideMapRoute } from "./guides.ts";
 import { renderMd } from "./markdown.ts";
 import { buildMarkerFilter } from "./marker-filter.ts";
 import { loadMapState, migratePresets, renderPresets } from "./presets.ts";
@@ -1903,9 +1903,21 @@ function refreshMapImpl(): void {
 		rebuildMarkerSource();
 	}
 
+	prepareGuideFilterBeforeRefresh();
+
 	const sel = state.selected,
-		rel = sel != null ? relatedOf(sel) : new Set<number>();
-	const pinnedIds = sel != null ? [sel, ...rel] : [];
+		rel = sel != null ? relatedOf(sel) : new Set<number>(),
+		searchActive = Boolean(state.search.active && !state.search.wild),
+		winIds = !searchActive ? (state.guide?.windowIds as Set<number> | null | undefined) : null;
+	const pinnedSet = new Set<number>();
+	if (sel != null) {
+		pinnedSet.add(sel);
+		for (const id of rel) pinnedSet.add(id);
+	}
+	if (winIds) {
+		for (const id of winIds) pinnedSet.add(id);
+	}
+	const pinnedIds = [...pinnedSet];
 
 	let matchingRegions: number[] | null = null;
 	if (state.regionFilter != null) {
@@ -1917,6 +1929,7 @@ function refreshMapImpl(): void {
 	}
 
 	const searchIds = state.search.active && !state.search.wild && state.search.ids ? state.search.ids : null;
+	const guideIds = state.guide?.remainingOnly && state.guide?.remainingIds ? state.guide.remainingIds : null;
 
 	const filter = buildMarkerFilter({
 		hiddenCats: state.view?.hidden,
@@ -1925,6 +1938,7 @@ function refreshMapImpl(): void {
 		hideFound: state.view?.hideFound,
 		matchingRegions,
 		searchIds,
+		guideIds,
 		pinnedIds,
 	});
 
@@ -1935,10 +1949,11 @@ function refreshMapImpl(): void {
 	// synchronize location feature polygons & lines
 	const visibleGeomLocs = state.locs.filter((l: any) => {
 		if (!l.features || !l.features.length) return false;
-		const pinned = l.id === sel || rel.has(l.id);
+		const pinned = pinnedSet.has(l.id);
 		if (pinned) return true;
 		if (!shownOnMap(l)) return false;
 		if (state.search.ids && !state.search.ids.has(l.id)) return false;
+		if (guideIds && !guideIds.has(l.id)) return false;
 		return true;
 	});
 	const geoms = buildLocationGeometryFeatures(visibleGeomLocs, state.data?.styles, state.cats);
@@ -1948,6 +1963,7 @@ function refreshMapImpl(): void {
 	if (lineSrc) lineSrc.setData(geoms.lines);
 
 	syncRelatedRings(rel);
+	syncGuideMapRoute(map);
 }
 
 // a dotted ring on each related marker (the selected one has its solid circle, the 'sel' layer)

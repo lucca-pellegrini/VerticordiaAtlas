@@ -7,7 +7,9 @@
 // and skip with a warning locally, so a green CI run always means the checks ran.
 
 import { afterAll, beforeAll, describe, expect, test } from "bun:test";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import path from "node:path";
 
 import puppeteer, { type Browser, type BrowserContext, type Page } from "puppeteer";
 
@@ -665,6 +667,325 @@ describe("browser e2e (real server, headless Chrome)", () => {
 
 			await ctx.close();
 			expect({ errors: t.errors, failed: t.failed }).toEqual({ errors: [], failed: [] });
+		},
+		T,
+	);
+
+	test(
+		"9. guides follow mode: lazy load, 2000-step panel perf, follow/undo, out-of-order tick, route layer & resume card",
+		async () => {
+			if (!guard()) return;
+			const dir = mkdtempSync(path.join(tmpdir(), "va-e2e-guide-"));
+			try {
+				const hkData = JSON.parse(readFileSync(`public/maps/${CONTROL_GAME}/${CONTROL_MAP}/data.json`, "utf8"));
+				const locs: any[] = hkData.locations.slice(0, 4);
+				const sections: any[] = [];
+				let stepCounter = 0;
+				const stepsPerSec = 100;
+				for (let s = 0; s < 20; s++) {
+					const steps: any[] = [];
+					for (let j = 0; j < stepsPerSec; j++) {
+						stepCounter++;
+						const id = `st-${stepCounter}`;
+						if (stepCounter === 1) {
+							steps.push({
+								id,
+								kind: "task",
+								title: "Check Starting Marker A",
+								notes: "Bound step with consequence and reward.",
+								consequence: "Will lock if missed later.",
+								reward: "Charm Notch",
+								targets: [{ kind: "marker", marker: locs[0].id }],
+							});
+						} else if (stepCounter === 2) {
+							steps.push({
+								id,
+								kind: "task",
+								title: "Manual Step Two",
+								place: "Dirtmouth",
+								thread: "main",
+							});
+						} else if (stepCounter === 3) {
+							steps.push({
+								id,
+								kind: "task",
+								title: "Out of Order Target C",
+								targets: [{ kind: "marker", marker: locs[1].id }],
+								only: { mode: ["standard"] },
+							});
+						} else if (stepCounter === 4) {
+							steps.push({
+								id,
+								kind: "waypoint",
+								title: "Scenic Overlook",
+								targets: [
+									{
+										kind: "point",
+										point: {
+											lat: Number(locs[2].latitude),
+											lng: Number(locs[2].longitude),
+											map: CONTROL_MAP,
+										},
+										label: "Overlook",
+									},
+								],
+							});
+						} else {
+							steps.push({
+								id,
+								kind: "task",
+								title: `Filler Step ${stepCounter}`,
+							});
+						}
+					}
+					sections.push({ id: `sec-${s + 1}`, title: `Chapter ${s + 1}`, steps });
+				}
+
+				const guideObj = {
+					v: 1,
+					id: "e2e-2k-route",
+					game: CONTROL_GAME,
+					title: "2000-Step Hallownest Route",
+					author: "E2E Suite",
+					variants: [
+						{
+							id: "mode",
+							label: "Mode",
+							options: [
+								{ id: "standard", label: "Standard" },
+								{ id: "speed", label: "Speedrun" },
+							],
+							default: "standard",
+						},
+					],
+					sections,
+					created: 1760000000000,
+					updated: 1760000000000,
+				};
+				const guidePath = path.join(dir, "guide-2k.json");
+				writeFileSync(guidePath, JSON.stringify(guideObj));
+
+				const ctx = await browser.createBrowserContext();
+				const t = await track(ctx, { bypassSW: true });
+				await t.page.goto(mapUrl(CONTROL_GAME, CONTROL_MAP), { waitUntil: "domcontentloaded" });
+				await ready(t.page);
+				await sleep(600);
+
+				// 1. Before any guide exists, guide-follow.js was NEVER requested
+				expect(t.urls.some((u) => u.includes("guide-follow.js"))).toBe(false);
+				expect(await t.page.$eval("#guides-section", (el) => (el as HTMLElement).hidden)).toBe(true);
+
+				// 2. Import the 2,000-step fixture through #import-guide-file
+				const fileInput = (await t.page.$("input#import-guide-file"))!;
+				await fileInput.uploadFile(guidePath);
+				await t.page.waitForFunction(() => !document.getElementById("guides-section")?.hasAttribute("hidden"), {
+					timeout: 15000,
+				});
+
+				// Verify lazy chunk loaded on demand and guide row shows 0/1,999 (1999 tasks + 1 waypoint)
+				expect(t.urls.some((u) => u.includes("guide-follow.js"))).toBe(true);
+				const rowText = await t.page.$eval("#guides-section .guide-row", (el) => el.textContent || "");
+				expect(rowText).toContain("2000-Step Hallownest Route");
+				expect(rowText).toContain("0/1,999");
+
+				// 3. Open guide panel with ?perf=1 and verify fast open + virtualized DOM window
+				const openT0 = performance.now();
+				await t.page.click('#guides-section .guide-row[data-guide-open="e2e-2k-route"]');
+				await t.page.waitForSelector("body.guide-open #guide-panel:not([hidden]) .gp-step", { timeout: 10000 });
+				const openWallMs = performance.now() - openT0;
+				const renderedRows = await t.page.$$eval("#gp-step-list .gp-step", (els) => els.length);
+				expect(renderedRows).toBeGreaterThan(10);
+				expect(renderedRows).toBeLessThan(250); // virtual windowing skips rendering all 2000 nodes at once!
+
+				// Scroll smoothly partway through the 2,000-step panel and back up
+				await t.page.evaluate(() => {
+					const sc = document.querySelector("#side .side-scroll") as HTMLElement;
+					sc.scrollTop = 25000;
+					sc.dispatchEvent(new Event("scroll"));
+				});
+				await sleep(150);
+				const scrolledNums = await t.page.$$eval("#gp-step-list .gp-step-num", (els) =>
+					els.map((e) => e.textContent || ""),
+				);
+				expect(scrolledNums.some((s) => Number(s.slice(1)) > 200)).toBe(true);
+				await t.page.evaluate(() => {
+					const sc = document.querySelector("#side .side-scroll") as HTMLElement;
+					sc.scrollTop = 0;
+					sc.dispatchEvent(new Event("scroll"));
+				});
+				await sleep(150);
+
+				// 4. Open Step 1 card & check MapLibre route window layers exist
+				await t.page.waitForSelector('.gp-step[data-step-id="st-1"] [data-gp-open-step]', { timeout: 5000 });
+				await t.page.click('.gp-step[data-step-id="st-1"] [data-gp-open-step]');
+				await t.page.waitForSelector("body.detail-open .gs-done-btn", { timeout: 5000 });
+				await sleep(300);
+				const routeStats = await t.page.evaluate(() => {
+					const m = (window as any).__map;
+					return {
+						hasPinLayer: Boolean(m.getLayer("guide-route-pins")),
+						hasLineLayer: Boolean(m.getLayer("guide-route-prev") && m.getLayer("guide-route-next")),
+						pins: m.querySourceFeatures("guide-route-pins").length,
+						lines: m.querySourceFeatures("guide-route-lines").length,
+					};
+				});
+				expect(routeStats.hasPinLayer).toBe(true);
+				expect(routeStats.hasLineLayer).toBe(true);
+				expect(routeStats.pins).toBeGreaterThan(0);
+
+				// 5. Mark Step 1 as done (binds marker locs[0].id) -> auto-advances to Step 2
+				await t.page.click(".gs-done-btn");
+				await t.page.waitForSelector("#toast:not([hidden]) .toast-action", { timeout: 5000 });
+				await t.page.waitForFunction(
+					() =>
+						document.querySelector(".gp-nav-cur")?.textContent?.includes("Step 2") &&
+						document.querySelector('.gp-step[data-step-id="st-1"]')?.classList.contains("is-done"),
+					{ timeout: 5000 },
+				);
+
+				// 6. Undo -> reverts BOTH Step 1 and its bound marker locs[0].id, returning cursor to Step 1
+				await t.page.click("#toast .toast-action");
+				await t.page.waitForFunction(
+					() =>
+						document.querySelector(".gp-nav-cur")?.textContent?.includes("Step 1") &&
+						!document.querySelector('.gp-step[data-step-id="st-1"]')?.classList.contains("is-done"),
+					{ timeout: 5000 },
+				);
+
+				// 7. Out-of-order marker tick on map for Step 3 (`locs[1].id`): updates Step 3 live, NEVER moves cursor off Step 1
+				await t.page.click("#detail-close");
+				await t.page.goto(mapUrl(CONTROL_GAME, CONTROL_MAP, `&loc=${locs[1].id}`), {
+					waitUntil: "domcontentloaded",
+				});
+				await t.page.waitForSelector("body.detail-open .d-guide-link", { timeout: 30000 });
+				const backlinkText = await t.page.$eval(".d-guide-link", (el) => el.textContent || "");
+				expect(backlinkText).toContain("Step 3 in 2000-Step Hallownest Route");
+				await t.page.click(".found-btn");
+				await sleep(400);
+				await t.page.click("#detail-close");
+				await t.page.click('#guides-section .guide-row[data-guide-open="e2e-2k-route"]');
+				await t.page.waitForSelector("body.guide-open #guide-panel:not([hidden])", { timeout: 5000 });
+				const cursorTextAfterOOO = await t.page.$eval(".gp-nav-cur", (el) => el.textContent || "");
+				expect(cursorTextAfterOOO).toContain("Step 1 of 2000");
+
+				// 8. Complete Step 1 and advance using "Mark done & next ->" then "]" shortcut
+				await t.page.click('.gp-step[data-step-id="st-1"] [data-gp-open-step]');
+				await t.page.waitForSelector('.gs-btn[data-gs-act="done-and-next"]', { timeout: 5000 });
+				await t.page.click('.gs-btn[data-gs-act="done-and-next"]');
+				await t.page.waitForFunction(
+					() => document.querySelector("#detail .d-title")?.textContent === "Manual Step Two",
+					{ timeout: 5000 },
+				);
+				// Force saveSession immediately by waiting past 450ms debounce
+				await sleep(600);
+
+				// Check perfReport output for follow hot paths
+				await t.page.evaluate(() => (window as any).perfReport());
+				for (let i = 0; i < 15 && !t.tables.length; i++) await sleep(200);
+				const perfTable = t.tables[0] || {};
+				if (process.env.DEBUG) {
+					console.log("M3 2,000-step guide open wall ms:", Math.round(openWallMs), "perfReport:", perfTable);
+				}
+				if (perfTable.deriveGuideView) expect(perfTable.deriveGuideView.meanMs).toBeLessThan(150);
+				if (perfTable.openGuidePanel) expect(perfTable.openGuidePanel.meanMs).toBeLessThan(500);
+
+				// 9. Navigate to homepage and check Resume card reflects the followed guide!
+				await t.page.goto(`${server.base}/`, { waitUntil: "domcontentloaded" });
+				await t.page.waitForSelector("#resume:not([hidden]) .resume-guide", { timeout: 20000 });
+				const resumeGuideText = await t.page.$eval("#resume .resume-guide", (el) => el.textContent || "");
+				expect(resumeGuideText).toContain("2000-Step Hallownest Route");
+				expect(resumeGuideText).toContain("2 / 1,999");
+				expect(resumeGuideText).toContain("Next: Manual Step Two");
+
+				await ctx.close();
+				expect({ errors: t.errors, failed: t.failed }).toEqual({ errors: [], failed: [] });
+			} finally {
+				rmSync(dir, { recursive: true, force: true });
+			}
+		},
+		T,
+	);
+
+	test(
+		"10. guides follow mode works offline via Service Worker",
+		async () => {
+			if (!guard()) return;
+			const dir = mkdtempSync(path.join(tmpdir(), "va-e2e-guide-sw-"));
+			const offline = await spawnServer();
+			try {
+				const hkData = JSON.parse(readFileSync(`public/maps/${CONTROL_GAME}/${CONTROL_MAP}/data.json`, "utf8"));
+				const firstLoc = hkData.locations[0];
+				const guideObj = {
+					v: 1,
+					id: "offline-guide-sw",
+					game: CONTROL_GAME,
+					title: "Offline Precache Route",
+					sections: [
+						{
+							id: "sec-1",
+							title: "Start",
+							steps: [
+								{
+									id: "st-1",
+									kind: "task",
+									title: "Offline Step One",
+									targets: [{ kind: "marker", marker: firstLoc.id }],
+								},
+							],
+						},
+					],
+					created: 1760000000000,
+					updated: 1760000000000,
+				};
+				const guidePath = path.join(dir, "offline-guide.json");
+				writeFileSync(guidePath, JSON.stringify(guideObj));
+
+				const ctx = await browser.createBrowserContext();
+				const t = await track(ctx); // Service Worker enabled
+				const url = `${offline.base}/maps/${CONTROL_GAME}/?map=${CONTROL_MAP}`;
+				await t.page.goto(url, { waitUntil: "domcontentloaded" });
+				await ready(t.page);
+				await t.page.evaluate(() => navigator.serviceWorker.ready.then(() => 0));
+				// Second visit ensures SW controls the page and caches map data; install already precached guide-follow.js
+				await t.page.goto(url, { waitUntil: "domcontentloaded" });
+				await ready(t.page);
+				await sleep(1000);
+
+				const fileInput = (await t.page.$("input#import-guide-file"))!;
+				await fileInput.uploadFile(guidePath);
+				await t.page.waitForFunction(() => !document.getElementById("guides-section")?.hasAttribute("hidden"), {
+					timeout: 10000,
+				});
+
+				// Go completely offline & shut down server
+				offline.proc.kill(9);
+				await sleep(400);
+				await t.page.setOfflineMode(true);
+				const f0 = t.failed.length,
+					e0 = t.errors.length;
+
+				await t.page.reload({ waitUntil: "domcontentloaded" });
+				await ready(t.page);
+				await t.page.waitForFunction(() => !document.getElementById("guides-section")?.hasAttribute("hidden"), {
+					timeout: 15000,
+				});
+				await t.page.click('#guides-section .guide-row[data-guide-open="offline-guide-sw"]');
+				await t.page.waitForSelector('body.guide-open .gp-step[data-step-id="st-1"]', { timeout: 10000 });
+				const offlineStepTitle = await t.page.$eval('.gp-step[data-step-id="st-1"] .gp-step-title', (el) =>
+					el.textContent?.trim(),
+				);
+				const newFail = t.failed.slice(f0).filter((f) => !f.includes("/tiles/") && !f.includes("/api/"));
+				const newErr = t.errors
+					.slice(e0)
+					.filter((e) => !/ERR_INTERNET_DISCONNECTED|Failed to load resource|\/api\//.test(e));
+				await ctx.close();
+				expect(offlineStepTitle).toBe("Offline Step One");
+				expect(newFail).toEqual([]);
+				expect(newErr).toEqual([]);
+			} finally {
+				offline.proc.kill(9);
+				rmSync(dir, { recursive: true, force: true });
+			}
 		},
 		T,
 	);
