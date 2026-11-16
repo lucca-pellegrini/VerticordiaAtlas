@@ -8,6 +8,7 @@ import { linesToSteps, parseMarkerLink, suggestRegionTitle } from "../../shared/
 import {
 	cleanGuide,
 	duplicateStep,
+	type GuideIssue,
 	insertSection,
 	insertStep,
 	ITEM_ID_PATTERN,
@@ -2311,6 +2312,117 @@ function openPasteTextModal(): void {
 	setTimeout(() => linesEl.focus(), 0);
 }
 
+export function validateRawGuideJson(
+	rawText: string,
+	expectedGame: string,
+	keepGuideId: string,
+): { guide: Guide | null; issues: GuideIssue[]; error: string | null } {
+	let parsed: unknown;
+	try {
+		parsed = JSON.parse(rawText);
+	} catch (e: any) {
+		return { guide: null, issues: [], error: e?.message || "Invalid JSON syntax." };
+	}
+	if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+		return { guide: null, issues: [], error: "Top-level value must be a JSON object." };
+	}
+	const rawObj = parsed as Record<string, unknown>;
+	const extraIssues: GuideIssue[] = [];
+	if (typeof rawObj.game === "string" && rawObj.game.trim() && rawObj.game.trim() !== expectedGame) {
+		extraIssues.push({
+			path: "game",
+			message: `Rebound guide game from "${rawObj.game}" to "${expectedGame}".`,
+		});
+	}
+	const candidate = {
+		...rawObj,
+		game: expectedGame,
+		id: keepGuideId,
+	};
+	const { guide, issues } = cleanGuide(candidate);
+	const allIssues = [...extraIssues, ...issues];
+	if (!guide) {
+		return {
+			guide: null,
+			issues: allIssues,
+			error: allIssues.map((i) => i.message).join(" ") || "Invalid guide structure.",
+		};
+	}
+	return { guide, issues: allIssues, error: null };
+}
+
 function openRawJsonModal(): void {
-	// Wired in Slice 5
+	if (!host || mode !== "edit") return;
+	const cur = currentGuide();
+	const dlg = document.getElementById("dlg") as HTMLDialogElement | null;
+	const form = document.getElementById("dlg-form") as HTMLFormElement | null;
+	if (!cur || !dlg || !form) return;
+
+	form.innerHTML =
+		`<h2>Raw guide JSON</h2>` +
+		`<p style="font-size:0.86em;opacity:0.8">Paste or inspect Guide v1 JSON. Running <b>Validate</b> or <b>Apply</b> normalizes it with <code>cleanGuide</code>.</p>` +
+		`<textarea name="json" rows="13" class="ge-json-area" spellcheck="false" aria-label="Raw guide JSON"></textarea>` +
+		`<div class="ge-json-issues" aria-live="polite" hidden></div>` +
+		`<div class="dlg-actions">` +
+		`<button type="button" data-json-act="format">Format</button>` +
+		`<button type="button" data-json-act="validate">Validate</button>` +
+		`<button type="button" data-cancel>Cancel</button>` +
+		`<button type="submit" class="primary">Apply</button>` +
+		`</div>`;
+
+	const area = form.elements.namedItem("json") as HTMLTextAreaElement;
+	const issuesBox = form.querySelector<HTMLElement>(".ge-json-issues")!;
+	area.value = JSON.stringify(cur, null, 2);
+
+	const showValidation = (res: { guide: Guide | null; issues: GuideIssue[]; error: string | null }) => {
+		issuesBox.hidden = false;
+		if (res.error || !res.guide) {
+			issuesBox.dataset.state = "error";
+			issuesBox.innerHTML = `<b>Error:</b> ${esc(res.error || "Could not validate JSON.")}`;
+			return;
+		}
+		if (res.issues.length === 0) {
+			issuesBox.dataset.state = "ok";
+			issuesBox.textContent = "Valid Guide v1 JSON (0 issues).";
+		} else {
+			issuesBox.dataset.state = "warn";
+			issuesBox.innerHTML =
+				`<b>Valid with ${res.issues.length} note(s):</b>` +
+				`<ul>${res.issues
+					.slice(0, 12)
+					.map((i) => `<li><code>${esc(i.path || "root")}</code>: ${esc(i.message)}</li>`)
+					.join("")}</ul>`;
+		}
+	};
+
+	form.querySelector<HTMLElement>("[data-cancel]")!.onclick = () => dlg.close();
+	form.querySelector<HTMLElement>("[data-json-act='format']")!.onclick = () => {
+		const res = validateRawGuideJson(area.value, cur.game, cur.id);
+		if (res.guide) area.value = JSON.stringify(res.guide, null, 2);
+		showValidation(res);
+	};
+	form.querySelector<HTMLElement>("[data-json-act='validate']")!.onclick = () => {
+		const res = validateRawGuideJson(area.value, cur.game, cur.id);
+		showValidation(res);
+	};
+
+	form.onsubmit = async (e) => {
+		e.preventDefault();
+		const res = validateRawGuideJson(area.value, cur.game, cur.id);
+		if (res.error || !res.guide) {
+			showValidation(res);
+			return;
+		}
+		dlg.close();
+		await applyEdit(() => res.guide!, {
+			selectStepId:
+				selectedStepId && findStepInGuide(res.guide!, selectedStepId)
+					? selectedStepId
+					: firstStepId(res.guide!),
+			openStepCard: isStepEditorShowing(),
+		});
+		host?.toast(res.issues.length ? `Applied JSON (${res.issues.length} normalized)` : "Applied guide JSON");
+	};
+
+	dlg.showModal();
 }

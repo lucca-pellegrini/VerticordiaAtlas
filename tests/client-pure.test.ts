@@ -54,6 +54,7 @@ import {
 	GuideEditHistory,
 	officialMarkerToTarget,
 	userMarkerToPointTarget,
+	validateRawGuideJson,
 } from "../src/client/map/guide-editor.ts";
 import {
 	computeGuideRouteWindow,
@@ -2367,6 +2368,25 @@ describe("guide editor core helpers, undo history, and remote edit conflict hand
 		expect(issues).toEqual([]);
 		expect(guide?.sections[1]!.steps[0]!.id).toBe("st-a-0");
 		expect(elapsed).toBeLessThan(150);
+	});
+
+	test.concurrent("validateRawGuideJson validates syntax, normalizes issues, and rebinds game/id cleanly", () => {
+		const fx = JSON.parse(
+			readFileSync(path.join(import.meta.dir, "fixtures", "guides", "flat-checklist.json"), "utf8"),
+		);
+		expect(validateRawGuideJson("{bad json", "sunlit-reach", "g-1").error).toBeTruthy();
+		expect(validateRawGuideJson("[]", "sunlit-reach", "g-1").error).toContain("object");
+
+		const rebound = validateRawGuideJson(
+			JSON.stringify({ ...fx, game: "other-game", id: "foreign-id", unexpectedKey: 123 }),
+			"sunlit-reach",
+			"local-id",
+		);
+		expect(rebound.error).toBeNull();
+		expect(rebound.guide?.game).toBe("sunlit-reach");
+		expect(rebound.guide?.id).toBe("local-id");
+		expect(rebound.issues.some((i) => i.path === "game")).toBe(true);
+		expect(rebound.issues.some((i) => i.path === "unexpectedKey")).toBe(true);
 	});
 
 	test.serial(
