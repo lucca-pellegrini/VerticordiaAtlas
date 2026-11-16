@@ -300,6 +300,86 @@ describe("shared/sync-rules", () => {
 		);
 		expect(fnv(sendKey("meta:view:hollow-knight:hallownest", metaView))).toBe("38364f3a");
 	}, 30_000);
+
+	test("guide: keys ignore only updated in both contentKey and sendKey", () => {
+		const g1 = { v: 1, id: "g-1234", game: "totk", title: "Route A", sections: [], created: 1000, updated: 2000 };
+		const g2 = { v: 1, id: "g-1234", game: "totk", title: "Route A", sections: [], created: 1000, updated: 9999 };
+		const g3 = { v: 1, id: "g-1234", game: "totk", title: "Route B", sections: [], created: 1000, updated: 9999 };
+
+		expect(contentKey("guide:totk:g-1234", g1)).toBe(contentKey("guide:totk:g-1234", g2));
+		expect(sendKey("guide:totk:g-1234", g1)).toBe(sendKey("guide:totk:g-1234", g2));
+		expect(contentKey("guide:totk:g-1234", g1)).not.toBe(contentKey("guide:totk:g-1234", g3));
+		expect(sendKey("guide:totk:g-1234", g1)).not.toBe(sendKey("guide:totk:g-1234", g3));
+	}, 30_000);
+
+	test("profile.guides cursor and variants are ignored in contentKey (never conflict) but kept in sendKey (replicate)", () => {
+		const baseProfile = {
+			id: "p1",
+			game: "totk",
+			name: "Main",
+			found: [1, 2],
+			created: 1000,
+			updated: 2000,
+		};
+		const withCursorAndVariantOnly = {
+			...baseProfile,
+			updated: 3000,
+			guides: {
+				"g-1234": {
+					cursor: "st-5",
+					variants: { mode: "ironman" },
+					updated: 3000,
+				},
+			},
+		};
+		// When a guide progress entry only has cursor/variants/updated, contentKey matches the untouched profile
+		expect(contentKey("profile:totk:p1", withCursorAndVariantOnly)).toBe(
+			contentKey("profile:totk:p1", baseProfile),
+		);
+		// But sendKey differs so cursor and variants replicate to other devices
+		expect(sendKey("profile:totk:p1", withCursorAndVariantOnly)).not.toBe(sendKey("profile:totk:p1", baseProfile));
+
+		// With manual done or skipped steps, contentKey includes done/skipped while ignoring cursor/variants/updated
+		const pA = {
+			...baseProfile,
+			guides: {
+				"g-1234": {
+					done: { "st-1": 1700000000 },
+					skipped: ["st-2"],
+					cursor: "st-3",
+					variants: { mode: "standard" },
+					updated: 4000,
+				},
+			},
+		};
+		const pB = {
+			...baseProfile,
+			guides: {
+				"g-1234": {
+					done: { "st-1": 1700000000 },
+					skipped: ["st-2"],
+					cursor: "st-99",
+					variants: { mode: "ironman" },
+					updated: 8000,
+				},
+			},
+		};
+		const pC = {
+			...baseProfile,
+			guides: {
+				"g-1234": {
+					done: { "st-1": 1700000000, "st-4": 1700000100 },
+					skipped: ["st-2"],
+					cursor: "st-99",
+					variants: { mode: "ironman" },
+					updated: 8000,
+				},
+			},
+		};
+		expect(contentKey("profile:totk:p1", pA)).toBe(contentKey("profile:totk:p1", pB));
+		expect(sendKey("profile:totk:p1", pA)).not.toBe(sendKey("profile:totk:p1", pB));
+		expect(contentKey("profile:totk:p1", pA)).not.toBe(contentKey("profile:totk:p1", pC));
+	}, 30_000);
 });
 
 describe("share-link", () => {

@@ -103,9 +103,9 @@ const RESET_TOKEN_TTL = 20 * MINUTE;
 const REAUTH_WINDOW = 10 * MINUTE;
 const COOKIE = "va_session";
 const GOOGLE_ISSUERS = ["accounts.google.com", "https://accounts.google.com"];
-// a key names one item: a profile, or a map's presets or view. Only plain slugs and ids are allowed in it.
+// a key names one item: a profile, a guide, or a map's presets or view. Only plain slugs and ids are allowed in it.
 const SEG = "[A-Za-z0-9._-]{1,80}";
-const KEY_PATTERN = new RegExp(`^(profile:${SEG}:${SEG}|meta:(presets|view):${SEG}(:${SEG})?)$`);
+const KEY_PATTERN = new RegExp(`^(profile:${SEG}:${SEG}|guide:${SEG}:${SEG}|meta:(presets|view):${SEG}(:${SEG})?)$`);
 const MAX_VALUE = 2_000_000;
 const MAX_ITEMS = 200;
 

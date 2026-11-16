@@ -9,8 +9,9 @@
 // Conflicts: an item is sent with the server timestamp this device last saw ("base"). If the server has something newer
 // while this device also has unsent changes to the same item, the user is asked which to keep. Otherwise the newer wins.
 
+import { cleanGuide } from "../shared/guide.ts";
 import { contentKey as defaultContentKey, fnv, sendKey as defaultSendKey } from "../shared/sync-rules.ts";
-import type { Profile, SyncItem } from "../shared/types.ts";
+import type { Guide, Profile, SyncItem } from "../shared/types.ts";
 
 const CHANNEL = "va-sync";
 const LOCK = "va-sync-leader";
@@ -25,6 +26,9 @@ export interface SyncStore {
 	putMeta(k: string, v: any): Promise<unknown>;
 	removeMeta(k: string): Promise<unknown>;
 	isEmpty(p: Profile): boolean;
+	guides?(): Promise<(Guide & { key?: string })[]>;
+	putGuide?(g: Guide & { key: string }): Promise<unknown>;
+	deleteGuide?(key: string): Promise<unknown>;
 }
 
 export interface SyncConflictItem {
@@ -96,6 +100,7 @@ export function createSync({
 	}
 
 	/* ---------- what this device holds, as sync items ---------- */
+	const guideTitles = new Map<string, string>();
 	const sendHash = (key: string, v: unknown): string | null =>
 		v === null || v === undefined ? null : fnv(sendKey(key, v));
 	const contentHash = (key: string, v: unknown): string | null =>
@@ -105,6 +110,12 @@ export function createSync({
 		for (const p of await store.profiles()) {
 			const { key: _key, ...v } = p;
 			map.set(`profile:${p.game}:${p.id}`, v);
+		}
+		for (const g of (await store.guides?.()) || []) {
+			const { key: _key, ...v } = g;
+			const syncKey = `guide:${g.game}:${g.id}`;
+			if (typeof g.title === "string" && g.title) guideTitles.set(syncKey, g.title);
+			map.set(syncKey, v);
 		}
 		for (const e of await store.metaEntries()) {
 			if (/^presets:/.test(e.k)) map.set(`meta:${e.k}`, e.v);
@@ -125,6 +136,17 @@ export function createSync({
 			const [, game, id] = item.key.split(":");
 			if (item.value === null) await store.deleteProfile(`${game}:${id}`);
 			else await store.putProfile({ ...(item.value as Profile), key: `${game}:${id}`, game, id });
+		} else if (item.key.startsWith("guide:")) {
+			const [, game, id] = item.key.split(":");
+			if (item.value === null) {
+				await store.deleteGuide?.(`${game}:${id}`);
+			} else if (item.value && typeof item.value === "object") {
+				const { guide } = cleanGuide({ ...(item.value as Record<string, unknown>), game, id });
+				if (guide) {
+					guideTitles.set(item.key, guide.title);
+					await store.putGuide?.({ ...guide, key: `${game}:${id}` });
+				}
+			}
 		} else {
 			const k = item.key.slice(5);
 			if (item.value === null) await store.removeMeta(k);
@@ -223,6 +245,10 @@ export function createSync({
 		Object.keys(st.conflicts).map((key) => ({ key, label: labelFor(key) }));
 	const labelFor = (key: string): string => {
 		if (key.startsWith("profile:")) return `Progress for "${key.split(":")[2]}"`;
+		if (key.startsWith("guide:")) {
+			const title = guideTitles.get(key) || st.conflicts[key]?.server?.title || key.split(":")[2];
+			return `Guide "${title}"`;
+		}
 		return "Selection presets";
 	};
 

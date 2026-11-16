@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: Copyright © 2026 Lucca M. A. Pellegrini <lucca@verticordia.com>
 
 import { describe, expect, test } from "bun:test";
+import { readFileSync } from "node:fs";
+import path from "node:path";
 
 import {
 	formatAccountDate,
@@ -21,6 +23,16 @@ import {
 import { glyphInk, PIN } from "../src/client/icons-lib.ts";
 import { ICONS, svgIcon } from "../src/client/icons.ts";
 import {
+	_resetDBForTest,
+	DB_VERSION,
+	dbAll,
+	dbDelete,
+	dbGet,
+	dbPut,
+	emptyProfile,
+	upgradeDB,
+} from "../src/client/map/db.ts";
+import {
 	DRAW_CONTROLS_HTML,
 	hexToHsv,
 	hsvToHex,
@@ -35,6 +47,21 @@ import {
 	undoFoundChange,
 	writeFoundToProfile,
 } from "../src/client/map/found.ts";
+import {
+	cleanProfileGuides,
+	createGuide,
+	deleteGuide,
+	flushGuideSaves,
+	importGuideText,
+	loadGuides,
+	renameGuide,
+	serializeGuide,
+	setCursor,
+	setSkipped,
+	setStepDone,
+	setVariant,
+	updateGuide,
+} from "../src/client/map/guides.ts";
 import {
 	buildLocationGeometryFeatures,
 	buildRegionFeatures,
@@ -344,39 +371,43 @@ describe("modularized map and home helpers", () => {
 		expect(isCrossMapUrl("https://youtu.be/abc", slugs, "velen-novigrad")).toBe(false);
 	}, 30_000);
 
-	test("ensureMarked caches promise and injects script tag once", async () => {
-		_resetMarkedForTest();
-		const appended: any[] = [];
-		const fakeScript: any = {};
-		const fakeDoc = {
-			createElement: (tag: string) => {
-				if (tag === "script") return fakeScript;
-				return {};
-			},
-			head: {
-				appendChild: (el: any) => {
-					appended.push(el);
-					setTimeout(() => {
-						if (el.onload) el.onload();
-					}, 0);
-				},
-			},
-		};
-		const prevDoc = (globalThis as any).document;
-		(globalThis as any).document = fakeDoc;
-		try {
-			const p1 = ensureMarked();
-			const p2 = ensureMarked();
-			expect(p1).toBe(p2);
-			await p1;
-			expect(appended.length).toBe(1);
-			expect(fakeScript.src).toContain("vendor/marked.umd.js");
-		} finally {
-			if (prevDoc === undefined) delete (globalThis as any).document;
-			else (globalThis as any).document = prevDoc;
+	test.serial(
+		"ensureMarked caches promise and injects script tag once",
+		async () => {
 			_resetMarkedForTest();
-		}
-	}, 30_000);
+			const appended: any[] = [];
+			const fakeScript: any = {};
+			const fakeDoc = {
+				createElement: (tag: string) => {
+					if (tag === "script") return fakeScript;
+					return {};
+				},
+				head: {
+					appendChild: (el: any) => {
+						appended.push(el);
+						setTimeout(() => {
+							if (el.onload) el.onload();
+						}, 0);
+					},
+				},
+			};
+			const prevDoc = (globalThis as any).document;
+			(globalThis as any).document = fakeDoc;
+			try {
+				const p1 = ensureMarked();
+				const p2 = ensureMarked();
+				expect(p1).toBe(p2);
+				await p1;
+				expect(appended.length).toBe(1);
+				expect(fakeScript.src).toContain("vendor/marked.umd.js");
+			} finally {
+				if (prevDoc === undefined) delete (globalThis as any).document;
+				else (globalThis as any).document = prevDoc;
+				_resetMarkedForTest();
+			}
+		},
+		30_000,
+	);
 
 	test("all-maps search index keeps only searchable fields and filters by saved view", () => {
 		const data = {
@@ -918,16 +949,25 @@ describe("modularized map and home helpers", () => {
 });
 
 describe("sync client engine (createSync)", () => {
-	function makeMockEnv() {
+	function makeMockEnv(sharedServer?: {
+		serverItems: Map<string, { value: any; updated_at: number }>;
+		tick: () => number;
+	}) {
 		const profiles = new Map<string, any>();
+		const guides = new Map<string, any>();
 		const meta = new Map<string, any>();
-		const serverItems = new Map<string, { value: any; updated_at: number }>();
+		const serverItems = sharedServer?.serverItems ?? new Map<string, { value: any; updated_at: number }>();
 		let clock = 1000;
+		const tick = sharedServer?.tick ?? (() => ++clock);
 
 		const store = {
 			profiles: async () => [...profiles.values()].map((p) => structuredClone(p)),
 			isEmpty: (p: any) =>
-				!p.found?.length && !p.drawings?.length && !p.userMarkers?.length && !p.userCats?.length,
+				!p.found?.length &&
+				!p.drawings?.length &&
+				!p.userMarkers?.length &&
+				!p.userCats?.length &&
+				!Object.keys(p.guides || {}).length,
 			metaEntries: async () => [...meta.entries()].map(([k, v]) => ({ k, v: structuredClone(v) })),
 			putProfile: async (rec: any) => {
 				profiles.set(rec.key, structuredClone(rec));
@@ -942,6 +982,13 @@ describe("sync client engine (createSync)", () => {
 				meta.delete(k);
 			},
 			getMeta: async (k: string) => structuredClone(meta.get(k) ?? null),
+			guides: async () => [...guides.values()].map((g) => structuredClone(g)),
+			putGuide: async (rec: any) => {
+				guides.set(rec.key, structuredClone(rec));
+			},
+			deleteGuide: async (key: string) => {
+				guides.delete(key);
+			},
 		};
 
 		const events = {
@@ -981,7 +1028,15 @@ describe("sync client engine (createSync)", () => {
 				for (const it of body.items) {
 					const cur = serverItems.get(it.key);
 					const base = it.base ?? 0;
-					if (cur && cur.updated_at > base) {
+					if (cur && sendKey(it.key, cur.value) === sendKey(it.key, it.value)) {
+						results.push({ key: it.key, status: "ok", updated_at: cur.updated_at, same: true });
+						continue;
+					}
+					if (
+						cur &&
+						cur.updated_at > base &&
+						contentKey(it.key, cur.value) !== contentKey(it.key, it.value)
+					) {
 						results.push({
 							key: it.key,
 							status: "conflict",
@@ -990,7 +1045,7 @@ describe("sync client engine (createSync)", () => {
 						});
 						continue;
 					}
-					const t = ++clock;
+					const t = tick();
 					serverItems.set(it.key, { value: structuredClone(it.value), updated_at: t });
 					results.push({ key: it.key, status: "ok", updated_at: t });
 				}
@@ -999,102 +1054,263 @@ describe("sync client engine (createSync)", () => {
 			throw new Error(`Unexpected API call: ${method} ${path}`);
 		};
 
-		const env = { profiles, meta, serverItems, store, ui, api, events, pulls: [] as string[], tick: () => ++clock };
+		const env = {
+			profiles,
+			guides,
+			meta,
+			serverItems,
+			store,
+			ui,
+			api,
+			events,
+			pulls: [] as string[],
+			tick,
+		};
 		return env;
 	}
 
-	test("adopts remote profile over empty local placeholder and pushes local edits", async () => {
-		const env = makeMockEnv();
-		// Local device starts with an empty default profile
-		env.profiles.set("totk:local-empty", {
-			key: "totk:local-empty",
-			id: "local-empty",
-			game: "totk",
-			name: "Default",
-			found: [],
-		});
-		// Server has an existing profile with progress
-		env.serverItems.set("profile:totk:remote-1", {
-			value: { name: "Playthrough 1", found: [10, 20], updated: 500 },
-			updated_at: 500,
-		});
+	test.serial(
+		"adopts remote profile over empty local placeholder and pushes local edits",
+		async () => {
+			const env = makeMockEnv();
+			// Local device starts with an empty default profile
+			env.profiles.set("totk:local-empty", {
+				key: "totk:local-empty",
+				id: "local-empty",
+				game: "totk",
+				name: "Default",
+				found: [],
+			});
+			// Server has an existing profile with progress
+			env.serverItems.set("profile:totk:remote-1", {
+				value: { name: "Playthrough 1", found: [10, 20], updated: 500 },
+				updated_at: 500,
+			});
 
-		// Shim navigator.onLine and addEventListener/document for start()
-		const origNav = (globalThis as any).navigator;
-		const origAdd = (globalThis as any).addEventListener;
-		const origDoc = (globalThis as any).document;
-		(globalThis as any).navigator = { onLine: true };
-		(globalThis as any).addEventListener = () => {};
-		(globalThis as any).document = { addEventListener: () => {}, visibilityState: "visible" };
+			// Shim navigator.onLine and addEventListener/document for start()
+			const origNav = (globalThis as any).navigator;
+			const origAdd = (globalThis as any).addEventListener;
+			const origDoc = (globalThis as any).document;
+			(globalThis as any).navigator = { onLine: true };
+			(globalThis as any).addEventListener = () => {};
+			(globalThis as any).document = { addEventListener: () => {}, visibilityState: "visible" };
 
-		const sync = createSync({ store: env.store, ui: env.ui, api: env.api });
-		try {
-			sync.start();
-			await new Promise((r) => setTimeout(r, 30));
+			const sync = createSync({ store: env.store, ui: env.ui, api: env.api });
+			try {
+				sync.start();
+				await new Promise((r) => setTimeout(r, 30));
 
-			// Empty local placeholder should be replaced by remote-1
-			expect(env.profiles.has("totk:local-empty")).toBe(false);
-			expect(env.profiles.get("totk:remote-1")?.found).toEqual([10, 20]);
-			expect(env.events.remoteChanged).toEqual([["profile:totk:remote-1"]]);
+				// Empty local placeholder should be replaced by remote-1
+				expect(env.profiles.has("totk:local-empty")).toBe(false);
+				expect(env.profiles.get("totk:remote-1")?.found).toEqual([10, 20]);
+				expect(env.events.remoteChanged).toEqual([["profile:totk:remote-1"]]);
 
-			// Now make a local change and push it
-			const prof = env.profiles.get("totk:remote-1");
-			prof.found.push(30);
-			env.profiles.set("totk:remote-1", prof);
-			sync.noteLocal();
-			await new Promise((r) => setTimeout(r, 1600));
+				// Now make a local change and push it
+				const prof = env.profiles.get("totk:remote-1");
+				prof.found.push(30);
+				env.profiles.set("totk:remote-1", prof);
+				sync.noteLocal();
+				await new Promise((r) => setTimeout(r, 1600));
 
-			expect(env.serverItems.get("profile:totk:remote-1")?.value.found).toEqual([10, 20, 30]);
-		} finally {
-			sync.stop();
-			(globalThis as any).navigator = origNav;
-			(globalThis as any).addEventListener = origAdd;
-			(globalThis as any).document = origDoc;
-		}
-	}, 60_000);
+				expect(env.serverItems.get("profile:totk:remote-1")?.value.found).toEqual([10, 20, 30]);
+			} finally {
+				sync.stop();
+				(globalThis as any).navigator = origNav;
+				(globalThis as any).addEventListener = origAdd;
+				(globalThis as any).document = origDoc;
+			}
+		},
+		60_000,
+	);
 
-	test("a note-driven cycle hashes only the changed profile and pulls with since", async () => {
-		const env = makeMockEnv();
-		for (const id of ["a", "b", "c"])
-			env.profiles.set(`g:${id}`, { key: `g:${id}`, id, game: "g", name: id, found: [1] });
-		let sends = 0;
-		const keys = {
-			contentKey,
-			sendKey: (k: string, v: unknown) => (sends++, sendKey(k, v)),
-		};
-		const origNav = (globalThis as any).navigator;
-		const origAdd = (globalThis as any).addEventListener;
-		const origDoc = (globalThis as any).document;
-		(globalThis as any).navigator = { onLine: true };
-		(globalThis as any).addEventListener = () => {};
-		(globalThis as any).document = { addEventListener: () => {}, visibilityState: "visible" };
-		const sync = createSync({ store: env.store, ui: env.ui, api: env.api, keys });
-		try {
-			sync.start();
-			await new Promise((r) => setTimeout(r, 30));
-			expect(env.serverItems.size).toBe(3);
-			sends = 0;
-			const a = env.profiles.get("g:a");
-			a.found.push(2);
-			sync.noteLocal(["profile:g:a"]);
-			await new Promise((r) => setTimeout(r, 1600));
-			expect(env.serverItems.get("profile:g:a")?.value.found).toEqual([1, 2]);
-			// first cycle after the note: a (changed) and nothing else beyond the one-time clean check of b and c
-			const firstRound = sends;
-			expect(firstRound).toBeLessThanOrEqual(3 + 1); // a: hash + post-push result; b, c: checked once
-			sends = 0;
-			sync.noteLocal(["profile:g:a"]);
-			await new Promise((r) => setTimeout(r, 1600));
-			expect(sends).toBeLessThanOrEqual(2); // only a is hashed again; b and c stay clean
-			expect(env.pulls[0]).toBe("sync");
-			expect(env.pulls.at(-1)).toMatch(/^sync\?since=\d+$/);
-		} finally {
-			sync.stop();
-			(globalThis as any).navigator = origNav;
-			(globalThis as any).addEventListener = origAdd;
-			(globalThis as any).document = origDoc;
-		}
-	}, 60_000);
+	test.serial(
+		"a note-driven cycle hashes only the changed profile and pulls with since",
+		async () => {
+			const env = makeMockEnv();
+			for (const id of ["a", "b", "c"])
+				env.profiles.set(`g:${id}`, { key: `g:${id}`, id, game: "g", name: id, found: [1] });
+			let sends = 0;
+			const keys = {
+				contentKey,
+				sendKey: (k: string, v: unknown) => (sends++, sendKey(k, v)),
+			};
+			const origNav = (globalThis as any).navigator;
+			const origAdd = (globalThis as any).addEventListener;
+			const origDoc = (globalThis as any).document;
+			(globalThis as any).navigator = { onLine: true };
+			(globalThis as any).addEventListener = () => {};
+			(globalThis as any).document = { addEventListener: () => {}, visibilityState: "visible" };
+			const sync = createSync({ store: env.store, ui: env.ui, api: env.api, keys });
+			try {
+				sync.start();
+				await new Promise((r) => setTimeout(r, 30));
+				expect(env.serverItems.size).toBe(3);
+				sends = 0;
+				const a = env.profiles.get("g:a");
+				a.found.push(2);
+				sync.noteLocal(["profile:g:a"]);
+				await new Promise((r) => setTimeout(r, 1600));
+				expect(env.serverItems.get("profile:g:a")?.value.found).toEqual([1, 2]);
+				// first cycle after the note: a (changed) and nothing else beyond the one-time clean check of b and c
+				const firstRound = sends;
+				expect(firstRound).toBeLessThanOrEqual(3 + 1); // a: hash + post-push result; b, c: checked once
+				sends = 0;
+				sync.noteLocal(["profile:g:a"]);
+				await new Promise((r) => setTimeout(r, 1600));
+				expect(sends).toBeLessThanOrEqual(2); // only a is hashed again; b and c stay clean
+				expect(env.pulls[0]).toBe("sync");
+				expect(env.pulls.at(-1)).toMatch(/^sync\?since=\d+$/);
+			} finally {
+				sync.stop();
+				(globalThis as any).navigator = origNav;
+				(globalThis as any).addEventListener = origAdd;
+				(globalThis as any).document = origDoc;
+			}
+		},
+		60_000,
+	);
+
+	test.serial(
+		"two simulated devices sync guides, resolve guide conflicts with the guide's title label, and never conflict on cursor/variants",
+		async () => {
+			const sharedServerItems = new Map<string, { value: any; updated_at: number }>();
+			let sharedClock = 1000;
+			const sharedServer = { serverItems: sharedServerItems, tick: () => ++sharedClock };
+
+			const devA = makeMockEnv(sharedServer);
+			const devB = makeMockEnv(sharedServer);
+
+			const fxGuide = JSON.parse(
+				readFileSync(path.join(import.meta.dir, "fixtures", "guides", "flat-checklist.json"), "utf8"),
+			);
+			const gKey = `${fxGuide.game}:${fxGuide.id}`;
+			const syncKey = `guide:${fxGuide.game}:${fxGuide.id}`;
+
+			// Device A creates the guide and profile
+			devA.guides.set(gKey, { ...structuredClone(fxGuide), key: gKey });
+			devA.profiles.set("sunlit-reach:p1", {
+				key: "sunlit-reach:p1",
+				id: "p1",
+				game: "sunlit-reach",
+				name: "Playthrough",
+				found: [1001],
+				guides: {
+					[fxGuide.id]: {
+						cursor: "st-talk-elder",
+						variants: { mode: "standard" },
+						updated: 1000,
+					},
+				},
+				created: 1000,
+				updated: 1000,
+			});
+
+			const origNav = (globalThis as any).navigator;
+			const origAdd = (globalThis as any).addEventListener;
+			const origDoc = (globalThis as any).document;
+			const origBC = (globalThis as any).BroadcastChannel;
+			(globalThis as any).navigator = { onLine: true };
+			(globalThis as any).addEventListener = () => {};
+			(globalThis as any).document = { addEventListener: () => {}, visibilityState: "visible" };
+			delete (globalThis as any).BroadcastChannel;
+
+			const syncA = createSync({ store: devA.store, ui: devA.ui, api: devA.api });
+			const syncB = createSync({ store: devB.store, ui: devB.ui, api: devB.api });
+
+			try {
+				// 1. Device A pushes initial guide and profile
+				syncA.start();
+				await new Promise((r) => setTimeout(r, 30));
+				expect(sharedServerItems.get(syncKey)?.value.title).toBe("Starter Valley Checklist");
+
+				// 2. Device B starts and pulls the guide and profile
+				syncB.start();
+				await new Promise((r) => setTimeout(r, 30));
+				expect(devB.guides.get(gKey)?.title).toBe("Starter Valley Checklist");
+				expect(devB.profiles.get("sunlit-reach:p1")?.guides[fxGuide.id]?.cursor).toBe("st-talk-elder");
+
+				// 3. Edit guide on Device B and push; Device A pulls the edit
+				const bGuide = devB.guides.get(gKey);
+				bGuide.description = "Edited on Device B";
+				bGuide.updated = 2000;
+				devB.guides.set(gKey, bGuide);
+				syncB.noteLocal([syncKey]);
+				await new Promise((r) => setTimeout(r, 1600));
+				expect(sharedServerItems.get(syncKey)?.value.description).toBe("Edited on Device B");
+
+				syncA.noteLocal();
+				await new Promise((r) => setTimeout(r, 1600));
+				expect(devA.guides.get(gKey)?.description).toBe("Edited on Device B");
+
+				// 4. Concurrent cursor & variant changes on both devices NEVER raise a conflict
+				const profB = devB.profiles.get("sunlit-reach:p1");
+				profB.guides[fxGuide.id].cursor = "st-ridge-beacon";
+				profB.guides[fxGuide.id].variants = { mode: "ironman" };
+				profB.updated = 3000;
+				devB.profiles.set("sunlit-reach:p1", profB);
+				// Push Device B's cursor/variant directly to server so server has newer updated_at than Device A's base
+				await devB.api("POST", "sync", {
+					items: [{ key: "profile:sunlit-reach:p1", value: profB, base: 999999 }],
+					client: "b",
+				});
+
+				const profA = devA.profiles.get("sunlit-reach:p1");
+				profA.guides[fxGuide.id].cursor = "st-waystone-1";
+				profA.guides[fxGuide.id].variants = { mode: "casual" };
+				profA.updated = 3500;
+				devA.profiles.set("sunlit-reach:p1", profA);
+				syncA.noteLocal(["profile:sunlit-reach:p1"]);
+				await new Promise((r) => setTimeout(r, 1600));
+				// Zero conflicts for profile cursor/variant changes: pull() cleanly adopts B's newer cursor
+				expect(devA.events.conflicts).toEqual([]);
+				expect(devA.profiles.get("sunlit-reach:p1")?.guides[fxGuide.id].cursor).toBe("st-ridge-beacon");
+
+				// And when A now updates its cursor and pushes, it replicates to the server
+				const profA2 = devA.profiles.get("sunlit-reach:p1");
+				profA2.guides[fxGuide.id].cursor = "st-waystone-1";
+				profA2.updated = 4000;
+				devA.profiles.set("sunlit-reach:p1", profA2);
+				syncA.noteLocal(["profile:sunlit-reach:p1"]);
+				await new Promise((r) => setTimeout(r, 1600));
+				expect(sharedServerItems.get("profile:sunlit-reach:p1")?.value.guides[fxGuide.id].cursor).toBe(
+					"st-waystone-1",
+				);
+
+				// 5. Divergent guide content edit on Server vs Device A triggers conflict with human-readable guide title label
+				const serverGuide = structuredClone(devA.guides.get(gKey));
+				serverGuide.description = "Concurrent Server Edit";
+				sharedServerItems.set(syncKey, { value: serverGuide, updated_at: ++sharedClock });
+
+				const localAGuide = devA.guides.get(gKey);
+				localAGuide.description = "Concurrent Local Edit on A";
+				devA.guides.set(gKey, localAGuide);
+				syncA.noteLocal([syncKey]);
+				await new Promise((r) => setTimeout(r, 1600));
+
+				expect(devA.events.conflicts.length).toBeGreaterThan(0);
+				const latestConflicts = devA.events.conflicts.at(-1)!;
+				expect(latestConflicts).toEqual([{ key: syncKey, label: 'Guide "Starter Valley Checklist"' }]);
+
+				// 6. Resolve conflict in favour of server
+				await syncA.resolveConflicts("server");
+				expect(devA.guides.get(gKey)?.description).toBe("Concurrent Server Edit");
+
+				// 7. Delete guide on Device A -> propagates null to server
+				devA.guides.delete(gKey);
+				syncA.noteLocal([syncKey]);
+				await new Promise((r) => setTimeout(r, 1600));
+				expect(sharedServerItems.get(syncKey)?.value).toBeNull();
+			} finally {
+				syncA.stop();
+				syncB.stop();
+				(globalThis as any).navigator = origNav;
+				(globalThis as any).addEventListener = origAdd;
+				(globalThis as any).document = origDoc;
+				if (origBC !== undefined) (globalThis as any).BroadcastChannel = origBC;
+			}
+		},
+		60_000,
+	);
 });
 
 describe("offline maps manager (src/client/offline.ts)", () => {
@@ -1625,4 +1841,262 @@ describe("frame scheduler (createScheduler)", () => {
 		if (frames.length > 0) frames.shift()!();
 		expect(runCount).toBe(1);
 	}, 30_000);
+});
+
+describe("guides client store, DB upgrade, progress & undo, and file import/export", () => {
+	test.serial(
+		"database upgrade from v1 (profiles + meta) to v2 adds the guides store without recreating existing stores",
+		async () => {
+			expect(DB_VERSION).toBe(2);
+
+			// Simulate a v1 IDBDatabase that already has 'profiles' and 'meta' stores
+			const createdStores: { name: string; opts: any }[] = [];
+			const existingSet = new Set(["profiles", "meta"]);
+			const fakeDb: any = {
+				objectStoreNames: {
+					contains: (name: string) => existingSet.has(name),
+				},
+				createObjectStore: (name: string, opts: any) => {
+					existingSet.add(name);
+					createdStores.push({ name, opts });
+				},
+			};
+
+			upgradeDB(fakeDb);
+			expect(createdStores).toEqual([{ name: "guides", opts: { keyPath: "key" } }]);
+
+			// Fresh v0 -> v2 creates all three stores
+			const freshStores: { name: string; opts: any }[] = [];
+			const freshSet = new Set<string>();
+			upgradeDB({
+				objectStoreNames: { contains: (name: string) => freshSet.has(name) },
+				createObjectStore: (name: string, opts: any) => {
+					freshSet.add(name);
+					freshStores.push({ name, opts });
+				},
+			} as any);
+			expect(freshStores).toEqual([
+				{ name: "profiles", opts: { keyPath: "key" } },
+				{ name: "meta", opts: { keyPath: "k" } },
+				{ name: "guides", opts: { keyPath: "key" } },
+			]);
+
+			// Verify in-memory fallback for "guides" store
+			state.memoryOnly = true;
+			_resetDBForTest();
+			await dbPut("guides", { key: "g:g1", id: "g1", game: "g", title: "One" });
+			expect((await dbGet("guides", "g:g1"))?.title).toBe("One");
+			expect((await dbAll("guides")).length).toBe(1);
+			await dbDelete("guides", "g:g1");
+			expect(await dbAll("guides")).toEqual([]);
+		},
+		30_000,
+	);
+
+	test.serial(
+		"cleanProfileGuides and cleanUserData sanitize, lazily prune, and omit empty guides progress",
+		() => {
+			const fxVariants = JSON.parse(
+				readFileSync(path.join(import.meta.dir, "fixtures", "guides", "variants-and-missing.json"), "utf8"),
+			);
+
+			state.guidesLoaded = false;
+			state.guides = [];
+			// Untouched profile has no `guides` key at all
+			const cleanEmpty = cleanUserData({ found: [1], guides: {} } as any);
+			expect("guides" in cleanEmpty).toBe(false);
+			expect(emptyProfile({ found: [] })).toBe(true);
+			expect(emptyProfile({ found: [], guides: { "citadel-routes": { cursor: "st-gatehouse" } } })).toBe(false);
+
+			// When guides are loaded, cleanProfileGuides lazily drops unknown guides, deleted step ids, and invalid variant options
+			const rawProgress = {
+				"citadel-routes": {
+					done: {
+						"st-legacy-shrine": 1700000000,
+						"deleted-step": 1700000000,
+						__proto__: 1700000000,
+					},
+					skipped: ["st-warden-envoy", "st-warden-envoy", "ghost-step"],
+					cursor: "deleted-cursor",
+					variants: {
+						mode: "ironman",
+						pact: "invalid-option",
+						unknownVar: "x",
+					},
+					updated: 1700000500000,
+				},
+				"deleted-guide-id": {
+					done: { "st-1": 1700000000 },
+				},
+			};
+			const pruned = cleanProfileGuides(rawProgress, [fxVariants], 1700001000);
+			expect(pruned).toEqual({
+				"citadel-routes": {
+					done: { "st-legacy-shrine": 1700000000 },
+					skipped: ["st-warden-envoy"],
+					variants: { mode: "ironman" },
+					updated: 1700000500000,
+				},
+			});
+		},
+		30_000,
+	);
+
+	test.serial(
+		"undoing a manual step tick, a marker-target step tick, and a step skip all work through the single undo action",
+		async () => {
+			state.memoryOnly = true;
+			_resetDBForTest();
+			state.entry = { id: "sunlit-reach", slug: "sunlit-reach", title: "Sunlit Reach" };
+			const fxFlat = JSON.parse(
+				readFileSync(path.join(import.meta.dir, "fixtures", "guides", "flat-checklist.json"), "utf8"),
+			);
+			state.guides = [structuredClone(fxFlat)];
+			state.guidesLoaded = true;
+			state.profile = {
+				key: "sunlit-reach:p1",
+				id: "p1",
+				game: "sunlit-reach",
+				name: "Default",
+				found: [],
+				created: 1000,
+				updated: 1000,
+			};
+			loadFoundFromProfile(state.profile);
+
+			// 1. Tick manual step `st-talk-elder` (no marker targets)
+			const rManual = setStepDone("sunlit-checklist", "st-talk-elder", true, { nowSec: 5000, notify: false });
+			expect(rManual).not.toBeNull();
+			expect(state.profile.guides?.["sunlit-checklist"]?.done?.["st-talk-elder"]).toBe(5000);
+
+			// 2. Tick marker-target step `st-waystone-1` (bound to marker 1001)
+			const rMarker = setStepDone("sunlit-checklist", "st-waystone-1", true, { nowSec: 6000, notify: false });
+			expect(rMarker).not.toBeNull();
+			expect(state.found.has(1001)).toBe(true);
+			expect(state.foundAt.get(1001)).toBe(6000);
+
+			// 3. Skip step `st-ridge-beacon`
+			const rSkip = setSkipped("sunlit-checklist", "st-ridge-beacon", true, { nowSec: 7000, notify: false });
+			expect(rSkip).not.toBeNull();
+			expect(state.profile.guides?.["sunlit-checklist"]?.skipped).toEqual(["st-ridge-beacon"]);
+
+			// 4. Cursor and variant mutations do NOT push onto the undo stack
+			setCursor("sunlit-checklist", "st-ferry-dock");
+			expect(state.profile.guides?.["sunlit-checklist"]?.cursor).toBe("st-ferry-dock");
+
+			// Undo #1 reverts the skip on `st-ridge-beacon`
+			const u1 = undoFoundChange();
+			expect(u1?.toastMessage).toBe("Step skipped");
+			expect(state.profile.guides?.["sunlit-checklist"]?.skipped).toBeUndefined();
+
+			// Undo #2 reverts the marker-target step `st-waystone-1` (unfinding marker 1001)
+			const u2 = undoFoundChange();
+			expect(u2?.ids).toEqual([1001]);
+			expect(state.found.has(1001)).toBe(false);
+			expect(state.foundAt.has(1001)).toBe(false);
+
+			// Undo #3 reverts the manual step `st-talk-elder`
+			const u3 = undoFoundChange();
+			expect(u3?.toastMessage).toBe("Marked step as done");
+			expect(state.profile.guides?.["sunlit-checklist"]?.done).toBeUndefined();
+			// Only cursor remains
+			expect(state.profile.guides?.["sunlit-checklist"]?.cursor).toBe("st-ferry-dock");
+
+			clearFoundUndo();
+		},
+		30_000,
+	);
+
+	test.serial(
+		"guide CRUD, lazy progress retention on delete, and byte-for-byte fixture import/export round-trip",
+		async () => {
+			state.memoryOnly = true;
+			_resetDBForTest();
+			state.entry = { id: "sunlit-reach", slug: "sunlit-reach", title: "Sunlit Reach" };
+			state.guides = [];
+			state.guidesLoaded = true;
+			state.profile = {
+				key: "sunlit-reach:p1",
+				id: "p1",
+				game: "sunlit-reach",
+				name: "Default",
+				found: [],
+				created: 1000,
+				updated: 1000,
+			};
+
+			// 1. Every synthetic fixture round-trips byte for byte after validation through importGuideText -> serializeGuide
+			for (const name of ["flat-checklist.json", "place-multi-target.json", "variants-and-missing.json"]) {
+				const rawText = readFileSync(path.join(import.meta.dir, "fixtures", "guides", name), "utf8");
+				const res = await importGuideText(rawText, { gameId: "sunlit-reach" });
+				expect(res.status).toBe("imported");
+				expect(res.issues).toEqual([]);
+				const exported = serializeGuide(res.guide!);
+				if (name === "flat-checklist.json") {
+					expect(exported).toBe(rawText);
+				}
+				const reimported = await importGuideText(exported, {
+					gameId: "sunlit-reach",
+					resolveConflict: async (items) => new Map(items.map((it) => [it.key, "overwrite" as const])),
+				});
+				expect(reimported.status).toBe("imported");
+				expect(reimported.issues).toEqual([]);
+				expect(serializeGuide(reimported.guide!)).toBe(exported);
+			}
+			expect(state.guides).toHaveLength(3);
+
+			// 2. Importing a colliding guide with "rename" keeps both and assigns a unique title and id
+			const rawFlat = readFileSync(
+				path.join(import.meta.dir, "fixtures", "guides", "flat-checklist.json"),
+				"utf8",
+			);
+			const dupRes = await importGuideText(rawFlat, {
+				gameId: "sunlit-reach",
+				resolveConflict: async () => new Map([["g:sunlit-checklist", "rename"]]),
+			});
+			expect(dupRes.status).toBe("imported");
+			expect(dupRes.guide!.id).not.toBe("sunlit-checklist");
+			expect(dupRes.guide!.title).toBe("Starter Valley Checklist - copy");
+			expect(state.guides).toHaveLength(4);
+
+			// 3. Importing a guide with minor validation issues prompts `resolveIssues` and imports the sanitized result
+			const dirtyJson = JSON.stringify({
+				...JSON.parse(rawFlat),
+				id: "sanitized-import",
+				title: "Sanitized Guide",
+				extraUnknownField: "dropped",
+			});
+			let seenIssues = 0;
+			const sanRes = await importGuideText(dirtyJson, {
+				gameId: "sunlit-reach",
+				resolveIssues: async (iss) => {
+					seenIssues = iss.length;
+					return true;
+				},
+			});
+			expect(sanRes.status).toBe("imported");
+			expect(seenIssues).toBe(1);
+
+			// 4. Deleting a guide does not eagerly drop profile progress (so undoing delete preserves progress)
+			setStepDone("sunlit-checklist", "st-talk-elder", true, { nowSec: 1234, notify: false });
+			setVariant("citadel-routes", "mode", "ironman");
+			expect(state.profile.guides?.["sunlit-checklist"]?.done?.["st-talk-elder"]).toBe(1234);
+
+			await renameGuide("sanitized-import", "Renamed Guide");
+			expect(state.guides.find((g: any) => g.id === "sanitized-import")?.title).toBe("Renamed Guide");
+
+			const deleted = await deleteGuide("sunlit-checklist", { withUndoToast: false });
+			expect(deleted?.id).toBe("sunlit-checklist");
+			// Progress is still intact in memory after delete
+			expect(state.profile.guides?.["sunlit-checklist"]?.done?.["st-talk-elder"]).toBe(1234);
+
+			// Create & update guide with debounced save flush
+			const created = await createGuide({ title: "Custom Route", game: "sunlit-reach" });
+			await updateGuide(created.id, (g) => ({ ...g, description: "Updated desc" }));
+			await flushGuideSaves();
+			const reloaded = await loadGuides("sunlit-reach");
+			expect(reloaded.find((g) => g.id === created.id)?.description).toBe("Updated desc");
+		},
+		30_000,
+	);
 });

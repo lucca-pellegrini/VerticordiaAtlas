@@ -201,11 +201,12 @@ function openOfflineDB(): Promise<IDBDatabase> {
 	if (idbPromise) return idbPromise;
 	idbPromise = new Promise((resolve, reject) => {
 		if (typeof indexedDB === "undefined") return reject(new Error("IndexedDB unavailable"));
-		const req = indexedDB.open("offline-map-viewer", 1);
+		const req = indexedDB.open("offline-map-viewer", 2);
 		req.onupgradeneeded = () => {
 			const db = req.result;
 			if (!db.objectStoreNames.contains("profiles")) db.createObjectStore("profiles", { keyPath: "key" });
 			if (!db.objectStoreNames.contains("meta")) db.createObjectStore("meta", { keyPath: "k" });
+			if (!db.objectStoreNames.contains("guides")) db.createObjectStore("guides", { keyPath: "key" });
 		};
 		req.onsuccess = () => resolve(req.result);
 		req.onerror = () => reject(req.error);

@@ -80,6 +80,10 @@
 							<hr />
 							<button data-act="export">Export progress</button>
 							<button data-act="import">Import progress</button>
+							<hr />
+							<button data-act="import-guide">Import guide</button>
+							<button data-act="export-guide">Export guide</button>
+							<button data-act="manage-guides">Manage guides</button>
 						</div>
 					</div>
 					<div class="tag-row" id="tag-row">
@@ -232,6 +236,7 @@
 		<dialog id="dlg"><form method="dialog" id="dlg-form"></form></dialog>
 		<div id="toast" role="status" hidden></div>
 		<input type="file" id="import-file" accept="application/json" hidden />
+		<input type="file" id="import-guide-file" accept="application/json" hidden />
 
 		<script src="../../vendor/maplibre-gl.js"></script>
 		<script type="module" src="../../app.js"></script>

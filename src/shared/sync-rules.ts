@@ -12,10 +12,11 @@
 //   sendKey(k,v)     whether an item needs sending: everything except the touch time (saving without a change is not a
 //                    change, and foundAt still replicates to other devices)
 
-export const TOUCH_FIELD = "updated"; // when the profile was last saved
+export const TOUCH_FIELD = "updated"; // when the profile or guide was last saved
 export const POSITION_FIELDS = [TOUCH_FIELD, "map", "cameras"]; // where the view is: last write wins, never a conflict
 export const METADATA_FIELDS = ["foundAt"]; // advisory per-marker find timestamps: replicated, never a conflict
 export const CONTENT_IGNORED_FIELDS = [...POSITION_FIELDS, ...METADATA_FIELDS];
+export const GUIDE_PROGRESS_VOLATILE_FIELDS = ["cursor", "variants", TOUCH_FIELD]; // view/position inside a guide: replicated, never a conflict
 
 export function stable(v: unknown): string {
 	if (v && typeof v === "object") {
@@ -30,14 +31,56 @@ export function stable(v: unknown): string {
 	return JSON.stringify(v ?? null);
 }
 
-// profile records lose the listed fields; other items (meta) are compared whole
-function without(key: string, v: unknown, fields: string[]): unknown {
-	if (!key.startsWith("profile:") || !v || typeof v !== "object" || Array.isArray(v)) return v;
-	return Object.fromEntries(Object.entries(v as Record<string, unknown>).filter(([k]) => !fields.includes(k)));
+function cleanGuidesForKey(guides: unknown, ignoredNestedFields: string[]): Record<string, unknown> | undefined {
+	if (!guides || typeof guides !== "object" || Array.isArray(guides)) return undefined;
+	const out: Record<string, unknown> = {};
+	let count = 0;
+	for (const [gid, rawProg] of Object.entries(guides as Record<string, unknown>)) {
+		if (!rawProg || typeof rawProg !== "object" || Array.isArray(rawProg)) continue;
+		const progEntries = Object.entries(rawProg as Record<string, unknown>).filter(([k, val]) => {
+			if (ignoredNestedFields.includes(k) || val === undefined) return false;
+			if (k === "done" && val && typeof val === "object" && !Array.isArray(val)) {
+				return Object.keys(val as Record<string, unknown>).length > 0;
+			}
+			if (k === "skipped" && Array.isArray(val)) {
+				return val.length > 0;
+			}
+			if (k === "variants" && val && typeof val === "object" && !Array.isArray(val)) {
+				return Object.keys(val as Record<string, unknown>).length > 0;
+			}
+			return true;
+		});
+		if (progEntries.length > 0) {
+			out[gid] = Object.fromEntries(progEntries);
+			count++;
+		}
+	}
+	return count > 0 ? out : undefined;
 }
 
-export const contentKey = (key: string, v: unknown): string => stable(without(key, v, CONTENT_IGNORED_FIELDS));
-export const sendKey = (key: string, v: unknown): string => stable(without(key, v, [TOUCH_FIELD]));
+// profile records lose the listed fields (plus volatile nested guide progress fields); guide records lose `updated`;
+// other items (meta) are compared whole
+function without(key: string, v: unknown, fields: string[], stripGuideVolatile = false): unknown {
+	if (!v || typeof v !== "object" || Array.isArray(v)) return v;
+	if (key.startsWith("guide:")) {
+		return Object.fromEntries(Object.entries(v as Record<string, unknown>).filter(([k]) => !fields.includes(k)));
+	}
+	if (!key.startsWith("profile:")) return v;
+	const entries: [string, unknown][] = [];
+	for (const [k, val] of Object.entries(v as Record<string, unknown>)) {
+		if (fields.includes(k)) continue;
+		if (k === "guides") {
+			const cleaned = cleanGuidesForKey(val, stripGuideVolatile ? GUIDE_PROGRESS_VOLATILE_FIELDS : [TOUCH_FIELD]);
+			if (cleaned !== undefined) entries.push(["guides", cleaned]);
+			continue;
+		}
+		entries.push([k, val]);
+	}
+	return Object.fromEntries(entries);
+}
+
+export const contentKey = (key: string, v: unknown): string => stable(without(key, v, CONTENT_IGNORED_FIELDS, true));
+export const sendKey = (key: string, v: unknown): string => stable(without(key, v, [TOUCH_FIELD], false));
 
 // FNV-1a over a string: enough to tell whether something changed, and small to keep in the sync state
 export function fnv(s: string): string {

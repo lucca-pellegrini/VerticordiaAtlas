@@ -12,6 +12,8 @@ export interface FoundChangeRecord {
 	on: boolean;
 	prevAt: Map<number, number | undefined>;
 	at: number;
+	toastMessage?: string;
+	revert?: () => void;
 }
 
 const MAX_UNDO = 50;
@@ -20,7 +22,7 @@ const undoStack: FoundChangeRecord[] = [];
 export function applyFoundChange(
 	ids: Iterable<number>,
 	on: boolean,
-	opts?: { nowSec?: number; recordUndo?: boolean },
+	opts?: { nowSec?: number; recordUndo?: boolean; toastMessage?: string; revert?: () => void },
 ): FoundChangeRecord | null {
 	const at = opts?.nowSec ?? Math.floor(Date.now() / 1000);
 	const seen = new Set<number>();
@@ -41,9 +43,44 @@ export function applyFoundChange(
 			state.foundAt.delete(id);
 		}
 	}
-	if (!changed.length) return null;
-	const rec: FoundChangeRecord = { ids: changed, on, prevAt, at };
+	if (!changed.length && !opts?.revert) return null;
+	const rec: FoundChangeRecord = {
+		ids: changed,
+		on,
+		prevAt,
+		at,
+		...(opts?.toastMessage ? { toastMessage: opts.toastMessage } : {}),
+		...(opts?.revert ? { revert: opts.revert } : {}),
+	};
 	if (opts?.recordUndo !== false) {
+		undoStack.push(rec);
+		if (undoStack.length > MAX_UNDO) undoStack.shift();
+	}
+	return rec;
+}
+
+export function pushCustomUndo({
+	on,
+	at = Math.floor(Date.now() / 1000),
+	toastMessage,
+	revert,
+	recordUndo = true,
+}: {
+	on: boolean;
+	at?: number;
+	toastMessage: string;
+	revert: () => void;
+	recordUndo?: boolean;
+}): FoundChangeRecord {
+	const rec: FoundChangeRecord = {
+		ids: [],
+		on,
+		prevAt: new Map(),
+		at,
+		toastMessage,
+		revert,
+	};
+	if (recordUndo) {
 		undoStack.push(rec);
 		if (undoStack.length > MAX_UNDO) undoStack.shift();
 	}
@@ -53,14 +90,17 @@ export function applyFoundChange(
 export function undoFoundChange(): FoundChangeRecord | null {
 	const rec = undoStack.pop();
 	if (!rec) return null;
-	if (!state.foundAt) state.foundAt = new Map<number, number>();
-	for (const id of rec.ids) {
-		if (rec.on) state.found.delete(id);
-		else state.found.add(id);
-		const old = rec.prevAt.get(id);
-		if (old !== undefined) state.foundAt.set(id, old);
-		else state.foundAt.delete(id);
+	if (rec.ids.length > 0) {
+		if (!state.foundAt) state.foundAt = new Map<number, number>();
+		for (const id of rec.ids) {
+			if (rec.on) state.found.delete(id);
+			else state.found.add(id);
+			const old = rec.prevAt.get(id);
+			if (old !== undefined) state.foundAt.set(id, old);
+			else state.foundAt.delete(id);
+		}
 	}
+	rec.revert?.();
 	return rec;
 }
 
@@ -102,6 +142,7 @@ export function writeFoundToProfile(p: { found: number[]; foundAt?: Record<strin
 }
 
 export function formatFoundToast(rec: FoundChangeRecord): string {
+	if (rec.toastMessage) return rec.toastMessage;
 	const n = rec.ids.length;
 	if (n === 1) return rec.on ? "Marked as found" : "Marked as not found";
 	return rec.on ? `Marked ${n} as found` : `Marked ${n} as not found`;

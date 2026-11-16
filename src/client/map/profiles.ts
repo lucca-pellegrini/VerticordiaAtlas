@@ -4,10 +4,20 @@
 /* ---------- profiles ---------- */
 
 import { esc } from "../../shared/escape.ts";
+import { cleanGuide, type Guide, makeGuideId, MAX_GUIDE_TITLE } from "../../shared/guide.ts";
 import { perfAsync } from "../perf.ts";
 import { dbAll, dbDelete, dbPut, getMeta, setMeta } from "./db.ts";
 import { closeDetail } from "./detail.ts";
 import { applyFoundChange, loadFoundFromProfile, notifyFoundChange, writeFoundToProfile } from "./found.ts";
+import {
+	cleanProfileGuides,
+	exportGuideAction,
+	flushGuideSaves,
+	guideStoreKey,
+	guideSyncKey,
+	openManageGuidesDialog,
+	saveGuideNow,
+} from "./guides.ts";
 import { refreshAll, rememberCamera, syncMapToProfile } from "./map-view.ts";
 import { loadMapState, renderPresets, savePresets, tagOnly, tagSwitchUsable } from "./presets.ts";
 import { easeInOutCubic, endMorph, rebuildUserData, startMorph } from "./sidebar.ts";
@@ -173,6 +183,15 @@ export function cleanUserData<T extends Record<string, any>>(p: T): T {
 	}
 	if (atCount > 0) (p as any).foundAt = cleanedAt;
 	else delete (p as any).foundAt;
+
+	const cleanedGuides = cleanProfileGuides(
+		p.guides,
+		state.guidesLoaded && Array.isArray(state.guides) ? state.guides : null,
+		nowSec,
+	);
+	if (cleanedGuides) (p as any).guides = cleanedGuides;
+	else delete (p as any).guides;
+
 	return p;
 }
 
@@ -375,9 +394,14 @@ export async function profileAction(act: string): Promise<void> {
 		refreshAll();
 	} else if (act === "export") {
 		await saveProfileNow();
+		await flushGuideSaves();
 		// every profile with what is in it: found markers, drawings, the user's own categories and markers, and the
-		// map and camera it was on; plus the game's presets (they are per game, so there is one list)
+		// map and camera it was on; plus the game's presets and guides
 		const presets = state.presets.map((q: any) => ({ id: q.id, name: q.name, hidden: q.hidden }));
+		const guides = (state.guides || []).map((g: any) => {
+			const { key: _key, ...rest } = g;
+			return cleanGuide(rest).guide || rest;
+		});
 		const payload = {
 			app: "offline-map-viewer",
 			version: 1,
@@ -390,6 +414,7 @@ export async function profileAction(act: string): Promise<void> {
 					tag,
 					found,
 					foundAt,
+					guides: profGuides,
 					created,
 					updated,
 					map,
@@ -403,6 +428,7 @@ export async function profileAction(act: string): Promise<void> {
 					tag,
 					found,
 					...(foundAt && Object.keys(foundAt).length ? { foundAt } : {}),
+					...(profGuides && Object.keys(profGuides).length ? { guides: profGuides } : {}),
 					created,
 					updated,
 					map: map ?? null,
@@ -413,6 +439,7 @@ export async function profileAction(act: string): Promise<void> {
 				}),
 			),
 			presets,
+			guides,
 		};
 		const a = document.createElement("a");
 		a.href = URL.createObjectURL(new Blob([JSON.stringify(payload)], { type: "application/json" }));
@@ -421,6 +448,12 @@ export async function profileAction(act: string): Promise<void> {
 		setTimeout(() => URL.revokeObjectURL(a.href), 2000);
 	} else if (act === "import") {
 		$("#import-file")?.click();
+	} else if (act === "import-guide") {
+		$("#import-guide-file")?.click();
+	} else if (act === "export-guide") {
+		await exportGuideAction();
+	} else if (act === "manage-guides") {
+		openManageGuidesDialog();
 	}
 }
 
@@ -435,8 +468,14 @@ export async function importFile(file: File): Promise<void> {
 		const pres = (Array.isArray(payload.presets) ? payload.presets : []).filter(
 			(p: any) => p && p.id && Array.isArray(p.hidden),
 		);
+		const importedGuides: Guide[] = [];
+		for (const rawG of Array.isArray(payload.guides) ? payload.guides : []) {
+			if (!rawG || typeof rawG !== "object") continue;
+			const { guide } = cleanGuide({ ...rawG, game: state.entry.id });
+			if (guide) importedGuides.push(guide);
+		}
 
-		// what would collide: a profile with the same id or name; a preset with the same id or name in this game
+		// what would collide: a profile with the same id or name; a preset or guide with the same id or name/title
 		const conflicts: { key: string; label: string }[] = [];
 		for (const q of profs) {
 			if (state.profiles.some((p: any) => p.id === q.id || p.name === String(q.name || ""))) {
@@ -448,20 +487,60 @@ export async function importFile(file: File): Promise<void> {
 				conflicts.push({ key: `s:${p.id}`, label: `Preset "${p.name || "Imported"}"` });
 			}
 		}
+		for (const g of importedGuides) {
+			if ((state.guides || []).some((x: Guide) => x.id === g.id || x.title === g.title)) {
+				conflicts.push({ key: `g:${g.id}`, label: `Guide "${g.title}"` });
+			}
+		}
 		let decisions: Map<string, string> | null = new Map();
 		if (conflicts.length) {
 			decisions = await chooseConflicts(conflicts);
 			if (!decisions) return;
 		} else {
+			const guidePart = importedGuides.length ? `, and ${importedGuides.length} guide(s)` : "";
 			const ok = await askDialog({
 				title: "Import progress?",
-				message: `${profs.length} profile(s) and ${pres.length} preset(s) will be added.`,
+				message: `${profs.length} profile(s)${guidePart ? `, ${pres.length} preset(s)${guidePart}` : ` and ${pres.length} preset(s)`} will be added.`,
 				okLabel: "Import",
 			});
 			if (!ok) return;
 		}
 
 		await saveProfileNow();
+		await flushGuideSaves();
+
+		// Import guides first so any renamed guide IDs can be remapped on the imported profiles
+		if (!Array.isArray(state.guides)) state.guides = [];
+		const guideIdRemap = new Map<string, string>();
+		const takenGuideTitles = new Set<string>((state.guides as Guide[]).map((g) => g.title));
+		const usedGuideIds = new Set<string>((state.guides as Guide[]).map((g) => g.id));
+		for (const g of importedGuides) {
+			const origId = g.id;
+			const copy = structuredClone(g);
+			const d = decisions.get(`g:${origId}`);
+			if (d === "overwrite") {
+				const gone = (state.guides as Guide[]).filter((x) => x.id === origId || x.title === copy.title);
+				for (const old of gone) {
+					await dbDelete("guides", guideStoreKey(old.game, old.id));
+					if (old.id !== copy.id) syncNote([guideSyncKey(old.game, old.id)]);
+				}
+				state.guides = (state.guides as Guide[]).filter((x) => !gone.includes(x));
+			} else if (d === "rename") {
+				let newId = makeGuideId();
+				while (usedGuideIds.has(newId)) newId = makeGuideId();
+				copy.id = newId;
+				copy.title = uniqueName(copy.title, takenGuideTitles).slice(0, MAX_GUIDE_TITLE);
+				guideIdRemap.set(origId, newId);
+			}
+			usedGuideIds.add(copy.id);
+			takenGuideTitles.add(copy.title);
+			const at = (state.guides as Guide[]).findIndex((x) => x.id === copy.id);
+			if (at >= 0) state.guides[at] = copy;
+			else state.guides.push(copy);
+			await saveGuideNow(copy.id);
+		}
+		(state.guides as Guide[]).sort((a, b) => a.created - b.created || a.id.localeCompare(b.id));
+
 		const takenNames = new Set<string>(state.profiles.map((p: any) => p.name));
 		for (const q of profs) {
 			let id = q.id,
@@ -477,6 +556,14 @@ export async function importFile(file: File): Promise<void> {
 				state.profiles = state.profiles.filter((p: any) => !gone.includes(p));
 			}
 			takenNames.add(name);
+			let rawGuides = q.guides;
+			if (rawGuides && typeof rawGuides === "object" && !Array.isArray(rawGuides) && guideIdRemap.size > 0) {
+				const remapped: Record<string, unknown> = {};
+				for (const [gid, gprog] of Object.entries(rawGuides)) {
+					remapped[guideIdRemap.get(gid) || gid] = gprog;
+				}
+				rawGuides = remapped;
+			}
 			const rec = cleanUserData({
 				key: `${state.entry.id}:${id}`,
 				id,
@@ -485,6 +572,7 @@ export async function importFile(file: File): Promise<void> {
 				tag: typeof q.tag === "string" ? q.tag : null,
 				found: q.found,
 				foundAt: q.foundAt,
+				guides: rawGuides,
 				drawings: q.drawings,
 				userCats: q.userCats,
 				userMarkers: q.userMarkers,
