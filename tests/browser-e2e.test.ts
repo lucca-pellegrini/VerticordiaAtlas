@@ -1220,6 +1220,90 @@ describe("browser e2e (real server, headless Chrome)", () => {
 				{ timeout: 5000 },
 			);
 
+			// 3b. Box selection offers both "Create guide step" and "Add to current step", and long target titles wrap without horizontal scroll
+			const dragRect = await t.page.evaluate(() => {
+				const r = document.getElementById("map")!.getBoundingClientRect();
+				const detail = document.getElementById("detail")?.getBoundingClientRect();
+				const side = document.getElementById("ge-drawer")?.getBoundingClientRect();
+				const x0 = Math.round((side ? side.right : r.left) + 20);
+				const x1 = Math.round((detail ? detail.left : r.right) - 20);
+				const y0 = Math.round(r.top + 80);
+				const y1 = Math.round(r.bottom - 80);
+				return { x0, y0, x1, y1, cx: Math.round((x0 + x1) / 2), cy: Math.round((y0 + y1) / 2) };
+			});
+			await t.page.click("#tools-open");
+			await sleep(150);
+			await t.page.click("#tool-select");
+			await t.page.mouse.move(dragRect.x0, dragRect.y0);
+			await t.page.mouse.down();
+			await t.page.mouse.move(dragRect.x1, dragRect.y1, { steps: 6 });
+			await t.page.mouse.up();
+			await t.page.mouse.click(dragRect.cx, dragRect.cy, { button: "right" });
+			await t.page.waitForSelector("#sel-menu:not([hidden])", { timeout: 5000 });
+			const selMenuState = await t.page.evaluate(() => {
+				const gs = document.querySelector<HTMLButtonElement>('#sel-menu [data-act="guide-step"]')!;
+				const gAdd = document.querySelector<HTMLButtonElement>('#sel-menu [data-act="guide-add-to-step"]')!;
+				return {
+					gsHidden: gs.hidden,
+					gAddHidden: gAdd.hidden,
+					gAddText: gAdd.textContent?.trim() || "",
+				};
+			});
+			expect(selMenuState.gsHidden).toBe(false);
+			expect(selMenuState.gAddHidden).toBe(false);
+			expect(selMenuState.gAddText).toContain("Add to current step (Talk to Elder)");
+			await t.page.click('#sel-menu [data-act="guide-add-to-step"]');
+			await t.page.waitForFunction(
+				() => {
+					const txt = document.querySelector(".ge-targets-box .ge-sub-head")?.textContent || "";
+					const match = /Targets \((\d+)\)/.exec(txt);
+					return match ? Number(match[1]) > 1 : false;
+				},
+				{ timeout: 5000 },
+			);
+			await t.page.click("#tool-pan");
+
+			// Verify very long unbroken target title wraps inside .ge-target-name without causing horizontal scroll on #detail or #detail-body
+			const overflowCheck = await t.page.evaluate(() => {
+				const nameEl = document.querySelector<HTMLElement>(".ge-target-name")!;
+				nameEl.textContent = "VeryLongUnbrokenMarkerTitleWithoutSpaces_" + "X".repeat(90);
+				const detail = document.getElementById("detail")!;
+				const body = document.getElementById("detail-body")!;
+				const rect = nameEl.getBoundingClientRect();
+				return {
+					detailScrollW: detail.scrollWidth,
+					detailClientW: detail.clientWidth,
+					bodyScrollW: body.scrollWidth,
+					bodyClientW: body.clientWidth,
+					nameHeight: rect.height,
+				};
+			});
+			expect(overflowCheck.detailScrollW).toBeLessThanOrEqual(overflowCheck.detailClientW);
+			expect(overflowCheck.bodyScrollW).toBeLessThanOrEqual(overflowCheck.bodyClientW);
+			expect(overflowCheck.nameHeight).toBeGreaterThan(24);
+
+			// 3c. Opening a marker card while editing a guide replaces .share-btn with .guide-add-btn (+ guide-ico)
+			await t.page.type('#ge-step-form textarea[name="notes"]', `[Step Link](#loc=${locs[0].id})`);
+			await t.page.click('[data-ge-step-act="toggle-notes-preview"]');
+			await t.page.waitForSelector(".ge-notes-preview a[data-loc]", { timeout: 5000 });
+			await t.page.click(".ge-notes-preview a[data-loc]");
+			await t.page.waitForSelector("body.detail-open #detail-body .d-actions .guide-add-btn", { timeout: 5000 });
+			await sleep(150);
+			const cardActions = await t.page.evaluate(() => ({
+				hasShare: Boolean(document.querySelector("#detail-body .d-actions .share-btn")),
+				hasGuideAdd: Boolean(document.querySelector("#detail-body .d-actions .guide-add-btn .guide-ico svg")),
+				svgCount: document.querySelectorAll("#detail-body .d-actions .guide-add-btn svg").length,
+			}));
+			expect(cardActions).toEqual({ hasShare: false, hasGuideAdd: true, svgCount: 2 });
+			await t.page.click("#detail-body .d-actions .guide-add-btn");
+			await t.page.waitForSelector("#ctx-menu:not([hidden])", { timeout: 5000 });
+			const ctxHasAddCur = await t.page.$eval("#ctx-menu", (el) =>
+				Boolean(el.textContent?.includes("Add to current step (Talk to Elder)")),
+			);
+			expect(ctxHasAddCur).toBe(true);
+			await t.page.click("#ctx-menu button:nth-of-type(2)");
+			await t.page.waitForSelector("#ge-step-form", { timeout: 5000 });
+
 			// 4. Add-steps mode: explicit active banner, context menu still works, Escape exits mode cleanly
 			await t.page.click('[data-ge-act="toggle-add-steps"]');
 			await t.page.waitForSelector("body.guide-add-steps #guide-add-banner:not([hidden])", { timeout: 5000 });
@@ -1297,6 +1381,26 @@ describe("browser e2e (real server, headless Chrome)", () => {
 			);
 			expect(persistedTitles[0]).toContain("Collect");
 			expect(persistedTitles[1]).toBe("Meet Elder At Gate");
+
+			// Verify follow-mode step card wraps long .gs-target-title without making #detail / #detail-body side-scrollable
+			await t.page.click("#guide-panel .gp-step:nth-child(2) .gp-step-main");
+			await t.page.waitForSelector("body.detail-open #detail-body .gs-target-title", { timeout: 5000 });
+			const followOverflow = await t.page.evaluate(() => {
+				const titleEl = document.querySelector<HTMLElement>("#detail-body .gs-target-title")!;
+				titleEl.textContent = "VeryLongFollowModeTargetTitleWithoutSpaces_" + "X".repeat(90);
+				const detail = document.getElementById("detail")!;
+				const body = document.getElementById("detail-body")!;
+				return {
+					detailScrollW: detail.scrollWidth,
+					detailClientW: detail.clientWidth,
+					bodyScrollW: body.scrollWidth,
+					bodyClientW: body.clientWidth,
+					titleHeight: titleEl.getBoundingClientRect().height,
+				};
+			});
+			expect(followOverflow.detailScrollW).toBeLessThanOrEqual(followOverflow.detailClientW);
+			expect(followOverflow.bodyScrollW).toBeLessThanOrEqual(followOverflow.bodyClientW);
+			expect(followOverflow.titleHeight).toBeGreaterThan(24);
 
 			await t.page.evaluate(() => (window as any).perfReport?.());
 			await ctx.close();

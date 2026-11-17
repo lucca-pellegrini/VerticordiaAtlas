@@ -1610,7 +1610,7 @@ export function renderStepCard(): void {
 								return (
 									`<li class="gs-target-row is-missing">` +
 									`<span class="gs-target-missing-tag">No longer present</span>` +
-									`<button type="button" class="gs-target-btn"${coordsAttr}>${esc(title)}</button>` +
+									`<button type="button" class="gs-target-btn"${coordsAttr}><span class="gs-target-title">${esc(title)}</span></button>` +
 									`</li>`
 								);
 							}

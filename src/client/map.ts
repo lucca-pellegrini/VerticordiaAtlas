@@ -19,6 +19,7 @@ import {
 	toggleFound,
 } from "./map/detail.ts";
 import {
+	addMarkerToGuide,
 	closeGuideMenuIfOpen,
 	closeGuidePanelIfOpen,
 	exitGuideAddStepsIfActive,
@@ -531,6 +532,17 @@ function wire(): void {
 			return;
 		}
 		if (target.closest(".found-btn:not(.gs-done-btn)")) return toggleFound(state.selected);
+		const guideAddBtn = target.closest<HTMLElement>(".guide-add-btn");
+		if (guideAddBtn) {
+			const loc = state.byId.get(state.selected);
+			if (loc) {
+				const r = guideAddBtn.getBoundingClientRect();
+				const x = e.clientX || Math.round(r.left + r.width / 2);
+				const y = e.clientY || Math.round(r.top + r.height / 2);
+				void addMarkerToGuide(loc, x, y);
+			}
+			return;
+		}
 		if (target.closest(".share-btn")) {
 			shareMarker(state.selected, target.closest<HTMLElement>(".share-btn"));
 			return;

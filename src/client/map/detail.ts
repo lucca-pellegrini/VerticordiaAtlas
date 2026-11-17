@@ -282,6 +282,10 @@ function populateDetail(l: any): void {
 		? `<div class="d-region"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" style="width:12px;height:12px;stroke:currentColor;fill:none;vertical-align:-1px;margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${esc(reg.title)}${parentReg ? ` <span style="opacity:0.65">· ${esc(parentReg.title)}</span>` : ""}</div>`
 		: "";
 
+	const actionTail = isGuideEditorOpen()
+		? `<button class="guide-add-btn" type="button" aria-label="Add to guide step" title="Add to guide step">${svgIcon("plus")}<span class="guide-ico">${svgIcon("book")}</span></button>`
+		: '<button class="share-btn" type="button" aria-label="Share this marker" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="glyph"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.4 10.8l7.2-4.4M8.4 13.2l7.2 4.4"/></g><path class="tick" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>';
+
 	const body = $<DetailBodyElement>("#detail-body")!;
 	body.innerHTML =
 		`<div class="d-cat" style="--c:${l.user && cat?.icon ? "#" + cat.icon.slice(3).replace("-t", "") : g ? g.col : "#888"}"><i></i>${esc(cat?.title || "")}</div>` +
@@ -290,7 +294,7 @@ function populateDetail(l: any): void {
 		guideDetailBacklinksHtml(l.id) +
 		(l.user ? state.um.detailHtml(l) : "") +
 		`<div class="d-actions">${ok ? `<button class="found-btn${isFound ? " on" : ""}" type="button" aria-pressed="${isFound}">${isFound ? "Found. Tap to undo" : "Mark as found"}</button>` : ""}` +
-		'<button class="share-btn" type="button" aria-label="Share this marker" title="Share"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="glyph"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.4 10.8l7.2-4.4M8.4 13.2l7.2 4.4"/></g><path class="tick" d="M5 12.5l4.5 4.5L19 7.5"/></svg></button></div>' +
+		`${actionTail}</div>` +
 		`<div class="d-desc">${renderMd(l.desc)}</div>` +
 		only +
 		notHere +

@@ -1274,6 +1274,10 @@ export function isGuideEditorOpen(): boolean {
 	return Boolean(editorMod?.isOpen());
 }
 
+export function getSelectedGuideStepSummary(): { id: string; title: string } | null {
+	return editorMod?.getSelectedStepSummary() ?? null;
+}
+
 export function isGuideAddStepsActive(): boolean {
 	return Boolean(editorMod?.isAddStepsActive());
 }
@@ -1295,12 +1299,17 @@ export async function addFreeWaypointToGuide(pos: { lat: number; lng: number }):
 	m.addFreeWaypointAt(pos);
 }
 
-export async function addMarkerToGuide(loc: any): Promise<void> {
+export async function addMarkerToGuide(loc: any, x?: number, y?: number): Promise<void> {
 	const m = await ensureGuideEditor();
-	m.addMarkerTargetPromptOrStep(loc);
+	m.addMarkerTargetPromptOrStep(loc, x, y);
 }
 
 export async function createGuideStepFromSelection(markers: any[], titleSuggestion?: string): Promise<void> {
 	const m = await ensureGuideEditor();
 	await m.createMultiTargetStepFromMarkers(markers, titleSuggestion);
+}
+
+export async function addSelectionToCurrentGuideStep(markers: any[]): Promise<void> {
+	const m = await ensureGuideEditor();
+	await m.addMarkersToCurrentStep(markers);
 }

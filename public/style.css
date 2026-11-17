@@ -2953,7 +2953,8 @@ dialog.um input:focus {
 .d-actions .found-btn {
 	flex: 1;
 }
-.share-btn {
+.share-btn,
+.guide-add-btn {
 	flex: none;
 	display: grid;
 	place-items: center;
@@ -2970,6 +2971,19 @@ dialog.um input:focus {
 		color var(--fast),
 		transform var(--fast);
 }
+.guide-add-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+	width: auto;
+	min-width: 46px;
+	padding: 0 12px;
+}
+.guide-add-btn > svg.i {
+	width: 14px;
+	height: 14px;
+}
 .share-btn svg {
 	width: 19px;
 	height: 19px;
@@ -2978,11 +2992,13 @@ dialog.um input:focus {
 	stroke-width: 1.8;
 	stroke-linecap: round;
 }
-.share-btn:hover {
+.share-btn:hover,
+.guide-add-btn:hover {
 	color: var(--ink);
 	background: color-mix(in srgb, var(--panel-2), #fff 8%);
 }
-.share-btn:active {
+.share-btn:active,
+.guide-add-btn:active {
 	transform: scale(0.94);
 }
 
@@ -4437,7 +4453,11 @@ body.searching #guide-panel {
 	margin: 0;
 	padding: 0;
 	display: grid;
+	grid-template-columns: minmax(0, 1fr);
 	gap: 6px;
+}
+.gs-links ul a {
+	overflow-wrap: anywhere;
 }
 .gs-target-row {
 	display: flex;
@@ -4447,6 +4467,7 @@ body.searching #guide-panel {
 	border-radius: 10px;
 	border: 1px solid var(--line);
 	background: var(--panel-2);
+	min-width: 0;
 }
 .gs-target-row.is-found .gs-target-title {
 	text-decoration: line-through;
@@ -4467,16 +4488,19 @@ body.searching #guide-panel {
 .gs-target-btn:hover {
 	color: var(--accent-soft);
 }
-.gs-target-btn .ico-wrap {
+.gs-target-btn .ico-wrap,
+.gs-target-btn .gp-badge {
 	flex: none;
+}
+.gs-target-btn .ico-wrap {
 	transform: scale(0.85);
 }
 .gs-target-title {
 	flex: 1;
 	min-width: 0;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	line-height: 1.3;
+	white-space: normal;
+	overflow-wrap: anywhere;
 }
 .gs-target-missing-tag {
 	font-size: 10.5px;
@@ -4797,16 +4821,31 @@ body.ge-dragging {
 	gap: 8px;
 	margin-bottom: 6px;
 	padding-right: 40px;
+	min-width: 0;
+}
+.ge-step-head-bar .d-cat {
+	min-width: 0;
+}
+.ge-step-head-bar .d-cat span {
+	min-width: 0;
+	overflow-wrap: anywhere;
 }
 .ge-step-form {
 	display: grid;
+	grid-template-columns: minmax(0, 1fr);
 	gap: 10px;
+}
+.ge-step-form > * {
+	min-width: 0;
 }
 .ge-row-2 {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 	gap: 8px;
 	align-items: start;
+}
+.ge-row-2 > * {
+	min-width: 0;
 }
 .ge-flags-col {
 	display: grid;
@@ -4837,6 +4876,7 @@ body.ge-dragging {
 .ge-links-box,
 .ge-var-opts {
 	display: grid;
+	grid-template-columns: minmax(0, 1fr);
 	gap: 6px;
 }
 .ge-target-card,
@@ -4846,7 +4886,9 @@ body.ge-dragging {
 	border-radius: 10px;
 	background: var(--panel-2);
 	display: grid;
+	grid-template-columns: minmax(0, 1fr);
 	gap: 6px;
+	min-width: 0;
 }
 .ge-target-top,
 .ge-var-row,
@@ -4855,27 +4897,43 @@ body.ge-dragging {
 	display: flex;
 	align-items: center;
 	gap: 6px;
+	min-width: 0;
+}
+.ge-target-top > button,
+.ge-target-top > .gp-badge {
+	flex: none;
+}
+.ge-um-add select {
+	flex: 1;
+	min-width: 0;
 }
 .ge-target-name {
 	flex: 1;
 	min-width: 0;
 	font-size: 12.5px;
 	font-weight: 500;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	line-height: 1.3;
+	white-space: normal;
+	overflow-wrap: anywhere;
 }
 .ge-target-opts {
 	display: grid;
-	grid-template-columns: 1fr auto;
+	grid-template-columns: minmax(0, 1fr) auto;
 	gap: 6px;
 	align-items: center;
+	min-width: 0;
+}
+.ge-target-opts > input,
+.ge-link-row > input,
+.ge-link-bind > input {
+	min-width: 0;
 }
 .ge-link-row {
 	display: grid;
-	grid-template-columns: 1fr 0.8fr auto;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr) auto;
 	gap: 6px;
 	align-items: center;
+	min-width: 0;
 }
 .ge-step-actions {
 	display: flex;
@@ -5041,6 +5099,7 @@ html[data-theme="light"] .icon-btn:hover,
 html[data-theme="light"] .dlg-actions button:hover,
 html[data-theme="light"] .um-bar button:hover,
 html[data-theme="light"] .share-btn:hover,
+html[data-theme="light"] .guide-add-btn:hover,
 html[data-theme="light"] .bulk button:hover,
 html[data-theme="light"] .um-bar .ibtn:hover,
 html[data-theme="light"] .um-bar .ibtn:focus-visible,
@@ -5140,6 +5199,7 @@ html[data-theme="light"] .groups-throbber::after {
 	html:not([data-theme="dark"]) .dlg-actions button:hover,
 	html:not([data-theme="dark"]) .um-bar button:hover,
 	html:not([data-theme="dark"]) .share-btn:hover,
+	html:not([data-theme="dark"]) .guide-add-btn:hover,
 	html:not([data-theme="dark"]) .bulk button:hover,
 	html:not([data-theme="dark"]) .um-bar .ibtn:hover,
 	html:not([data-theme="dark"]) .um-bar .ibtn:focus-visible,
