@@ -5,6 +5,7 @@
 
 import { esc } from "../../shared/escape.ts";
 import { linesToSteps, parseMarkerLink, suggestRegionTitle } from "../../shared/guide-import.ts";
+import { clampPolygonPoints, selectionShapeToPolygon, type ZonePoint } from "../../shared/guide-zone.ts";
 import {
 	cleanGuide,
 	duplicateStep,
@@ -15,6 +16,7 @@ import {
 	makeSectionId,
 	makeStepId,
 	MAX_AUTHOR,
+	MAX_AVOID_NOTE,
 	MAX_CONSEQUENCE,
 	MAX_CREDITS,
 	MAX_DESCRIPTION,
@@ -26,6 +28,7 @@ import {
 	MAX_NOTES,
 	MAX_OPTION_LABEL,
 	MAX_PLACE,
+	MAX_POLYGON_POINTS,
 	MAX_REWARD,
 	MAX_SECTION_AFTER,
 	MAX_SECTION_GATE,
@@ -39,6 +42,7 @@ import {
 	MAX_URL_LENGTH,
 	MAX_VARIANT_LABEL,
 	MAX_VARIANT_OPTIONS,
+	MAX_ZONE_AVOID,
 	mergeSteps,
 	moveSection,
 	moveStep,
@@ -50,8 +54,9 @@ import {
 	updateStep,
 	VARIANT_ID_PATTERN,
 } from "../../shared/guide.ts";
-import type { Guide, GuideStep, GuideTarget, GuideVariant, StepKind } from "../../shared/types.ts";
+import type { Guide, GuideStep, GuideTarget, GuideVariant, GuideZone, StepKind } from "../../shared/types.ts";
 import type { CtxMenuItem } from "./detail.ts";
+import { clearZoneMapLayers, renderZoneOnMap } from "./guide-zone-map.ts";
 
 export type EditorSaveStatus = "saved" | "saving" | "unsaved" | "error";
 
@@ -90,6 +95,7 @@ export interface GuideEditorHost {
 	closeRowMenu: () => void;
 	toast: (msg: string, ms?: number, action?: { label: string; onClick: () => void }) => void;
 	askDialog: (opts: any) => Promise<any>;
+	themeVar: (name: string) => string;
 	perf: <T>(name: string, fn: () => T) => T;
 	hasPendingRemoteConflict: (id: string) => boolean;
 }
@@ -658,6 +664,9 @@ export function openGuideEditor(guideId: string): void {
 export function closeGuideEditor(opts?: { switchToFollow?: boolean }): void {
 	if (!host || typeof document === "undefined" || mode === "closed") return;
 	finishDrag(false);
+	clearZoneDrawBanner();
+	host.state.cancelSelectionCapture?.();
+	clearZoneMapLayers(host.state.map);
 	const prevGuideId = editingGuideId;
 	setAddStepsActive(false);
 	mode = "closed";
@@ -1146,6 +1155,7 @@ function wireEditorOutlineEvents(root: HTMLElement, guide: Guide): void {
 			selectedStepId = stepId;
 			renderEditor();
 			renderStepEditor();
+			host.refreshMap();
 			if (window.innerWidth <= 760) {
 				document.body.classList.remove("side-open");
 			}
@@ -1375,6 +1385,44 @@ export function renderStepEditor(): void {
 				`</div>`
 			: "";
 
+	const curMapSlug = host.state.mapInfo?.slug || "default";
+	const stepZone = step.zone;
+	const zoneOtherMap = Boolean(stepZone?.map && stepZone.map !== curMapSlug);
+	const sortedRegions = ((host.state.regions || []) as any[])
+		.slice()
+		.sort((a, b) => String(a.title || "").localeCompare(String(b.title || "")));
+	const regionOptionsHtml = sortedRegions
+		.map(
+			(r) =>
+				`<option value="${r.id}" ${!zoneOtherMap && stepZone?.region === r.id ? "selected" : ""}>${esc(String(r.title || `Region #${r.id}`))}</option>`,
+		)
+		.join("");
+	const avoidHtml = (stepZone?.avoid || [])
+		.map((av, ai) => {
+			const avLoc = av.marker !== undefined ? lookupAnyMarker(av.marker) : null;
+			const avLabel =
+				av.marker !== undefined
+					? avLoc?.title || `Marker #${av.marker}`
+					: `Area (${av.polygon?.length || 0} pts)`;
+			const avKind = av.marker !== undefined ? "Marker" : "Polygon";
+			return (
+				`<div class="ge-avoid-card" data-ge-ai="${ai}">` +
+				`<div class="ge-target-top">` +
+				`<span class="ge-target-name">${esc(avLabel)}</span>` +
+				`<span class="gp-badge">${avKind}</span>` +
+				`<button type="button" class="ge-icon-sm danger" data-ge-rm-avoid="${ai}" aria-label="Remove exception">${host!.svgIcon("trash")}</button>` +
+				`</div>` +
+				`<input type="text" data-ge-avoid-note="${ai}" value="${esc(av.note)}" maxlength="${MAX_AVOID_NOTE}" placeholder="Short note shown on tap">` +
+				`</div>`
+			);
+		})
+		.join("");
+	const zoneMetaBadge = stepZone
+		? (stepZone.map ? `<span class="gp-badge">${esc(stepZone.map)}</span>` : "") +
+			(stepZone.polygon?.length ? `<span class="gp-badge">${stepZone.polygon.length} pts</span>` : "")
+		: "";
+	const canAddAvoid = (stepZone?.avoid?.length ?? 0) < MAX_ZONE_AVOID;
+
 	const notesSectionHtml = notesPreview
 		? `<div class="ge-notes-head"><span>Notes (Preview)</span><button type="button" class="chip" data-ge-step-act="toggle-notes-preview">Edit</button></div>` +
 			`<div class="d-desc ge-notes-preview">${step.notes ? host.renderMd(step.notes) : '<p class="ge-dim">Nothing written yet.</p>'}</div>`
@@ -1405,6 +1453,37 @@ export function renderStepEditor(): void {
 		`<button type="button" class="chip" data-ge-step-act="bind-link">Bind</button>` +
 		`</div>` +
 		userMarkerPickerHtml +
+		`</div>` +
+		`<div class="ge-zone-box">` +
+		`<div class="ge-sub-head"><span>Explore zone &amp; exceptions</span>` +
+		(zoneMetaBadge ? `<span class="ge-zone-badges">${zoneMetaBadge}</span>` : "") +
+		(stepZone
+			? `<button type="button" class="chip danger" data-ge-step-act="clear-zone">Clear zone</button>`
+			: "") +
+		`</div>` +
+		`<label class="field"><span>Region boundary</span><select id="ge-zone-region" aria-label="Zone region"><option value="">— None —</option>${regionOptionsHtml}</select></label>` +
+		`<div class="ge-zone-draw-row">` +
+		`<span class="ge-zone-lbl">Draw polygon</span>` +
+		`<button type="button" class="chip" data-ge-zone-draw="box">Box</button>` +
+		`<button type="button" class="chip" data-ge-zone-draw="ellipse">Ellipse</button>` +
+		`<button type="button" class="chip" data-ge-zone-draw="free">Free</button>` +
+		`</div>` +
+		(zoneOtherMap && stepZone?.region !== undefined
+			? `<p class="ge-dim">Zone currently targets ${esc(stepZone.map)} (region #${stepZone.region}). Picking a region or drawing here replaces it.</p>`
+			: "") +
+		`<div class="ge-avoid-list">${avoidHtml || '<p class="ge-dim">No exceptions. Add markers or shapes to stay away from.</p>'}</div>` +
+		(canAddAvoid
+			? `<div class="ge-link-bind">` +
+				`<input type="text" id="ge-avoid-link" placeholder="Avoid marker (#loc=123 or ID)" autocomplete="off" aria-label="Avoid marker link or ID">` +
+				`<button type="button" class="chip" data-ge-step-act="bind-avoid-link">Avoid marker</button>` +
+				`</div>` +
+				`<div class="ge-zone-draw-row">` +
+				`<span class="ge-zone-lbl">Draw avoid</span>` +
+				`<button type="button" class="chip" data-ge-avoid-draw="box">Box</button>` +
+				`<button type="button" class="chip" data-ge-avoid-draw="ellipse">Ellipse</button>` +
+				`<button type="button" class="chip" data-ge-avoid-draw="free">Free</button>` +
+				`</div>`
+			: "") +
 		`</div>` +
 		`<div class="ge-row-2">` +
 		`<label class="field"><span>Place</span><input type="text" name="place" value="${esc(step.place || "")}" maxlength="${MAX_PLACE}" placeholder="Sub-area or room"></label>` +
@@ -1601,6 +1680,61 @@ function wireStepEditorForm(
 		};
 	});
 
+	// Zone region selector & inline avoid notes
+	const regionSel = form.querySelector<HTMLSelectElement>("#ge-zone-region");
+	if (regionSel) {
+		regionSel.onchange = () => {
+			const rawVal = regionSel.value;
+			const curMap = host!.state.mapInfo?.slug || "default";
+			void applyEdit(
+				(g) => {
+					const f = findStepInGuide(g, step.id);
+					if (!f) return g;
+					const prev = f.step.zone;
+					if (!rawVal) {
+						if (!prev) return g;
+						const next: GuideZone = { ...prev };
+						delete next.region;
+						const keep = Boolean(next.polygon?.length || next.avoid?.length);
+						return updateStep(g, step.id, { zone: keep ? next : undefined });
+					}
+					const rid = Number(rawVal);
+					if (!Number.isInteger(rid) || rid <= 0) return g;
+					const next: GuideZone = {
+						map: curMap,
+						region: rid,
+						...(prev?.avoid?.length ? { avoid: structuredClone(prev.avoid) } : {}),
+					};
+					return updateStep(g, step.id, { zone: next });
+				},
+				{ openStepCard: true },
+			);
+		};
+	}
+
+	form.querySelectorAll<HTMLInputElement>("[data-ge-avoid-note]").forEach((inp) => {
+		inp.oninput = () => {
+			const ai = Number(inp.dataset.geAvoidNote);
+			const trimmed = inp.value.trim();
+			if (!trimmed) return;
+			void applyEdit(
+				(g) => {
+					const f = findStepInGuide(g, step.id);
+					const prevZone = f?.step.zone;
+					if (!prevZone?.avoid?.[ai]) return g;
+					const avoid = structuredClone(prevZone.avoid);
+					avoid[ai]!.note = trimmed.slice(0, MAX_AVOID_NOTE);
+					return updateStep(g, step.id, { zone: { ...prevZone, avoid } });
+				},
+				{
+					coalesceKey: `st-av-note-${step.id}-${ai}`,
+					reRenderOutline: false,
+					reRenderStepEditor: false,
+				},
+			);
+		};
+	});
+
 	root.onclick = async (e) => {
 		if (!host) return;
 		const t = e.target as HTMLElement;
@@ -1632,6 +1766,41 @@ function wireStepEditorForm(
 				},
 				{ openStepCard: true },
 			);
+			return;
+		}
+
+		const rmAvoid = t.closest<HTMLElement>("[data-ge-rm-avoid]");
+		if (rmAvoid) {
+			const ai = Number(rmAvoid.dataset.geRmAvoid);
+			await applyEdit(
+				(g) => {
+					const found = findStepInGuide(g, step.id);
+					const prevZone = found?.step.zone;
+					if (!prevZone?.avoid) return g;
+					const avoid = structuredClone(prevZone.avoid);
+					avoid.splice(ai, 1);
+					const next: GuideZone = { ...prevZone };
+					if (avoid.length) next.avoid = avoid;
+					else delete next.avoid;
+					const keep = Boolean(next.region !== undefined || next.polygon?.length || next.avoid?.length);
+					return updateStep(g, step.id, { zone: keep ? next : undefined });
+				},
+				{ openStepCard: true },
+			);
+			return;
+		}
+
+		const zoneDraw = t.closest<HTMLElement>("[data-ge-zone-draw]");
+		if (zoneDraw) {
+			const shape = zoneDraw.dataset.geZoneDraw as "box" | "ellipse" | "free";
+			startZoneDrawCapture("zone", shape, step.id);
+			return;
+		}
+
+		const avoidDraw = t.closest<HTMLElement>("[data-ge-avoid-draw]");
+		if (avoidDraw) {
+			const shape = avoidDraw.dataset.geAvoidDraw as "box" | "ellipse" | "free";
+			startZoneDrawCapture("avoid", shape, step.id);
 			return;
 		}
 
@@ -1701,6 +1870,39 @@ function wireStepEditorForm(
 				},
 				{ openStepCard: true },
 			);
+		} else if (act === "clear-zone") {
+			await applyEdit((g) => updateStep(g, step.id, { zone: undefined }), { openStepCard: true });
+		} else if (act === "bind-avoid-link") {
+			const inp = document.getElementById("ge-avoid-link") as HTMLInputElement | null;
+			const parsed = parseMarkerLink(inp?.value || "");
+			const trimmed = (inp?.value || "").trim();
+			const markerId = parsed ? parsed.markerId : /^[1-9]\d{0,9}$/.test(trimmed) ? Number(trimmed) : null;
+			if (!markerId) {
+				host.toast("Enter a marker link (#loc=123 or URL) or marker ID.");
+				return;
+			}
+			const curMap = host.state.mapInfo?.slug || "default";
+			await applyEdit(
+				(g) => {
+					const f = findStepInGuide(g, step.id);
+					if (!f) return g;
+					const prev = f.step.zone;
+					const avoid = structuredClone(prev?.avoid || []);
+					if (avoid.length >= MAX_ZONE_AVOID) return g;
+					if (avoid.some((a) => a.marker === markerId)) return g;
+					avoid.push({ marker: markerId, note: "Avoid" });
+					return updateStep(g, step.id, {
+						zone: {
+							map: prev?.map || curMap,
+							...(prev?.region !== undefined ? { region: prev.region } : {}),
+							...(prev?.polygon ? { polygon: structuredClone(prev.polygon) } : {}),
+							avoid,
+						},
+					});
+				},
+				{ openStepCard: true },
+			);
+			if (inp) inp.value = "";
 		} else if (act === "dup") {
 			const g = currentGuide();
 			if (!g) return;
@@ -2063,6 +2265,187 @@ function wireEditorGlobalShortcuts(): void {
 }
 
 /* ---------- Slice 3/4/5 Stubs & Integration Hooks ---------- */
+
+function clearZoneDrawBanner(): void {
+	if (typeof document === "undefined") return;
+	document.body.classList.remove("ge-drawing-zone");
+	const b = document.getElementById("guide-zone-draw-banner");
+	if (b) b.hidden = true;
+}
+
+function showZoneDrawBanner(label: string): void {
+	if (typeof document === "undefined") return;
+	const stage = document.getElementById("stage");
+	if (!stage) return;
+	let b = document.getElementById("guide-zone-draw-banner");
+	if (!b) {
+		b = document.createElement("div");
+		b.id = "guide-zone-draw-banner";
+		b.className = "guide-add-banner ge-draw-banner";
+		b.setAttribute("role", "status");
+		stage.appendChild(b);
+	}
+	b.innerHTML =
+		`<span class="gab-dot" aria-hidden="true"></span>` +
+		`<span class="gab-text">${esc(label)}</span>` +
+		`<button type="button" class="gab-done" data-gzb-cancel>Cancel</button>`;
+	b.hidden = false;
+	document.body.classList.add("ge-drawing-zone");
+	b.querySelector<HTMLButtonElement>("[data-gzb-cancel]")!.onclick = () => {
+		clearZoneDrawBanner();
+		host?.state.cancelSelectionCapture?.();
+	};
+}
+
+function startZoneDrawCapture(kind: "zone" | "avoid", shape: "box" | "ellipse" | "free", stepId: string): void {
+	if (!host || mode !== "edit") return;
+	if (!host.state.startSelectionCapture) {
+		host.toast("Map selection tool is not ready.");
+		return;
+	}
+	if (addStepsActive) setAddStepsActive(false);
+	const shapeLabel = shape === "box" ? "box" : shape === "ellipse" ? "ellipse" : "freehand outline";
+	const promptLabel =
+		kind === "zone"
+			? `Drag a ${shapeLabel} on the map to set step zone`
+			: `Drag a ${shapeLabel} on the map to add an avoid area`;
+	showZoneDrawBanner(promptLabel);
+	host.state.startSelectionCapture(
+		shape,
+		(sel: { shape: "box" | "ellipse" | "free"; pts: { lng: number; lat: number }[]; circle?: boolean }) => {
+			clearZoneDrawBanner();
+			selectedStepId = stepId;
+			if (kind === "zone") void setZoneFromSelection(sel);
+			else void addAvoidFromSelection(sel);
+		},
+		() => {
+			clearZoneDrawBanner();
+		},
+	);
+}
+
+function selectionToZonePolygon(sel: {
+	shape: "box" | "ellipse" | "free";
+	pts: { lng: number; lat: number }[];
+	circle?: boolean;
+}): ZonePoint[] {
+	const map = host?.state.map;
+	if (!map?.project || !map?.unproject) {
+		return clampPolygonPoints(
+			sel.pts.map((p) => ({ lng: Number(p.lng.toFixed(6)), lat: Number(p.lat.toFixed(6)) })),
+			MAX_POLYGON_POINTS,
+		);
+	}
+	return clampPolygonPoints(
+		selectionShapeToPolygon(
+			sel,
+			(p) => map.project([p.lng, p.lat]),
+			(q) => map.unproject([q.x, q.y]),
+		),
+		MAX_POLYGON_POINTS,
+	);
+}
+
+export function refreshEditorZoneMapLayers(map: any): void {
+	if (!host || !map || !host.state.mapReady || mode !== "edit") return;
+	const g = currentGuide();
+	const found = g && selectedStepId ? findStepInGuide(g, selectedStepId) : null;
+	if (!found?.step.zone) {
+		clearZoneMapLayers(map);
+		return;
+	}
+	renderZoneOnMap(
+		map,
+		found.step.zone,
+		host.state.mapInfo?.slug || "",
+		host.state.regionById || new Map(),
+		(id: number) => host!.state.byId?.get(id) ?? null,
+		{
+			accent: host.themeVar("accent"),
+			accentSoft: host.themeVar("accent-soft"),
+			panel: host.themeVar("panel"),
+			night: host.themeVar("night"),
+			err: host.themeVar("err") || "#ef4444",
+		},
+		() => host?.state.tool || "pan",
+	);
+}
+
+export async function setZoneFromSelection(sel: {
+	shape: "box" | "ellipse" | "free";
+	pts: { lng: number; lat: number }[];
+	circle?: boolean;
+}): Promise<void> {
+	if (!host || mode !== "edit" || !selectedStepId) {
+		host?.toast("Select a guide step to set its zone.");
+		return;
+	}
+	const poly = selectionToZonePolygon(sel);
+	if (poly.length < 3) {
+		host.toast("Drawn area was too small.");
+		return;
+	}
+	const curMap = host.state.mapInfo?.slug || "default";
+	await applyEdit(
+		(g) => {
+			const f = findStepInGuide(g, selectedStepId!);
+			if (!f) return g;
+			const prev = f.step.zone;
+			return updateStep(g, f.step.id, {
+				zone: {
+					map: curMap,
+					polygon: poly,
+					...(prev?.avoid?.length ? { avoid: structuredClone(prev.avoid) } : {}),
+				},
+			});
+		},
+		{ selectStepId: selectedStepId, openStepCard: true },
+	);
+	host.toast(`Updated step zone (${poly.length} pts)`);
+}
+
+export async function addAvoidFromSelection(sel: {
+	shape: "box" | "ellipse" | "free";
+	pts: { lng: number; lat: number }[];
+	circle?: boolean;
+}): Promise<void> {
+	if (!host || mode !== "edit" || !selectedStepId) {
+		host?.toast("Select a guide step to add an avoid area.");
+		return;
+	}
+	const poly = selectionToZonePolygon(sel);
+	if (poly.length < 3) {
+		host.toast("Drawn avoid area was too small.");
+		return;
+	}
+	const curMap = host.state.mapInfo?.slug || "default";
+	const curGuide = currentGuide();
+	const found = curGuide ? findStepInGuide(curGuide, selectedStepId) : null;
+	if ((found?.step.zone?.avoid?.length ?? 0) >= MAX_ZONE_AVOID) {
+		host.toast(`Step already has the maximum of ${MAX_ZONE_AVOID} avoid entries.`);
+		return;
+	}
+	await applyEdit(
+		(g) => {
+			const f = findStepInGuide(g, selectedStepId!);
+			if (!f) return g;
+			const prev = f.step.zone;
+			const avoid = structuredClone(prev?.avoid || []);
+			if (avoid.length >= MAX_ZONE_AVOID) return g;
+			avoid.push({ polygon: poly, note: "Avoid area" });
+			return updateStep(g, f.step.id, {
+				zone: {
+					map: prev?.map || curMap,
+					...(prev?.region !== undefined ? { region: prev.region } : {}),
+					...(prev?.polygon ? { polygon: structuredClone(prev.polygon) } : {}),
+					avoid,
+				},
+			});
+		},
+		{ selectStepId: selectedStepId, openStepCard: true },
+	);
+	host.toast("Added avoid area to step");
+}
 
 function renderAddStepsBanner(): void {
 	let banner = document.getElementById("guide-add-banner");

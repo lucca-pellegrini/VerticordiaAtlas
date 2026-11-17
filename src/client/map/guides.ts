@@ -1171,6 +1171,11 @@ export function prepareGuideFilterBeforeRefresh(): void {
 }
 
 export function syncGuideMapRoute(map: any): void {
+	if (editorMod?.isOpen()) {
+		followMod?.clearFollowRouteLayers(map);
+		editorMod.refreshEditorZoneMapLayers(map);
+		return;
+	}
 	followMod?.refreshGuideMapLayers(map);
 }
 
@@ -1225,6 +1230,7 @@ function buildEditorHost(): GuideEditorHost {
 		closeRowMenu,
 		toast,
 		askDialog,
+		themeVar,
 		perf,
 		hasPendingRemoteConflict: (id: string) =>
 			deferredRemoteConflictGuides.has(id) || pendingLocalConflictRemotes.has(id),
@@ -1312,4 +1318,22 @@ export async function createGuideStepFromSelection(markers: any[], titleSuggesti
 export async function addSelectionToCurrentGuideStep(markers: any[]): Promise<void> {
 	const m = await ensureGuideEditor();
 	await m.addMarkersToCurrentStep(markers);
+}
+
+export async function setGuideStepZoneFromSelection(sel: {
+	shape: "box" | "ellipse" | "free";
+	pts: { lng: number; lat: number }[];
+	circle?: boolean;
+}): Promise<void> {
+	const m = await ensureGuideEditor();
+	await m.setZoneFromSelection(sel);
+}
+
+export async function addGuideZoneAvoidFromSelection(sel: {
+	shape: "box" | "ellipse" | "free";
+	pts: { lng: number; lat: number }[];
+	circle?: boolean;
+}): Promise<void> {
+	const m = await ensureGuideEditor();
+	await m.addAvoidFromSelection(sel);
 }

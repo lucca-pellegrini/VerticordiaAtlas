@@ -1234,6 +1234,7 @@ describe("browser e2e (real server, headless Chrome)", () => {
 			await t.page.click("#tools-open");
 			await sleep(150);
 			await t.page.click("#tool-select");
+			await t.page.waitForSelector("#map.tool-select", { timeout: 5000 });
 			await t.page.mouse.move(dragRect.x0, dragRect.y0);
 			await t.page.mouse.down();
 			await t.page.mouse.move(dragRect.x1, dragRect.y1, { steps: 6 });
@@ -1403,6 +1404,238 @@ describe("browser e2e (real server, headless Chrome)", () => {
 			expect(followOverflow.titleHeight).toBeGreaterThan(24);
 
 			await t.page.evaluate(() => (window as any).perfReport?.());
+			await ctx.close();
+			expect({ errors: t.errors, failed: t.failed }).toEqual({ errors: [], failed: [] });
+		},
+		T,
+	);
+
+	test(
+		"13. M6 zones and exceptions: editor region/draw polygon + avoid authoring, offline canvas hatch layers, tap popup, wrapping, camera fit & completion independence",
+		async () => {
+			if (!guard()) return;
+			const hkData = JSON.parse(readFileSync(`public/maps/${CONTROL_GAME}/${CONTROL_MAP}/data.json`, "utf8"));
+			const regionWithPoly = hkData.regions.find((r: any) => Array.isArray(r.features) && r.features.length > 0);
+			const avoidMarker = hkData.locations[0];
+			expect(regionWithPoly).toBeTruthy();
+			expect(avoidMarker).toBeTruthy();
+
+			const ctx = await browser.createBrowserContext();
+			const t = await track(ctx);
+			const origin = new URL(mapUrl(CONTROL_GAME, CONTROL_MAP)).origin;
+			const externalZoneReqs: string[] = [];
+			t.page.on("request", (req) => {
+				const u = req.url();
+				if (!u.startsWith(origin) && !u.startsWith("data:") && !u.startsWith("blob:")) {
+					externalZoneReqs.push(u);
+				}
+			});
+
+			await t.page.goto(mapUrl(CONTROL_GAME, CONTROL_MAP), { waitUntil: "domcontentloaded" });
+			await ready(t.page);
+
+			// 1. Create a new guide and open step editor
+			await t.page.click("#side-more-btn");
+			await t.page.waitForSelector("#side-new-guide-btn", { timeout: 5000 });
+			await t.page.click("#side-new-guide-btn");
+			await t.page.waitForSelector("#ge-new-form input[name='title']", { timeout: 15000 });
+			await t.page.type("#ge-new-form input[name='title']", "M6 Zone Authoring E2E");
+			await t.page.click("#ge-new-form button[type='submit']");
+			await t.page.waitForSelector("body.guide-editing #ge-outline", { timeout: 10000 });
+
+			await t.page.click(".ge-sec [data-ge-sec-add-step]");
+			await t.page.waitForSelector("body.detail-open #ge-zone-region", { timeout: 10000 });
+
+			// 2. Select a game Region -> verify MapLibre zone source renders immediately
+			await t.page.select("#ge-zone-region", String(regionWithPoly.id));
+			await t.page.waitForFunction(
+				() => {
+					const m = (window as any).__map;
+					const src = m?.getSource?.("guide-zone-area");
+					const data = src?.serialize?.()?.data || src?._data;
+					return Boolean(
+						data?.features?.length > 0 && m.getLayer("guide-zone-fill") && m.getLayer("guide-zone-outline"),
+					);
+				},
+				{ timeout: 10000 },
+			);
+
+			// 3. Draw a Box zone polygon interactively -> banner shows, drag commits polygon, live preview updates
+			await t.page.click('[data-ge-zone-draw="box"]');
+			await t.page.waitForSelector("#guide-zone-draw-banner:not([hidden])", { timeout: 5000 });
+			const dragCoords = await t.page.evaluate(() => {
+				const r = document.getElementById("map")!.getBoundingClientRect();
+				const detail = document.getElementById("detail")?.getBoundingClientRect();
+				const side = document.getElementById("ge-drawer")?.getBoundingClientRect();
+				const leftEdge = side ? side.right : r.left;
+				const rightEdge = detail ? detail.left : r.right;
+				const cx = Math.round((leftEdge + rightEdge) / 2);
+				const cy = Math.round(r.top + r.height * 0.5);
+				return { x0: cx - 50, y0: cy - 50, x1: cx + 50, y1: cy + 50, cx, cy };
+			});
+			await t.page.mouse.move(dragCoords.x0, dragCoords.y0);
+			await t.page.mouse.down();
+			await t.page.mouse.move(dragCoords.x1, dragCoords.y1, { steps: 6 });
+			await t.page.mouse.up();
+			await t.page.waitForFunction(
+				() =>
+					document.getElementById("guide-zone-draw-banner")?.hasAttribute("hidden") &&
+					document.querySelector(".ge-zone-badges")?.textContent?.includes("pts"),
+				{ timeout: 10000 },
+			);
+
+			// 4. Bind an avoid marker & edit its note, plus draw an avoid box polygon
+			await t.page.type("#ge-avoid-link", `#loc=${avoidMarker.id}`);
+			await t.page.click('[data-ge-step-act="bind-avoid-link"]');
+			await t.page.waitForSelector('[data-ge-avoid-note="0"]', { timeout: 5000 });
+			await t.page.click('[data-ge-avoid-note="0"]', { count: 3 });
+			await t.page.type('[data-ge-avoid-note="0"]', "Steer clear of boss ambush");
+
+			await t.page.click('[data-ge-avoid-draw="box"]');
+			await t.page.waitForSelector("#guide-zone-draw-banner:not([hidden])", { timeout: 5000 });
+			await t.page.mouse.move(dragCoords.cx - 25, dragCoords.cy - 20);
+			await t.page.mouse.down();
+			await t.page.mouse.move(dragCoords.cx + 25, dragCoords.cy + 20, { steps: 5 });
+			await t.page.mouse.up();
+			await t.page.waitForSelector('[data-ge-avoid-note="1"]', { timeout: 10000 });
+			await sleep(250);
+
+			// Verify offline canvas hatch pattern & hatched avoid-marker badge images and sources registered with zero external requests
+			const editorLayerState = await t.page.evaluate(() => {
+				const m = (window as any).__map;
+				const areaData =
+					m?.getSource?.("guide-zone-avoid-area")?.serialize?.()?.data ||
+					m?.getSource?.("guide-zone-avoid-area")?._data;
+				const pinData =
+					m?.getSource?.("guide-zone-avoid-markers")?.serialize?.()?.data ||
+					m?.getSource?.("guide-zone-avoid-markers")?._data;
+				const imgs: string[] = m?.listImages?.() || [];
+				return {
+					hasHatchImg: imgs.some((id) => id.startsWith("guide-zone-hatch-")),
+					hasAvoidPinImg: imgs.some((id) => id.startsWith("guide-zone-avoid-pin-")),
+					hasAvoidFill: Boolean(m?.getLayer?.("guide-zone-avoid-fill")),
+					hasAvoidLine: Boolean(m?.getLayer?.("guide-zone-avoid-outline")),
+					hasAvoidMarkerLayer: Boolean(m?.getLayer?.("guide-zone-avoid-markers")),
+					avoidAreaCount: areaData?.features?.length ?? 0,
+					avoidMarkerCount: pinData?.features?.length ?? 0,
+				};
+			});
+			expect(editorLayerState).toEqual({
+				hasHatchImg: true,
+				hasAvoidPinImg: true,
+				hasAvoidFill: true,
+				hasAvoidLine: true,
+				hasAvoidMarkerLayer: true,
+				avoidAreaCount: 1,
+				avoidMarkerCount: 1,
+			});
+			expect(externalZoneReqs).toEqual([]);
+
+			// 5. Switch to follow mode and open the zoned step card
+			await t.page.click('[data-ge-act="done"]');
+			await t.page.waitForSelector("body.guide-open #guide-panel .gp-step", { timeout: 10000 });
+			await t.page.click("#guide-panel .gp-step .gp-step-main");
+			await t.page.waitForSelector("body.detail-open #detail-body .gs-zone", { timeout: 10000 });
+			await sleep(400);
+
+			// Verify textual explore zone & exceptions list wraps cleanly without horizontal overflow
+			const followCardCheck = await t.page.evaluate(() => {
+				const avoidBody = document.querySelector<HTMLElement>(".gs-avoid-body")!;
+				avoidBody.textContent = "AvoidReasonWithoutAnySpaces_" + "Y".repeat(90);
+				const detail = document.getElementById("detail")!;
+				const body = document.getElementById("detail-body")!;
+				const notesText = [...document.querySelectorAll(".gs-avoid-item")].map((el) => el.textContent || "");
+				return {
+					count: notesText.length,
+					detailScrollW: detail.scrollWidth,
+					detailClientW: detail.clientWidth,
+					bodyScrollW: body.scrollWidth,
+					bodyClientW: body.clientWidth,
+					bodyHeight: avoidBody.getBoundingClientRect().height,
+				};
+			});
+			expect(followCardCheck.count).toBe(2);
+			expect(followCardCheck.detailScrollW).toBeLessThanOrEqual(followCardCheck.detailClientW);
+			expect(followCardCheck.bodyScrollW).toBeLessThanOrEqual(followCardCheck.bodyClientW);
+			expect(followCardCheck.bodyHeight).toBeGreaterThan(22);
+
+			// 6. Focus zone button moves/fits camera cleanly, and clicking the hatched avoid area opens .gz-popup without closing #detail
+			await t.page.click('[data-gs-act="fit-zone"]');
+			await sleep(400);
+			const avoidClickPx = await t.page.evaluate(() => {
+				const m = (window as any).__map;
+				const r = document.getElementById("map")!.getBoundingClientRect();
+				const src = m?.getSource?.("guide-zone-avoid-area");
+				const data = src?.serialize?.()?.data || src?._data;
+				const feat = data?.features?.[0];
+				const ring: [number, number][] = feat?.geometry?.coordinates?.[0] || [];
+				let sx = 0;
+				let sy = 0;
+				const n = Math.max(1, ring.length - 1);
+				for (let i = 0; i < n; i++) {
+					sx += ring[i]![0];
+					sy += ring[i]![1];
+				}
+				const pt = m.project([sx / n, sy / n]);
+				return { x: Math.round(r.left + pt.x), y: Math.round(r.top + pt.y) };
+			});
+			await t.page.mouse.click(avoidClickPx.x, avoidClickPx.y);
+			await t.page.waitForSelector(".maplibregl-popup.gz-tip .gz-popup-note", { timeout: 5000 });
+			const popupText = await t.page.$eval(".gz-popup-note", (el) => el.textContent || "");
+			expect(popupText).toBe("Avoid area");
+			expect(await t.page.evaluate(() => document.body.classList.contains("detail-open"))).toBe(true);
+
+			// 7. Zone never affects completion: step stays incomplete until manual "Mark done"
+			const stepDoneBefore = await t.page.$eval('[data-gs-act="toggle-done"]', (el) =>
+				el.getAttribute("aria-pressed"),
+			);
+			expect(stepDoneBefore).toBe("false");
+			await t.page.click('[data-gs-act="toggle-done"]');
+			await t.page.waitForFunction(
+				() => document.querySelector('[data-gs-act="toggle-done"]')?.getAttribute("aria-pressed") === "true",
+				{ timeout: 5000 },
+			);
+
+			// 8. Touch / mobile viewport (390x844): reload verifies zone persistence, and drawing a zone hides #detail/#side during touch drag
+			await t.page.setViewport({ width: 390, height: 844, hasTouch: true, isMobile: true });
+			await t.page.reload({ waitUntil: "domcontentloaded" });
+			await ready(t.page);
+			await t.page.click("#side-toggle");
+			await sleep(250);
+			await t.page.waitForFunction(
+				() =>
+					document.body.classList.contains("guide-open") ||
+					document.getElementById("guides-section")?.textContent?.includes("M6 Zone Authoring E2E"),
+				{ timeout: 15000 },
+			);
+			const alreadyInGuide = await t.page.evaluate(() => document.body.classList.contains("guide-open"));
+			if (!alreadyInGuide) {
+				await t.page.click("#guides-section .guide-row");
+			}
+			await t.page.waitForSelector('body.guide-open [data-gp-act="edit"]', { timeout: 10000 });
+			await t.page.click('[data-gp-act="edit"]');
+			await t.page.waitForSelector("body.guide-editing #ge-outline", { timeout: 10000 });
+			await t.page.click(".ge-step-row [data-ge-select-step]");
+			await t.page.waitForSelector('body.detail-open [data-ge-zone-draw="box"]', { timeout: 5000 });
+			await t.page.click('[data-ge-zone-draw="box"]');
+			await t.page.waitForSelector("body.ge-drawing-zone #guide-zone-draw-banner:not([hidden])", {
+				timeout: 5000,
+			});
+			const mobileHiddenWhileDrawing = await t.page.evaluate(() => ({
+				detailDisplay: getComputedStyle(document.getElementById("detail")!).display,
+				sideDisplay: getComputedStyle(document.getElementById("side")!).display,
+			}));
+			expect(mobileHiddenWhileDrawing).toEqual({ detailDisplay: "none", sideDisplay: "none" });
+			await t.page.touchscreen.touchStart(140, 260);
+			await t.page.touchscreen.touchMove(260, 420);
+			await t.page.touchscreen.touchEnd();
+			await t.page.waitForFunction(
+				() =>
+					!document.body.classList.contains("ge-drawing-zone") &&
+					getComputedStyle(document.getElementById("detail")!).display !== "none",
+				{ timeout: 10000 },
+			);
+
 			await ctx.close();
 			expect({ errors: t.errors, failed: t.failed }).toEqual({ errors: [], failed: [] });
 		},

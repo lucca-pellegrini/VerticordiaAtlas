@@ -10,10 +10,12 @@ import { CAPTURE_CONTROL_HTML } from "./capture.ts";
 import { DRAW_CONTROLS_HTML, INK_CONTROL_HTML } from "./drawing.ts";
 import { applyFoundChange, notifyFoundChange } from "./found.ts";
 import {
+	addGuideZoneAvoidFromSelection,
 	addSelectionToCurrentGuideStep,
 	createGuideStepFromSelection,
 	getSelectedGuideStepSummary,
 	isGuideEditorOpen,
+	setGuideStepZoneFromSelection,
 } from "./guides.ts";
 import { refreshAll } from "./map-view.ts";
 import { saveProfileNow } from "./profiles.ts";
@@ -160,6 +162,8 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 		`<button type="button" role="menuitem" data-act="unfound">${svgIcon("open")}<span>Mark all as not found</span></button>` +
 		`<button type="button" role="menuitem" data-act="guide-step" hidden>${svgIcon("plus")}<span>Create guide step</span></button>` +
 		`<button type="button" role="menuitem" data-act="guide-add-to-step" hidden>${svgIcon("pin")}<span>Add to current step</span></button>` +
+		`<button type="button" role="menuitem" data-act="guide-zone" hidden>${svgIcon("box")}<span>Set as step zone</span></button>` +
+		`<button type="button" role="menuitem" data-act="guide-avoid" hidden>${svgIcon("x")}<span>Add avoid area to step</span></button>` +
 		`<button type="button" role="menuitem" data-act="delete-user" class="danger" hidden>${svgIcon("trash")}<span>Delete user markers</span></button>`;
 	document.body.appendChild(selMenu);
 
@@ -170,7 +174,34 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 	mapEl.appendChild(overlay);
 
 	// --- tool state
+	let captureTask: { onCapture: (sel: any) => void; onCancel?: () => void } | null = null;
+	function cancelSelectionCapture(notify = true): void {
+		const prev = captureTask;
+		captureTask = null;
+		if (state.tool === "select") setTool("pan");
+		if (notify) prev?.onCancel?.();
+	}
+	state.startSelectionCapture = (shape: ShapeKind, onCapture: (sel: any) => void, onCancel?: () => void) => {
+		if (captureTask) {
+			const prev = captureTask;
+			captureTask = null;
+			prev.onCancel?.();
+		}
+		captureTask = { onCapture, onCancel };
+		state.shape = shape;
+		state.sel = null;
+		closeToolMenus();
+		renderSelection();
+		setTool("select");
+	};
+	state.cancelSelectionCapture = () => cancelSelectionCapture(true);
+
 	function setTool(t: string): void {
+		if (t !== "select" && captureTask) {
+			const prev = captureTask;
+			captureTask = null;
+			prev.onCancel?.();
+		}
 		state.tool = t;
 		t === "pan" ? map.dragPan.enable() : map.dragPan.disable();
 		t === "pan" ? map.doubleClickZoom.enable() : map.doubleClickZoom.disable();
@@ -253,15 +284,19 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 				b.disabled = n === 0;
 			});
 		const users = userInSelection().length;
+		const editorOpen = isGuideEditorOpen();
+		const activeStep = editorOpen ? getSelectedGuideStepSummary() : null;
 		const gs = selMenu.querySelector<HTMLButtonElement>('[data-act="guide-step"]')!;
-		gs.hidden = !isGuideEditorOpen() || n === 0;
+		gs.hidden = !editorOpen || n === 0;
 		const gAdd = selMenu.querySelector<HTMLButtonElement>('[data-act="guide-add-to-step"]')!;
-		const curStep = isGuideEditorOpen() && n > 0 ? getSelectedGuideStepSummary() : null;
+		const curStep = n > 0 ? activeStep : null;
 		gAdd.hidden = !curStep;
 		if (curStep) {
 			const clipped = curStep.title.length > 24 ? `${curStep.title.slice(0, 24)}…` : curStep.title;
 			gAdd.querySelector("span")!.textContent = `Add to current step (${clipped})`;
 		}
+		selMenu.querySelector<HTMLButtonElement>('[data-act="guide-zone"]')!.hidden = !activeStep;
+		selMenu.querySelector<HTMLButtonElement>('[data-act="guide-avoid"]')!.hidden = !activeStep;
 		const del = selMenu.querySelector<HTMLButtonElement>('[data-act="delete-user"]')!;
 		del.hidden = users === 0;
 		del.querySelector("span")!.textContent = `Delete ${users} user marker${users === 1 ? "" : "s"}`;
@@ -284,6 +319,22 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 			state.sel = null;
 			renderSelection();
 			void addSelectionToCurrentGuideStep(picked);
+			return;
+		}
+		if (b.dataset.act === "guide-zone") {
+			const snap = state.sel ? structuredClone(state.sel) : null;
+			closeToolMenus();
+			state.sel = null;
+			renderSelection();
+			if (snap) void setGuideStepZoneFromSelection(snap);
+			return;
+		}
+		if (b.dataset.act === "guide-avoid") {
+			const snap = state.sel ? structuredClone(state.sel) : null;
+			closeToolMenus();
+			state.sel = null;
+			renderSelection();
+			if (snap) void addGuideZoneAvoidFromSelection(snap);
 			return;
 		}
 		if (b.dataset.act === "delete-user") {
@@ -491,6 +542,16 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 			if (Math.abs(b.x - a.x) >= 3 || Math.abs(b.y - a.y) >= 3)
 				state.sel = { shape: d.shape, pts: [toGeo(a), toGeo(b)], circle: d.circle };
 		}
+		if (captureTask && state.sel) {
+			const captured = state.sel;
+			const task = captureTask;
+			captureTask = null;
+			state.sel = null;
+			renderSelection();
+			setTool("pan");
+			task.onCapture(captured);
+			return;
+		}
 		renderSelection();
 	}
 
@@ -542,6 +603,13 @@ export function setupSelection(map: any): { setTool: (t: string) => void } {
 			return;
 		} // drawing first: it may own Esc, Enter or Ctrl+Z
 		if (e.key !== "Escape") return;
+		if (captureTask) {
+			closeToolMenus();
+			state.sel = null;
+			cancelDrag();
+			cancelSelectionCapture(true);
+			return;
+		}
 		const hadSomething = !shapeMenu.hidden || !selMenu.hidden || !!state.sel || !!state.drag;
 		closeToolMenus();
 		if (state.sel || state.drag) {
