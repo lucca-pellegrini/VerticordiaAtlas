@@ -170,6 +170,29 @@ export function addTargetToStepTargets(step: GuideStep, target: GuideTarget): Gu
 	return { ...structuredClone(step), targets: existing };
 }
 
+/** Appends multiple targets to a step cleanly, deduplicating official markers and respecting MAX_STEP_TARGETS. */
+export function addTargetsToStepTargets(
+	step: GuideStep,
+	targets: GuideTarget[],
+): { step: GuideStep; added: number; capped: boolean } {
+	let cur = structuredClone(step);
+	let added = 0;
+	let capped = false;
+	for (const tgt of targets) {
+		const beforeLen = cur.targets?.length ?? 0;
+		if (beforeLen >= MAX_STEP_TARGETS) {
+			capped = true;
+			break;
+		}
+		const next = addTargetToStepTargets(cur, tgt);
+		if ((next.targets?.length ?? 0) > beforeLen) {
+			cur = next;
+			added++;
+		}
+	}
+	return { step: cur, added, capped };
+}
+
 export interface EditorHistorySnapshot {
 	guide: Guide;
 	selectedStepId: string | null;
@@ -283,6 +306,14 @@ export function isOpen(): boolean {
 
 export function getEditingGuideId(): string | null {
 	return mode === "edit" ? editingGuideId : null;
+}
+
+export function getSelectedStepSummary(): { id: string; title: string } | null {
+	if (mode !== "edit") return null;
+	const g = currentGuide();
+	if (!g || !selectedStepId) return null;
+	const found = findStepInGuide(g, selectedStepId);
+	return found ? { id: found.step.id, title: found.step.title } : null;
 }
 
 export function hasUnsavedChanges(id: string): boolean {
@@ -2158,9 +2189,45 @@ export async function addFreeWaypointAt(pos: { lat: number; lng: number }): Prom
 	await appendStepWithTarget(title, target, "waypoint");
 }
 
-export function addMarkerTargetPromptOrStep(loc: any): void {
+export function addMarkerTargetPromptOrStep(loc: any, x?: number, y?: number): void {
 	if (!host || mode !== "edit" || !loc) return;
-	promptChoiceOrCreateStep(loc);
+	promptChoiceOrCreateStep(loc, x, y);
+}
+
+export async function addMarkersToCurrentStep(markers: any[]): Promise<void> {
+	if (!host || mode !== "edit" || !markers.length) return;
+	const guide = currentGuide();
+	if (!guide || !selectedStepId) return;
+	const curFound = findStepInGuide(guide, selectedStepId);
+	if (!curFound) return;
+
+	const targets: GuideTarget[] = [];
+	for (const m of markers) {
+		if (m) targets.push(buildTargetForLoc(m));
+	}
+	if (!targets.length) return;
+
+	const preview = addTargetsToStepTargets(curFound.step, targets);
+	if (preview.added === 0) {
+		host.toast(
+			preview.capped
+				? `Step already has the maximum of ${MAX_STEP_TARGETS} targets`
+				: "Selected markers are already targets of this step",
+		);
+		return;
+	}
+
+	await applyEdit(
+		(g) => {
+			const f = findStepInGuide(g, curFound.step.id);
+			if (!f) return g;
+			const next = addTargetsToStepTargets(f.step, targets);
+			return updateStep(g, curFound.step.id, { targets: next.step.targets });
+		},
+		{ selectStepId: curFound.step.id, openStepCard: true },
+	);
+	const capNote = preview.capped ? ` (cap ${MAX_STEP_TARGETS} reached)` : "";
+	host.toast(`Added ${preview.added} target${preview.added === 1 ? "" : "s"} to "${curFound.step.title}"${capNote}`);
 }
 
 export async function createMultiTargetStepFromMarkers(markers: any[], titleSuggestion?: string): Promise<void> {

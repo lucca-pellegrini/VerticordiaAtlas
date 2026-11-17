@@ -49,6 +49,7 @@ import {
 	writeFoundToProfile,
 } from "../src/client/map/found.ts";
 import {
+	addTargetsToStepTargets,
 	addTargetToStepTargets,
 	computeMoveStepIndex,
 	GuideEditHistory,
@@ -2294,6 +2295,21 @@ describe("guide editor core helpers, undo history, and remote edit conflict hand
 		expect(addTargetToStepTargets(withOne, offTarget).targets).toHaveLength(1);
 		// Point target appends cleanly
 		expect(addTargetToStepTargets(withOne, target).targets).toHaveLength(2);
+
+		// Bulk add deduplicates existing official markers, appends new official & point targets, and stops at MAX_STEP_TARGETS (100)
+		const offTwo = officialMarkerToTarget({ id: 5002, title: "Cache", lat: 3, lng: 4, map: "overworld" });
+		const bulk = addTargetsToStepTargets(withOne, [offTarget, offTwo, target, offTwo]);
+		expect(bulk.added).toBe(2);
+		expect(bulk.capped).toBe(false);
+		expect(bulk.step.targets).toHaveLength(3);
+
+		const capInputs = Array.from({ length: 120 }, (_, i) =>
+			officialMarkerToTarget({ id: 6000 + i, title: `M${i}`, lat: 0, lng: 0, map: "overworld" }),
+		);
+		const capped = addTargetsToStepTargets(step, capInputs);
+		expect(capped.added).toBe(100);
+		expect(capped.capped).toBe(true);
+		expect(capped.step.targets).toHaveLength(100);
 	});
 
 	test.concurrent("GuideEditHistory tracks undo/redo with coalescing independently of found undo", () => {
