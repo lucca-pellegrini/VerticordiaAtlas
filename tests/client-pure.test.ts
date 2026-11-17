@@ -2564,3 +2564,85 @@ describe("guide editor core helpers, undo history, and remote edit conflict hand
 		30_000,
 	);
 });
+
+describe("M6 guide zones & exceptions pure integration", () => {
+	test("computeGuideRouteWindow anchors zone-only steps using lookupZoneCentroid and stepHintText summarizes zones", () => {
+		const guide: any = {
+			v: 1,
+			id: "zone-route-test",
+			game: "sunlit-reach",
+			title: "Zone Route",
+			sections: [
+				{
+					id: "s1",
+					title: "Survey",
+					steps: [
+						{
+							id: "st-z1",
+							kind: "task",
+							title: "Explore North Marsh",
+							zone: {
+								map: "harbor",
+								region: 42,
+								avoid: [{ marker: 777, note: "Sniper lookout" }],
+							},
+						},
+						{
+							id: "st-m1",
+							kind: "task",
+							title: "Collect Beacon",
+							targets: [{ kind: "marker", marker: 101 }],
+						},
+						{
+							id: "st-z2",
+							kind: "task",
+							title: "Distant Isles Sweep",
+							zone: {
+								map: "distant-isles",
+								polygon: [
+									{ lng: 1, lat: 1 },
+									{ lng: 2, lat: 1 },
+									{ lng: 2, lat: 2 },
+								],
+							},
+						},
+					],
+				},
+			],
+			created: 1,
+			updated: 1,
+		};
+
+		const view = deriveGuideView({ guide, found: new Set(), progress: { cursor: "st-z1" } });
+		const win = computeGuideRouteWindow(
+			view,
+			"harbor",
+			(id) => (id === 101 ? { lng: 30, lat: 40, map: "harbor" } : null),
+			{
+				lookupZoneCentroid: (ds) => (ds.step.id === "st-z1" ? [12, 18] : null),
+			},
+		);
+
+		// Pin #1 is the zone-only step anchored at centroid [12, 18]; Pin #2 is Collect Beacon at [30, 40]
+		expect(win.pinFeatures).toHaveLength(2);
+		expect(win.pinFeatures[0].geometry.coordinates).toEqual([12, 18]);
+		expect(win.pinFeatures[0].properties.stepId).toBe("st-z1");
+		expect(win.pinFeatures[1].geometry.coordinates).toEqual([30, 40]);
+		expect(win.lineFeatures).toHaveLength(1);
+		expect(win.lineFeatures[0].geometry.coordinates).toEqual([
+			[12, 18],
+			[30, 40],
+		]);
+
+		const hintSameMap = stepHintText(view.stepsById.get("st-z1")!, "harbor", (s) =>
+			s === "harbor" ? "Old Harbor" : s,
+		);
+		expect(hintSameMap).toContain("Explore area");
+		expect(hintSameMap).toContain("1 avoid");
+
+		const hintCrossMap = stepHintText(view.stepsById.get("st-z2")!, "harbor", (s) =>
+			s === "distant-isles" ? "Distant Isles" : s,
+		);
+		expect(hintCrossMap).toContain("Map: Distant Isles");
+	});
+});

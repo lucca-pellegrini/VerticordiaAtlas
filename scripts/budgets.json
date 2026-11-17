@@ -20,31 +20,31 @@
 		"id": "guide-follow-gzip",
 		"file": "public/guide-follow.js",
 		"metric": "gzip",
-		"measured": 13885,
-		"hard": 14500,
-		"note": "Lazy-loaded guide follow panel, step card, and route renderer."
+		"measured": 18320,
+		"hard": 19500,
+		"note": "Lazy-loaded guide follow panel, step card, route renderer, and M6 zone/hatch map layers + camera fit."
 	},
 	{
 		"id": "guide-follow-brotli",
 		"file": "public/guide-follow.js",
 		"metric": "brotli",
-		"measured": 12500,
-		"hard": 13000
+		"measured": 16284,
+		"hard": 17300
 	},
 	{
 		"id": "guide-editor-gzip",
 		"file": "public/guide-editor.js",
 		"metric": "gzip",
-		"measured": 22155,
-		"hard": 23500,
-		"note": "Lazy-loaded guide authoring editor chunk."
+		"measured": 27915,
+		"hard": 29600,
+		"note": "Lazy-loaded guide authoring editor chunk (includes M6 region/polygon zone & avoid authoring)."
 	},
 	{
 		"id": "guide-editor-brotli",
 		"file": "public/guide-editor.js",
 		"metric": "brotli",
-		"measured": 19492,
-		"hard": 20700
+		"measured": 24406,
+		"hard": 26000
 	},
 	{
 		"id": "home-gzip",

@@ -46,6 +46,7 @@ src/
 		guide.ts            # Guide schema constants, total sanitizer/validator (cleanGuide), and immutable editing helpers
 		guide-progress.ts   # Pure derived guide view: variant filtering, step completion, missing-marker fallback, cursor, and tallies
 		guide-import.ts     # Pure marker link parser and text-to-steps conversion helpers
+		guide-zone.ts       # Pure zone/exception geometry resolution, selection polygon conversion, and step camera fit helpers
 		escape.ts           # HTML escaping (esc) and number/byte formatting (fmt, fmtEn, formatBytes)
 	client/                 # Browser TypeScript sources (bundled into public/ by scripts/build.ts)
 		map.ts              # Map viewer entrypoint: boot sequence, sync wiring, and top-level DOM events
@@ -76,6 +77,7 @@ src/
 			guides.ts       # Guide store CRUD, per-guide debounced saves, progress mutators, and guide import/export
 			guide-follow.ts # Lazily loaded guide follow panel, step card, route window, and canvas badge renderer
 			guide-editor.ts # Lazily loaded guide authoring UI, drag/keyboard reordering, add-steps mode, and JSON editor
+			guide-zone-map.ts # MapLibre zone polygon fill, offline canvas diagonal hatch/pin layers, and tap-for-note popup
 			presets.ts      # Category visibility presets, dirty state detection, and per-game migration
 			detail.ts       # Marker detail card, bidirectional link graph, arrowheads, and history stack
 			search.ts       # Tiered location search (current map & all maps) and hover ring preview
