@@ -1,0 +1,56 @@
+{
+	"v": 1,
+	"id": "zone-explore-fixture",
+	"game": "sunlit-reach",
+	"title": "Harbor & Marsh Survey Route",
+	"author": "Cartographer",
+	"sections": [
+		{
+			"id": "survey-1",
+			"title": "Coastal Sweep",
+			"steps": [
+				{
+					"id": "step-zone-region",
+					"kind": "task",
+					"title": "Search Old Harbor ruins",
+					"notes": "Sweep the docks and alleys for three supply crates.",
+					"zone": {
+						"map": "harbor",
+						"region": 10,
+						"avoid": [
+							{
+								"marker": 9001,
+								"note": "Heavy sentry patrols near the crane — slip past behind the warehouse."
+							},
+							{
+								"polygon": [
+									{ "lng": 4.2, "lat": 4.2 },
+									{ "lng": 5.8, "lat": 4.2 },
+									{ "lng": 5.8, "lat": 5.8 },
+									{ "lng": 4.2, "lat": 5.8 }
+								],
+								"note": "Flooded basement collapses on entry before draining the sluice."
+							}
+						]
+					}
+				},
+				{
+					"id": "step-zone-poly",
+					"kind": "waypoint",
+					"title": "Cross Dry Creek ridge",
+					"zone": {
+						"map": "harbor",
+						"polygon": [
+							{ "lng": 12.0, "lat": 12.0 },
+							{ "lng": 16.5, "lat": 12.0 },
+							{ "lng": 16.5, "lat": 15.5 },
+							{ "lng": 12.0, "lat": 15.5 }
+						]
+					}
+				}
+			]
+		}
+	],
+	"created": 1760000000000,
+	"updated": 1760000000000
+}

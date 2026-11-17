@@ -15,8 +15,15 @@ import {
 	nextVisibleStepId,
 	prevVisibleStepId,
 } from "../../shared/guide-progress.ts";
+import {
+	computeStepCameraFit,
+	resolveAvoidEntryFocus,
+	resolveZoneGeometry,
+	type StepCameraFit,
+} from "../../shared/guide-zone.ts";
 import { glyphInk } from "../../shared/theme-math.ts";
 import type { Guide } from "../../shared/types.ts";
+import { clearZoneMapLayers, renderZoneOnMap } from "./guide-zone-map.ts";
 
 export interface MarkerCoordInfo {
 	id?: number;
@@ -112,9 +119,12 @@ export function stepHintText(
 	const parts: string[] = [];
 	if (ds.effectivePlace) parts.push(ds.effectivePlace);
 
-	// Check if step targets are on another map
-	if (currentMapSlug && ds.targets.length > 0) {
+	// Check if step targets or explore zone are on another map
+	if (currentMapSlug && (ds.targets.length > 0 || ds.step.zone)) {
 		const otherMaps = new Set<string>();
+		if (ds.step.zone?.map && ds.step.zone.map !== currentMapSlug) {
+			otherMaps.add(mapTitleLookup ? mapTitleLookup(ds.step.zone.map) : ds.step.zone.map);
+		}
 		for (const t of ds.targets) {
 			let mSlug: string | null = null;
 			if (t.kind === "point" && t.point?.map) {
@@ -129,6 +139,10 @@ export function stepHintText(
 		if (otherMaps.size > 0) {
 			parts.push(`Map: ${[...otherMaps].join(", ")}`);
 		}
+	}
+	if (ds.step.zone && !ds.effectivePlace) {
+		const exCount = ds.step.zone.avoid?.length ?? 0;
+		parts.push(exCount > 0 ? `Explore area (${exCount} avoid)` : "Explore area");
 	}
 
 	if (ds.step.consequence) {
@@ -177,7 +191,7 @@ export function computeGuideRouteWindow(
 	view: GuideView,
 	mapSlug: string,
 	lookupMarker: (id: number) => MarkerCoordInfo | null,
-	opts?: { before?: number; after?: number },
+	opts?: { before?: number; after?: number; lookupZoneCentroid?: (ds: DerivedStep) => [number, number] | null },
 ): GuideRouteWindow {
 	const before = opts?.before ?? 1;
 	const after = opts?.after ?? 4;
@@ -226,6 +240,10 @@ export function computeGuideRouteWindow(
 					coords.push([t.point.lng, t.point.lat]);
 				}
 			}
+		}
+		if (coords.length === 0 && ds.step.zone && (!ds.step.zone.map || ds.step.zone.map === mapSlug)) {
+			const c = opts?.lookupZoneCentroid?.(ds);
+			if (c) coords.push(c);
 		}
 
 		if (coords.length === 0) continue;
@@ -583,6 +601,39 @@ function flyToCoords(lng: number, lat: number, closeSideOnMobile = false): void 
 	} else {
 		map.flyTo({ center: [lng, lat], zoom, padding, speed: 1.5, essential: true });
 	}
+}
+
+function applyCameraFit(fit: StepCameraFit, closeSideOnMobile = false): void {
+	if (!host || !host.state.mapReady || !host.state.map) return;
+	if (fit.kind === "point") {
+		flyToCoords(fit.lng, fit.lat, closeSideOnMobile);
+		return;
+	}
+	const map = host.state.map;
+	const isMob = typeof matchMedia !== "undefined" && matchMedia("(max-width: 760px)").matches;
+	const padding = isMob
+		? { top: 44, bottom: Math.round(innerHeight * 0.42), left: 20, right: 20 }
+		: { top: 44, bottom: 44, left: 44, right: 400 };
+	if (closeSideOnMobile && isMob) {
+		document.body.classList.remove("side-open");
+	}
+	map.fitBounds(fit.bounds, {
+		padding,
+		maxZoom: 15.5,
+		duration: prefersReducedMotion() ? 0 : 750,
+		essential: true,
+	});
+}
+
+function resolveStepCameraOnMap(ds: DerivedStep, curMap: string): StepCameraFit | null {
+	if (!host) return null;
+	return computeStepCameraFit(
+		ds.step.targets,
+		ds.step.zone,
+		curMap,
+		host.state.regionById || new Map(),
+		lookupMarkerAcrossGame,
+	);
 }
 
 function resolveStepPrimaryTarget(
@@ -1422,19 +1473,20 @@ async function navigateToStepTarget(
 	allowAutoSwitch = false,
 ): Promise<void> {
 	if (!host || !ds) return;
-	const target = resolveStepPrimaryTarget(ds);
-	if (!target) return;
-	const curMap = host.state.mapInfo?.slug;
-	if (target.map && target.map !== curMap) {
-		if (allowAutoSwitch && host.state.guide.autoSwitchMap) {
-			const hadCardOpen = host.state.guide.selectedStepId === ds.step.id;
-			await host.switchMap(target.map);
-			if (hadCardOpen) openStepCard(guideId, ds.step.id, { fly: false });
-			flyToCoords(target.lng, target.lat);
-		}
+	const curMap = host.state.mapInfo?.slug || "";
+	const fitNow = resolveStepCameraOnMap(ds, curMap);
+	if (fitNow) {
+		applyCameraFit(fitNow);
 		return;
 	}
-	flyToCoords(target.lng, target.lat);
+	const fallbackMap = ds.step.zone?.map || resolveStepPrimaryTarget(ds)?.map;
+	if (fallbackMap && fallbackMap !== curMap && allowAutoSwitch && host.state.guide.autoSwitchMap) {
+		const hadCardOpen = host.state.guide.selectedStepId === ds.step.id;
+		await host.switchMap(fallbackMap);
+		if (hadCardOpen) openStepCard(guideId, ds.step.id, { fly: false });
+		const fitAfter = resolveStepCameraOnMap(ds, fallbackMap);
+		if (fitAfter) applyCameraFit(fitAfter);
+	}
 }
 
 export async function stepGuideCursor(delta: 1 | -1): Promise<void> {
@@ -1493,10 +1545,11 @@ export function openStepCard(
 	if (opts?.fly !== false) {
 		const view = deriveForGuide(guide);
 		const ds = view.stepsById.get(stepId);
+		const curMap = host.state.mapInfo?.slug || "";
 		if (ds) {
-			const target = resolveStepPrimaryTarget(ds);
-			if (target && (!target.map || target.map === host.state.mapInfo?.slug)) {
-				flyToCoords(target.lng, target.lat, opts?.closeSideOnMobile);
+			const fit = resolveStepCameraOnMap(ds, curMap);
+			if (fit) {
+				applyCameraFit(fit, opts?.closeSideOnMobile);
 			} else if (opts?.closeSideOnMobile) {
 				const isMob = typeof matchMedia !== "undefined" && matchMedia("(max-width: 760px)").matches;
 				if (isMob) document.body.classList.remove("side-open");
@@ -1526,8 +1579,11 @@ export function renderStepCard(): void {
 	const nextId = nextVisibleStepId(view, stepId);
 	const curMap = host.state.mapInfo?.slug || "";
 
-	// Determine if any targets are on another map
+	// Determine if any targets or zone are on another map
 	const otherMapSlugs = new Set<string>();
+	if (ds.step.zone?.map && ds.step.zone.map !== curMap) {
+		otherMapSlugs.add(ds.step.zone.map);
+	}
 	for (const t of ds.targets) {
 		if (t.kind === "point" && t.point?.map && t.point.map !== curMap) {
 			otherMapSlugs.add(t.point.map);
@@ -1669,6 +1725,50 @@ export function renderStepCard(): void {
 				`</ul></div>`
 			: "";
 
+	const z = ds.step.zone;
+	let zoneHtml = "";
+	if (z) {
+		const regObj = z.region != null ? host.state.regionById?.get(z.region) : null;
+		const zoneLabel = z.region != null ? regObj?.title || `Region #${z.region}` : "Custom area";
+		const zoneMapLabel = z.map && z.map !== curMap ? ` (${mapTitleOf(z.map)})` : "";
+		const canFocusZone = !z.map || z.map === curMap ? Boolean(resolveStepCameraOnMap(ds, curMap)) : true;
+		const avoidItems = (z.avoid || [])
+			.map((av, ai) => {
+				const markerLoc = av.marker !== undefined ? lookupMarkerAcrossGame(av.marker) : null;
+				const kindLabel =
+					av.marker !== undefined
+						? markerLoc?.title || `Marker #${av.marker}`
+						: av.polygon
+							? "Marked area"
+							: "Note";
+				const focusTarget =
+					!z.map || z.map === curMap
+						? resolveAvoidEntryFocus(av, z.map, curMap, lookupMarkerAcrossGame)
+						: null;
+				const canFocusAvoid = Boolean(focusTarget) || Boolean(z.map && z.map !== curMap);
+				return (
+					`<li class="gs-avoid-item">` +
+					`<span class="gs-avoid-tag">Avoid</span>` +
+					`<span class="gs-avoid-body"><strong>${esc(kindLabel)}</strong>: ${esc(av.note)}</span>` +
+					(canFocusAvoid
+						? `<button type="button" class="chip gs-avoid-focus" data-gs-avoid-focus="${ai}">Focus</button>`
+						: "") +
+					`</li>`
+				);
+			})
+			.join("");
+		zoneHtml =
+			`<div class="gs-zone">` +
+			`<div class="gs-zone-head"><h3>Explore Area</h3>` +
+			(canFocusZone ? `<button type="button" class="chip" data-gs-act="fit-zone">Focus area</button>` : "") +
+			`</div>` +
+			`<div class="gs-zone-desc"><span class="gp-badge">${esc(zoneLabel)}${esc(zoneMapLabel)}</span></div>` +
+			(avoidItems
+				? `<div class="gs-avoid-block"><h4>Exceptions (${z.avoid!.length})</h4><ul class="gs-avoid-list">${avoidItems}</ul></div>`
+				: "") +
+			`</div>`;
+	}
+
 	const linksHtml =
 		ds.step.links && ds.step.links.length > 0
 			? `<div class="gs-links"><h3>External Links</h3><ul>` +
@@ -1701,6 +1801,7 @@ export function renderStepCard(): void {
 		actionsHtml +
 		navRowHtml +
 		notesHtml +
+		zoneHtml +
 		targetsHtml +
 		shotsHtml +
 		linksHtml;
@@ -1787,7 +1888,40 @@ function wireStepCardEvents(body: HTMLElement, guide: Guide, ds: DerivedStep): v
 				void stepGuideCursor(-1);
 			} else if (act === "next") {
 				void stepGuideCursor(1);
+			} else if (act === "fit-zone") {
+				const zMap = ds.step.zone?.map || host.state.mapInfo?.slug || "";
+				void (async () => {
+					if (!host) return;
+					if (zMap && zMap !== host.state.mapInfo?.slug) {
+						await host.switchMap(zMap);
+						openStepCard(guide.id, ds.step.id, { fly: false });
+					}
+					const fit = resolveStepCameraOnMap(ds, host.state.mapInfo?.slug || "");
+					if (fit) applyCameraFit(fit);
+				})();
 			}
+		};
+	});
+
+	body.querySelectorAll<HTMLButtonElement>("button[data-gs-avoid-focus]").forEach((btn) => {
+		btn.onclick = async (e) => {
+			e.stopPropagation();
+			if (!host || !ds.step.zone) return;
+			const ai = Number(btn.dataset.gsAvoidFocus);
+			const av = ds.step.zone.avoid?.[ai];
+			if (!av) return;
+			const zMap = ds.step.zone.map || host.state.mapInfo?.slug || "";
+			if (zMap && zMap !== host.state.mapInfo?.slug) {
+				await host.switchMap(zMap);
+				openStepCard(guide.id, ds.step.id, { fly: false });
+			}
+			const fit = resolveAvoidEntryFocus(
+				av,
+				ds.step.zone.map,
+				host.state.mapInfo?.slug || "",
+				lookupMarkerAcrossGame,
+			);
+			if (fit) applyCameraFit(fit);
 		};
 	});
 
@@ -2011,27 +2145,62 @@ export function prepareGuideMapFilterState(): void {
 	host.state.guide.remainingIds = host.state.guide.remainingOnly ? computeRemainingMarkerIds(view) : null;
 }
 
+export function clearFollowRouteLayers(map: any): void {
+	if (!map || !host?.state.mapReady) return;
+	ensureGuideMapLayers(map);
+	map.getSource("guide-route-lines")?.setData(emptyFC);
+	map.getSource("guide-route-pins")?.setData(emptyFC);
+}
+
 export function refreshGuideMapLayers(map: any): void {
 	if (!host || !map || !host.state.mapReady) return;
 	host.perf("refreshGuideRoute", () => {
 		ensureGuideMapLayers(map);
 		const guide = activeGuide();
+		const selectedId = host!.state.guide.selectedStepId as string | null;
 		const showRoute = Boolean(guide && (host!.state.guide.panelOpen || host!.state.guide.remainingOnly));
-		if (!guide || !showRoute) {
+		if (!guide || (!showRoute && !selectedId)) {
 			map.getSource("guide-route-lines")?.setData(emptyFC);
 			map.getSource("guide-route-pins")?.setData(emptyFC);
+			clearZoneMapLayers(map);
 			return;
 		}
 
 		const view = deriveForGuide(guide);
 		const mapSlug = host!.state.mapInfo?.slug || "";
-		const win = computeGuideRouteWindow(view, mapSlug, lookupMarkerAcrossGame);
+		const regById = host!.state.regionById || new Map();
+
 		const colors = {
 			accent: host!.themeVar("accent"),
 			accentSoft: host!.themeVar("accent-soft"),
 			panel: host!.themeVar("panel"),
 			night: host!.themeVar("night"),
+			err: host!.themeVar("err") || "#ef4444",
 		};
+
+		const zoneStep =
+			(selectedId ? view.stepsById.get(selectedId) : null) ||
+			(view.cursor ? view.stepsById.get(view.cursor) : null);
+		renderZoneOnMap(
+			map,
+			zoneStep?.step.zone,
+			mapSlug,
+			regById,
+			lookupMarkerAcrossGame,
+			colors,
+			() => host?.state.tool || "pan",
+		);
+
+		if (!showRoute) {
+			map.getSource("guide-route-lines")?.setData(emptyFC);
+			map.getSource("guide-route-pins")?.setData(emptyFC);
+			return;
+		}
+
+		const win = computeGuideRouteWindow(view, mapSlug, lookupMarkerAcrossGame, {
+			lookupZoneCentroid: (ds) =>
+				resolveZoneGeometry(ds.step.zone, mapSlug, regById, lookupMarkerAcrossGame).centroid,
+		});
 
 		for (const spec of win.badgesNeeded) {
 			if (!map.hasImage(spec.icon)) {

@@ -1780,6 +1780,9 @@ export function createMap(): void {
 		if (state.tool !== "pan") return; // markers cannot be clicked while selecting or drawing
 		document.body.classList.remove("side-open");
 		const hits = map.queryRenderedFeatures(ev.point, { layers: ["locs", "locs-circles", "locs-text"] });
+		if (map.getLayer("guide-zone-avoid-markers") && !isGuideAddStepsActive()) {
+			if (map.queryRenderedFeatures(ev.point, { layers: ["guide-zone-avoid-markers"] }).length) return;
+		}
 		if (hits.length) {
 			const hitId = Number(hits[0].properties.id);
 			if (isGuideAddStepsActive()) {
@@ -1787,7 +1790,12 @@ export function createMap(): void {
 				return;
 			}
 			select(hitId, { fly: false });
-		} else closeDetail();
+		} else {
+			if (map.getLayer("guide-zone-avoid-fill")) {
+				if (map.queryRenderedFeatures(ev.point, { layers: ["guide-zone-avoid-fill"] }).length) return;
+			}
+			closeDetail();
+		}
 	});
 }
 

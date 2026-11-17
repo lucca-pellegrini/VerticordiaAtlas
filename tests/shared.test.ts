@@ -32,6 +32,13 @@ import {
 	resolveVariants,
 } from "../src/shared/guide-progress.ts";
 import {
+	clampPolygonPoints,
+	computeStepCameraFit,
+	resolveAvoidEntryFocus,
+	resolveZoneGeometry,
+	selectionShapeToPolygon,
+} from "../src/shared/guide-zone.ts";
+import {
 	cleanGuide,
 	duplicateSection,
 	duplicateStep,
@@ -925,7 +932,12 @@ function validateAgainstSchema(value: unknown, schema: any, rootSchema = schema,
 describe("shared/guide: schema, validation, and editing operations", () => {
 	const schemaPath = path.join(import.meta.dir, "..", "docs", "guide.schema.json");
 	const guideSchema = JSON.parse(readFileSync(schemaPath, "utf8"));
-	const fixtureNames = ["flat-checklist.json", "place-multi-target.json", "variants-and-missing.json"];
+	const fixtureNames = [
+		"flat-checklist.json",
+		"place-multi-target.json",
+		"variants-and-missing.json",
+		"zone-explore.json",
+	];
 	const fixtures: Guide[] = fixtureNames.map((name) =>
 		JSON.parse(readFileSync(path.join(import.meta.dir, "fixtures", "guides", name), "utf8")),
 	);
@@ -1726,4 +1738,250 @@ describe("shared/guide-import: URL parsing and text-to-steps conversion", () => 
 			),
 		).toBe("Selected area (2 targets)");
 	}, 30_000);
+});
+
+describe("shared/guide-zone: geometry, selection conversion, camera fit, and completion isolation", () => {
+	test("clampPolygonPoints strips redundant closing point and downsamples to <= MAX_POLYGON_POINTS", () => {
+		const simple = clampPolygonPoints([
+			{ lng: 1, lat: 2 },
+			{ lng: 4, lat: 2 },
+			{ lng: 4, lat: 5 },
+			{ lng: 1, lat: 2 },
+		]);
+		expect(simple).toEqual([
+			{ lng: 1, lat: 2 },
+			{ lng: 4, lat: 2 },
+			{ lng: 4, lat: 5 },
+		]);
+
+		const huge = Array.from({ length: 1200 }, (_, i) => {
+			const ang = (i / 1200) * Math.PI * 2;
+			return { lng: Number((Math.cos(ang) * 10).toFixed(4)), lat: Number((Math.sin(ang) * 10).toFixed(4)) };
+		});
+		const clamped = clampPolygonPoints(huge);
+		expect(clamped.length).toBeLessThanOrEqual(500);
+		expect(clamped.length).toBeGreaterThanOrEqual(450);
+	});
+
+	test("selectionShapeToPolygon converts box, ellipse, and freehand shapes", () => {
+		const idProj = (p: { lng: number; lat: number }) => ({ x: p.lng * 10, y: p.lat * 10 });
+		const idUnproj = (q: { x: number; y: number }) => ({ lng: q.x / 10, lat: q.y / 10 });
+
+		const box = selectionShapeToPolygon(
+			{
+				shape: "box",
+				pts: [
+					{ lng: 2, lat: 3 },
+					{ lng: 8, lat: 7 },
+				],
+			},
+			idProj,
+			idUnproj,
+		);
+		expect(box).toHaveLength(4);
+		expect(box).toEqual([
+			{ lng: 2, lat: 3 },
+			{ lng: 8, lat: 3 },
+			{ lng: 8, lat: 7 },
+			{ lng: 2, lat: 7 },
+		]);
+
+		const ell = selectionShapeToPolygon(
+			{
+				shape: "ellipse",
+				pts: [
+					{ lng: 0, lat: 0 },
+					{ lng: 10, lat: 6 },
+				],
+			},
+			idProj,
+			idUnproj,
+			24,
+		);
+		expect(ell).toHaveLength(24);
+		const lngs = ell.map((p) => p.lng);
+		expect(Math.min(...lngs)).toBeCloseTo(-10, 4);
+		expect(Math.max(...lngs)).toBeCloseTo(10, 4);
+
+		const free = selectionShapeToPolygon(
+			{
+				shape: "free",
+				pts: [
+					{ lng: 1, lat: 1 },
+					{ lng: 3, lat: 2 },
+					{ lng: 2, lat: 4 },
+				],
+			},
+			idProj,
+			idUnproj,
+		);
+		expect(free).toHaveLength(3);
+	});
+
+	test("resolveZoneGeometry handles regions, custom polygons, avoids, fallback centroids, and cross-map zones", () => {
+		const regionById = new Map<number, any>([
+			[
+				10,
+				{
+					id: 10,
+					title: "Old Harbor",
+					features: [
+						{
+							type: "Feature",
+							geometry: {
+								type: "Polygon",
+								coordinates: [
+									[
+										[0, 0],
+										[10, 0],
+										[10, 10],
+										[0, 10],
+										[0, 0],
+									],
+								],
+							},
+						},
+					],
+				},
+			],
+			[11, { id: 11, title: "Featureless Peaks", center_x: 25, center_y: -15, features: [] }],
+		]);
+		const markers = new Map<number, any>([
+			[9001, { id: 9001, lng: 6, lat: 7, map: "harbor", title: "Heavy Sentry" }],
+			[9002, { id: 9002, lng: 2, lat: 2, map: "other-map", title: "Off-map Guard" }],
+		]);
+		const lookup = (id: number) => markers.get(id) ?? null;
+
+		const res = resolveZoneGeometry(
+			{
+				map: "harbor",
+				region: 10,
+				avoid: [
+					{ marker: 9001, note: "Slip past behind warehouse" },
+					{ marker: 9002, note: "Should be skipped on harbor" },
+					{
+						polygon: [
+							{ lng: 2, lat: 2 },
+							{ lng: 4, lat: 2 },
+							{ lng: 4, lat: 4 },
+							{ lng: 2, lat: 4 },
+						],
+						note: "Flooded basement",
+					},
+				],
+			},
+			"harbor",
+			regionById,
+			lookup,
+		);
+		expect(res.onCurrentMap).toBe(true);
+		expect(res.areaFeatures).toHaveLength(1);
+		expect(res.avoidAreaFeatures).toHaveLength(1);
+		expect(res.avoidAreaFeatures[0].properties.note).toBe("Flooded basement");
+		expect(res.avoidMarkerFeatures).toHaveLength(1);
+		expect(res.avoidMarkerFeatures[0].properties.markerId).toBe(9001);
+		expect(res.centroid).toEqual([5, 5]);
+		expect(res.bounds).toEqual([0, 0, 10, 10]);
+
+		// Featureless region still provides fallback centroid & bounds
+		const noPoly = resolveZoneGeometry({ map: "harbor", region: 11 }, "harbor", regionById, lookup);
+		expect(noPoly.areaFeatures).toEqual([]);
+		expect(noPoly.centroid).toEqual([25, -15]);
+
+		// Cross-map zone produces nothing on current map
+		const offMap = resolveZoneGeometry({ map: "underground", region: 10 }, "harbor", regionById, lookup);
+		expect(offMap.onCurrentMap).toBe(false);
+		expect(offMap.areaFeatures).toEqual([]);
+		expect(offMap.centroid).toBeNull();
+	});
+
+	test("computeStepCameraFit & resolveAvoidEntryFocus combine zone, targets, and avoids cleanly", () => {
+		const regionById = new Map<number, any>([
+			[
+				10,
+				{
+					id: 10,
+					title: "Old Harbor",
+					features: [
+						{
+							type: "Feature",
+							geometry: {
+								type: "Polygon",
+								coordinates: [
+									[
+										[0, 0],
+										[10, 0],
+										[10, 10],
+										[0, 10],
+										[0, 0],
+									],
+								],
+							},
+						},
+					],
+				},
+			],
+		]);
+		const lookup = (id: number) => (id === 50 ? { lng: 14, lat: 12, map: "harbor", title: "Dock" } : null);
+
+		const fit = computeStepCameraFit(
+			[{ kind: "marker", marker: 50 }],
+			{ map: "harbor", region: 10, avoid: [{ marker: 50, note: "Watch out" }] },
+			"harbor",
+			regionById,
+			lookup,
+		);
+		expect(fit).toEqual({
+			kind: "bounds",
+			bounds: [
+				[0, 0],
+				[14, 12],
+			],
+		});
+
+		const pointFit = resolveAvoidEntryFocus({ marker: 50, note: "Watch out" }, "harbor", "harbor", lookup);
+		expect(pointFit).toEqual({ kind: "point", lng: 14, lat: 12 });
+
+		const polyFit = resolveAvoidEntryFocus(
+			{
+				polygon: [
+					{ lng: 2, lat: 3 },
+					{ lng: 5, lat: 3 },
+					{ lng: 5, lat: 6 },
+				],
+				note: "Lava",
+			},
+			"harbor",
+			"harbor",
+			lookup,
+		);
+		expect(polyFit).toEqual({
+			kind: "bounds",
+			bounds: [
+				[2, 3],
+				[5, 6],
+			],
+		});
+	});
+
+	test("zones and avoid markers NEVER affect step or guide completion", () => {
+		const fx: Guide = JSON.parse(
+			readFileSync(path.join(import.meta.dir, "fixtures", "guides", "zone-explore.json"), "utf8"),
+		);
+		// Marking the avoid marker 9001 as found must NOT complete step-zone-region!
+		const viewWithAvoidFound = deriveGuideView({ guide: fx, found: new Set([9001]), progress: { done: {} } });
+		expect(viewWithAvoidFound.stepsById.get("step-zone-region")?.done).toBe(false);
+		expect(viewWithAvoidFound.stepsById.get("step-zone-poly")?.done).toBe(false);
+		expect(viewWithAvoidFound.counts.done).toBe(0);
+
+		// Only manual done marks step-zone-region complete; waypoint doesn't count toward done/total
+		const viewManual = deriveGuideView({
+			guide: fx,
+			found: new Set(),
+			progress: { done: { "step-zone-region": 1760000100 } },
+		});
+		expect(viewManual.stepsById.get("step-zone-region")?.done).toBe(true);
+		expect(viewManual.counts.done).toBe(1);
+		expect(viewManual.counts.total).toBe(1);
+	});
 });
